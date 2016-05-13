@@ -8,6 +8,6 @@ When(/^the service \/version is called$/) do
 end
 
 Then(/^the version "([^"]*)" is returned$/) do |arg1|
-  expect(@res).eql?(arg1)
+  expect(@res).to eql(arg1)
 end
 
