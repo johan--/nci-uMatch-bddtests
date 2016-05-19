@@ -1,3 +1,3 @@
-ENV['DOCKER_HOSTNAME'] = 'ec2-52-91-194-67.compute-1.amazonaws.com'
+ENV['DOCKER_HOSTNAME'] = 'umatch-test-ecsloadbalancer-1821889907.us-east-1.elb.amazonaws.com'
 ENV['treatment_arm_api_PORT'] = '10235'
 ENV['protocol'] = 'http'

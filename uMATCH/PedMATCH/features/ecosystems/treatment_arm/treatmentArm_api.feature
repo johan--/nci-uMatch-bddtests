@@ -1,4 +1,4 @@
-Feature: api that provides access to treatment arm data
+Feature: api that provides access to treatment arm data. This feature ensures the api is running
 
 
   Scenario Outline: Test to ensure that service is running
