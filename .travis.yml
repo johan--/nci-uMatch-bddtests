@@ -11,7 +11,7 @@ script:
 after_success:
   - docker images
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - export DATE=`date "+%D-%H%M"`
+  - export DATE=`date "+%m-%d-%y-%H%M"`
   - docker tag -f matchbox/nci-treatment-arm-api matchbox/nci-treatment-arm-api:$DATE
   - docker images
   - docker push matchbox/nci-treatment-arm-api:$DATE 
