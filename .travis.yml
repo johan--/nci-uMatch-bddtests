@@ -1,8 +1,21 @@
+sudo: required
+services: 
+  - docker
 language: ruby
 rvm:
-- 2.2.3
+  - 2.2.3
+before_script:
+  docker pull matchbox/nci-treatment-arm-api
 script:
-- cd uMATCH/PedMATCH; bundle exec cucumber
+  - cd uMATCH/PedMATCH; bundle exec cucumber
+after_success:
+  - docker images
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - docker tag -f matchbox/nci-treatment-arm-api matchbox/nci-treatment-arm-api:May19-1545
+  - docker images
+  - docker push matchbox/nci-treatment-arm-api:May19-1545
+#  - aws ecs update-service --cluster uMatch-Test --service uMatch-nci-treatment-arm-api-TEST --task-definition uMatch-nci-treatment-arm-api-TEST 
+  # - docker run -it --rm -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster uMatch-Test --service-name uMatch-nci-treatment-arm-api-TEST -i matchbox/nci-treatment-arm-api:latest
 notifications:
   slack:
     secure: G2Vusym37c8C5Opee14JXdbVQGNe56e8G2xTM1zeBignME9/pbg3F4+DumvRV1pE6A/RHjlG3socbdIFnoMecG+nUXE3hymNoKrjI/FnPClDulxXllNFMZgWhafq6giX7bXgyaudNFVa2PZkPPzjr6SsGngcR/BAHcz2FqqGDr161TJMU/8BshnSMhxAfxSwFg2GnDMOgar2R3UYVkjhWqnIzM5YrpdeqzVofeM5kJaoq73gxQEnaneywLvHfSCSjDXSxIZm54L97kkpg3a4njZ/CHqUB19yY+IsE1tAygS3515+F6kZPOi1PJ7jPq5Ht3kFgpaTXrOmrXd8HeMJuKEdFKkgTD0NEIvYQfNmUZHhA25an+ePG3e45CNf8IMB0dyWmH6vY05lBujB/5plo2Fsx+HBjx14kq/z7ZWdX70qSYDJIWqLGGMnnHzkULLCBPhRKqXQsXERl0ST6BeDWCekEFtvFd+6gQjwcRgo3+AquUhobgFUVs4JzZYfStZEyxEG9sdxy1wVZjVWHCN+U75095oWytn1eAN4v6mVpo6O+zC1k/6k+8DzlWE9oArn8yRS+LVmjodaQvnAf5AX7ooEpEkzJSp1vWmqAFJOVrUyl8bg+KA4eQPI/37igmTZKKkxLD40kqM6wqW1o77vTMZvVrpNVK5G7m0GNYudEjc=
