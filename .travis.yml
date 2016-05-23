@@ -7,7 +7,7 @@ rvm:
 before_script:
   docker pull matchbox/nci-treatment-arm-api
 script:
-  - cd uMATCH/PedMATCH; bundle exec cucumber
+  - cd uMATCH/PedMATCH; bundle exec cucumber --tags @demo
 after_success:
   - docker images
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
