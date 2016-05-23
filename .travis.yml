@@ -4,8 +4,8 @@ services:
 language: ruby
 rvm:
   - 2.2.3
-# before_script:
-#   docker pull matchbox/nci-treatment-arm-api
+before_script:
+  docker pull matchbox/nci-treatment-arm-api
 script:
   - cd uMATCH/PedMATCH; bundle exec cucumber --tags @demo
 after_success:
