@@ -9,7 +9,7 @@ before_script:
 script:
   - cd uMATCH/PedMATCH; bundle exec cucumber --tags @demo
 after_success:
-  - docker images
+  # - docker images
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - export DATE=`date "+%m-%d-%y-%H%M"`
   - docker tag -f matchbox/nci-treatment-arm-api matchbox/nci-treatment-arm-api:$DATE
