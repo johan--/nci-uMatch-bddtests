@@ -1,5 +1,5 @@
 Feature: Register a new patient in PEDMatchbox
-  
+
   Scenario Outline: 4 Successfully register a patient in MATCH
     Given that Patient StudyID "<studyId>" PatientSeqNumber "<patientSequenceNumber>" StepNumber "<stepNumber>" PatientStatus "<patientStatus>" Message "<message>" AccrualGroupId "<accrualGroupId>" with "current" dateCreated is received from EA layer
     When posted to MATCH setPatientTrigger
@@ -7,7 +7,7 @@ Feature: Register a new patient in PEDMatchbox
 
     Examples:
       |studyId  |patientSequenceNumber|stepNumber |patientStatus		   |message        					|accrualGroupId|returnMessage              												|status			|
-      |APEC1621 |PT-SuccessTest		  |0          |REGISTRATION			   |Patient registered in Study		|22334a2sr     |Saved to datastore.														|SUCCESS		|
+      |APEC1621 |PT-SuccessTest		  |1.0        |REGISTRATION			   |Patient registered in Study		|22334a2sr     |Saved to datastore.														|SUCCESS		|
 
 
   Scenario Outline: 4.1 MATCH returns an error when a new patient trigger is received with an empty patientSequenceNumber
@@ -17,8 +17,7 @@ Feature: Register a new patient in PEDMatchbox
 
     Examples:
       |studyId  |patientSequenceNumber|stepNumber |patientStatus		   |message        					|accrualGroupId|returnMessage              												|status			|
-      |APEC1621 |					  |0		  |REGISTRATION			   |Patient registered in Study		|22334a2sr     |Patient id may not be empty.							|FAILURE		|
-
+      |APEC1621 |					  |1.0		  |REGISTRATION			   |Patient registered in Study		|22334a2sr     |Patient id may not be empty.							|FAILURE		|
 
 
   Scenario Outline: 4.2 MATCH returns an error when a new patient trigger is received with an empty stepNumber
@@ -37,7 +36,7 @@ Feature: Register a new patient in PEDMatchbox
 
     Examples:
       |studyId  |patientSequenceNumber|stepNumber |patientStatus		   |message        					|accrualGroupId|returnMessage              												|status			|
-      |APEC1621 |PT-Test1			  |1		  |REGISTRATION			   |Patient registered in Study		|22334a2sr     |stepNumber msut be 0	    											|FAILURE		|
+      |APEC1621 |PT-Test1			  |1.1		  |REGISTRATION			   |Patient registered in Study		|22334a2sr     |stepNumber msut be 0	    											|FAILURE		|
 
 
 
@@ -48,7 +47,7 @@ Feature: Register a new patient in PEDMatchbox
 
     Examples:
       |studyId  |patientSequenceNumber|stepNumber |patientStatus		   |message        					|accrualGroupId|returnMessage              												|status			|
-      |APEC1621 |PT-SuccessTest		  |0          |REGISTRATION			   |Patient registered in Study		|22334a2sr     |This patient (PSN:PT-SuccessTest) is already registered.				|FAILURE		|
+      |APEC1621 |PT-SuccessTest		  |1.0        |REGISTRATION			   |Patient registered in Study		|22334a2sr     |This patient (PSN:PT-SuccessTest) is already registered.				|FAILURE		|
 
 
   Scenario Outline: 4.5 A Patient can go off-study at any time even when the patient is in stepNumber 0 and a patient trigger is received with DECEASED status.
@@ -58,7 +57,7 @@ Feature: Register a new patient in PEDMatchbox
 
     Examples:
       |studyId  |patientSequenceNumber|stepNumber |patientStatus		   |message        					|accrualGroupId|returnMessage              												|status			|
-      |APEC1621 |PT-SuccessTest		  |0          |OFF_TRIAL_DECEASED	   |Patient passed away				|22334a2sr     |Saved to datastore.														|SUCCESS		|
+      |APEC1621 |PT-SuccessTest		  |1.0        |OFF_TRIAL_DECEASED	   |Patient passed away				|22334a2sr     |Saved to datastore.														|SUCCESS		|
 
 
 
@@ -69,7 +68,7 @@ Feature: Register a new patient in PEDMatchbox
 
     Examples:
       |studyId  |patientSequenceNumber    |stepNumber |patientStatus		   |message        					|accrualGroupId|returnMessage              							    |status			|
-      |APEC1621 |PT-SuccessTest			  |0          |OFF_TRIAL_NOT_CONSENTED |Patient registered in Study		|22334a2sr     |This patient (PSN:PT-SuccessTest) is off-trial.			|FAILURE		|
+      |APEC1621 |PT-SuccessTest			  |1.0        |OFF_TRIAL_NOT_CONSENTED |Patient registered in Study		|22334a2sr     |This patient (PSN:PT-SuccessTest) is off-trial.			|FAILURE		|
 
 
 
@@ -80,10 +79,10 @@ Feature: Register a new patient in PEDMatchbox
 
     Examples:
       |studyId  |patientSequenceNumber|stepNumber |patientStatus		   |message        					|accrualGroupId|returnMessage              												|status			|
-      |APEC1621 |PT-OffTrial1		  |0          |REGISTRATION			   |Patient registered in Study		|22334a2sr     |Saved to datastore.														|SUCCESS		|
-      |APEC1621 |PT-OffTrial1		  |0          |OFF_TRIAL_DECEASED	   |Patient passed away				|22334a2sr     |Saved to datastore.														|SUCCESS		|
-      |APEC1621 |PT-OffTrial1		  |0          |OFF_TRIAL_NOT_CONSENTED |Patient passed away				|22334a2sr     |This patient (PSN:PT-OffTrial1) is off-trial.							|FAILURE		|
-      |APEC1621 |PT-OffTrial1		  |1          |ON_TREATMENT_ARM        |Patient on TA     				|22334a2sr     |This patient (PSN:PT-OffTrial1) is off-trial.							|FAILURE		|
+      |APEC1621 |PT-OffTrial1		  |1.0        |REGISTRATION			   |Patient registered in Study		|22334a2sr     |Saved to datastore.														|SUCCESS		|
+      |APEC1621 |PT-OffTrial1		  |1.0        |OFF_TRIAL_DECEASED	   |Patient passed away				|22334a2sr     |Saved to datastore.														|SUCCESS		|
+      |APEC1621 |PT-OffTrial1		  |1.0        |OFF_TRIAL_NOT_CONSENTED |Patient passed away				|22334a2sr     |This patient (PSN:PT-OffTrial1) is off-trial.							|FAILURE		|
+      |APEC1621 |PT-OffTrial1		  |1.1        |ON_TREATMENT_ARM        |Patient on TA     				|22334a2sr     |This patient (PSN:PT-OffTrial1) is off-trial.							|FAILURE		|
 
 
   Scenario Outline: 4.8 MATCH returns a failure message when an invalid stepNumber is received from ECOG
@@ -93,11 +92,9 @@ Feature: Register a new patient in PEDMatchbox
 
     Examples:
       |studyId  |patientSequenceNumber	|stepNumber |patientStatus		   	|message        					|accrualGroupId|returnMessage              												|status			|
-      |APEC1621 |PT-Test4				|0          |REGISTRATION			|Patient trigger					|22334a2sr     |Saved to datastore.														|SUCCESS		|
+      |APEC1621 |PT-Test4				|1.0        |REGISTRATION			|Patient trigger					|22334a2sr     |Saved to datastore.														|SUCCESS		|
       |APEC1621 |PT-Test4				|-2		  	|PROGRESSION            |Patient trigger					|22334a2sr     |stepNumber must match "[0-7]"											|FAILURE		|
-      |APEC1621 |PT-Test4				|8		  	|PROGRESSION_REBIOPSY   |Patient trigger					|22334a2sr     |stepNumber must match "[0-7]"											|FAILURE		|
-
-
+      |APEC1621 |PT-Test4				|5.0	  	|PROGRESSION_REBIOPSY   |Patient trigger					|22334a2sr     |stepNumber must match "[0-7]"											|FAILURE		|
 
 
 
@@ -108,10 +105,8 @@ Feature: Register a new patient in PEDMatchbox
 
     Examples:
       |studyId|patientSequenceNumber	|stepNumber |patientStatus		   	|message        													|accrualGroupId|returnMessage              																				|status			|
-      |APEC1621 |PT-Test5				|0          |REGISTRATION			|New patient.           											|22334a2sr     |Save to datastore.                                                                          			|SUCCESS   		|
-      |APEC1621 |PT-Test5				|0          |PROGRESSION			|Patient has progressed.											|22334a2sr     |Must currently be on a treatment arm and have a successful biopsy to be moved to PROGRESSION.			|FAILURE		|
-
-
+      |APEC1621 |PT-Test5				|1.0        |REGISTRATION			|New patient.           											|22334a2sr     |Save to datastore.                                                                          			|SUCCESS   		|
+      |APEC1621 |PT-Test5				|1.0        |PROGRESSION			|Patient has progressed.											|22334a2sr     |Must currently be on a treatment arm and have a successful biopsy to be moved to PROGRESSION.			|FAILURE		|
 
 
 
@@ -122,25 +117,24 @@ Feature: Register a new patient in PEDMatchbox
 
   Examples:
   |studyId|patientSequenceNumber	|stepNumber |patientStatus		   	            |message        													|accrualGroupId|returnMessage              																				|status			|
-  |APEC1621 |PT-Test6				|0          |REGISTRATION			            |New patient.           											|22334a2sr     |Save to datastore.                                                                          			|SUCCESS   		|
-  |APEC1621 |PT-Test6				|0          |OFF_TRIAL_NO_TA_AVAILABLE			|Patient has no TA      											|22334a2sr     |Patient (PSN:PT-Test6) cannot be moved to patient trigger status OFF_TRIAL_NO_TA_AVAILABLE. 			|FAILURE		|
+  |APEC1621 |PT-Test6				|1.0        |REGISTRATION			            |New patient.           											|22334a2sr     |Save to datastore.                                                                          			|SUCCESS   		|
+  |APEC1621 |PT-Test6				|1.0        |OFF_TRIAL_NO_TA_AVAILABLE			|Patient has no TA      											|22334a2sr     |Patient (PSN:PT-Test6) cannot be moved to patient trigger status OFF_TRIAL_NO_TA_AVAILABLE. 			|FAILURE		|
 
 
-
-  Scenario: 4.15 When the incoming patient trigger's dateCreated is older than the previous trigger for the same patient MATCHbox rejects the trigger
-    Given that Patient StudyID "APEC1621" PatientSeqNumber "PT-Test8" StepNumber "0" PatientStatus "REGISTRATION" Message "Patient REGISTERED" AccrualGroupId "22334a2sr" with "current" dateCreated is received from EA layer
+  Scenario: 4.11 When the incoming patient trigger's dateCreated is older than the previous trigger for the same patient MATCHbox rejects the trigger
+    Given that Patient StudyID "APEC1621" PatientSeqNumber "PT-Test8" StepNumber "1.0" PatientStatus "REGISTRATION" Message "Patient REGISTERED" AccrualGroupId "22334a2sr" with "current" dateCreated is received from EA layer
     When posted to MATCH setPatientTrigger
     Then a message "Saved to datastore." is returned with a "SUCCESS"
-    Given that Patient StudyID "APEC1621" PatientSeqNumber "PT-Test8" StepNumber "0" PatientStatus "OFF_TRIAL" Message "Patient with OFF_TRIAL message" AccrualGroupId "22334a2sr" with "older" dateCreated is received from EA layer
+    Given that Patient StudyID "APEC1621" PatientSeqNumber "PT-Test8" StepNumber "1.0" PatientStatus "OFF_TRIAL" Message "Patient with OFF_TRIAL message" AccrualGroupId "22334a2sr" with "older" dateCreated is received from EA layer
     When posted to MATCH setPatientTrigger
     Then a message "Incoming OFF_TRIAL patient (PSN:PT-Test8) trigger has older date than the patient's registration date in the system" is returned with a "FAILURE"
 
 
-  Scenario Outline: Date created cannot be a future date
+  Scenario Outline: 4.12 Date created cannot be a future date
     Given that Patient StudyID "<studyId>" PatientSeqNumber "<patientSequenceNumber>" StepNumber "<stepNumber>" PatientStatus "<patientStatus>" Message "<message>" AccrualGroupId "<accrualGroupId>" with "future" dateCreated is received from EA layer
     When posted to MATCH setPatientTrigger
     Then a message "<returnMessage>" is returned with a "<status>"
 
     Examples:
       |studyId|patientSequenceNumber|stepNumber |patientStatus		   |message        					|accrualGroupId|returnMessage              												|status			|
-      |APEC1621 |PT-Test7			|0          |REGISTRATION		   |Patient registered in Study		|22334a2sr     |Incoming patient (PSN:PT-Test7) trigger date is after the current date.	|FAILURE		|
+      |APEC1621 |PT-Test7			|1.0        |REGISTRATION		   |Patient registered in Study		|22334a2sr     |Incoming patient (PSN:PT-Test7) trigger date is after the current date.	|FAILURE		|
