@@ -4,7 +4,7 @@ require 'json'
 require_relative '../../../support/helper_methods.rb'
 
 When(/^the service \/version is called$/) do
-  @res=Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/version')
+  @res=Helper_Methods.get_request(ENV['protocol']+'://'+ENV['treatment_arm_DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/version')
 end
 
 Then(/^the version "([^"]*)" is returned$/) do |arg1|
@@ -24,7 +24,7 @@ When(/^posted to MATCH newTreatmentArm$/) do
   "Unable to obtain lock to add/update the treatment arm."
   flag = false
   while flag == false
-    @response = Helper_Methods.post_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/newTreatmentArm',@jsonString)
+    @response = Helper_Methods.post_request(ENV['protocol']+'://'+ENV['treatment_arm_DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/newTreatmentArm',@jsonString)
     if (@response['message'] == "Unable to obtain lock to add/update the treatment arm.")
     else
       flag = true
@@ -48,7 +48,7 @@ Then(/^a failure message is returned which contains:/) do |string|
 end
 
 Then(/^the treatmentArmStatus field has a value "([^"]*)" for the ta "([^"]*)"$/) do |status, taId|
-  @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>taId})
+  @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['treatment_arm_DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>taId})
   print "#{@response}\n"
   JSON.parse(@response).each do |child|
     print "#{child}"

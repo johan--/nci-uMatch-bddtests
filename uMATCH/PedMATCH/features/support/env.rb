@@ -1,3 +1,5 @@
-ENV['DOCKER_HOSTNAME'] = 'umatch-test-ecsloadbalancer-1821889907.us-east-1.elb.amazonaws.com'
+ENV['treatment_arm_DOCKER_HOSTNAME'] = 'umatch-test-ecsloadbalancer-1821889907.us-east-1.elb.amazonaws.com'
+ENV['patient_state_DOCKER_HOSTNAME'] = ''
 ENV['treatment_arm_api_PORT'] = '10235'
+ENV['patient_state_PORT'] = '10236'
 ENV['protocol'] = 'http'
