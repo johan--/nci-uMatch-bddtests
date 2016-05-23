@@ -10,9 +10,11 @@ Given(/^that Patient StudyID "([^"]*)" PatientSeqNumber "([^"]*)" StepNumber "([
 end
 
 When(/^posted to MATCH setPatientTrigger$/) do
-  @response = Helper_Methods.post_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['patient_state_PORT']+'/patient_state',@jsonString)
+  p @jsonString
+  p ENV['protocol'] + '://' + ENV['patient_state_DOCKER_HOSTNAME'] + ':' + ENV['patient_state_PORT'] + '/patient_state'
+  @response = Helper_Methods.post_request(ENV['protocol'] + '://' + ENV['patient_state_DOCKER_HOSTNAME'] + ':' + ENV['patient_state_PORT'] + '/patient_state',@jsonString)
 end
 
 Then(/^a message "(.*?)" is returned with a "(.*?)"$/) do |msg, status|
-  expect(@response['status']).to include(status)
+  expect(@response['status']).to eql(status)
 end

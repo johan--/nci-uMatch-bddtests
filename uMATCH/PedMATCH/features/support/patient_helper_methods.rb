@@ -1,11 +1,12 @@
 require 'json'
 require 'rest-client'
 require_relative 'env'
+require_relative 'helper_methods.rb'
 
 class Patient_helper_methods
 
   def Patient_helper_methods.createPatientTriggerRequestJSON (studyId,psn,stepNumber,status,comment, _accrualNumber, isDateCreated )
-    dateCreated = getDateAsRequired(isDateCreated)
+    dateCreated = Helper_Methods.getDateAsRequired(isDateCreated)
 
     headerHash = {"msg_guid"=>"",
                   "msg_dttm"=>""}
