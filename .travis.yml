@@ -10,11 +10,11 @@ script:
   - cd uMATCH/PedMATCH; bundle exec cucumber --tags @demo
 after_success:
   # - docker images
-  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - export DATE=`date "+%m-%d-%y-%H%M"`
-  - docker tag -f matchbox/nci-treatment-arm-api matchbox/nci-treatment-arm-api:$DATE
-  - docker images
-  - docker push matchbox/nci-treatment-arm-api:$DATE 
+  # - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  # - export DATE=`date "+%m-%d-%y-%H%M"`
+  # - docker tag -f matchbox/nci-treatment-arm-api matchbox/nci-treatment-arm-api:$DATE
+  # - docker images
+  # - docker push matchbox/nci-treatment-arm-api:$DATE 
 #  - aws ecs update-service --cluster uMatch-Test --service uMatch-nci-treatment-arm-api-TEST --task-definition uMatch-nci-treatment-arm-api-TEST 
   # - docker run -it --rm -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster uMatch-Test --service-name uMatch-nci-treatment-arm-api-TEST -i matchbox/nci-treatment-arm-api:latest
 notifications:
