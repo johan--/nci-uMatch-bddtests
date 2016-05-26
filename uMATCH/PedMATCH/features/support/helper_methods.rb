@@ -85,4 +85,22 @@ class Helper_Methods
     return (time + 6.hours).strftime("%Y-%m-%dT%H:%M:%S.%LZ")
   end
 
+  def Helper_Methods.getDateAsRequired(dateStr)
+    case dateStr
+      when 'current'
+        reqDate = Helper_Methods.dateDDMMYYYYHHMMSS
+      when 'older'
+        reqDate = Helper_Methods.backDate
+      when 'future'
+        reqDate = Helper_Methods.futureDate
+      when 'older than 6 months'
+        reqDate = Helper_Methods.olderThanSixMonthsDate
+      when 'a few days older'
+        reqDate = Helper_Methods.aFewDaysOlder
+      else
+        reqDate = dateStr
+    end
+    return reqDate
+  end
+
 end
