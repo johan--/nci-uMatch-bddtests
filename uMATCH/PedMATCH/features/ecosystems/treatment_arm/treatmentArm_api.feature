@@ -5,6 +5,6 @@ Feature: api that provides access to treatment arm data. This feature ensures th
     Then the version "<version>" is returned
   Examples:
     |version    |
-    |0.0.6      |
+    |0.0.9      |
 
 

@@ -7,7 +7,7 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
       start treatment-arm-api RAILS_ENV=test rails s
 
   Scenario Outline: 1.1 Consume new treatment arm. Ensure the validity of the message received from EA layer
-    Given that a new treatment arm is received from COG with study_id: "<study_id>" id: "<id>" name: "<name>" description: "<description>" targetId: "<targetId>" targetName: "<targetName>" gene: "<gene>" and with one drug: "<drug>" and with tastatus: "<tastatus>"
+    Given that a new treatment arm is received from COG with version: "<version>" study_id: "<study_id>" id: "<id>" name: "<name>" description: "<description>" targetId: "<targetId>" targetName: "<targetName>" gene: "<gene>" and with one drug: "<drug>" and with tastatus: "<tastatus>"
     And with variant report
 	"""
     {
@@ -40,15 +40,15 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
     When posted to MATCH newTreatmentArm
     Then a message with Status "<Status>" and message "<message>" is returned:
     Examples:
-      |study_id   |id			|name				|description	            |targetId	|targetName		|gene			|drug												|Status			|message									|timestamp						|tastatus	|
-      |APEC1621   |TA_test1		|Afatinib			|covalent inhibitor 		|1234		|EGFR Pathway	|ALK			|1,Afatinib,Afatinib,angiokinase inhibitor			|Success		|Saved to datastore.						|2014-06-29 11:34:20.179 GMT	|PENDING	|
-      |APEC1621   |TA_test2		|Afatinib			|covalent inhibitor         |1234		|EGFR Pathway	|ALK			|1,Afatinib,Afatinib,angiokinase inhibitor;2,tylenol,tylenol,angiokinase inhibitor	|Success|Saved to datastore.|2014-06-29 11:34:20.179 GMT	|PENDING	|
-      |APEC1621   |				|Afatinib			|covalent inhibitor 		|1234		|EGFR Pathway	|ALK			|1,Afatinib,Afatinib,angiokinase inhibitor			|FAILURE		|id may not be empty						|2014-06-29 11:34:20.179 GMT	|PENDING	|
-      |APEC1621   |null			|Afatinib			|covalent inhibitor 		|1234		|EGFR Pathway	|ALK			|1,Afatinib,Afatinib,angiokinase inhibitor			|FAILURE		|id may not be empty  						|2014-06-29 11:34:20.179 GMT	|PENDING	|
-      |APEC1621   |TA_test3		|					|                    		|1234		|EGFR Pathway	|ALK			|1,Afatinib,Afatinib,angiokinase inhibitor			|FAILURE		|name may not be empty						|2014-06-29 11:34:20.179 GMT	|PENDING	|
-      |APEC1621   |TA_test4		|null				|null                		|1234		|EGFR Pathway	|ALK			|1,Afatinib,Afatinib,angiokinase inhibitor			|FAILURE		|name may not be empty					 	|2014-06-29 11:34:20.179 GMT	|PENDING	|
-      |APEC1621   |TA_test5		|Afatinib			|covalent inhibitor 		|1234		|EGFR Pathway	|ALK			|1,,Afatinib,angiokinase inhibitor					|FAILURE		|treatmentArmDrugs[0].name may not be empty	|2014-06-29 11:34:20.179 GMT	|PENDING	|
-      |APEC1621   |TA_test6		|Afatinib			|covalent inhibitor 		|1234		|EGFR Pathway	|ALK			|1,null,Afatinib,angiokinase inhibitor				|FAILURE		|treatmentArmDrugs[0].name may not be empty |2014-06-29 11:34:20.179 GMT	|PENDING	|
+      |version    |study_id   |id			|name				|description	            |targetId	|targetName		|gene			|drug												|Status			|message									|timestamp						|tastatus	|
+      |2016-05-25 |APEC1621   |TA_test1		|Afatinib			|covalent inhibitor 		|1234		|EGFR Pathway	|ALK			|1,Afatinib,Afatinib,angiokinase inhibitor			|SUCCESS		|Saved to datastore.						|2014-06-29 11:34:20.179 GMT	|PENDING	|
+      |2016-05-25 |APEC1621   |TA_test2		|Afatinib			|covalent inhibitor         |1234		|EGFR Pathway	|ALK			|1,Afatinib,Afatinib,angiokinase inhibitor;2,tylenol,tylenol,angiokinase inhibitor	|SUCCESS|Saved to datastore.|2014-06-29 11:34:20.179 GMT	|PENDING	|
+      |2016-05-25 |APEC1621   |				|Afatinib			|covalent inhibitor 		|1234		|EGFR Pathway	|ALK			|1,Afatinib,Afatinib,angiokinase inhibitor			|FAILURE		|id may not be empty						|2014-06-29 11:34:20.179 GMT	|PENDING	|
+      |2016-05-25 |APEC1621   |null			|Afatinib			|covalent inhibitor 		|1234		|EGFR Pathway	|ALK			|1,Afatinib,Afatinib,angiokinase inhibitor			|FAILURE		|id may not be empty  						|2014-06-29 11:34:20.179 GMT	|PENDING	|
+      |2016-05-25 |APEC1621   |TA_test3		|					|                    		|1234		|EGFR Pathway	|ALK			|1,Afatinib,Afatinib,angiokinase inhibitor			|FAILURE		|name may not be empty						|2014-06-29 11:34:20.179 GMT	|PENDING	|
+      |2016-05-25 |APEC1621   |TA_test4		|null				|null                		|1234		|EGFR Pathway	|ALK			|1,Afatinib,Afatinib,angiokinase inhibitor			|FAILURE		|name may not be empty					 	|2014-06-29 11:34:20.179 GMT	|PENDING	|
+      |2016-05-25 |APEC1621   |TA_test5		|Afatinib			|covalent inhibitor 		|1234		|EGFR Pathway	|ALK			|1,,Afatinib,angiokinase inhibitor					|FAILURE		|treatmentArmDrugs[0].name may not be empty	|2014-06-29 11:34:20.179 GMT	|PENDING	|
+      |2016-05-25 |APEC1621   |TA_test6		|Afatinib			|covalent inhibitor 		|1234		|EGFR Pathway	|ALK			|1,null,Afatinib,angiokinase inhibitor				|FAILURE		|treatmentArmDrugs[0].name may not be empty |2014-06-29 11:34:20.179 GMT	|PENDING	|
 
 
   Scenario: 1.2 Return failure message when treatment arm already exists in MATCH
@@ -87,7 +87,7 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 	"variantReport":{"geneFusions":[],"nonHotspotRules":[],"singleNucleotideVariants":[{"position":"11184573","gene":"ALK","levelOfEvidence":2,"alternative":"A","type":"snv","chromosome":"1","inclusion":true,"reference":"G","alleleFrequency":0,"rare":false,"description":"some description","readDepth":"0","publicMedIds":["23724913"],"identifier":"COSM1686998"}],"indels":[],"copyNumberVariants":[]}}
 	"""
 	When posted to MATCH newTreatmentArm
-	Then a message with Status "Success" and message "Save to datastore." is returned:
+	Then a message with Status "SUCCESS" and message "Save to datastore." is returned:
 
   Scenario: 1.4 Return failure message when treatment arm version is missing or empty
 	Given that treatment arm is received from COG:
@@ -219,7 +219,8 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 	    "name" : "ta_test3",
 	    "targetId" : "1234",
 	    "targetName" : "ALK",
-	    "version":"2015-08-26",
+	    "treatmentArmStatus" : "OPEN",
+	    "version":"2016-05-25",
 	    "gene" : "ALK",
 	    "treatmentArmDrugs" : [
 	        {
@@ -334,7 +335,7 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 	}
 	"""
     When posted to MATCH newTreatmentArm
-    Then a message with Status "Success" and message "Saved to datastore." is returned:
+    Then a message with Status "SUCCESS" and message "Saved to datastore." is returned:
     Then the treatmentArmStatus field has a value "OPEN" for the ta "TA_test3"
 
 
@@ -353,7 +354,7 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 #  Scenario: 1.8 Verify that a treatment arm that has inclusion variants and in PENDING status can be approved
 #    Given the treatmentArmStatus field has a value "PENDING" for the ta "3"
 #    When the treatmentArm "3" is posted to the MATCH approveTreatmentArm service
-#    Then a success message is returned which contains:
+#    Then a SUCCESS message is returned which contains:
 #	"""
 #	Treatment arm has been approved to be opened to patient enrollment.
 #	"""

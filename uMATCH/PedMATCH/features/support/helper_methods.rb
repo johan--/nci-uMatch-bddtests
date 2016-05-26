@@ -19,10 +19,13 @@ class Helper_Methods
 
   def Helper_Methods.post_request(service,payload)
     print "URL: #{service}\n"
+    # print "JSON:\n#{JSON.pretty_generate(JSON.parse(payload))}\n\n"
+    print "JSON:\n#{payload}\n\n"
     begin
       @res = RestClient::Request.execute(:url => service, :method => :post, :verify_ssl => false, :payload => payload, :headers=>{:content_type => 'json', :accept => 'json'})
     rescue StandardError => e
       print "Error: #{e.message} occurred"
+      print "Response:#{e.response}\n"
       return JSON.parse(e.response)
     end
     return JSON.parse(@res)

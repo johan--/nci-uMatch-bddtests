@@ -4,7 +4,7 @@ require_relative 'env'
 
 class Treatment_arm_helper
 
-  def Treatment_arm_helper.createTreatmentArmRequestJSON(study_id, taId, taName, description, targetId, targetName, gene, taDrugs, taStatus)
+  def Treatment_arm_helper.createTreatmentArmRequestJSON(version, study_id, taId, taName, description, targetId, targetName, gene, taDrugs, taStatus)
     drugs = taDrugs.split ','
     drugArray = []
     # drugObject = Hash.new
@@ -42,8 +42,8 @@ class Treatment_arm_helper
 
     @treatmentArm = {"study_id"=> study_id,
                      "id" => taId,
-                     # "name" => taName,
-                     "version"=>"2015-08-26",
+                     "name" => taName,
+                     "version"=>version,
                      "description" => description,
                      "targetId" => targetId,
                      "targetName" => targetName,
