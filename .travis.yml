@@ -9,6 +9,7 @@ before_install:
 script:
   - cd uMATCH/PedMATCH; bundle exec cucumber --tags @demo
 after_success:
+  - echo $TRIGGER_REPO
   - docker images
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - export DATE=`date "+%m-%d-%y-%H%M"`
