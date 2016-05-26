@@ -6,11 +6,12 @@ rvm:
   - 2.2.3
 before_install:
   - echo $TRIGGER_REPO
+  - echo $CUC_TAG
   - docker pull $TRIGGER_REPO
   # - docker pull matchbox/nci-treatment-arm-api
 script:
-  - echo $CUC_TAG
-  - cd uMATCH/PedMATCH; bundle exec cucumber --tags $CUC_TAG
+  - cd uMATCH/PedMATCH; bundle exec cucumber --tags @demo
+  # - cd uMATCH/PedMATCH; bundle exec cucumber --tags $CUC_TAG
 after_success:
   # - docker images
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
