@@ -4,6 +4,10 @@ require 'json'
 require_relative '../../../support/helper_methods.rb'
 require_relative '../../../support/drug_obj.rb'
 
+def initialize()
+  @isTemplateJsonLoaded = false
+end
+
 When(/^the service \/version is called$/) do
   @res=Helper_Methods.get_request(ENV['protocol']+'://'+ENV['treatment_arm_DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/version')
 end
@@ -41,11 +45,16 @@ Then(/^a message with Status "([^"]*)" and message "([^"]*)" is returned:$/) do 
   @response['status'].should == status
 end
 
+Then(/^success message is returned:$/) do
+  @response['status'].should == 'SUCCESS'
+end
+
 Given(/^that treatment arm is received from COG:$/) do |taJson|
   @jsonString = JSON.parse(taJson).to_json
 end
 
-Then(/^a failure message is returned which contains:/) do |string|
+Then(/^a failure message is returned which contains: "([^"]*)"$/) do |string|
+  @response['status'].should == 'FAILURE'
   @response['message'].should == string
 end
 
@@ -100,13 +109,38 @@ Then(/^the treatment arm: "([^"]*)" return from database has correct version: "(
     end
   end
   foundCorrectResult.should == true
+end
 
-    # {"active"=>nil,
-    #  "random_variable"=>nil,
-    #  "num_patients_assigned"=>nil,
-    #  "date_created"=>"2016-05-25 17:32:35 UTC",
-    #  "variant_report"=>{"copy_number_variants"=>[], "indels"=>[], "single_nucleotide_variants"=>[{"position"=>"11184573", "read_depth"=>"0", "gene"=>"ALK", "allele_frequency"=>"0.0", "alternative"=>"A", "type"=>"snv", "chromosome"=>"1", "reference"=>"G", "inclusion"=>true, "rare"=>false, "description"=>"some description", "level_of_evidence"=>"2.0", "identifier"=>"COSM1686998", "public_med_ids"=>["23724913"]}], "non_hotspot_rules"=>[], "gene_fusions"=>[]},
-    #  "exclusion_diseases"=>nil, "exclusion_drugs"=>nil, "pten_results"=>nil, "status_log"=>nil}
+Given(/^template json with a new unique id$/) do
+  loadTemplateJson()
+  @taReq['id'] = "TA_#{Time.now.to_i.to_s}"
+  @jsonString = @taReq.to_json.to_s
+end
 
+And(/^set template json field: "([^"]*)" to string value: "([^"]*)"$/) do |field, sValue|
+  if sValue == 'null'
+    sValue = nil
+  end
+  loadTemplateJson()
+  @taReq[field] = sValue
+  @jsonString = @taReq.to_json.to_s
+end
 
+And(/^remove field: "([^"]*)" from template json$/) do |fieldName|
+  loadTemplateJson()
+  @taReq.delete(fieldName)
+  @jsonString = @taReq.to_json.to_s
+end
+
+And(/^set template json unique version$/) do
+  loadTemplateJson()
+  @taReq['version'] = "V#{Time.now.to_i.to_s}"
+  @jsonString = @taReq.to_json.to_s
+end
+
+def loadTemplateJson()
+  unless @isTemplateJsonLoaded
+    @taReq = Treatment_arm_helper.validRquestJson()
+    @isTemplateJsonLoaded = true
+  end
 end

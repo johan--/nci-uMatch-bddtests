@@ -2,6 +2,7 @@
 
 @TA_Post_Tests
 Feature: Treatment Arm API Tests that focus on "treatmentArmStatus" field
+
   Scenario Outline: New Treatment Arm with invalid "treatmentArmStatus" value should fail (including empty string)
   Scenario: New Treatment Arm with "treatmentArmStatus":null value should pass
   Scenario: New Treatment Arm without "treatmentArmStatus" value should pass

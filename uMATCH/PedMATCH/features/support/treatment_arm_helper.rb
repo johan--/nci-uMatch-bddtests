@@ -58,5 +58,8 @@ class Treatment_arm_helper
     return @treatmentArm
   end
 
-
+  def Treatment_arm_helper.validRquestJson()
+    @treatmentArm = JSON(IO.read('./features/support/validTreatmentArmRequestTemplate.json'))
+    return @treatmentArm
+  end
 end
