@@ -4,9 +4,6 @@ require 'json'
 require_relative '../../../support/helper_methods.rb'
 require_relative '../../../support/drug_obj.rb'
 
-def initialize()
-  @isTemplateJsonLoaded = false
-end
 
 When(/^the service \/version is called$/) do
   @res=Helper_Methods.get_request(ENV['protocol']+'://'+ENV['treatment_arm_DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/version')
@@ -117,12 +114,44 @@ Given(/^template json with a new unique id$/) do
   @jsonString = @taReq.to_json.to_s
 end
 
+And(/^save id for later use$/) do
+  @@savedTAID = @taReq['id']
+end
+
+And(/^restore to saved id$/) do
+  @taReq['id'] = @@savedTAID
+  @jsonString = @taReq.to_json.to_s
+end
+
 And(/^set template json field: "([^"]*)" to string value: "([^"]*)"$/) do |field, sValue|
   if sValue == 'null'
     sValue = nil
   end
   loadTemplateJson()
   @taReq[field] = sValue
+  @jsonString = @taReq.to_json.to_s
+end
+
+And(/^set template json field: "([^"]*)" to value: "([^"]*)" in type: "([^"]*)"$/) do |field, value, type|
+  if value == 'null'
+    value = nil
+  end
+  loadTemplateJson()
+
+  typedValue = case type
+                 when "string" then value
+                 when "int" then value.to_i
+                 when "bool" then value.to_b
+                 when "float" then value.to_f
+               end
+
+  @taReq[field] = typedValue
+  @jsonString = @taReq.to_json.to_s
+end
+
+And(/^add prefix: "([^"]*)" to the value of template json field: "([^"]*)"$/) do |prefix, field|
+  loadTemplateJson()
+  @taReq[field] = "#{prefix}_#{@taReq[field]}"
   @jsonString = @taReq.to_json.to_s
 end
 

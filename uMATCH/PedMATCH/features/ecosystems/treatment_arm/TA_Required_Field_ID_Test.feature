@@ -28,4 +28,4 @@ Feature: Treatment Arm API Tests that focus on "id" field
     Then success message is returned:
     Examples:
     |field    |value      |
-    |id       |@*$%sdga   |
+    |id       |@*$%sdga#  |
