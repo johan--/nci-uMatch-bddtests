@@ -8,7 +8,6 @@ before_install:
   - echo $TRIGGER_REPO
   - echo $CUC_TAG
   - docker pull $TRIGGER_REPO
-  # - docker pull matchbox/nci-treatment-arm-api
 script:
   - cd uMATCH/PedMATCH; bundle exec cucumber --tags @demo
   # - cd uMATCH/PedMATCH; bundle exec cucumber --tags $CUC_TAG
