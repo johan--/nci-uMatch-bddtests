@@ -91,5 +91,11 @@ Feature: Treatment Arm API Tests that focus on "version" field
     And restore to saved id
     And set template json field: "version" to string value: "TA_VERSION_UPDATE_VERSION"
     And set template json field: "<field>" to string value: "<value>"
+    Examples:
+      |field      |value               |
+      |           |                    |
 
-  Scenario Outline: Verify update Treatment Arm with same "version" value should not be taken
+#  Scenario Outline: Verify update Treatment Arm with same "version" value should not be taken
+#    Examples:
+#      |field      |value               |
+#      |           |                    |
