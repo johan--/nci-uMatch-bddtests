@@ -93,5 +93,5 @@ Feature: Treatment Arm API Tests that focus on "treatmentArmStatus" field
     Then success message is returned:
 
 #these are GET tests
-  Scenario: Existing Treatment Arm with "treatmentArmStatus": CLOSED can not be updated anymore
-  Scenario: Update Treatment Arm should have properly updated "statusLog" field
+#  Scenario: Existing Treatment Arm with "treatmentArmStatus": CLOSED can not be updated anymore
+#  Scenario: Update Treatment Arm should have properly updated "statusLog" field

@@ -86,16 +86,10 @@ Feature: Treatment Arm API Tests that focus on "version" field
       |version    |$^#$%$HDH           |
 
 
-  Scenario Outline: Update Treatment Arm with same "version" value should pass
-    Given template json with a new unique id
-    And restore to saved id
-    And set template json field: "version" to string value: "TA_VERSION_UPDATE_VERSION"
-    And set template json field: "<field>" to string value: "<value>"
-    Examples:
-      |field      |value               |
-      |           |                    |
-
+#  Scenario Outline: Update Treatment Arm with same "version" value should pass
+#    Given template json with a new unique id
+#    And restore to saved id
+#    And set template json field: "version" to string value: "TA_VERSION_UPDATE_VERSION"
+#    And set template json field: "<field>" to string value: "<value>"
+#
 #  Scenario Outline: Verify update Treatment Arm with same "version" value should not be taken
-#    Examples:
-#      |field      |value               |
-#      |           |                    |
