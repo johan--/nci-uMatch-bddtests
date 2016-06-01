@@ -37,7 +37,6 @@ end
 
 Given(/^that a new specimen is received from NCH:$/) do |specimenMessage|
   @request = Patient_helper_methods.createBiopsyRequest(params={"msg"=>specimenMessage,"receivedDate"=>"current","collectionDate"=>"current"})
-  p @request
 end
 
 When(/^posted to MATCH setBiopsySpecimenDetailsMessage, returns a message "([^"]*)"$/) do |retMsg|
@@ -47,5 +46,4 @@ end
 
 Given(/^a new specimen is received from NCH with future received date:$/) do |specimenMessage|
   @request = Patient_helper_methods.createBiopsyRequest(params={"msg"=>specimenMessage,"receivedDate"=>"future","collectionDate"=>"current"})
-  p @request
 end

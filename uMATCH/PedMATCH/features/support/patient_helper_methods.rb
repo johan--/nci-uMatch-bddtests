@@ -30,7 +30,6 @@ class Patient_helper_methods
   end
 
   def Patient_helper_methods.createBiopsyRequest(params={})
-    p params['receivedDate']
     msgHash = JSON.parse(params['msg'])
     specimenHash = msgHash['specimens_received']
     if !params['receivedDate'].nil?
