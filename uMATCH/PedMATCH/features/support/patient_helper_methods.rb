@@ -29,7 +29,7 @@ class Patient_helper_methods
 
   end
 
-  def Patient_helper_methods.createBiopsyRequest(params={})
+  def Patient_helper_methods.createSpecimenRequest(params={})
     msgHash = JSON.parse(params['msg'])
     specimenHash = msgHash['specimens_received']
     if !params['receivedDate'].nil?
@@ -40,6 +40,32 @@ class Patient_helper_methods
     if !params['collectionDate'].nil?
       @collectedDate = Helper_Methods.getDateAsRequired(params['collectionDate'])
       specimenHash[0]['collection_ts'] = @collectedDate
+    end
+
+    return msgHash.to_json
+  end
+
+  def Patient_helper_methods.createMultipleSpecimenRequest(params={})
+    msgHash = JSON.parse(params['msg'])
+    specimenHash = msgHash['specimens_received']
+    if !params['receivedDate1'].nil?
+      @reportedDate = Helper_Methods.getDateAsRequired(params['receivedDate1'])
+      specimenHash[0]['received_ts'] = @reportedDate
+    end
+
+    if !params['collectionDate1'].nil?
+      @collectedDate = Helper_Methods.getDateAsRequired(params['collectionDate1'])
+      specimenHash[0]['collection_ts'] = @collectedDate
+    end
+
+    if !params['receivedDate2'].nil?
+      @reportedDate = Helper_Methods.getDateAsRequired(params['receivedDate2'])
+      specimenHash[1]['received_ts'] = @reportedDate
+    end
+
+    if !params['collectionDate2'].nil?
+      @collectedDate = Helper_Methods.getDateAsRequired(params['collectionDate2'])
+      specimenHash[1]['collection_ts'] = @collectedDate
     end
 
     return msgHash.to_json
