@@ -1,6 +1,6 @@
 #encoding: utf-8
 
-@TA_Post_Tests
+@Treatment_Arm_API_Tests
 Feature: Treatment Arm API Tests that focus on "id" field
   Scenario: New Treatment Arm with emtpy "id" field should fail
      Given template json with a new unique id
@@ -23,9 +23,13 @@ Feature: Treatment Arm API Tests that focus on "id" field
 
   Scenario Outline: New Treatment Arm with special character in "id" field should pass
     Given template json with a new unique id
-    And set template json field: "<field>" to string value: "<value>"
+    And add suffix: "<value>" to the value of template json field: "id"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
     Examples:
-    |field    |value      |
-    |id       |@*$%sdga#  |
+    |value      |
+    |@*$%sdga#  |
+    |!^&*()-_+= |
+    |{}[]\/?    |
+    |;'<>,.     |
+    |?Àü ī      |

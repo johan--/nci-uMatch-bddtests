@@ -108,19 +108,30 @@ Then(/^the treatment arm: "([^"]*)" return from database has correct version: "(
   foundCorrectResult.should == true
 end
 
+Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from API has value: "([^"]*)" in field: "([^"]*)"$/) do |id, version, value, field|
+  if id == 'saved_id'
+    id = @savedTAID
+  end
+  @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['treatment_arm_DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id})
+  tas = JSON.parse(@response)
+  returnedtTASize = "Returned treatment arms count is #{tas.length}"
+  returnedtTASize.should_not == "Returned treatment arms count is 0"
+  foundCorrectResult = "Cannot find version #{version} in returned treatment arms"
+  expectFieldResult = "#{field} is #{value}"
+  tas.each do |child|
+    if child['version'] == version
+      foundCorrectResult = version
+      expectFieldResult.should == "#{field} is #{child[field]}"
+    end
+  end
+  foundCorrectResult.should == version
+end
+
 Given(/^template json with a new unique id$/) do
   loadTemplateJson()
-  @taReq['id'] = "TA_#{Time.now.to_i.to_s}"
+  @taReq['id'] = "TA_BDDTESTs_#{Time.now.to_i.to_s}"
   @jsonString = @taReq.to_json.to_s
-end
-
-And(/^save id for later use$/) do
-  @@savedTAID = @taReq['id']
-end
-
-And(/^restore to saved id$/) do
-  @taReq['id'] = @@savedTAID
-  @jsonString = @taReq.to_json.to_s
+  @savedTAID = @taReq['id']
 end
 
 And(/^set template json field: "([^"]*)" to string value: "([^"]*)"$/) do |field, sValue|
@@ -155,15 +166,15 @@ And(/^add prefix: "([^"]*)" to the value of template json field: "([^"]*)"$/) do
   @jsonString = @taReq.to_json.to_s
 end
 
-And(/^remove field: "([^"]*)" from template json$/) do |fieldName|
+And(/^add suffix: "([^"]*)" to the value of template json field: "([^"]*)"$/) do |suffix, field|
   loadTemplateJson()
-  @taReq.delete(fieldName)
+  @taReq[field] = "#{@taReq[field]}_#{suffix}"
   @jsonString = @taReq.to_json.to_s
 end
 
-And(/^set template json unique version$/) do
+And(/^remove field: "([^"]*)" from template json$/) do |fieldName|
   loadTemplateJson()
-  @taReq['version'] = "V#{Time.now.to_i.to_s}"
+  @taReq.delete(fieldName)
   @jsonString = @taReq.to_json.to_s
 end
 
@@ -173,3 +184,26 @@ def loadTemplateJson()
     @isTemplateJsonLoaded = true
   end
 end
+
+
+# Then(/^load template json with saved id$/) do
+#   loadTemplateJson()
+#   @taReq['id'] = @savedTAID
+#   @jsonString = @taReq.to_json.to_s
+# end
+
+# And(/^restore to saved id$/) do
+#   @taReq['id'] = @savedTAID
+#   @jsonString = @taReq.to_json.to_s
+# end
+
+# And(/^restore saved id and add suffix: "([^"]*)"$/) do |suffix|
+#   @taReq['id'] = "#{@savedTAID}_#{suffix}"
+#   @jsonString = @taReq.to_json.to_s
+# end
+
+# And(/^set template json unique version$/) do
+#   loadTemplateJson()
+#   @taReq['version'] = "V#{Time.now.to_i.to_s}"
+#   @jsonString = @taReq.to_json.to_s
+# end

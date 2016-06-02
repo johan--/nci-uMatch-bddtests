@@ -1,6 +1,6 @@
 #encoding: utf-8
 
-@TA_Post_Tests
+@Treatment_Arm_API_Tests
 Feature: Treatment Arm API Tests that focus on "treatmentArmDrugs" field
 #  Scenario: New Treatment Arm with emtpy "treatmentArmDrugs" field should fail
 #  Scenario: New Treatment Arm with "treatmentArmDrugs": null should fail
