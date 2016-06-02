@@ -11,6 +11,7 @@ before_install:
 script:
   - cd uMATCH/PedMATCH; bundle exec cucumber --tags @demo
   # - cd uMATCH/PedMATCH; bundle exec cucumber --tags $CUC_TAG
+  - ./trigger_bddtests.sh
 after_success:
   # - docker images
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
