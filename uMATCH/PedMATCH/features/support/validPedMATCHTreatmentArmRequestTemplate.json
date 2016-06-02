@@ -115,7 +115,7 @@
   "exclusionCriterias" : [],
   "ptenResults" : [],
   "numPatientsAssigned" : 0,
-  "maxPatientsAllowed" : 35,
+//  "maxPatientsAllowed" : 35,
   "treatmentArmStatus" : "OPEN",
   "variantReport" : {
     "singleNucleotideVariants" : [
