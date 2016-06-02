@@ -3,7 +3,7 @@
 @Treatment_Arm_API_Tests
 Feature: Treatment Arm API Tests that focus on "name" field
 
-  Scenario: New Treatment Arm with emtpy "name" field should fail
+  Scenario: New Treatment Arm with empty "name" field should fail
     Given template json with a new unique id
     And set template json field: "name" to string value: ""
     When posted to MATCH newTreatmentArm
