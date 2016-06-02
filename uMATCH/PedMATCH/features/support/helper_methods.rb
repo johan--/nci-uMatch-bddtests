@@ -2,6 +2,9 @@
 require 'json'
 require 'rest-client'
 require_relative 'env'
+require 'active_support'
+require 'active_support/core_ext'
+
 class Helper_Methods
   def Helper_Methods.get_request(service,params={})
     print "URL: #{service}\n"
