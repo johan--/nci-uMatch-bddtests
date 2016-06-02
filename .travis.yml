@@ -9,8 +9,8 @@ before_install:
   - echo $CUC_TAG
   - docker pull $TRIGGER_REPO
 script:
-  - pwd;cd uMATCH/PedMATCH; bundle exec cucumber --tags @demo
-  # - cd uMATCH/PedMATCH; bundle exec cucumber --tags $CUC_TAG
+  # - pwd;cd uMATCH/PedMATCH; bundle exec cucumber --tags @demo
+  - cd uMATCH/PedMATCH; bundle exec cucumber --tags $CUC_TAG
   - cd ../..;pwd;ls;./trigger_bddtests.sh
 after_success:
   # - docker images
