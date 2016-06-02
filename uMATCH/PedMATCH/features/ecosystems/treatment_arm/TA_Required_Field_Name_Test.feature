@@ -1,6 +1,6 @@
 #encoding: utf-8
 
-@Treatment_Arm_API_Tests
+@treatment_arm
 Feature: Treatment Arm API Tests that focus on "name" field
 
   Scenario: New Treatment Arm with empty "name" field should fail

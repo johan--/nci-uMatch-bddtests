@@ -1,6 +1,6 @@
 #encoding: utf-8
 
-@Treatment_Arm_API_Tests
+@treatment_arm
 Feature: Treatment Arm API Tests that focus on Unrequired fields
 
   Scenario Outline: New Treatment Arm with unrequired field that has different kinds of value should pass

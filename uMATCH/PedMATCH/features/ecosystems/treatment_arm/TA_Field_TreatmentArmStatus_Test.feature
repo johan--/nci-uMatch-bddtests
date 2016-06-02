@@ -1,6 +1,6 @@
 #encoding: utf-8
 
-@Treatment_Arm_API_Tests
+@treatment_arm
 Feature: Treatment Arm API Tests that focus on "treatmentArmStatus" field
 
   Scenario Outline: New Treatment Arm with invalid "treatmentArmStatus" value should fail (including empty string)
