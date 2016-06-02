@@ -115,16 +115,33 @@ Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from A
   @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['treatment_arm_DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id})
   tas = JSON.parse(@response)
   returnedtTASize = "Returned treatment arms count is #{tas.length}"
-  returnedtTASize.should_not == "Returned treatment arms count is 0"
+  returnedtTASize.should_not == 'Returned treatment arms count is 0'
   foundCorrectResult = "Cannot find version #{version} in returned treatment arms"
   expectFieldResult = "#{field} is #{value}"
   tas.each do |child|
     if child['version'] == version
       foundCorrectResult = version
-      expectFieldResult.should == "#{field} is #{child[field]}"
+      returnedResult = "#{field} is #{child[field]}"
+      returnedResult.should == expectFieldResult
     end
   end
   foundCorrectResult.should == version
+end
+
+Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" should return from database$/) do |id, version|
+  if id == 'saved_id'
+    id = @savedTAID
+  end
+  @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['treatment_arm_DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id})
+  tas = JSON.parse(@response)
+  matchItems = 0
+  tas.each do |child|
+    if child['version'] == version
+      matchItems += 1
+    end
+  end
+  returnedtTASize = "Returned treatment arms count is #{matchItems}"
+  returnedtTASize.should == 'Returned treatment arms count is 1'
 end
 
 Given(/^template json with a new unique id$/) do
@@ -144,19 +161,23 @@ And(/^set template json field: "([^"]*)" to string value: "([^"]*)"$/) do |field
 end
 
 And(/^set template json field: "([^"]*)" to value: "([^"]*)" in type: "([^"]*)"$/) do |field, value, type|
-  if value == 'null'
-    value = nil
-  end
   loadTemplateJson()
 
-  typedValue = case type
-                 when "string" then value
-                 when "int" then value.to_i
-                 when "bool" then value.to_b
-                 when "float" then value.to_f
-               end
-
+  if value == 'null'
+    value = nil
+    @taReq[field] = value
+  elsif (typedValue = case type
+                        when "string" then
+                          value
+                        when "int" then
+                          value.to_i
+                        when "bool" then
+                          value.to_b
+                        when "float" then
+                          value.to_f
+                      end)
   @taReq[field] = typedValue
+  end
   @jsonString = @taReq.to_json.to_s
 end
 

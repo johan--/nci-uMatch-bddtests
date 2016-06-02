@@ -3,17 +3,17 @@
 @treatment_arm
 Feature: Treatment Arm API Tests that focus on "study_id" field
 
-  Scenario: New Treatment Arm with empty "study_id" field should fail
+  Scenario Outline: New Treatment Arm, values other than "APEC1621" and "EAY131" in "study_id" field should fail
     Given template json with a new unique id
-    And set template json field: "study_id" to string value: ""
+    And set template json field: "study_id" to string value: "<study_id_value>"
     When posted to MATCH newTreatmentArm
-    Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
-
-  Scenario: New Treatment Arm with "study_id": null should fail
-    Given template json with a new unique id
-    And set template json field: "study_id" to string value: "null"
-    When posted to MATCH newTreatmentArm
-    Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
+    Then a failure message is returned which contains: "Validation failed."
+    Examples:
+    |study_id_value     |
+    |OTHER_STUDY        |
+    |xxyyzz             |
+    |null               |
+    |                   |
 
   Scenario: New Treatment Arm without "study_id" field should fail
     Given template json with a new unique id
@@ -21,58 +21,30 @@ Feature: Treatment Arm API Tests that focus on "study_id" field
     When posted to MATCH newTreatmentArm
     Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
 
-  Scenario Outline: New Treatment Arm with special character in "study_id" field should pass
+  Scenario Outline: "study_id" field should not be updated to other value
     Given template json with a new unique id
-    And set template json field: "study_id" to string value: "<study_id_value>"
+    Then set template json field: "study_id" to string value: "<origin_study_id>"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
+    Then set template json field: "version" to string value: "V0000002"
+    And set template json field: "study_id" to string value: "<new_study_id>"
+    When posted to MATCH newTreatmentArm
+    Then a failure message is returned which contains: "Validation failed."
     Examples:
-      |study_id_value          |
-      |@*$%sdga#               |
-      |!^&*()-_+=              |
-      |{}[]\/?                 |
-      |;'<>,.                  |
-      |?Àü ī                   |
-
-  Scenario: Update Treatment Arm with empty "study_id" field should fail
-    Given template json with a new unique id
-    When posted to MATCH newTreatmentArm
-    Then success message is returned:
-    Then set template json field: "version" to string value: "V0000002"
-    And set template json field: "study_id" to string value: ""
-    When posted to MATCH newTreatmentArm
-    Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
-
-  Scenario: Update Treatment Arm with "study_id": null should fail
-    Given template json with a new unique id
-    When posted to MATCH newTreatmentArm
-    Then success message is returned:
-    Then set template json field: "version" to string value: "V0000002"
-    And set template json field: "study_id" to string value: "null"
-    When posted to MATCH newTreatmentArm
-    Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
+    |origin_study_id        |new_study_id     |
+    |APEC1621               |EAY131           |
+    |EAY131                 |APEC1621         |
+    |APEC1621               |OTHER_STUDY      |
+    |EAY131                 |xxyyzz           |
+    |APEC1621               |null             |
+    |EAY131                 |                 |
 
   Scenario: Update Treatment Arm without "study_id" field should fail
     Given template json with a new unique id
+    Then set template json field: "study_id" to string value: "APEC1621"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
     Then set template json field: "version" to string value: "V0000002"
     And remove field: "study_id" from template json
     When posted to MATCH newTreatmentArm
     Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
-
-  Scenario Outline: Update Treatment Arm with special character in "study_id" field should pass
-    Given template json with a new unique id
-    When posted to MATCH newTreatmentArm
-    Then success message is returned:
-    Then set template json field: "version" to string value: "V0000002"
-    And set template json field: "study_id" to string value: "<study_id_value>"
-    When posted to MATCH newTreatmentArm
-    Then success message is returned:
-    Examples:
-      |study_id_value          |
-      |@*$%sdga#               |
-      |!^&*()-_+=              |
-      |{}[]\/?                 |
-      |;'<>,.                  |
-      |?Àü ī                   |

@@ -25,8 +25,10 @@ Feature: Treatment Arm API Tests that focus on "name" field
   Scenario Outline: New Treatment Arm with special character in "name" field should pass
     Given template json with a new unique id
     And set template json field: "name" to string value: "<name_value>"
+    And set template json field: "version" to string value: "V0000001"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
+    Then the treatment arm with id: "saved_id" and version: "V0000001" return from API has value: "<name_value>" in field: "name"
     Examples:
       |name_value              |
       |@*$%sdga#               |
@@ -72,6 +74,7 @@ Feature: Treatment Arm API Tests that focus on "name" field
     And set template json field: "name" to string value: "<name_value>"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
+    Then the treatment arm with id: "saved_id" and version: "V0000002" return from API has value: "<name_value>" in field: "name"
     Examples:
     |name_value              |
     |@*$%sdga#               |

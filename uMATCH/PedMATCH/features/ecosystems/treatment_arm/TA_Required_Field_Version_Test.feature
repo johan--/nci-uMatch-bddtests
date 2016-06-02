@@ -1,6 +1,6 @@
 #encoding: utf-8
 
-@treatment_arm
+@Treatment_Arm_API_Tests
 Feature: Treatment Arm API Tests that focus on "version" field
 
   Scenario Outline: Multiple Treatment Arms that have same "version" values but different "id" values should all pass
@@ -17,7 +17,7 @@ Feature: Treatment Arm API Tests that focus on "version" field
     |VERSION_TEST_004   |
     |VERSION_TEST_005   |
 
-  Scenario: New Treatment Arm with emtpy "version" field should fail
+  Scenario: New Treatment Arm with empty "version" field should fail
     Given template json with a new unique id
     And set template json field: "version" to string value: ""
     When posted to MATCH newTreatmentArm
@@ -40,6 +40,7 @@ Feature: Treatment Arm API Tests that focus on "version" field
     And set template json field: "version" to string value: "<version_value>"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
+    Then the treatment arm with id: "saved_id" and version: "<version_value>" should return from database
     Examples:
     |version_value           |
     |@*$%sdga#               |
@@ -76,11 +77,12 @@ Feature: Treatment Arm API Tests that focus on "version" field
     Given template json with a new unique id
     When posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then set template json field: "version" to string value: "<value>"
+    Then set template json field: "version" to string value: "<version_value>"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
+    Then the treatment arm with id: "saved_id" and version: "<version_value>" should return from database
     Examples:
-      |value                   |
+      |version_value           |
       |@*$%sdga#               |
       |!^&*()-_+=              |
       |{}[]\/?                 |
