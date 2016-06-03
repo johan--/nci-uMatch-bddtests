@@ -128,6 +128,29 @@ Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from A
   foundCorrectResult.should == version
 end
 
+Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from API should not have field: "([^"]*)"$/) do |id, version, field|
+  if id == 'saved_id'
+    id = @savedTAID
+  end
+  @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['treatment_arm_DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id})
+  tas = JSON.parse(@response)
+  returnedtTASize = "Returned treatment arms count is #{tas.length}"
+  returnedtTASize.should_not == 'Returned treatment arms count is 0'
+  foundCorrectResult = "Cannot find version #{version} in returned treatment arms"
+  expectFieldResult = "#{field} doesn't exist"
+  tas.each do |child|
+    if child['version'] == version
+      foundCorrectResult = version
+      returnedResult = "#{field} doesn't exist"
+      if child.key?(field)
+        returnedResult = "#{field} exists"
+      end
+      returnedResult.should == expectFieldResult
+    end
+  end
+  foundCorrectResult.should == version
+end
+
 Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" should return from database$/) do |id, version|
   if id == 'saved_id'
     id = @savedTAID
@@ -172,7 +195,7 @@ And(/^set template json field: "([^"]*)" to value: "([^"]*)" in type: "([^"]*)"$
                         when "int" then
                           value.to_i
                         when "bool" then
-                          value.to_b
+                          value=='true'?true:false
                         when "float" then
                           value.to_f
                       end)
@@ -206,25 +229,38 @@ def loadTemplateJson()
   end
 end
 
+And(/^clear list field: "([^"]*)" from template json$/) do |fieldName|
+  loadTemplateJson()
+  if @taReq[fieldName].kind_of?(Array)
+    @taReq[fieldName].clear()
+  end
+  @jsonString = @taReq.to_json.to_s
+end
 
-# Then(/^load template json with saved id$/) do
-#   loadTemplateJson()
-#   @taReq['id'] = @savedTAID
-#   @jsonString = @taReq.to_json.to_s
-# end
+And(/^add drug with name: "([^"]*)" pathway: "([^"]*)" and id: "([^"]*)" to template json$/) do |drugName, drugPathway, drugId|
+  loadTemplateJson()
+  if drugName == 'null'
+    drugName = nil
+  end
+  if drugPathway == 'null'
+    drugPathway = nil
+  end
+  if drugId == 'null'
+    drugId = nil
+  end
+  @taReq['treatmentArmDrugs'].push({"drugId"=>drugId, "name"=>drugName, "pathway"=>drugPathway})
+  @jsonString = @taReq.to_json.to_s
+end
 
-# And(/^restore to saved id$/) do
-#   @taReq['id'] = @savedTAID
-#   @jsonString = @taReq.to_json.to_s
-# end
+And(/^add exclusion drug with name: "([^"]*)" and id: "([^"]*)" to template json$/) do |drugName, drugId|
+  loadTemplateJson()
+  if drugName == 'null'
+    drugName = nil
+  end
+  if drugId == 'null'
+    drugId = nil
+  end
+  @taReq['exclusionDrugs'].push({"drugs"=>[{"drugId"=>drugId, "name"=>drugName}]})
+  @jsonString = @taReq.to_json.to_s
+end
 
-# And(/^restore saved id and add suffix: "([^"]*)"$/) do |suffix|
-#   @taReq['id'] = "#{@savedTAID}_#{suffix}"
-#   @jsonString = @taReq.to_json.to_s
-# end
-
-# And(/^set template json unique version$/) do
-#   loadTemplateJson()
-#   @taReq['version'] = "V#{Time.now.to_i.to_s}"
-#   @jsonString = @taReq.to_json.to_s
-# end

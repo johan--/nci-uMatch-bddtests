@@ -67,10 +67,7 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 	"""
 
     When posted to MATCH newTreatmentArm
-    Then a failure message is returned which contains:
-	"""
-	The treatment arm (ID:TA_test1) already exists.
-	"""
+    Then a failure message is returned which contains: "The treatment arm (ID:TA_test1) already exists."
 
   Scenario: 1.3 Receive and consume an update to an existing treatment arm with a different and newer version
 	Given that treatment arm is received from COG:
@@ -103,10 +100,7 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 	"variantReport":{"geneFusions":[],"nonHotspotRules":[],"singleNucleotideVariants":[{"position":"11184573","gene":"ALK","levelOfEvidence":2,"alternative":"A","type":"snv","chromosome":"1","inclusion":true,"reference":"G","alleleFrequency":0,"rare":false,"description":"some description","readDepth":"0","publicMedIds":["23724913"],"identifier":"COSM1686998"}],"indels":[],"copyNumberVariants":[]}}
 	"""
 	When posted to MATCH newTreatmentArm
-	Then a failure message is returned which contains:
-	"""
-	The treatment arm (ID:NoVersion) is missing version information.
-	"""
+	Then a failure message is returned which contains: "The treatment arm (ID:NoVersion) is missing version information."
 
 
 #  Scenario: 1.3 Verify that MATCH returns a failure message when a treatment arm is created with a status of OPEN
@@ -342,10 +336,7 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 #  Scenario: 1.5 & 1.6 Verify that a treatment arm cannot be approved when there are no associated variants or non-hotspot rules
 #    Given the treatmentArmStatus field has a value "PENDING" for the ta "CukeTest-PEN-NoVar"
 #    When the treatmentArm "CukeTest-PEN-NoVar" is posted to the MATCH approveTreatmentArm service
-#    Then a failure message is returned which contains:
-#  """
-#	This treatment arm is not eligible for approval.
-#  """
+#    Then a failure message is returned which contains: "This treatment arm is not eligible for approval."
 #    And the treatmentArmStatus field has a value "PENDING" for the ta "CukeTest-PEN-NoVar"
 
 
@@ -486,16 +477,10 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 #    Then a message with Status "SUCCESS" and message "Saved to datastore." is returned:
 #    Then the treatmentArmStatus field has a value "PENDING" for the ta "EAY131_5"
 #    When the treatmentArm "EAY131_5" is posted to the MATCH approveTreatmentArm service
-#    Then a failure message is returned which contains:
-#  	"""
-#		An error occurred sending approval of this treatment arm.
-#	"""
+#    Then a failure message is returned which contains: "An error occurred sending approval of this treatment arm."
 
 
 #  Scenario: 1.10 Verify error message returned TA approval is requested for an invalid Treatment Arm ID.
 #    When the treatmentArm "jdgjljhgfd" is posted to the MATCH approveTreatmentArm service
-#    Then a failure message is returned which contains:
-#	"""
-#	This treatment arm id is invalid.
-#	"""
+#    Then a failure message is returned which contains: "This treatment arm id is invalid."
 

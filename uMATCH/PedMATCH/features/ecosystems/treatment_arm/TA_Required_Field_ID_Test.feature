@@ -24,10 +24,10 @@ Feature: Treatment Arm API Tests that focus on "id" field
   Scenario Outline: New Treatment Arm with special character in "id" field should pass
     Given template json with a new unique id
     And set template json field: "id" to string value: "<id>"
-    And set template json field: "version" to string value: "V0000001"
+    And set template json field: "version" to string value: "2016-06-03"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then the treatment arm with id: "<encoded_id>" and version: "V0000001" should return from database
+    Then the treatment arm with id: "<encoded_id>" and version: "2016-06-03" should return from database
     Examples:
     |id                     |encoded_id                           |
     |TA_BDDTESTs_@*$%sdga#  |TA_BDDTESTs_%40*%24%25sdga%23        |

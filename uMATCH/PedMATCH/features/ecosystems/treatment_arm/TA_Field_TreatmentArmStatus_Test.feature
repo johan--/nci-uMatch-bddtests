@@ -20,18 +20,18 @@ Feature: Treatment Arm API Tests that focus on "treatmentArmStatus" field
   Scenario: New Treatment Arm with "treatmentArmStatus":null value should pass and value should be set to "OPEN"
     Given template json with a new unique id
     And set template json field: "treatmentArmStatus" to string value: "null"
-    And set template json field: "version" to string value: "V0000001"
+    And set template json field: "version" to string value: "2016-06-03"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then the treatment arm with id: "saved_id" and version: "V0000001" return from API has value: "OPEN" in field: "treatmentArmStatus"
+    Then the treatment arm with id: "saved_id" and version: "2016-06-03" return from API has value: "OPEN" in field: "treatmentArmStatus"
 
   Scenario: New Treatment Arm without "treatmentArmStatus" value should pass and value should be set to "OPEN"
     Given template json with a new unique id
     And remove field: "treatmentArmStatus" from template json
-    And set template json field: "version" to string value: "V0000001"
+    And set template json field: "version" to string value: "2016-06-03"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then the treatment arm with id: "saved_id" and version: "V0000001" return from API has value: "OPEN" in field: "treatmentArmStatus"
+    Then the treatment arm with id: "saved_id" and version: "2016-06-03" return from API has value: "OPEN" in field: "treatmentArmStatus"
 
 
 

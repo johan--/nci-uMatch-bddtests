@@ -26,7 +26,7 @@ Feature: Treatment Arm API Tests that focus on "study_id" field
     Then set template json field: "study_id" to string value: "<origin_study_id>"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then set template json field: "version" to string value: "V0000002"
+    Then set template json field: "version" to string value: "2016-06-03"
     And set template json field: "study_id" to string value: "<new_study_id>"
     When posted to MATCH newTreatmentArm
     Then a failure message is returned which contains: "Validation failed."
@@ -44,7 +44,7 @@ Feature: Treatment Arm API Tests that focus on "study_id" field
     Then set template json field: "study_id" to string value: "APEC1621"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then set template json field: "version" to string value: "V0000002"
+    Then set template json field: "version" to string value: "2016-06-03"
     And remove field: "study_id" from template json
     When posted to MATCH newTreatmentArm
     Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
