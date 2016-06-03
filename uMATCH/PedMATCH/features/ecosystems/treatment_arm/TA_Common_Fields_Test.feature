@@ -28,10 +28,8 @@ Feature: Treatment Arm API Tests that focus on Unrequired fields
       |field                |returned_field     |
       |targetName           |target_name        |
 
-#  Scenario Outline: New Treatment Arm with undefined fields should pass
-#  Scenario Outline: Update Treatment Arm with empty unrequired field should pass
-#  Scenario Outline: Update Treatment Arm with unrequired field: null should pass
+#  Scenario Outline: New Treatment Arm should not take undefined fields
+#  Scenario Outline: Update Treatment Arm with unrequired field that has different kinds of value should pass
 #  Scenario Outline: Update Treatment Arm without unrequired field should pass
-#  Scenario Outline: Update Treatment Arm with special character in unrequired field should pass
 #  Scenario Outline: Update Treatment Arm with unrequired field which has improper data type values should fail
-#  Scenario Outline: Update Treatment Arm with undefined fields should pass
+#  Scenario Outline: Update Treatment Arm should not take undefined fields
