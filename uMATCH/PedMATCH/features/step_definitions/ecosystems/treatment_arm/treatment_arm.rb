@@ -5,8 +5,8 @@ require_relative '../../../support/helper_methods.rb'
 require_relative '../../../support/drug_obj.rb'
 
 
-When(/^the service \/version is called$/) do
-  @res=Helper_Methods.get_request(ENV['protocol']+'://'+ENV['treatment_arm_DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/version')
+When(/^the ta service \/version is called$/) do
+  @res=Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/version')
 end
 
 Then(/^the version "([^"]*)" is returned$/) do |arg1|
@@ -27,7 +27,7 @@ When(/^posted to MATCH newTreatmentArm$/) do
   "Unable to obtain lock to add/update the treatment arm."
   flag = false
   while flag == false
-    @response = Helper_Methods.post_request(ENV['protocol']+'://'+ENV['treatment_arm_DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/newTreatmentArm',@jsonString)
+    @response = Helper_Methods.post_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/newTreatmentArm',@jsonString)
     if (@response['message'] == "Unable to obtain lock to add/update the treatment arm.") or @response == nil?
     else
       flag = true
@@ -56,7 +56,7 @@ Then(/^a failure message is returned which contains: "([^"]*)"$/) do |string|
 end
 
 Then(/^the treatmentArmStatus field has a value "([^"]*)" for the ta "([^"]*)"$/) do |status, taId|
-  @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['treatment_arm_DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>taId})
+  @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>taId})
   print "#{@response}\n"
   tas = JSON.parse(@response)
   tas.length.should > 0
@@ -82,7 +82,7 @@ Then(/^the treatment arm: "([^"]*)" return from database has correct version: "(
   expectDrugID = "Drug ID is #{expectDrug.drugId}"
   expectDrugName = "Drug Name is #{expectDrug.drugName}"
 
-  @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['treatment_arm_DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id})
+  @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id})
   tas = JSON.parse(@response)
   returnedtTASize = tas.length.should > 0
   foundCorrectResult = false
@@ -112,7 +112,7 @@ Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from A
   if id == 'saved_id'
     id = @savedTAID
   end
-  @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['treatment_arm_DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id})
+  @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id})
   tas = JSON.parse(@response)
   returnedtTASize = "Returned treatment arms count is #{tas.length}"
   returnedtTASize.should_not == 'Returned treatment arms count is 0'
@@ -132,7 +132,7 @@ Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from A
   if id == 'saved_id'
     id = @savedTAID
   end
-  @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['treatment_arm_DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id})
+  @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id})
   tas = JSON.parse(@response)
   returnedtTASize = "Returned treatment arms count is #{tas.length}"
   returnedtTASize.should_not == 'Returned treatment arms count is 0'
@@ -155,7 +155,7 @@ Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" should return
   if id == 'saved_id'
     id = @savedTAID
   end
-  @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['treatment_arm_DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id})
+  @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id})
   tas = JSON.parse(@response)
   matchItems = 0
   tas.each do |child|

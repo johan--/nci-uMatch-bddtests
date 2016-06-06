@@ -1,4 +1,4 @@
-@patients
+
 Feature: Register a new patient in PEDMatchbox
 
   Scenario Outline: Successfully register a patient in MATCH
