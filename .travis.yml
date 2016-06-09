@@ -11,7 +11,7 @@ before_install:
 script:
   # - pwd;cd uMATCH/PedMATCH; bundle exec cucumber --tags @demo
   # - cd uMATCH/PedMATCH; bundle exec cucumber --tags $CUC_TAG
-  - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG --format pretty' -n 4*
+  - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG --format pretty' -n 4
   # - bundle exec cucumber --tags @EndtoEnd
   # - cd ../..;pwd;ls;./trigger_bddtests.sh
 after_success:
