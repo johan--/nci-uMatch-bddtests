@@ -2,6 +2,7 @@
 require 'rspec'
 require 'json'
 require_relative '../../../support/helper_methods.rb'
+require_relative '../../../support/treatment_arm_helper'
 require_relative '../../../support/drug_obj.rb'
 
 
