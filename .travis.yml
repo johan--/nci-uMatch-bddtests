@@ -10,7 +10,7 @@ before_install:
   - docker pull $TRIGGER_REPO
 before_script:
   - cd DeleteScript
-  - dynamo_delete_script.rb -p _test -a $AWS_ACCESS_KEY_ID -s $AWS_SECRET_ACCESS_KEY -e 'https://dynamodb.us-east-1.amazonaws.com' -r us-east-1
+  - ./dynamo_delete_script.rb -p _test -a $AWS_ACCESS_KEY_ID -s $AWS_SECRET_ACCESS_KEY -e 'https://dynamodb.us-east-1.amazonaws.com' -r us-east-1
   - cd ..
 script:
   # - pwd;cd uMATCH/PedMATCH; bundle exec cucumber --tags @demo
