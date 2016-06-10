@@ -9,6 +9,10 @@ gem 'mongo', '~>2.0'
 
 gem 'rest-client', '~>1.8.0'
 
+gem 'aws-sdk', '~>2.3.12'
+
+gem 'java-properties', '=0.1.1'
+
 group :test, :development do
   gem 'cucumber', '2.0.0'
   gem "rspec-rails"
