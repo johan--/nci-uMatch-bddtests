@@ -27,5 +27,9 @@ Given(/^that a specimen is received from NCH with received date older collection
 end
 
 Given(/^specimen is received for "([^"]*)" for type "([^"]*)"$/) do |psn, type|
-  @request = Patient_helper_methods.create_new_specimen_received_message(psn, type)
+  @request = Patient_helper_methods.create_new_specimen_received_message(psn, type, 'current')
+end
+
+And(/^specimen is received for "([^"]*)" for type "([^"]*)" with older dates$/) do |patient_id, type|
+  @request = Patient_helper_methods.create_new_specimen_received_message(patient_id, type, 'a few days older')
 end

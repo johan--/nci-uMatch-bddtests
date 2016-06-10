@@ -45,8 +45,8 @@ class Patient_helper_methods
     return msgHash.to_json
   end
 
-  def Patient_helper_methods.create_new_specimen_received_message(psn,type)
-    dateCreated = Helper_Methods.getDateAsRequired('current')
+  def Patient_helper_methods.create_new_specimen_received_message(psn,type,datePreference)
+    dateCreated = Helper_Methods.getDateAsRequired(datePreference)
 
     header_hash = {"msg_guid"=>"0f8fad5b-d9cb-469f-al65-80067728950e",
                   "msg_dttm"=>dateCreated
@@ -77,13 +77,21 @@ class Patient_helper_methods
 
   def Patient_helper_methods.create_assay_order_message(params={})
     msgHash = JSON.parse(params['msg'])
-    if !params['orderDate'].nil?
-      @reportedDate = Helper_Methods.getDateAsRequired(params['orderDate'])
-      msgHash['orderDate'] = @reportedDate
+    if !params['ordered_date'].nil?
+      @reportedDate = Helper_Methods.getDateAsRequired(params['ordered_date'])
+      msgHash['ordered_date'] = @reportedDate
     end
     return msgHash.to_json
   end
 
+  def Patient_helper_methods.create_assay_result_message(params={})
+    msgHash = JSON.parse(params['msg'])
+    if !params['reported_date'].nil?
+      @reportedDate = Helper_Methods.getDateAsRequired(params['reported_date'])
+      msgHash['reported_date'] = @reportedDate
+    end
+    return msgHash.to_json
+  end
 end
 
 
