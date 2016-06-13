@@ -9,14 +9,15 @@ before_install:
   - echo $CUC_TAG
   - docker pull $TRIGGER_REPO
 before_script:
-  # - cd DeleteScript
-  # - ./dynamo_delete_script.rb -p _test -a $AWS_ACCESS_KEY_ID -s $AWS_SECRET_ACCESS_KEY -e 'https://dynamodb.us-east-1.amazonaws.com' -r us-east-1
-  # - cd ..
+  - cd DeleteScript
+  - ./dynamo_delete_script.rb -p _test -a $AWS_ACCESS_KEY_ID -s $AWS_SECRET_ACCESS_KEY -e 'https://dynamodb.us-east-1.amazonaws.com' -r us-east-1
+  - cd ..
 script:
   # - pwd;cd uMATCH/PedMATCH; bundle exec cucumber --tags @demo
   # - cd uMATCH/PedMATCH; bundle exec cucumber --tags $CUC_TAG
   - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG --format pretty' -n 4
   # - bundle exec cucumber --tags @EndtoEnd
+  # - step 3 UI 
   # - cd ../..;pwd;ls;./trigger_bddtests.sh
 after_success:
   # - docker images
