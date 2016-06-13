@@ -113,7 +113,7 @@ Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from A
   correctTA = findTheOnlyMatchTAResultFromResponse(id, version)
 
   expectFieldResult = "#{field} is #{value}"
-  returnedResult = "#{field} is #{correctTA[0][field]}"
+  returnedResult = "#{field} is #{correctTA[field]}"
   returnedResult.should == expectFieldResult
 end
 
@@ -153,7 +153,7 @@ Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from A
   returnedResult = DateTime.parse(correctTA['date_created']).to_i
   timeDiff = currentTime - returnedResult
   timeDiff.should >=0
-  timeDiff.should <=5
+  timeDiff.should <=6
 end
 
 And(/^set template json field: "([^"]*)" to string value: "([^"]*)"$/) do |field, sValue|
@@ -235,6 +235,7 @@ def loadTemplateJson()
 end
 
 def findTheOnlyMatchTAResultFromResponse(id, version)
+  sleep(0.5)
   convertedID = id=='saved_id'?@savedTAID:id
   @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>convertedID})
 
