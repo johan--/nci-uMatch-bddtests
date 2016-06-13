@@ -66,13 +66,24 @@ class DynamoDb
     @client.list_tables.table_names
   end
 
-  def clear_tables_by_prefix
+  def select_tables
     regex = Regexp.new(@prefix)
-    table_list = list_tables.select { |table| table.match(regex)}
+    list_tables.select { |table| table.match(regex)}
+  end
 
-    LOG.log "Tables being cleared: \n#{table_list}", 'INFO'
-    table_list.each do |table|
-      @client.delete_table({table_name: table})
+  def clear_tables_by_prefix
+    while select_tables.size > 0
+      begin
+	table_list = select_tables
+        LOG.log "Tables being cleared: \n#{table_list}", 'INFO'
+        table_list.each do |table|
+          @client.delete_table({table_name: table})
+        end
+      rescue => e
+        LOG.log("Delete Process Terminated. Resetting the delete process", 'WARN')
+        sleep(10)
+      end
+        
     end
   end
 end
