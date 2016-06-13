@@ -62,4 +62,54 @@ class Treatment_arm_helper
     @treatmentArm = JSON(IO.read('./features/support/validPedMATCHTreatmentArmRequestTemplate.json'))
     return @treatmentArm
   end
+
+  def Treatment_arm_helper.addDrug(drugName, drugPathway, drugId)
+    if drugName == 'null'
+      drugName = nil
+    end
+    if drugPathway == 'null'
+      drugPathway = nil
+    end
+    if drugId == 'null'
+      drugId = nil
+    end
+    @treatmentArm['treatmentArmDrugs'].push({"drugId"=>drugId, "name"=>drugName, "pathway"=>drugPathway})
+    return @treatmentArm
+  end
+
+  def Treatment_arm_helper.addPedMATCHExclusionDrug(drugName, drugId)
+    if drugName == 'null'
+      drugName = nil
+    end
+    if drugId == 'null'
+      drugId = nil
+    end
+    @treatmentArm['exclusionDrugs'].push({"drugs"=>[{"drugId"=>drugId, "name"=>drugName}]})   #use the next line instead of this one when new "exclusionDrugs" field is available
+    # @treatmentArm['exclusionDrugs'].push({"drugId"=>drugId, "name"=>drugName})
+    return @treatmentArm
+  end
+
+  def Treatment_arm_helper.findResultsFromResponseUsingVersion(treatmentArmResponse, version)
+    result = Array.new
+    tas = JSON.parse(treatmentArmResponse)
+    tas.each do |child|
+      if child['version'] == version
+        result.push(child)
+      end
+    end
+    return result
+  end
+
+  def Treatment_arm_helper.findDrugsFromJson(treatmentArmJson, drugName, drugPathway, drugId)
+    result = Array.new
+    treatmentArmJson['treatment_arm_drugs'].each do |thisDrug|
+      isThis = thisDrug['name'] == drugName
+      isThis = isThis && thisDrug['pathway'] == drugPathway
+      isThis = isThis && thisDrug['drug_id'] == drugId
+      if isThis
+        result.push(thisDrug)
+      end
+    end
+    return result
+  end
 end

@@ -119,3 +119,24 @@ Feature: Treatment Arm API Tests that focus on Unrequired fields
       |newInt       |25           |int            |
       |newFloat     |4.593        |float          |
       |newBool      |false        |bool           |
+
+  Scenario: New Treatment Arm with "dateCreated" field should fail
+    Given template json with a new unique id
+    Then set template json field: "dateCreated" to string value: "2016-02-23T16:46:08.911Z"
+    When posted to MATCH newTreatmentArm
+    Then a failure message is returned which contains: "Validation failed"
+
+  Scenario: Update Treatment Arm with "dateCreated" field should fail
+    Given template json with a new unique id
+    When posted to MATCH newTreatmentArm
+    Then success message is returned:
+    Then set template json field: "dateCreated" to string value: "2016-02-23T16:46:08.911Z"
+    When posted to MATCH newTreatmentArm
+    Then a failure message is returned which contains: "Validation failed"
+
+  Scenario: "dateCreated" value can be generated properly
+    Given template json with a new unique id
+    And set template json field: "version" to string value: "2016-06-03"
+    When posted to MATCH newTreatmentArm
+    Then success message is returned:
+    Then the treatment arm with id: "saved_id" and version: "2016-06-03" return from API has correct dateCreated value

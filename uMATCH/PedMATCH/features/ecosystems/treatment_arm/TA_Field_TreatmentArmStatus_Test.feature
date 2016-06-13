@@ -36,8 +36,20 @@ Feature: Treatment Arm API Tests that focus on "treatmentArmStatus" field
 
 
 #There should have a new service to update treatmentArmStatus
-#  Scenario: Existing Treatment Arm with "treatmentArmStatus": CLOSED can not be updated anymore
-#  Scenario: Update Treatment Arm should have properly updated "statusLog" field
+  Scenario Outline: Existing Treatment Arm with "treatmentArmStatus": CLOSED can not be updated anymore
+    Given template json with a new unique id
+    When posted to MATCH newTreatmentArm
+    Then success message is returned:
+    When post to MATCH treatmentArmClosed
+    Then success message is returned:
+    Then set template json field: "<field>" to value: "<value>" in type: "<type>"
+    Then posted to MATCH newTreatmentArm
+    Then a failure message is returned which contains: "<error_message>"
+    Examples:
+      |field                |value                |type                   |error_message                                              |
+      |version              |2016-06-30           |string                 |Validation failed.                                         |
+
+#  Scenario: Update Treatment Arm should have properly generated "statusLog" field
 #  Scenario Outline: Update Treatment Arm with invalid "treatmentArmStatus" value should fail
 #    Given template json with a new unique id
 #    When posted to MATCH newTreatmentArm
@@ -53,46 +65,42 @@ Feature: Treatment Arm API Tests that focus on "treatmentArmStatus" field
 #      |         |Validation failed.       |
 #      |32       |Validation failed.       |
 #
-#  Scenario: Existing Treatment Arm with "treatmentArmStatus": OPEN can be updated to SUSPENDED
-#    Given template json with a new unique id
-#    When posted to MATCH newTreatmentArm
-#    Then success message is returned:
-#    Then set template json field: "version" to string value: "V0000002"
-#    And set template json field: "treatmentArmStatus" to string value: "SUSPENDED"
-#    When posted to MATCH newTreatmentArm
-#    Then success message is returned:
+  Scenario: Existing Treatment Arm with "treatmentArmStatus": OPEN can be updated to SUSPENDED
+    Given template json with a new unique id
+    Then set template json field: "version" to string value: "2016-06-30"
+    When posted to MATCH newTreatmentArm
+    Then success message is returned:
+    When post to MATCH treatmentArmSuspended
+    Then success message is returned:
+    Then the treatment arm with id: "saved_id" and version: "2016-06-30" return from API has value: "SUSPENDED" in field: "treatment_arm_status"
+
+  Scenario: Existing Treatment Arm with "treatmentArmStatus": SUSPENDED can be updated to OPEN
+    Given template json with a new unique id
+    Then set template json field: "version" to string value: "2016-06-30"
+    When posted to MATCH newTreatmentArm
+    Then success message is returned:
+    When post to MATCH treatmentArmSuspended
+    Then success message is returned:
+    When post to MATCH treatmentArmOpen
+    Then success message is returned:
+    Then the treatment arm with id: "saved_id" and version: "2016-06-30" return from API has value: "OPEN" in field: "treatment_arm_status"
 #
-#  Scenario: Existing Treatment Arm with "treatmentArmStatus": SUSPENDED can be updated to OPEN
-#    Given template json with a new unique id
-#    When posted to MATCH newTreatmentArm
-#    Then success message is returned:
-#    Then set template json field: "version" to string value: "V0000002"
-#    And set template json field: "treatmentArmStatus" to string value: "SUSPENDED"
-#    When posted to MATCH newTreatmentArm
-#    Then success message is returned:
-#    Then set template json field: "version" to string value: "V0000003"
-#    And set template json field: "treatmentArmStatus" to string value: "OPEN"
-#    When posted to MATCH newTreatmentArm
-#    Then success message is returned:
+  Scenario: Existing Treatment Arm with "treatmentArmStatus": OPEN can be updated to CLOSED
+    Given template json with a new unique id
+    Then set template json field: "version" to string value: "2016-06-30"
+    When posted to MATCH newTreatmentArm
+    Then success message is returned:
+    When post to MATCH treatmentArmClosed
+    Then success message is returned:
+    Then the treatment arm with id: "saved_id" and version: "2016-06-30" return from API has value: "CLOSED" in field: "treatment_arm_status"
 #
-#  Scenario: Existing Treatment Arm with "treatmentArmStatus": OPEN can be updated to CLOSED
-#    Given template json with a new unique id
-#    When posted to MATCH newTreatmentArm
-#    Then success message is returned:
-#    Then set template json field: "version" to string value: "V0000002"
-#    And set template json field: "treatmentArmStatus" to string value: "CLOSED"
-#    When posted to MATCH newTreatmentArm
-#    Then success message is returned:
-#
-#  Scenario: Existing Treatment Arm with "treatmentArmStatus": SUSPENDED can be updated to CLOSED
-#    Given template json with a new unique id
-#    When posted to MATCH newTreatmentArm
-#    Then success message is returned:
-#    Then set template json field: "version" to string value: "V0000002"
-#    And set template json field: "treatmentArmStatus" to string value: "SUSPENDED"
-#    When posted to MATCH newTreatmentArm
-#    Then success message is returned:
-#    Then set template json field: "version" to string value: "V0000003"
-#    And set template json field: "treatmentArmStatus" to string value: "CLOSED"
-#    When posted to MATCH newTreatmentArm
-#    Then success message is returned:
+  Scenario: Existing Treatment Arm with "treatmentArmStatus": SUSPENDED can be updated to CLOSED
+    Given template json with a new unique id
+    Then set template json field: "version" to string value: "2016-06-30"
+    When posted to MATCH newTreatmentArm
+    Then success message is returned:
+    When post to MATCH treatmentArmSuspended
+    Then success message is returned:
+    When post to MATCH treatmentArmClosed
+    Then success message is returned:
+    Then the treatment arm with id: "saved_id" and version: "2016-06-30" return from API has value: "CLOSED" in field: "treatment_arm_status"

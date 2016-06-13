@@ -29,13 +29,13 @@ Feature: Treatment Arm API Tests that focus on "id" field
     Then success message is returned:
     Then the treatment arm with id: "<encoded_id>" and version: "2016-06-03" should return from database
     Examples:
-    |id                     |encoded_id                           |
-    |TA_BDDTESTs_@*$%sdga#  |TA_BDDTESTs_%40*%24%25sdga%23        |
-    |TA_BDDTESTs_!^&*()-_+= |TA_BDDTESTs_!%5E%26*()-_%2B%3D       |
-    |TA_BDDTESTs_{}[]\/?    |TA_BDDTESTs_%7B%7D%5B%5D%5C%2F%3F    |
-    |TA_BDDTESTs_;'<>,      |TA_BDDTESTs_%3B%27%3C%3E%2C          |
-    |TA_BDDTESTs_?Àü ī      |TA_BDDTESTs_%3F%C3%80%C3%BC%20%C4%AB |
-    |TA_BDDTESTs.id         |TA_BDDTESTs%2Eid                     |
+    |id                  |encoded_id                                  |
+    |APEC1621-@*$%sdga#  |APEC1621-%40*%24%25sdga%23                  |
+    |APEC1621-!^&*()-_+= |APEC1621-!%APEC1621-5E%26*()-_%2B%3D        |
+    |APEC1621-{}[]\/?    |APEC1621-%7B%7D%5B%5D%5C%2F%3F              |
+    |APEC1621-;'<>,      |APEC1621-%3B%27%3C%3E%2C                    |
+    |APEC1621-?Àü ī      |APEC1621-%3F%C3%80%C3%BC%20%C4%AB           |
+    |APEC1621.id         |APEC1621%2Eid                               |
 
   #if dot(.) cannot be used in URL, then id should not accept dot, then add this scenario:
   #Scenario: New Treatement Arm with dot "." in "id" field should fail

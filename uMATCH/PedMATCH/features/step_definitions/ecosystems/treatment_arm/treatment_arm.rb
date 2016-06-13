@@ -85,7 +85,7 @@ Then(/^the treatment arm: "([^"]*)" return from database has correct version: "(
 
   @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id})
   tas = JSON.parse(@response)
-  returnedtTASize = tas.length.should > 0
+  returnedTASize = tas.length.should > 0
   foundCorrectResult = false
   tas.each do |child|
     if child['version'] == version
@@ -110,69 +110,50 @@ Then(/^the treatment arm: "([^"]*)" return from database has correct version: "(
 end
 
 Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from API has value: "([^"]*)" in field: "([^"]*)"$/) do |id, version, value, field|
-  if id == 'saved_id'
-    id = @savedTAID
-  end
-  @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id})
-  tas = JSON.parse(@response)
-  returnedtTASize = "Returned treatment arms count is #{tas.length}"
-  returnedtTASize.should_not == 'Returned treatment arms count is 0'
-  foundCorrectResult = "Cannot find version #{version} in returned treatment arms"
+  correctTA = findTheOnlyMatchTAResultFromResponse(id, version)
+
   expectFieldResult = "#{field} is #{value}"
-  tas.each do |child|
-    if child['version'] == version
-      foundCorrectResult = version
-      returnedResult = "#{field} is #{child[field]}"
-      returnedResult.should == expectFieldResult
-    end
-  end
-  foundCorrectResult.should == version
+  returnedResult = "#{field} is #{correctTA[0][field]}"
+  returnedResult.should == expectFieldResult
 end
 
 Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from API should not have field: "([^"]*)"$/) do |id, version, field|
-  if id == 'saved_id'
-    id = @savedTAID
-  end
-  @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id})
-  tas = JSON.parse(@response)
-  returnedtTASize = "Returned treatment arms count is #{tas.length}"
-  returnedtTASize.should_not == 'Returned treatment arms count is 0'
-  foundCorrectResult = "Cannot find version #{version} in returned treatment arms"
+  correctTA = findTheOnlyMatchTAResultFromResponse(id, version)
+
   expectFieldResult = "#{field} doesn't exist"
-  tas.each do |child|
-    if child['version'] == version
-      foundCorrectResult = version
-      returnedResult = "#{field} doesn't exist"
-      if child.key?(field)
-        returnedResult = "#{field} exists"
-      end
-      returnedResult.should == expectFieldResult
-    end
+  returnedResult = expectFieldResult
+  if correctTA.key?(field)
+    returnedResult = "#{field} exists"
   end
-  foundCorrectResult.should == version
+  returnedResult.should == expectFieldResult
+end
+
+Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from API has "([^"]*)" drug \(name:"([^"]*)" pathway: "([^"]*)" and id: "([^"]*)"\)$/) do |id, version,times, drugName, drugPathway, drugId|
+  correctTA = findTheOnlyMatchTAResultFromResponse(id, version)
+
+  matchDrugs = Treatment_arm_helper.findDrugsFromJson(correctTA, drugName, drugPathway, drugId)
+  matchDrugs.length.should == times.to_i
 end
 
 Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" should return from database$/) do |id, version|
-  if id == 'saved_id'
-    id = @savedTAID
-  end
-  @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id})
-  tas = JSON.parse(@response)
-  matchItems = 0
-  tas.each do |child|
-    if child['version'] == version
-      matchItems += 1
-    end
-  end
-  returnedtTASize = "Returned treatment arms count is #{matchItems}"
-  returnedtTASize.should == 'Returned treatment arms count is 1'
+  findTheOnlyMatchTAResultFromResponse(id, version)
 end
 
 Given(/^template json with a new unique id$/) do
   loadTemplateJson()
-  @taReq['id'] = "TA_BDDTESTs_#{Time.now.to_i.to_s}"
+  @taReq['id'] = "APEC1621-#{Time.now.to_i.to_s}"
   @jsonString = @taReq.to_json.to_s
   @savedTAID = @taReq['id']
+end
+
+Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from API has correct dateCreated value$/) do |id, version|
+  correctTA = findTheOnlyMatchTAResultFromResponse(id, version)
+
+  currentTime = Time.now.utc.to_i
+  returnedResult = DateTime.parse(correctTA['date_created']).to_i
+  timeDiff = currentTime - returnedResult
+  timeDiff.should >=0
+  timeDiff.should <=5
 end
 
 And(/^set template json field: "([^"]*)" to string value: "([^"]*)"$/) do |field, sValue|
@@ -223,13 +204,6 @@ And(/^remove field: "([^"]*)" from template json$/) do |fieldName|
   @jsonString = @taReq.to_json.to_s
 end
 
-def loadTemplateJson()
-  unless @isTemplateJsonLoaded
-    @taReq = Treatment_arm_helper.validRquestJson()
-    @isTemplateJsonLoaded = true
-  end
-end
-
 And(/^clear list field: "([^"]*)" from template json$/) do |fieldName|
   loadTemplateJson()
   if @taReq[fieldName].kind_of?(Array)
@@ -240,28 +214,33 @@ end
 
 And(/^add drug with name: "([^"]*)" pathway: "([^"]*)" and id: "([^"]*)" to template json$/) do |drugName, drugPathway, drugId|
   loadTemplateJson()
-  if drugName == 'null'
-    drugName = nil
-  end
-  if drugPathway == 'null'
-    drugPathway = nil
-  end
-  if drugId == 'null'
-    drugId = nil
-  end
-  @taReq['treatmentArmDrugs'].push({"drugId"=>drugId, "name"=>drugName, "pathway"=>drugPathway})
+  @taReq = Treatment_arm_helper.addDrug(drugName, drugPathway, drugId)
   @jsonString = @taReq.to_json.to_s
 end
 
-And(/^add exclusion drug with name: "([^"]*)" and id: "([^"]*)" to template json$/) do |drugName, drugId|
+And(/^add PedMATCH exclusion drug with name: "([^"]*)" and id: "([^"]*)" to template json$/) do |drugName, drugId|
   loadTemplateJson()
-  if drugName == 'null'
-    drugName = nil
-  end
-  if drugId == 'null'
-    drugId = nil
-  end
-  @taReq['exclusionDrugs'].push({"drugs"=>[{"drugId"=>drugId, "name"=>drugName}]})
+  @taReq = Treatment_arm_helper.addPedMATCHExclusionDrug(drugName, drugId)
   @jsonString = @taReq.to_json.to_s
+end
+
+
+
+
+def loadTemplateJson()
+  unless @isTemplateJsonLoaded
+    @taReq = Treatment_arm_helper.validRquestJson()
+    @isTemplateJsonLoaded = true
+  end
+end
+
+def findTheOnlyMatchTAResultFromResponse(id, version)
+  convertedID = id=='saved_id'?@savedTAID:id
+  @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>convertedID})
+
+  tas = Treatment_arm_helper.findResultsFromResponseUsingVersion(@response, version)
+  returnedTASize = "Returned treatment arm count is #{tas.length}"
+  returnedTASize.should == 'Returned treatment arm count is 1'
+  return tas[0]
 end
 
