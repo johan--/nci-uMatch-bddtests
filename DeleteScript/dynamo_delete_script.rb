@@ -72,18 +72,18 @@ class DynamoDb
   end
 
   def clear_tables_by_prefix
-    while select_tables.size > 0
-      begin
-	table_list = select_tables
-        LOG.log "Tables being cleared: \n#{table_list}", 'INFO'
-        table_list.each do |table|
-          @client.delete_table({table_name: table})
-        end
-      rescue => e
-        LOG.log("Delete Process Terminated. Resetting the delete process", 'WARN')
-        sleep(10)
+    begin
+      table_list = select_tables
+      LOG.log "Tables being cleared: \n#{table_list}", 'INFO'
+      table_list.each do |table|
+        LOG.log("Sending delete Request for #{table}", 'INFO')
+        @client.delete_table({table_name: table})
+        sleep(1)
       end
-        
+    rescue
+      LOG.log("Delete Process Terminated. Resetting the delete process", 'WARN')
+      sleep(10)
+      retry
     end
   end
 end
@@ -91,7 +91,7 @@ end
 class LOG
   def self.log(msg, level)
     print_message = msg if level == 'INFO'
-    print_message = "#{3.times {puts "***************************************************************************"}}#{msg}" if level =='WARN'
+    print_message = "************************************** WARNING *************************************\n#{msg}" if level =='WARN'
     puts print_message
     puts "***************************************************************************"
   end
