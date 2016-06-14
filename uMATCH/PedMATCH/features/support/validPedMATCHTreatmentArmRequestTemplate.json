@@ -1,6 +1,6 @@
 {
   "id" : "APEC1621-T",
-  "study_id" : "APEC1621",
+  "studyId" : "APEC1621",
   "name" : "Afatinib in EGFR activating",
   "version" : "2012-05-23",
   "description" : "Afatinib in EGFR activating mutation",
@@ -152,7 +152,7 @@
         "description" : "p.G719S",
         "rare" : false,
         "levelOfEvidence" : 2,
-        "inclusion" : true,
+        "inclusion" : false,
         "armSpecific" : false
       },
       {
@@ -170,7 +170,7 @@
         "rare" : false,
         "levelOfEvidence" : 2,
         "inclusion" : true,
-        "armSpecific" : false
+        "armSpecific" : true
       },
       {
         "confirmed" : false,
@@ -963,8 +963,68 @@
         "armSpecific" : false
       }
     ],
-    "copyNumberVariants" : [],
-    "geneFusions" : [],
+    "copyNumberVariants" : [
+      {
+        "refCopyNumber" : 0.0,
+        "rawCopyNumber" : 0.0,
+        "copyNumber" : 0.0,
+        "confidenceInterval95percent" : 0.0,
+        "confidenceInterval5percent" : 0.0,
+        "confirmed" : false,
+        "publicMedIds" : [
+          "3798106"
+        ],
+        "geneName" : "ERBB2",
+        "identifier" : "ERBB2",
+        "description" : "ERBB2 Amplification",
+        "rare" : false,
+        "levelOfEvidence" : 2.0,
+        "inclusion" : true,
+        "armSpecific" : false
+      },
+      {
+        "refCopyNumber" : 0.0,
+        "rawCopyNumber" : 0.0,
+        "copyNumber" : 0.0,
+        "confidenceInterval95percent" : 0.0,
+        "confidenceInterval5percent" : 0.0,
+        "confirmed" : false,
+        "geneName" : "FGFR3",
+        "identifier" : "FGFR3",
+        "description" : "FGFR1/2/3/4 Amplification and activating mutations",
+        "rare" : false,
+        "levelOfEvidence" : 2.0,
+        "inclusion" : false,
+        "armSpecific" : false
+      }
+    ],
+    "geneFusions" : [
+      {
+        "confirmed" : false,
+        "publicMedIds" : [
+          "23777544"
+        ],
+        "geneName" : "EGFR",
+        "identifier" : "EGFR.DelPositive.E1E8",
+        "description" : "EGFR.DelPositive.E1E8",
+        "rare" : false,
+        "levelOfEvidence" : 1.0,
+        "inclusion" : true,
+        "armSpecific" : false
+      },
+      {
+        "confirmed" : false,
+        "geneName" : "FGFR2",
+        "identifier" : "FGFR2-OFD1.F17O3",
+        "reference" : "C",
+        "alternative" : "C[chrX:13754596[",
+        "description" : "some description",
+        "rare" : false,
+        "levelOfEvidence" : 3.0,
+        "inclusion" : false,
+        "armSpecific" : false
+      }
+    ],
     "unifiedGeneFusions" : [],
     "nonHotspotRules" : [
       {
