@@ -357,7 +357,7 @@
         "description" : "p.E754_A758del",
         "rare" : false,
         "levelOfEvidence" : 1,
-        "inclusion" : true,
+        "inclusion" : false,
         "armSpecific" : false
       },
       {
@@ -371,7 +371,7 @@
         "description" : "p.E746_T751delinsI",
         "rare" : false,
         "levelOfEvidence" : 1,
-        "inclusion" : true,
+        "inclusion" : false,
         "armSpecific" : false
       },
       {
@@ -427,7 +427,7 @@
         "description" : "p.E746_S752del",
         "rare" : false,
         "levelOfEvidence" : 1,
-        "inclusion" : true,
+        "inclusion" : false,
         "armSpecific" : false
       },
       {
