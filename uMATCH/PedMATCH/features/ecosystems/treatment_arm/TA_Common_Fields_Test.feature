@@ -1,7 +1,7 @@
 #encoding: utf-8
 
 @treatment_arm
-Feature: Treatment Arm API Tests that focus on Unrequired fields
+Feature: Treatment Arm API common tests for all fields
 
   Scenario Outline: New Treatment Arm with unrequired field that has different kinds of value should pass
     Given template json with a new unique id
