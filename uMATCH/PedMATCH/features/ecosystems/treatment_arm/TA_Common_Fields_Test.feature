@@ -3,6 +3,11 @@
 @treatment_arm
 Feature: Treatment Arm API common tests for all fields
 
+  Scenario: New Treatment Arm happy test
+    Given template json with a new unique id
+    When posted to MATCH newTreatmentArm
+    Then success message is returned:
+
   Scenario Outline: New Treatment Arm with unrequired field that has different kinds of value should pass
     Given template json with a new unique id
     And set template json field: "<field>" to string value: "<value>"
