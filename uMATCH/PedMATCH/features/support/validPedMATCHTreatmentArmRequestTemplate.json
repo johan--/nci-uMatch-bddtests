@@ -113,7 +113,13 @@
     }
   ],
   "exclusionCriterias" : [],
-  "ptenResults" : [],
+  "ptenResults" : [
+    {
+      "ptenIhcResult": "POSITIVE",
+      "ptenVariant": "PRESENT",
+      "description": null
+    }
+  ],
   "numPatientsAssigned" : 0,
 //  "maxPatientsAllowed" : 35,
   "treatmentArmStatus" : "OPEN",
@@ -291,6 +297,7 @@
         "armSpecific" : false
       },
       {
+        "type" : "id",
         "confirmed" : false,
         "geneName" : "EGFR",
         "chromosome" : "chr7",

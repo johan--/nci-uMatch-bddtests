@@ -154,6 +154,13 @@ Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from A
   timeDiff = currentTime - returnedResult
   timeDiff.should >=0
   timeDiff.should <=6
+  end
+
+Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from API has ptenResults \(ptenIhcResult: "([^"]*)", ptenVariant: "([^"]*)", description: "([^"]*)"\)$/) do |id, version, ptenIhcResult, ptenVariant, description|
+  correctTA = findTheOnlyMatchTAResultFromResponse(id, version)
+
+  matchPtenResults = Treatment_arm_helper.findPtenResultFromJson(correctTA, ptenIhcResult, ptenVariant, description)
+  matchPtenResults.length.should > 0
 end
 
 And(/^set template json field: "([^"]*)" to string value: "([^"]*)"$/) do |field, sValue|
@@ -215,6 +222,12 @@ end
 And(/^add drug with name: "([^"]*)" pathway: "([^"]*)" and id: "([^"]*)" to template json$/) do |drugName, drugPathway, drugId|
   loadTemplateJson()
   @taReq = Treatment_arm_helper.addDrug(drugName, drugPathway, drugId)
+  @jsonString = @taReq.to_json.to_s
+end
+
+Then(/^add ptenResult with ptenIhcResult: "([^"]*)", ptenVariant: "([^"]*)" and description: "([^"]*)"$/) do |ptenIhcResult, ptenVariant, description|
+  loadTemplateJson()
+  @taReq = Treatment_arm_helper.addPtenResult(ptenIhcResult, ptenVariant, description)
   @jsonString = @taReq.to_json.to_s
 end
 

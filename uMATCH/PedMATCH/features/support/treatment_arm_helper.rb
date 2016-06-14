@@ -100,6 +100,19 @@ class Treatment_arm_helper
     return result
   end
 
+  def Treatment_arm_helper.findPtenResultFromJson(treatmentArmJson, ptenIhcResult, ptenVariant, description)
+    result = Array.new
+    treatmentArmJson['pten_results'].each do |thisPten|
+      isThis = thisPten['pten_ihc_result'] == ptenIhcResult
+      isThis = isThis && thisPten['pten_variant'] == ptenVariant
+      isThis = isThis && thisPten['description'] == description
+      if isThis
+        result.push(thisPten)
+      end
+    end
+    return result
+  end
+
   def Treatment_arm_helper.findDrugsFromJson(treatmentArmJson, drugName, drugPathway, drugId)
     result = Array.new
     treatmentArmJson['treatment_arm_drugs'].each do |thisDrug|
@@ -112,4 +125,26 @@ class Treatment_arm_helper
     end
     return result
   end
+
+  def Treatment_arm_helper.addPtenResult(ptenIhcResult, ptenVariant, description)
+    if ptenIhcResult == 'null'
+      ptenIhcResult = nil
+    end
+    if ptenVariant == 'null'
+      ptenIhcResult = nil
+    end
+    if description == 'null'
+      ptenIhcResult = nil
+    end
+    @treatmentArm['ptenResults'].push({ "ptenIhcResult"=>ptenIhcResult, "ptenVariant"=>ptenVariant, "description"=>description})
+    return @treatmentArm
+  end
+
+  def Treatment_arm_helper.addVariant(variantType, variantJson)
+    va = JSON.parse(variantJson)
+    @treatmentArm['variantReport'][variantType].push(va)
+    return @treatmentArm
+  end
+
+
 end
