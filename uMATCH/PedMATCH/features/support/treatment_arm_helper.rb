@@ -152,7 +152,7 @@ class Treatment_arm_helper
     typedValue = case variantType
                    when 'snv' then
                      'single_nucleotide_variants'
-                   when 'indel' then
+                   when 'id' then
                      'indels'
                    when 'gf' then
                      'gene_fusions'
@@ -190,25 +190,90 @@ class Treatment_arm_helper
     return @treatmentArm
   end
 
-  def Treatment_arm_helper.templateSNV()
-    snv = {
-        "type"=>"snv",
-        "confirmed"=> false,
-        "publicMedIds"=>nil,
-        "geneName"=>"MTOR",
-        "chromosome"=>"1",
-        "position"=>"11184573",
-        "identifier"=>"COSM1686998",
-        "reference"=>"G",
-        "alternative"=>"A",
-        "description" =>"some description",
-        "rare"=>false,
-        "levelOfEvidence"=>1.0,
-        "inclusion"=>true,
-        "armSpecific"=>false
-    }
-    return snv
+  def Treatment_arm_helper.templateVariant(variantAbbr)
+    if variantAbbr == "snv"
+      result = {
+          "type"=>"snv",
+          "confirmed"=> false,
+          "publicMedIds"=>nil,
+          "geneName"=>"MTOR",
+          "chromosome"=>"1",
+          "position"=>"11184573",
+          "identifier"=>"COSM1686998",
+          "reference"=>"G",
+          "alternative"=>"A",
+          "description" =>"some description",
+          "rare"=>false,
+          "levelOfEvidence"=>1.0,
+          "inclusion"=>true,
+          "armSpecific"=>false
+      }
+      return result
+    end
+    if variantAbbr == "cnv"
+      result = {
+          "type"=>"cnv",
+          "refCopyNumber"=>0.0,
+          "rawCopyNumber"=>0.0,
+          "copyNumber"=>0.0,
+          "confidenceInterval95percent"=>0.0,
+          "confidenceInterval5percent"=>0.0,
+          "confirmed"=> false,
+          "publicMedIds"=>nil,
+          "geneName"=>"MYCL",
+          "chromosome"=>"1",
+          "position"=>"40361592",
+          "identifier"=>"MYCL",
+          "reference"=>"A",
+          "alternative"=>"<CNV>",
+          "description" =>"MYCL transiocation",
+          "rare"=>false,
+          "levelOfEvidence"=>3.0,
+          "inclusion"=>true,
+          "armSpecific"=>false
+      }
+      return result
+    end
+    if variantAbbr == "gf"
+      result = {
+          "type"=>"gf",
+          "confirmed"=> false,
+          "publicMedIds"=>nil,
+          "geneName"=>"ALK",
+          "chromosome"=>"2",
+          "position"=>"29446394",
+          "identifier"=>"TPM3-ALK.T7A20",
+          "reference"=>"A",
+          "alternative"=>"[chr1:154142875[A",
+          "description" =>"ALK translocation",
+          "rare"=>false,
+          "levelOfEvidence"=>2.0,
+          "inclusion"=>true,
+          "armSpecific"=>false
+      }
+      return result
+    end
+    if variantAbbr == "id"
+      result = {
+          "type"=>"cnv",
+          "confirmed"=> false,
+          "publicMedIds"=>nil,
+          "geneName"=>"DNMT3A",
+          "chromosome"=>"2",
+          "position"=>"25463297",
+          "identifier"=>"COSM99742",
+          "reference"=>"AAAG",
+          "alternative"=>"A",
+          "description" =>"some description",
+          "rare"=>false,
+          "levelOfEvidence"=>3.0,
+          "inclusion"=>true,
+          "armSpecific"=>false
+      }
+      return result
+    end
   end
 
 
 end
+
