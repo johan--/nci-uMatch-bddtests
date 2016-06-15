@@ -102,10 +102,19 @@ class Treatment_arm_helper
 
   def Treatment_arm_helper.findPtenResultFromJson(treatmentArmJson, ptenIhcResult, ptenVariant, description)
     result = Array.new
+    if ptenIhcResult == 'null'
+      ptenIhcResult = nil
+    end
+    if ptenVariant == 'null'
+      ptenIhcResult = nil
+    end
+    if description == 'null'
+      ptenIhcResult = nil
+    end
     treatmentArmJson['pten_results'].each do |thisPten|
       isThis = thisPten['pten_ihc_result'] == ptenIhcResult
-      isThis = isThis && thisPten['pten_variant'] == ptenVariant
-      isThis = isThis && thisPten['description'] == description
+      isThis = isThis && (thisPten['pten_variant'] == ptenVariant)
+      isThis = isThis && (thisPten['description'] == description)
       if isThis
         result.push(thisPten)
       end
@@ -115,12 +124,47 @@ class Treatment_arm_helper
 
   def Treatment_arm_helper.findDrugsFromJson(treatmentArmJson, drugName, drugPathway, drugId)
     result = Array.new
+    if drugName == 'null'
+      drugName = nil
+    end
+    if drugPathway == 'null'
+      drugPathway = nil
+    end
+    if drugId == 'null'
+      drugId = nil
+    end
     treatmentArmJson['treatment_arm_drugs'].each do |thisDrug|
       isThis = thisDrug['name'] == drugName
-      isThis = isThis && thisDrug['pathway'] == drugPathway
-      isThis = isThis && thisDrug['drug_id'] == drugId
+      isThis = isThis && (thisDrug['pathway'] == drugPathway)
+      isThis = isThis && (thisDrug['drug_id'] == drugId)
       if isThis
         result.push(thisDrug)
+      end
+    end
+    return result
+  end
+
+  def Treatment_arm_helper.findVariantFromJson(treatmentArmJson, variantType, variantId, variantField, variantValue)
+    result = Array.new
+    if variantValue == 'null'
+      variantValue = nil
+    end
+    typedValue = case variantType
+                   when 'snv' then
+                     'single_nucleotide_variants'
+                   when 'indel' then
+                     'indels'
+                   when 'gf' then
+                     'gene_fusions'
+                   when 'cnv' then
+                     'copy_number_variants'
+                 end
+    thisVariantList = treatmentArmJson['variant_report'][typedValue]
+    thisVariantList.each do |thisVariant|
+      if thisVariant['identifier'] == variantId
+        if thisVariant[variantField] == variantValue
+          result.push(thisVariant)
+        end
       end
     end
     return result
@@ -144,6 +188,26 @@ class Treatment_arm_helper
     va = JSON.parse(variantJson)
     @treatmentArm['variantReport'][variantType].push(va)
     return @treatmentArm
+  end
+
+  def Treatment_arm_helper.templateSNV()
+    snv = {
+        "type"=>"snv",
+        "confirmed"=> false,
+        "publicMedIds"=>nil,
+        "geneName"=>"MTOR",
+        "chromosome"=>"1",
+        "position"=>"11184573",
+        "identifier"=>"COSM1686998",
+        "reference"=>"G",
+        "alternative"=>"A",
+        "description" =>"some description",
+        "rare"=>false,
+        "levelOfEvidence"=>1.0,
+        "inclusion"=>true,
+        "armSpecific"=>false
+    }
+    return snv
   end
 
 

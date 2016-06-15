@@ -163,6 +163,13 @@ Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from A
   matchPtenResults.length.should > 0
 end
 
+Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from API has SNV variant \(id: "([^"]*)": "([^"]*)", value: "([^"]*)"\)$/) do |id, version, snvId, snvField, snvValue|
+  correctTA = findTheOnlyMatchTAResultFromResponse(id, version)
+
+  matchSNV = Treatment_arm_helper.findVariantFromJson(correctTA, 'snv', snvId, snvField, snvValue)
+  matchSNV.length.should == 1
+end
+
 And(/^set template json field: "([^"]*)" to string value: "([^"]*)"$/) do |field, sValue|
   if sValue == 'null'
     sValue = nil
@@ -237,6 +244,29 @@ And(/^add PedMATCH exclusion drug with name: "([^"]*)" and id: "([^"]*)" to temp
   @jsonString = @taReq.to_json.to_s
 end
 
+Then(/^clear template json's SNV$/) do
+  loadTemplateJson()
+  @taReq['variantReport']['singleNucleotideVariants'].clear()
+  @jsonString = @taReq.to_json.to_s
+end
+
+Then(/^create a template SNV$/) do
+  @preparedVariant = Treatment_arm_helper.templateSNV()
+end
+
+And(/^set template SNV variant field: "([^"]*)" to string value: "([^"]*)"$/) do |field, sValue|
+  @preparedVariant[field] = sValue
+end
+
+And(/^set template SNV variant field: "([^"]*)" to bool value: "([^"]*)"$/) do |field, bValue|
+  @preparedVariant[field] = bValue
+end
+
+Then(/^add template SNV to template json$/) do
+  loadTemplateJson()
+  @taReq['variantReport']['singleNucleotideVariants'].push(@preparedVariant)
+  @jsonString = @taReq.to_json.to_s
+end
 
 
 
