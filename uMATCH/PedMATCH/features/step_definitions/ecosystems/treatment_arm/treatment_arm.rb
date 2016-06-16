@@ -177,6 +177,14 @@ Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from A
   matchVariant.length.should == 1
 end
 
+Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from API has "([^"]*)" variant count:"([^"]*)"$/) do |id, version, variantType, count|
+  correctTA = findTheOnlyMatchTAResultFromResponse(id, version)
+
+
+  matchVariants = Treatment_arm_helper.getVariantListFromJson(correctTA, variantType)
+  matchVariants.length.should == count.to_i
+end
+
 And(/^set template json field: "([^"]*)" to string value: "([^"]*)"$/) do |field, sValue|
   if sValue == 'null'
     sValue = nil
@@ -193,13 +201,13 @@ And(/^set template json field: "([^"]*)" to value: "([^"]*)" in type: "([^"]*)"$
     value = nil
     @taReq[field] = value
   elsif (typedValue = case type
-                        when "string" then
+                        when 'string' then
                           value
-                        when "int" then
+                        when 'int' then
                           value.to_i
-                        when "bool" then
+                        when 'bool' then
                           value=='true'?true:false
-                        when "float" then
+                        when 'float' then
                           value.to_f
                       end)
   @taReq[field] = typedValue
@@ -305,14 +313,16 @@ end
 
 def convertVariantAbbrToFull(variantAbbr)
   result = case variantAbbr
-               when "snv" then
-                 "singleNucleotideVariants"
-               when "id" then
-                 "indels"
-               when "cnv" then
-                 "copyNumberVariants"
-               when "gf" then
-                 "geneFusions"
+             when 'snv' then
+               'singleNucleotideVariants'
+             when 'id' then
+               'indels'
+             when 'cnv' then
+               'copyNumberVariants'
+             when 'gf' then
+               'geneFusions'
+             when 'nhr' then
+               'nonHotspotRules'
            end
   return result
 end

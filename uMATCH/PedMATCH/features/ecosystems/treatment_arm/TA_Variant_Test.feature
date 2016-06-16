@@ -23,6 +23,8 @@ Feature: Treatment Arm API Tests that focus on Variants
     |gf           |CD74-ROS1.C6R34.COSF1200 |false            |
     |id           |COSM99742                |true             |
     |id           |COSM14067                |false            |
+    |nhr          |id0001                   |true             |
+    |nhr          |id0002                   |false            |
 
   Scenario Outline: Variant should return correct armSpecific value
     Given template json with a new unique id
@@ -45,6 +47,8 @@ Feature: Treatment Arm API Tests that focus on Variants
       |gf           |CCD74-ROS1.C6R34.COSF1200      |false        |
       |id           |COSM99742                      |true         |
       |id           |COSM14067                      |false        |
+      |nhr          |id0001                         |true         |
+      |nhr          |id0002                         |false        |
 
   Scenario Outline: Variant should return full publicMedIds list
     Given template json with a new unique id
@@ -67,6 +71,8 @@ Feature: Treatment Arm API Tests that focus on Variants
       |gf           |CCD74-ROS1.C6R34.COSF1200      |348,56,23454236534632         |
       |id           |COSM99742                      |431                           |
       |id           |COSM14067                      |3420952,43                    |
+      |nhr          |id0001                         |982,546,2436547,243           |
+      |nhr          |id0002                         |2,32,6,13                     |
 
   Scenario Outline: Treatment arm which contains variants in same type with same ID should fail
     Given template json with a new unique id
@@ -84,6 +90,7 @@ Feature: Treatment Arm API Tests that focus on Variants
       |cnv          |
       |gf           |
       |id           |
+      |nhr          |
     
   Scenario Outline: Treatment arm which contains variant without ID should fail
     Given template json with a new unique id
@@ -100,25 +107,26 @@ Feature: Treatment Arm API Tests that focus on Variants
       |gf           |
       |id           |
   
-  Scenario Outline: Variant with Hotspot Oncomine Variant Class value should pass
+  Scenario Outline: Variant with valid Oncomine Variant Class value should pass
     Given template json with a new unique id
     Then set template json field: "version" to string value: "2016-06-03"
     Then clear template json's variant: "<variantType>" list
     Then create a template variant: "<variantType>"
     And set template variant field: "identifier" to string value: "<identifier>"
-    And set template variant field: "oncominevariantclass" to bool value: "hotspot"
+    And set template variant field: "oncominevariantclass" to bool value: "<ovcValue>"
     And add template variant: "<variantType>" to template json
     When posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then the treatment arm with id: "saved_id" and version: "2016-06-03" return from API has "<variantType>" variant (id: "<identifier>", field: "oncominevariantclass", value: "hotspot")
+    Then the treatment arm with id: "saved_id" and version: "2016-06-03" return from API has "<variantType>" variant (id: "<identifier>", field: "oncominevariantclass", value: "<ovcValue>")
     Examples:
-      |variantType  |identifier             |
-      |snv          |COSM1686998            |
-      |snv          |COSM583                |
-      |cnv          |MYCL                   |
-      |cnv          |MET                    |
+      |variantType  |identifier             |ovcValue             |
+      |snv          |COSM1686998            |hotspot              |
+      |cnv          |COSM583                |hotspot              |
+      |gf           |MYCL                   |fusion               |
+      |id           |MET                    |hotspot              |
+      |nhr          |id0001                 |deleterious          |
 
-  Scenario Outline: Variant with non-Hotspot Oncomine Variant Class value should fail
+  Scenario Outline: Variant with invalid Oncomine Variant Class value should fail
     Given template json with a new unique id
     Then clear template json's variant: "<variantType>" list
     Then create a template variant: "<variantType>"
@@ -132,6 +140,8 @@ Feature: Treatment Arm API Tests that focus on Variants
       |cnv          |other                            |
       |gf           |*&@xx                            |
       |id           |other                            |
+      |nhr          |fusion                           |
+      |nhr          |hotspot                          |
 
   Scenario Outline: Variant with invalid type value should fail
     Given template json with a new unique id
@@ -147,5 +157,60 @@ Feature: Treatment Arm API Tests that focus on Variants
       |cnv          |gf                               |
       |gf           |id                               |
       |id           |nhr                              |
-      |snv          |noAType                          |
-      |cnv          |@NT$N                            |
+      |nhr          |noAType                          |
+      |snv          |@NT$N                            |
+
+  Scenario: Duplicated Non-Hotspot Rules will be ignored
+    Given template json with a new unique id
+    Then set template json field: "version" to string value: "2016-06-03"
+    Then clear template json's variant: "nhr" list
+    Then create a template variant: "nhr"
+    And add template variant: "nhr" to template json
+    Then create a template variant: "nhr"
+    And add template variant: "nhr" to template json
+    When posted to MATCH newTreatmentArm
+    Then success message is returned:
+    Then the treatment arm with id: "saved_id" and version: "2016-06-03" return from API has "nhr" variant count:"1"
+
+
+  Scenario Outline: Non-Hotspot Rules with valid function value should pass
+    Given template json with a new unique id
+    Then set template json field: "version" to string value: "2016-06-03"
+    Then clear template json's variant: "nhr" list
+    Then create a template variant: "nhr"
+    And set template variant field: "identifier" to string value: "<identifier>"
+    And set template variant field: "function" to bool value: "<functionValue>"
+    And add template variant: "nhr" to template json
+    When posted to MATCH newTreatmentArm
+    Then success message is returned:
+    Then the treatment arm with id: "saved_id" and version: "2016-06-03" return from API has "nhr" variant (id: "<identifier>", field: "function", value: "<functionValue>")
+    Examples:
+      |identifier             |functionValue                    |
+      |id0001                 |refallele                        |
+      |id0002                 |unknown                          |
+      |id0003                 |missense                         |
+      |id0004                 |nonsense                         |
+      |id0005                 |frameshiftinsertion              |
+      |id0006                 |frameshiftdeletion               |
+      |id0007                 |nonframeshiftinsertion           |
+      |id0008                 |nonframeshiftdeletion            |
+      |id0009                 |stoploss                         |
+      |id0010                 |frameshiftblocksubstitution      |
+      |id0011                 |nonframeshiftblocksubstitution   |
+
+
+  Scenario Outline: Non-Hotspot Rules with invalid function value should fail
+    Given template json with a new unique id
+    Then set template json field: "version" to string value: "2016-06-03"
+    Then clear template json's variant: "nhr" list
+    Then create a template variant: "nhr"
+    And set template variant field: "identifier" to string value: "<identifier>"
+    And set template variant field: "function" to bool value: "<functionValue>"
+    And add template variant: "nhr" to template json
+    When posted to MATCH newTreatmentArm
+    Then a failure message is returned which contains: "Validation failed."
+    Examples:
+      |identifier             |functionValue                    |
+      |id0001                 |synonymous                       |
+      |id0002                 |unknown                          |
+      |id0003                 |*#$dfb                           |
