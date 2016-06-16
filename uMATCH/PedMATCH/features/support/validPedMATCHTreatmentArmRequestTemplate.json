@@ -4,7 +4,7 @@
   "name" : "Afatinib in EGFR activating",
   "version" : "2012-05-23",
   "description" : "Afatinib in EGFR activating mutation",
-  "targetId" : "750691",
+  "targetId" : 750691,
   "targetName" : "Afatinib",
   "gene" : "EGFR",
   "treatmentArmDrugs" : [
@@ -48,68 +48,36 @@
   ],
   "exclusionDrugs" : [
     {
-      "drugs" : [
-        {
-          "drugId" : "750691",
-          "name" : "Afatinib"
-        }
-      ]
+       "drugId" : "750691",
+       "name" : "Afatinib"
     },
     {
-      "drugs" : [
-        {
-          "drugId" : "",
-          "name" : "Erlotinib"
-        }
-      ]
+      "drugId" : "",
+      "name" : "Erlotinib"
     },
     {
-      "drugs" : [
-        {
-          "drugId" : "",
-          "name" : "Gefitinib"
-        }
-      ]
+      "drugId" : "",
+      "name" : "Gefitinib"
     },
     {
-      "drugs" : [
-        {
-          "drugId" : "",
-          "name" : "Neratinib"
-        }
-      ]
+      "drugId" : "",
+      "name" : "Neratinib"
     },
     {
-      "drugs" : [
-        {
-          "drugId" : "",
-          "name" : "Dacomitinib"
-        }
-      ]
+      "drugId" : "",
+      "name" : "Dacomitinib"
     },
     {
-      "drugs" : [
-        {
-          "drugId" : "781254",
-          "name" : "AZD9291"
-        }
-      ]
+      "drugId" : "781254",
+      "name" : "AZD9291"
     },
     {
-      "drugs" : [
-        {
-          "drugId" : "",
-          "name" : "Cabertinib"
-        }
-      ]
+      "drugId" : "",
+      "name" : "Cabertinib"
     },
     {
-      "drugs" : [
-        {
-          "drugId" : "",
-          "name" : "CO-1696"
-        }
-      ]
+      "drugId" : "",
+      "name" : "CO-1696"
     }
   ],
   "exclusionCriterias" : [],

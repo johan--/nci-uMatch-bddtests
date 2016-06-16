@@ -84,8 +84,8 @@ class Treatment_arm_helper
     if drugId == 'null'
       drugId = nil
     end
-    @treatmentArm['exclusionDrugs'].push({"drugs"=>[{"drugId"=>drugId, "name"=>drugName}]})   #use the next line instead of this one when new "exclusionDrugs" field is available
-    # @treatmentArm['exclusionDrugs'].push({"drugId"=>drugId, "name"=>drugName})
+    # @treatmentArm['exclusionDrugs'].push({"drugs"=>[{"drugId"=>drugId, "name"=>drugName}]})   #use the next line instead of this one when new "exclusionDrugs" field is available
+    @treatmentArm['exclusionDrugs'].push({"drugId"=>drugId, "name"=>drugName})
     return @treatmentArm
   end
 
