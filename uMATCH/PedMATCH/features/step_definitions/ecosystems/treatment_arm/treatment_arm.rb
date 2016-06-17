@@ -301,14 +301,21 @@ def loadTemplateJson()
 end
 
 def findTheOnlyMatchTAResultFromResponse(id, version)
-  sleep(0.5)
   convertedID = id=='saved_id'?@savedTAID:id
-  @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>convertedID})
 
-  tas = Treatment_arm_helper.findResultsFromResponseUsingVersion(@response, version)
-  returnedTASize = "Returned treatment arm count is #{tas.length}"
-  returnedTASize.should == 'Returned treatment arm count is 1'
-  return tas[0]
+  @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>convertedID, "version"=>version})
+  sleep(2)
+  result = JSON.parse(@response)
+  result.should_not == nil
+  returnedTASize = "Returned treatment arm count is #{result.length}"
+  returnedTASize.should_not == 'Returned treatment arm count is 0'
+  # @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>convertedID})
+  # sleep(1)
+  # tas = Treatment_arm_helper.findResultsFromResponseUsingVersion(@response, version)
+  # returnedTASize = "Returned treatment arm count is #{tas.length}"
+  # returnedTASize.should == 'Returned treatment arm count is 1'
+  # tas[0].should == result
+  return result
 end
 
 def convertVariantAbbrToFull(variantAbbr)
