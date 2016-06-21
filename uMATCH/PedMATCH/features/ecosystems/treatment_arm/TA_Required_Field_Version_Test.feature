@@ -35,15 +35,18 @@ Feature: Treatment Arm API Tests that focus on "version" field
     When posted to MATCH newTreatmentArm
     Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
 
-  Scenario Outline: New Treatment Arm, version with any string value other than date string "YYYY-MM-DD" should fail
+  Scenario Outline: New Treatment Arm, version should take any string value
     Given template json with a new unique id
     And set template json field: "version" to string value: "<version_value>"
     When posted to MATCH newTreatmentArm
-    Then a failure message is returned which contains: "Validation failed."
+    Then the treatment arm with id: "saved_id" and version: "<version_value>" return from API has value: "version" in field: "<version_value>"
     Examples:
       |version_value           |
       |@*$%sdga#               |
-      |YYYY-MM-DD              |
+      |!^&*()-_+=              |
+      |{}[]\/?                 |
+      |;'<>,.                  |
+      |?Àü ī                   |
       |2016-MM-4D              |
       |2012-85-99              |
       |2013-04-10 15:32        |
@@ -72,17 +75,20 @@ Feature: Treatment Arm API Tests that focus on "version" field
     When posted to MATCH newTreatmentArm
     Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
 
-  Scenario Outline: Update Treatment Arm, version with any string value other than date string "YYYY-MM-DD" should fail
+  Scenario Outline: Update Treatment Arm, version take any string value
     Given template json with a new unique id
     When posted to MATCH newTreatmentArm
     Then success message is returned:
     Then set template json field: "version" to string value: "<version_value>"
     When posted to MATCH newTreatmentArm
-    Then a failure message is returned which contains: "Validation failed."
+    Then the treatment arm with id: "saved_id" and version: "<version_value>" return from API has value: "version" in field: "<version_value>"
     Examples:
       |version_value           |
       |@*$%sdga#               |
-      |YYYY-MM-DD              |
+      |!^&*()-_+=              |
+      |{}[]\/?                 |
+      |;'<>,.                  |
+      |?Àü ī                   |
       |2016-MM-4D              |
       |2012-85-99              |
       |2013-04-10 15:32        |
@@ -102,36 +108,23 @@ Feature: Treatment Arm API Tests that focus on "version" field
     |field              |value_v1             |value_v2              |type                 |
     |gene               |EGFR                 |xxyyzz                |string               |
 
+  Scenario: Multiple versions of one treatment arm id should return in dateCreated descending order
+    Given template json with a new unique id
+    And set template json field: "version" to string value: "2016-06-03"
+    When posted to MATCH newTreatmentArm
+    Then success message is returned:
+    Then set template json field: "version" to string value: "2005-01-24"
+    When posted to MATCH newTreatmentArm
+    Then success message is returned:
+    Then set template json field: "version" to string value: "APEC1621_V000"
+    When posted to MATCH newTreatmentArm
+    Then success message is returned:
+    Then set template json field: "version" to string value: "24.6"
+    When posted to MATCH newTreatmentArm
+    Then success message is returned:
+    Then the treatment arm with id: "saved_id" and version: "2016-06-03" return from API is in the place: "1"
+    Then the treatment arm with id: "saved_id" and version: "2005-01-24" return from API is in the place: "2"
+    Then the treatment arm with id: "saved_id" and version: "APEC1621_V000" return from API is in the place: "3"
+    Then the treatment arm with id: "saved_id" and version: "24.6" return from API is in the place: "4"
 
 
-
-## Version field cannot accept random string
-#  Scenario Outline: New Treatment Arm with special character in "version" field should pass
-#    Given template json with a new unique id
-#    And set template json field: "version" to string value: "<version_value>"
-#    When posted to MATCH newTreatmentArm
-#    Then success message is returned:
-#    Then the treatment arm with id: "saved_id" and version: "<version_value>" should return from database
-#    Examples:
-#    |version_value           |
-#    |@*$%sdga#               |
-#    |!^&*()-_+=              |
-#    |{}[]\/?                 |
-#    |;'<>,.                  |
-#    |?Àü ī                   |
-
-#  Scenario Outline: Update Treatment Arm with special character in "version" field should pass
-#    Given template json with a new unique id
-#    When posted to MATCH newTreatmentArm
-#    Then success message is returned:
-#    Then set template json field: "version" to string value: "<version_value>"
-#    When posted to MATCH newTreatmentArm
-#    Then success message is returned:
-#    Then the treatment arm with id: "saved_id" and version: "<version_value>" should return from database
-#    Examples:
-#      |version_value           |
-#      |@*$%sdga#               |
-#      |!^&*()-_+=              |
-#      |{}[]\/?                 |
-#      |;'<>,.                  |
-#      |?Àü ī                   |

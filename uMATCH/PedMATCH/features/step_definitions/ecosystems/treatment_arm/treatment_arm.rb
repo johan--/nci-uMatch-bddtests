@@ -3,6 +3,7 @@ require 'rspec'
 require 'json'
 require_relative '../../../support/helper_methods.rb'
 require_relative '../../../support/treatment_arm_helper'
+require_relative '../../../support/cog_helper_methods.rb'
 require_relative '../../../support/drug_obj.rb'
 
 
@@ -183,6 +184,12 @@ Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from A
 
   matchVariants = Treatment_arm_helper.getVariantListFromJson(correctTA, variantType)
   matchVariants.length.should == count.to_i
+  end
+
+Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from API is in the place: "([^"]*)"$/) do |id, version, place|
+  returnedPlace = findTreatmentArmPlaceFromResponse(id, version)
+  returned = "Returned treatment arm version:#{version} is in place #{returnedPlace}"
+  returned.should == "Returned treatment arm version:#{version} is in place #{place}"
 end
 
 And(/^set template json field: "([^"]*)" to string value: "([^"]*)"$/) do |field, sValue|
@@ -292,6 +299,19 @@ And(/^remove template variant field: "([^"]*)"$/) do |field|
   @preparedVariant.delete(field)
 end
 
+Then(/^cog changes treatment arm with id:"([^"]*)" status to: "([^"]*)"$/) do |treatmentArmID, treatmentArmStatus|
+  convertedID = treatmentArmID=='saved_id'?@savedTAID:id
+  COG_helper_methods.setTreatmentArmStatus(convertedID, treatmentArmStatus)
+end
+
+Then(/^api update status of treatment arm with id:"([^"]*)" from cog$/) do |treatmentArmID|
+  convertedID = treatmentArmID=='saved_id'?@savedTAID:id
+
+  queryTreatmentArm = {'treatmentArmId' => convertedID}
+  url = ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/ecogTreatmentArmList'
+  Helper_Methods.post_request(url, queryTreatmentArm.to_json)
+  sleep(2.0)
+end
 
 def loadTemplateJson()
   unless @isTemplateJsonLoaded
@@ -309,13 +329,16 @@ def findTheOnlyMatchTAResultFromResponse(id, version)
   result.should_not == nil
   returnedTASize = "Returned treatment arm count is #{result.length}"
   returnedTASize.should_not == 'Returned treatment arm count is 0'
-  # @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>convertedID})
-  # sleep(1)
-  # tas = Treatment_arm_helper.findResultsFromResponseUsingVersion(@response, version)
-  # returnedTASize = "Returned treatment arm count is #{tas.length}"
-  # returnedTASize.should == 'Returned treatment arm count is 1'
-  # tas[0].should == result
+
   return result
+end
+
+def findTreatmentArmPlaceFromResponse(id, version)
+  convertedID = id=='saved_id'?@savedTAID:id
+  @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>convertedID})
+  sleep(1)
+  place = Treatment_arm_helper.findPlaceFromResponseUsingVersion(@response, version)
+  return place
 end
 
 def convertVariantAbbrToFull(variantAbbr)

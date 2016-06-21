@@ -2,4 +2,5 @@ ENV['DOCKER_HOSTNAME'] = 'umatch-test-ecsloadbalancer-1821889907.us-east-1.elb.a
 ENV['patient_api_PORT'] = '10240'
 ENV['patient_processor_PORT'] = '3010'
 ENV['treatment_arm_api_PORT'] = '10235'
+ENV['cog_mock_PORT'] = '3000'
 ENV['protocol'] = 'http'
