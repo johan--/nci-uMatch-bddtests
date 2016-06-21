@@ -34,9 +34,24 @@ Please make sure that the following are installed before running the project.
    ```
 
 ## Executing Tests
+Make sure that the webdriver is up to date and running
+```
+webdriver-manager update
+webdriver-manager start
+```
+
 In the terminal go to the project root and run
+For all tests:
 ```
 protractor config.js
+```
+Using tags:
+```
+Run tests tagged with @tagname1 and @tagname2
+protractor config.js --cucumberOpts.tags='@tagname1, @tagname2'
+
+Run tests tagged with @tagname1, but avoid @tagname2
+protractor config.js --cucumberOpts.tags='@tagname1' --cucumberOpts.tags='~@tagname2' 
 ```
 
 ### Contacts
