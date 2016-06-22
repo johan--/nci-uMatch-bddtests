@@ -27,7 +27,7 @@ class Helper_Methods
     begin
       @res = RestClient::Request.execute(:url => service, :method => :post, :verify_ssl => false, :payload => payload, :headers=>{:content_type => 'json', :accept => 'json'})
     rescue StandardError => e
-      print "Error: #{e.message} occurred"
+      print "Error: #{e.message} occurred\n"
       print "Response:#{e.response}\n"
       return JSON.parse(e.response)
     end
@@ -61,9 +61,10 @@ class Helper_Methods
   end
 
   def Helper_Methods.dateDDMMYYYYHHMMSS ()
-    time = Time.new
-    return time.getutc.strftime("%Y-%m-%dT%H:%M:%S.%LZ") #2015-08-19T05:35:00.216Z
-    # time = DateTime.now
+    # time = Time.new
+    # return time.getutc.strftime("%Y-%m-%dT%H:%M:%S.%LZ") #2015-08-19T05:35:00.216Z
+    time = DateTime.now
+    return (time).iso8601
     # return (time).strftime("%Y-%m-%dT%H:%M:%S.%LZ")
   end
 

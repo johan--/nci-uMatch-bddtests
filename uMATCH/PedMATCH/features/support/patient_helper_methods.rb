@@ -1,6 +1,6 @@
 require 'json'
 require 'rest-client'
-# require_relative 'env'
+require_relative 'env'
 require_relative 'helper_methods.rb'
 
 class Patient_helper_methods
@@ -11,17 +11,18 @@ class Patient_helper_methods
     headerHash = {"msg_guid"=>"0f8fad5b-d9cb-469f-al65-80067728950e",
                   "msg_dttm"=>dateCreated}
 
-    internaUseHash = {"request_id"=>"",
-                      "environment"=>"",
-                      "request"=>""}
+    internaUseHash = {"request_id"=>"4-654321",
+                      "environment"=>"4",
+                      "request"=>"new pateint registration"}
 
     patientTrigger = {"header"=>headerHash,
                       "study_id" => studyId,
                       "patient_id" => psn,
                       "step_number" => stepNumber,
-                      "status" => status,
-                      "message" => comment,
                       "registration_date" => dateCreated,
+                      "status" => status,
+                      # "message" => comment,
+                      # "rebiopsy"=>'',
                       "internal_use_only"=>internaUseHash
     }
 

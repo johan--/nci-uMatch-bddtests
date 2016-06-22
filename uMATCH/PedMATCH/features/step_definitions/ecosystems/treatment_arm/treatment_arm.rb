@@ -3,7 +3,7 @@ require 'rspec'
 require 'json'
 require_relative '../../../support/helper_methods.rb'
 require_relative '../../../support/treatment_arm_helper'
-require_relative '../../../support/cog_helper_methods.rb'
+# require_relative '../../../support/cog_helper_methods.rb'
 require_relative '../../../support/drug_obj.rb'
 
 
@@ -26,16 +26,7 @@ Given(/^with variant report$/) do |variantReport|
 end
 
 When(/^posted to MATCH newTreatmentArm$/) do
-  "Unable to obtain lock to add/update the treatment arm."
-  flag = false
-  while flag == false
-    @response = Helper_Methods.post_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/newTreatmentArm',@jsonString)
-    if (@response['message'] == "Unable to obtain lock to add/update the treatment arm.") or @response == nil?
-    else
-      flag = true
-    end
-    sleep(5)
-  end
+  @response = Helper_Methods.post_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/newTreatmentArm',@jsonString)
 end
 
 
@@ -54,10 +45,11 @@ end
 
 Then(/^a failure message is returned which contains: "([^"]*)"$/) do |string|
   @response['status'].should == 'FAILURE'
-  @response['message'].should == string
+  @response['error'].should == string
 end
 
 Then(/^the treatmentArmStatus field has a value "([^"]*)" for the ta "([^"]*)"$/) do |status, taId|
+  sleep(5)
   @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>taId})
   print "#{@response}\n"
   tas = JSON.parse(@response)
