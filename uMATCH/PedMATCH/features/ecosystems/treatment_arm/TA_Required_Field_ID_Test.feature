@@ -1,33 +1,31 @@
 #encoding: utf-8
 
 @Treatment_Arm_API_Tests
-Feature: Treatment Arm API Tests that focus on "id" field
+Feature: TA_ID1. Treatment Arm API Tests that focus on "id" field
   Scenario: New Treatment Arm with empty "id" field should fail
-     Given template json with a new unique id
+     Given template json with a random id
      And set template json field: "id" to string value: ""
      When posted to MATCH newTreatmentArm
      Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
 
-  Scenario: New Treatment Arm with "id": null should fail
-    Given template json with a new unique id
+  Scenario: TA_ID2. New Treatment Arm with "id": null should fail
+    Given template json with a random id
     And set template json field: "id" to string value: "null"
     When posted to MATCH newTreatmentArm
     Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
 
-  Scenario: New Treatment Arm without "id" field should fail
-    Given template json with a new unique id
+  Scenario: TA_ID3. New Treatment Arm without "id" field should fail
+    Given template json with a random id
     And remove field: "id" from template json
     When posted to MATCH newTreatmentArm
     Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
 
 
-  Scenario Outline: New Treatment Arm with special character in "id" field should pass
-    Given template json with a new unique id
-    And set template json field: "id" to string value: "<id>"
-    And set template json field: "version" to string value: "2016-06-03"
+  Scenario Outline: TA_ID4. New Treatment Arm with special character in "id" field should pass
+    Given template json with an id: "<id>" and version: "2016-06-03"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then the treatment arm with id: "<encoded_id>" and version: "2016-06-03" should return from database
+    Then the treatment arm with id: "<encoded_id>" and version: "2016-06-03" return from API has value: "<id>" in field: "name"
     Examples:
     |id                  |encoded_id                                  |
     |APEC1621-@*$%sdga#  |APEC1621-%40*%24%25sdga%23                  |

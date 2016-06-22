@@ -118,6 +118,21 @@ Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from A
   returnedResult.should == expectFieldResult
 end
 
+Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from API has "([^"]*)" value: "([^"]*)" in field: "([^"]*)"$/) do |id, version, type, value, field|
+  correctTA = findTheOnlyMatchTAResultFromResponse(id, version)
+
+  returnedValue = correctTA[field]
+  expectedValue = value
+  if type == :number || :float || :int
+    returnedValue = returnedValue.to_f
+    expectedValue = expectedValue.to_f
+  end
+
+  expectFieldResult = "#{field} is #{expectedValue}"
+  returnedResult = "#{field} is #{returnedValue}"
+  returnedResult.should == expectFieldResult
+end
+
 Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from API should not have field: "([^"]*)"$/) do |id, version, field|
   correctTA = findTheOnlyMatchTAResultFromResponse(id, version)
 
@@ -136,15 +151,34 @@ Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from A
   matchDrugs.length.should == times.to_i
 end
 
+Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from API has correct latest status that match cog record$/) do |id, version|
+  correctTA = findTheOnlyMatchTAResultFromResponse(id, version)
+
+  apiLastStatusDate = "lastest treatment arm status date is #{Treatment_arm_helper.findStatusDateFromJson(correctTA, 0)}"
+  apiLastStatusName = "lastest treatment arm status is #{Treatment_arm_helper.findStatusFromJson(correctTA, 0)}"
+  cogLastStatus = JSON.parse(COG_helper_methods.getTreatmentArmStatus(correctTA['name']))
+  cogLastStatusDate = "lastest treatment arm status date is #{cogLastStatus['statusDate']}"
+  cogLastStatusName = "lastest treatment arm status is #{cogLastStatus['status']}"
+  apiLastStatusDate.should == cogLastStatusDate
+  apiLastStatusName.should == cogLastStatusName
+end
+
 Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" should return from database$/) do |id, version|
   findTheOnlyMatchTAResultFromResponse(id, version)
 end
 
-Given(/^template json with a new unique id$/) do
+Given(/^template json with a random id$/) do
   loadTemplateJson()
   @taReq['id'] = "APEC1621-#{Time.now.to_i.to_s}"
   @jsonString = @taReq.to_json.to_s
   @savedTAID = @taReq['id']
+end
+
+Given(/^template json with an id: "([^"]*)" and version: "([^"]*)"$/) do |id, version|
+  loadTemplateJson()
+  @taReq['id'] = id=='null'?nil:id
+  @taReq['version'] = version=='null'?nil:version
+  @jsonString = @taReq.to_json.to_s
 end
 
 Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from API has correct dateCreated value$/) do |id, version|
@@ -300,14 +334,11 @@ And(/^remove template variant field: "([^"]*)"$/) do |field|
 end
 
 Then(/^cog changes treatment arm with id:"([^"]*)" status to: "([^"]*)"$/) do |treatmentArmID, treatmentArmStatus|
-  convertedID = treatmentArmID=='saved_id'?@savedTAID:id
-  COG_helper_methods.setTreatmentArmStatus(convertedID, treatmentArmStatus)
+  COG_helper_methods.setTreatmentArmStatus(treatmentArmID, treatmentArmStatus)
 end
 
 Then(/^api update status of treatment arm with id:"([^"]*)" from cog$/) do |treatmentArmID|
-  convertedID = treatmentArmID=='saved_id'?@savedTAID:id
-
-  queryTreatmentArm = {'treatmentArmId' => convertedID}
+  queryTreatmentArm = {'treatmentArmId' => treatmentArmID}
   url = ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/ecogTreatmentArmList'
   Helper_Methods.post_request(url, queryTreatmentArm.to_json)
   sleep(2.0)
@@ -321,9 +352,7 @@ def loadTemplateJson()
 end
 
 def findTheOnlyMatchTAResultFromResponse(id, version)
-  convertedID = id=='saved_id'?@savedTAID:id
-
-  @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>convertedID, "version"=>version})
+  @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id, "version"=>version})
   sleep(2)
   result = JSON.parse(@response)
   result.should_not == nil
@@ -334,8 +363,7 @@ def findTheOnlyMatchTAResultFromResponse(id, version)
 end
 
 def findTreatmentArmPlaceFromResponse(id, version)
-  convertedID = id=='saved_id'?@savedTAID:id
-  @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>convertedID})
+  @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id})
   sleep(1)
   place = Treatment_arm_helper.findPlaceFromResponseUsingVersion(@response, version)
   return place
