@@ -1,6 +1,6 @@
 require 'json'
 require 'rest-client'
-require_relative 'env'
+# require_relative 'env'
 require_relative 'helper_methods.rb'
 
 class Patient_helper_methods

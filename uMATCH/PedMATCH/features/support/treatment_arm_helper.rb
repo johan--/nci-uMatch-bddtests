@@ -1,6 +1,6 @@
 require 'json'
 require 'rest-client'
-require_relative 'env'
+# require_relative 'env'
 
 class Treatment_arm_helper
 
@@ -320,6 +320,22 @@ class Treatment_arm_helper
       }
       return result
     end
+  end
+
+  def Treatment_arm_helper.findStatusDateFromJson(treatmentArmJson, statusPosition)
+    logs = treatmentArmJson['status_log']
+    if logs == nil
+      return logs
+    end
+    logs.keys[statusPosition]
+  end
+
+  def Treatment_arm_helper.findStatusFromJson(treatmentArmJson, statusPosition)
+    logs = treatmentArmJson['status_log']
+    if logs == nil
+      return logs
+    end
+    logs[logs.keys[statusPosition]]
   end
 
 

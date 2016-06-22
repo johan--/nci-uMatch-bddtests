@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 require 'json'
 require 'rest-client'
-require_relative 'env'
+# require_relative 'env'
 require 'active_support'
 require 'active_support/core_ext'
 
