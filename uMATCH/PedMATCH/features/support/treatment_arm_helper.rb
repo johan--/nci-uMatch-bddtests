@@ -45,7 +45,7 @@ class Treatment_arm_helper
                      "name" => taName,
                      "version"=>version,
                      "description" => description,
-                     "targetId" => targetId,
+                     "targetId" => targetId.to_i,
                      "targetName" => targetName,
                      "gene" => gene,
                      "treatmentArmStatus" => taStatus,

@@ -61,9 +61,10 @@ class Helper_Methods
   end
 
   def Helper_Methods.dateDDMMYYYYHHMMSS ()
-    time = Time.new
-    return time.getutc.strftime("%Y-%m-%dT%H:%M:%S.%LZ") #2015-08-19T05:35:00.216Z
-    # time = DateTime.now
+    # time = Time.new
+    # return time.getutc.strftime("%Y-%m-%dT%H:%M:%S.%LZ") #2015-08-19T05:35:00.216Z
+    time = DateTime.now
+    return (time).iso8601
     # return (time).strftime("%Y-%m-%dT%H:%M:%S.%LZ")
   end
 
