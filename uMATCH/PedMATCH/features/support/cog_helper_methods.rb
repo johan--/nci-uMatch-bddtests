@@ -1,7 +1,7 @@
 require 'json'
 require 'rest-client'
-require_relative 'env'
-require_relative 'helper_methods.rb'
+# require_relative 'env'
+
 
 class COG_helper_methods
   def COG_helper_methods.setTreatmentArmStatus(treatmentArmID, status)
