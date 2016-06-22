@@ -333,7 +333,7 @@ Then(/^api update status of treatment arm with id:"([^"]*)" from cog$/) do |trea
   queryTreatmentArm = {'treatmentArmId' => treatmentArmID}
   url = ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/ecogTreatmentArmList'
   Helper_Methods.post_request(url, queryTreatmentArm.to_json)
-  sleep(2.0)
+  sleep(1.0)
 end
 
 def loadTemplateJson()
@@ -344,8 +344,9 @@ def loadTemplateJson()
 end
 
 def findTheOnlyMatchTAResultFromResponse(id, version)
+  sleep(5.0)
   @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id, "version"=>version})
-  sleep(2)
+  sleep(1)
   result = JSON.parse(@response)
   result.should_not == nil
   returnedTASize = "Returned treatment arm count is #{result.length}"
@@ -355,6 +356,7 @@ def findTheOnlyMatchTAResultFromResponse(id, version)
 end
 
 def findTreatmentArmPlaceFromResponse(id, version)
+  sleep(5.0)
   @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id})
   sleep(1)
   place = Treatment_arm_helper.findPlaceFromResponseUsingVersion(@response, version)
