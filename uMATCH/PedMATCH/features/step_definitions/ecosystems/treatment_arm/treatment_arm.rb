@@ -49,6 +49,7 @@ Then(/^a failure message is returned which contains: "([^"]*)"$/) do |string|
 end
 
 Then(/^the treatmentArmStatus field has a value "([^"]*)" for the ta "([^"]*)"$/) do |status, taId|
+  sleep(5)
   @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>taId})
   print "#{@response}\n"
   tas = JSON.parse(@response)
