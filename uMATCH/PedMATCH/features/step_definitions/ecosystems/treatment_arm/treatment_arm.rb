@@ -45,7 +45,12 @@ end
 
 Then(/^a failure message is returned which contains: "([^"]*)"$/) do |string|
   @response['status'].should == 'FAILURE'
-  @response['error'].should == string
+  expectMessage = "returned message include <#{string}>"
+  actualMessage = @response['error']
+  if @response['error'].include?string
+    actualMessage = "returned message include <#{string}>"
+  end
+  actualMessage.should == expectMessage
 end
 
 Then(/^the treatmentArmStatus field has a value "([^"]*)" for the ta "([^"]*)"$/) do |status, taId|
@@ -190,6 +195,20 @@ Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from A
   matchPtenResults.length.should > 0
 end
 
+Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from API has assayResult \(gene: "([^"]*)", assayResultStatus: "([^"]*)", assayVariant: "([^"]*)", LOE: "([^"]*)", description: "([^"]*)"\)$/) do |id, version, gene, status, variant, loe, description|
+  correctTA = findTheOnlyMatchTAResultFromResponse(id, version)
+
+  matchAssayResults = Treatment_arm_helper.findAssayResultFromJson(correctTA, gene, status, variant, loe, description)
+  matchAssayResults.length.should > 0
+end
+
+Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from API has exclusionCriteria \(id: "([^"]*)", description: "([^"]*)"\)$/) do |id, version, exclusionCriteriaID, description|
+  correctTA = findTheOnlyMatchTAResultFromResponse(id, version)
+
+  matchExclusionCriteria = Treatment_arm_helper.findExlusionCriteriaFromJson(correctTA, exclusionCriteriaID, description)
+  matchExclusionCriteria.length.should > 0
+end
+
 Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from API has "([^"]*)" variant \(id: "([^"]*)", field: "([^"]*)", value: "([^"]*)"\)$/) do |id, version, variantType, variantId, variantField, variantValue|
   correctTA = findTheOnlyMatchTAResultFromResponse(id, version)
 
@@ -283,6 +302,18 @@ end
 Then(/^add ptenResult with ptenIhcResult: "([^"]*)", ptenVariant: "([^"]*)" and description: "([^"]*)"$/) do |ptenIhcResult, ptenVariant, description|
   loadTemplateJson()
   @taReq = Treatment_arm_helper.addPtenResult(ptenIhcResult, ptenVariant, description)
+  @jsonString = @taReq.to_json.to_s
+end
+
+Then (/^add assayResult with gene: "([^"]*)", assayResultStatus: "([^"]*)", assayVariant: "([^"]*)", LOE: "([^"]*)" and description: "([^"]*)"$/) do |gene, status, variant, loe, description|
+  loadTemplateJson()
+  @taReq = Treatment_arm_helper.addAssayResult(gene, status, variant, loe, description)
+  @jsonString = @taReq.to_json.to_s
+end
+
+Then(/^add exclusionCriterias with id: "([^"]*)" and description: "([^"]*)"$/) do |exclusionCriteriaID, description|
+  loadTemplateJson()
+  @taReq = Treatment_arm_helper.addExclusionCriteria(exclusionCriteriaID, description)
   @jsonString = @taReq.to_json.to_s
 end
 

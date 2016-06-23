@@ -88,6 +88,15 @@
       "description": null
     }
   ],
+  "assayResults" : [
+    {
+      "gene" : "PIK3CA",
+      "assayResultStatus" : "POSITIVE",
+      "assayVariant" : "PRESENT",
+      "levelOfEvidence" : 2.0,
+      "description": null
+    }
+  ],
   "numPatientsAssigned" : 0,
 //  "maxPatientsAllowed" : 35,
   "treatmentArmStatus" : "OPEN",

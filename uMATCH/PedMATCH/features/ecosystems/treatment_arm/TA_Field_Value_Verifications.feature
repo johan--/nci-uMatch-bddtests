@@ -20,16 +20,13 @@ Feature: Make sure Treatment Arm API can store and return all fields correctly
       |APEC1621-VV1-8       |stratumId                       |stratum_id                       |kjg13gas                                           |string       |
       |APEC1621-VV1-9       |numPatientsAssigned             |num_patients_assigned            |5                                                  |int          |
 
-
-    #not done yet
-#  Scenario Outline: TA_VV2. Treatment arm return correct values for AssayResult
-#    Given template json with an id: "<treatment_arm_id>" and version: "2016-06-03"
-#    Then add ptenResult with ptenIhcResult: "<ptenIhcResult>", ptenVariant: "<ptenVariant>" and description: "<description>"
-#    When posted to MATCH newTreatmentArm
-#    Then success message is returned:
-#    Then the treatment arm with id: "<treatment_arm_id>" and version: "2016-06-03" return from API has ptenResults (ptenIhcResult: "<ptenIhcResult>", ptenVariant: "<ptenVariant>", description: "<description>")
-#  Examples:
-#    |treatment_arm_id     |ptenIhcResult        |ptenVariant          |description                                  |
-#    |APEC1621-VV2-1       |POSITIVE             |PRESENT              |null                                         |
-#    |APEC1621-VV2-2       |NEGATIVE             |NEGATIVE             |description                                  |
-#    |APEC1621-VV2-3       |INDETERMINATE        |EMPTY                |the other description                        |
+  Scenario Outline: TA_VV2. Treatment arm return correct values for ExclusionCriterias
+    Given template json with an id: "<treatment_arm_id>" and version: "2016-06-03"
+    Then add exclusionCriterias with id: "<exclusionCriteriaID>" and description: "<description>"
+    When posted to MATCH newTreatmentArm
+    Then success message is returned:
+    Then the treatment arm with id: "<treatment_arm_id>" and version: "2016-06-03" return from API has exclusionCriteria (id: "<exclusionCriteriaID>", description: "<description>")
+    Examples:
+      |treatment_arm_id     |exclusionCriteriaID  |description  |
+      |APEC1621-VV2-1       |31                   |ASIAN        |
+      |APEC1621-VV2-2       |32                   |FEMALE       |

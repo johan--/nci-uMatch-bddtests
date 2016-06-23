@@ -134,6 +134,42 @@ class Treatment_arm_helper
     return result
   end
 
+  def Treatment_arm_helper.findAssayResultFromJson(treatmentArmJson, gene, status, variant, loe, description)
+    result = Array.new
+    geneInput = gene=='null'?nil:gene
+    statusInput = status=='null'?nil:status
+    variantInput = variant=='null'?nil:variant
+    loeInput = loe=='null'?nil:loe
+    descriptionInput = description=='null'?nil:description
+
+    treatmentArmJson['assay_results'].each do |thisAssay|
+      isThis = thisAssay['gene'] == geneInput
+      isThis = isThis && (thisAssay['assay_variant'] == variantInput)
+      isThis = isThis && (thisAssay['description'] == descriptionInput)
+      isThis = isThis && (thisAssay['assay_result_status'] == statusInput)
+      isThis = isThis && (thisAssay['level_of_evidence'] == loeInput)
+      if isThis
+        result.push(thisAssay)
+      end
+    end
+    return result
+  end
+
+  def Treatment_arm_helper.findExlusionCriteriaFromJson(treatmentArmJson, id, description)
+    result = Array.new
+    idInput = id=='null'?nil:id
+    descriptionInput = description=='null'?nil:description
+
+    treatmentArmJson['exclusion_criterias'].each do |thisEC|
+      isThis = thisEC['id'] == idInput
+      isThis = isThis && (thisEC['description'] == descriptionInput)
+      if isThis
+        result.push(thisEC)
+      end
+    end
+    return result
+  end
+
   def Treatment_arm_helper.findDrugsFromJson(treatmentArmJson, drugName, drugPathway, drugId)
     result = Array.new
     if drugName == 'null'
@@ -213,6 +249,23 @@ class Treatment_arm_helper
       ptenIhcResult = nil
     end
     @treatmentArm['ptenResults'].push({ 'ptenIhcResult'=>ptenIhcResult, 'ptenVariant'=>ptenVariant, 'description'=>description})
+    return @treatmentArm
+  end
+
+  def Treatment_arm_helper.addAssayResult(gene, status, variant, loe, description)
+    geneInput = gene=='null'?nil:gene
+    statusInput = status=='null'?nil:status
+    variantInput = variant=='null'?nil:variant
+    loeInput = loe=='null'?nil:loe.to_f
+    descriptionInput = description=='null'?nil:description
+    @treatmentArm['assayResults'].push({ 'gene'=>geneInput, 'assayResultStatus'=>statusInput, 'assayVariant'=>variantInput, 'levelOfEvidence'=>loeInput, 'description'=>descriptionInput})
+    return @treatmentArm
+  end
+
+  def Treatment_arm_helper.addExclusionCriteria(id, description)
+    idInput = id=='null'?nil:id
+    descriptionInput = description=='null'?nil:description
+    @treatmentArm['exclusionCriterias'].push({ 'id'=>idInput, 'description'=>descriptionInput})
     return @treatmentArm
   end
 
