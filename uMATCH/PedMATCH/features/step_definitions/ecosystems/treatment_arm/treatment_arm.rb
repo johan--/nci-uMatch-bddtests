@@ -189,7 +189,7 @@ Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from A
   returnedResult = DateTime.parse(correctTA['date_created']).to_i
   timeDiff = currentTime - returnedResult
   timeDiff.should >=0
-  timeDiff.should <=6
+  timeDiff.should <=15
   end
 
 Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from API has ptenResults \(ptenIhcResult: "([^"]*)", ptenVariant: "([^"]*)", description: "([^"]*)"\)$/) do |id, version, ptenIhcResult, ptenVariant, description|
@@ -368,7 +368,6 @@ Then(/^api update status of treatment arm with id:"([^"]*)" from cog$/) do |trea
   queryTreatmentArm = {'treatmentArmId' => treatmentArmID}
   url = ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/ecogTreatmentArmList'
   Helper_Methods.post_request(url, queryTreatmentArm.to_json)
-  sleep(1.0)
 end
 
 def loadTemplateJson()
@@ -381,7 +380,6 @@ end
 def findTheOnlyMatchTAResultFromResponse(id, version)
   sleep(5.0)
   @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id, "version"=>version})
-  sleep(1)
   result = JSON.parse(@response)
   result.should_not == nil
   returnedTASize = "Returned treatment arm count is #{result.length}"
@@ -393,7 +391,6 @@ end
 def findTreatmentArmPlaceFromResponse(id, version)
   sleep(5.0)
   @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id})
-  sleep(1)
   place = Treatment_arm_helper.findPlaceFromResponseUsingVersion(@response, version)
   return place
 end

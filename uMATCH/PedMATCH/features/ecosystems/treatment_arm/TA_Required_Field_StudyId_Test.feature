@@ -26,6 +26,7 @@ Feature: Treatment Arm API Tests that focus on "study_id" field
     Then set template json field: "study_id" to string value: "<origin_study_id>"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
+    Then wait for "5" seconds
     Then set template json field: "version" to string value: "2016-06-03"
     And set template json field: "study_id" to string value: "<new_study_id>"
     When posted to MATCH newTreatmentArm
