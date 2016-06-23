@@ -48,6 +48,7 @@ Feature: Treatment Arm API Tests that focus on "version" field
     Given template json with an id: "APEC1621-VS6-1" and version: "2016-06-03"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
+    Then wait for "5" seconds
     Then set template json field: "version" to string value: ""
     When posted to MATCH newTreatmentArm
     Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
@@ -56,6 +57,7 @@ Feature: Treatment Arm API Tests that focus on "version" field
     Given template json with an id: "APEC1621-VS7-1" and version: "2016-06-03"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
+    Then wait for "5" seconds
     Then set template json field: "version" to string value: "null"
     When posted to MATCH newTreatmentArm
     Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
@@ -64,6 +66,7 @@ Feature: Treatment Arm API Tests that focus on "version" field
     Given template json with an id: "APEC1621-VS8-1" and version: "2016-06-03"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
+    Then wait for "5" seconds
     Then remove field: "version" from template json
     When posted to MATCH newTreatmentArm
     Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
@@ -91,6 +94,7 @@ Feature: Treatment Arm API Tests that focus on "version" field
     And set template json field: "<field>" to value: "<value_v1>" in type: "<type>"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
+    Then wait for "5" seconds
     Then set template json field: "<field>" to value: "<value_v2>" in type: "<type>"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
@@ -100,21 +104,25 @@ Feature: Treatment Arm API Tests that focus on "version" field
       |APEC1621-VS10-1    |gene               |EGFR                 |xxyyzz                |string               |
 
   Scenario: TA_VS11. Multiple versions of one treatment arm id should return in dateCreated descending order
-    Given template json with an id: "APEC1621-VS11-1" and version: "2016-06-03"
+    Given template json with an id: "APEC1621-VS11-5" and version: "2016-06-03"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
+    Then wait for "5" seconds
     Then set template json field: "version" to string value: "2005-01-24"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
+    Then wait for "5" seconds
     Then set template json field: "version" to string value: "APEC1621_V000"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
+    Then wait for "5" seconds
     Then set template json field: "version" to string value: "24.6"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then the treatment arm with id: "APEC1621-VS11-1" and version: "2016-06-03" return from API is in the place: "1"
-    Then the treatment arm with id: "APEC1621-VS11-1" and version: "2005-01-24" return from API is in the place: "2"
-    Then the treatment arm with id: "APEC1621-VS11-1" and version: "APEC1621_V000" return from API is in the place: "3"
-    Then the treatment arm with id: "APEC1621-VS11-1" and version: "24.6" return from API is in the place: "4"
+    Then wait for "5" seconds
+    Then the treatment arm with id: "APEC1621-VS11-5" and version: "2016-06-03" return from API is in the place: "1"
+    Then the treatment arm with id: "APEC1621-VS11-5" and version: "2005-01-24" return from API is in the place: "2"
+    Then the treatment arm with id: "APEC1621-VS11-5" and version: "APEC1621_V000" return from API is in the place: "3"
+    Then the treatment arm with id: "APEC1621-VS11-5" and version: "24.6" return from API is in the place: "4"
 
 

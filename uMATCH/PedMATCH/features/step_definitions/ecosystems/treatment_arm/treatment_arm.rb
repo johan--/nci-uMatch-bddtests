@@ -39,6 +39,10 @@ Then(/^success message is returned:$/) do
   @response['status'].should == 'SUCCESS'
 end
 
+Then(/^wait for "([^"]*)" seconds$/) do |seconds|
+  sleep(seconds.to_f)
+end
+
 Given(/^that treatment arm is received from COG:$/) do |taJson|
   @jsonString = JSON.parse(taJson).to_json
 end
