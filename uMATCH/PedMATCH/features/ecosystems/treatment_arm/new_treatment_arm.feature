@@ -203,7 +203,6 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 #	"""
 #    When posted to MATCH newTreatmentArm
 #    Then a message with Status "FAILURE" and message "The treatment arm (ID:4) status OPEN is invalid." is returned:
-
   
   Scenario: 1.5 Verify that a treatment arm when created is assigned a status of OPEN
     Given that treatment arm is received from COG:

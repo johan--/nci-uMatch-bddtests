@@ -39,7 +39,7 @@ class Helper_Methods
     # t = (time.getutc - 144000).strftime("%Y-%m-%dT%H:%M:%S.%LZ")
     time = DateTime.now
     t = (time - 3.days).strftime("%Y-%m-%dT%H:%M:%S.%LZ")
-    return t
+    return t.iso8601
   end
 
   def Helper_Methods.olderThanSixMonthsDate()
@@ -48,7 +48,7 @@ class Helper_Methods
     time = DateTime.now
     t = (time - 6.months).strftime("%Y-%m-%dT%H:%M:%S.%LZ")
     print "Date:#{t}\n"
-    return t
+    return t.iso8601
   end
 
   def Helper_Methods.olderThanFiveMonthsDate()
@@ -57,7 +57,7 @@ class Helper_Methods
     time = DateTime.now
     t = (time - 5.months).strftime("%Y-%m-%dT%H:%M:%S.%LZ")
     print "Date:#{t}\n"
-    return t
+    return t.iso8601
   end
 
   def Helper_Methods.dateDDMMYYYYHHMMSS ()
@@ -72,21 +72,21 @@ class Helper_Methods
     # time = Time.new
     # t = (time.getutc - 10800).strftime("%Y-%m-%dT%H:%M:%S.%LZ")
     time = DateTime.now
-    return (time - 6.hours).strftime("%Y-%m-%dT%H:%M:%S.%LZ")
+    return ((time - 6.hours).strftime("%Y-%m-%dT%H:%M:%S.%LZ")).iso8601
   end
 
   def Helper_Methods.earlierThanBackDate()
     # time = Time.new
     # return (time.getutc - 18000).strftime("%Y-%m-%dT%H:%M:%S.%LZ") # >3 hours earlier
     time = DateTime.now
-    return (time - 10.hours).strftime("%Y-%m-%dT%H:%M:%S.%LZ")
+    return ((time - 10.hours).strftime("%Y-%m-%dT%H:%M:%S.%LZ")).iso8601
   end
 
   def Helper_Methods.futureDate ()
     # time = Time.new
     # return (time.getutc + 10800).strftime("%Y-%m-%dT%H:%M:%S.%LZ") #3 hours ahead
     time = DateTime.now
-    return (time + 6.hours).strftime("%Y-%m-%dT%H:%M:%S.%LZ")
+    return ((time + 6.hours).strftime("%Y-%m-%dT%H:%M:%S.%LZ")).iso8601
   end
 
   def Helper_Methods.getDateAsRequired(dateStr)

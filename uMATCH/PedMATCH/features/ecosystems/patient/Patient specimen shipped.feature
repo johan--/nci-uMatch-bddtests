@@ -1,4 +1,5 @@
 #encoding: utf-8
+@patients
 Feature: NCH Specimen shipped messages
   Receive NCH specimen shipped messages and consume the message within MATCH
 
