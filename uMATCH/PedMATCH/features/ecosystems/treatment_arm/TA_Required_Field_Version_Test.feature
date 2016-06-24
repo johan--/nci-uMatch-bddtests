@@ -104,7 +104,7 @@ Feature: Treatment Arm API Tests that focus on "version" field
       |APEC1621-VS10-1    |gene               |EGFR                 |xxyyzz                |string               |
 
   Scenario: TA_VS11. Multiple versions of one treatment arm id should return in dateCreated descending order
-    Given template json with an id: "APEC1621-VS11-5" and version: "2016-06-03"
+    Given template json with an id: "APEC1621-VS11-1" and version: "2016-06-03"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
     Then wait for "5" seconds
@@ -119,10 +119,10 @@ Feature: Treatment Arm API Tests that focus on "version" field
     Then set template json field: "version" to string value: "24.6"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then wait for "5" seconds
-    Then the treatment arm with id: "APEC1621-VS11-5" and version: "2016-06-03" return from API is in the place: "1"
-    Then the treatment arm with id: "APEC1621-VS11-5" and version: "2005-01-24" return from API is in the place: "2"
-    Then the treatment arm with id: "APEC1621-VS11-5" and version: "APEC1621_V000" return from API is in the place: "3"
-    Then the treatment arm with id: "APEC1621-VS11-5" and version: "24.6" return from API is in the place: "4"
+    Then the treatment arm with id: "APEC1621-VS11-1" and version: "2016-06-03" return from API is in the place: "4"
+    Then the treatment arm with id: "APEC1621-VS11-1" and version: "2005-01-24" return from API is in the place: "3"
+    Then the treatment arm with id: "APEC1621-VS11-1" and version: "APEC1621_V000" return from API is in the place: "2"
+    Then the treatment arm with id: "APEC1621-VS11-1" and version: "24.6" return from API is in the place: "1"
+
 
 

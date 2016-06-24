@@ -1,8 +1,8 @@
 #encoding: utf-8
 
 @Treatment_Arm_API_Tests
-Feature: TA_ID1. Treatment Arm API Tests that focus on "id" field
-  Scenario: New Treatment Arm with empty "id" field should fail
+Feature: Treatment Arm API Tests that focus on "id" field
+  Scenario: TA_ID1. New Treatment Arm with empty "id" field should fail
      Given template json with a random id
      And set template json field: "id" to string value: ""
      When posted to MATCH newTreatmentArm

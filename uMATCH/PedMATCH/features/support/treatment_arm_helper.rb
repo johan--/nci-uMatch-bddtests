@@ -112,6 +112,17 @@ class Treatment_arm_helper
     return place
   end
 
+  def Treatment_arm_helper.findTreatmentArmsFromResponseUsingID(treatmentArmResponse, id)
+    result = Array.new
+    tas = JSON.parse(treatmentArmResponse)
+    tas.each do |child|
+      if child['name'] == id
+        result.push(child)
+      end
+    end
+    return result
+  end
+
   def Treatment_arm_helper.findPtenResultFromJson(treatmentArmJson, ptenIhcResult, ptenVariant, description)
     result = Array.new
     if ptenIhcResult == 'null'

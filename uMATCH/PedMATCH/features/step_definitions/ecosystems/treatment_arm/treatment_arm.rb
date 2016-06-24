@@ -241,6 +241,11 @@ Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" return from A
   returned.should == "Returned treatment arm version:#{version} is in place #{place}"
 end
 
+Then(/^There are "([^"]*)" treatment arm with id: "([^"]*)" return from API \/basicTreatmentArms$/) do |count, id|
+  returnedTA = findAllBasicTreatmentArms(id)
+  returnedTA.length.should == count.to_i
+end
+
 And(/^set template json field: "([^"]*)" to string value: "([^"]*)"$/) do |field, sValue|
   if sValue == 'null'
     sValue = nil
@@ -393,6 +398,13 @@ def findTreatmentArmPlaceFromResponse(id, version)
   @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id})
   place = Treatment_arm_helper.findPlaceFromResponseUsingVersion(@response, version)
   return place
+end
+
+def findAllBasicTreatmentArms(id)
+  sleep(5.0)
+  @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/basicTreatmentArms',params={})
+  allTAs = Treatment_arm_helper.findTreatmentArmsFromResponseUsingID(@response, id)
+  return allTAs
 end
 
 def convertVariantAbbrToFull(variantAbbr)
