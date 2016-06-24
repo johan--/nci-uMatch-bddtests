@@ -4,16 +4,6 @@
 
 'use strict';
 var fs = require('fs');
-/**
- * The login depends on the presence of a file called the test_setup.json existing in the following places.
- * When running the test locally the file should be present in <project_root>/test_settings/test_setup.json.
- * When running the test on CI tool <TO BE COMPLETED AFTER RESEARCH>
- * The sample json file is shown below.
- * {
- *   "validUserId": "raseel.mohamed@nih.gov",
- *   "password": "M@tch2015!"
- * }
- */
 
 var loginPageObj = require ('../../pages/loginPage');
 var dashboardPageObj = require ('../../pages/dashboardPage');
@@ -68,9 +58,15 @@ module.exports = function () {
 
     this.Then(/^I should be able to the see Dashboard page$/, function (callback){
         var logoutLink = element(by.linkText('Log out'));
-        browser.sleep(1500).then(function(){
-            expect(browser.isElementPresent(logoutLink)).to.eventually.be.true; //Looking for logout link
-            utilities.checkTitle(browser, dashboardPageObj.title);  //Checking for the title.
+        utilities.waitForElement(dashboardPageObj.logoutLink, 'Logout Link');
+        browser.sleep(5).then(function(){
+            utilities.checkTitle(browser, dashboardPageObj.title).then(function () {
+
+            });  //Checking for the title.
+            dashboardPageObj.name().get(0).getText().then(function (text) {
+                console.log(text);
+            });
+
         } );
 
         browser.sleep(50).then(callback);

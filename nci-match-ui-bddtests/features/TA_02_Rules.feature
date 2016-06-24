@@ -39,11 +39,10 @@ Feature:
     And I select the Drugs / Diseases sub-tab
     Then I should see that Drugs / Diseases sub-tab is active
     And I should see Exclusionary Diseases table
-#    And I should see Inclusionary Drugs table
-#    And I should see Exclusionary Drugs table
-#    And I should see Inclusionary Diseases table
+    And I should see Exclusionary Drugs table
+    And I should see Inclusionary Diseases table
 
-  @treatment @dev
+  @treatment
     Scenario: Logged in user can access the Non-Sequencing Assays details on the Rules Tab
     When I select the Rules Main Tab
     And I select the Non-Sequencing Assays sub-tab

@@ -8,7 +8,7 @@ var rest = require('rest');
 var Utilities = function() {
 
     this.checkTitle = function(browser, title) {
-        expect(browser.getTitle()).to.eventually.equal(title);
+        return expect(browser.getTitle()).to.eventually.equal(title);
     };
 
     this.checkElementValue = function(css_locator, expected) {
@@ -18,7 +18,7 @@ var Utilities = function() {
     this.waitForElement = function(element, message) {
         browser.wait(function (){
            return browser.isElementPresent(element)
-        }, 5000, message + ' element is not visible.');
+        }, 10000, message + ' element is not visible.');
     };
 
     this.checkPresence = function(css_locator) {
@@ -108,7 +108,7 @@ var Utilities = function() {
 
     this.getTreatmentArmIdDetails = function (response){
         var treatmentArm =  JSON.parse(response);
-        return treatmentArm[0];
+        return treatmentArm;
     };
 
     /**

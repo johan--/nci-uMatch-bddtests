@@ -1,20 +1,26 @@
 /**
  * Created by raseel.mohamed on 6/3/16
  */
+var helper = require('./support/setup');
 
 exports.config = {
     baseUrl: 'http://localhost:9000',
 
     seleniumAddress: 'http://localhost:4444/wd/hub',
+    // capabilities: {
+    //     browserName: 'chrome',
+    //     version: ''
+    // },
+
     capabilities: {
-        browserName: 'chrome',
-        version: ''
+        browserName: 'firefox',
+        version: '',
+        firefox_binary: '/Applications/Firefox.app/Contents/MacOS/firefox-bin'
     },
-    // multiCapabilities: [{
-    //     'browserName': 'firefox'
-    // },{
-    //     'browserName': 'chrome'
-    // }],
+
+    // This section to trigger the multicapabilities or running multiple browsers.
+    // getMultiCapabilities : helper.getFireFoxProfile,
+    // maxSessions : 2,
 
     specs: [
         // Login Page
@@ -30,6 +36,9 @@ exports.config = {
     cucumberOpts: {
         require: ['features/step_definitions/*.js',
                   'support/hooks.js' ],
-        format: 'pretty'
-    }
+        format: 'pretty',
+        format: 'json:results/result.json'
+
+    },
+    //resultsJsonOutputFile: <to find out> process.env['HOME'] + '/Desktop/report.json'
 };

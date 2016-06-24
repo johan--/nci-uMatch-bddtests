@@ -38,7 +38,7 @@ var TreatmentArmsPage = function() {
     this.rightInfoBoxItems = element.all(by.css('#left-info-box dd'));
 
     // Three main tabs showing Analysis, Rules and History
-    this.middleMainTabs = element.all(by.css('.wrapper>.tabs-container>.ng-isolate-scope>.nav-tabs>.ng-isolate-scope>a'));
+    this.middleMainTabs = element.all(by.css('a[uib-tab-heading-transclude=""]'));
     // Seven tabs under the Rules main tab.
     this.rulesSubTabLinks = element.all(by.css('.panel-body .ng-isolate-scope>a'));
     // The panel for the seven tabs under the Rules. This is one higher than the rulesSubtab, but has the properties to look for
@@ -60,15 +60,15 @@ var TreatmentArmsPage = function() {
     this.listOfVersions = element.all(by.css('.panel-body>.table-hover>tbody>tr>.ng-binding'));
 
     // Left info box
-    this.taName = element(by.css('#left-info-box dd.ng-binding:nth-of-type(1)'));
-    this.taDescription = element(by.css('#left-info-box dd.ng-binding:nth-of-type(2)'));
-    this.taStatus = element(by.css('#left-info-box dd.ng-binding:nth-of-type(3)'));
-    this.taVersion = element(by.css('#left-info-box dd .wrap-dd-select span.selected'));
+    this.taName = element.all(by.binding('taid'));
+    this.taDescription = element(by.binding('information.description'));
+    this.taStatus = element(by.binding('information.currentStatus'));
+    this.taVersion = element(by.binding('dropdownModel[labelField]'));
     
     // Right info box
-    this.taGene = element(by.css('#right-info-box dd.ng-binding:nth-of-type(1)'));
-    this.taPatientsAssigned = element(by.css('#right-info-box dd.ng-binding:nth-of-type(2)'));
-    this.taDrug= element(by.css('#right-info-box dd.ng-binding:nth-of-type(3)'));
+    this.taGene = element(by.binding('information.genes'));
+    this.taPatientsAssigned = element(by.binding('information.patientsAssigned'));
+    this.taDrug= element(by.binding('information.drug'));
 
     // Inclusion/exclusion button
     this.inclusionButton = element(by.css('.active>.ng-scope>.ibox label[ng-class="getInExclusionTypeClass(\'inclusion\')"]'));
@@ -80,14 +80,23 @@ var TreatmentArmsPage = function() {
     this.exclusionTable = element.all(
         by.css('.active>.panel-body>.ibox [ng-if="inExclusionType == \'exclusion\'"] .dataTables_wrapper>.row>.col-sm-12>table>tbody>tr.ng-valid'));
 
+    // Assay table elements
+    this.assayColumn = element.all(by.binding('item.assay'));
+    this.assayGeneName = element.all(by.binding('item.gene_name'));
+    this.assayResult = element.all(by.binding('item.result'));
+    this.assayVariantAssc = element.all(by.binding('item.variantAssociation'));
+    this.assayLOE = element.all(by.binding('item.level_of_evidence'));
+    this.assayTableRepeater = element.all(by.css('tr[ng-repeat="item in selectedVersion.nonSequencingAssays"]'));
+
     // Key map for Drugs and Diseases values from the treatment arm api call
-    var keyMap = {
+    var KeyMapConstant = {
         'drugs'    : {
             'name'      : 'name',
             'id'        : 'drug_id'
         },
         'diseases' : {
             'name'      : 'short_name',
+            'medraCode' : 'medra_code',
             'id'        : '_id',
             'category'  : 'ctep_category'
         }
@@ -312,19 +321,18 @@ var TreatmentArmsPage = function() {
         var proteinRegexLoc = 'td:nth-of-type(6)'; //todo
         var loeLoc = 'td:nth-of-type(7)';
         var litTableLoc = 'td:nth-of-type(8)';
-
-
+        
         rowList.count().then(function (count) {
             if (count > 0){
                 rowList.each(function (row, index) {
                     row.all(by.css(functionLoc)).get(0).getText().then(function(text){
                         if (text == firstData.function){
-                            //todo: utils.checkValueInTable(row.all(by.css(oncomineLoc)), firstData['oncomineVariantClass'])
+                            utils.checkValueInTable(row.all(by.css(oncomineLoc)), firstData['oncomine_variant_class'])
                             utils.checkValueInTable(row.all(by.css(geneLoc)), firstData['gene_name']);
                             utils.checkValueInTable(row.all(by.css(functionLoc)), firstData['function']);
                             utils.checkValueInTable(row.all(by.css(proteinLoc)), firstData['description']);
                             utils.checkValueInTable(row.all(by.css(exonLoc)), firstData['exon']);
-                            //todo: utils.checkValueInTable(row.all(by.css(proteinRegexLoc)), firstData['proteinRegexLoc']);
+                            utils.checkValueInTable(row.all(by.css(proteinRegexLoc)), firstData['proteinMatch']);
                             utils.checkValueInTable(row.all(by.css(loeLoc)), firstData['level_of_evidence']);
                             utils.checkValueInTable(row.all(by.css(litTableLoc)), med_id_string);
                         }
@@ -335,39 +343,97 @@ var TreatmentArmsPage = function() {
     };
 
     this.checkDrugsTable = function(refData, repeaterString){
-         //todo: Drugs data is not visble on the UI. Once available we can finish this check
-          
+        // Grabbing the first data from the API response.
+        var firstData = refData[0];
+        var keymap = KeyMapConstant['drugs'];
+        var rowList = element.all(by.repeater(repeaterString));
+
+        var drugName = firstData[keymap['name']];
+        var description = firstData[keymap['description']];
+        var drugId = firstData[keymap['drug_id']];
         
+        expect(rowList.count()).to.eventually.equal(refData.length);
+
+        rowList.count().then(function (rowCount) {
+            if ( rowCount > 0 ) {
+                rowList.each(function (row, index) {
+                    row.all(by.binding('item.name')).get(0).getText().then(function (name) {
+                        if (name === drugName) {
+                            utils.checkValueInTable(row.all(by.binding('item.name')), drugName);
+                            utils.checkValueInTable(row.all(by.binding('item.id')), drugId);
+                        }
+                    })
+                })
+            }
+        });
     };
 
     this.checkDiseasesTable = function(refData, repeaterString){
         var ctepCategoryLoc = '.ng-binding:nth-of-type(1)';
         var ctepTermLoc = '.ng-binding:nth-of-type(2)';
-        var medraCode = '.ng-binding:nth-of-type(3)';
+        var medraCodeLoc = '.ng-binding:nth-of-type(3)';
         var rowList = element.all(by.repeater(repeaterString));
-        var keymap = keyMap['diseases'];
+        var keymap = KeyMapConstant['diseases'];
 
         var ctepTermFromAPI = refData[0][keymap['name']];
         var ctepCategoryFromApi = refData[0][keymap['category']];
+        var medraCodeFromApi = refData[0][keymap['medraCode']];
         var ctepId = refData[0][keymap.id];
 
-        expect(element.all(by.repeater(repeaterString)).count()).to.eventually.equal(refData.length);
+        expect(rowList.count()).to.eventually.equal(refData.length);
 
         rowList.count().then(function (count) {
             if (count > 0){
                 rowList.each(function (row, index){
                     row.all(by.css(ctepTermLoc)).get(0).getText().then(function (text){
                         if (text === ctepTermFromAPI){
-                            utils.checkValueInTable(row.all(by.css(ctepTermLoc)), ctepTermFromAPI);
+                            utils.checkValueInTable(row.all(by.css(medraCodeLoc)), medraCodeFromApi);
                             utils.checkValueInTable(row.all(by.css(ctepCategoryLoc)), ctepCategoryFromApi);
-                            //todo: find details about MEDRA Code
+                            utils.checkValueInTable(row.all(by.css(ctepCategoryLoc)), ctepCategoryFromApi);
                         };
                     });
                 });
             }
         });
-        
+    };
 
+    this.checkAssayResultsTable = function (refData, repeater) {
+        var firstData = refData[0];
+        expect(repeater.count()).to.eventually.equal(refData.length);
+        var assayResult = firstData['assay_result_status'];
+        var assayDescription = firstData['description'];
+        var assayGene = firstData['gene'];
+        var assayLOE = firstData['level_of_evidence'];
+        var assayVariant = firstData['assay_variant'];
+
+        repeater.count().then(function (cnt) {
+            if(cnt > 0) {
+                repeater.each(function (row, index) {
+                    row.all(by.binding('item.gene_name')).get(0).getText().then(function (gName) {
+                    });
+                    if (gName === assayGene){
+                        utils.checkValueInTable(row.all(by.binding('item.gene_name')), assayGene);
+                        utils.checkValueInTable(row.all(by.binding('item.result')), assayResult);
+                        // utils.checkValueInTable(row.all(by.binding('item.description')), assayDescription);
+                        utils.checkValueInTable(row.all(by.binding('item.level_of_evidence')), assayLOE);
+                        utils.checkValueInTable(row.all(by.binding('item.variantAssociation')), assayVariant);
+                        // utils.checkValueInTable(row.all(by.binding('item.gene_name')), assayColumn);
+                    }
+
+                })
+            }
+
+        })
+
+    };
+
+    this.getTreatmentArmVersions = function(treatmentArm){
+        var versionOrder;
+        treatmentArm.forEach(function (elem, index) {
+            versionOrder[index] = elem['version'];
+        });
+
+        return versionOrder
     };
 
     function getActualVariantName(variantName){
@@ -379,11 +445,11 @@ var TreatmentArmsPage = function() {
             'Gene Fusion'       : 'gene_fusions'
         };
         return variantMapping[variantName];
-    };
+    }
 
     function setTreatmentArmId(ta_id){
         treatment_id = ta_id
-    };
+    }
 
     /**
      * Converts the array present in the treatment arm response JSON into a string where the elements are separated by
@@ -397,7 +463,7 @@ var TreatmentArmsPage = function() {
             return data.join('x').replace(/\s/g, '').replace(/x/g, '\n')
         }
 
-    };
+    }
 };
 
 module.exports = new TreatmentArmsPage();

@@ -15,6 +15,7 @@ module.exports = function () {
 
     var treatment_id ;
     var treatmentArmAPIDetails;
+    var firstTreatmentArm;
 
     // When section
     this.When(/^I select the (.+) sub-tab$/, function(subTabName, callback){
@@ -24,6 +25,7 @@ module.exports = function () {
         response = utilities.callTreatmentApi(treatment_id);
         response.get().then(function () {
             treatmentArmAPIDetails = utilities.getTreatmentArmIdDetails(response.entity());
+            firstTreatmentArm = treatmentArmAPIDetails[0];
             utilities.clickElementArray(taPage.rulesSubTabLinks, elementIndex);
         });
 
@@ -41,13 +43,14 @@ module.exports = function () {
         secondPart = tableType === 'Diseases' ? 'diseases': 'drugs';
 
         dataNode = firstPart + '_' + secondPart;
-        refData = treatmentArmAPIDetails[dataNode]; // Reference data
+        refData = firstTreatmentArm[dataNode]; // Reference data
 
         repeaterString = 'item in selectedVersion.' + inclusionType.toLocaleLowerCase() + tableType;
 
-        expect(element.all(by.repeater(repeaterString)).count()).to.eventually.equal(refData.length);
-        tableType === 'Drugs' ? taPage.checkDrugsTable(refData, repeaterString) : taPage.checkDiseasesTable(refData, repeaterString);
-        
+        if (refData !== undefined) {
+            expect(element.all(by.repeater(repeaterString)).count()).to.eventually.equal(refData.length);
+            tableType === 'Drugs' ? taPage.checkDrugsTable(refData, repeaterString) : taPage.checkDiseasesTable(refData, repeaterString);
+        }
         browser.sleep(50).then(callback);
     });
 
@@ -83,7 +86,7 @@ module.exports = function () {
 
     this.Then(/^I should see the (.+) Variants table for (.+)$/, function (inclusionType, variant, callback) {
         // First getting the data for the variant from the treatment arm
-        var data = taPage.generateArmDetailForVariant(treatmentArmAPIDetails, variant, inclusionType);
+        var data = taPage.generateArmDetailForVariant(firstTreatmentArm, variant, inclusionType);
         var tableType = inclusionType == 'Inclusion' ? taPage.inclusionTable : taPage.exclusionTable;
 
         switch(variant) {
@@ -105,5 +108,11 @@ module.exports = function () {
         }
         browser.sleep(50).then(callback);
     });
-    
+
+    this.Then(/^I should see the Non\-Sequencing Assays table$/, function (callback) {
+        var data = firstTreatmentArm['assay_results'];
+        var repeater = taPage.assayTableRepeater;
+        taPage.checkAssayResultsTable(data, repeater);
+        callback(null, 'pending');
+    });
 };

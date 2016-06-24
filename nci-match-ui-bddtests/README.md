@@ -54,6 +54,14 @@ Run tests tagged with @tagname1, but avoid @tagname2
 protractor config.js --cucumberOpts.tags='@tagname1' --cucumberOpts.tags='~@tagname2' 
 ```
 
+## Additional configuration changes. 
+The configuration settings present in the config.js can be altered at runtime by providing parameters. 
+
+For example if you need to override the baseUrl being used to something else, you can use the following commmand.
+ ```
+ protractor config.js --baseUrl='www.example.org'
+ ```
+
 ### Contacts
 - Raseel Mohamed: raseel.mohamed@nih.gov
 - Vivek Ramani: vivek.ramani@nih.gov

@@ -20,6 +20,7 @@ module.exports = function () {
 
     var treatment_id;
     var treatmentArmAPIDetails;
+    var firstTreatmentArm;
 
     // GIVEN Section
 
@@ -33,6 +34,7 @@ module.exports = function () {
             response = utilities.callTreatmentApi(treatment_id);
             response.get().then(function (){
                 treatmentArmAPIDetails = utilities.getTreatmentArmIdDetails(response.entity());
+                firstTreatmentArm = treatmentArmAPIDetails[0];
                 element(by.linkText(treatment_id)).click().then(function() {
                     callback();
                 });
@@ -47,6 +49,7 @@ module.exports = function () {
 
         response.get().then(function(){
             treatmentArmAPIDetails = utilities.getTreatmentArmIdDetails(response.entity());
+            firstTreatmentArm = treatmentArmAPIDetails[0];
             element(by.linkText(treatment_id)).click().then(function () {
                 callback();
             })
@@ -123,24 +126,24 @@ module.exports = function () {
     this.Then(/^I should see the Name Details$/, function (callback) {
         utilities.checkElementArray(taPage.leftInfoBoxLabels, taPage.expectedLeftBoxLabels);
 
-        expect(taPage.taName.getText()).to.eventually.equal(treatmentArmAPIDetails.name);
-        expect(taPage.taDescription.getText()).to.eventually.equal(treatmentArmAPIDetails.description);
-        expect(taPage.taStatus.getText()).to.eventually.equal(treatmentArmAPIDetails.treatment_arm_status);
-        expect(taPage.taVersion.getText()).to.eventually.equal(treatmentArmAPIDetails.version);
+        expect(taPage.taName.get(1).getText()).to.eventually.equal(firstTreatmentArm.name);
+        expect(taPage.taDescription.getText()).to.eventually.equal(firstTreatmentArm.description);
+        expect(taPage.taStatus.getText()).to.eventually.equal(firstTreatmentArm.treatment_arm_status);
+        expect(taPage.taVersion.getText()).to.eventually.equal(firstTreatmentArm.version);
         
         browser.sleep(50).then(callback);
     });
 
     this.Then(/^I should see the Gene Details$/, function (callback) {
         utilities.checkElementArray(taPage.rightInfoBoxLabels, taPage.expectedRightBoxLabels);
-        var drudDetails = treatmentArmAPIDetails.treatment_arm_drugs[0];
-        var drugId = drudDetails.name + ' (' + drudDetails.drug_id + ')';
+        var drugDetails = firstTreatmentArm.treatment_arm_drugs[0];
+        var drugName = drugDetails.name + ' (' + drugDetails.drug_id + ')';
 
-        expect(taPage.taGene.getText()).to.eventually.equal(treatmentArmAPIDetails.gene);
+        expect(taPage.taGene.getText()).to.eventually.equal(firstTreatmentArm.gene);
         // TODO: Fix the app to pull the number of patients from the api rather tha hard code it. 
-        //expect(taPage.taPatientsAssigned.getText()).to.eventually.equal(treatmentArmAPIDetails.num_patients_assigned);
+        //expect(taPage.taPatientsAssigned.getText()).to.eventually.equal(firstTreatmentArm.num_patients_assigned);
         // TODO: Fix the app to pull the name of the drug and id from API  
-        //expect(taPage.taDrug.getText()).to.eventually.equal(treatmentArmAPIDetails.treatment_arm_drugs[0].name);
+        expect(taPage.taDrug.getText()).to.eventually.equal(firstTreatmentArm.treatment_arm_drugs[0].name);
 
         browser.sleep(50).then(callback);
     });
