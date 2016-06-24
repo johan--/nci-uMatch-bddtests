@@ -22,7 +22,7 @@ module.exports = function () {
         var elementIndex = taPage.expectedRulesSubTabs.indexOf(subTabName);
         var response;
         treatment_id = taPage.getTreatmentArmId();
-        response = utilities.callTreatmentApi(treatment_id);
+        response = utilities.callApiForDetails(treatment_id, 'treatmentArms');
         response.get().then(function () {
             treatmentArmAPIDetails = utilities.getTreatmentArmIdDetails(response.entity());
             firstTreatmentArm = treatmentArmAPIDetails[0];
@@ -47,7 +47,7 @@ module.exports = function () {
 
         repeaterString = 'item in selectedVersion.' + inclusionType.toLocaleLowerCase() + tableType;
 
-        if (refData !== undefined) {
+        if (refData != null) {
             expect(element.all(by.repeater(repeaterString)).count()).to.eventually.equal(refData.length);
             tableType === 'Drugs' ? taPage.checkDrugsTable(refData, repeaterString) : taPage.checkDiseasesTable(refData, repeaterString);
         }

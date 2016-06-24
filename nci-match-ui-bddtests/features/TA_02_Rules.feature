@@ -17,20 +17,17 @@ Feature:
     When I select the Rules Main Tab
     And I select the <subTabName> sub-tab
     Then I should see that <subTabName> sub-tab is active
-    When I select the <buttonType> button
-    Then I should see the <buttonType> Variants table for <subTabName>
+    When I select the Inclusion button
+    Then I should see the Inclusion Variants table for <subTabName>
+    When I select the Exclusion button
+    Then I should see the Exclusion Variants table for <subTabName>
     Examples:
-      | subTabName            | buttonType |
-      | SNV / MNV             | Inclusion  |
-      | SNV / MNV             | Exclusion  |
-      | Indel                 | Inclusion  |
-      | Indel                 | Exclusion  |
-      | CNV                   | Inclusion  |
-      | CNV                   | Exclusion  |
-      | Gene Fusion           | Inclusion  |
-      | Gene Fusion           | Exclusion  |
-      | Non-Hotspot Rules     | Inclusion  |
-      | Non-Hotspot Rules     | Exclusion  |
+      | subTabName        |
+      | SNV / MNV         |
+      | Indel             |
+      | CNV               |
+      | Gene Fusion       |
+      | Non-Hotspot Rules |
 
 
   @treatment
@@ -48,10 +45,3 @@ Feature:
     And I select the Non-Sequencing Assays sub-tab
     Then I should see that Non-Sequencing Assays sub-tab is active
     And I should see the Non-Sequencing Assays table
-
-
-
-  @treatment
-  Scenario: Rules Tab displays subtabs
-    When I select the Rules Main Tab
-    Then I should see the sub-tabs under Rules

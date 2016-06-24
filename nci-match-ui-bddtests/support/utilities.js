@@ -76,14 +76,13 @@ var Utilities = function() {
 
     /** This function returns a hash of details available from the Treatment Arm Based on the id provided
      * @author: Rick Zakharov, Raseel Mohamed
-     * @param treatmentArmId [String] Treatment Arm Id
+     * @param id [String] id 
+     * @param api [String] the api being called. 
      * returns [String]
      */
 
-    this.callTreatmentApi = function (treatmentArmId){
-        var url = browser.baseUrl.slice(0,-4);
-        var port = '10235';
-        var treatmentArmUrl = url + port + '/treatmentArms/' + treatmentArmId ;
+    this.callApiForDetails = function (id, api ){
+        var routeUrl = buildUrl(id, api);
         
         var self = this;
         return{
@@ -95,7 +94,7 @@ var Utilities = function() {
             return self._entity;
         }
         function get(){
-            return rest(treatmentArmUrl).then(
+            return rest(routeUrl).then(
                 function (response) {
                     self._entity = response.entity;
                 },
@@ -106,6 +105,20 @@ var Utilities = function() {
         }
     };
 
+    function buildUrl(id, api) {
+        if (browser.baseUrl.match('localhost')){
+            var url = browser.baseUrl.slice(0,-4);
+        }
+
+        var portMap = {
+            'patients' : 10240,
+            'treatmentArms': 10235
+        };
+
+        var port = portMap[api];
+        return url + port + '/' + api +'/' + id ;
+    }
+
     this.getTreatmentArmIdDetails = function (response){
         var treatmentArm =  JSON.parse(response);
         return treatmentArm;
@@ -114,7 +127,7 @@ var Utilities = function() {
     /**
      * This function will take the element description of the cell and compare it with the expected.
      * Converts all undefined values or empty values into zero
-     * @param elem
+     * @param elem - list of elements in the row. In case of a row the input will be row.all(<selection criteria>)
      * @param expected
      */
     this.checkValueInTable = function(elem, expected){

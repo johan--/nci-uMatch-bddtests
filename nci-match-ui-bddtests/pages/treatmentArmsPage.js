@@ -321,7 +321,6 @@ var TreatmentArmsPage = function() {
         var proteinRegexLoc = 'td:nth-of-type(6)'; //todo
         var loeLoc = 'td:nth-of-type(7)';
         var litTableLoc = 'td:nth-of-type(8)';
-        
         rowList.count().then(function (count) {
             if (count > 0){
                 rowList.each(function (row, index) {
@@ -342,6 +341,12 @@ var TreatmentArmsPage = function() {
         });
     };
 
+
+    /**
+     * Check the drugs table.
+     * @param refData - Array of data retrieved from the api call
+     * @param repeaterString - The string that is used as the repeater for the table.
+     */
     this.checkDrugsTable = function(refData, repeaterString){
         // Grabbing the first data from the API response.
         var firstData = refData[0];
@@ -350,7 +355,7 @@ var TreatmentArmsPage = function() {
 
         var drugName = firstData[keymap['name']];
         var description = firstData[keymap['description']];
-        var drugId = firstData[keymap['drug_id']];
+        var drugId = firstData[keymap['id']];
         
         expect(rowList.count()).to.eventually.equal(refData.length);
 
@@ -368,6 +373,11 @@ var TreatmentArmsPage = function() {
         });
     };
 
+    /**
+     * Check the diseases table.
+     * @param refData - Array of data retrieved from the api call
+     * @param repeaterString - The string that is used as the repeater for the table.
+     */
     this.checkDiseasesTable = function(refData, repeaterString){
         var ctepCategoryLoc = '.ng-binding:nth-of-type(1)';
         var ctepTermLoc = '.ng-binding:nth-of-type(2)';
