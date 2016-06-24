@@ -37,7 +37,7 @@ Given(/^patient "([^"]*)" exist in "([^"]*)"$/) do |pt_id,study|
   end
   jsonString = Patient_helper_methods.createPatientTriggerRequestJSON(study_id, pt_id, stepNumber, "REGISTRATION", "Patient trigger", "22334a2sr", "current");
 
-  p ENV['protocol'] + '://' + ENV['DOCKER_HOSTNAME'] + ':' + ENV['patient_api_PORT'] + '/patient_state'
+  p ENV['protocol'] + '://' + ENV['DOCKER_HOSTNAME'] + ':' + ENV['patient_api_PORT'] + '/registration'
   @response = Helper_Methods.post_request(ENV['protocol'] + '://' + ENV['DOCKER_HOSTNAME'] + ':' + ENV['patient_api_PORT'] + '/registration',@jsonString)
   @response['message'].should == 'Saved to datastore.'
 end
