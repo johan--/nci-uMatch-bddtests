@@ -31,7 +31,7 @@ module.exports = function () {
         var response;
         taPage.returnTreatmentArmId(taTableData, 0).then(function (treatmentArmId) {
             treatment_id = treatmentArmId;
-            response = utilities.callTreatmentApi(treatment_id);
+            response = utilities.callApiForDetails(treatment_id, 'treatmentArms');
             response.get().then(function (){
                 treatmentArmAPIDetails = utilities.getTreatmentArmIdDetails(response.entity());
                 firstTreatmentArm = treatmentArmAPIDetails[0];
@@ -45,7 +45,7 @@ module.exports = function () {
     this.When(/^I click on (.+) in the treatment arm table$/, function (ta_id, callback) {
         var response;
         treatment_id = ta_id;
-        response = utilities.callTreatmentApi(treatment_id);
+        response = utilities.callApiForDetails(treatment_id);
 
         response.get().then(function(){
             treatmentArmAPIDetails = utilities.getTreatmentArmIdDetails(response.entity());
@@ -83,11 +83,11 @@ module.exports = function () {
         utilities.clickElementArray(taPage.middleMainTabs, elementIndex);
         browser.sleep(50).then(callback);
     });
-    
+
     //THEN Section
     this.Then(/^I should see the (.+) Title$/, function (title, callback) {
         browser.sleep(1000).then(function () {
-            utilities.checkElementValue('[value="heading"]>h2', title);
+            expect(element(by.tagName('h2')).getText()).to.eventually.equal(title);
         });
         browser.sleep(50).then(callback);
     });
@@ -137,13 +137,12 @@ module.exports = function () {
     this.Then(/^I should see the Gene Details$/, function (callback) {
         utilities.checkElementArray(taPage.rightInfoBoxLabels, taPage.expectedRightBoxLabels);
         var drugDetails = firstTreatmentArm.treatment_arm_drugs[0];
-        var drugName = drugDetails.name + ' (' + drugDetails.drug_id + ')';
+        var drugName = drugDetails['name'] + ' (' + drugDetails['drug_id'] + ')';
 
         expect(taPage.taGene.getText()).to.eventually.equal(firstTreatmentArm.gene);
-        // TODO: Fix the app to pull the number of patients from the api rather tha hard code it. 
+        // TODO: Fix the app to pull the number of patients from the api rather tha hard code it.
         //expect(taPage.taPatientsAssigned.getText()).to.eventually.equal(firstTreatmentArm.num_patients_assigned);
-        // TODO: Fix the app to pull the name of the drug and id from API  
-        expect(taPage.taDrug.getText()).to.eventually.equal(firstTreatmentArm.treatment_arm_drugs[0].name);
+        expect(taPage.taDrug.getText()).to.eventually.equal(drugName);
 
         browser.sleep(50).then(callback);
     });

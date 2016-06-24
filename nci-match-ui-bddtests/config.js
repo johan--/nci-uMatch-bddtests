@@ -4,19 +4,19 @@
 var helper = require('./support/setup');
 
 exports.config = {
-    baseUrl: 'http://localhost:9000',
+    baseUrl: 'http://pedmatch.org',  //when developing tests use http://localhost:9000',
 
     seleniumAddress: 'http://localhost:4444/wd/hub',
-    // capabilities: {
-    //     browserName: 'chrome',
-    //     version: ''
-    // },
-
     capabilities: {
-        browserName: 'firefox',
-        version: '',
-        firefox_binary: '/Applications/Firefox.app/Contents/MacOS/firefox-bin'
+        browserName: 'chrome',
+        version: ''
     },
+
+    // capabilities: {
+    //     browserName: 'firefox',
+    //     version: '',
+    //     firefox_binary: '/Applications/Firefox.app/Contents/MacOS/firefox-bin'
+    // },
 
     // This section to trigger the multicapabilities or running multiple browsers.
     // getMultiCapabilities : helper.getFireFoxProfile,
@@ -31,10 +31,13 @@ exports.config = {
         'features/TA_02_Rules.feature'
     ],
 
+    getPageTimeout: 10000,
+
     framework: 'custom',
     frameworkPath: require.resolve('protractor-cucumber-framework'),
     cucumberOpts: {
-        require: ['features/step_definitions/*.js',
+        require: ['support/env.js',
+                  'features/step_definitions/*.js',
                   'support/hooks.js' ],
         format: 'pretty',
         format: 'json:results/result.json'

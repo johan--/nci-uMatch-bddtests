@@ -16,6 +16,7 @@ Please make sure that the following are installed before running the project.
    ```
    $ npm install -g protractor
    $ npm install -g cucumber
+   $ nom install -g grunt-cli
    ```
 
    This should also install `Selenium Webdriver` and thus `webdriver-manager`

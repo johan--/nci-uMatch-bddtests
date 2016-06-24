@@ -5,13 +5,14 @@
 var DashboardPage = function() {
     
     this.title = 'MATCHBox | Dashboard';
-    this.greeterHeading = element(by.binding(' name '));
+    this.greeterHeading = function() { return element(by.binding(' name ')); }
     this.logoutLink = element(by.css('[ng-click="logout()"]'));
     this.patientsNum = element.all(by.binding(' numberOfPatients '));
     this.screenedPatients = element(by.binding(' numberOfScreenedPatients '));
     this.patientsOnTreatment = element(by.binding(' numberOfPatientsWithTreatment '));
     this.pendingAssignmentReports = element(by.binding(' numberOfPendingAssignmentReports '));
 
+    
      
     this.logout = function () {
         element(by.linkText('Log out')).click();

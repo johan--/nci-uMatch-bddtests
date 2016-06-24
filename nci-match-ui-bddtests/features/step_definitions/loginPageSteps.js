@@ -57,19 +57,13 @@ module.exports = function () {
     });
 
     this.Then(/^I should be able to the see Dashboard page$/, function (callback){
-        var logoutLink = element(by.linkText('Log out'));
+        var greeting = 'Welcome, ' + process.env.NCI_MATCH_USERID + '!';
+        
         utilities.waitForElement(dashboardPageObj.logoutLink, 'Logout Link');
         browser.sleep(5).then(function(){
-            utilities.checkTitle(browser, dashboardPageObj.title).then(function () {
-
-            });  //Checking for the title.
-            dashboardPageObj.name().get(0).getText().then(function (text) {
-                console.log(text);
-            });
-
+            utilities.checkTitle(browser, dashboardPageObj.title);
         } );
-
-        browser.sleep(50).then(callback);
+        browser.sleep(5).then(callback);
     });
 
     this.Then(/^I then logout$/, function (callback) {
