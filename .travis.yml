@@ -15,7 +15,7 @@ before_script:
   - npm install -g protractor cucumber grunt-cli
   # - apt-get update && apt-get upgrade && install ruby@2.2.3
   - sudo apt-get -y install ruby-full
-  - sudo apt-get -y update && sudo apt-get upgrade
+  - sudo apt-get -y update && sudo apt-get -y upgrade
   - ruby -v
   - bundle --version
   - gem --version
