@@ -20,7 +20,7 @@ Feature:
     And I should see the headings in the table
     And I should see data in the table
 
-  @treatment @dev
+  @treatment
   Scenario: Logged in user can access the dashboard of Treatment Arms page
     When I click on one of the treatment arms
     Then  I should see the treatment-arms detail dashboard

@@ -30,7 +30,7 @@ Feature:
       | Non-Hotspot Rules |
 
 
-  @treatment @dever
+  @treatment
   Scenario: Logged in user can access Drugs/Disease details on the Rules Tab
     When I select the Rules Main Tab
     And I select the Drugs / Diseases sub-tab
