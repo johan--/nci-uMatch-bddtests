@@ -19,6 +19,7 @@ before_script:
   - ruby -v
   - bundle --version
   - gem --version
+  - bundle install
   - cd DeleteScript
   - ./dynamo_delete_script.rb -p _test -a $AWS_ACCESS_KEY_ID -s $AWS_SECRET_ACCESS_KEY -e 'https://dynamodb.us-east-1.amazonaws.com' -r us-east-1
   - cd ..
