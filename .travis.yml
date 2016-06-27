@@ -4,6 +4,9 @@ services:
 language: ruby
 rvm:
   - 2.2.3
+language: node_js
+node_js:
+  - "6.0"
 before_install:
   - echo $TRIGGER_REPO
   - echo $CUC_TAG
