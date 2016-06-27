@@ -13,7 +13,7 @@ before_install:
   - docker pull $TRIGGER_REPO
 before_script:
   - npm install -g protractor cucumber grunt-cli
-  - apt-get updated && apt-get upgrade && install ruby@2.2.3
+  - apt-get update && apt-get upgrade && install ruby@2.2.3
   - ruby -v
   - bundle --version
   - gem --version
