@@ -11,7 +11,7 @@ Feature: TA_AR1. Treatment Arm API Tests that focus on assayResults
     Examples:
       |treatment_arm_id     |gene             |status          |variant    |loe       |description                                  |
       |APEC1621-PR1-1       |PTEN             |POSITIVE        |PRESENT    |2.0       |null                                         |
-      |APEC1621-PR1-2       |MSCH2            |NEGATIVE        |NEGATIVE   |1.0       |description                                  |
+      |APEC1621-PR1-2       |MSCH2            |NEGATIVE        |NEGATIVE   |1.5       |description                                  |
       |APEC1621-PR1-3       |MLH1             |INDETERMINATE   |EMPTY      |3.0       |the other description                        |
 
   Scenario Outline: TA_AR2. assayResults with invalid values should fail
@@ -27,5 +27,4 @@ Feature: TA_AR1. Treatment Arm API Tests that focus on assayResults
       |PTEN             |otherValue      |NEGATIVE   |3.0       |non-enum status         |did not match one of the following values           |
       |PTEN             |null            |NEGATIVE   |2.0       |null status             |type NilClass did not match the following type: string|
       |MLH1             |INDETERMINATE   |null       |3.0       |null variant            |type NilClass did not match the following type: string|
-      |MSCH2            |NEGATIVE        |NEGATIVE   |1.5       |float loe               |was not divisible by 1.0                            |
       |MSCH2            |NEGATIVE        |NEGATIVE   |-2.0      |minus loe               |Validation failed.                                  |
