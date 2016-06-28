@@ -10,52 +10,56 @@ node_js:
 before_install:
   - echo $TRIGGER_REPO
   - echo $CUC_TAG
+  # Pull latest docker image from last step to test against before it gets updated by someone else
   - docker pull $TRIGGER_REPO
+  # Install chrome & chromium
   - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
   - sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
   - sudo apt-get update
   - sudo apt-get install google-chrome-stable
+  # Install xvfb
   - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16"
 before_script:
+  # Install chrome & chromium
   - sudo apt-get update
-  # - sudo apt-get install chromium chromium-l10n
   - sudo apt-get -y install chromium-bsu
+  # Install UI test requirements
   - npm install -g protractor grunt-cli
-  # - apt-get update && apt-get upgrade && install ruby@2.2.3
-  # - ruby -v
-  # - sudo apt-get -y install ruby-full
   - webdriver-manager update
-  # - webdriver-manager start &
-  # - sudo apt-get -y update && sudo apt-get -y upgrade
+  # Update Ruby cucumber dependencies
+  - bundle install
+  # Update Node UI test dependencies
+  - cd ../../nci-match-ui-bddtests/
+  - npm install
+  - cd ../..
+  # Version reporting
   - ruby -v
   - bundle --version
   - gem --version
-  - bundle install
+  # Install xvfb
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
   - sleep 3 # give xvfb some time to start
+  # Run Delete Script to empty DynamoDB before tests start
   - cd DeleteScript
   - ./dynamo_delete_script.rb -p _test -a $AWS_ACCESS_KEY_ID -s $AWS_SECRET_ACCESS_KEY -e 'https://dynamodb.us-east-1.amazonaws.com' -r us-east-1
   - cd ..
 script:
-  # - pwd;cd uMATCH/PedMATCH; bundle exec cucumber --tags @demo
-  # - cd uMATCH/PedMATCH; bundle exec cucumber --tags $CUC_TAG
+  # Run Cucumber @tag specific tests
   - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG --format pretty' -n 4
+  # Run Cucumber end to end tests
   # - bundle exec cucumber --tags @EndtoEnd
+  # Run UI tests
   - cd ../../nci-match-ui-bddtests/
-  - npm install
-  # - webdriver-manager start &
-  # - sleep 20s
-  - ls -alt
   - protractor config.js
-  # - cd ../..;pwd;ls;./trigger_bddtests.sh
 after_success:
-  # - docker images
+  # Tag latest version of docker image tested agains with a date stamp as release candidate
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - export DATE=`date "+%m-%d-%y-%H%M"`
   - docker tag -f $TRIGGER_REPO $TRIGGER_REPO:$DATE
   - docker images
   - docker push  $TRIGGER_REPO:$DATE 
+  # Push to AWS and trigger next step
  # - aws ecs update-service --cluster uMatch-Test --service uMatch-nci-treatment-arm-api-TEST --task-definition uMatch-nci-treatment-arm-api-TEST 
   # - docker run -it --rm -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster uMatch-Test --service-name uMatch-nci-treatment-arm-api-TEST -i matchbox/nci-treatment-arm-api:latest
 notifications:
