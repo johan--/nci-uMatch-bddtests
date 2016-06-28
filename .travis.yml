@@ -17,6 +17,7 @@ before_script:
   - ruby -v
   - sudo apt-get -y install ruby-full
   - webdriver-manager update
+  - webdriver-manager start &
   # - sudo apt-get -y update && sudo apt-get -y upgrade
   - ruby -v
   - bundle --version
@@ -31,7 +32,7 @@ script:
   - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG --format pretty' -n 4
   # - bundle exec cucumber --tags @EndtoEnd
   - cd ../../nci-match-ui-bddtests/
-  - webdriver-manager start &
+  # - webdriver-manager start &
   - ls -alt
   - protractor config.js
   # - cd ../..;pwd;ls;./trigger_bddtests.sh
