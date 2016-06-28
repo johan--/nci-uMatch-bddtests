@@ -29,9 +29,9 @@ before_script:
   # Update Ruby cucumber dependencies
   - bundle install
   # Update Node UI test dependencies
-  - cd ../../nci-match-ui-bddtests/
+  - cd nci-match-ui-bddtests
   - npm install
-  - cd ../..
+  - cd ..
   # Version reporting
   - ruby -v
   - bundle --version
@@ -49,10 +49,11 @@ before_script:
 script:
   # Run Cucumber @tag specific tests
   - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG --format pretty' -n 4
+  - cd ../..
   # Run Cucumber end to end tests
   # - bundle exec cucumber --tags @EndtoEnd
   # Run UI tests
-  - cd ../../nci-match-ui-bddtests/
+  - cd nci-match-ui-bddtests/
   - protractor config.js
 after_success:
   # Tag latest version of docker image tested agains with a date stamp as release candidate
