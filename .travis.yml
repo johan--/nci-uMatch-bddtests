@@ -14,7 +14,7 @@ before_install:
 before_script:
   - sudo apt-get update
   # - sudo apt-get install chromium chromium-l10n
-  - sudo apt-get install chromium-bsu
+  - sudo apt-get -y install chromium-bsu chromium-l10n
   - npm install -g protractor grunt-cli
   # - apt-get update && apt-get upgrade && install ruby@2.2.3
   # - ruby -v
