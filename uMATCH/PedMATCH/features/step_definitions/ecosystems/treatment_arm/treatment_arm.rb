@@ -168,6 +168,57 @@ Then(/^the treatment arm with id: "([^"]*)" and version: "([^"]*)" should return
   findTheOnlyMatchTAResultFromResponse(id, version)
 end
 
+Then(/^the treatment arm return from \/basciTreatmentArms has correct values, name: "([^"]*)" and status: "([^"]*)"$/) do |id, status|
+  correctBasicTAs = findAllBasicTreatmentArms(id)
+  returnedTASize = "Returned treatment arm count is #{correctBasicTAs.length}"
+  returnedTASize.should_not == 'Returned treatment arm count is 0'
+  
+  expectValue = nil
+  correctBasicTAs[0].each{ |key, value|
+    if key.eql? 'name'
+      realResult = "name value is #{value}"
+      realResult.should == "name value is #{id}"
+    elsif key.eql?'treatment_arm_status'
+      realResult = "status value is #{value}"
+      realResult.should == "status value is #{status}"
+    elsif key.eql?'date_created'
+      convertedValue = (value==nil)?'null':value
+      realResult = "date_created value is #{convertedValue}"
+      realResult.should_not == 'date_created value is null'
+    else
+      convertedValue = (value==nil)?'null':value
+      realResult = "#{key} value is #{convertedValue}"
+      realResult.should == "#{key} value is null"
+    end
+  }
+  
+end
+
+Then(/^the treatment arm return from \/basciTreatmentArms\/id has correct values, name: "([^"]*)" and status: "([^"]*)"$/) do |id, status|
+  correctBasicTAs = findSpecificBasicTreatmentArms(id)
+  returnedTASize = "Returned treatment arm count is #{correctBasicTAs.length}"
+  returnedTASize.should_not == 'Returned treatment arm count is 0'
+
+  expectValue = nil
+  correctBasicTAs[0].each{ |key, value|
+    if key.eql? 'name'
+      realResult = "name value is #{value}"
+      realResult.should == "name value is #{id}"
+    elsif key.eql?'treatment_arm_status'
+      realResult = "status value is #{value}"
+      realResult.should == "status value is #{status}"
+    elsif key.eql?'date_created'
+      convertedValue = (value==nil)?'null':value
+      realResult = "date_created value is #{convertedValue}"
+      realResult.should_not == 'date_created value is null'
+    else
+      convertedValue = (value==nil)?'null':value
+      realResult = "#{key} value is #{convertedValue}"
+      realResult.should == "#{key} value is null"
+    end
+  }
+end
+
 Given(/^template json with a random id$/) do
   loadTemplateJson()
   @taReq['id'] = "APEC1621-#{Time.now.to_i.to_s}"
@@ -405,6 +456,14 @@ def findAllBasicTreatmentArms(id)
   @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/basicTreatmentArms',params={})
   allTAs = Treatment_arm_helper.findTreatmentArmsFromResponseUsingID(@response, id)
   return allTAs
+end
+
+def findSpecificBasicTreatmentArms(id)
+  sleep(5.0)
+  @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/basicTreatmentArms',params={"id"=>id})
+  result = JSON.parse(@response)
+  result.should_not == nil
+  return result
 end
 
 def convertVariantAbbrToFull(variantAbbr)
