@@ -32,6 +32,7 @@ script:
   # - bundle exec cucumber --tags @EndtoEnd
   - cd ../../nci-match-ui-bddtests/
   - webdriver-manager start &
+  - ls -alt
   - protractor config.js
   # - cd ../..;pwd;ls;./trigger_bddtests.sh
 after_success:
