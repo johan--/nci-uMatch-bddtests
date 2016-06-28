@@ -44,6 +44,8 @@ before_script:
   - cd DeleteScript
   - ./dynamo_delete_script.rb -p _test -a $AWS_ACCESS_KEY_ID -s $AWS_SECRET_ACCESS_KEY -e 'https://dynamodb.us-east-1.amazonaws.com' -r us-east-1
   - cd ..
+  # Reset ECOG Mock service Data
+  - curl -X POST "http://pedmatch.org:3000/restart" -d ''
 script:
   # Run Cucumber @tag specific tests
   - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG --format pretty' -n 4
