@@ -13,7 +13,8 @@ before_install:
   - docker pull $TRIGGER_REPO
 before_script:
   - sudo apt-get update
-  - sudo apt-get install chromium chromium-bsu
+  # - sudo apt-get install chromium chromium-l10n
+  - sudo apt-get install chromium-bsu
   - npm install -g protractor grunt-cli
   # - apt-get update && apt-get upgrade && install ruby@2.2.3
   # - ruby -v
