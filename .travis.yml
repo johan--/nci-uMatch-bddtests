@@ -33,8 +33,8 @@ script:
   # - bundle exec cucumber --tags @EndtoEnd
   - cd ../../nci-match-ui-bddtests/
   - npm install
-  - webdriver-manager start &
-  - sleep 20s
+  # - webdriver-manager start &
+  # - sleep 20s
   - ls -alt
   - protractor config.js
   # - cd ../..;pwd;ls;./trigger_bddtests.sh
