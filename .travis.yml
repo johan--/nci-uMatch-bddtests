@@ -32,10 +32,11 @@ script:
   - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG --format pretty' -n 4
   # - bundle exec cucumber --tags @EndtoEnd
   - cd ../../nci-match-ui-bddtests/
+  - npm install
   - webdriver-manager start &
   - sleep 20s
   - ls -alt
-  # - protractor config.js
+  - protractor config.js
   # - cd ../..;pwd;ls;./trigger_bddtests.sh
 after_success:
   # - docker images
