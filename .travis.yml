@@ -42,7 +42,7 @@ before_script:
   # Install xvfb
   # - "export DISPLAY=:99.0"
   # - "sh -e /etc/init.d/xvfb start"
-  - sleep 3 # give xvfb some time to start
+  # - sleep 3 # give xvfb some time to start
   # Run Delete Script to empty DynamoDB before tests start
   - cd DeleteScript
   - ./dynamo_delete_script.rb -p _test -a $AWS_ACCESS_KEY_ID -s $AWS_SECRET_ACCESS_KEY -e 'https://dynamodb.us-east-1.amazonaws.com' -r us-east-1
@@ -58,6 +58,7 @@ script:
   # Install xvfb
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
   # Run UI tests
   - cd nci-match-ui-bddtests/
   - protractor config.js
