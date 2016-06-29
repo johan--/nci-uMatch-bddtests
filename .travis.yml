@@ -40,8 +40,8 @@ before_script:
   - bundle --version
   - gem --version
   # Install xvfb
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
+  # - "export DISPLAY=:99.0"
+  # - "sh -e /etc/init.d/xvfb start"
   - sleep 3 # give xvfb some time to start
   # Run Delete Script to empty DynamoDB before tests start
   - cd DeleteScript
@@ -55,6 +55,9 @@ script:
   - cd ../..
   # Run Cucumber end to end tests
   # - bundle exec cucumber --tags @EndtoEnd
+  # Install xvfb
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
   # Run UI tests
   - cd nci-match-ui-bddtests/
   - protractor config.js
