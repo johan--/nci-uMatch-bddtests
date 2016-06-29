@@ -20,6 +20,21 @@ class Helper_Methods
     return @res
   end
 
+  def Helper_Methods.get_request_url_param(service,params={})
+    print "URL: #{service}\n"
+    @params = ''
+    params.each do |key, value|
+      @params =  @params + "#{key}=#{value}&"
+    end
+    url = "#{service}?#{@params}"
+    len = (url.length)-2
+    @service = url[0..len]
+    print "#{url[0..len]}\n"
+    @res = RestClient::Request.execute(:url => @service, :method => :get, :verify_ssl => false)
+    return @res
+  end
+
+
   def Helper_Methods.post_request(service,payload)
     # print "URL: #{service}\n"
     # # print "JSON:\n#{JSON.pretty_generate(JSON.parse(payload))}\n\n"
