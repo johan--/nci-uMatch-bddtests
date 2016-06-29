@@ -1,0 +1,40 @@
+{
+  "patient_id": "PID-1234",
+  "study_id": "APEC1621",
+  "surgical_event_id": "SID-4567",
+  "prior_drugs": [
+    {
+      "drug_id": "763093",
+      "name": "Trametinib",
+      "pathway": "B-RAF inhibitor",
+      "target": "B-RAF"
+    }
+  ],
+  "assays": {
+    "ICCPTENs": "NEGATIVE"
+  },
+  "diseases": [
+    {
+      "ctep_category": "Hematopoietic Neoplasm/Lymphoma",
+      "medra_code": "10036712",
+      "short_name": "Mediastinal large B-cell lymphoma"
+    }
+  ],
+  "variant_report": {
+    "singleNucleotideVariants": [],
+    "indels": [],
+    "copyNumberVariants": [],
+    "unifiedGeneFusions": [
+      {
+        "confirmed": true,
+        "identifier" : "TPM3-ALK.T7A20",
+        "driverGene" : "TPM3",
+        "driverReadCount" : 1001,
+        "partnerGene" : "ALK",
+        "inclusion" : true,
+        "armSpecific" : false,
+        "partnerReadCount" : 1001
+      }
+    ]
+  }
+}
