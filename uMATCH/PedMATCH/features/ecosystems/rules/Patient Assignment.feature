@@ -128,7 +128,7 @@ Feature: Ensure the rules are fired correctly and patients are assigned to the r
     When posted to the AssignPatient service
     Then a patient assignment json is returned with patient_assignment_status "NO_ARM_ASSIGNED"
 
-
+  @rules
   Scenario: Add a new treatment arm to Matchbox
     Given that treatment arm is received from COG:
     """
@@ -257,5 +257,9 @@ Feature: Ensure the rules are fired correctly and patients are assigned to the r
 #  Scenario: Matching exclusion drugs
 #
 #  Scenario: Compasionate care (Patient eligible to be assigned by the treatment arm is closed
+
+#  Scenario: Matching patient who has already taken the eligible arm and progressed
+
+
 
 

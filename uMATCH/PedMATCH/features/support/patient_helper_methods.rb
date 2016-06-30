@@ -26,6 +26,7 @@ class Patient_helper_methods
                       "internal_use_only"=>internaUseHash
     }
 
+    # tempPatientTrigger = {"Cog"=>actualpatientTrigger}
     return patientTrigger.to_json
 
   end

@@ -21,11 +21,12 @@
     }
   ],
   "variant_report": {
-    "singleNucleotideVariants": [],
+    "single_nucleotide_variants": [],
     "indels": [],
-    "copyNumberVariants": [],
-    "unifiedGeneFusions": [
+    "copy_number_variants": [],
+    "unified_gene_fusions": [
       {
+        "type":"ugf",
         "confirmed": true,
         "identifier" : "TPM3-ALK.T7A20",
         "driverGene" : "TPM3",

@@ -21,11 +21,12 @@
     }
   ],
   "variant_report": {
-    "singleNucleotideVariants": [],
+    "single_nucleotide_variants": [],
     "indels": [],
-    "copyNumberVariants": [],
-    "unifiedGeneFusions": [
+    "copy_number_variants": [],
+    "unified_gene_fusions": [
       {
+        "type":"ugf",
         "confirmed": true,
         "identifier" : "CLIP4-ALK.C11A23",
         "driverGene" : "ALK",
