@@ -57,13 +57,16 @@ module.exports = function () {
     });
 
     this.Then(/^I should be able to the see Dashboard page$/, function (callback){
-        var greeting = 'Welcome, ' + process.env.NCI_MATCH_USERID + '!';
+        var firstName = utilities.getFirstNameFromEmail(process.env.NCI_MATCH_USERID);
+        var capitalized = utilities.capitalize(firstName);
+        var greeting = 'Welcome, ' + capitalized + '!';
+        var actualGreeting = element(by.binding(' name '));
         
         utilities.waitForElement(dashboardPageObj.logoutLink, 'Logout Link');
         browser.sleep(5).then(function(){
             utilities.checkTitle(browser, dashboardPageObj.title);
-        } );
-        browser.sleep(5).then(callback);
+            expect(actualGreeting.getText()).to.eventually.equal(greeting);
+        }).then(callback);
     });
 
     this.Then(/^I then logout$/, function (callback) {

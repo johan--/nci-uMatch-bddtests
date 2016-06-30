@@ -45,7 +45,7 @@ module.exports = function () {
     this.When(/^I click on (.+) in the treatment arm table$/, function (ta_id, callback) {
         var response;
         treatment_id = ta_id;
-        response = utilities.callApiForDetails(treatment_id);
+        response = utilities.callApiForDetails(treatment_id, 'treatmentArms');
 
         response.get().then(function(){
             treatmentArmAPIDetails = utilities.getTreatmentArmIdDetails(response.entity());

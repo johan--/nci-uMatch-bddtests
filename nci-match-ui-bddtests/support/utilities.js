@@ -140,7 +140,15 @@ var Utilities = function() {
             }
             expect(column_value).to.equal(expected);
         })
-    }
+    };
+
+    this.getFirstNameFromEmail = function (email) {
+        return email.split('.')[0];
+    };
+
+    this.capitalize = function (text){
+        return text.toLocaleLowerCase().replace(/\b./, function(f) {return f.toLocaleUpperCase();})
+    };
 };
 
 module.exports = new Utilities();
