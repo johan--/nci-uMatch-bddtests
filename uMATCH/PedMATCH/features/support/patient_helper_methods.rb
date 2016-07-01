@@ -5,7 +5,7 @@ require_relative 'helper_methods.rb'
 
 class Patient_helper_methods
 
-  def Patient_helper_methods.createPatientTriggerRequestJSON (studyId,psn,stepNumber,status,comment, _accrualNumber, isDateCreated )
+  def Patient_helper_methods.createPatientTriggerRequestJSON (studyId,psn,stepNumber,status,comment, isDateCreated )
     dateCreated = Helper_Methods.getDateAsRequired(isDateCreated)
 
     headerHash = {"msg_guid"=>"0f8fad5b-d9cb-469f-al65-80067728950e",
