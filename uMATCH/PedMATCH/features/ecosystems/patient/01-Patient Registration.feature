@@ -85,7 +85,7 @@ Feature: Register a new patient in PEDMatchbox
       |APEC1621 |PT-OffTrial1		  |1.0        |REGISTRATION            |Patient registered again     	|This patient (PSN:PT-OffTrial1) is off-study.	|Failure		|
 
 
-  Scenario Outline: MATCH returns a failure message when an invalid stepNumber is received from ECOG
+  Scenario Outline: MATCH returns a failure message when an invalid stepNumber is received from COG
     Given that Patient StudyID "<studyId>" PatientSeqNumber "<patient_id>" StepNumber "<stepNumber>" PatientStatus "<patientStatus>" Message "<message>" with "current" dateCreated is received from EA layer
     When posted to MATCH patient registration
     Then a message "<returnMessage>" is returned with a "<status>"
