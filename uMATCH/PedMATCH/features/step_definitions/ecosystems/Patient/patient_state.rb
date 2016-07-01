@@ -28,16 +28,16 @@ Then(/^a message "(.*?)" is returned with a "(.*?)"$/) do |msg, status|
 end
 
 Given(/^patient "([^"]*)" exist in "([^"]*)"$/) do |pt_id,study|
-  if study.equal?("MATCH")
+  if study.eql?("MATCH")
     study_id = "EAY131"
     stepNumber = "0"
-  elsif study.equal?("PEDMatch")
+  elsif study.eql?("PEDMatch")
     study_id = "APEC1621"
     stepNumber = "1.0"
   end
   jsonString = Patient_helper_methods.createPatientTriggerRequestJSON(study_id, pt_id, stepNumber, "REGISTRATION", "Patient trigger", "current");
-
+  p jsonString
   p ENV['protocol'] + '://' + ENV['DOCKER_HOSTNAME'] + ':' + ENV['patient_api_PORT'] + '/registration'
-  @response = Helper_Methods.post_request(ENV['protocol'] + '://' + ENV['DOCKER_HOSTNAME'] + ':' + ENV['patient_api_PORT'] + '/registration',@jsonString)
-  @response['message'].should == 'Saved to datastore.'
+  @response = Helper_Methods.post_request(ENV['protocol'] + '://' + ENV['DOCKER_HOSTNAME'] + ':' + ENV['patient_api_PORT'] + '/registration',jsonString)
+  @response['status'].should == 'Success'
 end

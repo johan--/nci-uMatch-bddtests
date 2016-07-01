@@ -50,58 +50,42 @@ class Helper_Methods
   end
 
   def Helper_Methods.aFewDaysOlder()
-    # time = Time.new
-    # t = (time.getutc - 144000).strftime("%Y-%m-%dT%H:%M:%S.%LZ")
     time = DateTime.now
-    t = (time - 3.days).strftime("%Y-%m-%dT%H:%M:%S.%LZ")
+    t = (time - 3.days)
     return t.iso8601
   end
 
   def Helper_Methods.olderThanSixMonthsDate()
-    # time = Time.new
-    # t = (time.getutc - 16069000).strftime("%Y-%m-%dT%H:%M:%S.%LZ")
     time = DateTime.now
-    t = (time - 6.months).strftime("%Y-%m-%dT%H:%M:%S.%LZ")
-    print "Date:#{t}\n"
+    t = (time - 6.months)
     return t.iso8601
   end
 
   def Helper_Methods.olderThanFiveMonthsDate()
-    # time = Time.new
-    # t = (time.getutc - 16069000).strftime("%Y-%m-%dT%H:%M:%S.%LZ")
     time = DateTime.now
-    t = (time - 5.months).strftime("%Y-%m-%dT%H:%M:%S.%LZ")
-    print "Date:#{t}\n"
+    t = (time - 5.months)
     return t.iso8601
   end
 
   def Helper_Methods.dateDDMMYYYYHHMMSS ()
-    # time = Time.new
-    # return time.getutc.strftime("%Y-%m-%dT%H:%M:%S.%LZ") #2015-08-19T05:35:00.216Z
     time = DateTime.now
     return (time).iso8601
-    # return (time).strftime("%Y-%m-%dT%H:%M:%S.%LZ")
   end
 
   def Helper_Methods.backDate ()
-    # time = Time.new
-    # t = (time.getutc - 10800).strftime("%Y-%m-%dT%H:%M:%S.%LZ")
     time = DateTime.now
-    return ((time - 6.hours).strftime("%Y-%m-%dT%H:%M:%S.%LZ")).iso8601
+    time = (time - 6.hours).iso8601
+    return time
   end
 
   def Helper_Methods.earlierThanBackDate()
-    # time = Time.new
-    # return (time.getutc - 18000).strftime("%Y-%m-%dT%H:%M:%S.%LZ") # >3 hours earlier
     time = DateTime.now
-    return ((time - 10.hours).strftime("%Y-%m-%dT%H:%M:%S.%LZ")).iso8601
+    return (time - 10.hours).iso8601
   end
 
   def Helper_Methods.futureDate ()
-    # time = Time.new
-    # return (time.getutc + 10800).strftime("%Y-%m-%dT%H:%M:%S.%LZ") #3 hours ahead
     time = DateTime.now
-    return ((time + 6.hours).strftime("%Y-%m-%dT%H:%M:%S.%LZ")).iso8601
+    return (time + 6.hours).iso8601
   end
 
   def Helper_Methods.getDateAsRequired(dateStr)

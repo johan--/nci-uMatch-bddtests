@@ -1,5 +1,5 @@
 @patients
-Feature: Register a new patient in PEDMatchbox
+Feature: Register a new patient in PEDMatchbox::
 
   Scenario Outline: Successfully register a patient in MATCH
     Given that Patient StudyID "<studyId>" PatientSeqNumber "<patient_id>" StepNumber "<stepNumber>" PatientStatus "<patientStatus>" Message "<message>" with "current" dateCreated is received from EA layer

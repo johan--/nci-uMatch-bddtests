@@ -43,13 +43,15 @@ class Patient_helper_methods
       @collectedDate = Helper_Methods.getDateAsRequired(params['collectionDate'])
       specimenHash['collected_date'] = @collectedDate
     end
-
+    # srHash = {"specimen_received"=>msgHash}
+    # return srHash.to_json
+    p msgHash
     return msgHash.to_json
   end
 
   def Patient_helper_methods.create_new_specimen_received_message(psn,type,datePreference)
     dateCreated = Helper_Methods.getDateAsRequired(datePreference)
-
+    p dateCreated
     header_hash = {"msg_guid"=>"0f8fad5b-d9cb-469f-al65-80067728950e",
                   "msg_dttm"=>dateCreated
     }
@@ -75,6 +77,8 @@ class Patient_helper_methods
     }
 
     return specimen_received_hash.to_json
+    # srHash = {"specimen_received"=>specimen_received_hash}
+    # return srHash.to_json
   end
 
   def Patient_helper_methods.create_assay_order_message(params={})
