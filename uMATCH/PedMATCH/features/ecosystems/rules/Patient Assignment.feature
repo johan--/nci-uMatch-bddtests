@@ -112,9 +112,9 @@ Feature: Ensure the rules are fired correctly and patients are assigned to the r
     Then a message with Status "SUCCESS" and message "Saved to datastore." is returned:
     Then the treatmentArmStatus field has a value "OPEN" for the ta "Rules-Test1"
 
-
+@test
   Scenario: Matching inclusion gene fusion variant and inclusion disease - Assign to TA
-    Given  the patient assignment json "patient_json_with_matching_inclusion_variant_inclusion_disease"
+    Given  the patient assignment json "patient_json_with_matching_inclusion_variant_inclusion_diseases"
     When assignPatient service is called
     Then a patient assignment json is returned with patient_assignment_status "AVAILABLE"
 
@@ -274,7 +274,7 @@ Feature: Ensure the rules are fired correctly and patients are assigned to the r
         "copy_number_variants": [],
         "single_nucleotide_variants": [],
         "non_hotspot_rules": [{
-        "gene": "PTEN",
+        "gene": "KIT",
         "oncominevariantclass": "hotspot",
         "level_of_evidence": "3.0",
         "protein_match": null,
@@ -282,8 +282,8 @@ Feature: Ensure the rules are fired correctly and patients are assigned to the r
         "public_med_ids": null,
         "arm_specific": "false",
         "inclusion": true,
-        "exon": null,
-        "function": null
+        "exon": "20",
+        "function": "missense"
         }]
         },
         "exclusion_diseases": [{
@@ -317,10 +317,15 @@ Feature: Ensure the rules are fired correctly and patients are assigned to the r
     Then a patient assignment json is returned with patient_assignment_status "AVAILABLE"
 
 
-#
-#  Scenario: Matching non-hotspot rule - function
-#
-#  Scenario: Matching non-hotspot rule - gene and exon
+  Scenario: Matching non-hotspot rule - function
+    Given  the patient assignment json "patient_json_with_matching_non-hotspot-rules_function-match"
+    When assignPatient service is called
+    Then a patient assignment json is returned with patient_assignment_status "AVAILABLE"
+
+  Scenario: Matching non-hotspot rule - gene and exon
+    Given  the patient assignment json "patient_json_with_matching_non-hotspot-rules_gene-exon-match"
+    When assignPatient service is called
+    Then a patient assignment json is returned with patient_assignment_status "AVAILABLE"
 #
 #  Scenario: Matching exclusion disease
 #

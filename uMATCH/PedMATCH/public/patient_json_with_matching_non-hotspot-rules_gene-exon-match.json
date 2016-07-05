@@ -24,12 +24,12 @@
       "single_nucleotide_variants": [
         {
           "type":"snv",
-          "identifier" : "RuleTest3",
+          "identifier" : "RuleTest4",
           "chromosome" : "chr4",
           "confirmed" : true,
           "position" : "55599320",
-          "gene" : "EGFR",
-          "oncominevariantclass" : "hotspot",
+          "gene" : "KIT",
+          "exon":"20",
           "readDepth" : 450,
           "inclusion" : true
         }
