@@ -1,5 +1,5 @@
 @rules
-Feature: Ensure the rules are fired correctly and patients are assigned to the right treatment arm
+Feature: Ensure the rules are fired correctly and patients are assigned to the right treatment arm::
 
   Scenario: Add a new treatment arm to Matchbox
     Given that treatment arm is received from COG:
@@ -115,20 +115,20 @@ Feature: Ensure the rules are fired correctly and patients are assigned to the r
 
   Scenario: Matching inclusion gene fusion variant and inclusion disease - Assign to TA
     Given  the patient assignment json "patient_json_with_matching_inclusion_variant_inclusion_disease"
-    When posted to the AssignPatient service
+    When assignPatient service is called
     Then a patient assignment json is returned with patient_assignment_status "AVAILABLE"
 
   Scenario: Matching inclusion gene fusion variant but does not match inclusion disease - Do not assign
     Given  the patient assignment json "patient_json_with_matching_inclusion_variant_and_not_inclusion_disease"
-    When posted to the AssignPatient service
+    When assignPatient service is called
     Then a patient assignment json is returned with patient_assignment_status "NO_ARM_ASSIGNED"
 
   Scenario: Matching inclusion disease but does not match inclusion variant - Do not assign
     Given  the patient assignment json "patient_json_with_non_matching_inclusion_variant_matching_inclusion_disease"
-    When posted to the AssignPatient service
+    When assignPatient service is called
     Then a patient assignment json is returned with patient_assignment_status "NO_ARM_ASSIGNED"
 
-  @rules
+
   Scenario: Add a new treatment arm to Matchbox
     Given that treatment arm is received from COG:
     """
@@ -243,10 +243,80 @@ Feature: Ensure the rules are fired correctly and patients are assigned to the r
 
   Scenario: Matching exclusion variant - Don't assign to TA
     Given  the patient assignment json "patient_json_with_matching_exclusion_variant_inclusion_disease"
-    When posted to the AssignPatient service
+    When assignPatient service is called
     Then a patient assignment json is returned with patient_assignment_status "NO_ARM_ASSIGNED"
 
-#  Scenario: Matching non-hotspot rule - oncomine variant class
+    Scenario: Add a new TA for NHR test
+      Given that treatment arm is received from COG:
+      """
+        {
+        "name": "Rules-Test3",
+        "id": "Rules-Test3",
+        "version": "2015-08-06",
+        "description": "This TA is used by Cuke Test",
+        "target_id": "113",
+        "target_name": "Crizotinib",
+        "gene": "ALK",
+        "treatment_arm_status": "OPEN",
+        "study_id": "APEC1621",
+        "stratum_id": "100",
+        "assay_results": [],
+        "num_patients_assigned": null,
+        "date_created": "2016-06-24T15:38:31+00:00",
+        "date_opened": null,
+        "treatment_arm_drugs": [{
+        "pathway": "ALK",
+        "drug_id": "113",
+        "name": "Crizotinib"
+        }],
+        "variant_report": {
+        "indels": [],
+        "copy_number_variants": [],
+        "single_nucleotide_variants": [],
+        "non_hotspot_rules": [{
+        "gene": "PTEN",
+        "oncominevariantclass": "hotspot",
+        "level_of_evidence": "3.0",
+        "protein_match": null,
+        "type": "nhr",
+        "public_med_ids": null,
+        "arm_specific": "false",
+        "inclusion": true,
+        "exon": null,
+        "function": null
+        }]
+        },
+        "exclusion_diseases": [{
+        "medra_code": "10058354",
+        "ctep_sub_category": null,
+        "ctep_category": "Non-Small Cell Lung Cancer",
+        "short_name": "Bronchioloalveolar carcinoma"
+        }],
+        "inclusion_diseases": [{
+        "medra_code": "10033701",
+        "ctep_sub_category": null,
+        "ctep_category": "Thyroid Cancer",
+        "short_name": "Papillary thyroid carcinoma"
+        }],
+        "exclusion_drugs": [{
+        "drug_class": "ALK inhibitor",
+        "target": "ALK",
+        "drug_id": "10001",
+        "name": "Doxorubicin Hydrochloride"
+        }]
+      }
+      """
+      When posted to MATCH newTreatmentArm
+      Then a message with Status "SUCCESS" and message "Saved to datastore." is returned:
+      Then the treatmentArmStatus field has a value "OPEN" for the ta "Rules-Test3"
+
+
+  Scenario: Matching non-hotspot rule - oncomine variant class
+    Given  the patient assignment json "patient_json_with_matching_non-hotspot-rules"
+    When assignPatient service is called
+    Then a patient assignment json is returned with patient_assignment_status "AVAILABLE"
+
+
 #
 #  Scenario: Matching non-hotspot rule - function
 #

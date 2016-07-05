@@ -18,14 +18,14 @@ Feature: NCH Specimen received messages:
 			"patient_id": "SuccessfulSpecimenTest",
 			"type": "BLOOD",
 			"surgical_event_id": "bsn-SuccessfulSpecimenTest",
-			"received_date": "2016-07-01T14:46:57-04:00",
-			"collected_date": "2016-07-01T14:46:57-04:00",
+			"received_datetime": "2016-07-01T14:46:57-04:00",
+			"collected_datetime": "2016-07-01T14:46:57-04:00",
 			"internal_use_only": {
 				"stars_patient_id": "ABCXYZ",
 				"star_specimen_id": "ABCXYZ-ABC123",
 				"star_specimen_type": "Fresh Blood",
 				"received_ts": "2016-04-25T15:17:11+00:00",
-				"qc_ts": "2016-04-25T16:21:34+00:00"
+				"qc_datetime": "2016-04-25T16:21:34+00:00"
 			}
 		}
 	}
@@ -47,13 +47,13 @@ Feature: NCH Specimen received messages:
 			"patient_id": "SuccessfulSpecimenTest",
 			"surgical_event_id":"bsn-SuccessfulSpecimenTest",
 			"type": "TISSUE",
-			"received_date": "2016-04-25T15:17:11+00:00",
-			"collected_date": "2016-04-25T14:17:11+00:00",
+			"received_datetime": "2016-04-25T15:17:11+00:00",
+			"collected_datetime": "2016-04-25T14:17:11+00:00",
 			"internal_use_only": {
 				"stars_patient_id": "ABCXYZ",
 				"star_specimen_id": "ABCXYZ-ABC123",
 				"star_specimen_type": "Fresh Blood",
-				"qc_ts": "2016-04-25T16:21:34+00:00"
+				"qc_datetime": "2016-04-25T16:21:34+00:00"
 			}
 		}
 	}
@@ -74,14 +74,14 @@ Feature: NCH Specimen received messages:
 		{
 			"study_id": "APEC1621",
 			"patient_id": "SpecimenTest",
-			"type": "BLOOD",
-			"received_date": "2016-04-25T15:17:11+00:00",
-			"collected_date": "2016-04-25T14:17:11+00:00",
+			"type": "TISSUE",
+			"received_datetime": "2016-04-25T15:17:11+00:00",
+			"collected_datetime": "2016-04-25T14:17:11+00:00",
 			"internal_use_only": {
 				"stars_patient_id": "ABCXYZ",
 				"star_specimen_id": "ABCXYZ-ABC123",
 				"star_specimen_type": "Fresh Blood",
-				"qc_ts": "2016-04-25T16:21:34+00:00"
+				"qc_datetime": "2016-04-25T16:21:34+00:00"
 			}
 		}
 	}
@@ -103,14 +103,14 @@ Feature: NCH Specimen received messages:
 		{
 			"study_id": "APEC1621",
 			"patient_id": "SpecimenTest1",
-			"type": "BLOOD",
-			"collected_date": "2016-04-25T14:17:11+00:00",
-			"received_date": "2016-04-25T15:17:11+00:00",
+			"type": "TISSUE",
+			"collected_datetime": "2016-04-25T14:17:11+00:00",
+			"received_datetime": "2016-04-25T15:17:11+00:00",
 			"internal_use_only": {
 				"stars_patient_id": "ABCXYZ",
 				"star_specimen_id": "ABCXYZ-ABC123",
 				"star_specimen_type": "Fresh Blood",
-				"qc_ts": "2016-04-25T16:21:34+00:00"
+				"qc_datetime": "2016-04-25T16:21:34+00:00"
 			}
 		}
 	}
@@ -134,13 +134,13 @@ Feature: NCH Specimen received messages:
 			"study_id": "APEC1621",
 			"patient_id": "SpecimenTest2",
 			"type": "TISSUE",
-			"collected_date": "2016-04-25T14:17:11+00:00",
-			"received_date": "2016-04-25T15:17:11+00:00",
+			"collected_datetime": "2016-04-25T14:17:11+00:00",
+			"received_datetime": "2016-04-25T15:17:11+00:00",
 			"internal_use_only": {
 				"stars_patient_id": "ABCXYZ",
 				"star_specimen_id": "ABCXYZ-ABC123",
 				"star_specimen_type": "Fresh Blood",
-				"qc_ts": "2016-04-25T16:21:34+00:00"
+				"qc_datetime": "2016-04-25T16:21:34+00:00"
 			}
 		}
 	}
@@ -161,13 +161,13 @@ Feature: NCH Specimen received messages:
 			"patient_id": "SpecimenTest3",
 			"type": "TISSUE",
 			"surgical_event_id":"bsn-SpecimenTest2\3",
-			"collected_date": "2016-04-25T14:17:11+00:00",
-			"received_date": "2016-04-25T15:17:11+00:00",
+			"collected_datetime": "2016-04-25T14:17:11+00:00",
+			"received_datetime": "2016-04-25T15:17:11+00:00",
 			"internal_use_only": {
 				"stars_patient_id": "ABCXYZ",
 				"star_specimen_id": "ABCXYZ-ABC123",
 				"star_specimen_type": "Fresh Blood",
-				"qc_ts": "2016-04-25T16:21:34+00:00"
+				"qc_datetime": "2016-04-25T16:21:34+00:00"
 			}
 		}
 	}
@@ -190,13 +190,13 @@ Feature: NCH Specimen received messages:
 			"patient_id": "SpecimenTest3",
 			"type": "Tissue",
 			"surgical_event_id":"bsn-SpecimenTest2\3",
-			"collected_date": "2016-04-25T14:17:11+00:00",
-			"received_date": "2016-04-25T15:17:11+00:00",
+			"collected_datetime": "2016-04-25T14:17:11+00:00",
+			"received_datetime": "2016-04-25T15:17:11+00:00",
 			"internal_use_only": {
 				"stars_patient_id": "ABCXYZ",
 				"star_specimen_id": "ABCXYZ-ABC123",
 				"star_specimen_type": "Fresh Blood",
-				"qc_ts": "2016-04-25T16:21:34+00:00"
+				"qc_datetime": "2016-04-25T16:21:34+00:00"
 			}
 		}
 	}
