@@ -5,10 +5,8 @@ require_relative '../../../support/helper_methods.rb'
 
 Given(/^the patient assignment json "([^"]*)"$/) do |patient_json|
   @patientAssignmentJson =  File.join(File.dirname(__FILE__),ENV['PATIENT_ASSIGNMENT_JSON_LOCATION']+'/'+patient_json+'.json')
-  if File.exist?(@patientAssignmentJson)
-  else
-    Fail("File #{@patientAssignmentJson} does not exist")
-  end
+  expect(File.exist?(@patientAssignmentJson)).to be_truthy
+
 
 end
 
