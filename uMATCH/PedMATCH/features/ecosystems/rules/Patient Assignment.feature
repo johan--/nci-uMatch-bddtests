@@ -112,9 +112,9 @@ Feature: Ensure the rules are fired correctly and patients are assigned to the r
     Then a message with Status "SUCCESS" and message "Saved to datastore." is returned:
     Then the treatmentArmStatus field has a value "OPEN" for the ta "Rules-Test1"
 
-@test
+
   Scenario: Matching inclusion gene fusion variant and inclusion disease - Assign to TA
-    Given  the patient assignment json "patient_json_with_matching_inclusion_variant_inclusion_diseases"
+    Given  the patient assignment json "patient_json_with_matching_inclusion_variant_inclusion_disease"
     When assignPatient service is called
     Then a patient assignment json is returned with patient_assignment_status "AVAILABLE"
 
