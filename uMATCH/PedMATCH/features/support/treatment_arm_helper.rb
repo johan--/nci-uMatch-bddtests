@@ -89,33 +89,33 @@ class Treatment_arm_helper
     return @treatmentArm
   end
 
-  def Treatment_arm_helper.findResultsFromResponseUsingVersion(treatmentArmResponse, version)
-    result = Array.new
-    tas = JSON.parse(treatmentArmResponse)
-    tas.each do |child|
-      if child['version'] == version
-        result.push(child)
-      end
-    end
-    return result
-  end
-
-  def Treatment_arm_helper.findPlaceFromResponseUsingVersion(treatmentArmResponse, version)
-    tas = JSON.parse(treatmentArmResponse)
-    place = 0
-    tas.each do |child|
-      place += 1
-      if child['version'] == version
-        break
-      end
-    end
-    return place
-  end
+  # def Treatment_arm_helper.findResultsFromResponseUsingVersion(treatmentArmResponse, version)
+  #   result = Array.new
+  #   tas = JSON.parse(treatmentArmResponse)
+  #   tas.each do |child|
+  #     if child['version'] == version
+  #       result.push(child)
+  #     end
+  #   end
+  #   return result
+  # end
+  #
+  # def Treatment_arm_helper.findPlaceFromResponseUsingVersion(treatmentArmResponse, version)
+  #   tas = JSON.parse(treatmentArmResponse)
+  #   place = 0
+  #   tas.each do |child|
+  #     place += 1
+  #     if child['version'] == version
+  #       break
+  #     end
+  #   end
+  #   return place
+  # end
 
   def Treatment_arm_helper.findTreatmentArmsFromResponseUsingID(treatmentArmResponse, id)
     result = Array.new
-    tas = JSON.parse(treatmentArmResponse)
-    tas.each do |child|
+    treatmentArmResponse.each do |child|
+      n = child['name']
       if child['name'] == id
         result.push(child)
       end

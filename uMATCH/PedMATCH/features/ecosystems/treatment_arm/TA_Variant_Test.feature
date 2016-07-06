@@ -3,7 +3,7 @@
 @treatment_arm
 Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
   Scenario Outline: Variant should return correct inclusion/exclusion value
-    Given template json with an id: "<treatment_arm_id>" and version: "2016-06-03"
+    Given template json with an id: "<treatment_arm_id>"
     Then clear template json's variant: "<variantType>" list
     Then create a template variant: "<variantType>"
     And set template variant field: "identifier" to string value: "<identifier>"
@@ -11,7 +11,8 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     Then add template variant: "<variantType>" to template json
     When posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then the treatment arm with id: "<treatment_arm_id>" and version: "2016-06-03" return from API has "<variantType>" variant (id: "<identifier>", field: "inclusion", value: "<inclusionValue>")
+    Then retrieve the posted treatment arm from API
+    Then the returned treatment arm has "<variantType>" variant (id: "<identifier>", field: "inclusion", value: "<inclusionValue>")
     Examples:
     |treatment_arm_id   |variantType  |identifier               |inclusionValue   |
     |APEC1621-VR1-1     |snv          |COSM1686998              |true             |
@@ -26,7 +27,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     |APEC1621-VR1-10    |nhr          |id0002                   |false            |
 
   Scenario Outline: TA_VR2. Variant should return correct armSpecific value
-    Given template json with an id: "<treatment_arm_id>" and version: "2016-06-03"
+    Given template json with an id: "<treatment_arm_id>"
     Then clear template json's variant: "<variantType>" list
     Then create a template variant: "<variantType>"
     And set template variant field: "identifier" to string value: "<identifier>"
@@ -34,7 +35,8 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     Then add template variant: "<variantType>" to template json
     When posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then the treatment arm with id: "<treatment_arm_id>" and version: "2016-06-03" return from API has "<variantType>" variant (id: "<identifier>", field: "arm_specific", value: "<inputValue>")
+    Then retrieve the posted treatment arm from API
+    Then the returned treatment arm has "<variantType>" variant (id: "<identifier>", field: "arm_specific", value: "<inputValue>")
     Examples:
       |treatment_arm_id   |variantType  |identifier                     |inputValue   |
       |APEC1621-VR2-1     |snv          |COSM1686998                    |true         |
@@ -49,7 +51,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
       |APEC1621-VR2-10    |nhr          |id0002                         |false        |
 
   Scenario Outline: TA_VR3. Variant should return full publicMedIds list
-    Given template json with an id: "<treatment_arm_id>" and version: "2016-06-03"
+    Given template json with an id: "<treatment_arm_id>"
     Then clear template json's variant: "<variantType>" list
     Then create a template variant: "<variantType>"
     And set template variant field: "identifier" to string value: "<identifier>"
@@ -57,7 +59,8 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     Then add template variant: "<variantType>" to template json
     When posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then the treatment arm with id: "<treatment_arm_id>" and version: "2016-06-03" return from API has "<variantType>" variant (id: "<identifier>", publicMedIds: "<pmIDs>")
+    Then retrieve the posted treatment arm from API
+    Then the returned treatment arm has "<variantType>" variant (id: "<identifier>", publicMedIds: "<pmIDs>")
     Examples:
       |treatment_arm_id   |variantType  |identifier                     |pmIDs                         |
       |APEC1621-VR3-1     |snv          |COSM1686998                    |14512,2362,32345,7451         |
@@ -106,7 +109,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
       |id           |
   
   Scenario Outline: TA_VR6. Variant with valid Oncomine Variant Class value should pass
-    Given template json with an id: "<treatment_arm_id>" and version: "2016-06-03"
+    Given template json with an id: "<treatment_arm_id>"
     Then clear template json's variant: "<variantType>" list
     Then create a template variant: "<variantType>"
     And set template variant field: "identifier" to string value: "<identifier>"
@@ -114,7 +117,8 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     And add template variant: "<variantType>" to template json
     When posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then the treatment arm with id: "<treatment_arm_id>" and version: "2016-06-03" return from API has "<variantType>" variant (id: "<identifier>", field: "oncominevariantclass", value: "<ovcValue>")
+    Then retrieve the posted treatment arm from API
+    Then the returned treatment arm has "<variantType>" variant (id: "<identifier>", field: "oncominevariantclass", value: "<ovcValue>")
     Examples:
       |treatment_arm_id   |variantType  |identifier             |ovcValue             |
       |APEC1621-VR6-1     |snv          |COSM1686998            |hotspot              |
@@ -158,7 +162,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
       |snv          |@NT$N                            |
 
   Scenario: TA_VR9. Duplicated Non-Hotspot Rules will be ignored
-    Given template json with an id: "APEC1621-VR9-1" and version: "2016-06-03"
+    Given template json with an id: "APEC1621-VR9-1"
     Then clear template json's variant: "nhr" list
     Then create a template variant: "nhr"
     And add template variant: "nhr" to template json
@@ -166,11 +170,12 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     And add template variant: "nhr" to template json
     When posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then the treatment arm with id: "APEC1621-VR9-1" and version: "2016-06-03" return from API has "nhr" variant count:"1"
+    Then retrieve the posted treatment arm from API
+    Then the returned treatment arm has "nhr" variant count:"1"
 
 
   Scenario Outline: TA_VR10. Non-Hotspot Rules with valid function value should pass
-    Given template json with an id: "<treatment_arm_id>" and version: "2016-06-03"
+    Given template json with an id: "<treatment_arm_id>"
     Then clear template json's variant: "nhr" list
     Then create a template variant: "nhr"
     And set template variant field: "identifier" to string value: "<identifier>"
@@ -178,7 +183,8 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     And add template variant: "nhr" to template json
     When posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then the treatment arm with id: "<treatment_arm_id>" and version: "2016-06-03" return from API has "nhr" variant (id: "<identifier>", field: "function", value: "<functionValue>")
+    Then retrieve the posted treatment arm from API
+    Then the returned treatment arm has "nhr" variant (id: "<identifier>", field: "<function>", value: "<functionValue>")
     Examples:
       |treatment_arm_id  |identifier             |functionValue                    |
       |APEC1621-VR10-1   |id0001                 |refallele                        |

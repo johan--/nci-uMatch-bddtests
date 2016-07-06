@@ -20,6 +20,30 @@ class Helper_Methods
     return @res
   end
 
+  def Helper_Methods.get_list_request(service, params={})
+    @params = ''
+    params.each do |key, value|
+      @params =  @params + "#{value}/"
+    end
+    url = "#{service}/#{@params}"
+    len = (url.length)-2
+    @service = url[0..len]
+    print "#{url[0..len]}\n"
+
+    result = Array.new()
+    runTime = 0.0
+    loop do
+      sleep(0.2)
+      runTime += 0.2
+      @res = RestClient::Request.execute(:url => @service, :method => :get, :verify_ssl => false)
+      result = JSON.parse(@res)
+      if (result!=nil && result.length>0) || runTime >10.0
+        break
+      end
+    end
+    return result
+  end
+
   def Helper_Methods.get_request_url_param(service,params={})
     print "URL: #{service}\n"
     @params = ''

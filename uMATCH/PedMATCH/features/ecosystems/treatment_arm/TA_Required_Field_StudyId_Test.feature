@@ -22,7 +22,7 @@ Feature: Treatment Arm API Tests that focus on "study_id" field
     Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
 
   Scenario Outline: TA_SID3. "study_id" field should not be updated to other value
-    Given template json with an id: "<treatment_arm_id>" and version: "2015-03-25"
+    Given template json with an id: "<treatment_arm_id>", stratum_id: "stratum1" and version: "2015-03-25"
     Then set template json field: "study_id" to string value: "<origin_study_id>"
     When posted to MATCH newTreatmentArm
     Then success message is returned:

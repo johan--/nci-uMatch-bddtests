@@ -3,11 +3,12 @@
 @treatment_arm
 Feature: TA_PR1. Treatment Arm API Tests that focus on ptenResults
   Scenario: ptenResults feild should not be taken by API
-    Given template json with an id: "APEC1621-PR1-1" and version: "2016-06-03"
+    Given template json with an id: "APEC1621-PR1-1"
     Then add ptenResult with ptenIhcResult: "POSITIVE", ptenVariant: "PRESENT" and description: "description"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then the treatment arm with id: "APEC1621-PR1-1" and version: "2016-06-03" return from API should not have field: "pten_results"
+    Then retrieve the posted treatment arm from API
+    Then the returned treatment arm should not have field: "pten_results"
 
 #  Scenario Outline: ptenIhcResult and ptenVariant with valid values should pass
 #    Given template json with an id: "<treatment_arm_id>" and version: "2016-06-03"

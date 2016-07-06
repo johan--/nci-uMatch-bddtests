@@ -21,12 +21,13 @@ Feature: Treatment Arm API Tests that focus on "treatmentArmDrugs" and "exclusio
     Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
 
   Scenario: TA_DG4. New Treatment Arm with duplicated drug entities should be ignored
-    Given template json with an id: "APEC1621-DG4-1" and version: "2016-06-03"
+    Given template json with an id: "APEC1621-DG4-1"
     And clear list field: "treatmentArmDrugs" from template json
     And add drug with name: "AZD9291" pathway: "EGFR" and id: "781254" to template json
     And add drug with name: "AZD9291" pathway: "EGFR" and id: "781254" to template json
     When posted to MATCH newTreatmentArm
-    Then the treatment arm with id: "APEC1621-DG4-1" and version: "2016-06-03" return from API has "1" drug (name:"AZD9291" pathway: "EGFR" and id: "781254")
+    Then retrieve the posted treatment arm from API
+    Then the returned treatment arm has "1" drug (name:"AZD9291" pathway: "EGFR" and id: "781254")
 
   Scenario: TA_DG5. New Treatment Arm with same drug in both "treatmentArmDrugs" and "exclusionDrugs" field should fail
     Given template json with a random id

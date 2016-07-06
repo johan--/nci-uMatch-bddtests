@@ -3,11 +3,12 @@
 @treatment_arm
 Feature: TA_AR1. Treatment Arm API Tests that focus on assayResults
   Scenario Outline: assayResults with valid values should pass
-    Given template json with an id: "<treatment_arm_id>" and version: "2016-06-03"
+    Given template json with an id: "<treatment_arm_id>"
     Then add assayResult with gene: "<gene>", assayResultStatus: "<status>", assayVariant: "<variant>", LOE: "<loe>" and description: "<description>"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then the treatment arm with id: "<treatment_arm_id>" and version: "2016-06-03" return from API has assayResult (gene: "<gene>", assayResultStatus: "<status>", assayVariant: "<variant>", LOE: "<loe>", description: "<description>")
+    Then retrieve the posted treatment arm from API
+    Then the returned treatment arm has assayResult (gene: "<gene>", assayResultStatus: "<status>", assayVariant: "<variant>", LOE: "<loe>", description: "<description>")
     Examples:
       |treatment_arm_id     |gene             |status          |variant    |loe       |description                                  |
       |APEC1621-PR1-1       |PTEN             |POSITIVE        |PRESENT    |2.0       |null                                         |

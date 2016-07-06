@@ -23,11 +23,12 @@ Feature: Treatment Arm API Tests that focus on "name" field
 
 
   Scenario Outline: TA_NM4. New Treatment Arm with special character in "name" field should pass
-    Given template json with an id: "<treatment_arm_id>" and version: "2016-06-03"
+    Given template json with an id: "<treatment_arm_id>"
     And set template json field: "name" to string value: "<name_value>"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then the treatment arm with id: "<treatment_arm_id>" and version: "2016-06-03" return from API has value: "<name_value>" in field: "name"
+    Then retrieve the posted treatment arm from API
+    Then the returned treatment arm has value: "<name_value>" in field: "<name>"
     Examples:
       |treatment_arm_id     |name_value              |
       |APEC1621-NM4-1       |@*$%sdga#               |

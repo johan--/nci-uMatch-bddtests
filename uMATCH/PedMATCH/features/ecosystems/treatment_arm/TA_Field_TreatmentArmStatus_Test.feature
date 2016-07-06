@@ -7,7 +7,7 @@ Feature: Treatment Arm API Tests that focus on "treatmentArmStatus" field
     Given template json with a random id
     And set template json field: "treatmentArmStatus" to string value: "<status>"
     When posted to MATCH newTreatmentArm
-    Then a failure message is returned which contains: "not match one of the following values: OPEN, SUSPENDED, UNKNOWN, CLOSE"
+    Then a failure message is returned which contains: "not match one of the following values: OPEN"
     Examples:
     |status   |
     |OTHER    |
@@ -18,18 +18,20 @@ Feature: Treatment Arm API Tests that focus on "treatmentArmStatus" field
     |SUSPENDED|
     
   Scenario: TA_TAS2. New Treatment Arm with "treatmentArmStatus":null value should pass and value should be set to "OPEN"
-    Given template json with an id: "APEC1621-TAS2-1" and version: "2016-06-03"
+    Given template json with an id: "APEC1621-TAS2-1"
     And set template json field: "treatmentArmStatus" to string value: "OPEN"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then the treatment arm with id: "APEC1621-TAS2-1" and version: "2016-06-03" return from API has value: "OPEN" in field: "treatment_arm_status"
+    Then retrieve the posted treatment arm from API
+    Then the returned treatment arm has value: "OPEN" in field: "treatment_arm_status"
 
   Scenario: TA_TAS3. New Treatment Arm without "treatmentArmStatus" value should pass and value should be set to "OPEN"
-    Given template json with an id: "APEC1621-TAS3-1" and version: "2016-06-03"
+    Given template json with an id: "APEC1621-TAS3-1"
     And remove field: "treatmentArmStatus" from template json
     When posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then the treatment arm with id: "APEC1621-TAS3-1" and version: "2016-06-03" return from API has value: "OPEN" in field: "treatment_arm_status"
+    Then retrieve the posted treatment arm from API
+    Then the returned treatment arm has value: "OPEN" in field: "treatment_arm_status"
 
 
 

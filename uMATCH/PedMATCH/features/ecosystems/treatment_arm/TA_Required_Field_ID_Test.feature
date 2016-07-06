@@ -22,14 +22,15 @@ Feature: Treatment Arm API Tests that focus on "id" field
 
 
   Scenario Outline: TA_ID4. New Treatment Arm with special character in "id" field should pass
-    Given template json with an id: "<id>" and version: "2016-06-03"
+    Given template json with an id: "<id>", stratum_id: "stratum1" and version: "2016-06-03"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then the treatment arm with id: "<encoded_id>" and version: "2016-06-03" return from API has value: "<id>" in field: "name"
+    Then retrieve treatment arm with id: "<encoded_id>", stratum_id: "stratum1" and version: "2016-06-03" from API
+    Then the returned treatment arm has value: "<id>" in field: "name"
     Examples:
     |id                  |encoded_id                                  |
     |APEC1621-@*$%sdga#  |APEC1621-%40*%24%25sdga%23                  |
-    |APEC1621-!^&*()-_+= |APEC1621-!%APEC1621-5E%26*()-_%2B%3D        |
+    |APEC1621-!^&*+=     |APEC1621-!%APEC1621-5E%26*%2B%3D            |
     |APEC1621-{}[]\/?    |APEC1621-%7B%7D%5B%5D%5C%2F%3F              |
     |APEC1621-;'<>,      |APEC1621-%3B%27%3C%3E%2C                    |
     |APEC1621-?Àü ī      |APEC1621-%3F%C3%80%C3%BC%20%C4%AB           |

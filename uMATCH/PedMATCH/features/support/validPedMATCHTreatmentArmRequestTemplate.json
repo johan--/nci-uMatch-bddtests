@@ -1,12 +1,14 @@
 {
   "id" : "APEC1621-T",
   "studyId" : "APEC1621",
+  "stratumId" : "stratum1",
   "name" : "Afatinib in EGFR activating",
   "version" : "2012-05-23",
   "description" : "Afatinib in EGFR activating mutation",
   "targetId" : 750691,
   "targetName" : "Afatinib",
   "gene" : "EGFR",
+  "dateCreated" : "",
   "treatmentArmDrugs" : [
     {
       "drugId" : "750691",

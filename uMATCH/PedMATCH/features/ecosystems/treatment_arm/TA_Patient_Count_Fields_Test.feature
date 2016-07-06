@@ -10,39 +10,29 @@ Feature: pMATCH Treatment Arm API Tests that focus on numPatientsAssigned and ma
     Then a failure message is returned which contains: "Validation failed."
     
   Scenario Outline: TA_PC2. New Treatment Arm, float value in numPatientAssigned should be trimmed to int value
-    Given template json with an id: "APEC1621-PC2-1" and version: "2016-06-03"
+    Given template json with an id: "<treatmentArmID>"
     And set template json field: "numPatientsAssigned" to value: "<floatValue>" in type: "float"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then the treatment arm with id: "APEC1621-PC2-1" and version: "2016-06-03" return from API has value: "<intValue>" in field: "num_patients_assigned"
+    Then retrieve the posted treatment arm from API
+    Then the returned treatment arm has value: "<intValue>" in field: "num_patients_assigned"
     Examples:
-    |floatValue     |intValue       |
-    |23.8           |23.0           |
-    |0.6837         |0.0            |
+    |treatmentArmID|floatValue     |intValue       |
+    |APEC1621-PC2-1|23.8           |23.0           |
+    |APEC1621-PC2-2|0.6837         |0.0            |
 
   Scenario Outline: TA_PC3. New Treatment Arm, numPatientAssigned should not have limit
-    Given template json with an id: "APEC1621-PC3-1" and version: "2016-06-03"
+    Given template json with an id: "<treatmentArmID>"
     And set template json field: "numPatientsAssigned" to value: "<value>" in type: "int"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then the treatment arm with id: "APEC1621-PC3-1" and version: "2016-06-03" return from API has value: "<floatResult>" in field: "num_patients_assigned"
+    Then retrieve the posted treatment arm from API
+    Then the returned treatment arm has value: "<floatResult>" in field: "num_patients_assigned"
     Examples:
-      |value          |floatResult    |
-      |500            |500.0          |
-      |13025          |13025.0        |
+      |treatmentArmID|value          |floatResult    |
+      |APEC1621-PC3-1|500            |500.0          |
+      |APEC1621-PC3-2|13025          |13025.0        |
 
-  Scenario Outline: TA_PC4. New pMATCH Treatment Arm with maxPatientAllowed field should fail
-    Given template json with a random id
-    And set template json field: "study_id" to string value: "APEC1621"
-    And set template json field: "maxPatientsAllowed" to value: "<value>" in type: "int"
-    When posted to MATCH newTreatmentArm
-    Then a failure message is returned which contains: "Validation failed."
-    Examples:
-    |value    |
-    |-5       |
-    |35       |
-    |0        |
-    |null     |
 
 #  Scenario: TA_PC5. Update Treatment Arm with numPatientsAssigned that has minus value should fail
 #    Given template json with an id: "APEC1621-PC5-1" and version: "2015-03-25"

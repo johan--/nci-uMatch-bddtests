@@ -4,16 +4,17 @@
 Feature: Treatment Arm API common tests for all fields
 
   Scenario: New Treatment Arm happy test
-    Given template json with an id: "APEC1621-HappyTest" and version: "2016-06-03"
+    Given template json with an id: "APEC1621-HappyTest6"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
 
   Scenario Outline: TA_CF1. New Treatment Arm with unrequired field that has different kinds of value should pass
-    Given template json with an id: "<treatment_arm_id>" and version: "2016-06-03"
+    Given template json with an id: "<treatment_arm_id>"
     And set template json field: "<field>" to string value: "<value>"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then the treatment arm with id: "<treatment_arm_id>" and version: "2016-06-03" return from API has value: "<returned_value>" in field: "<returned_field>"
+    Then retrieve the posted treatment arm from API
+    Then the returned treatment arm has value: "<returned_value>" in field: "<returned_field>"
     Examples:
       |treatment_arm_id     |field                |value                  |returned_field     |returned_value     |
       |APEC1621-CF1-1       |targetId             |                       |target_id          |                   |
@@ -22,21 +23,23 @@ Feature: Treatment Arm API common tests for all fields
 
 
   Scenario Outline: TA_CF2. New Treatment Arm without unrequired field should set the value of this field to empty
-    Given template json with an id: "<treatment_arm_id>" and version: "2016-06-03"
+    Given template json with an id: "<treatment_arm_id>"
     And remove field: "<field>" from template json
     When posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then the treatment arm with id: "<treatment_arm_id>" and version: "2016-06-03" return from API has value: "" in field: "<returned_field>"
+    Then retrieve the posted treatment arm from API
+    Then the returned treatment arm has value: "" in field: "<returned_field>"
     Examples:
       |treatment_arm_id     |field                |returned_field     |
       |APEC1621-CF2-1       |targetName           |target_name        |
 
   Scenario Outline: TA_CF3. New Treatment Arm should not take undefined fields
-    Given template json with an id: "<treatment_arm_id>" and version: "2016-06-03"
+    Given template json with an id: "<treatment_arm_id>"
     And set template json field: "<field>" to value: "<value>" in type: "<type>"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then the treatment arm with id: "<treatment_arm_id>" and version: "2016-06-03" return from API should not have field: "<field>"
+    Then retrieve the posted treatment arm from API
+    Then the returned treatment arm should not have field: "<field>"
     Examples:
     |treatment_arm_id    |field        |value        |type           |
     |APEC1621-CF-1       |newString    |stringValue  |string         |
@@ -62,12 +65,41 @@ Feature: Treatment Arm API common tests for all fields
     Then a failure message is returned which contains: "Validation failed"
 
   Scenario: TA_CF6. "dateCreated" value can be generated properly
-    Given template json with an id: "APEC1621-CF11-1" and version: "2016-06-03"
+    Given template json with an id: "APEC1621-CF6-1"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then the treatment arm with id: "APEC1621-CF11-1" and version: "2016-06-03" return from API has correct dateCreated value
+    Then retrieve the posted treatment arm from API
+    Then the returned treatment arm has correct dateCreated value
 
+  Scenario Outline: TA_CF7. Treatment arm return correct values for single fields
+    Given template json with an id: "<treatment_arm_id>"
+    And set template json field: "<inputFieldName>" to value: "<fieldValue>" in type: "<dataType>"
+    When posted to MATCH newTreatmentArm
+    Then retrieve the posted treatment arm from API
+    Then the returned treatment arm has "<dataType>" value: "<fieldValue>" in field: "<outputFieldName>"
+    Examples:
+      |treatment_arm_id     |inputFieldName                  |outputFieldName                  |fieldValue                                         |dataType     |
+      |APEC1621-CF7-1       |description                     |description                      |This is a test that verify output values           |string       |
+      |APEC1621-CF7-2       |targetId                        |target_id                        |3453546232                                         |int          |
+      |APEC1621-CF7-3       |targetId                        |target_id                        |Trametinib in GNAQ or GNA11 mutation               |string       |
+      |APEC1621-CF7-4       |targetName                      |target_name                      |Trametinib                                         |string       |
+      |APEC1621-CF7-5       |gene                            |gene                             |GNA                                                |string       |
+      |APEC1621-CF7-6       |treatmentArmStatus              |treatment_arm_status             |OPEN                                               |string       |
+      |APEC1621-CF7-7       |studyId                         |study_id                         |APEC1621                                           |string       |
+      |APEC1621-CF7-8       |stratumId                       |stratum_id                       |kjg13gas                                           |string       |
+      |APEC1621-CF7-9       |numPatientsAssigned             |num_patients_assigned            |5                                                  |int          |
 
+  Scenario Outline: TA_CF8. Treatment arm return correct values for ExclusionCriterias
+    Given template json with an id: "<treatment_arm_id>"
+    Then add exclusionCriterias with id: "<exclusionCriteriaID>" and description: "<description>"
+    When posted to MATCH newTreatmentArm
+    Then success message is returned:
+    Then retrieve the posted treatment arm from API
+    Then the returned treatment arm has exclusionCriteria (id: "<exclusionCriteriaID>", description: "<description>")
+    Examples:
+      |treatment_arm_id     |exclusionCriteriaID  |description  |
+      |APEC1621-CF8-1       |31                   |ASIAN        |
+      |APEC1621-CF8-2       |32                   |FEMALE       |
 
 #  Scenario Outline: TA_CF7. Update Treatment Arm with unrequired field that has different kinds of value should pass
 #    Given template json with an id: "<treatment_arm_id>" and version: "2015-03-25"
