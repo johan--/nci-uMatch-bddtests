@@ -3,9 +3,7 @@
 ##
 
 Feature: Login
-  In order to check proper authentication
-  As a user
-  I should be able to login only with valid credentials.
+  A user should be able to login only with valid credentials.
 
   @login
   Scenario: Try to Access a protected page should redirect to login page.

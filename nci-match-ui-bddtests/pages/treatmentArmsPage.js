@@ -25,7 +25,7 @@ var TreatmentArmsPage = function() {
     // The values of the labels within the left side box
     this.leftInfoBoxItems = element.all(by.css('#left-info-box dd'));
     // The drop down showing the versions of the treatment Arm
-    this.versionDropDown = element(by.css('.wrap-dd-select.ng-isolate-scope'));
+    this.versionDropDownSelector = element(by.binding('dropdownModel[labelField]'));
 
     // Download PDF
     this.downloadPDFButton = element(by.css('button[title="Export Variant Report to PDF"]'));
@@ -103,7 +103,7 @@ var TreatmentArmsPage = function() {
     };
     
     //List of Expected values
-    this.expectedLeftBoxLabels = ['Name', 'Description', 'Status', 'Version'];
+    this.expectedLeftBoxLabels = ['Name', 'Stratum ID', 'Description', 'Status', 'Version'];
     this.expectedRightBoxLabels = ['Gene(s)', 'Patients Assigned', 'Drug', 'Download'];
     this.expectedTableHeaders = [
         "Name",
@@ -117,7 +117,7 @@ var TreatmentArmsPage = function() {
     ];
     this.expectedMainTabs = ['Analysis', 'Rules', 'History'];
     this.expectedRulesSubTabs =
-        ['Drugs / Diseases', 'SNV / MNV', 'Indel', 'CNV', 'Gene Fusion', 'Non-Hotspot Rules', 'Non-Sequencing Assays'];
+        ['Drugs / Diseases', 'SNVs / MNVs / Indels', 'CNV', 'Gene Fusion', 'Non-Hotspot Rules', 'Non-Sequencing Assays'];
 
 
     /** This function returns the text that the name of the Treatment Arm in the row.
@@ -128,7 +128,7 @@ var TreatmentArmsPage = function() {
     this.returnTreatmentArmId = function(tableElement, rownum){
         var row = tableElement.get(rownum);
         return row.all(by.css('td>a[href^="#/treatment-arm"]')).getText().then(function(name){
-            setTreatmentArmId(name[0]);
+            this.setTreatmentArmId(name[0]);
             return name[0];
         });
     };
@@ -143,6 +143,10 @@ var TreatmentArmsPage = function() {
 
     this.getTreatmentArmId = function() {
         return treatment_id;
+    };
+
+    this.setTreatmentArmId = function (ta_id){
+        treatment_id = ta_id
     };
 
     this.generateArmDetailForVariant = function (taArmJson, variantName, condition){
@@ -182,6 +186,15 @@ var TreatmentArmsPage = function() {
         var loeLoc = 'td:nth-of-type(8)';
         var litTableLoc = 'td:nth-of-type(9)';
 
+        // var id = element.all(by.binding('item.identifier'));
+        // var gene = element.all(by.binding('item.gene_name'));
+        // var chr = element.all(by.binding('item.chromosome'));
+        // var pos = element.all(by.binding('item.position'));
+        // // var ref = element.all(by.binding('item.reference'));
+        // // var alt = element.all(by.binding('item.alternative'));
+        // var protein = element.all(by.binding('item.description'));
+        // var loe = element.all(by.binding('item.level_of_evidence'));
+        //
         rowList.count().then(function (count){
             if (count > 0){
                 rowList.each(function (row, index) {
@@ -455,10 +468,6 @@ var TreatmentArmsPage = function() {
             'Gene Fusion'       : 'gene_fusions'
         };
         return variantMapping[variantName];
-    }
-
-    function setTreatmentArmId(ta_id){
-        treatment_id = ta_id
     }
 
     /**

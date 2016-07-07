@@ -16,7 +16,7 @@ var Utilities = function() {
     };
 
     this.waitForElement = function(element, message) {
-        browser.wait(function (){
+        return browser.wait(function (){
            return browser.isElementPresent(element)
         }, 10000, message + ' element is not visible.');
     };
@@ -119,7 +119,7 @@ var Utilities = function() {
         return url + port + '/' + api +'/' + id ;
     }
 
-    this.getTreatmentArmIdDetails = function (response){
+    this.getJSONifiedDetails = function (response){
         var treatmentArm =  JSON.parse(response);
         return treatmentArm;
     };

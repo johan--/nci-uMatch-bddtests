@@ -33,7 +33,7 @@ module.exports = function () {
             treatment_id = treatmentArmId;
             response = utilities.callApiForDetails(treatment_id, 'treatmentArms');
             response.get().then(function (){
-                treatmentArmAPIDetails = utilities.getTreatmentArmIdDetails(response.entity());
+                treatmentArmAPIDetails = utilities.getJSONifiedDetails(response.entity());
                 firstTreatmentArm = treatmentArmAPIDetails[0];
                 element(by.linkText(treatment_id)).click().then(function() {
                     callback();
@@ -48,7 +48,7 @@ module.exports = function () {
         response = utilities.callApiForDetails(treatment_id, 'treatmentArms');
 
         response.get().then(function(){
-            treatmentArmAPIDetails = utilities.getTreatmentArmIdDetails(response.entity());
+            treatmentArmAPIDetails = utilities.getJSONifiedDetails(response.entity());
             firstTreatmentArm = treatmentArmAPIDetails[0];
             element(by.linkText(treatment_id)).click().then(function () {
                 callback();
@@ -56,11 +56,29 @@ module.exports = function () {
         });
     });
 
+    this.When(/^I go to treatment arm with "(.+)" as the id$/, function (ta_id, callback) {
+        var response;
+        treatment_id = ta_id;
+        taPage.setTreatmentArmId(ta_id);
+        response = utilities.callApiForDetails(treatment_id, 'treatmentArms');
+
+        response.get().then(function () {
+            treatmentArmAPIDetails = utilities.getJSONifiedDetails(response.entity());
+            firstTreatmentArm = treatmentArmAPIDetails[0];
+            browser.setLocation('treatment-arm/' + ta_id, 6000).then(function () {
+                callback();
+            }, function(err){
+                console.log(browser.getCurrentUrl());
+                console.log(err.toString());
+            });
+        })
+    });
+
     this.When(/^I click on the download in PDF Format$/, function (callback) {
         expect(browser.isElementPresent(taPage.downloadPDFButton)).to.eventually.be.true;
-        //
+        // todo: Insert Logic to download the file. Not working on the site when run locally
         // element(taPage.downloadPDFButton).click()
-        //  Insert Logic to download the file. Not working on the site when run locally
+        //  
         //
         browser.sleep(50).then(callback);
     });
@@ -69,9 +87,9 @@ module.exports = function () {
 
     this.When(/^I click on the download in Excel Format$/, function (callback) {
         expect(browser.isElementPresent(taPage.downloadExcelButton)).to.eventually.be.true;
-        //
+        // todo: Insert Logic to download the file. Not working on the site when run locally
         // element(taPage.downloadExcelButton).click()
-        //  Insert Logic to download the file. Not working on the site when run locally
+        //  
         //
         browser.sleep(50).then(callback);
     });
@@ -154,7 +172,7 @@ module.exports = function () {
 
 
     this.Then(/^I should see the drop down to select different versions of the treatment arm$/, function (callback) {
-        expect(browser.isElementPresent(taPage.versionDropDown)).to.eventually.be.true;
+        expect(browser.isElementPresent(taPage.versionDropDownSelector)).to.eventually.be.true;
         browser.sleep(50).then(callback);
     });
 

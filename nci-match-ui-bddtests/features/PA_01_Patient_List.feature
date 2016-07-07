@@ -3,10 +3,11 @@
 #  Date: 06/24/2016
 ##
 
-Feature:
-  A logged in user can access the Patients list page.
+Feature:Patients list page
+  The user is able to see all the patients and their current status
 
-  Scenario:
+  @patient
+  Scenario: A user can see a list of all the patients registered
     Given I am a logged in user
     When I navigate to the patients page
     Then I should see the Patients breadcrumb

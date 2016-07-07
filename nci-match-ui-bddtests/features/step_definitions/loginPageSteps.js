@@ -8,8 +8,7 @@ var fs = require('fs');
 var loginPageObj = require ('../../pages/loginPage');
 var dashboardPageObj = require ('../../pages/dashboardPage');
 // Helper Methods
-var utilities = require ('../../support/utilities');
-
+var utilities = require ('../../support/utilities.js');
 
 module.exports = function () {
 
@@ -29,9 +28,11 @@ module.exports = function () {
         var password = process.env.NCI_MATCH_PASSWORD;
 
         loginPageObj.login(email, password);
-        
-        utilities.waitForElement(dashboardPageObj.logoutLink, 'Logout link')
+        utilities.waitForElement(dashboardPageObj.greeterHeading(), 'Greetings').then(function () {
 
+        }, function(){
+            loginPageObj.currentLogin();
+        });
         browser.sleep(1000).then(callback);
     });
     
@@ -61,11 +62,17 @@ module.exports = function () {
         var capitalized = utilities.capitalize(firstName);
         var greeting = 'Welcome, ' + capitalized + '!';
         var actualGreeting = element(by.binding(' name '));
-        
-        utilities.waitForElement(dashboardPageObj.logoutLink, 'Logout Link');
-        browser.sleep(5).then(function(){
-            utilities.checkTitle(browser, dashboardPageObj.title);
+
+        utilities.waitForElement(actualGreeting, 'Greetings').then(function () {
             expect(actualGreeting.getText()).to.eventually.equal(greeting);
+            utilities.checkTitle(browser, dashboardPageObj.title);
+        }, function(){
+            loginPageObj.currentLogin();
+        }).then(function () {
+            browser.sleep(1000).then(function () {
+                expect(actualGreeting.getText()).to.eventually.equal(greeting);
+                utilities.checkTitle(browser, dashboardPageObj.title);
+            });
         }).then(callback);
     });
 

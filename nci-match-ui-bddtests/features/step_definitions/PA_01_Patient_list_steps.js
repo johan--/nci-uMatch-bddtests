@@ -22,7 +22,7 @@ module.exports = function () {
     });
 
     this.Then(/^I should see the headings in the patient table$/, function (callback) {
-        var headersList = patientPage.patientListHeaders();
+        var headersList = patientPage.patientListHeaders;
         var expectedList = patientPage.expectedPatientListHeaders;
         // Checking individual headers against the expected ones and in order. 
         for(var i = 0; i < expectedList.length; i++) {

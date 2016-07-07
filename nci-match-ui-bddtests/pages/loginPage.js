@@ -8,6 +8,7 @@ var dashboard = require ('../pages/dashboardPage');
 var LoginPage = function() {
 
     this.title = 'MATCHBox | Login';
+    var accessbtn =  element(by.css('button.btn-primary'));
     
     this.goToLoginPage = function(){
         browser.get('/#/auth/login', 6000);
@@ -19,7 +20,6 @@ var LoginPage = function() {
     };
 
     this.login = function(username, password) {
-        var accessbtn =  element(by.css('button.btn-primary'));
         var email =  element(by.css('input#a0-signin_easy_email'));
         var pass = element(by.id('a0-signin_easy_password'));
         var loginbtn = element(by.css('button.a0-primary.a0-next'));
@@ -37,6 +37,17 @@ var LoginPage = function() {
         email.sendKeys(username);
         pass.sendKeys(password);
         loginbtn.click();
+    };
+
+    this.currentLogin = function() {
+        var previousAccountUsed = element(by.css('div[data-strategy="auth0"]'));
+        accessbtn.click();
+        browser.sleep(1000);
+        browser.isElementPresent(previousAccountUsed).then(function (present){
+            if (present === true) {
+                previousAccountUsed.click();
+            };
+        });
     };
 };
 

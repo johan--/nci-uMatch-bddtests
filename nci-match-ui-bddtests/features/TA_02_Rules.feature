@@ -2,18 +2,17 @@
 # Created by raseel.mohamed on 6/7/16
 ##
 
-Feature:
-  As a valid logged in user
-  I am able to view the various treatment arms
-  Where I should see the Rules applied to the Treatment Arm
+Feature: Treatment Arm Rules
+  A User should be able to drill into a treatment arm to see
+  the various rules applied
 
   Background:
     Given I am a logged in user
     And I navigate to the treatment-arms page
-    And I click on one of the treatment arms
+    And I go to treatment arm with "CukeTestUI-01" as the id
 
-  @treatment
-  Scenario Outline: Logged in user can access <subTabName> with <buttonType> details under Rules
+  @treatment_arm @broken
+  Scenario Outline: Logged in user can access <subTabName> with Inclusion/Exclusion details under Rules
     When I select the Rules Main Tab
     And I select the <subTabName> sub-tab
     Then I should see that <subTabName> sub-tab is active
@@ -22,15 +21,14 @@ Feature:
     When I select the Exclusion button
     Then I should see the Exclusion Variants table for <subTabName>
     Examples:
-      | subTabName        |
-      | SNV / MNV         |
-      | Indel             |
-      | CNV               |
-      | Gene Fusion       |
-      | Non-Hotspot Rules |
+      | subTabName           |
+      | SNVs / MNVs / Indels |
+      | CNV                  |
+      | Gene Fusion          |
+      | Non-Hotspot Rules    |
 
 
-  @treatment
+  @treatment_arm @broken
   Scenario: Logged in user can access Drugs/Disease details on the Rules Tab
     When I select the Rules Main Tab
     And I select the Drugs / Diseases sub-tab
@@ -39,7 +37,7 @@ Feature:
     And I should see Exclusionary Drugs table
     And I should see Inclusionary Diseases table
 
-  @treatment
+  @treatment_arm @broken
     Scenario: Logged in user can access the Non-Sequencing Assays details on the Rules Tab
     When I select the Rules Main Tab
     And I select the Non-Sequencing Assays sub-tab
