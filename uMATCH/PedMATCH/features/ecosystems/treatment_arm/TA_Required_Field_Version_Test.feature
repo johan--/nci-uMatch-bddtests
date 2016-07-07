@@ -1,6 +1,6 @@
 #encoding: utf-8
 
-@Treatment_Arm_API_Tests
+@treatment_arm
 Feature: Treatment Arm API Tests that focus on "version" field
 
   Scenario Outline: TA_VS1. Multiple Treatment Arms that have same "version" values but different "id" values should all pass

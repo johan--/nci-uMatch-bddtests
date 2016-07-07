@@ -1,6 +1,6 @@
 #encoding: utf-8
 
-@Treatment_Arm_API_Tests
+@treatment_arm
 Feature: Treatment Arm API Tests that focus on "id" field
   Scenario: TA_ID1. New Treatment Arm with empty "id" field should fail
      Given template json with a random id

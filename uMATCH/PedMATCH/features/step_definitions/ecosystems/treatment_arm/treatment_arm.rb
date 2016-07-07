@@ -112,7 +112,7 @@ Then(/^the treatment arm: "([^"]*)" return from database has correct version: "(
 end
 
 Then(/^the treatment arm return from \/basciTreatmentArms has correct values, name: "([^"]*)" and status: "([^"]*)"$/) do |id, status|
-  correctBasicTAs = findAllBasicTreatmentArms(id)
+  correctBasicTAs = findAllBasicTreatmentArmsForID(id)
   returnedTASize = "Returned treatment arm count is #{correctBasicTAs.length}"
   returnedTASize.should_not == 'Returned treatment arm count is 0'
   
@@ -197,7 +197,19 @@ Then(/^retrieve treatment arm with id: "([^"]*)", stratum_id: "([^"]*)" and vers
 end
 
 Then(/^retrieve treatment arms with id: "([^"]*)" and stratum_id: "([^"]*)" from API$/) do |id, stratum|
-  @taListFromAPI = findTheAllVersionsOfTAResult(id, stratum)
+  @taListFromAPI = findAllVersionsOfTAResult(id, stratum)
+end
+
+Then(/^retrieve treatment arms with id: "([^"]*)" from API$/) do |id|
+  @taListFromAPI = findAllTAsByID(id)
+end
+
+Given(/^retrieve all treatment arms from \/treatmentArms$/) do
+  @taListFromAPI = findAllTAs()
+end
+
+Then(/^retrieve all basic treatment arms from \/basicTreatmentArms$/) do
+  @basicTAListFromAPI = findAllBasicTreatmentArms()
 end
 
 Then(/^the returned treatment arm has value: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
@@ -293,8 +305,15 @@ Then(/^the treatment arm with version: "([^"]*)" is in the place: "([^"]*)" of r
   returned.should == "Returned treatment arm version:#{version} is in place #{place}"
 end
 
+Then(/^there are "([^"]*)" treatment arms in returned list$/) do |count|
+  @taListFromAPI
+  expectResult = "There are #{count} treatment arms in returned list"
+  realResult = "There are #{@taListFromAPI.length} treatment arms in returned list"
+  realResult.should == expectResult
+end
+
 Then(/^There are "([^"]*)" treatment arm with id: "([^"]*)" and stratum_id: "([^"]*)" return from API \/basicTreatmentArms$/) do |count, id, stratum|
-  returnedTAs = findAllBasicTreatmentArms(id)
+  returnedTAs = findAllBasicTreatmentArmsForID(id)
   returnedCount = 0
   returnedTAs.each do |child|
     if child['stratum_id'] == stratum
@@ -433,6 +452,43 @@ Then(/^api update status of treatment arm with id:"([^"]*)" from cog$/) do |trea
   Helper_Methods.post_request(url, queryTreatmentArm.to_json)
 end
 
+Then(/^every id\-stratumID combination from \/treatmentArms should have "([^"]*)" result in \/basicTreatmentArms$/) do |count|
+  taExtract = Array.new
+  basicExtract = Array.new
+  @taListFromAPI.each do |thisTA|
+    thisExtract = "#{thisTA['name']}_#{thisTA['stratum_id']}"
+    if !taExtract.include?(thisExtract)
+      taExtract.append(thisExtract)
+    end
+  end
+  @basicTAListFromAPI.each do |thisBTA|
+    thisExtract = "#{thisBTA['name']}_#{thisBTA['stratum_id']}"
+    if !basicExtract.include?(thisExtract)
+      basicExtract.append(thisExtract)
+    end
+  end
+  basicExtract.uniq.sort.should == taExtract.uniq.sort
+end
+
+Then(/^every result from \/basicTreatmentArms should exist in \/treatmentArms$/) do
+  taExtract = Array.new
+  @taListFromAPI.each do |thisTA|
+    thisExtract = "#{thisTA['name']}_#{thisTA['stratum_id']}"
+    if !taExtract.include?(thisExtract)
+      taExtract.append(thisExtract)
+    end
+  end
+  @basicTAListFromAPI.each do |thisBTA|
+    thisExtract = "#{thisBTA['name']}_#{thisBTA['stratum_id']}"
+    expectResult = "/treatmentArms result contains #{thisExtract}"
+    actualResult = "/treatmentArms result doesn't contains #{thisExtract}"
+    if taExtract.include?(thisExtract)
+      actualResult = "/treatmentArms result contains #{thisExtract}"
+    end
+    actualResult.should == expectResult
+  end
+end
+
 def loadTemplateJson()
   unless @isTemplateJsonLoaded
     @taReq = Treatment_arm_helper.validRquestJson()
@@ -452,7 +508,7 @@ def findTheOnlyMatchTAResult(id, stratum, version)
   return @response[0]
 end
 
-def findTheAllVersionsOfTAResult(id, stratum)
+def findAllVersionsOfTAResult(id, stratum)
   # sleep(5.0)
   # @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id, "stratum_id"=>stratum})
   # result = JSON.parse(@response)
@@ -465,7 +521,30 @@ def findTheAllVersionsOfTAResult(id, stratum)
   return @response
 end
 
-def findAllBasicTreatmentArms(id)
+def findAllTAs()
+  @response = Helper_Methods.get_list_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={})
+  @response.should_not == nil
+  returnedTASize = "Returned treatment arm count is #{@response.length}"
+  returnedTASize.should_not == 'Returned treatment arm count is 0'
+
+  return @response
+end
+
+def findAllTAsByID(id)
+  @response = Helper_Methods.get_list_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id})
+  @response.should_not == nil
+  returnedTASize = "Returned treatment arm count is #{@response.length}"
+  returnedTASize.should_not == 'Returned treatment arm count is 0'
+
+  return @response
+end
+
+def findAllBasicTreatmentArms()
+  @response = Helper_Methods.get_list_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/basicTreatmentArms',params={})
+  return @response
+end
+
+def findAllBasicTreatmentArmsForID(id)
   # sleep(5.0)
   # @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/basicTreatmentArms',params={})
   @response = Helper_Methods.get_list_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/basicTreatmentArms',params={})
