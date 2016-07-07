@@ -1,6 +1,6 @@
 #encoding: utf-8
 
-@Treatment_Arm_API_Tests
+@treatment_arm
 Feature: Treatment Arm API Tests that focus on treatment arm api service other than /treatmentArms and /newTreatmentArm
   #the only one that return from /basicTreatmentArms should be the latest version, for example if latest version has different status, check it
   Scenario: TA_OS1. /basicTreatmentArms only return one record for a treatment arm that has multiple versions
@@ -35,4 +35,12 @@ Feature: Treatment Arm API Tests that focus on treatment arm api service other t
     Then success message is returned:
     Then the treatment arm return from /basciTreatmentArms/id has correct values, name: "APEC1621-OS3-1" and status: "OPEN"
 
-#  Scenario: TA_OS4. /basicTreatmentArms returns ONE treatment arm for EVERY combination of id-stratumID
+  Scenario: TA_OS4. /basicTreatmentArms returns ONE treatment arm for EVERY combination of id-stratumID
+    Given retrieve all treatment arms from /treatmentArms
+    Then retrieve all basic treatment arms from /basicTreatmentArms
+    Then every id-stratumID combination from /treatmentArms should have "1" result in /basicTreatmentArms
+
+  Scenario: TA_OS5. every result from /basicTreatmentArms should exist in /treatmentArms
+    Given retrieve all treatment arms from /treatmentArms
+    Then retrieve all basic treatment arms from /basicTreatmentArms
+    Then every result from /basicTreatmentArms should exist in /treatmentArms
