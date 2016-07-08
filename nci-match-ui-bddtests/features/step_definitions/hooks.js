@@ -20,8 +20,8 @@ module.exports = function() {
     this.AfterFeatures(function () {
         var Reporter = require('cucumber-html-report');
         var options = {
-            source: process.env.WORKSPACE + '/nci-uMatch-bddtests/nci-match-ui-bddtests/results/result.json',
-            dest:   process.env.WORKSPACE + '/nci-uMatch-bddtests/nci-match-ui-bddtests/results/reports',
+            source: process.cwd() + '/results/result.json',
+            dest:   process.cwd() + '/results/reports',
             name:   'report.html',
             title:  'Results in html'
         };
