@@ -41,6 +41,7 @@ var LoginPage = function() {
 
     this.currentLogin = function() {
         var previousAccountUsed = element(by.css('div[data-strategy="auth0"]'));
+        console.log("Previous Login situation")
         accessbtn.click();
         browser.sleep(1000);
         browser.isElementPresent(previousAccountUsed).then(function (present){
