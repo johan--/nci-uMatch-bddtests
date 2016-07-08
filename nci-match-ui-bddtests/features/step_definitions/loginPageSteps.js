@@ -31,7 +31,7 @@ module.exports = function () {
         utilities.waitForElement(dashboardPageObj.greeterHeading(), 'Greetings').then(function () {
 
         }, function(){
-            loginPageObj.currentLogin();
+            dashboardPageObj.goToPageName('dashboard');
         });
         browser.sleep(1000).then(callback);
     });
@@ -67,7 +67,7 @@ module.exports = function () {
             expect(actualGreeting.getText()).to.eventually.equal(greeting);
             utilities.checkTitle(browser, dashboardPageObj.title);
         }, function(){
-            loginPageObj.currentLogin();
+            dashboardPageObj.goToPageName('dashboard');
         }).then(function () {
             browser.sleep(1000).then(function () {
                 expect(actualGreeting.getText()).to.eventually.equal(greeting);

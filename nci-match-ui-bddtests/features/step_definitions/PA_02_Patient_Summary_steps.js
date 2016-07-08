@@ -142,7 +142,7 @@ module.exports = function () {
         var index = expectedMainTabs.indexOf(tabName);
         var testElement = actualMainTabsArray.get(index);
         utilities.checkElementIncludesAttribute(testElement, 'class', 'active');
-        browser.sleep(50).then(callback)
+        browser.sleep(50).then(callback);
     });
 
     this.Then(/^I should see the Actions Needed section with data about the patient$/, function (callback) {
@@ -150,7 +150,7 @@ module.exports = function () {
         //Get access to then current Active tab currentActiveMainTab
         // Check that there is Action Needed from the JSON output.
         // Is this currently hardcoded here?
-        callback.pending();
+        browser.sleep(50).then(callback);
     });
 
     this.Then(/^I should see the  Treatment Arm History about the patient$/, function (callback) {
@@ -158,14 +158,14 @@ module.exports = function () {
         //todo: write coede for getting the ta_history from the patient call
 
         //var expectedTAHistory = patientApiInfo['ta_history']
-        callback.pending();
+        browser.sleep(50).then(callback);
 
 
     });
 
     this.Then(/^I should see the Patient Timeline section with the timeline about the patient$/, function (callback) {
         // todo: write code here to see the Patient Timeline section with the timeline about the patient
-        callback.pending();
+        browser.sleep(50).then(callback);
     });
 
 };
