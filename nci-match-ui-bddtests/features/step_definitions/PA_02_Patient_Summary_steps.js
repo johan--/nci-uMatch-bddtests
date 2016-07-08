@@ -58,11 +58,8 @@ module.exports = function () {
     });
 
     this.Then(/^I am taken to the patient details page$/, function (callback) {
-        expect(browser.getCurrentUrl()).to.eventually.equal(browser.baseUrl + '/#/patient/' + patientId).then(
-            function (callback) {
-                callback;
-            }, function (error) {
-                console.log(error);
+        browser.sleep(200).then(function () {
+            expect(browser.getCurrentUrl()).to.eventually.equal(browser.baseUrl + '/#/patient/' + patientId)
         }).then(callback);
     });
 
