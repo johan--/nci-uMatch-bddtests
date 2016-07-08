@@ -58,11 +58,11 @@ Feature: Treatment Arm API common tests for all fields
     |targetId           |false              |bool                 |
     |variantReport      |23.6592            |float                |
 
-  Scenario: TA_CF5. New Treatment Arm with "dateCreated" field should fail
-    Given template json with a random id
-    Then set template json field: "dateCreated" to string value: "2016-02-23T16:46:08.911Z"
-    When posted to MATCH newTreatmentArm
-    Then a failure message is returned which contains: "Validation failed"
+#  Scenario: TA_CF5. New Treatment Arm with "dateCreated" field should fail
+#    Given template json with a random id
+#    Then set template json field: "dateCreated" to string value: "2016-02-23T16:46:08.911Z"
+#    When posted to MATCH newTreatmentArm
+#    Then a failure message is returned which contains: "Validation failed"
 
   Scenario: TA_CF6. "dateCreated" value can be generated properly
     Given template json with an id: "APEC1621-CF6-1"
