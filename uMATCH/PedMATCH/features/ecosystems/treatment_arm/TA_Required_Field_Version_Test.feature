@@ -89,7 +89,7 @@ Feature: Treatment Arm API Tests that focus on "version" field
 
 
   Scenario Outline: TA_VS10. Update Treatment Arm with same "version" value should not be taken
-    Given template json with an id: "<treatment_arm_id>" and version: "2016-06-03"
+    Given template json with an id: "<treatment_arm_id>", stratum_id: "STRATUM1" and version: "2016-06-03"
     And set template json field: "<field>" to value: "<value_v1>" in type: "<type>"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
@@ -97,7 +97,8 @@ Feature: Treatment Arm API Tests that focus on "version" field
     Then set template json field: "<field>" to value: "<value_v2>" in type: "<type>"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then the treatment arm with id: "<treatment_arm_id>" and version: "2016-06-03" return from API has value: "<value_v1>" in field: "<field>"
+    Then retrieve the posted treatment arm from API
+    Then the returned treatment arm has value: "<value_v1>" in field: "<field>"
     Examples:
       |treatment_arm_id   |field              |value_v1             |value_v2              |type                 |
       |APEC1621-VS10-1    |gene               |EGFR                 |xxyyzz                |string               |

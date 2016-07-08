@@ -500,12 +500,10 @@ def findTheOnlyMatchTAResult(id, stratum, version)
   # sleep(5.0)
   # @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id, "stratum_id"=>stratum,"version"=>version})
   # result = JSON.parse(@response)
-  @response = Helper_Methods.get_list_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id, "stratum_id"=>stratum,"version"=>version})
+  @response = Helper_Methods.get_single_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArm',params={"id"=>id, "stratum_id"=>stratum,"version"=>version})
   @response.should_not == nil
-  returnedTASize = "Returned treatment arm count is #{@response.length}"
-  returnedTASize.should == 'Returned treatment arm count is 1'
 
-  return @response[0]
+  return @response
 end
 
 def findAllVersionsOfTAResult(id, stratum)

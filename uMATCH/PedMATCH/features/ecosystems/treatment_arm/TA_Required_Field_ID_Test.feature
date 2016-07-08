@@ -30,11 +30,8 @@ Feature: Treatment Arm API Tests that focus on "id" field
     Examples:
     |id                  |encoded_id                                  |
     |APEC1621-@*$%sdga#  |APEC1621-%40*%24%25sdga%23                  |
-    |APEC1621-!^&*+=     |APEC1621-!%APEC1621-5E%26*%2B%3D            |
+    |APEC1621-!^&*+=     |APEC1621-!%5E%26*%2B%3D                     |
     |APEC1621-{}[]\/?    |APEC1621-%7B%7D%5B%5D%5C%2F%3F              |
     |APEC1621-;'<>,      |APEC1621-%3B%27%3C%3E%2C                    |
     |APEC1621-?Àü ī      |APEC1621-%3F%C3%80%C3%BC%20%C4%AB           |
     |APEC1621.id         |APEC1621%2Eid                               |
-
-  #if dot(.) cannot be used in URL, then id should not accept dot, then add this scenario:
-  #Scenario: New Treatement Arm with dot "." in "id" field should fail
