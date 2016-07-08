@@ -24,9 +24,11 @@ Feature: Treatment Arm API Tests that focus on "stratumId" field
     Given template json with an id: "APEC1621-SI3-1", stratum_id: "STRATUM1" and version: "2016-06-03"
     Then posted to MATCH newTreatmentArm
     Then success message is returned:
+    Then wait for "5" seconds
     Then template json with an id: "APEC1621-SI3-1", stratum_id: "STRATUM1" and version: "2016-06-15"
     Then posted to MATCH newTreatmentArm
     Then success message is returned:
+    Then wait for "5" seconds
     Then template json with an id: "APEC1621-SI3-1", stratum_id: "STRATUM2" and version: "2016-06-15"
     Then posted to MATCH newTreatmentArm
     Then success message is returned:
@@ -40,9 +42,11 @@ Feature: Treatment Arm API Tests that focus on "stratumId" field
     Given template json with an id: "APEC1621-SI4-1", stratum_id: "STRATUM1" and version: "2016-06-03"
     Then posted to MATCH newTreatmentArm
     Then success message is returned:
+    Then wait for "5" seconds
     Then template json with an id: "APEC1621-SI4-1", stratum_id: "STRATUM1" and version: "2016-06-15"
     Then posted to MATCH newTreatmentArm
     Then success message is returned:
+    Then wait for "5" seconds
     Then template json with an id: "APEC1621-SI4-2", stratum_id: "STRATUM1" and version: "2016-06-15"
     Then posted to MATCH newTreatmentArm
     Then success message is returned:
@@ -55,9 +59,11 @@ Feature: Treatment Arm API Tests that focus on "stratumId" field
     Given template json with an id: "APEC1621-SI5-1", stratum_id: "STRATUM1" and version: "2016-06-03"
     Then posted to MATCH newTreatmentArm
     Then success message is returned:
+    Then wait for "5" seconds
     Then template json with an id: "APEC1621-SI5-1", stratum_id: "STRATUM1" and version: "2016-06-15"
     Then posted to MATCH newTreatmentArm
     Then success message is returned:
+    Then wait for "5" seconds
     Then template json with an id: "APEC1621-SI5-1", stratum_id: "STRATUM2" and version: "2016-06-15"
     Then posted to MATCH newTreatmentArm
     Then success message is returned:

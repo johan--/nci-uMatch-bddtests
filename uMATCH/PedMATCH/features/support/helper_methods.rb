@@ -36,6 +36,9 @@ class Helper_Methods
       sleep(0.2)
       runTime += 0.2
       @res = RestClient::Request.execute(:url => @service, :method => :get, :verify_ssl => false)
+      if @res=='null'
+        @res = '[]'
+      end
       result = JSON.parse(@res)
       if (result!=nil && result.length>0) || runTime >10.0
         break
@@ -60,6 +63,9 @@ class Helper_Methods
       sleep(0.2)
       runTime += 0.2
       @res = RestClient::Request.execute(:url => @service, :method => :get, :verify_ssl => false)
+      if @res=='null'
+        @res = '{}'
+      end
       result = JSON.parse(@res)
       if (result!=nil && result.length>0) || runTime >10.0
         break

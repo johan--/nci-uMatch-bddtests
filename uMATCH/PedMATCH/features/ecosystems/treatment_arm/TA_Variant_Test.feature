@@ -184,7 +184,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     When posted to MATCH newTreatmentArm
     Then success message is returned:
     Then retrieve the posted treatment arm from API
-    Then the returned treatment arm has "nhr" variant (id: "<identifier>", field: "<function>", value: "<functionValue>")
+    Then the returned treatment arm has "nhr" variant (id: "<identifier>", field: "function", value: "<functionValue>")
     Examples:
       |treatment_arm_id  |identifier             |functionValue                    |
       |APEC1621-VR10-1   |id0001                 |refallele                        |

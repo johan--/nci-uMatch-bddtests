@@ -23,7 +23,7 @@ Feature: Treatment Arm API Tests that focus on "version" field
   Scenario: TA_VS3. New Treatment Arm with "version": null should fail
     Given template json with an id: "APEC1621-VS3-1", stratum_id: "stratum1" and version: "null"
     When posted to MATCH newTreatmentArm
-    Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
+    Then a failure message is returned which contains: "The property '#/version' of type NilClass did not match the following type: string"
 
   Scenario: TA_VS4. New Treatment Arm without "version" field should fail
     Given template json with an id: "APEC1621-VS4-1"
@@ -59,7 +59,7 @@ Feature: Treatment Arm API Tests that focus on "version" field
     Then wait for "5" seconds
     Then set template json field: "version" to string value: "null"
     When posted to MATCH newTreatmentArm
-    Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
+    Then a failure message is returned which contains: "The property '#/version' of type NilClass did not match the following type: string"
 
   Scenario: TA_VS8. Update Treatment Arm without "version" field should fail
     Given template json with an id: "APEC1621-VS8-1", stratum_id: "stratum1" and version: "2016-06-03"
@@ -68,7 +68,7 @@ Feature: Treatment Arm API Tests that focus on "version" field
     Then wait for "5" seconds
     Then remove field: "version" from template json
     When posted to MATCH newTreatmentArm
-    Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
+    Then a failure message is returned which contains: "did not contain a required property of 'version'"
 
 #  Scenario Outline: TA_VS9. Update Treatment Arm, version take any string value
 #    Given template json with an id: "<treatment_arm_id>" and version: "2015-03-25"
@@ -119,7 +119,7 @@ Feature: Treatment Arm API Tests that focus on "version" field
     Then set template json field: "version" to string value: "24.6"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then retrieve treatment arms with id: "APEC1621-VS11-2" and stratum_id: "STRATUM1" from API
+    Then retrieve treatment arms with id: "APEC1621-VS11-1" and stratum_id: "STRATUM1" from API
     Then the treatment arm with version: "2016-06-03" is in the place: "4" of returned treatment arm list
     Then the treatment arm with version: "2005-01-24" is in the place: "3" of returned treatment arm list
     Then the treatment arm with version: "APEC1621_V000" is in the place: "2" of returned treatment arm list

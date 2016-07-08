@@ -12,13 +12,13 @@ Feature: Treatment Arm API Tests that focus on "treatmentArmDrugs" and "exclusio
     Given template json with a random id
     And set template json field: "treatmentArmDrugs" to string value: "null"
     When posted to MATCH newTreatmentArm
-    Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
+    Then a failure message is returned which contains: "The property '#/treatment_arm_drugs' of type NilClass did not match the following type: array"
 
   Scenario: TA_DG3. New Treatment Arm without "treatmentArmDrugs" field should fail
     Given template json with a random id
     And remove field: "treatmentArmDrugs" from template json
     When posted to MATCH newTreatmentArm
-    Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
+    Then a failure message is returned which contains: "The property '#/' did not contain a required property of 'treatment_arm_drugs'"
 
   Scenario: TA_DG4. New Treatment Arm with duplicated drug entities should be ignored
     Given template json with an id: "APEC1621-DG4-1"
