@@ -189,11 +189,11 @@ Given(/^template json with an id: "([^"]*)", stratum_id: "([^"]*)" and version: 
 end
 
 Then(/^retrieve the posted treatment arm from API$/) do
-  @taFromAPI = findTheOnlyMatchTAResult(@taReq['id'], @taReq['stratumId'], @taReq['version'])
+  @taFromAPI = findSingleTreatmentArm(para={'id'=>@taReq['id'], 'stratumId'=>@taReq['stratumId'], 'version'=>@taReq['version']})
 end
 
 Then(/^retrieve treatment arm with id: "([^"]*)", stratum_id: "([^"]*)" and version: "([^"]*)" from API$/) do |id, stratum, version|
-  @taFromAPI = findTheOnlyMatchTAResult(id, stratum, version)
+  @taFromAPI = findSingleTreatmentArm(para={'id'=>id, 'startumId'=>stratum, 'version'=>version})
 end
 
 Then(/^retrieve treatment arms with id: "([^"]*)" and stratum_id: "([^"]*)" from API$/) do |id, stratum|
@@ -210,6 +210,14 @@ end
 
 Then(/^retrieve all basic treatment arms from \/basicTreatmentArms$/) do
   @basicTAListFromAPI = findAllBasicTreatmentArms()
+end
+
+Then(/^retrieve single treatment arm with id: "([^"]*)" using \/treatmentArm service$/) do |id|
+  @taFromAPI = findSingleTreatmentArm(para={'id'=>id})
+end
+
+Then(/^retrieve single treatment arm with id: "([^"]*)" and stratumId: "([^"]*)" using \/treatmentArm service$/) do |id, stratumId|
+  @taFromAPI = findSingleTreatmentArm(para={'id'=>id, 'stratumId'=>stratumId})
 end
 
 Then(/^the returned treatment arm has value: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
@@ -496,15 +504,22 @@ def loadTemplateJson()
   end
 end
 
-def findTheOnlyMatchTAResult(id, stratum, version)
-  # sleep(5.0)
-  # @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id, "stratum_id"=>stratum,"version"=>version})
-  # result = JSON.parse(@response)
-  @response = Helper_Methods.get_single_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArm',params={"id"=>id, "stratum_id"=>stratum,"version"=>version})
+def findSingleTreatmentArm(para={})
+  @response = Helper_Methods.get_single_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArm',params=para)
   @response.should_not == nil
 
   return @response
 end
+
+# def findTheOnlyMatchTAResult(id, stratum, version)
+#   # sleep(5.0)
+#   # @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id, "stratum_id"=>stratum,"version"=>version})
+#   # result = JSON.parse(@response)
+#   @response = Helper_Methods.get_single_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArm',params={"id"=>id, "stratum_id"=>stratum,"version"=>version})
+#   @response.should_not == nil
+#
+#   return @response
+# end
 
 def findAllVersionsOfTAResult(id, stratum)
   # sleep(5.0)
