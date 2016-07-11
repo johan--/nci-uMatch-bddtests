@@ -17,9 +17,9 @@ Feature: Login
     When I login with invalid email and password
     Then I should be asked to enter the credentials again
 
-  @login @broken
+  @login
   Scenario: Login with proper credentials should let you access protected pages.
     Given I am on the login page
     When  I login with valid email and password
-    And I navigate to the dashboard page
+#    And I navigate to the dashboard page
     Then I should be able to the see Dashboard page
