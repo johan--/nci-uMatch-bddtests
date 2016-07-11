@@ -11,9 +11,9 @@ Feature: TA_AR1. Treatment Arm API Tests that focus on assayResults
     Then the returned treatment arm has assayResult (gene: "<gene>", assayResultStatus: "<status>", assayVariant: "<variant>", LOE: "<loe>", description: "<description>")
     Examples:
       |treatment_arm_id     |gene             |status          |variant    |loe       |description                                  |
-      |APEC1621-PR1-1       |PTEN             |POSITIVE        |PRESENT    |2.0       |null                                         |
-      |APEC1621-PR1-2       |MSCH2            |NEGATIVE        |NEGATIVE   |1.5       |description                                  |
-      |APEC1621-PR1-3       |MLH1             |INDETERMINATE   |EMPTY      |3.0       |the other description                        |
+      |APEC1621-AR1-1       |PTEN             |POSITIVE        |PRESENT    |2.0       |null                                         |
+      |APEC1621-AR1-2       |MSCH2            |NEGATIVE        |NEGATIVE   |1.5       |description                                  |
+      |APEC1621-AR1-3       |MLH1             |INDETERMINATE   |EMPTY      |3.0       |the other description                        |
 
   Scenario Outline: TA_AR2. assayResults with invalid values should fail
     Given template json with a random id
