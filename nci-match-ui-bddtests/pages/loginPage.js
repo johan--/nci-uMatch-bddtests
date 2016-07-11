@@ -20,9 +20,9 @@ var LoginPage = function() {
     };
 
     this.login = function(username, password) {
-        var email =  element(by.css('input#a0-signin_easy_email'));
+        var email =  element(by.id('a0-signin_easy_email'));
         var pass = element(by.id('a0-signin_easy_password'));
-        var loginbtn = element(by.css('button.a0-primary.a0-next'));
+        var loginbtn = element(by.buttonText('Access'));
         var previousLoginLink = element(by.linkText('Not your account?'));
         accessbtn.click(); // Clicking NCI-Matchbox button
         browser.sleep(1000);

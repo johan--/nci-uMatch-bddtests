@@ -11,7 +11,7 @@ Feature: Patient Summary Page
     Given I am a logged in user
     And I navigate to the patients page
 
-  @patient
+  @patient  @broken
   Scenario: I can see the patient's details
     When I click on one of the patients
 #    And I collect the patient Api Information
@@ -23,7 +23,7 @@ Feature: Patient Summary Page
 #    And I should see the patient's disease information match the database
     And I should see the main tabs associated with the patient
 
-  @patient
+  @patient @broken
   Scenario: I can see the details within the Summary tab of the patient
     When I click on one of the patients
     And I click on the "Summary" tab
