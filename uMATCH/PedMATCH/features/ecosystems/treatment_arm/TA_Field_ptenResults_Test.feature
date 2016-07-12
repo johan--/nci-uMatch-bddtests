@@ -3,7 +3,7 @@
 @treatment_arm
 Feature: TA_PR1. Treatment Arm API Tests that focus on ptenResults
   Scenario: ptenResults feild should not be taken by API
-    Given template json with an id: "APEC1621-PR1-1"
+    Given template treatment arm json with an id: "APEC1621-PR1-1"
     Then add ptenResult with ptenIhcResult: "POSITIVE", ptenVariant: "PRESENT" and description: "description"
     When posted to MATCH newTreatmentArm
     Then success message is returned:

@@ -3,7 +3,7 @@
 @treatment_arm
 Feature: TA_AR1. Treatment Arm API Tests that focus on assayResults
   Scenario Outline: assayResults with valid values should pass
-    Given template json with an id: "<treatment_arm_id>"
+    Given template treatment arm json with an id: "<treatment_arm_id>"
     Then add assayResult with gene: "<gene>", assayResultStatus: "<status>", assayVariant: "<variant>", LOE: "<loe>" and description: "<description>"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
@@ -16,7 +16,7 @@ Feature: TA_AR1. Treatment Arm API Tests that focus on assayResults
       |APEC1621-AR1-3       |MLH1             |INDETERMINATE   |EMPTY      |3.0       |the other description                        |
 
   Scenario Outline: TA_AR2. assayResults with invalid values should fail
-    Given template json with a random id
+    Given template treatment arm json with a random id
     Then add assayResult with gene: "<gene>", assayResultStatus: "<status>", assayVariant: "<variant>", LOE: "<loe>" and description: "<description>"
     When posted to MATCH newTreatmentArm
     Then a failure message is returned which contains: "<errorMessage>"

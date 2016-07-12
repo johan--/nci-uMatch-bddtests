@@ -166,21 +166,21 @@ Then(/^the treatment arm return from \/basciTreatmentArms\/id has correct values
   }
 end
 
-Given(/^template json with a random id$/) do
+Given(/^template treatment arm json with a random id$/) do
   loadTemplateJson()
   @taReq['id'] = "APEC1621-#{Time.now.to_i.to_s}"
   @jsonString = @taReq.to_json.to_s
   @savedTAID = @taReq['id']
 end
 
-Given(/^template json with an id: "([^"]*)"$/) do |id|
+Given(/^template treatment arm json with an id: "([^"]*)"$/) do |id|
   loadTemplateJson()
   @taReq['id'] = id=='null'?nil:id
   @jsonString = @taReq.to_json.to_s
 end
 
 
-Given(/^template json with an id: "([^"]*)", stratum_id: "([^"]*)" and version: "([^"]*)"$/) do |id, stratumId, version|
+Given(/^template treatment arm json with an id: "([^"]*)", stratum_id: "([^"]*)" and version: "([^"]*)"$/) do |id, stratumId, version|
   loadTemplateJson()
   @taReq['id'] = id=='null'?nil:id
   @taReq['version'] = version=='null'?nil:version
@@ -331,7 +331,7 @@ Then(/^There are "([^"]*)" treatment arm with id: "([^"]*)" and stratum_id: "([^
   returnedCount.should == count.to_i
 end
 
-And(/^set template json field: "([^"]*)" to string value: "([^"]*)"$/) do |field, sValue|
+And(/^set template treatment arm json field: "([^"]*)" to string value: "([^"]*)"$/) do |field, sValue|
   if sValue == 'null'
     sValue = nil
   end
@@ -340,7 +340,7 @@ And(/^set template json field: "([^"]*)" to string value: "([^"]*)"$/) do |field
   @jsonString = @taReq.to_json.to_s
 end
 
-And(/^set template json field: "([^"]*)" to value: "([^"]*)" in type: "([^"]*)"$/) do |field, value, type|
+And(/^set template treatment arm json field: "([^"]*)" to value: "([^"]*)" in type: "([^"]*)"$/) do |field, value, type|
   loadTemplateJson()
 
   if value == 'null'
@@ -367,19 +367,19 @@ And(/^add prefix: "([^"]*)" to the value of template json field: "([^"]*)"$/) do
   @jsonString = @taReq.to_json.to_s
 end
 
-And(/^add suffix: "([^"]*)" to the value of template json field: "([^"]*)"$/) do |suffix, field|
+And(/^add suffix: "([^"]*)" to the value of treatment arm template json field: "([^"]*)"$/) do |suffix, field|
   loadTemplateJson()
   @taReq[field] = "#{@taReq[field]}_#{suffix}"
   @jsonString = @taReq.to_json.to_s
 end
 
-And(/^remove field: "([^"]*)" from template json$/) do |fieldName|
+And(/^remove field: "([^"]*)" from template treatment arm json$/) do |fieldName|
   loadTemplateJson()
   @taReq.delete(fieldName)
   @jsonString = @taReq.to_json.to_s
 end
 
-And(/^clear list field: "([^"]*)" from template json$/) do |fieldName|
+And(/^clear list field: "([^"]*)" from template treatment arm json$/) do |fieldName|
   loadTemplateJson()
   if @taReq[fieldName].kind_of?(Array)
     @taReq[fieldName].clear()
@@ -387,7 +387,7 @@ And(/^clear list field: "([^"]*)" from template json$/) do |fieldName|
   @jsonString = @taReq.to_json.to_s
 end
 
-And(/^add drug with name: "([^"]*)" pathway: "([^"]*)" and id: "([^"]*)" to template json$/) do |drugName, drugPathway, drugId|
+And(/^add drug with name: "([^"]*)" pathway: "([^"]*)" and id: "([^"]*)" to template treatment arm json$/) do |drugName, drugPathway, drugId|
   loadTemplateJson()
   @taReq = Treatment_arm_helper.addDrug(drugName, drugPathway, drugId)
   @jsonString = @taReq.to_json.to_s
@@ -411,42 +411,42 @@ Then(/^add exclusionCriterias with id: "([^"]*)" and description: "([^"]*)"$/) d
   @jsonString = @taReq.to_json.to_s
 end
 
-And(/^add PedMATCH exclusion drug with name: "([^"]*)" and id: "([^"]*)" to template json$/) do |drugName, drugId|
+And(/^add PedMATCH exclusion drug with name: "([^"]*)" and id: "([^"]*)" to template treatment arm json$/) do |drugName, drugId|
   loadTemplateJson()
   @taReq = Treatment_arm_helper.addPedMATCHExclusionDrug(drugName, drugId)
   @jsonString = @taReq.to_json.to_s
 end
 
-Then(/^clear template json's variant: "([^"]*)" list$/) do |variantAbbr|
+Then(/^clear template treatment arm json's variant: "([^"]*)" list$/) do |variantAbbr|
   loadTemplateJson()
   @taReq['variantReport'][convertVariantAbbrToFull(variantAbbr)].clear()
   @jsonString = @taReq.to_json.to_s
 end
 
-Then(/^create a template variant: "([^"]*)"$/) do |variantAbbr|
+Then(/^create a template variant: "([^"]*)" for treatment arm$/) do |variantAbbr|
   @preparedVariant = Treatment_arm_helper.templateVariant(variantAbbr)
 end
 
-And(/^set template variant field: "([^"]*)" to string value: "([^"]*)"$/) do |field, sValue|
+And(/^set template treatment arm variant field: "([^"]*)" to string value: "([^"]*)"$/) do |field, sValue|
   @preparedVariant[field] = sValue
 end
 
-And(/^set template variant field: "([^"]*)" to bool value: "([^"]*)"$/) do |field, bValue|
+And(/^set template treatment arm variant field: "([^"]*)" to bool value: "([^"]*)"$/) do |field, bValue|
   @preparedVariant[field] = bValue
 end
 
-And(/^set template variant publicMedIds: "([^"]*)"$/) do |pmIds|
+And(/^set template treatment arm variant publicMedIds: "([^"]*)"$/) do |pmIds|
   idList = pmIds.split(',')
   @preparedVariant['publicMedIds'] = idList
 end
 
-Then(/^add template variant: "([^"]*)" to template json$/) do |variantAbbr|
+Then(/^add template variant: "([^"]*)" to template treatment arm json$/) do |variantAbbr|
   loadTemplateJson()
   @taReq['variantReport'][convertVariantAbbrToFull(variantAbbr)].push(@preparedVariant)
   @jsonString = @taReq.to_json.to_s
 end
 
-And(/^remove template variant field: "([^"]*)"$/) do |field|
+And(/^remove template treatment arm variant field: "([^"]*)"$/) do |field|
   @preparedVariant.delete(field)
 end
 
