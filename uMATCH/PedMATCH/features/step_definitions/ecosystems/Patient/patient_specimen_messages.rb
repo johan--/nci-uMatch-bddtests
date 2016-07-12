@@ -54,3 +54,20 @@ When(/^posted to MATCH setNucleicAcidsShippingDetails, returns a message "([^"]*
   expect(@response['message']).to eql(retMsg)
 end
 
+Given(/^template specimen received message in type: "([^"]*)" for patient: "([^"]*)"$/) do |type, patientID|
+  @requestJson = Patient_helper_methods.createSpecimenReceivedTemplate()
+  @requestJson['type'] = type
+  @requestJson['patient_id'] = patientID
+  @request = @request.to_json.to_s
+end
+
+Then(/^set patient message field: "([^"]*)" to "([^"]*)"$/) do |field, value|
+  convertedValue = value=='null'?nil:value
+  @requestJson[field] = convertedValue
+  @request = @request.to_json.to_s
+end
+
+Then(/^remove field: "([^"]*)" from patient message$/) do |field|
+  @requestJson.delete(field)
+  @request = @request.to_json.to_s
+end
