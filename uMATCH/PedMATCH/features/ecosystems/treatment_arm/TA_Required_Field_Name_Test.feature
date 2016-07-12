@@ -22,20 +22,20 @@ Feature: Treatment Arm API Tests that focus on "name" field
     Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
 
 
-  Scenario Outline: TA_NM4. New Treatment Arm with special character in "name" field should pass
-    Given template json with an id: "<treatment_arm_id>"
-    And set template json field: "name" to string value: "<name_value>"
-    When posted to MATCH newTreatmentArm
-    Then success message is returned:
-    Then retrieve the posted treatment arm from API
-    Then the returned treatment arm has value: "<name_value>" in field: "<name>"
-    Examples:
-      |treatment_arm_id     |name_value              |
-      |APEC1621-NM4-1       |@*$%sdga#               |
-      |APEC1621-NM4-2       |!^&*()-_+=              |
-      |APEC1621-NM4-3       |{}[]\/?                 |
-      |APEC1621-NM4-4       |;'<>,.                  |
-      |APEC1621-NM4-5       |?Àü ī                   |
+#  Scenario Outline: TA_NM4. New Treatment Arm with special character in "name" field should pass
+#    Given template json with an id: "<treatment_arm_id>"
+#    And set template json field: "name" to string value: "<name_value>"
+#    When posted to MATCH newTreatmentArm
+#    Then success message is returned:
+#    Then retrieve the posted treatment arm from API
+#    Then the returned treatment arm has value: "<name_value>" in field: "<name>"
+#    Examples:
+#      |treatment_arm_id     |name_value              |
+#      |APEC1621-NM4-1       |@*$%sdga#               |
+#      |APEC1621-NM4-2       |!^&*()-_+=              |
+#      |APEC1621-NM4-3       |{}[]\/?                 |
+#      |APEC1621-NM4-4       |;'<>,.                  |
+#      |APEC1621-NM4-5       |?Àü ī                   |
 
 #  Scenario: TA_NM5. Update Treatment Arm with empty "name" field should fail
 #    Given template json with a random id

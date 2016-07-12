@@ -33,19 +33,19 @@ Feature: Treatment Arm API common tests for all fields
       |treatment_arm_id     |field                |returned_field     |
       |APEC1621-CF2-1       |targetName           |target_name        |
 
-  Scenario Outline: TA_CF3. New Treatment Arm should not take undefined fields
-    Given template json with an id: "<treatment_arm_id>"
-    And set template json field: "<field>" to value: "<value>" in type: "<type>"
-    When posted to MATCH newTreatmentArm
-    Then success message is returned:
-    Then retrieve the posted treatment arm from API
-    Then the returned treatment arm should not have field: "<field>"
-    Examples:
-    |treatment_arm_id    |field        |value        |type           |
-    |APEC1621-CF-1       |newString    |stringValue  |string         |
-    |APEC1621-CF-2       |newInt       |25           |int            |
-    |APEC1621-CF-3       |newFloat     |4.593        |float          |
-    |APEC1621-CF-4       |newBool      |false        |bool           |
+#  Scenario Outline: TA_CF3. New Treatment Arm should not take undefined fields
+#    Given template json with an id: "<treatment_arm_id>"
+#    And set template json field: "<field>" to value: "<value>" in type: "<type>"
+#    When posted to MATCH newTreatmentArm
+#    Then success message is returned:
+#    Then retrieve the posted treatment arm from API
+#    Then the returned treatment arm should not have field: "<field>"
+#    Examples:
+#    |treatment_arm_id    |field        |value        |type           |
+#    |APEC1621-CF-1       |newString    |stringValue  |string         |
+#    |APEC1621-CF-2       |newInt       |25           |int            |
+#    |APEC1621-CF-3       |newFloat     |4.593        |float          |
+#    |APEC1621-CF-4       |newBool      |false        |bool           |
 
   Scenario Outline: TA_CF4. New Treatment Arm with unrequired field which has improper data type values should fail
     Given template json with a random id

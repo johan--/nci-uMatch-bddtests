@@ -35,10 +35,6 @@ Feature: Treatment Arm API Tests that focus on "study_id" field
       |treatment_arm_id     |origin_study_id        |new_study_id     |
       |APEC1621-SID3-1      |APEC1621               |EAY131           |
       |APEC1621-SID3-2      |EAY131                 |APEC1621         |
-      |APEC1621-SID3-3      |APEC1621               |OTHER_STUDY      |
-      |APEC1621-SID3-4      |EAY131                 |xxyyzz           |
-      |APEC1621-SID3-5      |APEC1621               |null             |
-      |APEC1621-SID3-6      |EAY131                 |                 |
 
 #  Scenario: TA_SID4. Update Treatment Arm without "study_id" field should fail
 #    Given template json with an id: "APEC1621-SID4-1" and version: "2015-03-25"

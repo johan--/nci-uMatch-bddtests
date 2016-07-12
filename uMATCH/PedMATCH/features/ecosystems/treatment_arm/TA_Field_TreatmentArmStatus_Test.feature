@@ -10,7 +10,6 @@ Feature: Treatment Arm API Tests that focus on "treatmentArmStatus" field
     Then a failure message is returned which contains: "not match one of the following values: OPEN"
     Examples:
     |status   |
-    |OTHER    |
     |XXX      |
     |         |
     |32       |

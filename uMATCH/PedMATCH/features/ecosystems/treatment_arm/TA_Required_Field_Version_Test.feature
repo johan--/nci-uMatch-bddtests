@@ -31,17 +31,17 @@ Feature: Treatment Arm API Tests that focus on "version" field
     When posted to MATCH newTreatmentArm
     Then a failure message is returned which contains: "did not contain a required property of 'version'"
 
-  Scenario Outline: TA_VS5. New Treatment Arm, version should take any string value
-    Given template json with an id: "<treatment_arm_id>", stratum_id: "stratum1" and version: "<version_value>"
-    When posted to MATCH newTreatmentArm
-    Then retrieve treatment arm with id: "<treatment_arm_id>", stratum_id: "stratum1" and version: "<encoded_version>" from API
-    Then the returned treatment arm has value: "<version_value>" in field: "version"
-    Examples:
-      |treatment_arm_id   |version_value           |encoded_version                                           |
-      |APEC1621-VS5-1     |@*$%#!^&*()-_+=         |%40*%24%25%23!%5E%26*()-_%2B%3D                           |
-      |APEC1621-VS5-2     |{}[]\/?;'<>,Àü ī        |%7B%7D%5B%5D%5C%2F%3F%3B%27%3C%3E%2C%C3%80%C3%BC%20%C4%AB |
-      |APEC1621-VS5-3     |2013-04-10 15:32        |2013-04-10%2015%3A32                                      |
-      |APEC1621-VS5-4     |55.27                   |55.27                                                     |
+#  Scenario Outline: TA_VS5. New Treatment Arm, version should take any string value
+#    Given template json with an id: "<treatment_arm_id>", stratum_id: "stratum1" and version: "<version_value>"
+#    When posted to MATCH newTreatmentArm
+#    Then retrieve treatment arm with id: "<treatment_arm_id>", stratum_id: "stratum1" and version: "<encoded_version>" from API
+#    Then the returned treatment arm has value: "<version_value>" in field: "version"
+#    Examples:
+#      |treatment_arm_id   |version_value           |encoded_version                                           |
+#      |APEC1621-VS5-1     |@*$%#!^&*()-_+=         |%40*%24%25%23!%5E%26*()-_%2B%3D                           |
+#      |APEC1621-VS5-2     |{}[]\/?;'<>,Àü ī        |%7B%7D%5B%5D%5C%2F%3F%3B%27%3C%3E%2C%C3%80%C3%BC%20%C4%AB |
+#      |APEC1621-VS5-3     |2013-04-10 15:32        |2013-04-10%2015%3A32                                      |
+#      |APEC1621-VS5-4     |55.27                   |55.27                                                     |
 
   Scenario: TA_VS6. Update Treatment Arm with empty "version" field should fail
     Given template json with an id: "APEC1621-VS6-1", stratum_id: "stratum1" and version: "2016-06-03"
