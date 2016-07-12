@@ -61,9 +61,7 @@ script:
   - sleep 3 # give xvfb some time to start
   # Run UI tests
   - cd nci-match-ui-bddtests/
-  - protractor config.js --cucumberOpts.tags='~@broken'
-  - sleep 5
-  - cat results/result.json
+  - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG
 after_success:
   # Tag latest version of docker image tested agains with a date stamp as release candidate
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
