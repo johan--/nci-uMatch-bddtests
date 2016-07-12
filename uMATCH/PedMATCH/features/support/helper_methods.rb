@@ -35,7 +35,15 @@ class Helper_Methods
     loop do
       sleep(0.2)
       runTime += 0.2
-      @res = RestClient::Request.execute(:url => @service, :method => :get, :verify_ssl => false)
+      begin
+        @res = RestClient::Request.execute(:url => @service, :method => :get, :verify_ssl => false)
+      rescue StandardError => e
+        print "Error: #{e.message} occurred\n"
+        print "Response:#{e.response}\n"
+        @res = '[]'
+        result = JSON.parse(@res)
+        return result
+      end
       if @res=='null'
         @res = '[]'
       end
@@ -62,7 +70,16 @@ class Helper_Methods
     loop do
       sleep(0.2)
       runTime += 0.2
-      @res = RestClient::Request.execute(:url => @service, :method => :get, :verify_ssl => false)
+      begin
+        @res = RestClient::Request.execute(:url => @service, :method => :get, :verify_ssl => false)
+      rescue StandardError => e
+        print "Error: #{e.message} occurred\n"
+        print "Response:#{e.response}\n"
+        @res = '{}'
+        result = JSON.parse(@res)
+        return result
+      end
+
       if @res=='null'
         @res = '{}'
       end
