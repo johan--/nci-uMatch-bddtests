@@ -6,6 +6,8 @@ require 'active_support'
 require 'active_support/core_ext'
 
 class Helper_Methods
+  @requestGap = 1.0
+  @requestTimeout = 10.0
   def Helper_Methods.get_request(service,params={})
     print "URL: #{service}\n"
     @params = ''
@@ -33,8 +35,8 @@ class Helper_Methods
     result = Array.new()
     runTime = 0.0
     loop do
-      sleep(0.2)
-      runTime += 0.2
+      sleep(@requestGap)
+      runTime += @requestGap
       begin
         @res = RestClient::Request.execute(:url => @service, :method => :get, :verify_ssl => false)
       rescue StandardError => e
@@ -48,7 +50,7 @@ class Helper_Methods
         @res = '[]'
       end
       result = JSON.parse(@res)
-      if (result!=nil && result.length>0) || runTime >10.0
+      if (result!=nil && result.length>0) || runTime >@requestTimeout
         break
       end
     end
@@ -68,8 +70,8 @@ class Helper_Methods
     result = Hash.new()
     runTime = 0.0
     loop do
-      sleep(0.2)
-      runTime += 0.2
+      sleep(@requestGap)
+      runTime += @requestGap
       begin
         @res = RestClient::Request.execute(:url => @service, :method => :get, :verify_ssl => false)
       rescue StandardError => e
@@ -84,7 +86,7 @@ class Helper_Methods
         @res = '{}'
       end
       result = JSON.parse(@res)
-      if (result!=nil && result.length>0) || runTime >10.0
+      if (result!=nil && result.length>0) || runTime >@requestTimeout
         break
       end
     end
