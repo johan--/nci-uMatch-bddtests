@@ -1,5 +1,9 @@
 @patient_seed_data
 
+  we are going to use patient load script instead of using this feature file to prepare patient seed data.
+  So the patients in this feature file is just a reminder that what patients are going to be generated
+
+
 Feature: Patient seed data creation
   Scenario Outline: Successfully register patient seed data
     Given that Patient StudyID "<studyId>" PatientSeqNumber "<patient_id>" StepNumber "<stepNumber>" PatientStatus "<patientStatus>" Message "<message>" with "current" dateCreated is received from EA layer
@@ -42,3 +46,5 @@ Feature: Patient seed data creation
 
 #  Scenario: Create patient data which is in BLOOD_NUCLEIC_ACID_FAILURE status
 #    using id:  PT-SpecimenTest-BdNuAdFailure
+
+  Scenario: Create patient data which is in specimen received status (TISSUE_SPECIMEN_RECEIVED or BLOOD_SPECIMEN_RECEIVED)
