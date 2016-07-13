@@ -11,7 +11,7 @@ before_install:
   - echo $TRIGGER_REPO
   - echo $CUC_TAG
   # Pull latest docker image from last step to test against before it gets updated by someone else
-  - docker pull $TRIGGER_REPO
+  - docker pull matchbox/$TRIGGER_REPO
   # Set Ruby version
   - rvm use --install --binary 2.2.3
   - rvm use ruby-2.2.3
@@ -66,12 +66,13 @@ after_success:
   # Tag latest version of docker image tested agains with a date stamp as release candidate
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - export DATE=`date "+%m-%d-%y-%H%M"`
-  - docker tag -f $TRIGGER_REPO $TRIGGER_REPO:$DATE
+  - docker tag -f matchbox/$TRIGGER_REPO matchbox/$TRIGGER_REPO:$DATE
   - docker images
-  - docker push  $TRIGGER_REPO:$DATE 
-  # Push to AWS and trigger next step
- # - aws ecs update-service --cluster uMatch-Test --service uMatch-nci-treatment-arm-api-TEST --task-definition uMatch-nci-treatment-arm-api-TEST 
-  # - docker run -it --rm -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster uMatch-Test --service-name uMatch-nci-treatment-arm-api-TEST -i matchbox/nci-treatment-arm-api:latest
+  - docker push  matchbox/$TRIGGER_REPO:$DATE 
+  # Push to UAT AWS 
+  - docker run -it --rm -e AWS_ACCESS_KEY_ID=$UAT_AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$UAT_AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster PedMatch-UAT --service-name PedMatch-$TRIGGER_REPO-UAT -i matchbox/$TRIGGER_REPO:$DATE
+  # Trigger Travis script #3
+  # - "curl -s -X POST -H \"Content-Type: application/json\" -H \"Accept: application/json\" -H \"Travis-API-Version: 3\" -H \"Authorization: token $TRAVIS_TOKEN\" -d '{\"request\": {\"message\": \"Triggered by nci-treatment-arm-api\",\"branch\":\"master\", \"config\": {\"env\": {\"matrix\": [\"TRIGGER_REPO=nci-treatment-arm-api;CUC_TAG=@treatment_arm\"]}}}}' https://api.travis-ci.org/repo/CBIIT%2Fnci-uMatch-bddtests/requests"
 notifications:
   slack:
     # secure: G2Vusym37c8C5Opee14JXdbVQGNe56e8G2xTM1zeBignME9/pbg3F4+DumvRV1pE6A/RHjlG3socbdIFnoMecG+nUXE3hymNoKrjI/FnPClDulxXllNFMZgWhafq6giX7bXgyaudNFVa2PZkPPzjr6SsGngcR/BAHcz2FqqGDr161TJMU/8BshnSMhxAfxSwFg2GnDMOgar2R3UYVkjhWqnIzM5YrpdeqzVofeM5kJaoq73gxQEnaneywLvHfSCSjDXSxIZm54L97kkpg3a4njZ/CHqUB19yY+IsE1tAygS3515+F6kZPOi1PJ7jPq5Ht3kFgpaTXrOmrXd8HeMJuKEdFKkgTD0NEIvYQfNmUZHhA25an+ePG3e45CNf8IMB0dyWmH6vY05lBujB/5plo2Fsx+HBjx14kq/z7ZWdX70qSYDJIWqLGGMnnHzkULLCBPhRKqXQsXERl0ST6BeDWCekEFtvFd+6gQjwcRgo3+AquUhobgFUVs4JzZYfStZEyxEG9sdxy1wVZjVWHCN+U75095oWytn1eAN4v6mVpo6O+zC1k/6k+8DzlWE9oArn8yRS+LVmjodaQvnAf5AX7ooEpEkzJSp1vWmqAFJOVrUyl8bg+KA4eQPI/37igmTZKKkxLD40kqM6wqW1o77vTMZvVrpNVK5G7m0GNYudEjc=
