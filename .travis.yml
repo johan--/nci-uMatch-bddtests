@@ -77,14 +77,10 @@ after_success:
   # Trigger Travis script #3
   # - "curl -s -X POST -H \"Content-Type: application/json\" -H \"Accept: application/json\" -H \"Travis-API-Version: 3\" -H \"Authorization: token $TRAVIS_TOKEN\" -d '{\"request\": {\"message\": \"Triggered by nci-treatment-arm-api\",\"branch\":\"master\", \"config\": {\"env\": {\"matrix\": [\"TRIGGER_REPO=nci-treatment-arm-api;CUC_TAG=@treatment_arm\"]}}}}' https://api.travis-ci.org/repo/CBIIT%2Fnci-uMatch-bddtests/requests"
 after_script:
-  #Send run report info to S3 for review
-  - ls -alt ~/build/CBIIT/nci-uMatch-bddtests/uMATCH/PedMATCH/results/output.json
-  - ls -alt ~/build/CBIIT/nci-uMatch-bddtests/nci-match-ui-bddtests/results/result.json
+  #Send result json to S3 for review
   - export DATE=`date "+%m-%d-%y-%H%M"`
   - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/uMATCH/PedMATCH/results/output.json s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_COMMIT/ --region us-east-1
   - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/nci-match-ui-bddtests/results/result.json s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_COMMIT/ --region us-east-1
-  #nci-uMatch-bddtests/uMATCH/PedMATCH/results/output.json
-  #nci-uMatch-bddtests/nci-match-ui-bddtests/results/result.json
 notifications:
   slack:
     # secure: G2Vusym37c8C5Opee14JXdbVQGNe56e8G2xTM1zeBignME9/pbg3F4+DumvRV1pE6A/RHjlG3socbdIFnoMecG+nUXE3hymNoKrjI/FnPClDulxXllNFMZgWhafq6giX7bXgyaudNFVa2PZkPPzjr6SsGngcR/BAHcz2FqqGDr161TJMU/8BshnSMhxAfxSwFg2GnDMOgar2R3UYVkjhWqnIzM5YrpdeqzVofeM5kJaoq73gxQEnaneywLvHfSCSjDXSxIZm54L97kkpg3a4njZ/CHqUB19yY+IsE1tAygS3515+F6kZPOi1PJ7jPq5Ht3kFgpaTXrOmrXd8HeMJuKEdFKkgTD0NEIvYQfNmUZHhA25an+ePG3e45CNf8IMB0dyWmH6vY05lBujB/5plo2Fsx+HBjx14kq/z7ZWdX70qSYDJIWqLGGMnnHzkULLCBPhRKqXQsXERl0ST6BeDWCekEFtvFd+6gQjwcRgo3+AquUhobgFUVs4JzZYfStZEyxEG9sdxy1wVZjVWHCN+U75095oWytn1eAN4v6mVpo6O+zC1k/6k+8DzlWE9oArn8yRS+LVmjodaQvnAf5AX7ooEpEkzJSp1vWmqAFJOVrUyl8bg+KA4eQPI/37igmTZKKkxLD40kqM6wqW1o77vTMZvVrpNVK5G7m0GNYudEjc=
