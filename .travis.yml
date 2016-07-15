@@ -78,12 +78,11 @@ after_success:
   # - "curl -s -X POST -H \"Content-Type: application/json\" -H \"Accept: application/json\" -H \"Travis-API-Version: 3\" -H \"Authorization: token $TRAVIS_TOKEN\" -d '{\"request\": {\"message\": \"Triggered by nci-treatment-arm-api\",\"branch\":\"master\", \"config\": {\"env\": {\"matrix\": [\"TRIGGER_REPO=nci-treatment-arm-api;CUC_TAG=@treatment_arm\"]}}}}' https://api.travis-ci.org/repo/CBIIT%2Fnci-uMatch-bddtests/requests"
 after_script:
   #Send run report info to S3 for review
-  - pwd
-  - cd && pwd
-  - ls -alt ~/nci-uMatch-bddtests/uMATCH/PedMATCH/results/output.json
-  - ls -alt ~/nci-uMatch-bddtests/nci-match-ui-bddtests/results/result.json
+  - ls -alt ~/build/CBIIT/nci-uMatch-bddtests/uMATCH/PedMATCH/results/output.json
+  - ls -alt ~/build/CBIIT/nci-uMatch-bddtests/nci-match-ui-bddtests/results/result.json
   - export DATE=`date "+%m-%d-%y-%H%M"`
-  - aws s3 cp README.md s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_COMMIT/ --region us-east-1
+  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/uMATCH/PedMATCH/results/output.json s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_COMMIT/ --region us-east-1
+  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/nci-match-ui-bddtests/results/result.json s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_COMMIT/ --region us-east-1
   #nci-uMatch-bddtests/uMATCH/PedMATCH/results/output.json
   #nci-uMatch-bddtests/nci-match-ui-bddtests/results/result.json
 notifications:
