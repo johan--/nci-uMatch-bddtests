@@ -62,6 +62,11 @@ script:
   # Run UI tests
   - cd nci-match-ui-bddtests/
   - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG
+  - ls -alt
+after_script:
+  #Send run report info to S3 for review
+  - export DATE=`date "+%m-%d-%y-%H%M"`
+  - aws s3 cp README.md s3://cucumbertest-reports/$TRIGGER_REPO/$DATE/
 after_success:
   # Tag latest version of docker image tested agains with a date stamp as release candidate
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
