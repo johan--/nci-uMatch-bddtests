@@ -24,6 +24,8 @@ before_install:
   - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16"
 before_script:
   # Install chrome & chromium
+  - sudo apt-get update && sudo apt-get -y install awscli
+  # Install chrome & chromium
   - sudo apt-get update
   - sudo apt-get -y install chromium-bsu
   # Install UI test requirements
@@ -66,7 +68,7 @@ script:
 after_script:
   #Send run report info to S3 for review
   - export DATE=`date "+%m-%d-%y-%H%M"`
-  - aws s3 cp README.md s3://cucumbertest-reports/$TRIGGER_REPO/$DATE/
+  - aws s3 cp README.md s3://cucumbertest-reports/$TRIGGER_REPO/$DATE_$TRAVIS_COMMIT/
 after_success:
   # Tag latest version of docker image tested agains with a date stamp as release candidate
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
