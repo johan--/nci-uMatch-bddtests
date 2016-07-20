@@ -256,8 +256,8 @@ end
 Then(/^the returned treatment arm has correct latest status that match cog record$/) do
   apiLastStatusDate = "lastest treatment arm status date is #{Treatment_arm_helper.findStatusDateFromJson(@taFromAPI, 0)}"
   apiLastStatusName = "lastest treatment arm status is #{Treatment_arm_helper.findStatusFromJson(@taFromAPI, 0)}"
-  cogLastStatus = JSON.parse(COG_helper_methods.getTreatmentArmStatus(@taFromAPI['name']))
-  cogLastStatusDate = "lastest treatment arm status date is #{cogLastStatus['statusDate']}"
+  cogLastStatus = JSON.parse(COG_helper_methods.getTreatmentArmStatus(@taFromAPI['name'], @taFromAPI['stratum_id']))
+  cogLastStatusDate = "lastest treatment arm status date is #{cogLastStatus['status_date']}"
   cogLastStatusName = "lastest treatment arm status is #{cogLastStatus['status']}"
   apiLastStatusDate.should == cogLastStatusDate
   apiLastStatusName.should == cogLastStatusName
@@ -450,8 +450,8 @@ And(/^remove template treatment arm variant field: "([^"]*)"$/) do |field|
   @preparedVariant.delete(field)
 end
 
-Then(/^cog changes treatment arm with id:"([^"]*)" status to: "([^"]*)"$/) do |treatmentArmID, treatmentArmStatus|
-  COG_helper_methods.setTreatmentArmStatus(treatmentArmID, treatmentArmStatus)
+Then(/^cog changes treatment arm with id:"([^"]*)" and stratumID:"([^"]*)" status to: "([^"]*)"$/) do |treatmentArmID, stratumID, treatmentArmStatus|
+  COG_helper_methods.setTreatmentArmStatus(treatmentArmID, stratumID, treatmentArmStatus)
 end
 
 Then(/^api update status of treatment arm with id:"([^"]*)" from cog$/) do |treatmentArmID|
