@@ -26,9 +26,8 @@ module.exports = function () {
         //get the patient id of the first element
         var tableElement = patientPage.patientListTable;
         patientPage.returnPatientId(tableElement, 0).then(function (id) {
-            var cssLocator = 'a[href="#/patient/' + id + '"]';
             patientId = id;
-            element(by.css(cssLocator)).click();
+            element(by.linkText(id)).click();
         }).then(callback);
     });
 
@@ -46,6 +45,7 @@ module.exports = function () {
 
     this.When(/^I click on the "([^"]*)" tab$/, function (tabName, callback) {
         var index = expectedMainTabs.indexOf(tabName);
+        utilities.waitForElement(actualMainTabsArray.get(0));
         utilities.clickElementArray(actualMainTabsArray, index);
         browser.sleep(5).then(callback);
     });
@@ -59,7 +59,7 @@ module.exports = function () {
 
     this.Then(/^I am taken to the patient details page$/, function (callback) {
         browser.sleep(200).then(function () {
-            expect(browser.getCurrentUrl()).to.eventually.equal(browser.baseUrl + '/#/patient/' + patientId)
+            expect(browser.getCurrentUrl()).to.eventually.equal(browser.baseUrl + '/#/patient?patient_id=' + patientId)
         }).then(callback);
     });
 
@@ -167,5 +167,10 @@ module.exports = function () {
         // todo: write code here to see the Patient Timeline section with the timeline about the patient
         browser.sleep(50).then(callback);
     });
+
+
+
+    // todo: All pages that have TA "title" should display Name, Stratum and Version.
+    // todo: MATCHKB-349
 
 };

@@ -29,6 +29,7 @@ exports.config = {
         // Patient details page
         'features/PA_01_Patient_List.feature',
         'features/PA_02_Patient_Summary.feature',
+        'features/PA_03_Patient_SurgicalEvent.feature',
 
         //Treatment Arm details page
         'features/TA_01_Analysis.feature',

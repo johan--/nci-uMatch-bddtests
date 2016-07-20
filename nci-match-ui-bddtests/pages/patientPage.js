@@ -4,6 +4,7 @@
 
 var PatientPage = function () {
     var patientId;
+    var patientData;
 
     this.patientListTable = element(by.css('table[datatable="ng"]'));
     this.patientListHeaders = element.all(by.css('table[datatable="ng"] th[colspan="1"]'));
@@ -12,6 +13,18 @@ var PatientPage = function () {
 
     // Patient summary table information on the patient details page
     this.patientSummaryTable = element.all(by.css('.header-info-box.top-main-header-box')).get(0);
+    // Expected Patient List Labels
+    this.expectedPatientListHeaders = [
+        'Patient ID',
+        'Status',
+        'Step Number',
+        'Disease',
+        'Treatment Arm',
+        'Registration Date',
+        'Off Trial Date'
+    ];
+
+
     // Disease Summary table information on the patient details page.
     this.diseaseSummaryTable = element.all(by.css('.header-info-box.top-main-header-box')).get(1);
     //Patient details page main tabs
@@ -25,17 +38,31 @@ var PatientPage = function () {
     //Accessing the Treatment Arm History
     this.treatmentArmsHistoryElementArray = element.all(by.repeater('ta in data.ta_history'));
 
+    // *****************  Surgical Event Tab  ********************//
+    // Get all elements under the Surgical Event Panel
+    this.surgicalEventPanel = element.all(by.css('div[ng-if="currentSurgicalEvent"]'));
+    // This is the drop down button. Clicking this will give you access to the list of options.
+    this.surgicalEventDropDownButton = element(by.binding('surgicalEventOption.text'));
+    // List of Surgical Events from the drop down
+    this.surgicalEventIdList = element.all(by.css('a[ng-click="onSurgicalEventSelected(item)"]'));
+    // Access to the Summary boxes (Event and Pathology)
+    this.surgicalEventSummaryBoxList = element.all(by.css('.biopsy-header-box'));
+    // Expected Event and Pathology Labels
+    this.biopsyHeaderBoxLabels = {
+        'Event': {
+            'index': 0,
+            'labels': ['Surgical Event ID', 'Type', 'Collection Date', 'Received Date', 'Failure Date']
+        },
+        'Pathology': {
+            'index': 1,
+            'labels': ['Status', 'Received Date', 'Comment']
+        }
+    };
+
+
     // ****************** Expected values *******************//
     // Patient list table
-    this.expectedPatientListHeaders = [
-        'Patient ID',
-        'Status',
-        'Step Number',
-        'Disease',
-        'Treatment Arm',
-        'Registration Date',
-        'Off Trial Date'
-    ];
+
     // Patient details page left hand side top summary
     this.expectedPatientSummaryLabels = [
         'Patient ID',
@@ -46,9 +73,9 @@ var PatientPage = function () {
         'Treatment Arm'
     ];
     // Patient details page right hand side top summary
-    this.expectedDiseaseSummaryLabels = ['Disease Name', 'Disease Type', 'Disease Code', 'Prior Drugs'];
+    this.expectedDiseaseSummaryLabels = ['Disease Name', 'Disease Code Type', 'Disease Code', 'Prior Drugs'];
 
-    this.expectedPatientMainTabs = [ 'Summary', 'Surgical Event', 'Tissue Report', 'Blood Variant Report', 'Documents'];
+    this.expectedPatientMainTabs = [ 'Summary', 'Surgical Events', 'Tissue Reports', 'Blood Variant Reports', 'Documents'];
 
     //**************************** Functions **********************//
 
@@ -67,6 +94,14 @@ var PatientPage = function () {
         patientId = id;
     }
 
+    this.setPatientData = function(data){
+        patientData = data;
+    };
+
+    function getPatientData(){
+        return patientData;
+    };
+
     this.getPatientId = function () {
         return patientId;
     };
@@ -74,7 +109,7 @@ var PatientPage = function () {
     this.checkPatientMainTabs = function() {
         //check for number of tabs
         expect(element(by.css('li.uib-tab.nav-item')).count()).to.eventually.equal()
-    }
+    };
 };
 
 module.exports = new PatientPage();

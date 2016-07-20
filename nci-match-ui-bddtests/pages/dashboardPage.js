@@ -3,7 +3,7 @@
  */
 
 var DashboardPage = function() {
-    
+
     this.title = 'MATCHBox | Dashboard';
     this.greeterHeading = function() { return element(by.binding(' name ')); }
     this.logoutLink = element(by.css('[ng-click="logout()"]'));
@@ -12,16 +12,16 @@ var DashboardPage = function() {
     this.patientsOnTreatment = element(by.binding(' numberOfPatientsWithTreatment '));
     this.pendingAssignmentReports = element(by.binding(' numberOfPendingAssignmentReports '));
 
-    
-     
+
+
     this.logout = function () {
         element(by.linkText('Log out')).click();
         browser.waitForAngular();
     };
 
     this.goToPageName = function(pageName) {
-        if (pageName == 'IR Reporters') {
-            pageName =iradmin;
+        if (pageName == 'CLIA Labs') {
+            pageName ='iradmin/mocha';
         }
         browser.get('/#/' + pageName, 6000);
         browser.waitForAngular();
