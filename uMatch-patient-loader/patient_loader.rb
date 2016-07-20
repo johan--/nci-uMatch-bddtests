@@ -4,7 +4,7 @@ class PatientLoader
   include HTTParty
 
   # cmd line: ruby -r "./patient_loader.rb" -e "PatientLoader.load_patient '3344'"
-  def self.load_patient(patient_id)
+  def self.load_patient(patient_id, waitTime)
     p "Loading patient #{patient_id}"
     raise "patient_id must be valid" if patient_id.nil? || patient_id.length == 0
     file = File.read("patients/#{patient_id}.json")
@@ -14,21 +14,23 @@ class PatientLoader
 
     message_list.each do |message|
       p "Loading message #{message.to_json}..."
+      if message.key?('sleep')
+        p "Sleep for #{message['sleep']} seconds"
+        sleep(message['sleep'].to_f)
+      else
+        service_name = 'trigger'
 
-      service_name = 'trigger'
+        curl_cmd ="curl -k -X POST -H \"Content-Type: application/json\" -H \"Accept: application/json\"  -d '" + message.to_json + "' http://localhost:10240/" + service_name
 
-      curl_cmd ="curl -k -X POST -H \"Content-Type: application/json\" -H \"Accept: application/json\"  -d '" + message.to_json + "' http://localhost:10240/" + service_name
+        p "Running curl: #{curl_cmd}"
 
-      p "Running curl: #{curl_cmd}"
+        output = `#{curl_cmd}`
+        p "Output from running curl: #{output}"
 
-      output = `#{curl_cmd}`
-      p "Output from running curl: #{output}"
-
-      sleep(10)
+        sleep(waitTime)
+      end
     end
 
   end
 
 end
-
-PatientLoader.load_patient('0001')

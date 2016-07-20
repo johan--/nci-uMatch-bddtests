@@ -54,20 +54,53 @@ When(/^posted to MATCH setNucleicAcidsShippingDetails, returns a message "([^"]*
   expect(@response['message']).to eql(retMsg)
 end
 
+When(/^posted to MATCH patient trigger service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |retMsg, status|
+  puts JSON.pretty_generate(@requestJson)
+  @response = Helper_Methods.post_request(ENV['protocol'] + '://' + ENV['DOCKER_HOSTNAME'] + ':' + ENV['patient_api_PORT'] + '/trigger',@request)
+  expect(@response['status']).to eql(status)
+  expectMessage = "returned message include <#{retMsg}>"
+  actualMessage = @response['message']
+  if @response['message'].include?retMsg
+    actualMessage = "returned message include <#{retMsg}>"
+  end
+  actualMessage.should == expectMessage
+end
+
+
 Given(/^template specimen received message in type: "([^"]*)" for patient: "([^"]*)"$/) do |type, patientID|
-  @requestJson = Patient_helper_methods.createSpecimenReceivedTemplate()
-  @requestJson['type'] = type
-  @requestJson['patient_id'] = patientID
-  @request = @request.to_json.to_s
+  @requestJson = Patient_helper_methods.loadPaitentMessageTemplates()
+  @requestJson = @requestJson["specimen_received_#{type}"]
+  convertedPID = patientID=='null'?nil:patientID
+  @patientMessageRootKey = 'specimen_received'
+  @requestJson[@patientMessageRootKey]['patient_id'] = convertedPID
+  @request = @requestJson.to_json.to_s
+end
+
+Given(/^template specimen shipped message in type: "([^"]*)" for patient: "([^"]*)"$/) do |type, patientID|
+  @requestJson = Patient_helper_methods.loadPaitentMessageTemplates()
+  @requestJson = @requestJson["specimen_shipped_#{type}"]
+  convertedPID = patientID=='null'?nil:patientID
+  @patientMessageRootKey = 'specimen_shipped'
+  @requestJson[@patientMessageRootKey]['patient_id'] = convertedPID
+  @request = @requestJson.to_json.to_s
 end
 
 Then(/^set patient message field: "([^"]*)" to "([^"]*)"$/) do |field, value|
   convertedValue = value=='null'?nil:value
-  @requestJson[field] = convertedValue
-  @request = @request.to_json.to_s
+  if @patientMessageRootKey == ''
+    @requestJson[field] = convertedValue
+  else
+    @requestJson[@patientMessageRootKey][field] = convertedValue
+  end
+  @request = @requestJson.to_json.to_s
 end
 
 Then(/^remove field: "([^"]*)" from patient message$/) do |field|
-  @requestJson.delete(field)
-  @request = @request.to_json.to_s
+  if @patientMessageRootKey == ''
+    @requestJson.delete(field)
+  else
+    @requestJson[@patientMessageRootKey].delete(field)
+  end
+
+  @request = @requestJson.to_json.to_s
 end

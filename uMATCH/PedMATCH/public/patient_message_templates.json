@@ -1,0 +1,123 @@
+{
+  "specimen_received_TISSUE":{
+    "header": {
+      "msg_guid": "ab6d8d37-caf2-4dbb-a360-0032c7a7a76c",
+      "msg_dttm": "2016-04-25T18:42:13+00:00"
+    },
+    "specimen_received": {
+      "study_id": "APEC1621",
+      "patient_id": "894561",
+      "type": "TISSUE",
+      "surgical_event_id": "1837593824725",
+      "collected_dttm": "2016-04-25T15:17:11+00:00",
+      "received_dttm": "2016-04-26T15:17:11+00:00"
+    },
+    "internal_use_only": {
+      "stars_patient_id": "ABCXYZ",
+      "stars_specimen_id": "ABCXYZ-0AK64M",
+      "stars_specimen_type": "Paraffin Block Primary",
+      "received_datetime": "2016-04-25T15:17:11+00:00",
+      "qc_datetime": "2016-04-25T16:21:34+00:00"
+    }
+  },
+  "specimen_received_BLOOD":{
+    "header": {
+      "msg_guid": "ab6d8d37-caf2-4dbb-a360-0032c7a7a76c",
+      "msg_dttm": "2016-04-25T18:42:13+00:00"
+    },
+    "specimen_received": {
+      "study_id": "APEC1621",
+      "patient_id": "894561",
+      "type": "BLOOD",
+      "collected_dttm": "2016-04-25T15:17:11+00:00",
+      "received_dttm": "2016-04-26T15:17:11+00:00"
+    },
+    "internal_use_only": {
+      "stars_patient_id": "ABCXYZ",
+      "stars_specimen_id": "ABCXYZ-0AK64M",
+      "stars_specimen_type": "Paraffin Block Primary",
+      "received_datetime": "2016-04-25T15:17:11+00:00",
+      "qc_datetime": "2016-04-25T16:21:34+00:00"
+    }
+  },
+  "specimen_shipped_SLIDE": {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_shipped": {
+      "study_id": "APEC1621",
+      "patient_id": "894561",
+      "type": "SLIDE",
+      "surgical_event_id": "125",
+      "slide_barcode": "0BJ6A5",
+      "carrier": "Federal Express",
+      "tracking_id": "7956 4568 1235",
+      "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id_slide": "ABCXYZ-0BJ6A5"
+      }
+    }
+  },
+  "specimen_shipped_TISSUE": {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_shipped": {
+      "study_id": "APEC1621",
+      "patient_id": "894561",
+      "type": "TISSUE_DNA_AND_CDNA",
+      "surgical_event_id": "125",
+      "molecular_id": "00012",
+      "molecular_dna_id": "00012D",
+      "molecular_cdna_id": "00012C",
+      "carrier": "Federal Express",
+      "tracking_id": "7956 4568 1235",
+      "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id_cdna": "ABCXYZ-0BJ64F",
+        "stars_specimen_id_dna": "ABCXYZ-0BJ64B"
+      }
+    }
+  },
+  "specimen_shipped_BLOOD": {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_shipped": {
+      "study_id": "APEC1621",
+      "patient_id": "894561",
+      "type": "BLOOD_DNA",
+      "molecular_id": "00013D00012",
+      "carrier": "Federal Express",
+      "tracking_id": "7956 4568 1235",
+      "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id": "ABCXYZ-0BJ64A"
+      }
+    }
+  },
+  "assay_result_reported":{
+    "patient_id":"3344",
+    "study_id": "APEC1621",
+    "sSurgical_event_id":"3344-bsn",
+
+    "type": "RESULT",
+    "biomarker":"ICCPTEN",
+    "reported_date":"2015-12-12T12:11:09.071-05:00",
+    "result": "POSITIVE"
+  },
+  "pathology_status":{
+    "patient_id":"894561",
+    "study_id": "APEC1621",
+    "surgical_event_id":"123",
+    "reported_date":"2015-12-12T12:13:09.071-05:00",
+    "status":"Y",
+    "message":"PATHOLOGY_CONFIRMATION"
+  }
+}

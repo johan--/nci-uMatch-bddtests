@@ -165,8 +165,8 @@ class Patient_helper_methods
     return specimen_shipped_hash.to_json
   end
 
-  def Patient_helper_methods.createSpecimenReceivedTemplate()
-    return JSON(IO.read('./public/patient_message_specimen_received.json'))
+  def Patient_helper_methods.loadPaitentMessageTemplates()
+    return JSON(IO.read('./public/patient_message_templates.json'))
   end
 
 
