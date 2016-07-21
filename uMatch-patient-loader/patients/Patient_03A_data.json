@@ -336,9 +336,9 @@
       "request": "REGISTRATION for patient_id PT_SS22_BloodVariantConfirmed"
     }
   },
-  {
-    "sleep":10
-  },
+//  {
+//    "sleep":10
+//  },
 
   //specimen received
   {
@@ -507,9 +507,9 @@
       }
     }
   },
-  {
-    "sleep": 20
-  },
+//  {
+//    "sleep": 20
+//  },
   {
     "header": {
       "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
@@ -882,7 +882,7 @@
         "stars_specimen_id": "ABCXYZ-0BJ64A"
       }
     }
-  }
+  },
   {
     "header": {
       "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
