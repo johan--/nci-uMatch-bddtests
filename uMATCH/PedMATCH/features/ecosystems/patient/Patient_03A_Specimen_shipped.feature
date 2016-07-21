@@ -3,7 +3,7 @@
 Feature: NCH Specimen shipped messages
   Scenario: PT_SS01. Received specimen_shipped message for type 'BLOOD' from NCH for a patient who has already received the specimen_received message
     Given template specimen shipped message in type: "BLOOD" for patient: "PT_SS01_BloodReceived"
-    When posted to MATCH setNucleicAcidsShippingDetails, returns a message "specimen shipped message received and saved."
+    When posted to MATCH patient trigger service, returns a message that includes "specimen shipped message received and saved." with status "Success"
 
   Scenario: PT_SS02. Received specimen_shipped message for type 'TISSUE' from NCH for a patient who has already received the specimen_received message
 #  Testing patient:PT_SS01_TissueReceived; surgical_event_id: SEI_TR_01
@@ -23,23 +23,26 @@ Feature: NCH Specimen shipped messages
     Examples:
     |type   |patient                |status   |message                                                        |
     |TISSUE |PT_SS04_NonExisting    |Failure  |TBD                                                            |
-    |BLOOD  |                       |Failure  |TBD                                                            |
-    |SLIDE  |null                   |Failure  |TBD                                                            |
+    |BLOOD  |                       |Failure  |was not of a minimum string length of 1                        |
+    |SLIDE  |null                   |Failure  |type NilClass did not match the following type: string         |
 
   Scenario Outline: PT_SS05. Shipment with invalid study_id fails
-    Given template specimen shipped message in type: "<type>" for patient: "<patient>"
-    Then set patient message field: "study_id" to "<study_id>"
-    When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "<status>"
+    #  Testing patient:PT_SS05_TissueReceived; surgical_event_id: SEI_TR_02
+    Given template specimen shipped message in type: "TISSUE" for patient: "PT_SS05_TissueReceived"
+    Then set patient message field: "study_id" to value: "<study_id>"
+    Then set patient message field: "surgical_event_id" to value: "SEI_TR_02"
+    When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"
     Examples:
-      |type   |patient                |study_id     |status   |message                                                        |
-      |TISSUE |PT_SS05_TissueReceived |other        |Failure  |TBD                                                            |
-      |BLOOD  |PT_SS05_BloodReceived  |             |Failure  |TBD                                                            |
-      |SLIDE  |PT_SS05_TissueReceived |null         |Failure  |TBD                                                            |
+      |study_id     |message                                                        |
+      |other        |TBD                                                            |
+      |             |TBD                                                            |
+      |null         |TBD                                                            |
 
   Scenario: PT_SS06. shipped_dttm older than received_dttm fails
-#  Testing patient: PT_SS06_TissueReceived, received_dttm: 2016-04-25T16:17:11+00:00
+#  Testing patient: PT_SS06_TissueReceived, surgical_event_id: SEI_TR_02, received_dttm: 2016-04-25T16:17:11+00:00
     Given template specimen shipped message in type: "TISSUE" for patient: "PT_SS06_TissueReceived"
-    Then set patient message field: "shipped_dttm" to "2016-03-25T16:17:11+00:00"
+    Then set patient message field: "surgical_event_id" to value: "SEI_TR_02"
+    Then set patient message field: "shipped_dttm" to value: "2016-03-25T16:17:11+00:00"
     When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Failure"
 
   Scenario Outline: PT_SS07. shipped tissue or slide with a non-exist surgical_event_id fails
@@ -48,33 +51,33 @@ Feature: NCH Specimen shipped messages
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"
     Examples:
     |type   |SEI            |message                                                              |
-    |TISSUE |badSEI         |TBD                                                                  |
-    |SLIDE  |               |TBD                                                                  |
+    |TISSUE |badSEI         |cannot transition from                                               |
+    |SLIDE  |               |cannot transition from                                               |
 
-  Scenario Outline: PT_SS08. tissue or slide with an expired SEI fails
+  Scenario Outline: PT_SS08. tissue or slide with an expired surgical_event_id fails
 #  Testing patient: PT_SS08_TissueReceived
 #  surgical event: SEI_TR_1 received Then SEI_TR_2 received (SEI_TR_1 expired)
     Given template specimen shipped message in type: "<type>" for patient: "PT_SS08_TissueReceived"
-    Then set patient message field: "surgical_event_id" to "SEI_TR_1"
-    When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Failure"
+    Then set patient message field: "surgical_event_id" to value: "SEI_TR_1"
+    When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"
     Examples:
     |type     |
     |TISSUE   |
     |SLIDE    |
 
-  Scenario Outline: PT_SS09. shipped tissue or slide without SEI fails
+  Scenario Outline: PT_SS09. shipped tissue or slide without surgical_event_id fails
     Given template specimen shipped message in type: "<type>" for patient: "PT_SS09_TissueReceived"
     Then remove field: "surgical_event_id" from patient message
-    When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Failure"
+    When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"
     Examples:
       |type     |
       |TISSUE   |
       |SLIDE    |
 
-  Scenario Outline: PT_SS10. shipped tissue without MOI or molecular_dna_id or molecular_cdna_id fails
+  Scenario Outline: PT_SS10. shipped tissue without molecular_id or molecular_dna_id or molecular_cdna_id fails
     Given template specimen shipped message in type: "TISSUE" for patient: "PT_SS10_TissueReceived"
     Then remove field: "<field>" from patient message
-    When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Failure"
+    When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"
     Examples:
       |field              |
       |molecular_id       |
@@ -85,45 +88,45 @@ Feature: NCH Specimen shipped messages
 #  Testing patient: PT_SS11_Tissue1Shipped, surgical_event_id: SEI_TR_1
 #    molecular_id: MOI_TR_01 has shipped
     Given template specimen shipped message in type: "TISSUE" for patient: "PT_SS11_Tissue1Shipped"
-    Then set patient message field: "surgical_event_id" to "SEI_TR_1"
-    Then set patient message field: "molecular_id" to "MOI_TR_01"
-    When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Failure"
+    Then set patient message field: "surgical_event_id" to value: "SEI_TR_1"
+    Then set patient message field: "molecular_id" to value: "MOI_TR_01"
+    When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"
 
   Scenario: PT_SS12. shipped tissue with a new molecular_id in latest surgical_event_id pass
 #  Testing patient: PT_SS12_Tissue1Shipped, surgical_event_id: SEI_TR_1
 #    molecular_id: MOI_TR_01 has shipped
     Given template specimen shipped message in type: "TISSUE" for patient: "PT_SS12_Tissue1Shipped"
-    Then set patient message field: "surgical_event_id" to "SEI_TR_1"
-    Then set patient message field: "molecular_id" to "MOI_TR_02"
-    When posted to MATCH patient trigger service, returns a message that includes "specimen shipped message received and saved." with status "Success"
+    Then set patient message field: "surgical_event_id" to value: "SEI_TR_1"
+    Then set patient message field: "molecular_id" to value: "MOI_TR_02"
+    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
 
   Scenario: PT_SS13. shipped slide with molecular_id fails
 #  Testing patient: PT_SS13_TissueReceived, surgical_event_id: SEI_TR_1
     Given template specimen shipped message in type: "SLIDE" for patient: "PT_SS13_TissueReceived"
-    Then set patient message field: "molecular_id" to "MOI_TR_01"
-    When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Failure"
+    Then set patient message field: "molecular_id" to value: "MOI_TR_01"
+    When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"
 
   Scenario: PT_SS14. shipped slide without slide_barcode fails
 #  Testing patient: PT_SS14_TissueReceived, surgical_event_id: SEI_TR_1
     Given template specimen shipped message in type: "SLIDE" for patient: "PT_SS14_TissueReceived"
-    Then set patient message field: "surgical_event_id" to "SEI_TR_1"
+    Then set patient message field: "surgical_event_id" to value: "SEI_TR_1"
     Then remove field: "slide_barcode" from patient message
-    When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Failure"
+    When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"
 
   Scenario: PT_SS15. shipped slide with new barcode passes
 #  Testing patient: PT_SS15_Slide1Shipped, surgical_event_id: SEI_TR_1
 #    slide with barcode: BC_001 has been shipped
     Given template specimen shipped message in type: "SLIDE" for patient: "PT_SS15_Slide1Shipped"
-    Then set patient message field: "surgical_event_id" to "SEI_TR_1"
-    Then set patient message field: "slide_barcode" to "BC_002"
+    Then set patient message field: "surgical_event_id" to value: "SEI_TR_1"
+    Then set patient message field: "slide_barcode" to value: "BC_002"
     When posted to MATCH patient trigger service, returns a message that includes "specimen shipped message received and saved." with status "Success"
 
   Scenario: PT_SS16. shipped slide with a existing surgical_event_id + slide_barcode combination fails
 #  Testing patient: PT_SS16_Slide1Shipped, surgical_event_id: SEI_TR_1
 #    slide with barcode: BC_001 has been shipped
     Given template specimen shipped message in type: "SLIDE" for patient: "PT_SS16_Slide1Shipped"
-    Then set patient message field: "surgical_event_id" to "SEI_TR_1"
-    Then set patient message field: "slide_barcode" to "BC_001"
+    Then set patient message field: "surgical_event_id" to value: "SEI_TR_1"
+    Then set patient message field: "slide_barcode" to value: "BC_001"
     When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Failure"
 
   Scenario: PT_SS17. shipped blood without blood received fails
@@ -134,21 +137,21 @@ Feature: NCH Specimen shipped messages
 
   Scenario: PT_SS18. shipped blood with SEI fails
     Given template specimen shipped message in type: "BLOOD" for patient: "PT_SS18_BloodReceived"
-    Then set patient message field: "surgical_event_id" to "SEI_BR_1"
+    Then set patient message field: "surgical_event_id" to value: "SEI_BR_1"
     When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Failure"
 
   Scenario: PT_SS19. shipped blood with existing molecular_id (in this patient) fails
 #  Testing patient: PT_SS19_Blood1Shipped
 #    blood molecular_id: MOI_BR_01 has shipped
     Given template specimen shipped message in type: "BLOOD" for patient: "PT_SS19_Blood1Shipped"
-    Then set patient message field: "molecular_id" to "MOI_BR_01"
+    Then set patient message field: "molecular_id" to value: "MOI_BR_01"
     When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Failure"
 
   Scenario: PT_SS20. shipped blood with new molecular_id (in this patient) passes
 #  Testing patient: PT_SS20_Blood1Shipped
 #    blood molecular_id: MOI_BR_01 has shipped
     Given template specimen shipped message in type: "BLOOD" for patient: "PT_SS20_Blood1Shipped"
-    Then set patient message field: "molecular_id" to "MOI_BR_02"
+    Then set patient message field: "molecular_id" to value: "MOI_BR_02"
     When posted to MATCH patient trigger service, returns a message that includes "specimen shipped message received and saved." with status "Success"
 
   Scenario: PT_SS21. Tissue cannot be shipped if there is one tissue variant report get confirmed

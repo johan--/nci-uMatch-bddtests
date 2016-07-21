@@ -105,18 +105,17 @@
   "assay_result_reported":{
     "patient_id":"3344",
     "study_id": "APEC1621",
-    "sSurgical_event_id":"3344-bsn",
-
+    "surgical_event_id":"SEI_01",
     "type": "RESULT",
     "biomarker":"ICCPTEN",
-    "reported_date":"2015-12-12T12:11:09.071-05:00",
+    "reported_date":"2016-05-30T12:11:09.071-05:00",
     "result": "POSITIVE"
   },
   "pathology_status":{
     "patient_id":"894561",
     "study_id": "APEC1621",
-    "surgical_event_id":"123",
-    "reported_date":"2015-12-12T12:13:09.071-05:00",
+    "surgical_event_id":"SEI_01",
+    "reported_date":"2015-04-27T12:13:09.071-05:00",
     "status":"Y",
     "message":"PATHOLOGY_CONFIRMATION"
   }

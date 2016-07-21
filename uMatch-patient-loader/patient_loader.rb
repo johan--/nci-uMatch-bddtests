@@ -12,8 +12,13 @@ class PatientLoader
     message_list = JSON.parse(file)
     p "There are #{message_list.length} json messages in patient json file. Processing..."
 
+    allItems = 0
+    failure = 0
+    failList = 'Failed message IDs: '
     message_list.each do |message|
-      p "Loading message #{message.to_json}..."
+      allItems += 1
+      p ''
+      # p "Loading message #{message.to_json}..."
       if message.key?('sleep')
         p "Sleep for #{message['sleep']} seconds"
         sleep(message['sleep'].to_f)
@@ -21,15 +26,24 @@ class PatientLoader
         service_name = 'trigger'
 
         curl_cmd ="curl -k -X POST -H \"Content-Type: application/json\" -H \"Accept: application/json\"  -d '" + message.to_json + "' http://localhost:10240/" + service_name
-
-        p "Running curl: #{curl_cmd}"
+        p ''
 
         output = `#{curl_cmd}`
+        p ''
         p "Output from running curl: #{output}"
-
+        if !output.include?'Success'
+          p 'Failed'
+          puts JSON.pretty_generate(message)
+          failure += 1
+          failList = "#{failList} No.#{allItems}"
+        end
         sleep(waitTime)
       end
     end
+
+    pass = allItems - failure
+    p ''
+    p "#{allItems} messages processed, #{pass} passed and #{failure} failed"
 
   end
 

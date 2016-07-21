@@ -85,7 +85,29 @@ Given(/^template specimen shipped message in type: "([^"]*)" for patient: "([^"]
   @request = @requestJson.to_json.to_s
 end
 
-Then(/^set patient message field: "([^"]*)" to "([^"]*)"$/) do |field, value|
+Given(/^template assay message with surgical_event_id: "([^"]*)" for patient: "([^"]*)"$/) do |sei, patientID|
+  @requestJson = Patient_helper_methods.loadPaitentMessageTemplates()
+  @requestJson = @requestJson['assay_result_reported']
+  convertedPID = patientID=='null'?nil:patientID
+  convertedSEI = sei=='null'?nil:sei
+  @patientMessageRootKey = ''
+  @requestJson['patient_id'] = convertedPID
+  @requestJson['surgical_event_id'] = convertedSEI
+  @request = @requestJson.to_json.to_s
+end
+
+Given(/^template pathology report with surgical_event_id: "([^"]*)" for patient: "([^"]*)"$/) do |sei, patientID|
+  @requestJson = Patient_helper_methods.loadPaitentMessageTemplates()
+  @requestJson = @requestJson['pathology_status']
+  convertedPID = patientID=='null'?nil:patientID
+  convertedSEI = sei=='null'?nil:sei
+  @patientMessageRootKey = ''
+  @requestJson['patient_id'] = convertedPID
+  @requestJson['surgical_event_id'] = convertedSEI
+  @request = @requestJson.to_json.to_s
+end
+
+Then(/^set patient message field: "([^"]*)" to value: "([^"]*)"$/) do |field, value|
   convertedValue = value=='null'?nil:value
   if @patientMessageRootKey == ''
     @requestJson[field] = convertedValue
