@@ -31,6 +31,10 @@ var PatientPage = function () {
     this.actualMainTabs = element.all(by.css('li.uib-tab.nav-item'));
     // This element gives access to the current active tab
     this.currentActiveTab = element(by.css('.active[ng-class="{active: tabset.active === tab.index}"]'));
+    //This element captures the sub headings under all the Tabs.
+    // Though it captures all the headings, only the active tab's headings are populated in the array
+    this.mainTabSubHeadingArray = element.all(by.css('.ibox-title.ibox-title-no-line>h3'));
+
 
     // *****************  Summary Tab  ********************//
     // Accessing the patient timeline
@@ -77,6 +81,13 @@ var PatientPage = function () {
 
     this.expectedPatientMainTabs = [ 'Summary', 'Surgical Events', 'Tissue Reports', 'Blood Variant Reports', 'Documents'];
 
+    this.expectedMainTabSubHeadings = ['Actions Needed', 'Treatment Arm History', 'Patient Timeline',
+        'Slide Shipments', 'Assay History', 'Specimen History',
+        'SNVs/MNVs/Indels', 'Copy Number Variant(s)', 'Gene Fusion(s)',
+        'SNVs/MNVs/Indels(s) ##', 'Copy Number Variant(s)', 'Gene Fusion(s)',
+        'Patient Documents'
+    ];
+
     //**************************** Functions **********************//
 
     // For whatever zero based row that we want, get the patient Id for that row.
@@ -88,6 +99,10 @@ var PatientPage = function () {
                 setPatientId(patientId);
                 return patientId;
             });
+    };
+
+    this.trimSurgicalEventId =  function(completeText){
+      return completeText.replace('Surgical Event ', '').replace(/\|.+/, '').trim();
     };
 
     function setPatientId(id) {

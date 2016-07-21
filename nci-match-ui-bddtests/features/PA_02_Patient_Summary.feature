@@ -23,11 +23,13 @@ Feature: Patient Summary Page
 #    And I should see the patient's disease information match the database
     And I should see the main tabs associated with the patient
 
-  @patients @ui @deverr
+  @patients @ui
   Scenario: I can see the details within the Summary tab of the patient
     When I click on one of the patients
     And I click on the "Summary" tab
     Then I should see the "Summary" tab is active
-#    And I should see the Actions Needed section with data about the patient
-    And I should see the  Treatment Arm History about the patient
+    And I should see the "Actions Needed" section heading
+    And I should see the "Treatment Arm History" section heading
+    And I should see the "Patient Timeline" section heading
+#    And I should see the  Treatment Arm History about the patient
 #    And I should see the Patient Timeline section with the timeline about the patient

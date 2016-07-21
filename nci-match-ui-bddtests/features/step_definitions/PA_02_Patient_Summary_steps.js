@@ -27,8 +27,13 @@ module.exports = function () {
         var tableElement = patientPage.patientListTable;
         patientPage.returnPatientId(tableElement, 0).then(function (id) {
             patientId = id;
-            element(by.linkText(id)).click();
+            element(by.linkText(patientId)).click();
         }).then(callback);
+    });
+
+    this.When(/^I click on the patient with (.+) as id$/, function (pa_id, callback) {
+        patientId = pa_id;
+        element(by.linkText(patientId)).click().then(callback);
     });
 
     this.When(/^I collect the patient Api Information$/, function (callback) {
@@ -38,8 +43,6 @@ module.exports = function () {
         // response.get().then(function () {
         //     patientApiInfo = utilities.getJSONifiedDetails(response.entity());
         // });
-
-
         browser.sleep(50).then(callback);
     });
 
@@ -145,12 +148,18 @@ module.exports = function () {
         browser.sleep(50).then(callback);
     });
 
-    this.Then(/^I should see the Actions Needed section with data about the patient$/, function (callback) {
+    this.Then(/^I should see the "(.+)" section heading$/, function (heading, callback) {
+        var index = patientPage.expectedMainTabSubHeadings.indexOf(heading);
+        expect(patientPage.mainTabSubHeadingArray.get(index).getText()).to.eventually.eql(heading);
+        callback();
+    });
+
+    this.Then(/^I should see data under "(.+)" heading/, function (heading, callback) {
         // todo: Fill out this code steps
         //Get access to then current Active tab currentActiveMainTab
         // Check that there is Action Needed from the JSON output.
         // Is this currently hardcoded here?
-        browser.sleep(50).then(callback);
+        callback();
     });
 
     this.Then(/^I should see the  Treatment Arm History about the patient$/, function (callback) {

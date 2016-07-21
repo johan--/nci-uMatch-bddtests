@@ -38,7 +38,7 @@ var Utilities = function() {
         for (var i = 0; i < pathArray.length; i++){
             var expected = pathArray[i];
 
-            expect(breadcrumb.get(i).getText()).to.eventually.equal(expected);
+            expect(breadcrumb.get(i).getText()).to.eventually.include(expected);
         }
     };
 
@@ -76,14 +76,16 @@ var Utilities = function() {
 
     /** This function returns a hash of details available from the Treatment Arm Based on the id provided
      * @author: Rick Zakharov, Raseel Mohamed
-     * @param id [String] id 
-     * @param api [String] the api being called. 
+     * @param id [String] id
+     * @param api [String] the api being called.
      * returns [String]
      */
 
     this.callApiForDetails = function (id, api ){
         var routeUrl = buildUrl(id, api);
-        
+
+        console.log(routeUrl);
+
         var self = this;
         return{
             get: get,
@@ -106,8 +108,9 @@ var Utilities = function() {
     };
 
     function buildUrl(id, api) {
-        if (browser.baseUrl.match('localhost')){
-            var url = browser.baseUrl.slice(0,-4);
+        var url = browser.baseUrl;
+        if (url.match('localhost')){
+            url = url.slice(0,-5);
         }
 
         var portMap = {
@@ -116,7 +119,7 @@ var Utilities = function() {
         };
 
         var port = portMap[api];
-        return url + port + '/' + api +'/' + id ;
+        return url + ':' + port + '/' + api +'/' + id ;
     }
 
     this.getJSONifiedDetails = function (response){

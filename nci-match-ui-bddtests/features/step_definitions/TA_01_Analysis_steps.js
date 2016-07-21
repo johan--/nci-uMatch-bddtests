@@ -18,7 +18,7 @@ module.exports = function () {
     var taTableData = taPage.taTableData;
     var expectedTableHeaders = taPage.expectedTableHeaders;
 
-    var treatment_id;
+    var currentTreatmentId;
     var treatmentArmAPIDetails;
     var firstTreatmentArm;
 
@@ -28,44 +28,31 @@ module.exports = function () {
 
     this.When(/^I click on one of the treatment arms$/, function (callback) {
         //Here the user is clicking on the first treatment arm present.
-        var response;
-        taPage.returnTreatmentArmId(taTableData, 0).then(function (treatmentArmId) {
-            treatment_id = treatmentArmId;
-            response = utilities.callApiForDetails(treatment_id, 'treatmentArms');
-            response.get().then(function (){
-                treatmentArmAPIDetails = utilities.getJSONifiedDetails(response.entity());
-                firstTreatmentArm = treatmentArmAPIDetails[0];
-                element(by.linkText(treatment_id)).click().then(function() {
-                    callback();
-                });
-            });
+        taPage.returnTreatmentArmId(taTableData, 0).then(function (taId) {
+            currentTreatmentId = taPage.stripTreatmentArmId(taId);
+            element(by.linkText(taId)).click().then(callback);
         });
     });
 
-    this.When(/^I click on (.+) in the treatment arm table$/, function (ta_id, callback) {
+    this.Then(/^I collect backend information about the treatment arm$/, function () {
         var response;
-        treatment_id = ta_id;
-        response = utilities.callApiForDetails(treatment_id, 'treatmentArms');
-
-        response.get().then(function(){
+        response = utilities.callApiForDetails(currentTreatmentId, 'treatmentArms');
+        response.get().then(function () {
             treatmentArmAPIDetails = utilities.getJSONifiedDetails(response.entity());
             firstTreatmentArm = treatmentArmAPIDetails[0];
-            element(by.linkText(treatment_id)).click().then(function () {
-                callback();
-            })
-        });
+        })
     });
 
-    this.When(/^I go to treatment arm with "(.+)" as the id$/, function (ta_id, callback) {
+    this.When(/^I go to treatment arm with "(.+)" as the id$/, function (taId, callback) {
         var response;
-        treatment_id = ta_id;
-        taPage.setTreatmentArmId(ta_id);
-        response = utilities.callApiForDetails(treatment_id, 'treatmentArms');
+        currentTreatmentId = taId;
+        taPage.setTreatmentArmId(taId);
+        response = utilities.callApiForDetails(currentTreatmentId, 'treatmentArms');
 
         response.get().then(function () {
             treatmentArmAPIDetails = utilities.getJSONifiedDetails(response.entity());
             firstTreatmentArm = treatmentArmAPIDetails[0];
-            browser.setLocation('treatment-arm/' + ta_id, 6000).then(function () {
+            browser.setLocation('treatment-arm/' + taId, 6000).then(function () {
                 callback();
             }, function(err){
                 console.log(browser.getCurrentUrl());
@@ -74,12 +61,15 @@ module.exports = function () {
         })
     });
 
+    this.When(/^I click on (.+) in the treatment arm table$/, function (taId, callback) {
+        currentTreatmentId = taPage.stripTreatmentArmId(taId);
+        element(by.linkText(taId)).click().then(callback);
+    });
+
     this.When(/^I click on the download in PDF Format$/, function (callback) {
         expect(browser.isElementPresent(taPage.downloadPDFButton)).to.eventually.be.true;
         // todo: Insert Logic to download the file. Not working on the site when run locally
         // element(taPage.downloadPDFButton).click()
-        //  
-        //
         browser.sleep(50).then(callback);
     });
 
@@ -89,8 +79,6 @@ module.exports = function () {
         expect(browser.isElementPresent(taPage.downloadExcelButton)).to.eventually.be.true;
         // todo: Insert Logic to download the file. Not working on the site when run locally
         // element(taPage.downloadExcelButton).click()
-        //  
-        //
         browser.sleep(50).then(callback);
     });
 
@@ -117,7 +105,7 @@ module.exports = function () {
     });
 
     this.Then(/^I should see detailed (.+) breadcrumb$/, function (breadcrumb, callback) {
-        utilities.checkBreadcrumb("Dashboard / "+ breadcrumb + ' / ' + 'Treatment Arm ' + treatment_id);
+        utilities.checkBreadcrumb("Dashboard / "+ breadcrumb + ' / ' + 'Treatment Arm ' + currentTreatmentId);
         browser.sleep(50).then(callback);
     });
 
@@ -137,8 +125,8 @@ module.exports = function () {
     });
 
     this.Then(/^I should see the treatment\-arms detail dashboard$/, function (callback) {
-        expect(browser.getCurrentUrl()).to.eventually.equal(browser.baseUrl + '/#/treatment-arm/' + treatment_id);
-        browser.sleep(50).then(callback);
+        expect(browser.getCurrentUrl()).to.eventually.include(browser.baseUrl + '/#/treatment-arm?name=' + currentTreatmentId);
+        callback();
     });
 
     this.Then(/^I should see the Name Details$/, function (callback) {
@@ -148,7 +136,7 @@ module.exports = function () {
         expect(taPage.taDescription.getText()).to.eventually.equal(firstTreatmentArm.description);
         expect(taPage.taStatus.getText()).to.eventually.equal(firstTreatmentArm.treatment_arm_status);
         expect(taPage.taVersion.getText()).to.eventually.equal(firstTreatmentArm.version);
-        
+
         browser.sleep(50).then(callback);
     });
 
@@ -158,9 +146,10 @@ module.exports = function () {
         var drugName = drugDetails['name'] + ' (' + drugDetails['drug_id'] + ')';
 
         expect(taPage.taGene.getText()).to.eventually.equal(firstTreatmentArm.gene);
-        // TODO: Fix the app to pull the number of patients from the api rather tha hard code it.
-        //expect(taPage.taPatientsAssigned.getText()).to.eventually.equal(firstTreatmentArm.num_patients_assigned);
-        expect(taPage.taDrug.getText()).to.eventually.equal(drugName);
+//        TODO: Fix the app to pull the number of patients from the api rather tha hard code it.
+//        expect(taPage.taPatientsAssigned.getText()).to.eventually.equal(firstTreatmentArm.num_patients_assigned);
+//        expect(taPage.taTotalPatientsAssigned.getText()).to.evetually.equal(firstTreatmentArm.num_patients_assigned_basic);
+//        expect(taPage.taDrug.getText()).to.eventually.equal(drugName);
 
         browser.sleep(50).then(callback);
     });

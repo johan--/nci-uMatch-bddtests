@@ -22,10 +22,11 @@ Feature: Treatment Arms Dashboard
   @treatment_arm @ui @broken
   Scenario: Logged in user can access the dashboard of Treatment Arms page
     When I click on one of the treatment arms
-    Then  I should see the treatment-arms detail dashboard
+    Then I should see the treatment-arms detail dashboard
     And I should see detailed Treatment Arms breadcrumb
-    And I should see the Name Details
-    And I should see the Gene Details
+    And I collect backend information about the treatment arm
+#    And I should see the Name Details
+#    And I should see the Gene Details
     And I should see three tabs related to the treatment arm
 
   @treatment_arm @ui @broken

@@ -18,7 +18,7 @@ var TreatmentArmsPage = function() {
     this.patientTaTable = element(by.css('[dt-options="TaCtrl.dtOptions"]'));
 
     // Returns an array of all the rows in the treatment arm table.
-    this.taTableData = element.all(by.css('[ng-repeat="treatmentArm in treatmentArmList"]'));
+    this.taTableData = element.all(by.css('a[href^="#/treatment-arm?"]'));
 
     // The labels within Left side box on the treatment arm  details page that shows the Name, Description etc.
     this.leftInfoBoxLabels = element.all(by.css('#left-info-box dt'));
@@ -60,14 +60,16 @@ var TreatmentArmsPage = function() {
     this.listOfVersions = element.all(by.css('.panel-body>.table-hover>tbody>tr>.ng-binding'));
 
     // Left info box
-    this.taName = element.all(by.binding('taid'));
-    this.taDescription = element(by.binding('information.description'));
-    this.taStatus = element(by.binding('information.currentStatus'));
+    this.taName = element(by.binding('currentVersion.name'));
+    this.taStratum = element(by.binding('currentVersion.stratum_id'));
+    this.taDescription = element(by.binding('currentVersion.description'));
+    this.taStatus = element(by.binding('currentVersion.treatment_arm_status'));
     this.taVersion = element(by.binding('dropdownModel[labelField]'));
-    
+
     // Right info box
-    this.taGene = element(by.binding('information.genes'));
-    this.taPatientsAssigned = element(by.binding('information.patientsAssigned'));
+    this.taGene = element(by.binding('currentVersion.gene'));
+    this.taPatientsAssigned = element(by.binding('currentVersion.num_patients_assigned'));
+    this.taTotalPatientsAssigned = element(by.binding('currentVersion.num_patients_assigned_basic'));
     this.taDrug= element(by.binding('information.drug'));
 
     // Inclusion/exclusion button
@@ -101,7 +103,7 @@ var TreatmentArmsPage = function() {
             'category'  : 'ctep_category'
         }
     };
-    
+
     //List of Expected values
     this.expectedLeftBoxLabels = ['Name', 'Stratum ID', 'Description', 'Status', 'Version'];
     this.expectedRightBoxLabels = ['Gene(s)', 'Patients Assigned', 'Drug', 'Download'];
@@ -122,14 +124,13 @@ var TreatmentArmsPage = function() {
 
     /** This function returns the text that the name of the Treatment Arm in the row.
      * @params = tableElement [WebElement] Represents collection of rows
-     * @params = rownum [Integer] Zero ordered integer representing the row in the table. 
-     * returns string with  
+     * @params = rownum [Integer] Zero ordered integer representing the row in the table.
+     * returns String [treatmentArm (startumID)]
      */
     this.returnTreatmentArmId = function(tableElement, rownum){
         var row = tableElement.get(rownum);
-        return row.all(by.css('td>a[href^="#/treatment-arm"]')).getText().then(function(name){
-            this.setTreatmentArmId(name[0]);
-            return name[0];
+        return row.getText().then(function(name){
+            return name;
         });
     };
 
@@ -369,7 +370,7 @@ var TreatmentArmsPage = function() {
         var drugName = firstData[keymap['name']];
         var description = firstData[keymap['description']];
         var drugId = firstData[keymap['id']];
-        
+
         expect(rowList.count()).to.eventually.equal(refData.length);
 
         rowList.count().then(function (rowCount) {
@@ -448,6 +449,10 @@ var TreatmentArmsPage = function() {
 
         })
 
+    };
+
+    this.stripTreatmentArmId = function(completeId){
+        return completeId.split(' ')[0];
     };
 
     this.getTreatmentArmVersions = function(treatmentArm){

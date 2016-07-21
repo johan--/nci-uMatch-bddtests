@@ -17,17 +17,21 @@ module.exports = function () {
     this.World = require('../step_definitions/world').World;
 
 
-    this.When(/^I select another  from the drop down$/, function (callback) {
+    this.When(/^I select another from the drop down$/, function (callback) {
         // Write code here that turns the phrase above into concrete actions
         browser.sleep(50).then(callback);
     });
 
-    this.Then(/^I capture the current Surgical Event Id$/, function (callback) {
-        element(by.binding('surgicalEventOption.text')).getText().then(function (surgicalId) {
-            console.log(surgicalId);
-            surgicalEventId = surgicalId.replace('Surgical Event ', '').replace(/\|.+/, '').trim();
-            console.log(surgicalEventId);
+    this.Then(/^I capture the current Surgical Event Id from the drop down$/, function (callback) {
+        patientPage.surgicalEventDropDownButton.getText().then(function (completeSurgicalId) {
+            surgicalEventId = patientPage.trimSurgicalEventId(completeSurgicalId);
         }).then(callback);
+    });
+
+    this.Then(/^The Surgical Event Id match that of the drop down$/, function (callback) {
+        expect(element(by.binding('currentSurgicalEvent.surgical_event_id')).getText()).to.eventually
+            .eql(surgicalEventId);
+        browser.sleep(59).then(callback);
     });
 
     this.Then(/^I should see the "(Event|Pathology)" Section under patient Surgical Events$/, function (section, callback) {
@@ -50,42 +54,6 @@ module.exports = function () {
 
         expect(patientPage.surgicalEventDropDownButton.isPresent()).to.eventually.be.true;
         browser.sleep(50).then(callback);
-    });
-
-    this.Then(/^I see that the Event Section match with the one in the drop down$/, function (callback) {
-        expect(element(by.binding('currentSurgicalEvent.surgical_event_id')).getText()).to.eventually.eql(surgicalEventId + 'a');
-        browser.sleep(50).then(callback);
-    });
-
-    this.Then(/^I should see the "((Assay|Specimen) History)" Sub Section under Surgical Event$/, function (subSection, callback) {
-        var repeaterString;
-
-        var specimenData;
-        //todo: write code that will compare the front end data under the seuSection against the back end api call
-        for (var i = 0; i < patientApi['specimen_history'].length; i++){
-            if (patientApi['specimen_history'][i]['surgical_event_id'] === surgicalEventId){
-                specimenData = patientApi['specimen_history'][i];
-            }
-        }
-
-        var assayHistory = specimenData['assays'];
-        var specimenHistory = specimenData['specimen_shipments'];
-
-        var panel = patientPage.surgicalEventPanel;
-
-        if (subSection === 'Assay History'){
-            expect(panel.get(0).all(by.css('h3').getText())).to.eventually.equal(subSection);
-
-            // repeaterString = 'assay in currentSurgicalEvent.assays';
-            // expect(element.all(by.repeater(repeaterString)).count()).to.eventually.equal(assay_history.length);
-            // var expectedFirstAssay = assay_history[0];
-            // var actualFirstAssay;
-            //
-
-        } else {
-            expect(panel.get(1).all(by.css('h3').getText())).to.eventually.equal(subSection);
-        }
-
     });
 
     this.Then(/^I see the Assay History Match with the database$/, function (callback) {
