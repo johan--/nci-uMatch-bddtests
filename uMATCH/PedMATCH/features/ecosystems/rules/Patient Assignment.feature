@@ -116,17 +116,17 @@ Feature: Ensure the rules are fired correctly and patients are assigned to the r
   Scenario: Matching inclusion gene fusion variant and inclusion disease - Assign to TA
     Given  the patient assignment json "patient_json_with_matching_inclusion_variant_inclusion_disease"
     When assignPatient service is called
-    Then a patient assignment json is returned with patient_assignment_status "AVAILABLE"
+    Then a patient assignment json is returned with patient_assignment_reason "SELECTED" for treatment arm "Rules-Test1"
 
   Scenario: Matching inclusion gene fusion variant but does not match inclusion disease - Do not assign
     Given  the patient assignment json "patient_json_with_matching_inclusion_variant_and_not_inclusion_disease"
     When assignPatient service is called
-    Then a patient assignment json is returned with patient_assignment_status "NO_ARM_ASSIGNED"
+    Then a patient assignment json is returned with patient_assignment_reason "NO_VARIANT_MATCH" for treatment arm "Rules-Test1"
 
   Scenario: Matching inclusion disease but does not match inclusion variant - Do not assign
     Given  the patient assignment json "patient_json_with_non_matching_inclusion_variant_matching_inclusion_disease"
     When assignPatient service is called
-    Then a patient assignment json is returned with patient_assignment_status "NO_ARM_ASSIGNED"
+    Then a patient assignment json is returned with patient_assignment_reason "NO_VARIANT_MATCH" for treatment arm "Rules-Test1"
 
 
   Scenario: Add a new treatment arm to Matchbox
@@ -244,7 +244,7 @@ Feature: Ensure the rules are fired correctly and patients are assigned to the r
   Scenario: Matching exclusion variant - Don't assign to TA
     Given  the patient assignment json "patient_json_with_matching_exclusion_variant_inclusion_disease"
     When assignPatient service is called
-    Then a patient assignment json is returned with patient_assignment_status "NO_ARM_ASSIGNED"
+    Then a patient assignment json is returned with patient_assignment_reason "RECORD_BASED_EXCLUSION" for treatment arm "Rules-Test2"
 
     Scenario: Add a new TA for NHR test
       Given that treatment arm is received from COG:
@@ -310,22 +310,21 @@ Feature: Ensure the rules are fired correctly and patients are assigned to the r
       Then a message with Status "SUCCESS" and message "Saved to datastore." is returned:
       Then the treatmentArmStatus field has a value "OPEN" for the ta "Rules-Test3"
 
-
   Scenario: Matching non-hotspot rule - oncomine variant class
     Given  the patient assignment json "patient_json_with_matching_non-hotspot-rules"
     When assignPatient service is called
-    Then a patient assignment json is returned with patient_assignment_status "AVAILABLE"
+    Then a patient assignment json is returned with patient_assignment_reason "SELECTED" for treatment arm "Rules-Test3"
 
 
   Scenario: Matching non-hotspot rule - function
     Given  the patient assignment json "patient_json_with_matching_non-hotspot-rules_function-match"
     When assignPatient service is called
-    Then a patient assignment json is returned with patient_assignment_status "AVAILABLE"
+    Then a patient assignment json is returned with patient_assignment_reason "SELECTED" for treatment arm "Rules-Test3"
 
   Scenario: Matching non-hotspot rule - gene and exon
     Given  the patient assignment json "patient_json_with_matching_non-hotspot-rules_gene-exon-match"
     When assignPatient service is called
-    Then a patient assignment json is returned with patient_assignment_status "AVAILABLE"
+    Then a patient assignment json is returned with patient_assignment_reason "SELECTED" for treatment arm "Rules-Test3"
 #
 #  Scenario: Matching exclusion disease
 #

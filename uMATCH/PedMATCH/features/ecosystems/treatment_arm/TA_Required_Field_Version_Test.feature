@@ -1,5 +1,4 @@
 #encoding: utf-8
-
 @treatment_arm
 Feature: Treatment Arm API Tests that focus on "version" field
 
