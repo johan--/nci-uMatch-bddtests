@@ -20,7 +20,7 @@ end
 When(/^posted to MATCH patient registration$/) do
   p JSON.parse(@jsonString)
   p ENV['protocol'] + '://' + ENV['DOCKER_HOSTNAME'] + ':' + ENV['patient_api_PORT'] + '/registration'
-  @response = Helper_Methods.post_request(ENV['protocol'] + '://' + ENV['DOCKER_HOSTNAME'] + ':' + ENV['patient_api_PORT'] + '/registration',@jsonString)
+  @response = Helper_Methods.post_request(ENV['protocol'] + '://' + ENV['DOCKER_HOSTNAME'] + ':' + ENV['patient_api_PORT'] + '/trigger',@jsonString)
 end
 
 Then(/^a message "(.*?)" is returned with a "(.*?)"$/) do |msg, status|
