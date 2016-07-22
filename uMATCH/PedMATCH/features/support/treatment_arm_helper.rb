@@ -39,9 +39,12 @@ class Treatment_arm_helper
       taName = nil
     end
 
+    dateCreated = Helper_Methods.getDateAsRequired('current')
 
     @treatmentArm = {"study_id"=> study_id,
                      "id" => taId,
+                     "stratum_id"=>'1',
+                     "date_created"=>dateCreated,
                      "name" => taName,
                      "version"=>version,
                      "description" => description,

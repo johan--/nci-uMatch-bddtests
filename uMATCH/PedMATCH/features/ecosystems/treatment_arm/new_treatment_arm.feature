@@ -51,11 +51,12 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
       |2016-05-27 |APEC1621   |TA_test6		|Afatinib			|covalent inhibitor 		|1234		|EGFR Pathway	|ALK			|1,null,Afatinib,angiokinase inhibitor				|FAILURE		|treatmentArmDrugs[0].name may not be empty |2014-06-29 11:34:20.179 GMT	|OPEN	|
 
 
-  Scenario: 1.2 Return failure message when treatment arm already exists in MATCH
+  Scenario: 1.2 Return a failure message when a treatment arm update is received with a version number and stratum_id same as the one that already exists in MATCH
     Given that treatment arm is received from COG:
 	"""
 	{"study_id":"APEC1621",
 	"id":"TA_test1",
+	"stratum_id":"1",
 	"version":"2016-05-27",
 	"gene":"ALK",
 	"description":"covalent inhibitor",
@@ -74,7 +75,8 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 	"""
 	{"study_id":"APEC1621",
 	"id":"TA_test1",
-	"version":"2016-05-18",
+	"stratum_id":"1",
+	"version":"2016-05-28",
 	"gene":"ALK",
 	"description":"Afatinib",
 	"name":"Afatinib",
@@ -86,11 +88,30 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 	When posted to MATCH newTreatmentArm
 	Then a message with Status "SUCCESS" and message "Save to datastore." is returned:
 
-  Scenario: 1.4 Return failure message when treatment arm version is missing or empty
+  Scenario: 1.4 Return a failure message when a treatment arm update is received with a version number older than the version of the currently active treatment arm
+	Given that treatment arm is received from COG:
+	"""
+	{"study_id":"APEC1621",
+	"id":"TA_test1",
+	"stratum_id":"1",
+	"version":"2015-05-28",
+	"gene":"ALK",
+	"description":"Afatinib",
+	"name":"Afatinib",
+	"targetId":1234,
+	"targetName":"HGFR Pathway",
+	"treatmentArmDrugs":[{"drugClass":"angiokinase inhibitor","description":"Afatinib","name":"Afatinib","drugId":"1"}],
+	"variantReport":{"geneFusions":[],"nonHotspotRules":[],"singleNucleotideVariants":[{"position":"11184573","gene":"ALK","levelOfEvidence":2,"alternative":"A","type":"snv","chromosome":"1","inclusion":true,"reference":"G","alleleFrequency":0,"rare":false,"description":"some description","readDepth":"0","publicMedIds":["23724913"],"identifier":"COSM1686998"}],"indels":[],"copyNumberVariants":[]}}
+	"""
+	When posted to MATCH newTreatmentArm
+	Then a message with Status "FAILURE" and message "Version cannot be older thn current version" is returned:
+
+  Scenario: 1.5 Return failure message when treatment arm version is missing or empty
 	Given that treatment arm is received from COG:
 	"""
 	{"study_id":"APEC1621",
 	"id":"NoVersion",
+	"stratum_id":"1",
 	"gene":"ALK",
 	"description":"Afatinib",
 	"name":"Afatinib",
@@ -104,11 +125,12 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 
 
 
-  Scenario: 1.5 Verify that a treatment arm when created is assigned a status of OPEN
+  Scenario: 1.6 Verify that a treatment arm when created is assigned a status of OPEN
     Given that treatment arm is received from COG:
 	"""
 		{"study_id":"APEC1621",
 	    "id" : "TA_test3",
+	    "stratum_id":"1",
 	    "name" : "ta_test3",
 	    "targetId" : 1234,
 	    "targetName" : "ALK",

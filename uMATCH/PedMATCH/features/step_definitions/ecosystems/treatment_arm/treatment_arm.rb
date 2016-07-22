@@ -44,7 +44,10 @@ Then(/^wait for "([^"]*)" seconds$/) do |seconds|
 end
 
 Given(/^that treatment arm is received from COG:$/) do |taJson|
-  @jsonString = JSON.parse(taJson).to_json
+  request = JSON.parse(taJson)
+  dateCreated = Helper_Methods.dateDDMMYYYYHHMMSS
+  request['date_created'] = dateCreated
+  @jsonString = request.to_json
 end
 
 Then(/^a failure message is returned which contains: "([^"]*)"$/) do |string|
