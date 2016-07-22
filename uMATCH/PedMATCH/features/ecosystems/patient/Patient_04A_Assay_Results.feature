@@ -10,6 +10,7 @@ Feature: Assay Messages
     |nonPatient|
     |null      |
   Scenario Outline: PT_AS02. Assay result with invalid study_id(empty, non-existing, null) should fail
+#		Test data: Patient=PT_AS02_SlideShipped, with surgical_event_id=SEI_01, slide_barcode=BC_001
     Given template assay message with surgical_event_id: "SEI_01" for patient: "PT_AS02_SlideShipped"
     Then set patient message field: "study_id" to value: "<value>"
     When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"
@@ -19,7 +20,7 @@ Feature: Assay Messages
       |other     |
       |null      |
   Scenario Outline: PT_AS03. Assay result with invalid surgical_event_id(empty, non-existing, null) should fail
-#		Test data: Patient=PT_AS03_SlideShipped, with surgical_event_id=SEI_1
+#		Test data: Patient=PT_AS03_SlideShipped, with surgical_event_id=SEI_01
     Given template assay message with surgical_event_id: "<value>" for patient: "PT_AS03_SlideShipped"
     When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"
     Examples:

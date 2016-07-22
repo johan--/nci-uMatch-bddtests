@@ -19,7 +19,7 @@ end
 
 When(/^posted to MATCH patient registration$/) do
   p JSON.parse(@jsonString)
-  p ENV['protocol'] + '://' + ENV['DOCKER_HOSTNAME'] + ':' + ENV['patient_api_PORT'] + '/registration'
+  p ENV['protocol'] + '://' + ENV['DOCKER_HOSTNAME'] + ':' + ENV['patient_api_PORT'] + '/trigger'
   @response = Helper_Methods.post_request(ENV['protocol'] + '://' + ENV['DOCKER_HOSTNAME'] + ':' + ENV['patient_api_PORT'] + '/trigger',@jsonString)
 end
 

@@ -64,29 +64,29 @@ Feature: Pathology Messages
 
 
   Scenario Outline: PT_PR09. Pathology report received for patient who has no tissue received(using same surgical_event_id) should fail
-#		Test data: Patient=PT_AS09_Registered, without tissue
-#       Patient=PT_AS09_SEI1HasTissueSEI2NoTissue, surgical_event_id=SEI_01 has tissue received, surgical_event_id=SEI_02 has no tissue received
+#		Test data: Patient=PT_PR09_Registered, without tissue
+#       Patient=PT_PR09_SEI1HasTissueSEI2NoTissue, surgical_event_id=SEI_01 has tissue received, has no tissue using surgical_event_id=SEI_02 received
     Given template pathology report with surgical_event_id: "<sei>" for patient: "<patient_id>"
     When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"
     Examples:
       |patient_id                            |sei         |
-      |PT_AS09_Registered                    |SEI_NON     |
-      |PT_AS09_SEI1HasTissueSEI2NoTissue     |SEI_02      |
+      |PT_PR09_Registered                    |SEI_NON     |
+      |PT_PR09_SEI1HasTissueSEI2NoTissue     |SEI_02      |
 
-  Scenario: PT_PR10. Pathology report reported_date is older than earlist slide shipped date should fail
-#  Test data: Patient=PT_AS10TissueReceived, surgical_event_id=SEI_01, shipped_dttm=2016-04-26T15:17:11+00:00
-    Given template pathology report with surgical_event_id: "SEI_01" for patient: "PT_AS10TissueReceived"
-    Then set patient message field: "reported_date" to value: "2010-04-26T15:17:11+00:00"
+  Scenario: PT_PR10. Pathology report reported_date is older than tissue received date should fail
+#  Test data: Patient=PT_PR10TissueReceived, surgical_event_id=SEI_01, received_dttm: 2016-04-25T16:17:11+00:00,
+    Given template pathology report with surgical_event_id: "SEI_01" for patient: "PT_PR10TissueReceived"
+    Then set patient message field: "received_dttm" to value: "2010-04-25T16:17:11+00:00"
     When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"
 
   Scenario: PT_PR11. Pathology report received for old surgical_event_id should fail
-#  Test data: Patient=PT_AS11TissueReceived, old surgical_event_id=SEI_01, has tissue received, new surgical_event_id=SEI_02, has tissue received
-    Given template pathology report with surgical_event_id: "SEI_01" for patient: "PT_AS11TissueReceived"
+#  Test data: Patient=PT_PR11TissueReceived, old surgical_event_id=SEI_01, has tissue received, new surgical_event_id=SEI_02, has tissue received
+    Given template pathology report with surgical_event_id: "SEI_01" for patient: "PT_PR11TissueReceived"
     When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"
 
   Scenario Outline: : PT_PR12. Pathology result (in current latest surgical_event_id) can only be received again if last pathology's result is U
-#  Test data: Patient=PT_AS12TissueReceived, surgical_event_id=SEI_01, has tissue received
-    Given template assay message with surgical_event_id: "SEI_01" for patient: "PT_AS12TissueReceived"
+#  Test data: Patient=PT_PR12TissueReceived, surgical_event_id=SEI_01, has tissue received
+    Given template assay message with surgical_event_id: "SEI_01" for patient: "PT_PR12TissueReceived"
     Then set patient message field: "reported_date" to value: "<date>"
     Then set patient message field: "status" to value: "<status>"
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "<postStatus>"
