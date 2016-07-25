@@ -5,11 +5,14 @@ require_relative '../../../support/helper_methods.rb'
 
 Given(/^the patient assignment json "([^"]*)"$/) do |patient_json|
   @patientAssignmentJson =  File.join(File.dirname(__FILE__),ENV['PATIENT_ASSIGNMENT_JSON_LOCATION']+'/'+patient_json+'.json')
-  @ta = File.join(File.dirname(__FILE__),ENV['PATIENT_ASSIGNMENT_JSON_LOCATION']+'/TA.json')
   expect(File.exist?(@patientAssignmentJson)).to be_truthy
-
-
 end
+
+And(/^treatment arm json "([^"]*)"$/) do |ta|
+  @ta = File.join(File.dirname(__FILE__),ENV['PATIENT_ASSIGNMENT_JSON_LOCATION']+'/'+ta+'.json')
+  expect(File.exist?(@ta)).to be_truthy
+end
+
 
 When(/^assignPatient service is called$/) do
   @res=Helper_Methods.get_request_url_param(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['rules_PORT']+'/nci-match-rules/rules/rs/assignPatient', params={'patient'=>@patientAssignmentJson,'ta'=>@ta})
