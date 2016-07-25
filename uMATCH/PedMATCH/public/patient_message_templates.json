@@ -118,5 +118,31 @@
     "reported_date":"2015-04-27T12:13:09.071-05:00",
     "status":"Y",
     "message":"PATHOLOGY_CONFIRMATION"
+  },
+  "variant_file_uploaded":{
+    "patient_id": "3344",
+    "surgical_event_id": "3344-bsn",
+    "molecular_id": "3344-bsn-msn-2",
+    "analysis_id": "job1",
+    "status": "PENDING",
+    "s3_bucket_name": "nci-match-rules",
+    "tsv_file_path_name": "3344.tsv",
+    "vcf_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/3344-bsn-msn-2.vcf",
+    "dna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/dna.bam",
+    "cdna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/cdna.bam"
+  },
+  "vairant_confirmed":{
+    "variant_uuid": "684b2da6-4b08-4f0f-a8b2-c02d886c24fa",
+    "confirmed": "true",
+    "comment": "bla bla bla"
+  },
+  "variant_file_confirmed":{
+    "patient_id": "3344",
+    "surgical_event_id": "3344-bsn",
+    "molecular_id": "3344-bsn-msn-2",
+    "analysis_id": "job1",
+    "status": "CONFIRMED",
+    "comment": "some comment",
+    "comment_user": "rick"
   }
 }
