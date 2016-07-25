@@ -8,13 +8,13 @@ Feature: NCH Specimen shipped messages
   Scenario: PT_SS02. Received specimen_shipped message for type 'TISSUE' from NCH for a patient who has already received the specimen_received message
 #  Testing patient:PT_SS01_TissueReceived; surgical_event_id: SEI_TR_01
     Given template specimen shipped message in type: "TISSUE" for patient: "PT_SS02_TissueReceived"
-    Then set patient message field: "surgical_event_id" to "SEI_TR_01"
+    Then set patient message field: "surgical_event_id" to value: "SEI_TR_01"
     When posted to MATCH patient trigger service, returns a message that includes "specimen shipped message received and saved." with status "Success"
 
   Scenario: PT_SS03. Received specimen_shipped message for type 'SLIDE' from NCH for a patient who has already received the specimen_received message
 #  Testing patient:PT_SS03_TissueReceived; surgical_event_id: SEI_TR_02
     Given template specimen shipped message in type: "SLIDE" for patient: "PT_SS03_TissueReceived"
-    Then set patient message field: "surgical_event_id" to "SEI_TR_02"
+    Then set patient message field: "surgical_event_id" to value: "SEI_TR_02"
     When posted to MATCH patient trigger service, returns a message that includes "specimen shipped message received and saved." with status "Success"
 
   Scenario Outline: PT_SS04. Shipment with invalid patient_id fails
@@ -47,7 +47,7 @@ Feature: NCH Specimen shipped messages
 
   Scenario Outline: PT_SS07. shipped tissue or slide with a non-exist surgical_event_id fails
     Given template specimen shipped message in type: "<type>" for patient: "PT_SS07_TissueReceived"
-    Then set patient message field: "surgical_event_id" to "<SEI>"
+    Then set patient message field: "surgical_event_id" to value: "<SEI>"
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"
     Examples:
     |type   |SEI            |message                                                              |
