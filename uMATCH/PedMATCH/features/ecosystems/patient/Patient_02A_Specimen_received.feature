@@ -51,6 +51,7 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     |BLOOD              |SLIDE              |did not match one of the following values: BLOOD, TISSUE           |
 
   Scenario Outline: PT_SR09. tissue can be received with new surgical event id but not with existing one
+#  One possible scenario: specimen using same surgical_event_id with new received_date can be received again.
     Given template specimen received message in type: "TISSUE" for patient: "PT_SR09_Registered"
     Then set patient message field: "surgical_event_id" to value: "<SEI>"
     Then set patient message field: "collected_dttm" to value: "<collectTime>"
@@ -71,8 +72,12 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     |PT_SR10_Progression    |BLOOD          |Success    |specimen(s) received and saved.                                                |
     |PT_SR10_TsNuAdFailure  |TISSUE         |Success    |specimen(s) received and saved.                                                |
     |PT_SR10_BdNuAdFailure  |BLOOD          |Success    |specimen(s) received and saved.                                                |
+    |PT_SR10_TsVrReceived   |BLOOD          |Success    |specimen(s) received and saved.                                                |
     |PT_SR10_OnTreatmentArm |TISSUE         |Failure    |TBD                                                                            |
     |PT_SR10_OffStudy       |TISSUE         |Failure    |TBD                                                                            |
+#     need to be confrimed new specimen can be received when old one have pending variant report, if this is confirmed, this patient data should be prepared
+#    |PT_SR10_TsVrReceived   |TISSUE          |Success    |specimen(s) received and saved.                                                |
+#    |PT_SR10_BdVrReceived   |BLOOD           |Success    |specimen(s) received and saved.                                                |
 
   Scenario Outline: PT_SR11. Return error message when study_id is invalid
     Given template specimen received message in type: "<specimen_type>" for patient: "PT_SR11_Registered"
@@ -85,7 +90,8 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     |TISSUE         |study_id           |OTHER            |TBD                                                            |
 
 
-#  new tissue cannot be received when there is one tissue variant report get "CONFIRMED" under any SEI
-#  new blood cannot be received when there is one blood variant report get "CONFIRMED"
-#  new specimen using new SEI will push all pending variant report from old SEI to "REJECT"
-#  new specimen using new MOI in same SEI will push all pending variant report from old MOI to "REJECT"
+#Scenario Outline: PT_SR12. new tissue cannot be received when there is one tissue variant report get "CONFIRMED" under any SEI
+#Scenario Outline: PT_SR13. new blood cannot be received when there is one blood variant report get "CONFIRMED"
+#Scenario Outline: PT_SR14. new specimen using new SEI will push all pending variant report from old SEI to "REJECT"
+#Scenario Outline: PT_SR15. new specimen using new MOI in same SEI will push all pending variant report from old MOI to "REJECT"
+  ..

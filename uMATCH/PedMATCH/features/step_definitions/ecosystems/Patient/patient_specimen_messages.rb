@@ -107,6 +107,21 @@ Given(/^template pathology report with surgical_event_id: "([^"]*)" for patient:
   @request = @requestJson.to_json.to_s
 end
 
+Given(/^template variant uploaded message for patient: "([^"]*)", it has surgical_event_id: "([^"]*)", molecular_id: "([^"]*)" and analysis_id: "([^"]*)"$/) do |patientID, sei, moi, ani|
+  @requestJson = Patient_helper_methods.loadPaitentMessageTemplates()
+  @requestJson = @requestJson['variant_file_uploaded']
+  convertedPID = patientID=='null'?nil:patientID
+  convertedSEI = sei=='null'?nil:sei
+  convertedMOI = moi=='null'?nil:moi
+  convertedANI = ani=='null'?nil:ani
+  @patientMessageRootKey = ''
+  @requestJson['patient_id'] = convertedPID
+  @requestJson['surgical_event_id'] = convertedSEI
+  @requestJson['molecular_id'] = convertedMOI
+  @requestJson['analysis_id'] = convertedANI
+  @request = @requestJson.to_json.to_s
+end
+
 Then(/^set patient message field: "([^"]*)" to value: "([^"]*)"$/) do |field, value|
   convertedValue = value=='null'?nil:value
   if @patientMessageRootKey == ''
