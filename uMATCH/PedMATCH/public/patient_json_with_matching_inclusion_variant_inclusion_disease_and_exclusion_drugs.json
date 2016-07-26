@@ -6,7 +6,9 @@
     {
       "name": "Doxorubicin Hydrochloride",
       "drug_id": "10001",
-      "pathway": "ALK inhibitor",
+      "drug_class": "ALK inhibitor",
+      "description":null,
+      "pathway":null,
       "target": "ALK"
     }
   ],
