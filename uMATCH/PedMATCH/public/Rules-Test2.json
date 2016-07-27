@@ -51,7 +51,7 @@
       "reference": "C",
       "gene_name": "FGFR2",
       "identifier": "FGFR2-OFD1.F17O3",
-      "inclusion": false,
+      "inclusion": true,
       "public_med_ids": null,
       "arm_specific": "false",
       "level_of_evidence": "3.0",

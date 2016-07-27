@@ -61,6 +61,19 @@ Feature: Ensure the rules are fired correctly and patients are assigned to the r
     And treatment arm json "Rules-Test1"
     When assignPatient service is called
     Then a patient assignment json is returned with patient_assignment_reason "RECORD_BASED_EXCLUSION" for treatment arm "Rules-Test1"
+
+  Scenario: Matching inclusion and exclusion variant on the same treatment arm - Do not assign
+    Given  the patient assignment json "patient_json_with_matching_inclusion_and_exclusion_variant_inclusion_disease"
+    And treatment arm json "Rules-Test2"
+    When assignPatient service is called
+    Then a patient assignment json is returned with patient_assignment_reason "RECORD_BASED_EXCLUSION" for treatment arm "Rules-Test2"
+
+  Scenario: Matching unconfirmed inclusion variant - Do not assign
+    Given  the patient assignment json "patient_json_with_matching_unconfirmed_inclusion_variant_inclusion_disease"
+    And treatment arm json "Rules-Test1"
+    When assignPatient service is called
+    Then a patient assignment json is returned with patient_assignment_reason "NO_VARIANT_MATCH" for treatment arm "Rules-Test1"
+
 #
 #  Scenario: Compasionate care (Patient eligible to be assigned but the treatment arm is closed
 

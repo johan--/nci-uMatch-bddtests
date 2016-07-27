@@ -94,4 +94,3 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
 #Scenario Outline: PT_SR13. new blood cannot be received when there is one blood variant report get "CONFIRMED"
 #Scenario Outline: PT_SR14. new specimen using new SEI will push all pending variant report from old SEI to "REJECT"
 #Scenario Outline: PT_SR15. new specimen using new MOI in same SEI will push all pending variant report from old MOI to "REJECT"
-  ..
