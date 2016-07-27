@@ -59,7 +59,8 @@ Feature: Variant files uploaded message
     Given template variant uploaded message for patient: "PT_VU08_TissueShipped", it has surgical_event_id: "SEI_01", molecular_id: "MOI_01" and analysis_id: "ANI_01"
     When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Success"
     Then retrieve patient: "PT_VU08_TissueShipped" from API
-    Then returned patient has variant report (surgical_event_id: "SEI_01", molecular_id: "MOI_01", analysis_id: "ANI_02") in status "PENDING"
+    Then returned patient has variant report (surgical_event_id: "SEI_01", molecular_id: "MOI_01", analysis_id: "ANI_02")
+    And this variant report has value: "PENDING" in field: "status"
 
   Scenario: PT_VU09. new uploaded variant files make all pending old files rejected
 #    Test patient: PT_VU09_VariantReportUploaded; variant report files uploaded: surgical_event_id: SEI_01, molecular_id: MOI_01, analysis_id: ANI_01
@@ -67,8 +68,10 @@ Feature: Variant files uploaded message
     Given template variant uploaded message for patient: "PT_VU09_VariantReportUploaded", it has surgical_event_id: "SEI_01", molecular_id: "MOI_01" and analysis_id: "ANI_02"
     When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Success"
     Then retrieve patient: "PT_VU09_VariantReportUploaded" from API
-    Then returned patient has variant report (surgical_event_id: "SEI_01", molecular_id: "MOI_01", analysis_id: "ANI_02") in status "PENDING"
-    And returned patient has variant report (surgical_event_id: "SEI_01", molecular_id: "MOI_01", analysis_id: "ANI_01") in status "REJECTED"
+    Then returned patient has variant report (surgical_event_id: "SEI_01", molecular_id: "MOI_01", analysis_id: "ANI_02")
+    And this variant report has value: "PENDING" in field: "status"
+    Then returned patient has variant report (surgical_event_id: "SEI_01", molecular_id: "MOI_01", analysis_id: "ANI_01")
+    And this variant report has value: "REJECTED" in field: "status"
 #       For this scenario:
 #         SEI_1 MOI_1 shipped->SEI_1 MOI_1 AID_1 uploaded->SEI_1 MOI_1 AID_1 V_UUID_1 confirmed->SEI_2 received->SEI_2 MOI_1 shipped->SEI_2 MOI_1 AID_1 uploaded ==> SEI_1 MOI_1 AID_1 rejected
 #         it's covered by specimen received tests, please check PT_SR14 and PT_SR15.

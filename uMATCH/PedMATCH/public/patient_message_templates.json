@@ -131,7 +131,7 @@
     "dna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/dna.bam",
     "cdna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/cdna.bam"
   },
-  "vairant_confirmed":{
+  "variant_confirmed":{
     "variant_uuid": "684b2da6-4b08-4f0f-a8b2-c02d886c24fa",
     "confirmed": "true",
     "comment": "bla bla bla"
