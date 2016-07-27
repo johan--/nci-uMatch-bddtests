@@ -50,8 +50,8 @@ Feature: Variant files confirmed messages
 
 
   Scenario: PT_VC05. confirmed fields should be "true" as default
-    #    Test Patient: PT_VC04_VRUploaded, VR uploaded SEI_01, MOI_01, ANI_01
-    Given retrieve patient: "PT_VC04_VRUploaded" from API
+    #    Test Patient: PT_VC05_VRUploaded, VR uploaded SEI_01, MOI_01, ANI_01
+    Given retrieve patient: "PT_VC05_VRUploaded" from API
     Then variants in variant report (surgical_event_id: "SEI_01", molecular_id: "MOI_01", analysis_id: "ANI_01") has confirmed: "true"
 
 
@@ -77,7 +77,7 @@ Feature: Variant files confirmed messages
       |nonPatient     |                                                                                   |
 
   Scenario Outline: PT_VC07. variant report confirm message with invalid surgical_event_id should fail
-    Given template variant report confirm message for patient: "PT_VC07_VariantReportUploaded", it has surgical_event_id: "<SEI>", molecular_id: "MOI_01", analysis_id: "ANI_01" and status: "CONFIRMED"
+    Given template variant report confirm message for patient: "PT_VC07_VRUploaded", it has surgical_event_id: "<SEI>", molecular_id: "MOI_01", analysis_id: "ANI_01" and status: "CONFIRMED"
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"
     Examples:
       |SEI            |message                                                                            |
@@ -86,7 +86,7 @@ Feature: Variant files confirmed messages
       |other          |                                                                                   |
 
   Scenario Outline: PT_VC08. variant report confirm message with invalid molecular_id should fail
-    Given template variant report confirm message for patient: "PT_VC08_VariantReportUploaded", it has surgical_event_id: "SEI_01", molecular_id: "<MOI>", analysis_id: "ANI_01" and status: "CONFIRMED"
+    Given template variant report confirm message for patient: "PT_VC08_VRUploaded", it has surgical_event_id: "SEI_01", molecular_id: "<MOI>", analysis_id: "ANI_01" and status: "CONFIRMED"
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"
     Examples:
       |MOI            |message                                                                            |
@@ -95,7 +95,7 @@ Feature: Variant files confirmed messages
       |other          |                                                                                   |
 
   Scenario Outline: PT_VC09. variant report confirm message with invalid analysis_id should fail
-    Given template variant report confirm message for patient: "PT_VC09_VariantReportUploaded", it has surgical_event_id: "SEI_01", molecular_id: "MOI_01", analysis_id: "<ANI>" and status: "CONFIRMED"
+    Given template variant report confirm message for patient: "PT_VC09_VRUploaded", it has surgical_event_id: "SEI_01", molecular_id: "MOI_01", analysis_id: "<ANI>" and status: "CONFIRMED"
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"
     Examples:
       |ANI            |message                                                                            |
@@ -104,13 +104,13 @@ Feature: Variant files confirmed messages
       |other          |                                                                                   |
 
   Scenario: PT_VC10. variant report confirm message using non-current specimen should fail
-#  Test patient: PT_VC10_VariantReportUploaded: surgical_event_id: SEI_01, molecular_id: MOI_01 vr uploaded;
-#                                               surgical_event_id: SEI_02, molecular_id: MOI_02 vr uploaded;
-    Given template variant report confirm message for patient: "PT_VC10_VariantReportUploaded", it has surgical_event_id: "SEI_01", molecular_id: "MOI_01", analysis_id: "ANI_01" and status: "CONFIRMED"
+#  Test patient: PT_VC10_VRUploaded: surgical_event_id: SEI_01, molecular_id: MOI_01, analysis_id: ANI_01 vr uploaded;
+#                                    surgical_event_id: SEI_02, molecular_id: MOI_02, analysis_id: ANI_02 vr uploaded;
+    Given template variant report confirm message for patient: "PT_VC10_VRUploaded", it has surgical_event_id: "SEI_01", molecular_id: "MOI_01", analysis_id: "ANI_01" and status: "CONFIRMED"
     When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Failure"
 
   Scenario Outline: PT_VC11. variant report confirm message with invalid status should fail
-    Given template variant report confirm message for patient: "PT_VC11_VariantReportUploaded", it has surgical_event_id: "SEI_01", molecular_id: "MOI_01", analysis_id: "ANI_01" and status: "<status>"
+    Given template variant report confirm message for patient: "PT_VC11_VRUploaded", it has surgical_event_id: "SEI_01", molecular_id: "MOI_01", analysis_id: "ANI_01" and status: "<status>"
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"
     Examples:
       |status         |message                                                                            |
@@ -119,8 +119,8 @@ Feature: Variant files confirmed messages
       |other          |                                                                                   |
 
   Scenario Outline: PT_VC12. after accepting variant_file_confirmed message, patient should be set to correct status, comment, user and date
-#  Test patient: PT_VC12_VariantReportUploaded_1: surgical_event_id: SEI_01, molecular_id: MOI_01, analysis_id: ANI_01 vr uploaded, to be confirmed
-#  Test patient: PT_VC12_VariantReportUploaded_2: surgical_event_id: SEI_01, molecular_id: MOI_01, analysis_id: ANI_02 vr uploaded, to be rejected
+#  Test patient: PT_VC12_VRUploaded_1: surgical_event_id: SEI_01, molecular_id: MOI_01, analysis_id: ANI_01 vr uploaded, to be confirmed
+#  Test patient: PT_VC12_VRUploaded_2: surgical_event_id: SEI_01, molecular_id: MOI_01, analysis_id: ANI_02 vr uploaded, to be rejected
     Given template variant report confirm message for patient: "<patient_id>", it has surgical_event_id: "<sei>", molecular_id: "<moi>", analysis_id: "<ani>" and status: "<status>"
     Then set patient message field: "comment" to value: "<comment>"
     Then set patient message field: "comment_user" to value: "<user>"
@@ -132,15 +132,20 @@ Feature: Variant files confirmed messages
     And this variant report has value: "<user>" in field: "comment_user"
     And this variant report has correct status_date
     Examples:
-    |patient_id                       |sei      |moi      |ani      |status     |comment                          |user         |
-    |PT_VC12_VariantReportUploaded_1  |SEI_01   |MOI_01   |ANI_01   |CONFIRMED  |this variant report is confirmed |user1        |
-    |PT_VC12_VariantReportUploaded_2  |SEI_01   |MOI_01   |ANI_02   |REJECTED   |this variant report is rejected  |user2        |
+    |patient_id            |sei      |moi      |ani      |status     |comment                          |user         |
+    |PT_VC12_VRUploaded_1  |SEI_01   |MOI_01   |ANI_01   |CONFIRMED  |                                 |user1        |
+    |PT_VC12_VRUploaded_2  |SEI_01   |MOI_01   |ANI_02   |REJECTED   |this variant report is rejected  |user2        |
 
   Scenario: PT_VC13. if variant report rejected, comment values for variants that are in this variant report should be cleared
-#    Test patient PT_VC13_VariantReportUploaded: surgical_event_id: SEI_01, molecular_id: MOI_01, analysis_id: ANI_01 vr uploaded
+#    Test patient PT_VC13_VRUploaded: surgical_event_id: SEI_01, molecular_id: MOI_01, analysis_id: ANI_01 vr uploaded
 #    first snv variant has confirmed=false, comment="TEST"
-    Given template variant report confirm message for patient: "PT_VC13_VariantReportUploaded", it has surgical_event_id: "SEI_01", molecular_id: "MOI_01", analysis_id: "ANI_01" and status: "REJECTED"
+    Given retrieve patient: "PT_VC13_VRUploaded" from API
+    Then find the first "snv_id" variant in variant report which has surgical_event_id: "SEI_01", molecular_id: "MOI_01" and analysis_id: "ANI_01"
+    Then create variant confirm message with confirmed: "false" and comment: "Tests" for this variant
     When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Success"
-    Then retrieve patient: "<patient_id>" from API
+    Then template variant report confirm message for patient: "PT_VC13_VRUploaded", it has surgical_event_id: "SEI_01", molecular_id: "MOI_01", analysis_id: "ANI_01" and status: "REJECTED"
+    Then set patient message field: "comment" to value: "TEST"
+    When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Success"
+    Then retrieve patient: "PT_VC13_VRUploaded" from API
     Then find the first "snv_id" variant in variant report which has surgical_event_id: "SEI_01", molecular_id: "MOI_01" and analysis_id: "ANI_01"
     Then this variant has confirmed field: "false" and comment field: ""

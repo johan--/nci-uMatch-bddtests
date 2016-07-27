@@ -51,7 +51,7 @@ Feature: Variant files uploaded message
 
 
   Scenario: PT_VU07. variant files uploaded with new analysis_id cannot be accepted when patient has only TISSUE_SLIDE_SPECIMEN_SHIPPED status but has no TISSUE_NUCLEIC_ACID_SHIPPED status
-#  Test patient: PT_VU07_SlideShipped: surgical_event_id: SEI_01, molecular_id: MOI_01 slide shipped, tissue not shipped;
+#  Test patient: PT_VU07_SlideShipped: surgical_event_id: SEI_01 slide shipped, tissue not shipped;
     Given template variant uploaded message for patient: "PT_VU07_SlideShipped", it has surgical_event_id: "SEI_01", molecular_id: "MOI_01" and analysis_id: "ANI_01"
     When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Failure"
 
@@ -59,7 +59,7 @@ Feature: Variant files uploaded message
     Given template variant uploaded message for patient: "PT_VU08_TissueShipped", it has surgical_event_id: "SEI_01", molecular_id: "MOI_01" and analysis_id: "ANI_01"
     When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Success"
     Then retrieve patient: "PT_VU08_TissueShipped" from API
-    Then returned patient has variant report (surgical_event_id: "SEI_01", molecular_id: "MOI_01", analysis_id: "ANI_02")
+    Then returned patient has variant report (surgical_event_id: "SEI_01", molecular_id: "MOI_01", analysis_id: "ANI_01")
     And this variant report has value: "PENDING" in field: "status"
 
   Scenario: PT_VU09. new uploaded variant files make all pending old files rejected

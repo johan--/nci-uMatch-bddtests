@@ -229,6 +229,7 @@
       "carrier": "Federal Express",
       "tracking_id": "7956 4568 1235",
       "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "destination": "Boston",
       "internal_use_only": {
         "stars_patient_id": "ABCXYZ",
         "stars_specimen_id_slide": "ABCXYZ-0BJ6A5"
@@ -270,6 +271,7 @@
       "carrier": "Federal Express",
       "tracking_id": "7956 4568 1235",
       "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "destination": "Boston",
       "internal_use_only": {
         "stars_patient_id": "ABCXYZ",
         "stars_specimen_id_slide": "ABCXYZ-0BJ6A5"
@@ -311,6 +313,7 @@
       "carrier": "Federal Express",
       "tracking_id": "7956 4568 1235",
       "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "destination": "Boston",
       "internal_use_only": {
         "stars_patient_id": "ABCXYZ",
         "stars_specimen_id_slide": "ABCXYZ-0BJ6A5"
@@ -352,6 +355,7 @@
       "carrier": "Federal Express",
       "tracking_id": "7956 4568 1235",
       "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "destination": "Boston",
       "internal_use_only": {
         "stars_patient_id": "ABCXYZ",
         "stars_specimen_id_slide": "ABCXYZ-0BJ6A5"
@@ -393,6 +397,7 @@
       "carrier": "Federal Express",
       "tracking_id": "7956 4568 1235",
       "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "destination": "Boston",
       "internal_use_only": {
         "stars_patient_id": "ABCXYZ",
         "stars_specimen_id_slide": "ABCXYZ-0BJ6A5"
@@ -434,6 +439,7 @@
       "carrier": "Federal Express",
       "tracking_id": "7956 4568 1235",
       "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "destination": "Boston",
       "internal_use_only": {
         "stars_patient_id": "ABCXYZ",
         "stars_specimen_id_slide": "ABCXYZ-0BJ6A5"
@@ -496,6 +502,7 @@
       "carrier": "Federal Express",
       "tracking_id": "7956 4568 1235",
       "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "destination": "Boston",
       "internal_use_only": {
         "stars_patient_id": "ABCXYZ",
         "stars_specimen_id_slide": "ABCXYZ-0BJ6A5"
@@ -558,6 +565,7 @@
       "carrier": "Federal Express",
       "tracking_id": "7956 4568 1235",
       "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "destination": "Boston",
       "internal_use_only": {
         "stars_patient_id": "ABCXYZ",
         "stars_specimen_id_slide": "ABCXYZ-0BJ6A5"
@@ -599,6 +607,7 @@
       "carrier": "Federal Express",
       "tracking_id": "7956 4568 1235",
       "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "destination": "Boston",
       "internal_use_only": {
         "stars_patient_id": "ABCXYZ",
         "stars_specimen_id_slide": "ABCXYZ-0BJ6A5"
@@ -640,6 +649,7 @@
       "carrier": "Federal Express",
       "tracking_id": "7956 4568 1235",
       "shipped_dttm": "2016-05-04T19:42:13+00:00",
+      "destination": "Boston",
       "internal_use_only": {
         "stars_patient_id": "ABCXYZ",
         "stars_specimen_id_slide": "ABCXYZ-0BJ6A5"
@@ -681,6 +691,7 @@
       "carrier": "Federal Express",
       "tracking_id": "7956 4568 1235",
       "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "destination": "Boston",
       "internal_use_only": {
         "stars_patient_id": "ABCXYZ",
         "stars_specimen_id_slide": "ABCXYZ-0BJ6A5"
