@@ -152,11 +152,11 @@ And(/^this variant report has value: "([^"]*)" in field: "([^"]*)"$/) do |value,
 end
 
 And(/^this variant report has correct status_date$/) do
-  currentTime = Time.now.utc.to_i
-  returnedResult = DateTime.parse(@current_variant_report['status_date']).to_i
-  timeDiff = currentTime - returnedResult
-  timeDiff.should >=0
-  timeDiff.should <=20
+  current_time = Time.now.utc.to_i
+  returned_result = DateTime.parse(@current_variant_report['status_date']).to_i
+  time_diff = current_time - returned_result
+  time_diff.should >=0
+  time_diff.should <=20
 end
 
 Then(/^find the first "([^"]*)" variant in variant report which has surgical_event_id: "([^"]*)", molecular_id: "([^"]*)" and analysis_id: "([^"]*)"$/) do |variant_type, sei, moi, ani|
