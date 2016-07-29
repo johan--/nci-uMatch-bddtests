@@ -50,7 +50,7 @@ Feature: Ensure the rules are fired correctly and patients are assigned to the r
     When assignPatient service is called
     Then a patient assignment json is returned with patient_assignment_reason "SELECTED" for treatment arm "Rules-Test5"
 
-  Scenario: Matching exclusion disease
+  Scenario: Matching exclusion disease - Do not assign
     Given  the patient assignment json "patient_json_with_matching_inclusion_variant_exclusion_disease"
     And treatment arm json "Rules-Test1"
     When assignPatient service is called
@@ -75,6 +75,69 @@ Feature: Ensure the rules are fired correctly and patients are assigned to the r
     Then a patient assignment json is returned with patient_assignment_reason "NO_VARIANT_MATCH" for treatment arm "Rules-Test1"
 
 #
+
+  Scenario: IHC:POS, Variant:PRE, Assay Result:POS, Matching Variant - Assign
+    Given  the patient assignment json "Assay_rules_POS_PRE_POS_matching_variant"
+    And treatment arm json "Rules-Test6"
+    When assignPatient service is called
+    Then a patient assignment json is returned with patient_assignment_reason "SELECTED" for treatment arm "Rules-Test6"
+
+
+  Scenario: IHC:NEG, Variant:PRE, Assay Result:NEG, Matching Variant - Assign
+    Given  the patient assignment json "Assay_rules_NEG_PRE_NEG_matching_variant"
+    And treatment arm json "Rules-Test7"
+    When assignPatient service is called
+    Then a patient assignment json is returned with patient_assignment_reason "SELECTED" for treatment arm "Rules-Test7"
+
+  Scenario: IHC:POS, Variant:EMP, Assay Result:POS, No Matching Variant - Assign
+    Given  the patient assignment json "Assay_rules_POS_EMP_POS_no_matching_variant"
+    And treatment arm json "Rules-Test8"
+    When assignPatient service is called
+    Then a patient assignment json is returned with patient_assignment_reason "SELECTED" for treatment arm "Rules-Test8"
+
+  Scenario: IHC:POS, Variant:NEG, Assay Result:POS, Matching Variant - Do not Assign
+    Given  the patient assignment json "Assay_rules_POS_NEG_POS_matching_variant"
+    And treatment arm json "Rules-Test9"
+    When assignPatient service is called
+    Then a patient assignment json is returned with patient_assignment_reason "RECORD_BASED_EXCLUSION" for treatment arm "Rules-Test9"
+
+  Scenario: IHC:POS, Variant:PRE, Assay Result:POS, No Matching Variant - Do not Assign
+    Given  the patient assignment json "Assay_rules_POS_PRE_POS_no_matching_variant"
+    And treatment arm json "Rules-Test6"
+    When assignPatient service is called
+    Then a patient assignment json is returned with patient_assignment_reason "NO_VARIANT_MATCH" for treatment arm "Rules-Test6"
+
+  Scenario: IHC:POS, Variant:NEG, Assay Result:POS, No Matching Variant - Assign
+    Given  the patient assignment json "Assay_rules_POS_NEG_POS_no_matching_variant"
+    And treatment arm json "Rules-Test9"
+    When assignPatient service is called
+    Then a patient assignment json is returned with patient_assignment_reason "SELECTED" for treatment arm "Rules-Test9"
+
+  Scenario: IHC:POS, Variant:EMP, Assay Result:POS, Matching Variant - Assign
+    Given  the patient assignment json "Assay_rules_POS_EMP_POS_matching_variant"
+    And treatment arm json "Rules-Test8"
+    When assignPatient service is called
+    Then a patient assignment json is returned with patient_assignment_reason "SELECTED" for treatment arm "Rules-Test8"
+
+  Scenario: IHC:NEG, Variant:PRE, Assay Result:POS, Matching Variant - Assign
+    Given  the patient assignment json "Assay_rules_NEG_PRE_POS_matching_variant"
+    And treatment arm json "Rules-Test7"
+    When assignPatient service is called
+    Then a patient assignment json is returned with patient_assignment_reason "SELECTED" for treatment arm "Rules-Test7"
+
+  Scenario: IHC:POS, Variant:PRE, Assay Result:NEG, Matching Variant - Assign
+    Given  the patient assignment json "Assay_rules_POS_PRE_NEG_matching_variant"
+    And treatment arm json "Rules-Test6"
+    When assignPatient service is called
+    Then a patient assignment json is returned with patient_assignment_reason "SELECTED" for treatment arm "Rules-Test6"
+
+  Scenario: IHC:POS, Variant:EMP, Assay Result:NEG, Matching variant - assign
+    Given  the patient assignment json "Assay_rules_POS_EMP_NEG_matching_variant"
+    And treatment arm json "Rules-Test8"
+    When assignPatient service is called
+    Then a patient assignment json is returned with patient_assignment_reason "SELECTED" for treatment arm "Rules-Test8"
+
+
 #  Scenario: Compasionate care (Patient eligible to be assigned but the treatment arm is closed
 
 #  Scenario: Matching patient who has already taken the eligible arm and progressed
