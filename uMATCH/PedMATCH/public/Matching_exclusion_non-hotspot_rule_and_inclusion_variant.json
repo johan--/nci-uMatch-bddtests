@@ -1,0 +1,63 @@
+{
+  "patient_id": "PID-1234",
+  "study_id": "APEC1621",
+  "surgical_event_id": "SID-4567",
+  "prior_drugs": [
+    {
+      "drug_id": "763093",
+      "name": "Trametinib",
+      "pathway": "B-RAF inhibitor",
+      "target": "B-RAF"
+    }
+  ],
+  "assays": {
+    "ICCPTENs": "POSITIVE"
+  },
+  "diseases": [
+    {
+      "ctep_category": "Thyroid Cancer",
+      "disease_code": "10033701",
+      "short_name": "Papillary thyroid carcinoma"
+    }
+  ],
+  "variant_report": {
+    "single_nucleotide_variants": [
+      {
+      "type":"snv",
+      "gene" : "KIT",
+      "exon" : "22",
+      "chromosome" : "chr1",
+      "position" : "11184573",
+      "identifier" : "COSM1234",
+      "reference" : "G",
+      "alternative" : "A",
+      "filter" : "PASS",
+      "transcript" : "NM_004958.3",
+      "location" : "exonic",
+      "readDepth" : 2124,
+      "rare" : false,
+      "alleleFrequency" : 1,
+      "flowAlternativeAlleleObservationCount" : "350",
+      "flowReferenceAlleleObservations" : "1998",
+      "referenceAlleleObservations" : 2120,
+      "alternativeAlleleObservationCount" : 0,
+      "inclusion" : true,
+      "armSpecific" : false
+      },
+      {
+        "type":"snv",
+        "identifier" : "RuleTest11",
+        "chromosome" : "chr4",
+        "confirmed" : true,
+        "position" : "55599320",
+        "gene" : "EGFR",
+        "exon":"20",
+        "readDepth" : 450,
+        "inclusion" : true
+      }
+    ],
+    "indels": [],
+    "copy_number_variants": [],
+    "unified_gene_fusions": []
+  }
+}

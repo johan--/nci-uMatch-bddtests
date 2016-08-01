@@ -74,14 +74,11 @@ Feature: Ensure the rules are fired correctly and patients are assigned to the r
     When assignPatient service is called
     Then a patient assignment json is returned with patient_assignment_reason "NO_VARIANT_MATCH" for treatment arm "Rules-Test1"
 
-#
-
   Scenario: IHC:POS, Variant:PRE, Assay Result:POS, Matching Variant - Assign
     Given  the patient assignment json "Assay_rules_POS_PRE_POS_matching_variant"
     And treatment arm json "Rules-Test6"
     When assignPatient service is called
     Then a patient assignment json is returned with patient_assignment_reason "SELECTED" for treatment arm "Rules-Test6"
-
 
   Scenario: IHC:NEG, Variant:PRE, Assay Result:NEG, Matching Variant - Assign
     Given  the patient assignment json "Assay_rules_NEG_PRE_NEG_matching_variant"
@@ -137,6 +134,23 @@ Feature: Ensure the rules are fired correctly and patients are assigned to the r
     When assignPatient service is called
     Then a patient assignment json is returned with patient_assignment_reason "SELECTED" for treatment arm "Rules-Test8"
 
+  Scenario: Matching exclusion non-hotspot variants - Do not assign
+    Given  the patient assignment json "patient_json_with_matching_non-hotspot-rules_gene-exon-match"
+    And treatment arm json "Rules-Test10"
+    When assignPatient service is called
+    Then a patient assignment json is returned with patient_assignment_reason "NO_VARIANT_MATCH" for treatment arm "Rules-Test10"
+
+  Scenario: Matching both inclusion and exclusion non-hotspot variants - Do not assign
+    Given  the patient assignment json "Matching_exclusion_non-hotspot_rule_and_inclusion_variant"
+    And treatment arm json "Rules-Test11"
+    When assignPatient service is called
+    Then a patient assignment json is returned with patient_assignment_reason "NO_VARIANT_MATCH" for treatment arm "Rules-Test11"
+
+  Scenario: Matching at least one exclusion non-hotspot variant - Do not assign
+    Given  the patient assignment json "patient_json_with_matching_non-hotspot-rules_gene-exon-match"
+    And treatment arm json "Rules-Test12"
+    When assignPatient service is called
+    Then a patient assignment json is returned with patient_assignment_reason "NO_VARIANT_MATCH" for treatment arm "Rules-Test12"
 
 #  Scenario: Compasionate care (Patient eligible to be assigned but the treatment arm is closed
 
