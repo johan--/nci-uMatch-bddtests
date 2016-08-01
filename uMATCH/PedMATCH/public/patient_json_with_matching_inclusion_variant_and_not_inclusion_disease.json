@@ -16,7 +16,7 @@
   "diseases": [
     {
       "ctep_category": "Hematopoietic Neoplasm/Lymphoma",
-      "medra_code": "10036712",
+      "disease_code": "10036712",
       "short_name": "Mediastinal large B-cell lymphoma"
     }
   ],

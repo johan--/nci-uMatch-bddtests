@@ -34,13 +34,13 @@
     "copy_number_variants": []
   },
   "exclusion_diseases": [{
-    "medra_code": "10058354",
+    "disease_code": "10058354",
     "ctep_sub_category": null,
     "short_name": "Bronchioloalveolar carcinoma",
     "ctep_category": "Non-Small Cell Lung Cancer"
   }],
   "inclusion_diseases": [{
-    "medra_code": "10033701",
+    "disease_code": "10033701",
     "ctep_sub_category": null,
     "short_name": "Papillary thyroid carcinoma",
     "ctep_category": "Thyroid Cancer"

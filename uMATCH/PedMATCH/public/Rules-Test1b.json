@@ -63,27 +63,27 @@
     }]
   },
   "exclusion_diseases": [{
-    "medra_code": "10058354",
+    "disease_code": "10058354",
     "ctep_sub_category": null,
     "short_name": "Bronchioloalveolar carcinoma",
     "ctep_category": "Non-Small Cell Lung Cancer"
   }, {
-    "medra_code": "10025032",
+    "disease_code": "10025032",
     "ctep_sub_category": null,
     "short_name": "Lung adenocarcinoma",
     "ctep_category": "Non-Small Cell Lung Cancer"
   }, {
-    "medra_code": "90600324",
+    "disease_code": "90600324",
     "ctep_sub_category": null,
     "short_name": "Lung adenocar. w/ bronch. feat.",
     "ctep_category": "Non-Small Cell Lung Cancer"
   }, {
-    "medra_code": "10029514",
+    "disease_code": "10029514",
     "ctep_sub_category": null,
     "short_name": "Non-small cell lung cancer, NOS",
     "ctep_category": "Non-Small Cell Lung Cancer"
   }, {
-    "medra_code": "10025125",
+    "disease_code": "10025125",
     "ctep_sub_category": null,
     "short_name": "Squamous cell lung carcinoma",
     "ctep_category": "Non-Small Cell Lung Cancer"

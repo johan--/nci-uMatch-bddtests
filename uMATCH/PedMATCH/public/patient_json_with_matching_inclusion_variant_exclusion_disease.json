@@ -16,7 +16,7 @@
   "diseases": [
     {
       "ctep_category": "Non-Small Cell Lung Cancer",
-      "medra_code": "10029514",
+      "disease_code": "10029514",
       "short_name": "Non-small cell lung cancer, NOS"
     }
   ],

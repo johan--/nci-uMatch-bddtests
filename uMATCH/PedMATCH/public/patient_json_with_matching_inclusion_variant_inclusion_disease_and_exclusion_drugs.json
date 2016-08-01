@@ -18,7 +18,7 @@
   "diseases": [
     {
       "ctep_category": "Thyroid Cancer",
-      "medra_code": "10033701",
+      "disease_code": "10033701",
       "short_name": "Papillary thyroid carcinoma"
     }
   ],
