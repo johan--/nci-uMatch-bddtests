@@ -1,0 +1,44 @@
+{
+  "patient_id": "PID-1234",
+  "study_id": "APEC1621",
+  "surgical_event_id": "SID-4567",
+  "prior_drugs": [
+    {
+      "drug_id": "763093",
+      "name": "Trametinib",
+      "pathway": "B-RAF inhibitor",
+      "target": "B-RAF"
+    }
+  ],
+  "assays": {
+    "ICCPTENs": "INDETERMINATE"
+  },
+  "diseases": [
+    {
+      "ctep_category": "Thyroid Cancer",
+      "disease_code": "10033701",
+      "short_name": "Papillary thyroid carcinoma"
+    }
+  ],
+  "variant_report": {
+      "single_nucleotide_variants": [
+        {
+          "type":"snv",
+          "confirmed":true,
+          "gene" : "PTEN",
+          "exon" : "22",
+          "oncominevariantclass": "deleterious",
+          "chromosome" : "chr1",
+          "position" : "11184573",
+          "identifier" : "COSM1234",
+          "reference" : "G",
+          "alternative" : "A",
+          "readDepth" : 2124,
+          "alleleFrequency" : 1
+        }
+      ],
+    "indels": [],
+    "copy_number_variants": [],
+    "unified_gene_fusions": []
+  }
+}
