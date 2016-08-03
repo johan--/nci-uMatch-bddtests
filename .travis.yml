@@ -46,7 +46,7 @@ before_script:
   # - "sh -e /etc/init.d/xvfb start"
   # - sleep 3 # give xvfb some time to start
   # Run Delete Script to empty DynamoDB before tests start
-  - cd DeleteScript
+  - cd DataSetup
   - ./dynamo_delete_script.rb -p _test -a $AWS_ACCESS_KEY_ID -s $AWS_SECRET_ACCESS_KEY -e 'https://dynamodb.us-east-1.amazonaws.com' -r us-east-1
   - cd ..
   # Reset ECOG Mock service Data
