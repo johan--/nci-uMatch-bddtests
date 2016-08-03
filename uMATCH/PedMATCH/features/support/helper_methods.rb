@@ -116,9 +116,13 @@ class Helper_Methods
       @res = RestClient::Request.execute(:url => service, :method => :post, :verify_ssl => false, :payload => payload, :headers=>{:content_type => 'json', :accept => 'json'})
     rescue StandardError => e
       print "Error: #{e.message} occurred\n"
-      print "Response:#{e.response}\n"
-      result = JSON.parse(e.response)
-      result['status'] = 'Failure'
+      # print "Response:#{e.response}\n"
+      if (e.response).empty?
+        result = {"Error":e.message}
+      else
+        result = JSON.parse(e.response)
+        result['status'] = 'Failure'
+      end
       return result
     end
     result = JSON.parse(@res)

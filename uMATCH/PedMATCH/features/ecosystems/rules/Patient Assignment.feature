@@ -187,7 +187,11 @@ Feature: Ensure the rules are fired correctly and patients are assigned to the r
     Then a patient assignment json is returned with reason category "SELECTED" for treatment arm "TB_LOE_Rules-Test1b"
 
 
-  
+  Scenario: Tie-breaker - Randomizer is applied to a choose a treatment arm
+    Given  the patient assignment json "Patient_tie-breaker"
+    And treatment arm json "tie-breaker_Randomizer_TA"
+    When assignPatient service is called
+    Then a patient assignment json is returned with reason category "RANDOMIZER_TIE_BREAKER" for treatment arm "TB_LOE_Rules-Test1a"
 
 #  Scenario: Compasionate care (Patient eligible to be assigned but the treatment arm is closed
 

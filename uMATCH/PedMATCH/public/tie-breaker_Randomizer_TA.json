@@ -1,0 +1,198 @@
+[
+    {
+    "active": null,
+    "name": "TB_LOE_Rules-Test1a",
+    "date_created": "2016-06-24T15:38:31+00:00",
+    "version": "2015-08-06",
+    "stratum_id": "100",
+    "description": "This TA is used by Cuke Test",
+    "target_id": "113",
+    "target_name": "Crizotinib",
+    "gene": "ALK",
+    "treatment_arm_status": "OPEN",
+    "study_id": "APEC1621",
+    "assay_results": [],
+    "num_patients_assigned": null,
+    "date_opened": null,
+    "treatment_arm_drugs": [{
+      "name": "Crizotinib",
+      "pathway": "ALK",
+      "drug_id": "113"
+    }],
+    "variant_report": {
+      "single_nucleotide_variants": [],
+      "indels": [],
+      "non_hotspot_rules": [{
+        "inclusion": true,
+        "oncominevariantclass": "deleterious",
+        "public_med_ids": null,
+        "gene": "PTEN",
+        "arm_specific": "false",
+        "level_of_evidence": "3.0",
+        "function": null,
+        "protein_match": null,
+        "type": "nhr",
+        "exon": null
+      }],
+      "copy_number_variants": [],
+      "gene_fusions": [{
+        "reference": "A",
+        "gene_name": "ALK",
+        "identifier": "TPM3-ALK.T7A20",
+        "inclusion": true,
+        "public_med_ids": ["23724913"],
+        "arm_specific": "false",
+        "level_of_evidence": "2.0",
+        "chromosome": "2.0",
+        "alternative": "[chr1:154142875[A",
+        "description": "ALK translocation",
+        "position": "29446394",
+        "type": "gf"
+      }, {
+        "reference": "C",
+        "gene_name": "FGFR2",
+        "identifier": "FGFR2-OFD1.F17O3",
+        "inclusion": false,
+        "public_med_ids": null,
+        "arm_specific": "false",
+        "level_of_evidence": "3.0",
+        "chromosome": "10.0",
+        "alternative": "C[chrX:13754596[",
+        "description": "some description",
+        "position": "123243211",
+        "type": "gf"
+      }]
+    },
+    "exclusion_diseases": [{
+      "disease_code": "10058354",
+      "ctep_sub_category": null,
+      "short_name": "Bronchioloalveolar carcinoma",
+      "ctep_category": "Non-Small Cell Lung Cancer"
+    }, {
+      "disease_code": "10025032",
+      "ctep_sub_category": null,
+      "short_name": "Lung adenocarcinoma",
+      "ctep_category": "Non-Small Cell Lung Cancer"
+    }, {
+      "disease_code": "90600324",
+      "ctep_sub_category": null,
+      "short_name": "Lung adenocar. w/ bronch. feat.",
+      "ctep_category": "Non-Small Cell Lung Cancer"
+    }, {
+      "disease_code": "10029514",
+      "ctep_sub_category": null,
+      "short_name": "Non-small cell lung cancer, NOS",
+      "ctep_category": "Non-Small Cell Lung Cancer"
+    }, {
+      "disease_code": "10025125",
+      "ctep_sub_category": null,
+      "short_name": "Squamous cell lung carcinoma",
+      "ctep_category": "Non-Small Cell Lung Cancer"
+    }],
+    "inclusion_diseases": [{
+      "disease_code": "10033701",
+      "ctep_sub_category": null,
+      "short_name": "Papillary thyroid carcinoma",
+      "ctep_category": "Thyroid Cancer"
+    }],
+    "exclusion_drugs": [{
+      "name": "Doxorubicin Hydrochloride",
+      "drug_id": "10001",
+      "drug_class": "ALK inhibitor",
+      "target": "ALK"
+    }],
+    "pten_results": null,
+    "status_log": null,
+    "current_patients": null,
+    "former_patients": null,
+    "not_enrolled_patients": null,
+    "pending_patients": null
+    },
+  {
+    "active": null,
+    "name": "TB_LOE_Rules-Test1b",
+    "date_created": "2016-06-24T15:38:31+00:00",
+    "version": "2015-08-06",
+    "stratum_id": "100",
+    "description": "This TA is used by Cuke Test",
+    "target_id": "113",
+    "target_name": "Crizotinib",
+    "gene": "ALK",
+    "treatment_arm_status": "OPEN",
+    "study_id": "APEC1621",
+    "assay_results": [],
+    "num_patients_assigned": null,
+    "date_opened": null,
+    "treatment_arm_drugs": [{
+      "name": "Crizotinib",
+      "pathway": "ALK",
+      "drug_id": "113"
+    }],
+    "variant_report": {
+      "single_nucleotide_variants": [
+        {
+          "type":"snv",
+          "gene" : "PTEN",
+          "exon" : "22",
+          "oncominevariantclass": "deleterious",
+          "chromosome" : "chr1",
+          "position" : "11184573",
+          "identifier" : "COSM1234",
+          "reference" : "G",
+          "alternative" : "A",
+          "filter" : "PASS",
+          "transcript" : "NM_004958.3",
+          "location" : "exonic",
+          "level_of_evidence": "3.0",
+          "readDepth" : 2124,
+          "rare" : false,
+          "alleleFrequency" : 1,
+          "flowAlternativeAlleleObservationCount" : "350",
+          "flowReferenceAlleleObservations" : "1998",
+          "referenceAlleleObservations" : 2120,
+          "alternativeAlleleObservationCount" : 0,
+          "inclusion" : true,
+          "armSpecific" : false
+        }
+      ],
+      "indels": [],
+      "non_hotspot_rules": [
+        {
+          "inclusion": false,
+          "public_med_ids": null,
+          "gene": "EGFR",
+          "exon":"20",
+          "arm_specific": "false",
+          "level_of_evidence": "3.0",
+          "protein_match": null,
+          "type": "nhr"
+        }
+      ],
+      "copy_number_variants": []
+    },
+    "exclusion_diseases": [{
+      "disease_code": "10058354",
+      "ctep_sub_category": null,
+      "short_name": "Bronchioloalveolar carcinoma",
+      "ctep_category": "Non-Small Cell Lung Cancer"
+    }],
+    "inclusion_diseases": [{
+      "disease_code": "10033701",
+      "ctep_sub_category": null,
+      "short_name": "Papillary thyroid carcinoma",
+      "ctep_category": "Thyroid Cancer"
+    }],
+    "exclusion_drugs": [{
+      "name": "Doxorubicin Hydrochloride",
+      "drug_id": "10001",
+      "drug_class": "ALK inhibitor",
+      "target": "ALK"
+    }],
+    "pten_results": null,
+    "status_log": null,
+    "current_patients": null,
+    "former_patients": null,
+    "not_enrolled_patients": null,
+    "pending_patients": null
+  }
+]

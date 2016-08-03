@@ -17,13 +17,14 @@ end
 
 
 When(/^assignPatient service is called$/) do
-
   msgHash = Hash.new
   msgHash = {'patient'=> @patient, 'treatment_arms'=>@ta}
   @payload = msgHash.to_json
 
   res = Helper_Methods.post_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['rules_PORT']+'/nci-match-rules/rules/rs/assignPatient',@payload)
+
   @res = res.to_json
+  expect((JSON.parse(@res)['Error'])).to be_nil
 end
 
 Then(/^a patient assignment json is returned with reason category "([^"]*)" for treatment arm "([^"]*)"$/) do |assignment_reason,ta|
