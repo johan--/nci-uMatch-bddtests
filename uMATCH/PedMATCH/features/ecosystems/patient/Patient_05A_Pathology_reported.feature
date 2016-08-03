@@ -4,21 +4,21 @@ Feature: Pathology Messages
 
   Scenario Outline: PT_PR01. Pathology report with invalid patient_id(empty, non-existing, null) should fail
     Given template pathology report with surgical_event_id: "SEI_01" for patient: "<value>"
-    When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"
+    When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"
     Examples:
-      |value     |
-      |          |
-      |nonPatient|
-      |null      |
+      |value     |message                                               |
+      |          |was not of a minimum string length of 1               |
+      |nonPatient|not existing                                          |
+      |null      |type NilClass did not match the following type: string|
   Scenario Outline: PT_PR02. Pathology report with invalid study_id(empty, non-existing, null) should fail
     Given template pathology report with surgical_event_id: "SEI_01" for patient: "PT_PR02_TissueReceived"
     Then set patient message field: "study_id" to value: "<value>"
-    When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"
+    When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"
     Examples:
-      |value     |
-      |          |
-      |other     |
-      |null      |
+      |value     |message                                               |
+      |          |was not of a minimum string length of 1               |
+      |other     |not existing                                          |
+      |null      |type NilClass did not match the following type: string|
   Scenario Outline: PT_PR03. Pathology report with invalid surgical_event_id(empty, non-existing, null) should fail
 #		Test data: Patient=PT_PR03_TissueReceived, with surgical_event_id=SEI_01 
     Given template pathology report with surgical_event_id: "<value>" for patient: "PT_PR03_TissueReceived"

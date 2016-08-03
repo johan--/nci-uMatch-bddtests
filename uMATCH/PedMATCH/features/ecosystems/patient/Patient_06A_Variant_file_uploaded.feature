@@ -7,36 +7,36 @@ Feature: Variant files uploaded message
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"
     Examples:
     |value          |message                                                                            |
-    |               |                                                                                   |
-    |null           |                                                                                   |
-    |nonPatient     |                                                                                   |
+    |               |was not of a minimum string length of 1                                            |
+    |null           |NilClass did not match the following type: string                                  |
+    |nonPatient     |patient does not exist                                                             |
 
   Scenario Outline: PT_VU02. variant files uploaded message with invalid surgical_event_id should fail
     Given template variant uploaded message for patient: "PT_VU02_TissueShipped", it has surgical_event_id: "<SEI>", molecular_id: "MOI_01" and analysis_id: "ANI_01"
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"
     Examples:
       |SEI            |message                                                                            |
-      |               |                                                                                   |
-      |null           |                                                                                   |
-      |other          |                                                                                   |
+      |               |was not of a minimum string length of 1                                            |
+      |null           |NilClass did not match the following type: string                                  |
+      |other          |cannot transition from 'TISSUE_NUCLEIC_ACID_SHIPPED'                               |
 
   Scenario Outline: PT_VU03. variant files uploaded message with invalid molecular_id should fail
     Given template variant uploaded message for patient: "PT_VU03_TissueShipped", it has surgical_event_id: "SEI_01", molecular_id: "<MOI>" and analysis_id: "ANI_01"
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"
     Examples:
       |MOI            |message                                                                            |
-      |               |                                                                                   |
-      |null           |                                                                                   |
-      |other          |                                                                                   |
+      |               |was not of a minimum string length of 1                                            |
+      |null           |NilClass did not match the following type: string                                  |
+      |other          |cannot transition from 'TISSUE_NUCLEIC_ACID_SHIPPED'                               |
 
   Scenario Outline: PT_VU04. variant files uploaded message with invalid analysis_id should fail
     Given template variant uploaded message for patient: "PT_VU04_TissueShipped", it has surgical_event_id: "SEI_01", molecular_id: "MOI_01" and analysis_id: "<ANI>"
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"
     Examples:
       |ANI            |message                                                                            |
-      |               |                                                                                   |
-      |null           |                                                                                   |
-      |other          |                                                                                   |
+      |               |was not of a minimum string length of 1                                            |
+      |null           |NilClass did not match the following type: string                                  |
+      |other          |cannot transition from 'TISSUE_NUCLEIC_ACID_SHIPPED'                               |
 
   Scenario: PT_VU05. variant files uploaded message using non-current specimen should fail
 #  Test patient: PT_VU05_TissueShipped: surgical_event_id: SEI_01, molecular_id: MOI_01 tissue shipped;
@@ -53,7 +53,7 @@ Feature: Variant files uploaded message
   Scenario: PT_VU07. variant files uploaded with new analysis_id cannot be accepted when patient has only TISSUE_SLIDE_SPECIMEN_SHIPPED status but has no TISSUE_NUCLEIC_ACID_SHIPPED status
 #  Test patient: PT_VU07_SlideShipped: surgical_event_id: SEI_01 slide shipped, tissue not shipped;
     Given template variant uploaded message for patient: "PT_VU07_SlideShipped", it has surgical_event_id: "SEI_01", molecular_id: "MOI_01" and analysis_id: "ANI_01"
-    When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Failure"
+    When posted to MATCH patient trigger service, returns a message that includes "cannot transition from 'TISSUE_SPECIMEN_RECEIVED'" with status "Failure"
 
   Scenario: PT_VU08. new uploaded variant files should has PENDING as default status
     Given template variant uploaded message for patient: "PT_VU08_TissueShipped", it has surgical_event_id: "SEI_01", molecular_id: "MOI_01" and analysis_id: "ANI_01"
