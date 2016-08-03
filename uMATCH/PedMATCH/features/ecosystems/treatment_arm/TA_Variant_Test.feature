@@ -177,6 +177,23 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
       |nhr          |noAType                          |
       |snv          |@NT$N                            |
 
+  Scenario Outline: TA_VR8a. Variant without type field should fail
+    Given template treatment arm json with a random id
+    Then clear template treatment arm json's variant: "<string>" list
+    Then clear template treatment arm json's variant: "<variantType>" list
+    Then create a template variant: "<variantType>" for treatment arm
+    And remove template treatment arm variant field: "type"
+    And add template variant: "<variantType>" to template treatment arm json
+    When posted to MATCH newTreatmentArm
+    Then a failure message is returned which contains: "Validation failed."
+    Examples:
+      |variantType  |
+      |snv          |
+      |cnv          |
+      |gf           |
+      |id           |
+      |nhr          |
+
   Scenario: TA_VR9. Duplicated Non-Hotspot Rules will be ignored
     Given template treatment arm json with an id: "APEC1621-VR9-1"
     Then clear template treatment arm json's variant: "nhr" list
