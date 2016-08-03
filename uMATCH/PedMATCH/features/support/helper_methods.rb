@@ -117,9 +117,15 @@ class Helper_Methods
     rescue StandardError => e
       print "Error: #{e.message} occurred\n"
       print "Response:#{e.response}\n"
-      return JSON.parse(e.response)
+      result = JSON.parse(e.response)
+      result['status'] = 'Failure'
+      return result
     end
-    return JSON.parse(@res)
+    result = JSON.parse(@res)
+    httpCode = "#{@res.code}"
+    status = httpCode=='200'?'Success':'Failure'
+    result['status'] = status
+    return result
   end
 
   def Helper_Methods.aFewDaysOlder()
