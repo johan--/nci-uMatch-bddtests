@@ -156,7 +156,13 @@ Feature: Ensure the rules are fired correctly and patients are assigned to the r
     Given  the patient assignment json "patient_json_with_matching_inclusion_variant_inclusion_disease"
     And treatment arm json "Rules-Test1-CLOSED"
     When assignPatient service is called
-    Then the patient assignment reason is "REQUESTED_COM_CARE" for treatment arm "Rules-Test1-CLOSED"
+    Then the patient assignment reason is "REQUESTED_COM_CARE"
+
+  Scenario: Matching on a suspended TA puts the patient on compassionate care
+    Given  the patient assignment json "patient_json_with_matching_inclusion_variant_inclusion_disease"
+    And treatment arm json "Rules-Test1-SUSPENDED"
+    When assignPatient service is called
+    Then the patient assignment reason is "REQUESTED_COM_CARE"
 
   Scenario: Tie-breaker - Level of Evidence: the lower the value the greater the level of evidence tie-breaker  is applied to choose a treatment arm.
     Given  the patient assignment json "Patient_tie-breaker"
@@ -191,11 +197,15 @@ Feature: Ensure the rules are fired correctly and patients are assigned to the r
     Given  the patient assignment json "Patient_tie-breaker"
     And treatment arm json "tie-breaker_Randomizer_TA"
     When assignPatient service is called
-    Then a patient assignment json is returned with reason category "RANDOMIZER_TIE_BREAKER" for treatment arm "TB_LOE_Rules-Test1a"
+    Then the patient assignment reason is "AVAILABLE"
+#@rules
+#  Scenario: Tie-breaker - patients with 2 variants one with readDepth >=450 and another variant with readDepth < 450, will be assigned to a treatment arm with matching variant with readDepth >=450
+#    Given  the patient assignment json "Patient_read-depth_tie-breaker"
+#    And treatment arm json "tie-breaker_read-depth_TA"
+#    When assignPatient service is called
+#    Then the patient assignment reason is "AVAILABLE"
 
-#  Scenario: Compasionate care (Patient eligible to be assigned but the treatment arm is closed
 
-#  Scenario: Matching patient who has already taken the eligible arm and progressed
 
 
 
