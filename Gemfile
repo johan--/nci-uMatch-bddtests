@@ -40,7 +40,7 @@ group :test, :development do
   gem 'aws-sdk', '~>2'
   gem 'aws-sdk-rails'
   gem 'aws-record'
-  gem 'nci_match_patient_models', '0.47.0', :git => 'git://github.com/CBIIT/nci-match-lib.git', :branch => 'master'
+  gem 'nci_match_patient_models', '0.48.0', :git => 'git://github.com/CBIIT/nci-match-lib.git', :branch => 'master'
 
 
 
