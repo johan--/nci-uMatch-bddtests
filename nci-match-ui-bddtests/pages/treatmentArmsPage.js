@@ -14,8 +14,8 @@ var TreatmentArmsPage = function() {
     // HEader of the above table
     this.taTableHeaderArray = element.all(by.css('[dt-options="TreatmentArmsCtrl.dtOptions"] th[class^="sorting"]'));
 
-    // List of all Patients Table Assigned to the selected treatment arm as seen on the treatment arms detailed page.
-    this.patientTaTable = element(by.css('[dt-options="TaCtrl.dtOptions"]'));
+    // Patients Table That contains all the patient list Assigned to the selected treatment arm as seen on the treatment arms detailed page.
+    this.patientTaTable = element(by.css('.tab-pane.active.ng-scope table[dt-options="dtOptions"]'));
 
     // Returns an array of all the rows in the treatment arm table.
     this.taTableData = element.all(by.css('a[href^="#/treatment-arm?"]'));
@@ -25,7 +25,7 @@ var TreatmentArmsPage = function() {
     // The values of the labels within the left side box
     this.leftInfoBoxItems = element.all(by.css('#left-info-box dd'));
     // The drop down showing the versions of the treatment Arm
-    this.versionDropDownSelector = element(by.binding('dropdownModel[labelField]'));
+    this.versionDropDownSelector = element(by.binding('currentVersion.version'));
 
     // Download PDF
     this.downloadPDFButton = element(by.css('button[title="Export Variant Report to PDF"]'));
@@ -55,9 +55,9 @@ var TreatmentArmsPage = function() {
     this.diseasePieChart = element(by.css('#diseasePieChartContainer'));
 
     //History tab subheading
-    this.historyTabSubHeading = element(by.css('.panel-body>.table-hover th'));
+    this.historyTabSubHeading = element(by.css('.tab-pane.active>.panel-body>.ibox-title'));
     // History list of versions
-    this.listOfVersions = element.all(by.css('.panel-body>.table-hover>tbody>tr>.ng-binding'));
+    this.listOfVersions = element.all(by.repeater('version in versionHistory'));
 
     // Left info box
     this.taName = element(by.binding('currentVersion.name'));
@@ -119,7 +119,7 @@ var TreatmentArmsPage = function() {
     ];
     this.expectedMainTabs = ['Analysis', 'Rules', 'History'];
     this.expectedRulesSubTabs =
-        ['Drugs / Diseases', 'SNVs / MNVs / Indels', 'CNV', 'Gene Fusion', 'Non-Hotspot Rules', 'Non-Sequencing Assays'];
+        ['Drugs / Diseases', 'SNVs / MNVs / Indels', 'CNVs', 'Gene Fusions', 'Non-Hotspot Rules', 'Non-Sequencing Assays'];
 
 
     /** This function returns the text that the name of the Treatment Arm in the row.
@@ -466,11 +466,11 @@ var TreatmentArmsPage = function() {
 
     function getActualVariantName(variantName){
         var variantMapping = {
-            'SNV / MNV'         : 'single_nucleotide_variants',
-            'Indel'             : 'indels',
-            'CNV'               : 'copy_number_variants',
-            'Non-Hotspot Rules' : 'non_hotspot_rules',
-            'Gene Fusion'       : 'gene_fusions'
+            'SNV / MNV / Indels' : 'single_nucleotide_variants',
+            'Indel'              : 'indels',
+            'CNVs'               : 'copy_number_variants',
+            'Non-Hotspot Rules'  : 'non_hotspot_rules',
+            'Gene Fusions'       : 'gene_fusions'
         };
         return variantMapping[variantName];
     }

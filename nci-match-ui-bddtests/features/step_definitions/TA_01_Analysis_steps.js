@@ -29,6 +29,7 @@ module.exports = function () {
     this.When(/^I click on one of the treatment arms$/, function (callback) {
         //Here the user is clicking on the first treatment arm present.
         taPage.returnTreatmentArmId(taTableData, 0).then(function (taId) {
+            console.log(taId);
             currentTreatmentId = taPage.stripTreatmentArmId(taId);
             element(by.linkText(taId)).click().then(callback);
         });
@@ -43,16 +44,17 @@ module.exports = function () {
         })
     });
 
-    this.When(/^I go to treatment arm with "(.+)" as the id$/, function (taId, callback) {
+    this.When(/^I go to treatment arm with "(.+)" as the id and "(.+)" as stratum id$/, function (taId,stratem, callback) {
         var response;
         currentTreatmentId = taId;
         taPage.setTreatmentArmId(taId);
+        var location =  'treatment-arm?name=' + taId + '&stratum=' + stratem;
         response = utilities.callApiForDetails(currentTreatmentId, 'treatmentArms');
 
         response.get().then(function () {
             treatmentArmAPIDetails = utilities.getJSONifiedDetails(response.entity());
             firstTreatmentArm = treatmentArmAPIDetails[0];
-            browser.setLocation('treatment-arm/' + taId, 6000).then(function () {
+            browser.setLocation(location , 6000).then(function () {
                 callback();
             }, function(err){
                 console.log(browser.getCurrentUrl());
@@ -130,6 +132,7 @@ module.exports = function () {
     });
 
     this.Then(/^I should see the Name Details$/, function (callback) {
+        //todo: Make sure to check for the name as a combination of TA and stratem
         utilities.checkElementArray(taPage.leftInfoBoxLabels, taPage.expectedLeftBoxLabels);
 
         expect(taPage.taName.get(1).getText()).to.eventually.equal(firstTreatmentArm.name);
@@ -174,9 +177,13 @@ module.exports = function () {
     });
 
 
-    this.Then(/^I should see the All Patients Data on the Treatment Arm$/, function (callback) {
+    this.Then(/^I should see the All Patients Data Table on the Treatment Arm$/, function (callback) {
         expect(browser.isElementPresent(taPage.patientTaTable)).to.eventually.be.true;
         browser.sleep(50).then(callback);
+    });
+
+    this.Then(/^I should see the All Patients Data on the Treatment Arm$/, function(callback){
+        callback.pending();
     });
 
     this.Then(/^I should sort by different columns$/, function (callback) {
@@ -211,7 +218,7 @@ module.exports = function () {
     });
 
     this.Then(/^I should see the different versions of the Treatment Arm$/, function (callback) {
-        expect(taPage.historyTabSubHeading.getText()).to.eventually.equal('Version');
+        expect(taPage.historyTabSubHeading.getText()).to.eventually.equal('Version History');
         expect(taPage.listOfVersions.count()).to.eventually.be.above(0);
         browser.sleep(50).then(callback);
     });

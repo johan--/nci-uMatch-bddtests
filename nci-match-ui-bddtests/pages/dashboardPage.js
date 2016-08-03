@@ -20,9 +20,6 @@ var DashboardPage = function() {
     };
 
     this.goToPageName = function(pageName) {
-        if (pageName == 'CLIA Labs') {
-            pageName ='iradmin/mocha';
-        }
         browser.get('/#/' + pageName, 6000);
         browser.waitForAngular();
     };

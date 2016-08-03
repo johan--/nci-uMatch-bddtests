@@ -63,6 +63,51 @@ var PatientPage = function () {
         }
     };
 
+    // *****************  Tissue Reports / Blood Variant Reports Tab  ********************//
+    // This the master panel STRING for Tissue reports
+    this.tissueMasterPanelString = 'div[ng-if="currentTissueVariantReport"]';
+    // master panel string for blood variant reports
+    this.bloodMasterPanelString = 'div[ng-if="currentBloodVariantReport"]';
+    //The String is the locator to get access to all the tables under the variant Report section namely, SNV, CNV and GeneFusion
+    this.tissueTableString = 'div[ng-if="variantReportMode === \'FILTERED\'"]>.table-responsive';
+
+    // the hash below gives you access to the repeater locator string for the table based on the type of variant
+    this.tableTypeRepeaterString = {
+        "SNVs/MNVs/Indels": "variant in currentTissueVariantReport.variants.snvs_and_indels",
+        "Copy Number Variant(s)":"variant in currentTissueVariantReport.variants.copy_number_variants",
+        "Gene Fusion(s)":"variant in currentTissueVariantReport.variants.gene_fusions"
+
+    };
+
+
+    // This the drop down for the surgical event under the Tissue Reports and blood variant.
+    this.variantReportDropDown = element(by.binding('tissueVariantReportOption.text'));
+    this.bloodVariantReportDropDown = element(by.binding('bloodVariantReportOption.text'));
+
+    //These are the elements present in the summary boxes of tissue reports
+    this.tissueSurgicalEventId     = element(by.binding('currentTissueVariantReport.surgical_event_id'));
+    this.tissueAnalysisId          = element(by.binding('currentTissueVariantReport.analysis_id'));
+    this.tissueMolecularId         = element(by.binding('currentTissueVariantReport.molecular_id'));
+    this.tissueFileReceivedDate    = element(by.binding('currentTissueVariantReport.variant_report_received_date'));
+    this.tissueReportStatus        = element(by.binding('currentTissueVariantReport.status'));
+    this.tissueTotalVariants       = element(by.binding('currentTissueVariantReport.total_variants'));
+    this.tissueTotalCellularity    = element(by.binding('currentTissueVariantReport.cellularity'));
+    this.tissueTotalMois           = element(by.binding('currentTissueVariantReport.total_mois'));
+    this.tissueTotalAMoisy         = element(by.binding('currentTissueVariantReport.total_amois'));
+    this.tissueTotalConfirmedMois  = element(by.binding('currentTissueVariantReport.total_confirmed_mois'));
+    this.tissueTotalConfirmedAMois = element(by.binding('currentTissueVariantReport.total_confirmed_amois'));
+
+    // This is the assignment Report Section panel. You can get access to the other elements within this panel by using #all(by.<property>)
+    this.assignmentReportSection = element.all(by.css("div[ng-if=\"variantReportMode!=='QC'\"]")).get(0);
+
+    //These are the elements present in the summary boxes of blood variant reports
+    this.bloodAnalysisId        = element(by.binding('currentBloodVariantReport.analysis_id'));
+    this.bloodMolecularId       = element(by.binding('currentBloodVariantReport.molecular_id'));
+    this.bloodFileReceivedDate  = element(by.binding('currentBloodVariantReport.variant_report_received_date'));
+    this.bloodReportStatus      = element(by.binding('currentBloodVariantReport.status'));
+    this.bloodTotalVariants     = element(by.binding('currentBloodVariantReport.total_variants'));
+    this.bloodTotalCellularity  = element(by.binding('currentBloodVariantReport.cellularity'));
+
 
     // ****************** Expected values *******************//
     // Patient list table
@@ -87,6 +132,16 @@ var PatientPage = function () {
         'SNVs/MNVs/Indels(s) ##', 'Copy Number Variant(s)', 'Gene Fusion(s)',
         'Patient Documents'
     ];
+
+    // Expected Values in the Tissue Report Page.
+    this.expVarReportTables = [ 'SNVs/MNVs/Indels', 'Copy Number Variant(s)', 'Gene Fusion(s)' ];
+    this.expSNVTableHeadings = [ 'Confirm', 'Comment', 'ID', 'aMOI', 'Chrom', 'Position', 'CDS Ref', 'CDS Alt', 'OCP Ref',
+        'OCP Alt', 'Strand', 'Allele Freq', 'Func Gene', 'Oncomine Variant Class', 'Exon', 'Function', 'HGVS', 'Read Depth ',
+        'Transcript', 'Protein' ];
+    this.expCNVTableHeadings = [ 'Confirm', 'Comment', 'ID', 'aMOI', 'Chrom', 'Raw CN', 'CN', 'CI 5%', 'CI 95%' ];
+    this.expGFTableHeadings = [ 'Confirm', 'Comment', 'ID', 'aMOI', 'Gene 2', 'Gene 2 Count', 'Gene 1', 'Gene 1 Count', 'Annotation' ];
+
+
 
     //**************************** Functions **********************//
 

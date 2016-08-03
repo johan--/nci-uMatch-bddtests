@@ -36,14 +36,14 @@ module.exports = function () {
         var dataNode;
         var refData;        // Node to collect data from treatment arm api call.
         var repeaterString; // repeater string used to collect rows from the relevant table
-        
+
         firstPart = inclusionType === 'Inclusionary' ? 'inclusion' : 'exclusion';
         secondPart = tableType === 'Diseases' ? 'diseases': 'drugs';
 
         dataNode = firstPart + '_' + secondPart;
         refData = firstTreatmentArm[dataNode]; // Reference data
 
-        repeaterString = 'item in selectedVersion.' + inclusionType.toLocaleLowerCase() + tableType;
+        repeaterString = 'item in currentVersion.' + dataNode;
 
         if (refData != null) {
             expect(element.all(by.repeater(repeaterString)).count()).to.eventually.equal(refData.length);

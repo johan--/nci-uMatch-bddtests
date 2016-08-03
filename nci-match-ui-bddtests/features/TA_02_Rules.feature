@@ -9,7 +9,7 @@ Feature: Treatment Arm Rules
   Background:
     Given I am a logged in user
     And I navigate to the treatment-arms page
-    And I go to treatment arm with "CukeTestUI-01" as the id
+    And I go to treatment arm with "APEC1621-T" as the id and "stratum1" as stratum id
 
   @treatment_arm @ui @broken
   Scenario Outline: Logged in user can access <subTabName> with Inclusion/Exclusion details under Rules
@@ -23,8 +23,8 @@ Feature: Treatment Arm Rules
     Examples:
       | subTabName           |
       | SNVs / MNVs / Indels |
-      | CNV                  |
-      | Gene Fusion          |
+      | CNVs                 |
+      | Gene Fusions         |
       | Non-Hotspot Rules    |
 
 

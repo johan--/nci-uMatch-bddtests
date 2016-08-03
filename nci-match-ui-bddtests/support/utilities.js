@@ -70,6 +70,8 @@ var Utilities = function() {
     this.checkElementIncludesAttribute = function (element, attribute, value) {
         element.getAttribute(attribute).then(function (allAttributes) {
             var attributeArray = allAttributes.split(' ');
+            console.log('Value ' + value);
+            console.log('Attribute Array = ' + attributeArray);
             expect(attributeArray).to.include(value);
         });
     };
@@ -83,9 +85,6 @@ var Utilities = function() {
 
     this.callApiForDetails = function (id, api ){
         var routeUrl = buildUrl(id, api);
-
-        console.log(routeUrl);
-
         var self = this;
         return{
             get: get,
