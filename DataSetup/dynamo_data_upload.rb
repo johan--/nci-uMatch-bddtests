@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 require 'nci_match_patient_models'
 require_relative 'table_details'
 require_relative 'options_manager'
@@ -28,10 +29,26 @@ class DynamoDataUploader
 
 
   def initialize(options)
-    @endpoint = options[:endpoint].nil??DEFAULT_AWS_ENDPOINT:options[:endpoint]
-    @region = options[:region].nil??DEFAULT_AWS_REGION:options[:region]
-    @access_key = options[:aws_access_key_id].nil??DEFAULT_AWS_ACCESS_KEY:options[:aws_access_key_id]
-    @secret_key = options[:endpoint].nil??DEFAULT_AWS_SECRET_KEY:options[:@secret_key]
+    if options[:endpoint].nil?
+      @endpoint = DEFAULT_AWS_ENDPOINT
+    else
+      @endpoint = options[:endpoint]
+    end
+    if options[:region].nil?
+      @region = DEFAULT_AWS_REGION
+    else
+      @region = options[:region]
+    end
+    if options[:aws_access_key_id].nil?
+      @access_key = DEFAULT_AWS_ACCESS_KEY
+    else
+      @access_key = options[:aws_access_key_id]
+    end
+    if options[:@secret_key].nil?
+      @secret_key = DEFAULT_AWS_SECRET_KEY
+    else
+      @secret_key = options[:@secret_key]
+    end
 
     Aws.config.update({
                           endpoint: @endpoint,
