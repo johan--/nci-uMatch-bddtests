@@ -4,6 +4,7 @@ require 'json'
 require 'optparse'
 require 'ostruct'
 require 'java-properties'
+require_relative('table_details')
 
 class DynamoDb
   attr_accessor :client
@@ -11,9 +12,11 @@ class DynamoDb
   DEFAULT_REGION = 'us-east-1'
   DEFAULT_FILENAME = File.expand_path(File.join(ENV['HOME'], '.aws/credentials'))
 
+  DEFAULT_TABLES   = %w(patient event specimen shipment assignment variant variant_report treatment_arm)
+
   def initialize(options)
-    @prefix = options[:prefix]
-    raise "Provide the prefix or the suffix of the list of tables that you want cleared" if @prefix.nil?
+    # @prefix = options[:prefix]
+    # raise "Provide the prefix or the suffix of the list of tables that you want cleared" if @prefix.nil?
 
     if options[:endpoint].nil?
       LOG.log("Using Default Endpoint: #{DEFAULT_ENDPOINT}", 'INFO')
@@ -86,6 +89,38 @@ class DynamoDb
       retry
     end
   end
+
+  def collect_key_list(name)
+    table_details = TableDetails.const_get(name.upcase)
+    table_list = []
+    begin
+    @client.scan(table_name: name)['items'].each do |elem|
+      row = {}
+      table_details[:keys].each do |key|
+        row[key.to_sym] = elem[key]
+      end
+      table_list << row
+    end
+    rescue => e
+      p e
+    end
+
+    table_list
+  end
+
+  def clear_table(table_name)
+    list = collect_key_list(table_name)
+    return if list.empty?
+    list.each do |keys|
+      key = keys.flatten.first
+      puts "Deleting #{key}: #{keys[key]} from #{table_name}"
+      @client.delete_item(table_name: table_name, key: keys)
+    end
+  end
+
+  def clear_all_tables
+    DEFAULT_TABLES.each { |table| clear_table(table) }
+  end
 end
 
 class LOG
@@ -93,7 +128,6 @@ class LOG
     print_message = msg if level == 'INFO'
     print_message = "************************************** WARNING *************************************\n#{msg}" if level =='WARN'
     puts print_message
-    puts "***************************************************************************"
   end
 end
 
@@ -108,10 +142,10 @@ class OptionsManager
 
     opt_parser = OptParse.new do |opts|
       opts.banner = 'Usage ./dynamo_delete_script.rb [options]'
-
-      opts.on("-p p", "--prefix=p", "[Required] Prefix/Suffix of the table that needs to be cleared") do |prefix|
-        options.prefix = prefix
-      end
+      #
+      # opts.on("-p p", "--prefix=p", "[Required] Prefix/Suffix of the table that needs to be cleared") do |prefix|
+      #   options.prefix = prefix
+      # end
 
       opts.on("-f f", "--file_name=f", "[Required] Location of aws credentials file. DEFAULT is <user_home>/.aws/credentials") do |file|
         options.file_name = file.to_s
@@ -141,4 +175,5 @@ class OptionsManager
 end
 
 options = OptionsManager.parse(ARGV)
-DynamoDb.new(options).clear_tables_by_prefix
+# DynamoDb.new(options).clear_tables_by_prefix
+DynamoDb.new(options).clear_all_tables
