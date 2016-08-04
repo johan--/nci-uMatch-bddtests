@@ -39,4 +39,42 @@ Then(/^the patient assignment reason is "([^"]*)"$/) do |reason|
    expect(JSON.parse(@res)['patientAssignmentStatus']).to eql(reason)
 end
 
+Given(/^a tsv variant report file file "([^"]*)" and treatment arms file "([^"]*)"$/) do |arg1, arg2|
+  @bucket = "bdd-test-data"
+  @tsv = arg1
+  @ta = arg2
+end
+
+When(/^call the amoi rest service$/) do
+  @res = Helper_Methods.get_request_url_param(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['rules_PORT']+'/nci-match-rules/rules/rs/amois',{"bucket"=>@bucket,"tsv"=>@tsv,"ta"=>@ta})
+  p @res
+  expect((JSON.parse(@res)['Error'])).to be_nil
+end
+
+Then(/^moi report is returned with the snv variant "([^"]*)" as an amoi$/) do |arg1|
+  JSON.parse(@res)['single_nucleotide_variants'].each do |snv|
+    if snv['identifier'] == arg1
+      expect(snv['amoi']).to eql(true)
+    end
+  end
+end
+
+
+Then(/^amoi treatment arm names for snv variant "([^"]*)" include:$/) do |arg1, string|
+  arrTA = string.split(/\n+/)
+  JSON.parse(@res)['single_nucleotide_variants'].each do |snv|
+    if snv['identifier'] == arg1
+      expect(snv['treatmentArmNames']).to match_array(arrTA)
+    end
+  end
+end
+
+Then(/^amoi treatment arms for snv variant "([^"]*)" include:$/) do |arg1, string|
+  taHash = JSON.parse(string)
+  JSON.parse(@res)['single_nucleotide_variants'].each do |snv|
+    if snv['identifier'] == arg1
+      expect((snv['treatmentArms']).flatten).to match_array((taHash).flatten)
+    end
+  end
+end
 
