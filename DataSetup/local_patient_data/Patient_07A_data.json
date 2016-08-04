@@ -70,14 +70,14 @@
       "msg_dttm": "2016-02-09T22:06:33+00:00"
     },
     "study_id": "APEC1621",
-    "patient_id": "PT_VC07_VariantReportUploaded",
+    "patient_id": "PT_VC07_VRUploaded",
     "step_number": "1.0",
     "registration_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
       "environment": "4",
-      "request": "REGISTRATION for patient_id PT_VC07_VariantReportUploaded"
+      "request": "REGISTRATION for patient_id PT_VC07_VRUploaded"
     }
   },
   {
@@ -86,14 +86,14 @@
       "msg_dttm": "2016-02-09T22:06:33+00:00"
     },
     "study_id": "APEC1621",
-    "patient_id": "PT_VC08_VariantReportUploaded",
+    "patient_id": "PT_VC08_VRUploaded",
     "step_number": "1.0",
     "registration_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
       "environment": "4",
-      "request": "REGISTRATION for patient_id PT_VC08_VariantReportUploaded"
+      "request": "REGISTRATION for patient_id PT_VC08_VRUploaded"
     }
   },
   {
@@ -102,14 +102,14 @@
       "msg_dttm": "2016-02-09T22:06:33+00:00"
     },
     "study_id": "APEC1621",
-    "patient_id": "PT_VC09_VariantReportUploaded",
+    "patient_id": "PT_VC09_VRUploaded",
     "step_number": "1.0",
     "registration_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
       "environment": "4",
-      "request": "REGISTRATION for patient_id PT_VC09_VariantReportUploaded"
+      "request": "REGISTRATION for patient_id PT_VC09_VRUploaded"
     }
   },
   {
@@ -118,14 +118,14 @@
       "msg_dttm": "2016-02-09T22:06:33+00:00"
     },
     "study_id": "APEC1621",
-    "patient_id": "PT_VC10_VariantReportUploaded",
+    "patient_id": "PT_VC10_VRUploaded",
     "step_number": "1.0",
     "registration_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
       "environment": "4",
-      "request": "REGISTRATION for patient_id PT_VC10_VariantReportUploaded"
+      "request": "REGISTRATION for patient_id PT_VC10_VRUploaded"
     }
   },
   {
@@ -134,14 +134,14 @@
       "msg_dttm": "2016-02-09T22:06:33+00:00"
     },
     "study_id": "APEC1621",
-    "patient_id": "PT_VC11_VariantReportUploaded",
+    "patient_id": "PT_VC11_VRUploaded",
     "step_number": "1.0",
     "registration_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
       "environment": "4",
-      "request": "REGISTRATION for patient_id PT_VC11_VariantReportUploaded"
+      "request": "REGISTRATION for patient_id PT_VC11_VRUploaded"
     }
   },
   {
@@ -150,14 +150,14 @@
       "msg_dttm": "2016-02-09T22:06:33+00:00"
     },
     "study_id": "APEC1621",
-    "patient_id": "PT_VC12_VariantReportUploaded_1",
+    "patient_id": "PT_VC12_VRUploaded_1",
     "step_number": "1.0",
     "registration_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
       "environment": "4",
-      "request": "REGISTRATION for patient_id PT_VC12_VariantReportUploaded_1"
+      "request": "REGISTRATION for patient_id PT_VC12_VRUploaded_1"
     }
   },
   {
@@ -166,14 +166,14 @@
       "msg_dttm": "2016-02-09T22:06:33+00:00"
     },
     "study_id": "APEC1621",
-    "patient_id": "PT_VC12_VariantReportUploaded_2",
+    "patient_id": "PT_VC12_VRUploaded_2",
     "step_number": "1.0",
     "registration_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
       "environment": "4",
-      "request": "REGISTRATION for patient_id PT_VC12_VariantReportUploaded_2"
+      "request": "REGISTRATION for patient_id PT_VC12_VRUploaded_2"
     }
   },
   {
@@ -182,14 +182,14 @@
       "msg_dttm": "2016-02-09T22:06:33+00:00"
     },
     "study_id": "APEC1621",
-    "patient_id": "PT_VC13_VariantReportUploaded",
+    "patient_id": "PT_VC13_VRUploaded",
     "step_number": "1.0",
     "registration_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
       "environment": "4",
-      "request": "REGISTRATION for patient_id PT_VC13_VariantReportUploaded"
+      "request": "REGISTRATION for patient_id PT_VC13_VRUploaded"
     }
   },
 

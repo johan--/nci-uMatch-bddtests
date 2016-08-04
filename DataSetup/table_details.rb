@@ -39,4 +39,17 @@ class TableDetails
       name: 'variant_report',
       keys: %w(surgical_event_id variant_report_received_date)
   }
+
+  def self.treatment_arm_tables
+    %w(treatment_arm)
+  end
+
+  def self.patient_tables
+    %w(patient assignment event shipment specimen variant variant_report)
+  end
+
+  def self.all_tables
+    (self.patient_tables << self.treatment_arm_tables).flatten
+  end
+
 end
