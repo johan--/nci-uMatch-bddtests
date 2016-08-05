@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+require 'bundler/setup'
 require 'nci_match_patient_models'
 require_relative 'table_details'
 require_relative 'options_manager'
