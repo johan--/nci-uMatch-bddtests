@@ -109,9 +109,16 @@ Feature: Test the functionality that filters the variant report based on specifi
   Scenario Outline: Filter-out all Germline SNV variants
     Given a tsv variant report file file "<tsvFile>" and treatment arms file "<TAFile>"
     When call the amoi rest service
-    Then moi report is returned without any variants
+    Then moi report is returned with 0 snv variants
     Examples:
       |tsvFile                                    |TAFile                         |
       |SNV_Germline_filter.tsv                    |SNV_location_intronic_TA.json  |
 
 
+  Scenario Outline: Filter-in if oncomine variant class has the value deleterious
+    Given a tsv variant report file file "<tsvFile>" and treatment arms file "<TAFile>"
+    When call the amoi rest service
+    Then moi report is returned with 1 snv variants
+    Examples:
+      |tsvFile                                    |TAFile                         |
+      |SNV_OVA_deleterious_filter.tsv             |SNV_location_intronic_TA.json  |

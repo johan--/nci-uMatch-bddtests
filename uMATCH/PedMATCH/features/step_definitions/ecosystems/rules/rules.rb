@@ -98,6 +98,6 @@ Then(/^moi report is returned with the snv variant "([^"]*)"$/) do |arg1|
   end
 end
 
-Then(/^moi report is returned without any variants$/) do
-  expect(JSON.parse(@res)['single_nucleotide_variants'].count).to eql(0)
+Then(/^moi report is returned with (\d+) snv variants$/) do |arg1|
+  expect(JSON.parse(@res)['single_nucleotide_variants'].count).to eql(arg1.to_i)
 end
