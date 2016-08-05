@@ -16,14 +16,14 @@ class DynamoDb
     # raise "Provide the prefix or the suffix of the list of tables that you want cleared" if @prefix.nil?
 
     if options[:endpoint].nil?
-      LOG.log("Using Default Endpoint: #{DEFAULT_ENDPOINT}", 'INFO')
+      LOG.log("Using Default Endpoint: #{DEFAULT_ENDPOINT}", :info)
       @endpoint = DEFAULT_ENDPOINT
     else
       @endpoint = options[:endpoint]
     end
 
     if options[:region].nil?
-      LOG.log("Using Default Region: #{DEFAULT_REGION}", 'INFO') if options[:region].nil?
+      LOG.log("Using Default Region: #{DEFAULT_REGION}", :info) if options[:region].nil?
       @region = DEFAULT_REGION
     else
       @region = options[:region]
@@ -31,7 +31,7 @@ class DynamoDb
 
 
     if options[:file_name].nil? && (options[:endpoint].nil? && options[:aws_access_key_id].nil? && options[:aws_secret_access_key].nil?)
-      LOG.log("Using credential file located at #{DEFAULT_FILENAME}", 'INFO')
+      LOG.log("Using credential file located at #{DEFAULT_FILENAME}", :info)
       @file_location = DEFAULT_FILENAME
       set_params_from_file
     elsif options[:aws_access_key_id] && options[:aws_secret_access_key]
@@ -44,7 +44,7 @@ class DynamoDb
       raise "One or more required parameters missing. Please run ./dynamo_delete_script.rb -h for more help"
     end
 
-    LOG.log("File location: #{@file_location} \nendpoint: #{@endpoint}\nregion: #{@region}", 'INFO')
+    LOG.log("File location: #{@file_location} \nendpoint: #{@endpoint}\nregion: #{@region}", :info)
 
     @client = Aws::DynamoDB::Client.new(
         endpoint: @endpoint,
@@ -74,14 +74,14 @@ class DynamoDb
   def clear_tables_by_prefix
     begin
       table_list = select_tables
-      LOG.log "Tables being cleared: \n#{table_list}", 'INFO'
+      LOG.log "Tables being cleared: \n#{table_list}", :info
       table_list.each do |table|
-        LOG.log("Sending delete Request for #{table}", 'INFO')
+        LOG.log("Sending delete Request for #{table}", :info)
         @client.delete_table({table_name: table})
         sleep(1)
       end
     rescue
-      LOG.log("Delete Process Terminated. Resetting the delete process", 'WARN')
+      LOG.log("Delete Process Terminated. Resetting the delete process", :warn)
       sleep(10)
       retry
     end
@@ -98,32 +98,45 @@ class DynamoDb
       end
       table_list << row
     end
+    rescue Aws::DynamoDB::Errors::ResourceNotFoundException => e
+      LOG.log("Table #{name} not found.  Please add table before running you application", :warn)
+      table_list = nil
     rescue => e
       p e
     end
-
     table_list
   end
 
   def clear_table(table_name)
     list = collect_key_list(table_name)
-    return if list.empty?
+
+    return if list.nil?
+
+    if list.size == 0
+      LOG.log("Table #{table_name} is empty skipping...")
+      return
+    end
     list.each do |keys|
       key = keys.flatten.first
-      puts "Deleting #{key}: #{keys[key]} from #{table_name}"
+      LOG.log("Deleting #{key}: #{keys[key]} from #{table_name}")
+
       @client.delete_item(table_name: table_name, key: keys)
     end
   end
 
   def clear_all_tables
-    TableDetails.all_tables.each { |table| clear_table(table) }
+    LOG.log("Deleting all tables related to patient and treatment arm")
+    TableDetails.all_tables.each do |table|
+      LOG.log("#{table.upcase}")
+      clear_table(table)
+    end
   end
 end
 
 class LOG
-  def self.log(msg, level)
-    print_message = msg if level == 'INFO'
-    print_message = "************************************** WARNING *************************************\n#{msg}" if level =='WARN'
+  def self.log(msg, level = :info)
+    print_message = msg if level == :info
+    print_message = "************************************** WARNING *************************************\n#{msg}" if level == :warn
     puts print_message
   end
 end
