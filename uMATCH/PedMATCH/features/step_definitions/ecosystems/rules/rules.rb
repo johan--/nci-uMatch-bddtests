@@ -85,3 +85,15 @@ Then(/^moi report is returned without the snv variant "([^"]*)"$/) do |arg1|
     end
   end
 end
+
+Then(/^moi report is returned with the snv variant "([^"]*)"$/) do |arg1|
+  flag = false
+  JSON.parse(@res)['single_nucleotide_variants'].each do |snv|
+    if snv['identifier'] == arg1
+      flag = true
+    end
+  end
+  if flag == false
+    fail ("The SNV #{arg1} is not found in the moi report")
+  end
+end
