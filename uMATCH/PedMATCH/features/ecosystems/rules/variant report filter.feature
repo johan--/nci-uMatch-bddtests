@@ -39,16 +39,16 @@ Feature: Test the functionality that filters the variant report based on specifi
       |tsvFile                                    |TAFile                         |
       |SNV_NO_PASS_filter.tsv                     |SNV_location_intronic_TA.json  |
 
-#
-#  Scenario Outline: Filter out SVN variants with allele frequency less than 0.5%
-#    Given a vcf file "<vcfFile>" and rule file "<rulesFile>"
-#    When call the moi rest service
-#    Then moi report is returned without the variant "<MOI>"
-#    Examples:
-#      |vcfFile                                    |rulesFile                    |MOI                      |
-#      |SNV_NO_PASS_filter                         |SNV_v4dot1                   |match769.3.2             |
-#
-#
+
+  Scenario Outline: Filter out SVN variants with allele frequency less than 0.05%
+    Given a tsv variant report file file "<tsvFile>" and treatment arms file "<TAFile>"
+    When call the amoi rest service
+    Then moi report is returned without the snv variant "match769.3.2"
+    Examples:
+      |tsvFile                                    |TAFile                         |
+      |SNV_NO_PASS_filter.tsv                     |SNV_location_intronic_TA.json  |
+
+
 #  Scenario Outline: Filter out SVN variants with FAO less than 25
 #    Given a vcf file "<vcfFile>" and rule file "<rulesFile>"
 #    When call the moi rest service
