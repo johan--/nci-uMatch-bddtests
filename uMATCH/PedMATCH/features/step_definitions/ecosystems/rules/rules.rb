@@ -78,3 +78,10 @@ Then(/^amoi treatment arms for snv variant "([^"]*)" include:$/) do |arg1, strin
   end
 end
 
+Then(/^moi report is returned without the snv variant "([^"]*)"$/) do |arg1|
+  JSON.parse(@res)['single_nucleotide_variants'].each do |snv|
+    if snv['identifier'] == arg1
+      fail ("The SNV #{arg1} is found in the moi report")
+    end
+  end
+end
