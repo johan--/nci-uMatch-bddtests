@@ -97,3 +97,7 @@ Then(/^moi report is returned with the snv variant "([^"]*)"$/) do |arg1|
     fail ("The SNV #{arg1} is not found in the moi report")
   end
 end
+
+Then(/^moi report is returned without any variants$/) do
+  expect(JSON.parse(@res)['single_nucleotide_variants'].count).to eql(0)
+end

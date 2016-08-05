@@ -105,13 +105,13 @@ Feature: Test the functionality that filters the variant report based on specifi
 #      |vcfFile                                    |rulesFile                    |eMOI                      |nMOI            |
 #      |SNV_OVA_GENE                               |SNV_v4dot1                   |moip-1,moip-2             |moip-3          |
 #
-#
-#  Scenario Outline: Filter-out all Germline SNV variants
-#    Given a vcf file "<vcfFile>" and rule file "<rulesFile>"
-#    When call the moi rest service
-#    Then moi report is returned without any variants
-#    Examples:
-#      |vcfFile                                    |rulesFile                    |
-#      |SNV_Germline_filter                        |SNV_v4dot1                   |
-#
-#
+
+  Scenario Outline: Filter-out all Germline SNV variants
+    Given a tsv variant report file file "<tsvFile>" and treatment arms file "<TAFile>"
+    When call the amoi rest service
+    Then moi report is returned without any variants
+    Examples:
+      |tsvFile                                    |TAFile                         |
+      |SNV_Germline_filter.tsv                    |SNV_location_intronic_TA.json  |
+
+
