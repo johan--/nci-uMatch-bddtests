@@ -1,0 +1,99 @@
+{
+    "ScannedCount": 4,
+    "Items": [
+        {
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "active_molecular_id": {
+                "S": "MOI_01"
+            },
+            "patient_id": {
+                "S": "PT_SR15_VariantReportUploaded"
+            },
+            "surgical_event_id": {
+                "S": "SEI_01"
+            },
+            "collected_date": {
+                "S": "2016-04-25T15:17:11+00:00"
+            },
+            "received_date": {
+                "S": "2016-04-25T16:17:11+00:00"
+            },
+            "type": {
+                "S": "TISSUE"
+            }
+        },
+        {
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "active_molecular_id": {
+                "S": "MOI_01"
+            },
+            "patient_id": {
+                "S": "PT_SR10_TsVrReceived"
+            },
+            "surgical_event_id": {
+                "S": "SEI_01"
+            },
+            "collected_date": {
+                "S": "2016-04-25T15:17:11+00:00"
+            },
+            "received_date": {
+                "S": "2016-04-25T16:17:11+00:00"
+            },
+            "type": {
+                "S": "TISSUE"
+            }
+        },
+        {
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "active_molecular_id": {
+                "S": "MOI_01"
+            },
+            "patient_id": {
+                "S": "PT_SR14_VariantReportUploaded"
+            },
+            "surgical_event_id": {
+                "S": "SEI_01"
+            },
+            "collected_date": {
+                "S": "2016-04-25T15:17:11+00:00"
+            },
+            "received_date": {
+                "S": "2016-04-25T16:17:11+00:00"
+            },
+            "type": {
+                "S": "TISSUE"
+            }
+        },
+        {
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "active_molecular_id": {
+                "S": "MOI_01"
+            },
+            "patient_id": {
+                "S": "PT_SR12_VariantReportConfirmed"
+            },
+            "surgical_event_id": {
+                "S": "SEI_01"
+            },
+            "collected_date": {
+                "S": "2016-04-25T15:17:11+00:00"
+            },
+            "received_date": {
+                "S": "2016-04-25T16:17:11+00:00"
+            },
+            "type": {
+                "S": "TISSUE"
+            }
+        }
+    ],
+    "Count": 4,
+    "ConsumedCapacity": null
+}

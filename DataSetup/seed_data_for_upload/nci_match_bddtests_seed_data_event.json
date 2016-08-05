@@ -1,0 +1,856 @@
+{
+    "ScannedCount": 26,
+    "Items": [
+        {
+            "entity_id": {
+                "S": "PT_SR15_VariantReportUploaded"
+            },
+            "event_data": {
+                "M": {
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_type": {
+                "S": "patient"
+            },
+            "event_message": {
+                "S": "Patient received REGISTRATION message from COG."
+            },
+            "event_date": {
+                "S": "2016-08-05T21:33:47+00:00"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_SR15_VariantReportUploaded"
+            },
+            "event_data": {
+                "M": {
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
+                    "collected_dttm": {
+                        "S": "2016-04-25T15:17:11+00:00"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "PT_SR15_VariantReportUploaded"
+                    },
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "received_dttm": {
+                        "S": "2016-04-25T16:17:11+00:00"
+                    },
+                    "study_id": {
+                        "S": "APEC1621"
+                    }
+                }
+            },
+            "event_type": {
+                "S": "specimen"
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received from NCH."
+            },
+            "event_date": {
+                "S": "2016-08-05T21:33:58+00:00"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_SR15_VariantReportUploaded"
+            },
+            "event_data": {
+                "M": {
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "molecular_cdna_id": {
+                        "S": "MOI_01C"
+                    },
+                    "molecular_id": {
+                        "S": "MOI_01"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "molecular_dna_id": {
+                        "S": "MOI_01D"
+                    },
+                    "destination": {
+                        "S": "Boston"
+                    }
+                }
+            },
+            "event_type": {
+                "S": "specimen"
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA received from NCH."
+            },
+            "event_date": {
+                "S": "2016-08-05T21:34:18+00:00"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_SR15_VariantReportUploaded"
+            },
+            "event_data": {
+                "M": {
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
+                    "molecular_id": {
+                        "S": "MOI_01"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "variant_report_status": {
+                        "S": "PENDING"
+                    },
+                    "analysis_id": {
+                        "S": "ANI_01"
+                    },
+                    "variant_report_type": {
+                        "S": "TISSUE"
+                    },
+                    "clia_lab": {
+                        "S": "Boston"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
+                    }
+                }
+            },
+            "event_type": {
+                "S": "variant_report"
+            },
+            "event_message": {
+                "S": "Variant Report of type TISSUE received."
+            },
+            "event_date": {
+                "S": "2016-08-05T21:34:31+00:00"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_SR10_TsVrReceived"
+            },
+            "event_data": {
+                "M": {
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_type": {
+                "S": "patient"
+            },
+            "event_message": {
+                "S": "Patient received REGISTRATION message from COG."
+            },
+            "event_date": {
+                "S": "2016-08-05T21:30:03+00:00"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_SR10_TsVrReceived"
+            },
+            "event_data": {
+                "M": {
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
+                    "collected_dttm": {
+                        "S": "2016-04-25T15:17:11+00:00"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "PT_SR10_TsVrReceived"
+                    },
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "received_dttm": {
+                        "S": "2016-04-25T16:17:11+00:00"
+                    },
+                    "study_id": {
+                        "S": "APEC1621"
+                    }
+                }
+            },
+            "event_type": {
+                "S": "specimen"
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received from NCH."
+            },
+            "event_date": {
+                "S": "2016-08-05T21:30:13+00:00"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_SR10_TsVrReceived"
+            },
+            "event_data": {
+                "M": {
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "molecular_cdna_id": {
+                        "S": "MOI_01C"
+                    },
+                    "molecular_id": {
+                        "S": "MOI_01"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "molecular_dna_id": {
+                        "S": "MOI_01D"
+                    },
+                    "destination": {
+                        "S": "Boston"
+                    }
+                }
+            },
+            "event_type": {
+                "S": "specimen"
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA received from NCH."
+            },
+            "event_date": {
+                "S": "2016-08-05T21:30:33+00:00"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_SR10_TsVrReceived"
+            },
+            "event_data": {
+                "M": {
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
+                    "molecular_id": {
+                        "S": "MOI_01"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "variant_report_status": {
+                        "S": "PENDING"
+                    },
+                    "analysis_id": {
+                        "S": "ANI_01"
+                    },
+                    "variant_report_type": {
+                        "S": "TISSUE"
+                    },
+                    "clia_lab": {
+                        "S": "Boston"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
+                    }
+                }
+            },
+            "event_type": {
+                "S": "variant_report"
+            },
+            "event_message": {
+                "S": "Variant Report of type TISSUE received."
+            },
+            "event_date": {
+                "S": "2016-08-05T21:30:46+00:00"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_SR06_Registered"
+            },
+            "event_data": {
+                "M": {
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_type": {
+                "S": "patient"
+            },
+            "event_message": {
+                "S": "Patient received REGISTRATION message from COG."
+            },
+            "event_date": {
+                "S": "2016-08-05T21:29:11+00:00"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_SR02_Registered"
+            },
+            "event_data": {
+                "M": {
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_type": {
+                "S": "patient"
+            },
+            "event_message": {
+                "S": "Patient received REGISTRATION message from COG."
+            },
+            "event_date": {
+                "S": "2016-08-05T21:28:20+00:00"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_SR09_Registered"
+            },
+            "event_data": {
+                "M": {
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_type": {
+                "S": "patient"
+            },
+            "event_message": {
+                "S": "Patient received REGISTRATION message from COG."
+            },
+            "event_date": {
+                "S": "2016-08-05T21:29:42+00:00"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_SR05_Registered"
+            },
+            "event_data": {
+                "M": {
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_type": {
+                "S": "patient"
+            },
+            "event_message": {
+                "S": "Patient received REGISTRATION message from COG."
+            },
+            "event_date": {
+                "S": "2016-08-05T21:29:01+00:00"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_SR04_Registered"
+            },
+            "event_data": {
+                "M": {
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_type": {
+                "S": "patient"
+            },
+            "event_message": {
+                "S": "Patient received REGISTRATION message from COG."
+            },
+            "event_date": {
+                "S": "2016-08-05T21:28:40+00:00"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_SR08_Registered"
+            },
+            "event_data": {
+                "M": {
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_type": {
+                "S": "patient"
+            },
+            "event_message": {
+                "S": "Patient received REGISTRATION message from COG."
+            },
+            "event_date": {
+                "S": "2016-08-05T21:29:32+00:00"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_SR01_Registered"
+            },
+            "event_data": {
+                "M": {
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_type": {
+                "S": "patient"
+            },
+            "event_message": {
+                "S": "Patient received REGISTRATION message from COG."
+            },
+            "event_date": {
+                "S": "2016-08-05T21:28:00+00:00"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_SR14_VariantReportUploaded"
+            },
+            "event_data": {
+                "M": {
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_type": {
+                "S": "patient"
+            },
+            "event_message": {
+                "S": "Patient received REGISTRATION message from COG."
+            },
+            "event_date": {
+                "S": "2016-08-05T21:32:46+00:00"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_SR14_VariantReportUploaded"
+            },
+            "event_data": {
+                "M": {
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
+                    "collected_dttm": {
+                        "S": "2016-04-25T15:17:11+00:00"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "PT_SR14_VariantReportUploaded"
+                    },
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "received_dttm": {
+                        "S": "2016-04-25T16:17:11+00:00"
+                    },
+                    "study_id": {
+                        "S": "APEC1621"
+                    }
+                }
+            },
+            "event_type": {
+                "S": "specimen"
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received from NCH."
+            },
+            "event_date": {
+                "S": "2016-08-05T21:32:56+00:00"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_SR14_VariantReportUploaded"
+            },
+            "event_data": {
+                "M": {
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "molecular_cdna_id": {
+                        "S": "MOI_01C"
+                    },
+                    "molecular_id": {
+                        "S": "MOI_01"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "molecular_dna_id": {
+                        "S": "MOI_01D"
+                    },
+                    "destination": {
+                        "S": "Boston"
+                    }
+                }
+            },
+            "event_type": {
+                "S": "specimen"
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA received from NCH."
+            },
+            "event_date": {
+                "S": "2016-08-05T21:33:17+00:00"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_SR14_VariantReportUploaded"
+            },
+            "event_data": {
+                "M": {
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
+                    "molecular_id": {
+                        "S": "MOI_01"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "variant_report_status": {
+                        "S": "PENDING"
+                    },
+                    "analysis_id": {
+                        "S": "ANI_01"
+                    },
+                    "variant_report_type": {
+                        "S": "TISSUE"
+                    },
+                    "clia_lab": {
+                        "S": "Boston"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
+                    }
+                }
+            },
+            "event_type": {
+                "S": "variant_report"
+            },
+            "event_message": {
+                "S": "Variant Report of type TISSUE received."
+            },
+            "event_date": {
+                "S": "2016-08-05T21:33:31+00:00"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_SR11_Registered"
+            },
+            "event_data": {
+                "M": {
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_type": {
+                "S": "patient"
+            },
+            "event_message": {
+                "S": "Patient received REGISTRATION message from COG."
+            },
+            "event_date": {
+                "S": "2016-08-05T21:31:04+00:00"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_SR12_VariantReportConfirmed"
+            },
+            "event_data": {
+                "M": {
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_type": {
+                "S": "patient"
+            },
+            "event_message": {
+                "S": "Patient received REGISTRATION message from COG."
+            },
+            "event_date": {
+                "S": "2016-08-05T21:31:14+00:00"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_SR12_VariantReportConfirmed"
+            },
+            "event_data": {
+                "M": {
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
+                    "collected_dttm": {
+                        "S": "2016-04-25T15:17:11+00:00"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "PT_SR12_VariantReportConfirmed"
+                    },
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "received_dttm": {
+                        "S": "2016-04-25T16:17:11+00:00"
+                    },
+                    "study_id": {
+                        "S": "APEC1621"
+                    }
+                }
+            },
+            "event_type": {
+                "S": "specimen"
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received from NCH."
+            },
+            "event_date": {
+                "S": "2016-08-05T21:31:34+00:00"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_SR12_VariantReportConfirmed"
+            },
+            "event_data": {
+                "M": {
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "molecular_cdna_id": {
+                        "S": "MOI_01C"
+                    },
+                    "molecular_id": {
+                        "S": "MOI_01"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "molecular_dna_id": {
+                        "S": "MOI_01D"
+                    },
+                    "destination": {
+                        "S": "Boston"
+                    }
+                }
+            },
+            "event_type": {
+                "S": "specimen"
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA received from NCH."
+            },
+            "event_date": {
+                "S": "2016-08-05T21:31:45+00:00"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_SR12_VariantReportConfirmed"
+            },
+            "event_data": {
+                "M": {
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
+                    "molecular_id": {
+                        "S": "MOI_01"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "variant_report_status": {
+                        "S": "PENDING"
+                    },
+                    "analysis_id": {
+                        "S": "ANI_01"
+                    },
+                    "variant_report_type": {
+                        "S": "TISSUE"
+                    },
+                    "clia_lab": {
+                        "S": "Boston"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
+                    }
+                }
+            },
+            "event_type": {
+                "S": "variant_report"
+            },
+            "event_message": {
+                "S": "Variant Report of type TISSUE received."
+            },
+            "event_date": {
+                "S": "2016-08-05T21:32:08+00:00"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_SR12_VariantReportConfirmed"
+            },
+            "event_data": {
+                "M": {
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
+                    "molecular_id": {
+                        "S": "MOI_01"
+                    },
+                    "comment_user": {
+                        "S": "user1"
+                    },
+                    "analysis_id": {
+                        "S": "ANI_01"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "variant_report_status": {
+                        "S": "CONFIRMED"
+                    },
+                    "patient_id": {
+                        "S": "PT_SR12_VariantReportConfirmed"
+                    },
+                    "status": {
+                        "S": "CONFIRMED"
+                    },
+                    "comment": {
+                        "S": "TEST"
+                    }
+                }
+            },
+            "event_type": {
+                "S": "variant_report"
+            },
+            "event_message": {
+                "S": "Variant Report status updated to CONFIRMED."
+            },
+            "event_date": {
+                "S": "2016-08-05T21:32:26+00:00"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_SR03_Registered"
+            },
+            "event_data": {
+                "M": {
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_type": {
+                "S": "patient"
+            },
+            "event_message": {
+                "S": "Patient received REGISTRATION message from COG."
+            },
+            "event_date": {
+                "S": "2016-08-05T21:28:30+00:00"
+            }
+        }
+    ],
+    "Count": 26,
+    "ConsumedCapacity": null
+}

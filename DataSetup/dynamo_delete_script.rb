@@ -10,10 +10,24 @@ class DynamoDb
   DEFAULT_ENDPOINT = 'http://localhost:8000'
   DEFAULT_REGION = 'us-east-1'
   DEFAULT_FILENAME = File.expand_path(File.join(ENV['HOME'], '.aws/credentials'))
+  DEFAULT_LOCAL_DB_ENDPOINT = 'http://localhost:8000'
+  DEFAULT_LOCAL_REGION = 'localhost'
+  DEFAULT_AWS_ACCESS_KEY = ENV['AWS_ACCESS_KEY_ID']
+  DEFAULT_AWS_SECRET_KEY = ENV['AWS_SECRET_ACCESS_KEY']
 
   def initialize(options)
     # @prefix = options[:prefix]
     # raise "Provide the prefix or the suffix of the list of tables that you want cleared" if @prefix.nil?
+
+    if options=='local'
+      @client = Aws::DynamoDB::Client.new(
+          endpoint: DEFAULT_LOCAL_DB_ENDPOINT,
+          access_key_id: DEFAULT_AWS_ACCESS_KEY,
+          secret_access_key: DEFAULT_AWS_SECRET_KEY,
+          region: DEFAULT_LOCAL_REGION
+      )
+      return
+    end
 
     if options[:endpoint].nil?
       LOG.log("Using Default Endpoint: #{DEFAULT_ENDPOINT}", 'INFO')
@@ -128,6 +142,8 @@ class LOG
   end
 end
 
-options = OptionsManager.parse(ARGV)
-# DynamoDb.new(options).clear_tables_by_prefix
-DynamoDb.new(options).clear_all_tables
+if __FILE__ == $0
+  options = OptionsManager.parse(ARGV)
+  # DynamoDb.new(options).clear_tables_by_prefix
+  DynamoDb.new(options).clear_all_tables
+end

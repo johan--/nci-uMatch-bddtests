@@ -9,7 +9,7 @@ Feature: NCH Specimen shipped messages
 #  Testing patient:PT_SS01_TissueReceived; surgical_event_id: SEI_TR_01
     Given template specimen shipped message in type: "TISSUE" for patient: "PT_SS02_TissueReceived"
     Then set patient message field: "surgical_event_id" to value: "SEI_TR_01"
-    When posted to MATCH patient trigger service, returns a message that includes "specimen shipped message received and saved." with status "Success"
+    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
 
   Scenario: PT_SS03. Received specimen_shipped message for type 'SLIDE' from NCH for a patient who has already received the specimen_received message
 #  Testing patient:PT_SS03_TissueReceived; surgical_event_id: SEI_TR_02

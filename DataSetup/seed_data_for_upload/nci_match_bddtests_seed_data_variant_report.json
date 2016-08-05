@@ -1,0 +1,249 @@
+{
+    "Count": 4,
+    "ScannedCount": 4,
+    "Items": [
+        {
+            "patient_id": {
+                "S": "PT_SR15_VariantReportUploaded"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "variant_report_received_date": {
+                "S": "2016-08-05T21:34:31+00:00"
+            },
+            "total_confirmed_amois": {
+                "N": "0"
+            },
+            "rna_bai_path_name": {
+                "NULL": true
+            },
+            "status": {
+                "S": "PENDING"
+            },
+            "total_amois": {
+                "N": "0"
+            },
+            "rna_bam_path_name": {
+                "S": "3344/3344-bsn/3344-bsn-msn-2/analysis1/cdna.bam"
+            },
+            "dna_bai_path_name": {
+                "NULL": true
+            },
+            "vcf_path_name": {
+                "S": "3344/3344-bsn/3344-bsn-msn-2/analysis1/3344-bsn-msn-2.vcf"
+            },
+            "total_mois": {
+                "N": "3"
+            },
+            "analysis_id": {
+                "S": "ANI_01"
+            },
+            "status_date": {
+                "S": "2016-08-05T21:34:31+00:00"
+            },
+            "total_confirmed_mois": {
+                "N": "0"
+            },
+            "tsv_path_name": {
+                "S": "3344.tsv"
+            },
+            "dna_bam_path_name": {
+                "S": "3344/3344-bsn/3344-bsn-msn-2/analysis1/dna.bam"
+            },
+            "surgical_event_id": {
+                "S": "SEI_01"
+            },
+            "s3_bucket": {
+                "S": "nci-match-rules"
+            },
+            "molecular_id": {
+                "S": "MOI_01"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SR10_TsVrReceived"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "variant_report_received_date": {
+                "S": "2016-08-05T21:30:46+00:00"
+            },
+            "total_confirmed_amois": {
+                "N": "0"
+            },
+            "rna_bai_path_name": {
+                "NULL": true
+            },
+            "status": {
+                "S": "PENDING"
+            },
+            "total_amois": {
+                "N": "0"
+            },
+            "rna_bam_path_name": {
+                "S": "3344/3344-bsn/3344-bsn-msn-2/analysis1/cdna.bam"
+            },
+            "dna_bai_path_name": {
+                "NULL": true
+            },
+            "vcf_path_name": {
+                "S": "3344/3344-bsn/3344-bsn-msn-2/analysis1/3344-bsn-msn-2.vcf"
+            },
+            "total_mois": {
+                "N": "3"
+            },
+            "analysis_id": {
+                "S": "ANI_01"
+            },
+            "status_date": {
+                "S": "2016-08-05T21:30:46+00:00"
+            },
+            "total_confirmed_mois": {
+                "N": "0"
+            },
+            "tsv_path_name": {
+                "S": "3344.tsv"
+            },
+            "dna_bam_path_name": {
+                "S": "3344/3344-bsn/3344-bsn-msn-2/analysis1/dna.bam"
+            },
+            "surgical_event_id": {
+                "S": "SEI_01"
+            },
+            "s3_bucket": {
+                "S": "nci-match-rules"
+            },
+            "molecular_id": {
+                "S": "MOI_01"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SR14_VariantReportUploaded"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "variant_report_received_date": {
+                "S": "2016-08-05T21:33:31+00:00"
+            },
+            "total_confirmed_amois": {
+                "N": "0"
+            },
+            "rna_bai_path_name": {
+                "NULL": true
+            },
+            "status": {
+                "S": "PENDING"
+            },
+            "total_amois": {
+                "N": "0"
+            },
+            "rna_bam_path_name": {
+                "S": "3344/3344-bsn/3344-bsn-msn-2/analysis1/cdna.bam"
+            },
+            "dna_bai_path_name": {
+                "NULL": true
+            },
+            "vcf_path_name": {
+                "S": "3344/3344-bsn/3344-bsn-msn-2/analysis1/3344-bsn-msn-2.vcf"
+            },
+            "total_mois": {
+                "N": "3"
+            },
+            "analysis_id": {
+                "S": "ANI_01"
+            },
+            "status_date": {
+                "S": "2016-08-05T21:33:31+00:00"
+            },
+            "total_confirmed_mois": {
+                "N": "0"
+            },
+            "tsv_path_name": {
+                "S": "3344.tsv"
+            },
+            "dna_bam_path_name": {
+                "S": "3344/3344-bsn/3344-bsn-msn-2/analysis1/dna.bam"
+            },
+            "surgical_event_id": {
+                "S": "SEI_01"
+            },
+            "s3_bucket": {
+                "S": "nci-match-rules"
+            },
+            "molecular_id": {
+                "S": "MOI_01"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SR12_VariantReportConfirmed"
+            },
+            "comment_user": {
+                "S": "user1"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "variant_report_received_date": {
+                "S": "2016-08-05T21:32:08+00:00"
+            },
+            "total_confirmed_amois": {
+                "N": "0"
+            },
+            "rna_bai_path_name": {
+                "NULL": true
+            },
+            "rna_bam_path_name": {
+                "S": "3344/3344-bsn/3344-bsn-msn-2/analysis1/cdna.bam"
+            },
+            "total_amois": {
+                "N": "0"
+            },
+            "status": {
+                "S": "CONFIRMED"
+            },
+            "comment": {
+                "S": "TEST"
+            },
+            "dna_bai_path_name": {
+                "NULL": true
+            },
+            "vcf_path_name": {
+                "S": "3344/3344-bsn/3344-bsn-msn-2/analysis1/3344-bsn-msn-2.vcf"
+            },
+            "total_mois": {
+                "N": "3"
+            },
+            "analysis_id": {
+                "S": "ANI_01"
+            },
+            "status_date": {
+                "S": "2016-08-05T21:32:26+00:00"
+            },
+            "total_confirmed_mois": {
+                "N": "0"
+            },
+            "tsv_path_name": {
+                "S": "3344.tsv"
+            },
+            "dna_bam_path_name": {
+                "S": "3344/3344-bsn/3344-bsn-msn-2/analysis1/dna.bam"
+            },
+            "surgical_event_id": {
+                "S": "SEI_01"
+            },
+            "s3_bucket": {
+                "S": "nci-match-rules"
+            },
+            "molecular_id": {
+                "S": "MOI_01"
+            }
+        }
+    ],
+    "ConsumedCapacity": null
+}

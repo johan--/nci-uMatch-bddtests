@@ -1,0 +1,1579 @@
+{
+    "Count": 12,
+    "ScannedCount": 12,
+    "ConsumedCapacity": null,
+    "Items": [
+        {
+            "hgvs": {
+                "S": "c.1634A>C"
+            },
+            "variant_type": {
+                "S": "single_nucleotide_variants"
+            },
+            "exon": {
+                "S": "10"
+            },
+            "alternative": {
+                "S": "C"
+            },
+            "transcript": {
+                "S": "NM_006218.2"
+            },
+            "confidence_interval_95percent": {
+                "NULL": true
+            },
+            "protein": {
+                "S": "p.Glu545Ala"
+            },
+            "rare": {
+                "BOOL": false
+            },
+            "ref_copy_number": {
+                "NULL": true
+            },
+            "function": {
+                "S": "missense"
+            },
+            "alternative_allele_observation_count": {
+                "NULL": true
+            },
+            "driver_gene": {
+                "NULL": true
+            },
+            "variant_class": {
+                "NULL": true
+            },
+            "reference_allele_observation": {
+                "NULL": true
+            },
+            "confidence_interval_5percent": {
+                "NULL": true
+            },
+            "driver_read_count": {
+                "NULL": true
+            },
+            "public_med_ids": {
+                "NULL": true
+            },
+            "gene_name": {
+                "S": "PIK3CA"
+            },
+            "partner_gene": {
+                "NULL": true
+            },
+            "flow_reference_allele_observation": {
+                "NULL": true
+            },
+            "uuid": {
+                "S": "4b718eeb-0eb4-4e31-9be6-8da0d14c9cdc"
+            },
+            "position": {
+                "S": "178936092"
+            },
+            "patient_id": {
+                "S": "PT_SR10_TsVrReceived"
+            },
+            "chromosome": {
+                "S": "chr3"
+            },
+            "oncomine_variant_class": {
+                "S": "Hotspot"
+            },
+            "molecular_id": {
+                "S": "MOI_01"
+            },
+            "copy_number": {
+                "NULL": true
+            },
+            "description": {
+                "NULL": true
+            },
+            "is_amoi": {
+                "BOOL": false
+            },
+            "variant_id": {
+                "S": "COSM12458"
+            },
+            "partner_read_count": {
+                "NULL": true
+            },
+            "read_depth": {
+                "N": "648"
+            },
+            "annotation": {
+                "NULL": true
+            },
+            "surgical_event_id": {
+                "S": "SEI_01"
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "reference": {
+                "S": "A"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "allele_frequency": {
+                "N": "0.0524691"
+            },
+            "analysis_id": {
+                "S": "ANI_01"
+            },
+            "flow_alternative_allele_observation_count": {
+                "NULL": true
+            },
+            "raw_copy_number": {
+                "NULL": true
+            },
+            "location": {
+                "S": "exonic"
+            },
+            "status_date": {
+                "S": "2016-08-05T21:30:46+00:00"
+            }
+        },
+        {
+            "hgvs": {
+                "S": "c.929C>A"
+            },
+            "variant_type": {
+                "S": "single_nucleotide_variants"
+            },
+            "exon": {
+                "S": "8"
+            },
+            "alternative": {
+                "S": "A"
+            },
+            "transcript": {
+                "S": "NM_004448.3"
+            },
+            "confidence_interval_95percent": {
+                "NULL": true
+            },
+            "protein": {
+                "S": "p.Ser310Tyr"
+            },
+            "rare": {
+                "BOOL": false
+            },
+            "ref_copy_number": {
+                "NULL": true
+            },
+            "function": {
+                "S": "missense"
+            },
+            "alternative_allele_observation_count": {
+                "NULL": true
+            },
+            "driver_gene": {
+                "NULL": true
+            },
+            "variant_class": {
+                "NULL": true
+            },
+            "reference_allele_observation": {
+                "NULL": true
+            },
+            "confidence_interval_5percent": {
+                "NULL": true
+            },
+            "driver_read_count": {
+                "NULL": true
+            },
+            "public_med_ids": {
+                "NULL": true
+            },
+            "gene_name": {
+                "S": "ERBB2"
+            },
+            "partner_gene": {
+                "NULL": true
+            },
+            "flow_reference_allele_observation": {
+                "NULL": true
+            },
+            "uuid": {
+                "S": "e99e4787-0b32-48db-b45e-af92aff3f2a1"
+            },
+            "position": {
+                "S": "37868208"
+            },
+            "patient_id": {
+                "S": "PT_SR14_VariantReportUploaded"
+            },
+            "chromosome": {
+                "S": "chr17"
+            },
+            "oncomine_variant_class": {
+                "S": "Hotspot"
+            },
+            "molecular_id": {
+                "S": "MOI_01"
+            },
+            "copy_number": {
+                "NULL": true
+            },
+            "description": {
+                "NULL": true
+            },
+            "is_amoi": {
+                "BOOL": false
+            },
+            "variant_id": {
+                "S": "COSM94225"
+            },
+            "partner_read_count": {
+                "NULL": true
+            },
+            "read_depth": {
+                "N": "1377"
+            },
+            "annotation": {
+                "NULL": true
+            },
+            "surgical_event_id": {
+                "S": "SEI_01"
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "reference": {
+                "S": "C"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "allele_frequency": {
+                "N": "0.228758"
+            },
+            "analysis_id": {
+                "S": "ANI_01"
+            },
+            "flow_alternative_allele_observation_count": {
+                "NULL": true
+            },
+            "raw_copy_number": {
+                "NULL": true
+            },
+            "location": {
+                "S": "exonic"
+            },
+            "status_date": {
+                "S": "2016-08-05T21:33:31+00:00"
+            }
+        },
+        {
+            "hgvs": {
+                "S": "c.2329G>T"
+            },
+            "variant_type": {
+                "S": "single_nucleotide_variants"
+            },
+            "exon": {
+                "S": "20"
+            },
+            "alternative": {
+                "S": "T"
+            },
+            "transcript": {
+                "S": "NM_004448.3"
+            },
+            "confidence_interval_95percent": {
+                "NULL": true
+            },
+            "protein": {
+                "S": "p.Val777Leu"
+            },
+            "rare": {
+                "BOOL": false
+            },
+            "ref_copy_number": {
+                "NULL": true
+            },
+            "function": {
+                "S": "missense"
+            },
+            "alternative_allele_observation_count": {
+                "NULL": true
+            },
+            "driver_gene": {
+                "NULL": true
+            },
+            "variant_class": {
+                "NULL": true
+            },
+            "reference_allele_observation": {
+                "NULL": true
+            },
+            "confidence_interval_5percent": {
+                "NULL": true
+            },
+            "driver_read_count": {
+                "NULL": true
+            },
+            "public_med_ids": {
+                "NULL": true
+            },
+            "gene_name": {
+                "S": "ERBB2"
+            },
+            "partner_gene": {
+                "NULL": true
+            },
+            "flow_reference_allele_observation": {
+                "NULL": true
+            },
+            "uuid": {
+                "S": "a5ab0e0d-7bbc-4948-8200-90471909236d"
+            },
+            "position": {
+                "S": "37881000"
+            },
+            "patient_id": {
+                "S": "PT_SR10_TsVrReceived"
+            },
+            "chromosome": {
+                "S": "chr17"
+            },
+            "oncomine_variant_class": {
+                "S": "Hotspot"
+            },
+            "molecular_id": {
+                "S": "MOI_01"
+            },
+            "copy_number": {
+                "NULL": true
+            },
+            "description": {
+                "NULL": true
+            },
+            "is_amoi": {
+                "BOOL": false
+            },
+            "variant_id": {
+                "S": "COSM14062"
+            },
+            "partner_read_count": {
+                "NULL": true
+            },
+            "read_depth": {
+                "N": "1998"
+            },
+            "annotation": {
+                "NULL": true
+            },
+            "surgical_event_id": {
+                "S": "SEI_01"
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "reference": {
+                "S": "G"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "allele_frequency": {
+                "N": "0.212212"
+            },
+            "analysis_id": {
+                "S": "ANI_01"
+            },
+            "flow_alternative_allele_observation_count": {
+                "NULL": true
+            },
+            "raw_copy_number": {
+                "NULL": true
+            },
+            "location": {
+                "S": "exonic"
+            },
+            "status_date": {
+                "S": "2016-08-05T21:30:46+00:00"
+            }
+        },
+        {
+            "hgvs": {
+                "S": "c.1634A>C"
+            },
+            "variant_type": {
+                "S": "single_nucleotide_variants"
+            },
+            "exon": {
+                "S": "10"
+            },
+            "alternative": {
+                "S": "C"
+            },
+            "transcript": {
+                "S": "NM_006218.2"
+            },
+            "confidence_interval_95percent": {
+                "NULL": true
+            },
+            "protein": {
+                "S": "p.Glu545Ala"
+            },
+            "rare": {
+                "BOOL": false
+            },
+            "ref_copy_number": {
+                "NULL": true
+            },
+            "function": {
+                "S": "missense"
+            },
+            "alternative_allele_observation_count": {
+                "NULL": true
+            },
+            "driver_gene": {
+                "NULL": true
+            },
+            "variant_class": {
+                "NULL": true
+            },
+            "reference_allele_observation": {
+                "NULL": true
+            },
+            "confidence_interval_5percent": {
+                "NULL": true
+            },
+            "driver_read_count": {
+                "NULL": true
+            },
+            "public_med_ids": {
+                "NULL": true
+            },
+            "gene_name": {
+                "S": "PIK3CA"
+            },
+            "partner_gene": {
+                "NULL": true
+            },
+            "flow_reference_allele_observation": {
+                "NULL": true
+            },
+            "uuid": {
+                "S": "17ee3839-082d-4645-82d2-5290d33b7593"
+            },
+            "position": {
+                "S": "178936092"
+            },
+            "patient_id": {
+                "S": "PT_SR14_VariantReportUploaded"
+            },
+            "chromosome": {
+                "S": "chr3"
+            },
+            "oncomine_variant_class": {
+                "S": "Hotspot"
+            },
+            "molecular_id": {
+                "S": "MOI_01"
+            },
+            "copy_number": {
+                "NULL": true
+            },
+            "description": {
+                "NULL": true
+            },
+            "is_amoi": {
+                "BOOL": false
+            },
+            "variant_id": {
+                "S": "COSM12458"
+            },
+            "partner_read_count": {
+                "NULL": true
+            },
+            "read_depth": {
+                "N": "648"
+            },
+            "annotation": {
+                "NULL": true
+            },
+            "surgical_event_id": {
+                "S": "SEI_01"
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "reference": {
+                "S": "A"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "allele_frequency": {
+                "N": "0.0524691"
+            },
+            "analysis_id": {
+                "S": "ANI_01"
+            },
+            "flow_alternative_allele_observation_count": {
+                "NULL": true
+            },
+            "raw_copy_number": {
+                "NULL": true
+            },
+            "location": {
+                "S": "exonic"
+            },
+            "status_date": {
+                "S": "2016-08-05T21:33:31+00:00"
+            }
+        },
+        {
+            "hgvs": {
+                "S": "c.2329G>T"
+            },
+            "variant_type": {
+                "S": "single_nucleotide_variants"
+            },
+            "exon": {
+                "S": "20"
+            },
+            "alternative": {
+                "S": "T"
+            },
+            "transcript": {
+                "S": "NM_004448.3"
+            },
+            "confidence_interval_95percent": {
+                "NULL": true
+            },
+            "protein": {
+                "S": "p.Val777Leu"
+            },
+            "rare": {
+                "BOOL": false
+            },
+            "ref_copy_number": {
+                "NULL": true
+            },
+            "function": {
+                "S": "missense"
+            },
+            "alternative_allele_observation_count": {
+                "NULL": true
+            },
+            "driver_gene": {
+                "NULL": true
+            },
+            "variant_class": {
+                "NULL": true
+            },
+            "reference_allele_observation": {
+                "NULL": true
+            },
+            "confidence_interval_5percent": {
+                "NULL": true
+            },
+            "driver_read_count": {
+                "NULL": true
+            },
+            "public_med_ids": {
+                "NULL": true
+            },
+            "gene_name": {
+                "S": "ERBB2"
+            },
+            "partner_gene": {
+                "NULL": true
+            },
+            "flow_reference_allele_observation": {
+                "NULL": true
+            },
+            "uuid": {
+                "S": "2cf05c40-9ad4-476b-9415-63a28bae8b16"
+            },
+            "position": {
+                "S": "37881000"
+            },
+            "patient_id": {
+                "S": "PT_SR12_VariantReportConfirmed"
+            },
+            "chromosome": {
+                "S": "chr17"
+            },
+            "oncomine_variant_class": {
+                "S": "Hotspot"
+            },
+            "molecular_id": {
+                "S": "MOI_01"
+            },
+            "copy_number": {
+                "NULL": true
+            },
+            "description": {
+                "NULL": true
+            },
+            "is_amoi": {
+                "BOOL": false
+            },
+            "variant_id": {
+                "S": "COSM14062"
+            },
+            "partner_read_count": {
+                "NULL": true
+            },
+            "read_depth": {
+                "N": "1998"
+            },
+            "annotation": {
+                "NULL": true
+            },
+            "surgical_event_id": {
+                "S": "SEI_01"
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "reference": {
+                "S": "G"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "allele_frequency": {
+                "N": "0.212212"
+            },
+            "analysis_id": {
+                "S": "ANI_01"
+            },
+            "flow_alternative_allele_observation_count": {
+                "NULL": true
+            },
+            "raw_copy_number": {
+                "NULL": true
+            },
+            "location": {
+                "S": "exonic"
+            },
+            "status_date": {
+                "S": "2016-08-05T21:32:08+00:00"
+            }
+        },
+        {
+            "hgvs": {
+                "S": "c.2329G>T"
+            },
+            "variant_type": {
+                "S": "single_nucleotide_variants"
+            },
+            "exon": {
+                "S": "20"
+            },
+            "alternative": {
+                "S": "T"
+            },
+            "transcript": {
+                "S": "NM_004448.3"
+            },
+            "confidence_interval_95percent": {
+                "NULL": true
+            },
+            "protein": {
+                "S": "p.Val777Leu"
+            },
+            "rare": {
+                "BOOL": false
+            },
+            "ref_copy_number": {
+                "NULL": true
+            },
+            "function": {
+                "S": "missense"
+            },
+            "alternative_allele_observation_count": {
+                "NULL": true
+            },
+            "driver_gene": {
+                "NULL": true
+            },
+            "variant_class": {
+                "NULL": true
+            },
+            "reference_allele_observation": {
+                "NULL": true
+            },
+            "confidence_interval_5percent": {
+                "NULL": true
+            },
+            "driver_read_count": {
+                "NULL": true
+            },
+            "public_med_ids": {
+                "NULL": true
+            },
+            "gene_name": {
+                "S": "ERBB2"
+            },
+            "partner_gene": {
+                "NULL": true
+            },
+            "flow_reference_allele_observation": {
+                "NULL": true
+            },
+            "uuid": {
+                "S": "86136499-0dc7-48fb-a0bc-bd44ffaa6db4"
+            },
+            "position": {
+                "S": "37881000"
+            },
+            "patient_id": {
+                "S": "PT_SR14_VariantReportUploaded"
+            },
+            "chromosome": {
+                "S": "chr17"
+            },
+            "oncomine_variant_class": {
+                "S": "Hotspot"
+            },
+            "molecular_id": {
+                "S": "MOI_01"
+            },
+            "copy_number": {
+                "NULL": true
+            },
+            "description": {
+                "NULL": true
+            },
+            "is_amoi": {
+                "BOOL": false
+            },
+            "variant_id": {
+                "S": "COSM14062"
+            },
+            "partner_read_count": {
+                "NULL": true
+            },
+            "read_depth": {
+                "N": "1998"
+            },
+            "annotation": {
+                "NULL": true
+            },
+            "surgical_event_id": {
+                "S": "SEI_01"
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "reference": {
+                "S": "G"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "allele_frequency": {
+                "N": "0.212212"
+            },
+            "analysis_id": {
+                "S": "ANI_01"
+            },
+            "flow_alternative_allele_observation_count": {
+                "NULL": true
+            },
+            "raw_copy_number": {
+                "NULL": true
+            },
+            "location": {
+                "S": "exonic"
+            },
+            "status_date": {
+                "S": "2016-08-05T21:33:31+00:00"
+            }
+        },
+        {
+            "hgvs": {
+                "S": "c.929C>A"
+            },
+            "variant_type": {
+                "S": "single_nucleotide_variants"
+            },
+            "exon": {
+                "S": "8"
+            },
+            "alternative": {
+                "S": "A"
+            },
+            "transcript": {
+                "S": "NM_004448.3"
+            },
+            "confidence_interval_95percent": {
+                "NULL": true
+            },
+            "protein": {
+                "S": "p.Ser310Tyr"
+            },
+            "rare": {
+                "BOOL": false
+            },
+            "ref_copy_number": {
+                "NULL": true
+            },
+            "function": {
+                "S": "missense"
+            },
+            "alternative_allele_observation_count": {
+                "NULL": true
+            },
+            "driver_gene": {
+                "NULL": true
+            },
+            "variant_class": {
+                "NULL": true
+            },
+            "reference_allele_observation": {
+                "NULL": true
+            },
+            "confidence_interval_5percent": {
+                "NULL": true
+            },
+            "driver_read_count": {
+                "NULL": true
+            },
+            "public_med_ids": {
+                "NULL": true
+            },
+            "gene_name": {
+                "S": "ERBB2"
+            },
+            "partner_gene": {
+                "NULL": true
+            },
+            "flow_reference_allele_observation": {
+                "NULL": true
+            },
+            "uuid": {
+                "S": "fe5e016f-65c6-489b-ba12-1dbb0f348169"
+            },
+            "position": {
+                "S": "37868208"
+            },
+            "patient_id": {
+                "S": "PT_SR10_TsVrReceived"
+            },
+            "chromosome": {
+                "S": "chr17"
+            },
+            "oncomine_variant_class": {
+                "S": "Hotspot"
+            },
+            "molecular_id": {
+                "S": "MOI_01"
+            },
+            "copy_number": {
+                "NULL": true
+            },
+            "description": {
+                "NULL": true
+            },
+            "is_amoi": {
+                "BOOL": false
+            },
+            "variant_id": {
+                "S": "COSM94225"
+            },
+            "partner_read_count": {
+                "NULL": true
+            },
+            "read_depth": {
+                "N": "1377"
+            },
+            "annotation": {
+                "NULL": true
+            },
+            "surgical_event_id": {
+                "S": "SEI_01"
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "reference": {
+                "S": "C"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "allele_frequency": {
+                "N": "0.228758"
+            },
+            "analysis_id": {
+                "S": "ANI_01"
+            },
+            "flow_alternative_allele_observation_count": {
+                "NULL": true
+            },
+            "raw_copy_number": {
+                "NULL": true
+            },
+            "location": {
+                "S": "exonic"
+            },
+            "status_date": {
+                "S": "2016-08-05T21:30:46+00:00"
+            }
+        },
+        {
+            "hgvs": {
+                "S": "c.929C>A"
+            },
+            "variant_type": {
+                "S": "single_nucleotide_variants"
+            },
+            "exon": {
+                "S": "8"
+            },
+            "alternative": {
+                "S": "A"
+            },
+            "transcript": {
+                "S": "NM_004448.3"
+            },
+            "confidence_interval_95percent": {
+                "NULL": true
+            },
+            "protein": {
+                "S": "p.Ser310Tyr"
+            },
+            "rare": {
+                "BOOL": false
+            },
+            "ref_copy_number": {
+                "NULL": true
+            },
+            "function": {
+                "S": "missense"
+            },
+            "alternative_allele_observation_count": {
+                "NULL": true
+            },
+            "driver_gene": {
+                "NULL": true
+            },
+            "variant_class": {
+                "NULL": true
+            },
+            "reference_allele_observation": {
+                "NULL": true
+            },
+            "confidence_interval_5percent": {
+                "NULL": true
+            },
+            "driver_read_count": {
+                "NULL": true
+            },
+            "public_med_ids": {
+                "NULL": true
+            },
+            "gene_name": {
+                "S": "ERBB2"
+            },
+            "partner_gene": {
+                "NULL": true
+            },
+            "flow_reference_allele_observation": {
+                "NULL": true
+            },
+            "uuid": {
+                "S": "5eca6b2e-f077-4a90-980f-e12cf29ad93c"
+            },
+            "position": {
+                "S": "37868208"
+            },
+            "patient_id": {
+                "S": "PT_SR15_VariantReportUploaded"
+            },
+            "chromosome": {
+                "S": "chr17"
+            },
+            "oncomine_variant_class": {
+                "S": "Hotspot"
+            },
+            "molecular_id": {
+                "S": "MOI_01"
+            },
+            "copy_number": {
+                "NULL": true
+            },
+            "description": {
+                "NULL": true
+            },
+            "is_amoi": {
+                "BOOL": false
+            },
+            "variant_id": {
+                "S": "COSM94225"
+            },
+            "partner_read_count": {
+                "NULL": true
+            },
+            "read_depth": {
+                "N": "1377"
+            },
+            "annotation": {
+                "NULL": true
+            },
+            "surgical_event_id": {
+                "S": "SEI_01"
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "reference": {
+                "S": "C"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "allele_frequency": {
+                "N": "0.228758"
+            },
+            "analysis_id": {
+                "S": "ANI_01"
+            },
+            "flow_alternative_allele_observation_count": {
+                "NULL": true
+            },
+            "raw_copy_number": {
+                "NULL": true
+            },
+            "location": {
+                "S": "exonic"
+            },
+            "status_date": {
+                "S": "2016-08-05T21:34:31+00:00"
+            }
+        },
+        {
+            "hgvs": {
+                "S": "c.1634A>C"
+            },
+            "variant_type": {
+                "S": "single_nucleotide_variants"
+            },
+            "exon": {
+                "S": "10"
+            },
+            "alternative": {
+                "S": "C"
+            },
+            "transcript": {
+                "S": "NM_006218.2"
+            },
+            "confidence_interval_95percent": {
+                "NULL": true
+            },
+            "protein": {
+                "S": "p.Glu545Ala"
+            },
+            "rare": {
+                "BOOL": false
+            },
+            "ref_copy_number": {
+                "NULL": true
+            },
+            "function": {
+                "S": "missense"
+            },
+            "alternative_allele_observation_count": {
+                "NULL": true
+            },
+            "driver_gene": {
+                "NULL": true
+            },
+            "variant_class": {
+                "NULL": true
+            },
+            "reference_allele_observation": {
+                "NULL": true
+            },
+            "confidence_interval_5percent": {
+                "NULL": true
+            },
+            "driver_read_count": {
+                "NULL": true
+            },
+            "public_med_ids": {
+                "NULL": true
+            },
+            "gene_name": {
+                "S": "PIK3CA"
+            },
+            "partner_gene": {
+                "NULL": true
+            },
+            "flow_reference_allele_observation": {
+                "NULL": true
+            },
+            "uuid": {
+                "S": "1648f7f9-60d2-4863-a039-9bedbfce16e5"
+            },
+            "position": {
+                "S": "178936092"
+            },
+            "patient_id": {
+                "S": "PT_SR12_VariantReportConfirmed"
+            },
+            "chromosome": {
+                "S": "chr3"
+            },
+            "oncomine_variant_class": {
+                "S": "Hotspot"
+            },
+            "molecular_id": {
+                "S": "MOI_01"
+            },
+            "copy_number": {
+                "NULL": true
+            },
+            "description": {
+                "NULL": true
+            },
+            "is_amoi": {
+                "BOOL": false
+            },
+            "variant_id": {
+                "S": "COSM12458"
+            },
+            "partner_read_count": {
+                "NULL": true
+            },
+            "read_depth": {
+                "N": "648"
+            },
+            "annotation": {
+                "NULL": true
+            },
+            "surgical_event_id": {
+                "S": "SEI_01"
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "reference": {
+                "S": "A"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "allele_frequency": {
+                "N": "0.0524691"
+            },
+            "analysis_id": {
+                "S": "ANI_01"
+            },
+            "flow_alternative_allele_observation_count": {
+                "NULL": true
+            },
+            "raw_copy_number": {
+                "NULL": true
+            },
+            "location": {
+                "S": "exonic"
+            },
+            "status_date": {
+                "S": "2016-08-05T21:32:08+00:00"
+            }
+        },
+        {
+            "hgvs": {
+                "S": "c.929C>A"
+            },
+            "variant_type": {
+                "S": "single_nucleotide_variants"
+            },
+            "exon": {
+                "S": "8"
+            },
+            "alternative": {
+                "S": "A"
+            },
+            "transcript": {
+                "S": "NM_004448.3"
+            },
+            "confidence_interval_95percent": {
+                "NULL": true
+            },
+            "protein": {
+                "S": "p.Ser310Tyr"
+            },
+            "rare": {
+                "BOOL": false
+            },
+            "ref_copy_number": {
+                "NULL": true
+            },
+            "function": {
+                "S": "missense"
+            },
+            "alternative_allele_observation_count": {
+                "NULL": true
+            },
+            "driver_gene": {
+                "NULL": true
+            },
+            "variant_class": {
+                "NULL": true
+            },
+            "reference_allele_observation": {
+                "NULL": true
+            },
+            "confidence_interval_5percent": {
+                "NULL": true
+            },
+            "driver_read_count": {
+                "NULL": true
+            },
+            "public_med_ids": {
+                "NULL": true
+            },
+            "gene_name": {
+                "S": "ERBB2"
+            },
+            "partner_gene": {
+                "NULL": true
+            },
+            "flow_reference_allele_observation": {
+                "NULL": true
+            },
+            "uuid": {
+                "S": "a50fbe72-237d-492c-a997-fe89ae66af4d"
+            },
+            "position": {
+                "S": "37868208"
+            },
+            "patient_id": {
+                "S": "PT_SR12_VariantReportConfirmed"
+            },
+            "chromosome": {
+                "S": "chr17"
+            },
+            "oncomine_variant_class": {
+                "S": "Hotspot"
+            },
+            "molecular_id": {
+                "S": "MOI_01"
+            },
+            "copy_number": {
+                "NULL": true
+            },
+            "description": {
+                "NULL": true
+            },
+            "is_amoi": {
+                "BOOL": false
+            },
+            "variant_id": {
+                "S": "COSM94225"
+            },
+            "partner_read_count": {
+                "NULL": true
+            },
+            "read_depth": {
+                "N": "1377"
+            },
+            "annotation": {
+                "NULL": true
+            },
+            "surgical_event_id": {
+                "S": "SEI_01"
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "reference": {
+                "S": "C"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "allele_frequency": {
+                "N": "0.228758"
+            },
+            "analysis_id": {
+                "S": "ANI_01"
+            },
+            "flow_alternative_allele_observation_count": {
+                "NULL": true
+            },
+            "raw_copy_number": {
+                "NULL": true
+            },
+            "location": {
+                "S": "exonic"
+            },
+            "status_date": {
+                "S": "2016-08-05T21:32:08+00:00"
+            }
+        },
+        {
+            "hgvs": {
+                "S": "c.2329G>T"
+            },
+            "variant_type": {
+                "S": "single_nucleotide_variants"
+            },
+            "exon": {
+                "S": "20"
+            },
+            "alternative": {
+                "S": "T"
+            },
+            "transcript": {
+                "S": "NM_004448.3"
+            },
+            "confidence_interval_95percent": {
+                "NULL": true
+            },
+            "protein": {
+                "S": "p.Val777Leu"
+            },
+            "rare": {
+                "BOOL": false
+            },
+            "ref_copy_number": {
+                "NULL": true
+            },
+            "function": {
+                "S": "missense"
+            },
+            "alternative_allele_observation_count": {
+                "NULL": true
+            },
+            "driver_gene": {
+                "NULL": true
+            },
+            "variant_class": {
+                "NULL": true
+            },
+            "reference_allele_observation": {
+                "NULL": true
+            },
+            "confidence_interval_5percent": {
+                "NULL": true
+            },
+            "driver_read_count": {
+                "NULL": true
+            },
+            "public_med_ids": {
+                "NULL": true
+            },
+            "gene_name": {
+                "S": "ERBB2"
+            },
+            "partner_gene": {
+                "NULL": true
+            },
+            "flow_reference_allele_observation": {
+                "NULL": true
+            },
+            "uuid": {
+                "S": "06ee8a07-2e93-4afb-b232-c36d09192381"
+            },
+            "position": {
+                "S": "37881000"
+            },
+            "patient_id": {
+                "S": "PT_SR15_VariantReportUploaded"
+            },
+            "chromosome": {
+                "S": "chr17"
+            },
+            "oncomine_variant_class": {
+                "S": "Hotspot"
+            },
+            "molecular_id": {
+                "S": "MOI_01"
+            },
+            "copy_number": {
+                "NULL": true
+            },
+            "description": {
+                "NULL": true
+            },
+            "is_amoi": {
+                "BOOL": false
+            },
+            "variant_id": {
+                "S": "COSM14062"
+            },
+            "partner_read_count": {
+                "NULL": true
+            },
+            "read_depth": {
+                "N": "1998"
+            },
+            "annotation": {
+                "NULL": true
+            },
+            "surgical_event_id": {
+                "S": "SEI_01"
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "reference": {
+                "S": "G"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "allele_frequency": {
+                "N": "0.212212"
+            },
+            "analysis_id": {
+                "S": "ANI_01"
+            },
+            "flow_alternative_allele_observation_count": {
+                "NULL": true
+            },
+            "raw_copy_number": {
+                "NULL": true
+            },
+            "location": {
+                "S": "exonic"
+            },
+            "status_date": {
+                "S": "2016-08-05T21:34:31+00:00"
+            }
+        },
+        {
+            "hgvs": {
+                "S": "c.1634A>C"
+            },
+            "variant_type": {
+                "S": "single_nucleotide_variants"
+            },
+            "exon": {
+                "S": "10"
+            },
+            "alternative": {
+                "S": "C"
+            },
+            "transcript": {
+                "S": "NM_006218.2"
+            },
+            "confidence_interval_95percent": {
+                "NULL": true
+            },
+            "protein": {
+                "S": "p.Glu545Ala"
+            },
+            "rare": {
+                "BOOL": false
+            },
+            "ref_copy_number": {
+                "NULL": true
+            },
+            "function": {
+                "S": "missense"
+            },
+            "alternative_allele_observation_count": {
+                "NULL": true
+            },
+            "driver_gene": {
+                "NULL": true
+            },
+            "variant_class": {
+                "NULL": true
+            },
+            "reference_allele_observation": {
+                "NULL": true
+            },
+            "confidence_interval_5percent": {
+                "NULL": true
+            },
+            "driver_read_count": {
+                "NULL": true
+            },
+            "public_med_ids": {
+                "NULL": true
+            },
+            "gene_name": {
+                "S": "PIK3CA"
+            },
+            "partner_gene": {
+                "NULL": true
+            },
+            "flow_reference_allele_observation": {
+                "NULL": true
+            },
+            "uuid": {
+                "S": "5a5a5459-c3fa-4803-ac71-d9b2fd1f3dc9"
+            },
+            "position": {
+                "S": "178936092"
+            },
+            "patient_id": {
+                "S": "PT_SR15_VariantReportUploaded"
+            },
+            "chromosome": {
+                "S": "chr3"
+            },
+            "oncomine_variant_class": {
+                "S": "Hotspot"
+            },
+            "molecular_id": {
+                "S": "MOI_01"
+            },
+            "copy_number": {
+                "NULL": true
+            },
+            "description": {
+                "NULL": true
+            },
+            "is_amoi": {
+                "BOOL": false
+            },
+            "variant_id": {
+                "S": "COSM12458"
+            },
+            "partner_read_count": {
+                "NULL": true
+            },
+            "read_depth": {
+                "N": "648"
+            },
+            "annotation": {
+                "NULL": true
+            },
+            "surgical_event_id": {
+                "S": "SEI_01"
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "reference": {
+                "S": "A"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "allele_frequency": {
+                "N": "0.0524691"
+            },
+            "analysis_id": {
+                "S": "ANI_01"
+            },
+            "flow_alternative_allele_observation_count": {
+                "NULL": true
+            },
+            "raw_copy_number": {
+                "NULL": true
+            },
+            "location": {
+                "S": "exonic"
+            },
+            "status_date": {
+                "S": "2016-08-05T21:34:31+00:00"
+            }
+        }
+    ]
+}

@@ -48,6 +48,7 @@ before_script:
   # Run Delete Script to empty DynamoDB before tests start
   - cd DataSetup
   - ./dynamo_delete_script.rb -a $AWS_ACCESS_KEY_ID -s $AWS_SECRET_ACCESS_KEY -e 'https://dynamodb.us-east-1.amazonaws.com' -r us-east-1
+  - ./dynamo_data_upload.rb -a $AWS_ACCESS_KEY_ID -s $AWS_SECRET_ACCESS_KEY -e 'https://dynamodb.us-east-1.amazonaws.com' -r us-east-1
   - cd ..
   # Reset ECOG Mock service Data
   - curl -X POST "http://pedmatch.org:3000/restart" -d ''

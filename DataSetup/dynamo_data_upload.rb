@@ -8,10 +8,11 @@ class DynamoDataUploader
 
 
   DEFAULT_AWS_ENDPOINT = 'https://dynamodb.us-east-1.amazonaws.com'
-  DEFAULT_AWS_REGION = "us-east-1"
+  DEFAULT_AWS_REGION = 'us-east-1'
   DEFAULT_AWS_ACCESS_KEY = ENV['AWS_ACCESS_KEY_ID']
   DEFAULT_AWS_SECRET_KEY = ENV['AWS_SECRET_ACCESS_KEY']
   DEFAULT_LOCAL_DB_ENDPOINT = 'http://localhost:8000'
+  DEFAULT_LOCAL_REGION = 'localhost'
   SEED_DATA_FOLDER = 'seed_data_for_upload'
   SEED_FILE_PREFIX = 'nci_match_bddtests_seed_data'
 
@@ -30,6 +31,16 @@ class DynamoDataUploader
 
 
   def initialize(options)
+    if(options=='local')
+      Aws.config.update({
+                            endpoint: DEFAULT_LOCAL_DB_ENDPOINT,
+                            access_key_id: DEFAULT_AWS_ACCESS_KEY,
+                            secret_access_key: DEFAULT_AWS_SECRET_KEY,
+                            region: DEFAULT_LOCAL_REGION
+                        })
+      p "AWS endpoint: #{@endpoint}, region: #{@region}"
+      return
+    end
     if options[:endpoint].nil?
       @endpoint = DEFAULT_AWS_ENDPOINT
     else
@@ -126,6 +137,7 @@ class DynamoDataUploader
   end
 end
 
-
-options = OptionsManager.parse(ARGV)
-DynamoDataUploader.new(options).upload_patient_data_to_aws
+if __FILE__ == $0
+  options = OptionsManager.parse(ARGV)
+  DynamoDataUploader.new(options).upload_patient_data_to_aws
+end
