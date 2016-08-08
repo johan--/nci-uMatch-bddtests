@@ -79,7 +79,7 @@ end
 
 Given(/^template variant report confirm message for patient: "([^"]*)", it has surgical_event_id: "([^"]*)", molecular_id: "([^"]*)", analysis_id: "([^"]*)" and status: "([^"]*)"$/) do |patient_id, sei, moi, ani, status|
   @request_json = Patient_helper_methods.load_patient_message_templates('variant_file_confirmed')
-  converted_patient_id = patientID=='null'?nil:patientID
+  converted_patient_id = patient_id=='null'?nil:patient_id
   converted_sei = sei=='null'?nil:sei
   converted_moi = moi=='null'?nil:moi
   converted_ani = ani=='null'?nil:ani
