@@ -116,7 +116,6 @@
   },
   "pathology_status":{
     "patient_id":"894561",
-    "study_id": "APEC1621",
     "surgical_event_id":"SEI_01",
     "reported_date":"2015-04-27T12:13:09.071-05:00",
     "status":"Y",
