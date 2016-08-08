@@ -37,7 +37,7 @@ class TableDetails
 
   VARIANT_REPORT = {
       name: 'variant_report',
-      keys: %w(surgical_event_id variant_report_received_date)
+      keys: %w(patient_id variant_report_received_date)
   }
 
   def self.treatment_arm_tables
