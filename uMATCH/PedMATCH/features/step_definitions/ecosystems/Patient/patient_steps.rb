@@ -96,6 +96,10 @@ end
 
 Then(/^set patient message field: "([^"]*)" to value: "([^"]*)"$/) do |field, value|
   converted_value = value=='null'?nil:value
+  if value.equal?('current')
+    converted_value = Helper_Methods.getDateAsRequired(value)
+  end
+
   if @patient_message_root_key == ''
     @request_json[field] = converted_value
   else
