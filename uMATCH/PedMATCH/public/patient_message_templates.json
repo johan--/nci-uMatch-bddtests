@@ -127,7 +127,6 @@
     "surgical_event_id": "3344-bsn",
     "molecular_id": "3344-bsn-msn-2",
     "analysis_id": "job1",
-    "status": "PENDING",
     "s3_bucket_name": "nci-match-rules",
     "tsv_file_path_name": "3344.tsv",
     "vcf_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/3344-bsn-msn-2.vcf",
