@@ -1,0 +1,235 @@
+[
+  {
+    "header": {
+      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+      "msg_dttm": "2016-05-09T22:06:33+00:00"
+    },
+    "study_id": "APEC1621",
+    "patient_id": "3366",
+    "step_number": "1.0",
+    "registration_date": "2016-05-09T22:06:33+00:00",
+    "status": "REGISTRATION",
+    "internal_use_only": {
+      "request_id": "4-654321",
+      "environment": "4",
+      "request": "REGISTRATION for patient_id 2222"
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "5c64192f-8a25-4874-9db6-fd55c398822d",
+      "msg_dttm": "2016-04-25T18:42:13+00:00"
+    },
+    "specimen_received": {
+      "study_id": "APEC1621",
+      "patient_id": "3366",
+      "type": "BLOOD",
+      "collected_dttm": "2016-05-10T14:17:11+00:00",
+      "received_dttm": "2016-04-10T15:17:11+00:00",
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id": "ABCXYZ-0AK64L",
+        "stars_specimen_type": "Blood Fresh",
+        "received_dttm": "2016-04-25T15:17:11+00:00",
+        "qc_dttm": "2016-04-25T16:21:34+00:00"
+      }
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "ab6d8d37-caf2-4dbb-a360-0032c7a7a76c",
+      "msg_dttm": "2016-04-25T18:42:13+00:00"
+    },
+    "specimen_received": {
+      "patient_id": "3366",
+      "study_id": "APEC1621",
+      "surgical_event_id": "3366-bsn",
+      "type": "TISSUE",
+      "collected_dttm": "2016-05-11T15:17:11+00:00",
+
+      "received_dttm": "2016-05-11T16:17:11+00:00",
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id": "ABCXYZ-0AK64M",
+        "stars_specimen_type": "Paraffin Block Primary",
+        "received_ts": "2016-04-25T15:17:11+00:00",
+        "qc_ts": "2016-04-25T16:21:34+00:00"
+      }
+    }
+  },
+
+  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_shipped": {
+      "study_id": "APEC1621",
+      "patient_id": "3366",
+      "type": "TISSUE_DNA_AND_CDNA",
+
+      "surgical_event_id": "3366-bsn",
+      "molecular_id": "3366-bsn-msn",
+
+      "molecular_dna_id": "00012D",
+      "molecular_cdna_id": "00012C",
+
+      "carrier": "Federal Express",
+      "tracking_id": "7956 4568 1235",
+      "shipped_dttm": "2016-05-12T19:42:13+00:00",
+      "destination": "Boston",
+
+      "dna_volume_ul": 10,
+      "dna_concentration_ng_per_ul": 25,
+      "cdna_volume_ul": 10,
+
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id_cdna": "ABCXYZ-0BJ64F",
+        "stars_specimen_id_dna": "ABCXYZ-0BJ64B"
+      }
+    }
+  },
+
+  {
+    "header": {
+      "msg_guid": "07daa0de-9a19-42c3-be79-0237dfacf134",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_shipped": {
+      "patient_id": "3366",
+      "study_id": "APEC1621",
+      "surgical_event_id": "3366-bsn",
+      "molecular_id": "3366-bsn-msn-2",
+      "type": "TISSUE_DNA_AND_CDNA",
+
+      "molecular_dna_id": "00012D",
+      "molecular_cdna_id": "00012C",
+
+      "carrier": "Federal Express",
+      "tracking_id": "7956 4568 1235",
+      "shipped_dttm": "2016-05-13T19:42:13+00:00",
+      "destination": "Boston",
+
+      "dna_volume_ul": 10,
+      "dna_concentration_ng_per_ul": 25,
+      "cdna_volume_ul": 10,
+
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id": "ABCXYZ-0BJ64F"
+      }
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_shipped": {
+      "study_id": "APEC1621",
+      "patient_id": "3366",
+      "type": "SLIDE",
+
+      "surgical_event_id": "3366-bsn",
+      "slide_barcode": "0BJ6A5",
+
+      "carrier": "Federal Express",
+      "tracking_id": "7956 4568 1235",
+      "shipped_dttm": "2016-05-13T19:42:13+00:00",
+      "destination": "Boston",
+
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id_slide": "ABCXYZ-0BJ6A5"
+
+      }
+    }
+  },
+  {
+    "patient_id":"3366",
+    "study_id": "APEC1621",
+    "surgical_event_id":"3366-bsn",
+    "biomarker":"ICCPTENs",
+    "reported_date":"2016-05-15T13:12:09.071-05:00",
+    "ordered_date":"2016-05-15T13:11:09.071-05:00",
+    "result":"NEGATIVE"
+  },
+
+  {
+    "patient_id":"3366",
+    "study_id": "APEC1621",
+    "surgical_event_id":"3366-bsn",
+    "biomarker":"ICCMLH1s",
+    "reported_date":"2016-05-16T12:12:09.071-05:00",
+    "ordered_date":"2016-05-16T12:11:09.071-05:00",
+    "result":"POSITIVE"
+  },
+
+  {
+    "patient_id":"3366",
+    "surgical_event_id":"3366-bsn",
+    "reported_date":"2016-05-12T12:13:09.071-05:00",
+    "status":"Y",
+    "message":"PATHOLOGY_CONFIRMATION"
+  },
+  {
+    "patient_id": "3366",
+    "molecular_id": "3366-bsn-msn-2",
+    "analysis_id": "job1",
+    "s3_bucket_name": "nci-match-rules",
+    "tsv_file_path_name": "113re_gene-fusion.tsv",
+    "vcf_file_path_name": "3366/3366-bsn/3366-bsn-msn-2/analysis1/3366-bsn-msn-2.vcf",
+    "dna_bam_file_path_name": "3366/3366-bsn/3366-bsn-msn-2/analysis1/dna.bam",
+    "cdna_bam_file_path_name": "3366/3366-bsn/3366-bsn-msn-2/analysis1/cdna.bam",
+    "dna_bai_file_path_name": "3366/3366-bsn/3366-bsn-msn-2/analysis1/dna.bai",
+    "cdna_bai_file_path_name": "3366/3366-bsn/3366-bsn-msn-2/analysis1/cdna.bai"
+  },
+
+  {
+    "header": {
+      "msg_guid": "07daa0de-9a19-42c3-be79-0237dfacf134",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_shipped": {
+      "patient_id": "3366",
+      "study_id": "APEC1621",
+      "molecular_id": "3366-bsn-msn-blood",
+      "type": "BLOOD_DNA",
+
+      "carrier": "Federal Express",
+      "tracking_id": "7956 4568 1235",
+      "shipped_dttm": "2016-05-13T19:42:13+00:00",
+      "destination": "Boston",
+
+      "dna_volume_ul": 10,
+      "dna_concentration_ng_per_ul": 25,
+      "cdna_volume_ul": 10,
+
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id": "ABCXYZ-0BJ64F"
+      }
+    }
+  },
+  {
+    "patient_id": "3366",
+    "molecular_id": "3366-bsn-msn-blood",
+    "analysis_id": "job2",
+    "s3_bucket_name": "nci-match-rules",
+    "tsv_file_path_name": "indels.tsv",
+    "vcf_file_path_name": "3366/3366-bsn/3366-bsn-msn-2/analysis1/3366-bsn-msn-2.vcf",
+    "dna_bam_file_path_name": "3366/3366-bsn/3366-bsn-msn-2/analysis1/dna.bam",
+    "cdna_bam_file_path_name": "3366/3366-bsn/3366-bsn-msn-2/analysis1/cdna.bam",
+    "dna_bai_file_path_name": "3366/3366-bsn/3366-bsn-msn-2/analysis1/dna.bam",
+    "cdna_bai_file_path_name": "3366/3366-bsn/3366-bsn-msn-2/analysis1/cdna.bam"
+  },
+  {
+    "patient_id": "3366",
+    "molecular_id": "3366-bsn-msn-2",
+    "analysis_id": "job1",
+    "status": "CONFIRMED",
+    "comment": "The committee has no problem with this variant report",
+    "comment_user": "rick"
+  }
+]
