@@ -1,4 +1,8 @@
 [
+  //messages that are commented out mean
+  //these data has been backup in seed data json,
+  //no need to run them again
+
   //registration
   {
     "header": {
