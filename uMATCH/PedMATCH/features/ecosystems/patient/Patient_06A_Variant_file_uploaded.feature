@@ -103,6 +103,5 @@ Feature: Variant files uploaded message
     Given template variant uploaded message for patient: "PT_VU13_VariantReportConfirmed", it has surgical_event_id: "SEI_01", molecular_id: "MOI_01" and analysis_id: "ANI_01"
     When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Failure"
 
-#  non date field?
 #  variants should be generated properly in patient json after variant files uploaded message is accepted
 #      run rule service using the variant tsv file, a variant list will be output, then run variant files uploaded message, then retrieve patient, check it's variant part with the list comes from rule engin

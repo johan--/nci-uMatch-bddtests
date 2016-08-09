@@ -22,7 +22,7 @@ Feature: NCH Specimen shipped messages
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "<status>"
     Examples:
     |type   |patient                |status   |message                                                        |
-    |TISSUE |PT_SS04_NonExisting    |Failure  |TBD                                                            |
+    |TISSUE |PT_SS04_NonExisting    |Failure  |patient_id does not exist                                                            |
     |BLOOD  |                       |Failure  |was not of a minimum string length of 1                        |
     |SLIDE  |null                   |Failure  |type NilClass did not match the following type: string         |
 
@@ -34,9 +34,9 @@ Feature: NCH Specimen shipped messages
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"
     Examples:
       |study_id     |message                                                        |
-      |other        |TBD                                                            |
-      |             |TBD                                                            |
-      |null         |TBD                                                            |
+      |other        |not match one of the following values: APEC1621                |
+      |             |not of a minimum string length of 1                            |
+      |null         |type NilClass did not match the following type: string         |
 
   Scenario: PT_SS06. shipped_dttm older than received_dttm fails
 #  Testing patient: PT_SS06_TissueReceived, surgical_event_id: SEI_TR_02, received_dttm: 2016-04-25T16:17:11+00:00
@@ -52,7 +52,7 @@ Feature: NCH Specimen shipped messages
     Examples:
     |type   |SEI            |message                                                              |
     |TISSUE |badSEI         |cannot transition from                                               |
-    |SLIDE  |               |cannot transition from                                               |
+    |SLIDE  |               |not of a minimum string length of 1                                  |
 
   Scenario Outline: PT_SS08. tissue or slide with an expired surgical_event_id fails
 #  Testing patient: PT_SS08_TissueReceived
@@ -68,7 +68,7 @@ Feature: NCH Specimen shipped messages
   Scenario Outline: PT_SS09. shipped tissue or slide without surgical_event_id fails
     Given template specimen shipped message in type: "<type>" for patient: "PT_SS09_TissueReceived"
     Then remove field: "surgical_event_id" from patient message
-    When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"
+    When posted to MATCH patient trigger service, returns a message that includes "not contain a required property of 'surgical_event_id'" with status "Failure"
     Examples:
       |type     |
       |TISSUE   |
@@ -158,10 +158,10 @@ Feature: NCH Specimen shipped messages
 #    Testing patient: PT_SS21_TissueVariantConfirmed, surgical_event_id: SEI_TR_1
 #      this patient has TISSUE_VARIANT_REPORT_CONFIRMED status
     Given template specimen shipped message in type: "TISSUE" for patient: "PT_SS21_TissueVariantConfirmed"
-    When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Failure"
+    When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"
 
   Scenario: PT_SS22. Blood cannot be shipped if there is on blood variant report get confirmed
 #    Testing patient: PT_SS21_BloodVariantConfirmed
 #      this patient has BLOOD_VARIANT_REPORT_CONFIRMED status
     Given template specimen shipped message in type: "BLOOD" for patient: "PT_SS22_BloodVariantConfirmed"
-    When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Failure"
+    When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"

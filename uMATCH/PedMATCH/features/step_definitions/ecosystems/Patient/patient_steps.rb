@@ -140,6 +140,11 @@ Then(/^retrieve patient: "([^"]*)" from API$/) do |patientID|
   # @retrieved_patient=JSON(IO.read('/Users/wangl17/match_apps/patient_100100.json'))
 end
 
+Then(/^returned patient has value: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
+  convert_value = value=='null'?nil:value
+  @retrieved_patient[field].should == convert_value
+end
+
 Then(/^returned patient has variant report \(surgical_event_id: "([^"]*)", molecular_id: "([^"]*)", analysis_id: "([^"]*)"\)$/) do |sei, moi, ani|
   @current_variant_report = find_variant_report(@retrieved_patient, sei, moi, ani)
   expect_find = "Can find variant with surgical_event_id=#{sei}, molecular_id=#{moi} and analysis_id=#{ani}"
@@ -152,7 +157,8 @@ Then(/^returned patient has variant report \(surgical_event_id: "([^"]*)", molec
 end
 
 And(/^this variant report has value: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
-  @current_variant_report[field].should == value
+  convert_value = value=='null'?nil:value
+  @current_variant_report[field].should == convert_value
 end
 
 And(/^this variant report has correct status_date$/) do

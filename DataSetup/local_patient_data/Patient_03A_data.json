@@ -491,21 +491,21 @@
 //  {
 //    "header": {
 //      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
-//      "msg_dttm": "2016-05-01T19:42:13+00:00"
+//      "msg_dttm": "2016-05-02T19:42:13+00:00"
 //    },
 //    "specimen_received": {
 //      "patient_id": "PT_SS08_TissueReceived",
 //      "study_id": "APEC1621",
 //      "type": "TISSUE",
 //      "surgical_event_id": "SEI_TR_2",
-//      "collected_dttm": "2016-04-25T15:17:11+00:00",
-//      "received_dttm": "2016-04-25T16:17:11+00:00",
+//      "collected_dttm": "2016-04-28T15:17:11+00:00",
+//      "received_dttm": "2016-04-28T16:17:11+00:00",
 //      "internal_use_only": {
 //        "stars_patient_id": "ABCXYZ",
 //        "stars_specimen_id": "ABCXYZ-0AK64M",
 //        "stars_specimen_type": "Paraffin Block Primary",
-//        "received_ts": "2016-04-25T15:17:11+00:00",
-//        "qc_ts": "2016-04-25T16:21:34+00:00"
+//        "received_ts": "2016-04-28T15:17:11+00:00",
+//        "qc_ts": "2016-04-28T16:21:34+00:00"
 //      }
 //    }
 //  },

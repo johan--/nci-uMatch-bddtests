@@ -10,24 +10,26 @@ Feature: Pathology Messages
       |          |was not of a minimum string length of 1               |
       |nonPatient|not existing                                          |
       |null      |type NilClass did not match the following type: string|
-  Scenario Outline: PT_PR02. Pathology report with invalid study_id(empty, non-existing, null) should fail
-    Given template pathology report with surgical_event_id: "SEI_01" for patient: "PT_PR02_TissueReceived"
-    Then set patient message field: "study_id" to value: "<value>"
-    When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"
-    Examples:
-      |value     |message                                               |
-      |          |was not of a minimum string length of 1               |
-      |other     |not existing                                          |
-      |null      |type NilClass did not match the following type: string|
+
+    #!!!!!!!!!!!!!!! study_id has been taken off from pathology message
+#  Scenario Outline: PT_PR02. Pathology report with invalid study_id(empty, non-existing, null) should fail
+#    Given template pathology report with surgical_event_id: "SEI_01" for patient: "PT_PR02_TissueReceived"
+#    Then set patient message field: "study_id" to value: "<value>"
+#    When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"
+#    Examples:
+#      |value     |message                                               |
+#      |          |was not of a minimum string length of 1               |
+#      |other     |not existing                                          |
+#      |null      |type NilClass did not match the following type: string|
   Scenario Outline: PT_PR03. Pathology report with invalid surgical_event_id(empty, non-existing, null) should fail
 #		Test data: Patient=PT_PR03_TissueReceived, with surgical_event_id=SEI_01 
     Given template pathology report with surgical_event_id: "<value>" for patient: "PT_PR03_TissueReceived"
-    When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"
+    When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"
     Examples:
-      |value     |
-      |          |
-      |SEI_NON   |
-      |null      |
+      |value     |message                                             |
+      |          |not of a minimum string length of 1                 |
+      |SEI_NON   |not exist                                           |
+      |null      |NilClass did not match the following type: string   |
   Scenario Outline: PT_PR04. Pathology report with invalid reported_date(empty, non-date, null) should fail
     Given template pathology report with surgical_event_id: "SEI_01" for patient: "PT_PR04_TissueReceived"
     Then set patient message field: "reported_date" to value: "<value>"
@@ -39,28 +41,37 @@ Feature: Pathology Messages
       |null      |
   Scenario Outline: PT_PR05. Pathology report with invalid result(other than Y, N or U) should fail
     Given template pathology report with surgical_event_id: "SEI_01" for patient: "PT_PR05_TissueReceived"
-    Then set patient message field: "result" to value: "<value>"
-    When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"
+    Then set patient message field: "status" to value: "<value>"
+    When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"
     Examples:
-      |value     |
-      |          |
-      |other     |
-      |null      |
+      |value     |message                                           |
+      |          |not of a minimum string length of 1               |
+      |other     |not match one of the following values: Y, N, U    |
+      |null      |NilClass did not match the following type: string |
 #Field tests:
   Scenario: PT_PR06. Pathology report can be sent on TISSUE_SPECIMEN_RECEIVED status
     Given template pathology report with surgical_event_id: "SEI_01" for patient: "PT_PR06_TissueReceived"
-    Then set patient message field: "result" to value: "Y"
+    Then set patient message field: "status" to value: "Y"
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+    Then wait for "10" seconds
+    Then retrieve patient: "PT_PR06_TissueReceived" from API
+    Then returned patient has value: "PATHOLOGY_REVIEWED" in field: "current_status"
   
-  Scenario: PT_PR07. Pathology report can be sent on TISSUE_NUCLEIC_ACID_SHIPPED status
+  Scenario: PT_PR07. Pathology report can be sent on TISSUE_NUCLEIC_ACID_SHIPPED status but will not change patient status if status is N
     Given template pathology report with surgical_event_id: "SEI_01" for patient: "PT_PR07_TissueShipped"
-    Then set patient message field: "result" to value: "N"
+    Then set patient message field: "status" to value: "N"
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+    Then wait for "10" seconds
+    Then retrieve patient: "PT_PR06_TissueReceived" from API
+    Then returned patient has value: "TISSUE_NUCLEIC_ACID_SHIPPED" in field: "current_status"
 
-  Scenario: PT_PR08. Pathology report can be sent on TISSUE_SLIDE_SHIPPED status
+  Scenario: PT_PR08. Pathology report can be sent on TISSUE_SLIDE_SHIPPED status but will not change patient status if status is U
     Given template pathology report with surgical_event_id: "SEI_01" for patient: "PT_PR08_SlideShipped"
-    Then set patient message field: "result" to value: "U"
+    Then set patient message field: "status" to value: "U"
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+    Then wait for "10" seconds
+    Then retrieve patient: "PT_PR06_TissueReceived" from API
+    Then returned patient has value: "TISSUE_SLIDE_SPECIMEN_SHIPPED" in field: "current_status"
 
 
   Scenario Outline: PT_PR09. Pathology report received for patient who has no tissue received(using same surgical_event_id) should fail
@@ -84,9 +95,9 @@ Feature: Pathology Messages
     Given template pathology report with surgical_event_id: "SEI_01" for patient: "PT_PR11TissueReceived"
     When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"
 
-  Scenario Outline: : PT_PR12. Pathology result (in current latest surgical_event_id) can only be received again if last pathology's result is U
+  Scenario Outline: PT_PR12. Pathology result (in current latest surgical_event_id) can only be received again if last pathology's result is U
 #  Test data: Patient=PT_PR12TissueReceived, surgical_event_id=SEI_01, has tissue received
-    Given template assay message with surgical_event_id: "SEI_01" for patient: "PT_PR12TissueReceived"
+    Given template pathology report with surgical_event_id: "SEI_01" for patient: "PT_PR12TissueReceived"
     Then set patient message field: "reported_date" to value: "<date>"
     Then set patient message field: "status" to value: "<status>"
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "<postStatus>"

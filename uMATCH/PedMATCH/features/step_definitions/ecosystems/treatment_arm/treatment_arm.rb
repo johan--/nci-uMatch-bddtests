@@ -40,6 +40,7 @@ Then(/^success message is returned:$/) do
 end
 
 Then(/^wait for "([^"]*)" seconds$/) do |seconds|
+  p "waitting for #{seconds}"
   sleep(seconds.to_f)
 end
 
