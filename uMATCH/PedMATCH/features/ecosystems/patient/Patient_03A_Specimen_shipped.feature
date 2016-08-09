@@ -161,7 +161,7 @@ Feature: NCH Specimen shipped messages
     When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Failure"
 
   Scenario: PT_SS22. Blood cannot be shipped if there is on blood variant report get confirmed
-#    Testing patient: PT_SS21_BloodVariantConfirmed, surgical_event_id: SEI_TR_1
+#    Testing patient: PT_SS21_BloodVariantConfirmed
 #      this patient has BLOOD_VARIANT_REPORT_CONFIRMED status
     Given template specimen shipped message in type: "BLOOD" for patient: "PT_SS22_BloodVariantConfirmed"
     When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Failure"

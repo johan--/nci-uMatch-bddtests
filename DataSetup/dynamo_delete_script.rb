@@ -7,6 +7,8 @@ require_relative 'options_manager'
 
 class DynamoDb
   attr_accessor :client
+  DEFAULT_AWS_ENDPOINT = 'https://dynamodb.us-east-1.amazonaws.com'
+  DEFAULT_AWS_REGION = 'us-east-1'
   DEFAULT_ENDPOINT = 'http://localhost:8000'
   DEFAULT_REGION = 'us-east-1'
   DEFAULT_FILENAME = File.expand_path(File.join(ENV['HOME'], '.aws/credentials'))
@@ -20,52 +22,59 @@ class DynamoDb
     # raise "Provide the prefix or the suffix of the list of tables that you want cleared" if @prefix.nil?
 
     if options=='local'
-      @client = Aws::DynamoDB::Client.new(
-          endpoint: DEFAULT_LOCAL_DB_ENDPOINT,
-          access_key_id: DEFAULT_AWS_ACCESS_KEY,
-          secret_access_key: DEFAULT_AWS_SECRET_KEY,
-          region: DEFAULT_LOCAL_REGION
-      )
-      return
-    end
-
-    if options[:endpoint].nil?
-      LOG.log("Using Default Endpoint: #{DEFAULT_ENDPOINT}", :info)
-      @endpoint = DEFAULT_ENDPOINT
+      @endpoint = DEFAULT_LOCAL_DB_ENDPOINT
+      @region = DEFAULT_LOCAL_REGION
+      @access_key = DEFAULT_AWS_ACCESS_KEY
+      @secret_key = DEFAULT_AWS_SECRET_KEY
+    elsif options=='default'
+      @endpoint = DEFAULT_AWS_ENDPOINT
+      @region = DEFAULT_AWS_REGION
+      @access_key = DEFAULT_AWS_ACCESS_KEY
+      @secret_key = DEFAULT_AWS_SECRET_KEY
     else
-      @endpoint = options[:endpoint]
-    end
+      if options[:endpoint].nil?
+        LOG.log("Using Default Endpoint: #{DEFAULT_ENDPOINT}", :info)
+        @endpoint = DEFAULT_ENDPOINT
+      else
+        @endpoint = options[:endpoint]
+      end
 
-    if options[:region].nil?
-      LOG.log("Using Default Region: #{DEFAULT_REGION}", :info) if options[:region].nil?
-      @region = DEFAULT_REGION
-    else
-      @region = options[:region]
-    end
+      if options[:region].nil?
+        LOG.log("Using Default Region: #{DEFAULT_REGION}", :info) if options[:region].nil?
+        @region = DEFAULT_REGION
+      else
+        @region = options[:region]
+      end
 
 
-    if options[:file_name].nil? && (options[:endpoint].nil? && options[:aws_access_key_id].nil? && options[:aws_secret_access_key].nil?)
-      LOG.log("Using credential file located at #{DEFAULT_FILENAME}", :info)
-      @file_location = DEFAULT_FILENAME
-      set_params_from_file
-    elsif options[:aws_access_key_id] && options[:aws_secret_access_key]
-      @access_key = options[:aws_access_key_id]
-      @secret_key = options[:aws_secret_access_key]
-    elsif options[:file_name]
-      @file_location = options[:file_name]
-      set_params_from_file
-    else
-      raise "One or more required parameters missing. Please run ./dynamo_delete_script.rb -h for more help"
+      if options[:file_name].nil? && (options[:endpoint].nil? && options[:aws_access_key_id].nil? && options[:aws_secret_access_key].nil?)
+        LOG.log("Using credential file located at #{DEFAULT_FILENAME}", :info)
+        @file_location = DEFAULT_FILENAME
+        set_params_from_file
+      elsif options[:aws_access_key_id] && options[:aws_secret_access_key]
+        @access_key = options[:aws_access_key_id]
+        @secret_key = options[:aws_secret_access_key]
+      elsif options[:file_name]
+        @file_location = options[:file_name]
+        set_params_from_file
+      else
+        raise "One or more required parameters missing. Please run ./dynamo_delete_script.rb -h for more help"
+      end
     end
 
     LOG.log("File location: #{@file_location} \nendpoint: #{@endpoint}\nregion: #{@region}", :info)
 
-    @client = Aws::DynamoDB::Client.new(
-        endpoint: @endpoint,
-        access_key_id: @access_key,
-        secret_access_key: @secret_key,
-        region: @region
-    )
+    Aws.config.update({endpoint: @endpoint,
+                       access_key_id: @access_key,
+                       secret_access_key: @secret_key,
+                       region: @region})
+    @client = Aws::DynamoDB::Client.new()
+    # @client = Aws::DynamoDB::Client.new(
+    #     endpoint: @endpoint,
+    #     access_key_id: @access_key,
+    #     secret_access_key: @secret_key,
+    #     region: @region
+    # )
   end
 
   def set_params_from_file

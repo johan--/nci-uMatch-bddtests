@@ -36,7 +36,7 @@ Then(/^a message with Status "([^"]*)" and message "([^"]*)" is returned:$/) do 
 end
 
 Then(/^success message is returned:$/) do
-  @response['status'].should == 'SUCCESS'
+  @response['status'].downcase.should == 'success'
 end
 
 Then(/^wait for "([^"]*)" seconds$/) do |seconds|
