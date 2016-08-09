@@ -18,9 +18,11 @@ class UpdateGoogleDrive
     doc_name = options[:doc].nil? ? DEFAULT_DOC : options[:doc]
     @config  = options[:config]
     @session = GoogleDrive::Session.from_config(@config)
+    raise "Creating session failed" if @session.nil?
     @tag = options[:tag]
     @build = options[:build]
     @workbook = @session.file_by_title doc_name
+    raise 'Accessing workbook failed' if @workbook.nil?
     @summary_sheet = @workbook.worksheet_by_title("#{@tag}_summary")
     @metrics_sheet = @workbook.worksheet_by_title("#{@tag}_metrics")
     @cuke = ReadJson.new(options)
