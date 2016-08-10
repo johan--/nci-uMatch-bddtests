@@ -179,11 +179,11 @@
     "analysis_id": "job1",
     "s3_bucket_name": "pedmatch-demo/3366/3366-bsn-msn-2/job1",
     "tsv_file_path_name": "3366.tsv",
-    "vcf_file_path_name": "3366-bsn-msn-2.vcf",
+    "vcf_file_path_name": "3366.vcf",
     "dna_bam_file_path_name": "dna.bam",
     "cdna_bam_file_path_name": "cdna.bam",
-    "dna_bai_file_path_name": "3366/3366-bsn/3366-bsn-msn-2/analysis1/dna.bai",
-    "cdna_bai_file_path_name": "3366/3366-bsn/3366-bsn-msn-2/analysis1/cdna.bai"
+    "dna_bai_file_path_name": "dna.bam.bai",
+    "cdna_bai_file_path_name": "cdna.bam.bai"
   },
 
   {
@@ -216,20 +216,20 @@
     "patient_id": "3366",
     "molecular_id": "3366-bsn-msn-blood",
     "analysis_id": "job2",
-    "s3_bucket_name": "nci-match-rules",
+    "s3_bucket_name": "pedmatch-demo/3366/3366-bsn-msn-blood/job2",
     "tsv_file_path_name": "indels.tsv",
-    "vcf_file_path_name": "3366/3366-bsn/3366-bsn-msn-2/analysis1/3366-bsn-msn-2.vcf",
-    "dna_bam_file_path_name": "3366/3366-bsn/3366-bsn-msn-2/analysis1/dna.bam",
-    "cdna_bam_file_path_name": "3366/3366-bsn/3366-bsn-msn-2/analysis1/cdna.bam",
-    "dna_bai_file_path_name": "3366/3366-bsn/3366-bsn-msn-2/analysis1/dna.bam",
-    "cdna_bai_file_path_name": "3366/3366-bsn/3366-bsn-msn-2/analysis1/cdna.bam"
+    "vcf_file_path_name": "3366-bsn-msn-2.vcf",
+    "dna_bam_file_path_name": "dna.bam",
+    "cdna_bam_file_path_name": "cdna.bam",
+    "dna_bai_file_path_name": "dna.bam.bai",
+    "cdna_bai_file_path_name": "cdna.bam.bai"
   },
   {
     "patient_id": "3366",
     "molecular_id": "3366-bsn-msn-2",
     "analysis_id": "job1",
     "status": "CONFIRMED",
-    "comment": "The committee has no problem with this variant report",
+    "comment": "The committee approves this variant report",
     "comment_user": "rick"
   }
 ]

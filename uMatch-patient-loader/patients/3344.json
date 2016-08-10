@@ -178,13 +178,13 @@
     "patient_id": "3344",
     "molecular_id": "3344-bsn-msn-2",
     "analysis_id": "job1",
-    "s3_bucket_name": "nci-match-rules",
-    "tsv_file_path_name": "3344.tsv",
-    "vcf_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/3344-bsn-msn-2.vcf",
-    "dna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/dna.bam",
-    "cdna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/cdna.bam",
-    "dna_bai_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/dna.bai",
-    "cdna_bai_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/cdna.bai"
+    "s3_bucket_name": "pedmatch-demo/3344/3344-bsn-msn-2/job1",
+    "tsv_file_path_name": "test1.tsv",
+    "vcf_file_path_name": "test1.vcf",
+    "dna_bam_file_path_name": "dna.bam",
+    "cdna_bam_file_path_name": "cdna.bam",
+    "dna_bai_file_path_name": "dna.bam.bai",
+    "cdna_bai_file_path_name": "cdna.bam.bai"
   },
 
   {
@@ -213,26 +213,12 @@
     "patient_id": "3344",
     "molecular_id": "3344-bsn-msn-blood",
     "analysis_id": "job2",
-    "s3_bucket_name": "nci-match-rules",
-    "tsv_file_path_name": "indels.tsv",
-    "vcf_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/3344-bsn-msn-2.vcf",
-    "dna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/dna.bam",
-    "cdna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/cdna.bam",
-    "dna_bai_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/dna.bam",
-    "cdna_bai_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/cdna.bam"
-  },
-  {
-    "patient_id": "3344",
-    "surgical_event_id": "3344-bsn",
-    "molecular_id": "3344-bsn-msn-2",
-    "analysis_id": "job1"
-  },
-  {
-    "patient_id": "3344",
-    "molecular_id": "3344-bsn-msn-2",
-    "analysis_id": "job1",
-    "status": "CONFIRMED",
-    "comment": "The committee has no problem with this variant report",
-    "comment_user": "rick"
+    "s3_bucket_name": "pedmatch-demo/3344/3344-bsn-msn-blood/job2",
+    "tsv_file_path_name": "3344-blood.tsv",
+    "vcf_file_path_name": "3344-blood.vcf",
+    "dna_bam_file_path_name": "dna.bam",
+    "cdna_bam_file_path_name": "cdna.bam",
+    "dna_bai_file_path_name": "dna.bam.bai",
+    "cdna_bai_file_path_name": "cdna.bam.bai"
   }
 ]
