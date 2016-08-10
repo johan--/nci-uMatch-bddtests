@@ -1,43 +1,61 @@
 require 'json'
 
+# This class is used to manipulate information required to access details from cucumber json reports
 class ReadJson
-
-
   attr_reader :file_list, :collected_results
-  
   def initialize(options = nil)
-    raise 'Root folder for cucumber json not provided' if options[:directory].nil?
+    raise 'Directory for cucumber json not given' if options[:directory].nil?
     @file_list = Dir["#{options[:directory]}/*.json"]
-    raise 'Folder provided does not have any json files' if @file_list.size == 0
+    @collected_results = []
+    raise 'Could not find any json files' if @file_list.size.zero?
   end
 
-  # This method returns hash of all the scenarios and the number of tests that passed, failed and skipped
+  # This method returns hash of all the scenarios and the number of
+  # tests that passed, failed and skipped
   # output - VOID
   def collect_all_results
-    @collected_results  = []
     @file_list.each do |cuke_file_name|
       cuke = JSON.parse(File.read(cuke_file_name))
       # Section to get rid of all values only scenario and status
       cuke.each do |feature|
-        feature["elements"].each do |scenario|
-          next if scenario["type"] == 'background'
-          name = scenario["name"]
-          passed = 0
-          failed = 0
-          skippd = 0
-
-          scenario["steps"].each do |step|
-            passed += 1 if step['result']["status"] == 'passed'
-            failed += 1 if step['result']["status"] == 'failed'
-            skippd += 1 if step['result']["status"] == 'skipped'
-          end
-          @collected_results << {name: name, passed: passed, failed: failed, skipped: skippd}
+        feature['elements'].each do |scenario|
+          next if scenario['type'] == 'background'
+          name = scenario['name']
+          res = sort_results(scenario)
+          @collected_results << {
+            name: name,
+            passed: res[:passed],
+            failed: res[:failed],
+            skipped: res[:skipped]
+          }
         end
       end
     end
   end
 
-  # This method transforms the collected results to a hash that breaks down the build by pass/fail/skipped steps
+  def sort_results(scenario)
+    passed = 0
+    failed = 0
+    skipped = 0
+    scenario["steps"].each do |step|
+      next if step['result'].nil?
+      @step = step
+      case step['result']['status']
+      when 'passed'
+        passed += 1
+
+      when 'failed'
+        failed += 1
+
+      when 'skipped'
+        skipped += 1
+      end
+    end
+    { passed: passed, failed:failed, skipped: skipped }
+  end
+
+  # This method transforms the collected results to a hash that breaks
+  # down the build by pass/fail/skipped steps
   def simplify_collected_data
     stats = {passed: 0, failed: 0, skipped: 0, total: 0}
     collect_all_results if @collected_results.nil?
@@ -58,7 +76,8 @@ class ReadJson
   end
 
 
-  # This method transforms the data into a hash that states whether a scenario has passed or failed.
+  # This method transforms the data into a hash that
+  # states whether a scenario has passed or failed.
   def result_by_scenario
     scenario_result = {}
 
@@ -76,6 +95,4 @@ class ReadJson
     end
     scenario_result
   end
-
-
 end

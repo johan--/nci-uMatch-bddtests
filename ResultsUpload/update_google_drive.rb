@@ -4,13 +4,13 @@ require_relative 'read_json'
 require_relative 'options_manager'
 
 class UpdateGoogleDrive
-  DEFAULT_DOC = 'BDD Test Report'
+  DEFAULT_DOC = 'BDD Test Report'.freeze
 
   OpenSSL::SSL::VERIFY_PEER = 0
 
   attr_accessor :workbook, :summary_sheet, :metrics_sheet, :cuke
 
-  def initialize (options)
+  def initialize(options)
     %w(directory config tag build).map(&:to_sym).each do |elem|
       raise "Value for '#{elem}' not provided." if options[elem].nil?
     end
@@ -18,14 +18,18 @@ class UpdateGoogleDrive
     doc_name = options[:doc].nil? ? DEFAULT_DOC : options[:doc]
     @config  = options[:config]
     @session = GoogleDrive::Session.from_config(@config)
-    raise "Creating session failed" if @session.nil?
-    @tag = options[:tag]
+    raise 'Creating session failed' if @session.nil?
+    @tag = options[:tag].delete('@')
     @build = options[:build]
     @workbook = @session.file_by_title doc_name
     raise 'Accessing workbook failed' if @workbook.nil?
     @summary_sheet = @workbook.worksheet_by_title("#{@tag}_summary")
     @metrics_sheet = @workbook.worksheet_by_title("#{@tag}_metrics")
     @cuke = ReadJson.new(options)
+
+    [@summary_sheet, @metrics_sheet].each do |sheet|
+      raise "Failed to access worksheet: #{sheet}" if sheet.nil?
+    end
   end
 
   # This function returns the column numbers for each of the columns
@@ -62,11 +66,11 @@ class UpdateGoogleDrive
     new_col = @metrics_sheet.num_cols + 1
     new_row = @metrics_sheet.num_rows + 1
     @metrics_sheet[1, new_col] = @build
-    existing_scenario_list.each do |k,v|
+    existing_scenario_list.each do |k, v|
       @metrics_sheet[v, new_col] = metrics[k]
       metrics.delete(k)
     end
-    metrics.each do |k,v|
+    metrics.each do |k, v|
       @metrics_sheet[new_row, 1] = k
       @metrics_sheet[new_row, new_col] = v
       new_row += 1
