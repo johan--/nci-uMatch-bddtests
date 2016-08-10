@@ -1,8 +1,8 @@
-@demoTest
+#@demoTest
 Feature: Feature for end-to-end test demo
 
 Background: wait for process to complete
-  Then wait for "10" seconds
+  Then wait for "15" seconds
 
   Scenario: Load APEC1621-A arm
     Given that treatment arm is received from COG:
@@ -472,13 +472,14 @@ Background: wait for process to complete
     Given template pathology report with surgical_event_id: "00001-Tissue_Specimen_1" for patient: "00001"
     Then set patient message field: "reported_date" to value: "current"
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
-
+  @demoTest
   Scenario: Patient's variant report is uploaded to MatchBox
     Given template variant uploaded message for patient: "00001", it has surgical_event_id: "00001-Tissue_Specimen_1", molecular_id: "00012" and analysis_id: "ANI_00012"
-    Then set patient message field: "s3_bucket_name" to value: "bdd-test-data"
-    Then set patient message field: "tsv_file_path_name" to value: "113re_gene-fusion.tsv"
+    Then set patient message field: "s3_bucket_name" to value: "bdd-test-data/demo/00001/00012/ANI_00012"
+    Then set patient message field: "tsv_file_path_name" to value: "00001.tsv"
+    Then set patient message field: "vcf_file_path_name" to value: "00001.vcf"
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
-
+  @demoTest
   Scenario: Patient's variant report is confirmed
     Given template variant report confirm message for patient: "00001", it has surgical_event_id: "00001-Tissue_Specimen_1", molecular_id: "00012", analysis_id: "ANI_00012" and status: "CONFIRMED"
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
