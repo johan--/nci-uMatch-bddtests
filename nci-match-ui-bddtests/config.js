@@ -30,6 +30,9 @@ exports.config = {
         'features/PA_01_Patient_List.feature',
         'features/PA_02_Patient_Summary.feature',
         'features/PA_03_Patient_SurgicalEvent.feature',
+        'features/PA_04_Patient_Tissue_Report.feature',
+        'features/PA_05_Patient_Documents.feature',
+        'features/SP_01_Specimen_Tracking.feature',
 
         //Treatment Arm details page
         'features/TA_01_Analysis.feature',
@@ -45,7 +48,7 @@ exports.config = {
                   'features/step_definitions/*.js',
                   'support/hooks.js' ],
         format: 'pretty',
-        format: 'json:results/result.json'
+        format: 'json:../results/result.json'
 
     },
     //resultsJsonOutputFile: <to find out> process.env['HOME'] + '/Desktop/report.json'
