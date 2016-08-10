@@ -4,6 +4,416 @@ Feature: Feature for end-to-end test demo
 Background: wait for process to complete
   Then wait for "10" seconds
 
+  Scenario: Load test treatment arm
+    Given that treatment arm is received from COG:
+	"""
+    {
+      "active": null,
+      "id": "APEC1621-A",
+      "name": "APEC1621-A",
+      "date_created": "2016-06-24T15:38:31+00:00",
+      "version": "2015-08-06",
+      "stratum_id": "100",
+      "description": "TEST Treatment Arm used by Cucumber Tests",
+      "target_id": "113",
+      "target_name": "Crizotinib",
+      "gene": "ALK",
+      "treatment_arm_status": "OPEN",
+      "study_id": "APEC1621",
+      "assay_results": [],
+      "num_patients_assigned": null,
+      "date_opened": null,
+      "treatment_arm_drugs": [{
+        "name": "Crizotinib",
+        "pathway": "ALK",
+        "drug_id": "113"
+      }],
+      "variant_report": {
+        "single_nucleotide_variants": [],
+        "indels": [],
+        "non_hotspot_rules": [{
+          "inclusion": true,
+          "oncomine_variant_class": "deleterious",
+          "public_med_ids": null,
+          "gene": "PTEN",
+          "arm_specific": "false",
+          "level_of_evidence": "3.0",
+          "function": null,
+          "protein_match": null,
+          "type": "nhr",
+          "exon": null
+        }],
+        "copy_number_variants": [],
+        "gene_fusions": [{
+          "ocp_reference": "A",
+          "gene_name": "ALK",
+          "identifier": "TPM3-ALK.T7A20",
+          "inclusion": true,
+          "public_med_ids": ["23724913"],
+          "arm_specific": "false",
+          "level_of_evidence": "2.0",
+          "chromosome": "2.0",
+          "ocp_alternative": "[chr1:154142875[A",
+          "description": "ALK translocation",
+          "position": "29446394",
+          "type": "gf"
+        }, {
+          "ocp_reference": "C",
+          "gene_name": "FGFR2",
+          "identifier": "FGFR2-OFD1.F17O3",
+          "inclusion": true,
+          "public_med_ids": null,
+          "arm_specific": "false",
+          "level_of_evidence": "3.0",
+          "chromosome": "10.0",
+          "ocp_alternative": "C[chrX:13754596[",
+          "description": "some description",
+          "position": "123243211",
+          "type": "gf"
+        }]
+      },
+      "exclusion_diseases": [{
+        "disease_code": "10058354",
+        "ctep_sub_category": null,
+        "short_name": "Bronchioloalveolar carcinoma",
+        "ctep_category": "Non-Small Cell Lung Cancer"
+      }, {
+        "disease_code": "10025032",
+        "ctep_sub_category": null,
+        "short_name": "Lung adenocarcinoma",
+        "ctep_category": "Non-Small Cell Lung Cancer"
+      }, {
+        "disease_code": "90600324",
+        "ctep_sub_category": null,
+        "short_name": "Lung adenocar. w/ bronch. feat.",
+        "ctep_category": "Non-Small Cell Lung Cancer"
+      }, {
+        "disease_code": "10029514",
+        "ctep_sub_category": null,
+        "short_name": "Non-small cell lung cancer, NOS",
+        "ctep_category": "Non-Small Cell Lung Cancer"
+      }, {
+        "disease_code": "10025125",
+        "ctep_sub_category": null,
+        "short_name": "Squamous cell lung carcinoma",
+        "ctep_category": "Non-Small Cell Lung Cancer"
+      }],
+      "inclusion_diseases": [{
+        "disease_code": "10033701",
+        "ctep_sub_category": null,
+        "short_name": "Papillary thyroid carcinoma",
+        "ctep_category": "Thyroid Cancer"
+      }],
+      "exclusion_drugs": [{
+        "name": "Doxorubicin Hydrochloride",
+        "drug_id": "10001",
+        "drug_class": "ALK inhibitor",
+        "target": "ALK"
+      }]
+    }
+	"""
+    When posted to MATCH newTreatmentArm
+    Then a message with Status "Success" and message "Saved to datastore." is returned:
+
+  Scenario: Load APEC1621-B arm
+    Given that treatment arm is received from COG:
+    """
+{
+      "active": null,
+      "id": "APEC1621-B",
+      "name": "APEC1621-B",
+      "date_created": "2016-06-24T15:38:31+00:00",
+      "version": "2015-08-06",
+      "stratum_id": "100",
+      "description": "TEST Treatment Arm used by Cucumber Tests",
+      "target_id": "113",
+      "target_name": "Crizotinib",
+      "gene": "ALK",
+      "treatment_arm_status": "OPEN",
+      "study_id": "APEC1621",
+      "assay_results": [
+        {
+            "gene" : "PTEN",
+            "assayResultStatus" : "POSITIVE",
+            "assayVariant" : "PRESENT",
+            "levelOfEvidence" : 3
+        },
+        {
+            "gene" : "MLH1",
+            "assayResultStatus" : "POSITIVE",
+            "assayVariant" : "EMPTY",
+            "levelOfEvidence" : 5
+        }
+      ],
+      "num_patients_assigned": null,
+      "date_opened": null,
+      "treatment_arm_drugs": [{
+        "name": "Crizotinib",
+        "pathway": "ALK",
+        "drug_id": "113"
+      }],
+      "variant_report": {
+        "single_nucleotide_variants": [{
+          "type": "snv",
+          "confirmed": false,
+          "chromosome": "chr6",
+          "position": "152419923",
+          "identifier": "COSM1074639",
+          "reference": "A",
+          "alternative": "C",
+          "rare": false,
+          "levelOfEvidence": 3,
+          "inclusion": true,
+          "armSpecific": false
+        }, {
+          "type": "snv",
+          "confirmed": false,
+          "chromosome": "chr9",
+          "position": "80412493",
+          "identifier": "COSM52975",
+          "reference": "C",
+          "alternative": "T",
+          "rare": false,
+          "levelOfEvidence": 3,
+          "inclusion": true,
+          "armSpecific": false
+        }, {
+          "type": "snv",
+          "confirmed": false,
+          "chromosome": "chr17",
+          "position": "7577064",
+          "identifier": "COSM44451",
+          "reference": "T",
+          "alternative": "C",
+          "rare": false,
+          "levelOfEvidence": 3,
+          "inclusion": false,
+          "armSpecific": false
+        }, {
+          "type": "snv",
+          "confirmed": false,
+          "chromosome": "chrX",
+          "position": "70349258",
+          "identifier": "COSM757681",
+          "reference": "C",
+          "alternative": "G",
+          "rare": false,
+          "levelOfEvidence": 3,
+          "inclusion": false,
+          "armSpecific": false
+        }, {
+          "type": "snv",
+          "confirmed": false,
+          "chromosome": "chrX",
+          "position": "100611165",
+          "identifier": "BT9",
+          "reference": "A",
+          "alternative": "T",
+          "rare": false,
+          "levelOfEvidence": 3,
+          "inclusion": true,
+          "armSpecific": false
+        }],
+        "indels": [{
+          "type": "id",
+          "confirmed": false,
+          "chromosome": "chr22",
+          "position": "30035190",
+          "identifier": "COSM22189",
+          "ocp_reference": "TTC",
+          "ocp_alternative": "-",
+          "rare": false,
+          "levelOfEvidence": 3,
+          "inclusion": true
+        }, {
+          "type": "id",
+          "confirmed": false,
+          "chromosome": "chrX",
+          "position": "70339250",
+          "identifier": "COSM131612",
+          "ocp_reference": "CAAGGTTTCAATAACCAG",
+          "ocp_alternative": "-",
+          "rare": false,
+          "levelOfEvidence": 3,
+          "inclusion": true
+        }, {
+          "type": "id",
+          "confirmed": false,
+          "chromosome": "chrX",
+          "position": "70339270",
+          "identifier": "COSM143738",
+          "ocp_reference": "TGCTGTCTCTGGGGA",
+          "ocp_alternative": "-",
+          "rare": false,
+          "levelOfEvidence": 3,
+          "inclusion": false
+        }],
+        "non_hotspot_rules": [{
+          "gene": "MYCL",
+          "oncomine_variant_class": "amplification",
+          "rare": false,
+          "levelOfEvidence": 500,
+          "inclusion": true,
+          "type": "nhr"
+        }, {
+          "gene": "TP53",
+          "function": "Refallele",
+          "rare": false,
+          "levelOfEvidence": 600,
+          "inclusion": true,
+          "armSpecific": false,
+          "type": "nhr"
+        }],
+        "copy_number_variants": [{
+          "ref_copy_number": 2.0,
+          "raw_copy_number": 7.7,
+          "copy_number": 7.7,
+          "confidence_interval_95percent": 1.81291,
+          "confidence_interval_5percent": 1.59412,
+          "confirmed": false,
+          "chromosome": "chr1",
+          "position": "40361592",
+          "identifier": "MYCL",
+          "ocp_reference": "C",
+          "ocp_alternative": "<CNV>",
+          "rare": false,
+          "levelOfEvidence": 2,
+          "inclusion": true,
+          "armSpecific": false,
+          "type": "cnv"
+        }, {
+          "ref_copy_number": 2.0,
+          "raw_copy_number": 8.2,
+          "copy_number": 8.2,
+          "confidence_interval_95percent": 4.36137,
+          "confidence_interval_5percent": 4.04279,
+          "confirmed": false,
+          "chromosome": "chr1",
+          "position": "147022100",
+          "identifier": "BCL9",
+          "ocp_reference": "G",
+          "ocp_alternative": "<CNV>",
+          "rare": false,
+          "levelOfEvidence": 2,
+          "inclusion": false,
+          "armSpecific": false,
+          "type": "cnv"
+        }, {
+          "ref_copy_number": 2.0,
+          "raw_copy_number": 8.8,
+          "copy_number": 8.8,
+          "confidence_interval_95percent": 1.94266,
+          "confidence_interval_5percent": 1.67303,
+          "confirmed": false,
+          "chromosome": "chr10",
+          "position": "89624207",
+          "identifier": "PTEN",
+          "ocp_reference": "T",
+          "ocp_alternative": "<CNV>",
+          "rare": false,
+          "levelOfEvidence": 2,
+          "inclusion": true,
+          "armSpecific": false,
+          "type": "cnv"
+        }],
+        "gene_fusions": [{
+          "ocp_reference": "C",
+          "gene_name": "TPM3",
+          "identifier": "TPM3-NTRK1.T7N10.COSF1318_1",
+          "inclusion": true,
+          "public_med_ids": null,
+          "level_of_evidence": "2.0",
+          "chromosome": "chr2",
+          "ocp_alternative": "C[chr1:156844362[",
+          "position": "154142875",
+          "type": "gf"
+        },
+        {
+          "ocp_reference": "G",
+          "gene_name": "NTRK1",
+          "identifier": "TPM3-NTRK1.T7N10.COSF1318_2",
+          "inclusion": true,
+          "public_med_ids": null,
+          "level_of_evidence": "3.0",
+          "chromosome": "chr2",
+          "ocp_alternative": "[chr1:154142875[G",
+          "position": "156844362",
+          "type": "gf"
+        },
+        {
+          "ocp_reference": "T",
+          "gene_namne": "TPM3",
+          "identifier": "TPM3-ROS1.T7R35.COSF1273_1",
+          "inclusion": false,
+          "public_med_ids": null,
+          "level_of_evidence": "3.0",
+          "chromosome": "chr1",
+          "ocp_alternative": "T]chr6:117642559]",
+          "position": "154142877",
+          "type": "gf"
+        },
+        {
+          "ocp_reference": "T",
+          "gene_name": "ROS1",
+          "identifier": "TPM3-ROS1.T7R35.COSF1273_2",
+          "inclusion": false,
+          "public_med_ids": null,
+          "level_of_evidence": "3.0",
+          "chromosome": "chr6",
+          "ocp_alternative": "[chr1:154142877[T",
+          "position": "117642559",
+          "type": "gf"
+        }
+        ]
+      },
+      "exclusion_diseases": [{
+        "disease_code": "10058354",
+        "ctep_sub_category": null,
+        "short_name": "Bronchioloalveolar carcinoma",
+        "ctep_category": "Non-Small Cell Lung Cancer"
+      }, {
+        "disease_code": "10025032",
+        "ctep_sub_category": null,
+        "short_name": "Lung adenocarcinoma",
+        "ctep_category": "Non-Small Cell Lung Cancer"
+      }, {
+        "disease_code": "90600324",
+        "ctep_sub_category": null,
+        "short_name": "Lung adenocar. w/ bronch. feat.",
+        "ctep_category": "Non-Small Cell Lung Cancer"
+      }, {
+        "disease_code": "10029514",
+        "ctep_sub_category": null,
+        "short_name": "Non-small cell lung cancer, NOS",
+        "ctep_category": "Non-Small Cell Lung Cancer"
+      }, {
+        "disease_code": "10025125",
+        "ctep_sub_category": null,
+        "short_name": "Squamous cell lung carcinoma",
+        "ctep_category": "Non-Small Cell Lung Cancer"
+      }],
+      "inclusion_diseases": [{
+        "disease_code": "10033701",
+        "ctep_sub_category": null,
+        "short_name": "Papillary thyroid carcinoma",
+        "ctep_category": "Thyroid Cancer"
+      }],
+      "exclusion_drugs": [{
+        "name": "Doxorubicin Hydrochloride",
+        "drug_id": "10001",
+        "drug_class": "ALK inhibitor",
+        "target": "ALK"
+      }]
+    }
+    """
+    When posted to MATCH newTreatmentArm
+    Then a message with Status "Success" and message "Saved to datastore." is returned:
+@demoTest
+  Scenario: Check treatment arm status is OPEN
+    Then the treatmentArmStatus field has a value "OPEN" for the ta "APEC1621-A"
+    Then the treatmentArmStatus field has a value "OPEN" for the ta "APEC1621-B"
+
+
   Scenario: Patient in registration
     Given that Patient StudyID "APEC1621" PatientSeqNumber "00001" StepNumber "1.0" PatientStatus "REGISTRATION" Message "Patient registration trigger" with "current" dateCreated is received from EA layer
     When posted to MATCH patient registration
@@ -23,7 +433,7 @@ Background: wait for process to complete
     Then set patient message field: "received_dttm" to value: "current"
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
 
-
+#scenario failing because the application code is expecting surgical_event_id for Blood shipment, but Blood does not have an associated surgical_event _id
   Scenario: Patient's Blood specimen shipment is received
     Given template specimen shipped message in type: "BLOOD" for patient: "00001"
     Then set patient message field: "shipped_dttm" to value: "current"
@@ -41,37 +451,21 @@ Background: wait for process to complete
     Given template specimen shipped message in type: "SLIDE" for patient: "00001"
     Then set patient message field: "surgical_event_id" to value: "00001-Tissue_Specimen_1"
     Then set patient message field: "shipped_dttm" to value: "current"
-    When posted to MATCH patient trigger service, returns a message that includes "specimen shipped message received and saved." with status "Success"
+    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
 
 
   Scenario: Patient's ICCPTENs assay message is received
-    Given that assay result is received from MDA:
-    """
-	{
-	 "patient_id":"00001",
-	 "study_id": "APEC1621",
-	 "surgical_event_id":"00001-Tissue_Specimen_1",
-	 "biomarker":"ICCPTENs",
-	 "type":"Result"
-	 "result":"POSITIVE",
-	 "reported_date":"2014-09-16 15:33:22.42"
-	}
-	"""
+    Given template assay message with surgical_event_id: "00001-Tissue_Specimen_1" for patient: "00001"
+    Then set patient message field: "biomarker" to value: "ICCPTENs"
+    Then set patient message field: "reported_date" to value: "current"
+    Then set patient message field: "result" to value: "NEGATIVE"
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
 
   Scenario: Patient's ICCMLH1s assay message is received
-    Given that assay result is received from MDA:
-    """
-	{
-	 "patient_id":"00001",
-	 "study_id": "APEC1621",
-	 "surgical_event_id":"00001-Tissue_Specimen_1",
-	 "biomarker":"ICCMLH1s",
-	 "type":"Result"
-	 "result":"NEGATIVE",
-	 "reported_date":"2014-09-16 15:33:22.42"
-	}
-	"""
+    Given template assay message with surgical_event_id: "00001-Tissue_Specimen_1" for patient: "00001"
+    Then set patient message field: "biomarker" to value: "ICCMLH1s"
+    Then set patient message field: "reported_date" to value: "current"
+    Then set patient message field: "result" to value: "NEGATIVE"
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
 
   Scenario: Patient's pathology report confirmation is received
@@ -82,7 +476,7 @@ Background: wait for process to complete
   Scenario: Patient's variant report is uploaded to MatchBox
     Given template variant uploaded message for patient: "00001", it has surgical_event_id: "00001-Tissue_Specimen_1", molecular_id: "00012" and analysis_id: "ANI_00012"
     Then set patient message field: "s3_bucket_name" to value: "bdd-test-data"
-    Then set patient message field: "tsv_file_path_name" to value: "SNV_location_intronic.tsv"
+    Then set patient message field: "tsv_file_path_name" to value: "113re_gene-fusion.tsv"
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
 
   Scenario: Patient's variant report is confirmed
