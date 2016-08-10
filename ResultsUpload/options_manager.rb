@@ -3,8 +3,9 @@ require 'optparse'
 require 'ostruct'
 require 'json'
 
+# Setting up options for using with the cli
 class OptionsManager
-  def self.parse(args)
+  def self.parse(_args)
     options = OpenStruct.new
     options.directory = nil
     options.file_name
@@ -31,11 +32,6 @@ class OptionsManager
       opts.on('-f f', '--file_name=f', '[Optional] Google sheet name default BDD Test Report') do |file|
         options.file_name = file.to_s
       end
-
-
-
-
-
     end
     opt_parser.parse!
     options
