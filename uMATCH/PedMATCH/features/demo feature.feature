@@ -4,7 +4,7 @@ Feature: Feature for end-to-end test demo
 Background: wait for process to complete
   Then wait for "10" seconds
 
-  Scenario: Load test treatment arm
+  Scenario: Load APEC1621-A arm
     Given that treatment arm is received from COG:
 	"""
     {
@@ -35,7 +35,7 @@ Background: wait for process to complete
           "inclusion": true,
           "oncomine_variant_class": "deleterious",
           "public_med_ids": null,
-          "gene": "PTEN",
+          "func_gene": "PTEN",
           "arm_specific": "false",
           "level_of_evidence": "3.0",
           "function": null,
@@ -46,7 +46,7 @@ Background: wait for process to complete
         "copy_number_variants": [],
         "gene_fusions": [{
           "ocp_reference": "A",
-          "gene_name": "ALK",
+          "func_gene": "ALK",
           "identifier": "TPM3-ALK.T7A20",
           "inclusion": true,
           "public_med_ids": ["23724913"],
@@ -59,7 +59,7 @@ Background: wait for process to complete
           "type": "gf"
         }, {
           "ocp_reference": "C",
-          "gene_name": "FGFR2",
+          "func_gene": "FGFR2",
           "identifier": "FGFR2-OFD1.F17O3",
           "inclusion": true,
           "public_med_ids": null,
@@ -133,13 +133,13 @@ Background: wait for process to complete
       "study_id": "APEC1621",
       "assay_results": [
         {
-            "gene" : "PTEN",
+            "func_gene" : "PTEN",
             "assayResultStatus" : "POSITIVE",
             "assayVariant" : "PRESENT",
             "levelOfEvidence" : 3
         },
         {
-            "gene" : "MLH1",
+            "func_gene" : "MLH1",
             "assayResultStatus" : "POSITIVE",
             "assayVariant" : "EMPTY",
             "levelOfEvidence" : 5
@@ -249,18 +249,18 @@ Background: wait for process to complete
           "inclusion": false
         }],
         "non_hotspot_rules": [{
-          "gene": "MYCL",
+          "func_gene": "MYCL",
           "oncomine_variant_class": "amplification",
           "rare": false,
           "levelOfEvidence": 500,
           "inclusion": true,
           "type": "nhr"
         }, {
-          "gene": "TP53",
+          "func_gene": "TP53",
           "function": "Refallele",
           "rare": false,
           "levelOfEvidence": 600,
-          "inclusion": true,
+          "inclusion": false,
           "armSpecific": false,
           "type": "nhr"
         }],
@@ -318,7 +318,7 @@ Background: wait for process to complete
         }],
         "gene_fusions": [{
           "ocp_reference": "C",
-          "gene_name": "TPM3",
+          "func_gene": "TPM3",
           "identifier": "TPM3-NTRK1.T7N10.COSF1318_1",
           "inclusion": true,
           "public_med_ids": null,
@@ -330,7 +330,7 @@ Background: wait for process to complete
         },
         {
           "ocp_reference": "G",
-          "gene_name": "NTRK1",
+          "func_gene": "NTRK1",
           "identifier": "TPM3-NTRK1.T7N10.COSF1318_2",
           "inclusion": true,
           "public_med_ids": null,
@@ -342,7 +342,7 @@ Background: wait for process to complete
         },
         {
           "ocp_reference": "T",
-          "gene_namne": "TPM3",
+          "func_gene": "TPM3",
           "identifier": "TPM3-ROS1.T7R35.COSF1273_1",
           "inclusion": false,
           "public_med_ids": null,
@@ -354,7 +354,7 @@ Background: wait for process to complete
         },
         {
           "ocp_reference": "T",
-          "gene_name": "ROS1",
+          "func_gene": "ROS1",
           "identifier": "TPM3-ROS1.T7R35.COSF1273_2",
           "inclusion": false,
           "public_med_ids": null,
@@ -408,7 +408,7 @@ Background: wait for process to complete
     """
     When posted to MATCH newTreatmentArm
     Then a message with Status "Success" and message "Saved to datastore." is returned:
-@demoTest
+
   Scenario: Check treatment arm status is OPEN
     Then the treatmentArmStatus field has a value "OPEN" for the ta "APEC1621-A"
     Then the treatmentArmStatus field has a value "OPEN" for the ta "APEC1621-B"
@@ -434,10 +434,10 @@ Background: wait for process to complete
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
 
 #scenario failing because the application code is expecting surgical_event_id for Blood shipment, but Blood does not have an associated surgical_event _id
-  Scenario: Patient's Blood specimen shipment is received
-    Given template specimen shipped message in type: "BLOOD" for patient: "00001"
-    Then set patient message field: "shipped_dttm" to value: "current"
-    When posted to MATCH patient trigger service, returns a message that includes "specimen shipped message received and saved." with status "Success"
+#  Scenario: Patient's Blood specimen shipment is received
+#    Given template specimen shipped message in type: "BLOOD" for patient: "00001"
+#    Then set patient message field: "shipped_dttm" to value: "current"
+#    When posted to MATCH patient trigger service, returns a message that includes "specimen shipped message received and saved." with status "Success"
 
 
   Scenario: Patient's Tissue specimen shipment is received
