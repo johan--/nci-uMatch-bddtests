@@ -1,4 +1,4 @@
-#@demoTest
+@demo
 Feature: Feature for end-to-end test demo
 
 Background: wait for process to complete
@@ -252,14 +252,14 @@ Background: wait for process to complete
           "func_gene": "MYCL",
           "oncomine_variant_class": "amplification",
           "rare": false,
-          "levelOfEvidence": 500,
+          "levelOfEvidence": 2.3,
           "inclusion": true,
           "type": "nhr"
         }, {
           "func_gene": "TP53",
           "function": "Refallele",
           "rare": false,
-          "levelOfEvidence": 600,
+          "levelOfEvidence": 3.2,
           "inclusion": false,
           "armSpecific": false,
           "type": "nhr"
@@ -414,74 +414,164 @@ Background: wait for process to complete
     Then the treatmentArmStatus field has a value "OPEN" for the ta "APEC1621-B"
 
 
-  Scenario: Patient in registration
-    Given that Patient StudyID "APEC1621" PatientSeqNumber "00001" StepNumber "1.0" PatientStatus "REGISTRATION" Message "Patient registration trigger" with "current" dateCreated is received from EA layer
+  Scenario Outline: Patient in registration
+    Given that Patient StudyID "<StudyId>" PatientSeqNumber "<patient_id>" StepNumber "<step_number>" PatientStatus "<patient_status>" Message "Patient registration trigger" with "<date_created>" dateCreated is received from EA layer
     When posted to MATCH patient registration
     Then a message "Message has been processed successfully" is returned with a "Success"
+  Examples:
+    |StudyId      |patient_id           |step_number        |patient_status       |date_created       |
+    |APEC1621     |00001                |1.0                |REGISTRATION         |current            |
+    |APEC1621     |00002                |1.0                |REGISTRATION         |current            |
+    |APEC1621     |00003                |1.0                |REGISTRATION         |current            |
+    |APEC1621     |00004                |1.0                |REGISTRATION         |current            |
+    |APEC1621     |00005                |1.0                |REGISTRATION         |current            |
 
-  Scenario: Patient's Blood specimen is received
-    Given template specimen received message in type: "BLOOD" for patient: "00001"
+  Scenario Outline: Patient's Blood specimen is received
+    Given template specimen received message in type: "BLOOD" for patient: "<patient_id>"
     Then set patient message field: "collected_dttm" to value: "current"
     Then set patient message field: "received_dttm" to value: "current"
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+  Examples:
+    |patient_id       |
+    |00001            |
+    |00002            |
+    |00003            |
+    |00004            |
+    |00005            |
 
-
-  Scenario: Patient's Tissue specimen is received
-    Given template specimen received message in type: "TISSUE" for patient: "00001"
-    Then set patient message field: "surgical_event_id" to value: "00001-Tissue_Specimen_1"
+  Scenario Outline: Patient's Tissue specimen is received
+    Given template specimen received message in type: "TISSUE" for patient: "<patient_id>"
+    Then set patient message field: "surgical_event_id" to value: "<surgical_event_id>"
     Then set patient message field: "collected_dttm" to value: "current"
     Then set patient message field: "received_dttm" to value: "current"
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+  Examples:
+    |patient_id         |surgical_event_id      |
+    |00001              |00001-Tissue_Specimen_1|
+    |00002              |00002-Tissue_Specimen_1|
+    |00003              |00003-Tissue_Specimen_1|
+    |00004              |00004-Tissue_Specimen_1|
+    |00005              |00005-Tissue_Specimen_1|
+
 
 #scenario failing because the application code is expecting surgical_event_id for Blood shipment, but Blood does not have an associated surgical_event _id
-#  Scenario: Patient's Blood specimen shipment is received
-#    Given template specimen shipped message in type: "BLOOD" for patient: "00001"
-#    Then set patient message field: "shipped_dttm" to value: "current"
-#    When posted to MATCH patient trigger service, returns a message that includes "specimen shipped message received and saved." with status "Success"
+  Scenario Outline: Patient's Blood specimen shipment is received
+    Given template specimen shipped message in type: "BLOOD" for patient: "<patient_id>"
+    Then set patient message field: "molecular_id" to value: "<molecular_id>"
+    Then set patient message field: "shipped_dttm" to value: "current"
+    When posted to MATCH patient trigger service, returns a message that includes "specimen shipped message received and saved." with status "Success"
+  Examples:
+    |patient_id       |molecular_id     |
+    |00001            |00001-00013      |
+    |00002            |00002-00013      |
+    |00003            |00003-00013      |
+    |00004            |00004-00013      |
+    |00005            |00005-00013      |
 
 
-  Scenario: Patient's Tissue specimen shipment is received
-    Given template specimen shipped message in type: "TISSUE" for patient: "00001"
-    Then set patient message field: "surgical_event_id" to value: "00001-Tissue_Specimen_1"
+  Scenario Outline: Patient's Tissue specimen shipment is received
+    Given template specimen shipped message in type: "TISSUE" for patient: "<patient_id>"
+    Then set patient message field: "surgical_event_id" to value: "<surgical_event_id>"
+    Then set patient message field: "molecular_id" to value: "<molecular_id>"
     Then set patient message field: "shipped_dttm" to value: "current"
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+  Examples:
+    |patient_id         |surgical_event_id      |molecular_id     |
+    |00001              |00001-Tissue_Specimen_1|00001-00012      |
+    |00002              |00002-Tissue_Specimen_1|00002-00012      |
+    |00003              |00003-Tissue_Specimen_1|00003-00012      |
+    |00004              |00004-Tissue_Specimen_1|00004-00012      |
+    |00005              |00005-Tissue_Specimen_1|00005-00012      |
 
-
-  Scenario: Patient's SLIDE specimen shipment is received
-    Given template specimen shipped message in type: "SLIDE" for patient: "00001"
-    Then set patient message field: "surgical_event_id" to value: "00001-Tissue_Specimen_1"
+  Scenario Outline: Patient's SLIDE specimen shipment is received
+    Given template specimen shipped message in type: "SLIDE" for patient: "<patient_id>"
+    Then set patient message field: "surgical_event_id" to value: "<surgical_event_id>"
     Then set patient message field: "shipped_dttm" to value: "current"
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+  Examples:
+    |patient_id         |surgical_event_id      |
+    |00001              |00001-Tissue_Specimen_1|
+    |00002              |00002-Tissue_Specimen_1|
+    |00003              |00003-Tissue_Specimen_1|
+    |00004              |00004-Tissue_Specimen_1|
+    |00005              |00005-Tissue_Specimen_1|
 
-
-  Scenario: Patient's ICCPTENs assay message is received
-    Given template assay message with surgical_event_id: "00001-Tissue_Specimen_1" for patient: "00001"
+  Scenario Outline: Patient's ICCPTENs assay message is received
+    Given template assay message with surgical_event_id: "<surgical_event_id>" for patient: "<patient_id>"
     Then set patient message field: "biomarker" to value: "ICCPTENs"
     Then set patient message field: "reported_date" to value: "current"
     Then set patient message field: "result" to value: "NEGATIVE"
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+    Examples:
+      |patient_id         |surgical_event_id      |
+      |00001              |00001-Tissue_Specimen_1|
+      |00002              |00002-Tissue_Specimen_1|
+      |00003              |00003-Tissue_Specimen_1|
+      |00004              |00004-Tissue_Specimen_1|
+      |00005              |00005-Tissue_Specimen_1|
 
-  Scenario: Patient's ICCMLH1s assay message is received
-    Given template assay message with surgical_event_id: "00001-Tissue_Specimen_1" for patient: "00001"
+
+  Scenario Outline: Patient's ICCMLH1s assay message is received
+    Given template assay message with surgical_event_id: "<surgical_event_id>" for patient: "<patient_id>"
     Then set patient message field: "biomarker" to value: "ICCMLH1s"
     Then set patient message field: "reported_date" to value: "current"
     Then set patient message field: "result" to value: "NEGATIVE"
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+  Examples:
+  |patient_id         |surgical_event_id      |
+  |00001              |00001-Tissue_Specimen_1|
+  |00002              |00002-Tissue_Specimen_1|
+  |00003              |00003-Tissue_Specimen_1|
+  |00004              |00004-Tissue_Specimen_1|
+  |00005              |00005-Tissue_Specimen_1|
 
-  Scenario: Patient's pathology report confirmation is received
-    Given template pathology report with surgical_event_id: "00001-Tissue_Specimen_1" for patient: "00001"
+  Scenario Outline: Patient's pathology report confirmation is received
+    Given template pathology report with surgical_event_id: "<surgical_event_id>" for patient: "<patient_id>"
     Then set patient message field: "reported_date" to value: "current"
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
-  @demoTest
-  Scenario: Patient's variant report is uploaded to MatchBox
-    Given template variant uploaded message for patient: "00001", it has surgical_event_id: "00001-Tissue_Specimen_1", molecular_id: "00012" and analysis_id: "ANI_00012"
-    Then set patient message field: "s3_bucket_name" to value: "bdd-test-data/demo/00001/00012/ANI_00012"
-    Then set patient message field: "tsv_file_path_name" to value: "00001.tsv"
-    Then set patient message field: "vcf_file_path_name" to value: "00001.vcf"
+    Examples:
+      |patient_id         |surgical_event_id      |
+      |00001              |00001-Tissue_Specimen_1|
+      |00002              |00002-Tissue_Specimen_1|
+      |00003              |00003-Tissue_Specimen_1|
+      |00004              |00004-Tissue_Specimen_1|
+      |00005              |00005-Tissue_Specimen_1|
+
+  Scenario Outline: Patient's Tissue variant report is uploaded to MatchBox
+    Given template variant uploaded message for patient: "<patient_id>", it has molecular_id: "<molecular_id>" and analysis_id: "<analysis_id>"
+    Then set patient message field: "s3_bucket_name" to value: "<bucket>"
+    Then set patient message field: "tsv_file_path_name" to value: "<tsv>"
+    Then set patient message field: "vcf_file_path_name" to value: "<vcf>"
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
-  @demoTest
-  Scenario: Patient's variant report is confirmed
-    Given template variant report confirm message for patient: "00001", it has surgical_event_id: "00001-Tissue_Specimen_1", molecular_id: "00012", analysis_id: "ANI_00012" and status: "CONFIRMED"
+  Examples:
+    |patient_id     |molecular_id       |analysis_id          |bucket                                               |tsv                |vcf                |
+    |00001          |00001-00012        |ANI_00001-00012      |bdd-test-data/demo/00001/00001-00012/ANI_00001-00012 |00001.tsv          |00001.vcf          |
+    |00002          |00002-00012        |ANI_00002-00012      |bdd-test-data/demo/00002/00002-00012/ANI_00002-00012 |00002.tsv          |00002.vcf          |
+    |00003          |00003-00012        |ANI_00003-00012      |bdd-test-data/demo/00003/00003-00012/ANI_00003-00012 |00003.tsv          |00003.vcf          |
+    |00004          |00004-00012        |ANI_00004-00012      |bdd-test-data/demo/00004/00004-00012/ANI_00004-00012 |00004.tsv          |00004.vcf          |
+    |00005          |00005-00012        |ANI_00005-00012      |bdd-test-data/demo/00005/00005-00012/ANI_00005-00012 |00005.tsv          |00005.vcf          |
+
+  Scenario: Patient's Tissue variant report is confirmed
+    Given template variant report confirm message for patient: "00001", it has molecular_id: "00001-00012", analysis_id: "ANI_00001-00012" and status: "CONFIRMED"
+    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+
+
+  Scenario Outline: Patient's Blood variant report is uploaded to MatchBox
+    Given template variant uploaded message for patient: "<patient_id>", it has molecular_id: "<molecular_id>" and analysis_id: "<analysis_id>"
+    Then set patient message field: "s3_bucket_name" to value: "<bucket>"
+    Then set patient message field: "tsv_file_path_name" to value: "<tsv>"
+    Then set patient message field: "vcf_file_path_name" to value: "<vcf>"
+    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+    Examples:
+      |patient_id     |molecular_id       |analysis_id          |bucket                                               |tsv                |vcf                |
+      |00001          |00001-00013        |ANI_00001-00013      |bdd-test-data/demo/00001/00001-00012/ANI_00001-00012 |00001.tsv          |00001.vcf          |
+      |00002          |00002-00013        |ANI_00002-00013      |bdd-test-data/demo/00002/00002-00012/ANI_00002-00012 |00002.tsv          |00002.vcf          |
+      |00003          |00003-00013        |ANI_00003-00013      |bdd-test-data/demo/00003/00003-00012/ANI_00003-00012 |00003.tsv          |00003.vcf          |
+      |00004          |00004-00013        |ANI_00004-00013      |bdd-test-data/demo/00004/00004-00012/ANI_00004-00012 |00004.tsv          |00004.vcf          |
+      |00005          |00005-00013        |ANI_00005-00013      |bdd-test-data/demo/00005/00005-00012/ANI_00005-00012 |00005.tsv          |00005.vcf          |
+
+  Scenario: Patient's Blood variant report is confirmed
+    Given template variant report confirm message for patient: "00001", it has molecular_id: "00001-00013", analysis_id: "ANI_00001-00013" and status: "CONFIRMED"
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
 
 
