@@ -119,7 +119,7 @@ Feature: NCH Specimen shipped messages
     Given template specimen shipped message in type: "SLIDE" for patient: "PT_SS15_Slide1Shipped"
     Then set patient message field: "surgical_event_id" to value: "SEI_TR_1"
     Then set patient message field: "slide_barcode" to value: "BC_002"
-    When posted to MATCH patient trigger service, returns a message that includes "specimen shipped message received and saved." with status "Success"
+    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
 
   Scenario: PT_SS16. shipped slide with a existing surgical_event_id + slide_barcode combination fails
 #  Testing patient: PT_SS16_Slide1Shipped, surgical_event_id: SEI_TR_1
@@ -140,19 +140,21 @@ Feature: NCH Specimen shipped messages
     Then set patient message field: "surgical_event_id" to value: "SEI_BR_1"
     When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Failure"
 
-  Scenario: PT_SS19. shipped blood with existing molecular_id (in this patient) fails
-#  Testing patient: PT_SS19_Blood1Shipped
-#    blood molecular_id: MOI_BR_01 has shipped
-    Given template specimen shipped message in type: "BLOOD" for patient: "PT_SS19_Blood1Shipped"
-    Then set patient message field: "molecular_id" to value: "MOI_BR_01"
-    When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Failure"
+# data cannot be prepared due to current bug
+#  Scenario: PT_SS19. shipped blood with existing molecular_id (in this patient) fails
+##  Testing patient: PT_SS19_Blood1Shipped
+##    blood molecular_id: MOI_BR_01 has shipped
+#    Given template specimen shipped message in type: "BLOOD" for patient: "PT_SS19_Blood1Shipped"
+#    Then set patient message field: "molecular_id" to value: "MOI_BR_01"
+#    When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Failure"
 
-  Scenario: PT_SS20. shipped blood with new molecular_id (in this patient) passes
-#  Testing patient: PT_SS20_Blood1Shipped
-#    blood molecular_id: MOI_BR_01 has shipped
-    Given template specimen shipped message in type: "BLOOD" for patient: "PT_SS20_Blood1Shipped"
-    Then set patient message field: "molecular_id" to value: "MOI_BR_02"
-    When posted to MATCH patient trigger service, returns a message that includes "specimen shipped message received and saved." with status "Success"
+  # data cannot be prepared due to current bug
+#  Scenario: PT_SS20. shipped blood with new molecular_id (in this patient) passes
+##  Testing patient: PT_SS20_Blood1Shipped
+##    blood molecular_id: MOI_BR_01 has shipped
+#    Given template specimen shipped message in type: "BLOOD" for patient: "PT_SS20_Blood1Shipped"
+#    Then set patient message field: "molecular_id" to value: "MOI_BR_02"
+#    When posted to MATCH patient trigger service, returns a message that includes "specimen shipped message received and saved." with status "Success"
 
   Scenario: PT_SS21. Tissue cannot be shipped if there is one tissue variant report get confirmed
 #    Testing patient: PT_SS21_TissueVariantConfirmed, surgical_event_id: SEI_TR_1
@@ -160,8 +162,36 @@ Feature: NCH Specimen shipped messages
     Given template specimen shipped message in type: "TISSUE" for patient: "PT_SS21_TissueVariantConfirmed"
     When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"
 
-  Scenario: PT_SS22. Blood cannot be shipped if there is on blood variant report get confirmed
-#    Testing patient: PT_SS21_BloodVariantConfirmed
-#      this patient has BLOOD_VARIANT_REPORT_CONFIRMED status
-    Given template specimen shipped message in type: "BLOOD" for patient: "PT_SS22_BloodVariantConfirmed"
-    When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"
+  # data cannot be prepared due to current bug
+#  Scenario: PT_SS22. Blood cannot be shipped if there is on blood variant report get confirmed
+##    Testing patient: PT_SS21_BloodVariantConfirmed
+##      this patient has BLOOD_VARIANT_REPORT_CONFIRMED status
+#    Given template specimen shipped message in type: "BLOOD" for patient: "PT_SS22_BloodVariantConfirmed"
+#    When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"
+
+  Scenario Outline: PT_SS23. Tissue shipment and slide shipment should not depend on each other
+    Given template specimen shipped message in type: "<type>" for patient: "<patient_id>"
+    Then set patient message field: "shipped_dttm" to value: "2016-05-02T19:42:13+00:00"
+    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+    Examples:
+    |type   |patient_id                 |
+    |TISSUE |PT_SS23_TissueReceived1    |
+    |SLIDE  |PT_SS23_TissueReceived2    |
+# data cannot be prepared due to current bug    |TISSUE |PT_SS23_SlideShipped       |
+    |SLIDE  |PT_SS23_TissueShipped      |
+    
+  Scenario Outline: PT_SS24. Tissue shipment and blood shipment should not use same molecular_id
+#    Testing patient: PT_SS24_BloodShipped,
+#                          Blood shipped MOI_01,
+#                          Tissue receveid SEI_TR_01,try to ship it using MOI_01
+#                     PT_SS24_TissueShipped,
+#                          Tissue shipped SEI_TR_01, MOI_01,
+#                          Blood received, try to ship it using MOI_01
+    Given template specimen shipped message in type: "<type>" for patient: "<patient_id>"
+    Then set patient message field: "surgical_event_id" to value: "<sei>"
+    Then set patient message field: "molecular_id" to value: "MOI_01"
+    When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"
+    Examples:
+    |patient_id             |type       |sei            |message                                                  |
+    |PT_SS24_BloodShipped   |TISSUE     |SEI_TR_01      |TBD                                                      |
+    |PT_SS24_TissueShipped  |BLOOD      |skip_this_value|TBD                                                      |

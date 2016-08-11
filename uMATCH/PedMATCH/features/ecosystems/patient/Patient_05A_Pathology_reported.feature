@@ -57,13 +57,13 @@ Feature: Pathology Messages
     Then retrieve patient: "PT_PR06_TissueReceived" from API
     Then returned patient has value: "PATHOLOGY_REVIEWED" in field: "current_status"
   
-  Scenario: PT_PR07. Pathology report can be sent on TISSUE_NUCLEIC_ACID_SHIPPED status but will not change patient status if status is N
+  Scenario: PT_PR07. Pathology report can be sent on TISSUE_NUCLEIC_ACID_SHIPPED status
     Given template pathology report with surgical_event_id: "SEI_01" for patient: "PT_PR07_TissueShipped"
     Then set patient message field: "status" to value: "N"
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
     Then wait for "10" seconds
     Then retrieve patient: "PT_PR06_TissueReceived" from API
-    Then returned patient has value: "TISSUE_NUCLEIC_ACID_SHIPPED" in field: "current_status"
+    Then returned patient has value: "PATHOLOGY_REVIEWED" in field: "current_status"
 
   Scenario: PT_PR08. Pathology report can be sent on TISSUE_SLIDE_SHIPPED status but will not change patient status if status is U
     Given template pathology report with surgical_event_id: "SEI_01" for patient: "PT_PR08_SlideShipped"
@@ -87,7 +87,7 @@ Feature: Pathology Messages
   Scenario: PT_PR10. Pathology report reported_date is older than tissue received date should fail
 #  Test data: Patient=PT_PR10TissueReceived, surgical_event_id=SEI_01, received_dttm: 2016-04-25T16:17:11+00:00,
     Given template pathology report with surgical_event_id: "SEI_01" for patient: "PT_PR10TissueReceived"
-    Then set patient message field: "received_dttm" to value: "2010-04-25T16:17:11+00:00"
+    Then set patient message field: "reported_date" to value: "2010-04-25T16:17:11+00:00"
     When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"
 
   Scenario: PT_PR11. Pathology report received for old surgical_event_id should fail
@@ -95,18 +95,26 @@ Feature: Pathology Messages
     Given template pathology report with surgical_event_id: "SEI_01" for patient: "PT_PR11TissueReceived"
     When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"
 
+  #if Y received, can receive new specimen(covered by specimen received test), no more pathology
+  #if N received, no more pathology received, wait for either new specimen(covered by specimen received test) or patient off_study
+  #if U received, either new pathology received to update this to Y or N, or received new specimen(covered by specimen received test), or patient off_study
   Scenario Outline: PT_PR12. Pathology result (in current latest surgical_event_id) can only be received again if last pathology's result is U
 #  Test data: Patient=PT_PR12TissueReceived, surgical_event_id=SEI_01, has tissue received
-    Given template pathology report with surgical_event_id: "SEI_01" for patient: "PT_PR12TissueReceived"
+    Given template pathology report with surgical_event_id: "SEI_01" for patient: "<patientID>"
     Then set patient message field: "reported_date" to value: "<date>"
     Then set patient message field: "status" to value: "<status>"
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "<postStatus>"
   Examples:
-  |status    |date                             |postStatus  |message                                                              |
-  |U         |2016-05-18T10:42:13+00:00        |Success     |Message has been processed successfully                              |
-  |Y         |2016-05-18T11:42:13+00:00        |Success     |Message has been processed successfully                              |
-  |N         |2016-05-18T12:42:13+00:00        |Failure     |TBD                                                                  |
-  |U         |2016-05-18T13:42:13+00:00        |Failure     |TBD                                                                  |
+  |patientID                  |status    |date                             |postStatus  |message                                             |
+  |PT_PR12_PathologyYReceived |U         |2016-05-18T10:42:13+00:00        |Failure     |cannot transition from                              |
+  |PT_PR12_PathologyYReceived |Y         |2016-05-18T11:42:13+00:00        |Failure     |cannot transition from                              |
+  |PT_PR12_PathologyYReceived |N         |2016-05-18T12:42:13+00:00        |Failure     |cannot transition from                              |
+  |PT_PR12_PathologyNReceived |U         |2016-05-18T13:42:13+00:00        |Failure     |cannot transition from                              |
+  |PT_PR12_PathologyNReceived |Y         |2016-05-18T14:42:13+00:00        |Failure     |cannot transition from                              |
+  |PT_PR12_PathologyNReceived |N         |2016-05-18T15:42:13+00:00        |Failure     |cannot transition from                              |
+  |PT_PR12_PathologyUReceived1|U         |2016-05-18T16:42:13+00:00        |Success     |Message has been processed successfully             |
+  |PT_PR12_PathologyUReceived2|Y         |2016-05-18T17:42:13+00:00        |Success     |Message has been processed successfully             |
+  |PT_PR12_PathologyUReceived3|N         |2016-05-18T18:42:13+00:00        |Success     |Message has been processed successfully             |
 
 #	pathology result cannot be received after patient has COMPLETE_MDA_DATA_SET status (in this step cycle) (not sure, actually it doesn't matter)
 #	pathology result cannot be received when patient is in OFF_TRAIL status (not sure, actually it doesn't matter)

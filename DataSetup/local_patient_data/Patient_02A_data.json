@@ -184,7 +184,10 @@
 //      "carrier": "Federal Express",
 //      "tracking_id": "7956 4568 1235",
 //      "shipped_dttm": "2016-05-01T19:42:13+00:00",
-//      "destination": "Boston",
+//      "destination": "MDA",
+//      "dna_volume_ul": 10,
+//      "dna_concentration_ng_per_ul": 25,
+//      "cdna_volume_ul": 10,
 //      "internal_use_only": {
 //        "stars_patient_id": "ABCXYZ",
 //        "stars_specimen_id_cdna": "ABCXYZ-0BJ64F",
@@ -194,7 +197,6 @@
 //  },
 //  {
 //    "patient_id": "PT_SR10_TsVrReceived",
-//    "surgical_event_id": "SEI_01",
 //    "molecular_id": "MOI_01",
 //    "analysis_id": "ANI_01",
 //    "s3_bucket_name": "nci-match-rules",
@@ -272,7 +274,10 @@
 //      "carrier": "Federal Express",
 //      "tracking_id": "7956 4568 1235",
 //      "shipped_dttm": "2016-05-01T19:42:13+00:00",
-//      "destination": "Boston",
+//      "destination": "MDA",
+//      "dna_volume_ul": 10,
+//      "dna_concentration_ng_per_ul": 25,
+//      "cdna_volume_ul": 10,
 //      "internal_use_only": {
 //        "stars_patient_id": "ABCXYZ",
 //        "stars_specimen_id_cdna": "ABCXYZ-0BJ64F",
@@ -282,7 +287,6 @@
 //  },
 //  {
 //    "patient_id": "PT_SR12_VariantReportConfirmed",
-//    "surgical_event_id": "SEI_01",
 //    "molecular_id": "MOI_01",
 //    "analysis_id": "ANI_01",
 //    "s3_bucket_name": "nci-match-rules",
@@ -296,7 +300,6 @@
 //  },
 //  {
 //    "patient_id": "PT_SR12_VariantReportConfirmed",
-//    "surgical_event_id": "SEI_01",
 //    "molecular_id": "MOI_01",
 //    "analysis_id": "ANI_01",
 //    "status": "CONFIRMED",
@@ -356,7 +359,10 @@
 //      "carrier": "Federal Express",
 //      "tracking_id": "7956 4568 1235",
 //      "shipped_dttm": "2016-05-01T19:42:13+00:00",
-//      "destination": "Boston",
+//      "destination": "MDA",
+//      "dna_volume_ul": 10,
+//      "dna_concentration_ng_per_ul": 25,
+//      "cdna_volume_ul": 10,
 //      "internal_use_only": {
 //        "stars_patient_id": "ABCXYZ",
 //        "stars_specimen_id_cdna": "ABCXYZ-0BJ64F",
@@ -366,7 +372,6 @@
 //  },
 //  {
 //    "patient_id": "PT_SR14_VariantReportUploaded",
-//    "surgical_event_id": "SEI_01",
 //    "molecular_id": "MOI_01",
 //    "analysis_id": "ANI_01",
 //    "s3_bucket_name": "nci-match-rules",
@@ -428,7 +433,10 @@
 //      "carrier": "Federal Express",
 //      "tracking_id": "7956 4568 1235",
 //      "shipped_dttm": "2016-05-01T19:42:13+00:00",
-//      "destination": "Boston",
+//      "destination": "MDA",
+//      "dna_volume_ul": 10,
+//      "dna_concentration_ng_per_ul": 25,
+//      "cdna_volume_ul": 10,
 //      "internal_use_only": {
 //        "stars_patient_id": "ABCXYZ",
 //        "stars_specimen_id_cdna": "ABCXYZ-0BJ64F",
@@ -438,7 +446,6 @@
 //  },
 //  {
 //    "patient_id": "PT_SR15_VariantReportUploaded",
-//    "surgical_event_id": "SEI_01",
 //    "molecular_id": "MOI_01",
 //    "analysis_id": "ANI_01",
 //    "s3_bucket_name": "nci-match-rules",
@@ -446,5 +453,137 @@
 //    "vcf_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/3344-bsn-msn-2.vcf",
 //    "dna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/dna.bam",
 //    "cdna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/cdna.bam"
+//  },
+//  {
+//    "header": {
+//      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+//      "msg_dttm": "2016-02-09T22:06:33+00:00"
+//    },
+//    "study_id": "APEC1621",
+//    "patient_id": "PT_SR10_UPathoReceived",
+//    "step_number": "1.0",
+//    "registration_date": "2016-02-09T22:06:33+00:00",
+//    "status": "REGISTRATION",
+//    "internal_use_only": {
+//      "request_id": "4-654321",
+//      "environment": "4",
+//      "request": "REGISTRATION for patient_id PT_SR15_VariantReportUploaded"
+//    }
+//  },
+//  {
+//    "header": {
+//      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+//      "msg_dttm": "2016-05-01T19:42:13+00:00"
+//    },
+//    "specimen_received": {
+//      "patient_id": "PT_SR10_UPathoReceived",
+//      "study_id": "APEC1621",
+//      "type": "TISSUE",
+//      "surgical_event_id": "SEI_01",
+//      "collected_dttm": "2016-04-25T15:17:11+00:00",
+//      "received_dttm": "2016-04-25T16:17:11+00:00",
+//      "internal_use_only": {
+//        "stars_patient_id": "ABCXYZ",
+//        "stars_specimen_id": "ABCXYZ-0AK64M",
+//        "stars_specimen_type": "Paraffin Block Primary",
+//        "received_ts": "2016-04-25T15:17:11+00:00",
+//        "qc_ts": "2016-04-25T16:21:34+00:00"
+//      }
+//    }
+//  },
+//  {
+//    "patient_id":"PT_SR10_UPathoReceived",
+//    "surgical_event_id":"SEI_01",
+//    "reported_date":"2015-04-27T12:13:09.071-05:00",
+//    "status":"U",
+//    "message":"PATHOLOGY_CONFIRMATION"
+//  },
+//  {
+//    "header": {
+//      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+//      "msg_dttm": "2016-02-09T22:06:33+00:00"
+//    },
+//    "study_id": "APEC1621",
+//    "patient_id": "PT_SR10_NPathoReceived",
+//    "step_number": "1.0",
+//    "registration_date": "2016-02-09T22:06:33+00:00",
+//    "status": "REGISTRATION",
+//    "internal_use_only": {
+//      "request_id": "4-654321",
+//      "environment": "4",
+//      "request": "REGISTRATION for patient_id PT_SR15_VariantReportUploaded"
+//    }
+//  },
+//  {
+//    "header": {
+//      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+//      "msg_dttm": "2016-05-01T19:42:13+00:00"
+//    },
+//    "specimen_received": {
+//      "patient_id": "PT_SR10_NPathoReceived",
+//      "study_id": "APEC1621",
+//      "type": "TISSUE",
+//      "surgical_event_id": "SEI_01",
+//      "collected_dttm": "2016-04-25T15:17:11+00:00",
+//      "received_dttm": "2016-04-25T16:17:11+00:00",
+//      "internal_use_only": {
+//        "stars_patient_id": "ABCXYZ",
+//        "stars_specimen_id": "ABCXYZ-0AK64M",
+//        "stars_specimen_type": "Paraffin Block Primary",
+//        "received_ts": "2016-04-25T15:17:11+00:00",
+//        "qc_ts": "2016-04-25T16:21:34+00:00"
+//      }
+//    }
+//  },
+//  {
+//    "patient_id":"PT_SR10_NPathoReceived",
+//    "surgical_event_id":"SEI_01",
+//    "reported_date":"2015-04-27T12:13:09.071-05:00",
+//    "status":"N",
+//    "message":"PATHOLOGY_CONFIRMATION"
+//  },
+//  {
+//    "header": {
+//      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+//      "msg_dttm": "2016-02-09T22:06:33+00:00"
+//    },
+//    "study_id": "APEC1621",
+//    "patient_id": "PT_SR10_YPathoReceived",
+//    "step_number": "1.0",
+//    "registration_date": "2016-02-09T22:06:33+00:00",
+//    "status": "REGISTRATION",
+//    "internal_use_only": {
+//      "request_id": "4-654321",
+//      "environment": "4",
+//      "request": "REGISTRATION for patient_id PT_SR15_VariantReportUploaded"
+//    }
+//  },
+//  {
+//    "header": {
+//      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+//      "msg_dttm": "2016-05-01T19:42:13+00:00"
+//    },
+//    "specimen_received": {
+//      "patient_id": "PT_SR10_YPathoReceived",
+//      "study_id": "APEC1621",
+//      "type": "TISSUE",
+//      "surgical_event_id": "SEI_01",
+//      "collected_dttm": "2016-04-25T15:17:11+00:00",
+//      "received_dttm": "2016-04-25T16:17:11+00:00",
+//      "internal_use_only": {
+//        "stars_patient_id": "ABCXYZ",
+//        "stars_specimen_id": "ABCXYZ-0AK64M",
+//        "stars_specimen_type": "Paraffin Block Primary",
+//        "received_ts": "2016-04-25T15:17:11+00:00",
+//        "qc_ts": "2016-04-25T16:21:34+00:00"
+//      }
+//    }
+//  },
+//  {
+//    "patient_id":"PT_SR10_YPathoReceived",
+//    "surgical_event_id":"SEI_01",
+//    "reported_date":"2015-04-27T12:13:09.071-05:00",
+//    "status":"Y",
+//    "message":"PATHOLOGY_CONFIRMATION"
 //  }
 ]

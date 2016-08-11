@@ -55,15 +55,13 @@ Given(/^template pathology report with surgical_event_id: "([^"]*)" for patient:
   @request = @request_json.to_json.to_s
 end
 
-Given(/^template variant uploaded message for patient: "([^"]*)", it has surgical_event_id: "([^"]*)", molecular_id: "([^"]*)" and analysis_id: "([^"]*)"$/) do |patientID, sei, moi, ani|
+Given(/^template variant uploaded message for patient: "([^"]*)", it has molecular_id: "([^"]*)" and analysis_id: "([^"]*)"$/) do |patientID, moi, ani|
   @request_json = Patient_helper_methods.load_patient_message_templates('variant_file_uploaded')
   converted_patient_id = patientID=='null'?nil:patientID
-  converted_sei = sei=='null'?nil:sei
   converted_moi = moi=='null'?nil:moi
   converted_ani = ani=='null'?nil:ani
   @patient_message_root_key = ''
   @request_json['patient_id'] = converted_patient_id
-  @request_json['surgical_event_id'] = converted_sei
   @request_json['molecular_id'] = converted_moi
   @request_json['analysis_id'] = converted_ani
   @request = @request_json.to_json.to_s
@@ -77,16 +75,14 @@ Then(/^create variant confirm message with confirmed: "([^"]*)" and comment: "([
   variant_confirm_message(@current_variant_uuid, confirmed, comment)
 end
 
-Given(/^template variant report confirm message for patient: "([^"]*)", it has surgical_event_id: "([^"]*)", molecular_id: "([^"]*)", analysis_id: "([^"]*)" and status: "([^"]*)"$/) do |patient_id, sei, moi, ani, status|
+Given(/^template variant report confirm message for patient: "([^"]*)", it has molecular_id: "([^"]*)", analysis_id: "([^"]*)" and status: "([^"]*)"$/) do |patient_id, moi, ani, status|
   @request_json = Patient_helper_methods.load_patient_message_templates('variant_file_confirmed')
   converted_patient_id = patient_id=='null'?nil:patient_id
-  converted_sei = sei=='null'?nil:sei
   converted_moi = moi=='null'?nil:moi
   converted_ani = ani=='null'?nil:ani
   converted_status = status=='null'?nil:status
   @patient_message_root_key = ''
   @request_json['patient_id'] = converted_patient_id
-  @request_json['surgical_event_id'] = converted_sei
   @request_json['molecular_id'] = converted_moi
   @request_json['analysis_id'] = converted_ani
   @request_json['status'] = converted_status
@@ -95,17 +91,19 @@ Given(/^template variant report confirm message for patient: "([^"]*)", it has s
 end
 
 Then(/^set patient message field: "([^"]*)" to value: "([^"]*)"$/) do |field, value|
-  converted_value = value=='null'?nil:value
-  if value.eql?('current')
-    converted_value = Helper_Methods.getDateAsRequired(value)
-  end
+  if value != 'skip_this_value'
+    converted_value = value=='null'?nil:value
+    if value.eql?('current')
+      converted_value = Helper_Methods.getDateAsRequired(value)
+    end
 
-  if @patient_message_root_key == ''
-    @request_json[field] = converted_value
-  else
-    @request_json[@patient_message_root_key][field] = converted_value
+    if @patient_message_root_key == ''
+      @request_json[field] = converted_value
+    else
+      @request_json[@patient_message_root_key][field] = converted_value
+    end
+    @request = @request_json.to_json.to_s
   end
-  @request = @request_json.to_json.to_s
 end
 
 Then(/^remove field: "([^"]*)" from patient message$/) do |field|
