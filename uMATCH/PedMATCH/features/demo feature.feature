@@ -459,7 +459,7 @@ Background: wait for process to complete
     Given template specimen shipped message in type: "BLOOD" for patient: "<patient_id>"
     Then set patient message field: "molecular_id" to value: "<molecular_id>"
     Then set patient message field: "shipped_dttm" to value: "current"
-    When posted to MATCH patient trigger service, returns a message that includes "specimen shipped message received and saved." with status "Success"
+    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
   Examples:
     |patient_id       |molecular_id     |
     |00001            |00001-00013      |
