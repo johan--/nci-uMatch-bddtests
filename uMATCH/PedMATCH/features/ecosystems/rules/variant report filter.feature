@@ -1,5 +1,4 @@
-@rules
-#@demo
+@rules #@demo
 Feature: Test the functionality that filters the variant report based on specified critiera
 
 
