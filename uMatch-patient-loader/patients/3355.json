@@ -24,8 +24,8 @@
       "study_id": "APEC1621",
       "patient_id": "3355",
       "type": "BLOOD",
-      "collected_dttm": "2016-04-25T14:17:11+00:00",
-      "received_dttm": "2016-04-25T15:17:11+00:00",
+      "collected_dttm": "2016-05-25T14:17:11+00:00",
+      "received_dttm": "2016-05-25T15:17:11+00:00",
       "internal_use_only": {
         "stars_patient_id": "ABCXYZ",
         "stars_specimen_id": "ABCXYZ-0AK64L",
@@ -45,9 +45,9 @@
       "study_id": "APEC1621",
       "surgical_event_id": "3355-bsn",
       "type": "TISSUE",
-      "collected_dttm": "2016-04-25T15:17:11+00:00",
+      "collected_dttm": "2016-05-25T15:17:11+00:00",
 
-      "received_dttm": "2016-04-25T16:17:11+00:00",
+      "received_dttm": "2016-05-25T16:17:11+00:00",
       "internal_use_only": {
         "stars_patient_id": "ABCXYZ",
         "stars_specimen_id": "ABCXYZ-0AK64M",
@@ -76,11 +76,37 @@
       "carrier": "Federal Express",
       "tracking_id": "7956 4568 1235",
       "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "destination": "MDA",
 
       "internal_use_only": {
         "stars_patient_id": "ABCXYZ",
         "stars_specimen_id_cdna": "ABCXYZ-0BJ64F",
         "stars_specimen_id_dna": "ABCXYZ-0BJ64B"
+      }
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_shipped": {
+      "study_id": "APEC1621",
+      "patient_id": "3355",
+      "type": "SLIDE",
+
+      "surgical_event_id": "3355-bsn",
+      "slide_barcode": "0BJ6A5",
+
+      "carrier": "Federal Express",
+      "tracking_id": "7956 4568 1235",
+      "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "destination": "MDA",
+
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id_slide": "ABCXYZ-0BJ6A5"
+
       }
     }
   },
@@ -102,6 +128,8 @@
       "carrier": "Federal Express",
       "tracking_id": "7956 4568 1235",
       "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "destination": "MDA",
+
       "internal_use_only": {
         "stars_patient_id": "ABCXYZ",
         "stars_specimen_id": "ABCXYZ-0BJ64F"
@@ -112,31 +140,20 @@
     "patient_id":"3355",
     "study_id": "APEC1621",
     "surgical_event_id":"3355-bsn",
-    "biomarker":"ICCPTEN",
-    "reported_date":"2015-12-12T12:12:09.071-05:00",
-    "ordered_date":"2015-12-12T12:11:09.071-05:00",
-    "result":"POSITIVE"
+    "biomarker":"ICCPTENs",
+    "reported_date":"2016-05-15T13:12:09.071-05:00",
+    "ordered_date":"2016-05-15T13:11:09.071-05:00",
+    "result":"NEGATIVE"
   },
   {
     "patient_id":"3355",
     "study_id": "APEC1621",
     "surgical_event_id":"3355-bsn",
-    "biomarker":"ICCPTEN",
-    "reported_date":"2015-12-13T13:12:09.071-05:00",
-    "ordered_date":"2015-12-12T13:11:09.071-05:00",
+    "biomarker":"ICCMLH1s",
+    "reported_date":"2016-05-16T12:12:09.071-05:00",
+    "ordered_date":"2016-05-16T12:11:09.071-05:00",
     "result":"POSITIVE"
   },
-
-  {
-    "patient_id":"3355",
-    "study_id": "APEC1621",
-    "surgical_event_id":"3355-bsn",
-    "biomarker":"ICCMCH",
-    "reported_date":"2015-12-12T12:12:09.071-05:00",
-    "ordered_date":"2015-12-12T12:11:09.071-05:00",
-    "result":"POSITIVE"
-  },
-
   {
     "patient_id":"3355",
     "surgical_event_id":"3355-bsn",
@@ -145,47 +162,53 @@
     "message":"PATHOLOGY_CONFIRMATION"
   },
   {
-    "header": {
-      "msg_guid": "07daa0de-9a19-42c3-be79-0237dfacf134",
-      "msg_dttm": "2016-05-01T19:42:13+00:00"
-    },
-    "specimen_shipped": {
-      "patient_id": "3355",
-      "study_id": "APEC1621",
-      "molecular_id": "3355-bsn-msn-blood",
-      "type": "BLOOD_DNA",
-
-      "carrier": "Federal Express",
-      "tracking_id": "7956 4568 1235",
-      "shipped_dttm": "2016-05-01T19:42:13+00:00",
-      "internal_use_only": {
-        "stars_patient_id": "ABCXYZ",
-        "stars_specimen_id": "ABCXYZ-0BJ64F"
-      }
-    }
+    "patient_id": "3355",
+    "molecular_id": "3355-bsn-msn-2",
+    "analysis_id": "job1",
+    "s3_bucket_name": "pedmatch-demo/3355/3355-bsn-msn-2/job1",
+    "tsv_file_path_name": "test1.tsv",
+    "vcf_file_path_name": "test1.vcf",
+    "dna_bam_file_path_name": "dna.bam",
+    "cdna_bam_file_path_name": "cdna.bam",
+    "dna_bai_file_path_name": "dna.bam.bai",
+    "cdna_bai_file_path_name": "cdna.bam.bai"
+  },
+  {
+    "patient_id": "3355",
+    "molecular_id": "3355-bsn-msn-2",
+    "analysis_id": "job1",
+    "status": "CONFIRMED",
+    "comment": "The committee approves this variant report",
+    "comment_user": "rick"
+  },
+  {
+    "status_type": "ASSIGNMENT",
+    "patient_id": "3355",
+    "molecular_id": "3355-bsn-msn-2",
+    "analysis_id": "job1",
+    "status": "CONFIRMED",
+    "comment": "The committee approves this assignment",
+    "comment_user": "brent"
   },
   {
     "header": {
-      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
-      "msg_dttm": "2016-05-01T19:42:13+00:00"
+      "msg_guid": "0f8fad5b-d9cb-469f-a165-80067728950e",
+      "msg_dttm": "2016-05-09T22:06:33+00:00"
     },
-    "specimen_shipped": {
-      "study_id": "APEC1621",
-      "patient_id": "3355",
-      "type": "SLIDE",
-
-      "surgical_event_id": "3355-bsn",
-      "slide_barcode": "0BJ6A5",
-
-      "carrier": "Federal Express",
-      "tracking_id": "7956 4568 1235",
-      "shipped_dttm": "2016-05-01T19:42:13+00:00",
-
-      "internal_use_only": {
-        "stars_patient_id": "ABCXYZ",
-        "stars_specimen_id_slide": "ABCXYZ-0BJ6A5"
-
-      }
+    "study_id": "APEC1621",
+    "patient_id": "3355",
+    "step_number": "1.1",
+    "treatment_arm_id": "APEC1621-A",
+    "treatment_arm_version": "2015-08-06",
+    "stratum_id": "100",
+    "assignment_date": "2016-08-10T22:05:33+00:00",
+    "status": "ON_TREATMENT_ARM",
+    "message": "",
+    "internal_use_only": {
+      "request_id": "4-654400",
+      "environment": "5",
+      "request": "ON_TREATMENT_ARM for patient_id 3355",
+      "treatment_id": "APEC1621-A"
     }
   }
 
