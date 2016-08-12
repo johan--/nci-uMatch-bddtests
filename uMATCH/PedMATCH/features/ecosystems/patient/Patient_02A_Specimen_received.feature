@@ -64,25 +64,44 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     |SEI_TR_1       |2016-04-30T15:17:11+00:00|2016-05-01T15:17:11+00:00|10       |Failure|cannot transition from                                                 |
     |SEI_TR_2       |2016-04-30T15:17:11+00:00|2016-05-01T15:17:11+00:00|10       |Success|Message has been processed successfully                                |
 
-  Scenario Outline: PT_SR10. specimen_received message can only be accepted when patient is in certain status
+  Scenario Outline: PT_SR10a. tissue specimen_received message can only be accepted when patient is in certain status
     #all test patients are using surgical event id SEI_01
-    Given template specimen received message in type: "<specimen_type>" for patient: "<patient_id>"
+    Given template specimen received message in type: "TISSUE" for patient: "<patient_id>"
     Then set patient message field: "surgical_event_id" to value: "SEI_02"
+    Then set patient message field: "collected_dttm" to value: "current"
+    Then set patient message field: "received_dttm" to value: "current"
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "<status>"
     Examples:
     |patient_id             |specimen_type  |status     |message                                                                        |
-#not implemented yet    |PT_SR10_Progression    |BLOOD          |Success    |Message has been processed successfully                                        |
-#not implemented yet    |PT_SR10_TsNuAdFailure  |TISSUE         |Success    |Message has been processed successfully                                        |
-#not implemented yet    |PT_SR10_BdNuAdFailure  |BLOOD          |Success    |Message has been processed successfully                                        |
-#not implemented yet    |PT_SR10_OnTreatmentArm |TISSUE         |Failure    |TBD                                                                            |
-#not implemented yet    |PT_SR10_OffStudy       |TISSUE         |Failure    |TBD                                                                            |
-    |PT_SR10_TsVrReceived   |TISSUE          |Success    |Message has been processed successfully                                       |
-# data cannot be prepared due to current bug         |PT_SR10_BdVrReceived   |BLOOD           |Success    |Message has been processed successfully                                       |
+#    |PT_SR10_BdReceived     |TISSUE          |Success    |Message has been processed successfully                                      |
     |PT_SR10_UPathoReceived |TISSUE          |Success    |Message has been processed successfully                                       |
     |PT_SR10_NPathoReceived |TISSUE          |Success    |Message has been processed successfully                                       |
     |PT_SR10_YPathoReceived |TISSUE          |Success    |Message has been processed successfully                                       |
-#    |PT_SR10_TsReceived     |BLOOD           |Success    |Message has been processed successfully                                       |
-#    |PT_SR10_BdReceived     |TISSUE          |Success    |Message has been processed successfully                                       |
+    |PT_SR10_TsVrReceived   |TISSUE          |Success    |Message has been processed successfully                                       |
+#    |PT_SR10_OnTreatmentArm |TISSUE          |Failure    |cannot transition from                                                       |
+#    |PT_SR10_ProgressReBioY |TISSUE          |Success    |Message has been processed successfully                                      |
+#    |PT_SR10_ProgressReBioN |TISSUE          |Failure    |cannot transition from                                                       |
+#    |PT_SR10_OffStudy       |TISSUE          |Failure    |cannot transition from                                                       |
+#    |PT_SR10_TsVRRejected   |TISSUE          |Success    |Message has been processed successfully                                      |
+
+
+  Scenario Outline: PT_SR10b. blood specimen_received message can only be accepted when patient is in certain status
+    Given template specimen received message in type: "BLOOD" for patient: "<patient_id>"
+    Then set patient message field: "collected_dttm" to value: "current"
+    Then set patient message field: "received_dttm" to value: "current"
+    When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "<status>"
+    Examples:
+    |patient_id             |status     |message                                                                        |
+#    |PT_SR10_TsReceived     |Success    |Message has been processed successfully                                      |
+#    |PT_SR10_BdVRReceived   |Success    |Message has been processed successfully                                      |
+#    |PT_SR10_BdVRRejected   |Success    |Message has been processed successfully                                      |
+#    |PT_SR10_BdVRConfirmed  |Failure    |cannot transition from                                                       |
+#    |PT_SR10_WaitingPtData  |Success    |Message has been processed successfully                                      |
+#    |PT_SR10_PendingApproval|Success    |Message has been processed successfully                                      |
+#    |PT_SR10_ProgressReBioY2|TISSUE          |Success    |Message has been processed successfully                                      |
+#    |PT_SR10_ProgressReBioN2|TISSUE          |Failure    |cannot transition from                                                       |
+#    |PT_SR10_OffStudy       |Failure    |cannot transition from                                                       |
+
   Scenario Outline: PT_SR11. Return error message when study_id is invalid
     Given template specimen received message in type: "<specimen_type>" for patient: "PT_SR11_Registered"
     Then set patient message field: "<field>" to value: "<value>"
@@ -99,8 +118,6 @@ Scenario: PT_SR12. new tissue cannot be received when there is one tissue varian
   Given template specimen received message in type: "TISSUE" for patient: "PT_SR12_VariantReportConfirmed"
   Then set patient message field: "surgical_event_id" to value: "SEI_02"
   When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"
-
-#Scenario Outline: PT_SR13. new blood cannot be received when there is one blood variant report get "CONFIRMED"
 
 Scenario: PT_SR14. new specimen using new SEI will push all pending variant report from old SEI to "REJECT"
 #    Test patient: PT_SR14_VariantReportUploaded; variant report files uploaded: surgical_event_id: SEI_01, molecular_id: MOI_01, analysis_id: ANI_01

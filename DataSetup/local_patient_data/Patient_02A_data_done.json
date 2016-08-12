@@ -199,11 +199,11 @@
     "patient_id": "PT_SR10_TsVrReceived",
     "molecular_id": "MOI_01",
     "analysis_id": "ANI_01",
-    "s3_bucket_name": "nci-match-rules",
-    "tsv_file_path_name": "3344.tsv",
-    "vcf_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/3344-bsn-msn-2.vcf",
-    "dna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/dna.bam",
-    "cdna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/cdna.bam"
+    "s3_bucket_name": "bdd-test-data/data",
+    "tsv_file_path_name": "test1.tsv",
+    "vcf_file_path_name": "test1.vcf",
+    "dna_bam_file_path_name": "dna.bam",
+    "cdna_bam_file_path_name": "cdna.bam"
   },
   {
     "header": {
@@ -289,11 +289,11 @@
     "patient_id": "PT_SR12_VariantReportConfirmed",
     "molecular_id": "MOI_01",
     "analysis_id": "ANI_01",
-    "s3_bucket_name": "nci-match-rules",
-    "tsv_file_path_name": "3344.tsv",
-    "vcf_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/3344-bsn-msn-2.vcf",
-    "dna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/dna.bam",
-    "cdna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/cdna.bam"
+    "s3_bucket_name": "bdd-test-data/data",
+    "tsv_file_path_name": "test1.tsv",
+    "vcf_file_path_name": "test1.vcf",
+    "dna_bam_file_path_name": "dna.bam",
+    "cdna_bam_file_path_name": "cdna.bam"
   },
   {
     "sleep": "10.0"
@@ -374,11 +374,11 @@
     "patient_id": "PT_SR14_VariantReportUploaded",
     "molecular_id": "MOI_01",
     "analysis_id": "ANI_01",
-    "s3_bucket_name": "nci-match-rules",
-    "tsv_file_path_name": "3344.tsv",
-    "vcf_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/3344-bsn-msn-2.vcf",
-    "dna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/dna.bam",
-    "cdna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/cdna.bam"
+    "s3_bucket_name": "bdd-test-data/data",
+    "tsv_file_path_name": "test1.tsv",
+    "vcf_file_path_name": "test1.vcf",
+    "dna_bam_file_path_name": "dna.bam",
+    "cdna_bam_file_path_name": "cdna.bam"
   },
   {
     "header": {
@@ -448,11 +448,11 @@
     "patient_id": "PT_SR15_VariantReportUploaded",
     "molecular_id": "MOI_01",
     "analysis_id": "ANI_01",
-    "s3_bucket_name": "nci-match-rules",
-    "tsv_file_path_name": "3344.tsv",
-    "vcf_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/3344-bsn-msn-2.vcf",
-    "dna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/dna.bam",
-    "cdna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/cdna.bam"
+    "s3_bucket_name": "bdd-test-data/data",
+    "tsv_file_path_name": "test1.tsv",
+    "vcf_file_path_name": "test1.vcf",
+    "dna_bam_file_path_name": "dna.bam",
+    "cdna_bam_file_path_name": "cdna.bam"
   },
   {
     "header": {
