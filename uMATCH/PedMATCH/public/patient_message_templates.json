@@ -54,7 +54,7 @@
       "carrier": "Federal Express",
       "tracking_id": "7956 4568 1235",
       "shipped_dttm": "2016-05-01T19:42:13+00:00",
-      "destination": "Boston",
+      "destination": "MDA",
       "internal_use_only": {
         "stars_patient_id": "ABCXYZ",
         "stars_specimen_id_slide": "ABCXYZ-0BJ6A5"
@@ -77,7 +77,10 @@
       "carrier": "Federal Express",
       "tracking_id": "7956 4568 1235",
       "shipped_dttm": "2016-05-01T19:42:13+00:00",
-      "destination": "Boston",
+      "destination": "MDA",
+      "dna_volume_ul": 10,
+      "dna_concentration_ng_per_ul": 25,
+      "cdna_volume_ul": 10,
       "internal_use_only": {
         "stars_patient_id": "ABCXYZ",
         "stars_specimen_id_cdna": "ABCXYZ-0BJ64F",
@@ -98,7 +101,10 @@
       "carrier": "Federal Express",
       "tracking_id": "7956 4568 1235",
       "shipped_dttm": "2016-05-01T19:42:13+00:00",
-      "destination": "Boston",
+      "destination": "MDA",
+      "dna_volume_ul": 10,
+      "dna_concentration_ng_per_ul": 25,
+      "cdna_volume_ul": 10,
       "internal_use_only": {
         "stars_patient_id": "ABCXYZ",
         "stars_specimen_id": "ABCXYZ-0BJ64A"
@@ -122,14 +128,13 @@
   },
   "variant_file_uploaded":{
     "patient_id": "3344",
-    "surgical_event_id": "3344-bsn",
     "molecular_id": "3344-bsn-msn-2",
     "analysis_id": "job1",
     "s3_bucket_name": "nci-match-rules",
     "tsv_file_path_name": "3344.tsv",
-    "vcf_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/3344-bsn-msn-2.vcf",
-    "dna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/dna.bam",
-    "cdna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/cdna.bam"
+    "vcf_file_path_name": "3344.vcf",
+    "dna_bam_file_path_name": "dna.bam",
+    "cdna_bam_file_path_name": "cdna.bam"
   },
   "variant_confirmed":{
     "variant_uuid": "684b2da6-4b08-4f0f-a8b2-c02d886c24fa",
@@ -138,11 +143,19 @@
   },
   "variant_file_confirmed":{
     "patient_id": "3344",
-    "surgical_event_id": "3344-bsn",
     "molecular_id": "3344-bsn-msn-2",
     "analysis_id": "job1",
     "status": "CONFIRMED",
-    "comment": "some comment",
-    "comment_user": "rick"
+    "comment": "The committee approves this variant report",
+    "comment_user": "Rick"
+  },
+  "assignment_confirmed":{
+    "status_type": "ASSIGNMENT",
+    "patient_id": "3366",
+    "molecular_id": "3366-bsn-msn-2",
+    "analysis_id": "job1",
+    "status": "CONFIRMED",
+    "comment": "The committee approves this Assignment report",
+    "comment_user": "Rick"
   }
 }

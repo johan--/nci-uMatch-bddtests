@@ -61,7 +61,7 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     Examples:
     |SEI            |collectTime              |receivedTime             |waitTime |status |message                                                                |
     |SEI_TR_1       |2016-04-28T15:17:11+00:00|2016-04-29T15:17:11+00:00|0        |Success|Message has been processed successfully                                |
-    |SEI_TR_1       |2016-04-30T15:17:11+00:00|2016-05-01T15:17:11+00:00|10       |Failure|Tissue specimen using this surgical event id has already been received |
+    |SEI_TR_1       |2016-04-30T15:17:11+00:00|2016-05-01T15:17:11+00:00|10       |Failure|cannot transition from                                                 |
     |SEI_TR_2       |2016-04-30T15:17:11+00:00|2016-05-01T15:17:11+00:00|10       |Success|Message has been processed successfully                                |
 
   Scenario Outline: PT_SR10. specimen_received message can only be accepted when patient is in certain status
@@ -71,14 +71,18 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "<status>"
     Examples:
     |patient_id             |specimen_type  |status     |message                                                                        |
-#    |PT_SR10_Progression    |BLOOD          |Success    |Message has been processed successfully                                        |
-#    |PT_SR10_TsNuAdFailure  |TISSUE         |Success    |Message has been processed successfully                                        |
-#    |PT_SR10_BdNuAdFailure  |BLOOD          |Success    |Message has been processed successfully                                        |
-#    |PT_SR10_OnTreatmentArm |TISSUE         |Failure    |TBD                                                                            |
-#    |PT_SR10_OffStudy       |TISSUE         |Failure    |TBD                                                                            |
+#not implemented yet    |PT_SR10_Progression    |BLOOD          |Success    |Message has been processed successfully                                        |
+#not implemented yet    |PT_SR10_TsNuAdFailure  |TISSUE         |Success    |Message has been processed successfully                                        |
+#not implemented yet    |PT_SR10_BdNuAdFailure  |BLOOD          |Success    |Message has been processed successfully                                        |
+#not implemented yet    |PT_SR10_OnTreatmentArm |TISSUE         |Failure    |TBD                                                                            |
+#not implemented yet    |PT_SR10_OffStudy       |TISSUE         |Failure    |TBD                                                                            |
     |PT_SR10_TsVrReceived   |TISSUE          |Success    |Message has been processed successfully                                       |
-#    |PT_SR10_BdVrReceived   |BLOOD           |Success    |Message has been processed successfully                                       |
-
+# data cannot be prepared due to current bug         |PT_SR10_BdVrReceived   |BLOOD           |Success    |Message has been processed successfully                                       |
+    |PT_SR10_UPathoReceived |TISSUE          |Success    |Message has been processed successfully                                       |
+    |PT_SR10_NPathoReceived |TISSUE          |Success    |Message has been processed successfully                                       |
+    |PT_SR10_YPathoReceived |TISSUE          |Success    |Message has been processed successfully                                       |
+#    |PT_SR10_TsReceived     |BLOOD           |Success    |Message has been processed successfully                                       |
+#    |PT_SR10_BdReceived     |TISSUE          |Success    |Message has been processed successfully                                       |
   Scenario Outline: PT_SR11. Return error message when study_id is invalid
     Given template specimen received message in type: "<specimen_type>" for patient: "PT_SR11_Registered"
     Then set patient message field: "<field>" to value: "<value>"

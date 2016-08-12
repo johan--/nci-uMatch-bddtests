@@ -47,7 +47,7 @@ end
 
 When(/^call the amoi rest service$/) do
   @res = Helper_Methods.get_request_url_param(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['rules_PORT']+'/nci-match-rules/rules/rs/amois',{"bucket"=>@bucket,"tsv"=>@tsv,"ta"=>@ta})
-  # p @res
+  p @res
   expect((JSON.parse(@res)['Error'])).to be_nil
 end
 

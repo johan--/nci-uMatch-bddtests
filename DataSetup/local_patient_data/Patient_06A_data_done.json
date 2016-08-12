@@ -1,0 +1,908 @@
+[
+  {
+    "header": {
+      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+      "msg_dttm": "2016-02-09T22:06:33+00:00"
+    },
+    "study_id": "APEC1621",
+    "patient_id": "PT_VU02_TissueShipped",
+    "step_number": "1.0",
+    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status": "REGISTRATION",
+    "internal_use_only": {
+      "request_id": "4-654321",
+      "environment": "4",
+      "request": "REGISTRATION for patient_id PT_VU02_TissueShipped"
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_received": {
+      "patient_id": "PT_VU02_TissueShipped",
+      "study_id": "APEC1621",
+      "type": "TISSUE",
+      "surgical_event_id": "SEI_01",
+      "collected_dttm": "2016-04-25T15:17:11+00:00",
+      "received_dttm": "2016-04-25T16:17:11+00:00",
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id": "ABCXYZ-0AK64M",
+        "stars_specimen_type": "Paraffin Block Primary",
+        "received_ts": "2016-04-25T15:17:11+00:00",
+        "qc_ts": "2016-04-25T16:21:34+00:00"
+      }
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_shipped": {
+      "study_id": "APEC1621",
+      "patient_id": "PT_VU02_TissueShipped",
+      "type": "TISSUE_DNA_AND_CDNA",
+      "surgical_event_id": "SEI_01",
+      "molecular_id": "MOI_01",
+      "molecular_dna_id": "MOI_01D",
+      "molecular_cdna_id": "MOI_01C",
+      "carrier": "Federal Express",
+      "tracking_id": "7956 4568 1235",
+      "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "destination": "MDA",
+      "dna_volume_ul": 10,
+      "dna_concentration_ng_per_ul": 25,
+      "cdna_volume_ul": 10,
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id_cdna": "ABCXYZ-0BJ64F",
+        "stars_specimen_id_dna": "ABCXYZ-0BJ64B"
+      }
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+      "msg_dttm": "2016-02-09T22:06:33+00:00"
+    },
+    "study_id": "APEC1621",
+    "patient_id": "PT_VU03_TissueShipped",
+    "step_number": "1.0",
+    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status": "REGISTRATION",
+    "internal_use_only": {
+      "request_id": "4-654321",
+      "environment": "4",
+      "request": "REGISTRATION for patient_id PT_VU03_TissueShipped"
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_received": {
+      "patient_id": "PT_VU03_TissueShipped",
+      "study_id": "APEC1621",
+      "type": "TISSUE",
+      "surgical_event_id": "SEI_01",
+      "collected_dttm": "2016-04-25T15:17:11+00:00",
+      "received_dttm": "2016-04-25T16:17:11+00:00",
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id": "ABCXYZ-0AK64M",
+        "stars_specimen_type": "Paraffin Block Primary",
+        "received_ts": "2016-04-25T15:17:11+00:00",
+        "qc_ts": "2016-04-25T16:21:34+00:00"
+      }
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_shipped": {
+      "study_id": "APEC1621",
+      "patient_id": "PT_VU03_TissueShipped",
+      "type": "TISSUE_DNA_AND_CDNA",
+      "surgical_event_id": "SEI_01",
+      "molecular_id": "MOI_01",
+      "molecular_dna_id": "MOI_01D",
+      "molecular_cdna_id": "MOI_01C",
+      "carrier": "Federal Express",
+      "tracking_id": "7956 4568 1235",
+      "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "destination": "MDA",
+      "dna_volume_ul": 10,
+      "dna_concentration_ng_per_ul": 25,
+      "cdna_volume_ul": 10,
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id_cdna": "ABCXYZ-0BJ64F",
+        "stars_specimen_id_dna": "ABCXYZ-0BJ64B"
+      }
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+      "msg_dttm": "2016-02-09T22:06:33+00:00"
+    },
+    "study_id": "APEC1621",
+    "patient_id": "PT_VU04_TissueShipped",
+    "step_number": "1.0",
+    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status": "REGISTRATION",
+    "internal_use_only": {
+      "request_id": "4-654321",
+      "environment": "4",
+      "request": "REGISTRATION for patient_id PT_VU04_TissueShipped"
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_received": {
+      "patient_id": "PT_VU04_TissueShipped",
+      "study_id": "APEC1621",
+      "type": "TISSUE",
+      "surgical_event_id": "SEI_01",
+      "collected_dttm": "2016-04-25T15:17:11+00:00",
+      "received_dttm": "2016-04-25T16:17:11+00:00",
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id": "ABCXYZ-0AK64M",
+        "stars_specimen_type": "Paraffin Block Primary",
+        "received_ts": "2016-04-25T15:17:11+00:00",
+        "qc_ts": "2016-04-25T16:21:34+00:00"
+      }
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_shipped": {
+      "study_id": "APEC1621",
+      "patient_id": "PT_VU04_TissueShipped",
+      "type": "TISSUE_DNA_AND_CDNA",
+      "surgical_event_id": "SEI_01",
+      "molecular_id": "MOI_01",
+      "molecular_dna_id": "MOI_01D",
+      "molecular_cdna_id": "MOI_01C",
+      "carrier": "Federal Express",
+      "tracking_id": "7956 4568 1235",
+      "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "destination": "MDA",
+      "dna_volume_ul": 10,
+      "dna_concentration_ng_per_ul": 25,
+      "cdna_volume_ul": 10,
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id_cdna": "ABCXYZ-0BJ64F",
+        "stars_specimen_id_dna": "ABCXYZ-0BJ64B"
+      }
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+      "msg_dttm": "2016-02-09T22:06:33+00:00"
+    },
+    "study_id": "APEC1621",
+    "patient_id": "PT_VU05_TissueShipped",
+    "step_number": "1.0",
+    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status": "REGISTRATION",
+    "internal_use_only": {
+      "request_id": "4-654321",
+      "environment": "4",
+      "request": "REGISTRATION for patient_id PT_VU05_TissueShipped"
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_received": {
+      "patient_id": "PT_VU05_TissueShipped",
+      "study_id": "APEC1621",
+      "type": "TISSUE",
+      "surgical_event_id": "SEI_01",
+      "collected_dttm": "2016-04-25T15:17:11+00:00",
+      "received_dttm": "2016-04-25T16:17:11+00:00",
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id": "ABCXYZ-0AK64M",
+        "stars_specimen_type": "Paraffin Block Primary",
+        "received_ts": "2016-04-25T15:17:11+00:00",
+        "qc_ts": "2016-04-25T16:21:34+00:00"
+      }
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_shipped": {
+      "study_id": "APEC1621",
+      "patient_id": "PT_VU05_TissueShipped",
+      "type": "TISSUE_DNA_AND_CDNA",
+      "surgical_event_id": "SEI_01",
+      "molecular_id": "MOI_01",
+      "molecular_dna_id": "MOI_01D",
+      "molecular_cdna_id": "MOI_01C",
+      "carrier": "Federal Express",
+      "tracking_id": "7956 4568 1235",
+      "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "destination": "MDA",
+      "dna_volume_ul": 10,
+      "dna_concentration_ng_per_ul": 25,
+      "cdna_volume_ul": 10,
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id_cdna": "ABCXYZ-0BJ64F",
+        "stars_specimen_id_dna": "ABCXYZ-0BJ64B"
+      }
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+      "msg_dttm": "2016-02-09T22:06:33+00:00"
+    },
+    "study_id": "APEC1621",
+    "patient_id": "PT_VU06_TissueShipped",
+    "step_number": "1.0",
+    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status": "REGISTRATION",
+    "internal_use_only": {
+      "request_id": "4-654321",
+      "environment": "4",
+      "request": "REGISTRATION for patient_id PT_VU06_TissueShipped"
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_received": {
+      "patient_id": "PT_VU06_TissueShipped",
+      "study_id": "APEC1621",
+      "type": "TISSUE",
+      "surgical_event_id": "SEI_01",
+      "collected_dttm": "2016-04-25T15:17:11+00:00",
+      "received_dttm": "2016-04-25T16:17:11+00:00",
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id": "ABCXYZ-0AK64M",
+        "stars_specimen_type": "Paraffin Block Primary",
+        "received_ts": "2016-04-25T15:17:11+00:00",
+        "qc_ts": "2016-04-25T16:21:34+00:00"
+      }
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_shipped": {
+      "study_id": "APEC1621",
+      "patient_id": "PT_VU06_TissueShipped",
+      "type": "TISSUE_DNA_AND_CDNA",
+      "surgical_event_id": "SEI_01",
+      "molecular_id": "MOI_01",
+      "molecular_dna_id": "MOI_01D",
+      "molecular_cdna_id": "MOI_01C",
+      "carrier": "Federal Express",
+      "tracking_id": "7956 4568 1235",
+      "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "destination": "MDA",
+      "dna_volume_ul": 10,
+      "dna_concentration_ng_per_ul": 25,
+      "cdna_volume_ul": 10,
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id_cdna": "ABCXYZ-0BJ64F",
+        "stars_specimen_id_dna": "ABCXYZ-0BJ64B"
+      }
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+      "msg_dttm": "2016-02-09T22:06:33+00:00"
+    },
+    "study_id": "APEC1621",
+    "patient_id": "PT_VU08_TissueShipped",
+    "step_number": "1.0",
+    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status": "REGISTRATION",
+    "internal_use_only": {
+      "request_id": "4-654321",
+      "environment": "4",
+      "request": "REGISTRATION for patient_id PT_VU08_TissueShipped"
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_received": {
+      "patient_id": "PT_VU08_TissueShipped",
+      "study_id": "APEC1621",
+      "type": "TISSUE",
+      "surgical_event_id": "SEI_01",
+      "collected_dttm": "2016-04-25T15:17:11+00:00",
+      "received_dttm": "2016-04-25T16:17:11+00:00",
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id": "ABCXYZ-0AK64M",
+        "stars_specimen_type": "Paraffin Block Primary",
+        "received_ts": "2016-04-25T15:17:11+00:00",
+        "qc_ts": "2016-04-25T16:21:34+00:00"
+      }
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_shipped": {
+      "study_id": "APEC1621",
+      "patient_id": "PT_VU08_TissueShipped",
+      "type": "TISSUE_DNA_AND_CDNA",
+      "surgical_event_id": "SEI_01",
+      "molecular_id": "MOI_01",
+      "molecular_dna_id": "MOI_01D",
+      "molecular_cdna_id": "MOI_01C",
+      "carrier": "Federal Express",
+      "tracking_id": "7956 4568 1235",
+      "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "destination": "MDA",
+      "dna_volume_ul": 10,
+      "dna_concentration_ng_per_ul": 25,
+      "cdna_volume_ul": 10,
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id_cdna": "ABCXYZ-0BJ64F",
+        "stars_specimen_id_dna": "ABCXYZ-0BJ64B"
+      }
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+      "msg_dttm": "2016-02-09T22:06:33+00:00"
+    },
+    "study_id": "APEC1621",
+    "patient_id": "PT_VU09_VariantReportUploaded",
+    "step_number": "1.0",
+    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status": "REGISTRATION",
+    "internal_use_only": {
+      "request_id": "4-654321",
+      "environment": "4",
+      "request": "REGISTRATION for patient_id PT_VU09_VariantReportUploaded"
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_received": {
+      "patient_id": "PT_VU09_VariantReportUploaded",
+      "study_id": "APEC1621",
+      "type": "TISSUE",
+      "surgical_event_id": "SEI_01",
+      "collected_dttm": "2016-04-25T15:17:11+00:00",
+      "received_dttm": "2016-04-25T16:17:11+00:00",
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id": "ABCXYZ-0AK64M",
+        "stars_specimen_type": "Paraffin Block Primary",
+        "received_ts": "2016-04-25T15:17:11+00:00",
+        "qc_ts": "2016-04-25T16:21:34+00:00"
+      }
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_shipped": {
+      "study_id": "APEC1621",
+      "patient_id": "PT_VU09_VariantReportUploaded",
+      "type": "TISSUE_DNA_AND_CDNA",
+      "surgical_event_id": "SEI_01",
+      "molecular_id": "MOI_01",
+      "molecular_dna_id": "MOI_01D",
+      "molecular_cdna_id": "MOI_01C",
+      "carrier": "Federal Express",
+      "tracking_id": "7956 4568 1235",
+      "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "destination": "MDA",
+      "dna_volume_ul": 10,
+      "dna_concentration_ng_per_ul": 25,
+      "cdna_volume_ul": 10,
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id_cdna": "ABCXYZ-0BJ64F",
+        "stars_specimen_id_dna": "ABCXYZ-0BJ64B"
+      }
+    }
+  },
+  {
+    "patient_id": "PT_VU09_VariantReportUploaded",
+    "molecular_id": "MOI_01",
+    "analysis_id": "ANI_01",
+    "s3_bucket_name": "nci-match-rules",
+    "tsv_file_path_name": "3344.tsv",
+    "vcf_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/3344-bsn-msn-2.vcf",
+    "dna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/dna.bam",
+    "cdna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/cdna.bam"
+  },
+  {
+    "header": {
+      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+      "msg_dttm": "2016-02-09T22:06:33+00:00"
+    },
+    "study_id": "APEC1621",
+    "patient_id": "PT_VU10_VariantReportUploaded",
+    "step_number": "1.0",
+    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status": "REGISTRATION",
+    "internal_use_only": {
+      "request_id": "4-654321",
+      "environment": "4",
+      "request": "REGISTRATION for patient_id PT_VU10_VariantReportUploaded"
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_received": {
+      "patient_id": "PT_VU10_VariantReportUploaded",
+      "study_id": "APEC1621",
+      "type": "TISSUE",
+      "surgical_event_id": "SEI_01",
+      "collected_dttm": "2016-04-25T15:17:11+00:00",
+      "received_dttm": "2016-04-25T16:17:11+00:00",
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id": "ABCXYZ-0AK64M",
+        "stars_specimen_type": "Paraffin Block Primary",
+        "received_ts": "2016-04-25T15:17:11+00:00",
+        "qc_ts": "2016-04-25T16:21:34+00:00"
+      }
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_shipped": {
+      "study_id": "APEC1621",
+      "patient_id": "PT_VU10_VariantReportUploaded",
+      "type": "TISSUE_DNA_AND_CDNA",
+      "surgical_event_id": "SEI_01",
+      "molecular_id": "MOI_01",
+      "molecular_dna_id": "MOI_01D",
+      "molecular_cdna_id": "MOI_01C",
+      "carrier": "Federal Express",
+      "tracking_id": "7956 4568 1235",
+      "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "destination": "MDA",
+      "dna_volume_ul": 10,
+      "dna_concentration_ng_per_ul": 25,
+      "cdna_volume_ul": 10,
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id_cdna": "ABCXYZ-0BJ64F",
+        "stars_specimen_id_dna": "ABCXYZ-0BJ64B"
+      }
+    }
+  },
+  {
+    "patient_id": "PT_VU10_VariantReportUploaded",
+    "molecular_id": "MOI_01",
+    "analysis_id": "ANI_01",
+    "s3_bucket_name": "nci-match-rules",
+    "tsv_file_path_name": "3344.tsv",
+    "vcf_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/3344-bsn-msn-2.vcf",
+    "dna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/dna.bam",
+    "cdna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/cdna.bam"
+  },
+  {
+    "header": {
+      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+      "msg_dttm": "2016-02-09T22:06:33+00:00"
+    },
+    "study_id": "APEC1621",
+    "patient_id": "PT_VU11_VariantReportRejected",
+    "step_number": "1.0",
+    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status": "REGISTRATION",
+    "internal_use_only": {
+      "request_id": "4-654321",
+      "environment": "4",
+      "request": "REGISTRATION for patient_id PT_VU11_VariantReportRejected"
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_received": {
+      "patient_id": "PT_VU11_VariantReportRejected",
+      "study_id": "APEC1621",
+      "type": "TISSUE",
+      "surgical_event_id": "SEI_01",
+      "collected_dttm": "2016-04-25T15:17:11+00:00",
+      "received_dttm": "2016-04-25T16:17:11+00:00",
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id": "ABCXYZ-0AK64M",
+        "stars_specimen_type": "Paraffin Block Primary",
+        "received_ts": "2016-04-25T15:17:11+00:00",
+        "qc_ts": "2016-04-25T16:21:34+00:00"
+      }
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_shipped": {
+      "study_id": "APEC1621",
+      "patient_id": "PT_VU11_VariantReportRejected",
+      "type": "TISSUE_DNA_AND_CDNA",
+      "surgical_event_id": "SEI_01",
+      "molecular_id": "MOI_01",
+      "molecular_dna_id": "MOI_01D",
+      "molecular_cdna_id": "MOI_01C",
+      "carrier": "Federal Express",
+      "tracking_id": "7956 4568 1235",
+      "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "destination": "MDA",
+      "dna_volume_ul": 10,
+      "dna_concentration_ng_per_ul": 25,
+      "cdna_volume_ul": 10,
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id_cdna": "ABCXYZ-0BJ64F",
+        "stars_specimen_id_dna": "ABCXYZ-0BJ64B"
+      }
+    }
+  },
+  {
+    "patient_id": "PT_VU11_VariantReportRejected",
+    "molecular_id": "MOI_01",
+    "analysis_id": "ANI_01",
+    "s3_bucket_name": "nci-match-rules",
+    "tsv_file_path_name": "3344.tsv",
+    "vcf_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/3344-bsn-msn-2.vcf",
+    "dna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/dna.bam",
+    "cdna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/cdna.bam"
+  },
+  {
+    "patient_id": "PT_VU11_VariantReportRejected",
+    "molecular_id": "MOI_01",
+    "analysis_id": "ANI_01",
+    "status": "REJECTED",
+    "comment": "TEST",
+    "comment_user": "user1"
+  },
+  {
+    "header": {
+      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+      "msg_dttm": "2016-02-09T22:06:33+00:00"
+    },
+    "study_id": "APEC1621",
+    "patient_id": "PT_VU12_VariantReportRejected",
+    "step_number": "1.0",
+    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status": "REGISTRATION",
+    "internal_use_only": {
+      "request_id": "4-654321",
+      "environment": "4",
+      "request": "REGISTRATION for patient_id PT_VU12_VariantReportRejected"
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_received": {
+      "patient_id": "PT_VU12_VariantReportRejected",
+      "study_id": "APEC1621",
+      "type": "TISSUE",
+      "surgical_event_id": "SEI_01",
+      "collected_dttm": "2016-04-25T15:17:11+00:00",
+      "received_dttm": "2016-04-25T16:17:11+00:00",
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id": "ABCXYZ-0AK64M",
+        "stars_specimen_type": "Paraffin Block Primary",
+        "received_ts": "2016-04-25T15:17:11+00:00",
+        "qc_ts": "2016-04-25T16:21:34+00:00"
+      }
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_shipped": {
+      "study_id": "APEC1621",
+      "patient_id": "PT_VU12_VariantReportRejected",
+      "type": "TISSUE_DNA_AND_CDNA",
+      "surgical_event_id": "SEI_01",
+      "molecular_id": "MOI_01",
+      "molecular_dna_id": "MOI_01D",
+      "molecular_cdna_id": "MOI_01C",
+      "carrier": "Federal Express",
+      "tracking_id": "7956 4568 1235",
+      "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "destination": "MDA",
+      "dna_volume_ul": 10,
+      "dna_concentration_ng_per_ul": 25,
+      "cdna_volume_ul": 10,
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id_cdna": "ABCXYZ-0BJ64F",
+        "stars_specimen_id_dna": "ABCXYZ-0BJ64B"
+      }
+    }
+  },
+  {
+    "patient_id": "PT_VU12_VariantReportRejected",
+    "molecular_id": "MOI_01",
+    "analysis_id": "ANI_01",
+    "s3_bucket_name": "nci-match-rules",
+    "tsv_file_path_name": "3344.tsv",
+    "vcf_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/3344-bsn-msn-2.vcf",
+    "dna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/dna.bam",
+    "cdna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/cdna.bam"
+  },
+  {
+    "patient_id": "PT_VU12_VariantReportRejected",
+    "molecular_id": "MOI_01",
+    "analysis_id": "ANI_01",
+    "status": "REJECTED",
+    "comment": "TEST",
+    "comment_user": "user1"
+  },
+  {
+    "patient_id": "PT_VU12_VariantReportRejected",
+    "molecular_id": "MOI_01",
+    "analysis_id": "ANI_02",
+    "s3_bucket_name": "nci-match-rules",
+    "tsv_file_path_name": "3344.tsv",
+    "vcf_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/3344-bsn-msn-2.vcf",
+    "dna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/dna.bam",
+    "cdna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/cdna.bam"
+  },
+  {
+    "sleep": "10.0"
+  },
+  {
+    "patient_id": "PT_VU12_VariantReportRejected",
+    "molecular_id": "MOI_01",
+    "analysis_id": "ANI_02",
+    "status": "REJECTED",
+    "comment": "TEST",
+    "comment_user": "user1"
+  },
+  {
+    "header": {
+      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+      "msg_dttm": "2016-02-09T22:06:33+00:00"
+    },
+    "study_id": "APEC1621",
+    "patient_id": "PT_VU13_VariantReportConfirmed",
+    "step_number": "1.0",
+    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status": "REGISTRATION",
+    "internal_use_only": {
+      "request_id": "4-654321",
+      "environment": "4",
+      "request": "REGISTRATION for patient_id PT_VU13_VariantReportConfirmed"
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_received": {
+      "patient_id": "PT_VU13_VariantReportConfirmed",
+      "study_id": "APEC1621",
+      "type": "TISSUE",
+      "surgical_event_id": "SEI_01",
+      "collected_dttm": "2016-04-25T15:17:11+00:00",
+      "received_dttm": "2016-04-25T16:17:11+00:00",
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id": "ABCXYZ-0AK64M",
+        "stars_specimen_type": "Paraffin Block Primary",
+        "received_ts": "2016-04-25T15:17:11+00:00",
+        "qc_ts": "2016-04-25T16:21:34+00:00"
+      }
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_shipped": {
+      "study_id": "APEC1621",
+      "patient_id": "PT_VU13_VariantReportConfirmed",
+      "type": "TISSUE_DNA_AND_CDNA",
+      "surgical_event_id": "SEI_01",
+      "molecular_id": "MOI_01",
+      "molecular_dna_id": "MOI_01D",
+      "molecular_cdna_id": "MOI_01C",
+      "carrier": "Federal Express",
+      "tracking_id": "7956 4568 1235",
+      "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "destination": "MDA",
+      "dna_volume_ul": 10,
+      "dna_concentration_ng_per_ul": 25,
+      "cdna_volume_ul": 10,
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id_cdna": "ABCXYZ-0BJ64F",
+        "stars_specimen_id_dna": "ABCXYZ-0BJ64B"
+      }
+    }
+  },
+  {
+    "patient_id": "PT_VU13_VariantReportConfirmed",
+    "molecular_id": "MOI_01",
+    "analysis_id": "ANI_01",
+    "s3_bucket_name": "nci-match-rules",
+    "tsv_file_path_name": "3344.tsv",
+    "vcf_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/3344-bsn-msn-2.vcf",
+    "dna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/dna.bam",
+    "cdna_bam_file_path_name": "3344/3344-bsn/3344-bsn-msn-2/analysis1/cdna.bam"
+  },
+  {
+    "patient_id": "PT_VU13_VariantReportConfirmed",
+    "molecular_id": "MOI_01",
+    "analysis_id": "ANI_01",
+    "status": "CONFIRMED",
+    "comment": "TEST",
+    "comment_user": "user1"
+  },
+  {
+    "header": {
+      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+      "msg_dttm": "2016-02-09T22:06:33+00:00"
+    },
+    "study_id": "APEC1621",
+    "patient_id": "PT_VU14_TissueAndBloodShipped",
+    "step_number": "1.0",
+    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status": "REGISTRATION",
+    "internal_use_only": {
+      "request_id": "4-654321",
+      "environment": "4",
+      "request": "REGISTRATION for patient_id PT_SR15_VariantReportUploaded"
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "ab6d8d37-caf2-4dbb-a360-0032c7a7a76c",
+      "msg_dttm": "2016-04-24T18:42:13+00:00"
+    },
+    "specimen_received": {
+      "patient_id": "PT_VU14_TissueAndBloodShipped",
+      "study_id": "APEC1621",
+      "type": "BLOOD",
+      "collected_dttm": "2016-04-24T15:17:11+00:00",
+      "received_dttm": "2016-04-24T16:17:11+00:00",
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id": "ABCXYZ-0AK64M",
+        "stars_specimen_type": "Paraffin Block Primary",
+        "received_ts": "2016-04-24T15:17:11+00:00",
+        "qc_ts": "2016-04-24T16:21:34+00:00"
+      }
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_received": {
+      "patient_id": "PT_VU14_TissueAndBloodShipped",
+      "study_id": "APEC1621",
+      "type": "TISSUE",
+      "surgical_event_id": "SEI_01",
+      "collected_dttm": "2016-04-25T15:17:11+00:00",
+      "received_dttm": "2016-04-25T16:17:11+00:00",
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id": "ABCXYZ-0AK64M",
+        "stars_specimen_type": "Paraffin Block Primary",
+        "received_ts": "2016-04-25T15:17:11+00:00",
+        "qc_ts": "2016-04-25T16:21:34+00:00"
+      }
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_shipped": {
+      "study_id": "APEC1621",
+      "patient_id": "PT_VU14_TissueAndBloodShipped",
+      "type": "TISSUE_DNA_AND_CDNA",
+      "surgical_event_id": "SEI_01",
+      "molecular_id": "MOI_TR_01",
+      "molecular_dna_id": "MOI_TR_01D",
+      "molecular_cdna_id": "MOI_TR_01C",
+      "carrier": "Federal Express",
+      "tracking_id": "7956 4568 1235",
+      "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "destination": "MDA",
+      "dna_volume_ul": 10,
+      "dna_concentration_ng_per_ul": 25,
+      "cdna_volume_ul": 10,
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id_cdna": "ABCXYZ-0BJ64F",
+        "stars_specimen_id_dna": "ABCXYZ-0BJ64B"
+      }
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-02T19:42:13+00:00"
+    },
+    "specimen_shipped": {
+      "study_id": "APEC1621",
+      "patient_id": "PT_VU14_TissueAndBloodShipped",
+      "type": "BLOOD_DNA",
+      "molecular_id": "MOI_BR_01",
+      "carrier": "Federal Express",
+      "tracking_id": "7956 4568 1235",
+      "shipped_dttm": "2016-05-02T19:42:13+00:00",
+      "destination": "MDA",
+      "dna_volume_ul": 10,
+      "dna_concentration_ng_per_ul": 25,
+      "cdna_volume_ul": 10,
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id": "ABCXYZ-0BJ64A"
+      }
+    }
+  }
+]
