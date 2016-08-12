@@ -982,9 +982,6 @@ Background: wait for process to complete
     |00004          |00004-00012        |ANI_00004-00012      |bdd-test-data/demo/00004/00004-00012/ANI_00004-00012 |00004.tsv          |00004.vcf          |
     |00005          |00005-00012        |ANI_00005-00012      |bdd-test-data/demo/00005/00005-00012/ANI_00005-00012 |00005.tsv          |00005.vcf          |
 
-  Scenario: Patient's Tissue variant report is confirmed
-    Given template variant report confirm message for patient: "00001", it has molecular_id: "00001-00012", analysis_id: "ANI_00001-00012" and status: "CONFIRMED"
-    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
 
 
   Scenario Outline: Patient's Blood variant report is uploaded to MatchBox
@@ -1005,4 +1002,12 @@ Background: wait for process to complete
     Given template variant report confirm message for patient: "00001", it has molecular_id: "00001-00013", analysis_id: "ANI_00001-00013" and status: "CONFIRMED"
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
 
+  Scenario: Patient's Tissue variant report is confirmed
+    Given template variant report confirm message for patient: "00001", it has molecular_id: "00001-00012", analysis_id: "ANI_00001-00012" and status: "CONFIRMED"
+    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+
+
+  Scenario: Patient's Assignment report is confirmed
+    Given template assignment report confirm message for patient: "00001", it has molecular_id: "00001-00012", analysis_id: "ANI_00001-00012" and status: "CONFIRMED"
+    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
 

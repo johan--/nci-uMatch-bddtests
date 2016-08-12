@@ -90,6 +90,21 @@ Given(/^template variant report confirm message for patient: "([^"]*)", it has m
 
 end
 
+Given(/^template assignment report confirm message for patient: "([^"]*)", it has molecular_id: "([^"]*)", analysis_id: "([^"]*)" and status: "([^"]*)"$/) do |patient_id, moi, ani, status|
+  @request_json = Patient_helper_methods.load_patient_message_templates('assignment_confirmed')
+  converted_patient_id = patient_id=='null'?nil:patient_id
+  converted_moi = moi=='null'?nil:moi
+  converted_ani = ani=='null'?nil:ani
+  converted_status = status=='null'?nil:status
+  @patient_message_root_key = ''
+  @request_json['patient_id'] = converted_patient_id
+  @request_json['molecular_id'] = converted_moi
+  @request_json['analysis_id'] = converted_ani
+  @request_json['status'] = converted_status
+  @request = @request_json.to_json.to_s
+
+end
+
 Then(/^set patient message field: "([^"]*)" to value: "([^"]*)"$/) do |field, value|
   if value != 'skip_this_value'
     converted_value = value=='null'?nil:value

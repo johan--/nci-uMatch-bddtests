@@ -146,7 +146,16 @@
     "molecular_id": "3344-bsn-msn-2",
     "analysis_id": "job1",
     "status": "CONFIRMED",
-    "comment": "some comment",
-    "comment_user": "rick"
+    "comment": "The committee approves this variant report",
+    "comment_user": "Rick"
+  },
+  "assignment_confirmed":{
+    "status_type": "ASSIGNMENT",
+    "patient_id": "3366",
+    "molecular_id": "3366-bsn-msn-2",
+    "analysis_id": "job1",
+    "status": "CONFIRMED",
+    "comment": "The committee approves this Assignment report",
+    "comment_user": "Rick"
   }
 }
