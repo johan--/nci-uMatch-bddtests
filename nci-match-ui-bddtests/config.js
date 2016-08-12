@@ -4,7 +4,7 @@
 var helper = require('./support/setup');
 
 exports.config = {
-    baseUrl: 'http://pedmatch.org',  //when developing tests use http://localhost:9000',
+    baseUrl: 'http://localhost:9000',  //when developing tests use http://localhost:9000',
 
     //seleniumAddress: 'http://localhost:4444/wd/hub',
     capabilities: {

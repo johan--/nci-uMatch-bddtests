@@ -19,14 +19,14 @@ Feature: Treatment Arms Dashboard
     And I should see the headings in the table
     And I should see data in the table
 
-  @treatment_arm @ui
+  @treatment_arm @ui @fling
   Scenario: Logged in user can access the dashboard of Treatment Arms page
     When I click on one of the treatment arms
+    And I collect backend information about the treatment arm
     Then I should see the treatment-arms detail dashboard
     And I should see detailed Treatment Arms breadcrumb
-    And I collect backend information about the treatment arm
     And I should see the Name Details
-#    And I should see the Gene Details
+    And I should see the Gene Details
     And I should see three tabs related to the treatment arm
 
   @treatment_arm @ui

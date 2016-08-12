@@ -12,7 +12,7 @@ var TreatmentArmsPage = function() {
     this.taTable = element(by.css('[dt-options="TreatmentArmsCtrl.dtOptions"]'));
 
     // HEader of the above table
-    this.taTableHeaderArray = element.all(by.css('[dt-options="TreatmentArmsCtrl.dtOptions"] th[class^="sorting"]'));
+    this.taTableHeaderArray = element.all(by.css('[dt-options="TreatmentArmsCtrl.dtOptions"]>thead th'));
 
     // Patients Table That contains all the patient list Assigned to the selected treatment arm as seen on the treatment arms detailed page.
     this.patientTaTable = element(by.css('.tab-pane.active.ng-scope table[dt-options="dtOptions"]'));
@@ -64,7 +64,8 @@ var TreatmentArmsPage = function() {
     this.taStratum = element(by.binding('currentVersion.stratum_id'));
     this.taDescription = element(by.binding('currentVersion.description'));
     this.taStatus = element(by.binding('currentVersion.treatment_arm_status'));
-    this.taVersion = element(by.binding('dropdownModel[labelField]'));
+    this.taVersion = element(by.binding('currentVersion.version'));
+    this.taVersionDropdownList = element.all(by.css('li[ng-repeat="item in versions"]')); // this is the version drop down
 
     // Right info box
     this.taGene = element(by.binding('currentVersion.gene'));
@@ -106,7 +107,7 @@ var TreatmentArmsPage = function() {
 
     //List of Expected values
     this.expectedLeftBoxLabels = ['Name', 'Stratum ID', 'Description', 'Status', 'Version'];
-    this.expectedRightBoxLabels = ['Gene(s)', 'Patients Assigned', 'Drug', 'Download'];
+    this.expectedRightBoxLabels = ['Genes', 'Patients on Arm Version', 'Total Patients on Arm', 'Drug', 'Download'];
     this.expectedTableHeaders = [
         "Name",
         "Current Patients",
@@ -172,7 +173,7 @@ var TreatmentArmsPage = function() {
     this.checkSNVTable = function(data, tableType, inclusionType) {
         expect(tableType.count()).to.eventually.equal(data.length);
         var firstData = data[0];
-        var repeaterValue = 'item in selectedVersion.snvs' + inclusionType;
+        var repeaterValue = 'item in currentVersion.snvs' + inclusionType;
         var rowList = element.all(by.repeater(repeaterValue));
         var med_id_string = getMedIdString(firstData['public_med_ids']);
 
@@ -455,6 +456,12 @@ var TreatmentArmsPage = function() {
         return completeId.split(' ')[0];
     };
 
+    this.stripStratumId = function(completeId){
+        var startPos = completeId.indexOf('(') + 1;
+        var endPos   = completeId.indexOf(')');
+        return completeId.slice(startPos, endPos);
+    };
+
     this.getTreatmentArmVersions = function(treatmentArm){
         var versionOrder;
         treatmentArm.forEach(function (elem, index) {
@@ -466,7 +473,7 @@ var TreatmentArmsPage = function() {
 
     function getActualVariantName(variantName){
         var variantMapping = {
-            'SNV / MNV / Indels' : 'single_nucleotide_variants',
+            'SNV / MNV'          : 'single_nucleotide_variants',
             'Indel'              : 'indels',
             'CNVs'               : 'copy_number_variants',
             'Non-Hotspot Rules'  : 'non_hotspot_rules',

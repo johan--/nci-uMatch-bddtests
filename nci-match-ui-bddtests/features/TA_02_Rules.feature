@@ -9,9 +9,9 @@ Feature: Treatment Arm Rules
   Background:
     Given I am a logged in user
     And I navigate to the treatment-arms page
-    And I go to treatment arm with "APEC1621-T" as the id and "stratum1" as stratum id
+    And I go to treatment arm with "APEC1621-B" as the id and "100" as stratum id
 
-  @treatment_arm @ui @broken
+  @treatment_arm @ui @broken @fling
   Scenario Outline: Logged in user can access <subTabName> with Inclusion/Exclusion details under Rules
     When I select the Rules Main Tab
     And I select the <subTabName> sub-tab

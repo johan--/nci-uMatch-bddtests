@@ -33,7 +33,7 @@ var PatientPage = function () {
     this.currentActiveTab = element(by.css('.active[ng-class="{active: tabset.active === tab.index}"]'));
     //This element captures the sub headings under all the Tabs.
     // Though it captures all the headings, only the active tab's headings are populated in the array
-    this.mainTabSubHeadingArray = element.all(by.css('.ibox-title.ibox-title-no-line>h3'));
+    this.mainTabSubHeadingArray = function() {return element.all(by.css('div.ibox-title.ibox-title-no-line-no-padding>h3'))};
 
 
     // *****************  Summary Tab  ********************//
@@ -126,7 +126,8 @@ var PatientPage = function () {
 
     this.expectedPatientMainTabs = [ 'Summary', 'Surgical Events', 'Tissue Reports', 'Blood Variant Reports', 'Documents'];
 
-    this.expectedMainTabSubHeadings = ['Actions Needed', 'Treatment Arm History', 'Patient Timeline',
+    this.expectedMainTabSubHeadings = [
+        'Actions Needed', 'Patient Timeline',
         'Slide Shipments', 'Assay History', 'Specimen History',
         'SNVs/MNVs/Indels', 'Copy Number Variant(s)', 'Gene Fusion(s)',
         'SNVs/MNVs/Indels(s) ##', 'Copy Number Variant(s)', 'Gene Fusion(s)',

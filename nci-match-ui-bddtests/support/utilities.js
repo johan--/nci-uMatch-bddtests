@@ -68,7 +68,7 @@ var Utilities = function() {
      * @param value
      */
     this.checkElementIncludesAttribute = function (element, attribute, value) {
-        element.getAttribute(attribute).then(function (allAttributes) {
+       return element.getAttribute(attribute).then(function (allAttributes) {
             var attributeArray = allAttributes.split(' ');
             expect(attributeArray).to.include(value);
         });

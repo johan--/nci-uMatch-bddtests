@@ -19,6 +19,7 @@ module.exports = function () {
     var expectedTableHeaders = taPage.expectedTableHeaders;
 
     var currentTreatmentId;
+    var currentStratumId;
     var treatmentArmAPIDetails;
     var firstTreatmentArm;
 
@@ -28,16 +29,19 @@ module.exports = function () {
 
     this.When(/^I click on one of the treatment arms$/, function (callback) {
         //Here the user is clicking on the first treatment arm present.
+        expect(taTableData.count()).to.eventually.be.greaterThan(0);
+
         taPage.returnTreatmentArmId(taTableData, 0).then(function (taId) {
-            console.log(taId);
             currentTreatmentId = taPage.stripTreatmentArmId(taId);
+            currentStratumId   = taPage.stripStratumId(taId);
             element(by.linkText(taId)).click().then(callback);
         });
     });
 
     this.Then(/^I collect backend information about the treatment arm$/, function () {
         var response;
-        response = utilities.callApiForDetails(currentTreatmentId, 'treatmentArms');
+        var inputDetails = currentTreatmentId + '/' + currentStratumId;
+        response = utilities.callApiForDetails(inputDetails, 'treatmentArms');
         response.get().then(function () {
             treatmentArmAPIDetails = utilities.getJSONifiedDetails(response.entity());
             firstTreatmentArm = treatmentArmAPIDetails[0];
@@ -134,8 +138,9 @@ module.exports = function () {
     this.Then(/^I should see the Name Details$/, function (callback) {
         //todo: Make sure to check for the name as a combination of TA and stratem
         utilities.checkElementArray(taPage.leftInfoBoxLabels, taPage.expectedLeftBoxLabels);
+        console.log(firstTreatmentArm);
 
-        expect(taPage.taName.get(1).getText()).to.eventually.equal(firstTreatmentArm.name);
+        expect(taPage.taName.getText()).to.eventually.equal(firstTreatmentArm.name);
         expect(taPage.taDescription.getText()).to.eventually.equal(firstTreatmentArm.description);
         expect(taPage.taStatus.getText()).to.eventually.equal(firstTreatmentArm.treatment_arm_status);
         expect(taPage.taVersion.getText()).to.eventually.equal(firstTreatmentArm.version);

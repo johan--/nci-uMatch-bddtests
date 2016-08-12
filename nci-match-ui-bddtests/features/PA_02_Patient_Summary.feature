@@ -29,7 +29,7 @@ Feature: Patient Summary Page
     And I click on the "Summary" tab
     Then I should see the "Summary" tab is active
     And I should see the "Actions Needed" section heading
-    And I should see the "Treatment Arm History" section heading
+#    And I should see the "Treatment Arm History" section heading
     And I should see the "Patient Timeline" section heading
 #    And I should see the  Treatment Arm History about the patient
 #    And I should see the Patient Timeline section with the timeline about the patient

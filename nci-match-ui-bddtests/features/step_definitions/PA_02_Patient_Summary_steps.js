@@ -144,14 +144,14 @@ module.exports = function () {
     this.Then(/^I should see the "([^"]*)" tab is active$/, function (tabName, callback) {
         var index = expectedMainTabs.indexOf(tabName);
         var testElement = actualMainTabsArray.get(index);
-        utilities.checkElementIncludesAttribute(testElement, 'class', 'active');
-        browser.sleep(50).then(callback);
+        utilities.checkElementIncludesAttribute(testElement, 'class', 'active').then(callback);
     });
 
     this.Then(/^I should see the "(.+)" section heading$/, function (heading, callback) {
         var index = patientPage.expectedMainTabSubHeadings.indexOf(heading);
-        expect(patientPage.mainTabSubHeadingArray.get(index).getText()).to.eventually.eql(heading);
-        callback();
+        patientPage.mainTabSubHeadingArray().get(index).getText().then(function (title) {
+            expect(title).to.eql(heading);
+        }).then(callback);
     });
 
     this.Then(/^I should see data under "(.+)" heading/, function (heading, callback) {
