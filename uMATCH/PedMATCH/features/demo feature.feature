@@ -426,12 +426,13 @@ Background: wait for process to complete
   "treatment_arm_status": "OPEN",
   "study_id": "APEC1621",
   "assay_results": [{
-    "gene" : "PIK3CA",
-    "assayResultStatus" : "POSITIVE",
-    "assayVariant" : "PRESENT",
-    "levelOfEvidence" : 2.0,
-    "description": null
-  }],
+    {
+        "func_gene" : "PTEN",
+        "assayResultStatus" : "POSITIVE",
+        "assayVariant" : "PRESENT",
+        "levelOfEvidence" : 3
+    }
+   ],
   "date_opened": null,
   "treatment_arm_drugs": [{
     "drugId" : "750691",
