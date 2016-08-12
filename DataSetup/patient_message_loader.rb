@@ -28,7 +28,7 @@ class PatientMessageLoader
         curl_cmd = curl_cmd + " -H \"Accept: application/json\"  -d '" + message.to_json
         curl_cmd = curl_cmd + "' #{LOCAL_PATIENT_API_URL}/#{SERVICE_NAME}"
         output = `#{curl_cmd}`
-        p "Output from running curl: #{output}"
+        p "Output from running No.#{all_items} curl: #{output}"
         unless output.downcase.include?'success'
           p 'Failed'
           puts JSON.pretty_generate(message)

@@ -52,8 +52,8 @@ Feature: Variant files uploaded message
 
 
   Scenario: PT_VU07. variant files uploaded with new analysis_id cannot be accepted when patient has only TISSUE_SLIDE_SPECIMEN_SHIPPED status but has no TISSUE_NUCLEIC_ACID_SHIPPED status
-#  Test patient: PT_VU07_SlideShipped: surgical_event_id: SEI_01 slide shipped, tissue not shipped;
-    Given template variant uploaded message for patient: "PT_VU07_SlideShipped", it has molecular_id: "MOI_01" and analysis_id: "ANI_01"
+#  Test patient: PT_VU07_SlideShippedNoTissueShipped: surgical_event_id: SEI_01 slide shipped, tissue not shipped;
+    Given template variant uploaded message for patient: "PT_VU07_SlideShippedNoTissueShipped", it has molecular_id: "MOI_01" and analysis_id: "ANI_01"
     When posted to MATCH patient trigger service, returns a message that includes "cannot transition from 'TISSUE_SPECIMEN_RECEIVED'" with status "Failure"
 
   Scenario: PT_VU08. new uploaded variant files should has PENDING as default status
@@ -104,5 +104,22 @@ Feature: Variant files uploaded message
     Given template variant uploaded message for patient: "PT_VU13_VariantReportConfirmed", it has molecular_id: "MOI_01" and analysis_id: "ANI_01"
     When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Failure"
 
+  Scenario: PT_VU14. variant file uploaded to blood specimen should has correct result
+#    Test patient: PT_VU14_TissueAndBloodShipped; Tissue shipped: SEI_01, MOI_TR_01; Blood shipped: MOI_BR_01
+    Given template variant uploaded message for patient: "PT_VU14_TissueAndBloodShipped", it has molecular_id: "MOI_BR_01" and analysis_id: "ANI_BR_01"
+    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+    Then wait for "15" seconds
+    Then retrieve patient: "PT_VU14_TissueAndBloodShipped" from API
+    Then returned patient has variant report (surgical_event_id: "null", molecular_id: "MOI_BR_01", analysis_id: "ANI_BR_01")
+    And this variant report has value: "type" in field: "BLOOD"
+
+  Scenario: PT_VU15. tissue variant file uploaded should generate variants for latest surgical event (not older one which use the same molecular_id)
+#    Test patient: PT_VU15_TissueReceivedAndShippedTwice: Tissue shipped: SEI_01, MOI_01, and SEI_02, MOI_01
+    Given template variant uploaded message for patient: "PT_VU15_TissueReceivedAndShippedTwice", it has molecular_id: "MOI_01" and analysis_id: "ANI_01"
+    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+    Then wait for "15" seconds
+    Then retrieve patient: "PT_VU15_TissueReceivedAndShippedTwice" from API
+    Then returned patient has variant report (surgical_event_id: "SEI_01", molecular_id: "MOI_01", analysis_id: "ANI_01")
+  
 #  variants should be generated properly in patient json after variant files uploaded message is accepted
 #      run rule service using the variant tsv file, a variant list will be output, then run variant files uploaded message, then retrieve patient, check it's variant part with the list comes from rule engin

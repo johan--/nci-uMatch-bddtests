@@ -130,9 +130,9 @@ Feature: NCH Specimen shipped messages
     When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Failure"
 
   Scenario: PT_SS17. shipped blood without blood received fails
-#  Testing patient: PT_SS17_BloodReceived
+#  Testing patient: PT_SS17_Registered
 #     These is no blood specimen received event in this patient
-    Given template specimen shipped message in type: "BLOOD" for patient: "PT_SS17_BloodReceived"
+    Given template specimen shipped message in type: "BLOOD" for patient: "PT_SS17_Registered"
     When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Failure"
 
   Scenario: PT_SS18. shipped blood with SEI fails
@@ -163,7 +163,7 @@ Feature: NCH Specimen shipped messages
     When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"
 
   # data cannot be prepared due to current bug
-#  Scenario: PT_SS22. Blood cannot be shipped if there is on blood variant report get confirmed
+#  Scenario: PT_SS22. Blood cannot be shipped if there is one blood variant report get confirmed
 ##    Testing patient: PT_SS21_BloodVariantConfirmed
 ##      this patient has BLOOD_VARIANT_REPORT_CONFIRMED status
 #    Given template specimen shipped message in type: "BLOOD" for patient: "PT_SS22_BloodVariantConfirmed"
@@ -183,7 +183,7 @@ Feature: NCH Specimen shipped messages
   Scenario Outline: PT_SS24. Tissue shipment and blood shipment should not use same molecular_id
 #    Testing patient: PT_SS24_BloodShipped,
 #                          Blood shipped MOI_01,
-#                          Tissue receveid SEI_TR_01,try to ship it using MOI_01
+#                          Tissue received SEI_TR_01,try to ship it using MOI_01
 #                     PT_SS24_TissueShipped,
 #                          Tissue shipped SEI_TR_01, MOI_01,
 #                          Blood received, try to ship it using MOI_01
@@ -195,3 +195,18 @@ Feature: NCH Specimen shipped messages
     |patient_id             |type       |sei            |message                                                  |
     |PT_SS24_BloodShipped   |TISSUE     |SEI_TR_01      |TBD                                                      |
     |PT_SS24_TissueShipped  |BLOOD      |skip_this_value|TBD                                                      |
+
+  Scenario: PT_SS25. Blood shipment use old blood molecular_id should fail
+#    Testing patient: PT_SS25_BloodShipped, MOI_01 has been shipped,
+    Given template specimen shipped message in type: "BLOOD" for patient: "PT_SS25_BloodShipped"
+    Then  set patient message field: "molecular_id" to value: "MOI_01"
+    When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Failure"
+    Then template specimen received message in type: "BLOOD" for patient: "PT_SS25_BloodShipped"
+    Then set patient message field: "collected_dttm" to value: "2016-05-25T15:17:11+00:00"
+    Then set patient message field: "received_dttm" to value: "2016-05-26T15:17:11+00:00"
+    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+    Then wait for "15" seconds
+    Then template specimen shipped message in type: "BLOOD" for patient: "PT_SS25_BloodShipped"
+    Then  set patient message field: "molecular_id" to value: "MOI_01"
+    Then set patient message field: "shipped_dttm" to value: "2016-05-28T15:17:11+00:00"
+    When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Failure"

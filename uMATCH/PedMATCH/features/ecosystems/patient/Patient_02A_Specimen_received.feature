@@ -81,7 +81,8 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     |PT_SR10_UPathoReceived |TISSUE          |Success    |Message has been processed successfully                                       |
     |PT_SR10_NPathoReceived |TISSUE          |Success    |Message has been processed successfully                                       |
     |PT_SR10_YPathoReceived |TISSUE          |Success    |Message has been processed successfully                                       |
-
+#    |PT_SR10_TsReceived     |BLOOD           |Success    |Message has been processed successfully                                       |
+#    |PT_SR10_BdReceived     |TISSUE          |Success    |Message has been processed successfully                                       |
   Scenario Outline: PT_SR11. Return error message when study_id is invalid
     Given template specimen received message in type: "<specimen_type>" for patient: "PT_SR11_Registered"
     Then set patient message field: "<field>" to value: "<value>"

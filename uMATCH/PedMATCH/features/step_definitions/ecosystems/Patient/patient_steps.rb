@@ -224,7 +224,9 @@ def find_variant_report (patient_json, sei, moi, ani)
   variant_reports = patient_json['variant_reports']
   variant_reports.each do |thisVariantReport|
     is_this = true
-    is_this = is_this && (thisVariantReport['surgical_event_id'] == sei)
+    if sei!='null'
+      is_this = is_this && (thisVariantReport['surgical_event_id'] == sei)
+    end
     is_this = is_this && (thisVariantReport['molecular_id'] == moi)
     is_this = is_this && (thisVariantReport['analysis_id'] == ani)
     if is_this
