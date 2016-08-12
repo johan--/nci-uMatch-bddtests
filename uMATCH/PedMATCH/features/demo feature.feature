@@ -111,7 +111,6 @@ Background: wait for process to complete
         "target": "ALK"
       }]
     }
-    
 	"""
     When posted to MATCH newTreatmentArm
     Then a message with Status "Success" and message "Saved to datastore." is returned:
@@ -406,6 +405,437 @@ Background: wait for process to complete
         "target": "ALK"
       }]
     }
+    """
+    When posted to MATCH newTreatmentArm
+    Then a message with Status "Success" and message "Saved to datastore." is returned:
+
+
+  Scenario: Load APEC1621-s arm version 2015-01-01
+    Given that treatment arm is received from COG:
+    """
+    {
+  "id": "APEC1621-S",
+  "name" : "APEC1621",
+  "date_created": "2015-01-01T15:38:31+00:00",
+  "version": "2015-01-01",
+  "stratum_id": "100",
+  "description": "This TA is used by Cuke Test original version",
+  "target_id": 750691,
+  "target_name": "Afatinib",
+  "gene": "EGFR",
+  "treatment_arm_status": "OPEN",
+  "study_id": "APEC1621",
+  "assay_results": [{
+    "gene" : "PIK3CA",
+    "assayResultStatus" : "POSITIVE",
+    "assayVariant" : "PRESENT",
+    "levelOfEvidence" : 2.0,
+    "description": null
+  }],
+  "date_opened": null,
+  "treatment_arm_drugs": [{
+    "drugId" : "750691",
+    "name" : "Afatinib",
+    "pathway" : "EGFR"
+  }],
+  "variant_report": {
+    "single_nucleotide_variants": [
+      {
+        "confirmed" : false,
+        "publicMedIds" : [
+          "20573926",
+          " 19692684",
+          " 20022809"
+        ],
+        "type" : "snv",
+        "geneName" : "EGFR",
+        "chromosome" : "chr7",
+        "position" : "55259515",
+        "identifier" : "COSM6224",
+        "reference" : "T",
+        "alternative" : "G",
+        "description" : "p.L858R",
+        "rare" : false,
+        "levelOfEvidence" : 1,
+        "inclusion" : true,
+        "armSpecific" : false
+      },
+      {
+        "confirmed" : false,
+        "publicMedIds" : [
+          "26051236"
+        ],
+        "type" : "snv",
+        "geneName" : "EGFR",
+        "chromosome" : "chr7",
+        "position" : "55241707",
+        "identifier" : "COSM6252",
+        "reference" : "G",
+        "alternative" : "A",
+        "description" : "p.G719S",
+        "rare" : false,
+        "levelOfEvidence" : 2,
+        "inclusion" : false,
+        "armSpecific" : false
+      }
+    ],
+    "indels" : [
+      {
+        "type" : "id",
+        "confirmed" : false,
+        "geneName" : "EGFR",
+        "chromosome" : "chr7",
+        "position" : "55242462",
+        "identifier" : "COSM26038",
+        "reference" : "CAAGGAATTAAGAGAA",
+        "alternative" : "C",
+        "description" : "p.K745_E749del",
+        "rare" : false,
+        "levelOfEvidence" : 1,
+        "inclusion" : true,
+        "armSpecific" : false
+      },
+      {
+        "type" : "id",
+        "confirmed" : false,
+        "geneName" : "EGFR",
+        "chromosome" : "chr7",
+        "position" : "55242463",
+        "identifier" : "COSM1190791",
+        "reference" : "AAGGAATTAAGAGAAG",
+        "alternative" : "A",
+        "description" : "p.K745_A750delinsT",
+        "rare" : false,
+        "levelOfEvidence" : 1,
+        "inclusion" : true,
+        "armSpecific" : false
+      }
+    ],
+    "non_hotspot_rules": [
+      {
+        "inclusion": true,
+        "public_med_ids": null,
+        "gene": "KIT",
+        "exon":"12",
+        "location":"exonic",
+        "oncomineVariantClass":"hotspot",
+        "function":"missense",
+        "arm_specific": "false",
+        "level_of_evidence": "3.0",
+        "protein_match": null,
+        "type": "nhr"
+      },
+      {
+        "inclusion": false,
+        "oncominevariantclass": "Deleterious",
+        "public_med_ids": null,
+        "gene": "CCND1",
+        "arm_specific": "false",
+        "level_of_evidence": "3.0",
+        "protein_match": null,
+        "type": "nhr"
+      }
+    ],
+    "copy_number_variants": [
+      {
+        "type" : "cnv",
+        "refCopyNumber" : 0.0,
+        "rawCopyNumber" : 0.0,
+        "copyNumber" : 0.0,
+        "confidenceInterval95percent" : 0.0,
+        "confidenceInterval5percent" : 0.0,
+        "confirmed" : false,
+        "publicMedIds" : [
+          "3798106"
+        ],
+        "geneName" : "ERBB2",
+        "identifier" : "ERBB2",
+        "description" : "ERBB2 Amplification",
+        "rare" : false,
+        "levelOfEvidence" : 2.0,
+        "inclusion" : true,
+        "armSpecific" : false
+      },
+      {
+        "type" : "cnv",
+        "refCopyNumber" : 0.0,
+        "rawCopyNumber" : 0.0,
+        "copyNumber" : 0.0,
+        "confidenceInterval95percent" : 0.0,
+        "confidenceInterval5percent" : 0.0,
+        "confirmed" : false,
+        "geneName" : "FGFR3",
+        "identifier" : "FGFR3",
+        "description" : "FGFR1/2/3/4 Amplification and activating mutations",
+        "rare" : false,
+        "levelOfEvidence" : 2.0,
+        "inclusion" : false,
+        "armSpecific" : false
+      }
+    ]
+  },
+  "exclusion_diseases": [{
+    "disease_code": "10058354",
+    "ctep_sub_category": null,
+    "short_name": "Bronchioloalveolar carcinoma",
+    "ctep_category": "Non-Small Cell Lung Cancer"
+  },
+    {
+      "disease_code" : "10058354",
+      "ctep_sub_category": null,
+      "ctepCategory" : "Non-Small Cell Lung Cancer",
+      "shortName" : "Bronchioloalveolar carcinoma"
+    }
+  ],
+  "inclusion_diseases": [{
+    "disease_code": "10033701",
+    "ctep_sub_category": null,
+    "short_name": "Papillary thyroid carcinoma",
+    "ctep_category": "Thyroid Cancer"
+  }],
+  "exclusion_drugs": [{
+    "name": "Doxorubicin Hydrochloride",
+    "drug_id": "10001",
+    "drug_class": "ALK inhibitor",
+    "target": "ALK"
+    },
+    {
+      "drugId" : "781254",
+      "name" : "AZD9291"
+    },
+    {
+      "drugId" : "",
+      "name" : "CO-1696"
+    }
+  ],
+  "pten_results": [
+    {
+      "ptenIhcResult": "POSITIVE",
+      "ptenVariant": "PRESENT",
+      "description": null
+    }
+  ],
+  "status_log": {},
+  "current_patients": null,
+  "former_patients": null,
+  "not_enrolled_patients": null,
+  "pending_patients": null
+}
+    """
+    When posted to MATCH newTreatmentArm
+    Then a message with Status "Success" and message "Saved to datastore." is returned:
+
+  Scenario: Load APEC1621-s arm version 2015-06-01
+    Given that treatment arm is received from COG:
+    """
+    {
+  "id": "APEC1621-S",
+  "name" : "APEC1621",
+  "date_created": "2015-06-01T15:38:31+00:00",
+  "version": "2015-06-01",
+  "stratum_id": "100",
+  "description": "This TA is used by Cuke Test new version",
+  "target_id": 750691,
+  "target_name": "Afatinib",
+  "gene": "EGFR",
+  "treatment_arm_status": "OPEN",
+  "study_id": "APEC1621",
+  "assay_results": [{
+    "gene" : "PIK3CA",
+    "assayResultStatus" : "POSITIVE",
+    "assayVariant" : "PRESENT",
+    "levelOfEvidence" : 2.0,
+    "description": null
+  }],
+  "date_opened": null,
+  "treatment_arm_drugs": [{
+    "drugId" : "750691",
+    "name" : "Afatinib",
+    "pathway" : "EGFR"
+  }],
+  "variant_report": {
+    "single_nucleotide_variants": [
+      {
+        "confirmed" : false,
+        "publicMedIds" : [
+          "20573926",
+          " 19692684",
+          " 20022809"
+        ],
+        "type" : "snv",
+        "geneName" : "EGFR",
+        "chromosome" : "chr7",
+        "position" : "55259515",
+        "identifier" : "COSM6224",
+        "reference" : "T",
+        "alternative" : "G",
+        "description" : "p.L858R",
+        "rare" : false,
+        "levelOfEvidence" : 1,
+        "inclusion" : true,
+        "armSpecific" : false
+      },
+      {
+        "confirmed" : false,
+        "publicMedIds" : [
+          "26051236"
+        ],
+        "type" : "snv",
+        "geneName" : "EGFR",
+        "chromosome" : "chr7",
+        "position" : "55241707",
+        "identifier" : "COSM6252",
+        "reference" : "G",
+        "alternative" : "A",
+        "description" : "p.G719S",
+        "rare" : false,
+        "levelOfEvidence" : 2,
+        "inclusion" : false,
+        "armSpecific" : false
+      }
+    ],
+    "indels" : [
+      {
+        "type" : "id",
+        "confirmed" : false,
+        "geneName" : "EGFR",
+        "chromosome" : "chr7",
+        "position" : "55242462",
+        "identifier" : "COSM26038",
+        "reference" : "CAAGGAATTAAGAGAA",
+        "alternative" : "C",
+        "description" : "p.K745_E749del",
+        "rare" : false,
+        "levelOfEvidence" : 1,
+        "inclusion" : true,
+        "armSpecific" : false
+      },
+      {
+        "type" : "id",
+        "confirmed" : false,
+        "geneName" : "EGFR",
+        "chromosome" : "chr7",
+        "position" : "55242463",
+        "identifier" : "COSM1190791",
+        "reference" : "AAGGAATTAAGAGAAG",
+        "alternative" : "A",
+        "description" : "p.K745_A750delinsT",
+        "rare" : false,
+        "levelOfEvidence" : 1,
+        "inclusion" : true,
+        "armSpecific" : false
+      }
+    ],
+    "non_hotspot_rules": [
+      {
+        "inclusion": true,
+        "public_med_ids": null,
+        "gene": "KIT",
+        "exon":"12",
+        "location":"exonic",
+        "oncomineVariantClass":"hotspot",
+        "function":"missense",
+        "arm_specific": "false",
+        "level_of_evidence": "3.0",
+        "protein_match": null,
+        "type": "nhr"
+      },
+      {
+        "inclusion": false,
+        "oncominevariantclass": "Deleterious",
+        "public_med_ids": null,
+        "gene": "CCND1",
+        "arm_specific": "false",
+        "level_of_evidence": "3.0",
+        "protein_match": null,
+        "type": "nhr"
+      }
+    ],
+    "copy_number_variants": [
+      {
+        "type" : "cnv",
+        "refCopyNumber" : 0.0,
+        "rawCopyNumber" : 0.0,
+        "copyNumber" : 0.0,
+        "confidenceInterval95percent" : 0.0,
+        "confidenceInterval5percent" : 0.0,
+        "confirmed" : false,
+        "publicMedIds" : [
+          "3798106"
+        ],
+        "geneName" : "ERBB2",
+        "identifier" : "ERBB2",
+        "description" : "ERBB2 Amplification",
+        "rare" : false,
+        "levelOfEvidence" : 2.0,
+        "inclusion" : true,
+        "armSpecific" : false
+      },
+      {
+        "type" : "cnv",
+        "refCopyNumber" : 0.0,
+        "rawCopyNumber" : 0.0,
+        "copyNumber" : 0.0,
+        "confidenceInterval95percent" : 0.0,
+        "confidenceInterval5percent" : 0.0,
+        "confirmed" : false,
+        "geneName" : "FGFR3",
+        "identifier" : "FGFR3",
+        "description" : "FGFR1/2/3/4 Amplification and activating mutations",
+        "rare" : false,
+        "levelOfEvidence" : 2.0,
+        "inclusion" : false,
+        "armSpecific" : false
+      }
+    ]
+  },
+  "exclusion_diseases": [{
+    "disease_code": "10058354",
+    "ctep_sub_category": null,
+    "short_name": "Bronchioloalveolar carcinoma",
+    "ctep_category": "Non-Small Cell Lung Cancer"
+  },
+    {
+      "disease_code" : "10058354",
+      "ctep_sub_category": null,
+      "ctepCategory" : "Non-Small Cell Lung Cancer",
+      "shortName" : "Bronchioloalveolar carcinoma"
+    }
+  ],
+  "inclusion_diseases": [{
+    "disease_code": "10033701",
+    "ctep_sub_category": null,
+    "short_name": "Papillary thyroid carcinoma",
+    "ctep_category": "Thyroid Cancer"
+  }],
+  "exclusion_drugs": [{
+    "name": "Doxorubicin Hydrochloride",
+    "drug_id": "10001",
+    "drug_class": "ALK inhibitor",
+    "target": "ALK"
+    },
+    {
+      "drugId" : "781254",
+      "name" : "AZD9291"
+    },
+    {
+      "drugId" : "",
+      "name" : "CO-1696"
+    }
+  ],
+  "pten_results": [
+    {
+      "ptenIhcResult": "POSITIVE",
+      "ptenVariant": "PRESENT",
+      "description": null
+    }
+  ],
+  "status_log": {},
+  "current_patients": null,
+  "former_patients": null,
+  "not_enrolled_patients": null,
+  "pending_patients": null
+}
     """
     When posted to MATCH newTreatmentArm
     Then a message with Status "Success" and message "Saved to datastore." is returned:
