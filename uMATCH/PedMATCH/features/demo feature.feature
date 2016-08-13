@@ -936,8 +936,8 @@ Background: wait for process to complete
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
     Examples:
       |patient_id         |surgical_event_id      |
-      |00001              |00001-Tissue_Specimen_1|
       |00002              |00002-Tissue_Specimen_1|
+      |00001              |00001-Tissue_Specimen_1|
       |00003              |00003-Tissue_Specimen_1|
       |00004              |00004-Tissue_Specimen_1|
       |00005              |00005-Tissue_Specimen_1|
@@ -999,16 +999,16 @@ Background: wait for process to complete
       |00004          |00004-00013        |ANI_00004-00013      |bdd-test-data/demo/00004/00004-00012/ANI_00004-00012 |00004.tsv          |00004.vcf          |
       |00005          |00005-00013        |ANI_00005-00013      |bdd-test-data/demo/00005/00005-00012/ANI_00005-00012 |00005.tsv          |00005.vcf          |
 
-  Scenario: Patient's Blood variant report is confirmed
-    Given template variant report confirm message for patient: "00001", it has molecular_id: "00001-00013", analysis_id: "ANI_00001-00013" and status: "CONFIRMED"
-    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+#  Scenario: Patient's Blood variant report is confirmed
+#    Given template variant report confirm message for patient: "00001", it has molecular_id: "00001-00013", analysis_id: "ANI_00001-00013" and status: "CONFIRMED"
+#    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
 
-  Scenario: Patient's Tissue variant report is confirmed
-    Given template variant report confirm message for patient: "00001", it has molecular_id: "00001-00012", analysis_id: "ANI_00001-00012" and status: "CONFIRMED"
-    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+#  Scenario: Patient's Tissue variant report is confirmed
+#    Given template variant report confirm message for patient: "00001", it has molecular_id: "00001-00012", analysis_id: "ANI_00001-00012" and status: "CONFIRMED"
+#    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
 
 
-  Scenario: Patient's Assignment report is confirmed
-    Given template assignment report confirm message for patient: "00001", it has molecular_id: "00001-00012", analysis_id: "ANI_00001-00012" and status: "CONFIRMED"
-    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+#  Scenario: Patient's Assignment report is confirmed
+#    Given template assignment report confirm message for patient: "00001", it has molecular_id: "00001-00012", analysis_id: "ANI_00001-00012" and status: "CONFIRMED"
+#    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
 
