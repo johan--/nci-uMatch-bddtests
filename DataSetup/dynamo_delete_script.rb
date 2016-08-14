@@ -105,16 +105,10 @@ class DynamoDb
   end
 
   def collect_key_list(name)
-    table_details = TableDetails.const_get(name.upcase)
-    if name == 'treatment_arm'
-      dev_table = "#{table_details[:name]}_development"
-      test_table =  "#{table_details[:name]}_test"
-      table_details[:name] = @endpoint.match(/localhost/) ? dev_table : test_table
-    end
+    table_details = TableDetails.const_get(name.gsub(/_(development|test)/, '').upcase)
     table_list = []
     begin
-      new_table = table_details[:name]
-      @client.scan(table_name: new_table)['items'].each do |elem|
+      @client.scan(table_name: name)['items'].each do |elem|
         row = {}
         table_details[:keys].each do |key|
           row[key.to_sym] = elem[key]
@@ -130,7 +124,15 @@ class DynamoDb
     table_list
   end
 
+  def set_suffix(name)
+    dev_table  = "#{name}_development"
+    test_table = "#{name}_test"
+    @endpoint.match(/localhost/) ? dev_table : test_table
+  end
+
   def clear_table(table_name)
+    table_name = set_suffix(table_name) if table_name == 'treatment_arm'
+
     list = collect_key_list(table_name)
 
     return if list.nil?
