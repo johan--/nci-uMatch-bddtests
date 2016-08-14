@@ -23,7 +23,7 @@ class DynamoDb
 
     if options=='local'
       @endpoint = DEFAULT_LOCAL_DB_ENDPOINT
-      @region = DEFAULT_LOCAL_REGION
+      @region = DEFAULT_AWS_REGION
       @access_key = DEFAULT_AWS_ACCESS_KEY
       @secret_key = DEFAULT_AWS_SECRET_KEY
     elsif options=='default'
@@ -69,12 +69,6 @@ class DynamoDb
                        secret_access_key: @secret_key,
                        region: @region})
     @client = Aws::DynamoDB::Client.new()
-    # @client = Aws::DynamoDB::Client.new(
-    #     endpoint: @endpoint,
-    #     access_key_id: @access_key,
-    #     secret_access_key: @secret_key,
-    #     region: @region
-    # )
   end
 
   def set_params_from_file
@@ -112,15 +106,21 @@ class DynamoDb
 
   def collect_key_list(name)
     table_details = TableDetails.const_get(name.upcase)
+    if name == 'treatment_arm'
+      dev_table = "#{table_details[:name]}_development"
+      test_table =  "#{table_details[:name]}_test"
+      table_details[:name] = @endpoint.match(/localhost/) ? dev_table : test_table
+    end
     table_list = []
     begin
-    @client.scan(table_name: name)['items'].each do |elem|
-      row = {}
-      table_details[:keys].each do |key|
-        row[key.to_sym] = elem[key]
+      new_table = table_details[:name]
+      @client.scan(table_name: new_table)['items'].each do |elem|
+        row = {}
+        table_details[:keys].each do |key|
+          row[key.to_sym] = elem[key]
+        end
+        table_list << row
       end
-      table_list << row
-    end
     rescue Aws::DynamoDB::Errors::ResourceNotFoundException => e
       LOG.log("Table #{name} not found.  Please add table before running you application", :warn)
       table_list = nil
