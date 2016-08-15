@@ -43,7 +43,25 @@ Background: wait for process to complete
           "type": "nhr",
           "exon": null
         }],
-        "copy_number_variants": [],
+        "copy_number_variants": [
+        {
+          "ref_copy_number": 2.0,
+          "raw_copy_number": 8.8,
+          "copy_number": 8.8,
+          "confidence_interval_95percent": 1.94266,
+          "confidence_interval_5percent": 1.67303,
+          "confirmed": false,
+          "chromosome": "chr10",
+          "position": "89624207",
+          "identifier": "PTEN",
+          "ocp_reference": "T",
+          "ocp_alternative": "<CNV>",
+          "rare": false,
+          "levelOfEvidence": 2,
+          "inclusion": true,
+          "armSpecific": false,
+          "type": "cnv"
+        }],
         "gene_fusions": [{
           "ocp_reference": "A",
           "func_gene": "ALK",
@@ -504,8 +522,8 @@ Background: wait for process to complete
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
     Examples:
       |patient_id         |surgical_event_id      |
-      |00002              |00002-Tissue_Specimen_1|
       |00001              |00001-Tissue_Specimen_1|
+      |00002              |00002-Tissue_Specimen_1|
       |00003              |00003-Tissue_Specimen_1|
       |00004              |00004-Tissue_Specimen_1|
       |00005              |00005-Tissue_Specimen_1|
@@ -570,12 +588,12 @@ Background: wait for process to complete
 #  Scenario: Patient's Blood variant report is confirmed
 #    Given template variant report confirm message for patient: "00001", it has molecular_id: "00001-00013", analysis_id: "ANI_00001-00013" and status: "CONFIRMED"
 #    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
-
+#
 #  Scenario: Patient's Tissue variant report is confirmed
 #    Given template variant report confirm message for patient: "00001", it has molecular_id: "00001-00012", analysis_id: "ANI_00001-00012" and status: "CONFIRMED"
 #    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
-
-
+#
+#
 #  Scenario: Patient's Assignment report is confirmed
 #    Given template assignment report confirm message for patient: "00001", it has molecular_id: "00001-00012", analysis_id: "ANI_00001-00012" and status: "CONFIRMED"
 #    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
