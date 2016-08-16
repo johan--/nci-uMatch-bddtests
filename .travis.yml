@@ -55,8 +55,8 @@ before_script:
   - curl -X POST "http://pedmatch.org:3000/restart" -d ''
 script:
   # Run Cucumber @tag specific tests
-  - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG --format pretty' -n 4
-  - cd ../..
+#  - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG --format pretty' -n 4
+#  - cd ../..
   # Run Cucumber end to end tests
   # - bundle exec cucumber --tags @EndtoEnd
   # Install xvfb
