@@ -28,7 +28,7 @@ class DynamoDataUploader
   def self.backup_local_table(table_name)
     cmd = "aws dynamodb scan --table-name #{table_name} "
     cmd = cmd + "--endpoint-url #{DEFAULT_LOCAL_DB_ENDPOINT} > "
-    cmd = cmd + "#{SEED_DATA_FOLDER}/#{SEED_FILE_PREFIX}_#{table_name}.json"
+    cmd = cmd + File.dirname(__FILE__)+"/#{SEED_DATA_FOLDER}/#{SEED_FILE_PREFIX}_#{table_name}.json"
     `#{cmd}`
     p "Table <#{table_name}> has been exported"
   end
@@ -94,7 +94,8 @@ class DynamoDataUploader
   end
 
   def upload_table_to_aws(table_name)
-    local_json = JSON.parse(File.read("#{SEED_DATA_FOLDER}/#{SEED_FILE_PREFIX}_#{table_name}.json"))
+    file_location = "#{File.dirname(__FILE__)}/#{SEED_DATA_FOLDER}/#{SEED_FILE_PREFIX}_#{table_name}.json"
+    local_json = JSON.parse(File.read(file_location))
     items = local_json['Items']
     put_requests = Array.new
     items_count = 0
