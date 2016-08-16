@@ -5,6 +5,11 @@ class TableDetails
       keys: %w(name date_created)
   }
 
+  TREATMENT_ARM_PATIENT = {
+      name: 'treatment_arm_patient',
+      keys: %w(patient_id date_assigned)
+  }
+
   PATIENT = {
       name: 'patient',
       keys: %w(patient_id registration_date)
@@ -41,7 +46,7 @@ class TableDetails
   }
 
   def self.treatment_arm_tables
-    %w(treatment_arm)
+    %w(treatment_arm treatment_arm_patient)
   end
 
   def self.patient_tables

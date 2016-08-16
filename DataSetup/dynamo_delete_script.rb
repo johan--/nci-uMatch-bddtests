@@ -131,7 +131,7 @@ class DynamoDb
   end
 
   def clear_table(table_name)
-    table_name = set_suffix(table_name) if table_name == 'treatment_arm'
+    table_name = set_suffix(table_name) if table_name.match(/treatment_arm/)
 
     list = collect_key_list(table_name)
 
@@ -144,7 +144,6 @@ class DynamoDb
     list.each do |keys|
       key = keys.flatten.first
       LOG.log("Deleting #{key}: #{keys[key]} from #{table_name}")
-
       @client.delete_item(table_name: table_name, key: keys)
     end
   end
