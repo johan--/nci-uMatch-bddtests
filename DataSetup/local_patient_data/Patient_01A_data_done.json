@@ -1,0 +1,18 @@
+[
+  {
+    "header": {
+      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+      "msg_dttm": "2016-08-16T11:09:02-04:00"
+    },
+    "study_id": "APEC1621",
+    "patient_id": "PT_RG02_ExistingPatient",
+    "step_number": "1.0",
+    "registration_date": "2016-08-16T11:09:02-04:00",
+    "status": "REGISTRATION",
+    "internal_use_only": {
+      "request_id": "4-654321",
+      "environment": "4",
+      "request": "REGISTRATION for test patient"
+    }
+  }
+]

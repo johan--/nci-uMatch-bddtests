@@ -96,6 +96,7 @@ Feature: Assay Messages
     Given template assay message with surgical_event_id: "SEI_01" for patient: "PT_AS11SlideShipped"
     Then set patient message field: "reported_date" to value: "<date>"
     Then set patient message field: "<field>" to value: "<value>"
+    Then wait for "15" seconds
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
     Examples:
     |field              |value            |date                             |

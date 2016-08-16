@@ -217,11 +217,16 @@ Feature: NCH Specimen shipped messages
     |patient_id                     |status     |message                                    |
     |PT_SS26_TsReceived             |Success    |Message has been processed successfully    |
     |PT_SS26_TsShipped              |Success    |Message has been processed successfully    |
-#    |PT_SS26_AssayConfirmed         |Success    |Message has been processed successfully    |
-#    |PT_SS26_PathologyConfirmed     |Success    |Message has been processed successfully    |
-#    |PT_SS26_TsVRReceived           |Success    |Message has been processed successfully    |
-#    |PT_SS26_TsVRConfirmed          |Success    |Message has been processed successfully    |
+    |PT_SS26_AssayConfirmed         |Success    |Message has been processed successfully    |
+    |PT_SS26_PathologyConfirmed     |Success    |Message has been processed successfully    |
+    |PT_SS26_TsVRReceived           |Success    |Message has been processed successfully    |
+    |PT_SS26_TsVRConfirmed          |Success    |Message has been processed successfully    |
 #    |PT_SS26_WaitingPtData          |Success    |Message has been processed successfully    |
 #    |PT_SS26_PendingApproval        |Success    |Message has been processed successfully    |
 #    |PT_SS26_Progression            |Success    |Message has been processed successfully    |
 #    |PT_SS26_OffStudy               |Failure    |cannot transition from                     |
+
+
+#  Scenario Outline: PT_SS27. Blood specimen shippment will not affect other patient triggers
+#For assay and pathology now they will fail if patient is in BLOOD_NUCLEIC_ACID_SHIPPED status
+#  Incoming message failed patient state validation: State :BLOOD_NUCLEIC_ACID_SHIPPED doesn't exist

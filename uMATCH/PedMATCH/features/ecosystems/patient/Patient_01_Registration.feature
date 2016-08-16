@@ -1,7 +1,7 @@
 @patients
 Feature: Register a new patient in PEDMatchbox::
 
-  Scenario Outline: Successfully register a patient in MATCH
+  Scenario Outline: PT_RG01. Successfully register a patient in MATCH
     Given that Patient StudyID "<studyId>" PatientSeqNumber "<patient_id>" StepNumber "<stepNumber>" PatientStatus "<patientStatus>" Message "<message>" with "current" dateCreated is received from EA layer
     When posted to MATCH patient registration
     Then a message "<returnMessage>" is returned with a "<status>"
@@ -11,7 +11,7 @@ Feature: Register a new patient in PEDMatchbox::
       |APEC1621 |PT-SuccessTest		  |1.0        |REGISTRATION			   |Patient registered in Study		|Saved to datastore.		|Success		|
 
 
-  Scenario Outline: MATCH returns an error when a new patient trigger is received with an empty patient_id
+  Scenario Outline: PT_RG02. MATCH returns an error when a new patient trigger is received with an empty patient_id
     Given that Patient StudyID "<studyId>" PatientSeqNumber "<patient_id>" StepNumber "<stepNumber>" PatientStatus "<patientStatus>" Message "<message>" with "current" dateCreated is received from EA layer
     When posted to MATCH patient registration
     Then a message "<returnMessage>" is returned with a "<status>"
@@ -21,7 +21,7 @@ Feature: Register a new patient in PEDMatchbox::
       |APEC1621 |		   |1.0		  |REGISTRATION			   |Patient registered in Study		|Patient id may not be empty.		|Failure		|
 
 
-  Scenario Outline: MATCH returns an error when a new patient trigger is received with an empty stepNumber
+  Scenario Outline: PT_RG03. MATCH returns an error when a new patient trigger is received with an empty stepNumber
     Given that Patient StudyID "<studyId>" PatientSeqNumber "<patient_id>" StepNumber "<stepNumber>" PatientStatus "<patientStatus>" Message "<message>" with "current" dateCreated is received from EA layer
     When posted to MATCH patient registration
     Then a message "<returnMessage>" is returned with a "<status>"
@@ -30,7 +30,7 @@ Feature: Register a new patient in PEDMatchbox::
       |studyId  |patient_id|stepNumber  |patientStatus		    |message        					|returnMessage                  |status			|
       |APEC1621 |PT-Test1  |		    |REGISTRATION			|Patient registered in Study		|stepNumber may not be empty    |Failure		|
 
-  Scenario Outline: MATCH returns an error when a new patient trigger is received with an INVALID stepNumber
+  Scenario Outline: PT_RG04. MATCH returns an error when a new patient trigger is received with an INVALID stepNumber
     Given that Patient StudyID "<studyId>" PatientSeqNumber "<patient_id>" StepNumber "<stepNumber>" PatientStatus "<patientStatus>" Message "<message>" with "current" dateCreated is received from EA layer
     When posted to MATCH patient registration
     Then a message "<returnMessage>" is returned with a "<status>"
@@ -42,7 +42,7 @@ Feature: Register a new patient in PEDMatchbox::
 
 
 
-  Scenario Outline: MATCH returns an error message when new patient trigger is received from COG for an already registered patient
+  Scenario Outline: PT_RG05. MATCH returns an error message when new patient trigger is received from COG for an already registered patient
     Given that Patient StudyID "<studyId>" PatientSeqNumber "<patient_id>" StepNumber "<stepNumber>" PatientStatus "<patientStatus>" Message "<message>" with "current" dateCreated is received from EA layer
     When posted to MATCH patient registration
     Then a message "<returnMessage>" is returned with a "<status>"
@@ -121,7 +121,7 @@ Feature: Register a new patient in PEDMatchbox::
 #    Then a message "Incoming OFF_STUDY patient (PSN:PT-Test8) trigger has older date than the patient's registration date in the system" is returned with a "Failure"
 
 
-  Scenario Outline: Date created cannot be a future date
+  Scenario Outline: PT_RG06. Date created cannot be a future date
     Given that Patient StudyID "<studyId>" PatientSeqNumber "<patient_id>" StepNumber "<stepNumber>" PatientStatus "<patientStatus>" Message "<message>" with "future" dateCreated is received from EA layer
     When posted to MATCH patient registration
     Then a message "<returnMessage>" is returned with a "<status>"

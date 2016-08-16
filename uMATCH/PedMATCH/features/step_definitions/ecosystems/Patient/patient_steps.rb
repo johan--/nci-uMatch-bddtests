@@ -19,6 +19,17 @@ When(/^posted to MATCH patient trigger service, returns a message that includes 
 end
 
 #messages
+Given(/^template patient registration message for patient: "([^"]*)" on date: "([^"]*)"$/) do |patient_id, date|
+  @request_json = Patient_helper_methods.load_patient_message_templates('registration')
+  converted_patient_id = patient_id=='null'?nil:patient_id
+  converted_date = date=='null'?nil:date
+  converted_date = Helper_Methods.getDateAsRequired(converted_date)
+  @patient_message_root_key = ''
+  @request_json['patient_id'] = converted_patient_id
+  @request_json['registration_date'] = converted_date
+  @request = @request_json.to_json.to_s
+end
+
 Given(/^template specimen received message in type: "([^"]*)" for patient: "([^"]*)"$/) do |type, patientID|
   @request_json = Patient_helper_methods.load_patient_message_templates("specimen_received_#{type}")
   converted_patient_id = patientID=='null'?nil:patientID

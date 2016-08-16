@@ -63,7 +63,7 @@ Feature: Variant files uploaded message
     Then returned patient has variant report (surgical_event_id: "SEI_01", molecular_id: "MOI_01", analysis_id: "ANI_01")
     And this variant report has value: "PENDING" in field: "status"
 
-  Scenario: PT_VU09. new uploaded variant files make all pending old files rejected
+  Scenario: PT_VU09. variant files uploaded with new analysis_id make all pending old files rejected
 #    Test patient: PT_VU09_VariantReportUploaded; variant report files uploaded: surgical_event_id: SEI_01, molecular_id: MOI_01, analysis_id: ANI_01
 #          Plan to uploaded surgical_event_id: SEI_01, molecular_id: MOI_01, analysis_id: ANI_02
     Given template variant uploaded message for patient: "PT_VU09_VariantReportUploaded", it has molecular_id: "MOI_01" and analysis_id: "ANI_02"
@@ -120,6 +120,19 @@ Feature: Variant files uploaded message
     Then wait for "15" seconds
     Then retrieve patient: "PT_VU15_TissueReceivedAndShippedTwice" from API
     Then returned patient has variant report (surgical_event_id: "SEI_01", molecular_id: "MOI_01", analysis_id: "ANI_01")
-  
+
+  Scenario: PT_VU16. blood variant files uploaded with new analysis_id make all pending old files rejected
+#    Test patient: PT_VU16_BdVRUploaded; variant report files uploaded: molecular_id: MOI_BR_01, analysis_id: ANI_BR_01
+#          Plan to uploaded molecular_id: MOI_BR_01, analysis_id: ANI_BR_02
+    Given template variant uploaded message for patient: "PT_VU16_BdVRUploaded", it has molecular_id: "MOI_BR_01" and analysis_id: "ANI_BR_02"
+    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+    Then retrieve patient: "PT_VU16_BdVRUploaded" from API
+    Then returned patient has variant report (surgical_event_id: "null", molecular_id: "MOI_BR_01", analysis_id: "ANI_BR_02")
+    And this variant report has value: "PENDING" in field: "status"
+    Then returned patient has variant report (surgical_event_id: "null", molecular_id: "MOI_BR_01", analysis_id: "ANI_BR_01")
+    And this variant report has value: "REJECTED" in field: "status"
 #  variants should be generated properly in patient json after variant files uploaded message is accepted
 #      run rule service using the variant tsv file, a variant list will be output, then run variant files uploaded message, then retrieve patient, check it's variant part with the list comes from rule engin
+
+#  cannot upload blood variant file using previous molecular_id (confirmed)
+#  blood variant file can be uploaded when when patient is in next step number (from 1.0 to 2.0)

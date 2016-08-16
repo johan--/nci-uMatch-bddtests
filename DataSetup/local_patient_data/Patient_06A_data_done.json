@@ -904,5 +904,73 @@
         "stars_specimen_id": "ABCXYZ-0BJ64A"
       }
     }
+  },  {
+  "header": {
+    "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+    "msg_dttm": "2016-02-09T22:06:33+00:00"
+  },
+  "study_id": "APEC1621",
+  "patient_id": "PT_VU16_BdVRUploaded",
+  "step_number": "1.0",
+  "registration_date": "2016-02-09T22:06:33+00:00",
+  "status": "REGISTRATION",
+  "internal_use_only": {
+    "request_id": "4-654321",
+    "environment": "4",
+    "request": "REGISTRATION for patient_id PT_VU16_BdVRUploaded"
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "ab6d8d37-caf2-4dbb-a360-0032c7a7a76c",
+      "msg_dttm": "2016-04-25T18:42:13+00:00"
+    },
+    "specimen_received": {
+      "study_id": "APEC1621",
+      "patient_id": "PT_VU16_BdVRUploaded",
+      "type": "BLOOD",
+      "collected_dttm": "2016-04-25T15:17:11+00:00",
+      "received_dttm": "2016-04-26T15:17:11+00:00"
+    },
+    "internal_use_only": {
+      "stars_patient_id": "ABCXYZ",
+      "stars_specimen_id": "ABCXYZ-0AK64M",
+      "stars_specimen_type": "Paraffin Block Primary",
+      "received_datetime": "2016-04-25T15:17:11+00:00",
+      "qc_datetime": "2016-04-25T16:21:34+00:00"
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_shipped": {
+      "study_id": "APEC1621",
+      "patient_id": "PT_VU16_BdVRUploaded",
+      "type": "BLOOD_DNA",
+      "molecular_id": "MOI_BR_01",
+      "carrier": "Federal Express",
+      "tracking_id": "7956 4568 1235",
+      "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "destination": "MDA",
+      "dna_volume_ul": 10,
+      "dna_concentration_ng_per_ul": 25,
+      "cdna_volume_ul": 10,
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id": "ABCXYZ-0BJ64A"
+      }
+    }
+  },
+  {
+    "patient_id": "PT_VU16_BdVRUploaded",
+    "molecular_id": "MOI_BR_01",
+    "analysis_id": "ANI_BR_01",
+    "s3_bucket_name": "bdd-test-data/data",
+    "tsv_file_path_name": "test1.tsv",
+    "vcf_file_path_name": "test1.vcf",
+    "dna_bam_file_path_name": "dna.bam",
+    "cdna_bam_file_path_name": "cdna.bam"
   }
 ]

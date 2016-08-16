@@ -73,16 +73,16 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "<status>"
     Examples:
     |patient_id             |specimen_type  |status     |message                                                                        |
-#    |PT_SR10_BdReceived     |TISSUE          |Success    |Message has been processed successfully                                      |
+    |PT_SR10_BdReceived     |TISSUE          |Success    |Message has been processed successfully                                      |
     |PT_SR10_UPathoReceived |TISSUE          |Success    |Message has been processed successfully                                       |
     |PT_SR10_NPathoReceived |TISSUE          |Success    |Message has been processed successfully                                       |
     |PT_SR10_YPathoReceived |TISSUE          |Success    |Message has been processed successfully                                       |
     |PT_SR10_TsVrReceived   |TISSUE          |Success    |Message has been processed successfully                                       |
+    |PT_SR10_TsVRRejected   |TISSUE          |Success    |Message has been processed successfully                                      |
 #    |PT_SR10_OnTreatmentArm |TISSUE          |Failure    |cannot transition from                                                       |
 #    |PT_SR10_ProgressReBioY |TISSUE          |Success    |Message has been processed successfully                                      |
 #    |PT_SR10_ProgressReBioN |TISSUE          |Failure    |cannot transition from                                                       |
 #    |PT_SR10_OffStudy       |TISSUE          |Failure    |cannot transition from                                                       |
-#    |PT_SR10_TsVRRejected   |TISSUE          |Success    |Message has been processed successfully                                      |
 
 
   Scenario Outline: PT_SR10b. blood specimen_received message can only be accepted when patient is in certain status
@@ -92,10 +92,10 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "<status>"
     Examples:
     |patient_id             |status     |message                                                                        |
-#    |PT_SR10_TsReceived     |Success    |Message has been processed successfully                                      |
-#    |PT_SR10_BdVRReceived   |Success    |Message has been processed successfully                                      |
-#    |PT_SR10_BdVRRejected   |Success    |Message has been processed successfully                                      |
-#    |PT_SR10_BdVRConfirmed  |Failure    |cannot transition from                                                       |
+    |PT_SR10_TsReceived     |Success    |Message has been processed successfully                                      |
+    |PT_SR10_BdVRReceived   |Success    |Message has been processed successfully                                      |
+    |PT_SR10_BdVRRejected   |Success    |Message has been processed successfully                                      |
+    |PT_SR10_BdVRConfirmed  |Failure    |cannot transition from                                                       |
 #    |PT_SR10_WaitingPtData  |Success    |Message has been processed successfully                                      |
 #    |PT_SR10_PendingApproval|Success    |Message has been processed successfully                                      |
 #    |PT_SR10_ProgressReBioY2|TISSUE          |Success    |Message has been processed successfully                                      |

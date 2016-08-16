@@ -157,3 +157,16 @@ Feature: Variant files confirmed messages
     Then retrieve patient: "PT_VC13_VRUploaded" from API
     Then find the first "snv_id" variant in variant report which has surgical_event_id: "SEI_01", molecular_id: "MOI_01" and analysis_id: "ANI_01"
     Then this variant has confirmed field: "false" and comment field: ""
+    
+  Scenario: PT_VC14. confirming blood variant report will not trigger patient assignment process
+  #Test patient PT_VC14_BdVRUploadedTsVRUploadedOtherReady assay and pathology are ready,
+  #tissue(MOI_TR_01, ANI_TR_01) and blood(MOI_BR_01, ANI_BR_01) variant report are uploaded
+    Given template variant report confirm message for patient: "PT_VC14_BdVRUploadedTsVRUploadedOtherReady", it has molecular_id: "MOI_BR_01", analysis_id: "ANI_BR_01" and status: "CONFIRMED"
+    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+    Then wait for "20" seconds
+    Then retrieve patient: "PT_VC14_BdVRUploadedTsVRUploadedOtherReady" from API
+    Then returned patient has value: "BLOOD_VARIANT_REPORT_RECEIVED" in field: "status"
+
+
+#  cannot confirm blood variant file using previous molecular_id (confirmed)
+#  blood variant file can be confirmed when when patient is in next step number (from 1.0 to 2.0)
