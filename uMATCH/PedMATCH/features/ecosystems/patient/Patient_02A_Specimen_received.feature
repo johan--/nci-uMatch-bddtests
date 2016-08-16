@@ -1,5 +1,5 @@
 #encoding: utf-8
-@patients
+@patients @specimen_received
 Feature: Receive NCH specimen messages and consume the message within MATCH:
 
   Scenario: PT_SR01. Consume a specimen_received message for type "Blood" for a patient already registered in Match

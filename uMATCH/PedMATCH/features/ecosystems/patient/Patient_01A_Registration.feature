@@ -1,25 +1,25 @@
 #encoding: utf-8
-@patients
+@patients @patients_reg
 Feature: Register a new patient in PEDMatchbox:
   Scenario: PT_RG01. New patient can be registered successfully
     Given template patient registration message for patient: "PT_RG01_New" on date: "2016-08-16T14:52:58.000+00:00"
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
     Then wait for "10" seconds
     Then retrieve patient: "PT_RG01_New" from API
-    Then returned patient has value: "registration_date" in field: "2016-08-16T14:52:58.000+00:00"
-    Then returned patient has value: "current_status" in field: "REGISTRATION"
-    Then returned patient has value: "study_id" in field: "APEC1621"
-    Then returned patient has value: "current_step_number" in field: "1.0"
-    Then returned patient has value: "patient_id" in field: "PT_RG01_New"
+    Then returned patient has value: "2016-08-16T14:52:58.000+00:00" in field: "registration_date"
+    Then returned patient has value: "REGISTRATION" in field: "current_status"
+    Then returned patient has value: "APEC1621" in field: "study_id"
+    Then returned patient has value: "1.0" in field: "current_step_number"
+    Then returned patient has value: "PT_RG01_New" in field: "patient_id"
 
   Scenario Outline: PT_RG02. patient registration with invalid patient_id should fail
     Given template patient registration message for patient: "<patient_id>" on date: "current"
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"
     Examples:
-    |patient_id             |message                                                      |
-    |                       |was not of a minimum string length of 1                      |
-    |null                   |NilClass did not match the following type: string            |
-    |PT_RG02_ExistingPatient|exist                                                        |
+    |patient_id             |message                                                                      |
+    |                       |was not of a minimum string length of 1                                      |
+    |null                   |NilClass did not match the following type: string                            |
+    |PT_RG02_ExistingPatient|This patient has already been registered and cannot be registered again      |
 
 
   Scenario Outline: PT_RG03. patient registration with study_id which is not 'APEC1621' should fail
@@ -32,7 +32,7 @@ Feature: Register a new patient in PEDMatchbox:
       |PT_RG03_NullStudyID      |null               |NilClass did not match the following type: string            |
       |PT_RG03_OtherStudyID     |Other              |APEC1621                                                     |
       |PT_RG03_WrongCaseStudyID |Apec1621           |APEC1621                                                     |
-      |PT_RG03_GoodIDPlusBed    |APEC1621x1         |APEC1621                                                     |
+      |PT_RG03_GoodIDPlusBad    |APEC1621x1         |APEC1621                                                     |
 
    Scenario Outline: PT_RG04. patient registration with invalid step_number should fail
      Given template patient registration message for patient: "<patient_id>" on date: "current"

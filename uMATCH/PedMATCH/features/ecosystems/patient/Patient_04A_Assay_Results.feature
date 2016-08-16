@@ -1,5 +1,5 @@
 #encoding: utf-8
-@patients_not_implemented
+@patients @assay
 Feature: Assay Messages
   Scenario Outline: PT_AS01. Assay result with invalid patient_id(empty, non-existing, null) should fail
     Given template assay message with surgical_event_id: "SEI_01" for patient: "<value>"
@@ -85,7 +85,7 @@ Feature: Assay Messages
     Then set patient message field: "reported_date" to value: "2010-05-01T19:42:13+00:00"
     When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"
 
-#    data cannot be prepared dut to current bug
+#   Data not ready yet
 #  Scenario: PT_AS10. Assay result received for old surgical_event_id should fail
 ##  Test data: Patient=PT_AS10SlideShipped, old surgical_event_id=SEI_01, has slide shipped, new surgical_event_id=SEI_02, has slide shipped
 #    Given template assay message with surgical_event_id: "SEI_01" for patient: "PT_AS10SlideShipped"
@@ -104,6 +104,22 @@ Feature: Assay Messages
     |result             |NEGATIVE         |2016-05-18T11:42:13+00:00        |
     |biomarker          |ICCPTEN          |2016-05-18T12:42:13+00:00        |
 
+
+#  Data not ready yet
+#  Scenario Outline: PT_AS12. assay result received will not trigger patient assignment process unless patient has pathology and VR ready
+#  #Test patient PT_AS12_PathologyNotDone VR uploaded (SEI_01, MOI_01, ANI_01), Pathology confirmed (SEI_01), Assay result is not received yet
+#  #             PT_AS12_VRNotDone VR uploaded (SEI_01, MOI_01, ANI_01), Assay result received (SEI_01), Pathology is not confirmed yet
+#  #             PT_AS12_AllDone VR uploaded (SEI_01, MOI_01, ANI_01), Assay result received (SEI_01), Pathology is confirmed (SEI_01)
+#    Given template assay message with surgical_event_id: "SEI_01" for patient: "<patient_id>"
+#    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+#    Then wait for "20" seconds
+#    Then retrieve patient: "<patient_id>" from API
+#    Then returned patient has value: "<patient_status>" in field: "status"
+#    Examples:
+#      |patient_id                           |patient_status            |
+##      |PT_AS12_PathologyNotDone             |ASSAY_RESULTS_RECEIVED    |
+##      |PT_AS12_VRNotDone                    |ASSAY_RESULTS_RECEIVED    |
+##      |PT_AS12_AllDone                      |PENDING_CONFIRMATION      |
 #	assay result cannot be received after patient has COMPLETE_MDA_DATA_SET status (in this step cycle) (not sure, actually it doesn't matter)
 #	assay result cannot be received when patient is in OFF_TRAIL status (not sure, actually it doesn't matter)
 

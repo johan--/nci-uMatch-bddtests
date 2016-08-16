@@ -1,5 +1,5 @@
 #encoding: utf-8
-
+@patients_old
 Feature: Assay Messages
   Receive Assay data from MDA layer in JSON format unique for a patient-biopsy
 

@@ -1,7 +1,6 @@
 #encoding: utf-8
-@patients_not_implemented
+@patients @variant_confirm
 Feature: Variant files confirmed messages
-#  BLOOD is not considered and implemented yet
 #  variant_confirmed:
   Scenario Outline: PT_VC01. variant confirm message with invalid variant_uuid should fail
     Given template variant confirm message for variant: "<uuid>", it is confirmed: "true" with comment: "no comment"
@@ -166,6 +165,24 @@ Feature: Variant files confirmed messages
     Then wait for "20" seconds
     Then retrieve patient: "PT_VC14_BdVRUploadedTsVRUploadedOtherReady" from API
     Then returned patient has value: "BLOOD_VARIANT_REPORT_RECEIVED" in field: "status"
+
+#  Data not ready yet
+#  Scenario Outline: PT_VC15. variant file confirmation will not trigger patient assignment process unless patient has COMPLETE_MDA_DATA_SET status
+#  #Test patient PT_VC15_AssayNotDone VR uploaded (SEI_01, MOI_01, ANI_01), Pathology confirmed (SEI_01), Assay result is not received yet
+#  #             PT_VC15_PathologyNotDone VR uploaded (SEI_01, MOI_01, ANI_01), Assay result received (SEI_01), Pathology is not confirmed yet
+#  #             PT_VC15_MDADataDonePlanToConfirm VR uploaded (SEI_01, MOI_01, ANI_01), Assay result received (SEI_01), Pathology is confirmed (SEI_01)
+#  #             PT_VC15_MDADataDonePlanToReject VR uploaded (SEI_01, MOI_01, ANI_01), Assay result received (SEI_01), Pathology is confirmed (SEI_01)
+#    Given template variant report confirm message for patient: "<patient_id>", it has molecular_id: "MOI_01", analysis_id: "ANI_01" and status: "<vr_status>"
+#    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+#    Then wait for "20" seconds
+#    Then retrieve patient: "<patient_id>" from API
+#    Then returned patient has value: "<patient_status>" in field: "status"
+#    Examples:
+#    |patient_id                           |vr_status    |patient_status                     |
+##    |PT_VC15_AssayNotDone                 |CONFIRMED    |TISSUE_VARIANT_REPORT_CONFIRMED    |
+##    |PT_VC15_PathologyNotDone             |CONFIRMED    |TISSUE_VARIANT_REPORT_CONFIRMED    |
+##    |PT_VC15_MDADataDonePlanToConfirm     |CONFIRMED    |PENDING_CONFIRMATION               |
+##    |PT_VC15_MDADataDonePlanToReject      |REJECTED     |TISSUE_VARIANT_REPORT_REJECTED     |
 
 
 #  cannot confirm blood variant file using previous molecular_id (confirmed)

@@ -1,4 +1,4 @@
-@patients
+@patients_old
 Feature: Register a new patient in PEDMatchbox::
 
   Scenario Outline: PT_RG01. Successfully register a patient in MATCH

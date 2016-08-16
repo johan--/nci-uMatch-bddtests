@@ -1,7 +1,6 @@
 #encoding: utf-8
-@patients_not_implemented
+@patients @variant_file_uploaded
 Feature: Variant files uploaded message
-#  BLOOD is not considered and implemented yet
   Scenario Outline: PT_VU01. variant files uploaded message with invalid patient_id should fail
     Given template variant uploaded message for patient: "<value>", it has molecular_id: "MOI_01" and analysis_id: "ANI_01"
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"

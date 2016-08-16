@@ -1,5 +1,5 @@
 #encoding: utf-8
-@patients_not_implemented
+@patients @pathology
 Feature: Pathology Messages
 
   Scenario Outline: PT_PR01. Pathology report with invalid patient_id(empty, non-existing, null) should fail
@@ -115,6 +115,25 @@ Feature: Pathology Messages
   |PT_PR12_PathologyUReceived1|U         |2016-05-18T16:42:13+00:00        |Success     |Message has been processed successfully             |
   |PT_PR12_PathologyUReceived2|Y         |2016-05-18T17:42:13+00:00        |Success     |Message has been processed successfully             |
   |PT_PR12_PathologyUReceived3|N         |2016-05-18T18:42:13+00:00        |Success     |Message has been processed successfully             |
+
+#  Data not ready yet
+#  Scenario Outline: PT_PR13. pathology confirmation will not trigger patient assignment process unless patient has assay and VR ready
+#  #Test patient PT_PR13_AssayNotDone VR confirmed (SEI_01, MOI_01, ANI_01), Assay result is not received yet
+#  #             PT_PR13_VRNotDone VR uploaded (SEI_01, MOI_01, ANI_01) but not confirmed, Assay result received (SEI_01)
+#  #             PT_PR13_AllDonePlanToY VR confirmed (SEI_01, MOI_01, ANI_01), Assay result received (SEI_01)
+#  #             PT_PR13_AllDonePlanToN VR confirmed (SEI_01, MOI_01, ANI_01), Assay result received (SEI_01)
+#    Given template pathology report with surgical_event_id: "SEI_01" for patient: "<patientID>"
+#    Then set patient message field: "status" to value: "<confirm_status>"
+#    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+#    Then wait for "20" seconds
+#    Then retrieve patient: "<patient_id>" from API
+#    Then returned patient has value: "<patient_status>" in field: "status"
+#    Examples:
+#      |patient_id                 |confirm_status    |patient_status         |
+##      |PT_PR13_AssayNotDone       |Y                 |PATHOLOGY_REVIEWED     |
+##      |PT_PR13_VRNotDone          |Y                 |PATHOLOGY_REVIEWED     |
+##      |PT_PR13_AllDonePlanToY     |Y                 |PENDING_CONFIRMATION   |
+##      |PT_PR13_AllDonePlanToN     |N                 |PATHOLOGY_REVIEWED     |
 
 #	pathology result cannot be received after patient has COMPLETE_MDA_DATA_SET status (in this step cycle) (not sure, actually it doesn't matter)
 #	pathology result cannot be received when patient is in OFF_TRAIL status (not sure, actually it doesn't matter)

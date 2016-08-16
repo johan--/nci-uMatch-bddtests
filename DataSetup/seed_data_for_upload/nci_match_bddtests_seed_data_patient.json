@@ -1,15 +1,11 @@
 {
-    "Count": 104,
     "Items": [
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_SPECIMEN_RECEIVED"
             },
-            "patient_id": {
-                "S": "PT_SS09_TissueReceived"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
@@ -21,61 +17,61 @@
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_SS09_TissueReceived"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_SLIDE_SPECIMEN_SHIPPED"
             },
-            "patient_id": {
-                "S": "PT_SS15_Slide1Shipped"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
-                    "surgical_event_id": {
-                        "S": "SEI_TR_1"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_TR_01"
-                    },
                     "slide_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "SEI_TR_1"
                     },
                     "specimen_received_date": {
                         "S": "2016-04-25T16:17:11+00:00"
                     },
                     "active_destination": {
                         "S": "MDA"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_TR_01"
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_SS15_Slide1Shipped"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_SPECIMEN_RECEIVED"
             },
-            "patient_id": {
-                "S": "PT_SS02_TissueReceived"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
@@ -87,64 +83,64 @@
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_SS02_TissueReceived"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_VARIANT_REPORT_REJECTED"
             },
-            "patient_id": {
-                "S": "PT_VU12_VariantReportRejected"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
-                    "active_analysis_id": {
-                        "S": "ANI_02"
-                    },
                     "surgical_event_id": {
                         "S": "SEI_01"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
                     },
                     "variant_report_status": {
                         "S": "REJECTED"
                     },
+                    "active_destination": {
+                        "S": "MDA"
+                    },
                     "specimen_received_date": {
                         "S": "2016-04-25T16:17:11+00:00"
                     },
-                    "active_destination": {
-                        "S": "MDA"
+                    "active_analysis_id": {
+                        "S": "ANI_02"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_VU12_VariantReportRejected"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_SPECIMEN_RECEIVED"
             },
-            "patient_id": {
-                "S": "PT_SS03_TissueReceived"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
@@ -156,305 +152,347 @@
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_SS03_TissueReceived"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_VARIANT_REPORT_RECEIVED"
             },
-            "patient_id": {
-                "S": "PT_VC08_VRUploaded"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
-                    "active_analysis_id": {
-                        "S": "ANI_01"
-                    },
                     "surgical_event_id": {
                         "S": "SEI_01"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
                     },
                     "variant_report_status": {
                         "S": "PENDING"
                     },
+                    "active_destination": {
+                        "S": "MDA"
+                    },
                     "specimen_received_date": {
                         "S": "2016-04-25T16:17:11+00:00"
                     },
-                    "active_destination": {
-                        "S": "MDA"
+                    "active_analysis_id": {
+                        "S": "ANI_01"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_VC08_VRUploaded"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_SLIDE_SPECIMEN_SHIPPED"
             },
-            "patient_id": {
-                "S": "PT_AS06_SlideShipped"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
-                    "surgical_event_id": {
-                        "S": "SEI_01"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
-                    },
                     "slide_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "SEI_01"
                     },
                     "specimen_received_date": {
                         "S": "2016-04-25T16:17:11+00:00"
                     },
                     "active_destination": {
                         "S": "MDA"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
                     }
                 }
-            },
-            "study_id": {
-                "S": "APEC1621"
             },
             "current_step_number": {
                 "S": "1.0"
-            }
-        },
-        {
-            "active_blood_specimen": {
-                "M": {
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    }
-                }
+            },
+            "patient_id": {
+                "S": "PT_AS06_SlideShipped"
             },
             "registration_date": {
                 "S": "2016-02-09T22:06:33+00:00"
-            },
-            "patient_id": {
-                "S": "PT_SS01_BloodReceived"
-            },
+            }
+        },
+        {
             "current_status": {
                 "S": "BLOOD_SPECIMEN_RECEIVED"
             },
             "study_id": {
                 "S": "APEC1621"
             },
-            "current_step_number": {
-                "S": "1.0"
-            }
-        },
-        {
             "registration_date": {
                 "S": "2016-02-09T22:06:33+00:00"
             },
+            "current_step_number": {
+                "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_SS01_BloodReceived"
+            },
+            "active_blood_specimen": {
+                "M": {
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
+                    }
+                }
+            }
+        },
+        {
             "current_status": {
                 "S": "TISSUE_VARIANT_REPORT_RECEIVED"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "active_specimen": {
+                "M": {
+                    "active_molecular_id_shipped_date": {
+                        "S": "2016-05-01T19:42:13+00:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
+                    "variant_report_status": {
+                        "S": "PENDING"
+                    },
+                    "active_destination": {
+                        "S": "MDA"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
+                    },
+                    "active_analysis_id": {
+                        "S": "ANI_01"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
+                    }
+                }
+            },
+            "current_step_number": {
+                "S": "1.0"
             },
             "patient_id": {
                 "S": "PT_VC09_VRUploaded"
             },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            }
+        },
+        {
+            "current_status": {
+                "S": "TISSUE_VARIANT_REPORT_RECEIVED"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
-                    "active_analysis_id": {
-                        "S": "ANI_01"
-                    },
                     "surgical_event_id": {
                         "S": "SEI_01"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
                     },
                     "variant_report_status": {
                         "S": "PENDING"
                     },
+                    "active_destination": {
+                        "S": "MDA"
+                    },
                     "specimen_received_date": {
                         "S": "2016-04-25T16:17:11+00:00"
                     },
-                    "active_destination": {
-                        "S": "MDA"
+                    "active_analysis_id": {
+                        "S": "ANI_01"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
-            }
-        },
-        {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "current_status": {
-                "S": "TISSUE_VARIANT_REPORT_RECEIVED"
             },
             "patient_id": {
                 "S": "PT_SR15_VariantReportUploaded"
             },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            }
+        },
+        {
+            "current_status": {
+                "S": "TISSUE_VARIANT_REPORT_RECEIVED"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
-                    "active_analysis_id": {
-                        "S": "ANI_01"
-                    },
                     "surgical_event_id": {
                         "S": "SEI_01"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
                     },
                     "variant_report_status": {
                         "S": "PENDING"
                     },
+                    "active_destination": {
+                        "S": "MDA"
+                    },
                     "specimen_received_date": {
                         "S": "2016-04-25T16:17:11+00:00"
                     },
-                    "active_destination": {
-                        "S": "MDA"
+                    "active_analysis_id": {
+                        "S": "ANI_01"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
-            }
-        },
-        {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "current_status": {
-                "S": "TISSUE_VARIANT_REPORT_RECEIVED"
             },
             "patient_id": {
                 "S": "PT_SR10_TsVrReceived"
             },
-            "active_specimen": {
-                "M": {
-                    "active_molecular_id_shipped_date": {
-                        "S": "2016-05-01T19:42:13+00:00"
-                    },
-                    "active_analysis_id": {
-                        "S": "ANI_01"
-                    },
-                    "surgical_event_id": {
-                        "S": "SEI_01"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
-                    },
-                    "variant_report_status": {
-                        "S": "PENDING"
-                    },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    },
-                    "active_destination": {
-                        "S": "MDA"
-                    }
-                }
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            }
+        },
+        {
+            "current_status": {
+                "S": "TISSUE_SPECIMEN_RECEIVED"
             },
             "study_id": {
                 "S": "APEC1621"
             },
+            "active_specimen": {
+                "M": {
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
+                    }
+                }
+            },
             "current_step_number": {
                 "S": "1.0"
-            }
-        },
-        {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "current_status": {
-                "S": "TISSUE_SPECIMEN_RECEIVED"
             },
             "patient_id": {
                 "S": "PT_PR05_TissueReceived"
             },
-            "active_specimen": {
-                "M": {
-                    "surgical_event_id": {
-                        "S": "SEI_01"
-                    },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    }
-                }
-            },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "current_step_number": {
-                "S": "1.0"
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "patient_id": {
-                "S": "PT_SR06_Registered"
+            "current_step_number": {
+                "S": "1.0"
             },
             "current_status": {
                 "S": "REGISTRATION"
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "current_step_number": {
-                "S": "1.0"
-            }
-        },
-        {
             "registration_date": {
                 "S": "2016-02-09T22:06:33+00:00"
             },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "patient_id": {
+                "S": "PT_SR06_Registered"
+            }
+        },
+        {
             "current_status": {
                 "S": "TISSUE_VARIANT_REPORT_RECEIVED"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "active_specimen": {
+                "M": {
+                    "active_molecular_id_shipped_date": {
+                        "S": "2016-05-01T19:42:13+00:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
+                    "variant_report_status": {
+                        "S": "PENDING"
+                    },
+                    "active_destination": {
+                        "S": "MDA"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
+                    },
+                    "active_analysis_id": {
+                        "S": "ANI_01"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
+                    }
+                }
+            },
+            "current_step_number": {
+                "S": "1.0"
             },
             "patient_id": {
                 "S": "PT_VC04_VRUploaded"
             },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            }
+        },
+        {
+            "current_status": {
+                "S": "TISSUE_NUCLEIC_ACID_SHIPPED"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
-                    "active_analysis_id": {
-                        "S": "ANI_01"
+                    "active_destination": {
+                        "S": "MDA"
                     },
                     "surgical_event_id": {
                         "S": "SEI_01"
@@ -462,150 +500,108 @@
                     "active_molecular_id": {
                         "S": "MOI_01"
                     },
-                    "variant_report_status": {
-                        "S": "PENDING"
-                    },
                     "specimen_received_date": {
                         "S": "2016-04-25T16:17:11+00:00"
-                    },
-                    "active_destination": {
-                        "S": "MDA"
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
-            }
-        },
-        {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "current_status": {
-                "S": "TISSUE_NUCLEIC_ACID_SHIPPED"
             },
             "patient_id": {
                 "S": "PT_VU05_TissueShipped"
             },
-            "active_specimen": {
-                "M": {
-                    "active_molecular_id_shipped_date": {
-                        "S": "2016-05-01T19:42:13+00:00"
-                    },
-                    "surgical_event_id": {
-                        "S": "SEI_01"
-                    },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    },
-                    "active_destination": {
-                        "S": "MDA"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
-                    }
-                }
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            }
+        },
+        {
+            "current_status": {
+                "S": "TISSUE_SLIDE_SPECIMEN_SHIPPED"
             },
             "study_id": {
                 "S": "APEC1621"
             },
-            "current_step_number": {
-                "S": "1.0"
-            }
-        },
-        {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "current_status": {
-                "S": "TISSUE_SLIDE_SPECIMEN_SHIPPED"
-            },
-            "patient_id": {
-                "S": "PT_AS11SlideShipped"
-            },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
-                    },
-                    "surgical_event_id": {
-                        "S": "SEI_01"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
                     },
                     "slide_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
                     "specimen_received_date": {
                         "S": "2016-04-25T16:17:11+00:00"
                     },
                     "active_destination": {
                         "S": "MDA"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_AS11SlideShipped"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_VARIANT_REPORT_RECEIVED"
             },
-            "patient_id": {
-                "S": "PT_VC13_VRUploaded"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
-                    "active_analysis_id": {
-                        "S": "ANI_01"
-                    },
                     "surgical_event_id": {
                         "S": "SEI_01"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
                     },
                     "variant_report_status": {
                         "S": "PENDING"
                     },
+                    "active_destination": {
+                        "S": "MDA"
+                    },
                     "specimen_received_date": {
                         "S": "2016-04-25T16:17:11+00:00"
                     },
-                    "active_destination": {
-                        "S": "MDA"
+                    "active_analysis_id": {
+                        "S": "ANI_01"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_VC13_VRUploaded"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "PATHOLOGY_REVIEWED"
             },
-            "patient_id": {
-                "S": "PT_PR12_PathologyUReceived2"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
@@ -620,239 +616,257 @@
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
-            }
-        },
-        {
-            "active_blood_specimen": {
-                "M": {
-                    "active_molecular_id_shipped_date": {
-                        "S": "2016-05-01T19:42:13+00:00"
-                    },
-                    "variant_report_status": {
-                        "S": "CONFIRMED"
-                    },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    },
-                    "active_destination": {
-                        "S": "MDA"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
-                    }
-                }
+            },
+            "patient_id": {
+                "S": "PT_PR12_PathologyUReceived2"
             },
             "registration_date": {
                 "S": "2016-02-09T22:06:33+00:00"
-            },
-            "patient_id": {
-                "S": "PT_SS22_BloodVariantConfirmed"
-            },
+            }
+        },
+        {
             "current_status": {
                 "S": "BLOOD_VARIANT_REPORT_CONFIRMED"
             },
             "study_id": {
                 "S": "APEC1621"
             },
-            "current_step_number": {
-                "S": "1.0"
-            }
-        },
-        {
             "registration_date": {
                 "S": "2016-02-09T22:06:33+00:00"
             },
-            "patient_id": {
-                "S": "PT_SR02_Registered"
-            },
-            "current_status": {
-                "S": "REGISTRATION"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
-            }
-        },
-        {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
             },
             "patient_id": {
-                "S": "PT_SR09_Registered"
+                "S": "PT_SS22_BloodVariantConfirmed"
             },
-            "current_status": {
-                "S": "REGISTRATION"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "current_step_number": {
-                "S": "1.0"
-            }
-        },
-        {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "patient_id": {
-                "S": "PT_SR05_Registered"
-            },
-            "current_status": {
-                "S": "REGISTRATION"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "current_step_number": {
-                "S": "1.0"
-            }
-        },
-        {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "current_status": {
-                "S": "TISSUE_NUCLEIC_ACID_SHIPPED"
-            },
-            "patient_id": {
-                "S": "PT_PR07_TissueShipped"
-            },
-            "active_specimen": {
-                "M": {
-                    "active_molecular_id_shipped_date": {
-                        "S": "2016-05-01T19:42:13+00:00"
-                    },
-                    "surgical_event_id": {
-                        "S": "SEI_01"
-                    },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    },
-                    "active_destination": {
-                        "S": "MDA"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
-                    }
-                }
-            },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "current_step_number": {
-                "S": "1.0"
-            }
-        },
-        {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "current_status": {
-                "S": "TISSUE_VARIANT_REPORT_RECEIVED"
-            },
-            "patient_id": {
-                "S": "PT_VC02_VRUploaded"
-            },
-            "active_specimen": {
-                "M": {
-                    "active_molecular_id_shipped_date": {
-                        "S": "2016-05-01T19:42:13+00:00"
-                    },
-                    "active_analysis_id": {
-                        "S": "ANI_01"
-                    },
-                    "surgical_event_id": {
-                        "S": "SEI_01"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
-                    },
-                    "variant_report_status": {
-                        "S": "PENDING"
-                    },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    },
-                    "active_destination": {
-                        "S": "MDA"
-                    }
-                }
-            },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "current_step_number": {
-                "S": "1.0"
-            }
-        },
-        {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "current_status": {
-                "S": "TISSUE_SPECIMEN_RECEIVED"
-            },
-            "patient_id": {
-                "S": "PT_SS23_TissueReceived1"
-            },
-            "active_specimen": {
-                "M": {
-                    "surgical_event_id": {
-                        "S": "SEI_01"
-                    },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    }
-                }
-            },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "current_step_number": {
-                "S": "1.0"
-            }
-        },
-        {
             "active_blood_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
+                    "variant_report_status": {
+                        "S": "CONFIRMED"
                     },
                     "active_destination": {
                         "S": "MDA"
                     },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
+                    },
                     "active_molecular_id": {
-                        "S": "MOI_BR_01"
+                        "S": "MOI_01"
                     }
                 }
+            }
+        },
+        {
+            "current_step_number": {
+                "S": "1.0"
+            },
+            "current_status": {
+                "S": "REGISTRATION"
             },
             "registration_date": {
                 "S": "2016-02-09T22:06:33+00:00"
             },
-            "patient_id": {
-                "S": "PT_SS19_Blood1Shipped"
+            "study_id": {
+                "S": "APEC1621"
             },
+            "patient_id": {
+                "S": "PT_SR02_Registered"
+            }
+        },
+        {
+            "current_step_number": {
+                "S": "1.0"
+            },
+            "current_status": {
+                "S": "REGISTRATION"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "patient_id": {
+                "S": "PT_SR09_Registered"
+            }
+        },
+        {
+            "current_step_number": {
+                "S": "1.0"
+            },
+            "current_status": {
+                "S": "REGISTRATION"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "patient_id": {
+                "S": "PT_SR05_Registered"
+            }
+        },
+        {
+            "current_status": {
+                "S": "TISSUE_NUCLEIC_ACID_SHIPPED"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "active_specimen": {
+                "M": {
+                    "active_molecular_id_shipped_date": {
+                        "S": "2016-05-01T19:42:13+00:00"
+                    },
+                    "active_destination": {
+                        "S": "MDA"
+                    },
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
+                    }
+                }
+            },
+            "current_step_number": {
+                "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_PR07_TissueShipped"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            }
+        },
+        {
+            "current_status": {
+                "S": "TISSUE_VARIANT_REPORT_RECEIVED"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "active_specimen": {
+                "M": {
+                    "active_molecular_id_shipped_date": {
+                        "S": "2016-05-01T19:42:13+00:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
+                    "variant_report_status": {
+                        "S": "PENDING"
+                    },
+                    "active_destination": {
+                        "S": "MDA"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
+                    },
+                    "active_analysis_id": {
+                        "S": "ANI_01"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
+                    }
+                }
+            },
+            "current_step_number": {
+                "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_VC02_VRUploaded"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            }
+        },
+        {
+            "current_status": {
+                "S": "TISSUE_SPECIMEN_RECEIVED"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "active_specimen": {
+                "M": {
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
+                    }
+                }
+            },
+            "current_step_number": {
+                "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_SS23_TissueReceived1"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            }
+        },
+        {
             "current_status": {
                 "S": "BLOOD_NUCLEIC_ACID_SHIPPED"
             },
             "study_id": {
                 "S": "APEC1621"
             },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_SS19_Blood1Shipped"
+            },
+            "active_blood_specimen": {
+                "M": {
+                    "active_molecular_id_shipped_date": {
+                        "S": "2016-05-01T19:42:13+00:00"
+                    },
+                    "active_destination": {
+                        "S": "MDA"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_BR_01"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
+                    }
+                }
             }
         },
         {
+            "current_status": {
+                "S": "BLOOD_VARIANT_REPORT_RECEIVED"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            },
+            "current_step_number": {
+                "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_VU16_BdVRUploaded"
+            },
             "active_blood_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
@@ -861,137 +875,119 @@
                     "variant_report_status": {
                         "S": "PENDING"
                     },
-                    "specimen_received_date": {
-                        "S": "2016-04-26T15:17:11+00:00"
-                    },
                     "active_destination": {
                         "S": "MDA"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-26T15:17:11+00:00"
                     },
                     "active_molecular_id": {
                         "S": "MOI_BR_01"
                     }
                 }
-            },
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "patient_id": {
-                "S": "PT_VU16_BdVRUploaded"
-            },
+            }
+        },
+        {
             "current_status": {
-                "S": "BLOOD_VARIANT_REPORT_RECEIVED"
+                "S": "TISSUE_NUCLEIC_ACID_SHIPPED"
             },
             "study_id": {
                 "S": "APEC1621"
             },
+            "active_specimen": {
+                "M": {
+                    "active_molecular_id_shipped_date": {
+                        "S": "2016-05-01T19:42:13+00:00"
+                    },
+                    "active_destination": {
+                        "S": "MDA"
+                    },
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
+                    }
+                }
+            },
             "current_step_number": {
                 "S": "1.0"
-            }
-        },
-        {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "current_status": {
-                "S": "TISSUE_NUCLEIC_ACID_SHIPPED"
             },
             "patient_id": {
                 "S": "PT_VU03_TissueShipped"
             },
-            "active_specimen": {
-                "M": {
-                    "active_molecular_id_shipped_date": {
-                        "S": "2016-05-01T19:42:13+00:00"
-                    },
-                    "surgical_event_id": {
-                        "S": "SEI_01"
-                    },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    },
-                    "active_destination": {
-                        "S": "MDA"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
-                    }
-                }
-            },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "current_step_number": {
-                "S": "1.0"
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "patient_id": {
-                "S": "PT_SR04_Registered"
+            "current_step_number": {
+                "S": "1.0"
             },
             "current_status": {
                 "S": "REGISTRATION"
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "current_step_number": {
-                "S": "1.0"
-            }
-        },
-        {
             "registration_date": {
                 "S": "2016-02-09T22:06:33+00:00"
             },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "patient_id": {
+                "S": "PT_SR04_Registered"
+            }
+        },
+        {
             "current_status": {
                 "S": "TISSUE_VARIANT_REPORT_RECEIVED"
             },
-            "patient_id": {
-                "S": "PT_VU10_VariantReportUploaded"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
-                    "active_analysis_id": {
-                        "S": "ANI_01"
-                    },
                     "surgical_event_id": {
                         "S": "SEI_01"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
                     },
                     "variant_report_status": {
                         "S": "PENDING"
                     },
+                    "active_destination": {
+                        "S": "MDA"
+                    },
                     "specimen_received_date": {
                         "S": "2016-04-25T16:17:11+00:00"
                     },
-                    "active_destination": {
-                        "S": "MDA"
+                    "active_analysis_id": {
+                        "S": "ANI_01"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_VU10_VariantReportUploaded"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "PATHOLOGY_REVIEWED"
             },
-            "patient_id": {
-                "S": "PT_PR12_PathologyUReceived1"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
@@ -1006,103 +1002,103 @@
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_PR12_PathologyUReceived1"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_SLIDE_SPECIMEN_SHIPPED"
             },
-            "patient_id": {
-                "S": "PT_PR08_SlideShipped"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
-                    },
-                    "surgical_event_id": {
-                        "S": "SEI_01"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
                     },
                     "slide_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
                     "specimen_received_date": {
                         "S": "2016-04-25T16:17:11+00:00"
                     },
                     "active_destination": {
                         "S": "MDA"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_PR08_SlideShipped"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "AWAITING_PATIENT_DATA"
             },
-            "patient_id": {
-                "S": "PT_SS21_TissueVariantConfirmed"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
-                    },
-                    "active_analysis_id": {
-                        "S": "ANI_01"
                     },
                     "surgical_event_id": {
                         "S": "SEI_TR_1"
                     },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
-                    },
                     "variant_report_status": {
                         "S": "CONFIRMED"
+                    },
+                    "active_destination": {
+                        "S": "MDA"
                     },
                     "specimen_received_date": {
                         "S": "2016-04-25T16:17:11+00:00"
                     },
-                    "active_destination": {
-                        "S": "MDA"
+                    "active_analysis_id": {
+                        "S": "ANI_01"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_SS21_TissueVariantConfirmed"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_SPECIMEN_RECEIVED"
             },
-            "patient_id": {
-                "S": "PT_PR09_SEI1HasTissueSEI2NoTissue"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
@@ -1114,50 +1110,68 @@
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_PR09_SEI1HasTissueSEI2NoTissue"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_NUCLEIC_ACID_SHIPPED"
             },
-            "patient_id": {
-                "S": "PT_VU08_TissueShipped"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
-                    "surgical_event_id": {
-                        "S": "SEI_01"
-                    },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    },
                     "active_destination": {
                         "S": "MDA"
                     },
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
                     "active_molecular_id": {
                         "S": "MOI_01"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
                     }
                 }
+            },
+            "current_step_number": {
+                "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_VU08_TissueShipped"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            }
+        },
+        {
+            "current_status": {
+                "S": "BLOOD_VARIANT_REPORT_REJECTED"
             },
             "study_id": {
                 "S": "APEC1621"
             },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            },
             "current_step_number": {
                 "S": "1.0"
-            }
-        },
-        {
+            },
+            "patient_id": {
+                "S": "PT_SR10_BdVRRejected"
+            },
             "active_blood_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
@@ -1166,42 +1180,24 @@
                     "variant_report_status": {
                         "S": "REJECTED"
                     },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    },
                     "active_destination": {
                         "S": "MDA"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
                     },
                     "active_molecular_id": {
                         "S": "MOI_BR_01"
                     }
                 }
-            },
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "patient_id": {
-                "S": "PT_SR10_BdVRRejected"
-            },
-            "current_status": {
-                "S": "BLOOD_VARIANT_REPORT_REJECTED"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "current_step_number": {
-                "S": "1.0"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_SPECIMEN_RECEIVED"
             },
-            "patient_id": {
-                "S": "PT_PR06_TissueReceived"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
@@ -1213,38 +1209,56 @@
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
-            }
-        },
-        {
-            "active_blood_specimen": {
-                "M": {
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    }
-                }
+            },
+            "patient_id": {
+                "S": "PT_PR06_TissueReceived"
             },
             "registration_date": {
                 "S": "2016-02-09T22:06:33+00:00"
-            },
-            "patient_id": {
-                "S": "PT_SR10_BdReceived"
-            },
+            }
+        },
+        {
             "current_status": {
                 "S": "BLOOD_SPECIMEN_RECEIVED"
             },
             "study_id": {
                 "S": "APEC1621"
             },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_SR10_BdReceived"
+            },
+            "active_blood_specimen": {
+                "M": {
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
+                    }
+                }
             }
         },
         {
+            "current_status": {
+                "S": "BLOOD_VARIANT_REPORT_CONFIRMED"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            },
+            "current_step_number": {
+                "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_SS21_BloodVariantConfirmed"
+            },
             "active_blood_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
@@ -1253,42 +1267,24 @@
                     "variant_report_status": {
                         "S": "CONFIRMED"
                     },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    },
                     "active_destination": {
                         "S": "MDA"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
                     },
                     "active_molecular_id": {
                         "S": "MOI_BR_01"
                     }
                 }
-            },
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "patient_id": {
-                "S": "PT_SS21_BloodVariantConfirmed"
-            },
-            "current_status": {
-                "S": "BLOOD_VARIANT_REPORT_CONFIRMED"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "current_step_number": {
-                "S": "1.0"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_SPECIMEN_RECEIVED"
             },
-            "patient_id": {
-                "S": "PT_SS14_TissueReceived"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
@@ -1300,16 +1296,31 @@
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_SS14_TissueReceived"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
+            "current_status": {
+                "S": "TISSUE_SPECIMEN_RECEIVED"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
             "registration_date": {
                 "S": "2016-02-09T22:06:33+00:00"
+            },
+            "current_step_number": {
+                "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_SS26_TsReceived"
             },
             "active_blood_specimen": {
                 "M": {
@@ -1327,147 +1338,132 @@
                         "S": "2016-04-25T16:17:11+00:00"
                     }
                 }
-            },
-            "patient_id": {
-                "S": "PT_SS26_TsReceived"
-            },
+            }
+        },
+        {
             "current_status": {
-                "S": "TISSUE_SPECIMEN_RECEIVED"
+                "S": "TISSUE_VARIANT_REPORT_RECEIVED"
             },
             "study_id": {
                 "S": "APEC1621"
             },
+            "active_specimen": {
+                "M": {
+                    "active_molecular_id_shipped_date": {
+                        "S": "2016-05-01T19:42:13+00:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
+                    "variant_report_status": {
+                        "S": "PENDING"
+                    },
+                    "active_destination": {
+                        "S": "MDA"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
+                    },
+                    "active_analysis_id": {
+                        "S": "ANI_01"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
+                    }
+                }
+            },
             "current_step_number": {
                 "S": "1.0"
-            }
-        },
-        {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "current_status": {
-                "S": "TISSUE_VARIANT_REPORT_RECEIVED"
             },
             "patient_id": {
                 "S": "PT_VC12_VRUploaded_2"
             },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            }
+        },
+        {
+            "current_status": {
+                "S": "TISSUE_VARIANT_REPORT_RECEIVED"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
-                    "active_analysis_id": {
-                        "S": "ANI_01"
-                    },
                     "surgical_event_id": {
                         "S": "SEI_01"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
                     },
                     "variant_report_status": {
                         "S": "PENDING"
                     },
+                    "active_destination": {
+                        "S": "MDA"
+                    },
                     "specimen_received_date": {
                         "S": "2016-04-25T16:17:11+00:00"
                     },
-                    "active_destination": {
-                        "S": "MDA"
+                    "active_analysis_id": {
+                        "S": "ANI_01"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
-            }
-        },
-        {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "current_status": {
-                "S": "TISSUE_VARIANT_REPORT_RECEIVED"
             },
             "patient_id": {
                 "S": "PT_VC12_VRUploaded_1"
             },
-            "active_specimen": {
-                "M": {
-                    "active_molecular_id_shipped_date": {
-                        "S": "2016-05-01T19:42:13+00:00"
-                    },
-                    "active_analysis_id": {
-                        "S": "ANI_01"
-                    },
-                    "surgical_event_id": {
-                        "S": "SEI_01"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
-                    },
-                    "variant_report_status": {
-                        "S": "PENDING"
-                    },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    },
-                    "active_destination": {
-                        "S": "MDA"
-                    }
-                }
-            },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "current_step_number": {
-                "S": "1.0"
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
+            "current_step_number": {
+                "S": "1.0"
+            },
+            "current_status": {
+                "S": "REGISTRATION"
+            },
             "registration_date": {
                 "S": "2016-02-09T22:06:33+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
             },
             "patient_id": {
                 "S": "PT_SR08_Registered"
+            }
+        },
+        {
+            "current_step_number": {
+                "S": "1.0"
             },
             "current_status": {
                 "S": "REGISTRATION"
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "current_step_number": {
-                "S": "1.0"
-            }
-        },
-        {
             "registration_date": {
                 "S": "2016-02-09T22:06:33+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
             },
             "patient_id": {
                 "S": "PT_AS08_Registered"
-            },
-            "current_status": {
-                "S": "REGISTRATION"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "current_step_number": {
-                "S": "1.0"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_SPECIMEN_RECEIVED"
             },
-            "patient_id": {
-                "S": "PT_SS13_TissueReceived"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
@@ -1479,61 +1475,61 @@
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_SS13_TissueReceived"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_SLIDE_SPECIMEN_SHIPPED"
             },
-            "patient_id": {
-                "S": "PT_AS04_SlideShipped"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
-                    "surgical_event_id": {
-                        "S": "SEI_01"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
-                    },
                     "slide_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "SEI_01"
                     },
                     "specimen_received_date": {
                         "S": "2016-04-25T16:17:11+00:00"
                     },
                     "active_destination": {
                         "S": "MDA"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_AS04_SlideShipped"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "PATHOLOGY_REVIEWED"
             },
-            "patient_id": {
-                "S": "PT_PR12_PathologyYReceived"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
@@ -1548,69 +1544,84 @@
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_PR12_PathologyYReceived"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_SLIDE_SPECIMEN_SHIPPED"
             },
-            "patient_id": {
-                "S": "PT_AS02_SlideShipped"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
-                    "surgical_event_id": {
-                        "S": "SEI_01"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
-                    },
                     "slide_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "SEI_01"
                     },
                     "specimen_received_date": {
                         "S": "2016-04-25T16:17:11+00:00"
                     },
                     "active_destination": {
                         "S": "MDA"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
                     }
                 }
+            },
+            "current_step_number": {
+                "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_AS02_SlideShipped"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            }
+        },
+        {
+            "current_status": {
+                "S": "BLOOD_NUCLEIC_ACID_SHIPPED"
             },
             "study_id": {
                 "S": "APEC1621"
             },
-            "current_step_number": {
-                "S": "1.0"
-            }
-        },
-        {
             "registration_date": {
                 "S": "2016-02-09T22:06:33+00:00"
+            },
+            "current_step_number": {
+                "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_SS24_BloodShipped"
             },
             "active_blood_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
-                    "specimen_received_date": {
-                        "S": "2016-04-24T16:17:11+00:00"
-                    },
                     "active_destination": {
                         "S": "MDA"
                     },
                     "active_molecular_id": {
                         "S": "MOI_01"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-24T16:17:11+00:00"
                     }
                 }
             },
@@ -1623,76 +1634,76 @@
                         "S": "2016-04-25T16:17:11+00:00"
                     }
                 }
-            },
-            "patient_id": {
-                "S": "PT_SS24_BloodShipped"
-            },
-            "current_status": {
-                "S": "BLOOD_NUCLEIC_ACID_SHIPPED"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "current_step_number": {
-                "S": "1.0"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_SLIDE_SPECIMEN_SHIPPED"
             },
-            "patient_id": {
-                "S": "PT_AS09SlideShipped"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
-                    "surgical_event_id": {
-                        "S": "SEI_01"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
-                    },
                     "slide_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "SEI_01"
                     },
                     "specimen_received_date": {
                         "S": "2016-04-25T16:17:11+00:00"
                     },
                     "active_destination": {
                         "S": "MDA"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
                     }
                 }
+            },
+            "current_step_number": {
+                "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_AS09SlideShipped"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            }
+        },
+        {
+            "current_status": {
+                "S": "BLOOD_NUCLEIC_ACID_SHIPPED"
             },
             "study_id": {
                 "S": "APEC1621"
             },
-            "current_step_number": {
-                "S": "1.0"
-            }
-        },
-        {
             "registration_date": {
                 "S": "2016-02-09T22:06:33+00:00"
+            },
+            "current_step_number": {
+                "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_VU14_TissueAndBloodShipped"
             },
             "active_blood_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-02T19:42:13+00:00"
                     },
-                    "specimen_received_date": {
-                        "S": "2016-04-24T16:17:11+00:00"
-                    },
                     "active_destination": {
                         "S": "MDA"
                     },
                     "active_molecular_id": {
                         "S": "MOI_BR_01"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-24T16:17:11+00:00"
                     }
                 }
             },
@@ -1701,75 +1712,60 @@
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
-                    "surgical_event_id": {
-                        "S": "SEI_01"
-                    },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    },
                     "active_destination": {
                         "S": "MDA"
                     },
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
                     "active_molecular_id": {
                         "S": "MOI_TR_01"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
                     }
                 }
-            },
-            "patient_id": {
-                "S": "PT_VU14_TissueAndBloodShipped"
-            },
+            }
+        },
+        {
             "current_status": {
                 "S": "BLOOD_NUCLEIC_ACID_SHIPPED"
             },
             "study_id": {
                 "S": "APEC1621"
             },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            },
             "current_step_number": {
                 "S": "1.0"
-            }
-        },
-        {
+            },
+            "patient_id": {
+                "S": "PT_SS25_BloodShipped"
+            },
             "active_blood_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
-                    },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
                     },
                     "active_destination": {
                         "S": "MDA"
                     },
                     "active_molecular_id": {
                         "S": "MOI_01"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
                     }
                 }
-            },
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "patient_id": {
-                "S": "PT_SS25_BloodShipped"
-            },
-            "current_status": {
-                "S": "BLOOD_NUCLEIC_ACID_SHIPPED"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "current_step_number": {
-                "S": "1.0"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_SPECIMEN_RECEIVED"
             },
-            "patient_id": {
-                "S": "PT_SS05_TissueReceived"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
@@ -1781,61 +1777,61 @@
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_SS05_TissueReceived"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_SLIDE_SPECIMEN_SHIPPED"
             },
-            "patient_id": {
-                "S": "PT_SS23_SlideShipped"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
-                    "surgical_event_id": {
-                        "S": "SEI_01"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
-                    },
                     "slide_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "SEI_01"
                     },
                     "specimen_received_date": {
                         "S": "2016-04-25T16:17:11+00:00"
                     },
                     "active_destination": {
                         "S": "MDA"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_SS23_SlideShipped"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "PATHOLOGY_REVIEWED"
             },
-            "patient_id": {
-                "S": "PT_SR10_YPathoReceived"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
@@ -1850,22 +1846,22 @@
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_SR10_YPathoReceived"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "PATHOLOGY_REVIEWED"
             },
-            "patient_id": {
-                "S": "PT_PR12_PathologyNReceived"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
@@ -1880,16 +1876,31 @@
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_PR12_PathologyNReceived"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
+            "current_status": {
+                "S": "TISSUE_NUCLEIC_ACID_SHIPPED"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
             "registration_date": {
                 "S": "2016-02-09T22:06:33+00:00"
+            },
+            "current_step_number": {
+                "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_SS26_TsShipped"
             },
             "active_blood_specimen": {
                 "M": {
@@ -1903,96 +1914,117 @@
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
-                    "surgical_event_id": {
-                        "S": "SEI_TR_01"
-                    },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    },
                     "active_destination": {
                         "S": "MDA"
                     },
+                    "surgical_event_id": {
+                        "S": "SEI_TR_01"
+                    },
                     "active_molecular_id": {
                         "S": "MOI_TR_01"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
                     }
                 }
-            },
-            "patient_id": {
-                "S": "PT_SS26_TsShipped"
-            },
+            }
+        },
+        {
             "current_status": {
                 "S": "TISSUE_NUCLEIC_ACID_SHIPPED"
             },
             "study_id": {
                 "S": "APEC1621"
             },
+            "active_specimen": {
+                "M": {
+                    "active_molecular_id_shipped_date": {
+                        "S": "2016-05-01T19:42:13+00:00"
+                    },
+                    "active_destination": {
+                        "S": "MDA"
+                    },
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
+                    }
+                }
+            },
             "current_step_number": {
                 "S": "1.0"
-            }
-        },
-        {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "current_status": {
-                "S": "TISSUE_NUCLEIC_ACID_SHIPPED"
             },
             "patient_id": {
                 "S": "PT_SS23_TissueShipped"
             },
-            "active_specimen": {
-                "M": {
-                    "active_molecular_id_shipped_date": {
-                        "S": "2016-05-01T19:42:13+00:00"
-                    },
-                    "surgical_event_id": {
-                        "S": "SEI_01"
-                    },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    },
-                    "active_destination": {
-                        "S": "MDA"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
-                    }
-                }
-            },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "current_step_number": {
-                "S": "1.0"
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "patient_id": {
-                "S": "PT_SR01_Registered"
+            "current_step_number": {
+                "S": "1.0"
             },
             "current_status": {
                 "S": "REGISTRATION"
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "current_step_number": {
-                "S": "1.0"
-            }
-        },
-        {
             "registration_date": {
                 "S": "2016-02-09T22:06:33+00:00"
             },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "patient_id": {
+                "S": "PT_SR01_Registered"
+            }
+        },
+        {
             "current_status": {
                 "S": "TISSUE_NUCLEIC_ACID_SHIPPED"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "active_specimen": {
+                "M": {
+                    "active_molecular_id_shipped_date": {
+                        "S": "2016-05-01T19:42:13+00:00"
+                    },
+                    "active_destination": {
+                        "S": "MDA"
+                    },
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
+                    }
+                }
+            },
+            "current_step_number": {
+                "S": "1.0"
             },
             "patient_id": {
                 "S": "PT_VU02_TissueShipped"
             },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            }
+        },
+        {
+            "current_status": {
+                "S": "TISSUE_VARIANT_REPORT_RECEIVED"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
@@ -2001,103 +2033,106 @@
                     "surgical_event_id": {
                         "S": "SEI_01"
                     },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
+                    "variant_report_status": {
+                        "S": "PENDING"
                     },
                     "active_destination": {
                         "S": "MDA"
                     },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
-                    }
-                }
-            },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "current_step_number": {
-                "S": "1.0"
-            }
-        },
-        {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "current_status": {
-                "S": "TISSUE_VARIANT_REPORT_RECEIVED"
-            },
-            "patient_id": {
-                "S": "PT_VC03_VRUploadedAfterRejected"
-            },
-            "active_specimen": {
-                "M": {
-                    "active_molecular_id_shipped_date": {
-                        "S": "2016-05-01T19:42:13+00:00"
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
                     },
                     "active_analysis_id": {
                         "S": "ANI_02"
                     },
-                    "surgical_event_id": {
-                        "S": "SEI_01"
-                    },
                     "active_molecular_id": {
                         "S": "MOI_01"
-                    },
-                    "variant_report_status": {
-                        "S": "PENDING"
-                    },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    },
-                    "active_destination": {
-                        "S": "MDA"
                     }
                 }
+            },
+            "current_step_number": {
+                "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_VC03_VRUploadedAfterRejected"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            }
+        },
+        {
+            "current_status": {
+                "S": "TISSUE_SPECIMEN_RECEIVED"
             },
             "study_id": {
                 "S": "APEC1621"
             },
+            "active_specimen": {
+                "M": {
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
+                    }
+                }
+            },
             "current_step_number": {
                 "S": "1.0"
-            }
-        },
-        {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "current_status": {
-                "S": "TISSUE_SPECIMEN_RECEIVED"
             },
             "patient_id": {
                 "S": "PT_SS23_TissueReceived2"
             },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            }
+        },
+        {
+            "current_status": {
+                "S": "TISSUE_SLIDE_SPECIMEN_SHIPPED"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
             "active_specimen": {
                 "M": {
+                    "active_molecular_id_shipped_date": {
+                        "S": "2016-05-01T19:42:13+00:00"
+                    },
+                    "slide_shipped_date": {
+                        "S": "2016-05-01T19:42:13+00:00"
+                    },
                     "surgical_event_id": {
                         "S": "SEI_01"
                     },
                     "specimen_received_date": {
                         "S": "2016-04-25T16:17:11+00:00"
+                    },
+                    "active_destination": {
+                        "S": "MDA"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
-            }
-        },
-        {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "current_status": {
-                "S": "TISSUE_SLIDE_SPECIMEN_SHIPPED"
             },
             "patient_id": {
                 "S": "PT_AS05_SlideShipped"
             },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            }
+        },
+        {
+            "current_status": {
+                "S": "TISSUE_VARIANT_REPORT_RECEIVED"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
@@ -2106,265 +2141,253 @@
                     "surgical_event_id": {
                         "S": "SEI_01"
                     },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
+                    "variant_report_status": {
+                        "S": "PENDING"
                     },
-                    "slide_shipped_date": {
-                        "S": "2016-05-01T19:42:13+00:00"
+                    "active_destination": {
+                        "S": "MDA"
                     },
                     "specimen_received_date": {
                         "S": "2016-04-25T16:17:11+00:00"
                     },
-                    "active_destination": {
-                        "S": "MDA"
+                    "active_analysis_id": {
+                        "S": "ANI_01"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
-            }
-        },
-        {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "current_status": {
-                "S": "TISSUE_VARIANT_REPORT_RECEIVED"
             },
             "patient_id": {
                 "S": "PT_VC11_VRUploaded"
             },
-            "active_specimen": {
-                "M": {
-                    "active_molecular_id_shipped_date": {
-                        "S": "2016-05-01T19:42:13+00:00"
-                    },
-                    "active_analysis_id": {
-                        "S": "ANI_01"
-                    },
-                    "surgical_event_id": {
-                        "S": "SEI_01"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
-                    },
-                    "variant_report_status": {
-                        "S": "PENDING"
-                    },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    },
-                    "active_destination": {
-                        "S": "MDA"
-                    }
-                }
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            }
+        },
+        {
+            "current_status": {
+                "S": "TISSUE_NUCLEIC_ACID_SHIPPED"
             },
             "study_id": {
                 "S": "APEC1621"
             },
-            "current_step_number": {
-                "S": "1.0"
-            }
-        },
-        {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "current_status": {
-                "S": "TISSUE_NUCLEIC_ACID_SHIPPED"
-            },
-            "patient_id": {
-                "S": "PT_SS12_Tissue1Shipped"
-            },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
+                    },
+                    "active_destination": {
+                        "S": "MDA"
                     },
                     "surgical_event_id": {
                         "S": "SEI_TR_1"
                     },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    },
-                    "active_destination": {
-                        "S": "MDA"
-                    },
                     "active_molecular_id": {
                         "S": "MOI_TR_01"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
                     }
                 }
+            },
+            "current_step_number": {
+                "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_SS12_Tissue1Shipped"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            }
+        },
+        {
+            "current_status": {
+                "S": "TISSUE_SPECIMEN_RECEIVED"
             },
             "study_id": {
                 "S": "APEC1621"
             },
+            "active_specimen": {
+                "M": {
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
+                    }
+                }
+            },
             "current_step_number": {
                 "S": "1.0"
-            }
-        },
-        {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "current_status": {
-                "S": "TISSUE_SPECIMEN_RECEIVED"
             },
             "patient_id": {
                 "S": "PT_PR04_TissueReceived"
             },
-            "active_specimen": {
-                "M": {
-                    "surgical_event_id": {
-                        "S": "SEI_01"
-                    },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    }
-                }
-            },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "current_step_number": {
-                "S": "1.0"
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_VARIANT_REPORT_REJECTED"
             },
-            "patient_id": {
-                "S": "PT_VU11_VariantReportRejected"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
-                    "active_analysis_id": {
-                        "S": "ANI_01"
-                    },
                     "surgical_event_id": {
                         "S": "SEI_01"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
                     },
                     "variant_report_status": {
                         "S": "REJECTED"
                     },
+                    "active_destination": {
+                        "S": "MDA"
+                    },
                     "specimen_received_date": {
                         "S": "2016-04-25T16:17:11+00:00"
                     },
-                    "active_destination": {
-                        "S": "MDA"
+                    "active_analysis_id": {
+                        "S": "ANI_01"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_VU11_VariantReportRejected"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_SLIDE_SPECIMEN_SHIPPED"
             },
-            "patient_id": {
-                "S": "PT_AS07_SlideShipped"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
-                    },
-                    "surgical_event_id": {
-                        "S": "SEI_01"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
                     },
                     "slide_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
                     "specimen_received_date": {
                         "S": "2016-04-25T16:17:11+00:00"
                     },
                     "active_destination": {
                         "S": "MDA"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
                     }
                 }
+            },
+            "current_step_number": {
+                "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_AS07_SlideShipped"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            }
+        },
+        {
+            "current_status": {
+                "S": "TISSUE_VARIANT_REPORT_RECEIVED"
             },
             "study_id": {
                 "S": "APEC1621"
             },
+            "active_specimen": {
+                "M": {
+                    "active_molecular_id_shipped_date": {
+                        "S": "2016-05-01T19:42:13+00:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
+                    "variant_report_status": {
+                        "S": "PENDING"
+                    },
+                    "active_destination": {
+                        "S": "MDA"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
+                    },
+                    "active_analysis_id": {
+                        "S": "ANI_01"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
+                    }
+                }
+            },
             "current_step_number": {
                 "S": "1.0"
-            }
-        },
-        {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "current_status": {
-                "S": "TISSUE_VARIANT_REPORT_RECEIVED"
             },
             "patient_id": {
                 "S": "PT_VC07_VRUploaded"
             },
-            "active_specimen": {
-                "M": {
-                    "active_molecular_id_shipped_date": {
-                        "S": "2016-05-01T19:42:13+00:00"
-                    },
-                    "active_analysis_id": {
-                        "S": "ANI_01"
-                    },
-                    "surgical_event_id": {
-                        "S": "SEI_01"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
-                    },
-                    "variant_report_status": {
-                        "S": "PENDING"
-                    },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    },
-                    "active_destination": {
-                        "S": "MDA"
-                    }
-                }
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            }
+        },
+        {
+            "current_status": {
+                "S": "TISSUE_SPECIMEN_RECEIVED"
             },
             "study_id": {
                 "S": "APEC1621"
             },
+            "active_specimen": {
+                "M": {
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
+                    }
+                }
+            },
             "current_step_number": {
                 "S": "1.0"
-            }
-        },
-        {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "current_status": {
-                "S": "TISSUE_SPECIMEN_RECEIVED"
             },
             "patient_id": {
                 "S": "PT_SR10_TsReceived"
             },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            }
+        },
+        {
+            "current_status": {
+                "S": "TISSUE_SPECIMEN_RECEIVED"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
             "active_specimen": {
                 "M": {
                     "surgical_event_id": {
@@ -2375,91 +2398,64 @@
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
-            }
-        },
-        {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "current_status": {
-                "S": "TISSUE_SPECIMEN_RECEIVED"
             },
             "patient_id": {
                 "S": "PT_PR02_TissueReceived"
             },
-            "active_specimen": {
-                "M": {
-                    "surgical_event_id": {
-                        "S": "SEI_01"
-                    },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    }
-                }
-            },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "current_step_number": {
-                "S": "1.0"
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_VARIANT_REPORT_RECEIVED"
             },
-            "patient_id": {
-                "S": "PT_VC05_VRUploaded"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
-                    "active_analysis_id": {
-                        "S": "ANI_01"
-                    },
                     "surgical_event_id": {
                         "S": "SEI_01"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
                     },
                     "variant_report_status": {
                         "S": "PENDING"
                     },
+                    "active_destination": {
+                        "S": "MDA"
+                    },
                     "specimen_received_date": {
                         "S": "2016-04-25T16:17:11+00:00"
                     },
-                    "active_destination": {
-                        "S": "MDA"
+                    "active_analysis_id": {
+                        "S": "ANI_01"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_VC05_VRUploaded"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_SPECIMEN_RECEIVED"
             },
-            "patient_id": {
-                "S": "PT_SS08_TissueReceived"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
@@ -2471,64 +2467,64 @@
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_SS08_TissueReceived"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_VARIANT_REPORT_RECEIVED"
             },
-            "patient_id": {
-                "S": "PT_SR14_VariantReportUploaded"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
-                    "active_analysis_id": {
-                        "S": "ANI_01"
-                    },
                     "surgical_event_id": {
                         "S": "SEI_01"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
                     },
                     "variant_report_status": {
                         "S": "PENDING"
                     },
+                    "active_destination": {
+                        "S": "MDA"
+                    },
                     "specimen_received_date": {
                         "S": "2016-04-25T16:17:11+00:00"
                     },
-                    "active_destination": {
-                        "S": "MDA"
+                    "active_analysis_id": {
+                        "S": "ANI_01"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_SR14_VariantReportUploaded"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_SPECIMEN_RECEIVED"
             },
-            "patient_id": {
-                "S": "PT_PR10TissueReceived"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
@@ -2540,89 +2536,106 @@
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
-            }
-        },
-        {
-            "active_blood_specimen": {
-                "M": {
-                    "active_molecular_id_shipped_date": {
-                        "S": "2016-05-01T19:42:13+00:00"
-                    },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    },
-                    "active_destination": {
-                        "S": "MDA"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_BR_01"
-                    }
-                }
+            },
+            "patient_id": {
+                "S": "PT_PR10TissueReceived"
             },
             "registration_date": {
                 "S": "2016-02-09T22:06:33+00:00"
-            },
-            "patient_id": {
-                "S": "PT_SS20_Blood1Shipped"
-            },
+            }
+        },
+        {
             "current_status": {
                 "S": "BLOOD_NUCLEIC_ACID_SHIPPED"
             },
             "study_id": {
                 "S": "APEC1621"
             },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_SS20_Blood1Shipped"
+            },
+            "active_blood_specimen": {
+                "M": {
+                    "active_molecular_id_shipped_date": {
+                        "S": "2016-05-01T19:42:13+00:00"
+                    },
+                    "active_destination": {
+                        "S": "MDA"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_BR_01"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
+                    }
+                }
             }
         },
         {
+            "current_step_number": {
+                "S": "1.0"
+            },
+            "current_status": {
+                "S": "REGISTRATION"
+            },
+            "registration_date": {
+                "S": "2016-08-16T15:09:02+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "patient_id": {
+                "S": "PT_RG02_ExistingPatient"
+            }
+        },
+        {
+            "current_step_number": {
+                "S": "1.0"
+            },
+            "current_status": {
+                "S": "REGISTRATION"
+            },
             "registration_date": {
                 "S": "2016-02-09T22:06:33+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
             },
             "patient_id": {
                 "S": "PT_PR09_Registered"
+            }
+        },
+        {
+            "current_step_number": {
+                "S": "1.0"
             },
             "current_status": {
                 "S": "REGISTRATION"
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "current_step_number": {
-                "S": "1.0"
-            }
-        },
-        {
             "registration_date": {
                 "S": "2016-02-09T22:06:33+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
             },
             "patient_id": {
                 "S": "PT_SR11_Registered"
-            },
-            "current_status": {
-                "S": "REGISTRATION"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "current_step_number": {
-                "S": "1.0"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_SPECIMEN_RECEIVED"
             },
-            "patient_id": {
-                "S": "PT_PR12TissueReceived"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
@@ -2634,23 +2647,50 @@
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_PR12TissueReceived"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_SPECIMEN_RECEIVED"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "active_specimen": {
+                "M": {
+                    "surgical_event_id": {
+                        "S": "SEI_TR_02"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
+                    }
+                }
+            },
+            "current_step_number": {
+                "S": "1.0"
             },
             "patient_id": {
                 "S": "PT_SS06_TissueReceived"
             },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            }
+        },
+        {
+            "current_status": {
+                "S": "TISSUE_SPECIMEN_RECEIVED"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
             "active_specimen": {
                 "M": {
                     "surgical_event_id": {
@@ -2661,49 +2701,22 @@
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
-            }
-        },
-        {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "current_status": {
-                "S": "TISSUE_SPECIMEN_RECEIVED"
             },
             "patient_id": {
                 "S": "PT_SS07_TissueReceived"
             },
-            "active_specimen": {
-                "M": {
-                    "surgical_event_id": {
-                        "S": "SEI_TR_02"
-                    },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    }
-                }
-            },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "current_step_number": {
-                "S": "1.0"
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_SPECIMEN_RECEIVED"
             },
-            "patient_id": {
-                "S": "PT_SS10_TissueReceived"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
@@ -2715,50 +2728,68 @@
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_SS10_TissueReceived"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_NUCLEIC_ACID_SHIPPED"
             },
-            "patient_id": {
-                "S": "PT_SS11_Tissue1Shipped"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
-                    "surgical_event_id": {
-                        "S": "SEI_TR_1"
-                    },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    },
                     "active_destination": {
                         "S": "MDA"
                     },
+                    "surgical_event_id": {
+                        "S": "SEI_TR_1"
+                    },
                     "active_molecular_id": {
                         "S": "MOI_TR_01"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
                     }
                 }
+            },
+            "current_step_number": {
+                "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_SS11_Tissue1Shipped"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            }
+        },
+        {
+            "current_status": {
+                "S": "BLOOD_VARIANT_REPORT_CONFIRMED"
             },
             "study_id": {
                 "S": "APEC1621"
             },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            },
             "current_step_number": {
                 "S": "1.0"
-            }
-        },
-        {
+            },
+            "patient_id": {
+                "S": "PT_SR10_BdVRConfirmed"
+            },
             "active_blood_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
@@ -2767,34 +2798,34 @@
                     "variant_report_status": {
                         "S": "CONFIRMED"
                     },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    },
                     "active_destination": {
                         "S": "MDA"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
                     },
                     "active_molecular_id": {
                         "S": "MOI_BR_01"
                     }
                 }
-            },
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "patient_id": {
-                "S": "PT_SR10_BdVRConfirmed"
-            },
+            }
+        },
+        {
             "current_status": {
-                "S": "BLOOD_VARIANT_REPORT_CONFIRMED"
+                "S": "BLOOD_VARIANT_REPORT_RECEIVED"
             },
             "study_id": {
                 "S": "APEC1621"
             },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            },
             "current_step_number": {
                 "S": "1.0"
-            }
-        },
-        {
+            },
+            "patient_id": {
+                "S": "PT_SR10_BdVRReceived"
+            },
             "active_blood_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
@@ -2803,42 +2834,24 @@
                     "variant_report_status": {
                         "S": "PENDING"
                     },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    },
                     "active_destination": {
                         "S": "MDA"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
                     },
                     "active_molecular_id": {
                         "S": "MOI_BR_01"
                     }
                 }
-            },
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "patient_id": {
-                "S": "PT_SR10_BdVRReceived"
-            },
-            "current_status": {
-                "S": "BLOOD_VARIANT_REPORT_RECEIVED"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "current_step_number": {
-                "S": "1.0"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_SPECIMEN_RECEIVED"
             },
-            "patient_id": {
-                "S": "PT_PR11TissueReceived"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
@@ -2850,33 +2863,48 @@
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_PR11TissueReceived"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "patient_id": {
-                "S": "PT_SS17_Registered"
+            "current_step_number": {
+                "S": "1.0"
             },
             "current_status": {
                 "S": "REGISTRATION"
             },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            },
             "study_id": {
                 "S": "APEC1621"
             },
-            "current_step_number": {
-                "S": "1.0"
+            "patient_id": {
+                "S": "PT_SS17_Registered"
             }
         },
         {
+            "current_status": {
+                "S": "TISSUE_NUCLEIC_ACID_SHIPPED"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
             "registration_date": {
                 "S": "2016-02-09T22:06:33+00:00"
+            },
+            "current_step_number": {
+                "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_SS24_TissueShipped"
             },
             "active_blood_specimen": {
                 "M": {
@@ -2890,126 +2918,111 @@
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
+                    "active_destination": {
+                        "S": "MDA"
+                    },
                     "surgical_event_id": {
                         "S": "SEI_TR_01"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
+                    }
+                }
+            }
+        },
+        {
+            "current_status": {
+                "S": "AWAITING_PATIENT_DATA"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "active_specimen": {
+                "M": {
+                    "active_molecular_id_shipped_date": {
+                        "S": "2016-05-01T19:42:13+00:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
+                    "variant_report_status": {
+                        "S": "CONFIRMED"
+                    },
+                    "active_destination": {
+                        "S": "MDA"
                     },
                     "specimen_received_date": {
                         "S": "2016-04-25T16:17:11+00:00"
                     },
-                    "active_destination": {
-                        "S": "MDA"
+                    "active_analysis_id": {
+                        "S": "ANI_01"
                     },
                     "active_molecular_id": {
                         "S": "MOI_01"
                     }
                 }
             },
-            "patient_id": {
-                "S": "PT_SS24_TissueShipped"
-            },
-            "current_status": {
-                "S": "TISSUE_NUCLEIC_ACID_SHIPPED"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
-            }
-        },
-        {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "current_status": {
-                "S": "AWAITING_PATIENT_DATA"
             },
             "patient_id": {
                 "S": "PT_VU13_VariantReportConfirmed"
             },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            }
+        },
+        {
+            "current_status": {
+                "S": "AWAITING_PATIENT_DATA"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
-                    "active_analysis_id": {
-                        "S": "ANI_01"
-                    },
                     "surgical_event_id": {
                         "S": "SEI_01"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
                     },
                     "variant_report_status": {
                         "S": "CONFIRMED"
                     },
+                    "active_destination": {
+                        "S": "MDA"
+                    },
                     "specimen_received_date": {
                         "S": "2016-04-25T16:17:11+00:00"
                     },
-                    "active_destination": {
-                        "S": "MDA"
+                    "active_analysis_id": {
+                        "S": "ANI_01"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
-            }
-        },
-        {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "current_status": {
-                "S": "AWAITING_PATIENT_DATA"
             },
             "patient_id": {
                 "S": "PT_SR12_VariantReportConfirmed"
             },
-            "active_specimen": {
-                "M": {
-                    "active_molecular_id_shipped_date": {
-                        "S": "2016-05-01T19:42:13+00:00"
-                    },
-                    "active_analysis_id": {
-                        "S": "ANI_01"
-                    },
-                    "surgical_event_id": {
-                        "S": "SEI_01"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
-                    },
-                    "variant_report_status": {
-                        "S": "CONFIRMED"
-                    },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    },
-                    "active_destination": {
-                        "S": "MDA"
-                    }
-                }
-            },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "current_step_number": {
-                "S": "1.0"
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "PATHOLOGY_REVIEWED"
             },
-            "patient_id": {
-                "S": "PT_SR10_NPathoReceived"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
@@ -3024,64 +3037,64 @@
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_SR10_NPathoReceived"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_VARIANT_REPORT_REJECTED"
             },
-            "patient_id": {
-                "S": "PT_SR10_TsVRRejected"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
-                    "active_analysis_id": {
-                        "S": "ANI_01"
-                    },
                     "surgical_event_id": {
                         "S": "SEI_01"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
                     },
                     "variant_report_status": {
                         "S": "REJECTED"
                     },
+                    "active_destination": {
+                        "S": "MDA"
+                    },
                     "specimen_received_date": {
                         "S": "2016-04-25T16:17:11+00:00"
                     },
-                    "active_destination": {
-                        "S": "MDA"
+                    "active_analysis_id": {
+                        "S": "ANI_01"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_SR10_TsVRRejected"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_SPECIMEN_RECEIVED"
             },
-            "patient_id": {
-                "S": "PT_AS08_TissueReceived"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
@@ -3093,22 +3106,22 @@
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_AS08_TissueReceived"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "PATHOLOGY_REVIEWED"
             },
-            "patient_id": {
-                "S": "PT_PR12_PathologyUReceived3"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
@@ -3123,141 +3136,141 @@
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_PR12_PathologyUReceived3"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "patient_id": {
-                "S": "PT_SR03_Registered"
+            "current_step_number": {
+                "S": "1.0"
             },
             "current_status": {
                 "S": "REGISTRATION"
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "current_step_number": {
-                "S": "1.0"
-            }
-        },
-        {
             "registration_date": {
                 "S": "2016-02-09T22:06:33+00:00"
             },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "patient_id": {
+                "S": "PT_SR03_Registered"
+            }
+        },
+        {
             "current_status": {
                 "S": "TISSUE_SLIDE_SPECIMEN_SHIPPED"
             },
-            "patient_id": {
-                "S": "PT_AS03_SlideShipped"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
+                        "S": "2016-05-01T19:42:13+00:00"
+                    },
+                    "slide_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "surgical_event_id": {
                         "S": "SEI_01"
                     },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
-                    },
-                    "slide_shipped_date": {
-                        "S": "2016-05-01T19:42:13+00:00"
-                    },
                     "specimen_received_date": {
                         "S": "2016-04-25T16:17:11+00:00"
                     },
                     "active_destination": {
                         "S": "MDA"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_AS03_SlideShipped"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_SLIDE_SPECIMEN_SHIPPED"
             },
-            "patient_id": {
-                "S": "PT_SS16_Slide1Shipped"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
-                    "surgical_event_id": {
-                        "S": "SEI_TR_1"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_TR_01"
-                    },
                     "slide_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "SEI_TR_1"
                     },
                     "specimen_received_date": {
                         "S": "2016-04-25T16:17:11+00:00"
                     },
                     "active_destination": {
                         "S": "MDA"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_TR_01"
                     }
                 }
-            },
-            "study_id": {
-                "S": "APEC1621"
             },
             "current_step_number": {
                 "S": "1.0"
-            }
-        },
-        {
-            "active_blood_specimen": {
-                "M": {
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    }
-                }
+            },
+            "patient_id": {
+                "S": "PT_SS16_Slide1Shipped"
             },
             "registration_date": {
                 "S": "2016-02-09T22:06:33+00:00"
-            },
-            "patient_id": {
-                "S": "PT_SS18_BloodReceived"
-            },
+            }
+        },
+        {
             "current_status": {
                 "S": "BLOOD_SPECIMEN_RECEIVED"
             },
             "study_id": {
                 "S": "APEC1621"
             },
-            "current_step_number": {
-                "S": "1.0"
-            }
-        },
-        {
             "registration_date": {
                 "S": "2016-02-09T22:06:33+00:00"
             },
+            "current_step_number": {
+                "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_SS18_BloodReceived"
+            },
+            "active_blood_specimen": {
+                "M": {
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
+                    }
+                }
+            }
+        },
+        {
             "current_status": {
                 "S": "TISSUE_SPECIMEN_RECEIVED"
             },
-            "patient_id": {
-                "S": "PT_PR03_TissueReceived"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
@@ -3269,58 +3282,58 @@
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_PR03_TissueReceived"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_NUCLEIC_ACID_SHIPPED"
             },
-            "patient_id": {
-                "S": "PT_VU06_TissueShipped"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
-                    "surgical_event_id": {
-                        "S": "SEI_01"
-                    },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    },
                     "active_destination": {
                         "S": "MDA"
                     },
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
                     "active_molecular_id": {
                         "S": "MOI_01"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_VU06_TissueShipped"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "PATHOLOGY_REVIEWED"
             },
-            "patient_id": {
-                "S": "PT_SR10_UPathoReceived"
+            "study_id": {
+                "S": "APEC1621"
             },
             "active_specimen": {
                 "M": {
@@ -3335,92 +3348,96 @@
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_SR10_UPathoReceived"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         },
         {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
             "current_status": {
                 "S": "TISSUE_NUCLEIC_ACID_SHIPPED"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "active_specimen": {
+                "M": {
+                    "active_molecular_id_shipped_date": {
+                        "S": "2016-05-01T19:42:13+00:00"
+                    },
+                    "active_destination": {
+                        "S": "MDA"
+                    },
+                    "surgical_event_id": {
+                        "S": "SEI_01"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
+                    },
+                    "specimen_received_date": {
+                        "S": "2016-04-25T16:17:11+00:00"
+                    }
+                }
+            },
+            "current_step_number": {
+                "S": "1.0"
             },
             "patient_id": {
                 "S": "PT_VU04_TissueShipped"
             },
-            "active_specimen": {
-                "M": {
-                    "active_molecular_id_shipped_date": {
-                        "S": "2016-05-01T19:42:13+00:00"
-                    },
-                    "surgical_event_id": {
-                        "S": "SEI_01"
-                    },
-                    "specimen_received_date": {
-                        "S": "2016-04-25T16:17:11+00:00"
-                    },
-                    "active_destination": {
-                        "S": "MDA"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
-                    }
-                }
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
+            }
+        },
+        {
+            "current_status": {
+                "S": "TISSUE_VARIANT_REPORT_RECEIVED"
             },
             "study_id": {
                 "S": "APEC1621"
             },
-            "current_step_number": {
-                "S": "1.0"
-            }
-        },
-        {
-            "registration_date": {
-                "S": "2016-02-09T22:06:33+00:00"
-            },
-            "current_status": {
-                "S": "TISSUE_VARIANT_REPORT_RECEIVED"
-            },
-            "patient_id": {
-                "S": "PT_VU09_VariantReportUploaded"
-            },
             "active_specimen": {
                 "M": {
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
-                    "active_analysis_id": {
-                        "S": "ANI_01"
-                    },
                     "surgical_event_id": {
                         "S": "SEI_01"
-                    },
-                    "active_molecular_id": {
-                        "S": "MOI_01"
                     },
                     "variant_report_status": {
                         "S": "PENDING"
                     },
+                    "active_destination": {
+                        "S": "MDA"
+                    },
                     "specimen_received_date": {
                         "S": "2016-04-25T16:17:11+00:00"
                     },
-                    "active_destination": {
-                        "S": "MDA"
+                    "active_analysis_id": {
+                        "S": "ANI_01"
+                    },
+                    "active_molecular_id": {
+                        "S": "MOI_01"
                     }
                 }
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "current_step_number": {
                 "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_VU09_VariantReportUploaded"
+            },
+            "registration_date": {
+                "S": "2016-02-09T22:06:33+00:00"
             }
         }
     ],
+    "Count": 105,
     "ConsumedCapacity": null,
-    "ScannedCount": 104
+    "ScannedCount": 105
 }
