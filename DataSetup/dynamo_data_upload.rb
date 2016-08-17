@@ -91,7 +91,12 @@ class DynamoDataUploader
 
   def upload_treatment_arm_to_aws
     start_stamp = Time.now
-    TableDetails.treatment_arm_tables.each { |table_name| upload_table_to_aws(table_name) }
+    TableDetails.treatment_arm_tables.each do |table_name|
+      dev_table  = "#{table_name}_development"
+      test_table = "#{table_name}_test"
+      name = @endpoint.match(/localhost/) ? dev_table : test_table
+      upload_table_to_aws name
+    end
     end_stamp = Time.now
     diff = (end_stamp - start_stamp) * 1000.0
     p "All treatment arm local to aws works done! It took #{diff.to_f/1000.0} seconds"
