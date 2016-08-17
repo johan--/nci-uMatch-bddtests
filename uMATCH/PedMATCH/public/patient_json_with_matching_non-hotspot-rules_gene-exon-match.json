@@ -28,7 +28,7 @@
           "chromosome" : "chr4",
           "confirmed" : true,
           "position" : "55599320",
-          "gene" : "EGFR",
+          "func_gene" : "EGFR",
           "exon":"20",
           "readDepth" : 450,
           "inclusion" : true

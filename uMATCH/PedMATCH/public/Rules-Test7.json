@@ -7,7 +7,7 @@
   "description": "This TA is used by Cuke Test",
   "target_id": "113",
   "target_name": "Crizotinib",
-  "gene": "ALK",
+  "func_gene": "ALK",
   "treatment_arm_status": "OPEN",
   "study_id": "APEC1621",
   "assay_results": [],
@@ -25,7 +25,7 @@
       "inclusion": true,
       "oncominevariantclass": "deleterious",
       "public_med_ids": null,
-      "gene": "PTEN",
+      "func_gene": "PTEN",
       "arm_specific": "false",
       "level_of_evidence": "3.0",
       "function": null,
@@ -35,7 +35,7 @@
     }],
     "copy_number_variants": [],
     "gene_fusions": [{
-      "reference": "A",
+      "ocp_reference": "A",
       "gene_name": "ALK",
       "identifier": "TPM3-ALK.T7A20",
       "inclusion": true,
@@ -43,12 +43,12 @@
       "arm_specific": "false",
       "level_of_evidence": "2.0",
       "chromosome": "2.0",
-      "alternative": "[chr1:154142875[A",
+      "ocp_alternative": "[chr1:154142875[A",
       "description": "ALK translocation",
       "position": "29446394",
       "type": "gf"
     }, {
-      "reference": "C",
+      "ocp_reference": "C",
       "gene_name": "FGFR2",
       "identifier": "FGFR2-OFD1.F17O3",
       "inclusion": true,
@@ -56,7 +56,7 @@
       "arm_specific": "false",
       "level_of_evidence": "3.0",
       "chromosome": "10.0",
-      "alternative": "C[chrX:13754596[",
+      "ocp_alternative": "C[chrX:13754596[",
       "description": "some description",
       "position": "123243211",
       "type": "gf"
@@ -101,7 +101,7 @@
     "target": "ALK"
   }],
   "assay_results": [{
-    "gene" : "PTEN",
+    "func_gene" : "PTEN",
     "assay_result_status" : "NEGATIVE",
     "assay_variant" : "PRESENT",
     "level_of_evidence" : 3

@@ -1,4 +1,4 @@
-ENV['DOCKER_HOSTNAME'] = '127.0.0.1' #'192.168.99.100'
+ENV['DOCKER_HOSTNAME'] = '127.0.0.1' #'192.168.99.100' 127.0.0.1
 ENV['treatment_arm_api_PORT'] = '10235'
 ENV['patient_api_PORT'] = '10240'
 ENV['patient_processor_PORT'] = '3010'

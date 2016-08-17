@@ -29,12 +29,12 @@
         "type":"ugf",
         "confirmed": true,
         "identifier" : "TPM3-ALK.T7A20",
-        "driverGene" : "TPM3",
-        "driverReadCount" : 1001,
-        "partnerGene" : "ALK",
+        "driver_gene" : "TPM3",
+        "driver_read_count" : 1001,
+        "partner_gene" : "ALK",
         "inclusion" : false,
         "armSpecific" : false,
-        "partnerReadCount" : 1001
+        "partner_read_count" : 1001
       },
       {
         "type":"ugf",

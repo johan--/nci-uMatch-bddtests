@@ -23,7 +23,7 @@ When(/^assignPatient service is called$/) do
   res = Helper_Methods.post_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['rules_PORT']+'/nci-match-rules/rules/rs/assignPatient',@payload)
 
   @res = res.to_json
-  # p @res
+  p @res
   expect((JSON.parse(@res)['Error'])).to be_nil
 end
 
@@ -64,7 +64,7 @@ Then(/^amoi treatment arm names for snv variant "([^"]*)" include:$/) do |arg1, 
   arrTA = string.split(/\n+/)
   JSON.parse(@res)['single_nucleotide_variants'].each do |snv|
     if snv['identifier'] == arg1
-      expect(snv['treatmentArmNames']).to match_array(arrTA)
+      expect(snv['treatment_arm_names']).to match_array(arrTA)
     end
   end
 end
@@ -73,7 +73,7 @@ Then(/^amoi treatment arms for snv variant "([^"]*)" include:$/) do |arg1, strin
   taHash = JSON.parse(string)
   JSON.parse(@res)['single_nucleotide_variants'].each do |snv|
     if snv['identifier'] == arg1
-      expect((snv['treatmentArms']).flatten).to match_array((taHash).flatten)
+      expect((snv['treatment_arms']).flatten).to match_array((taHash).flatten)
     end
   end
 end

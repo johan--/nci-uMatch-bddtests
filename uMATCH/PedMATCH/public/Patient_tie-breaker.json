@@ -25,16 +25,16 @@
         {
           "type":"snv",
           "confirmed":true,
-          "gene" : "PTEN",
+          "func_gene" : "PTEN",
           "exon" : "22",
-          "oncominevariantclass": "deleterious",
+          "oncomine_variant_class": "deleterious",
           "chromosome" : "chr1",
           "position" : "11184573",
           "identifier" : "COSM1234",
-          "reference" : "G",
-          "alternative" : "A",
-          "readDepth" : 2124,
-          "alleleFrequency" : 1
+          "ocp_reference" : "G",
+          "ocp_alternative" : "A",
+          "read_depth" : 2124,
+          "allele_frequency" : 1
         }
       ],
     "indels": [],

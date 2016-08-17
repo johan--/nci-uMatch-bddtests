@@ -24,13 +24,13 @@
     "single_nucleotide_variants": [
       {
         "type":"snv",
-        "gene" : "KIT",
+        "func_gene" : "KIT",
         "exon" : "22",
         "chromosome" : "chr1",
         "position" : "11184573",
         "identifier" : "COSM1234",
-        "reference" : "G",
-        "alternative" : "A",
+        "ocp_reference" : "G",
+        "ocp_alternative" : "A",
         "filter" : "PASS",
         "transcript" : "NM_004958.3",
         "location" : "exonic",

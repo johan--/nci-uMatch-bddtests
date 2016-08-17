@@ -7,7 +7,7 @@
   "description": "This TA is used by Cuke Test",
   "target_id": "113",
   "target_name": "Crizotinib",
-  "gene": "ALK",
+  "func_gene": "ALK",
   "treatment_arm_status": "OPEN",
   "study_id": "APEC1621",
   "assay_results": [],
@@ -24,7 +24,7 @@
     "non_hotspot_rules": [{
       "inclusion": false,
       "public_med_ids": null,
-      "gene": "EGFR",
+      "func_gene": "EGFR",
       "exon":"20",
       "arm_specific": "false",
       "level_of_evidence": "3.0",
