@@ -70,8 +70,6 @@ var Utilities = function() {
     this.checkElementIncludesAttribute = function (element, attribute, value) {
         element.getAttribute(attribute).then(function (allAttributes) {
             var attributeArray = allAttributes.split(' ');
-            console.log('Value ' + value);
-            console.log('Attribute Array = ' + attributeArray);
             expect(attributeArray).to.include(value);
         });
     };

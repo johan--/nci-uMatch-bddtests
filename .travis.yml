@@ -1,5 +1,5 @@
 sudo: required
-services: 
+services:
   - docker
 # language: ruby
 # rvm:
@@ -54,8 +54,8 @@ before_script:
   - curl -X POST "http://pedmatch.org:3000/restart" -d ''
 script:
   # Run Cucumber @tag specific tests
-#  - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG --format pretty' -n 4
-#  - cd ../..
+  - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG --format pretty' -n 4
+  - cd ../..
   # Run Cucumber end to end tests
   # - bundle exec cucumber --tags @EndtoEnd
   # Install xvfb
@@ -72,8 +72,8 @@ after_success:
   - export DATE=`date "+%m-%d-%y-%H%M"`
   - docker tag -f matchbox/$TRIGGER_REPO matchbox/$TRIGGER_REPO:$DATE
   - docker images
-  - docker push  matchbox/$TRIGGER_REPO:$DATE 
-  # Push to UAT AWS 
+  - docker push  matchbox/$TRIGGER_REPO:$DATE
+  # Push to UAT AWS
   - docker run -it --rm -e AWS_ACCESS_KEY_ID=$UAT_AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$UAT_AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster PedMatch-UAT --service-name PedMatch-$TRIGGER_REPO-UAT -i matchbox/$TRIGGER_REPO:$DATE
   # Trigger Travis script #3
   # - curl -s -X POST -H "Content-Type:application/json" -H "Accept:application/json" -H "Travis-API-Version:3" -H "Authorization:token $TRAVIS_TOKEN" -d "{\"request\":{\"message\":\"Triggered by nci-treatment-arm-processor-api $TRAVIS_COMMIT\", \"branch\":\"master\", \"config\":{\"env\":{\"matrix\":[\"TRIGGER_REPO=nci-treatment-arm-processor-api;CUC_TAG=@treatment_arm\"]}}}}" https://api.travis-ci.org/repo/CBIIT%2Fnci-uMatch-bddtests/requests
@@ -82,6 +82,8 @@ after_script:
   - export DATE=`date "+%m-%d-%y-%H%M"`
   - export TEST_REPORT='BDD Test Report'
   - cd ~/build/CBIIT/nci-uMatch-bddtests/ResultsUpload
+  - head -10 ~/build/CBIIT/nci-uMatch-bddtests/results/output.json
+  - head -10 ~/build/CBIIT/nci-uMatch-bddtests/results/result.json
   - ./update_google_drive.rb -d ~/build/CBIIT/nci-uMatch-bddtests/results/ -c config.json -t $CUC_TAG -b $TRAVIS_BUILD_NUMBER -f $TEST_REPORT
   # - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/uMATCH/PedMATCH/results/output.json s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_COMMIT/ --region us-east-1
   # - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/nci-match-ui-bddtests/results/result.json s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_COMMIT/ --region us-east-1

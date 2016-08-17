@@ -50,6 +50,7 @@ class UpdateGoogleDrive
   end
 
   def update_summary_sheet
+    puts "Updating #{@summary_sheet.title}"
     results = @cuke.simplify_collected_data
     new_row = @summary_sheet.num_rows + 1
     col_headings = set_summ_col_headings
@@ -62,6 +63,7 @@ class UpdateGoogleDrive
   end
 
   def update_metrics_sheet
+    puts "Updating #{@metrics_sheet.title}"
     metrics = @cuke.result_by_scenario
     new_col = @metrics_sheet.num_cols + 1
     new_row = @metrics_sheet.num_rows + 1

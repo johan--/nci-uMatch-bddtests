@@ -1,1 +1,1 @@
-default: --format pretty --format json --out ../../results/output.json
+default: --format pretty --format json --out ../../results/output.json --expand

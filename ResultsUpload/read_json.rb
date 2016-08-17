@@ -1,11 +1,12 @@
 require 'json'
 
-# This class is used to manipulate information required to access details from cucumber json reports
+# This class is used to manipulate information required
+# to access details from cucumber json reports
 class ReadJson
   attr_reader :file_list, :collected_results
   def initialize(options = nil)
     raise 'Directory for cucumber json not given' if options[:directory].nil?
-    @file_list = Dir["#{options[:directory]}/*.json"]
+    @file_list = trim_file_list(Dir["#{options[:directory]}/*.json"])
     @collected_results = []
     raise 'Could not find any json files' if @file_list.size.zero?
   end
@@ -20,45 +21,47 @@ class ReadJson
       cuke.each do |feature|
         feature['elements'].each do |scenario|
           next if scenario['type'] == 'background'
-          name = scenario['name']
-          res = sort_results(scenario)
-          @collected_results << {
-            name: name,
-            passed: res[:passed],
-            failed: res[:failed],
-            skipped: res[:skipped]
-          }
+          name = build_scenario_name scenario
+          res = sort_results scenario
+          @collected_results << { name: name, passed: res[:passed], failed: res[:failed], skipped: res[:skipped] }
         end
       end
     end
   end
 
+  # This method will reject any json file that is empty
+  def trim_file_list(file_list)
+    file_list.reject { |f| JSON.parse(File.read(f)).empty? }
+  end
+
+  # Method is used to build a unique scenario name
+  # in case of a scenario outline.
+  def build_scenario_name(scenario)
+    return scenario['name'] if scenario['keyword'] == 'Scenario'
+    "#{scenario['name']}_line_#{scenario['line']}"
+  end
+
   def sort_results(scenario)
-    passed = 0
-    failed = 0
-    skipped = 0
-    scenario["steps"].each do |step|
+    passed, failed, skipped = 0, 0, 0
+    scenario['steps'].each do |step|
       next if step['result'].nil?
-      @step = step
       case step['result']['status']
       when 'passed'
         passed += 1
-
       when 'failed'
         failed += 1
-
       when 'skipped'
         skipped += 1
       end
     end
-    { passed: passed, failed:failed, skipped: skipped }
+    { passed: passed, failed: failed, skipped: skipped }
   end
 
   # This method transforms the collected results to a hash that breaks
   # down the build by pass/fail/skipped steps
   def simplify_collected_data
     stats = {passed: 0, failed: 0, skipped: 0, total: 0}
-    collect_all_results if @collected_results.nil?
+    collect_all_results if @collected_results.empty?
     @collected_results.each do |line|
       if line[:failed] > 0
         stats[:failed] += 1
@@ -75,12 +78,11 @@ class ReadJson
     stats
   end
 
-
   # This method transforms the data into a hash that
   # states whether a scenario has passed or failed.
   def result_by_scenario
     scenario_result = {}
-
+    collect_all_results if @collected_results.empty?
     @collected_results.each do |line|
       if line[:failed] > 0
         scenario_result[line[:name]] = 'F'
