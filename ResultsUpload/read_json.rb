@@ -31,7 +31,11 @@ class ReadJson
 
   # This method will reject any json file that is empty
   def trim_file_list(file_list)
-    file_list.reject { |f| JSON.parse(File.read(f)).empty? }
+    file_list.each do |file|
+      if File.read(file).empty? || JSON.parse(File.read(f)).empty?
+        file_list.delete(file)
+      end
+    end
   end
 
   # Method is used to build a unique scenario name
