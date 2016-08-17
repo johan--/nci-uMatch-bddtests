@@ -1,5 +1,6 @@
 #encoding: utf-8
-@specimen_shipped #@patients
+#@patients
+@specimen_shipped
 Feature: NCH Specimen shipped messages
   Scenario: PT_SS01. Received specimen_shipped message for type 'BLOOD' from NCH for a patient who has already received the specimen_received message
     Given template specimen shipped message in type: "BLOOD" for patient: "PT_SS01_BloodReceived"

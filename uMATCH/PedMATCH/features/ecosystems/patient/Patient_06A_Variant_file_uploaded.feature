@@ -1,5 +1,6 @@
 #encoding: utf-8
-@variant_file_uploaded #@patients
+#@patients
+@variant_file_uploaded
 Feature: Variant files uploaded message
   Scenario Outline: PT_VU01. variant files uploaded message with invalid patient_id should fail
     Given template variant uploaded message for patient: "<value>", it has molecular_id: "MOI_01" and analysis_id: "ANI_01"

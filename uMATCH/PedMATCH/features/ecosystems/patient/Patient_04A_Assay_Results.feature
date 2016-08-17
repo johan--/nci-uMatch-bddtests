@@ -1,5 +1,6 @@
 #encoding: utf-8
-@assay #@patients
+#@patients
+@assay
 Feature: Assay Messages
   Scenario Outline: PT_AS01. Assay result with invalid patient_id(empty, non-existing, null) should fail
     Given template assay message with surgical_event_id: "SEI_01" for patient: "<value>"
