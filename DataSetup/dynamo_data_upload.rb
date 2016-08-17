@@ -103,7 +103,9 @@ class DynamoDataUploader
   end
 
   def upload_table_to_aws(table_name)
-    file_location = "#{File.dirname(__FILE__)}/#{SEED_DATA_FOLDER}/#{SEED_FILE_PREFIX}_#{table_name}.json"
+    file_name = table_name.gsub(/_(development|test)/, '')
+
+    file_location = "#{File.dirname(__FILE__)}/#{SEED_DATA_FOLDER}/#{SEED_FILE_PREFIX}_#{file_name}.json"
     local_json = JSON.parse(File.read(file_location))
     items = local_json['Items']
     put_requests = Array.new
@@ -124,7 +126,6 @@ class DynamoDataUploader
         items_count += put_requests.count
         put_requests.clear
       end
-      # @aws_db.put_item({:table_name => table_name, :item => converted_item})
     end
 
     p "#{items_count} #{table_name} items are writen!"
