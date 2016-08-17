@@ -1,5 +1,5 @@
 #encoding: utf-8
-@patients @pathology
+@pathology #@patients
 Feature: Pathology Messages
 
   Scenario Outline: PT_PR01. Pathology report with invalid patient_id(empty, non-existing, null) should fail

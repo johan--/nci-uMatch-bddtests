@@ -1,5 +1,5 @@
 #encoding: utf-8
-@patients @variant_confirm
+@variant_confirm #@patients
 Feature: Variant files confirmed messages
 #  variant_confirmed:
   Scenario Outline: PT_VC01. variant confirm message with invalid variant_uuid should fail

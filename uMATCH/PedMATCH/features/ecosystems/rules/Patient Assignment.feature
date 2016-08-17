@@ -1,5 +1,4 @@
-#@demo
-@rules
+@demo @rules
 Feature: Ensure the rules are fired correctly and patients are assigned to the right treatment arm::
 
   Scenario: Matching inclusion gene fusion variant and inclusion disease - Assign to TA

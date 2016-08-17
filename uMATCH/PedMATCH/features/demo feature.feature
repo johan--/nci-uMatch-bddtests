@@ -3,7 +3,7 @@ Feature: Feature for end-to-end test demo
 
 Background: wait for process to complete
   Then wait for "15" seconds
-  @demo
+#  @demo
   Scenario: Load APEC1621-A arm
     Given that treatment arm is received from COG:
 	"""
@@ -431,7 +431,7 @@ Background: wait for process to complete
     Then the treatmentArmStatus field has a value "OPEN" for the ta "APEC1621-A"
     Then the treatmentArmStatus field has a value "OPEN" for the ta "APEC1621-B"
 
-  @demo
+#  @demo
   Scenario Outline: Patient in registration
     Given that Patient StudyID "<StudyId>" PatientSeqNumber "<patient_id>" StepNumber "<step_number>" PatientStatus "<patient_status>" Message "Patient registration trigger" with "<date_created>" dateCreated is received from EA layer
     When posted to MATCH patient registration
