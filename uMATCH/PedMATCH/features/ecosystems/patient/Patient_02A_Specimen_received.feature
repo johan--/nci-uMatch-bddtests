@@ -6,11 +6,17 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
   Scenario: PT_SR01. Consume a specimen_received message for type "Blood" for a patient already registered in Match
     Given template specimen received message in type: "BLOOD" for patient: "PT_SR01_Registered"
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+    Then wait for "10" seconds
+    Then retrieve patient: "PT_SR01_Registered" from API
+    Then returned patient has value: "BLOOD_SPECIMEN_RECEIVED" in field: "current_status"
 
   Scenario: PT_SR02. Consume a specimen_received message for type "Tissue" for a patient already registered in Match
     Given template specimen received message in type: "TISSUE" for patient: "PT_SR02_Registered"
     Then set patient message field: "surgical_event_id" to value: "PT-SpecimenTest_SE_1"
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+    Then wait for "10" seconds
+    Then retrieve patient: "PT_SR02_Registered" from API
+    Then returned patient has value: "TISSUE_SPECIMEN_RECEIVED" in field: "current_status"
 
   Scenario: PT_SR03. "Blood" specimen received message with surgical_event_id should fail
     Given template specimen received message in type: "BLOOD" for patient: "PT_SR03_Registered"
@@ -37,7 +43,7 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
 
   Scenario: PT_SR07. Return error when specimen received message is received for non-existing patient
     Given template specimen received message in type: "TISSUE" for patient: "PT_NonExistingPatient"
-    When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"
+    When posted to MATCH patient trigger service, returns a message that includes "exist" with status "Failure"
 
 
   Scenario Outline: PT_SR08. Return error message when invalid type (other than BLOOD or TISSUE) is received

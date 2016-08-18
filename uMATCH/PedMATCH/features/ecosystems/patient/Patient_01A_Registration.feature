@@ -17,8 +17,8 @@ Feature: Register a new patient in PEDMatchbox:
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"
     Examples:
     |patient_id             |message                                                                      |
-    |                       |was not of a minimum string length of 1                                      |
-    |null                   |NilClass did not match the following type: string                            |
+    |                       |can't be blank                                                               |
+    |null                   |can't be blank                                                               |
     |PT_RG02_ExistingPatient|This patient has already been registered and cannot be registered again      |
 
 
@@ -28,11 +28,11 @@ Feature: Register a new patient in PEDMatchbox:
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"
     Examples:
       |patient_id               |study_id           |message                                                      |
-      |PT_RG03_EmptyStudyID     |                   |was not of a minimum string length of 1                      |
-      |PT_RG03_NullStudyID      |null               |NilClass did not match the following type: string            |
-      |PT_RG03_OtherStudyID     |Other              |APEC1621                                                     |
-      |PT_RG03_WrongCaseStudyID |Apec1621           |APEC1621                                                     |
-      |PT_RG03_GoodIDPlusBad    |APEC1621x1         |APEC1621                                                     |
+      |PT_RG03_EmptyStudyID     |                   |can't be blank                                               |
+      |PT_RG03_NullStudyID      |null               |can't be blank                                               |
+      |PT_RG03_OtherStudyID     |Other              |not a valid study_id                                         |
+      |PT_RG03_WrongCaseStudyID |Apec1621           |not a valid study_id                                         |
+      |PT_RG03_GoodIDPlusBad    |APEC1621x1         |not a valid study_id                                         |
 
    Scenario Outline: PT_RG04. patient registration with invalid step_number should fail
      Given template patient registration message for patient: "<patient_id>" on date: "current"
@@ -40,9 +40,9 @@ Feature: Register a new patient in PEDMatchbox:
      When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"
      Examples:
        |patient_id               |step_number        |message                                                 |
-       |PT_RG04_EmptyStpNum      |                   |was not of a minimum string length of 1                 |
-       |PT_RG04_NullStpNum       |null               |NilClass did not match the following type: string       |
-       |PT_RG04_StringStpNum     |Other              |1.0                                                     |
+       |PT_RG04_EmptyStpNum      |                   |can't be blank                                          |
+       |PT_RG04_NullStpNum       |null               |can't be blank                                          |
+       |PT_RG04_StringStpNum     |Other              |is not a number                                         |
        |PT_RG04_WrongStpNum1     |1.1                |1.0                                                     |
        |PT_RG04_WrongStpNum2     |2.0                |1.0                                                     |
        |PT_RG04_WrongStpNum3     |8.0                |1.0                                                     |
@@ -53,8 +53,8 @@ Feature: Register a new patient in PEDMatchbox:
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"
     Examples:
       |patient_id             |registration_date        |message                                                 |
-      |PT_RG05_EmptyDate      |                         |was not of a minimum string length of 1                 |
-      |PT_RG05_NullDate       |null                     |NilClass did not match the following type: string       |
-      |PT_RG05_StringDate     |Other                    |not a date                                              |
-      |PT_RG05_FutureDate     |future                   |future                                                  |
-      |PT_RG05_TimeStampDate  |1471360795               |not a date                                              |
+      |PT_RG05_EmptyDate      |                         |can't be blank                                          |
+      |PT_RG05_NullDate       |null                     |can't be blank                                          |
+      |PT_RG05_StringDate     |Other                    |invalid date                                            |
+      |PT_RG05_FutureDate     |future                   |Date is on or before                                    |
+      |PT_RG05_TimeStampDate  |1471360795               |invalid date                                            |
