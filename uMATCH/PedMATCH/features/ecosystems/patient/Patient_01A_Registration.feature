@@ -1,5 +1,5 @@
 #encoding: utf-8
-@patients @patients_reg
+@patients @patients_reg @demo
 Feature: Register a new patient in PEDMatchbox:
   Scenario: PT_RG01. New patient can be registered successfully
     Given template patient registration message for patient: "PT_RG01_New" on date: "2016-08-16T14:52:58.000+00:00"
