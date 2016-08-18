@@ -5,8 +5,6 @@ require_relative 'table_details'
 require_relative 'options_manager'
 
 class DynamoDataUploader
-
-
   DEFAULT_AWS_ENDPOINT = 'https://dynamodb.us-east-1.amazonaws.com'
   DEFAULT_AWS_REGION = 'us-east-1'
   DEFAULT_AWS_ACCESS_KEY = ENV['AWS_ACCESS_KEY_ID']
@@ -16,7 +14,12 @@ class DynamoDataUploader
   SEED_DATA_FOLDER = 'seed_data_for_upload'
   SEED_FILE_PREFIX = 'nci_match_bddtests_seed_data'
 
-
+  DEFAULT_OPTIONS = {
+    endpoint: DEFAULT_AWS_ENDPOINT,
+    region:   DEFAULT_AWS_REGION,
+    access_key_id: DEFAULT_AWS_ACCESS_KEY,
+    secret_access_key: DEFAULT_AWS_SECRET_KEY
+  }
 
   def self.backup_all_local_db
     TableDetails.all_tables.each { |table_name|
@@ -37,45 +40,27 @@ class DynamoDataUploader
     p "Table <#{table_name}> has been exported"
   end
 
-
   def initialize(options)
-    if options=='local'
+    if options == 'local'
       @endpoint = DEFAULT_LOCAL_DB_ENDPOINT
       @region = DEFAULT_LOCAL_REGION
-      @access_key = DEFAULT_AWS_ACCESS_KEY
-      @secret_key = DEFAULT_AWS_SECRET_KEY
-    elsif options=='default'
-      @endpoint = DEFAULT_AWS_ENDPOINT
-      @region = DEFAULT_AWS_REGION
-      @access_key = DEFAULT_AWS_ACCESS_KEY
-      @secret_key = DEFAULT_AWS_SECRET_KEY
+      DEFAULT_OPTIONS.merge!(endpoint: @endpoint, region: @region)
+    elsif options == 'default'
+      DEFAULT_OPTIONS
     else
-      if options[:endpoint].nil?
-        @endpoint = DEFAULT_AWS_ENDPOINT
-      else
-        @endpoint = options[:endpoint]
-      end
-      if options[:region].nil?
-        @region = DEFAULT_AWS_REGION
-      else
-        @region = options[:region]
-      end
-      if options[:aws_access_key_id].nil?
-        @access_key = DEFAULT_AWS_ACCESS_KEY
-      else
-        @access_key = options[:aws_access_key_id]
-      end
-      if options[:@secret_key].nil?
-        @secret_key = DEFAULT_AWS_SECRET_KEY
-      else
-        @secret_key = options[:@secret_key]
-      end
+      @endpoint   = options[:endpoint].nil? ? DEFAULT_AWS_ENDPOINT : options[:endpoint]
+      @region     = options[:region].nil? ? DEFAULT_AWS_REGION : options[:region]
+      @access_key = options[:aws_access_key_id].nil? ? DEFAULT_AWS_ACCESS_KEY : options[:aws_access_key_id]
+      @secret_key = options[:@secret_key].nil? ? DEFAULT_AWS_SECRET_KEY : options[:@secret_key]
+      DEFAULT_OPTIONS.merge!(
+        endpoint: @endpoint, 
+        region: @region, 
+        access_key_id: @access_key, 
+        secret_access_key: @secret_key
+      )
     end
 
-    Aws.config.update({endpoint: @endpoint,
-                       access_key_id: @access_key,
-                       secret_access_key: @secret_key,
-                       region: @region})
+    Aws.config.update(DEFAULT_OPTIONS)
     @aws_db = Aws::DynamoDB::Client.new()
     p "AWS endpoint: #{@endpoint}, region: #{@region}"
   end
@@ -83,35 +68,34 @@ class DynamoDataUploader
   def upload_patient_data_to_aws
     start_stamp = Time.now
     # TableDetails.patient_tables.each { |table_name| upload_patient_table_to_aws(table_name) }
-    TableDetails.patient_tables.each { |table_name| upload_table_to_aws(table_name) }
+    TableDetails.patient_tables.each { |table| upload_table_to_aws(table) }
     end_stamp = Time.now
     diff = (end_stamp - start_stamp) * 1000.0
-    p "All patient local to aws works done! It took #{diff.to_f/1000.0} seconds"
+    p "All patient local to aws uploaded in #{diff.to_f / 1000.0} secs!"
   end
 
   def upload_treatment_arm_to_aws
     start_stamp = Time.now
-    TableDetails.treatment_arm_tables.each do |table_name|
-      dev_table  = "#{table_name}_development"
-      test_table = "#{table_name}_test"
-      name = @endpoint.match(/localhost/) ? dev_table : test_table
-      upload_table_to_aws name
-    end
+    TableDetails.treatment_arm_tables.each { |table| upload_table_to_aws(table) }
+    # Commenting the suffix addition as part of code cleanup. Not removing
+    # dev_table  = "#{table_name}_development"
+    # test_table = "#{table_name}_test"
+    # name = @endpoint.match(/localhost/) ? dev_table : test_table
     end_stamp = Time.now
     diff = (end_stamp - start_stamp) * 1000.0
-    p "All treatment arm local to aws works done! It took #{diff.to_f/1000.0} seconds"
+    p "All treatment arm local to aws uploaded in #{diff.to_f / 1000.0} secs!"
   end
 
   def upload_table_to_aws(table_name)
-    file_name = table_name.gsub(/_(development|test)/, '')
+    # file_name = table_name.gsub(/_(development|test)/, '') Removing suffix as part of cleanup?
 
-    file_location = "#{File.dirname(__FILE__)}/#{SEED_DATA_FOLDER}/#{SEED_FILE_PREFIX}_#{file_name}.json"
+    file_location = "#{File.dirname(__FILE__)}/#{SEED_DATA_FOLDER}/#{SEED_FILE_PREFIX}_#{table_name}.json"
     local_json = JSON.parse(File.read(file_location))
     items = local_json['Items']
-    put_requests = Array.new
+    put_requests = []
     items_count = 0
     items.each_with_index do |this_item, index|
-      converted_item = Hash.new
+      converted_item = {}
       this_item.keys.each do |this_field|
         unless is_a_valid_field(table_name, this_field, this_item[this_field])
           return
@@ -119,12 +103,17 @@ class DynamoDataUploader
 
         converted_item[this_field] = extract_value(this_item[this_field])
       end
-      put_requests << {put_request:{item:converted_item}}
-      if put_requests.count==25 || (index == (items.count - 1) && put_requests.count>0)
-        request = {:request_items=>{table_name=>put_requests}}
-        @aws_db.batch_write_item(request)
-        items_count += put_requests.count
-        put_requests.clear
+      put_requests << { put_request: { item: converted_item } }
+      if put_requests.count == 25 || (index == (items.count - 1) && put_requests.count > 0)
+        request = { request_items: { table_name => put_requests } }
+        begin
+          @aws_db.batch_write_item(request)
+          items_count += put_requests.count
+          put_requests.clear  
+        rescue Aws::DynamoDB::Errors::ResourceNotFoundException => e
+          puts "#{table_name} not found. Upload failed. Your tests may fail"
+          p e.backtrace
+        end
       end
     end
 
@@ -133,26 +122,15 @@ class DynamoDataUploader
 
   def extract_value(field_object)
     if field_object.keys[0] == 'M'
-      result = Hash.new
+      result = {}
       field_object.values[0].each do |key, value|
         result[key] = value.values[0]
       end
       result
     elsif field_object.keys[0] == 'N'
       field_object.values[0].to_f
-    #   if field_object.values[0].include? '.'
-    #     field_object.values[0].to_f
-    #   else
-    #     field_object.values[0].to_i
-    #   end
-    # elsif field_object.keys[0] == 'BOOL'
-    #   if field_object.values[0].eql? 'true'
-    #     true
-    #   else
-    #     false
-    #   end
     elsif field_object.keys[0] == 'L'
-      result = Array.new
+      result = []
       field_object.values[0].each do |item|
         result << extract_value(item)
       end
@@ -175,12 +153,13 @@ class DynamoDataUploader
     unless type_correct
       p "#{class_name}-#{field_name} has invalid key #{field_object.keys[0]}"
     end
-    length_correct&&type_correct
+    length_correct && type_correct
   end
 end
 
 if __FILE__ == $0
   options = OptionsManager.parse(ARGV)
   DynamoDataUploader.new(options).upload_patient_data_to_aws
-  # DynamoDataUploader.new(options).upload_treatment_arm_to_aws
+  DynamoDataUploader.new(options).upload_treatment_arm_to_aws
 end
+

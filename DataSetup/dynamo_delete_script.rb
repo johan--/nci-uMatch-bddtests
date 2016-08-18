@@ -46,7 +46,6 @@ class DynamoDb
         @region = options[:region]
       end
 
-
       if options[:file_name].nil? && (options[:endpoint].nil? && options[:aws_access_key_id].nil? && options[:aws_secret_access_key].nil?)
         LOG.log("Using credential file located at #{DEFAULT_FILENAME}", :info)
         @file_location = DEFAULT_FILENAME
@@ -105,7 +104,8 @@ class DynamoDb
   end
 
   def collect_key_list(name)
-    table_details = TableDetails.const_get(name.gsub(/_(development|test)/, '').upcase)
+    actual_table_name = name.gsub(/_(development|test)/, '').upcase
+    table_details = TableDetails.const_get(actual_table_name)
     table_list = []
     begin
       @client.scan(table_name: name)['items'].each do |elem|
@@ -116,47 +116,50 @@ class DynamoDb
         table_list << row
       end
     rescue Aws::DynamoDB::Errors::ResourceNotFoundException => e
-      LOG.log("Table #{name} not found.  Please add table before running you application", :warn)
+      LOG.log("Table '#{name.upcase}' not found.", :warn)
       table_list = nil
     rescue => e
-      p e
+      p e.backtrace
     end
     table_list
   end
 
-  def set_suffix(name)
+  def add_suffix(name)
     dev_table  = "#{name}_development"
     test_table = "#{name}_test"
-    @endpoint.match(/localhost/) ? dev_table : test_table
+    @endpoint =~ /localhost/ ? dev_table : test_table
   end
 
   def clear_table(table_name)
-    table_name = set_suffix(table_name) if table_name.match(/treatment_arm/)
-
+    # table_name = add_suffix(table_name) if table_name =~ /treatment_arm/
+    # Keeping this here if we need it
     list = collect_key_list(table_name)
+    message = []
+    message << table_name.upcase
 
     return if list.nil?
 
-    if list.size == 0
-      LOG.log("Table #{table_name} is empty skipping...")
+    if list.size.zero?
+      LOG.log("Table '#{table_name.upcase}' is empty skipping...")
       return
     end
     list.each do |keys|
       key = keys.flatten.first
-      LOG.log("Deleting #{key}: #{keys[key]} from #{table_name}")
+      message << "Deleting #{key}: #{keys[key]} from #{table_name}"
       @client.delete_item(table_name: table_name, key: keys)
     end
+    LOG.log(message)
   end
 
   def clear_all_tables
-    LOG.log("Deleting all tables related to patient and treatment arm")
+    LOG.log('Deleting tables patient and treatment arm ecosystem')
     TableDetails.all_tables.each do |table|
-      LOG.log("#{table.upcase}")
       clear_table(table)
     end
   end
 end
 
+# Logger
 class LOG
   def self.log(msg, level = :info)
     print_message = msg if level == :info
