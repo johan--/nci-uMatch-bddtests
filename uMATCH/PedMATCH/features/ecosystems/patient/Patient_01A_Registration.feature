@@ -1,6 +1,7 @@
 #encoding: utf-8
-@patients @patients_reg @demo
+@patients @patients_reg
 Feature: Register a new patient in PEDMatchbox:
+  @demo
   Scenario: PT_RG01. New patient can be registered successfully
     Given template patient registration message for patient: "PT_RG01_New" on date: "2016-08-16T14:52:58.000+00:00"
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"

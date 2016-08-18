@@ -26,7 +26,7 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
   Scenario: PT_SR04. "Tissue" specimen received message without surgical_event_id should fail
     Given template specimen received message in type: "TISSUE" for patient: "PT_SR04_Registered"
     Then remove field: "surgical_event_id" from patient message
-    When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"
+    When posted to MATCH patient trigger service, returns a message that includes "can't be blank" with status "Failure"
 
   Scenario: PT_SR05. Return error message when collection date is older than patient registration date
     Given template specimen received message in type: "TISSUE" for patient: "PT_SR05_Registered"
@@ -52,10 +52,10 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"
     Examples:
     |specimen_type      |specimen_type_value|message                                                            |
-    |TISSUE             |Tissue             |did not match one of the following values: BLOOD, TISSUE           |
-    |BLOOD              |blood              |did not match one of the following values: BLOOD, TISSUE           |
-    |TISSUE             |                   |was not of a minimum string length of 1                            |
-    |BLOOD              |SLIDE              |did not match one of the following values: BLOOD, TISSUE           |
+    |TISSUE             |Tissue             |is not a support type           |
+    |BLOOD              |blood              |is not a support type           |
+    |TISSUE             |                   |can't be blank                  |
+    |BLOOD              |SLIDE              |is not a support type           |
 
   Scenario Outline: PT_SR09. tissue can be received with new surgical event id but not with existing one
 #  One possible scenario: specimen using same surgical_event_id with new received_date can be received again.
@@ -76,6 +76,7 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     Given template specimen received message in type: "TISSUE" for patient: "<patient_id>"
     Then set patient message field: "surgical_event_id" to value: "SEI_02"
     Then set patient message field: "collected_dttm" to value: "current"
+    Then wait for "1" seconds
     Then set patient message field: "received_dttm" to value: "current"
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "<status>"
     Examples:
@@ -95,6 +96,7 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
   Scenario Outline: PT_SR10b. blood specimen_received message can only be accepted when patient is in certain status
     Given template specimen received message in type: "BLOOD" for patient: "<patient_id>"
     Then set patient message field: "collected_dttm" to value: "current"
+    Then wait for "1" seconds
     Then set patient message field: "received_dttm" to value: "current"
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "<status>"
     Examples:
@@ -115,9 +117,9 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"
     Examples:
     |specimen_type  |field              |value            |message                                                        |
-    |TISSUE         |study_id           |                 |was not of a minimum string length of 1                        |
-    |BLOOD          |study_id           |                 |was not of a minimum string length of 1                        |
-    |TISSUE         |study_id           |OTHER            |did not match one of the following values: APEC1621            |
+    |TISSUE         |study_id           |                 |can't be blank                        |
+    |BLOOD          |study_id           |                 |can't be blank                        |
+    |TISSUE         |study_id           |OTHER            |is not a valid study_id            |
 
 
 Scenario: PT_SR12. new tissue cannot be received when there is one tissue variant report get "CONFIRMED"
