@@ -1,5 +1,5 @@
-@rules
 @demo
+@rules
 Feature: Test the functionality that filters the SNV variants based on specified filter criteria
 
 

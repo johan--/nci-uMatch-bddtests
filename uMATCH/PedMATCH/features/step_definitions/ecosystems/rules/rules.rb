@@ -125,3 +125,12 @@ Then(/^moi report is returned without the indel variant "([^"]*)"$/) do |arg1|
     end
   end
 end
+
+Then(/^moi report is returned with the indel variant "([^"]*)" as an amoi$/) do |arg1|
+  JSON.parse(@res)['indels'].each do |ind|
+    if ind['identifier'] == arg1
+      expect(ind['amoi']).to eql(true)
+    end
+  end
+end
+
