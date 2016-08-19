@@ -95,16 +95,6 @@ Feature: Test the functionality that filters the SNV variants based on specified
     Examples:
       |tsvFile                                    |TAFile                         |
       |SNV_NO_PASS_filter.tsv                     |SNV_location_intronic_TA.json  |
-#
-#  Scenario Outline: Filter-out SNV variants that does not have a gene in the oncomine_genes.txt
-#    Given a vcf file "<vcfFile>" and rule file "<rulesFile>"
-#    When call the moi rest service
-#    Then moi report is returned with MOI "<eMOI>"
-#    Then moi report is returned without the variant "<nMOI>"
-#    Examples:
-#      |vcfFile                                    |rulesFile                    |eMOI                      |nMOI            |
-#      |SNV_OVA_GENE                               |SNV_v4dot1                   |moip-1,moip-2             |moip-3          |
-#
 
   Scenario Outline: Filter-out all Germline SNV variants
     Given a tsv variant report file file "<tsvFile>" and treatment arms file "<TAFile>"
@@ -124,4 +114,20 @@ Feature: Test the functionality that filters the SNV variants based on specified
       |SNV_OVA_deleterious_filter.tsv             |SNV_location_intronic_TA.json  |
 
 
+  Scenario Outline: Filter-in SNVs if oncomine variant class has the value hotspot
+    Given a tsv variant report file file "<tsvFile>" and treatment arms file "<TAFile>"
+    When call the amoi rest service
+    Then moi report is returned with 1 snv variants
+    Examples:
+      |tsvFile                                    |TAFile                         |
+      |SNV_OVA_hotspot_filter.tsv                 |SNV_location_intronic_TA.json  |
+
+
+  Scenario Outline: Filter-in SNVs if the variant matches a non-hotspot rule of a treatment arm
+    Given a tsv variant report file file "<tsvFile>" and treatment arms file "<TAFile>"
+    When call the amoi rest service
+    Then moi report is returned with the snv variant "moip-1" as an amoi
+    Examples:
+      |tsvFile                        |TAFile           |
+      |SNV_nhr_filter.tsv             |APEC1621-B.json  |
 
