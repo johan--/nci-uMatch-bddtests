@@ -101,3 +101,27 @@ end
 Then(/^moi report is returned with (\d+) snv variants$/) do |arg1|
   expect(JSON.parse(@res)['single_nucleotide_variants'].count).to eql(arg1.to_i)
 end
+
+Then(/^moi report is returned with the indel variant "([^"]*)"$/) do |arg1|
+  flag = false
+  JSON.parse(@res)['indels'].each do |ind|
+    if ind['identifier'] == arg1
+      flag = true
+    end
+  end
+  if flag == false
+    fail ("The Indel #{arg1} is not found in the moi report")
+  end
+end
+
+Then(/^moi report is returned with (\d+) indel variants$/) do |arg1|
+  expect(JSON.parse(@res)['indels'].count).to eql(arg1.to_i)
+end
+
+Then(/^moi report is returned without the indel variant "([^"]*)"$/) do |arg1|
+  JSON.parse(@res)['indels'].each do |ind|
+    if ind['identifier'] == arg1
+      fail ("The SNV #{arg1} is found in the moi report")
+    end
+  end
+end
