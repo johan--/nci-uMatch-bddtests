@@ -121,7 +121,7 @@ end
 Then(/^moi report is returned without the indel variant "([^"]*)"$/) do |arg1|
   JSON.parse(@res)['indels'].each do |ind|
     if ind['identifier'] == arg1
-      fail ("The SNV #{arg1} is found in the moi report")
+      fail ("The Indel #{arg1} is found in the moi report")
     end
   end
 end
@@ -130,6 +130,35 @@ Then(/^moi report is returned with the indel variant "([^"]*)" as an amoi$/) do 
   JSON.parse(@res)['indels'].each do |ind|
     if ind['identifier'] == arg1
       expect(ind['amoi']).to eql(true)
+    end
+  end
+end
+
+
+Then(/^moi report is returned with the cnv variant "([^"]*)"$/) do |arg1|
+  flag = false
+  JSON.parse(@res)['copy_number_variants'].each do |cnv|
+    if cnv['identifier'] == arg1
+      flag = true
+    end
+  end
+  if flag == false
+    fail ("The CNV #{arg1} is not found in the moi report")
+  end
+end
+
+Then(/^moi report is returned without the cnv variant "([^"]*)"$/) do |arg1|
+  JSON.parse(@res)['copy_number_variants'].each do |cnv|
+    if cnv['identifier'] == arg1
+      fail ("The CNV #{arg1} is found in the moi report")
+    end
+  end
+end
+
+Then(/^moi report is returned with the cnv variant "([^"]*)" as an amoi$/) do |arg1|
+  JSON.parse(@res)['copy_number_variants'].each do |cnv|
+    if cnv['identifier'] == arg1
+      expect(cnv['amoi']).to eql(true)
     end
   end
 end
