@@ -53,9 +53,9 @@ class DynamoDataUploader
       @access_key = options[:aws_access_key_id].nil? ? DEFAULT_AWS_ACCESS_KEY : options[:aws_access_key_id]
       @secret_key = options[:@secret_key].nil? ? DEFAULT_AWS_SECRET_KEY : options[:@secret_key]
       DEFAULT_OPTIONS.merge!(
-        endpoint: @endpoint, 
-        region: @region, 
-        access_key_id: @access_key, 
+        endpoint: @endpoint,
+        region: @region,
+        access_key_id: @access_key,
         secret_access_key: @secret_key
       )
     end

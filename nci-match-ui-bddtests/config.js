@@ -27,6 +27,7 @@ exports.config = {
         'features/loginPage.feature',
 
         // Patient details page
+        'features/HO_01_Dashboard.feature',
         'features/PA_01_Patient_List.feature',
         'features/PA_02_Patient_Summary.feature',
         'features/PA_03_Patient_SurgicalEvent.feature',

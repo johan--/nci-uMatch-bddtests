@@ -17,16 +17,16 @@ module.exports = function() {
         }
     });
 
-     this.AfterFeatures(function () {
-         var Reporter = require('cucumber-html-report');
-         var options = {
-             source: process.cwd() + '/../results/result.json',
-             dest:   '/Users/mohamedr2/Desktop/RESULTS_FOLDER',
-             name:   'report.html',
-             title:  'Results in html'
-         };
+     // this.AfterFeatures(function () {
+     //     var Reporter = require('cucumber-html-report');
+     //     var options = {
+     //         source: process.cwd() + '/../results/result.json',
+     //         dest:   '/Users/mohamedr2/Desktop/RESULTS_FOLDER',
+     //         name:   'report.html',
+     //         title:  'Results in html'
+     //     };
 
-         var report = new Reporter(options);
-         report.createReport();
-     })
+     //     var report = new Reporter(options);
+     //     report.createReport();
+     // })
 };
