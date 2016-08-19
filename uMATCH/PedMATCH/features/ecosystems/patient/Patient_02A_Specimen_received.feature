@@ -75,9 +75,9 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     #all test patients are using surgical event id SEI_01
     Given template specimen received message in type: "TISSUE" for patient: "<patient_id>"
     Then set patient message field: "surgical_event_id" to value: "SEI_02"
-    Then set patient message field: "collected_dttm" to value: "current"
+    Then set patient message field: "collected_dttm" to value: "2016-08-01T15:17:11+00:00"
     Then wait for "1" seconds
-    Then set patient message field: "received_dttm" to value: "current"
+    Then set patient message field: "received_dttm" to value: "2016-08-01T15:17:11+00:00"
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "<status>"
     Examples:
     |patient_id             |specimen_type  |status     |message                                                                        |
@@ -86,7 +86,7 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     |PT_SR10_NPathoReceived |TISSUE          |Success    |Message has been processed successfully                                       |
     |PT_SR10_YPathoReceived |TISSUE          |Success    |Message has been processed successfully                                       |
     |PT_SR10_TsVrReceived   |TISSUE          |Success    |Message has been processed successfully                                       |
-    |PT_SR10_TsVRRejected   |TISSUE          |Success    |Message has been processed successfully                                      |
+#    |PT_SR10_TsVRRejected   |TISSUE          |Success    |Message has been processed successfully                                      |
 #    |PT_SR10_OnTreatmentArm |TISSUE          |Failure    |cannot transition from                                                       |
 #    |PT_SR10_ProgressReBioY |TISSUE          |Success    |Message has been processed successfully                                      |
 #    |PT_SR10_ProgressReBioN |TISSUE          |Failure    |cannot transition from                                                       |
@@ -95,9 +95,9 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
 
   Scenario Outline: PT_SR10b. blood specimen_received message can only be accepted when patient is in certain status
     Given template specimen received message in type: "BLOOD" for patient: "<patient_id>"
-    Then set patient message field: "collected_dttm" to value: "current"
+    Then set patient message field: "collected_dttm" to value: "2016-08-01T15:17:11+00:00"
     Then wait for "1" seconds
-    Then set patient message field: "received_dttm" to value: "current"
+    Then set patient message field: "received_dttm" to value: "2016-08-01T15:17:11+00:00"
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "<status>"
     Examples:
     |patient_id             |status     |message                                                                        |
@@ -133,17 +133,13 @@ Scenario: PT_SR14. new specimen using new SEI will push all pending variant repo
 #          Plan to receive new specimen surgical_event_id: SEI_02
   Given template specimen received message in type: "TISSUE" for patient: "PT_SR14_VariantReportUploaded"
   Then set patient message field: "surgical_event_id" to value: "SEI_02"
+  Then set patient message field: "collected_dttm" to value: "current"
+  Then wait for "1" seconds
+  Then set patient message field: "received_dttm" to value: "current"
   When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+  Then wait for "15" seconds
   Then retrieve patient: "PT_SR14_VariantReportUploaded" from API
+  Then returned patient has value: "TISSUE_SPECIMEN_RECEIVED" in field: "current_status"
   Then returned patient has variant report (surgical_event_id: "SEI_01", molecular_id: "MOI_01", analysis_id: "ANI_01")
   And this variant report has value: "REJECTED" in field: "status"
 
-Scenario: PT_SR15. new specimen using new MOI in same SEI will push all pending variant report from old MOI to "REJECT"
-#    Test patient: PT_SR15_VariantReportUploaded; variant report files uploaded: surgical_event_id: SEI_01, molecular_id: MOI_01, analysis_id: ANI_01
-#          Plan to receive new specimen using same surgical_event_id: SEI_01
-  Given template specimen received message in type: "TISSUE" for patient: "PT_SR15_VariantReportUploaded"
-  Then set patient message field: "surgical_event_id" to value: "SEI_01"
-  When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
-  Then retrieve patient: "PT_SR15_VariantReportUploaded" from API
-  Then returned patient has variant report (surgical_event_id: "SEI_01", molecular_id: "MOI_01", analysis_id: "ANI_01")
-  And this variant report has value: "REJECTED" in field: "status"

@@ -228,6 +228,21 @@ Feature: NCH Specimen shipped messages
 #    |PT_SS26_OffStudy               |Failure    |cannot transition from                     |
 
 
+  Scenario: PT_SS27. new specimen shipped using new MOI in same SEI will push all pending variant report from old MOI to "REJECT"
+  #    Test patient: PT_SS27_VariantReportUploaded; variant report files uploaded: surgical_event_id: SEI_01, molecular_id: MOI_01, analysis_id: ANI_01
+  #          Plan to ship new specimen using same surgical_event_id: SEI_01 but new molecular_id MOI_02
+    Given template specimen shipped message in type: "TISSUE" for patient: "PT_SS27_VariantReportUploaded"
+    Then set patient message field: "surgical_event_id" to value: "SEI_01"
+    Then set patient message field: "molecular_id" to value: "MOI_02"
+    Then set patient message field: "molecular_dna_id" to value: "MOI_02D"
+    Then set patient message field: "molecular_cdna_id" to value: "MOI_02C"
+    Then set patient message field: "shipped_dttm" to value: "2016-08-01T15:17:11+00:00"
+    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+    Then wait for "15" seconds
+    Then retrieve patient: "PT_SS27_VariantReportUploaded" from API
+    Then returned patient has value: "TISSUE_NUCLEIC_ACID_SHIPPED" in field: "current_status"
+    Then returned patient has variant report (surgical_event_id: "SEI_01", molecular_id: "MOI_01", analysis_id: "ANI_01")
+    And this variant report has value: "REJECTED" in field: "status"
 #  Scenario Outline: PT_SS27. Blood specimen shippment will not affect other patient triggers
 #For assay and pathology now they will fail if patient is in BLOOD_NUCLEIC_ACID_SHIPPED status
 #  Incoming message failed patient state validation: State :BLOOD_NUCLEIC_ACID_SHIPPED doesn't exist
