@@ -48,6 +48,10 @@ exports.config = {
 //            browser.ignoreSynchronization = !flag;
 //        }
 //    },
+
+    onPrepare: function () {
+      browser.manage().timeouts().setScriptTimeout(60000);
+    },
     framework: 'custom',
     frameworkPath: require.resolve('protractor-cucumber-framework'),
     cucumberOpts: {
