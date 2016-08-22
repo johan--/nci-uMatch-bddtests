@@ -3,6 +3,10 @@ require 'rspec'
 require 'json'
 require_relative '../../../support/helper_methods.rb'
 
+When(/^the rules service \/version is called$/) do
+  @res=Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['rules_PORT']+'/nci-match-rules/rules/rs/version')
+end
+
 Given(/^the patient assignment json "([^"]*)"$/) do |patient_json|
   patientAssignmentJson =  File.join(File.dirname(__FILE__),ENV['PATIENT_ASSIGNMENT_JSON_LOCATION']+'/'+patient_json+'.json')
   expect(File.exist?(patientAssignmentJson)).to be_truthy
