@@ -12,7 +12,7 @@ When(/^the ta service \/version is called$/) do
 end
 
 Then(/^the version "([^"]*)" is returned$/) do |arg1|
-  expect(@res).to eql(arg1)
+  expect(@res).to include(arg1)
 end
 
 Given(/^that a new treatment arm is received from COG with version: "([^"]*)" study_id: "([^"]*)" id: "([^"]*)" name: "([^"]*)" description: "([^"]*)" targetId: "([^"]*)" targetName: "([^"]*)" gene: "([^"]*)" and with one drug: "([^"]*)" and with tastatus: "([^"]*)"$/) do |version, study_id, taId, taName, description, targetId, targetName, gene, taDrugs, taStatus|
