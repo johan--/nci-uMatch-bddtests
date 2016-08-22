@@ -4,7 +4,7 @@
 var helper = require('./support/setup');
 
 exports.config = {
-    baseUrl: 'http://localhost:9000',  //when developing tests use http://localhost:9000',
+    baseUrl: 'http://pedmatch.org',  //when developing tests use http://localhost:9000',
 
     //seleniumAddress: 'http://localhost:4444/wd/hub',
     capabilities: {
@@ -24,10 +24,12 @@ exports.config = {
 
     specs: [
         // Login Page
-        'features/loginPage.feature',
+        'features/login_page.feature',
+
+        // Dashboard page details page
+        'features/HO_01_Dashboard.feature',
 
         // Patient details page
-        'features/HO_01_Dashboard.feature',
         'features/PA_01_Patient_List.feature',
         'features/PA_02_Patient_Summary.feature',
         'features/PA_03_Patient_SurgicalEvent.feature',
@@ -41,7 +43,11 @@ exports.config = {
     ],
 
     getPageTimeout: 10000,
-
+//    onPrepare: function () {
+//        global.isAngularSite = function(flag) {
+//            browser.ignoreSynchronization = !flag;
+//        }
+//    },
     framework: 'custom',
     frameworkPath: require.resolve('protractor-cucumber-framework'),
     cucumberOpts: {

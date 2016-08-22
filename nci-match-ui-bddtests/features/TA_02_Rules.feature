@@ -11,7 +11,7 @@ Feature: Treatment Arm Rules
     And I navigate to the treatment-arms page
     And I go to treatment arm with "APEC1621-B" as the id and "100" as stratum id
 
-  @treatment_arm @ui @broken @fling
+  @treatment_arm @ui @broken
   Scenario Outline: Logged in user can access <subTabName> with Inclusion/Exclusion details under Rules
     When I select the Rules Main Tab
     And I select the <subTabName> sub-tab

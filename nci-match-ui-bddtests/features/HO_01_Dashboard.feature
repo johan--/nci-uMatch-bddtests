@@ -21,7 +21,7 @@ Feature: Dashboard page.
     When I navigate to the dashboard page
     Then I can see the Patients Statistics Section
     And I can see the Donut chart for confirmed patients with aMOI
-    And i can see the Treatment Arm Accrual chart
+    And I can see the Treatment Arm Accrual chart
 
 
   Scenario Outline: Pending <report_type> reports statistics match pending reports table.
@@ -34,5 +34,3 @@ Feature: Dashboard page.
     |Tissue Variant Reports |
     |Blood Variant Reports  |
     |Assignment Reports     |
-
-

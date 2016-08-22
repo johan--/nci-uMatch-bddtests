@@ -17,11 +17,17 @@ class DynamoDb
   DEFAULT_AWS_ACCESS_KEY = ENV['AWS_ACCESS_KEY_ID']
   DEFAULT_AWS_SECRET_KEY = ENV['AWS_SECRET_ACCESS_KEY']
 
+  DEFAULT_OPTIONS = {
+    access_key_id: DEFAULT_AWS_ACCESS_KEY,
+    secret_access_key: DEFAULT_AWS_SECRET_KEY,
+    region: DEFAULT_REGION
+  }
+
   def initialize(options)
     # @prefix = options[:prefix]
     # raise "Provide the prefix or the suffix of the list of tables that you want cleared" if @prefix.nil?
 
-    if options=='local'
+    if options == 'local'
       @endpoint = DEFAULT_LOCAL_DB_ENDPOINT
       @region = DEFAULT_AWS_REGION
       @access_key = DEFAULT_AWS_ACCESS_KEY
@@ -62,6 +68,8 @@ class DynamoDb
     end
 
     LOG.log("File location: #{@file_location} \nendpoint: #{@endpoint}\nregion: #{@region}", :info)
+
+    DEFAULT_OPTIONS.merge!(endpoint: @endpoint, region: @region)
 
     Aws.config.update({endpoint: @endpoint,
                        access_key_id: @access_key,

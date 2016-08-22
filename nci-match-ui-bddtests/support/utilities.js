@@ -74,6 +74,15 @@ var Utilities = function() {
         });
     };
 
+    /** This function returns the JSON response for api call. The url has to be provided
+        url [String] Required: the url of the api. This call is made against the
+        baseURL
+     */
+    this.callApi = function(url) {
+        
+    };
+
+
     /** This function returns a hash of details available from the Treatment Arm Based on the id provided
      * @author: Rick Zakharov, Raseel Mohamed
      * @param id [String] id
