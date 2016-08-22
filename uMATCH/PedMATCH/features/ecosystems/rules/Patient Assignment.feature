@@ -1,6 +1,5 @@
 @rules
-@demo
-Feature: Ensure the rules are fired correctly and patients are assigned to the right treatment arm::
+Feature: Ensure the rules are fired correctly and patients are assigned to the right treatment arm
 
   Scenario: Matching inclusion gene fusion variant and inclusion disease - Assign to TA
     Given  the patient assignment json "patient_json_with_matching_inclusion_variant_inclusion_disease"

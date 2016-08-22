@@ -1,4 +1,3 @@
-@demo
 @rules
 Feature: Test the functionality that filters the CNV variants based on specified filter criteria
 
