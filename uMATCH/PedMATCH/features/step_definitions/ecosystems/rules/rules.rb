@@ -167,3 +167,35 @@ Then(/^moi report is returned with the cnv variant "([^"]*)" as an amoi$/) do |a
   end
 end
 
+
+Then(/^moi report is returned with the ugf variant "([^"]*)"$/) do |arg1|
+  flag = false
+  JSON.parse(@res)['unified_gene_fusions'].each do |ugf|
+    if ugf['identifier'] == arg1
+      flag = true
+    end
+  end
+  if flag == false
+    fail ("The ugf #{arg1} is not found in the moi report")
+  end
+end
+
+
+Then(/^moi report is returned without the ugf variant "([^"]*)"$/) do |arg1|
+  JSON.parse(@res)['unified_gene_fusions'].each do |ugf|
+    if ugf['identifier'] == arg1
+      fail ("The ugf #{arg1} is found in the moi report")
+    end
+  end
+end
+
+Then(/^moi report is returned with the ugf variant "([^"]*)" as an amoi$/) do |arg1|
+  JSON.parse(@res)['unified_gene_fusions'].each do |ugf|
+    if ugf['identifier'] == arg1
+      expect(ugf['amoi']).to eql(true)
+    end
+  end
+end
+
+
+
