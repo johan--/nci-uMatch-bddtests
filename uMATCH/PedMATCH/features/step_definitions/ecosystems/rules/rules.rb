@@ -44,7 +44,7 @@ Then(/^the patient assignment reason is "([^"]*)"$/) do |reason|
 end
 
 Given(/^a tsv variant report file file "([^"]*)" and treatment arms file "([^"]*)"$/) do |arg1, arg2|
-  @bucket = "bdd-test-data"
+  @bucket = "bdd-test-data/rules_test"
   @tsv = arg1
   @ta = arg2
 end
