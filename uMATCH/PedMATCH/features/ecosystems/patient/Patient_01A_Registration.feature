@@ -43,7 +43,7 @@ Feature: Register a new patient in PEDMatchbox:
        |patient_id               |step_number        |message                                                 |
        |PT_RG04_EmptyStpNum      |                   |can't be blank                                          |
        |PT_RG04_NullStpNum       |null               |can't be blank                                          |
-       |PT_RG04_StringStpNum     |Other              |is not a number                                         |
+       |PT_RG04_StringStpNum     |Other              |1.0                                                     |
        |PT_RG04_WrongStpNum1     |1.1                |1.0                                                     |
        |PT_RG04_WrongStpNum2     |2.0                |1.0                                                     |
        |PT_RG04_WrongStpNum3     |8.0                |1.0                                                     |
@@ -57,5 +57,5 @@ Feature: Register a new patient in PEDMatchbox:
       |PT_RG05_EmptyDate      |                         |can't be blank                                          |
       |PT_RG05_NullDate       |null                     |can't be blank                                          |
       |PT_RG05_StringDate     |Other                    |invalid date                                            |
-      |PT_RG05_FutureDate     |future                   |Date is on or before                                    |
+      |PT_RG05_FutureDate     |future                   |current date                                            |
       |PT_RG05_TimeStampDate  |1471360795               |invalid date                                            |
