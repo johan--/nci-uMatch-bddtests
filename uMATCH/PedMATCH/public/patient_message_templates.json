@@ -113,7 +113,7 @@
       "study_id": "APEC1621",
       "patient_id": "894561",
       "type": "BLOOD_DNA",
-      "molecular_id": "MOI_01",
+      "molecular_id": "MOI_BR_01",
       "carrier": "Federal Express",
       "tracking_id": "7956 4568 1235",
       "shipped_dttm": "2016-05-01T19:42:13+00:00",
@@ -132,10 +132,10 @@
     "study_id": "APEC1621",
     "surgical_event_id":"SEI_01",
     "case_number": "case-1234",
-    "type": "POSITVE",
+    "type": "ASSAY_RESULT_REPORTED",
     "biomarker":"ICCPTENs",
-    "ordered_date":"2016-05-02T19:42:13+00:00",
-    "reported_date":"2016-05-30T12:11:09.071-05:00",
+    "ordered_date":"2015-05-02T12:13:09.071-05:00",
+    "reported_date":"2015-05-05T12:13:09.071-05:00",
     "result": "POSITIVE"
   },
   "pathology_status":{
@@ -143,9 +143,9 @@
     "study_id": "APEC1621",
     "surgical_event_id":"SEI_01",
     "case_number": "case-1234",
+    "type":"PATHOLOGY_STATUS",
     "reported_date":"2015-04-27T12:13:09.071-05:00",
-    "status":"Y",
-    "message":"PATHOLOGY_CONFIRMATION"
+    "status":"Y"
   },
   "variant_file_uploaded":{
     "patient_id": "3344",

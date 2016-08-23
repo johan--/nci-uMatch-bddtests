@@ -143,8 +143,8 @@ class PatientMessageLoader
 
   def self.specimen_shipped_blood(
       patient_id,
-      molecular_id='MOI_BR_01',
-      shipped_time='2016-05-01T19:42:13+00:00')
+      shipped_time='2016-05-01T19:42:13+00:00',
+      molecular_id='MOI_BR_01')
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['specimen_shipped_BLOOD']
     message['specimen_shipped']['patient_id'] = patient_id
     message['specimen_shipped']['molecular_id'] = molecular_id

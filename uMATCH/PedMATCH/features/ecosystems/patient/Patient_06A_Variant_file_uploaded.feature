@@ -93,7 +93,7 @@ Feature: Variant files uploaded message
 #    Test patient: PT_VU12_VariantReportRejected; VR rejected: SEI_01, MOI_01, ANI_01, VR rejected SEI_01, MOI_01, ANI_02
 #      Plan to use SEI_01, MOI_01, ANI_01 again
     Given template variant uploaded message for patient: "PT_VU12_VariantReportRejected", it has molecular_id: "<moi>" and analysis_id: "<ani>"
-    When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Success"
+    When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Failure"
     Examples:
       |moi                |ani                |
       |MOI_01             |ANI_01             |

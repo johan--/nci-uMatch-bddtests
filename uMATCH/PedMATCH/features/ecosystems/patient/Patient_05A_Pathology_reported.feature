@@ -75,15 +75,15 @@ Feature: Pathology Messages
     Then returned patient has value: "TISSUE_SLIDE_SPECIMEN_SHIPPED" in field: "current_status"
 
 
-  Scenario Outline: PT_PR09. Pathology report received for patient who has no tissue received(using same surgical_event_id) should fail
+  Scenario Outline: PT_PR09. Pathology report received using an non-existing surgical event id should fail
 #		Test data: Patient=PT_PR09_Registered, without tissue
-#       Patient=PT_PR09_SEI1HasTissueSEI2NoTissue, surgical_event_id=SEI_01 has tissue received, has no tissue using surgical_event_id=SEI_02 received
+#       Patient=PT_PR09_SEI1HasTissue surgical_event_id=SEI_01 has tissue received, has no tissue using surgical_event_id=SEI_02 received
     Given template pathology report with surgical_event_id: "<sei>" for patient: "<patient_id>"
     When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"
     Examples:
       |patient_id                            |sei         |
       |PT_PR09_Registered                    |SEI_NON     |
-      |PT_PR09_SEI1HasTissueSEI2NoTissue     |SEI_02      |
+      |PT_PR09_SEI1HasTissue                 |SEI_02      |
 
   Scenario: PT_PR10. Pathology report reported_date is older than tissue received date should fail
 #  Test data: Patient=PT_PR10TissueReceived, surgical_event_id=SEI_01, received_dttm: 2016-04-25T16:17:11+00:00,
