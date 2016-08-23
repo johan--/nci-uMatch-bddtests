@@ -13,7 +13,8 @@ var utilities = require ('../../support/utilities');
 module.exports = function () {
     this.World = require ('../step_definitions/world').World;
 
-    var patientId = patientPage.getPatientId();
+    var patientId;
+    var patientInfoPromise;
     var expectedMainTabs = patientPage.expectedPatientMainTabs;
     var actualMainTabsArray = patientPage.actualMainTabs;
     var patientApiInfo;
@@ -27,22 +28,22 @@ module.exports = function () {
         var tableElement = patientPage.patientListTable;
         patientPage.returnPatientId(tableElement, 0).then(function (id) {
             patientId = id;
-            element(by.linkText(patientId)).click();
+            element(by.linkText(id)).click();
         }).then(callback);
     });
 
-    this.When(/^I click on the patient with (.+) as id$/, function (pa_id, callback) {
+    this.When(/^I go to patient "(.+)" details page$/, function (pa_id, callback) {
         patientId = pa_id;
-        element(by.linkText(patientId)).click().then(callback);
+        browser.get('/#/patient?patient_id=' + pa_id, 6000).then(callback);
     });
 
     this.When(/^I collect the patient Api Information$/, function (callback) {
-        console.log(patientId);
-        // todo: collect patient information from API call. below is a possible solution
-        // var response = utilities.callApiForDetails(patientId, 'patients');
-        // response.get().then(function () {
-        //     patientApiInfo = utilities.getJSONifiedDetails(response.entity());
-        // });
+        var str = '/patients/PT_AS02_SlideShipped';
+
+        patientInfoPromise = utilities.callApi('patient', str).then(function (response) {
+              return(response);
+        });
+
         browser.sleep(50).then(callback);
     });
 
@@ -72,7 +73,7 @@ module.exports = function () {
         //checking if the label values match
         var expectedLabelList = patientPage.expectedPatientSummaryLabels;
         var actualLabelList = patientPage.patientSummaryTable.all(by.css('dt'));
-        expect(actualLabelList.count()).to.eventually.equal(expectedLabelList.length)
+        expect(actualLabelList.count()).to.eventually.equal(expectedLabelList.length);
         for(var i = 0; i < expectedLabelList.length; i++){
             expect(actualLabelList.get(i).getText()).to.eventually.equal(expectedLabelList[i]);
          }
@@ -80,36 +81,34 @@ module.exports = function () {
     });
 
     this.Then(/^I should see the patient's information match database$/, function (callback) {
-        //todo: Get the api to retrieve the patient JSON
         var actualTable = patientPage.patientSummaryTable.all(by.css('.ng-binding'));
-        // The list of all the labels that are present on the left hand side.
-        var expectedLabelList = patientPage.expectedPatientSummaryLabels;
+        patientInfoPromise.then(function (info) {
+            var patientApiInfo = JSON.parse(info);
+            var expectedListfromAPI = [];
+            expectedListfromAPI.push(patientApiInfo.patient_id);
+            expectedListfromAPI.push(patientApiInfo.gender + ', ' + patientApiInfo.ethnicity);
+            expectedListfromAPI.push(utilities.dashifyIfEmpty(patientApiInfo.last_rejoin_scan_date));
+            expectedListfromAPI.push(patientApiInfo.current_status);
+            expectedListfromAPI.push(patientApiInfo.current_step_number);
 
-        var actualValueList = [];
-        var expectedListfromAPI = [];
-        actualTable.count().then(function (cnt) {
-            if (cnt !== undefined){
-                for (var i = 0; i < cnt; i++){
-                    actualValueList.push(actualTable.get(i).getText());
-                }
+            for (var i = 0; i < expectedListfromAPI.length; i++) {
+                expect(actualTable.get(i).getText()).to.eventually.eql(expectedListfromAPI[i]);
             }
-        });
-        expectedListfromAPI.push(patientApiInfo.patient_id);
-        expectedListfromAPI.push(patientApiInfo.gender + ', ' + patientApiInfo.enthnicity);
-        expectedListfromAPI.push(patientApiInfo.last_rejoin_scan_date);
-        expectedListfromAPI.push(patientApiInfo.current_status);
-        expectedListfromAPI.push(patientApiInfo.current_step_number);
-        var selected_ta = patientApiInfo.current_assignment.treatment_arms.selected;
-        expectedListfromAPI.push(selected_ta.treatment_arm);
-        expectedListfromAPI.push(selected_ta.treatment_arm_stratum);
-        expectedListfromAPI.push(selected_ta.treatment_arm_version);
 
-        // we are adding 2 here because the Treatment arm is a combination of the treatment arm name the stratem and the version date.
-        expect(actualValueList.count()).to.eventually.equal(expectedLabelList.length + 2);
+            if (patientApiInfo.current_assignment !== null){
+                var selectedTA = patientApiInfo.current_assignment.treatment_arms.selected;
+                expect(element(by.css('treatment-arm-title[name="currentTreatmentArm.name"]'))).to.
+                    eventually.equal(selectedTA.treatment_arm);
 
-        // Doing a deep equal (==) rather than identity (===) becuase we are comparing two arrays
-        expect(actualValueList).to.eventually.eql(expectedListfromAPI);
-        browser.sleep(5).then(callback);
+                expect(element(by.css('treatment-arm-title[name="currentTreatmentArm.stratum"]'))).to.
+                eventually.equal(selectedTA.treatment_arm_stratum);
+
+                expect(element(by.css('treatment-arm-title[name="currentTreatmentArm.version"]'))).to.
+                eventually.equal(selectedTA.treatment_arm_version);
+            }
+        }).then(function () {
+            callback();
+        })
     });
 
     this.Then(/^I should see the patient's disease information table$/, function (callback) {
@@ -125,13 +124,21 @@ module.exports = function () {
         browser.sleep(5).then(callback);
     });
 
-    this.Then(/^I should see the patient's disease information match the database$/, function (callback) {
-        //todo: write the implemetation iif the code
-        var expectedValueList ;
-        var actualValueList = patientPage.diseaseSummaryTable.all(by.css('.ng-binding'))
-        //expect(actualValueList).to.equal(expectedValueList);
-        browser.sleep(5).then(callback);
-    });
+//    this.Then(/^I should see the patient's disease information match the database$/, function (callback) {
+//        var expectedValueList = [];
+//        patientInfoPromise.then(function (info) {
+//
+//            expectedValueList.push('a');
+//        }.then(function () {
+//            callback();
+//        })
+//
+//        //todo: write the implemetation iif the code
+//        var expectedValueList ;
+//        var actualValueList = patientPage.diseaseSummaryTable.all(by.css('.ng-binding'))
+//        //expect(actualValueList).to.equal(expectedValueList);
+//        browser.sleep(5).then(callback);
+//    })
 
     this.Then(/^I should see the main tabs associated with the patient$/, function (callback) {
         // checking for number of tabs
@@ -159,14 +166,8 @@ module.exports = function () {
 
     this.Then(/^I should see the "(.+)" section heading$/, function (heading, callback) {
         var index = patientPage.expectedMainTabSubHeadings.indexOf(heading);
-        var actualtxt = patientPage.mainTabSubHeadingArray().get(index).getText().then(function(title){
-            console.log(title);
-            return title;
-        });
-        actualtxt.then(function(actualTitle){
-            console.log(actualTitle);
-            expect(actualTitle).to.eql(heading).and.notify(callback);
-        });
+        var actual_element = patientPage.mainTabSubHeadingArray().get(index);
+        expect(actual_element.getText()).to.eventually.eql(heading).and.notify(callback);
     });
 
 
@@ -193,7 +194,16 @@ module.exports = function () {
         browser.sleep(50).then(callback);
     });
 
+    this.Then(/^I print it$/, function (callback) {
+        console.log('yay');
+    patientInfoPromise.then(function (val) {
+        var x = JSON.parse(val);
+        console.log(val);
+        console.log(x.patient_id)
+    });
+        browser.sleep(50).then(callback)
 
+    });
 
     // todo: All pages that have TA "title" should display Name, Stratum and Version.
     // todo: MATCHKB-349

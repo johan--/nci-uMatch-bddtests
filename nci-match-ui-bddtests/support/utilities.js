@@ -61,6 +61,19 @@ var Utilities = function() {
         elementArray.get(index).click();
     };
 
+    /** This function is used to convert null values into dashes
+     *
+      */
+    this.dashifyIfEmpty = function(strVal){
+        var retVal;
+        if ( strVal == null ) {
+            retVal = '-'
+        }else {
+            retVal = strVal
+        }
+        return retVal;
+    };
+
     /**
      * Gets all the values for the attributes and checks if the value provided is set.
      * @param element
@@ -78,10 +91,24 @@ var Utilities = function() {
         url [String] Required: the url of the api. This call is made against the
         baseURL
      */
-    this.callApi = function(url) {
-        
-    };
+    this.callApi = function(service, param) {
+        var uri;
+        var port;
+        var portMap = {
+            'patient'   : '10240',
+            'treatment' : '10235'
+        };
 
+        var baseUrl = browser.baseUrl;
+
+        uri = baseUrl.match('localhost') ? browser.baseUrl.slice(0, -5) : browser.baseUrl
+
+        port = portMap[service];
+        var callUrl = uri + ':' + port + param;
+        return rest(callUrl).then(function (response) {
+            return response.entity;
+        });
+    };
 
     /** This function returns a hash of details available from the Treatment Arm Based on the id provided
      * @author: Rick Zakharov, Raseel Mohamed
@@ -129,8 +156,8 @@ var Utilities = function() {
     }
 
     this.getJSONifiedDetails = function (response){
-        var treatmentArm =  JSON.parse(response);
-        return treatmentArm;
+        var jsonResponse =  JSON.parse(response);
+        return jsonResponse;
     };
 
     /**

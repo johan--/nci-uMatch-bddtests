@@ -149,11 +149,10 @@ var PatientPage = function () {
     // For whatever zero based row that we want, get the patient Id for that row.
     this.returnPatientId = function (tableElement, indexCount) {
         return this.patientListRowElements.get(indexCount)
-            .all(by.binding('item.patient_id '))
+            .all(by.binding('item.patient_id'))
             .get(0).getText()
-            .then(function (patientId) {
-                setPatientId(patientId);
-                return patientId;
+            .then(function (pId) {
+                return pId;
             });
     };
 

@@ -13,16 +13,7 @@ exports.config = {
         browserName: 'firefox',
         version: ''
     },
-
-    // capabilities: {
-    //     browserName: 'firefox',
-    //     version: '',
-    //     firefox_binary: '/Applications/Firefox.app/Contents/MacOS/firefox-bin'
-    // },
-
-    // This section to trigger the multicapabilities or running multiple browsers.
-    // getMultiCapabilities : helper.getFireFoxProfile,
-    // maxSessions : 2,
+    chromeOnly: true,
 
     specs: [
         // Login Page
@@ -45,11 +36,6 @@ exports.config = {
     ],
 
     getPageTimeout: 10000,
-//    onPrepare: function () {
-//        global.isAngularSite = function(flag) {
-//            browser.ignoreSynchronization = !flag;
-//        }
-//    },
 
     onPrepare: function () {
       browser.manage().timeouts().setScriptTimeout(60000);
@@ -65,4 +51,21 @@ exports.config = {
 
     },
     //resultsJsonOutputFile: <to find out> process.env['HOME'] + '/Desktop/report.json'
+
+    // capabilities: {
+    //     browserName: 'firefox',
+    //     version: '',
+    //     firefox_binary: '/Applications/Firefox.app/Contents/MacOS/firefox-bin'
+    // },
+
+    // This section to trigger the multicapabilities or running multiple browsers.
+    // getMultiCapabilities : helper.getFireFoxProfile,
+    // maxSessions : 2,
+
+    // onPrepare: function () {
+    //     global.isAngularSite = function(flag) {
+    //         browser.ignoreSynchronization = !flag;
+    //     }
+    // },
+
 };
