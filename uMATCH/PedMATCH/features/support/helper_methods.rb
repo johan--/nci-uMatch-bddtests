@@ -133,42 +133,48 @@ class Helper_Methods
   end
 
   def Helper_Methods.aFewDaysOlder()
-    time = DateTime.now
+    time = DateTime.current.utc
     t = (time - 3.days)
     return t.iso8601
   end
 
   def Helper_Methods.olderThanSixMonthsDate()
-    time = DateTime.now
+    time = DateTime.current.utc
     t = (time - 6.months)
     return t.iso8601
   end
 
   def Helper_Methods.olderThanFiveMonthsDate()
-    time = DateTime.now
+    time = DateTime.current.utc
     t = (time - 5.months)
     return t.iso8601
   end
 
   def Helper_Methods.dateDDMMYYYYHHMMSS ()
-    time = DateTime.now
+    time = DateTime.current.utc
     return (time).iso8601
   end
 
   def Helper_Methods.backDate ()
-    time = DateTime.now
+    time = DateTime.current.utc
     time = (time - 6.hours).iso8601
     return time
   end
 
   def Helper_Methods.earlierThanBackDate()
-    time = DateTime.now
+    time = DateTime.current.utc
     return (time - 10.hours).iso8601
   end
 
   def Helper_Methods.futureDate ()
-    time = DateTime.now
+    time = DateTime.current.utc
     return (time + 6.hours).iso8601
+  end
+
+  def Helper_Methods.oneSecondOlder ()
+    time = DateTime.current.utc
+    t = time - 1.seconds
+    return t.iso8601
   end
 
   def Helper_Methods.getDateAsRequired(dateStr)
@@ -183,6 +189,8 @@ class Helper_Methods
         reqDate = Helper_Methods.olderThanSixMonthsDate
       when 'a few days older'
         reqDate = Helper_Methods.aFewDaysOlder
+      when 'one second ago'
+        reqDate = Helper_Methods.oneSecondOlder
       else
         reqDate = dateStr
     end
