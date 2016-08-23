@@ -1,0 +1,60 @@
+require_relative '../patient_message_loader'
+
+PatientMessageLoader.upload_start_with_wait_time(15)
+
+patient_id = 'PT_AS02_SlideShipped'
+PatientMessageLoader.register_patient(patient_id)
+PatientMessageLoader.specimen_received_tissue(patient_id)
+PatientMessageLoader.specimen_shipped_tissue(patient_id)
+PatientMessageLoader.specimen_shipped_slide(patient_id)
+
+patient_id = 'PT_AS03_SlideShipped'
+PatientMessageLoader.register_patient(patient_id)
+PatientMessageLoader.specimen_received_tissue(patient_id)
+PatientMessageLoader.specimen_shipped_tissue(patient_id)
+PatientMessageLoader.specimen_shipped_slide(patient_id)
+
+patient_id = 'PT_AS04_SlideShipped'
+PatientMessageLoader.register_patient(patient_id)
+PatientMessageLoader.specimen_received_tissue(patient_id)
+PatientMessageLoader.specimen_shipped_tissue(patient_id)
+PatientMessageLoader.specimen_shipped_slide(patient_id)
+
+patient_id = 'PT_AS05_SlideShipped'
+PatientMessageLoader.register_patient(patient_id)
+PatientMessageLoader.specimen_received_tissue(patient_id)
+PatientMessageLoader.specimen_shipped_tissue(patient_id)
+PatientMessageLoader.specimen_shipped_slide(patient_id)
+
+patient_id = 'PT_AS06_SlideShipped'
+PatientMessageLoader.register_patient(patient_id)
+PatientMessageLoader.specimen_received_tissue(patient_id)
+PatientMessageLoader.specimen_shipped_tissue(patient_id)
+PatientMessageLoader.specimen_shipped_slide(patient_id)
+
+patient_id = 'PT_AS07_SlideShipped'
+PatientMessageLoader.register_patient(patient_id)
+PatientMessageLoader.specimen_received_tissue(patient_id)
+PatientMessageLoader.specimen_shipped_tissue(patient_id)
+PatientMessageLoader.specimen_shipped_slide(patient_id)
+
+patient_id = 'PT_AS08_Registered'
+PatientMessageLoader.register_patient(patient_id)
+
+patient_id = 'PT_AS08_TissueReceived'
+PatientMessageLoader.register_patient(patient_id)
+PatientMessageLoader.specimen_received_tissue(patient_id)
+
+patient_id = 'PT_AS09SlideShipped'
+PatientMessageLoader.register_patient(patient_id)
+PatientMessageLoader.specimen_received_tissue(patient_id)
+PatientMessageLoader.specimen_shipped_tissue(patient_id)
+PatientMessageLoader.specimen_shipped_slide(patient_id)
+
+patient_id = 'PT_AS11SlideShipped'
+PatientMessageLoader.register_patient(patient_id)
+PatientMessageLoader.specimen_received_tissue(patient_id)
+PatientMessageLoader.specimen_shipped_tissue(patient_id)
+PatientMessageLoader.specimen_shipped_slide(patient_id)
+
+PatientMessageLoader.upload_done

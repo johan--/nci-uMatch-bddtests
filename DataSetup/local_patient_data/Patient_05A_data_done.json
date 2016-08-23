@@ -17,182 +17,6 @@
   },
   {
     "header": {
-      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
-      "msg_dttm": "2016-02-09T22:06:33+00:00"
-    },
-    "study_id": "APEC1621",
-    "patient_id": "PT_PR03_TissueReceived",
-    "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
-    "status": "REGISTRATION",
-    "internal_use_only": {
-      "request_id": "4-654321",
-      "environment": "4",
-      "request": "REGISTRATION for patient_id PT_PR03_TissueReceived"
-    }
-  },
-  {
-    "header": {
-      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
-      "msg_dttm": "2016-02-09T22:06:33+00:00"
-    },
-    "study_id": "APEC1621",
-    "patient_id": "PT_PR04_TissueReceived",
-    "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
-    "status": "REGISTRATION",
-    "internal_use_only": {
-      "request_id": "4-654321",
-      "environment": "4",
-      "request": "REGISTRATION for patient_id PT_PR04_TissueReceived"
-    }
-  },
-  {
-    "header": {
-      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
-      "msg_dttm": "2016-02-09T22:06:33+00:00"
-    },
-    "study_id": "APEC1621",
-    "patient_id": "PT_PR05_TissueReceived",
-    "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
-    "status": "REGISTRATION",
-    "internal_use_only": {
-      "request_id": "4-654321",
-      "environment": "4",
-      "request": "REGISTRATION for patient_id PT_PR05_TissueReceived"
-    }
-  },
-  {
-    "header": {
-      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
-      "msg_dttm": "2016-02-09T22:06:33+00:00"
-    },
-    "study_id": "APEC1621",
-    "patient_id": "PT_PR06_TissueReceived",
-    "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
-    "status": "REGISTRATION",
-    "internal_use_only": {
-      "request_id": "4-654321",
-      "environment": "4",
-      "request": "REGISTRATION for patient_id PT_PR06_TissueReceived"
-    }
-  },
-  {
-    "header": {
-      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
-      "msg_dttm": "2016-02-09T22:06:33+00:00"
-    },
-    "study_id": "APEC1621",
-    "patient_id": "PT_PR07_TissueShipped",
-    "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
-    "status": "REGISTRATION",
-    "internal_use_only": {
-      "request_id": "4-654321",
-      "environment": "4",
-      "request": "REGISTRATION for patient_id PT_PR07_TissueShipped"
-    }
-  },
-  {
-    "header": {
-      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
-      "msg_dttm": "2016-02-09T22:06:33+00:00"
-    },
-    "study_id": "APEC1621",
-    "patient_id": "PT_PR08_SlideShipped",
-    "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
-    "status": "REGISTRATION",
-    "internal_use_only": {
-      "request_id": "4-654321",
-      "environment": "4",
-      "request": "REGISTRATION for patient_id PT_PR08_SlideShipped"
-    }
-  },
-  {
-    "header": {
-      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
-      "msg_dttm": "2016-02-09T22:06:33+00:00"
-    },
-    "study_id": "APEC1621",
-    "patient_id": "PT_PR09_Registered",
-    "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
-    "status": "REGISTRATION",
-    "internal_use_only": {
-      "request_id": "4-654321",
-      "environment": "4",
-      "request": "REGISTRATION for patient_id PT_PR09_Registered"
-    }
-  },
-  {
-    "header": {
-      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
-      "msg_dttm": "2016-02-09T22:06:33+00:00"
-    },
-    "study_id": "APEC1621",
-    "patient_id": "PT_PR09_SEI1HasTissueSEI2NoTissue",
-    "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
-    "status": "REGISTRATION",
-    "internal_use_only": {
-      "request_id": "4-654321",
-      "environment": "4",
-      "request": "REGISTRATION for patient_id PT_PR09_SEI1HasTissueSEI2NoTissue"
-    }
-  },
-  {
-    "header": {
-      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
-      "msg_dttm": "2016-02-09T22:06:33+00:00"
-    },
-    "study_id": "APEC1621",
-    "patient_id": "PT_PR10TissueReceived",
-    "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
-    "status": "REGISTRATION",
-    "internal_use_only": {
-      "request_id": "4-654321",
-      "environment": "4",
-      "request": "REGISTRATION for patient_id PT_PR10TissueReceived"
-    }
-  },
-  {
-    "header": {
-      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
-      "msg_dttm": "2016-02-09T22:06:33+00:00"
-    },
-    "study_id": "APEC1621",
-    "patient_id": "PT_PR11TissueReceived",
-    "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
-    "status": "REGISTRATION",
-    "internal_use_only": {
-      "request_id": "4-654321",
-      "environment": "4",
-      "request": "REGISTRATION for patient_id PT_PR11TissueReceived"
-    }
-  },
-  {
-    "header": {
-      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
-      "msg_dttm": "2016-02-09T22:06:33+00:00"
-    },
-    "study_id": "APEC1621",
-    "patient_id": "PT_PR12TissueReceived",
-    "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
-    "status": "REGISTRATION",
-    "internal_use_only": {
-      "request_id": "4-654321",
-      "environment": "4",
-      "request": "REGISTRATION for patient_id PT_PR12TissueReceived"
-    }
-  },
-  {
-    "header": {
       "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
       "msg_dttm": "2016-05-01T19:42:13+00:00"
     },
@@ -210,6 +34,22 @@
         "received_ts": "2016-04-25T15:17:11+00:00",
         "qc_ts": "2016-04-25T16:21:34+00:00"
       }
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+      "msg_dttm": "2016-02-09T22:06:33+00:00"
+    },
+    "study_id": "APEC1621",
+    "patient_id": "PT_PR03_TissueReceived",
+    "step_number": "1.0",
+    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status": "REGISTRATION",
+    "internal_use_only": {
+      "request_id": "4-654321",
+      "environment": "4",
+      "request": "REGISTRATION for patient_id PT_PR03_TissueReceived"
     }
   },
   {
@@ -235,6 +75,22 @@
   },
   {
     "header": {
+      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+      "msg_dttm": "2016-02-09T22:06:33+00:00"
+    },
+    "study_id": "APEC1621",
+    "patient_id": "PT_PR04_TissueReceived",
+    "step_number": "1.0",
+    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status": "REGISTRATION",
+    "internal_use_only": {
+      "request_id": "4-654321",
+      "environment": "4",
+      "request": "REGISTRATION for patient_id PT_PR04_TissueReceived"
+    }
+  },
+  {
+    "header": {
       "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
       "msg_dttm": "2016-05-01T19:42:13+00:00"
     },
@@ -252,6 +108,22 @@
         "received_ts": "2016-04-25T15:17:11+00:00",
         "qc_ts": "2016-04-25T16:21:34+00:00"
       }
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+      "msg_dttm": "2016-02-09T22:06:33+00:00"
+    },
+    "study_id": "APEC1621",
+    "patient_id": "PT_PR05_TissueReceived",
+    "step_number": "1.0",
+    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status": "REGISTRATION",
+    "internal_use_only": {
+      "request_id": "4-654321",
+      "environment": "4",
+      "request": "REGISTRATION for patient_id PT_PR05_TissueReceived"
     }
   },
   {
@@ -277,6 +149,22 @@
   },
   {
     "header": {
+      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+      "msg_dttm": "2016-02-09T22:06:33+00:00"
+    },
+    "study_id": "APEC1621",
+    "patient_id": "PT_PR06_TissueReceived",
+    "step_number": "1.0",
+    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status": "REGISTRATION",
+    "internal_use_only": {
+      "request_id": "4-654321",
+      "environment": "4",
+      "request": "REGISTRATION for patient_id PT_PR06_TissueReceived"
+    }
+  },
+  {
+    "header": {
       "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
       "msg_dttm": "2016-05-01T19:42:13+00:00"
     },
@@ -294,6 +182,22 @@
         "received_ts": "2016-04-25T15:17:11+00:00",
         "qc_ts": "2016-04-25T16:21:34+00:00"
       }
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+      "msg_dttm": "2016-02-09T22:06:33+00:00"
+    },
+    "study_id": "APEC1621",
+    "patient_id": "PT_PR07_TissueShipped",
+    "step_number": "1.0",
+    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status": "REGISTRATION",
+    "internal_use_only": {
+      "request_id": "4-654321",
+      "environment": "4",
+      "request": "REGISTRATION for patient_id PT_PR07_TissueShipped"
     }
   },
   {
@@ -342,6 +246,22 @@
         "stars_specimen_id_cdna": "ABCXYZ-0BJ64F",
         "stars_specimen_id_dna": "ABCXYZ-0BJ64B"
       }
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+      "msg_dttm": "2016-02-09T22:06:33+00:00"
+    },
+    "study_id": "APEC1621",
+    "patient_id": "PT_PR08_SlideShipped",
+    "step_number": "1.0",
+    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status": "REGISTRATION",
+    "internal_use_only": {
+      "request_id": "4-654321",
+      "environment": "4",
+      "request": "REGISTRATION for patient_id PT_PR08_SlideShipped"
     }
   },
   {
@@ -415,6 +335,38 @@
   },
   {
     "header": {
+      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+      "msg_dttm": "2016-02-09T22:06:33+00:00"
+    },
+    "study_id": "APEC1621",
+    "patient_id": "PT_PR09_Registered",
+    "step_number": "1.0",
+    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status": "REGISTRATION",
+    "internal_use_only": {
+      "request_id": "4-654321",
+      "environment": "4",
+      "request": "REGISTRATION for patient_id PT_PR09_Registered"
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+      "msg_dttm": "2016-02-09T22:06:33+00:00"
+    },
+    "study_id": "APEC1621",
+    "patient_id": "PT_PR09_SEI1HasTissueSEI2NoTissue",
+    "step_number": "1.0",
+    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status": "REGISTRATION",
+    "internal_use_only": {
+      "request_id": "4-654321",
+      "environment": "4",
+      "request": "REGISTRATION for patient_id PT_PR09_SEI1HasTissueSEI2NoTissue"
+    }
+  },
+  {
+    "header": {
       "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
       "msg_dttm": "2016-05-01T19:42:13+00:00"
     },
@@ -436,6 +388,22 @@
   },
   {
     "header": {
+      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+      "msg_dttm": "2016-02-09T22:06:33+00:00"
+    },
+    "study_id": "APEC1621",
+    "patient_id": "PT_PR10TissueReceived",
+    "step_number": "1.0",
+    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status": "REGISTRATION",
+    "internal_use_only": {
+      "request_id": "4-654321",
+      "environment": "4",
+      "request": "REGISTRATION for patient_id PT_PR10TissueReceived"
+    }
+  },
+  {
+    "header": {
       "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
       "msg_dttm": "2016-05-01T19:42:13+00:00"
     },
@@ -453,6 +421,22 @@
         "received_ts": "2016-04-25T15:17:11+00:00",
         "qc_ts": "2016-04-25T16:21:34+00:00"
       }
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+      "msg_dttm": "2016-02-09T22:06:33+00:00"
+    },
+    "study_id": "APEC1621",
+    "patient_id": "PT_PR11TissueReceived",
+    "step_number": "1.0",
+    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status": "REGISTRATION",
+    "internal_use_only": {
+      "request_id": "4-654321",
+      "environment": "4",
+      "request": "REGISTRATION for patient_id PT_PR11TissueReceived"
     }
   },
   {
@@ -495,6 +479,22 @@
         "received_ts": "2016-04-25T15:17:11+00:00",
         "qc_ts": "2016-04-25T16:21:34+00:00"
       }
+    }
+  },
+  {
+    "header": {
+      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+      "msg_dttm": "2016-02-09T22:06:33+00:00"
+    },
+    "study_id": "APEC1621",
+    "patient_id": "PT_PR12TissueReceived",
+    "step_number": "1.0",
+    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status": "REGISTRATION",
+    "internal_use_only": {
+      "request_id": "4-654321",
+      "environment": "4",
+      "request": "REGISTRATION for patient_id PT_PR12TissueReceived"
     }
   },
   {
