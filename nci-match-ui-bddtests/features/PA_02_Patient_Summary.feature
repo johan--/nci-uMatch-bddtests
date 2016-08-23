@@ -2,7 +2,7 @@
 # Created by: Raseel Mohamed
 #  Date: 06/24/2016
 ##
-
+@demo
 Feature: Patient Summary Page
   A user can see the summarized details about a particular patient
 
