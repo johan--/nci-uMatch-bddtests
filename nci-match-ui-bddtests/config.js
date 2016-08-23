@@ -10,7 +10,7 @@ exports.config = {
     chromeOnly: true,
     directConnect: true,
     capabilities: {
-        browserName: 'chrome',
+        browserName: 'firefox',
         version: ''
     },
 
