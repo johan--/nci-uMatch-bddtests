@@ -29,7 +29,7 @@ before_script:
   - sudo apt-get update
   - sudo apt-get -y install chromium-bsu
   # Install UI test requirements
-  - npm install -g protractor grunt-cli
+  - npm install -g protractor@3.3.0 grunt-cli
   - webdriver-manager update
   # Update Ruby cucumber dependencies
   - bundle install
