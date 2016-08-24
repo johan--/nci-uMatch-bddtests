@@ -147,19 +147,13 @@ module.exports = function () {
         utilities.checkElementIncludesAttribute(testElement, 'class', 'active').then(callback);
     });
 
-    //this.Then(/^I should see the "(.+)" section heading$/, function (heading, callback) {
-    //    var index = patientPage.expectedMainTabSubHeadings.indexOf(heading);
-    //    patientPage.mainTabSubHeadingArray().get(index).getText().then(function (title) {
-    //        expect(title).to.eql(heading);
-    //    }).then(callback);
-    //});
-
     this.Then(/^I should see the "(.+)" section heading$/, function (heading, callback) {
         var index = patientPage.expectedMainTabSubHeadings.indexOf(heading);
-        patientPage.mainTabSubHeadingArray().get(index).getText().then(function (text) {
-            expect(text).to.eql(heading).and.notify(next);
-        }).then(callback);
+        patientPage.mainTabSubHeadingArray().get(index).getText().then(function (title) {
+            expect(title).to.eql(heading).and.notify(callback);
+        });
     });
+
 
     this.Then(/^I should see data under "(.+)" heading/, function (heading, callback) {
         // todo: Fill out this code steps
