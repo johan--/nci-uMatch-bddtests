@@ -160,12 +160,13 @@ module.exports = function () {
     this.Then(/^I should see the "(.+)" section heading$/, function (heading, callback) {
         var index = patientPage.expectedMainTabSubHeadings.indexOf(heading);
         var actualtxt = patientPage.mainTabSubHeadingArray().get(index).getText().then(function(title){
+            console.log(title);
             return title;
         });
         actualtxt.then(function(actualTitle){
-            assert.equal(actualTitle,heading);
+            console.log(actualTitle);
+            expect(actualTitle).to.eql(heading).and.notify(callback);
         });
-        callback();
     });
 
 
