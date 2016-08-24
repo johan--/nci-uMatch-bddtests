@@ -4,7 +4,7 @@
 
 'use strict';
 var fs = require('fs');
-
+var assert = require('assert');
 var patientPage = require ('../../pages/patientPage');
 
 // Utility Methods
@@ -150,7 +150,9 @@ module.exports = function () {
     this.Then(/^I should see the "(.+)" section heading$/, function (heading, callback) {
         var index = patientPage.expectedMainTabSubHeadings.indexOf(heading);
         patientPage.mainTabSubHeadingArray().get(index).getText().then(function (title) {
-            expect(title).to.eql(heading).and.notify(callback);
+            //expect(title).to.eql(heading).and.notify(callback);
+            assert.equal(title,heading);
+            callback();
         });
     });
 
