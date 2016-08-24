@@ -2,10 +2,23 @@ require_relative '../patient_message_loader'
 
 PatientMessageLoader.upload_start_with_wait_time(15)
 
-patient_id = 'PT_SS26_AssayConfirmed'
+patient_id = 'PT_SS21_TissueVariantConfirmed'
 PatientMessageLoader.register_patient(patient_id)
 PatientMessageLoader.specimen_received_tissue(patient_id)
 PatientMessageLoader.specimen_shipped_tissue(patient_id)
+PatientMessageLoader.variant_file_uploaded(patient_id)
+PatientMessageLoader.variant_file_confirmed(patient_id, 'CONFIRMED')
+
+patient_id = 'PT_SS22_BloodVariantConfirmed'
+PatientMessageLoader.register_patient(patient_id)
+PatientMessageLoader.specimen_received_blood(patient_id)
+PatientMessageLoader.specimen_shipped_blood(patient_id)
+PatientMessageLoader.variant_file_uploaded(patient_id, 'MOI_BR_01')
+PatientMessageLoader.variant_file_confirmed(patient_id, 'CONFIRMED', 'MOI_BR_01')
+
+patient_id = 'PT_SS26_AssayConfirmed'
+PatientMessageLoader.register_patient(patient_id)
+PatientMessageLoader.specimen_received_tissue(patient_id)
 PatientMessageLoader.specimen_shipped_slide(patient_id)
 PatientMessageLoader.assay(patient_id, 'NEGATIVE', 'ICCPTENs')
 
@@ -64,21 +77,6 @@ PatientMessageLoader.specimen_received_blood(patient_id)
 patient_id = 'PT_SS28_BloodReceived3'
 PatientMessageLoader.register_patient(patient_id)
 PatientMessageLoader.specimen_received_blood(patient_id)
-
-patient_id = 'PT_SS29_BdAndTsReceived1'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_blood(patient_id)
-PatientMessageLoader.specimen_received_tissue(patient_id)
-
-patient_id = 'PT_SS29_BdAndTsReceived2'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_blood(patient_id)
-PatientMessageLoader.specimen_received_tissue(patient_id)
-
-patient_id = 'PT_SS29_BdAndTsReceived3'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_blood(patient_id)
-PatientMessageLoader.specimen_received_tissue(patient_id)
 
 
 PatientMessageLoader.upload_done

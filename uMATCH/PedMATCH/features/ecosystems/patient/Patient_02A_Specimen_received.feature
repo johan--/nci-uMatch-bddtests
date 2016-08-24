@@ -34,16 +34,17 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     Then set patient message field: "collected_dttm" to value: "1990-04-25T15:17:11+00:00"
     When posted to MATCH patient trigger service, returns a message that includes "date" with status "Failure"
 
-  Scenario: PT_SR06. Return error message when received date is older than collection date
-    Given template specimen received message in type: "TISSUE" for patient: "PT_SR06_Registered"
-    Then set patient message field: "surgical_event_id" to value: "PT-SpecimenTest_SE_2"
-    Then set patient message field: "collected_dttm" to value: "2016-04-25T15:17:11+00:00"
-    Then set patient message field: "received_dttm" to value: "2016-04-23T15:17:11+00:00"
-    When posted to MATCH patient trigger service, returns a message that includes "date" with status "Failure"
+    #this is not required anymore!!!!!!!!!!!!!!!
+#  Scenario: PT_SR06. Return error message when received date is older than collection date
+#    Given template specimen received message in type: "TISSUE" for patient: "PT_SR06_Registered"
+#    Then set patient message field: "surgical_event_id" to value: "PT-SpecimenTest_SE_2"
+#    Then set patient message field: "collected_dttm" to value: "2016-04-25T15:17:11+00:00"
+#    Then set patient message field: "received_dttm" to value: "2016-04-23T15:17:11+00:00"
+#    When posted to MATCH patient trigger service, returns a message that includes "date" with status "Failure"
 
   Scenario: PT_SR07. Return error when specimen received message is received for non-existing patient
     Given template specimen received message in type: "TISSUE" for patient: "PT_NonExistingPatient"
-    When posted to MATCH patient trigger service, returns a message that includes "exist" with status "Failure"
+    When posted to MATCH patient trigger service, returns a message that includes "not been registered" with status "Failure"
 
 
   Scenario Outline: PT_SR08. Return error message when invalid type (other than BLOOD or TISSUE) is received
@@ -62,22 +63,20 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     Given template specimen received message in type: "TISSUE" for patient: "PT_SR09_Registered"
     Then set patient message field: "surgical_event_id" to value: "<SEI>"
     Then set patient message field: "collected_dttm" to value: "<collectTime>"
-    Then set patient message field: "received_dttm" to value: "<receivedTime>"
     Then wait for "<waitTime>" seconds
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "<status>"
     Examples:
-    |SEI            |collectTime              |receivedTime             |waitTime |status |message                                                                |
-    |SEI_TR_1       |2016-04-28T15:17:11+00:00|2016-04-29T15:17:11+00:00|0        |Success|Message has been processed successfully                                |
-    |SEI_TR_1       |2016-04-30T15:17:11+00:00|2016-05-01T15:17:11+00:00|10       |Failure|cannot transition from                                                 |
-    |SEI_TR_2       |2016-04-30T15:17:11+00:00|2016-05-01T15:17:11+00:00|10       |Success|Message has been processed successfully                                |
+    |SEI            |collectTime              |waitTime |status |message                                                                |
+    |SEI_TR_1       |2016-04-28T15:17:11+00:00|0        |Success|Message has been processed successfully                                |
+    |SEI_TR_1       |2016-04-30T15:17:11+00:00|10       |Failure|same surgical event id                                                 |
+    |SEI_TR_2       |2016-04-30T15:17:11+00:00|10       |Success|Message has been processed successfully                                |
+    |SEI_TR_1       |2016-05-02T15:17:11+00:00|10       |Failure|same surgical event id                                                 |
 
   Scenario Outline: PT_SR10a. tissue specimen_received message can only be accepted when patient is in certain status
     #all test patients are using surgical event id SEI_01
     Given template specimen received message in type: "TISSUE" for patient: "<patient_id>"
     Then set patient message field: "surgical_event_id" to value: "SEI_02"
     Then set patient message field: "collected_dttm" to value: "current"
-    Then wait for "1" seconds
-    Then set patient message field: "received_dttm" to value: "current"
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "<status>"
     Examples:
     |patient_id             |status     |message                                                                        |
@@ -96,8 +95,6 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
   Scenario Outline: PT_SR10b. blood specimen_received message can only be accepted when patient is in certain status
     Given template specimen received message in type: "BLOOD" for patient: "<patient_id>"
     Then set patient message field: "collected_dttm" to value: "current"
-    Then wait for "1" seconds
-    Then set patient message field: "received_dttm" to value: "current"
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "<status>"
     Examples:
     |patient_id             |status     |message                                                                        |
@@ -134,8 +131,6 @@ Scenario: PT_SR14. new specimen using new SEI will push all pending variant repo
   Given template specimen received message in type: "TISSUE" for patient: "PT_SR14_VariantReportUploaded"
   Then set patient message field: "surgical_event_id" to value: "SEI_02"
   Then set patient message field: "collected_dttm" to value: "2016-08-21T14:20:02-04:00"
-  Then wait for "1" seconds
-  Then set patient message field: "received_dttm" to value: "2016-08-21T14:21:02-04:00"
   When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
   Then wait for "15" seconds
   Then retrieve patient: "PT_SR14_VariantReportUploaded" from API

@@ -92,24 +92,20 @@ class PatientMessageLoader
   def self.specimen_received_tissue(
       patient_id,
       collect_time='2016-04-25T15:17:11+00:00',
-      received_time='2016-04-26T15:17:11+00:00',
       surgical_event_id='SEI_01')
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['specimen_received_TISSUE']
     message['specimen_received']['patient_id'] = patient_id
-    message['specimen_received']['surgical_event_id'] = surgical_event_id
+    message['specimen_received']['surgical_event_id'] = "#{patient_id}_#{surgical_event_id}"
     message['specimen_received']['collected_dttm'] = convert_date(collect_time)
-    message['specimen_received']['received_dttm'] = convert_date(received_time)
     send_message_to_local(message)
   end
 
   def self.specimen_received_blood(
       patient_id,
-      collect_time='2016-04-25T15:17:11+00:00',
-      received_time='2016-04-26T15:17:11+00:00')
+      collect_time='2016-04-22T15:17:11+00:00')
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['specimen_received_BLOOD']
     message['specimen_received']['patient_id'] = patient_id
     message['specimen_received']['collected_dttm'] = convert_date(collect_time)
-    message['specimen_received']['received_dttm'] = convert_date(received_time)
     send_message_to_local(message)
   end
 
@@ -120,7 +116,7 @@ class PatientMessageLoader
       molecular_id='MOI_01')
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['specimen_shipped_TISSUE']
     message['specimen_shipped']['patient_id'] = patient_id
-    message['specimen_shipped']['surgical_event_id'] = surgical_event_id
+    message['specimen_shipped']['surgical_event_id'] = "#{patient_id}_#{surgical_event_id}"
     message['specimen_shipped']['molecular_id'] = molecular_id
     message['specimen_shipped']['molecular_dna_id'] = molecular_id+'D'
     message['specimen_shipped']['molecular_cdna_id'] = molecular_id+'C'
@@ -135,7 +131,7 @@ class PatientMessageLoader
       slide_barcode='BC_001')
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['specimen_shipped_SLIDE']
     message['specimen_shipped']['patient_id'] = patient_id
-    message['specimen_shipped']['surgical_event_id'] = surgical_event_id
+    message['specimen_shipped']['surgical_event_id'] = "#{patient_id}_#{surgical_event_id}"
     message['specimen_shipped']['slide_barcode'] = slide_barcode
     message['specimen_shipped']['shipped_dttm'] = convert_date(shipped_time)
     send_message_to_local(message)
@@ -160,7 +156,7 @@ class PatientMessageLoader
       reported_date='2016-05-30T12:11:09.071-05:00')
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['assay_result_reported']
     message['patient_id'] = patient_id
-    message['surgical_event_id'] = surgical_event_id
+    message['surgical_event_id'] = "#{patient_id}_#{surgical_event_id}"
     message['biomarker'] = biomarker
     message['result'] = result
     message['reported_date'] = convert_date(reported_date)
@@ -174,7 +170,7 @@ class PatientMessageLoader
       reported_date='2015-04-27T12:13:09.071-05:00')
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['pathology_status']
     message['patient_id'] = patient_id
-    message['surgical_event_id'] = surgical_event_id
+    message['surgical_event_id'] = "#{patient_id}_#{surgical_event_id}"
     message['status'] = status
     message['reported_date'] = convert_date(reported_date)
     send_message_to_local(message)

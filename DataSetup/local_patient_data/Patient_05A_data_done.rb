@@ -30,7 +30,6 @@ PatientMessageLoader.specimen_shipped_tissue(patient_id)
 patient_id = 'PT_PR08_SlideShipped'
 PatientMessageLoader.register_patient(patient_id)
 PatientMessageLoader.specimen_received_tissue(patient_id)
-PatientMessageLoader.specimen_shipped_tissue(patient_id)
 PatientMessageLoader.specimen_shipped_slide(patient_id)
 
 PatientMessageLoader.register_patient('PT_PR09_Registered')
@@ -46,7 +45,7 @@ PatientMessageLoader.specimen_received_tissue(patient_id)
 patient_id = 'PT_PR11TissueReceived'
 PatientMessageLoader.register_patient(patient_id)
 PatientMessageLoader.specimen_received_tissue(patient_id)
-PatientMessageLoader.specimen_received_tissue(patient_id, '2016-04-28T15:17:11+00:00','2016-04-28T16:17:11+00:00', 'SEI_02')
+PatientMessageLoader.specimen_received_tissue(patient_id, '2016-04-28T15:17:11+00:00', 'SEI_02')
 
 patient_id = 'PT_PR12TissueReceived'
 PatientMessageLoader.register_patient(patient_id)
