@@ -147,13 +147,25 @@ module.exports = function () {
         utilities.checkElementIncludesAttribute(testElement, 'class', 'active').then(callback);
     });
 
+    //this.Then(/^I should see the "(.+)" section heading$/, function (heading, callback) {
+    //    var index = patientPage.expectedMainTabSubHeadings.indexOf(heading);
+    //    patientPage.mainTabSubHeadingArray().get(index).getText().then(function (title) {
+    //        //expect(title).to.eql(heading).and.notify(callback);
+    //        console.log(title);
+    //        assert.equal(title,heading);
+    //        callback();
+    //    });
+    //});
+
     this.Then(/^I should see the "(.+)" section heading$/, function (heading, callback) {
         var index = patientPage.expectedMainTabSubHeadings.indexOf(heading);
-        patientPage.mainTabSubHeadingArray().get(index).getText().then(function (title) {
-            //expect(title).to.eql(heading).and.notify(callback);
-            assert.equal(title,heading);
-            callback();
+        var actualtxt = patientPage.mainTabSubHeadingArray().get(index).getText().then(function(title){
+            return title;
         });
+        actualtxt.then(function(actualTitle){
+            assert.equal(actualTitle,heading);
+        });
+        callback();
     });
 
 
