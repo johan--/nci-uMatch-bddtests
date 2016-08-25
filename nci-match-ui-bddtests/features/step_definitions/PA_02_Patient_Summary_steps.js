@@ -38,7 +38,7 @@ module.exports = function () {
     });
 
     this.When(/^I collect the patient Api Information$/, function (callback) {
-        var str = '/patients/PT_AS02_SlideShipped';
+        var str = '/patients/' + patientId;
 
         patientInfoPromise = utilities.callApi('patient', str).then(function (response) {
               return(response);
@@ -111,6 +111,33 @@ module.exports = function () {
         })
     });
 
+    this.Then(/^I should see the patient's disease information match the database$/, function (callback) {
+        var actualTable = patientPage.diseaseSummaryTable.all(by.css('.ng-binding'));
+        patientInfoPromise.then (function (info){
+            var patientApiInfo = JSON.parse(info);
+            var expectedListfromAPI = [];
+            if (patientApiInfo.disease !== null) {
+                var diseaseName = utilities.dashifyIfEmpty (patientApiInfo.disease.disease_name);
+                var diseaseType = utilities.dashifyIfEmpty (patientApiInfo.disease.disease_code_type);
+                var diseaseCode = utilities.dashifyIfEmpty (patientApiInfo.disease.disease_code);
+                //todo:add drugs list/
+                var priorDrugs  = '-';
+
+                expectedListfromAPI.push (diseaseName);
+                expectedListfromAPI.push (diseaseType);
+                expectedListfromAPI.push (diseaseCode);
+
+                for (var i = 0; i < expectedListfromAPI.length; i++) {
+                    expect (actualTable.get (i).getText ().to.eventually.eql (expectedListfromAPI[ i ]));
+                }
+
+                // todo: add priorDrugs list check.
+            }
+        }).then(function () {
+            callback();
+        });
+    });
+
     this.Then(/^I should see the patient's disease information table$/, function (callback) {
         //checking for presence of table
         expect(browser.isElementPresent(patientPage.diseaseSummaryTable)).to.eventually.be.true;
@@ -123,22 +150,6 @@ module.exports = function () {
         }
         browser.sleep(5).then(callback);
     });
-
-//    this.Then(/^I should see the patient's disease information match the database$/, function (callback) {
-//        var expectedValueList = [];
-//        patientInfoPromise.then(function (info) {
-//
-//            expectedValueList.push('a');
-//        }.then(function () {
-//            callback();
-//        })
-//
-//        //todo: write the implemetation iif the code
-//        var expectedValueList ;
-//        var actualValueList = patientPage.diseaseSummaryTable.all(by.css('.ng-binding'))
-//        //expect(actualValueList).to.equal(expectedValueList);
-//        browser.sleep(5).then(callback);
-//    })
 
     this.Then(/^I should see the main tabs associated with the patient$/, function (callback) {
         // checking for number of tabs
@@ -154,15 +165,6 @@ module.exports = function () {
         utilities.checkElementIncludesAttribute(testElement, 'class', 'active').then(callback);
     });
 
-    //this.Then(/^I should see the "(.+)" section heading$/, function (heading, callback) {
-    //    var index = patientPage.expectedMainTabSubHeadings.indexOf(heading);
-    //    patientPage.mainTabSubHeadingArray().get(index).getText().then(function (title) {
-    //        //expect(title).to.eql(heading).and.notify(callback);
-    //        console.log(title);
-    //        assert.equal(title,heading);
-    //        callback();
-    //    });
-    //});
 
     this.Then(/^I should see the "(.+)" section heading$/, function (heading, callback) {
         var index = patientPage.expectedMainTabSubHeadings.indexOf(heading);
