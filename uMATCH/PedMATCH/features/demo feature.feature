@@ -445,7 +445,7 @@ Background: wait for process to complete
     |APEC1621     |00005                |1.0                |REGISTRATION         |current            |
 
   Scenario Outline: Patient's Blood specimen is received
-    Given template specimen received message in type: "BLOOD" for patient: "<patient_id>"
+    Given template specimen received message in type: "BLOOD" for patient: "<patient_id>", it has surgical_event_id: ""
     Then set patient message field: "collected_dttm" to value: "current"
     Then set patient message field: "received_dttm" to value: "current"
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
@@ -458,8 +458,7 @@ Background: wait for process to complete
     |00005            |
 
   Scenario Outline: Patient's Tissue specimen is received
-    Given template specimen received message in type: "TISSUE" for patient: "<patient_id>"
-    Then set patient message field: "surgical_event_id" to value: "<surgical_event_id>"
+    Given template specimen received message in type: "TISSUE" for patient: "<patient_id>", it has surgical_event_id: "<surgical_event_id>"
     Then set patient message field: "collected_dttm" to value: "current"
     Then set patient message field: "received_dttm" to value: "current"
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
@@ -474,7 +473,7 @@ Background: wait for process to complete
 
 #scenario failing because the application code is expecting surgical_event_id for Blood shipment, but Blood does not have an associated surgical_event _id
   Scenario Outline: Patient's Blood specimen shipment is received
-    Given template specimen shipped message in type: "BLOOD" for patient: "<patient_id>"
+    Given template specimen shipped message in type: "BLOOD" for patient: "<patient_id>", it has surgical_event_id: "", molecular_id: "<molecular_id>", slide_barcode: ""
     Then set patient message field: "molecular_id" to value: "<molecular_id>"
     Then set patient message field: "shipped_dttm" to value: "current"
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
@@ -488,7 +487,7 @@ Background: wait for process to complete
 
 
   Scenario Outline: Patient's Tissue specimen shipment is received
-    Given template specimen shipped message in type: "TISSUE" for patient: "<patient_id>"
+    Given template specimen shipped message in type: "TISSUE" for patient: "<patient_id>", it has surgical_event_id: "<surgical_event_id>", molecular_id: "<molecular_id>", slide_barcode: ""
     Then set patient message field: "surgical_event_id" to value: "<surgical_event_id>"
     Then set patient message field: "molecular_id" to value: "<molecular_id>"
     Then set patient message field: "shipped_dttm" to value: "current"
@@ -502,17 +501,16 @@ Background: wait for process to complete
     |00005              |00005-Tissue_Specimen_1|00005-00012      |
 
   Scenario Outline: Patient's SLIDE specimen shipment is received
-    Given template specimen shipped message in type: "SLIDE" for patient: "<patient_id>"
-    Then set patient message field: "surgical_event_id" to value: "<surgical_event_id>"
+    Given template specimen shipped message in type: "SLIDE" for patient: "<patient_id>", it has surgical_event_id: "<surgical_event_id>", molecular_id: "", slide_barcode: "<slide_barcode>"
     Then set patient message field: "shipped_dttm" to value: "current"
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
   Examples:
-    |patient_id         |surgical_event_id      |
-    |00001              |00001-Tissue_Specimen_1|
-    |00002              |00002-Tissue_Specimen_1|
-    |00003              |00003-Tissue_Specimen_1|
-    |00004              |00004-Tissue_Specimen_1|
-    |00005              |00005-Tissue_Specimen_1|
+    |patient_id         |surgical_event_id      |slide_barcode                    |
+    |00001              |00001-Tissue_Specimen_1|00001_Slide_barcode_1            |
+    |00002              |00002-Tissue_Specimen_1|00002_Slide_barcode_1            |
+    |00003              |00003-Tissue_Specimen_1|00003_Slide_barcode_1            |
+    |00004              |00004-Tissue_Specimen_1|00004_Slide_barcode_1            |
+    |00005              |00005-Tissue_Specimen_1|00005_Slide_barcode_1            |
 
   Scenario Outline: Patient's ICCPTENs assay message is received
     Given template assay message with surgical_event_id: "<surgical_event_id>" for patient: "<patient_id>"

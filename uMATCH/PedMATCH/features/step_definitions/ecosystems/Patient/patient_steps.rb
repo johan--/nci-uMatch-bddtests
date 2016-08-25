@@ -31,28 +31,36 @@ Given(/^template patient registration message for patient: "([^"]*)" on date: "(
   @request = @request_json.to_json.to_s
 end
 
-Given(/^template specimen received message in type: "([^"]*)" for patient: "([^"]*)"$/) do |type, patientID|
+Given(/^template specimen received message in type: "([^"]*)" for patient: "([^"]*)", it has surgical_event_id: "([^"]*)"$/) do |type, patientID, sei|
   @request_json = Patient_helper_methods.load_patient_message_templates("specimen_received_#{type}")
   converted_patient_id = patientID=='null'?nil:patientID
   @patient_id = converted_patient_id
+  converted_sei = sei=='null'?nil:sei
   @patient_message_root_key = 'specimen_received'
   @request_json[@patient_message_root_key]['patient_id'] = converted_patient_id
   if type == 'TISSUE'
-    #as default
-    @request_json[@patient_message_root_key]['surgical_event_id'] = "#{converted_patient_id}_SEI_01"
+    @request_json[@patient_message_root_key]['surgical_event_id'] = converted_sei
   end
   @request = @request_json.to_json.to_s
 end
 
-Given(/^template specimen shipped message in type: "([^"]*)" for patient: "([^"]*)"$/) do |type, patientID|
+Given(/^template specimen shipped message in type: "([^"]*)" for patient: "([^"]*)", it has surgical_event_id: "([^"]*)", molecular_id: "([^"]*)", slide_barcode: "([^"]*)"/) do |type, patientID, sei, moi, barcode|
   @request_json = Patient_helper_methods.load_patient_message_templates("specimen_shipped_#{type}")
   converted_patient_id = patientID=='null'?nil:patientID
   @patient_id = converted_patient_id
+  converted_sei = sei=='null'?nil:sei
+  converted_moi = moi=='null'?nil:moi
+  converted_barcode = barcode=='null'?nil:barcode
   @patient_message_root_key = 'specimen_shipped'
   @request_json[@patient_message_root_key]['patient_id'] = converted_patient_id
   if type == 'TISSUE' || type == 'SLIDE'
-    #as default
-    @request_json[@patient_message_root_key]['surgical_event_id'] = "#{converted_patient_id}_SEI_01"
+    @request_json[@patient_message_root_key]['surgical_event_id'] = converted_sei
+  end
+  if type == 'TISSUE' || type == 'BLOOD'
+    @request_json[@patient_message_root_key]['molecular_id'] = converted_moi
+  end
+  if type == 'SLIDE'
+    @request_json[@patient_message_root_key]['slide_barcode'] = converted_barcode
   end
   @request = @request_json.to_json.to_s
 end
@@ -61,7 +69,7 @@ Given(/^template assay message with surgical_event_id: "([^"]*)" for patient: "(
   @request_json = Patient_helper_methods.load_patient_message_templates('assay_result_reported')
   converted_patient_id = patientID=='null'?nil:patientID
   @patient_id = converted_patient_id
-  converted_sei = sei=='null'?nil:"#{@patient_id}_#{sei}"
+  converted_sei = sei=='null'?nil:sei
 
   @patient_message_root_key = ''
   @request_json['patient_id'] = converted_patient_id
@@ -73,7 +81,7 @@ Given(/^template pathology report with surgical_event_id: "([^"]*)" for patient:
   @request_json = Patient_helper_methods.load_patient_message_templates('pathology_status')
   converted_patient_id = patientID=='null'?nil:patientID
   @patient_id = converted_patient_id
-  converted_sei = sei=='null'?nil:"#{@patient_id}_#{sei}"
+  converted_sei = sei=='null'?nil:sei
   @patient_message_root_key = ''
   @request_json['patient_id'] = converted_patient_id
   @request_json['surgical_event_id'] = converted_sei
@@ -138,12 +146,8 @@ Then(/^set patient message field: "([^"]*)" to value: "([^"]*)"$/) do |field, va
     converted_value = String.new
     if value == 'null'
       converted_value = nil
-    elsif value == ''
-      converted_value = ''
     elsif value.eql?('current')
       converted_value = Helper_Methods.getDateAsRequired(value)
-    elsif field.eql?('surgical_event_id')
-      converted_value = value=='null'?nil:"#{@patient_id}_#{value}"
     else
       converted_value = value
     end
@@ -195,7 +199,7 @@ Then(/^returned patient has value: "([^"]*)" in field: "([^"]*)"$/) do |value, f
 end
 
 Then(/^returned patient has specimen \(surgical_event_id: "([^"]*)"\)$/) do |sei|
-  converted_sei = "#{@patient_id}_#{sei}"
+  converted_sei = sei=='null'?nil:sei
   @current_specimen = find_specimen(@retrieved_patient, converted_sei)
   expect_find = "Can find specimen with surgical_event_id=#{converted_sei}"
   actual_find = expect_find
@@ -217,7 +221,7 @@ Then(/^returned patient's blood specimen has value: "([^"]*)" in field: "([^"]*)
 end
 
 Then(/^returned patient has variant report \(surgical_event_id: "([^"]*)", molecular_id: "([^"]*)", analysis_id: "([^"]*)"\)$/) do |sei, moi, ani|
-  converted_sei = "#{@patient_id}_#{sei}"
+  converted_sei = sei=='null'?nil:sei
   @current_variant_report = find_variant_report(@retrieved_patient, converted_sei, moi, ani)
   expect_find = "Can find variant with surgical_event_id=#{converted_sei}, molecular_id=#{moi} and analysis_id=#{ani}"
   actual_find = expect_find
@@ -242,7 +246,7 @@ And(/^this variant report has correct status_date$/) do
 end
 
 Then(/^find the first "([^"]*)" variant in variant report which has surgical_event_id: "([^"]*)", molecular_id: "([^"]*)" and analysis_id: "([^"]*)"$/) do |variant_type, sei, moi, ani|
-  converted_sei = "#{@patient_id}_#{sei}"
+  converted_sei = sei=='null'?nil:sei
   this_variant_report = find_variant_report(@retrieved_patient, converted_sei, moi, ani)
   variant_list_field = case variant_type
                          when 'snv_id' then 'snvs_and_indels'
@@ -275,7 +279,7 @@ end
 # end
 
 Then(/^variants in variant report \(surgical_event_id: "([^"]*)", molecular_id: "([^"]*)", analysis_id: "([^"]*)"\) has confirmed: "([^"]*)"$/) do |sei, moi, ani, confirmed|
-  converted_sei = "#{@patient_id}_#{sei}"
+  converted_sei = sei=='null'?nil:sei
   variant_report = find_variant_report(@retrieved_patient, converted_sei, moi, ani)
 
   variants = variant_report['variants']
