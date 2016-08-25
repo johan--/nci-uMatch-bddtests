@@ -23,6 +23,11 @@ var DashboardPage = function() {
         browser.get('/#/' + pageName, 6000);
         browser.waitForAngular();
     };
+
+    this.dashBannerList       = element.all(by.css('.dashboard-header'));
+    this.dashAmoiChart        = element(by.css('div[ng-init^="setCanvasHeight(\'#amoiCanvas\'"]'));
+    this.dashTreatmentAccrual = element(by.css('div[ng-init^="setCanvasHeight(\'#treatmentArmAccrualCanvas\'"]'));
+
 };
 
 module.exports = new DashboardPage();
