@@ -150,6 +150,8 @@
     "patient_id":"3366",
     "study_id": "APEC1621",
     "surgical_event_id":"3366-bsn",
+    "case_number": "case-3366",
+    "type": "ASSAY_RESULT_REPORTED",
     "biomarker":"ICCPTENs",
     "reported_date":"2016-05-15T13:12:09.071-05:00",
     "ordered_date":"2016-05-15T13:11:09.071-05:00",
@@ -160,6 +162,8 @@
     "patient_id":"3366",
     "study_id": "APEC1621",
     "surgical_event_id":"3366-bsn",
+    "case_number": "case-3366",
+    "type": "ASSAY_RESULT_REPORTED",
     "biomarker":"ICCMLH1s",
     "reported_date":"2016-05-16T12:12:09.071-05:00",
     "ordered_date":"2016-05-16T12:11:09.071-05:00",
@@ -169,9 +173,10 @@
   {
     "patient_id":"3366",
     "surgical_event_id":"3366-bsn",
+    "case_number": "case-3366",
+    "type": "PATHOLOGY_STATUS",
     "reported_date":"2016-05-12T12:13:09.071-05:00",
-    "status":"Y",
-    "message":"PATHOLOGY_CONFIRMATION"
+    "status":"Y"
   },
   {
     "patient_id": "3366",
@@ -216,8 +221,8 @@
     "patient_id": "3366",
     "molecular_id": "3366-bsn-msn-blood",
     "analysis_id": "job2",
-    "s3_bucket_name": "pedmatch-demo/3366/3366-bsn-msn-blood/job2",
-    "tsv_file_path_name": "indels.tsv",
+    "s3_bucket_name": "pedmatch-demo/3366/3366-bsn-msn-2/job1",
+    "tsv_file_path_name": "3366.tsv",
     "vcf_file_path_name": "3366-bsn-msn-2.vcf",
     "dna_bam_file_path_name": "dna.bam",
     "cdna_bam_file_path_name": "cdna.bam",
@@ -228,6 +233,15 @@
     "patient_id": "3366",
     "molecular_id": "3366-bsn-msn-2",
     "analysis_id": "job1",
+    "status": "CONFIRMED",
+    "comment": "The committee approves this variant report",
+    "comment_user": "rick"
+  },
+
+  {
+    "patient_id": "3366",
+    "molecular_id": "3366-bsn-msn-blood",
+    "analysis_id": "job2",
     "status": "CONFIRMED",
     "comment": "The committee approves this variant report",
     "comment_user": "rick"

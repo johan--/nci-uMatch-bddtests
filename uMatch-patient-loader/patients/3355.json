@@ -75,7 +75,7 @@
 
       "carrier": "Federal Express",
       "tracking_id": "7956 4568 1235",
-      "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "shipped_dttm": "2016-05-26T19:42:13+00:00",
       "destination": "MDA",
 
       "internal_use_only": {
@@ -96,11 +96,11 @@
       "type": "SLIDE",
 
       "surgical_event_id": "3355-bsn",
-      "slide_barcode": "0BJ6A5",
+      "slide_barcode": "0BJ6A5-3355",
 
       "carrier": "Federal Express",
       "tracking_id": "7956 4568 1235",
-      "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "shipped_dttm": "2016-05-26T19:42:13+00:00",
       "destination": "MDA",
 
       "internal_use_only": {
@@ -127,7 +127,7 @@
 
       "carrier": "Federal Express",
       "tracking_id": "7956 4568 1235",
-      "shipped_dttm": "2016-05-01T19:42:13+00:00",
+      "shipped_dttm": "2016-05-26T19:42:13+00:00",
       "destination": "MDA",
 
       "internal_use_only": {
@@ -140,6 +140,8 @@
     "patient_id":"3355",
     "study_id": "APEC1621",
     "surgical_event_id":"3355-bsn",
+    "case_number": "case-3355",
+    "type": "ASSAY_RESULT_REPORTED",
     "biomarker":"ICCPTENs",
     "reported_date":"2016-05-15T13:12:09.071-05:00",
     "ordered_date":"2016-05-15T13:11:09.071-05:00",
@@ -149,6 +151,8 @@
     "patient_id":"3355",
     "study_id": "APEC1621",
     "surgical_event_id":"3355-bsn",
+    "case_number": "case-3355",
+    "type": "ASSAY_RESULT_REPORTED",
     "biomarker":"ICCMLH1s",
     "reported_date":"2016-05-16T12:12:09.071-05:00",
     "ordered_date":"2016-05-16T12:11:09.071-05:00",
@@ -157,9 +161,10 @@
   {
     "patient_id":"3355",
     "surgical_event_id":"3355-bsn",
+    "case_number": "case-3355",
+    "type": "PATHOLOGY_STATUS",
     "reported_date":"2015-12-12T12:13:09.071-05:00",
-    "status":"Y",
-    "message":"PATHOLOGY_CONFIRMATION"
+    "status":"Y"
   },
   {
     "patient_id": "3355",

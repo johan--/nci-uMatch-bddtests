@@ -79,6 +79,10 @@
       "shipped_dttm": "2016-05-12T19:42:13+00:00",
       "destination": "MDA",
 
+      "dna_volume_ul": 10,
+      "dna_concentration_ng_per_ul": 25,
+      "cdna_volume_ul": 10,
+
       "internal_use_only": {
         "stars_patient_id": "ABCXYZ",
         "stars_specimen_id_cdna": "ABCXYZ-0BJ64F",
@@ -106,6 +110,10 @@
       "tracking_id": "7956 4568 1235",
       "shipped_dttm": "2016-05-13T19:42:13+00:00",
       "destination": "MDA",
+
+      "dna_volume_ul": 10,
+      "dna_concentration_ng_per_ul": 25,
+      "cdna_volume_ul": 10,
 
       "internal_use_only": {
         "stars_patient_id": "ABCXYZ",
@@ -142,6 +150,8 @@
     "patient_id":"3344",
     "study_id": "APEC1621",
     "surgical_event_id":"3344-bsn",
+    "case_number": "case-3344",
+    "type": "ASSAY_RESULT_REPORTED",
     "biomarker":"ICCPTENs",
     "reported_date":"2016-05-15T12:12:09.071-05:00",
     "ordered_date":"20116-05-14T12:11:09.071-05:00",
@@ -151,6 +161,8 @@
     "patient_id":"3344",
     "study_id": "APEC1621",
     "surgical_event_id":"3344-bsn",
+    "case_number": "case-3344",
+    "type": "ASSAY_RESULT_REPORTED",
     "biomarker":"ICCPTENs",
     "reported_date":"2016-05-15T13:12:09.071-05:00",
     "ordered_date":"2016-05-15T13:11:09.071-05:00",
@@ -161,6 +173,8 @@
     "patient_id":"3344",
     "study_id": "APEC1621",
     "surgical_event_id":"3344-bsn",
+    "case_number": "case-3344",
+    "type": "ASSAY_RESULT_REPORTED",
     "biomarker":"ICCMLH1s",
     "reported_date":"2016-05-16T12:12:09.071-05:00",
     "ordered_date":"2016-05-16T12:11:09.071-05:00",
@@ -170,9 +184,10 @@
   {
     "patient_id":"3344",
     "surgical_event_id":"3344-bsn",
+    "case_number": "case-3344",
+    "type": "PATHOLOGY_STATUS",
     "reported_date":"2016-05-12T12:13:09.071-05:00",
-    "status":"Y",
-    "message":"PATHOLOGY_CONFIRMATION"
+    "status":"Y"
   },
   {
     "patient_id": "3344",
@@ -202,6 +217,10 @@
       "tracking_id": "7956 4568 1235",
       "shipped_dttm": "2016-05-13T19:42:13+00:00",
       "destination": "MDA",
+
+      "dna_volume_ul": 10,
+      "dna_concentration_ng_per_ul": 25,
+      "cdna_volume_ul": 10,
 
       "internal_use_only": {
         "stars_patient_id": "ABCXYZ",
