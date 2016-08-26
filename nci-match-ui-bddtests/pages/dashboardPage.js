@@ -28,6 +28,21 @@ var DashboardPage = function() {
     this.dashAmoiChart        = element(by.css('div[ng-init^="setCanvasHeight(\'#amoiCanvas\'"]'));
     this.dashTreatmentAccrual = element(by.css('div[ng-init^="setCanvasHeight(\'#treatmentArmAccrualCanvas\'"]'));
 
+    this.expectedTissueVRColumns = ['Patient ID', 'Molecular ID',
+        'Analysis ID', 'Variant Report',
+        'CLIA Lab', 'Specimen Received Date',
+        'Variant Report Received Date', 'Days Pending'];
+
+    this.expectedBloodVRColumns = ['Patient ID', 'Molecular ID',
+        'Analysis ID', 'Variant Report',
+        'CLIA Lab', 'Specimen Received Date',
+        'Variant Report Received Date', 'Days Pending'];
+
+    this.expectedAssignmentColumns = ['Patient ID', 'Molecular ID',
+        'Analysis ID', 'Assignment Report',
+        'Disease', 'Assigned Treatment Arm',
+        'Assignment Date', 'Hours Pending'];
+
 };
 
 module.exports = new DashboardPage();

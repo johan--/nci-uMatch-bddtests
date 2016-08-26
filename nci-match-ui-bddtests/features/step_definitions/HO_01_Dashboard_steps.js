@@ -18,6 +18,15 @@ module.exports = function() {
     // This is all the listing under the patient statistics section on the top banner.
     var listings = dash.dashBannerList.all(by.css('li.list-group-item'));
 
+    // This is the css identifier (name) for the sub tavbs in the Pending review section.
+    var subTabLocator = {
+        "Tissue Variant Reports": "pendingTissueVRs",
+        "Blood Variant Reports": "pendingBloodVRs",
+        "Assignment Reports" : "pendingAssignReps"
+    };
+
+    var reportData;
+
     this.Then(/^I can see the Dashboard banner$/, function (callback) {
         expect(dash.dashBannerList.count()).to.eventually.equal(1);
         browser.sleep(50).then(callback);
@@ -113,18 +122,73 @@ module.exports = function() {
         browser.sleep(50).then(callback);
     });
 
-    this.Given(/^I collect information for the Dashboard$/, function (callback) {
-      // Write code here that turns the phrase above into concrete actions
-      callback.pending();
+    this.Given(/^I collect information for "(.+)" Dashboard$/, function (report_type, callback) {
+        var dashboardList = {
+          "Tissue Variant Reports": pendingTissueVR,
+          "Blood Variant Reports": pendingBloodVR,
+          "Assignment Reports" : pendingAssignment
+        };
+        var response = dashboardList[report_type];
+        response.then(function (data) {
+            reportData = JSON.parse(data);
+        });
+        browser.sleep(10).then(callback);
     });
 
-    this.Then(/^count of "([^"]*)" table match with the "([^"]*)" statistics$/, function (arg1, arg2, callback) {
-      // Write code here that turns the phrase above into concrete actions
-      callback.pending();
+    this.Then(/^Count of "(.+)" table match with back end data$/, function (reportType, callback) {
+        var count = reportData.length;
+        var subtabDataList = element.all(by.id(subTabLocator[reportType])).get(0).all(by.repeater('item in filtered'));
+
+        expect(subtabDataList.count()).to.eventually.eql(count);
+        browser.sleep(20).then(callback);
     });
 
-    this.Given(/^if the "([^"]*)" table is empty the message$/, function (arg1, reportType, callback) {
-      // Write code here that turns the phrase above into concrete actions
-      callback.pending();
+    this.Then(/^I select "(.+)" from the "(.+)" drop down$/, function (optionValue, reportType, callback) {
+        element(by.id(subTabLocator[reportType]))
+            .element(by.model('paginationOptions.itemsPerPage'))
+            .element(by.cssContainingText('option', optionValue))
+            .click().
+            then(callback);
     });
-}
+
+    this.When(/^I click on the "(.+)" sub\-tab$/, function (reportType, callback) {
+        var tabHeadingElement = element(by.css('li[heading="' + reportType + '"]'));
+        tabHeadingElement.click().then(callback);
+    });
+
+    this.Then(/^The "(.+)" sub\-tab is active$/, function (reportType, callback) {
+        var locator = 'li[heading="' + reportType + '"]';
+        utilities.checkElementIncludesAttribute(element(by.css(locator)), "class", 'active').then(callback);
+    });
+
+    this.Given(/^Appropriate Message is displayed for empty or filled pending "(.+)" reports$/, function (reportType, callback) {
+        var count = reportData.length;
+        var gridType = reportType.replace(/\s/g, '').slice(0, -1);
+        var cssString = '!pending' + gridType + 'GridOptions.data || !pending' + gridType + 'GridOptions.data.length';
+        var studyElement = element(by.css('tr[ng-if="' + cssString + '"]'));
+
+        if (count == 0) {
+            expect(studyElement.isPresent()).to.eventually.be.true;
+            expect(studyElement.getText()).to.eventually.eql('No pending ' + reportType);
+        } else {
+            expect(studyElement.isPresent()).to.eventually.be.false;
+        }
+        browser.sleep(10).then(callback);
+    });
+
+    this.Then(/^The "(.+)" data columns are seen$/, function (reportType, callback) {
+        var dashboardList = {
+            "Tissue Variant Reports": dash.expectedTissueVRColumns,
+            "Blood Variant Reports": dash.expectedBloodVRColumns,
+            "Assignment Reports" : dash.expectedAssignmentColumns
+        };
+
+        var studyElement = element.all(by.id(subTabLocator[reportType])).get(0).all(by.css('th'));
+
+        for(var i = 0; i < dashboardList[reportType].length; i++){
+            expect(studyElement.get(i).getText()).to.eventually.eql(dashboardList[reportType][i]);
+        }
+        browser.sleep(50).then(callback);
+    });
+
+};
