@@ -19,14 +19,10 @@ module.exports = function() {
     var listings = dash.dashBannerList.all(by.css('li.list-group-item'));
 
     // This is the css identifier (name) for the sub tavbs in the Pending review section.
-    var subTabLocator = {
-        "Tissue Variant Reports": "pendingTissueVRs",
-        "Blood Variant Reports": "pendingBloodVRs",
-        "Assignment Reports" : "pendingAssignReps"
-    };
+    var subTabLocator = dash.subTabLocator;
 
     var reportData;
-
+    
     this.Then(/^I can see the Dashboard banner$/, function (callback) {
         expect(dash.dashBannerList.count()).to.eventually.equal(1);
         browser.sleep(50).then(callback);
@@ -148,12 +144,16 @@ module.exports = function() {
             .element(by.model('paginationOptions.itemsPerPage'))
             .element(by.cssContainingText('option', optionValue))
             .click().
-            then(callback);
+            then(function () {
+            browser.waitForAngular();
+        }).then(callback);
     });
 
     this.When(/^I click on the "(.+)" sub\-tab$/, function (reportType, callback) {
         var tabHeadingElement = element(by.css('li[heading="' + reportType + '"]'));
-        tabHeadingElement.click().then(callback);
+        tabHeadingElement.click().then(function () {
+           browser.waitForAngular();
+        }).then(callback);
     });
 
     this.Then(/^The "(.+)" sub\-tab is active$/, function (reportType, callback) {
