@@ -1,10 +1,9 @@
 #encoding: utf-8
-#@patients
-@specimen_received
+@patients @specimen_received
 Feature: Receive NCH specimen messages and consume the message within MATCH:
 
   Scenario: PT_SR01. Consume a specimen_received message for type "Blood" for a patient already registered in Match
-    Given template specimen received message in type: "BLOOD" for patient: "PT_SR01_Registered", it has surgical_event_id: "PT_SR01_Registered_SEI1"
+    Given template specimen received message in type: "BLOOD" for patient: "PT_SR01_Registered", it has surgical_event_id: ""
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
     Then wait for "10" seconds
     Then retrieve patient: "PT_SR01_Registered" from API
@@ -58,8 +57,7 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
 
   Scenario Outline: PT_SR09. tissue can be received with new surgical event id but not with existing one
 #  One possible scenario: specimen using same surgical_event_id with new received_date can be received again.
-    Given template specimen received message in type: "TISSUE" for patient: "PT_SR09_Registered", it has surgical_event_id: "PT_SR09_Registered_SEI1"
-    Then set patient message field: "surgical_event_id" to value: "<SEI>"
+    Given template specimen received message in type: "TISSUE" for patient: "PT_SR09_Registered", it has surgical_event_id: "<SEI>"
     Then set patient message field: "collected_dttm" to value: "<collectTime>"
     Then wait for "<waitTime>" seconds
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "<status>"
@@ -73,7 +71,7 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
   Scenario Outline: PT_SR10a. tissue specimen_received message can only be accepted when patient is in certain status
     #all test patients are using surgical event id SEI_01
     Given template specimen received message in type: "TISSUE" for patient: "<patient_id>", it has surgical_event_id: "<new_sei>"
-    Then set patient message field: "collected_dttm" to value: "current"
+    Then set patient message field: "collected_dttm" to value: "2016-08-02T15:17:11+00:00"
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "<status>"
     Examples:
     |patient_id              |new_sei                      |status     |message                                                                        |
@@ -98,7 +96,7 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     |PT_SR10_TsReceived     |Success    |Message has been processed successfully                                      |
     |PT_SR10_BdVRReceived   |Success    |Message has been processed successfully                                      |
     |PT_SR10_BdVRRejected   |Success    |Message has been processed successfully                                      |
-    |PT_SR10_BdVRConfirmed  |Failure    |cannot transition from                                                       |
+    |PT_SR10_BdVRConfirmed  |Failure    |confirmed variant report                                                     |
 #    |PT_SR10_WaitingPtData  |Success    |Message has been processed successfully                                      |
 #    |PT_SR10_PendingApproval|Success    |Message has been processed successfully                                      |
 #    |PT_SR10_ProgressReBioY2|TISSUE          |Success    |Message has been processed successfully                                      |

@@ -123,12 +123,16 @@ class Helper_Methods
         result = JSON.parse(e.response)
         result['status'] = 'Failure'
       end
+      p result['message']
       return result
     end
     result = JSON.parse(@res)
     httpCode = "#{@res.code}"
     status = httpCode=='200'?'Success':'Failure'
     result['status'] = status
+    if status.eql?('Failure')
+      p result['message']
+    end
     return result
   end
 

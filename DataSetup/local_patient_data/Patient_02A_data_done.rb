@@ -10,85 +10,81 @@ PatientMessageLoader.register_patient('PT_SR06_Registered')
 PatientMessageLoader.register_patient('PT_SR08_Registered')
 PatientMessageLoader.register_patient('PT_SR09_Registered')
 
-patient_id = 'PT_SR10_TsVrReceived'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_tissue(patient_id)
-PatientMessageLoader.specimen_shipped_tissue(patient_id)
-PatientMessageLoader.variant_file_uploaded(patient_id)
 
-patient_id = 'PT_SR10_UPathoReceived'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_tissue(patient_id)
-PatientMessageLoader.pathology(patient_id,'U')
+pt = PatientDataSet.new('PT_SR10_BdReceived')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_blood(pt.id)
 
-patient_id = 'PT_SR10_NPathoReceived'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_tissue(patient_id)
-PatientMessageLoader.pathology(patient_id,'N')
+pt = PatientDataSet.new('PT_SR10_TsReceived')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 
-patient_id = 'PT_SR10_YPathoReceived'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_tissue(patient_id)
-PatientMessageLoader.pathology(patient_id,'Y')
 
-patient_id = 'PT_SR10_BdReceived'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_blood(patient_id)
+pt = PatientDataSet.new('PT_SR10_TsVrReceived')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
 
-patient_id = 'PT_SR10_TsVRRejected'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_tissue(patient_id)
-PatientMessageLoader.specimen_shipped_tissue(patient_id)
-PatientMessageLoader.variant_file_uploaded(patient_id)
+pt = PatientDataSet.new('PT_SR10_TsVRRejected')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
 sleep(10)
-PatientMessageLoader.variant_file_confirmed(patient_id, 'REJECTED')
+PatientMessageLoader.variant_file_confirmed(pt.id, 'REJECTED', pt.moi, pt.ani)
 
-patient_id = 'PT_SR10_TsReceived'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_tissue(patient_id)
+pt = PatientDataSet.new('PT_SR10_BdVRReceived')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_blood(pt.id)
+PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)
+PatientMessageLoader.variant_file_uploaded(pt.id, pt.bd_moi, pt.ani)
 
-patient_id = 'PT_SR10_BdVRReceived'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_blood(patient_id)
-PatientMessageLoader.specimen_shipped_blood(patient_id)
-PatientMessageLoader.variant_file_uploaded(patient_id, 'MOI_BR_01')
-
-patient_id = 'PT_SR10_BdVRRejected'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_blood(patient_id)
-PatientMessageLoader.specimen_shipped_blood(patient_id)
-PatientMessageLoader.variant_file_uploaded(patient_id, 'MOI_BR_01')
+pt = PatientDataSet.new('PT_SR10_BdVRRejected')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_blood(pt.id)
+PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)
+PatientMessageLoader.variant_file_uploaded(pt.id, pt.bd_moi, pt.ani)
 sleep(10)
-PatientMessageLoader.variant_file_confirmed(patient_id, 'REJECTED', 'MOI_BR_01')
+PatientMessageLoader.variant_file_confirmed(pt.id, 'REJECTED', pt.bd_moi, pt.ani)
 
-patient_id = 'PT_SR10_BdVRConfirmed'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_blood(patient_id)
-PatientMessageLoader.specimen_shipped_blood(patient_id)
-PatientMessageLoader.variant_file_uploaded(patient_id, 'MOI_BR_01')
+pt = PatientDataSet.new('PT_SR10_BdVRConfirmed')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_blood(pt.id)
+PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)
+PatientMessageLoader.variant_file_uploaded(pt.id, pt.bd_moi, pt.ani)
 sleep(10)
-PatientMessageLoader.variant_file_confirmed(patient_id, 'CONFIRMED', 'MOI_BR_01')
+PatientMessageLoader.variant_file_confirmed(pt.id, 'CONFIRMED', pt.bd_moi, pt.ani)
+
+pt = PatientDataSet.new('PT_SR10_UPathoReceived')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.pathology(pt.id, pt.sei, 'U')
+
+pt = PatientDataSet.new('PT_SR10_NPathoReceived')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.pathology(pt.id, pt.sei,'N')
+
+pt = PatientDataSet.new('PT_SR10_YPathoReceived')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.pathology(pt.id, pt.sei,'Y')
 
 PatientMessageLoader.register_patient('PT_SR11_Registered')
 
-patient_id = 'PT_SR12_VariantReportConfirmed'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_tissue(patient_id)
-PatientMessageLoader.specimen_shipped_tissue(patient_id)
-PatientMessageLoader.variant_file_uploaded(patient_id)
+pt = PatientDataSet.new('PT_SR12_VariantReportConfirmed')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
 sleep(10)
-PatientMessageLoader.variant_file_confirmed(patient_id, 'CONFIRMED')
+PatientMessageLoader.variant_file_confirmed(pt.id, 'CONFIRMED', pt.moi, pt.ani)
 
-patient_id = 'PT_SR14_VariantReportUploaded'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_tissue(patient_id)
-PatientMessageLoader.specimen_shipped_tissue(patient_id)
-PatientMessageLoader.variant_file_uploaded(patient_id)
-
-patient_id = 'PT_SR15_VariantReportUploaded'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_tissue(patient_id)
-PatientMessageLoader.specimen_shipped_tissue(patient_id)
-PatientMessageLoader.variant_file_uploaded(patient_id)
+pt = PatientDataSet.new('PT_SR14_VariantReportUploaded')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
 
 PatientMessageLoader.upload_done

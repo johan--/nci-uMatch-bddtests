@@ -91,11 +91,11 @@ class PatientMessageLoader
 
   def self.specimen_received_tissue(
       patient_id,
-      collect_time='2016-04-25T15:17:11+00:00',
-      surgical_event_id='SEI_01')
+      surgical_event_id,
+      collect_time='2016-04-25T15:17:11+00:00')
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['specimen_received_TISSUE']
     message['specimen_received']['patient_id'] = patient_id
-    message['specimen_received']['surgical_event_id'] = "#{patient_id}_#{surgical_event_id}"
+    message['specimen_received']['surgical_event_id'] = surgical_event_id
     message['specimen_received']['collected_dttm'] = convert_date(collect_time)
     send_message_to_local(message)
   end
@@ -111,12 +111,12 @@ class PatientMessageLoader
 
   def self.specimen_shipped_tissue(
       patient_id,
-      shipped_time='2016-05-01T19:42:13+00:00',
-      surgical_event_id='SEI_01',
-      molecular_id='MOI_01')
+      surgical_event_id,
+      molecular_id,
+      shipped_time='2016-05-01T19:42:13+00:00')
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['specimen_shipped_TISSUE']
     message['specimen_shipped']['patient_id'] = patient_id
-    message['specimen_shipped']['surgical_event_id'] = "#{patient_id}_#{surgical_event_id}"
+    message['specimen_shipped']['surgical_event_id'] = surgical_event_id
     message['specimen_shipped']['molecular_id'] = molecular_id
     message['specimen_shipped']['molecular_dna_id'] = molecular_id+'D'
     message['specimen_shipped']['molecular_cdna_id'] = molecular_id+'C'
@@ -126,12 +126,12 @@ class PatientMessageLoader
 
   def self.specimen_shipped_slide(
       patient_id,
-      shipped_time='2016-05-01T19:42:13+00:00',
-      surgical_event_id='SEI_01',
-      slide_barcode='BC_001')
+      surgical_event_id,
+      slide_barcode,
+      shipped_time='2016-05-01T19:42:13+00:00')
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['specimen_shipped_SLIDE']
     message['specimen_shipped']['patient_id'] = patient_id
-    message['specimen_shipped']['surgical_event_id'] = "#{patient_id}_#{surgical_event_id}"
+    message['specimen_shipped']['surgical_event_id'] = surgical_event_id
     message['specimen_shipped']['slide_barcode'] = slide_barcode
     message['specimen_shipped']['shipped_dttm'] = convert_date(shipped_time)
     send_message_to_local(message)
@@ -139,8 +139,8 @@ class PatientMessageLoader
 
   def self.specimen_shipped_blood(
       patient_id,
-      shipped_time='2016-05-01T19:42:13+00:00',
-      molecular_id='MOI_BR_01')
+      molecular_id,
+      shipped_time='2016-05-01T19:42:13+00:00')
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['specimen_shipped_BLOOD']
     message['specimen_shipped']['patient_id'] = patient_id
     message['specimen_shipped']['molecular_id'] = molecular_id
@@ -150,13 +150,14 @@ class PatientMessageLoader
 
   def self.assay(
       patient_id,
+      surgical_event_id,
       result='POSITIVE',
       biomarker='ICCPTENs',
-      surgical_event_id='SEI_01',
       reported_date='2016-05-30T12:11:09.071-05:00')
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['assay_result_reported']
+    # message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['assay_old']
     message['patient_id'] = patient_id
-    message['surgical_event_id'] = "#{patient_id}_#{surgical_event_id}"
+    message['surgical_event_id'] = surgical_event_id
     message['biomarker'] = biomarker
     message['result'] = result
     message['reported_date'] = convert_date(reported_date)
@@ -165,12 +166,13 @@ class PatientMessageLoader
 
   def self.pathology(
       patient_id,
+      surgical_event_id,
       status='Y',
-      surgical_event_id='SEI_01',
       reported_date='2015-04-27T12:13:09.071-05:00')
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['pathology_status']
+    # message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['pathology_old']
     message['patient_id'] = patient_id
-    message['surgical_event_id'] = "#{patient_id}_#{surgical_event_id}"
+    message['surgical_event_id'] = surgical_event_id
     message['status'] = status
     message['reported_date'] = convert_date(reported_date)
     send_message_to_local(message)
@@ -178,8 +180,8 @@ class PatientMessageLoader
 
   def self.variant_file_uploaded(
       patient_id,
-      molecular_id='MOI_01',
-      analysis_id='ANI_01')
+      molecular_id,
+      analysis_id)
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['variant_file_uploaded']
     message['patient_id'] = patient_id
     message['molecular_id'] = molecular_id
@@ -190,8 +192,8 @@ class PatientMessageLoader
   def self.variant_file_confirmed(
       patient_id,
       status,
-      molecular_id='MOI_01',
-      analysis_id='ANI_01')
+      molecular_id,
+      analysis_id)
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['variant_file_confirmed']
     message['patient_id'] = patient_id
     message['status'] = status
@@ -203,8 +205,8 @@ class PatientMessageLoader
   def self.assignment_confirmed(
       patient_id,
       status,
-      molecular_id='MOI_01',
-      analysis_id='ANI_01')
+      molecular_id,
+      analysis_id)
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['assignment_confirmed']
     message['patient_id'] = patient_id
     message['status'] = status
@@ -276,4 +278,64 @@ class PatientMessageLoader
   #   end
   #   raw_message
   # end
+end
+
+class PatientDataSet
+  def initialize(patient_id)
+    @patient_id = patient_id
+    @sei_number = 1
+    @moi_number = 1
+    @bd_moi_number = 1
+    @ani_number = 1
+    @bc_number = 1
+  end
+
+  def id
+    @patient_id
+  end
+
+  def sei
+    @patient_id+'_SEI'+@sei_number.to_i.to_s
+  end
+
+  def moi
+    @patient_id+'_MOI'+@moi_number.to_i.to_s
+  end
+
+  def bd_moi
+    @patient_id+'_BD_MOI'+@bd_moi_number.to_i.to_s
+  end
+
+  def ani
+    @patient_id+'_ANI'+@ani_number.to_i.to_s
+  end
+
+  def bc
+    @patient_id+'_BC'+@bc_number.to_i.to_s
+  end
+
+  def next_sei
+    @sei_number += 1
+    sei
+  end
+
+  def next_moi
+    @moi_number += 1
+    moi
+  end
+
+  def next_bd_moi
+    @bd_moi_number += 1
+    bd_moi
+  end
+
+  def next_ani
+    @ani_number += 1
+    ani
+  end
+
+  def next_bc
+    @bc_number += 1
+    bc
+  end
 end

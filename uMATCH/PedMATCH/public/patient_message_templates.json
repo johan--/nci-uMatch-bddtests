@@ -149,19 +149,12 @@
   },
   "pathology_status":{
     "patient_id":"894561",
-    "study_id": "APEC1621",
+//    "study_id": "APEC1621",
     "surgical_event_id":"SEI_01",
     "case_number": "case-1234",
     "type":"PATHOLOGY_STATUS",
     "reported_date":"2016-04-27T12:13:09.071-05:00",
     "status":"Y"
-  },
-  "pathology_old":{
-    "patient_id":"3344",
-    "surgical_event_id":"SEI_01",
-    "reported_date":"2016-05-12T12:13:09.071-05:00",
-    "status":"Y",
-    "message":"PATHOLOGY_CONFIRMATION"
   },
   "variant_file_uploaded":{
     "patient_id": "3344",

@@ -1,496 +1,14 @@
 {
-    "ConsumedCapacity": null,
-    "ScannedCount": 99,
-    "Count": 99,
     "Items": [
         {
-            "type": {
-                "S": "TISSUE"
-            },
             "patient_id": {
-                "S": "PT_SS09_TissueReceived"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
+                "S": "PT_SS28_TissueReceived4"
             },
             "surgical_event_id": {
-                "S": "SEI_TR_1"
+                "S": "PT_SS28_TissueReceived4_SEI1"
             },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
             "type": {
                 "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_SS15_Slide1Shipped"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_TR_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_TR_1"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_SS02_TissueReceived"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "surgical_event_id": {
-                "S": "SEI_TR_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_VU12_VariantReportRejected"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_SS03_TissueReceived"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "surgical_event_id": {
-                "S": "SEI_TR_02"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_VC08_VRUploaded"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_AS06_SlideShipped"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "type": {
-                "S": "BLOOD"
-            },
-            "patient_id": {
-                "S": "PT_SS01_BloodReceived"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_VC09_VRUploaded"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_SR15_VariantReportUploaded"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_SR10_TsVrReceived"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_PR05_TissueReceived"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_VC04_VRUploaded"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_VU05_TissueShipped"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_AS11SlideShipped"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_VC13_VRUploaded"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_PR12_PathologyUReceived2"
-            },
-            "pathology_status_date": {
-                "S": "2015-04-27T17:13:09+00:00"
-            },
-            "pathology_status": {
-                "S": "U"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "BLOOD"
-            },
-            "patient_id": {
-                "S": "PT_SS22_BloodVariantConfirmed"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_PR07_TissueShipped"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_VC02_VRUploaded"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_SS23_TissueReceived1"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "BLOOD"
-            },
-            "patient_id": {
-                "S": "PT_SS19_Blood1Shipped"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_BR_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "BLOOD"
-            },
-            "patient_id": {
-                "S": "PT_VU16_BdVRUploaded"
             },
             "received_date": {
                 "S": "2016-04-26T15:17:11+00:00"
@@ -498,636 +16,1049 @@
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
             },
-            "active_molecular_id": {
-                "S": "MOI_BR_01"
-            },
             "study_id": {
                 "S": "APEC1621"
             }
         },
         {
             "type": {
-                "S": "TISSUE"
+                "S": "BLOOD"
             },
-            "patient_id": {
-                "S": "PT_VU03_TissueShipped"
+            "study_id": {
+                "S": "APEC1621"
             },
             "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
+                "S": "2016-04-23T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-22T15:17:11+00:00"
+            },
+            "patient_id": {
+                "S": "PT_SS28_BloodReceived2"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SS09_TissueReceived"
+            },
+            "surgical_event_id": {
+                "S": "PT_SS09_TissueReceived_SEI1"
+            },
+            "type": {
+                "S": "TISSUE"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
             },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
             "study_id": {
                 "S": "APEC1621"
             }
         },
         {
+            "patient_id": {
+                "S": "PT_SS15_Slide1Shipped"
+            },
+            "surgical_event_id": {
+                "S": "PT_SS15_Slide1Shipped_SEI1"
+            },
             "type": {
                 "S": "TISSUE"
             },
-            "patient_id": {
-                "S": "PT_VU10_VariantReportUploaded"
-            },
             "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
+                "S": "2016-04-26T15:17:11+00:00"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
             },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
             "study_id": {
                 "S": "APEC1621"
             }
         },
         {
+            "patient_id": {
+                "S": "PT_SS02_TissueReceived"
+            },
+            "surgical_event_id": {
+                "S": "PT_SS02_TissueReceived_SEI1"
+            },
             "type": {
                 "S": "TISSUE"
             },
-            "patient_id": {
-                "S": "PT_PR12_PathologyUReceived1"
-            },
-            "pathology_status_date": {
-                "S": "2015-04-27T17:13:09+00:00"
-            },
-            "pathology_status": {
-                "S": "U"
-            },
             "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
+                "S": "2016-04-26T15:17:11+00:00"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
             },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
             "study_id": {
                 "S": "APEC1621"
             }
         },
         {
+            "patient_id": {
+                "S": "PT_SS03_TissueReceived"
+            },
+            "surgical_event_id": {
+                "S": "PT_SS03_TissueReceived_SEI1"
+            },
             "type": {
                 "S": "TISSUE"
             },
-            "patient_id": {
-                "S": "PT_PR08_SlideShipped"
-            },
             "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
+                "S": "2016-04-26T15:17:11+00:00"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
             },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
             "study_id": {
                 "S": "APEC1621"
             }
         },
         {
             "type": {
+                "S": "BLOOD"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "received_date": {
+                "S": "2016-04-23T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-22T15:17:11+00:00"
+            },
+            "patient_id": {
+                "S": "PT_SS01_BloodReceived"
+            }
+        },
+        {
+            "type": {
+                "S": "BLOOD"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "received_date": {
+                "S": "2016-04-23T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-22T15:17:11+00:00"
+            },
+            "patient_id": {
+                "S": "PT_SS26_TsVRReceived"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SS26_TsVRReceived"
+            },
+            "surgical_event_id": {
+                "S": "PT_SS26_TsVRReceived_SEI1"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "active_molecular_id": {
+                "S": "PT_SS26_TsVRReceived_MOI1"
+            },
+            "type": {
                 "S": "TISSUE"
             },
+            "collected_date": {
+                "S": "2016-04-25T15:17:11+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SR10_TsVrReceived"
+            },
+            "surgical_event_id": {
+                "S": "PT_SR10_TsVrReceived_SEI1"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "active_molecular_id": {
+                "S": "PT_SR10_TsVrReceived_MOI1"
+            },
+            "type": {
+                "S": "TISSUE"
+            },
+            "collected_date": {
+                "S": "2016-04-25T15:17:11+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SS22_BloodVariantConfirmed"
+            },
+            "type": {
+                "S": "BLOOD"
+            },
+            "active_molecular_id": {
+                "S": "PT_SS22_BloodVariantConfirmed_BD_MOI1"
+            },
+            "received_date": {
+                "S": "2016-04-23T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-22T15:17:11+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SS23_TissueReceived1"
+            },
+            "surgical_event_id": {
+                "S": "PT_SS23_TissueReceived1_SEI1"
+            },
+            "type": {
+                "S": "TISSUE"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-25T15:17:11+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
             "patient_id": {
                 "S": "PT_SS21_TissueVariantConfirmed"
             },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
+            "surgical_event_id": {
+                "S": "PT_SS21_TissueVariantConfirmed_SEI1"
             },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
             },
             "active_molecular_id": {
-                "S": "MOI_01"
+                "S": "PT_SS21_TissueVariantConfirmed_MOI1"
             },
-            "surgical_event_id": {
-                "S": "SEI_TR_1"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
             "type": {
                 "S": "TISSUE"
             },
-            "patient_id": {
-                "S": "PT_PR09_SEI1HasTissueSEI2NoTissue"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
             },
             "study_id": {
                 "S": "APEC1621"
             }
         },
         {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_VU08_TissueShipped"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "BLOOD"
-            },
             "patient_id": {
                 "S": "PT_SR10_BdVRRejected"
             },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_BR_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_PR06_TissueReceived"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            },
             "type": {
                 "S": "BLOOD"
+            },
+            "active_molecular_id": {
+                "S": "PT_SR10_BdVRRejected_BD_MOI1"
+            },
+            "received_date": {
+                "S": "2016-04-23T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-22T15:17:11+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
+            "type": {
+                "S": "BLOOD"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "received_date": {
+                "S": "2016-04-23T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-22T15:17:11+00:00"
             },
             "patient_id": {
                 "S": "PT_SR10_BdReceived"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
             }
         },
         {
-            "type": {
-                "S": "BLOOD"
-            },
-            "patient_id": {
-                "S": "PT_SS21_BloodVariantConfirmed"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_BR_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
             "patient_id": {
                 "S": "PT_SS14_TissueReceived"
             },
+            "surgical_event_id": {
+                "S": "PT_SS14_TissueReceived_SEI1"
+            },
+            "type": {
+                "S": "TISSUE"
+            },
             "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
+                "S": "2016-04-26T15:17:11+00:00"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
-            },
-            "surgical_event_id": {
-                "S": "SEI_TR_1"
             },
             "study_id": {
                 "S": "APEC1621"
             }
         },
         {
-            "collected_date": {
-                "S": "2016-04-23T15:17:11+00:00"
+            "type": {
+                "S": "BLOOD"
             },
             "study_id": {
                 "S": "APEC1621"
+            },
+            "received_date": {
+                "S": "2016-04-23T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-22T15:17:11+00:00"
+            },
+            "patient_id": {
+                "S": "PT_SS26_TsReceived"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SS26_TsReceived"
+            },
+            "surgical_event_id": {
+                "S": "PT_SS26_TsReceived_SEI1"
+            },
+            "type": {
+                "S": "TISSUE"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-25T15:17:11+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SS28_TissueReceived1"
+            },
+            "surgical_event_id": {
+                "S": "PT_SS28_TissueReceived1_SEI1"
+            },
+            "type": {
+                "S": "TISSUE"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-25T15:17:11+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SS24_BloodShipped"
             },
             "type": {
                 "S": "BLOOD"
             },
-            "patient_id": {
-                "S": "PT_SS26_TsReceived"
+            "active_molecular_id": {
+                "S": "PT_SS24_BloodShipped_BD_MOI1"
             },
             "received_date": {
-                "S": "2016-04-23T16:17:11+00:00"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_SS26_TsReceived"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
+                "S": "2016-04-23T15:17:11+00:00"
             },
             "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "surgical_event_id": {
-                "S": "SEI_TR_01"
+                "S": "2016-04-22T15:17:11+00:00"
             },
             "study_id": {
                 "S": "APEC1621"
             }
         },
         {
+            "patient_id": {
+                "S": "PT_SS24_BloodShipped"
+            },
+            "surgical_event_id": {
+                "S": "PT_SS24_BloodShipped_SEI1"
+            },
             "type": {
                 "S": "TISSUE"
             },
-            "patient_id": {
-                "S": "PT_VC12_VRUploaded_2"
-            },
             "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
+                "S": "2016-04-26T15:17:11+00:00"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SS28_TissueReceived3"
+            },
+            "surgical_event_id": {
+                "S": "PT_SS28_TissueReceived3_SEI1"
+            },
+            "type": {
+                "S": "TISSUE"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-25T15:17:11+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SS25_BloodShipped"
+            },
+            "type": {
+                "S": "BLOOD"
             },
             "active_molecular_id": {
-                "S": "MOI_01"
+                "S": "PT_SS25_BloodShipped_BD_MOI2"
             },
-            "surgical_event_id": {
-                "S": "SEI_01"
+            "received_date": {
+                "S": "2016-04-23T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-22T15:17:11+00:00"
             },
             "study_id": {
                 "S": "APEC1621"
             }
         },
         {
+            "patient_id": {
+                "S": "PT_SS05_TissueReceived"
+            },
+            "surgical_event_id": {
+                "S": "PT_SS05_TissueReceived_SEI1"
+            },
             "type": {
                 "S": "TISSUE"
             },
-            "patient_id": {
-                "S": "PT_VC12_VRUploaded_1"
-            },
             "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
+                "S": "2016-04-26T15:17:11+00:00"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
             },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
             "study_id": {
                 "S": "APEC1621"
             }
         },
         {
+            "patient_id": {
+                "S": "PT_SS23_SlideShipped"
+            },
+            "surgical_event_id": {
+                "S": "PT_SS23_SlideShipped_SEI1"
+            },
             "type": {
                 "S": "TISSUE"
             },
-            "patient_id": {
-                "S": "PT_SS13_TissueReceived"
-            },
             "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
+                "S": "2016-04-26T15:17:11+00:00"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
             },
-            "surgical_event_id": {
-                "S": "SEI_TR_1"
-            },
             "study_id": {
                 "S": "APEC1621"
             }
         },
         {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_AS04_SlideShipped"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_PR12_PathologyYReceived"
-            },
             "pathology_status_date": {
                 "S": "2015-04-27T17:13:09+00:00"
             },
             "pathology_status": {
                 "S": "Y"
             },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_AS02_SlideShipped"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "BLOOD"
-            },
-            "patient_id": {
-                "S": "PT_SS24_BloodShipped"
-            },
-            "received_date": {
-                "S": "2016-04-24T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-24T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_SS24_BloodShipped"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "surgical_event_id": {
-                "S": "SEI_TR_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_AS09SlideShipped"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "BLOOD"
-            },
-            "patient_id": {
-                "S": "PT_VU14_TissueAndBloodShipped"
-            },
-            "received_date": {
-                "S": "2016-04-24T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-24T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_BR_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_VU14_TissueAndBloodShipped"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_TR_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "BLOOD"
-            },
-            "patient_id": {
-                "S": "PT_SS25_BloodShipped"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_SS05_TissueReceived"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "surgical_event_id": {
-                "S": "SEI_TR_02"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_SS23_SlideShipped"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
+            "pathology_case_number": {
+                "S": "case-1234"
             },
             "patient_id": {
                 "S": "PT_SR10_YPathoReceived"
             },
+            "surgical_event_id": {
+                "S": "PT_SR10_YPathoReceived_SEI1"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "type": {
+                "S": "TISSUE"
+            },
+            "collected_date": {
+                "S": "2016-04-25T15:17:11+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
+            "type": {
+                "S": "BLOOD"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "received_date": {
+                "S": "2016-04-23T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-22T15:17:11+00:00"
+            },
+            "patient_id": {
+                "S": "PT_SS26_TsShipped"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SS26_TsShipped"
+            },
+            "surgical_event_id": {
+                "S": "PT_SS26_TsShipped_SEI1"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "active_molecular_id": {
+                "S": "PT_SS26_TsShipped_MOI1"
+            },
+            "type": {
+                "S": "TISSUE"
+            },
+            "collected_date": {
+                "S": "2016-04-25T15:17:11+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SS23_TissueShipped"
+            },
+            "surgical_event_id": {
+                "S": "PT_SS23_TissueShipped_SEI1"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "active_molecular_id": {
+                "S": "PT_SS23_TissueShipped_MOI1"
+            },
+            "type": {
+                "S": "TISSUE"
+            },
+            "collected_date": {
+                "S": "2016-04-25T15:17:11+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SS23_TissueReceived2"
+            },
+            "surgical_event_id": {
+                "S": "PT_SS23_TissueReceived2_SEI1"
+            },
+            "type": {
+                "S": "TISSUE"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-25T15:17:11+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SS12_Tissue1Shipped"
+            },
+            "surgical_event_id": {
+                "S": "PT_SS12_Tissue1Shipped_SEI1"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "active_molecular_id": {
+                "S": "PT_SS12_Tissue1Shipped_MOI1"
+            },
+            "type": {
+                "S": "TISSUE"
+            },
+            "collected_date": {
+                "S": "2016-04-25T15:17:11+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
+            "type": {
+                "S": "BLOOD"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "received_date": {
+                "S": "2016-04-23T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-22T15:17:11+00:00"
+            },
+            "patient_id": {
+                "S": "PT_SS28_BloodReceived1"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SR10_TsReceived"
+            },
+            "surgical_event_id": {
+                "S": "PT_SR10_TsReceived_SEI1"
+            },
+            "type": {
+                "S": "TISSUE"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-25T15:17:11+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SS27_VariantReportUploaded"
+            },
+            "surgical_event_id": {
+                "S": "PT_SS27_VariantReportUploaded_SEI1"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "active_molecular_id": {
+                "S": "PT_SS27_VariantReportUploaded_MOI1"
+            },
+            "type": {
+                "S": "TISSUE"
+            },
+            "collected_date": {
+                "S": "2016-04-25T15:17:11+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SS08_TissueReceived"
+            },
+            "surgical_event_id": {
+                "S": "PT_SS08_TissueReceived_SEI1"
+            },
+            "type": {
+                "S": "TISSUE"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-25T15:17:11+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SS08_TissueReceived"
+            },
+            "surgical_event_id": {
+                "S": "PT_SS08_TissueReceived_SEI2"
+            },
+            "type": {
+                "S": "TISSUE"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-25T18:17:11+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
+            "type": {
+                "S": "BLOOD"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "received_date": {
+                "S": "2016-04-23T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-22T15:17:11+00:00"
+            },
+            "patient_id": {
+                "S": "PT_SS26_AssayConfirmed"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SS26_AssayConfirmed"
+            },
+            "surgical_event_id": {
+                "S": "PT_SS26_AssayConfirmed_SEI1"
+            },
+            "type": {
+                "S": "TISSUE"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-25T15:17:11+00:00"
+            },
+            "assays": {
+                "L": [
+                    {
+                        "M": {
+                            "case_number": {
+                                "S": "case-1234"
+                            },
+                            "biomarker": {
+                                "S": "ICCPTENs"
+                            },
+                            "ordered_date": {
+                                "S": "2016-05-02T12:13:09.071-05:00"
+                            },
+                            "result": {
+                                "S": "NEGATIVE"
+                            },
+                            "result_date": {
+                                "S": "2016-05-30T12:11:09.071-05:00"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SR14_VariantReportUploaded"
+            },
+            "surgical_event_id": {
+                "S": "PT_SR14_VariantReportUploaded_SEI1"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "active_molecular_id": {
+                "S": "PT_SR14_VariantReportUploaded_MOI1"
+            },
+            "type": {
+                "S": "TISSUE"
+            },
+            "collected_date": {
+                "S": "2016-04-25T15:17:11+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
+            "type": {
+                "S": "BLOOD"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "received_date": {
+                "S": "2016-04-23T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-22T15:17:11+00:00"
+            },
+            "patient_id": {
+                "S": "PT_SS26_PathologyConfirmed"
+            }
+        },
+        {
             "pathology_status_date": {
                 "S": "2015-04-27T17:13:09+00:00"
             },
             "pathology_status": {
                 "S": "Y"
             },
+            "pathology_case_number": {
+                "S": "case-1234"
+            },
+            "patient_id": {
+                "S": "PT_SS26_PathologyConfirmed"
+            },
+            "surgical_event_id": {
+                "S": "PT_SS26_PathologyConfirmed_SEI1"
+            },
             "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "type": {
+                "S": "TISSUE"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
             },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SS20_Blood1Shipped"
+            },
+            "type": {
+                "S": "BLOOD"
+            },
+            "active_molecular_id": {
+                "S": "PT_SS20_Blood1Shipped_BD_MOI1"
+            },
+            "received_date": {
+                "S": "2016-04-23T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-22T15:17:11+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SS28_TissueReceived2"
+            },
             "surgical_event_id": {
-                "S": "SEI_01"
+                "S": "PT_SS28_TissueReceived2_SEI1"
+            },
+            "type": {
+                "S": "TISSUE"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-25T15:17:11+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SS28_TissueReceived5"
+            },
+            "surgical_event_id": {
+                "S": "PT_SS28_TissueReceived5_SEI1"
+            },
+            "type": {
+                "S": "TISSUE"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-25T15:17:11+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SS06_TissueReceived"
+            },
+            "surgical_event_id": {
+                "S": "PT_SS06_TissueReceived_SEI1"
+            },
+            "type": {
+                "S": "TISSUE"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-25T15:17:11+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SS07_TissueReceived"
+            },
+            "surgical_event_id": {
+                "S": "PT_SS07_TissueReceived_SEI1"
+            },
+            "type": {
+                "S": "TISSUE"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-25T15:17:11+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SS10_TissueReceived"
+            },
+            "surgical_event_id": {
+                "S": "PT_SS10_TissueReceived_SEI1"
+            },
+            "type": {
+                "S": "TISSUE"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-25T15:17:11+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SS06a_TissueShipped"
+            },
+            "surgical_event_id": {
+                "S": "PT_SS06a_TissueShipped_SEI1"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "active_molecular_id": {
+                "S": "PT_SS06a_TissueShipped_MOI1"
+            },
+            "type": {
+                "S": "TISSUE"
+            },
+            "collected_date": {
+                "S": "2016-04-25T15:17:11+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SS11_Tissue1Shipped"
+            },
+            "surgical_event_id": {
+                "S": "PT_SS11_Tissue1Shipped_SEI1"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "active_molecular_id": {
+                "S": "PT_SS11_Tissue1Shipped_MOI2"
+            },
+            "type": {
+                "S": "TISSUE"
+            },
+            "collected_date": {
+                "S": "2016-04-25T15:17:11+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SR10_BdVRConfirmed"
+            },
+            "type": {
+                "S": "BLOOD"
+            },
+            "active_molecular_id": {
+                "S": "PT_SR10_BdVRConfirmed_BD_MOI1"
+            },
+            "received_date": {
+                "S": "2016-04-23T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-22T15:17:11+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SR10_BdVRReceived"
+            },
+            "type": {
+                "S": "BLOOD"
+            },
+            "active_molecular_id": {
+                "S": "PT_SR10_BdVRReceived_BD_MOI1"
+            },
+            "received_date": {
+                "S": "2016-04-23T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-22T15:17:11+00:00"
             },
             "study_id": {
                 "S": "APEC1621"
@@ -1135,816 +1066,134 @@
         },
         {
             "type": {
-                "S": "TISSUE"
+                "S": "BLOOD"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "received_date": {
+                "S": "2016-04-23T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-22T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_PR12_PathologyNReceived"
+                "S": "PT_SS24_TissueShipped"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SS24_TissueShipped"
             },
+            "surgical_event_id": {
+                "S": "PT_SS24_TissueShipped_SEI1"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "active_molecular_id": {
+                "S": "PT_SS24_TissueShipped_MOI1"
+            },
+            "type": {
+                "S": "TISSUE"
+            },
+            "collected_date": {
+                "S": "2016-04-25T15:17:11+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SR12_VariantReportConfirmed"
+            },
+            "surgical_event_id": {
+                "S": "PT_SR12_VariantReportConfirmed_SEI1"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "active_molecular_id": {
+                "S": "PT_SR12_VariantReportConfirmed_MOI1"
+            },
+            "type": {
+                "S": "TISSUE"
+            },
+            "collected_date": {
+                "S": "2016-04-25T15:17:11+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
             "pathology_status_date": {
                 "S": "2015-04-27T17:13:09+00:00"
             },
             "pathology_status": {
                 "S": "N"
             },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "collected_date": {
-                "S": "2016-04-23T15:17:11+00:00"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "type": {
-                "S": "BLOOD"
-            },
-            "patient_id": {
-                "S": "PT_SS26_TsShipped"
-            },
-            "received_date": {
-                "S": "2016-04-23T16:17:11+00:00"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_SS26_TsShipped"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_TR_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_TR_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_SS23_TissueShipped"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_VU02_TissueShipped"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_VC03_VRUploadedAfterRejected"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_SS23_TissueReceived2"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_AS05_SlideShipped"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_VC11_VRUploaded"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_SS12_Tissue1Shipped"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_TR_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_TR_1"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_PR04_TissueReceived"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_VU11_VariantReportRejected"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_AS07_SlideShipped"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_VC07_VRUploaded"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_SR10_TsReceived"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_PR02_TissueReceived"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_VC05_VRUploaded"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_SS08_TissueReceived"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "surgical_event_id": {
-                "S": "SEI_TR_1"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_SS08_TissueReceived"
-            },
-            "received_date": {
-                "S": "2016-04-28T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-28T15:17:11+00:00"
-            },
-            "surgical_event_id": {
-                "S": "SEI_TR_2"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_SR14_VariantReportUploaded"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_PR10TissueReceived"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "BLOOD"
-            },
-            "patient_id": {
-                "S": "PT_SS20_Blood1Shipped"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_BR_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_PR12TissueReceived"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_SS06_TissueReceived"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "surgical_event_id": {
-                "S": "SEI_TR_02"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_SS07_TissueReceived"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "surgical_event_id": {
-                "S": "SEI_TR_02"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_SS10_TissueReceived"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "surgical_event_id": {
-                "S": "SEI_TR_1"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_SS11_Tissue1Shipped"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_TR_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_TR_1"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "BLOOD"
-            },
-            "patient_id": {
-                "S": "PT_SR10_BdVRConfirmed"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_BR_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "BLOOD"
-            },
-            "patient_id": {
-                "S": "PT_SR10_BdVRReceived"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_BR_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_PR11TissueReceived"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_PR11TissueReceived"
-            },
-            "received_date": {
-                "S": "2016-04-28T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-28T15:17:11+00:00"
-            },
-            "surgical_event_id": {
-                "S": "SEI_02"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "collected_date": {
-                "S": "2016-04-24T15:17:11+00:00"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "type": {
-                "S": "BLOOD"
-            },
-            "patient_id": {
-                "S": "PT_SS24_TissueShipped"
-            },
-            "received_date": {
-                "S": "2016-04-24T16:17:11+00:00"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_SS24_TissueShipped"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_TR_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_VU13_VariantReportConfirmed"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_SR12_VariantReportConfirmed"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
+            "pathology_case_number": {
+                "S": "case-1234"
             },
             "patient_id": {
                 "S": "PT_SR10_NPathoReceived"
             },
-            "pathology_status_date": {
-                "S": "2015-04-27T17:13:09+00:00"
-            },
-            "pathology_status": {
-                "S": "N"
+            "surgical_event_id": {
+                "S": "PT_SR10_NPathoReceived_SEI1"
             },
             "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "type": {
+                "S": "TISSUE"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
             },
             "study_id": {
                 "S": "APEC1621"
             }
         },
         {
-            "type": {
-                "S": "TISSUE"
-            },
             "patient_id": {
                 "S": "PT_SR10_TsVRRejected"
             },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
+            "surgical_event_id": {
+                "S": "PT_SR10_TsVRRejected_SEI1"
             },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
             },
             "active_molecular_id": {
-                "S": "MOI_01"
+                "S": "PT_SR10_TsVRRejected_MOI1"
             },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
             "type": {
                 "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_AS08_TissueReceived"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
             },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SS16_Slide1Shipped"
+            },
             "surgical_event_id": {
-                "S": "SEI_01"
+                "S": "PT_SS16_Slide1Shipped_SEI1"
+            },
+            "type": {
+                "S": "TISSUE"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-25T15:17:11+00:00"
             },
             "study_id": {
                 "S": "APEC1621"
@@ -1952,157 +1201,68 @@
         },
         {
             "type": {
-                "S": "TISSUE"
+                "S": "BLOOD"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "received_date": {
+                "S": "2016-04-23T15:17:11+00:00"
+            },
+            "collected_date": {
+                "S": "2016-04-22T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_PR12_PathologyUReceived3"
+                "S": "PT_SS26_TsVRConfirmed"
+            }
+        },
+        {
+            "patient_id": {
+                "S": "PT_SS26_TsVRConfirmed"
             },
+            "surgical_event_id": {
+                "S": "PT_SS26_TsVRConfirmed_SEI1"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "active_molecular_id": {
+                "S": "PT_SS26_TsVRConfirmed_MOI1"
+            },
+            "type": {
+                "S": "TISSUE"
+            },
+            "collected_date": {
+                "S": "2016-04-25T15:17:11+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            }
+        },
+        {
             "pathology_status_date": {
                 "S": "2015-04-27T17:13:09+00:00"
             },
             "pathology_status": {
                 "S": "U"
             },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_AS03_SlideShipped"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_SS16_Slide1Shipped"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_TR_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_TR_1"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "type": {
-                "S": "BLOOD"
-            },
-            "patient_id": {
-                "S": "PT_SS18_BloodReceived"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_PR03_TissueReceived"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_VU06_TissueShipped"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
+            "pathology_case_number": {
+                "S": "case-1234"
             },
             "patient_id": {
                 "S": "PT_SR10_UPathoReceived"
             },
-            "pathology_status_date": {
-                "S": "2015-04-27T17:13:09+00:00"
-            },
-            "pathology_status": {
-                "S": "U"
+            "surgical_event_id": {
+                "S": "PT_SR10_UPathoReceived_SEI1"
             },
             "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "type": {
+                "S": "TISSUE"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
             },
             "study_id": {
                 "S": "APEC1621"
@@ -2110,49 +1270,23 @@
         },
         {
             "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_VU04_TissueShipped"
-            },
-            "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
-            },
-            "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
-            },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
+                "S": "BLOOD"
             },
             "study_id": {
                 "S": "APEC1621"
-            }
-        },
-        {
-            "type": {
-                "S": "TISSUE"
-            },
-            "patient_id": {
-                "S": "PT_VU09_VariantReportUploaded"
             },
             "received_date": {
-                "S": "2016-04-25T16:17:11+00:00"
+                "S": "2016-04-23T15:17:11+00:00"
             },
             "collected_date": {
-                "S": "2016-04-25T15:17:11+00:00"
+                "S": "2016-04-22T15:17:11+00:00"
             },
-            "active_molecular_id": {
-                "S": "MOI_01"
-            },
-            "surgical_event_id": {
-                "S": "SEI_01"
-            },
-            "study_id": {
-                "S": "APEC1621"
+            "patient_id": {
+                "S": "PT_SS28_BloodReceived3"
             }
         }
-    ]
+    ],
+    "ConsumedCapacity": null,
+    "Count": 61,
+    "ScannedCount": 61
 }
