@@ -163,6 +163,7 @@ PatientMessageLoader.specimen_received_blood(pt.id)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
 PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+sleep(10.0)
 PatientMessageLoader.variant_file_confirmed(pt.id, 'CONFIRMED', pt.moi, pt.ani)
 
 pt = PatientDataSet.new('PT_SS27_VariantReportUploaded')

@@ -32,7 +32,8 @@ class TableDetails
 
   SPECIMEN = {
       name: 'specimen',
-      keys: %w(patient_id collected_date)
+      # keys: %w(patient_id collected_date)
+      keys: %w(patient_id sorting_key)
   }
 
   VARIANT = {

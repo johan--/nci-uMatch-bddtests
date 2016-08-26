@@ -1,184 +1,21 @@
 {
-    "ScannedCount": 2,
     "Items": [
         {
-            "stratum_id": {
-                "S": "100"
-            },
-            "former_patients": {
-                "N": "0"
-            },
-            "date_created": {
-                "S": "2016-06-24T15:38:31+00:00"
-            },
-            "inclusion_diseases": {
-                "L": [
-                    {
-                        "M": {
-                            "short_name": {
-                                "S": "Papillary thyroid carcinoma"
-                            },
-                            "ctep_sub_category": {
-                                "BOOL": true
-                            },
-                            "disease_code": {
-                                "S": "10033701"
-                            },
-                            "ctep_category": {
-                                "S": "Thyroid Cancer"
-                            }
-                        }
-                    }
-                ]
-            },
-            "assay_results": {
-                "L": [
-                    {
-                        "M": {
-                            "assay_result_status": {
-                                "S": "POSITIVE"
-                            },
-                            "func_gene": {
-                                "S": "PTEN"
-                            },
-                            "level_of_evidence": {
-                                "S": "3"
-                            },
-                            "assay_variant": {
-                                "S": "PRESENT"
-                            }
-                        }
-                    },
-                    {
-                        "M": {
-                            "assay_result_status": {
-                                "S": "POSITIVE"
-                            },
-                            "func_gene": {
-                                "S": "MLH1"
-                            },
-                            "level_of_evidence": {
-                                "S": "5"
-                            },
-                            "assay_variant": {
-                                "S": "EMPTY"
-                            }
-                        }
-                    }
-                ]
-            },
-            "gene": {
-                "S": "ALK"
-            },
-            "current_patients": {
-                "N": "0"
-            },
-            "description": {
-                "S": "TEST Treatment Arm used by Cucumber Tests"
-            },
-            "status_log": {
-                "M": {
-                    "1471381360": {
-                        "S": "OPEN"
-                    }
-                }
-            },
-            "treatment_arm_status": {
-                "S": "OPEN"
-            },
             "target_id": {
                 "S": "113"
             },
-            "exclusion_diseases": {
-                "L": [
-                    {
-                        "M": {
-                            "short_name": {
-                                "S": "Bronchioloalveolar carcinoma"
-                            },
-                            "ctep_sub_category": {
-                                "BOOL": true
-                            },
-                            "disease_code": {
-                                "S": "10058354"
-                            },
-                            "ctep_category": {
-                                "S": "Non-Small Cell Lung Cancer"
-                            }
-                        }
-                    },
-                    {
-                        "M": {
-                            "short_name": {
-                                "S": "Lung adenocarcinoma"
-                            },
-                            "ctep_sub_category": {
-                                "BOOL": true
-                            },
-                            "disease_code": {
-                                "S": "10025032"
-                            },
-                            "ctep_category": {
-                                "S": "Non-Small Cell Lung Cancer"
-                            }
-                        }
-                    },
-                    {
-                        "M": {
-                            "short_name": {
-                                "S": "Lung adenocar. w/ bronch. feat."
-                            },
-                            "ctep_sub_category": {
-                                "BOOL": true
-                            },
-                            "disease_code": {
-                                "S": "90600324"
-                            },
-                            "ctep_category": {
-                                "S": "Non-Small Cell Lung Cancer"
-                            }
-                        }
-                    },
-                    {
-                        "M": {
-                            "short_name": {
-                                "S": "Non-small cell lung cancer, NOS"
-                            },
-                            "ctep_sub_category": {
-                                "BOOL": true
-                            },
-                            "disease_code": {
-                                "S": "10029514"
-                            },
-                            "ctep_category": {
-                                "S": "Non-Small Cell Lung Cancer"
-                            }
-                        }
-                    },
-                    {
-                        "M": {
-                            "short_name": {
-                                "S": "Squamous cell lung carcinoma"
-                            },
-                            "ctep_sub_category": {
-                                "BOOL": true
-                            },
-                            "disease_code": {
-                                "S": "10025125"
-                            },
-                            "ctep_category": {
-                                "S": "Non-Small Cell Lung Cancer"
-                            }
-                        }
-                    }
-                ]
+            "name": {
+                "S": "APEC1621-B"
+            },
+            "treatment_arm_status": {
+                "S": "OPEN"
             },
             "exclusion_drugs": {
                 "L": [
                     {
                         "M": {
-                            "drug_class": {
-                                "S": "ALK inhibitor"
+                            "target": {
+                                "S": "ALK"
                             },
                             "name": {
                                 "S": "Doxorubicin Hydrochloride"
@@ -186,464 +23,38 @@
                             "drug_id": {
                                 "S": "10001"
                             },
-                            "target": {
-                                "S": "ALK"
+                            "drug_class": {
+                                "S": "ALK inhibitor"
                             }
                         }
                     }
                 ]
             },
-            "not_enrolled_patients": {
-                "N": "0"
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "target_name": {
+                "S": "Crizotinib"
             },
             "variant_report": {
                 "M": {
-                    "single_nucleotide_variants": {
-                        "L": [
-                            {
-                                "M": {
-                                    "M": {
-                                        "M": {
-                                            "rare": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
-                                                    }
-                                                }
-                                            },
-                                            "position": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "152419923"
-                                                    }
-                                                }
-                                            },
-                                            "confirmed": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
-                                                    }
-                                                }
-                                            },
-                                            "level_of_evidence": {
-                                                "M": {
-                                                    "N": {
-                                                        "S": "3"
-                                                    }
-                                                }
-                                            },
-                                            "arm_specific": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
-                                                    }
-                                                }
-                                            },
-                                            "type": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "snv"
-                                                    }
-                                                }
-                                            },
-                                            "ocp_reference": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "A"
-                                                    }
-                                                }
-                                            },
-                                            "identifier": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "COSM1074639"
-                                                    }
-                                                }
-                                            },
-                                            "ocp_alternative": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "C"
-                                                    }
-                                                }
-                                            },
-                                            "inclusion": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": true
-                                                    }
-                                                }
-                                            },
-                                            "chromosome": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "chr6"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            },
-                            {
-                                "M": {
-                                    "M": {
-                                        "M": {
-                                            "rare": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
-                                                    }
-                                                }
-                                            },
-                                            "position": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "80412493"
-                                                    }
-                                                }
-                                            },
-                                            "confirmed": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
-                                                    }
-                                                }
-                                            },
-                                            "level_of_evidence": {
-                                                "M": {
-                                                    "N": {
-                                                        "S": "3"
-                                                    }
-                                                }
-                                            },
-                                            "arm_specific": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
-                                                    }
-                                                }
-                                            },
-                                            "type": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "snv"
-                                                    }
-                                                }
-                                            },
-                                            "ocp_reference": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "C"
-                                                    }
-                                                }
-                                            },
-                                            "identifier": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "COSM52975"
-                                                    }
-                                                }
-                                            },
-                                            "ocp_alternative": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "T"
-                                                    }
-                                                }
-                                            },
-                                            "inclusion": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": true
-                                                    }
-                                                }
-                                            },
-                                            "chromosome": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "chr9"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            },
-                            {
-                                "M": {
-                                    "M": {
-                                        "M": {
-                                            "rare": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
-                                                    }
-                                                }
-                                            },
-                                            "position": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "7577064"
-                                                    }
-                                                }
-                                            },
-                                            "confirmed": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
-                                                    }
-                                                }
-                                            },
-                                            "level_of_evidence": {
-                                                "M": {
-                                                    "N": {
-                                                        "S": "3"
-                                                    }
-                                                }
-                                            },
-                                            "arm_specific": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
-                                                    }
-                                                }
-                                            },
-                                            "type": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "snv"
-                                                    }
-                                                }
-                                            },
-                                            "ocp_reference": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "T"
-                                                    }
-                                                }
-                                            },
-                                            "identifier": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "COSM44451"
-                                                    }
-                                                }
-                                            },
-                                            "ocp_alternative": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "C"
-                                                    }
-                                                }
-                                            },
-                                            "inclusion": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
-                                                    }
-                                                }
-                                            },
-                                            "chromosome": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "chr17"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            },
-                            {
-                                "M": {
-                                    "M": {
-                                        "M": {
-                                            "rare": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
-                                                    }
-                                                }
-                                            },
-                                            "position": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "70349258"
-                                                    }
-                                                }
-                                            },
-                                            "confirmed": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
-                                                    }
-                                                }
-                                            },
-                                            "level_of_evidence": {
-                                                "M": {
-                                                    "N": {
-                                                        "S": "3"
-                                                    }
-                                                }
-                                            },
-                                            "arm_specific": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
-                                                    }
-                                                }
-                                            },
-                                            "type": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "snv"
-                                                    }
-                                                }
-                                            },
-                                            "ocp_reference": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "C"
-                                                    }
-                                                }
-                                            },
-                                            "identifier": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "COSM757681"
-                                                    }
-                                                }
-                                            },
-                                            "ocp_alternative": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "G"
-                                                    }
-                                                }
-                                            },
-                                            "inclusion": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
-                                                    }
-                                                }
-                                            },
-                                            "chromosome": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "chrX"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            },
-                            {
-                                "M": {
-                                    "M": {
-                                        "M": {
-                                            "rare": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
-                                                    }
-                                                }
-                                            },
-                                            "position": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "100611165"
-                                                    }
-                                                }
-                                            },
-                                            "confirmed": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
-                                                    }
-                                                }
-                                            },
-                                            "level_of_evidence": {
-                                                "M": {
-                                                    "N": {
-                                                        "S": "3"
-                                                    }
-                                                }
-                                            },
-                                            "arm_specific": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
-                                                    }
-                                                }
-                                            },
-                                            "type": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "snv"
-                                                    }
-                                                }
-                                            },
-                                            "ocp_reference": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "A"
-                                                    }
-                                                }
-                                            },
-                                            "identifier": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "BT9"
-                                                    }
-                                                }
-                                            },
-                                            "ocp_alternative": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "T"
-                                                    }
-                                                }
-                                            },
-                                            "inclusion": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": true
-                                                    }
-                                                }
-                                            },
-                                            "chromosome": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "chrX"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        ]
-                    },
                     "copy_number_variants": {
                         "L": [
                             {
                                 "M": {
                                     "M": {
                                         "M": {
-                                            "ref_copy_number": {
+                                            "type": {
                                                 "M": {
-                                                    "N": {
-                                                        "S": "2"
+                                                    "S": {
+                                                        "S": "cnv"
                                                     }
                                                 }
                                             },
-                                            "position": {
+                                            "chromosome": {
                                                 "M": {
                                                     "S": {
-                                                        "S": "40361592"
+                                                        "S": "chr1"
                                                     }
                                                 }
                                             },
@@ -651,41 +62,6 @@
                                                 "M": {
                                                     "N": {
                                                         "S": "2"
-                                                    }
-                                                }
-                                            },
-                                            "arm_specific": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
-                                                    }
-                                                }
-                                            },
-                                            "ocp_alternative": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "<CNV>"
-                                                    }
-                                                }
-                                            },
-                                            "ocp_reference": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "C"
-                                                    }
-                                                }
-                                            },
-                                            "identifier": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "MYCL"
-                                                    }
-                                                }
-                                            },
-                                            "raw_copy_number": {
-                                                "M": {
-                                                    "N": {
-                                                        "S": "7.7"
                                                     }
                                                 }
                                             },
@@ -696,6 +72,41 @@
                                                     }
                                                 }
                                             },
+                                            "ocp_alternative": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "<CNV>"
+                                                    }
+                                                }
+                                            },
+                                            "identifier": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "MYCL"
+                                                    }
+                                                }
+                                            },
+                                            "inclusion": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": true
+                                                    }
+                                                }
+                                            },
+                                            "arm_specific": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
+                                                    }
+                                                }
+                                            },
+                                            "ref_copy_number": {
+                                                "M": {
+                                                    "N": {
+                                                        "S": "2"
+                                                    }
+                                                }
+                                            },
                                             "rare": {
                                                 "M": {
                                                     "BOOL": {
@@ -703,10 +114,17 @@
                                                     }
                                                 }
                                             },
-                                            "chromosome": {
+                                            "position": {
                                                 "M": {
                                                     "S": {
-                                                        "S": "chr1"
+                                                        "S": "40361592"
+                                                    }
+                                                }
+                                            },
+                                            "raw_copy_number": {
+                                                "M": {
+                                                    "N": {
+                                                        "S": "7.7"
                                                     }
                                                 }
                                             },
@@ -717,429 +135,10 @@
                                                     }
                                                 }
                                             },
-                                            "type": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "cnv"
-                                                    }
-                                                }
-                                            },
                                             "copy_number": {
                                                 "M": {
                                                     "N": {
                                                         "S": "7.7"
-                                                    }
-                                                }
-                                            },
-                                            "inclusion": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": true
-                                                    }
-                                                }
-                                            },
-                                            "confirmed": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            },
-                            {
-                                "M": {
-                                    "M": {
-                                        "M": {
-                                            "ref_copy_number": {
-                                                "M": {
-                                                    "N": {
-                                                        "S": "2"
-                                                    }
-                                                }
-                                            },
-                                            "position": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "147022100"
-                                                    }
-                                                }
-                                            },
-                                            "level_of_evidence": {
-                                                "M": {
-                                                    "N": {
-                                                        "S": "2"
-                                                    }
-                                                }
-                                            },
-                                            "arm_specific": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
-                                                    }
-                                                }
-                                            },
-                                            "ocp_alternative": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "<CNV>"
-                                                    }
-                                                }
-                                            },
-                                            "ocp_reference": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "G"
-                                                    }
-                                                }
-                                            },
-                                            "identifier": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "BCL9"
-                                                    }
-                                                }
-                                            },
-                                            "raw_copy_number": {
-                                                "M": {
-                                                    "N": {
-                                                        "S": "8.2"
-                                                    }
-                                                }
-                                            },
-                                            "confidence_interval_5percent": {
-                                                "M": {
-                                                    "N": {
-                                                        "S": "4.04279"
-                                                    }
-                                                }
-                                            },
-                                            "rare": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
-                                                    }
-                                                }
-                                            },
-                                            "chromosome": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "chr1"
-                                                    }
-                                                }
-                                            },
-                                            "confidence_interval_95percent": {
-                                                "M": {
-                                                    "N": {
-                                                        "S": "4.36137"
-                                                    }
-                                                }
-                                            },
-                                            "type": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "cnv"
-                                                    }
-                                                }
-                                            },
-                                            "copy_number": {
-                                                "M": {
-                                                    "N": {
-                                                        "S": "8.2"
-                                                    }
-                                                }
-                                            },
-                                            "inclusion": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
-                                                    }
-                                                }
-                                            },
-                                            "confirmed": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            },
-                            {
-                                "M": {
-                                    "M": {
-                                        "M": {
-                                            "ref_copy_number": {
-                                                "M": {
-                                                    "N": {
-                                                        "S": "2"
-                                                    }
-                                                }
-                                            },
-                                            "position": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "89624207"
-                                                    }
-                                                }
-                                            },
-                                            "level_of_evidence": {
-                                                "M": {
-                                                    "N": {
-                                                        "S": "2"
-                                                    }
-                                                }
-                                            },
-                                            "arm_specific": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
-                                                    }
-                                                }
-                                            },
-                                            "ocp_alternative": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "<CNV>"
-                                                    }
-                                                }
-                                            },
-                                            "ocp_reference": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "T"
-                                                    }
-                                                }
-                                            },
-                                            "identifier": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "PTEN"
-                                                    }
-                                                }
-                                            },
-                                            "raw_copy_number": {
-                                                "M": {
-                                                    "N": {
-                                                        "S": "8.8"
-                                                    }
-                                                }
-                                            },
-                                            "confidence_interval_5percent": {
-                                                "M": {
-                                                    "N": {
-                                                        "S": "1.67303"
-                                                    }
-                                                }
-                                            },
-                                            "rare": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
-                                                    }
-                                                }
-                                            },
-                                            "chromosome": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "chr10"
-                                                    }
-                                                }
-                                            },
-                                            "confidence_interval_95percent": {
-                                                "M": {
-                                                    "N": {
-                                                        "S": "1.94266"
-                                                    }
-                                                }
-                                            },
-                                            "type": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "cnv"
-                                                    }
-                                                }
-                                            },
-                                            "copy_number": {
-                                                "M": {
-                                                    "N": {
-                                                        "S": "8.8"
-                                                    }
-                                                }
-                                            },
-                                            "inclusion": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": true
-                                                    }
-                                                }
-                                            },
-                                            "confirmed": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        ]
-                    },
-                    "non_hotspot_rules": {
-                        "L": [
-                            {
-                                "M": {
-                                    "M": {
-                                        "M": {
-                                            "rare": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
-                                                    }
-                                                }
-                                            },
-                                            "oncomine_variant_class": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "amplification"
-                                                    }
-                                                }
-                                            },
-                                            "func_gene": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "MYCL"
-                                                    }
-                                                }
-                                            },
-                                            "level_of_evidence": {
-                                                "M": {
-                                                    "N": {
-                                                        "S": "2.3"
-                                                    }
-                                                }
-                                            },
-                                            "type": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "nhr"
-                                                    }
-                                                }
-                                            },
-                                            "inclusion": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": true
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            },
-                            {
-                                "M": {
-                                    "M": {
-                                        "M": {
-                                            "rare": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
-                                                    }
-                                                }
-                                            },
-                                            "func_gene": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "TP53"
-                                                    }
-                                                }
-                                            },
-                                            "level_of_evidence": {
-                                                "M": {
-                                                    "N": {
-                                                        "S": "3.2"
-                                                    }
-                                                }
-                                            },
-                                            "function": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "Refallele"
-                                                    }
-                                                }
-                                            },
-                                            "arm_specific": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
-                                                    }
-                                                }
-                                            },
-                                            "type": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "nhr"
-                                                    }
-                                                }
-                                            },
-                                            "inclusion": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        ]
-                    },
-                    "gene_fusions": {
-                        "L": [
-                            {
-                                "M": {
-                                    "M": {
-                                        "M": {
-                                            "ocp_alternative": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "C[chr1:156844362["
-                                                    }
-                                                }
-                                            },
-                                            "func_gene": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "TPM3"
-                                                    }
-                                                }
-                                            },
-                                            "chromosome": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "chr2"
-                                                    }
-                                                }
-                                            },
-                                            "level_of_evidence": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "2.0"
-                                                    }
-                                                }
-                                            },
-                                            "type": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "gf"
                                                     }
                                                 }
                                             },
@@ -1150,31 +149,10 @@
                                                     }
                                                 }
                                             },
-                                            "identifier": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "TPM3-NTRK1.T7N10.COSF1318_1"
-                                                    }
-                                                }
-                                            },
-                                            "public_med_ids": {
-                                                "M": {
-                                                    "NULL": {
-                                                        "BOOL": true
-                                                    }
-                                                }
-                                            },
-                                            "inclusion": {
+                                            "confirmed": {
                                                 "M": {
                                                     "BOOL": {
-                                                        "BOOL": true
-                                                    }
-                                                }
-                                            },
-                                            "position": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "154142875"
+                                                        "BOOL": false
                                                     }
                                                 }
                                             }
@@ -1186,95 +164,10 @@
                                 "M": {
                                     "M": {
                                         "M": {
-                                            "ocp_alternative": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "[chr1:154142875[G"
-                                                    }
-                                                }
-                                            },
-                                            "func_gene": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "NTRK1"
-                                                    }
-                                                }
-                                            },
-                                            "chromosome": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "chr2"
-                                                    }
-                                                }
-                                            },
-                                            "level_of_evidence": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "3.0"
-                                                    }
-                                                }
-                                            },
                                             "type": {
                                                 "M": {
                                                     "S": {
-                                                        "S": "gf"
-                                                    }
-                                                }
-                                            },
-                                            "ocp_reference": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "G"
-                                                    }
-                                                }
-                                            },
-                                            "identifier": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "TPM3-NTRK1.T7N10.COSF1318_2"
-                                                    }
-                                                }
-                                            },
-                                            "public_med_ids": {
-                                                "M": {
-                                                    "NULL": {
-                                                        "BOOL": true
-                                                    }
-                                                }
-                                            },
-                                            "inclusion": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": true
-                                                    }
-                                                }
-                                            },
-                                            "position": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "156844362"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            },
-                            {
-                                "M": {
-                                    "M": {
-                                        "M": {
-                                            "ocp_alternative": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "T]chr6:117642559]"
-                                                    }
-                                                }
-                                            },
-                                            "func_gene": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "TPM3"
+                                                        "S": "cnv"
                                                     }
                                                 }
                                             },
@@ -1287,36 +180,29 @@
                                             },
                                             "level_of_evidence": {
                                                 "M": {
-                                                    "S": {
-                                                        "S": "3.0"
+                                                    "N": {
+                                                        "S": "2"
                                                     }
                                                 }
                                             },
-                                            "type": {
+                                            "confidence_interval_5percent": {
                                                 "M": {
-                                                    "S": {
-                                                        "S": "gf"
+                                                    "N": {
+                                                        "S": "4.04279"
                                                     }
                                                 }
                                             },
-                                            "ocp_reference": {
+                                            "ocp_alternative": {
                                                 "M": {
                                                     "S": {
-                                                        "S": "T"
+                                                        "S": "<CNV>"
                                                     }
                                                 }
                                             },
                                             "identifier": {
                                                 "M": {
                                                     "S": {
-                                                        "S": "TPM3-ROS1.T7R35.COSF1273_1"
-                                                    }
-                                                }
-                                            },
-                                            "public_med_ids": {
-                                                "M": {
-                                                    "NULL": {
-                                                        "BOOL": true
+                                                        "S": "BCL9"
                                                     }
                                                 }
                                             },
@@ -1327,10 +213,66 @@
                                                     }
                                                 }
                                             },
+                                            "arm_specific": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
+                                                    }
+                                                }
+                                            },
+                                            "ref_copy_number": {
+                                                "M": {
+                                                    "N": {
+                                                        "S": "2"
+                                                    }
+                                                }
+                                            },
+                                            "rare": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
+                                                    }
+                                                }
+                                            },
                                             "position": {
                                                 "M": {
                                                     "S": {
-                                                        "S": "154142877"
+                                                        "S": "147022100"
+                                                    }
+                                                }
+                                            },
+                                            "raw_copy_number": {
+                                                "M": {
+                                                    "N": {
+                                                        "S": "8.2"
+                                                    }
+                                                }
+                                            },
+                                            "confidence_interval_95percent": {
+                                                "M": {
+                                                    "N": {
+                                                        "S": "4.36137"
+                                                    }
+                                                }
+                                            },
+                                            "copy_number": {
+                                                "M": {
+                                                    "N": {
+                                                        "S": "8.2"
+                                                    }
+                                                }
+                                            },
+                                            "ocp_reference": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "G"
+                                                    }
+                                                }
+                                            },
+                                            "confirmed": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
                                                     }
                                                 }
                                             }
@@ -1342,38 +284,101 @@
                                 "M": {
                                     "M": {
                                         "M": {
-                                            "ocp_alternative": {
+                                            "type": {
                                                 "M": {
                                                     "S": {
-                                                        "S": "[chr1:154142877[T"
-                                                    }
-                                                }
-                                            },
-                                            "func_gene": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "ROS1"
+                                                        "S": "cnv"
                                                     }
                                                 }
                                             },
                                             "chromosome": {
                                                 "M": {
                                                     "S": {
-                                                        "S": "chr6"
+                                                        "S": "chr10"
                                                     }
                                                 }
                                             },
                                             "level_of_evidence": {
                                                 "M": {
-                                                    "S": {
-                                                        "S": "3.0"
+                                                    "N": {
+                                                        "S": "2"
                                                     }
                                                 }
                                             },
-                                            "type": {
+                                            "confidence_interval_5percent": {
+                                                "M": {
+                                                    "N": {
+                                                        "S": "1.67303"
+                                                    }
+                                                }
+                                            },
+                                            "ocp_alternative": {
                                                 "M": {
                                                     "S": {
-                                                        "S": "gf"
+                                                        "S": "<CNV>"
+                                                    }
+                                                }
+                                            },
+                                            "identifier": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "PTEN"
+                                                    }
+                                                }
+                                            },
+                                            "inclusion": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": true
+                                                    }
+                                                }
+                                            },
+                                            "arm_specific": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
+                                                    }
+                                                }
+                                            },
+                                            "ref_copy_number": {
+                                                "M": {
+                                                    "N": {
+                                                        "S": "2"
+                                                    }
+                                                }
+                                            },
+                                            "rare": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
+                                                    }
+                                                }
+                                            },
+                                            "position": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "89624207"
+                                                    }
+                                                }
+                                            },
+                                            "raw_copy_number": {
+                                                "M": {
+                                                    "N": {
+                                                        "S": "8.8"
+                                                    }
+                                                }
+                                            },
+                                            "confidence_interval_95percent": {
+                                                "M": {
+                                                    "N": {
+                                                        "S": "1.94266"
+                                                    }
+                                                }
+                                            },
+                                            "copy_number": {
+                                                "M": {
+                                                    "N": {
+                                                        "S": "8.8"
                                                     }
                                                 }
                                             },
@@ -1384,31 +389,10 @@
                                                     }
                                                 }
                                             },
-                                            "identifier": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "TPM3-ROS1.T7R35.COSF1273_2"
-                                                    }
-                                                }
-                                            },
-                                            "public_med_ids": {
-                                                "M": {
-                                                    "NULL": {
-                                                        "BOOL": true
-                                                    }
-                                                }
-                                            },
-                                            "inclusion": {
+                                            "confirmed": {
                                                 "M": {
                                                     "BOOL": {
                                                         "BOOL": false
-                                                    }
-                                                }
-                                            },
-                                            "position": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "117642559"
                                                     }
                                                 }
                                             }
@@ -1424,10 +408,10 @@
                                 "M": {
                                     "M": {
                                         "M": {
-                                            "rare": {
+                                            "type": {
                                                 "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
+                                                    "S": {
+                                                        "S": "id"
                                                     }
                                                 }
                                             },
@@ -1438,31 +422,17 @@
                                                     }
                                                 }
                                             },
-                                            "confirmed": {
+                                            "rare": {
                                                 "M": {
                                                     "BOOL": {
                                                         "BOOL": false
                                                     }
                                                 }
                                             },
-                                            "level_of_evidence": {
+                                            "inclusion": {
                                                 "M": {
-                                                    "N": {
-                                                        "S": "3"
-                                                    }
-                                                }
-                                            },
-                                            "type": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "id"
-                                                    }
-                                                }
-                                            },
-                                            "ocp_reference": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "TTC"
+                                                    "BOOL": {
+                                                        "BOOL": true
                                                     }
                                                 }
                                             },
@@ -1480,10 +450,17 @@
                                                     }
                                                 }
                                             },
-                                            "inclusion": {
+                                            "ocp_reference": {
                                                 "M": {
-                                                    "BOOL": {
-                                                        "BOOL": true
+                                                    "S": {
+                                                        "S": "TTC"
+                                                    }
+                                                }
+                                            },
+                                            "level_of_evidence": {
+                                                "M": {
+                                                    "N": {
+                                                        "S": "3"
                                                     }
                                                 }
                                             },
@@ -1491,6 +468,13 @@
                                                 "M": {
                                                     "S": {
                                                         "S": "chr22"
+                                                    }
+                                                }
+                                            },
+                                            "confirmed": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
                                                     }
                                                 }
                                             }
@@ -1502,10 +486,10 @@
                                 "M": {
                                     "M": {
                                         "M": {
-                                            "rare": {
+                                            "type": {
                                                 "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
+                                                    "S": {
+                                                        "S": "id"
                                                     }
                                                 }
                                             },
@@ -1516,31 +500,17 @@
                                                     }
                                                 }
                                             },
-                                            "confirmed": {
+                                            "rare": {
                                                 "M": {
                                                     "BOOL": {
                                                         "BOOL": false
                                                     }
                                                 }
                                             },
-                                            "level_of_evidence": {
+                                            "inclusion": {
                                                 "M": {
-                                                    "N": {
-                                                        "S": "3"
-                                                    }
-                                                }
-                                            },
-                                            "type": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "id"
-                                                    }
-                                                }
-                                            },
-                                            "ocp_reference": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "CAAGGTTTCAATAACCAG"
+                                                    "BOOL": {
+                                                        "BOOL": true
                                                     }
                                                 }
                                             },
@@ -1558,10 +528,17 @@
                                                     }
                                                 }
                                             },
-                                            "inclusion": {
+                                            "ocp_reference": {
                                                 "M": {
-                                                    "BOOL": {
-                                                        "BOOL": true
+                                                    "S": {
+                                                        "S": "CAAGGTTTCAATAACCAG"
+                                                    }
+                                                }
+                                            },
+                                            "level_of_evidence": {
+                                                "M": {
+                                                    "N": {
+                                                        "S": "3"
                                                     }
                                                 }
                                             },
@@ -1569,6 +546,13 @@
                                                 "M": {
                                                     "S": {
                                                         "S": "chrX"
+                                                    }
+                                                }
+                                            },
+                                            "confirmed": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
                                                     }
                                                 }
                                             }
@@ -1580,10 +564,10 @@
                                 "M": {
                                     "M": {
                                         "M": {
-                                            "rare": {
+                                            "type": {
                                                 "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
+                                                    "S": {
+                                                        "S": "id"
                                                     }
                                                 }
                                             },
@@ -1594,31 +578,17 @@
                                                     }
                                                 }
                                             },
-                                            "confirmed": {
+                                            "rare": {
                                                 "M": {
                                                     "BOOL": {
                                                         "BOOL": false
                                                     }
                                                 }
                                             },
-                                            "level_of_evidence": {
+                                            "inclusion": {
                                                 "M": {
-                                                    "N": {
-                                                        "S": "3"
-                                                    }
-                                                }
-                                            },
-                                            "type": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "id"
-                                                    }
-                                                }
-                                            },
-                                            "ocp_reference": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "TGCTGTCTCTGGGGA"
+                                                    "BOOL": {
+                                                        "BOOL": false
                                                     }
                                                 }
                                             },
@@ -1636,10 +606,17 @@
                                                     }
                                                 }
                                             },
-                                            "inclusion": {
+                                            "ocp_reference": {
                                                 "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
+                                                    "S": {
+                                                        "S": "TGCTGTCTCTGGGGA"
+                                                    }
+                                                }
+                                            },
+                                            "level_of_evidence": {
+                                                "M": {
+                                                    "N": {
+                                                        "S": "3"
                                                     }
                                                 }
                                             },
@@ -1649,253 +626,228 @@
                                                         "S": "chrX"
                                                     }
                                                 }
+                                            },
+                                            "confirmed": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
+                                                    }
+                                                }
                                             }
                                         }
                                     }
                                 }
                             }
                         ]
-                    }
-                }
-            },
-            "treatment_arm_drugs": {
-                "L": [
-                    {
-                        "M": {
-                            "pathway": {
-                                "S": "ALK"
-                            },
-                            "drug_id": {
-                                "S": "113"
-                            },
-                            "name": {
-                                "S": "Crizotinib"
-                            }
-                        }
-                    }
-                ]
-            },
-            "version": {
-                "S": "2015-08-06"
-            },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "target_name": {
-                "S": "Crizotinib"
-            },
-            "name": {
-                "S": "APEC1621-B"
-            },
-            "pending_patients": {
-                "N": "0"
-            }
-        },
-        {
-            "stratum_id": {
-                "S": "100"
-            },
-            "former_patients": {
-                "N": "0"
-            },
-            "date_created": {
-                "S": "2016-06-24T15:38:31+00:00"
-            },
-            "inclusion_diseases": {
-                "L": [
-                    {
-                        "M": {
-                            "short_name": {
-                                "S": "Papillary thyroid carcinoma"
-                            },
-                            "ctep_sub_category": {
-                                "BOOL": true
-                            },
-                            "disease_code": {
-                                "S": "10033701"
-                            },
-                            "ctep_category": {
-                                "S": "Thyroid Cancer"
-                            }
-                        }
-                    }
-                ]
-            },
-            "assay_results": {
-                "L": []
-            },
-            "gene": {
-                "S": "ALK"
-            },
-            "current_patients": {
-                "N": "0"
-            },
-            "description": {
-                "S": "TEST Treatment Arm used by Cucumber Tests"
-            },
-            "status_log": {
-                "M": {
-                    "1471381350": {
-                        "S": "OPEN"
-                    }
-                }
-            },
-            "treatment_arm_status": {
-                "S": "OPEN"
-            },
-            "target_id": {
-                "S": "113"
-            },
-            "exclusion_diseases": {
-                "L": [
-                    {
-                        "M": {
-                            "short_name": {
-                                "S": "Bronchioloalveolar carcinoma"
-                            },
-                            "ctep_sub_category": {
-                                "BOOL": true
-                            },
-                            "disease_code": {
-                                "S": "10058354"
-                            },
-                            "ctep_category": {
-                                "S": "Non-Small Cell Lung Cancer"
-                            }
-                        }
                     },
-                    {
-                        "M": {
-                            "short_name": {
-                                "S": "Lung adenocarcinoma"
-                            },
-                            "ctep_sub_category": {
-                                "BOOL": true
-                            },
-                            "disease_code": {
-                                "S": "10025032"
-                            },
-                            "ctep_category": {
-                                "S": "Non-Small Cell Lung Cancer"
-                            }
-                        }
-                    },
-                    {
-                        "M": {
-                            "short_name": {
-                                "S": "Lung adenocar. w/ bronch. feat."
-                            },
-                            "ctep_sub_category": {
-                                "BOOL": true
-                            },
-                            "disease_code": {
-                                "S": "90600324"
-                            },
-                            "ctep_category": {
-                                "S": "Non-Small Cell Lung Cancer"
-                            }
-                        }
-                    },
-                    {
-                        "M": {
-                            "short_name": {
-                                "S": "Non-small cell lung cancer, NOS"
-                            },
-                            "ctep_sub_category": {
-                                "BOOL": true
-                            },
-                            "disease_code": {
-                                "S": "10029514"
-                            },
-                            "ctep_category": {
-                                "S": "Non-Small Cell Lung Cancer"
-                            }
-                        }
-                    },
-                    {
-                        "M": {
-                            "short_name": {
-                                "S": "Squamous cell lung carcinoma"
-                            },
-                            "ctep_sub_category": {
-                                "BOOL": true
-                            },
-                            "disease_code": {
-                                "S": "10025125"
-                            },
-                            "ctep_category": {
-                                "S": "Non-Small Cell Lung Cancer"
-                            }
-                        }
-                    }
-                ]
-            },
-            "exclusion_drugs": {
-                "L": [
-                    {
-                        "M": {
-                            "drug_class": {
-                                "S": "ALK inhibitor"
-                            },
-                            "name": {
-                                "S": "Doxorubicin Hydrochloride"
-                            },
-                            "drug_id": {
-                                "S": "10001"
-                            },
-                            "target": {
-                                "S": "ALK"
-                            }
-                        }
-                    }
-                ]
-            },
-            "not_enrolled_patients": {
-                "N": "0"
-            },
-            "variant_report": {
-                "M": {
-                    "single_nucleotide_variants": {
-                        "L": []
-                    },
-                    "copy_number_variants": {
+                    "gene_fusions": {
                         "L": [
                             {
                                 "M": {
                                     "M": {
                                         "M": {
-                                            "ref_copy_number": {
+                                            "type": {
                                                 "M": {
-                                                    "N": {
-                                                        "S": "2"
+                                                    "S": {
+                                                        "S": "gf"
+                                                    }
+                                                }
+                                            },
+                                            "func_gene": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "TPM3"
+                                                    }
+                                                }
+                                            },
+                                            "chromosome": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "chr2"
                                                     }
                                                 }
                                             },
                                             "position": {
                                                 "M": {
                                                     "S": {
-                                                        "S": "89624207"
+                                                        "S": "154142875"
                                                     }
                                                 }
                                             },
-                                            "level_of_evidence": {
+                                            "public_med_ids": {
                                                 "M": {
-                                                    "N": {
-                                                        "S": "2"
+                                                    "NULL": {
+                                                        "BOOL": true
                                                     }
                                                 }
                                             },
-                                            "arm_specific": {
+                                            "identifier": {
                                                 "M": {
-                                                    "BOOL": {
-                                                        "BOOL": false
+                                                    "S": {
+                                                        "S": "TPM3-NTRK1.T7N10.COSF1318_1"
                                                     }
                                                 }
                                             },
                                             "ocp_alternative": {
                                                 "M": {
                                                     "S": {
-                                                        "S": "<CNV>"
+                                                        "S": "C[chr1:156844362["
+                                                    }
+                                                }
+                                            },
+                                            "ocp_reference": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "C"
+                                                    }
+                                                }
+                                            },
+                                            "level_of_evidence": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "2.0"
+                                                    }
+                                                }
+                                            },
+                                            "inclusion": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": true
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "M": {
+                                    "M": {
+                                        "M": {
+                                            "type": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "gf"
+                                                    }
+                                                }
+                                            },
+                                            "func_gene": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "NTRK1"
+                                                    }
+                                                }
+                                            },
+                                            "chromosome": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "chr2"
+                                                    }
+                                                }
+                                            },
+                                            "position": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "156844362"
+                                                    }
+                                                }
+                                            },
+                                            "public_med_ids": {
+                                                "M": {
+                                                    "NULL": {
+                                                        "BOOL": true
+                                                    }
+                                                }
+                                            },
+                                            "identifier": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "TPM3-NTRK1.T7N10.COSF1318_2"
+                                                    }
+                                                }
+                                            },
+                                            "ocp_alternative": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "[chr1:154142875[G"
+                                                    }
+                                                }
+                                            },
+                                            "ocp_reference": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "G"
+                                                    }
+                                                }
+                                            },
+                                            "level_of_evidence": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "3.0"
+                                                    }
+                                                }
+                                            },
+                                            "inclusion": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": true
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "M": {
+                                    "M": {
+                                        "M": {
+                                            "type": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "gf"
+                                                    }
+                                                }
+                                            },
+                                            "func_gene": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "TPM3"
+                                                    }
+                                                }
+                                            },
+                                            "chromosome": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "chr1"
+                                                    }
+                                                }
+                                            },
+                                            "position": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "154142877"
+                                                    }
+                                                }
+                                            },
+                                            "public_med_ids": {
+                                                "M": {
+                                                    "NULL": {
+                                                        "BOOL": true
+                                                    }
+                                                }
+                                            },
+                                            "identifier": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "TPM3-ROS1.T7R35.COSF1273_1"
+                                                    }
+                                                }
+                                            },
+                                            "ocp_alternative": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "T]chr6:117642559]"
                                                     }
                                                 }
                                             },
@@ -1906,24 +858,135 @@
                                                     }
                                                 }
                                             },
+                                            "level_of_evidence": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "3.0"
+                                                    }
+                                                }
+                                            },
+                                            "inclusion": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "M": {
+                                    "M": {
+                                        "M": {
+                                            "type": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "gf"
+                                                    }
+                                                }
+                                            },
+                                            "func_gene": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "ROS1"
+                                                    }
+                                                }
+                                            },
+                                            "chromosome": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "chr6"
+                                                    }
+                                                }
+                                            },
+                                            "position": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "117642559"
+                                                    }
+                                                }
+                                            },
+                                            "public_med_ids": {
+                                                "M": {
+                                                    "NULL": {
+                                                        "BOOL": true
+                                                    }
+                                                }
+                                            },
                                             "identifier": {
                                                 "M": {
                                                     "S": {
-                                                        "S": "PTEN"
+                                                        "S": "TPM3-ROS1.T7R35.COSF1273_2"
                                                     }
                                                 }
                                             },
-                                            "raw_copy_number": {
+                                            "ocp_alternative": {
                                                 "M": {
-                                                    "N": {
-                                                        "S": "8.8"
+                                                    "S": {
+                                                        "S": "[chr1:154142877[T"
                                                     }
                                                 }
                                             },
-                                            "confidence_interval_5percent": {
+                                            "ocp_reference": {
                                                 "M": {
-                                                    "N": {
-                                                        "S": "1.67303"
+                                                    "S": {
+                                                        "S": "T"
+                                                    }
+                                                }
+                                            },
+                                            "level_of_evidence": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "3.0"
+                                                    }
+                                                }
+                                            },
+                                            "inclusion": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "single_nucleotide_variants": {
+                        "L": [
+                            {
+                                "M": {
+                                    "M": {
+                                        "M": {
+                                            "arm_specific": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
+                                                    }
+                                                }
+                                            },
+                                            "type": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "snv"
+                                                    }
+                                                }
+                                            },
+                                            "chromosome": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "chr6"
+                                                    }
+                                                }
+                                            },
+                                            "position": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "152419923"
                                                     }
                                                 }
                                             },
@@ -1934,31 +997,371 @@
                                                     }
                                                 }
                                             },
-                                            "chromosome": {
+                                            "identifier": {
                                                 "M": {
                                                     "S": {
-                                                        "S": "chr10"
+                                                        "S": "COSM1074639"
                                                     }
                                                 }
                                             },
-                                            "confidence_interval_95percent": {
+                                            "ocp_alternative": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "C"
+                                                    }
+                                                }
+                                            },
+                                            "ocp_reference": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "A"
+                                                    }
+                                                }
+                                            },
+                                            "level_of_evidence": {
                                                 "M": {
                                                     "N": {
-                                                        "S": "1.94266"
+                                                        "S": "3"
+                                                    }
+                                                }
+                                            },
+                                            "inclusion": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": true
+                                                    }
+                                                }
+                                            },
+                                            "confirmed": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "M": {
+                                    "M": {
+                                        "M": {
+                                            "arm_specific": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
                                                     }
                                                 }
                                             },
                                             "type": {
                                                 "M": {
                                                     "S": {
-                                                        "S": "cnv"
+                                                        "S": "snv"
                                                     }
                                                 }
                                             },
-                                            "copy_number": {
+                                            "chromosome": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "chr9"
+                                                    }
+                                                }
+                                            },
+                                            "position": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "80412493"
+                                                    }
+                                                }
+                                            },
+                                            "rare": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
+                                                    }
+                                                }
+                                            },
+                                            "identifier": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "COSM52975"
+                                                    }
+                                                }
+                                            },
+                                            "ocp_alternative": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "T"
+                                                    }
+                                                }
+                                            },
+                                            "ocp_reference": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "C"
+                                                    }
+                                                }
+                                            },
+                                            "level_of_evidence": {
                                                 "M": {
                                                     "N": {
-                                                        "S": "8.8"
+                                                        "S": "3"
+                                                    }
+                                                }
+                                            },
+                                            "inclusion": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": true
+                                                    }
+                                                }
+                                            },
+                                            "confirmed": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "M": {
+                                    "M": {
+                                        "M": {
+                                            "arm_specific": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
+                                                    }
+                                                }
+                                            },
+                                            "type": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "snv"
+                                                    }
+                                                }
+                                            },
+                                            "chromosome": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "chr17"
+                                                    }
+                                                }
+                                            },
+                                            "position": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "7577064"
+                                                    }
+                                                }
+                                            },
+                                            "rare": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
+                                                    }
+                                                }
+                                            },
+                                            "identifier": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "COSM44451"
+                                                    }
+                                                }
+                                            },
+                                            "ocp_alternative": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "C"
+                                                    }
+                                                }
+                                            },
+                                            "ocp_reference": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "T"
+                                                    }
+                                                }
+                                            },
+                                            "level_of_evidence": {
+                                                "M": {
+                                                    "N": {
+                                                        "S": "3"
+                                                    }
+                                                }
+                                            },
+                                            "inclusion": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
+                                                    }
+                                                }
+                                            },
+                                            "confirmed": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "M": {
+                                    "M": {
+                                        "M": {
+                                            "arm_specific": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
+                                                    }
+                                                }
+                                            },
+                                            "type": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "snv"
+                                                    }
+                                                }
+                                            },
+                                            "chromosome": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "chrX"
+                                                    }
+                                                }
+                                            },
+                                            "position": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "70349258"
+                                                    }
+                                                }
+                                            },
+                                            "rare": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
+                                                    }
+                                                }
+                                            },
+                                            "identifier": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "COSM757681"
+                                                    }
+                                                }
+                                            },
+                                            "ocp_alternative": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "G"
+                                                    }
+                                                }
+                                            },
+                                            "ocp_reference": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "C"
+                                                    }
+                                                }
+                                            },
+                                            "level_of_evidence": {
+                                                "M": {
+                                                    "N": {
+                                                        "S": "3"
+                                                    }
+                                                }
+                                            },
+                                            "inclusion": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
+                                                    }
+                                                }
+                                            },
+                                            "confirmed": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "M": {
+                                    "M": {
+                                        "M": {
+                                            "arm_specific": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
+                                                    }
+                                                }
+                                            },
+                                            "type": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "snv"
+                                                    }
+                                                }
+                                            },
+                                            "chromosome": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "chrX"
+                                                    }
+                                                }
+                                            },
+                                            "position": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "100611165"
+                                                    }
+                                                }
+                                            },
+                                            "rare": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
+                                                    }
+                                                }
+                                            },
+                                            "identifier": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "BT9"
+                                                    }
+                                                }
+                                            },
+                                            "ocp_alternative": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "T"
+                                                    }
+                                                }
+                                            },
+                                            "ocp_reference": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "A"
+                                                    }
+                                                }
+                                            },
+                                            "level_of_evidence": {
+                                                "M": {
+                                                    "N": {
+                                                        "S": "3"
                                                     }
                                                 }
                                             },
@@ -1988,66 +1391,38 @@
                                 "M": {
                                     "M": {
                                         "M": {
-                                            "oncomine_variant_class": {
+                                            "type": {
                                                 "M": {
                                                     "S": {
-                                                        "S": "deleterious"
+                                                        "S": "nhr"
                                                     }
                                                 }
                                             },
                                             "func_gene": {
                                                 "M": {
                                                     "S": {
-                                                        "S": "PTEN"
+                                                        "S": "MYCL"
+                                                    }
+                                                }
+                                            },
+                                            "oncomine_variant_class": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "amplification"
+                                                    }
+                                                }
+                                            },
+                                            "rare": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
                                                     }
                                                 }
                                             },
                                             "level_of_evidence": {
                                                 "M": {
-                                                    "S": {
-                                                        "S": "3.0"
-                                                    }
-                                                }
-                                            },
-                                            "function": {
-                                                "M": {
-                                                    "NULL": {
-                                                        "BOOL": true
-                                                    }
-                                                }
-                                            },
-                                            "arm_specific": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "false"
-                                                    }
-                                                }
-                                            },
-                                            "public_med_ids": {
-                                                "M": {
-                                                    "NULL": {
-                                                        "BOOL": true
-                                                    }
-                                                }
-                                            },
-                                            "exon": {
-                                                "M": {
-                                                    "NULL": {
-                                                        "BOOL": true
-                                                    }
-                                                }
-                                            },
-                                            "protein_match": {
-                                                "M": {
-                                                    "NULL": {
-                                                        "BOOL": true
-                                                    }
-                                                }
-                                            },
-                                            "type": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "nhr"
+                                                    "N": {
+                                                        "S": "2.3"
                                                     }
                                                 }
                                             },
@@ -2061,8 +1436,424 @@
                                         }
                                     }
                                 }
+                            },
+                            {
+                                "M": {
+                                    "M": {
+                                        "M": {
+                                            "arm_specific": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
+                                                    }
+                                                }
+                                            },
+                                            "func_gene": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "TP53"
+                                                    }
+                                                }
+                                            },
+                                            "rare": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
+                                                    }
+                                                }
+                                            },
+                                            "type": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "nhr"
+                                                    }
+                                                }
+                                            },
+                                            "level_of_evidence": {
+                                                "M": {
+                                                    "N": {
+                                                        "S": "3.2"
+                                                    }
+                                                }
+                                            },
+                                            "function": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "Refallele"
+                                                    }
+                                                }
+                                            },
+                                            "inclusion": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         ]
+                    }
+                }
+            },
+            "stratum_id": {
+                "S": "100"
+            },
+            "assay_results": {
+                "L": [
+                    {
+                        "M": {
+                            "func_gene": {
+                                "S": "PTEN"
+                            },
+                            "assay_result_status": {
+                                "S": "POSITIVE"
+                            },
+                            "assay_variant": {
+                                "S": "PRESENT"
+                            },
+                            "level_of_evidence": {
+                                "S": "3"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "func_gene": {
+                                "S": "MLH1"
+                            },
+                            "assay_result_status": {
+                                "S": "POSITIVE"
+                            },
+                            "assay_variant": {
+                                "S": "EMPTY"
+                            },
+                            "level_of_evidence": {
+                                "S": "5"
+                            }
+                        }
+                    }
+                ]
+            },
+            "date_created": {
+                "S": "2016-06-24T15:38:31+00:00"
+            },
+            "description": {
+                "S": "TEST Treatment Arm used by Cucumber Tests"
+            },
+            "exclusion_diseases": {
+                "L": [
+                    {
+                        "M": {
+                            "ctep_category": {
+                                "S": "Non-Small Cell Lung Cancer"
+                            },
+                            "short_name": {
+                                "S": "Bronchioloalveolar carcinoma"
+                            },
+                            "ctep_sub_category": {
+                                "BOOL": true
+                            },
+                            "disease_code": {
+                                "S": "10058354"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ctep_category": {
+                                "S": "Non-Small Cell Lung Cancer"
+                            },
+                            "short_name": {
+                                "S": "Lung adenocarcinoma"
+                            },
+                            "ctep_sub_category": {
+                                "BOOL": true
+                            },
+                            "disease_code": {
+                                "S": "10025032"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ctep_category": {
+                                "S": "Non-Small Cell Lung Cancer"
+                            },
+                            "short_name": {
+                                "S": "Lung adenocar. w/ bronch. feat."
+                            },
+                            "ctep_sub_category": {
+                                "BOOL": true
+                            },
+                            "disease_code": {
+                                "S": "90600324"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ctep_category": {
+                                "S": "Non-Small Cell Lung Cancer"
+                            },
+                            "short_name": {
+                                "S": "Non-small cell lung cancer, NOS"
+                            },
+                            "ctep_sub_category": {
+                                "BOOL": true
+                            },
+                            "disease_code": {
+                                "S": "10029514"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ctep_category": {
+                                "S": "Non-Small Cell Lung Cancer"
+                            },
+                            "short_name": {
+                                "S": "Squamous cell lung carcinoma"
+                            },
+                            "ctep_sub_category": {
+                                "BOOL": true
+                            },
+                            "disease_code": {
+                                "S": "10025125"
+                            }
+                        }
+                    }
+                ]
+            },
+            "gene": {
+                "S": "ALK"
+            },
+            "inclusion_diseases": {
+                "L": [
+                    {
+                        "M": {
+                            "ctep_category": {
+                                "S": "Thyroid Cancer"
+                            },
+                            "short_name": {
+                                "S": "Papillary thyroid carcinoma"
+                            },
+                            "ctep_sub_category": {
+                                "BOOL": true
+                            },
+                            "disease_code": {
+                                "S": "10033701"
+                            }
+                        }
+                    }
+                ]
+            },
+            "former_patients": {
+                "N": "0"
+            },
+            "treatment_arm_drugs": {
+                "L": [
+                    {
+                        "M": {
+                            "pathway": {
+                                "S": "ALK"
+                            },
+                            "name": {
+                                "S": "Crizotinib"
+                            },
+                            "drug_id": {
+                                "S": "113"
+                            }
+                        }
+                    }
+                ]
+            },
+            "status_log": {
+                "M": {
+                    "1471381360": {
+                        "S": "OPEN"
+                    }
+                }
+            },
+            "version": {
+                "S": "2015-08-06"
+            },
+            "pending_patients": {
+                "N": "0"
+            },
+            "not_enrolled_patients": {
+                "N": "0"
+            },
+            "current_patients": {
+                "N": "0"
+            }
+        },
+        {
+            "target_id": {
+                "S": "113"
+            },
+            "name": {
+                "S": "APEC1621-A"
+            },
+            "treatment_arm_status": {
+                "S": "OPEN"
+            },
+            "exclusion_drugs": {
+                "L": [
+                    {
+                        "M": {
+                            "target": {
+                                "S": "ALK"
+                            },
+                            "name": {
+                                "S": "Doxorubicin Hydrochloride"
+                            },
+                            "drug_id": {
+                                "S": "10001"
+                            },
+                            "drug_class": {
+                                "S": "ALK inhibitor"
+                            }
+                        }
+                    }
+                ]
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "target_name": {
+                "S": "Crizotinib"
+            },
+            "variant_report": {
+                "M": {
+                    "copy_number_variants": {
+                        "L": [
+                            {
+                                "M": {
+                                    "M": {
+                                        "M": {
+                                            "type": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "cnv"
+                                                    }
+                                                }
+                                            },
+                                            "chromosome": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "chr10"
+                                                    }
+                                                }
+                                            },
+                                            "level_of_evidence": {
+                                                "M": {
+                                                    "N": {
+                                                        "S": "2"
+                                                    }
+                                                }
+                                            },
+                                            "confidence_interval_5percent": {
+                                                "M": {
+                                                    "N": {
+                                                        "S": "1.67303"
+                                                    }
+                                                }
+                                            },
+                                            "ocp_alternative": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "<CNV>"
+                                                    }
+                                                }
+                                            },
+                                            "identifier": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "PTEN"
+                                                    }
+                                                }
+                                            },
+                                            "inclusion": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": true
+                                                    }
+                                                }
+                                            },
+                                            "arm_specific": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
+                                                    }
+                                                }
+                                            },
+                                            "ref_copy_number": {
+                                                "M": {
+                                                    "N": {
+                                                        "S": "2"
+                                                    }
+                                                }
+                                            },
+                                            "rare": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
+                                                    }
+                                                }
+                                            },
+                                            "position": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "89624207"
+                                                    }
+                                                }
+                                            },
+                                            "raw_copy_number": {
+                                                "M": {
+                                                    "N": {
+                                                        "S": "8.8"
+                                                    }
+                                                }
+                                            },
+                                            "confidence_interval_95percent": {
+                                                "M": {
+                                                    "N": {
+                                                        "S": "1.94266"
+                                                    }
+                                                }
+                                            },
+                                            "copy_number": {
+                                                "M": {
+                                                    "N": {
+                                                        "S": "8.8"
+                                                    }
+                                                }
+                                            },
+                                            "ocp_reference": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "T"
+                                                    }
+                                                }
+                                            },
+                                            "confirmed": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "indels": {
+                        "L": []
                     },
                     "gene_fusions": {
                         "L": [
@@ -2070,6 +1861,13 @@
                                 "M": {
                                     "M": {
                                         "M": {
+                                            "type": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "gf"
+                                                    }
+                                                }
+                                            },
                                             "func_gene": {
                                                 "M": {
                                                     "S": {
@@ -2077,10 +1875,10 @@
                                                     }
                                                 }
                                             },
-                                            "position": {
+                                            "chromosome": {
                                                 "M": {
                                                     "S": {
-                                                        "S": "29446394"
+                                                        "S": "2.0"
                                                     }
                                                 }
                                             },
@@ -2091,10 +1889,38 @@
                                                     }
                                                 }
                                             },
+                                            "ocp_alternative": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "[chr1:154142875[A"
+                                                    }
+                                                }
+                                            },
+                                            "inclusion": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": true
+                                                    }
+                                                }
+                                            },
                                             "arm_specific": {
                                                 "M": {
                                                     "S": {
                                                         "S": "false"
+                                                    }
+                                                }
+                                            },
+                                            "description": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "ALK translocation"
+                                                    }
+                                                }
+                                            },
+                                            "position": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "29446394"
                                                     }
                                                 }
                                             },
@@ -2113,13 +1939,6 @@
                                                     }
                                                 }
                                             },
-                                            "ocp_reference": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "A"
-                                                    }
-                                                }
-                                            },
                                             "identifier": {
                                                 "M": {
                                                     "S": {
@@ -2127,38 +1946,10 @@
                                                     }
                                                 }
                                             },
-                                            "inclusion": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": true
-                                                    }
-                                                }
-                                            },
-                                            "description": {
+                                            "ocp_reference": {
                                                 "M": {
                                                     "S": {
-                                                        "S": "ALK translocation"
-                                                    }
-                                                }
-                                            },
-                                            "chromosome": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "2.0"
-                                                    }
-                                                }
-                                            },
-                                            "type": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "gf"
-                                                    }
-                                                }
-                                            },
-                                            "ocp_alternative": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "[chr1:154142875[A"
+                                                        "S": "A"
                                                     }
                                                 }
                                             }
@@ -2170,66 +1961,17 @@
                                 "M": {
                                     "M": {
                                         "M": {
+                                            "type": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "gf"
+                                                    }
+                                                }
+                                            },
                                             "func_gene": {
                                                 "M": {
                                                     "S": {
                                                         "S": "FGFR2"
-                                                    }
-                                                }
-                                            },
-                                            "position": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "123243211"
-                                                    }
-                                                }
-                                            },
-                                            "level_of_evidence": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "3.0"
-                                                    }
-                                                }
-                                            },
-                                            "arm_specific": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "false"
-                                                    }
-                                                }
-                                            },
-                                            "public_med_ids": {
-                                                "M": {
-                                                    "NULL": {
-                                                        "BOOL": true
-                                                    }
-                                                }
-                                            },
-                                            "ocp_reference": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "C"
-                                                    }
-                                                }
-                                            },
-                                            "identifier": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "FGFR2-OFD1.F17O3"
-                                                    }
-                                                }
-                                            },
-                                            "inclusion": {
-                                                "M": {
-                                                    "BOOL": {
-                                                        "BOOL": true
-                                                    }
-                                                }
-                                            },
-                                            "description": {
-                                                "M": {
-                                                    "S": {
-                                                        "S": "some description"
                                                     }
                                                 }
                                             },
@@ -2240,10 +1982,10 @@
                                                     }
                                                 }
                                             },
-                                            "type": {
+                                            "level_of_evidence": {
                                                 "M": {
                                                     "S": {
-                                                        "S": "gf"
+                                                        "S": "3.0"
                                                     }
                                                 }
                                             },
@@ -2253,6 +1995,55 @@
                                                         "S": "C[chrX:13754596["
                                                     }
                                                 }
+                                            },
+                                            "inclusion": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": true
+                                                    }
+                                                }
+                                            },
+                                            "arm_specific": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "false"
+                                                    }
+                                                }
+                                            },
+                                            "description": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "some description"
+                                                    }
+                                                }
+                                            },
+                                            "position": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "123243211"
+                                                    }
+                                                }
+                                            },
+                                            "public_med_ids": {
+                                                "M": {
+                                                    "NULL": {
+                                                        "BOOL": true
+                                                    }
+                                                }
+                                            },
+                                            "identifier": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "FGFR2-OFD1.F17O3"
+                                                    }
+                                                }
+                                            },
+                                            "ocp_reference": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "C"
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -2260,10 +2051,214 @@
                             }
                         ]
                     },
-                    "indels": {
+                    "single_nucleotide_variants": {
                         "L": []
+                    },
+                    "non_hotspot_rules": {
+                        "L": [
+                            {
+                                "M": {
+                                    "M": {
+                                        "M": {
+                                            "arm_specific": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "false"
+                                                    }
+                                                }
+                                            },
+                                            "func_gene": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "PTEN"
+                                                    }
+                                                }
+                                            },
+                                            "oncomine_variant_class": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "deleterious"
+                                                    }
+                                                }
+                                            },
+                                            "function": {
+                                                "M": {
+                                                    "NULL": {
+                                                        "BOOL": true
+                                                    }
+                                                }
+                                            },
+                                            "public_med_ids": {
+                                                "M": {
+                                                    "NULL": {
+                                                        "BOOL": true
+                                                    }
+                                                }
+                                            },
+                                            "type": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "nhr"
+                                                    }
+                                                }
+                                            },
+                                            "protein_match": {
+                                                "M": {
+                                                    "NULL": {
+                                                        "BOOL": true
+                                                    }
+                                                }
+                                            },
+                                            "level_of_evidence": {
+                                                "M": {
+                                                    "S": {
+                                                        "S": "3.0"
+                                                    }
+                                                }
+                                            },
+                                            "inclusion": {
+                                                "M": {
+                                                    "BOOL": {
+                                                        "BOOL": true
+                                                    }
+                                                }
+                                            },
+                                            "exon": {
+                                                "M": {
+                                                    "NULL": {
+                                                        "BOOL": true
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        ]
                     }
                 }
+            },
+            "stratum_id": {
+                "S": "100"
+            },
+            "assay_results": {
+                "L": []
+            },
+            "date_created": {
+                "S": "2016-06-24T15:38:31+00:00"
+            },
+            "description": {
+                "S": "TEST Treatment Arm used by Cucumber Tests"
+            },
+            "exclusion_diseases": {
+                "L": [
+                    {
+                        "M": {
+                            "ctep_category": {
+                                "S": "Non-Small Cell Lung Cancer"
+                            },
+                            "short_name": {
+                                "S": "Bronchioloalveolar carcinoma"
+                            },
+                            "ctep_sub_category": {
+                                "BOOL": true
+                            },
+                            "disease_code": {
+                                "S": "10058354"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ctep_category": {
+                                "S": "Non-Small Cell Lung Cancer"
+                            },
+                            "short_name": {
+                                "S": "Lung adenocarcinoma"
+                            },
+                            "ctep_sub_category": {
+                                "BOOL": true
+                            },
+                            "disease_code": {
+                                "S": "10025032"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ctep_category": {
+                                "S": "Non-Small Cell Lung Cancer"
+                            },
+                            "short_name": {
+                                "S": "Lung adenocar. w/ bronch. feat."
+                            },
+                            "ctep_sub_category": {
+                                "BOOL": true
+                            },
+                            "disease_code": {
+                                "S": "90600324"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ctep_category": {
+                                "S": "Non-Small Cell Lung Cancer"
+                            },
+                            "short_name": {
+                                "S": "Non-small cell lung cancer, NOS"
+                            },
+                            "ctep_sub_category": {
+                                "BOOL": true
+                            },
+                            "disease_code": {
+                                "S": "10029514"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ctep_category": {
+                                "S": "Non-Small Cell Lung Cancer"
+                            },
+                            "short_name": {
+                                "S": "Squamous cell lung carcinoma"
+                            },
+                            "ctep_sub_category": {
+                                "BOOL": true
+                            },
+                            "disease_code": {
+                                "S": "10025125"
+                            }
+                        }
+                    }
+                ]
+            },
+            "gene": {
+                "S": "ALK"
+            },
+            "inclusion_diseases": {
+                "L": [
+                    {
+                        "M": {
+                            "ctep_category": {
+                                "S": "Thyroid Cancer"
+                            },
+                            "short_name": {
+                                "S": "Papillary thyroid carcinoma"
+                            },
+                            "ctep_sub_category": {
+                                "BOOL": true
+                            },
+                            "disease_code": {
+                                "S": "10033701"
+                            }
+                        }
+                    }
+                ]
+            },
+            "former_patients": {
+                "N": "0"
             },
             "treatment_arm_drugs": {
                 "L": [
@@ -2272,33 +2267,38 @@
                             "pathway": {
                                 "S": "ALK"
                             },
-                            "drug_id": {
-                                "S": "113"
-                            },
                             "name": {
                                 "S": "Crizotinib"
+                            },
+                            "drug_id": {
+                                "S": "113"
                             }
                         }
                     }
                 ]
             },
+            "status_log": {
+                "M": {
+                    "1471381350": {
+                        "S": "OPEN"
+                    }
+                }
+            },
             "version": {
                 "S": "2015-08-06"
             },
-            "study_id": {
-                "S": "APEC1621"
-            },
-            "target_name": {
-                "S": "Crizotinib"
-            },
-            "name": {
-                "S": "APEC1621-A"
-            },
             "pending_patients": {
+                "N": "0"
+            },
+            "not_enrolled_patients": {
+                "N": "0"
+            },
+            "current_patients": {
                 "N": "0"
             }
         }
     ],
     "Count": 2,
-    "ConsumedCapacity": null
+    "ConsumedCapacity": null,
+    "ScannedCount": 2
 }
