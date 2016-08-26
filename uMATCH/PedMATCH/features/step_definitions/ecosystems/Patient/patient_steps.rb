@@ -209,6 +209,17 @@ Then(/^returned patient has specimen \(surgical_event_id: "([^"]*)"\)$/) do |sei
   actual_find.should == expect_find
 end
 
+And(/^this specimen has assay \(biomarker: "([^"]*)", result: "([^"]*)", reported_date: "([^"]*)"\)$/) do |biomarker, result, reported_date|
+  converted_biomarker = biomarker=='null'?nil:biomarker
+  converted_result = result=='null'?nil:result
+  converted_reported_date = reported_date=='null'?nil:reported_date
+  find_assay(@current_specimen, converted_biomarker, converted_result, converted_reported_date)
+end
+# And(/^this specimen has assay: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
+#   convert_value = value=='null'?nil:value
+#   @current_specimen[field].should == convert_value
+# end
+
 And(/^this specimen has value: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
   convert_value = value=='null'?nil:value
   @current_specimen[field].should == convert_value
@@ -305,6 +316,26 @@ def find_specimen(patient_json, sei)
   specimens.each do |this_specimen|
     if this_specimen['surgical_event_id'] == sei
       return this_specimen
+    end
+  end
+  nil
+end
+
+def find_assay(specimen_json, biomarker, result, date)
+  assays = specimen_json['assays']
+  assays.each do |this_assay|
+    is_this = true
+    unless this_assay['biomarker']==biomarker
+      is_this = false
+    end
+    unless this_assay['result']==result
+      is_this = false
+    end
+    unless this_assay['result_date']==date
+      is_this = false
+    end
+    if is_this
+      return this_assay
     end
   end
   nil

@@ -39,11 +39,18 @@ Feature: Variant files uploaded message
       |null           |NilClass did not match the following type: string                                  |
       |other          |cannot transition from 'TISSUE_NUCLEIC_ACID_SHIPPED'                               |
 
-  Scenario: PT_VU05. variant files uploaded message using non-current specimen should fail
-#  Test patient: PT_VU05_TissueShipped: surgical_event_id: SEI_01, molecular_id: MOI_01 tissue shipped;
-#                                       surgical_event_id: SEI_02, molecular_id: MOI_02 tissue shipped;
-  Given template variant uploaded message for patient: "PT_VU05_TissueShipped", it has molecular_id: "MOI_01" and analysis_id: "ANI_01"
-  When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Failure"
+  Scenario Outline: PT_VU05. variant files uploaded message using old molecular_id should fail
+#  Test patient: PT_VU05_TissueShipped: surgical_event_id: PT_VU05_TissueShipped_SEI1,
+#                                        molecular_id: PT_VU05_TissueShipped_MOI1 tissue shipped;
+    #                                    molecular_id: PT_VU05_TissueShipped_MOI2 tissue shipped;
+#  Test patient: PT_VU05_BloodShipped:  molecular_id: PT_VU05_BloodShipped_BD_MOI1 tissue shipped;
+    #                                    molecular_id: PT_VU05_BloodShipped_BD_MOI2 tissue shipped;
+  Given template variant uploaded message for patient: "<patient_id>", it has molecular_id: "<moi>" and analysis_id: "<ani>"
+  When posted to MATCH patient trigger service, returns a message that includes "molecular_id" with status "Failure"
+    Examples:
+    |patient_id             |moi                                        |ani                                          |
+    |PT_VU05_TissueShipped  |PT_VU05_TissueShipped_MOI1                 |PT_VU05_TissueShipped_ANI1                   |
+    |PT_VU05_BloodShipped   |PT_VU05_BloodShipped_BD_MOI1               |PT_VU05_BloodShipped_ANI1
 
   Scenario: PT_VU06. variant files uploaded message using new analysis_id can be accepted when patient has TISSUE_NUCLEIC_ACID_SHIPPED status
 #  Test patient: PT_VU06_TissueShipped: surgical_event_id: SEI_01, molecular_id: MOI_01 tissue shipped;
@@ -134,5 +141,4 @@ Feature: Variant files uploaded message
 #  variants should be generated properly in patient json after variant files uploaded message is accepted
 #      run rule service using the variant tsv file, a variant list will be output, then run variant files uploaded message, then retrieve patient, check it's variant part with the list comes from rule engin
 
-#  cannot upload blood variant file using previous molecular_id (confirmed)
 #  blood variant file can be uploaded when when patient is in next step number (from 1.0 to 2.0)

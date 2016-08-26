@@ -260,15 +260,15 @@ Feature: NCH Specimen shipped messages
     Then set patient message field: "destination" to value: "<destination>"
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "<status>"
     Examples:
-    |patient_id                   |sei                          |moi                            |barcode                      |type       |destination   |status    |message                                    |
-    |PT_SS28_TissueReceived1      |PT_SS28_TissueReceived1_SEI1 |PT_SS28_TissueReceived1_MOI1   |                             |TISSUE     |MoCha         |Success   |Message has been processed successfully    |
-    |PT_SS28_TissueReceived2      |PT_SS28_TissueReceived2_SEI1 |PT_SS28_TissueReceived2_MOI1   |                             |TISSUE     |MDA           |Success   |Message has been processed successfully    |
-    |PT_SS28_TissueReceived3      |PT_SS28_TissueReceived3_SEI1 |PT_SS28_TissueReceived3_MOI1   |                             |TISSUE     |Other         |Failure   |destination                                |
-    |PT_SS28_TissueReceived4      |PT_SS28_TissueReceived4_SEI1 |                               |PT_SS28_TissueReceived4_BC1  |SLIDE      |MDA           |Success   |Message has been processed successfully    |
-    |PT_SS28_TissueReceived5      |PT_SS28_TissueReceived5_SEI1 |                               |PT_SS28_TissueReceived5_BC1  |SLIDE      |MoCha         |Failure   |slide                                      |
-    |PT_SS28_BloodReceived1       |                             |PT_SS28_BloodReceived1_BD_MOI1 |                             |BLOOD      |MoCha         |Success   |Message has been processed successfully    |
-    |PT_SS28_BloodReceived2       |                             |PT_SS28_BloodReceived2_BD_MOI1 |                             |BLOOD      |MDA           |Success   |Message has been processed successfully    |
-    |PT_SS28_BloodReceived3       |                             |PT_SS28_BloodReceived3_BD_MOI1 |                             |BLOOD      |mda           |Failure   |destination                                |
+    |patient_id                   |sei                          |moi                            |barcode                      |type       |destination   |status    |message                                             |
+    |PT_SS28_TissueReceived1      |PT_SS28_TissueReceived1_SEI1 |PT_SS28_TissueReceived1_MOI1   |                             |TISSUE     |MoCha         |Success   |Message has been processed successfully             |
+    |PT_SS28_TissueReceived2      |PT_SS28_TissueReceived2_SEI1 |PT_SS28_TissueReceived2_MOI1   |                             |TISSUE     |MDA           |Success   |Message has been processed successfully             |
+    |PT_SS28_TissueReceived3      |PT_SS28_TissueReceived3_SEI1 |PT_SS28_TissueReceived3_MOI1   |                             |TISSUE     |Other         |Failure   |destination                                         |
+    |PT_SS28_TissueReceived4      |PT_SS28_TissueReceived4_SEI1 |                               |PT_SS28_TissueReceived4_BC1  |SLIDE      |MDA           |Success   |Message has been processed successfully             |
+    |PT_SS28_TissueReceived5      |PT_SS28_TissueReceived5_SEI1 |                               |PT_SS28_TissueReceived5_BC1  |SLIDE      |MoCha         |Failure   |MoCha is not a valid shipping destination for SLIDE |
+    |PT_SS28_BloodReceived1       |                             |PT_SS28_BloodReceived1_BD_MOI1 |                             |BLOOD      |MoCha         |Success   |Message has been processed successfully             |
+    |PT_SS28_BloodReceived2       |                             |PT_SS28_BloodReceived2_BD_MOI1 |                             |BLOOD      |MDA           |Success   |Message has been processed successfully             |
+    |PT_SS28_BloodReceived3       |                             |PT_SS28_BloodReceived3_BD_MOI1 |                             |BLOOD      |mda           |Failure   |destination                                         |
 
 #  This test case is not required
 #  Scenario Outline: PT_SS29. Blood and tissue shippment should has same destination (?? not sure)

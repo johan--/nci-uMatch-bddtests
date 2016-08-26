@@ -314,27 +314,27 @@ class PatientDataSet
     @patient_id+'_BC'+@bc_number.to_i.to_s
   end
 
-  def next_sei
+  def sei_increase
     @sei_number += 1
     sei
   end
 
-  def next_moi
+  def moi_increase
     @moi_number += 1
     moi
   end
 
-  def next_bd_moi
+  def bd_moi_increase
     @bd_moi_number += 1
     bd_moi
   end
 
-  def next_ani
+  def ani_increase
     @ani_number += 1
     ani
   end
 
-  def next_bc
+  def bc_increase
     @bc_number += 1
     bc
   end
