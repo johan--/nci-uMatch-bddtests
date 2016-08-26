@@ -255,6 +255,7 @@ Feature: NCH Specimen shipped messages
 
 #    This test case is not required
   Scenario Outline: PT_SS28. destination should be validated
+    #slide can only be shipped to MDA, if it is shipped to MoCha, that shoulf fail
     Given template specimen shipped message in type: "<type>" for patient: "<patient_id>", it has surgical_event_id: "<sei>", molecular_id: "<moi>", slide_barcode: "<barcode>"
     Then set patient message field: "destination" to value: "<destination>"
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "<status>"
@@ -264,7 +265,7 @@ Feature: NCH Specimen shipped messages
     |PT_SS28_TissueReceived2      |PT_SS28_TissueReceived2_SEI1 |PT_SS28_TissueReceived2_MOI1   |                             |TISSUE     |MDA           |Success   |Message has been processed successfully    |
     |PT_SS28_TissueReceived3      |PT_SS28_TissueReceived3_SEI1 |PT_SS28_TissueReceived3_MOI1   |                             |TISSUE     |Other         |Failure   |destination                                |
     |PT_SS28_TissueReceived4      |PT_SS28_TissueReceived4_SEI1 |                               |PT_SS28_TissueReceived4_BC1  |SLIDE      |MDA           |Success   |Message has been processed successfully    |
-    |PT_SS28_TissueReceived5      |PT_SS28_TissueReceived5_SEI1 |                               |PT_SS28_TissueReceived5_BC1  |SLIDE      |MoCha         |Success   |Message has been processed successfully    |
+    |PT_SS28_TissueReceived5      |PT_SS28_TissueReceived5_SEI1 |                               |PT_SS28_TissueReceived5_BC1  |SLIDE      |MoCha         |Failure   |slide                                      |
     |PT_SS28_BloodReceived1       |                             |PT_SS28_BloodReceived1_BD_MOI1 |                             |BLOOD      |MoCha         |Success   |Message has been processed successfully    |
     |PT_SS28_BloodReceived2       |                             |PT_SS28_BloodReceived2_BD_MOI1 |                             |BLOOD      |MDA           |Success   |Message has been processed successfully    |
     |PT_SS28_BloodReceived3       |                             |PT_SS28_BloodReceived3_BD_MOI1 |                             |BLOOD      |mda           |Failure   |destination                                |
@@ -285,6 +286,3 @@ Feature: NCH Specimen shipped messages
 #    |PT_SS29_BdAndTsReceived1   |MDA              |MDA               |Success   |Message has been processed successfully  |
 #    |PT_SS29_BdAndTsReceived2   |Mocha            |Mocha             |Success   |Message has been processed successfully  |
 #    |PT_SS29_BdAndTsReceived3   |Mocha            |MDA               |Failure   |destination                              |
-#  Scenario Outline: PT_SS27. Blood specimen shippment will not affect other patient triggers
-#For assay and pathology now they will fail if patient is in BLOOD_NUCLEIC_ACID_SHIPPED status
-#  Incoming message failed patient state validation: State :BLOOD_NUCLEIC_ACID_SHIPPED doesn't exist

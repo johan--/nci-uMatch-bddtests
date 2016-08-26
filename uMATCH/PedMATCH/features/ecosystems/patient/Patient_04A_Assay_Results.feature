@@ -58,7 +58,7 @@ Feature: Assay Messages
       |          |not of a minimum string length of 1                       |
       |nonDate   |cannot transition from                                    |
       |null      |NilClass did not match the following type: string         |
-  Scenario Outline: PT_AS07. Assay result with invalid result(other than POSITIVE or NEGATIVE) should fail
+  Scenario Outline: PT_AS07. Assay result with invalid result(other than POSITIVE, NEGATIVE or INDETERMINATE) should fail
     Given template assay message with surgical_event_id: "SEI_01" for patient: "PT_AS07_SlideShipped"
     Then set patient message field: "result" to value: "<value>"
     When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"
@@ -103,6 +103,7 @@ Feature: Assay Messages
     |biomarker          |MLH1             |2016-05-18T10:42:13+00:00        |
     |result             |NEGATIVE         |2016-05-18T11:42:13+00:00        |
     |biomarker          |ICCPTEN          |2016-05-18T12:42:13+00:00        |
+    |result             |INDETERMINATE    |2016-05-18T13:42:13+00:00        |
 
 
   Scenario Outline: PT_AS12. assay result received will not trigger patient assignment process unless patient has pathology and VR ready
