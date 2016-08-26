@@ -27,7 +27,6 @@ When(/^assignPatient service is called$/) do
   res = Helper_Methods.post_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['rules_PORT']+'/nci-match-rules/rules/rs/assignPatient',@payload)
 
   @res = res.to_json
-  p @res
   expect((JSON.parse(@res)['Error'])).to be_nil
 end
 
@@ -51,7 +50,6 @@ end
 
 When(/^call the amoi rest service$/) do
   @res = Helper_Methods.get_request_url_param(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['rules_PORT']+'/nci-match-rules/rules/rs/amois',{"bucket"=>@bucket,"tsv"=>@tsv,"ta"=>@ta})
-  p @res
   expect((JSON.parse(@res)['Error'])).to be_nil
 end
 

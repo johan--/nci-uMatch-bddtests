@@ -33,7 +33,6 @@ Feature: Dashboard page.
     And I can see the pending "Blood Variant Reports" subtab
     And I can see the pending "Assignment Reports" subtab
 
-    @fling
   Scenario Outline: Pending <report_type> reports statistics match pending reports table.
     When I navigate to the dashboard page
     And I collect information for "<report_type>" Dashboard
