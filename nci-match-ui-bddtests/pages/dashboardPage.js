@@ -28,6 +28,15 @@ var DashboardPage = function() {
     this.dashAmoiChart        = element(by.css('div[ng-init^="setCanvasHeight(\'#amoiCanvas\'"]'));
     this.dashTreatmentAccrual = element(by.css('div[ng-init^="setCanvasHeight(\'#treatmentArmAccrualCanvas\'"]'));
 
+    // this is the div id locator string that lest you get access to the individual sub tab on the dashboard Pending Review section
+    // use it like this:
+    // element(by.id(subTabLocator[<reportType>]))
+    this.subTabLocator = {
+        "Tissue Variant Reports": "pendingTissueVRs",
+        "Blood Variant Reports": "pendingBloodVRs",
+        "Assignment Reports" : "pendingAssignReps"
+    };
+
     this.expectedTissueVRColumns = ['Patient ID', 'Molecular ID',
         'Analysis ID', 'Variant Report',
         'CLIA Lab', 'Specimen Received Date',
