@@ -47,3 +47,10 @@ Feature: Dashboard page.
     |Tissue Variant Reports |
     |Blood Variant Reports  |
     |Assignment Reports     |
+    
+  Scenario: User can filter results on the page
+    When I navigate to the dashboard page
+    And I click on the "Tissue Variant Reports" sub-tab
+    And I enter "PT_SR15_VariantReportUploaded" in the "Tissue Variant Reports" filter textbox
+    Then I see that only "1" row of "Tissue Variant Reports" data is seen
+    And The patient id "PT_SR15_VariantReportUploaded" is displayed in "Tissue Variant Reports" table

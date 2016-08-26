@@ -22,7 +22,7 @@ module.exports = function() {
     var subTabLocator = dash.subTabLocator;
 
     var reportData;
-    
+
     this.Then(/^I can see the Dashboard banner$/, function (callback) {
         expect(dash.dashBannerList.count()).to.eventually.equal(1);
         browser.sleep(50).then(callback);
@@ -188,6 +188,26 @@ module.exports = function() {
         for(var i = 0; i < dashboardList[reportType].length; i++){
             expect(studyElement.get(i).getText()).to.eventually.eql(dashboardList[reportType][i]);
         }
+        browser.sleep(50).then(callback);
+    });
+
+    this.When(/^I enter "(.+?)" in the "(.+?)" filter textbox$/, function (searchText, reportType, callback) {
+        var searchField = element(by.id(subTabLocator[reportType])).element(by.model('filterAll'));
+        searchField.sendKeys(searchText);
+
+        expect(searchField.getAttribute('value')).to.eventually.eql(searchText);
+        browser.sleep(50).then(callback);
+    });
+
+    this.Then(/^I see that only "(.+?)" row of "(.+?)" data is seen$/, function (counter, reportType, callback) {
+        expect(element(by.id(subTabLocator[reportType])).all(by.repeater('item in filtered ')).count())
+            .to.eventually.eql(parseInt(counter));
+        browser.sleep(50).then(callback);
+    });
+
+    this.Then(/^The patient id "(.+?)" is displayed in "(.+?)" table$/, function (patientId, reportType, callback) {
+        var patient = element(by.id(subTabLocator[reportType])).element(by.binding('item.patient_id'));
+        expect(patient.getText()).to.eventually.eql(patientId);
         browser.sleep(50).then(callback);
     });
 
