@@ -2,40 +2,19 @@
     "Items": [
         {
             "molecular_id": {
-                "S": "PT_SS26_TsVRReceived_MOI1"
-            },
-            "status_date": {
-                "S": "2016-08-26T22:01:17+00:00"
-            },
-            "s3_bucket": {
-                "S": "bdd-test-data/data"
+                "S": "PT_PR13_AssayReceivedVRNotConfirmed_MOI1"
             },
             "patient_id": {
-                "S": "PT_SS26_TsVRReceived"
+                "S": "PT_PR13_AssayReceivedVRNotConfirmed"
             },
-            "total_mois": {
-                "N": "14"
+            "dna_bam_path_name": {
+                "S": "dna.bam"
+            },
+            "total_amois": {
+                "N": "0"
             },
             "variant_report_received_date": {
-                "S": "2016-08-26T22:01:17+00:00"
-            },
-            "rna_bam_path_name": {
-                "S": "cdna.bam"
-            },
-            "status": {
-                "S": "PENDING"
-            },
-            "vcf_path_name": {
-                "S": "test1.vcf"
-            },
-            "variant_report_type": {
-                "S": "TISSUE"
-            },
-            "total_confirmed_mois": {
-                "N": "14"
-            },
-            "analysis_id": {
-                "S": "PT_SS26_TsVRReceived_ANI1"
+                "S": "2016-08-29T15:38:30+00:00"
             },
             "tsv_path_name": {
                 "S": "test1.tsv"
@@ -43,52 +22,164 @@
             "total_confirmed_amois": {
                 "N": "0"
             },
+            "status": {
+                "S": "PENDING"
+            },
+            "surgical_event_id": {
+                "S": "PT_PR13_AssayReceivedVRNotConfirmed_SEI1"
+            },
+            "total_confirmed_mois": {
+                "N": "14"
+            },
+            "vcf_path_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "rna_bam_path_name": {
+                "S": "cdna.bam"
+            },
+            "s3_bucket": {
+                "S": "bdd-test-data/data"
+            },
+            "analysis_id": {
+                "S": "PT_PR13_AssayReceivedVRNotConfirmed_ANI1"
+            },
+            "status_date": {
+                "S": "2016-08-29T15:38:30+00:00"
+            },
+            "total_mois": {
+                "N": "14"
+            }
+        },
+        {
+            "molecular_id": {
+                "S": "PT_PR13_VRConfirmedNoAssay_MOI1"
+            },
+            "patient_id": {
+                "S": "PT_PR13_VRConfirmedNoAssay"
+            },
+            "dna_bam_path_name": {
+                "S": "dna.bam"
+            },
             "total_amois": {
                 "N": "0"
+            },
+            "total_confirmed_amois": {
+                "N": "0"
+            },
+            "variant_report_received_date": {
+                "S": "2016-08-29T15:36:29+00:00"
+            },
+            "tsv_path_name": {
+                "S": "test1.tsv"
+            },
+            "total_confirmed_mois": {
+                "N": "14"
+            },
+            "status": {
+                "S": "CONFIRMED"
+            },
+            "surgical_event_id": {
+                "S": "PT_PR13_VRConfirmedNoAssay_SEI1"
+            },
+            "comment_user": {
+                "S": "Rick"
+            },
+            "comment": {
+                "S": "The committee approves this variant report"
+            },
+            "vcf_path_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "rna_bam_path_name": {
+                "S": "cdna.bam"
+            },
+            "s3_bucket": {
+                "S": "bdd-test-data/data"
+            },
+            "analysis_id": {
+                "S": "PT_PR13_VRConfirmedNoAssay_ANI1"
+            },
+            "status_date": {
+                "S": "2016-08-29T15:36:44+00:00"
+            },
+            "total_mois": {
+                "N": "14"
+            }
+        },
+        {
+            "molecular_id": {
+                "S": "PT_SS26_TsVRReceived_MOI1"
+            },
+            "patient_id": {
+                "S": "PT_SS26_TsVRReceived"
+            },
+            "dna_bam_path_name": {
+                "S": "dna.bam"
+            },
+            "total_amois": {
+                "N": "0"
+            },
+            "variant_report_received_date": {
+                "S": "2016-08-26T22:01:17+00:00"
+            },
+            "tsv_path_name": {
+                "S": "test1.tsv"
+            },
+            "total_confirmed_amois": {
+                "N": "0"
+            },
+            "status": {
+                "S": "PENDING"
             },
             "surgical_event_id": {
                 "S": "PT_SS26_TsVRReceived_SEI1"
             },
-            "dna_bam_path_name": {
-                "S": "dna.bam"
+            "total_confirmed_mois": {
+                "N": "14"
+            },
+            "vcf_path_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "rna_bam_path_name": {
+                "S": "cdna.bam"
+            },
+            "s3_bucket": {
+                "S": "bdd-test-data/data"
+            },
+            "analysis_id": {
+                "S": "PT_SS26_TsVRReceived_ANI1"
+            },
+            "status_date": {
+                "S": "2016-08-26T22:01:17+00:00"
+            },
+            "total_mois": {
+                "N": "14"
             }
         },
         {
             "molecular_id": {
                 "S": "PT_SR10_TsVrReceived_MOI1"
             },
-            "status_date": {
-                "S": "2016-08-26T21:19:53+00:00"
-            },
-            "s3_bucket": {
-                "S": "bdd-test-data/data"
-            },
             "patient_id": {
                 "S": "PT_SR10_TsVrReceived"
             },
-            "total_mois": {
-                "N": "14"
+            "dna_bam_path_name": {
+                "S": "dna.bam"
+            },
+            "total_amois": {
+                "N": "0"
             },
             "variant_report_received_date": {
                 "S": "2016-08-26T21:19:53+00:00"
-            },
-            "rna_bam_path_name": {
-                "S": "cdna.bam"
-            },
-            "status": {
-                "S": "PENDING"
-            },
-            "vcf_path_name": {
-                "S": "test1.vcf"
-            },
-            "variant_report_type": {
-                "S": "TISSUE"
-            },
-            "total_confirmed_mois": {
-                "N": "14"
-            },
-            "analysis_id": {
-                "S": "PT_SR10_TsVrReceived_ANI1"
             },
             "tsv_path_name": {
                 "S": "test1.tsv"
@@ -96,40 +187,67 @@
             "total_confirmed_amois": {
                 "N": "0"
             },
-            "total_amois": {
-                "N": "0"
+            "status": {
+                "S": "PENDING"
             },
             "surgical_event_id": {
                 "S": "PT_SR10_TsVrReceived_SEI1"
             },
-            "dna_bam_path_name": {
-                "S": "dna.bam"
+            "total_confirmed_mois": {
+                "N": "14"
+            },
+            "vcf_path_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "rna_bam_path_name": {
+                "S": "cdna.bam"
+            },
+            "s3_bucket": {
+                "S": "bdd-test-data/data"
+            },
+            "analysis_id": {
+                "S": "PT_SR10_TsVrReceived_ANI1"
+            },
+            "status_date": {
+                "S": "2016-08-26T21:19:53+00:00"
+            },
+            "total_mois": {
+                "N": "14"
             }
         },
         {
             "molecular_id": {
                 "S": "PT_SS22_BloodVariantConfirmed_BD_MOI1"
             },
-            "comment_user": {
-                "S": "Rick"
+            "patient_id": {
+                "S": "PT_SS22_BloodVariantConfirmed"
             },
             "dna_bam_path_name": {
                 "S": "dna.bam"
             },
-            "s3_bucket": {
-                "S": "bdd-test-data/data"
+            "total_amois": {
+                "N": "0"
             },
-            "total_mois": {
-                "N": "14"
-            },
-            "patient_id": {
-                "S": "PT_SS22_BloodVariantConfirmed"
+            "total_confirmed_amois": {
+                "N": "0"
             },
             "variant_report_received_date": {
                 "S": "2016-08-26T21:50:04+00:00"
             },
-            "rna_bam_path_name": {
-                "S": "cdna.bam"
+            "tsv_path_name": {
+                "S": "test1.tsv"
+            },
+            "total_confirmed_mois": {
+                "N": "14"
+            },
+            "status": {
+                "S": "CONFIRMED"
+            },
+            "comment_user": {
+                "S": "Rick"
             },
             "comment": {
                 "S": "The committee approves this variant report"
@@ -140,55 +258,117 @@
             "variant_report_type": {
                 "S": "BLOOD"
             },
-            "total_confirmed_mois": {
-                "N": "14"
+            "rna_bam_path_name": {
+                "S": "cdna.bam"
+            },
+            "s3_bucket": {
+                "S": "bdd-test-data/data"
             },
             "analysis_id": {
                 "S": "PT_SS22_BloodVariantConfirmed_ANI1"
             },
-            "tsv_path_name": {
-                "S": "test1.tsv"
+            "status_date": {
+                "S": "2016-08-26T21:50:21+00:00"
             },
-            "total_confirmed_amois": {
-                "N": "0"
+            "total_mois": {
+                "N": "14"
+            }
+        },
+        {
+            "molecular_id": {
+                "S": "PT_PR13_AssayAndVRDonePlanToU_MOI1"
+            },
+            "patient_id": {
+                "S": "PT_PR13_AssayAndVRDonePlanToU"
+            },
+            "dna_bam_path_name": {
+                "S": "dna.bam"
             },
             "total_amois": {
                 "N": "0"
             },
+            "total_confirmed_amois": {
+                "N": "0"
+            },
+            "variant_report_received_date": {
+                "S": "2016-08-29T15:44:36+00:00"
+            },
+            "tsv_path_name": {
+                "S": "test1.tsv"
+            },
+            "total_confirmed_mois": {
+                "N": "14"
+            },
             "status": {
                 "S": "CONFIRMED"
             },
+            "surgical_event_id": {
+                "S": "PT_PR13_AssayAndVRDonePlanToU_SEI1"
+            },
+            "comment_user": {
+                "S": "Rick"
+            },
+            "comment": {
+                "S": "The committee approves this variant report"
+            },
+            "vcf_path_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "rna_bam_path_name": {
+                "S": "cdna.bam"
+            },
+            "s3_bucket": {
+                "S": "bdd-test-data/data"
+            },
+            "analysis_id": {
+                "S": "PT_PR13_AssayAndVRDonePlanToU_ANI1"
+            },
             "status_date": {
-                "S": "2016-08-26T21:50:21+00:00"
+                "S": "2016-08-29T15:45:03+00:00"
+            },
+            "total_mois": {
+                "N": "14"
             }
         },
         {
             "molecular_id": {
                 "S": "PT_AS12_VRAndPathoConfrimed_MOI1"
             },
-            "comment_user": {
-                "S": "Rick"
+            "patient_id": {
+                "S": "PT_AS12_VRAndPathoConfrimed"
             },
             "dna_bam_path_name": {
                 "S": "dna.bam"
             },
-            "s3_bucket": {
-                "S": "bdd-test-data/data"
+            "total_amois": {
+                "N": "0"
             },
-            "total_mois": {
-                "N": "14"
-            },
-            "patient_id": {
-                "S": "PT_AS12_VRAndPathoConfrimed"
+            "total_confirmed_amois": {
+                "N": "0"
             },
             "variant_report_received_date": {
                 "S": "2016-08-26T22:26:18+00:00"
             },
-            "rna_bam_path_name": {
-                "S": "cdna.bam"
+            "tsv_path_name": {
+                "S": "test1.tsv"
+            },
+            "total_confirmed_mois": {
+                "N": "14"
+            },
+            "status": {
+                "S": "CONFIRMED"
             },
             "surgical_event_id": {
                 "S": "PT_AS12_VRAndPathoConfrimed_SEI1"
+            },
+            "comment_user": {
+                "S": "Rick"
+            },
+            "comment": {
+                "S": "The committee approves this variant report"
             },
             "vcf_path_name": {
                 "S": "test1.vcf"
@@ -196,58 +376,58 @@
             "variant_report_type": {
                 "S": "TISSUE"
             },
-            "total_confirmed_mois": {
-                "N": "14"
+            "rna_bam_path_name": {
+                "S": "cdna.bam"
             },
-            "comment": {
-                "S": "The committee approves this variant report"
+            "s3_bucket": {
+                "S": "bdd-test-data/data"
             },
             "analysis_id": {
                 "S": "PT_AS12_VRAndPathoConfrimed_ANI1"
             },
-            "tsv_path_name": {
-                "S": "test1.tsv"
-            },
-            "total_confirmed_amois": {
-                "N": "0"
-            },
-            "total_amois": {
-                "N": "0"
-            },
-            "status": {
-                "S": "CONFIRMED"
-            },
             "status_date": {
                 "S": "2016-08-26T22:26:44+00:00"
+            },
+            "total_mois": {
+                "N": "14"
             }
         },
         {
             "molecular_id": {
                 "S": "PT_SS21_TissueVariantConfirmed_MOI1"
             },
-            "comment_user": {
-                "S": "Rick"
+            "patient_id": {
+                "S": "PT_SS21_TissueVariantConfirmed"
             },
             "dna_bam_path_name": {
                 "S": "dna.bam"
             },
-            "s3_bucket": {
-                "S": "bdd-test-data/data"
+            "total_amois": {
+                "N": "0"
             },
-            "total_mois": {
-                "N": "14"
-            },
-            "patient_id": {
-                "S": "PT_SS21_TissueVariantConfirmed"
+            "total_confirmed_amois": {
+                "N": "0"
             },
             "variant_report_received_date": {
                 "S": "2016-08-26T21:48:53+00:00"
             },
-            "rna_bam_path_name": {
-                "S": "cdna.bam"
+            "tsv_path_name": {
+                "S": "test1.tsv"
+            },
+            "total_confirmed_mois": {
+                "N": "14"
+            },
+            "status": {
+                "S": "CONFIRMED"
             },
             "surgical_event_id": {
                 "S": "PT_SS21_TissueVariantConfirmed_SEI1"
+            },
+            "comment_user": {
+                "S": "Rick"
+            },
+            "comment": {
+                "S": "The committee approves this variant report"
             },
             "vcf_path_name": {
                 "S": "test1.vcf"
@@ -255,55 +435,52 @@
             "variant_report_type": {
                 "S": "TISSUE"
             },
-            "total_confirmed_mois": {
-                "N": "14"
+            "rna_bam_path_name": {
+                "S": "cdna.bam"
             },
-            "comment": {
-                "S": "The committee approves this variant report"
+            "s3_bucket": {
+                "S": "bdd-test-data/data"
             },
             "analysis_id": {
                 "S": "PT_SS21_TissueVariantConfirmed_ANI1"
             },
-            "tsv_path_name": {
-                "S": "test1.tsv"
-            },
-            "total_confirmed_amois": {
-                "N": "0"
-            },
-            "total_amois": {
-                "N": "0"
-            },
-            "status": {
-                "S": "CONFIRMED"
-            },
             "status_date": {
                 "S": "2016-08-26T21:49:00+00:00"
+            },
+            "total_mois": {
+                "N": "14"
             }
         },
         {
             "molecular_id": {
                 "S": "PT_SR10_BdVRRejected_BD_MOI1"
             },
-            "comment_user": {
-                "S": "Rick"
+            "patient_id": {
+                "S": "PT_SR10_BdVRRejected"
             },
             "dna_bam_path_name": {
                 "S": "dna.bam"
             },
-            "s3_bucket": {
-                "S": "bdd-test-data/data"
+            "total_amois": {
+                "N": "0"
             },
-            "total_mois": {
-                "N": "14"
-            },
-            "patient_id": {
-                "S": "PT_SR10_BdVRRejected"
+            "total_confirmed_amois": {
+                "N": "0"
             },
             "variant_report_received_date": {
                 "S": "2016-08-26T21:23:19+00:00"
             },
-            "rna_bam_path_name": {
-                "S": "cdna.bam"
+            "tsv_path_name": {
+                "S": "test1.tsv"
+            },
+            "total_confirmed_mois": {
+                "N": "14"
+            },
+            "status": {
+                "S": "REJECTED"
+            },
+            "comment_user": {
+                "S": "Rick"
             },
             "comment": {
                 "S": "The committee approves this variant report"
@@ -314,64 +491,155 @@
             "variant_report_type": {
                 "S": "BLOOD"
             },
-            "total_confirmed_mois": {
-                "N": "14"
+            "rna_bam_path_name": {
+                "S": "cdna.bam"
+            },
+            "s3_bucket": {
+                "S": "bdd-test-data/data"
             },
             "analysis_id": {
                 "S": "PT_SR10_BdVRRejected_ANI1"
             },
-            "tsv_path_name": {
-                "S": "test1.tsv"
+            "status_date": {
+                "S": "2016-08-26T21:23:46+00:00"
             },
-            "total_confirmed_amois": {
-                "N": "0"
+            "total_mois": {
+                "N": "14"
+            }
+        },
+        {
+            "molecular_id": {
+                "S": "PT_PR13_AssayAndVRDonePlanToN_MOI1"
+            },
+            "patient_id": {
+                "S": "PT_PR13_AssayAndVRDonePlanToN"
+            },
+            "dna_bam_path_name": {
+                "S": "dna.bam"
             },
             "total_amois": {
                 "N": "0"
             },
+            "total_confirmed_amois": {
+                "N": "0"
+            },
+            "variant_report_received_date": {
+                "S": "2016-08-29T15:42:33+00:00"
+            },
+            "tsv_path_name": {
+                "S": "test1.tsv"
+            },
+            "total_confirmed_mois": {
+                "N": "14"
+            },
             "status": {
-                "S": "REJECTED"
+                "S": "CONFIRMED"
+            },
+            "surgical_event_id": {
+                "S": "PT_PR13_AssayAndVRDonePlanToN_SEI1"
+            },
+            "comment_user": {
+                "S": "Rick"
+            },
+            "comment": {
+                "S": "The committee approves this variant report"
+            },
+            "vcf_path_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "rna_bam_path_name": {
+                "S": "cdna.bam"
+            },
+            "s3_bucket": {
+                "S": "bdd-test-data/data"
+            },
+            "analysis_id": {
+                "S": "PT_PR13_AssayAndVRDonePlanToN_ANI1"
             },
             "status_date": {
-                "S": "2016-08-26T21:23:46+00:00"
+                "S": "2016-08-29T15:42:50+00:00"
+            },
+            "total_mois": {
+                "N": "14"
+            }
+        },
+        {
+            "molecular_id": {
+                "S": "PT_PR13_AssayAndVRDonePlanToY_MOI1"
+            },
+            "patient_id": {
+                "S": "PT_PR13_AssayAndVRDonePlanToY"
+            },
+            "dna_bam_path_name": {
+                "S": "dna.bam"
+            },
+            "total_amois": {
+                "N": "0"
+            },
+            "total_confirmed_amois": {
+                "N": "0"
+            },
+            "variant_report_received_date": {
+                "S": "2016-08-29T15:40:22+00:00"
+            },
+            "tsv_path_name": {
+                "S": "test1.tsv"
+            },
+            "total_confirmed_mois": {
+                "N": "14"
+            },
+            "status": {
+                "S": "CONFIRMED"
+            },
+            "surgical_event_id": {
+                "S": "PT_PR13_AssayAndVRDonePlanToY_SEI1"
+            },
+            "comment_user": {
+                "S": "Rick"
+            },
+            "comment": {
+                "S": "The committee approves this variant report"
+            },
+            "vcf_path_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "rna_bam_path_name": {
+                "S": "cdna.bam"
+            },
+            "s3_bucket": {
+                "S": "bdd-test-data/data"
+            },
+            "analysis_id": {
+                "S": "PT_PR13_AssayAndVRDonePlanToY_ANI1"
+            },
+            "status_date": {
+                "S": "2016-08-29T15:40:39+00:00"
+            },
+            "total_mois": {
+                "N": "14"
             }
         },
         {
             "molecular_id": {
                 "S": "PT_AS12_PathoConfirmedNoVR_MOI1"
             },
-            "status_date": {
-                "S": "2016-08-26T22:24:45+00:00"
-            },
-            "s3_bucket": {
-                "S": "bdd-test-data/data"
-            },
             "patient_id": {
                 "S": "PT_AS12_PathoConfirmedNoVR"
             },
-            "total_mois": {
-                "N": "14"
+            "dna_bam_path_name": {
+                "S": "dna.bam"
+            },
+            "total_amois": {
+                "N": "0"
             },
             "variant_report_received_date": {
                 "S": "2016-08-26T22:24:45+00:00"
-            },
-            "rna_bam_path_name": {
-                "S": "cdna.bam"
-            },
-            "status": {
-                "S": "PENDING"
-            },
-            "vcf_path_name": {
-                "S": "test1.vcf"
-            },
-            "variant_report_type": {
-                "S": "TISSUE"
-            },
-            "total_confirmed_mois": {
-                "N": "14"
-            },
-            "analysis_id": {
-                "S": "PT_AS12_PathoConfirmedNoVR_ANI1"
             },
             "tsv_path_name": {
                 "S": "test1.tsv"
@@ -379,52 +647,52 @@
             "total_confirmed_amois": {
                 "N": "0"
             },
-            "total_amois": {
-                "N": "0"
+            "status": {
+                "S": "PENDING"
             },
             "surgical_event_id": {
                 "S": "PT_AS12_PathoConfirmedNoVR_SEI1"
             },
-            "dna_bam_path_name": {
-                "S": "dna.bam"
+            "total_confirmed_mois": {
+                "N": "14"
+            },
+            "vcf_path_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "rna_bam_path_name": {
+                "S": "cdna.bam"
+            },
+            "s3_bucket": {
+                "S": "bdd-test-data/data"
+            },
+            "analysis_id": {
+                "S": "PT_AS12_PathoConfirmedNoVR_ANI1"
+            },
+            "status_date": {
+                "S": "2016-08-26T22:24:45+00:00"
+            },
+            "total_mois": {
+                "N": "14"
             }
         },
         {
             "molecular_id": {
                 "S": "PT_SS27_VariantReportUploaded_MOI1"
             },
-            "status_date": {
-                "S": "2016-08-26T22:03:51+00:00"
-            },
-            "s3_bucket": {
-                "S": "bdd-test-data/data"
-            },
             "patient_id": {
                 "S": "PT_SS27_VariantReportUploaded"
             },
-            "total_mois": {
-                "N": "14"
+            "dna_bam_path_name": {
+                "S": "dna.bam"
+            },
+            "total_amois": {
+                "N": "0"
             },
             "variant_report_received_date": {
                 "S": "2016-08-26T22:03:51+00:00"
-            },
-            "rna_bam_path_name": {
-                "S": "cdna.bam"
-            },
-            "status": {
-                "S": "PENDING"
-            },
-            "vcf_path_name": {
-                "S": "test1.vcf"
-            },
-            "variant_report_type": {
-                "S": "TISSUE"
-            },
-            "total_confirmed_mois": {
-                "N": "14"
-            },
-            "analysis_id": {
-                "S": "PT_SS27_VariantReportUploaded_ANI1"
             },
             "tsv_path_name": {
                 "S": "test1.tsv"
@@ -432,52 +700,52 @@
             "total_confirmed_amois": {
                 "N": "0"
             },
-            "total_amois": {
-                "N": "0"
+            "status": {
+                "S": "PENDING"
             },
             "surgical_event_id": {
                 "S": "PT_SS27_VariantReportUploaded_SEI1"
             },
-            "dna_bam_path_name": {
-                "S": "dna.bam"
+            "total_confirmed_mois": {
+                "N": "14"
+            },
+            "vcf_path_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "rna_bam_path_name": {
+                "S": "cdna.bam"
+            },
+            "s3_bucket": {
+                "S": "bdd-test-data/data"
+            },
+            "analysis_id": {
+                "S": "PT_SS27_VariantReportUploaded_ANI1"
+            },
+            "status_date": {
+                "S": "2016-08-26T22:03:51+00:00"
+            },
+            "total_mois": {
+                "N": "14"
             }
         },
         {
             "molecular_id": {
                 "S": "PT_SR14_VariantReportUploaded_MOI1"
             },
-            "status_date": {
-                "S": "2016-08-26T21:30:10+00:00"
-            },
-            "s3_bucket": {
-                "S": "bdd-test-data/data"
-            },
             "patient_id": {
                 "S": "PT_SR14_VariantReportUploaded"
             },
-            "total_mois": {
-                "N": "14"
+            "dna_bam_path_name": {
+                "S": "dna.bam"
+            },
+            "total_amois": {
+                "N": "0"
             },
             "variant_report_received_date": {
                 "S": "2016-08-26T21:30:10+00:00"
-            },
-            "rna_bam_path_name": {
-                "S": "cdna.bam"
-            },
-            "status": {
-                "S": "PENDING"
-            },
-            "vcf_path_name": {
-                "S": "test1.vcf"
-            },
-            "variant_report_type": {
-                "S": "TISSUE"
-            },
-            "total_confirmed_mois": {
-                "N": "14"
-            },
-            "analysis_id": {
-                "S": "PT_SR14_VariantReportUploaded_ANI1"
             },
             "tsv_path_name": {
                 "S": "test1.tsv"
@@ -485,40 +753,67 @@
             "total_confirmed_amois": {
                 "N": "0"
             },
-            "total_amois": {
-                "N": "0"
+            "status": {
+                "S": "PENDING"
             },
             "surgical_event_id": {
                 "S": "PT_SR14_VariantReportUploaded_SEI1"
             },
-            "dna_bam_path_name": {
-                "S": "dna.bam"
+            "total_confirmed_mois": {
+                "N": "14"
+            },
+            "vcf_path_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "rna_bam_path_name": {
+                "S": "cdna.bam"
+            },
+            "s3_bucket": {
+                "S": "bdd-test-data/data"
+            },
+            "analysis_id": {
+                "S": "PT_SR14_VariantReportUploaded_ANI1"
+            },
+            "status_date": {
+                "S": "2016-08-26T21:30:10+00:00"
+            },
+            "total_mois": {
+                "N": "14"
             }
         },
         {
             "molecular_id": {
                 "S": "PT_SR10_BdVRConfirmed_BD_MOI1"
             },
-            "comment_user": {
-                "S": "Rick"
+            "patient_id": {
+                "S": "PT_SR10_BdVRConfirmed"
             },
             "dna_bam_path_name": {
                 "S": "dna.bam"
             },
-            "s3_bucket": {
-                "S": "bdd-test-data/data"
+            "total_amois": {
+                "N": "0"
             },
-            "total_mois": {
-                "N": "14"
-            },
-            "patient_id": {
-                "S": "PT_SR10_BdVRConfirmed"
+            "total_confirmed_amois": {
+                "N": "0"
             },
             "variant_report_received_date": {
                 "S": "2016-08-26T21:24:53+00:00"
             },
-            "rna_bam_path_name": {
-                "S": "cdna.bam"
+            "tsv_path_name": {
+                "S": "test1.tsv"
+            },
+            "total_confirmed_mois": {
+                "N": "14"
+            },
+            "status": {
+                "S": "CONFIRMED"
+            },
+            "comment_user": {
+                "S": "Rick"
             },
             "comment": {
                 "S": "The committee approves this variant report"
@@ -529,49 +824,49 @@
             "variant_report_type": {
                 "S": "BLOOD"
             },
-            "total_confirmed_mois": {
-                "N": "14"
+            "rna_bam_path_name": {
+                "S": "cdna.bam"
+            },
+            "s3_bucket": {
+                "S": "bdd-test-data/data"
             },
             "analysis_id": {
                 "S": "PT_SR10_BdVRConfirmed_ANI1"
             },
-            "tsv_path_name": {
-                "S": "test1.tsv"
-            },
-            "total_confirmed_amois": {
-                "N": "0"
-            },
-            "total_amois": {
-                "N": "0"
-            },
-            "status": {
-                "S": "CONFIRMED"
-            },
             "status_date": {
                 "S": "2016-08-26T21:25:09+00:00"
+            },
+            "total_mois": {
+                "N": "14"
             }
         },
         {
             "molecular_id": {
                 "S": "PT_SR10_BdVRReceived_BD_MOI1"
             },
-            "dna_bam_path_name": {
-                "S": "dna.bam"
-            },
-            "s3_bucket": {
-                "S": "bdd-test-data/data"
-            },
             "patient_id": {
                 "S": "PT_SR10_BdVRReceived"
             },
-            "total_mois": {
-                "N": "14"
+            "dna_bam_path_name": {
+                "S": "dna.bam"
+            },
+            "total_amois": {
+                "N": "0"
             },
             "variant_report_received_date": {
                 "S": "2016-08-26T21:22:17+00:00"
             },
-            "rna_bam_path_name": {
-                "S": "cdna.bam"
+            "tsv_path_name": {
+                "S": "test1.tsv"
+            },
+            "total_confirmed_amois": {
+                "N": "0"
+            },
+            "status": {
+                "S": "PENDING"
+            },
+            "total_confirmed_mois": {
+                "N": "14"
             },
             "vcf_path_name": {
                 "S": "test1.vcf"
@@ -579,55 +874,58 @@
             "variant_report_type": {
                 "S": "BLOOD"
             },
-            "total_confirmed_mois": {
-                "N": "14"
+            "rna_bam_path_name": {
+                "S": "cdna.bam"
+            },
+            "s3_bucket": {
+                "S": "bdd-test-data/data"
             },
             "analysis_id": {
                 "S": "PT_SR10_BdVRReceived_ANI1"
             },
-            "tsv_path_name": {
-                "S": "test1.tsv"
-            },
-            "total_confirmed_amois": {
-                "N": "0"
-            },
-            "total_amois": {
-                "N": "0"
-            },
-            "status": {
-                "S": "PENDING"
-            },
             "status_date": {
                 "S": "2016-08-26T21:22:17+00:00"
+            },
+            "total_mois": {
+                "N": "14"
             }
         },
         {
             "molecular_id": {
                 "S": "PT_SR12_VariantReportConfirmed_MOI1"
             },
-            "comment_user": {
-                "S": "Rick"
+            "patient_id": {
+                "S": "PT_SR12_VariantReportConfirmed"
             },
             "dna_bam_path_name": {
                 "S": "dna.bam"
             },
-            "s3_bucket": {
-                "S": "bdd-test-data/data"
+            "total_amois": {
+                "N": "0"
             },
-            "total_mois": {
-                "N": "14"
-            },
-            "patient_id": {
-                "S": "PT_SR12_VariantReportConfirmed"
+            "total_confirmed_amois": {
+                "N": "0"
             },
             "variant_report_received_date": {
                 "S": "2016-08-26T21:28:48+00:00"
             },
-            "rna_bam_path_name": {
-                "S": "cdna.bam"
+            "tsv_path_name": {
+                "S": "test1.tsv"
+            },
+            "total_confirmed_mois": {
+                "N": "14"
+            },
+            "status": {
+                "S": "CONFIRMED"
             },
             "surgical_event_id": {
                 "S": "PT_SR12_VariantReportConfirmed_SEI1"
+            },
+            "comment_user": {
+                "S": "Rick"
+            },
+            "comment": {
+                "S": "The committee approves this variant report"
             },
             "vcf_path_name": {
                 "S": "test1.vcf"
@@ -635,58 +933,58 @@
             "variant_report_type": {
                 "S": "TISSUE"
             },
-            "total_confirmed_mois": {
-                "N": "14"
+            "rna_bam_path_name": {
+                "S": "cdna.bam"
             },
-            "comment": {
-                "S": "The committee approves this variant report"
+            "s3_bucket": {
+                "S": "bdd-test-data/data"
             },
             "analysis_id": {
                 "S": "PT_SR12_VariantReportConfirmed_ANI1"
             },
-            "tsv_path_name": {
-                "S": "test1.tsv"
-            },
-            "total_confirmed_amois": {
-                "N": "0"
-            },
-            "total_amois": {
-                "N": "0"
-            },
-            "status": {
-                "S": "CONFIRMED"
-            },
             "status_date": {
                 "S": "2016-08-26T21:29:05+00:00"
+            },
+            "total_mois": {
+                "N": "14"
             }
         },
         {
             "molecular_id": {
                 "S": "PT_SR10_TsVRRejected_MOI1"
             },
-            "comment_user": {
-                "S": "Rick"
+            "patient_id": {
+                "S": "PT_SR10_TsVRRejected"
             },
             "dna_bam_path_name": {
                 "S": "dna.bam"
             },
-            "s3_bucket": {
-                "S": "bdd-test-data/data"
+            "total_amois": {
+                "N": "0"
             },
-            "total_mois": {
-                "N": "14"
-            },
-            "patient_id": {
-                "S": "PT_SR10_TsVRRejected"
+            "total_confirmed_amois": {
+                "N": "0"
             },
             "variant_report_received_date": {
                 "S": "2016-08-26T21:20:55+00:00"
             },
-            "rna_bam_path_name": {
-                "S": "cdna.bam"
+            "tsv_path_name": {
+                "S": "test1.tsv"
+            },
+            "total_confirmed_mois": {
+                "N": "14"
+            },
+            "status": {
+                "S": "REJECTED"
             },
             "surgical_event_id": {
                 "S": "PT_SR10_TsVRRejected_SEI1"
+            },
+            "comment_user": {
+                "S": "Rick"
+            },
+            "comment": {
+                "S": "The committee approves this variant report"
             },
             "vcf_path_name": {
                 "S": "test1.vcf"
@@ -694,58 +992,58 @@
             "variant_report_type": {
                 "S": "TISSUE"
             },
-            "total_confirmed_mois": {
-                "N": "14"
+            "rna_bam_path_name": {
+                "S": "cdna.bam"
             },
-            "comment": {
-                "S": "The committee approves this variant report"
+            "s3_bucket": {
+                "S": "bdd-test-data/data"
             },
             "analysis_id": {
                 "S": "PT_SR10_TsVRRejected_ANI1"
             },
-            "tsv_path_name": {
-                "S": "test1.tsv"
-            },
-            "total_confirmed_amois": {
-                "N": "0"
-            },
-            "total_amois": {
-                "N": "0"
-            },
-            "status": {
-                "S": "REJECTED"
-            },
             "status_date": {
                 "S": "2016-08-26T21:21:12+00:00"
+            },
+            "total_mois": {
+                "N": "14"
             }
         },
         {
             "molecular_id": {
                 "S": "PT_SS26_TsVRConfirmed_MOI1"
             },
-            "comment_user": {
-                "S": "Rick"
+            "patient_id": {
+                "S": "PT_SS26_TsVRConfirmed"
             },
             "dna_bam_path_name": {
                 "S": "dna.bam"
             },
-            "s3_bucket": {
-                "S": "bdd-test-data/data"
+            "total_amois": {
+                "N": "0"
             },
-            "total_mois": {
-                "N": "14"
-            },
-            "patient_id": {
-                "S": "PT_SS26_TsVRConfirmed"
+            "total_confirmed_amois": {
+                "N": "0"
             },
             "variant_report_received_date": {
                 "S": "2016-08-26T22:02:42+00:00"
             },
-            "rna_bam_path_name": {
-                "S": "cdna.bam"
+            "tsv_path_name": {
+                "S": "test1.tsv"
+            },
+            "total_confirmed_mois": {
+                "N": "14"
+            },
+            "status": {
+                "S": "CONFIRMED"
             },
             "surgical_event_id": {
                 "S": "PT_SS26_TsVRConfirmed_SEI1"
+            },
+            "comment_user": {
+                "S": "Rick"
+            },
+            "comment": {
+                "S": "The committee approves this variant report"
             },
             "vcf_path_name": {
                 "S": "test1.vcf"
@@ -753,58 +1051,58 @@
             "variant_report_type": {
                 "S": "TISSUE"
             },
-            "total_confirmed_mois": {
-                "N": "14"
+            "rna_bam_path_name": {
+                "S": "cdna.bam"
             },
-            "comment": {
-                "S": "The committee approves this variant report"
+            "s3_bucket": {
+                "S": "bdd-test-data/data"
             },
             "analysis_id": {
                 "S": "PT_SS26_TsVRConfirmed_ANI1"
             },
-            "tsv_path_name": {
-                "S": "test1.tsv"
-            },
-            "total_confirmed_amois": {
-                "N": "0"
-            },
-            "total_amois": {
-                "N": "0"
-            },
-            "status": {
-                "S": "CONFIRMED"
-            },
             "status_date": {
                 "S": "2016-08-26T22:10:34+00:00"
+            },
+            "total_mois": {
+                "N": "14"
             }
         },
         {
             "molecular_id": {
                 "S": "PT_AS12_VRConfirmedNoPatho_MOI1"
             },
-            "comment_user": {
-                "S": "Rick"
+            "patient_id": {
+                "S": "PT_AS12_VRConfirmedNoPatho"
             },
             "dna_bam_path_name": {
                 "S": "dna.bam"
             },
-            "s3_bucket": {
-                "S": "bdd-test-data/data"
+            "total_amois": {
+                "N": "0"
             },
-            "total_mois": {
-                "N": "14"
-            },
-            "patient_id": {
-                "S": "PT_AS12_VRConfirmedNoPatho"
+            "total_confirmed_amois": {
+                "N": "0"
             },
             "variant_report_received_date": {
                 "S": "2016-08-26T22:22:52+00:00"
             },
-            "rna_bam_path_name": {
-                "S": "cdna.bam"
+            "tsv_path_name": {
+                "S": "test1.tsv"
+            },
+            "total_confirmed_mois": {
+                "N": "14"
+            },
+            "status": {
+                "S": "CONFIRMED"
             },
             "surgical_event_id": {
                 "S": "PT_AS12_VRConfirmedNoPatho_SEI1"
+            },
+            "comment_user": {
+                "S": "Rick"
+            },
+            "comment": {
+                "S": "The committee approves this variant report"
             },
             "vcf_path_name": {
                 "S": "test1.vcf"
@@ -812,33 +1110,24 @@
             "variant_report_type": {
                 "S": "TISSUE"
             },
-            "total_confirmed_mois": {
-                "N": "14"
+            "rna_bam_path_name": {
+                "S": "cdna.bam"
             },
-            "comment": {
-                "S": "The committee approves this variant report"
+            "s3_bucket": {
+                "S": "bdd-test-data/data"
             },
             "analysis_id": {
                 "S": "PT_AS12_VRConfirmedNoPatho_ANI1"
             },
-            "tsv_path_name": {
-                "S": "test1.tsv"
-            },
-            "total_confirmed_amois": {
-                "N": "0"
-            },
-            "total_amois": {
-                "N": "0"
-            },
-            "status": {
-                "S": "CONFIRMED"
-            },
             "status_date": {
                 "S": "2016-08-26T22:23:09+00:00"
+            },
+            "total_mois": {
+                "N": "14"
             }
         }
     ],
-    "ScannedCount": 15,
-    "ConsumedCapacity": null,
-    "Count": 15
+    "ScannedCount": 20,
+    "Count": 20,
+    "ConsumedCapacity": null
 }

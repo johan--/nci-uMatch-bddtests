@@ -1,6 +1,5 @@
 #encoding: utf-8
-#@patients
-@assay
+@patients @assay
 Feature: Assay Messages
   Scenario Outline: PT_AS01. Assay result with invalid patient_id(empty, non-existing, null) should fail
     Given template assay message with surgical_event_id: "PT_AS01_SEI1" for patient: "<value>"
@@ -85,13 +84,13 @@ Feature: Assay Messages
 #  Test data: Patient=PT_AS09SlideShipped, surgical_event_id=PT_AS09SlideShipped_SEI1, shipped_dttm=2016-05-01T19:42:13+00:00
     Given template assay message with surgical_event_id: "PT_AS09SlideShipped_SEI1" for patient: "PT_AS09SlideShipped"
     Then set patient message field: "ordered_date" to value: "2010-01-01T19:42:13+00:00"
-    When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"
+    When posted to MATCH patient trigger service, returns a message that includes "Assay ordered date earlier than slide shipment date" with status "Failure"
 
   Scenario: PT_AS09a. Assay result report date is older than order date should fail
 #  Test data: Patient=PT_AS09aSlideShipped, surgical_event_id=PT_AS09aSlideShipped_SEI1, ordered_date=2016-05-02T12:13:09.071-05:00
     Given template assay message with surgical_event_id: "PT_AS09aSlideShipped_SEI1" for patient: "PT_AS09aSlideShipped"
     Then set patient message field: "reported_date" to value: "2016-05-01T12:13:09.071-05:00"
-    When posted to MATCH patient trigger service, returns a message that includes "cannot transition from" with status "Failure"
+    When posted to MATCH patient trigger service, returns a message that includes "Assay ordered date later than result reported date" with status "Failure"
 
   Scenario: PT_AS10. Assay result received for old surgical_event_id should fail
 #  Test data: Patient=PT_AS10SlideShipped, old surgical_event_id=PT_AS10SlideShipped_SEI1, has slide shipped, new surgical_event_id=PT_AS10SlideShipped_SEI2, has slide shipped
@@ -125,19 +124,19 @@ Feature: Assay Messages
     Given template assay message with surgical_event_id: "<sei>" for patient: "<patient_id>"
     Then set patient message field: "biomarker" to value: "ICCPTENs"
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then wait for "15" seconds
+    Then wait for "5" seconds
     Then template assay message with surgical_event_id: "<sei>" for patient: "<patient_id>"
     Then set patient message field: "biomarker" to value: "ICCMLH1s"
-    Then set patient message field: "reported_date" to value: "current"
+    Then set patient message field: "reported_date" to value: "2016-07-18T13:42:13+00:00"
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then wait for "20" seconds
+    Then wait for "60" seconds
     Then retrieve patient: "<patient_id>" from API
     Then returned patient has value: "<patient_status>" in field: "current_status"
     Examples:
       |patient_id                           |patient_status            |sei                                                     |
+      |PT_AS12_VRAndPathoConfrimed          |PENDING_CONFIRMATION      |PT_AS12_VRAndPathoConfrimed_SEI1                        |
       |PT_AS12_VRConfirmedNoPatho           |ASSAY_RESULTS_RECEIVED    |PT_AS12_VRConfirmedNoPatho_SEI1                         |
       |PT_AS12_PathoConfirmedNoVR           |ASSAY_RESULTS_RECEIVED    |PT_AS12_PathoConfirmedNoVR_SEI1                         |
-      |PT_AS12_VRAndPathoConfrimed          |PENDING_CONFIRMATION      |PT_AS12_VRAndPathoConfrimed_SEI1                        |
 
 
 

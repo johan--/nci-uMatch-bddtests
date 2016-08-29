@@ -2,78 +2,130 @@ require_relative '../patient_message_loader'
 
 PatientMessageLoader.upload_start_with_wait_time(15)
 
-patient_id = 'PT_PR02_TissueReceived'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_tissue(patient_id)
+pt = PatientDataSet.new('PT_PR02_TissueReceived')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 
-patient_id = 'PT_PR03_TissueReceived'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_tissue(patient_id)
+pt = PatientDataSet.new('PT_PR03_TissueReceived')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 
-patient_id = 'PT_PR04_TissueReceived'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_tissue(patient_id)
+pt = PatientDataSet.new('PT_PR04_TissueReceived')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 
-patient_id = 'PT_PR05_TissueReceived'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_tissue(patient_id)
+pt = PatientDataSet.new('PT_PR05_TissueReceived')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 
-patient_id = 'PT_PR06_TissueReceived'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_tissue(patient_id)
+pt = PatientDataSet.new('PT_PR06_TissueReceived')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 
-patient_id = 'PT_PR07_TissueShipped'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_tissue(patient_id)
-PatientMessageLoader.specimen_shipped_tissue(patient_id)
+pt = PatientDataSet.new('PT_PR07_TissueShipped')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
 
-patient_id = 'PT_PR08_SlideShipped'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_tissue(patient_id)
-PatientMessageLoader.specimen_shipped_slide(patient_id)
+pt = PatientDataSet.new('PT_PR08_SlideShipped')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
 
 PatientMessageLoader.register_patient('PT_PR09_Registered')
 
-patient_id = 'PT_PR09_SEI1HasTissue'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_tissue(patient_id)
+pt = PatientDataSet.new('PT_PR09_SEI1HasTissue')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 
-patient_id = 'PT_PR10TissueReceived'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_tissue(patient_id)
+pt = PatientDataSet.new('PT_PR10TissueReceived')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 
-patient_id = 'PT_PR11TissueReceived'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_tissue(patient_id)
-PatientMessageLoader.specimen_received_tissue(patient_id, '2016-04-28T15:17:11+00:00', 'SEI_02')
+pt = PatientDataSet.new('PT_PR11TissueReceived')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei_increase, '2016-04-28T15:17:11+00:00')
 
-patient_id = 'PT_PR12TissueReceived'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_tissue(patient_id)
+pt = PatientDataSet.new('PT_PR12TissueReceived')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 
-patient_id = 'PT_PR12_PathologyYReceived'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_tissue(patient_id)
-PatientMessageLoader.pathology(patient_id)
+pt = PatientDataSet.new('PT_PR12_PathologyYReceived')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.pathology(pt.id, pt.sei)
 
-patient_id = 'PT_PR12_PathologyNReceived'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_tissue(patient_id)
-PatientMessageLoader.pathology(patient_id, 'N')
+pt = PatientDataSet.new('PT_PR12_PathologyNReceived')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.pathology(pt.id, pt.sei, 'N')
 
-patient_id = 'PT_PR12_PathologyUReceived1'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_tissue(patient_id)
-PatientMessageLoader.pathology(patient_id, 'U')
+pt = PatientDataSet.new('PT_PR12_PathologyUReceived1')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.pathology(pt.id, pt.sei, 'U')
 
-patient_id = 'PT_PR12_PathologyUReceived2'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_tissue(patient_id)
-PatientMessageLoader.pathology(patient_id, 'U')
+pt = PatientDataSet.new('PT_PR12_PathologyUReceived2')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.pathology(pt.id, pt.sei, 'U')
 
-patient_id = 'PT_PR12_PathologyUReceived3'
-PatientMessageLoader.register_patient(patient_id)
-PatientMessageLoader.specimen_received_tissue(patient_id)
-PatientMessageLoader.pathology(patient_id, 'U')
+pt = PatientDataSet.new('PT_PR12_PathologyUReceived3')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.pathology(pt.id, pt.sei, 'U')
+
+
+pt = PatientDataSet.new('PT_PR13_VRConfirmedNoAssay')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+sleep(10.0)
+PatientMessageLoader.variant_file_confirmed(pt.id, 'CONFIRMED', pt.moi, pt.ani)
+
+pt = PatientDataSet.new('PT_PR13_AssayReceivedVRNotConfirmed')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+PatientMessageLoader.assay(pt.id, pt.sei, "POSITIVE", 'ICCPTENs', '2016-05-30T12:11:09.071-05:00')
+PatientMessageLoader.assay(pt.id, pt.sei, "POSITIVE", 'ICCMLH1s', '2016-05-30T12:18:09.071-05:00')
+PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+
+pt = PatientDataSet.new('PT_PR13_AssayAndVRDonePlanToY')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+PatientMessageLoader.assay(pt.id, pt.sei, "POSITIVE", 'ICCPTENs', '2016-05-30T12:11:09.071-05:00')
+PatientMessageLoader.assay(pt.id, pt.sei, "POSITIVE", 'ICCMLH1s', '2016-05-30T12:18:09.071-05:00')
+PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+sleep(10.0)
+PatientMessageLoader.variant_file_confirmed(pt.id, 'CONFIRMED', pt.moi, pt.ani)
+
+pt = PatientDataSet.new('PT_PR13_AssayAndVRDonePlanToN')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+PatientMessageLoader.assay(pt.id, pt.sei, "POSITIVE", 'ICCPTENs', '2016-05-30T12:11:09.071-05:00')
+PatientMessageLoader.assay(pt.id, pt.sei, "POSITIVE", 'ICCMLH1s', '2016-05-30T12:18:09.071-05:00')
+PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+sleep(10.0)
+PatientMessageLoader.variant_file_confirmed(pt.id, 'CONFIRMED', pt.moi, pt.ani)
+
+pt = PatientDataSet.new('PT_PR13_AssayAndVRDonePlanToU')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+PatientMessageLoader.assay(pt.id, pt.sei, "POSITIVE", 'ICCPTENs', '2016-05-30T12:11:09.071-05:00')
+PatientMessageLoader.assay(pt.id, pt.sei, "POSITIVE", 'ICCMLH1s', '2016-05-30T12:18:09.071-05:00')
+PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+sleep(10.0)
+PatientMessageLoader.variant_file_confirmed(pt.id, 'CONFIRMED', pt.moi, pt.ani)
+
 
 PatientMessageLoader.upload_done
