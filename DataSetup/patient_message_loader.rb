@@ -215,6 +215,24 @@ class PatientMessageLoader
     send_message_to_local(message)
   end
 
+  def self.on_treatment_arm(
+    patient_id,
+    assignment_date='2016-08-10T22:05:33+00:00',
+    step_number='1.1',
+    treatment_arm_id='APEC1621_A',
+    treatment_arm_version='2015-08-06',
+    stratum_id='100'
+  )
+    message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['on_treatment_arm']
+    message['patient_id'] = patient_id
+    message['assignment_date'] = assignment_date
+    message['step_number'] = step_number
+    message['treatment_arm_id'] = treatment_arm_id
+    message['treatment_arm_version'] = treatment_arm_version
+    message['stratum_id'] = stratum_id
+    send_message_to_local(message)
+  end
+
   # def self.load_patient_script_to_local(message_file, wait_time)
   #   raise 'patient_id must be valid' if message_file.nil? || message_file.length == 0
   #   file = File.read("#{LOCAL_PATIENT_DATA_FOLDER}/#{message_file}.json")

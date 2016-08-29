@@ -165,25 +165,24 @@ Feature: Variant files confirmed messages
     When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
     Then wait for "20" seconds
     Then retrieve patient: "PT_VC14_BdVRUploadedTsVRUploadedOtherReady" from API
-    Then returned patient has value: "BLOOD_VARIANT_REPORT_RECEIVED" in field: "status"
+    Then returned patient has value: "BLOOD_VARIANT_REPORT_RECEIVED" in field: "current_status"
 
-#  Data not ready yet
-#  Scenario Outline: PT_VC15. variant file confirmation will not trigger patient assignment process unless patient has COMPLETE_MDA_DATA_SET status
-#  #Test patient PT_VC15_AssayNotDone VR uploaded (SEI_01, MOI_01, ANI_01), Pathology confirmed (SEI_01), Assay result is not received yet
-#  #             PT_VC15_PathologyNotDone VR uploaded (SEI_01, MOI_01, ANI_01), Assay result received (SEI_01), Pathology is not confirmed yet
-#  #             PT_VC15_MDADataDonePlanToConfirm VR uploaded (SEI_01, MOI_01, ANI_01), Assay result received (SEI_01), Pathology is confirmed (SEI_01)
-#  #             PT_VC15_MDADataDonePlanToReject VR uploaded (SEI_01, MOI_01, ANI_01), Assay result received (SEI_01), Pathology is confirmed (SEI_01)
-#    Given template variant report confirm message for patient: "<patient_id>", it has molecular_id: "MOI_01", analysis_id: "ANI_01" and status: "<vr_status>"
-#    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
-#    Then wait for "20" seconds
-#    Then retrieve patient: "<patient_id>" from API
-#    Then returned patient has value: "<patient_status>" in field: "status"
-#    Examples:
-#    |patient_id                           |vr_status    |patient_status                     |
-##    |PT_VC15_AssayNotDone                 |CONFIRMED    |TISSUE_VARIANT_REPORT_CONFIRMED    |
-##    |PT_VC15_PathologyNotDone             |CONFIRMED    |TISSUE_VARIANT_REPORT_CONFIRMED    |
-##    |PT_VC15_MDADataDonePlanToConfirm     |CONFIRMED    |PENDING_CONFIRMATION               |
-##    |PT_VC15_MDADataDonePlanToReject      |REJECTED     |TISSUE_VARIANT_REPORT_REJECTED     |
+  Scenario Outline: PT_VC15. variant file confirmation will not trigger patient assignment process unless patient has COMPLETE_MDA_DATA_SET status
+  #Test patient PT_VC15_VRUploadedPathConfirmed VR uploaded PT_VC15_VRUploadedPathConfirmed(_SEI1, _MOI1, _ANI1), Pathology confirmed (_SEI1), Assay result is not received yet
+  #             PT_VC15_VRUploadedAssayReceived VR uploaded PT_VC15_VRUploadedAssayReceived(_SEI1, _MOI1, _ANI1), Assay result received (_SEI1, _BC1), Pathology is not confirmed yet
+  #             PT_VC15_PathAssayDoneVRUploadedToConfirm VR uploaded PT_VC15_PathAssayDoneVRUploadedToConfirm(_SEI1, _MOI1, _ANI1), Assay result received (_SEI1, _BC1), Pathology is confirmed (_SEI1)
+  #             PT_VC15_PathAssayDoneVRUploadedToReject VR uploaded PT_VC15_PathAssayDoneVRUploadedToReject(_SEI1, _MOI1, _ANI1), Assay result received (_SEI1, _BC1), Pathology is confirmed (_SEI1)
+    Given template variant report confirm message for patient: "<patient_id>", it has molecular_id: "<moi>", analysis_id: "<ani>" and status: "<vr_status>"
+    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+    Then wait for "60" seconds
+    Then retrieve patient: "<patient_id>" from API
+    Then returned patient has value: "<patient_status>" in field: "current_status"
+    Examples:
+    |patient_id                               |moi                                            |ani                                            |vr_status    |patient_status                     |
+    |PT_VC15_VRUploadedPathConfirmed          |PT_VC15_VRUploadedPathConfirmed_MOI1           |PT_VC15_VRUploadedPathConfirmed_ANI1           |CONFIRMED    |TISSUE_VARIANT_REPORT_CONFIRMED    |
+    |PT_VC15_VRUploadedAssayReceived          |PT_VC15_VRUploadedAssayReceived_MOI1           |PT_VC15_VRUploadedAssayReceived_ANI1           |CONFIRMED    |TISSUE_VARIANT_REPORT_CONFIRMED    |
+    |PT_VC15_PathAssayDoneVRUploadedToConfirm |PT_VC15_PathAssayDoneVRUploadedToConfirm_MOI1  |PT_VC15_PathAssayDoneVRUploadedToConfirm_ANI1  |CONFIRMED    |PENDING_CONFIRMATION               |
+    |PT_VC15_PathAssayDoneVRUploadedToReject  |PT_VC15_PathAssayDoneVRUploadedToReject_MOI1   |PT_VC15_PathAssayDoneVRUploadedToReject_ANI1   |REJECTED     |TISSUE_VARIANT_REPORT_REJECTED     |
 
 
 #  cannot confirm blood variant file using previous molecular_id (confirmed)

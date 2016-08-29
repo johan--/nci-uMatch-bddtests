@@ -187,5 +187,26 @@
     "status": "CONFIRMED",
     "comment": "The committee approves this Assignment report",
     "comment_user": "Rick"
+  },
+  "on_treatment_arm":{
+    "header": {
+      "msg_guid": "0f8fad5b-d9cb-469f-a165-80067728950e",
+      "msg_dttm": "2016-05-09T22:06:33+00:00"
+    },
+    "study_id": "APEC1621",
+    "patient_id": "3355",
+    "step_number": "1.1",
+    "treatment_arm_id": "APEC1621-A",
+    "treatment_arm_version": "2015-08-06",
+    "stratum_id": "100",
+    "assignment_date": "2016-08-10T22:05:33+00:00",
+    "status": "ON_TREATMENT_ARM",
+    "message": "",
+    "internal_use_only": {
+      "request_id": "4-654400",
+      "environment": "5",
+      "request": "ON_TREATMENT_ARM for patient_id 3355",
+      "treatment_id": "APEC1621-A"
+    }
   }
 }
