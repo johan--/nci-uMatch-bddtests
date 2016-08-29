@@ -54,3 +54,10 @@ Feature: Dashboard page.
     And I enter "PT_SS27_VariantReportUploaded" in the "Tissue Variant Reports" filter textbox
     Then I see that only "1" row of "Tissue Variant Reports" data is seen
     And The patient id "PT_SS27_VariantReportUploaded" is displayed in "Tissue Variant Reports" table
+
+  Scenario: User can see the last 10 messages in the Activity feed
+    When I navigate to the dashboard page
+    And I collect information on the timeline
+    Then I can see the Activity Feed section
+    And I can see "10" entries in the section
+    And They match with the timeline response in order

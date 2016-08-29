@@ -34,8 +34,10 @@ module.exports = function () {
         taPage.returnTreatmentArmId(taTableData, 0).then(function (taId) {
             currentTreatmentId = taPage.stripTreatmentArmId(taId);
             currentStratumId   = taPage.stripStratumId(taId);
-            element(by.linkText(taId)).click().then(callback);
-        });
+            element(by.linkText(taId)).click();
+        }).then(function () {
+            browser.waitForAngular();
+        }).then(callback);
     });
 
     this.Then(/^I collect backend information about the treatment arm$/, function () {

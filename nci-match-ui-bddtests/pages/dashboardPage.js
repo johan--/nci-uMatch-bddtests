@@ -24,6 +24,7 @@ var DashboardPage = function() {
         browser.waitForAngular();
     };
 
+    this.feedRepeaterList     = element.all(by.repeater('timelineEvent in activity.data'));
     this.dashBannerList       = element.all(by.css('.dashboard-header'));
     this.dashAmoiChart        = element(by.css('div[ng-init^="setCanvasHeight(\'#amoiCanvas\'"]'));
     this.dashTreatmentAccrual = element(by.css('div[ng-init^="setCanvasHeight(\'#treatmentArmAccrualCanvas\'"]'));

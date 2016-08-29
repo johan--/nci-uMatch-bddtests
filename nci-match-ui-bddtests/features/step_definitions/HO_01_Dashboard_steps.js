@@ -211,4 +211,34 @@ module.exports = function() {
         browser.sleep(50).then(callback);
     });
 
+    this.When(/^I collect information on the timeline$/, function (callback) {
+        timeline.then(function (response) {
+            reportData = JSON.parse(response);
+        }).then(callback);
+    });
+
+    this.Then(/^I can see the Activity Feed section$/, function (callback) {
+        var feedSection = element(by.css('div[ng-controller="ActivityController as activity"]'));
+        var heading = feedSection.element(by.css('h3'));
+        expect(feedSection.isPresent()).to.eventually.be.true;
+        expect(heading.getText()).to.eventually.eql('Activity Feed');
+        browser.sleep(50).then(callback);
+    });
+
+    this.Then(/^I can see "(\d+)" entries in the section$/, function (counter, callback) {
+        expect(dash.feedRepeaterList.count()).to.eventually.eql(parseInt(counter)).and.notify(callback);
+    });
+
+    this.Then(/^They match with the timeline response in order$/, function (callback) {
+        for (var i = 0; i < 10 ; i++) {
+            var testPatientId = element.all(by.css('patient-title[text="timelineEvent.entity_id"] .ta-name')).get(i);
+            var testMessage   = element.all(by.binding('::timelineEvent.event_message')).get(i);
+
+            var patientId    = reportData[i].entity_id;
+            var expMessage    = reportData[i].event_message;
+            expect(testPatientId.getText()).to.eventually.eql(patientId);
+            expect(testMessage.getText()).to.eventually.eql(expMessage);
+        };
+        browser.sleep(50).then(callback);
+    });
 };
