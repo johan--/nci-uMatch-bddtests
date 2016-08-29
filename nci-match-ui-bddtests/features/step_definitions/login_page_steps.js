@@ -35,11 +35,11 @@ module.exports = function () {
         });
         browser.sleep(1000).then(callback);
     });
-    
+
     this.When(/^I login with (valid|invalid) email and password/, function(validity, callback){
         var email;
         var password = process.env.NCI_MATCH_PASSWORD;
-        
+
         if (validity == 'valid'){
             email = process.env.NCI_MATCH_USERID;
         } else {
@@ -58,22 +58,10 @@ module.exports = function () {
     });
 
     this.Then(/^I should be able to the see Dashboard page$/, function (callback){
-        var firstName = utilities.getFirstNameFromEmail(process.env.NCI_MATCH_USERID);
-        var capitalized = utilities.capitalize(firstName);
-        var greeting = 'Welcome, ' + capitalized + '!';
-        var actualGreeting = element(by.binding(' name '));
-
-        utilities.waitForElement(actualGreeting, 'Greetings').then(function () {
-            expect(actualGreeting.getText()).to.eventually.equal(greeting);
-            utilities.checkTitle(browser, dashboardPageObj.title);
-        }, function(){
-            dashboardPageObj.goToPageName('dashboard');
-        }).then(function () {
-            browser.sleep(1000).then(function () {
-                expect(actualGreeting.getText()).to.eventually.equal(greeting);
-                utilities.checkTitle(browser, dashboardPageObj.title);
-            });
-        }).then(callback);
+        var dashboard = dashboardPageObj.dashboardElement;
+        expect(browser.isElementPresent(dashboard)).to.eventually.be.true;
+        expect(dashboard.element(by.css('h2')).getText()).to.eventually.eql('Dashboard');
+        browser.sleep(50).then(callback);
     });
 
     this.Then(/^I then logout$/, function (callback) {
