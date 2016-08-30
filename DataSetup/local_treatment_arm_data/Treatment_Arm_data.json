@@ -1,467 +1,541 @@
 [
+//  {
+//    "active": null,
+//    "id": "APEC1621-A",
+//    "name": "APEC1621-A",
+//    "date_created": "2016-06-24T15:38:31+00:00",
+//    "version": "2015-08-06",
+//    "stratum_id": "100",
+//    "description": "TEST Treatment Arm used by Cucumber Tests",
+//    "target_id": "113",
+//    "target_name": "Crizotinib",
+//    "gene": "ALK",
+//    "treatment_arm_status": "OPEN",
+//    "study_id": "APEC1621",
+//    "assay_results": [
+//
+//    ],
+//    "num_patients_assigned": null,
+//    "date_opened": null,
+//    "treatment_arm_drugs": [
+//      {
+//        "name": "Crizotinib",
+//        "pathway": "ALK",
+//        "drug_id": "113"
+//      }
+//    ],
+//    "variant_report": {
+//      "single_nucleotide_variants": [
+//
+//      ],
+//      "indels": [
+//
+//      ],
+//      "non_hotspot_rules": [
+//        {
+//          "inclusion": true,
+//          "oncomine_variant_class": "deleterious",
+//          "public_med_ids": null,
+//          "func_gene": "PTEN",
+//          "arm_specific": "false",
+//          "level_of_evidence": "3.0",
+//          "function": null,
+//          "protein_match": null,
+//          "type": "nhr",
+//          "exon": null
+//        }
+//      ],
+//      "copy_number_variants": [
+//        {
+//          "ref_copy_number": 2,
+//          "raw_copy_number": 8.8,
+//          "copy_number": 8.8,
+//          "confidence_interval_95percent": 1.94266,
+//          "confidence_interval_5percent": 1.67303,
+//          "confirmed": false,
+//          "chromosome": "chr10",
+//          "position": "89624207",
+//          "identifier": "PTEN",
+//          "ocp_reference": "T",
+//          "ocp_alternative": "<CNV>",
+//          "rare": false,
+//          "levelOfEvidence": 2,
+//          "inclusion": true,
+//          "armSpecific": false,
+//          "type": "cnv"
+//        }
+//      ],
+//      "gene_fusions": [
+//        {
+//          "ocp_reference": "A",
+//          "func_gene": "ALK",
+//          "identifier": "TPM3-ALK.T7A20",
+//          "inclusion": true,
+//          "public_med_ids": [
+//            "23724913"
+//          ],
+//          "arm_specific": "false",
+//          "level_of_evidence": "2.0",
+//          "chromosome": "2.0",
+//          "ocp_alternative": "[chr1:154142875[A",
+//          "description": "ALK translocation",
+//          "position": "29446394",
+//          "type": "gf"
+//        },
+//        {
+//          "ocp_reference": "C",
+//          "func_gene": "FGFR2",
+//          "identifier": "FGFR2-OFD1.F17O3",
+//          "inclusion": true,
+//          "public_med_ids": null,
+//          "arm_specific": "false",
+//          "level_of_evidence": "3.0",
+//          "chromosome": "10.0",
+//          "ocp_alternative": "C[chrX:13754596[",
+//          "description": "some description",
+//          "position": "123243211",
+//          "type": "gf"
+//        }
+//      ]
+//    },
+//    "exclusion_diseases": [
+//      {
+//        "disease_code": "10058354",
+//        "ctep_sub_category": null,
+//        "short_name": "Bronchioloalveolar carcinoma",
+//        "ctep_category": "Non-Small Cell Lung Cancer"
+//      },
+//      {
+//        "disease_code": "10025032",
+//        "ctep_sub_category": null,
+//        "short_name": "Lung adenocarcinoma",
+//        "ctep_category": "Non-Small Cell Lung Cancer"
+//      },
+//      {
+//        "disease_code": "90600324",
+//        "ctep_sub_category": null,
+//        "short_name": "Lung adenocar. w\/ bronch. feat.",
+//        "ctep_category": "Non-Small Cell Lung Cancer"
+//      },
+//      {
+//        "disease_code": "10029514",
+//        "ctep_sub_category": null,
+//        "short_name": "Non-small cell lung cancer, NOS",
+//        "ctep_category": "Non-Small Cell Lung Cancer"
+//      },
+//      {
+//        "disease_code": "10025125",
+//        "ctep_sub_category": null,
+//        "short_name": "Squamous cell lung carcinoma",
+//        "ctep_category": "Non-Small Cell Lung Cancer"
+//      }
+//    ],
+//    "inclusion_diseases": [
+//      {
+//        "disease_code": "10033701",
+//        "ctep_sub_category": null,
+//        "short_name": "Papillary thyroid carcinoma",
+//        "ctep_category": "Thyroid Cancer"
+//      }
+//    ],
+//    "exclusion_drugs": [
+//      {
+//        "name": "Doxorubicin Hydrochloride",
+//        "drug_id": "10001",
+//        "drug_class": "ALK inhibitor",
+//        "target": "ALK"
+//      }
+//    ]
+//  },
+//  {
+//    "active": null,
+//    "id": "APEC1621-B",
+//    "name": "APEC1621-B",
+//    "date_created": "2016-06-24T15:38:31+00:00",
+//    "version": "2015-08-06",
+//    "stratum_id": "100",
+//    "description": "TEST Treatment Arm used by Cucumber Tests",
+//    "target_id": "113",
+//    "target_name": "Crizotinib",
+//    "gene": "ALK",
+//    "treatment_arm_status": "OPEN",
+//    "study_id": "APEC1621",
+//    "assay_results": [
+//      {
+//        "func_gene": "PTEN",
+//        "assayResultStatus": "POSITIVE",
+//        "assayVariant": "PRESENT",
+//        "levelOfEvidence": 3
+//      },
+//      {
+//        "func_gene": "MLH1",
+//        "assayResultStatus": "POSITIVE",
+//        "assayVariant": "EMPTY",
+//        "levelOfEvidence": 5
+//      }
+//    ],
+//    "num_patients_assigned": null,
+//    "date_opened": null,
+//    "treatment_arm_drugs": [
+//      {
+//        "name": "Crizotinib",
+//        "pathway": "ALK",
+//        "drug_id": "113"
+//      }
+//    ],
+//    "variant_report": {
+//      "single_nucleotide_variants": [
+//        {
+//          "type": "snv",
+//          "confirmed": false,
+//          "chromosome": "chr6",
+//          "position": "152419923",
+//          "identifier": "COSM1074639",
+//          "ocp_reference": "A",
+//          "ocp_alternative": "C",
+//          "rare": false,
+//          "levelOfEvidence": 3,
+//          "inclusion": true,
+//          "armSpecific": false
+//        },
+//        {
+//          "type": "snv",
+//          "confirmed": false,
+//          "chromosome": "chr9",
+//          "position": "80412493",
+//          "identifier": "COSM52975",
+//          "ocp_reference": "C",
+//          "ocp_alternative": "T",
+//          "rare": false,
+//          "levelOfEvidence": 3,
+//          "inclusion": true,
+//          "armSpecific": false
+//        },
+//        {
+//          "type": "snv",
+//          "confirmed": false,
+//          "chromosome": "chr17",
+//          "position": "7577064",
+//          "identifier": "COSM44451",
+//          "ocp_reference": "T",
+//          "ocp_alternative": "C",
+//          "rare": false,
+//          "levelOfEvidence": 3,
+//          "inclusion": false,
+//          "armSpecific": false
+//        },
+//        {
+//          "type": "snv",
+//          "confirmed": false,
+//          "chromosome": "chrX",
+//          "position": "70349258",
+//          "identifier": "COSM757681",
+//          "ocp_reference": "C",
+//          "ocp_alternative": "G",
+//          "rare": false,
+//          "levelOfEvidence": 3,
+//          "inclusion": false,
+//          "armSpecific": false
+//        },
+//        {
+//          "type": "snv",
+//          "confirmed": false,
+//          "chromosome": "chrX",
+//          "position": "100611165",
+//          "identifier": "BT9",
+//          "ocp_reference": "A",
+//          "ocp_alternative": "T",
+//          "rare": false,
+//          "levelOfEvidence": 3,
+//          "inclusion": true,
+//          "armSpecific": false
+//        }
+//      ],
+//      "indels": [
+//        {
+//          "type": "id",
+//          "confirmed": false,
+//          "chromosome": "chr22",
+//          "position": "30035190",
+//          "identifier": "COSM22189",
+//          "ocp_reference": "TTC",
+//          "ocp_alternative": "-",
+//          "rare": false,
+//          "levelOfEvidence": 3,
+//          "inclusion": true
+//        },
+//        {
+//          "type": "id",
+//          "confirmed": false,
+//          "chromosome": "chrX",
+//          "position": "70339250",
+//          "identifier": "COSM131612",
+//          "ocp_reference": "CAAGGTTTCAATAACCAG",
+//          "ocp_alternative": "-",
+//          "rare": false,
+//          "levelOfEvidence": 3,
+//          "inclusion": true
+//        },
+//        {
+//          "type": "id",
+//          "confirmed": false,
+//          "chromosome": "chrX",
+//          "position": "70339270",
+//          "identifier": "COSM143738",
+//          "ocp_reference": "TGCTGTCTCTGGGGA",
+//          "ocp_alternative": "-",
+//          "rare": false,
+//          "levelOfEvidence": 3,
+//          "inclusion": false
+//        }
+//      ],
+//      "non_hotspot_rules": [
+//        {
+//          "func_gene": "MYCL",
+//          "oncomine_variant_class": "amplification",
+//          "rare": false,
+//          "levelOfEvidence": 2.3,
+//          "inclusion": true,
+//          "type": "nhr"
+//        },
+//        {
+//          "func_gene": "TP53",
+//          "function": "Refallele",
+//          "rare": false,
+//          "levelOfEvidence": 3.2,
+//          "inclusion": false,
+//          "armSpecific": false,
+//          "type": "nhr"
+//        }
+//      ],
+//      "copy_number_variants": [
+//        {
+//          "ref_copy_number": 2,
+//          "raw_copy_number": 7.7,
+//          "copy_number": 7.7,
+//          "confidence_interval_95percent": 1.81291,
+//          "confidence_interval_5percent": 1.59412,
+//          "confirmed": false,
+//          "chromosome": "chr1",
+//          "position": "40361592",
+//          "identifier": "MYCL",
+//          "ocp_reference": "C",
+//          "ocp_alternative": "<CNV>",
+//          "rare": false,
+//          "levelOfEvidence": 2,
+//          "inclusion": true,
+//          "armSpecific": false,
+//          "type": "cnv"
+//        },
+//        {
+//          "ref_copy_number": 2,
+//          "raw_copy_number": 8.2,
+//          "copy_number": 8.2,
+//          "confidence_interval_95percent": 4.36137,
+//          "confidence_interval_5percent": 4.04279,
+//          "confirmed": false,
+//          "chromosome": "chr1",
+//          "position": "147022100",
+//          "identifier": "BCL9",
+//          "ocp_reference": "G",
+//          "ocp_alternative": "<CNV>",
+//          "rare": false,
+//          "levelOfEvidence": 2,
+//          "inclusion": false,
+//          "armSpecific": false,
+//          "type": "cnv"
+//        },
+//        {
+//          "ref_copy_number": 2,
+//          "raw_copy_number": 8.8,
+//          "copy_number": 8.8,
+//          "confidence_interval_95percent": 1.94266,
+//          "confidence_interval_5percent": 1.67303,
+//          "confirmed": false,
+//          "chromosome": "chr10",
+//          "position": "89624207",
+//          "identifier": "PTEN",
+//          "ocp_reference": "T",
+//          "ocp_alternative": "<CNV>",
+//          "rare": false,
+//          "levelOfEvidence": 2,
+//          "inclusion": true,
+//          "armSpecific": false,
+//          "type": "cnv"
+//        }
+//      ],
+//      "gene_fusions": [
+//        {
+//          "ocp_reference": "C",
+//          "func_gene": "TPM3",
+//          "identifier": "TPM3-NTRK1.T7N10.COSF1318_1",
+//          "inclusion": true,
+//          "public_med_ids": null,
+//          "level_of_evidence": "2.0",
+//          "chromosome": "chr2",
+//          "ocp_alternative": "C[chr1:156844362[",
+//          "position": "154142875",
+//          "type": "gf"
+//        },
+//        {
+//          "ocp_reference": "G",
+//          "func_gene": "NTRK1",
+//          "identifier": "TPM3-NTRK1.T7N10.COSF1318_2",
+//          "inclusion": true,
+//          "public_med_ids": null,
+//          "level_of_evidence": "3.0",
+//          "chromosome": "chr2",
+//          "ocp_alternative": "[chr1:154142875[G",
+//          "position": "156844362",
+//          "type": "gf"
+//        },
+//        {
+//          "ocp_reference": "T",
+//          "func_gene": "TPM3",
+//          "identifier": "TPM3-ROS1.T7R35.COSF1273_1",
+//          "inclusion": false,
+//          "public_med_ids": null,
+//          "level_of_evidence": "3.0",
+//          "chromosome": "chr1",
+//          "ocp_alternative": "T]chr6:117642559]",
+//          "position": "154142877",
+//          "type": "gf"
+//        },
+//        {
+//          "ocp_reference": "T",
+//          "func_gene": "ROS1",
+//          "identifier": "TPM3-ROS1.T7R35.COSF1273_2",
+//          "inclusion": false,
+//          "public_med_ids": null,
+//          "level_of_evidence": "3.0",
+//          "chromosome": "chr6",
+//          "ocp_alternative": "[chr1:154142877[T",
+//          "position": "117642559",
+//          "type": "gf"
+//        }
+//      ]
+//    },
+//    "exclusion_diseases": [
+//      {
+//        "disease_code": "10058354",
+//        "ctep_sub_category": null,
+//        "short_name": "Bronchioloalveolar carcinoma",
+//        "ctep_category": "Non-Small Cell Lung Cancer"
+//      },
+//      {
+//        "disease_code": "10025032",
+//        "ctep_sub_category": null,
+//        "short_name": "Lung adenocarcinoma",
+//        "ctep_category": "Non-Small Cell Lung Cancer"
+//      },
+//      {
+//        "disease_code": "90600324",
+//        "ctep_sub_category": null,
+//        "short_name": "Lung adenocar. w\/ bronch. feat.",
+//        "ctep_category": "Non-Small Cell Lung Cancer"
+//      },
+//      {
+//        "disease_code": "10029514",
+//        "ctep_sub_category": null,
+//        "short_name": "Non-small cell lung cancer, NOS",
+//        "ctep_category": "Non-Small Cell Lung Cancer"
+//      },
+//      {
+//        "disease_code": "10025125",
+//        "ctep_sub_category": null,
+//        "short_name": "Squamous cell lung carcinoma",
+//        "ctep_category": "Non-Small Cell Lung Cancer"
+//      }
+//    ],
+//    "inclusion_diseases": [
+//      {
+//        "disease_code": "10033701",
+//        "ctep_sub_category": null,
+//        "short_name": "Papillary thyroid carcinoma",
+//        "ctep_category": "Thyroid Cancer"
+//      }
+//    ],
+//    "exclusion_drugs": [
+//      {
+//        "name": "Doxorubicin Hydrochloride",
+//        "drug_id": "10001",
+//        "drug_class": "ALK inhibitor",
+//        "target": "ALK"
+//      }
+//    ]
+//  }
   {
-    "active": null,
+    "active": true,
     "id": "APEC1621-A",
-    "name": "APEC1621-A",
+    "name":"APEC1621-A",
     "date_created": "2016-06-24T15:38:31+00:00",
-    "version": "2015-08-06",
-    "stratum_id": "100",
+    "version": "2016-09-05",
+    "stratum_id": "300",
     "description": "TEST Treatment Arm used by Cucumber Tests",
     "target_id": "113",
     "target_name": "Crizotinib",
     "gene": "ALK",
     "treatment_arm_status": "OPEN",
     "study_id": "APEC1621",
-    "assay_results": [
-
-    ],
+    "assay_rules": [],
     "num_patients_assigned": null,
     "date_opened": null,
     "treatment_arm_drugs": [
       {
-        "name": "Crizotinib",
         "pathway": "ALK",
-        "drug_id": "113"
+        "drug_id": "113",
+        "name": "Crizotinib"
       }
     ],
-    "variant_report": {
-      "single_nucleotide_variants": [
-
-      ],
-      "indels": [
-
-      ],
-      "non_hotspot_rules": [
-        {
-          "inclusion": true,
-          "oncomine_variant_class": "deleterious",
-          "public_med_ids": null,
-          "func_gene": "PTEN",
-          "arm_specific": "false",
-          "level_of_evidence": "3.0",
-          "function": null,
-          "protein_match": null,
-          "type": "nhr",
-          "exon": null
-        }
-      ],
-      "copy_number_variants": [
-        {
-          "ref_copy_number": 2,
-          "raw_copy_number": 8.8,
-          "copy_number": 8.8,
-          "confidence_interval_95percent": 1.94266,
-          "confidence_interval_5percent": 1.67303,
-          "confirmed": false,
-          "chromosome": "chr10",
-          "position": "89624207",
-          "identifier": "PTEN",
-          "ocp_reference": "T",
-          "ocp_alternative": "<CNV>",
-          "rare": false,
-          "levelOfEvidence": 2,
-          "inclusion": true,
-          "armSpecific": false,
-          "type": "cnv"
-        }
-      ],
-      "gene_fusions": [
-        {
-          "ocp_reference": "A",
-          "func_gene": "ALK",
-          "identifier": "TPM3-ALK.T7A20",
-          "inclusion": true,
-          "public_med_ids": [
-            "23724913"
-          ],
-          "arm_specific": "false",
-          "level_of_evidence": "2.0",
-          "chromosome": "2.0",
-          "ocp_alternative": "[chr1:154142875[A",
-          "description": "ALK translocation",
-          "position": "29446394",
-          "type": "gf"
-        },
-        {
-          "ocp_reference": "C",
-          "func_gene": "FGFR2",
-          "identifier": "FGFR2-OFD1.F17O3",
-          "inclusion": true,
-          "public_med_ids": null,
-          "arm_specific": "false",
-          "level_of_evidence": "3.0",
-          "chromosome": "10.0",
-          "ocp_alternative": "C[chrX:13754596[",
-          "description": "some description",
-          "position": "123243211",
-          "type": "gf"
-        }
-      ]
-    },
-    "exclusion_diseases": [
-      {
-        "disease_code": "10058354",
-        "ctep_sub_category": null,
-        "short_name": "Bronchioloalveolar carcinoma",
-        "ctep_category": "Non-Small Cell Lung Cancer"
-      },
-      {
-        "disease_code": "10025032",
-        "ctep_sub_category": null,
-        "short_name": "Lung adenocarcinoma",
-        "ctep_category": "Non-Small Cell Lung Cancer"
-      },
-      {
-        "disease_code": "90600324",
-        "ctep_sub_category": null,
-        "short_name": "Lung adenocar. w\/ bronch. feat.",
-        "ctep_category": "Non-Small Cell Lung Cancer"
-      },
-      {
-        "disease_code": "10029514",
-        "ctep_sub_category": null,
-        "short_name": "Non-small cell lung cancer, NOS",
-        "ctep_category": "Non-Small Cell Lung Cancer"
-      },
-      {
-        "disease_code": "10025125",
-        "ctep_sub_category": null,
-        "short_name": "Squamous cell lung carcinoma",
-        "ctep_category": "Non-Small Cell Lung Cancer"
-      }
-    ],
-    "inclusion_diseases": [
-      {
-        "disease_code": "10033701",
-        "ctep_sub_category": null,
-        "short_name": "Papillary thyroid carcinoma",
-        "ctep_category": "Thyroid Cancer"
-      }
-    ],
+    "diseases": [],
     "exclusion_drugs": [
       {
-        "name": "Doxorubicin Hydrochloride",
-        "drug_id": "10001",
+        "target": "ALK",
         "drug_class": "ALK inhibitor",
-        "target": "ALK"
-      }
-    ]
-  },
-  {
-    "active": null,
-    "id": "APEC1621-B",
-    "name": "APEC1621-B",
-    "date_created": "2016-06-24T15:38:31+00:00",
-    "version": "2015-08-06",
-    "stratum_id": "100",
-    "description": "TEST Treatment Arm used by Cucumber Tests",
-    "target_id": "113",
-    "target_name": "Crizotinib",
-    "gene": "ALK",
-    "treatment_arm_status": "OPEN",
-    "study_id": "APEC1621",
-    "assay_results": [
-      {
-        "func_gene": "PTEN",
-        "assayResultStatus": "POSITIVE",
-        "assayVariant": "PRESENT",
-        "levelOfEvidence": 3
-      },
-      {
-        "func_gene": "MLH1",
-        "assayResultStatus": "POSITIVE",
-        "assayVariant": "EMPTY",
-        "levelOfEvidence": 5
+        "drug_id": "10001",
+        "name": "Doxorubicin Hydrochloride"
       }
     ],
-    "num_patients_assigned": null,
-    "date_opened": null,
-    "treatment_arm_drugs": [
-      {
-        "name": "Crizotinib",
-        "pathway": "ALK",
-        "drug_id": "113"
-      }
-    ],
-    "variant_report": {
-      "single_nucleotide_variants": [
-        {
-          "type": "snv",
-          "confirmed": false,
-          "chromosome": "chr6",
-          "position": "152419923",
-          "identifier": "COSM1074639",
-          "ocp_reference": "A",
-          "ocp_alternative": "C",
-          "rare": false,
-          "levelOfEvidence": 3,
-          "inclusion": true,
-          "armSpecific": false
-        },
-        {
-          "type": "snv",
-          "confirmed": false,
-          "chromosome": "chr9",
-          "position": "80412493",
-          "identifier": "COSM52975",
-          "ocp_reference": "C",
-          "ocp_alternative": "T",
-          "rare": false,
-          "levelOfEvidence": 3,
-          "inclusion": true,
-          "armSpecific": false
-        },
-        {
-          "type": "snv",
-          "confirmed": false,
-          "chromosome": "chr17",
-          "position": "7577064",
-          "identifier": "COSM44451",
-          "ocp_reference": "T",
-          "ocp_alternative": "C",
-          "rare": false,
-          "levelOfEvidence": 3,
-          "inclusion": false,
-          "armSpecific": false
-        },
-        {
-          "type": "snv",
-          "confirmed": false,
-          "chromosome": "chrX",
-          "position": "70349258",
-          "identifier": "COSM757681",
-          "ocp_reference": "C",
-          "ocp_alternative": "G",
-          "rare": false,
-          "levelOfEvidence": 3,
-          "inclusion": false,
-          "armSpecific": false
-        },
-        {
-          "type": "snv",
-          "confirmed": false,
-          "chromosome": "chrX",
-          "position": "100611165",
-          "identifier": "BT9",
-          "ocp_reference": "A",
-          "ocp_alternative": "T",
-          "rare": false,
-          "levelOfEvidence": 3,
-          "inclusion": true,
-          "armSpecific": false
-        }
-      ],
-      "indels": [
-        {
-          "type": "id",
-          "confirmed": false,
-          "chromosome": "chr22",
-          "position": "30035190",
-          "identifier": "COSM22189",
-          "ocp_reference": "TTC",
-          "ocp_alternative": "-",
-          "rare": false,
-          "levelOfEvidence": 3,
-          "inclusion": true
-        },
-        {
-          "type": "id",
-          "confirmed": false,
-          "chromosome": "chrX",
-          "position": "70339250",
-          "identifier": "COSM131612",
-          "ocp_reference": "CAAGGTTTCAATAACCAG",
-          "ocp_alternative": "-",
-          "rare": false,
-          "levelOfEvidence": 3,
-          "inclusion": true
-        },
-        {
-          "type": "id",
-          "confirmed": false,
-          "chromosome": "chrX",
-          "position": "70339270",
-          "identifier": "COSM143738",
-          "ocp_reference": "TGCTGTCTCTGGGGA",
-          "ocp_alternative": "-",
-          "rare": false,
-          "levelOfEvidence": 3,
-          "inclusion": false
-        }
-      ],
-      "non_hotspot_rules": [
-        {
-          "func_gene": "MYCL",
-          "oncomine_variant_class": "amplification",
-          "rare": false,
-          "levelOfEvidence": 2.3,
-          "inclusion": true,
-          "type": "nhr"
-        },
-        {
-          "func_gene": "TP53",
-          "function": "Refallele",
-          "rare": false,
-          "levelOfEvidence": 3.2,
-          "inclusion": false,
-          "armSpecific": false,
-          "type": "nhr"
-        }
-      ],
-      "copy_number_variants": [
-        {
-          "ref_copy_number": 2,
-          "raw_copy_number": 7.7,
-          "copy_number": 7.7,
-          "confidence_interval_95percent": 1.81291,
-          "confidence_interval_5percent": 1.59412,
-          "confirmed": false,
-          "chromosome": "chr1",
-          "position": "40361592",
-          "identifier": "MYCL",
-          "ocp_reference": "C",
-          "ocp_alternative": "<CNV>",
-          "rare": false,
-          "levelOfEvidence": 2,
-          "inclusion": true,
-          "armSpecific": false,
-          "type": "cnv"
-        },
-        {
-          "ref_copy_number": 2,
-          "raw_copy_number": 8.2,
-          "copy_number": 8.2,
-          "confidence_interval_95percent": 4.36137,
-          "confidence_interval_5percent": 4.04279,
-          "confirmed": false,
-          "chromosome": "chr1",
-          "position": "147022100",
-          "identifier": "BCL9",
-          "ocp_reference": "G",
-          "ocp_alternative": "<CNV>",
-          "rare": false,
-          "levelOfEvidence": 2,
-          "inclusion": false,
-          "armSpecific": false,
-          "type": "cnv"
-        },
-        {
-          "ref_copy_number": 2,
-          "raw_copy_number": 8.8,
-          "copy_number": 8.8,
-          "confidence_interval_95percent": 1.94266,
-          "confidence_interval_5percent": 1.67303,
-          "confirmed": false,
-          "chromosome": "chr10",
-          "position": "89624207",
-          "identifier": "PTEN",
-          "ocp_reference": "T",
-          "ocp_alternative": "<CNV>",
-          "rare": false,
-          "levelOfEvidence": 2,
-          "inclusion": true,
-          "armSpecific": false,
-          "type": "cnv"
-        }
-      ],
-      "gene_fusions": [
-        {
-          "ocp_reference": "C",
-          "func_gene": "TPM3",
-          "identifier": "TPM3-NTRK1.T7N10.COSF1318_1",
-          "inclusion": true,
-          "public_med_ids": null,
-          "level_of_evidence": "2.0",
-          "chromosome": "chr2",
-          "ocp_alternative": "C[chr1:156844362[",
-          "position": "154142875",
-          "type": "gf"
-        },
-        {
-          "ocp_reference": "G",
-          "func_gene": "NTRK1",
-          "identifier": "TPM3-NTRK1.T7N10.COSF1318_2",
-          "inclusion": true,
-          "public_med_ids": null,
-          "level_of_evidence": "3.0",
-          "chromosome": "chr2",
-          "ocp_alternative": "[chr1:154142875[G",
-          "position": "156844362",
-          "type": "gf"
-        },
-        {
-          "ocp_reference": "T",
-          "func_gene": "TPM3",
-          "identifier": "TPM3-ROS1.T7R35.COSF1273_1",
-          "inclusion": false,
-          "public_med_ids": null,
-          "level_of_evidence": "3.0",
-          "chromosome": "chr1",
-          "ocp_alternative": "T]chr6:117642559]",
-          "position": "154142877",
-          "type": "gf"
-        },
-        {
-          "ocp_reference": "T",
-          "func_gene": "ROS1",
-          "identifier": "TPM3-ROS1.T7R35.COSF1273_2",
-          "inclusion": false,
-          "public_med_ids": null,
-          "level_of_evidence": "3.0",
-          "chromosome": "chr6",
-          "ocp_alternative": "[chr1:154142877[T",
-          "position": "117642559",
-          "type": "gf"
-        }
-      ]
+    "status_log": {
+      "1471381350": "OPEN"
     },
-    "exclusion_diseases": [
-      {
-        "disease_code": "10058354",
-        "ctep_sub_category": null,
-        "short_name": "Bronchioloalveolar carcinoma",
-        "ctep_category": "Non-Small Cell Lung Cancer"
-      },
-      {
-        "disease_code": "10025032",
-        "ctep_sub_category": null,
-        "short_name": "Lung adenocarcinoma",
-        "ctep_category": "Non-Small Cell Lung Cancer"
-      },
-      {
-        "disease_code": "90600324",
-        "ctep_sub_category": null,
-        "short_name": "Lung adenocar. w\/ bronch. feat.",
-        "ctep_category": "Non-Small Cell Lung Cancer"
-      },
-      {
-        "disease_code": "10029514",
-        "ctep_sub_category": null,
-        "short_name": "Non-small cell lung cancer, NOS",
-        "ctep_category": "Non-Small Cell Lung Cancer"
-      },
-      {
-        "disease_code": "10025125",
-        "ctep_sub_category": null,
-        "short_name": "Squamous cell lung carcinoma",
-        "ctep_category": "Non-Small Cell Lung Cancer"
-      }
+    "single_nucleotide_variants": [{
+      "type":"snv",
+      "confirmed":false,
+      "chromosome":"chr6",
+      "position":"152419923",
+      "identifier":"COSM1074639",
+      "reference":"A",
+      "alternative":"C",
+      "rare":false,
+      "level_of_evidence":3.0,
+      "inclusion":true,
+      "armSpecific":false
+    }
     ],
-    "inclusion_diseases": [
-      {
-        "disease_code": "10033701",
-        "ctep_sub_category": null,
-        "short_name": "Papillary thyroid carcinoma",
-        "ctep_category": "Thyroid Cancer"
-      }
+    "indels": [],
+    "non_hotspot_rules": [],
+    "copy_number_variants": [],
+    "gene_fusions": [{
+      "ocp_reference":"A",
+      "gene_name":"ALK",
+      "identifier":"TPM3-ALK.T7A20",
+      "inclusion":true,
+      "public_med_ids":[
+        "23724913"
+      ],
+      "arm_specific":"false",
+      "level_of_evidence":2.0,
+      "chromosome":"2.0",
+      "alternative":"[chr1:154142875[A",
+      "description":"ALK translocation",
+      "position":"29446394",
+      "type":"gf"
+    }
     ],
-    "exclusion_drugs": [
-      {
-        "name": "Doxorubicin Hydrochloride",
-        "drug_id": "10001",
-        "drug_class": "ALK inhibitor",
-        "target": "ALK"
-      }
-    ]
+    "current_patients": "0.0",
+    "former_patients": "0.0",
+    "not_enrolled_patients": "0.0",
+    "pending_patients": "0.0"
   }
 ]

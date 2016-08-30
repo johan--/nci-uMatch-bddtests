@@ -87,16 +87,4 @@ PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
 PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
 
-pt = PatientDataSet.new('PT_SR10_WaitingPtData')
-PatientMessageLoader.register_patient(pt.id)
-PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
-PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
-PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
-PatientMessageLoader.pathology(pt.id, pt.sei, 'Y')
-PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
-PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCMLH1s')
-PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
-# Run this step separately, keep refresh patient status, once AWAITING_PATIENT_DATA appears, disconnect mock service immediately
-PatientMessageLoader.variant_file_confirmed(pt.id, 'CONFIRMED', pt.moi, pt.ani)
-
 PatientMessageLoader.upload_done

@@ -30,9 +30,9 @@ class DynamoDataUploader
 
   def self.backup_local_table(table_name)
     query_table_name = table_name
-    if query_table_name.start_with?('treatment_arm')
-      query_table_name = table_name + '_development'
-    end
+    # if query_table_name.start_with?('treatment_arm')
+    #   query_table_name = table_name + '_development'
+    # end
     cmd = "aws dynamodb scan --table-name #{query_table_name} "
     cmd = cmd + "--endpoint-url #{DEFAULT_LOCAL_DB_ENDPOINT} > "
     cmd = cmd + File.dirname(__FILE__)+"/#{SEED_DATA_FOLDER}/#{SEED_FILE_PREFIX}_#{table_name}.json"
