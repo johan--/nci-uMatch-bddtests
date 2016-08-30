@@ -1,5 +1,5 @@
 [{
-  "active": null,
+  "active": true,
   "name": "Rules-Test4",
   "date_created": "2016-06-24T15:38:31+00:00",
   "version": "2015-08-06",
@@ -10,40 +10,36 @@
   "func_gene": "ALK",
   "treatment_arm_status": "OPEN",
   "study_id": "APEC1621",
-  "assay_results": [],
+  "assay_rules": [],
   "num_patients_assigned": null,
-  "date_opened": null,
   "treatment_arm_drugs": [{
     "name": "Crizotinib",
     "pathway": "ALK",
     "drug_id": "113"
   }],
-  "variant_report": {
-    "single_nucleotide_variants": [],
-    "indels": [],
-    "non_hotspot_rules": [{
-      "inclusion": true,
-      "public_med_ids": null,
-      "func_gene": "EGFR",
-      "function":"missense",
-      "arm_specific": "false",
-      "level_of_evidence": "3.0",
-      "protein_match": null,
-      "type": "nhr"
-    }],
-    "copy_number_variants": []
-  },
-  "exclusion_diseases": [{
-    "disease_code": "10058354",
-    "ctep_sub_category": null,
-    "short_name": "Bronchioloalveolar carcinoma",
-    "ctep_category": "Non-Small Cell Lung Cancer"
+  "single_nucleotide_variants": [],
+  "indels": [],
+  "non_hotspot_rules": [{
+    "inclusion": true,
+    "public_med_ids": null,
+    "func_gene": "EGFR",
+    "function":"missense",
+    "arm_specific": "false",
+    "level_of_evidence": "3.0",
+    "protein_match": null,
+    "type": "nhr"
   }],
-  "inclusion_diseases": [{
+  "copy_number_variants": [],
+  "diseases": [{
+    "disease_code_type":"ICD-O",
+    "disease_code": "10058354",
+    "disease_name": "Bronchioloalveolar carcinoma",
+    "exclusion":true
+  },{
+    "disease_code_type":"ICD-O",
     "disease_code": "10033701",
-    "ctep_sub_category": null,
-    "short_name": "Papillary thyroid carcinoma",
-    "ctep_category": "Thyroid Cancer"
+    "disease_name": "Papillary thyroid carcinoma",
+    "exclusion":false
   }],
   "exclusion_drugs": [{
     "name": "Doxorubicin Hydrochloride",
@@ -51,10 +47,9 @@
     "drug_class": "ALK inhibitor",
     "target": "ALK"
   }],
-  "pten_results": null,
-  "status_log": null,
-  "current_patients": null,
-  "former_patients": null,
-  "not_enrolled_patients": null,
-  "pending_patients": null
+  "status_log": [],
+  "current_patients": "0.0",
+  "former_patients": "0.0",
+  "not_enrolled_patients": "0.0",
+  "pending_patients": "0.0"
 }]

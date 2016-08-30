@@ -29,7 +29,7 @@
           "confirmed" : true,
           "position" : "55599320",
           "func_gene" : "EGFR",
-          "oncominevariantclass" : "hotspot",
+          "oncomine_variant_class" : "hotspot",
           "readDepth" : 450,
           "inclusion" : true
         }

@@ -137,19 +137,19 @@ Feature: Ensure the rules are fired correctly and patients are assigned to the r
     Given  the patient assignment json "patient_json_with_matching_non-hotspot-rules_gene-exon-match"
     And treatment arm json "Rules-Test10"
     When assignPatient service is called
-    Then a patient assignment json is returned with reason category "NO_VARIANT_MATCH" for treatment arm "Rules-Test10"
+    Then a patient assignment json is returned with reason category "RECORD_BASED_EXCLUSION" for treatment arm "Rules-Test10"
 
   Scenario: Matching both inclusion and exclusion non-hotspot variants - Do not assign
     Given  the patient assignment json "Matching_exclusion_non-hotspot_rule_and_inclusion_variant"
     And treatment arm json "Rules-Test11"
     When assignPatient service is called
-    Then a patient assignment json is returned with reason category "NO_VARIANT_MATCH" for treatment arm "Rules-Test11"
+    Then a patient assignment json is returned with reason category "RECORD_BASED_EXCLUSION" for treatment arm "Rules-Test11"
 
   Scenario: Matching at least one exclusion non-hotspot variant - Do not assign
     Given  the patient assignment json "patient_json_with_matching_non-hotspot-rules_gene-exon-match"
     And treatment arm json "Rules-Test12"
     When assignPatient service is called
-    Then a patient assignment json is returned with reason category "NO_VARIANT_MATCH" for treatment arm "Rules-Test12"
+    Then a patient assignment json is returned with reason category "RECORD_BASED_EXCLUSION" for treatment arm "Rules-Test12"
 
   Scenario: Matching on a closed TA puts the patient on compassionate care
     Given  the patient assignment json "patient_json_with_matching_inclusion_variant_inclusion_disease"
