@@ -28,9 +28,10 @@ module.exports = function () {
         var password = process.env.NCI_MATCH_PASSWORD;
 
         loginPageObj.login(email, password);
-        utilities.waitForElement(dashboardPageObj.greeterHeading(), 'Greetings').then(function () {
+        utilities.waitForElement(dashboardPageObj.dashboardPanel(), 'Dashboard').then(function () {
 
         }, function(){
+            console.log('Could not find element to indicate landing on Dashboard. Navigating directly to dashboard')
             dashboardPageObj.goToPageName('dashboard');
         });
         browser.sleep(1000).then(callback);
@@ -59,8 +60,9 @@ module.exports = function () {
 
     this.Then(/^I should be able to the see Dashboard page$/, function (callback){
         var dashboard = dashboardPageObj.dashboardElement;
+        var panel = dashboardPageObj.dashboardPanel();
         expect(browser.isElementPresent(dashboard)).to.eventually.be.true;
-        expect(dashboard.element(by.css('h2')).getText()).to.eventually.eql('Dashboard');
+        expect(panel.element(by.css('h2')).getText()).to.eventually.eql('Dashboard');
         browser.sleep(50).then(callback);
     });
 

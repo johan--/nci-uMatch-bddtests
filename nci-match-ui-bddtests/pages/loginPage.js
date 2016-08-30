@@ -8,8 +8,8 @@ var dashboard = require ('../pages/dashboardPage');
 var LoginPage = function() {
 
     this.title = 'MATCHBox | Login';
-    var accessbtn =  element(by.css('button.btn-primary'));
-    
+    var accessbtn =  element(by.css('button[type="submit"]'));
+
     this.goToLoginPage = function(){
         browser.get('/#/auth/login', 6000);
         browser.getCurrentUrl().then(function(url){
@@ -31,9 +31,7 @@ var LoginPage = function() {
                 previousLoginLink.click();
             }
         });
-        
         utils.waitForElement(email, 'Email text area');
-        
         email.sendKeys(username);
         pass.sendKeys(password);
         loginbtn.click();

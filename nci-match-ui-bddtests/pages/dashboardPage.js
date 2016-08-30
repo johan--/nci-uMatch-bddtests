@@ -5,7 +5,16 @@
 var DashboardPage = function() {
 
     this.title = 'MATCHBox | Dashboard';
-    this.greeterHeading = function() { return element(by.binding(' name ')); }
+
+    this.dashboardPanel    = function() { return element(by.css('.sticky-navbar'))}; // This is the sticky panel at the top
+    this.dashSummary       = element(by.css('.top-dashboard-header-box')); // This is the top dashboard section
+    this.summaryHeadings   = this.dashSummary.all(by.css('h3'));
+    this.dashSummaryAnchor = element(by.css('.dashboard-anchor'));
+
+    this.dashboardElement   = element(by.css('div[ng-controller="DashboardController"]'));
+    this.statisticsLabels   = element.all(by.css('li.list-group-item'));
+
+
     this.logoutLink = element(by.css('[ng-click="logout()"]'));
     this.patientsNum = element.all(by.binding(' numberOfPatients '));
     this.screenedPatients = element(by.binding(' numberOfScreenedPatients '));
@@ -24,9 +33,9 @@ var DashboardPage = function() {
         browser.waitForAngular();
     };
 
-    this.dashboardElement     = element(by.css('div[ng-controller="DashboardController"]'));
+
     this.feedRepeaterList     = element.all(by.repeater('timelineEvent in activity.data'));
-    this.dashBannerList       = element.all(by.css('.dashboard-header'));
+
     this.dashAmoiChart        = element(by.css('div[ng-init^="setCanvasHeight(\'#amoiCanvas\'"]'));
     this.dashTreatmentAccrual = element(by.css('div[ng-init^="setCanvasHeight(\'#treatmentArmAccrualCanvas\'"]'));
 

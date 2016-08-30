@@ -62,7 +62,7 @@ Feature: Treatment Arms Dashboard
     And I click on the download in Excel Format
     Then I download the file locally in Excel format
 
-  @treatment_arm @ui @broken
+  @treatment_arm @ui
   Scenario: Logged in user can access the different versions of Treatment Arm under the History Tab
     When I click on one of the treatment arms
     And I select the History Main Tab

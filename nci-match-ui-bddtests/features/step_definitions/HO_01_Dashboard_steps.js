@@ -16,7 +16,7 @@ module.exports = function() {
     var timeline           = utilities.callApi('patient', '/timeline');
 
     // This is all the listing under the patient statistics section on the top banner.
-    var listings = dash.dashBannerList.all(by.css('li.list-group-item'));
+    var listings = dash.statisticsLabels;
 
     // This is the css identifier (name) for the sub tavbs in the Pending review section.
     var subTabLocator = dash.subTabLocator;
@@ -24,26 +24,29 @@ module.exports = function() {
     var reportData;
 
     this.Then(/^I can see the Dashboard banner$/, function (callback) {
-        expect(dash.dashBannerList.count()).to.eventually.equal(1);
+        expect(dash.dashboardPanel().isPresent()).to.eventually.be.true;
+        browser.sleep(50).then(callback);
+    });
+
+    this.Then(/^I can see all sub headings under the top Banner$/, function (callback) {
+        var expectedHeadings = ['Patients Statistics', 'Sequenced & Confirmed Patients with aMOIs', 'Top 5 Treatment Arm Accrual'];
+        for (var i = 0; i < expectedHeadings.length; i++){
+            expect(dash.summaryHeadings.get(i).getText()).to.eventually.eql(expectedHeadings[i]);
+        };
         browser.sleep(50).then(callback);
     });
 
     this.Then(/^I can see the Patients Statistics Section$/, function (callback) {
-        var expectedHeading = 'Patients Statistics';
         var expectedStatLabelArray = [
             'Registered Patients:', 'Patients with Confirmed Variant Report:',
             'Patients on Treatment:', 'Pending Tissue Variant Reports:',
             'Pending Blood Variant Reports:', 'Pending Assignment Reports:'
         ];
 
-        var heading  = dash.dashBannerList.all(by.css('div[ng-init="loadDashboardData()"] h3')).get(0).getText();
-
         for (var i = 0; i < expectedStatLabelArray.length; i++){
             expect(listings.get(i).getText()).to.eventually.include(expectedStatLabelArray[i]);
         }
-        heading.then(function (headingText) {
-          expect(headingText.replace('\n', ' ')).to.eql(expectedHeading);
-        }).then(callback);
+        browser.sleep(50).then(callback);
     });
 
     this.Then(/^I can see Patients Statistics data$/, function (callback) {
@@ -67,15 +70,6 @@ module.exports = function() {
         }).then(callback);
     });
 
-    this.Then(/^I can see sequenced and confirmed patients section$/, function (callback) {
-        var expectedHeading = 'Sequenced & Confirmed Patients with aMOIs';
-        //Checking for presence of section
-        expect(dash.dashAmoiChart.isPresent()).to.eventually.be.true;
-        dash.dashAmoiChart.element(by.css('h3')).getText().then(function (text) {
-            expect(text.replace('\n', ' ')).to.eql(expectedHeading);
-        }).then(callback);
-    });
-
     this.Then(/^I can see Sequenced and confirmed patients data$/, function (callback) {
         pendingReportStats.then(function (stats) {
             var statsJson = JSON.parse(stats);
@@ -85,14 +79,6 @@ module.exports = function() {
             expect(element(by.binding('amoi_3')).getText()).to.eventually.eql(statsJson.patients_with_3_amois + ' patients');
             expect(element(by.binding('amoi_4')).getText()).to.eventually.eql(statsJson.patients_with_4_amois + ' patients');
             expect(element(by.binding('amoi_5')).getText()).to.eventually.eql(statsJson.patients_with_5_or_more_amois + ' patients');
-        }).then(callback);
-    });
-
-    this.Then(/^I can see the Treatment Arm Accrual chart$/, function (callback) {
-        var expectedHeading = 'Top 5 Treatment Arm Accrual';
-        expect(dash.dashTreatmentAccrual.isPresent()).to.eventually.be.true;
-        dash.dashTreatmentAccrual.element(by.css('h3')).getText().then(function (heading) {
-            expect(heading.replace('\n', ' ')).to.eql(expectedHeading);
         }).then(callback);
     });
 

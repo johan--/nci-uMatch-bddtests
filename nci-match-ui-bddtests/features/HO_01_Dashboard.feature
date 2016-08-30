@@ -13,18 +13,17 @@ Feature: Dashboard page.
   Scenario: A User can see the Patients Statistics Section
     When I navigate to the dashboard page
     Then I can see the Dashboard banner
+    And I can see all sub headings under the top Banner
     And I can see the Patients Statistics Section
     And I can see Patients Statistics data
 
   Scenario: A User can see the Sequenced and Confirmed Patients section
     When I navigate to the dashboard page
-    Then I can see sequenced and confirmed patients section
-    And I can see Sequenced and confirmed patients data
+    Then I can see Sequenced and confirmed patients data
 
   Scenario: A User can see the Treatment Arm Accrual Section
     When I navigate to the dashboard page
-    Then I can see the Treatment Arm Accrual chart
-    And I can see the Treatment Arm Accrual chart data
+    Then I can see the Treatment Arm Accrual chart data
 
   Scenario: A user can see the Pending Review Section
     When I navigate to the dashboard page

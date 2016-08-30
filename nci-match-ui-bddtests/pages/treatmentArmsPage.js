@@ -9,10 +9,10 @@ var TreatmentArmsPage = function() {
     var treatment_id;
     //List of Elements on the Treatment Page
     //List of all the treatment arms on the treatment arms landing page.
-    this.taTable = element(by.css('[dt-options="TreatmentArmsCtrl.dtOptions"]'));
+    this.taTable = element(by.id('treatmentArmGrid'));
 
     // HEader of the above table
-    this.taTableHeaderArray = element.all(by.css('[dt-options="TreatmentArmsCtrl.dtOptions"]>thead th'));
+    this.taTableHeaderArray = this.taTable.all(by.css('th'));
 
     // Patients Table That contains all the patient list Assigned to the selected treatment arm as seen on the treatment arms detailed page.
     this.patientTaTable = element(by.css('.tab-pane.active.ng-scope table[dt-options="dtOptions"]'));
@@ -107,7 +107,7 @@ var TreatmentArmsPage = function() {
 
     //List of Expected values
     this.expectedLeftBoxLabels = ['Name', 'Stratum ID', 'Description', 'Status', 'Version'];
-    this.expectedRightBoxLabels = ['Genes', 'Patients on Arm Version', 'Total Patients on Arm', 'Drug', 'Download'];
+    this.expectedRightBoxLabels = ['Gene(s)', 'Patients on Arm Version', 'Total Patients on Arm', 'Drug(s)', 'Download'];
     this.expectedTableHeaders = [
         "Name",
         "Current Patients",
@@ -115,7 +115,7 @@ var TreatmentArmsPage = function() {
         "Not Enrolled Patients",
         "Pending Arm Approval",
         "Status",
-        "Date Open",
+        "Date Opened",
         "Date Suspended/Closed"
     ];
     this.expectedMainTabs = ['Analysis', 'Rules', 'History'];
