@@ -26,7 +26,7 @@ Given(/^with variant report$/) do |variantReport|
 end
 
 When(/^posted to MATCH newTreatmentArm$/) do
-  @response = Helper_Methods.post_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/newTreatmentArm',@jsonString)
+  @response = Helper_Methods.post_request(ENV['treatment_arm_endpoint']+'/newTreatmentArm',@jsonString)
 end
 
 

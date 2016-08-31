@@ -3,7 +3,7 @@
 Feature: Variant files uploaded message
   Scenario Outline: PT_VU01. variant files uploaded message with invalid patient_id should fail
     Given template variant uploaded message for patient: "<value>", it has molecular_id: "PT_VU01_MOI1" and analysis_id: "PT_VU01_ANI1"
-    When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"
+    When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
     Examples:
     |value          |message                                                                            |
     |               |can't be blank                                                                     |
@@ -13,7 +13,7 @@ Feature: Variant files uploaded message
     #surgical_event_id has been removed from variant file upload message
 #  Scenario Outline: PT_VU02. variant files uploaded message with invalid surgical_event_id should fail
 #    Given template variant uploaded message for patient: "PT_VU02_TissueShipped", it has surgical_event_id: "<SEI>", molecular_id: "MOI_01" and analysis_id: "ANI_01"
-#    When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"
+#    When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
 #    Examples:
 #      |SEI            |message                                                                            |
 #      |               |was not of a minimum string length of 1                                            |
@@ -22,7 +22,7 @@ Feature: Variant files uploaded message
 
   Scenario Outline: PT_VU03. variant files uploaded message with invalid molecular_id should fail
     Given template variant uploaded message for patient: "PT_VU03_TissueShipped", it has molecular_id: "<MOI>" and analysis_id: "PT_VU03_TissueShipped_ANI1"
-    When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"
+    When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
     Examples:
       |MOI            |message                                                                            |
       |               |can't be blank                                                                     |
@@ -31,7 +31,7 @@ Feature: Variant files uploaded message
 
   Scenario Outline: PT_VU04. variant files uploaded message with invalid analysis_id should fail
     Given template variant uploaded message for patient: "PT_VU04_TissueShipped", it has molecular_id: "PT_VU04_TissueShipped_MOI1" and analysis_id: "<ANI>"
-    When posted to MATCH patient trigger service, returns a message that includes "<message>" with status "Failure"
+    When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
     Examples:
       |ANI            |message                                                                            |
       |               |can't be blank                                                                     |
@@ -44,7 +44,7 @@ Feature: Variant files uploaded message
 #  Test patient: PT_VU05_BloodShipped:  molecular_id: PT_VU05_BloodShipped_BD_MOI1 tissue shipped;
     #                                    molecular_id: PT_VU05_BloodShipped_BD_MOI2 tissue shipped;
   Given template variant uploaded message for patient: "<patient_id>", it has molecular_id: "<moi>" and analysis_id: "<ani>"
-  When posted to MATCH patient trigger service, returns a message that includes "Molecular id doesn't exist or is not currently active" with status "Failure"
+  When post to MATCH patients service, returns a message that includes "Molecular id doesn't exist or is not currently active" with status "Failure"
     Examples:
     |patient_id             |moi                                        |ani                                          |
     |PT_VU05_TissueShipped  |PT_VU05_TissueShipped_MOI1                 |PT_VU05_TissueShipped_ANI1                   |
@@ -53,7 +53,7 @@ Feature: Variant files uploaded message
   Scenario: PT_VU06. variant files uploaded message using new analysis_id can be accepted when patient has TISSUE_NUCLEIC_ACID_SHIPPED status and new uploaded variant files should has PENDING as default status
 #  Test patient: PT_VU06_TissueShipped: surgical_event_id: PT_VU06_TissueShipped_SEI1, molecular_id: PT_VU06_TissueShipped_MOI1 tissue shipped;
     Given template variant uploaded message for patient: "PT_VU06_TissueShipped", it has molecular_id: "PT_VU06_TissueShipped_MOI1" and analysis_id: "PT_VU06_TissueShipped_ANI1"
-    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+    When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
     Then wait for "15" seconds
     Then retrieve patient: "PT_VU06_TissueShipped" from API
     Then returned patient has variant report (surgical_event_id: "PT_VU06_TissueShipped_SEI1", molecular_id: "PT_VU06_TissueShipped_MOI1", analysis_id: "PT_VU06_TissueShipped_ANI1")
@@ -62,14 +62,14 @@ Feature: Variant files uploaded message
   Scenario: PT_VU07. variant files uploaded with new analysis_id cannot be accepted when patient has only TISSUE_SLIDE_SPECIMEN_SHIPPED status but has no TISSUE_NUCLEIC_ACID_SHIPPED status
 #  Test patient: PT_VU07_SlideShippedNoTissueShipped: surgical_event_id: SEI_01 slide shipped, tissue not shipped;
     Given template variant uploaded message for patient: "PT_VU07_SlideShippedNoTissueShipped", it has molecular_id: "PT_VU07_SlideShippedNoTissueShipped_MOI1" and analysis_id: "PT_VU07_SlideShippedNoTissueShipped_ANI1"
-    When posted to MATCH patient trigger service, returns a message that includes "Molecular id doesn't exist or is not currently active" with status "Failure"
+    When post to MATCH patients service, returns a message that includes "Molecular id doesn't exist or is not currently active" with status "Failure"
 
 
   Scenario: PT_VU09. variant files uploaded with new analysis_id make all pending old files rejected
 #    Test patient: PT_VU09_VariantReportUploaded; variant report files uploaded: surgical_event_id: _SEI1, molecular_id: _MOI1, analysis_id: _ANI1
 #          Plan to uploaded surgical_event_id: _SEI1, molecular_id: _MOI1, analysis_id: _ANI2
     Given template variant uploaded message for patient: "PT_VU09_VariantReportUploaded", it has molecular_id: "PT_VU09_VariantReportUploaded_MOI1" and analysis_id: "PT_VU09_VariantReportUploaded_ANI2"
-    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+    When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
     Then wait for "15" seconds
     Then retrieve patient: "PT_VU09_VariantReportUploaded" from API
     Then returned patient has variant report (surgical_event_id: "PT_VU09_VariantReportUploaded_SEI1", molecular_id: "PT_VU09_VariantReportUploaded_MOI1", analysis_id: "PT_VU09_VariantReportUploaded_ANI2")
@@ -84,13 +84,13 @@ Feature: Variant files uploaded message
 #    Test patient: PT_VU10_VariantReportUploaded; VR uploaded: _SEI1, _MOI1, _ANI1, is PENDING
 #      Plan to use _SEI1, _MOI1, _ANI1 again
     Given template variant uploaded message for patient: "PT_VU10_VariantReportUploaded", it has molecular_id: "PT_VU10_VariantReportUploaded_MOI1" and analysis_id: "PT_VU10_VariantReportUploaded_ANI1"
-    When posted to MATCH patient trigger service, returns a message that includes "Patient already has a variant report with the same molecular id PT_VU10_VariantReportUploaded_MOI1 and analysis id PT_VU10_VariantReportUploaded_ANI1" with status "Failure"
+    When post to MATCH patients service, returns a message that includes "Patient already has a variant report with the same molecular id PT_VU10_VariantReportUploaded_MOI1 and analysis id PT_VU10_VariantReportUploaded_ANI1" with status "Failure"
 
   Scenario: PT_VU11. variant files uploaded with new analysis_id can be accepted when patient has TISSUE_VARIANT_REPORT_REJECTED status
 #    Test patient: PT_VU11_VariantReportRejected; VR rejected: _SEI1, _MOI1, _ANI1
 #      Plan to use _SEI1, _MOI1, _ANI2
     Given template variant uploaded message for patient: "PT_VU11_VariantReportRejected", it has molecular_id: "PT_VU11_VariantReportRejected_MOI1" and analysis_id: "PT_VU11_VariantReportRejected_ANI2"
-    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+    When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
     Then wait for "15" seconds
     Then retrieve patient: "PT_VU11_VariantReportRejected" from API
     Then returned patient has variant report (surgical_event_id: "PT_VU11_VariantReportRejected_SEI1", molecular_id: "PT_VU11_VariantReportRejected_MOI1", analysis_id: "PT_VU11_VariantReportRejected_ANI2")
@@ -99,7 +99,7 @@ Feature: Variant files uploaded message
   Scenario Outline: PT_VU12. variant files uploaded with existing(including the one just get rejected) analysis_id cannot be accepted when patient has TISSUE_VARIANT_REPORT_REJECTED status
 #    Test patient: PT_VU12_VariantReportRejected; VR rejected: _SEI1, _MOI1, _ANI1, VR rejected _SEI1, _MOI1, _ANI2
     Given template variant uploaded message for patient: "PT_VU12_VariantReportRejected", it has molecular_id: "<moi>" and analysis_id: "<ani>"
-    When posted to MATCH patient trigger service, returns a message that includes "Patient already has a variant report" with status "Failure"
+    When post to MATCH patients service, returns a message that includes "Patient already has a variant report" with status "Failure"
     Examples:
       |moi                                |ani                                |
       |PT_VU12_VariantReportRejected_MOI1 |PT_VU12_VariantReportRejected_ANI1 |
@@ -108,12 +108,12 @@ Feature: Variant files uploaded message
   Scenario: PT_VU13. variant files uploaded will not be accepted after a patient has TISSUE_VARIANT_REPORT_CONFIRMED status
   #    Test patient: PT_VU13_VariantReportConfirmed; VR confirmed _SEI1, _MOI1, _ANI1
     Given template variant uploaded message for patient: "PT_VU13_VariantReportConfirmed", it has molecular_id: "PT_VU13_VariantReportConfirmed_MOI1" and analysis_id: "PT_VU13_VariantReportConfirmed_ANI2"
-    When posted to MATCH patient trigger service, returns a message that includes "Patient already has a confirmed TISSUE variant report" with status "Failure"
+    When post to MATCH patients service, returns a message that includes "Patient already has a confirmed TISSUE variant report" with status "Failure"
 
   Scenario: PT_VU14. variant file uploaded to blood specimen should has correct result
     Test patient: PT_VU14_TissueAndBloodShipped; Tissue shipped: _SEI1, _MOI1; Blood shipped: BD_MOI1
     Given template variant uploaded message for patient: "PT_VU14_TissueAndBloodShipped", it has molecular_id: "PT_VU14_TissueAndBloodShipped_BD_MOI1" and analysis_id: "PT_VU14_TissueAndBloodShipped_ANI1"
-    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+    When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
     Then wait for "15" seconds
     Then retrieve patient: "PT_VU14_TissueAndBloodShipped" from API
     Then returned patient has variant report (surgical_event_id: "null", molecular_id: "PT_VU14_TissueAndBloodShipped_BD_MOI1", analysis_id: "PT_VU14_TissueAndBloodShipped_ANI1")
@@ -123,7 +123,7 @@ Feature: Variant files uploaded message
 #  Scenario: PT_VU15. tissue variant file uploaded should generate variants for latest surgical event (not older one which use the same molecular_id)
 ##    Test patient: PT_VU15_TissueReceivedAndShippedTwice: Tissue shipped: _SEI1, _MOI1, and _SEI2, _MOI1
 #    Given template variant uploaded message for patient: "PT_VU15_TissueReceivedAndShippedTwice", it has molecular_id: "MOI_01" and analysis_id: "ANI_01"
-#    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+#    When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
 #    Then wait for "15" seconds
 #    Then retrieve patient: "PT_VU15_TissueReceivedAndShippedTwice" from API
 #    Then returned patient has variant report (surgical_event_id: "SEI_02", molecular_id: "MOI_01", analysis_id: "ANI_01")
@@ -132,7 +132,7 @@ Feature: Variant files uploaded message
 #    Test patient: PT_VU16_BdVRUploaded; variant report files uploaded: molecular_id: _BR_MOI1, analysis_id: _ANI1
 #          Plan to uploaded molecular_id: _BR_MOI1, analysis_id: _ANI2
     Given template variant uploaded message for patient: "PT_VU16_BdVRUploaded", it has molecular_id: "PT_VU16_BdVRUploaded_BD_MOI1" and analysis_id: "PT_VU16_BdVRUploaded_ANI2"
-    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+    When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
     Then wait for "15" seconds
     Then retrieve patient: "PT_VU16_BdVRUploaded" from API
     Then returned patient has variant report (surgical_event_id: "null", molecular_id: "PT_VU16_BdVRUploaded_BD_MOI1", analysis_id: "PT_VU16_BdVRUploaded_ANI2")

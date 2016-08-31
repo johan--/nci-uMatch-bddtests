@@ -7,21 +7,21 @@ require_relative '../../../support/cog_helper_methods.rb'
 
 
 #post
-When(/^posted to MATCH patient trigger service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |retMsg, status|
-  puts JSON.pretty_generate(@request_json)
-  @response = Helper_Methods.post_request(ENV['protocol'] + '://' + ENV['DOCKER_HOSTNAME'] + ':' + ENV['patient_api_PORT'] + '/trigger',@request)
-  expect(@response['status']).to eql(status)
-  expect_message = "returned message include <#{retMsg}>"
-  actual_message = @response['message']
-  if @response['message'].include?retMsg
-    actual_message = "returned message include <#{retMsg}>"
-  end
-  actual_message.should == expect_message
-end
+# When(/^posted to MATCH patient trigger service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |retMsg, status|
+#   puts JSON.pretty_generate(@request_json)
+#   @response = Helper_Methods.post_request(ENV['protocol'] + '://' + ENV['DOCKER_HOSTNAME'] + ':' + ENV['patient_api_PORT'] + '/trigger',@request)
+#   expect(@response['status']).to eql(status)
+#   expect_message = "returned message include <#{retMsg}>"
+#   actual_message = @response['message']
+#   if @response['message'].include?retMsg
+#     actual_message = "returned message include <#{retMsg}>"
+#   end
+#   actual_message.should == expect_message
+# end
 
 When(/^post to MATCH patients service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |retMsg, status|
   puts JSON.pretty_generate(@request_json)
-  @response = Helper_Methods.post_request(ENV['protocol'] + '://' + ENV['DOCKER_HOSTNAME'] + ':' + ENV['patient_api_PORT'] + '/api/v1/patients/' + @patient_id, @request)
+  @response = Helper_Methods.post_request(ENV['patients_endpoint']+'/'+@patient_id, @request)
   expect(@response['status']).to eql(status)
   expect_message = "returned message include <#{retMsg}>"
   actual_message = @response['message']
@@ -33,7 +33,7 @@ end
 
 When(/^post to MATCH variant report confirm service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |retMsg, status|
   puts JSON.pretty_generate(@request_json)
-  url = ENV['protocol'] + '://' + ENV['DOCKER_HOSTNAME'] + ':' + ENV['patient_api_PORT'] + '/api/v1/patients/'
+  url = ENV['patients_endpoint'] + '/'
   url = url + @patient_id + '/variant_reports/' + @molecular_id + '/' + @analysis_id + '/' + @variant_report_status
   @response = Helper_Methods.put_request(url, @request)
   expect(@response['status']).to eql(status)
@@ -48,8 +48,23 @@ end
 
 When(/^post to MATCH variant confirm service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |retMsg, status|
   puts JSON.pretty_generate(@request_json)
-  url = ENV['protocol'] + '://' + ENV['DOCKER_HOSTNAME'] + ':' + ENV['patient_api_PORT'] + '/api/v1/patients/'
+  url = ENV['patients_endpoint'] + '/'
   url = url + @patient_id + '/variant/' + @current_variant_uuid + '/' + @current_variant_comment + '/' + @current_variant_confirm
+  @response = Helper_Methods.put_request(url, @request)
+  expect(@response['status']).to eql(status)
+  expect_message = "returned message include <#{retMsg}>"
+  actual_message = @response['message']
+  if @response['message'].include?retMsg
+    actual_message = "returned message include <#{retMsg}>"
+  end
+  actual_message.should == expect_message
+
+end
+
+When(/^post to MATCH assignment confirm service with assigned_date: "([^"]*)", returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |assign_date, retMsg, status|
+  puts JSON.pretty_generate(@request_json)
+  url = ENV['patients_endpoint'] + '/'
+  url = url + @patient_id + '/assignment_reports/' + assign_date + '/confirm'
   @response = Helper_Methods.put_request(url, @request)
   expect(@response['status']).to eql(status)
   expect_message = "returned message include <#{retMsg}>"
@@ -139,12 +154,12 @@ Given(/^template variant uploaded message for patient: "([^"]*)", it has molecul
   @request = @request_json.to_json.to_s
 end
 
-Given(/^template variant confirm message for variant: "([^"]*)", it is confirmed: "([^"]*)" with comment: "([^"]*)"$/) do |variant_uuid, confirmed, comment|
-  variant_confirm_message(variant_uuid, confirmed, comment)
+Given(/^template variant confirm message for patient: "([^"]*)", the variant: "([^"]*)" is confirmed: "([^"]*)" with comment: "([^"]*)"$/) do |patient_id, variant_uuid, confirmed, comment|
+  variant_confirm_message(patient_id, variant_uuid, confirmed, comment)
 end
 
 Then(/^create variant confirm message with confirmed: "([^"]*)" and comment: "([^"]*)" for this variant$/) do |confirmed, comment|
-  variant_confirm_message(@current_variant_uuid, confirmed, comment)
+  variant_confirm_message(@patient_id, @current_variant_uuid, confirmed, comment)
 end
 
 Given(/^template variant report confirm message for patient: "([^"]*)", it has molecular_id: "([^"]*)", analysis_id: "([^"]*)" and status: "([^"]*)"$/) do |patient_id, moi, ani, status|
@@ -207,12 +222,14 @@ Then(/^remove field: "([^"]*)" from patient message$/) do |field|
   @request = @request_json.to_json.to_s
 end
 
-def variant_confirm_message(variant_uuid, confirmed, comment)
+def variant_confirm_message(patient_id, variant_uuid, confirmed, comment)
   @request_json = Patient_helper_methods.load_patient_message_templates('variant_confirmed')
+  @patient_id = patient_id=='null'?nil:patient_id
   @current_variant_uuid = variant_uuid=='null'?nil:variant_uuid
   @current_variant_confirm = confirmed=='null'?nil:confirmed
   @current_variant_comment = comment=='null'?nil:comment
   @patient_message_root_key = ''
+  @request_json['patient_id'] = @patient_id
   @request_json['variant_uuid'] = @current_variant_uuid
   @request_json['confirmed'] = @current_variant_confirm
   @request_json['comment'] = @current_variant_comment
@@ -223,7 +240,7 @@ end
 
 #retrieval
 Then(/^retrieve patient: "([^"]*)" from API$/) do |patientID|
-  @retrieved_patient=Helper_Methods.get_single_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['patient_api_PORT']+'/patients/'+patientID)
+  @retrieved_patient=Helper_Methods.get_single_request(ENV['patients_endpoint']+'/'+patientID)
 
   #for testing purpose
   # @retrieved_patient=JSON(IO.read('/Users/wangl17/match_apps/patient_100100.json'))
@@ -325,7 +342,7 @@ end
 #   timeDiff.should <=20
 # end
 
-Then(/^variants in variant report \(surgical_event_id: "([^"]*)", molecular_id: "([^"]*)", analysis_id: "([^"]*)"\) has confirmed: "([^"]*)"$/) do |sei, moi, ani, confirmed|
+Then(/^variants in variant report \(surgical_event_id: "([^"]*)", molecular_id: "([^"]*)", analysis_id: "([^"]*)"\) have confirmed: "([^"]*)"$/) do |sei, moi, ani, confirmed|
   converted_sei = sei=='null'?nil:sei
   variant_report = find_variant_report(@retrieved_patient, converted_sei, moi, ani)
 

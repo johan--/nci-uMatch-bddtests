@@ -167,6 +167,7 @@
     "cdna_bam_file_path_name": "cdna.bam"
   },
   "variant_confirmed":{
+    "patient_id": "3344",
     "variant_uuid": "684b2da6-4b08-4f0f-a8b2-c02d886c24fa",
     "confirmed": "true",
     "comment": "bla bla bla"

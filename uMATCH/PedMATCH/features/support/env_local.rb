@@ -8,7 +8,7 @@
 
 
 ENV['rules_endpoint'] = 'http://127.0.0.1:8080/api/v1/rules'
-ENV['patients_endpoint'] = 'http://127.0.0.1:10240'
+ENV['patients_endpoint'] = 'http://127.0.0.1:10240/api/v1/patients'
 ENV['treatment_arm_endpoint'] = 'http://127.0.0.1:10235'
 ENV['cog_mock_endpoint'] = 'http://127.0.0.1:3000'
 

@@ -10,7 +10,7 @@
 
 
 ENV['rules_endpoint'] = 'http://pedmatch-int.nci.nih.gov/api/v1/rules'
-ENV['patients_endpoint'] = 'http://pedmatch-int.nci.nih.gov'
+ENV['patients_endpoint'] = 'http://pedmatch-int.nci.nih.gov/api/v1/patients'
 ENV['treatment_arm_endpoint'] = 'http://pedmatch-int.nci.nih.gov'
 ENV['cog_mock_endpoint'] = 'http://pedmatch-int.nci.nih.gov:3000'
 

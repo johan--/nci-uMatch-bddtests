@@ -5,11 +5,11 @@ require_relative '../../../support/helper_methods.rb'
 require_relative '../../../support/patient_helper_methods.rb'
 
 When(/^the patient service \/version is called$/) do
-  @res=Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['patient_api_PORT']+'/version')
+  @res=Helper_Methods.get_request(ENV['patients_endpoint']+'/version')
 end
 
 When(/^the patient processor service \/version is called$/) do
-  @res=Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['patient_processor_PORT']+'/version')
+  @res=Helper_Methods.get_request(ENV['patients_endpoint']+'/version')
 end
 
 Given(/^that Patient StudyID "([^"]*)" PatientSeqNumber "([^"]*)" StepNumber "([^"]*)" PatientStatus "([^"]*)" Message "([^"]*)" with "([^"]*)" dateCreated is received from EA layer$/) do |studyId, psn, stepNumber, patientStatus, message, isDateCreated|
