@@ -52,7 +52,7 @@ Given(/^that treatment arm is received from COG:$/) do |taJson|
 end
 
 Then(/^a failure message is returned which contains: "([^"]*)"$/) do |string|
-  @response['status'].should == 'FAILURE'
+  @response['status'].downcase.should == 'failure'
   expectMessage = "returned message include <#{string}>"
   actualMessage = @response['error']
   if @response['error'].include?string
