@@ -144,7 +144,7 @@ Feature: Variant files confirmed messages
     |PT_VC12_VRUploaded_1  |SEI_01   |MOI_01   |ANI_01   |CONFIRMED  |                                 |user1        |
     |PT_VC12_VRUploaded_2  |SEI_01   |MOI_01   |ANI_02   |REJECTED   |this variant report is rejected  |user2        |
 
-  Scenario: PT_VC13. if variant report rejected, comment values for variants that are in this variant report should be cleared
+  Scenario: PT_VC13. if variant report rejected, comment values for variants that are in this variant report should NOT BE cleared (this test has been changed, before the comments values should BE changed)
 #    Test patient PT_VC13_VRUploaded: surgical_event_id: SEI_01, molecular_id: MOI_01, analysis_id: ANI_01 vr uploaded
 #    first snv variant has confirmed=false, comment="TEST"
     Given retrieve patient: "PT_VC13_VRUploaded" from API
@@ -156,7 +156,7 @@ Feature: Variant files confirmed messages
     When posted to MATCH patient trigger service, returns a message that includes "TBD" with status "Success"
     Then retrieve patient: "PT_VC13_VRUploaded" from API
     Then find the first "snv_id" variant in variant report which has surgical_event_id: "SEI_01", molecular_id: "MOI_01" and analysis_id: "ANI_01"
-    Then this variant has confirmed field: "false" and comment field: ""
+    Then this variant has confirmed field: "false" and comment field: "Tests"
     
   Scenario: PT_VC14. confirming blood variant report will not trigger patient assignment process
   #Test patient PT_VC14_BdVRUploadedTsVRUploadedOtherReady assay and pathology are ready,
@@ -184,6 +184,17 @@ Feature: Variant files confirmed messages
     |PT_VC15_PathAssayDoneVRUploadedToConfirm |PT_VC15_PathAssayDoneVRUploadedToConfirm_MOI1  |PT_VC15_PathAssayDoneVRUploadedToConfirm_ANI1  |CONFIRMED    |PENDING_CONFIRMATION               |
     |PT_VC15_PathAssayDoneVRUploadedToReject  |PT_VC15_PathAssayDoneVRUploadedToReject_MOI1   |PT_VC15_PathAssayDoneVRUploadedToReject_ANI1   |REJECTED     |TISSUE_VARIANT_REPORT_REJECTED     |
 
+  Scenario: PT_VC16. patient can reach PENDING_CONFIRMATION status once all data ready, even there is mock service collapse in-between
+  #Test patient PT_VC16_VRAssayPathoReady VR uploaded PT_VC16_VRAssayPathoReady(_SEI1, _MOI1, _ANI1),
+#                                         Pathology confirmed (_SEI1)
+#                                         Assay result received (_SEI1, _BC1)
+    Given patient: "PT_VC16_PathAssayDoneVRUploadedToConfirm" in mock service lost patient list, service will come back after "5" tries
+#    Then template variant report confirm message for patient: "PT_VC16_VRAssayPathoReady", it has molecular_id: "PT_VC16_VRAssayPathoReady_MOI1", analysis_id: "PT_VC16_VRAssayPathoReady_ANI1" and status: "CONFIRMED"
+    Then template variant report confirm message for patient: "PT_VC16_PathAssayDoneVRUploadedToConfirm", it has molecular_id: "PT_VC16_PathAssayDoneVRUploadedToConfirm_MOI1", analysis_id: "PT_VC16_PathAssayDoneVRUploadedToConfirm_ANI1" and status: "CONFIRMED"
+    When posted to MATCH patient trigger service, returns a message that includes "Message has been processed successfully" with status "Success"
+    Then wait for "60" seconds
+    Then retrieve patient: "<patient_id>" from API
+    Then returned patient has value: "PENDING_CONFIRMATION" in field: "current_status"
 
 #  cannot confirm blood variant file using previous molecular_id (confirmed)
 #  blood variant file can be confirmed when when patient is in next step number (from 1.0 to 2.0)

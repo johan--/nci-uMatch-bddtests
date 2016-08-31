@@ -17,4 +17,11 @@ class COG_helper_methods
     sleep(1.0)
     return @response
   end
+
+  def COG_helper_methods.setServiceLostPatient(patient_id, error_times)
+    @response = Helper_Methods.post_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['cog_mock_PORT']+'/setupServiceLostSimulatinoForPatient/'+patient_id+'/'+error_times, '')
+    sleep(1.0)
+    return @response
+
+  end
 end

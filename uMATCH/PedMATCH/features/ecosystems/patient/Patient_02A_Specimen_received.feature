@@ -97,7 +97,6 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     |PT_SR10_BdVRReceived   |Success    |Message has been processed successfully                                      |
     |PT_SR10_BdVRRejected   |Success    |Message has been processed successfully                                      |
     |PT_SR10_BdVRConfirmed  |Failure    |confirmed variant report                                                     |
-#    |PT_SR10_WaitingPtData  |Success    |Message has been processed successfully                                      |
 #    |PT_SR10_PendingApproval|Success    |Message has been processed successfully                                      |
 #    |PT_SR10_ProgressReBioY2|TISSUE          |Success    |Message has been processed successfully                                      |
 #    |PT_SR10_ProgressReBioN2|TISSUE          |Failure    |cannot transition from                                                       |

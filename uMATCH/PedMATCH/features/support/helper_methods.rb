@@ -136,6 +136,35 @@ class Helper_Methods
     return result
   end
 
+
+  def Helper_Methods.put_request(service,payload)
+    # print "URL: #{service}\n"
+    # # print "JSON:\n#{JSON.pretty_generate(JSON.parse(payload))}\n\n"
+    # print "JSON:\n#{payload}\n\n"
+    begin
+      @res = RestClient::Request.execute(:url => service, :method => :put, :verify_ssl => false, :payload => payload, :headers=>{:content_type => 'json', :accept => 'json'})
+    rescue StandardError => e
+      print "Error: #{e.message} occurred\n"
+      # print "Response:#{e.response}\n"
+      if (e.response).empty?
+        result = {"Error":e.message}
+      else
+        result = JSON.parse(e.response)
+        result['status'] = 'Failure'
+      end
+      p result['message']
+      return result
+    end
+    result = JSON.parse(@res)
+    httpCode = "#{@res.code}"
+    status = httpCode=='200'?'Success':'Failure'
+    result['status'] = status
+    if status.eql?('Failure')
+      p result['message']
+    end
+    return result
+  end
+
   def Helper_Methods.aFewDaysOlder()
     time = DateTime.current.utc
     t = (time - 3.days)
