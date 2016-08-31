@@ -13,9 +13,10 @@ var utilities = require ('../../support/utilities');
 module.exports = function () {
     var surgicalEventId;
     var patientApi;
+    var patientId
+    var responseData;
 
     this.World = require('../step_definitions/world').World;
-
 
     this.When(/^I select another from the drop down$/, function (callback) {
         // Write code here that turns the phrase above into concrete actions
@@ -25,6 +26,19 @@ module.exports = function () {
     this.Then(/^I capture the current Surgical Event Id from the drop down$/, function (callback) {
         patientPage.surgicalEventDropDownButton.getText().then(function (completeSurgicalId) {
             surgicalEventId = patientPage.trimSurgicalEventId(completeSurgicalId);
+        }).then(callback);
+    });
+
+    this.When(/^I collect the patient Id$/, function (callback) {
+        browser.getCurrentUrl().then(function (url) {
+            var startPos = url.indexOf('=') + 1;
+            patientId = url.slice(startPos);
+        }).then(callback);
+    });
+
+    this.When(/^I collect information about the patient$/, function (callback) {
+        utilities.callApi('patient', '/patients/' + patientId).then(function (returnData) {
+            responseData = JSON.parse(returnData);
         }).then(callback);
     });
 
@@ -53,6 +67,13 @@ module.exports = function () {
     this.Then(/^I should see the Surgical Events drop down button$/, function (callback) {
 
         expect(patientPage.surgicalEventDropDownButton.isPresent()).to.eventually.be.true;
+        browser.sleep(50).then(callback);
+    });
+
+    this.Then(/^They match with the patient json for "([^"]*)" section$/, function (arg1, callback) {
+        console.log("patientId " + patientId);
+        console.log(responseData);
+
         browser.sleep(50).then(callback);
     });
 

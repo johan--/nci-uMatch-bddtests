@@ -13,12 +13,13 @@ Feature: Patient Surgical Events Tab
   @patients @ui @broken
   Scenario: Logged in user can see the details of the surgical event
     When I click on the "Surgical Events" tab
+    And I collect information about the patient
     Then I should see the "Surgical Events" tab is active
     And I should see the Surgical Events drop down button
     And I capture the current Surgical Event Id from the drop down
     And I should see the "Event" Section under patient Surgical Events
     And The Surgical Event Id match that of the drop down
-#    And They match with the patient json for "Event" section
+    And They match with the patient json for "Event" section
     And I should see the "Pathology" Section under patient Surgical Events
 #    And They match with the patient json for "Pathology" section
     And I should see the "Slide Shipments" section heading
