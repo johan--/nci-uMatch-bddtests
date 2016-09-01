@@ -23,18 +23,18 @@ module.exports = function () {
 
     this.Given(/^I am a logged in user$/, function(callback) {
         loginPageObj.goToLoginPage();
-
+        utilities.checkTitle(browser, loginPageObj.title);
         var email = process.env.NCI_MATCH_USERID;
         var password = process.env.NCI_MATCH_PASSWORD;
 
         loginPageObj.login(email, password);
-        utilities.waitForElement(dashboardPageObj.dashboardPanel(), 'Dashboard').then(function () {
-
-        }, function(){
-            console.log('Could not find element to indicate landing on Dashboard. Navigating directly to dashboard')
-            dashboardPageObj.goToPageName('dashboard');
-        });
-        browser.sleep(1000).then(callback);
+//        utilities.waitForElement(dashboardPageObj.dashboardPanel(), 'Dashboard').then(function () {
+//
+//        }, function(){
+//            console.log('Could not find element to indicate landing on Dashboard. Navigating directly to dashboard')
+//            dashboardPageObj.goToPageName('dashboard');
+//        });
+        browser.sleep(2000).then(callback);
     });
 
     this.When(/^I login with (valid|invalid) email and password/, function(validity, callback){

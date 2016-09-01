@@ -9,7 +9,7 @@ Feature: Dashboard page.
 
   Background:
     Given I am a logged in user
-
+  @demo
   Scenario: A User can see the Patients Statistics Section
     When I navigate to the dashboard page
     Then I can see the Dashboard banner
