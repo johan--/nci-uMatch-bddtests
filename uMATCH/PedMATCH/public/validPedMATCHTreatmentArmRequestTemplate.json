@@ -1,0 +1,268 @@
+{
+  "name" : "APEC1621-T for testing",
+  "active": true,
+  "id" : "APEC1621-T",
+  "version" : "2012-05-23",
+  "study_id" : "APEC1621",
+  "stratum_id" : "stratum1",
+  "description" : "Afatinib in EGFR activating mutation",
+  "target_id" : 750691,
+  "target_name" : "Afatinib",
+  "gene" : "EGFR",
+  "num_patients_assigned" : 0,
+  "treatment_arm_status" : "OPEN",
+  "treatment_arm_drugs" : [
+    {
+      "drug_id" : "750691",
+      "name" : "Afatinib",
+      "pathway" : "EGFR"
+    }
+  ],
+  "assay_rules" : [
+    {
+      "gene" : "PIK3CA",
+      "assay_result_status" : "POSITIVE",
+      "assay_variant" : "PRESENT",
+      "level_of_evidence" : 2.0,
+      "description": null
+    }
+  ],
+  "diseases" : [
+    {
+      "disease_code_type":"ICD-O",
+      "disease_code":"8200/0",
+      "disease_name" : "Bronchioloalveolar carcinoma",
+      "exclusion": true
+    },
+    {
+      "disease_code_type":"ICD-O",
+      "disease_code":"8200/1",
+      "disease_name" : "Lung adenocarcinoma",
+      "exclusion": true
+    },
+    {
+      "disease_code_type":"ICD-O",
+      "disease_code":"8200/2",
+      "disease_name" : "Lung adenocar. w/ bronch. feat.",
+      "exclusion": false
+    },
+    {
+      "disease_code_type":"ICD-O",
+      "disease_code":"8200/3",
+      "disease_name" : "Non-small cell lung cancer, NOS",
+      "exclusion": true
+    },
+    {
+      "disease_code_type":"ICD-O",
+      "ctepCategory" : "Non-Small Cell Lung Cancer",
+      "disease_name" : "Squamous cell lung carcinoma",
+      "exclusion": true
+    },
+    {
+      "disease_code_type":"ICD-O",
+      "ctepCategory" : "Small cell lung cancer",
+      "disease_name" : "Small Cell Lung Cancer",
+      "exclusion": false
+    }
+  ],
+  "exclusion_drugs" : [
+    {
+       "drug_id" : "750691",
+       "drug_class": "ALK inhibitor",
+       "name" : "Afatinib"
+    },
+    {
+      "drug_id" : "",
+      "name" : "Erlotinib",
+      "drug_class": "ALK inhibitor",
+      "target": "ALK"
+    },
+    {
+      "drug_id" : "",
+      "name" : "Gefitinib",
+      "drug_class": "ALK inhibitor",
+    },
+    {
+      "drug_id" : "",
+      "name" : "Neratinib",
+      "drug_class": "ALK inhibitor",
+      "target": "ALK"
+    },
+    {
+      "drug_id" : "",
+      "name" : "Dacomitinib",
+      "drug_class": "ALK inhibitor",
+      "target": "ALK"
+    }
+  ],
+  "exclusion_criterias" : [],
+  "ptenResults" : [
+    {
+      "ptenIhcResult": "POSITIVE",
+      "ptenVariant": "PRESENT",
+      "description": null
+    }
+  ],
+  "single_nucleotide_variants" : [
+    {
+      "confirmed" : false,
+      "public_med_ids" : [
+        "20573926",
+        " 19692684",
+        " 20022809"
+      ],
+      "type" : "snp",
+      "func_gene" : "EGFR",
+      "chromosome" : "chr7",
+      "position" : "55259515",
+      "identifier" : "COSM6224",
+      "ocp_reference" : "T",
+      "ocp_alternative" : "G",
+      "description" : "p.L858R",
+      "rare" : false,
+      "level_of_evidence" : 1,
+      "inclusion" : true,
+      "armSpecific" : false
+    },
+    {
+      "confirmed" : false,
+      "public_med_ids" : [
+        "26051236"
+      ],
+      "type" : "snp",
+      "func_gene" : "EGFR",
+      "chromosome" : "chr7",
+      "position" : "55241707",
+      "identifier" : "COSM6252",
+      "ocp_reference" : "G",
+      "ocp_alternative" : "A",
+      "description" : "p.G719S",
+      "rare" : false,
+      "level_of_evidence" : 2,
+      "inclusion" : false,
+      "armSpecific" : false
+    }
+  ],
+  "indels" : [
+    {
+      "type" : "ins",
+      "confirmed" : false,
+      "func_gene" : "EGFR",
+      "chromosome" : "chr7",
+      "position" : "55242462",
+      "identifier" : "COSM26038",
+      "ocp_reference" : "CAAGGAATTAAGAGAA",
+      "ocp_alternative" : "C",
+      "description" : "p.K745_E749del",
+      "rare" : false,
+      "level_of_evidence" : 1,
+      "inclusion" : true,
+      "armSpecific" : false
+    },
+    {
+      "type" : "ins",
+      "confirmed" : false,
+      "func_gene" : "EGFR",
+      "chromosome" : "chr7",
+      "position" : "55242463",
+      "identifier" : "COSM1190791",
+      "ocp_reference" : "AAGGAATTAAGAGAAG",
+      "ocp_alternative" : "A",
+      "description" : "p.K745_A750delinsT",
+      "rare" : false,
+      "level_of_evidence" : 1,
+      "inclusion" : true,
+      "armSpecific" : false
+    }
+  ],
+  "copy_number_variants" : [
+    {
+      "type" : "cnv",
+      "refCopyNumber" : 0.0,
+      "rawCopyNumber" : 0.0,
+      "copyNumber" : 0.0,
+      "confidenceInterval95percent" : 0.0,
+      "confidenceInterval5percent" : 0.0,
+      "confirmed" : false,
+      "public_med_ids" : [
+        "3798106"
+      ],
+      "func_gene" : "ERBB2",
+      "identifier" : "ERBB2",
+      "description" : "ERBB2 Amplification",
+      "rare" : false,
+      "level_of_evidence" : 2.0,
+      "inclusion" : true,
+      "armSpecific" : false
+    },
+    {
+      "type" : "cnv",
+      "refCopyNumber" : 0.0,
+      "rawCopyNumber" : 0.0,
+      "copyNumber" : 0.0,
+      "confidenceInterval95percent" : 0.0,
+      "confidenceInterval5percent" : 0.0,
+      "confirmed" : false,
+      "func_gene" : "FGFR3",
+      "identifier" : "FGFR3",
+      "description" : "FGFR1/2/3/4 Amplification and activating mutations",
+      "rare" : false,
+      "level_of_evidence" : 2.0,
+      "inclusion" : false,
+      "armSpecific" : false
+    }
+  ],
+  "gene_fusions" : [
+    {
+      "type": "fusion",
+      "confirmed" : false,
+      "public_med_ids" : [
+        "23777544"
+      ],
+      "func_gene" : "EGFR",
+      "identifier" : "EGFR.DelPositive.E1E8",
+      "description" : "EGFR.DelPositive.E1E8",
+      "rare" : false,
+      "level_of_evidence" : 1.0,
+      "inclusion" : true,
+      "armSpecific" : false
+    },
+    {
+      "type": "fusion",
+      "confirmed" : false,
+      "func_gene" : "FGFR2",
+      "identifier" : "FGFR2-OFD1.F17O3",
+      "ocp_reference" : "C",
+      "ocp_alternative" : "C[chrX:13754596[",
+      "description" : "some description",
+      "rare" : false,
+      "level_of_evidence" : 3.0,
+      "inclusion" : false,
+      "armSpecific" : false
+    }
+  ],
+  "non_hotspot_rules" : [
+    {
+      "type" : "nhr",
+      "func_gene" : "EGFR",
+      "exon" : "19",
+      "function" : "nonframeshiftDeletion",
+      "oncomine_variant_class":"amplification",
+      "rare" : false,
+      "level_of_evidence" : 1,
+      "inclusion" : true,
+      "armSpecific" : false
+    },
+    {
+      "type" : "nhr",
+      "func_gene" : "EGFR",
+      "exon" : "20",
+      "function" : "nonframeshiftInsertion",
+      "rare" : false,
+      "level_of_evidence" : 2,
+      "inclusion" : false,
+      "armSpecific" : false
+    }
+  ]
+
+}

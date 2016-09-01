@@ -31,7 +31,7 @@ var LoginPage = function() {
                 previousLoginLink.click();
             }
         });
-        utils.waitForElement(email, 'Email text area');
+//        utils.waitForElement(email, 'Email text area');
         email.sendKeys(username);
         pass.sendKeys(password);
         loginbtn.click();

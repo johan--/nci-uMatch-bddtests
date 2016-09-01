@@ -98,13 +98,17 @@ var Utilities = function() {
             'patient'   : '10240',
             'treatment' : '10235'
         };
+        port = portMap[service];
 
         var baseUrl = browser.baseUrl;
 
-        uri = baseUrl.match('localhost') ? browser.baseUrl.slice(0, -5) : browser.baseUrl
+        if (baseUrl.match('localhost')) {
+            uri = browser.baseUrl.slice(0, -5) + ':' + port;
+        }else {
+            uri = browser.baseUrl;
+        }
 
-        port = portMap[service];
-        var callUrl = uri + ':' + port + param;
+        var callUrl = uri + param;
         return rest(callUrl).then(function (response) {
             return response.entity;
         });

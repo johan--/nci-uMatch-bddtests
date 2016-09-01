@@ -8,12 +8,12 @@ var dash = require ('../../pages/dashboardPage');
 module.exports = function() {
     this.World = require ('../step_definitions/world').World;
 
-    var patientStats       = utilities.callApi('patient', '/dashboard/patientStatistics');
-    var pendingReportStats = utilities.callApi('patient', '/dashboard/sequencedAndConfirmedPatients');
-    var pendingTissueVR    = utilities.callApi('patient', '/dashboard/pendingVariantReports/tissue');
-    var pendingBloodVR     = utilities.callApi('patient', '/dashboard/pendingVariantReports/blood');
-    var pendingAssignment  = utilities.callApi('patient', '/dashboard/pendingAssignmentReports');
-    var timeline           = utilities.callApi('patient', '/timeline');
+    var patientStats       = utilities.callApi('patient', '/patients/statistics');
+    var pendingReportStats = utilities.callApi('patient', '/patients/sequencedAndConfirmedPatients');
+    var pendingTissueVR    = utilities.callApi('patient', '/patients/variant_reports?status=PENDING&type=TISSUE');
+    var pendingBloodVR     = utilities.callApi('patient', '/patients/variant_reports?status=PENDING&type=BLOOD');
+    var pendingAssignment  = utilities.callApi('patient', '/patients/assignment_reports?status=PENDING');
+    var timeline           = utilities.callApi('patient', '/patients/timeline');
 
     // This is all the listing under the patient statistics section on the top banner.
     var listings = dash.statisticsLabels;
