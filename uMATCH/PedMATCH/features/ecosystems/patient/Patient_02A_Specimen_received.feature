@@ -118,21 +118,20 @@ Scenario: PT_SR12. new tissue cannot be received when there is one tissue varian
   Given template specimen received message in type: "TISSUE" for patient: "PT_SR12_VariantReportConfirmed", it has surgical_event_id: "PT_SR12_VariantReportConfirmed_SEI2"
   When post to MATCH patients service, returns a message that includes "cannot transition from" with status "Failure"
 
-Scenario: PT_SR14. new specimen using new SEI will push all pending variant report from old SEI to "REJECT"
-#    Test patient: PT_SR14_VariantReportUploaded; variant report files uploaded: surgical_event_id: PT_SR14_VariantReportUploaded_SEI1, molecular_id: PT_SR14_VariantReportUploaded_MOI1, analysis_id: PT_SR14_VariantReportUploaded_ANI1
-#          Plan to receive new specimen surgical_event_id: SEI_02
-  Given template specimen received message in type: "TISSUE" for patient: "PT_SR14_VariantReportUploaded", it has surgical_event_id: "PT_SR14_VariantReportUploaded_SEI2"
+Scenario Outline: PT_SR14. new specimen receipt will push all pending variant report from old SEI to "REJECT"
+#    Test patient: PT_SR14_TsVrUploaded; variant report files uploaded: PT_SR14_TsVrUploaded(_SEI1, _MOI1, _ANI1)
+#          Plan to receive new specimen surgical_event_id: PT_SR14_TsVrUploaded_SEI2
+#    Test patient: PT_SR14_BdVrUploaded; variant report files uploaded: PT_SR14_BdVrUploaded(_MOI1, _ANI1)
+  Given template specimen received message in type: "<specimen_type>" for patient: "<patient_id>", it has surgical_event_id: "<sei>"
   Then set patient message field: "collected_dttm" to value: "2016-08-21T14:20:02-04:00"
   When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
   Then wait for "15" seconds
-  Then retrieve patient: "PT_SR14_VariantReportUploaded" from API
-  Then returned patient has value: "TISSUE_SPECIMEN_RECEIVED" in field: "current_status"
-  Then returned patient has variant report (surgical_event_id: "PT_SR14_VariantReportUploaded_SEI1", molecular_id: "PT_SR14_VariantReportUploaded_MOI1", analysis_id: "PT_SR14_VariantReportUploaded_ANI1")
+  Then retrieve patient: "<patient_id>" from API
+  Then returned patient has value: "<patient_status>" in field: "current_status"
+  Then returned patient has variant report (surgical_event_id: "<sei>", molecular_id: "<moi>", analysis_id: "<ani>")
   And this variant report has value: "REJECTED" in field: "status"
+  Examples:
+  |patient_id            |specimen_type  |sei                       |moi                          |ani                       |patient_status                 |
+  |PT_SR14_TsVrUploaded  |TISSUE         |PT_SR14_TsVrUploaded_SEI1 |PT_SR14_TsVrUploaded_MOI1    |PT_SR14_TsVrUploaded_ANI2 |TISSUE_VARIANT_REPORT_RECEIVED |
+  |PT_SR14_BdVrUploaded  |BLOOD          |                          |PT_SR14_BdVrUploaded_BD_MOI1 |PT_SR14_BdVrUploaded_ANI1 |BLOOD_VARIANT_REPORT_RECEIVED  |
 
-  #data not ready
-#Scenario: PT_SR13. new tissue with a surgical_event_id that was used in previous step should fail
-## Test patient: PT_SR13_Step2Started: surgical event id: PT_SR13_Step2Started_SEI1 has been used in step 1
-#  Given template specimen received message in type: "TISSUE" for patient: "PT_SR13_Step2Started", it has surgical_event_id: "PT_SR13_Step2Started_SEI1"
-#  Then set patient message field: "collected_dttm" to value: "current"
-#  When post to MATCH patients service, returns a message that includes "same surgical event id" with status "Failure"

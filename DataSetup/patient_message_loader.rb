@@ -6,7 +6,7 @@ class PatientMessageLoader
 
   LOCAL_PATIENT_DATA_FOLDER = 'local_patient_data'
   LOCAL_DYNAMODB_URL = 'http://localhost:8000'
-  LOCAL_PATIENT_API_URL = 'http://localhost:10240'
+  LOCAL_PATIENT_API_URL = 'http://localhost:10240/api/v1/patients/'
   SERVICE_NAME = 'trigger'
   MESSAGE_TEMPLATE_FILE = "#{File.dirname(__FILE__)}/../uMATCH/PedMATCH/public/patient_message_templates.json"
 
@@ -21,7 +21,7 @@ class PatientMessageLoader
     p "#{@all_items} messages processed, #{pass} passed and #{@failure} failed"
   end
 
-  def self.load_patient_to_local(message_file, wait_time)
+  def self.load_patient_to_local(message_file, patient_id, wait_time)
     raise 'patient_id must be valid' if message_file.nil? || message_file.length == 0
     file = File.read("#{LOCAL_PATIENT_DATA_FOLDER}/#{message_file}.json")
 
@@ -39,7 +39,7 @@ class PatientMessageLoader
 
         curl_cmd ="curl -k -X POST -H \"Content-Type: application/json\""
         curl_cmd = curl_cmd + " -H \"Accept: application/json\"  -d '" + message.to_json
-        curl_cmd = curl_cmd + "' #{LOCAL_PATIENT_API_URL}/#{SERVICE_NAME}"
+        curl_cmd = curl_cmd + "' #{LOCAL_PATIENT_API_URL}/#{patient_id}"
         output = `#{curl_cmd}`
         p "Output from running No.#{all_items} curl: #{output}"
         unless output.downcase.include?'success'
@@ -56,11 +56,11 @@ class PatientMessageLoader
     p "#{all_items} messages processed, #{pass} passed and #{failure} failed"
   end
 
-  def self.send_message_to_local(message_json)
+  def self.send_message_to_local(message_json, patient_id)
     @all_items += 1
     curl_cmd ="curl -k -X POST -H \"Content-Type: application/json\""
     curl_cmd = curl_cmd + " -H \"Accept: application/json\"  -d '" + message_json.to_json
-    curl_cmd = curl_cmd + "' #{LOCAL_PATIENT_API_URL}/#{SERVICE_NAME}"
+    curl_cmd = curl_cmd + "' #{LOCAL_PATIENT_API_URL}/#{patient_id}"
     output = `#{curl_cmd}`
     p "Output from running No.#{@all_items} curl: #{output}"
     unless output.downcase.include?'success'
@@ -86,7 +86,7 @@ class PatientMessageLoader
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['registration']
     message['patient_id'] = patient_id
     message['registration_date'] = convert_date(date)
-    send_message_to_local(message)
+    send_message_to_local(message, patient_id)
   end
 
   def self.specimen_received_tissue(
@@ -97,7 +97,7 @@ class PatientMessageLoader
     message['specimen_received']['patient_id'] = patient_id
     message['specimen_received']['surgical_event_id'] = surgical_event_id
     message['specimen_received']['collected_dttm'] = convert_date(collect_time)
-    send_message_to_local(message)
+    send_message_to_local(message, patient_id)
   end
 
   def self.specimen_received_blood(
@@ -106,7 +106,7 @@ class PatientMessageLoader
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['specimen_received_BLOOD']
     message['specimen_received']['patient_id'] = patient_id
     message['specimen_received']['collected_dttm'] = convert_date(collect_time)
-    send_message_to_local(message)
+    send_message_to_local(message, patient_id)
   end
 
   def self.specimen_shipped_tissue(
@@ -121,7 +121,7 @@ class PatientMessageLoader
     message['specimen_shipped']['molecular_dna_id'] = molecular_id+'D'
     message['specimen_shipped']['molecular_cdna_id'] = molecular_id+'C'
     message['specimen_shipped']['shipped_dttm'] = convert_date(shipped_time)
-    send_message_to_local(message)
+    send_message_to_local(message, patient_id)
   end
 
   def self.specimen_shipped_slide(
@@ -134,7 +134,7 @@ class PatientMessageLoader
     message['specimen_shipped']['surgical_event_id'] = surgical_event_id
     message['specimen_shipped']['slide_barcode'] = slide_barcode
     message['specimen_shipped']['shipped_dttm'] = convert_date(shipped_time)
-    send_message_to_local(message)
+    send_message_to_local(message, patient_id)
   end
 
   def self.specimen_shipped_blood(
@@ -145,7 +145,7 @@ class PatientMessageLoader
     message['specimen_shipped']['patient_id'] = patient_id
     message['specimen_shipped']['molecular_id'] = molecular_id
     message['specimen_shipped']['shipped_dttm'] = convert_date(shipped_time)
-    send_message_to_local(message)
+    send_message_to_local(message, patient_id)
   end
 
   def self.assay(
@@ -161,7 +161,7 @@ class PatientMessageLoader
     message['biomarker'] = biomarker
     message['result'] = result
     message['reported_date'] = convert_date(reported_date)
-    send_message_to_local(message)
+    send_message_to_local(message, patient_id)
   end
 
   def self.pathology(
@@ -175,7 +175,7 @@ class PatientMessageLoader
     message['surgical_event_id'] = surgical_event_id
     message['status'] = status
     message['reported_date'] = convert_date(reported_date)
-    send_message_to_local(message)
+    send_message_to_local(message, patient_id)
   end
 
   def self.variant_file_uploaded(
@@ -186,7 +186,7 @@ class PatientMessageLoader
     message['patient_id'] = patient_id
     message['molecular_id'] = molecular_id
     message['analysis_id'] = analysis_id
-    send_message_to_local(message)
+    send_message_to_local(message, patient_id)
   end
 
   def self.variant_file_confirmed(
@@ -199,7 +199,7 @@ class PatientMessageLoader
     message['status'] = status
     message['molecular_id'] = molecular_id
     message['analysis_id'] = analysis_id
-    send_message_to_local(message)
+    send_message_to_local(message, patient_id)
   end
 
   def self.assignment_confirmed(
@@ -212,7 +212,7 @@ class PatientMessageLoader
     message['status'] = status
     message['molecular_id'] = molecular_id
     message['analysis_id'] = analysis_id
-    send_message_to_local(message)
+    send_message_to_local(message, patient_id)
   end
 
   def self.on_treatment_arm(
@@ -230,7 +230,7 @@ class PatientMessageLoader
     message['treatment_arm_id'] = treatment_arm_id
     message['treatment_arm_version'] = treatment_arm_version
     message['stratum_id'] = stratum_id
-    send_message_to_local(message)
+    send_message_to_local(message, patient_id)
   end
 
   # def self.load_patient_script_to_local(message_file, wait_time)
@@ -256,7 +256,7 @@ class PatientMessageLoader
   #     else
   #       curl_cmd ="curl -k -X POST -H \"Content-Type: application/json\""
   #       curl_cmd = curl_cmd + " -H \"Accept: application/json\"  -d '" + message_to_send.to_json
-  #       curl_cmd = curl_cmd + "' #{LOCAL_PATIENT_API_URL}/#{SERVICE_NAME}"
+  #       curl_cmd = curl_cmd + "' #{ç}/#{SERVICE_NAME}"
   #       output = `#{curl_cmd}`
   #       p "Output from running No.#{all_items} curl: #{output}"
   #       unless output.downcase.include?'success'

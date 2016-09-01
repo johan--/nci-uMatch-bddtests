@@ -197,18 +197,3 @@ Feature: Variant files confirmed messages
     |PT_VC15_VRUploadedAssayReceived          |PT_VC15_VRUploadedAssayReceived_MOI1           |PT_VC15_VRUploadedAssayReceived_ANI1           |CONFIRMED    |TISSUE_VARIANT_REPORT_CONFIRMED    |
     |PT_VC15_PathAssayDoneVRUploadedToConfirm |PT_VC15_PathAssayDoneVRUploadedToConfirm_MOI1  |PT_VC15_PathAssayDoneVRUploadedToConfirm_ANI1  |CONFIRMED    |PENDING_CONFIRMATION               |
     |PT_VC15_PathAssayDoneVRUploadedToReject  |PT_VC15_PathAssayDoneVRUploadedToReject_MOI1   |PT_VC15_PathAssayDoneVRUploadedToReject_ANI1   |REJECTED     |TISSUE_VARIANT_REPORT_REJECTED     |
-
-  Scenario: PT_VC16. patient can reach PENDING_CONFIRMATION status once all data ready, even there is mock service collapse in-between
-  #Test patient PT_VC16_PathAssayDoneVRUploadedToConfirm VR uploaded PT_VC16_VRAssayPathoReady(_SEI1, _MOI1, _ANI1),
-#                                         Pathology confirmed (_SEI1)
-#                                         Assay result received (_SEI1, _BC1)
-    Given patient: "PT_VC16_PathAssayDoneVRUploadedToConfirm" in mock service lost patient list, service will come back after "5" tries
-#    Then template variant report confirm message for patient: "PT_VC16_VRAssayPathoReady", it has molecular_id: "PT_VC16_VRAssayPathoReady_MOI1", analysis_id: "PT_VC16_VRAssayPathoReady_ANI1" and status: "CONFIRMED"
-    Then template variant report confirm message for patient: "PT_VC16_PathAssayDoneVRUploadedToConfirm", it has molecular_id: "PT_VC16_PathAssayDoneVRUploadedToConfirm_MOI1", analysis_id: "PT_VC16_PathAssayDoneVRUploadedToConfirm_ANI1" and status: "CONFIRMED"
-    When post to MATCH variant report confirm service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then wait for "60" seconds
-    Then retrieve patient: "PT_VC16_PathAssayDoneVRUploadedToConfirm" from API
-    Then returned patient has value: "PENDING_CONFIRMATION" in field: "current_status"
-
-#  cannot confirm blood variant file using previous molecular_id (confirmed)
-#  blood variant file can be confirmed when when patient is in next step number (from 1.0 to 2.0)
