@@ -23,18 +23,19 @@ var LoginPage = function() {
         var email =  element(by.id('a0-signin_easy_email'));
         var pass = element(by.id('a0-signin_easy_password'));
         var loginbtn = element(by.buttonText('Access'));
-        var previousLoginLink = element(by.linkText('Not your account?'));
+        var previousLogin = element.all(by.css('div[title="' + username + ' (Auth0)"]'));
+        var previousLoginLink =  element(by.linkText('Not your account?'));
         accessbtn.click(); // Clicking NCI-Matchbox button
         browser.sleep(1000);
         browser.isElementPresent(previousLoginLink).then(function (present){
             if (present === true) {
-                previousLoginLink.click();
+                previousLogin.click();
+            } else {
+                email.sendKeys(username);
+                pass.sendKeys(password);
+                loginbtn.click();
             }
         });
-//        utils.waitForElement(email, 'Email text area');
-        email.sendKeys(username);
-        pass.sendKeys(password);
-        loginbtn.click();
     };
 
     this.currentLogin = function() {

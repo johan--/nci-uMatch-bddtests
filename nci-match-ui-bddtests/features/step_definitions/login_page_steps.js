@@ -23,7 +23,7 @@ module.exports = function () {
 
     this.Given(/^I am a logged in user$/, function(callback) {
         loginPageObj.goToLoginPage();
-        utilities.checkTitle(browser, loginPageObj.title);
+
         var email = process.env.NCI_MATCH_USERID;
         var password = process.env.NCI_MATCH_PASSWORD;
 

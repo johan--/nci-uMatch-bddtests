@@ -24,7 +24,8 @@ var DashboardPage = function() {
 
 
     this.logout = function () {
-        element(by.css('a[ng-click="logout()"]')).click();
+        this.logoutLink.click();
+        console.log('Clicked Logout');
         browser.waitForAngular();
     };
 
