@@ -53,6 +53,9 @@ var LoginPage = function() {
                             }
 
                     })
+                }, function () {
+                    console.log("Function timed out. Trying to access dashboard directly")
+                    dashboard.goToPageName('dashboard');
                 });
             });
         }); // Clicking NCI-Matchbox button
