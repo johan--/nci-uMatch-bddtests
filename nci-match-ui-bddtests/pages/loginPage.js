@@ -8,37 +8,37 @@ var dashboard = require ('../pages/dashboardPage');
 var LoginPage = function() {
 
     this.title = 'MATCHBox | Login';
-    var accessbtn =  element(by.css('button[type="submit"]'));
+    var accessBtn =  element(by.css('button[ng-click="login()"]'));
 
     this.goToLoginPage = function(){
         browser.get('/#/auth/login', 6000).then(function () {
             browser.waitForAngular();
         });
         browser.getCurrentUrl().then(function(url){
-            console.log("current_url = " + url);
-            console.log("url !== '/#/auth/login' " + (url.match('/#/auth/login')));
-            if(url !== '/#/auth/login'){
+            if(url !== browser.baseUrl + '/#/auth/login'){
                 dashboard.logout;
             }
         });
     };
 
-    this.login = function(username, password) {
+    this.login = function (username, password, flag) {
         var email =  element(by.id('a0-signin_easy_email'));
         var pass = element(by.id('a0-signin_easy_password'));
         var loginbtn = element(by.buttonText('Access'));
         var previousLogin = element.all(by.css('div[title="' + username + ' (Auth0)"]'));
         var previousLoginLink =  element(by.linkText('Not your account?'));
-        accessbtn.click().then(function () {
+        accessBtn.click().then(function () {
             browser.waitForAngular();
         }); // Clicking NCI-Matchbox button
 
         browser.isElementPresent(previousLoginLink).then(function (present){
-            console.log("value of present = "+present);
-            browser.getPageSource().then(function (source) {
-                console.log(source);
-            });
-
+            console.log("the value of present = " + present);
+            if(flag === true){
+                browser.getPageSource().then(function (source) {
+                    console.log(source);
+                });
+            }
+            
             if (present === true) {
                 console.log("clicking");
                 previousLogin.click().then(function () {
@@ -58,7 +58,7 @@ var LoginPage = function() {
 
     this.currentLogin = function() {
         var previousAccountUsed = element(by.css('div[data-strategy="auth0"]'));
-        accessbtn.click();
+        accessBtn.click();
         browser.sleep(1000);
         browser.isElementPresent(previousAccountUsed).then(function (present){
             if (present === true) {

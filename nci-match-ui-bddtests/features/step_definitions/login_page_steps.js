@@ -27,7 +27,7 @@ module.exports = function () {
         var email = process.env.NCI_MATCH_USERID;
         var password = process.env.NCI_MATCH_PASSWORD;
 
-        loginPageObj.login(email, password);
+        loginPageObj.login(email, password, true);
 //        utilities.waitForElement(dashboardPageObj.dashboardPanel(), 'Dashboard').then(function () {
 //
 //        }, function(){
@@ -47,7 +47,7 @@ module.exports = function () {
             email = 'abc_xyz@nih.gov';
         }
 
-        loginPageObj.login(email, password);
+        loginPageObj.login(email, password, false);
 
         browser.sleep(2000).then(callback);
     });
