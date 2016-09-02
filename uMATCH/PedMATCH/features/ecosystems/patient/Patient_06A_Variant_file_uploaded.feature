@@ -140,4 +140,3 @@ Feature: Variant files uploaded message
     Then returned patient has variant report (surgical_event_id: "null", molecular_id: "PT_VU16_BdVRUploaded_BD_MOI1", analysis_id: "PT_VU16_BdVRUploaded_ANI1")
     And this variant report has value: "REJECTED" in field: "status"
 
-#  blood variant file can be uploaded when when patient is in next step number (from 1.0 to 2.0)

@@ -253,7 +253,6 @@ Feature: NCH Specimen shipped messages
     Then returned patient has variant report (surgical_event_id: "PT_SS27_VariantReportUploaded_SEI1", molecular_id: "PT_SS27_VariantReportUploaded_MOI1", analysis_id: "PT_SS27_VariantReportUploaded_ANI1")
     And this variant report has value: "REJECTED" in field: "status"
 
-#    This test case is not required
   Scenario Outline: PT_SS28. destination should be validated
     #slide can only be shipped to MDA, if it is shipped to MoCha, that shoulf fail
     Given template specimen shipped message in type: "<type>" for patient: "<patient_id>", it has surgical_event_id: "<sei>", molecular_id: "<moi>", slide_barcode: "<barcode>"
@@ -286,17 +285,3 @@ Feature: NCH Specimen shipped messages
 #    |PT_SS29_BdAndTsReceived1   |MDA              |MDA               |Success   |Message has been processed successfully  |
 #    |PT_SS29_BdAndTsReceived2   |Mocha            |Mocha             |Success   |Message has been processed successfully  |
 #    |PT_SS29_BdAndTsReceived3   |Mocha            |MDA               |Failure   |destination                              |
-
-  #data not ready
-#Scenario Outline: PT_SR29. shippment with molecular_id (or barcode) that was used in previous step should fail
-## Test patient: PT_SR29_Step2TissueReceived1: current surgical event id: PT_SR29_Step2TissueReceived1_SEI5, molecular id: PT_SR29_Step2TissueReceived1_MOI1 has been used in step 1
-##               PT_SR29_Step2TissueReceived2: current surgical event id: PT_SR29_Step2TissueReceived2_SEI5, slide barcode: PT_SR29_Step2TissueReceived2_BC1 has been used in step 1
-##               PT_SR29_Step2BloodReceived:  molecular id: PT_SR29_Step2BloodReceived_MOI1 has been used in step 1
-#  Given template specimen shipped message in type: "<type>" for patient: "<patient_id>", it has surgical_event_id: "<sei>", molecular_id: "<moi>", slide_barcode: "<barcode>"
-#  Then set patient message field: "shipped_dttm" to value: "current"
-#  When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
-#  Examples:
-#    |patient_id                   |sei                              |moi                               |barcode                         |type       |message                          |
-#    |PT_SR29_Step2TissueReceived1 |PT_SR29_Step2TissueReceived1_SEI5|PT_SR29_Step2TissueReceived1_MOI1 |                                |TISSUE     |same molecular id has been found |
-#    |PT_SR29_Step2TissueReceived2 |PT_SR29_Step2TissueReceived2_SEI5|PT_SR29_Step2TissueReceived1_MOI1 |PT_SR29_Step2TissueReceived2_BC1|SLIDE      |same barcode has been found      |
-#    |PT_SR29_Step2BloodReceived   |                                 |PT_SR29_Step2BloodReceived_MOI1   |                                |BLOOD      |same molecular id has been found |
