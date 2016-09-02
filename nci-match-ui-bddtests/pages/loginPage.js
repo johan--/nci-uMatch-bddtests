@@ -15,45 +15,42 @@ var LoginPage = function() {
             browser.waitForAngular();
         });
         browser.getCurrentUrl().then(function(url){
-            if(url !== browser.baseUrl + '/#/auth/login'){
-                dashboard.logout;
+            console.log(url);
+            console.log(browser.baseUrl + '/#/auth/login');
+            if(url !== (browser.baseUrl + '/#/auth/login')){
+                dashboard.logout();
             }
         });
     };
 
-    this.login = function (username, password, flag) {
+    this.login = function (username, password, callback) {
+        var loginPopupPanel = element(by.css('div.a0-popup'));
         var email =  element(by.id('a0-signin_easy_email'));
         var pass = element(by.id('a0-signin_easy_password'));
         var loginbtn = element(by.buttonText('Access'));
-        var previousLogin = element.all(by.css('div[title="' + username + ' (Auth0)"]'));
-        var previousLoginLink =  element(by.linkText('Not your account?'));
-        accessBtn.click().then(function () {
-            browser.waitForAngular();
+        var previousLogin = element(by.css('div[title="' + username + ' (Auth0)"]'));
+
+        browser.isElementPresent(accessBtn).then(function () {
+            accessBtn.click().then(function () {
+                expect(loginPopupPanel.isPresent()).to.eventually.eql(true).then(function () {
+                    console.log("3")
+                    browser.isElementPresent(previousLogin).then(function (present) {
+                        console.log("the value of present = " + present);
+
+                            if(present === true){
+                                console.log("clicking previous sign in link")
+                                previousLogin.click().then(callback);
+                            } else {
+                                console.log("entering userid and password");
+                                email.sendKeys(username);
+                                pass.sendKeys(password);
+                                loginbtn.click().then(callback);
+                            }
+
+                    })
+                });
+            });
         }); // Clicking NCI-Matchbox button
-
-        browser.isElementPresent(previousLoginLink).then(function (present){
-            console.log("the value of present = " + present);
-            if(flag === true){
-                browser.getPageSource().then(function (source) {
-                    console.log(source);
-                });
-            }
-            
-            if (present === true) {
-                console.log("clicking");
-                previousLogin.click().then(function () {
-                    browser.waitForAngular();
-                });
-            } else {
-                console.log("entering values");
-
-                email.sendKeys(username);
-                pass.sendKeys(password);
-                loginbtn.click().then(function () {
-                    browser.waitForAngular();
-                });
-            }
-        });
     };
 
     this.currentLogin = function() {
