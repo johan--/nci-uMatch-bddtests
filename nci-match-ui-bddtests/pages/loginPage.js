@@ -38,9 +38,9 @@ var LoginPage = function() {
                 previousLogin.click();
             } else {
                 console.log("entering values");
-                email.sendKeys(username);
-                pass.sendKeys(password);
-                loginbtn.click();
+//                email.sendKeys(username);
+//                pass.sendKeys(password);
+//                loginbtn.click();
             }
         });
     };
