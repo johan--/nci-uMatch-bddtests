@@ -15,8 +15,6 @@ var LoginPage = function() {
             browser.waitForAngular();
         });
         browser.getCurrentUrl().then(function(url){
-            console.log(url);
-            console.log(browser.baseUrl + '/#/auth/login');
             if(url !== (browser.baseUrl + '/#/auth/login')){
                 dashboard.logout();
             }
@@ -31,30 +29,23 @@ var LoginPage = function() {
         var previousLogin = element(by.css('div[title="' + username + ' (Auth0)"]'));
 
         browser.isElementPresent(accessBtn).then(function () {
-            console.log("1");
             accessBtn.click().then(function () {
-                console.log("2")
                 utils.waitForElement(loginPopupPanel, 'Login Pop up panel').then(function () {
-                    console.log("3")
                     browser.isElementPresent(previousLogin).then(function (present) {
-                        console.log("the value of present = " + present);
-
-                            if(present === true){
-                                console.log("clicking previous sign in link");
-                                browser.getPageSource().then(function (source) {
-                                    console.log(source);
-                                });
-                                previousLogin.click().then(callback);
-                            } else {
-                                console.log("entering userid and password");
-                                email.sendKeys(username);
-                                pass.sendKeys(password);
-                                loginbtn.click().then(callback);
-                            }
-
+                        if(present === true){
+                            console.log("clicking previous sign in link");
+                            browser.getPageSource().then(function (source) {
+                                console.log(source);
+                            });
+                            previousLogin.click().then(callback);
+                        } else {
+                            console.log("entering userid and password");
+                            email.sendKeys(username);
+                            pass.sendKeys(password);
+                            loginbtn.click().then(callback);
+                        }
                     })
                 }, function () {
-                    console.log("Function timed out. Trying to access dashboard directly")
                     dashboard.goToPageName('dashboard');
                 });
             });
