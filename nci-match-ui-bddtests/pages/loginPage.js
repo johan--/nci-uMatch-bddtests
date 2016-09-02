@@ -29,18 +29,29 @@ var LoginPage = function() {
         var loginbtn = element(by.buttonText('Access'));
         var previousLogin = element.all(by.css('div[title="' + username + ' (Auth0)"]'));
         var previousLoginLink =  element(by.linkText('Not your account?'));
-        accessbtn.click(); // Clicking NCI-Matchbox button
-        browser.sleep(1000);
+        accessbtn.click().then(function () {
+            browser.waitForAngular();
+        }); // Clicking NCI-Matchbox button
+
         browser.isElementPresent(previousLoginLink).then(function (present){
             console.log("value of present = "+present);
+            browser.getPageSource().then(function (source) {
+                console.log(source);
+            });
+
             if (present === true) {
                 console.log("clicking");
-                previousLogin.click();
+                previousLogin.click().then(function () {
+                    browser.waitForAngular();
+                });
             } else {
                 console.log("entering values");
-//                email.sendKeys(username);
-//                pass.sendKeys(password);
-//                loginbtn.click();
+
+                email.sendKeys(username);
+                pass.sendKeys(password);
+                loginbtn.click().then(function () {
+                    browser.waitForAngular();
+                });
             }
         });
     };
