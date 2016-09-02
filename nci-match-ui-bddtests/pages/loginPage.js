@@ -31,14 +31,19 @@ var LoginPage = function() {
         var previousLogin = element(by.css('div[title="' + username + ' (Auth0)"]'));
 
         browser.isElementPresent(accessBtn).then(function () {
+            console.log("1");
             accessBtn.click().then(function () {
-                expect(loginPopupPanel.isPresent()).to.eventually.eql(true).then(function () {
+                console.log("2")
+                utils.waitForElement(loginPopupPanel, 'Login Pop up panel').then(function () {
                     console.log("3")
                     browser.isElementPresent(previousLogin).then(function (present) {
                         console.log("the value of present = " + present);
 
                             if(present === true){
-                                console.log("clicking previous sign in link")
+                                console.log("clicking previous sign in link");
+                                browser.getPageSource().then(function (source) {
+                                    console.log(source);
+                                });
                                 previousLogin.click().then(callback);
                             } else {
                                 console.log("entering userid and password");
