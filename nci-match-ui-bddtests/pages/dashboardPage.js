@@ -6,7 +6,7 @@ var DashboardPage = function() {
 
     this.title = 'MATCHBox | Dashboard';
 
-    this.dashboardPanel    = function() { return element(by.css('.sticky-navbar'))}; // This is the sticky panel at the top
+    this.dashboardPanel    = element(by.css('.sticky-navbar')); // This is the sticky panel at the top
     this.dashSummary       = element(by.css('.top-dashboard-header-box')); // This is the top dashboard section
     this.summaryHeadings   = this.dashSummary.all(by.css('h3'));
     this.dashSummaryAnchor = element(by.css('.dashboard-anchor'));
@@ -16,11 +16,12 @@ var DashboardPage = function() {
 
 
     this.logoutLink = element(by.css('[ng-click="logout()"]'));
-    this.patientsNum = element.all(by.binding(' numberOfPatients '));
-    this.screenedPatients = element(by.binding(' numberOfScreenedPatients '));
-    this.patientsOnTreatment = element(by.binding(' numberOfPatientsWithTreatment '));
-    this.pendingAssignmentReports = element(by.binding(' numberOfPendingAssignmentReports '));
-
+    this.registeredPatients = element(by.binding(' patientStatistics.number_of_patients '));
+    this.patientsWithCVR    = element(by.binding(' patientStatistics.number_of_patients_with_confirmed_variant_report '));
+    this.patientsOnTA       = element(by.binding(' patientStatistics.number_of_patients_on_treatment_arm '));
+    this.pendingTVRCount    = element(by.binding(' pendingTissueVariantReportGridOptions.data.length '));
+    this.pendingBVRCount    = element(by.binding(' pendingBloodVariantReportGridOptions.data.length '));
+    this.pendingAssgnCount  = element(by.binding(' pendingAssignmentReportGridOptions.data.length '));
 
 
     this.logout = function () {
@@ -35,7 +36,7 @@ var DashboardPage = function() {
     };
 
 
-    this.feedRepeaterList     = element.all(by.repeater('timelineEvent in activity.data'));
+    this.feedRepeaterList     = element.all(by.css('div[ng-init="activity.startLoading(10)"]>div>.timeline-item'));
 
     this.dashAmoiChart        = element(by.css('div[ng-init^="setCanvasHeight(\'#amoiCanvas\'"]'));
     this.dashTreatmentAccrual = element(by.css('div[ng-init^="setCanvasHeight(\'#treatmentArmAccrualCanvas\'"]'));

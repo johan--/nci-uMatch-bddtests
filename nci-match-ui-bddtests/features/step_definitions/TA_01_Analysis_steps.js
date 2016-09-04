@@ -63,7 +63,6 @@ module.exports = function () {
             browser.setLocation(location , 6000).then(function () {
                 callback();
             }, function(err){
-                console.log(browser.getCurrentUrl());
                 console.log(err.toString());
             });
         })
@@ -140,7 +139,6 @@ module.exports = function () {
     this.Then(/^I should see the Name Details$/, function (callback) {
         //todo: Make sure to check for the name as a combination of TA and stratem
         utilities.checkElementArray(taPage.leftInfoBoxLabels, taPage.expectedLeftBoxLabels);
-        console.log(firstTreatmentArm);
 
         expect(taPage.taName.getText()).to.eventually.equal(firstTreatmentArm.name);
         expect(taPage.taDescription.getText()).to.eventually.equal(firstTreatmentArm.description);

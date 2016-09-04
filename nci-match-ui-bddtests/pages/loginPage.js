@@ -33,13 +33,8 @@ var LoginPage = function() {
                 utils.waitForElement(loginPopupPanel, 'Login Pop up panel').then(function () {
                     browser.isElementPresent(previousLogin).then(function (present) {
                         if(present === true){
-                            console.log("clicking previous sign in link");
-                            browser.getPageSource().then(function (source) {
-                                console.log(source);
-                            });
                             previousLogin.click().then(callback);
                         } else {
-                            console.log("entering userid and password");
                             email.sendKeys(username);
                             pass.sendKeys(password);
                             loginbtn.click().then(callback);

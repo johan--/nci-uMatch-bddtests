@@ -9,20 +9,29 @@ Feature: Dashboard page.
 
   Background:
     Given I am a logged in user
-  @demo
+
   Scenario: A User can see the Patients Statistics Section
     When I navigate to the dashboard page
     Then I can see the Dashboard banner
     And I can see all sub headings under the top Banner
     And I can see the Patients Statistics Section
+    And I collect "patientStats" data from backend
     And I can see Patients Statistics data
+    And I collect "pendingTissueVR" data from backend
+    And I can see patients with Pending Tissue Variant Reports
+    And I collect "pendingBloodVR" data from backend
+    And I can see patients with Pending Blood Variant Reports
+    And I collect "pendingAssignment" data from backend
+    And I can see patients with Pending Assignment Reports
 
   Scenario: A User can see the Sequenced and Confirmed Patients section
     When I navigate to the dashboard page
+    And I collect "pendingReportStats" data from backend
     Then I can see Sequenced and confirmed patients data
 
   Scenario: A User can see the Treatment Arm Accrual Section
     When I navigate to the dashboard page
+    And I collect "patientStats" data from backend
     Then I can see the Treatment Arm Accrual chart data
 
   Scenario: A user can see the Pending Review Section

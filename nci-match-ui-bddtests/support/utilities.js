@@ -92,6 +92,8 @@ var Utilities = function() {
         baseURL
      */
     this.callApi = function(service, param) {
+        var self = this;
+        var _entity;
         var uri;
         var port;
         var portMap = {
@@ -109,9 +111,24 @@ var Utilities = function() {
         }
 
         var callUrl = uri + param;
-        return rest(callUrl).then(function (response) {
-            return response.entity;
-        });
+        return{
+            get: call,
+            entity: getResponse
+        };
+
+        function getResponse(){
+            return self._entity;
+        }
+
+        function call(){
+            return rest(callUrl).then(
+                function (response) {
+                    self._entity = response.entity;
+                }, function(error) {
+                    console.log(error);
+                }
+            )
+        }
     };
 
     /** This function returns a hash of details available from the Treatment Arm Based on the id provided
@@ -160,8 +177,7 @@ var Utilities = function() {
     }
 
     this.getJSONifiedDetails = function (response){
-        var jsonResponse =  JSON.parse(response);
-        return jsonResponse;
+        return JSON.parse(response);
     };
 
     /**

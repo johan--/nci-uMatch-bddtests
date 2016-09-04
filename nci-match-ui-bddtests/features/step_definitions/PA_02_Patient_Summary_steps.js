@@ -38,7 +38,7 @@ module.exports = function () {
     });
 
     this.When(/^I collect the patient Api Information$/, function (callback) {
-        var str = '/patients/' + patientId;
+        var str = '/api/v1/patients/' + patientId;
 
         patientInfoPromise = utilities.callApi('patient', str).then(function (response) {
               return(response);
@@ -194,17 +194,6 @@ module.exports = function () {
     this.Then(/^I should see the Patient Timeline section with the timeline about the patient$/, function (callback) {
         // todo: write code here to see the Patient Timeline section with the timeline about the patient
         browser.sleep(50).then(callback);
-    });
-
-    this.Then(/^I print it$/, function (callback) {
-        console.log('yay');
-    patientInfoPromise.then(function (val) {
-        var x = JSON.parse(val);
-        console.log(val);
-        console.log(x.patient_id)
-    });
-        browser.sleep(50).then(callback)
-
     });
 
     // todo: All pages that have TA "title" should display Name, Stratum and Version.
