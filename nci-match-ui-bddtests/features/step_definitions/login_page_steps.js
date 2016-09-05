@@ -55,8 +55,8 @@ module.exports = function () {
 
     this.Then(/^I should be able to the see Dashboard page$/, function (callback){
         var dashboard = dashboardPageObj.dashboardElement;
-        var panel = dashboardPageObj.dashboardPanel();
-        expect(browser.isElementPresent(dashboard)).to.eventually.be.true;
+        var panel = dashboardPageObj.dashboardPanel;
+        expect(panel.isPresent()).to.eventually.be.true;
         expect(panel.element(by.css('h2')).getText()).to.eventually.eql('Dashboard');
         browser.sleep(50).then(callback);
     });
