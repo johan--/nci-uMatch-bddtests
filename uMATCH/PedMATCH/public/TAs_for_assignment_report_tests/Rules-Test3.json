@@ -1,0 +1,28 @@
+[{
+  "id": "Rules-Test3",
+  "version": "2015-08-06",
+  "stratum_id": "100",
+  "num_patients_assigned":null,
+  "treatment_arm_status": "OPEN",
+  "assay_rules": [],
+  "single_nucleotide_variants": [],
+  "indels": [],
+  "non_hotspot_rules": [{
+    "inclusion": true,
+    "oncomine_variant_class": "hotspot",
+    "func_gene": "EGFR",
+    "level_of_evidence": 3.0
+  }],
+  "copy_number_variants": [],
+  "diseases": [{
+    "disease_code_type":"ICD-O",
+    "disease_code": "10058354",
+    "disease_name": "Bronchioloalveolar carcinoma",
+    "exclusion":true
+  },{
+    "disease_code_type":"ICD-O",
+    "disease_code": "10033701",
+    "disease_name": "Papillary thyroid carcinoma",
+    "exclusion":false
+  }]
+}]

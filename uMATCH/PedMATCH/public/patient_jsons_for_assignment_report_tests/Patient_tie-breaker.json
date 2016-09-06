@@ -1,0 +1,33 @@
+{
+  "prior_drugs": [
+    {
+      "drug_id": "763093",
+      "name": "Trametinib"
+    }
+  ],
+  "assay_results": [{
+    "gene":"PTEN","status": "INDETERMINATE"
+  }],
+  "diseases": [
+    {
+      "disease_code_type":"ICD-O",
+      "disease_code": "10033701",
+      "disease_name": "Papillary thyroid carcinoma"
+    }
+  ],
+  "single_nucleotide_variants": [
+    {
+      "type":"snp",
+      "metadata": {
+        "id": "ba62eecc-d24a-4f62-a918-570deb8a9f6c"
+      },
+      "func_gene" : "PTEN",
+      "exon" : "22",
+      "oncomine_variant_class": "deleterious",
+      "identifier" : "COSM1234"
+    }
+  ],
+  "indels": [],
+  "copy_number_variants": [],
+  "gene_fusions": []
+}

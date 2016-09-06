@@ -1,0 +1,24 @@
+[{
+  "id": "APEC1621-C",
+  "version" : "2015-08-06",
+  "stratum_id": "100",
+  "diseases" : [],
+  "exclusion_drugs" : [],
+  "assay_rules" : [],
+  "num_patients_assigned" : 0,
+  "treatment_arm_status" : "OPEN",
+  "single_nucleotide_variants" : [],
+  "indels" : [],
+  "copy_number_variants" : [],
+  "gene_fusions" : [],
+  "non_hotspot_rules" : [
+    {
+      "func_gene" : "ETV5a",
+      "exon" : "2",
+      "oncomine_variant_class": null,
+      "function":null,
+      "level_of_evidence" : 3.0,
+      "inclusion" : true
+    }
+  ]
+}]

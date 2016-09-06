@@ -109,7 +109,7 @@ class Helper_Methods
 
 
   def Helper_Methods.post_request(service,payload)
-    # print "URL: #{service}\n"
+    print "URL: #{service}\n"
     # # print "JSON:\n#{JSON.pretty_generate(JSON.parse(payload))}\n\n"
     # print "JSON:\n#{payload}\n\n"
     begin
