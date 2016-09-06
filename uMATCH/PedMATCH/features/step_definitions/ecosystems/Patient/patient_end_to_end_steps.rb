@@ -158,6 +158,17 @@ Then(/^COG received assignment status: "([^"]*)" for this patient$/) do |assignm
   actual_message.should == expect_message
 end
 
+Then(/^assignment report is "([^"]*)"$/) do |status|
+  @request_hash = Patient_helper_methods.load_patient_message_templates('assignment_confirmed')
+  @request_hash['patient_id'] = @patient_id
+  @request_hash['status'] = status
+  @request_hash['molecular_id'] = @active_ts_moi
+  @request_hash['analysis_id'] = @active_ani
+
+  post_to_trigger
+  validate_response('Success', 'successfully')
+end
+
 def post_to_trigger
   puts JSON.pretty_generate(@request_hash)
   @response = Helper_Methods.post_request(ENV['patients_endpoint']+'/'+@patient_id, @request_hash.to_json.to_s)

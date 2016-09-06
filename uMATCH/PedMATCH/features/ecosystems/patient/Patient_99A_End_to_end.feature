@@ -16,7 +16,9 @@ Feature: Patients end to end tests
     Then "BLOOD" variant report uploaded with analysis_id: "PT_ETE01_ANI2"
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
     Then "BLOOD" variant report confirmed with status: "REJECTED"
-    Then wait for "60" seconds
+    Then wait for "30" seconds
+    Then assignment report is "CONFIRMED"
+    Then wait for "30" seconds
     When retrieve patient: "PT_ETE01" from API
     Then returned patient has value: "ON_TREATMENT_ARM" in field: "current_status"
     Then returned patient has value: "1.1" in field: "current_step_number"
@@ -33,12 +35,16 @@ Feature: Patients end to end tests
     Then "BLOOD" variant report uploaded with analysis_id: "PT_ETE01_ANI4"
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
     Then "BLOOD" variant report confirmed with status: "CONFIRMED"
-    Then wait for "60" seconds
+    Then wait for "30" seconds
+    Then assignment report is "CONFIRMED"
+    Then wait for "30" seconds
     When retrieve patient: "PT_ETE01" from API
     Then returned patient has value: "ON_TREATMENT_ARM" in field: "current_status"
     Then returned patient has value: "2.1" in field: "current_step_number"
     Then patient has new assignment request with re-biopsy: "false", step number: "3.0"
-    Then wait for "60" seconds
+    Then wait for "30" seconds
+    Then assignment report is "CONFIRMED"
+    Then wait for "30" seconds
     When retrieve patient: "PT_ETE01" from API
     Then returned patient has value: "ON_TREATMENT_ARM" in field: "current_status"
     Then returned patient has value: "3.1" in field: "current_step_number"
@@ -51,7 +57,9 @@ Feature: Patients end to end tests
     Then pathology confirmed with status: "Y"
     Then "TISSUE" variant report uploaded with analysis_id: "PT_ETE01_ANI5"
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
-    Then wait for "60" seconds
+    Then wait for "30" seconds
+    Then assignment report is "CONFIRMED"
+    Then wait for "30" seconds
     When retrieve patient: "PT_ETE01" from API
     Then returned patient has value: "ON_TREATMENT_ARM" in field: "current_status"
     Then returned patient has value: "4.1" in field: "current_step_number"
@@ -127,11 +135,37 @@ Feature: Patients end to end tests
     Given patient: "<patient_id>" with status: "TISSUE_VARIANT_REPORT_RECEIVED" on step: "1.0"
     Given this patients's active "TISSUE" molecular_id is "<moi>"
     Given this patients's active analysis_id is "<ani>"
-    Given other prepared steps for this patient: "All data is ready, these will <description>"
+    Given other prepared steps for this patient: "All data is ready, there will <description>"
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
     Then wait for "60" seconds
     Then COG received assignment status: "<assignment_status>" for this patient
     Examples:
-    |patient_id             |moi                         |ani                         |description              |assignment_status |
-    |PT_ETE07_TsVrReceived1 |PT_ETE07_TsVrReceived1_MOI1 |PT_ETE07_TsVrReceived1_ANI1 |not have TA availble     |NO_TA_AVAILABLE   |
-    |PT_ETE07_TsVrReceived2 |PT_ETE07_TsVrReceived2_MOI1 |PT_ETE07_TsVrReceived2_ANI1 |have a closedTA availble |COMPASSIONATE_CARE|
+    |patient_id             |moi                         |ani                         |description               |assignment_status |
+    |PT_ETE07_TsVrReceived1 |PT_ETE07_TsVrReceived1_MOI1 |PT_ETE07_TsVrReceived1_ANI1 |not have TA available     |NO_TA_AVAILABLE   |
+    |PT_ETE07_TsVrReceived2 |PT_ETE07_TsVrReceived2_MOI1 |PT_ETE07_TsVrReceived2_ANI1 |have a closed TA available|COMPASSIONATE_CARE|
+
+  Scenario Outline: PT_ETE05. variant report confirmation should fail if patient is on OFF_STUDY status
+    Given patient: "<patient_id>" with status: "<current_status>" on step: "1.0"
+    Given other prepared steps for this patient: "All data is ready, tissue variant report was waiting for confirmation before patient changed to OFF_STUDY"
+    Then "TISSUE" variant report confirmed with status: "CONFIRMED"
+    Then API returns a message that includes "OFF_STUDY" with status "Failure"
+    Examples:
+      |patient_id                 |current_status           |
+      |PT_ETE05_OffStudy1         |OFF_STUDY                |
+      |PT_ETE05_OffStudy2         |OFF_STUDY_BIOPSY_EXPIRED |
+
+  Scenario Outline: PT_ETE06. assignment report confirmation should fail if patient is on OFF_STUDY status
+    Given patient: "<patient_id>" with status: "<current_status>" on step: "1.0"
+    Given other prepared steps for this patient: "Assignment report was waiting for confirmation before patient changed to OFF_STUDY"
+    Then assignment report is "CONFIRMED"
+    Then API returns a message that includes "OFF_STUDY" with status "Failure"
+    Examples:
+      |patient_id                 |current_status           |
+      |PT_ETE06_OffStudy1         |OFF_STUDY                |
+      |PT_ETE06_OffStudy2         |OFF_STUDY_BIOPSY_EXPIRED |
+    
+  Scenario: PT_ETE07. request assignment message with rebiopsy = N will fail if the current biopsy is expired
+    Given patient: "PT_ETE07" with status: "ON_TREATMENT_ARM" on step: "1.1"
+    Given other prepared steps for this patient: "the specimen received date is over 6 months ago"
+    Then patient has new assignment request with re-biopsy: "false", step number: "2.0"
+    Then API returns a message that includes "expired" with status "Failure"
