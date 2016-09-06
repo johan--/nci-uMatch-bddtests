@@ -226,53 +226,5 @@
         "stars_specimen_id": "ABCXYZ-0BJ64F"
       }
     }
-  },
-  {
-    "site": "MoCha",
-    "molecular_id": "3366-bsn-msn-blood",
-    "analysis_id": "job2",
-    "tsv_file_name": "3366.tsv",
-    "vcf_file_name": "3366-bsn-msn-2.vcf"
-  },
-  {
-    "site": "MoCha",
-    "molecular_id": "3366-bsn-msn-blood",
-    "analysis_id": "job2",
-    "dna_bam_file_name": "dna.bam",
-    "dna_bai_file_name": "dna.bam.bai"
-  },
-  {
-    "site": "MoCha",
-    "molecular_id": "3366-bsn-msn-blood",
-    "analysis_id": "job2",
-    "cdna_bam_file_name": "cdna.bam",
-    "cdna_bai_file_name": "cdna.bam.bai"
-  },
-
-  {
-    "patient_id": "3366",
-    "molecular_id": "3366-bsn-msn-blood",
-    "analysis_id": "job1",
-    "status": "CONFIRMED",
-    "comment": "The committee approves this variant report",
-    "comment_user": "rick"
-  },
-
-  {
-    "patient_id": "3366",
-    "molecular_id": "3366-bsn-msn-blood",
-    "analysis_id": "job2",
-    "status": "CONFIRMED",
-    "comment": "The committee approves this variant report",
-    "comment_user": "rick"
-  },
-  {
-    "status_type": "ASSIGNMENT",
-    "patient_id": "3366",
-    "molecular_id": "3366-bsn-msn-2",
-    "analysis_id": "job1",
-    "status": "CONFIRMED",
-    "comment": "The committee approves this assignment",
-    "comment_user": "brent"
   }
 ]
