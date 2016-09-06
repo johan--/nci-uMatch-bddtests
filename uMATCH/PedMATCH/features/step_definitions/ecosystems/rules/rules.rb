@@ -60,11 +60,18 @@ When(/^call the amoi rest service$/) do
   expect(@res['status']).to eql("Success")
 end
 
+When(/^the proficiency_competency service is called/) do
+  @res = Helper_Methods.post_request(ENV['rules_endpoint']+'/sample_control_report/proficiency_competency/BDD/msn-1111/job-1111/'+@tsv+'?filtered=true',@treatment_arm.to_json)
+  puts @res.to_json
+  expect(@res['status']).to eql("Success")
+end
+
+
 Then(/^moi report is returned with the snv variant "([^"]*)" as an amoi$/) do |arg1|
   # JSON.parse(@res)['single_nucleotide_variants'].each do |snv|
   @res['single_nucleotide_variants'].each do |snv|
     if snv['identifier'] == arg1
-      expect(snv['amoi']).to eql(true)
+      expect(snv['amois']).to eql(true)
     end
   end
 end
@@ -148,7 +155,7 @@ Then(/^moi report is returned with the indel variant "([^"]*)" as an amoi$/) do 
   # JSON.parse(@res)['indels'].each do |ind|
     @res['indels'].each do |ind|
     if ind['identifier'] == arg1
-      expect(ind['amoi']).to eql(true)
+      expect(ind['amois']).to eql(true)
     end
   end
 end
@@ -180,7 +187,7 @@ Then(/^moi report is returned with the cnv variant "([^"]*)" as an amoi$/) do |a
   # JSON.parse(@res)['copy_number_variants'].each do |cnv|
   @res['copy_number_variants'].each do |cnv|
     if cnv['identifier'] == arg1
-      expect(cnv['amoi']).to eql(true)
+      expect(cnv['amois']).to eql(true)
     end
   end
 end
@@ -213,10 +220,18 @@ Then(/^moi report is returned with the ugf variant "([^"]*)" as an amoi$/) do |a
   # JSON.parse(@res)['unified_gene_fusions'].each do |ugf|
   @res['gene_fusions'].each do |gf|
     if gf['identifier'] == arg1
-      expect(gf['amoi']).to eql(true)
+      expect(gf['amois']).to eql(true)
     end
   end
 end
 
+Then(/^moi report is returned with (\d+) cnv variants$/) do |arg1|
+  # expect(JSON.parse(@res)['single_nucleotide_variants'].count).to eql(arg1.to_i)
+  expect(@res['copy_number_variants'].count).to eql(arg1.to_i)
+end
 
+Then(/^moi report is returned with (\d+) ugf variants$/) do |arg1|
+  # expect(JSON.parse(@res)['single_nucleotide_variants'].count).to eql(arg1.to_i)
+  expect(@res['gene_fusions'].count).to eql(arg1.to_i)
+end
 
