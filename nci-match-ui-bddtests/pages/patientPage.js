@@ -28,7 +28,7 @@ var PatientPage = function () {
     // Disease Summary table information on the patient details page.
     this.diseaseSummaryTable = element.all(by.css('.header-info-box.top-main-header-box')).get(1);
     //Patient details page main tabs
-    this.actualMainTabs = element.all(by.css('li.uib-tab.nav-item'));
+    this.actualMainTabs = element.all(by.binding('heading'));
     // This element gives access to the current active tab
     this.currentActiveTab = element(by.css('.active[ng-class="{active: tabset.active === tab.index}"]'));
     //This element captures the sub headings under all the Tabs.

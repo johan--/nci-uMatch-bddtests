@@ -37,7 +37,7 @@ module.exports = function () {
     });
 
     this.When(/^I collect information about the patient$/, function (callback) {
-        utilities.callApi('patient', '/patients/' + patientId).then(function (returnData) {
+        utilities.callApi('patient', '/api/v1/patients/' + patientId).then(function (returnData) {
             responseData = JSON.parse(returnData);
         }).then(callback);
     });
@@ -72,7 +72,7 @@ module.exports = function () {
 
     this.Then(/^They match with the patient json for "([^"]*)" section$/, function (arg1, callback) {
         console.log("patientId " + patientId);
-        console.log(responseData);
+
 
         browser.sleep(50).then(callback);
     });

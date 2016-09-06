@@ -39,9 +39,9 @@ module.exports = function () {
 
     this.When(/^I collect the patient Api Information$/, function (callback) {
         var str = '/api/v1/patients/' + patientId;
-
-        patientInfoPromise = utilities.callApi('patient', str).then(function (response) {
-              return(response);
+        var request = utilities.callApi('patient', str)
+        request.get().then(function () {
+              patientApiInfo = JSON.parse(request.entity());
         });
 
         browser.sleep(50).then(callback);
@@ -49,7 +49,6 @@ module.exports = function () {
 
     this.When(/^I click on the "([^"]*)" tab$/, function (tabName, callback) {
         var index = expectedMainTabs.indexOf(tabName);
-        utilities.waitForElement(actualMainTabsArray.get(0));
         utilities.clickElementArray(actualMainTabsArray, index);
         browser.sleep(5).then(callback);
     });
@@ -82,60 +81,54 @@ module.exports = function () {
 
     this.Then(/^I should see the patient's information match database$/, function (callback) {
         var actualTable = patientPage.patientSummaryTable.all(by.css('.ng-binding'));
-        patientInfoPromise.then(function (info) {
-            var patientApiInfo = JSON.parse(info);
-            var expectedListfromAPI = [];
-            expectedListfromAPI.push(patientApiInfo.patient_id);
-            expectedListfromAPI.push(patientApiInfo.gender + ', ' + patientApiInfo.ethnicity);
-            expectedListfromAPI.push(utilities.dashifyIfEmpty(patientApiInfo.last_rejoin_scan_date));
-            expectedListfromAPI.push(patientApiInfo.current_status);
-            expectedListfromAPI.push(patientApiInfo.current_step_number);
+        var expectedListfromAPI = [];
 
-            for (var i = 0; i < expectedListfromAPI.length; i++) {
-                expect(actualTable.get(i).getText()).to.eventually.eql(expectedListfromAPI[i]);
-            }
+        expectedListfromAPI.push(patientApiInfo.patient_id);
+        expectedListfromAPI.push(patientApiInfo.gender + ', ' + patientApiInfo.ethnicity);
+        expectedListfromAPI.push(utilities.dashifyIfEmpty(patientApiInfo.last_rejoin_scan_date));
+        expectedListfromAPI.push(patientApiInfo.current_status);
+        expectedListfromAPI.push(patientApiInfo.current_step_number);
 
-            if (patientApiInfo.current_assignment !== null){
-                var selectedTA = patientApiInfo.current_assignment.treatment_arms.selected;
-                expect(element(by.css('treatment-arm-title[name="currentTreatmentArm.name"]'))).to.
-                    eventually.equal(selectedTA.treatment_arm);
+        for (var i = 0; i < expectedListfromAPI.length; i++) {
+            expect(actualTable.get(i).getText()).to.eventually.eql(expectedListfromAPI[i]);
+        }
 
-                expect(element(by.css('treatment-arm-title[name="currentTreatmentArm.stratum"]'))).to.
-                eventually.equal(selectedTA.treatment_arm_stratum);
+        if (patientApiInfo.current_assignment !== null){
+            var selectedTA = patientApiInfo.current_assignment.treatment_arms.selected;
+            expect(element(by.css('treatment-arm-title[name="currentTreatmentArm.name"]'))).to.
+                eventually.equal(selectedTA.treatment_arm);
 
-                expect(element(by.css('treatment-arm-title[name="currentTreatmentArm.version"]'))).to.
-                eventually.equal(selectedTA.treatment_arm_version);
-            }
-        }).then(function () {
-            callback();
-        })
+            expect(element(by.css('treatment-arm-title[name="currentTreatmentArm.stratum"]'))).to.
+            eventually.equal(selectedTA.treatment_arm_stratum);
+
+            expect(element(by.css('treatment-arm-title[name="currentTreatmentArm.version"]'))).to.
+            eventually.equal(selectedTA.treatment_arm_version);
+        }
+
+        browser.sleep(50).then(callback);
     });
 
     this.Then(/^I should see the patient's disease information match the database$/, function (callback) {
         var actualTable = patientPage.diseaseSummaryTable.all(by.css('.ng-binding'));
-        patientInfoPromise.then (function (info){
-            var patientApiInfo = JSON.parse(info);
-            var expectedListfromAPI = [];
-            if (patientApiInfo.disease !== null) {
-                var diseaseName = utilities.dashifyIfEmpty (patientApiInfo.disease.disease_name);
-                var diseaseType = utilities.dashifyIfEmpty (patientApiInfo.disease.disease_code_type);
-                var diseaseCode = utilities.dashifyIfEmpty (patientApiInfo.disease.disease_code);
-                //todo:add drugs list/
-                var priorDrugs  = '-';
+        var expectedListfromAPI = [];
+        if (patientApiInfo.disease !== null) {
+            var diseaseName = utilities.dashifyIfEmpty (patientApiInfo.disease.disease_name);
+            var diseaseType = utilities.dashifyIfEmpty (patientApiInfo.disease.disease_code_type);
+            var diseaseCode = utilities.dashifyIfEmpty (patientApiInfo.disease.disease_code);
+            //todo:add drugs list/
+            var priorDrugs  = '-';
 
-                expectedListfromAPI.push (diseaseName);
-                expectedListfromAPI.push (diseaseType);
-                expectedListfromAPI.push (diseaseCode);
+            expectedListfromAPI.push (diseaseName);
+            expectedListfromAPI.push (diseaseType);
+            expectedListfromAPI.push (diseaseCode);
 
-                for (var i = 0; i < expectedListfromAPI.length; i++) {
-                    expect (actualTable.get (i).getText ().to.eventually.eql (expectedListfromAPI[ i ]));
-                }
-
-                // todo: add priorDrugs list check.
+            for (var i = 0; i < expectedListfromAPI.length; i++) {
+                expect (actualTable.get (i).getText ().to.eventually.eql (expectedListfromAPI[ i ]));
             }
-        }).then(function () {
-            callback();
-        });
+
+            // todo: add priorDrugs list check.
+        }
+        browser.sleep(50).then(callback);
     });
 
     this.Then(/^I should see the patient's disease information table$/, function (callback) {
@@ -161,7 +154,7 @@ module.exports = function () {
 
     this.Then(/^I should see the "([^"]*)" tab is active$/, function (tabName, callback) {
         var index = expectedMainTabs.indexOf(tabName);
-        var testElement = actualMainTabsArray.get(index);
+        var testElement = element.all(by.css('li.uib-tab.nav-item')).get(index);
         utilities.checkElementIncludesAttribute(testElement, 'class', 'active').then(callback);
     });
 

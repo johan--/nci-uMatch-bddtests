@@ -41,9 +41,7 @@ module.exports = function () {
         } else {
             email = 'abc_xyz@nih.gov';
         }
-
         loginPageObj.login(email, password, false);
-
         browser.sleep(2000).then(callback);
     });
 
@@ -54,9 +52,10 @@ module.exports = function () {
     });
 
     this.Then(/^I should be able to the see Dashboard page$/, function (callback){
-        var dashboard = dashboardPageObj.dashboardElement;
         var panel = dashboardPageObj.dashboardPanel;
-        expect(panel.isPresent()).to.eventually.be.true;
+        browser.waitForAngular().then(function(){
+            expect(panel.isPresent()).to.eventually.be.true;
+        });
         expect(panel.element(by.css('h2')).getText()).to.eventually.eql('Dashboard');
         browser.sleep(50).then(callback);
     });
