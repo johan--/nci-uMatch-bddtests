@@ -156,6 +156,27 @@
     "reported_date":"2016-04-27T12:13:09.071-05:00",
     "status":"Y"
   },
+  "variant_tsv_vcf_uploaded": {
+    "site": "MoCha",
+    "molecular_id": "3366-bsn-msn-2",
+    "analysis_id": "job1",
+    "tsv_file_name": "3366.tsv",
+    "vcf_file_name": "3366-bsn-msn-2.vcf"
+  },
+  "variant_dna_file_uploaded": {
+    "site": "MoCha",
+    "molecular_id": "3366-bsn-msn-2",
+    "analysis_id": "job1",
+    "dna_bam_file_name": "dna.bam",
+    "dna_bai_file_name": "dna.bam.bai"
+  },
+  "variant_cdna_file_uploaded": {
+    "site": "MoCha",
+    "molecular_id": "3366-bsn-msn-2",
+    "analysis_id": "job2",
+    "cdna_bam_file_name": "cdna.bam",
+    "cdna_bai_file_name": "cdna.bam.bai"
+  },
   "variant_file_uploaded":{
     "patient_id": "3344",
     "molecular_id": "MOI_01",
