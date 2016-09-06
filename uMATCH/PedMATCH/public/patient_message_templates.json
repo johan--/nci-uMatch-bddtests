@@ -209,5 +209,49 @@
       "request": "ON_TREATMENT_ARM for patient_id 3355",
       "treatment_id": "APEC1621-A"
     }
+  },
+  "request_assignment":{
+    "header": {
+      "msg_guid": "0f8fad5b-d9cb-469f-a165-80067728950e",
+      "msg_dttm": "2016-05-09T22:06:33+00:00"
+    },
+    "study_id": "APEC1621",
+    "patient_id": "1111",
+    "treatment_arm_id": "APEC1621-A",
+    "stratum_id": "100",
+    "step_number": "2.0",
+    "status": "REQUEST_ASSIGNMENT | REQUEST_NO_ASSIGNMENT",
+    "status_date": "2016-05-10T22:05:33+00:00",
+    "rebiopsy": "Y|N",
+    "message": "Physician determines it is not in the patient’s best interest.",
+    "prior_drugs" : [
+      {
+        "drug_id" : "113",
+        "name": "Crizotinib"
+      }
+    ],
+    "internal_use_only": {
+      "request_id": "4-654400",
+      "environment": "5",
+      "request": "REQUEST_ASSIGNMENT for patient_id 1111",
+      "treatment_id": "120"
+    }
+  },
+  "off_study":{
+    "header": {
+      "msg_guid": "0f8fad5b-d9cb-469f-a165-70867728950e",
+      "msg_dttm": "2016-05-09T22:06:33+00:00"
+    },
+    "study_id": "APEC1621",
+    "patient_id": "2222",
+    "step_number": "1.0",
+    "status": "OFF_STUDY | OFF_STUDY_BIOPSY_EXPIRED",
+    "status_date": "2016-05-10T22:05:33+00:00",
+    "message": "death",
+    "internal_use_only": {
+      "request_id": "4-654149",
+      "environment": "4",
+      "request": "OFF_STUDY"
+    }
   }
 }

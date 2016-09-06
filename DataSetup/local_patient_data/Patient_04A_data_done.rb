@@ -84,7 +84,7 @@ PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
 PatientMessageLoader.pathology(pt.id, pt.sei)
 PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
 
-pt = PatientDataSet.new('PT_AS12_VRAndPathoConfrimed')
+pt = PatientDataSet.new('PT_AS12_VRAndPathoConfirmed')
 PatientMessageLoader.register_patient(pt.id)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)

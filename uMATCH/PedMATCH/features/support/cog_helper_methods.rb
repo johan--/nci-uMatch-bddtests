@@ -24,4 +24,11 @@ class COG_helper_methods
     return @response
 
   end
+
+  def COG_helper_methods.get_patient_assignment_status(patient_id)
+    query = "/getPatientAssignmentStatus/#{patient_id}"
+    @response = Helper_Methods.get_request(ENV['cog_mock_endpoint']+query)
+    sleep(1.0)
+    return @response
+  end
 end

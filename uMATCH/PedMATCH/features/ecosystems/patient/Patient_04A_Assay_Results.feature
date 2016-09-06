@@ -120,7 +120,7 @@ Feature: Assay Messages
   Scenario Outline: PT_AS12. assay result received will not trigger patient assignment process unless patient has pathology and VR ready
   #Test patient PT_AS12_VRConfirmedNoPatho VR confirmed ids: PT_AS12_VRConfirmedNoPatho_(SEI1, MOI1, ANI1), Pathology is not confirmed yet
   #             PT_AS12_PathoConfirmedNoVR VR uploaded ids: PT_AS12_PathoConfirmedNoVR_(SEI1, MOI1, ANI1), but not confirmed, Pathology is confirmed (PT_AS12_PathoConfirmedNoVR_SEI1)
-  #             PT_AS12_VRAndPathoConfrimed VR confirmed ids: PT_AS12_VRAndPathoConfrimed_(SEI1, MOI1, ANI1), Pathology is confirmed (PT_AS12_VRAndPathoConfrimed_SEI1)
+  #             PT_AS12_VRAndPathoConfirmed VR confirmed ids: PT_AS12_VRAndPathoConfirmed_(SEI1, MOI1, ANI1), Pathology is confirmed (PT_AS12_VRAndPathoConfirmed_SEI1)
     Given template assay message with surgical_event_id: "<sei>" for patient: "<patient_id>"
     Then set patient message field: "biomarker" to value: "ICCPTENs"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
@@ -134,7 +134,7 @@ Feature: Assay Messages
     Then returned patient has value: "<patient_status>" in field: "current_status"
     Examples:
       |patient_id                           |patient_status            |sei                                                     |
-      |PT_AS12_VRAndPathoConfrimed          |PENDING_CONFIRMATION      |PT_AS12_VRAndPathoConfrimed_SEI1                        |
+      |PT_AS12_VRAndPathoConfirmed          |PENDING_CONFIRMATION      |PT_AS12_VRAndPathoConfirmed_SEI1                        |
       |PT_AS12_VRConfirmedNoPatho           |ASSAY_RESULTS_RECEIVED    |PT_AS12_VRConfirmedNoPatho_SEI1                         |
       |PT_AS12_PathoConfirmedNoVR           |ASSAY_RESULTS_RECEIVED    |PT_AS12_PathoConfirmedNoVR_SEI1                         |
 

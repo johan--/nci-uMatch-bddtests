@@ -20,7 +20,7 @@ Feature: Patients end to end tests
     When retrieve patient: "PT_ETE01" from API
     Then returned patient has value: "ON_TREATMENT_ARM" in field: "current_status"
     Then returned patient has value: "1.1" in field: "current_step_number"
-    Then patient has new assignment request with re-biopsy: "true"
+    Then patient has new assignment request with re-biopsy: "true", step number: "2.0"
     Then tissue specimen received with surgical_event_id: "PT_ETE01_SEI2"
     Then blood specimen received
     Then "TISSUE" specimen shipped with molecular_id or slide_barcode: "PT_ETE01_MOI2"
@@ -37,12 +37,12 @@ Feature: Patients end to end tests
     When retrieve patient: "PT_ETE01" from API
     Then returned patient has value: "ON_TREATMENT_ARM" in field: "current_status"
     Then returned patient has value: "2.1" in field: "current_step_number"
-    Then patient has new assignment request with re-biopsy: "false"
+    Then patient has new assignment request with re-biopsy: "false", step number: "3.0"
     Then wait for "60" seconds
     When retrieve patient: "PT_ETE01" from API
     Then returned patient has value: "ON_TREATMENT_ARM" in field: "current_status"
     Then returned patient has value: "3.1" in field: "current_step_number"
-    Then patient has new assignment request with re-biopsy: "true"
+    Then patient has new assignment request with re-biopsy: "true", step number: "4.0"
     Then tissue specimen received with surgical_event_id: "PT_ETE01_SEI3"
     Then "TISSUE" specimen shipped with molecular_id or slide_barcode: "PT_ETE01_MOI3"
     Then "SLIDE" specimen shipped with molecular_id or slide_barcode: "PT_ETE01_BC3"
@@ -70,10 +70,10 @@ Feature: Patients end to end tests
 
   Scenario: PT_ETE03. patient can reach PENDING_CONFIRMATION status even there is mock service collapse during assignment processing
     Given patient: "PT_ETE03" with status: "BLOOD_VARIANT_REPORT_CONFIRMED" on step: "1.0"
+    Given patient: "PT_ETE03" in mock service lost patient list, service will come back after "5" tries
     Given this patients's active "TISSUE" molecular_id is "PT_ETE03_MOI1"
     Given this patients's active analysis_id is "PT_ETE03_ANI1"
     Given other prepared steps for this patient: "assay and pathology are ready"
-    Then put this patient in mock service lost patient list, service will come back after "5" tries
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
     Then wait for "60" seconds
     Then retrieve patient: "PT_ETE03" from API
@@ -81,7 +81,7 @@ Feature: Patients end to end tests
 
   Scenario Outline: PT_ETE04. patient can be set to OFF_STUDY status from any status
     Given patient: "<patient_id>" with status: "<current_status>" on step: "<current_step_number>"
-    Then set patient off_study
+    Then set patient off_study on step number: "<current_step_number>"
     Then wait for "15" seconds
     Then retrieve patient: "<patient_id>" from API
     Then returned patient has value: "OFF_STUDY" in field: "current_status"
@@ -111,16 +111,27 @@ Feature: Patients end to end tests
     Then tissue specimen received with surgical_event_id: "PT_ETE05_SEI1"
     Then API returns a message that includes "same surgical event id" with status "Failure"
 
-
-  #data not ready
-  Scenario Outline: PT_SR29. shippment with molecular_id (or barcode) that was used in previous step should fail
+  Scenario Outline: PT_ETE06. shipment with molecular_id (or barcode) that was used in previous step should fail
     Given patient: "<patient_id>" with status: "<current_status>" on step: "2.0"
     Given other prepared steps for this patient: "<moi_or_barcode> has been used in step 1.0"
     Given this patients's active surgical_event_id is "<patient_id>_SEI5"
     Then "<type>" specimen shipped with molecular_id or slide_barcode: "<moi_or_barcode>"
     Then API returns a message that includes "<message>" with status "Failure"
     Examples:
-      |patient_id                   |moi_or_barcode                    |type       |message                          |current_status            |
-      |PT_SR29_Step2TissueReceived1 |PT_SR29_Step2TissueReceived1_MOI1 |TISSUE     |same molecular id has been found |TISSUE_SPECIMEN_RECEIVED  |
-      |PT_SR29_Step2TissueReceived2 |PT_SR29_Step2TissueReceived2_BC1  |SLIDE      |same barcode has been found      |TISSUE_SPECIMEN_RECEIVED  |
-      |PT_SR29_Step2BloodReceived   |PT_SR29_Step2BloodReceived_BD_MOI1|BLOOD      |same molecular id has been found |BLOOD_SPECIMEN_RECEIVED   |
+      |patient_id                   |moi_or_barcode                     |type       |message                          |current_status            |
+      |PT_ETE06_Step2TissueReceived1|PT_ETE06_Step2TissueReceived1_MOI1 |TISSUE     |same molecular id has been found |TISSUE_SPECIMEN_RECEIVED  |
+      |PT_ETE06_Step2TissueReceived2|PT_ETE06_Step2TissueReceived2_BC1  |SLIDE      |same barcode has been found      |TISSUE_SPECIMEN_RECEIVED  |
+      |PT_ETE06_Step2BloodReceived  |PT_ETE06_Step2BloodReceived_BD_MOI1|BLOOD      |same molecular id has been found |BLOOD_SPECIMEN_RECEIVED   |
+
+  Scenario Outline: PT_ETE07. patient ecosystem can send correct status (other than PENDING_APPROVAL) to COG
+    Given patient: "<patient_id>" with status: "TISSUE_VARIANT_REPORT_RECEIVED" on step: "1.0"
+    Given this patients's active "TISSUE" molecular_id is "<moi>"
+    Given this patients's active analysis_id is "<ani>"
+    Given other prepared steps for this patient: "All data is ready, these will <description>"
+    Then "TISSUE" variant report confirmed with status: "CONFIRMED"
+    Then wait for "60" seconds
+    Then COG received assignment status: "<assignment_status>" for this patient
+    Examples:
+    |patient_id             |moi                         |ani                         |description              |assignment_status |
+    |PT_ETE07_TsVrReceived1 |PT_ETE07_TsVrReceived1_MOI1 |PT_ETE07_TsVrReceived1_ANI1 |not have TA availble     |NO_TA_AVAILABLE   |
+    |PT_ETE07_TsVrReceived2 |PT_ETE07_TsVrReceived2_MOI1 |PT_ETE07_TsVrReceived2_ANI1 |have a closedTA availble |COMPASSIONATE_CARE|

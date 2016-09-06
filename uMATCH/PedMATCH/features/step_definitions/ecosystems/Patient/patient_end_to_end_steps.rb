@@ -124,8 +124,39 @@ Then(/^API returns a message that includes "([^"]*)" with status "([^"]*)"$/) do
 end
 
 
+Then(/^patient has new assignment request with re\-biopsy: "([^"]*)", step number: "([^"]*)"$/) do |rebio, step_number|
+  @request_hash = Patient_helper_methods.load_patient_message_templates('request_assignment')
+  @request_hash['patient_id'] = @patient_id
+  @request_hash['status'] = 'REQUEST_ASSIGNMENT'
+  @request_hash['rebiopsy'] = rebio=='true'?'Y':'N'
+  @request_hash['status_date'] = Helper_Methods.getDateAsRequired('current')
+  @request_hash['step_number'] = step_number
 
+  post_to_trigger
+  validate_response('Success', 'successfully')
+end
 
+Then(/^set patient off_study on step number: "([^"]*)"$/) do |step_number|
+  @request_hash = Patient_helper_methods.load_patient_message_templates('off_study')
+  @request_hash['patient_id'] = @patient_id
+  @request_hash['status'] = 'OFF_STUDY'
+  @request_hash['status_date'] = Helper_Methods.getDateAsRequired('current')
+  @request_hash['step_number'] = step_number
+
+  post_to_trigger
+  validate_response('Success', 'successfully')
+end
+
+Then(/^COG received assignment status: "([^"]*)" for this patient$/) do |assignment_status|
+  @response = COG_helper_methods.get_patient_assignment_status(@patient_id)
+
+  expect_message = "Assignment status for patient #{@patient_id} is #{assignment_status}"
+  actual_message = @response['message']
+  if @response['message'].include?assignment_status
+    actual_message = "Assignment status for patient #{@patient_id} is #{assignment_status}"
+  end
+  actual_message.should == expect_message
+end
 
 def post_to_trigger
   puts JSON.pretty_generate(@request_hash)
