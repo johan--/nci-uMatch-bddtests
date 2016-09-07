@@ -176,35 +176,35 @@ Feature: NCH Specimen shipped messages
     Given the message "Saved to datastore." is received when Variant Report is confirmed for the patient psn "SS05", bsn "bsn-SS05", jobName "JOB-SS05" and variants
 	"""
 	{
-	"singleNucleotideVariants":
+	"single_nucleotide_variants":
     [
 	    {
-	    	"type":"snv",
+	    	"type":"snp",
 	        "confirmed" : false,
 	        "gene" : "MTOR",
 	        "exon" : "47",
-	        "geneName" : "",
+	        "func_gene" : "",
 	        "chromosome" : "chr1",
 	        "position" : "11184573",
 	        "identifier" : "COSM1686998",
-	        "reference" : "G",
-	        "alternative" : "A",
+	        "ocp_reference" : "G",
+	        "ocp_alternative" : "A",
 	        "readDepth" : 1625,
 	        "rare" : false,
 	        "alleleFrequency" : 0,
 	        "inclusion" : true
 	    },
 	    {
-	    	"type":"snv",
+	    	"type":"snp",
 	        "confirmed" : false,
 	        "gene" : "MTOR",
 	        "exon" : "47",
-	        "geneName" : "",
+	        "func_gene" : "",
 	        "chromosome" : "chr1",
 	        "position" : "11184573",
 	        "identifier" : "COSM20417",
-	        "reference" : "G",
-	        "alternative" : "T",
+	        "ocp_reference" : "G",
+	        "ocp_alternative" : "T",
 	        "readDepth" : 1625,
 	        "rare" : false,
 	        "alleleFrequency" : 0,

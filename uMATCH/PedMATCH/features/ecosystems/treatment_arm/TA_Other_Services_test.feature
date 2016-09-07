@@ -62,7 +62,7 @@ Feature: Treatment Arm API Tests that focus on treatment arm api service other t
     Then the returned treatment arm has value: "STRATUM2" in field: "stratum_id"
     Then the returned treatment arm has value: "2016-06-15" in field: "version"
 
-  Scenario: TA_OS7. /treatmentArm/id/stratumId return the latest version of treatment arm
+  Scenario: TA_OS7. /treatmentArm/id/stratum_id return the latest version of treatment arm
     Given template treatment arm json with an id: "APEC1621-OS7-1", stratum_id: "STRATUM1" and version: "2016-06-03"
     Then posted to MATCH newTreatmentArm
     Then success message is returned:
@@ -74,7 +74,7 @@ Feature: Treatment Arm API Tests that focus on treatment arm api service other t
     Then template treatment arm json with an id: "APEC1621-OS7-1", stratum_id: "STRATUM2" and version: "2016-06-15"
     Then posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then retrieve single treatment arm with id: "APEC1621-OS7-1" and stratumId: "STRATUM1" using /treatmentArm service
+    Then retrieve single treatment arm with id: "APEC1621-OS7-1" and stratum_id: "STRATUM1" using /treatmentArm service
     Then the returned treatment arm has value: "APEC1621-OS7-1" in field: "name"
     Then the returned treatment arm has value: "STRATUM1" in field: "stratum_id"
     Then the returned treatment arm has value: "2016-06-15" in field: "version"

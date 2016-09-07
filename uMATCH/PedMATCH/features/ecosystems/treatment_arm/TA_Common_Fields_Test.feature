@@ -66,20 +66,21 @@ Feature: Treatment Arm API common tests for all fields
       |APEC1621-CF7-5       |gene                            |gene                             |GNA                                                |string       |
       |APEC1621-CF7-6       |treatmentArmStatus              |treatment_arm_status             |OPEN                                               |string       |
       |APEC1621-CF7-7       |studyId                         |study_id                         |APEC1621                                           |string       |
-      |APEC1621-CF7-8       |stratumId                       |stratum_id                       |kjg13gas                                           |string       |
+      |APEC1621-CF7-8       |stratum_id                       |stratum_id                       |kjg13gas                                           |string       |
       |APEC1621-CF7-9       |numPatientsAssigned             |num_patients_assigned            |5                                                  |int          |
 
-  Scenario Outline: TA_CF8. Treatment arm return correct values for ExclusionCriterias
-    Given template treatment arm json with an id: "<treatment_arm_id>"
-    Then add exclusionCriterias with id: "<exclusionCriteriaID>" and description: "<description>"
-    When posted to MATCH newTreatmentArm
-    Then success message is returned:
-    Then retrieve the posted treatment arm from API
-    Then the returned treatment arm has exclusionCriteria (id: "<exclusionCriteriaID>", description: "<description>")
-    Examples:
-      |treatment_arm_id     |exclusionCriteriaID  |description  |
-      |APEC1621-CF8-1       |31                   |ASIAN        |
-      |APEC1621-CF8-2       |32                   |FEMALE       |
+#  This scenario has been taken out. We do not have exclusion criteria anymore.
+#  Scenario Outline: TA_CF8. Treatment arm return correct values for ExclusionCriterias
+#    Given template treatment arm json with an id: "<treatment_arm_id>"
+#    Then add exclusionCriterias with id: "<exclusionCriteriaID>" and description: "<description>"
+#    When posted to MATCH newTreatmentArm
+#    Then success message is returned:
+#    Then retrieve the posted treatment arm from API
+#    Then the returned treatment arm has exclusionCriteria (id: "<exclusionCriteriaID>", description: "<description>")
+#    Examples:
+#      |treatment_arm_id     |exclusionCriteriaID  |description  |
+#      |APEC1621-CF8-1       |31                   |ASIAN        |
+#      |APEC1621-CF8-2       |32                   |FEMALE       |
 
 #  Scenario Outline: TA_CF3. New Treatment Arm should not take undefined fields
 #    Given template json with an id: "<treatment_arm_id>"

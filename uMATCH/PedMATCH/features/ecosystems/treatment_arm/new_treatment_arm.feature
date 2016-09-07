@@ -7,48 +7,45 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
       start treatment-arm-api RAILS_ENV=test rails s
 
   Scenario Outline: 1.1 Consume new treatment arm. Ensure the validity of the message received from EA layer
-    Given that a new treatment arm is received from COG with version: "<version>" study_id: "<study_id>" id: "<id>" name: "<name>" description: "<description>" targetId: "<targetId>" targetName: "<targetName>" gene: "<gene>" and with one drug: "<drug>" and with tastatus: "<tastatus>"
+    Given that a new treatment arm is received from COG with version: "<version>" study_id: "<study_id>" id: "<id>" name: "<name>" description: "<description>" targetId: "<targetId>" targetName: "<targetName>" gene: "<gene>" and with one drug: "<drug>" and with tastatus: "<tastatus>" and with stratum_id "<stratum_id>"
     And with variant report
 	"""
     {
-    "singleNucleotideVariants" : [
-        {
-            "type":"snv",
-            "publicMedIds" : [
-                "23724913"
-            ],
-            "gene" : "ALK",
-            "chromosome" : "1",
-            "position" : "11184573",
-            "identifier" : "COSM1686998",
-            "reference" : "G",
-            "alternative" : "A",
-            "description" : "some description",
-            "readDepth" : "0",
-            "rare" : false,
-            "alleleFrequency" : 0,
-            "levelOfEvidence" : 2,
-            "inclusion" : true
-        }
+    "single_nucleotide_variants" : [
+      {
+        "gene" : "ALK",
+        "identifier" : "COSM1686998",
+        "protein" : "p.L858",
+        "level_of_evidence" : 2.0,
+        "chromosome" : "1",
+        "position" : "11184573",
+        "ocp_reference" : "G",
+        "ocp_alternative" : "A",
+        "public_med_ids" : [
+                  "23724913"
+        ],
+        "inclusion" : true,
+        "arm_specific" : false
+      }
     ],
     "indels" : [],
-    "copyNumberVariants" : [],
-    "geneFusions" : [],
-    "nonHotspotRules" : []
+    "copy_number_variants" : [],
+    "gene_fusions" : [],
+    "non_hotspot_rules" : []
 	}
 	"""
     When posted to MATCH newTreatmentArm
     Then a message with Status "<Status>" and message "<message>" is returned:
     Examples:
-      |version    |study_id   |id			|name				|description	            |targetId	|targetName		|gene			|drug												|Status			|message									|timestamp						|tastatus	|
-      |2016-05-27 |APEC1621   |TA_test1		|Afatinib			|covalent inhibitor 		|1234		|EGFR Pathway	|ALK			|1,Afatinib,Afatinib,angiokinase inhibitor			|SUCCESS		|Saved to datastore.						|2014-06-29 11:34:20.179 GMT	|OPEN	|
-      |2016-05-27 |APEC1621   |TA_test2		|Afatinib			|covalent inhibitor         |1234		|EGFR Pathway	|ALK			|1,Afatinib,Afatinib,angiokinase inhibitor;2,tylenol,tylenol,angiokinase inhibitor	|SUCCESS|Saved to datastore.|2014-06-29 11:34:20.179 GMT	|OPEN	|
-      |2016-05-27 |APEC1621   |				|Afatinib			|covalent inhibitor 		|1234		|EGFR Pathway	|ALK			|1,Afatinib,Afatinib,angiokinase inhibitor			|FAILURE		|id may not be empty						|2014-06-29 11:34:20.179 GMT	|OPEN	|
-      |2016-05-27 |APEC1621   |null			|Afatinib			|covalent inhibitor 		|1234		|EGFR Pathway	|ALK			|1,Afatinib,Afatinib,angiokinase inhibitor			|FAILURE		|id may not be empty  						|2014-06-29 11:34:20.179 GMT	|OPEN	|
-      |2016-05-27 |APEC1621   |TA_test3		|					|                    		|1234		|EGFR Pathway	|ALK			|1,Afatinib,Afatinib,angiokinase inhibitor			|FAILURE		|name may not be empty						|2014-06-29 11:34:20.179 GMT	|OPEN	|
-      |2016-05-27 |APEC1621   |TA_test4		|null				|null                		|1234		|EGFR Pathway	|ALK			|1,Afatinib,Afatinib,angiokinase inhibitor			|FAILURE		|name may not be empty					 	|2014-06-29 11:34:20.179 GMT	|OPEN	|
-      |2016-05-27 |APEC1621   |TA_test5		|Afatinib			|covalent inhibitor 		|1234		|EGFR Pathway	|ALK			|1,,Afatinib,angiokinase inhibitor					|FAILURE		|treatmentArmDrugs[0].name may not be empty	|2014-06-29 11:34:20.179 GMT	|OPEN	|
-      |2016-05-27 |APEC1621   |TA_test6		|Afatinib			|covalent inhibitor 		|1234		|EGFR Pathway	|ALK			|1,null,Afatinib,angiokinase inhibitor				|FAILURE		|treatmentArmDrugs[0].name may not be empty |2014-06-29 11:34:20.179 GMT	|OPEN	|
+      |version    |study_id   |id			|name				|description	            |targetId	|targetName		|gene			|drug												|Status			|message									|timestamp						|tastatus | stratum_id |
+      |2016-05-27 |APEC1621   |TA_test1		|Afatinib			|covalent inhibitor 		|1234		|EGFR Pathway	|ALK			|1,Afatinib,Afatinib,angiokinase inhibitor			|SUCCESS		|Saved to datastore.						|2014-06-29 11:34:20.179 GMT	|OPEN	  | 1          |
+      |2016-05-27 |APEC1621   |TA_test2		|Afatinib			|covalent inhibitor         |1234		|EGFR Pathway	|ALK			|1,Afatinib,Afatinib,angiokinase inhibitor;2,tylenol,tylenol,angiokinase inhibitor	|SUCCESS|Saved to datastore.|2014-06-29 11:34:20.179 GMT	|OPEN	  | 1          |
+      |2016-05-27 |APEC1621   |				|Afatinib			|covalent inhibitor 		|1234		|EGFR Pathway	|ALK			|1,Afatinib,Afatinib,angiokinase inhibitor			|FAILURE		|id may not be empty						|2014-06-29 11:34:20.179 GMT	|OPEN	  | 1          |
+      |2016-05-27 |APEC1621   |null			|Afatinib			|covalent inhibitor 		|1234		|EGFR Pathway	|ALK			|1,Afatinib,Afatinib,angiokinase inhibitor			|FAILURE		|id may not be empty  						|2014-06-29 11:34:20.179 GMT	|OPEN	  | 1          |
+      |2016-05-27 |APEC1621   |TA_test3		|					|                    		|1234		|EGFR Pathway	|ALK			|1,Afatinib,Afatinib,angiokinase inhibitor			|FAILURE		|name may not be empty						|2014-06-29 11:34:20.179 GMT	|OPEN	  | 1          |
+      |2016-05-27 |APEC1621   |TA_test4		|null				|null                		|1234		|EGFR Pathway	|ALK			|1,Afatinib,Afatinib,angiokinase inhibitor			|FAILURE		|name may not be empty					 	|2014-06-29 11:34:20.179 GMT	|OPEN	  | 1          |
+      |2016-05-27 |APEC1621   |TA_test5		|Afatinib			|covalent inhibitor 		|1234		|EGFR Pathway	|ALK			|1,,Afatinib,angiokinase inhibitor					|FAILURE		|treatmentArmDrugs[0].name may not be empty	|2014-06-29 11:34:20.179 GMT	|OPEN	  | 1          |
+      |2016-05-27 |APEC1621   |TA_test6		|Afatinib			|covalent inhibitor 		|1234		|EGFR Pathway	|ALK			|1,null,Afatinib,angiokinase inhibitor				|FAILURE		|treatmentArmDrugs[0].name may not be empty |2014-06-29 11:34:20.179 GMT	|OPEN	  | 1          |
 
 
   Scenario: 1.2 Return a failure message when a treatment arm update is received with a version number and stratum_id same as the one that already exists in MATCH
@@ -61,10 +58,28 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 	"gene":"ALK",
 	"description":"covalent inhibitor",
 	"name":"Afatinib",
-	"targetId":1234,
-	"targetName":"EGFR Pathway",
-	"treatmentArmDrugs":[{"drugClass":"angiokinase inhibitor","description":"Afatinib","name":"Afatinib","drugId":"1"}],
-	"variantReport":{"geneFusions":[],"nonHotspotRules":[],"singleNucleotideVariants":[{"position":"11184573","gene":"ALK","levelOfEvidence":2,"alternative":"A","type":"snv","chromosome":"1","inclusion":true,"reference":"G","alleleFrequency":0,"rare":false,"description":"some description","readDepth":"0","publicMedIds":["23724913"],"identifier":"COSM1686998"}],"indels":[],"copyNumberVariants":[]}}
+	"target_id":1234,
+	"target_name":"EGFR Pathway",
+	"treatment_arm_drugs":[{"drugClass":"angiokinase inhibitor","description":"Afatinib","name":"Afatinib","drugId":"1"}],
+	"geneFusions":[],
+	"nonHotspotRules":[],
+	"single_nucleotide_variants":[
+	  {
+	  "gene":"ALK",
+	  "identifier":"COSM1686998",
+	  "protein" : "p.L858R",
+	  "level_of_evidence":2,
+	  "chromosome":"1",
+	  "position":"11184573",
+	  "ocp_reference":"G",
+	  "ocp_alternative":"A",
+	  "publicMedIds":["23724913"],
+	  "inclusion":true,
+	  "arm_specific" : false
+	  }
+	],
+	"indels":[],
+	"copy_number_variants":[]}
 	"""
 
     When posted to MATCH newTreatmentArm
@@ -80,10 +95,28 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 	"gene":"ALK",
 	"description":"Afatinib",
 	"name":"Afatinib",
-	"targetId":1234,
-	"targetName":"HGFR Pathway",
-	"treatmentArmDrugs":[{"drugClass":"angiokinase inhibitor","description":"Afatinib","name":"Afatinib","drugId":"1"}],
-	"variantReport":{"geneFusions":[],"nonHotspotRules":[],"singleNucleotideVariants":[{"position":"11184573","gene":"ALK","levelOfEvidence":2,"alternative":"A","type":"snv","chromosome":"1","inclusion":true,"reference":"G","alleleFrequency":0,"rare":false,"description":"some description","readDepth":"0","publicMedIds":["23724913"],"identifier":"COSM1686998"}],"indels":[],"copyNumberVariants":[]}}
+	"target_id":1234,
+	"target_name":"HGFR Pathway",
+	"treatment_arm_drugs":[{"drugClass":"angiokinase inhibitor","description":"Afatinib","name":"Afatinib","drugId":"1"}],
+	"geneFusions":[],
+	"nonHotspotRules":[],
+	"single_nucleotide_variants":[
+	  {
+	  "gene":"ALK",
+	  "identifier":"COSM1686998",
+	  "chromosome":"1.0",
+	  "position":"11184573",
+	  "level_of_evidence":2.0,
+	  "ocp_reference":"G",
+	  "ocp_alternative":"A",
+	  "inclusion":true,
+	  "publicMedIds":["23724913"],
+	  "protein" : "p.L858R"
+	  }
+	],
+	"indels":[],
+	"copy_number_variants":[]
+	}
 	"""
 	When posted to MATCH newTreatmentArm
 	Then a message with Status "SUCCESS" and message "Save to datastore." is returned:
@@ -98,10 +131,27 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 	"gene":"ALK",
 	"description":"Afatinib",
 	"name":"Afatinib",
-	"targetId":1234,
-	"targetName":"HGFR Pathway",
-	"treatmentArmDrugs":[{"drugClass":"angiokinase inhibitor","description":"Afatinib","name":"Afatinib","drugId":"1"}],
-	"variantReport":{"geneFusions":[],"nonHotspotRules":[],"singleNucleotideVariants":[{"position":"11184573","gene":"ALK","levelOfEvidence":2,"alternative":"A","type":"snv","chromosome":"1","inclusion":true,"reference":"G","alleleFrequency":0,"rare":false,"description":"some description","readDepth":"0","publicMedIds":["23724913"],"identifier":"COSM1686998"}],"indels":[],"copyNumberVariants":[]}}
+	"target_id":1234,
+	"target_name":"HGFR Pathway",
+	"treatment_arm_drugs":[{"drugClass":"angiokinase inhibitor","description":"Afatinib","name":"Afatinib","drugId":"1"}],
+	"geneFusions":[],
+	"nonHotspotRules":[],
+	"single_nucleotide_variants":[
+	  {
+	  "gene":"ALK",
+	  "identifier":"COSM1686998",
+	  "protein" : "p.L858R",
+	  "level_of_evidence":2.0,
+	  "chromosome":"1",
+	  "position":"11184573",
+	  "ocp_alternative":"A",
+	  "ocp_reference":"G",
+	  "inclusion":true,
+	  "publicMedIds":["23724913"]
+	  }],
+	"indels":[],
+	"copy_number_variants":[]
+	}
 	"""
 	When posted to MATCH newTreatmentArm
 	Then a message with Status "FAILURE" and message "Version cannot be older thn current version" is returned:
@@ -115,10 +165,25 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 	"gene":"ALK",
 	"description":"Afatinib",
 	"name":"Afatinib",
-	"targetId":1234,
-	"targetName":"HGFR Pathway",
-	"treatmentArmDrugs":[{"drugClass":"angiokinase inhibitor","description":"Afatinib","name":"Afatinib","drugId":"1"}],
-	"variantReport":{"geneFusions":[],"nonHotspotRules":[],"singleNucleotideVariants":[{"position":"11184573","gene":"ALK","levelOfEvidence":2,"alternative":"A","type":"snv","chromosome":"1","inclusion":true,"reference":"G","alleleFrequency":0,"rare":false,"description":"some description","readDepth":"0","publicMedIds":["23724913"],"identifier":"COSM1686998"}],"indels":[],"copyNumberVariants":[]}}
+	"target_id":1234,
+	"target_name":"HGFR Pathway",
+	"treatment_arm_drugs":[{"drugClass":"angiokinase inhibitor","description":"Afatinib","name":"Afatinib","drugId":"1"}],
+	"single_nucleotide_variants":[
+	  {
+	  "gene":"ALK",
+	  "identifier":"COSM1686998",
+	  "protein" : "p.L858R",
+	  "level_of_evidence":2.0,
+	  "chromosome":"1",
+	  "position":"11184573",
+	  "ocp_alternative":"A",
+	  "ocp_reference":"G",
+	  "inclusion":true,
+	  "publicMedIds":["23724913"]
+	  }],
+	"indels":[],
+	"copy_number_variants":[]
+	}
 	"""
 	When posted to MATCH newTreatmentArm
 	Then a failure message is returned which contains: "The property '#/' did not contain a required property of 'version'"
@@ -128,23 +193,23 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
   Scenario: 1.6 Verify that a treatment arm when created is assigned a status of OPEN
     Given that treatment arm is received from COG:
 	"""
-		{"study_id":"APEC1621",
+		{
+		"study_id":"APEC1621",
 	    "id" : "TA_test3",
 	    "stratum_id":"1",
 	    "name" : "ta_test3",
-	    "targetId" : 1234,
-	    "targetName" : "ALK",
-	    "treatmentArmStatus" : "OPEN",
+	    "target_id" : 1234,
+	    "target_name" : "ALK",
 	    "version":"2016-05-25",
 	    "gene" : "ALK",
-	    "treatmentArmDrugs" : [
+	    "treatment_arm_drugs" : [
 	        {
 	            "drugId" : "1234",
 	            "name" : "Curcumin",
 	            "description" : "Treats stomach tumors"
 	        }
 	    ],
-	    "exclusionDrugs" : [
+	    "exclusion_drugs" : [
 				{
 					"drugId" : "0",
 					"name" : "Crizotinib"
@@ -166,9 +231,9 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 	    "numPatientsAssigned" : 0,
 	    "maxPatientsAllowed" : 35,
 	    "variantReport" : {
-	        "singleNucleotideVariants" : [
+	        "single_nucleotide_variants" : [
 	            {
-	                "type":"snv",
+	                "type":"snp",
 	                "publicMedIds" : [
 	                    "23724913"
 	                ],
@@ -176,18 +241,18 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 	                "chromosome" : "1",
 	                "position" : "11184573",
 	                "identifier" : "ta_test3",
-	                "reference" : "G",
-	                "alternative" : "A",
+	                "ocp_reference" : "G",
+	                "ocp_alternative" : "A",
 	                "description" : "some description",
 	                "readDepth" : "0",
 	                "rare" : false,
 	                "alleleFrequency" : 0,
-	                "levelOfEvidence" : 2,
+	                "level_of_evidence" : 2,
 	                "inclusion" : true
 	            }
 	        ],
 	        "indels" : [],
-	        "copyNumberVariants" : [],
+	        "copy_number_variants" : [],
 	        "geneFusions" : [],
 	        "nonHotspotRules" : []
 	    }

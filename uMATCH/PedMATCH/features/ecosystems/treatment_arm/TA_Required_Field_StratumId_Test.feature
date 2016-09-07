@@ -2,7 +2,7 @@
   
 @treatment_arm
 
-Feature: Treatment Arm API Tests that focus on "stratumId" field
+Feature: Treatment Arm API Tests that focus on "stratum_id" field
   
   Scenario Outline: TA_SI1. Treatment arm with empty or null stratumID should fail
     Given template treatment arm json with an id: "APEC1621-SI1-1", stratum_id: "<stratumID>" and version: "2016-06-03"
@@ -15,7 +15,7 @@ Feature: Treatment Arm API Tests that focus on "stratumId" field
     
   Scenario: TA_SI2. Treatment arm without stratumID field should fail
     Given template treatment arm json with an id: "APEC1621-SI2-1", stratum_id: "straID" and version: "2016-06-03"
-    Then remove field: "stratumId" from template treatment arm json
+    Then remove field: "stratum_id" from template treatment arm json
     When posted to MATCH newTreatmentArm
     Then a failure message is returned which contains: "The property '#/' did not contain a required property of 'stratum_id'"
 

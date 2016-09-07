@@ -1,69 +1,60 @@
 require 'json'
 require 'rest-client'
+require_relative '../support/support'
+
 # require_relative 'env'
 
 class Treatment_arm_helper
 
-  def Treatment_arm_helper.createTreatmentArmRequestJSON(version, study_id, taId, taName, description, targetId, targetName, gene, taDrugs, taStatus)
+  def Treatment_arm_helper.createTreatmentArmRequestJSON(version, study_id, taId, taName, description, targetId, targetName, gene, taDrugs, taStatus, stratum_id)
     drugs = taDrugs.split ','
     drugArray = []
-    # drugObject = Hash.new
-    if drugs.at(0) == 'null'
-      drugId = nil
-    else
-      drugId = drugs.at(0)
-    end
 
-    if drugs.at(1).empty?
-      drugName = ''
-    else
-      drugName = drugs.at(1)
-    end
+    drugId = drugs.first == 'null' ? nil : drugs.first
 
-    if drugs.at(1) == 'null'
-      drugName = nil
-    else
-      drugName = drugs.at(1)
-    end
+    drugName = drugs.at(1).empty? ? '' : drugs.at(1)
+
+    drugName = drugs.at(1) == 'null' ? nil : drugs.at(1)
 
     drugObject = {"drugId" => drugId,
                   "name" => drugName,
                   "pathway" => drugs.at(3)}
     drugArray.push(drugObject)
 
-    if taId == 'null'
-      taId = nil
-    end
+    taId == 'null' if taId.nil?
 
-    if taName == 'null'
-      taName = nil
-    end
+    taName == 'null' if taName.nil?
 
-    dateCreated = Helper_Methods.getDateAsRequired('current')
+
+    # dateCreated = Helper_Methods.getDateAsRequired('current')
 
     @treatmentArm = {"study_id"=> study_id,
                      "id" => taId,
-                     "stratum_id"=>'1',
-                     "date_created"=>dateCreated,
+                     "stratum_id"=> stratum_id,
                      "name" => taName,
                      "version"=>version,
                      "description" => description,
-                     "targetId" => targetId.to_i,
-                     "targetName" => targetName,
+                     "target_id" => targetId.to_i,
+                     "target_name" => targetName,
                      "gene" => gene,
-                     "treatmentArmStatus" => taStatus,
-                     "treatmentArmDrugs" => drugArray}
-    return @treatmentArm
+                     "active" => true,
+                     "treatment_arm_status" => taStatus,
+                     "treatment_arm_drugs" => drugArray}
+    @stratum_id = stratum_id
+    @treatmentArm
   end
 
   def Treatment_arm_helper.taVariantReport (variantReport)
-    @treatmentArm["variantReport"] = JSON.parse(variantReport)
-    return @treatmentArm
+    @treatmentArm.merge!(JSON.parse(variantReport))
+    puts @treatmentArm.to_json
+    @treatmentArm
   end
 
   def Treatment_arm_helper.validRquestJson()
-    @treatmentArm = JSON(IO.read('./features/support/validPedMATCHTreatmentArmRequestTemplate.json'))
-    return @treatmentArm
+    valid_json_file = File.join(Support::TEMPLATE_FOLDER, 'validPedMATCHTreatmentArmRequestTemplate.json')
+    @treatmentArm = JSON.parse(File.read(valid_json_file))
+    puts @treatmentArm.to_json
+    @treatmentArm
   end
 
   def Treatment_arm_helper.addDrug(drugName, drugPathway, drugId)
@@ -87,8 +78,8 @@ class Treatment_arm_helper
     if drugId == 'null'
       drugId = nil
     end
-    # @treatmentArm['exclusionDrugs'].push({"drugs"=>[{"drugId"=>drugId, "name"=>drugName}]})   #use the next line instead of this one when new "exclusionDrugs" field is available
-    @treatmentArm['exclusionDrugs'].push({"drugId"=>drugId, "name"=>drugName})
+    # @treatmentArm['exclusion_drugs'].push({"drugs"=>[{"drugId"=>drugId, "name"=>drugName}]})   #use the next line instead of this one when new "exclusion_drugs" field is available
+    @treatmentArm['exclusion_drugs'].push({"drugId"=>drugId, "name"=>drugName})
     return @treatmentArm
   end
 
@@ -272,7 +263,7 @@ class Treatment_arm_helper
     variantInput = variant=='null'?nil:variant
     loeInput = loe=='null'?nil:loe.to_f
     descriptionInput = description=='null'?nil:description
-    @treatmentArm['assayResults'].push({ 'gene'=>geneInput, 'assayResultStatus'=>statusInput, 'assayVariant'=>variantInput, 'levelOfEvidence'=>loeInput, 'description'=>descriptionInput})
+    @treatmentArm['assayResults'].push({ 'gene'=>geneInput, 'assayResultStatus'=>statusInput, 'assayVariant'=>variantInput, 'level_of_evidence'=>loeInput, 'description'=>descriptionInput})
     return @treatmentArm
   end
 
@@ -303,7 +294,7 @@ class Treatment_arm_helper
           'alternative'=>'A',
           'description' =>'some description',
           'rare'=>false,
-          'levelOfEvidence'=>1.0,
+          'level_of_evidence'=>1.0,
           'inclusion'=>true,
           'armSpecific'=>false
       }
@@ -327,7 +318,7 @@ class Treatment_arm_helper
           'alternative'=>'<CNV>',
           'description' =>'MYCL transiocation',
           'rare'=>false,
-          'levelOfEvidence'=>3.0,
+          'level_of_evidence'=>3.0,
           'inclusion'=>true,
           'armSpecific'=>false
       }
@@ -346,7 +337,7 @@ class Treatment_arm_helper
           'alternative'=>'[chr1:154142875[A',
           'description' =>'ALK translocation',
           'rare'=>false,
-          'levelOfEvidence'=>2.0,
+          'level_of_evidence'=>2.0,
           'inclusion'=>true,
           'armSpecific'=>false
       }
@@ -365,7 +356,7 @@ class Treatment_arm_helper
           'alternative'=>'A',
           'description' =>'some description',
           'rare'=>false,
-          'levelOfEvidence'=>3.0,
+          'level_of_evidence'=>3.0,
           'inclusion'=>true,
           'armSpecific'=>false
       }
@@ -381,7 +372,7 @@ class Treatment_arm_helper
           'function'=>'nonframeshiftInsertion',
           'publicMedIds'=>nil,
           'rare'=>false,
-          'levelOfEvidence'=>3.0,
+          'level_of_evidence'=>3.0,
           'inclusion'=>true,
           'armSpecific'=>false
       }
