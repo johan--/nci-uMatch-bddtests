@@ -16,13 +16,7 @@ Feature: Test the functionality that filters the SNV variants based on specified
     Then moi report is returned with the snv variant "match769.2" as an amoi
     And amoi treatment arm names for snv variant "match769.2" include:
     """
-    SNV_location_intronic,100,2015-08-06
-    """
-    And amoi treatment arms for snv variant "match769.2" include:
-    """
-    {
-    "CURRENT":["SNV_location_intronic,100,2015-08-06"]
-    }
+    [{"version":"2015-08-06", "exclusion":false, "treatment_arm_id":"SNV_location_intronic", "stratum_id":"100", "amoi_status":"CURRENT"}]
     """
     Then moi report is returned with the snv variant "." as an amoi
     Examples:

@@ -31,14 +31,10 @@ Feature: Test the functionality that filters the Gene Fusion variants based on s
     Given a tsv variant report file file "<tsvFile>" and treatment arms file "<TAFile>"
     When call the amoi rest service
     Then moi report is returned with the ugf variant "TPM3-ALK.T7A20" as an amoi
+    """
+    [{"version":"2015-08-06","exclusion":false,"treatment_arm_id":"APEC1621-A","stratum_id":"100","amoi_status":"CURRENT"}]
+    """
     Examples:
       |tsvFile                  |TAFile           |
       |113re_gene-fusion.tsv    |APEC1621-A.json  |
 
-  Scenario Outline: Filter-in the GF variant when there is a variant match to the non-hotspot rule of a treatment arm
-    Given a tsv variant report file file "<tsvFile>" and treatment arms file "<TAFile>"
-    When call the amoi rest service
-    Then moi report is returned with the ugf variant "TMPRSS2-ETV5a.T1E2.EU314929" as an amoi
-    Examples:
-      |tsvFile                  |TAFile           |
-      |GF_nhr_filter.tsv        |APEC1621-C.json  |

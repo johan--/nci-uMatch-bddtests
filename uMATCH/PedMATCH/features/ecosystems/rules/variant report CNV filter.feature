@@ -17,11 +17,9 @@ Feature: Test the functionality that filters the CNV variants based on specified
     When call the amoi rest service
     Then moi report is returned without the cnv variant "CDK4"
     Then moi report is returned with the cnv variant "MYCL" as an amoi
-
-  Scenario: CNV with NHR match to a treatment arm is filtered in and is marked as amoi
-    Given a tsv variant report file file "cnv_v5_gene_filter.tsv" and treatment arms file "APEC1621-B.json"
-    When call the amoi rest service
-    Then moi report is returned with the cnv variant "TP53" as an amoi
+    """
+    [{"version":"2015-08-06","exclusion":false,"treatment_arm_id":"APEC1621-B","stratum_id":"100","amoi_status":"CURRENT"}]
+    """
 
 
 

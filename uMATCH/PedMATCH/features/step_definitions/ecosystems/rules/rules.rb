@@ -26,8 +26,8 @@ When(/^assignPatient service is called for patient "([^"]*)"$/) do |patient|
   @payload = msgHash.to_json
   p @payload
   res = Helper_Methods.post_request(ENV['rules_endpoint']+'/assignment_report/'+ patient,@payload)
-
   @res = res.to_json
+  p @res
 
   expect((JSON.parse(@res)['Error'])).to be_nil
 end
@@ -76,18 +76,18 @@ Then(/^moi report is returned with the snv variant "([^"]*)" as an amoi$/) do |a
   # JSON.parse(@res)['single_nucleotide_variants'].each do |snv|
   @res['single_nucleotide_variants'].each do |snv|
     if snv['identifier'] == arg1
-      expect(snv['amois']).to eql(true)
+      expect(snv['amois']).not_to be_nil
     end
   end
 end
 
-
 Then(/^amoi treatment arm names for snv variant "([^"]*)" include:$/) do |arg1, string|
-  arrTA = string.split(/\n+/)
+  arrTA = JSON.parse(string)
   # JSON.parse(@res)['single_nucleotide_variants'].each do |snv|
   @res['single_nucleotide_variants'].each do |snv|
     if snv['identifier'] == arg1
-      expect(snv['treatment_arm_names']).to match_array(arrTA)
+      # p snv['amois']
+      expect(snv['amois']).to eql(arrTA)
     end
   end
 end
@@ -156,11 +156,12 @@ Then(/^moi report is returned without the indel variant "([^"]*)"$/) do |arg1|
   end
 end
 
-Then(/^moi report is returned with the indel variant "([^"]*)" as an amoi$/) do |arg1|
+Then(/^moi report is returned with the indel variant "([^"]*)" as an amoi$/) do |arg1, string|
+  arrTA = JSON.parse(string)
   # JSON.parse(@res)['indels'].each do |ind|
     @res['indels'].each do |ind|
     if ind['identifier'] == arg1
-      expect(ind['amois']).to eql(true)
+      expect(ind['amois']).to eql(arrTA)
     end
   end
 end
@@ -188,11 +189,12 @@ Then(/^moi report is returned without the cnv variant "([^"]*)"$/) do |arg1|
   end
 end
 
-Then(/^moi report is returned with the cnv variant "([^"]*)" as an amoi$/) do |arg1|
+Then(/^moi report is returned with the cnv variant "([^"]*)" as an amoi$/) do |arg1, string|
+  arrTA = JSON.parse(string)
   # JSON.parse(@res)['copy_number_variants'].each do |cnv|
   @res['copy_number_variants'].each do |cnv|
     if cnv['identifier'] == arg1
-      expect(cnv['amois']).to eql(true)
+      expect(cnv['amois']).to eql(arrTA)
     end
   end
 end
@@ -221,11 +223,12 @@ Then(/^moi report is returned without the ugf variant "([^"]*)"$/) do |arg1|
   end
 end
 
-Then(/^moi report is returned with the ugf variant "([^"]*)" as an amoi$/) do |arg1|
+Then(/^moi report is returned with the ugf variant "([^"]*)" as an amoi$/) do |arg1, string|
+  arrTA = JSON.parse(string)
   # JSON.parse(@res)['unified_gene_fusions'].each do |ugf|
   @res['gene_fusions'].each do |gf|
     if gf['identifier'] == arg1
-      expect(gf['amois']).to eql(true)
+      expect(gf['amois']).to eql(arrTA)
     end
   end
 end

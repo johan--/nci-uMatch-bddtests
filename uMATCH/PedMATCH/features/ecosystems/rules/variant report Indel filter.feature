@@ -47,3 +47,6 @@ Feature: Test the functionality that filters the Indel variants based on specifi
     Then moi report is returned with the indel variant "NOLOC"
     Then moi report is returned with the indel variant "OVADELETERIOUS"
     Then moi report is returned with the indel variant "." as an amoi
+    """
+    [{"version":"2015-08-06", "exclusion":false, "treatment_arm_id":"APEC1621-B", "stratum_id":"100", "amoi_status":"CURRENT"}]
+    """

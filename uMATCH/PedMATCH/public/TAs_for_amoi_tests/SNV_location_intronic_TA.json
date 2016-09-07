@@ -13,6 +13,7 @@
     }
   ],
   "indels": [],
+  "gene_fusions":[],
   "non_hotspot_rules": [
     {
       "inclusion": true,

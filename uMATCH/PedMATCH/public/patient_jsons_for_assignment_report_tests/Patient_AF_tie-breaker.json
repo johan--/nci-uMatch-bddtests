@@ -18,9 +18,9 @@
   "single_nucleotide_variants": [
     {
       "type":"snp",
-      "metadata": {
-        "id": "ba62eecc-d24a-4f62-a918-570deb8a9f6c"
-      },
+//      "metadata": {
+//        "id": "ba62eecc-d24a-4f62-a918-570deb8a9f6c"
+//      },
       "exon" : "15",
       "func_gene" : "BTK",
       "oncomine_variant_class":null,
@@ -31,9 +31,9 @@
   "indels": [
     {
       "type":"ins",
-      "metadata": {
-        "id": "ba62eecc-d24a-4f62-a918-570deb8a9f6c"
-      },
+//      "metadata": {
+//        "id": "ba62eecc-d24a-4f62-a918-570deb8a9f6c"
+//      },
       "exon" : "2",
       "oncomine_variant_class":null,
       "function":null,
