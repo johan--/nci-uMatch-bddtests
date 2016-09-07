@@ -66,6 +66,11 @@ When(/^the proficiency_competency service is called/) do
   expect(@res['status']).to eql("Success")
 end
 
+When(/^the no_template service is called/) do
+  @res = Helper_Methods.post_request(ENV['rules_endpoint']+'/sample_control_report/no_template/BDD/msn-1111/job-1111/'+@tsv+'?filtered=true',@treatment_arm.to_json)
+  puts @res.to_json
+  expect(@res['status']).to eql("Success")
+end
 
 Then(/^moi report is returned with the snv variant "([^"]*)" as an amoi$/) do |arg1|
   # JSON.parse(@res)['single_nucleotide_variants'].each do |snv|
