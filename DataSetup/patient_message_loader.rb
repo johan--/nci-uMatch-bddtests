@@ -215,10 +215,51 @@ class PatientMessageLoader
     send_message_to_local(message, patient_id)
   end
 
+  def self.off_study(
+    patient_id,
+    step_number,
+    status_date='2016-08-30T12:11:09.071-05:00'
+  )
+    message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['off_study']
+    message['patient_id'] = patient_id
+    message['step_number'] = step_number
+    message['status'] = 'OFF_STUDY'
+    message['status_date'] = status_date
+    send_message_to_local(message, patient_id)
+  end
+
+  def self.prepare_request_assignment_message(
+    patient_id,
+    rebiopsy='Y',
+    step_number='2.0',
+    status_date='2016-08-10T22:05:33+00:00',
+    treatment_arm_id='APEC1621_A',
+    treatment_arm_version='2015-08-06',
+    stratum_id='100'
+  )
+    @request_assignment_message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['request_assignment']
+    @request_assignment_message['patient_id'] = patient_id
+    @request_assignment_message['status_date'] = status_date
+    @request_assignment_message['step_number'] = step_number
+    @request_assignment_message['treatment_arm_id'] = treatment_arm_id
+    @request_assignment_message['stratum_id'] = stratum_id
+    @request_assignment_message['status'] = 'REQUEST_ASSIGNMENT'
+    @request_assignment_message['rebiopsy'] = rebiopsy
+    @request_assignment_message['prior_drugs'] = []
+  end
+
+  def self.add_prior_drug_to_request_assignment_message(drug_id, name)
+    @request_assignment_message['prior_drugs'] << {'drug_id'=>drug_id, 'name'=>name}
+  end
+
+  def self.send_request_assignment
+    send_message_to_local(@request_assignment_message, @request_assignment_message['patient_id'])
+  end
+
   def self.on_treatment_arm(
     patient_id,
-    assignment_date='2016-08-10T22:05:33+00:00',
     step_number='1.1',
+    assignment_date='2016-08-10T22:05:33+00:00',
     treatment_arm_id='APEC1621_A',
     treatment_arm_version='2015-08-06',
     stratum_id='100'
@@ -228,7 +269,6 @@ class PatientMessageLoader
     message['assignment_date'] = assignment_date
     message['step_number'] = step_number
     message['treatment_arm_id'] = treatment_arm_id
-    message['treatment_arm_version'] = treatment_arm_version
     message['stratum_id'] = stratum_id
     send_message_to_local(message, patient_id)
   end

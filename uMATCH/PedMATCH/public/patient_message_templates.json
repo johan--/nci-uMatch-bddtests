@@ -216,19 +216,18 @@
       "msg_dttm": "2016-05-09T22:06:33+00:00"
     },
     "study_id": "APEC1621",
-    "patient_id": "3355",
+    "patient_id": "1111",
     "step_number": "1.1",
-    "treatment_arm_id": "APEC1621-A",
-    "treatment_arm_version": "2015-08-06",
-    "stratum_id": "100",
-    "assignment_date": "2016-08-10T22:05:33+00:00",
+    "treatment_arm_id": "APEC1621B",
+    "stratum_id": "12",
+    "assignment_date": "2016-05-10T22:05:33+00:00",
     "status": "ON_TREATMENT_ARM",
     "message": "",
     "internal_use_only": {
       "request_id": "4-654400",
       "environment": "5",
-      "request": "ON_TREATMENT_ARM for patient_id 3355",
-      "treatment_id": "APEC1621-A"
+      "request": "ON_TREATMENT_ARM for patient_id 1111",
+      "treatment_id": "120"
     }
   },
   "request_assignment":{
