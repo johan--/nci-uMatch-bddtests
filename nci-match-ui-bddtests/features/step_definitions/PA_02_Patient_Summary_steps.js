@@ -13,7 +13,6 @@ var utilities = require ('../../support/utilities');
 module.exports = function () {
     this.World = require ('../step_definitions/world').World;
 
-    var patientId;
     var patientInfoPromise;
     var expectedMainTabs = patientPage.expectedPatientMainTabs;
     var actualMainTabsArray = patientPage.actualMainTabs;
@@ -27,42 +26,43 @@ module.exports = function () {
         //get the patient id of the first element
         var tableElement = patientPage.patientListTable;
         patientPage.returnPatientId(tableElement, 0).then(function (id) {
-            patientId = id;
+            patientPage.patientId = id;
             element(by.linkText(id)).click();
         }).then(callback);
     });
 
     this.When(/^I go to patient "(.+)" details page$/, function (pa_id, callback) {
-        patientId = pa_id;
+        patientPage.patientId = pa_id;
         browser.get('/#/patient?patient_id=' + pa_id, 6000).then(callback);
     });
 
     this.When(/^I collect the patient Api Information$/, function (callback) {
-        var str = '/api/v1/patients/' + patientId;
+        var str = '/api/v1/patients/' + patientPage.patientId;
         var request = utilities.callApi('patient', str)
         request.get().then(function () {
               patientApiInfo = JSON.parse(request.entity());
-        });
-
-        browser.sleep(50).then(callback);
+        }).then(callback);
     });
 
     this.When(/^I click on the "([^"]*)" tab$/, function (tabName, callback) {
         var index = expectedMainTabs.indexOf(tabName);
-        utilities.clickElementArray(actualMainTabsArray, index);
-        browser.sleep(5).then(callback);
+        element(by.linkText('Tissue Reports')).click().then(function () {
+            browser.waitForAngular();
+        }).then(callback);
+//        utilities.clickElementArray(actualMainTabsArray, index);
+//        browser.sleep(50).then(callback);
     });
 
     // Then Section
 
     this.Then(/^I should see Patient details breadcrumb$/, function (callback) {
-        utilities.checkBreadcrumb('Dashboard / Patients / Patient ' + patientId);
+        utilities.checkBreadcrumb('Dashboard / Patients / Patient ' + patientPage.patientId);
         browser.sleep(50).then(callback);
     });
 
     this.Then(/^I am taken to the patient details page$/, function (callback) {
         browser.sleep(200).then(function () {
-            expect(browser.getCurrentUrl()).to.eventually.equal(browser.baseUrl + '/#/patient?patient_id=' + patientId)
+            expect(browser.getCurrentUrl()).to.eventually.equal(browser.baseUrl + '/#/patient?patient_id=' + patientPage.patientId)
         }).then(callback);
     });
 

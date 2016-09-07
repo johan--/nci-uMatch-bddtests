@@ -5,6 +5,7 @@
 var PatientPage = function () {
     var patientId;
     var patientData;
+    var responseData;
 
     this.patientListTable = element(by.css('#patientGrid>table'));
     this.patientListHeaders = element.all(by.css('.sortable'));
@@ -23,6 +24,12 @@ var PatientPage = function () {
         'Registration Date',
         'Off Trial Date'
     ];
+    // Patient Grid box
+    this.patientGrid = element(by.id('patientGrid'))
+    //Patient filter textbox
+    this.patientFilterTextBox = this.patientGrid.all(by.model('filterAll'));
+    // Patients in the grid
+    this.patientGridRows      = this.patientGrid.all(by.repeater('item in filtered'));
 
 
     // Disease Summary table information on the patient details page.
@@ -70,6 +77,9 @@ var PatientPage = function () {
     this.bloodMasterPanelString = 'div[ng-if="currentBloodVariantReport"]';
     //The String is the locator to get access to all the tables under the variant Report section namely, SNV, CNV and GeneFusion
     this.tissueTableString = 'div[ng-if="variantReportMode === \'FILTERED\'"]>.table-responsive';
+
+    this.modalWindow = element(by.css('div.modal-content'));
+
 
     // the hash below gives you access to the repeater locator string for the table based on the type of variant
     this.tableTypeRepeaterString = {

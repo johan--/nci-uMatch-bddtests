@@ -37,8 +37,12 @@ module.exports = function () {
     });
 
     this.When(/^I collect information about the patient$/, function (callback) {
-        utilities.callApi('patient', '/api/v1/patients/' + patientId).then(function (returnData) {
-            responseData = JSON.parse(returnData);
+        var request = utilities.callApi('patient', '/api/v1/patients/' + patientPage.patientId);
+
+        request.get().then(function () {
+            patientPage.responseData= JSON.parse(request.entity());
+        }, function () {
+            console.log("error occurred. Please review the trace to debug")
         }).then(callback);
     });
 
