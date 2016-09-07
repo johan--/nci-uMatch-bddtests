@@ -570,7 +570,7 @@ def findAllTAsByID(id)
 end
 
 def findAllBasicTreatmentArms()
-  @response = Helper_Methods.get_list_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/api/v1/treatment_arms',params={})
+  @response = Helper_Methods.get_list_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/api/v1/treatment_arms?active=true&basic=true',params={})
   return @response
 end
 
