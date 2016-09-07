@@ -3,18 +3,24 @@ require 'rspec'
 require 'json'
 require_relative '../../../support/helper_methods.rb'
 
+
 When(/^the rules service \/version is called$/) do
-  @res=Helper_Methods.get_request(ENV['rules_endpoint']+'/version')
+  @res=Helper_Methods.get_request("#{ENV['rules_endpoint']}/version")
+end
+
+Then(/^the version "([^"]*)" is returned as json$/) do |version|
+  expect(JSON.parse(@res)['version']).to include(version)
 end
 
 Given(/^the patient assignment json "([^"]*)"$/) do |patient_json|
-  patientAssignmentJson =  File.join(File.dirname(__FILE__),ENV['PATIENT_ASSIGNMENT_JSON_LOCATION']+'/'+patient_json+'.json')
+  patientAssignmentJson =  File.join(File.dirname(__FILE__),"#{ENV['PATIENT_ASSIGNMENT_JSON_LOCATION']}/#{patient_json}.json")
   expect(File.exist?(patientAssignmentJson)).to be_truthy
   @patient = JSON(IO.read(patientAssignmentJson))
 end
 
 And(/^treatment arm json "([^"]*)"$/) do |ta|
-  ta = File.join(File.dirname(__FILE__),ENV['TAs_ASSIGNMENT_JSON_LOCATION']+'/'+ta+'.json')
+  # ta = File.join(File.dirname(__FILE__),ENV['TAs_ASSIGNMENT_JSON_LOCATION']+'/'+ta+'.json')
+  ta = File.join(File.dirname(__FILE__),"#{ENV['TAs_ASSIGNMENT_JSON_LOCATION']}/#{ta}.json")
   expect(File.exist?(ta)).to be_truthy
   @ta = JSON(IO.read(ta))
 end
@@ -25,7 +31,7 @@ When(/^assignPatient service is called for patient "([^"]*)"$/) do |patient|
   msgHash = { "study_id"=> "APEC1621",'patient'=> @patient, 'treatment_arms'=>@ta}
   @payload = msgHash.to_json
   p @payload
-  res = Helper_Methods.post_request(ENV['rules_endpoint']+'/assignment_report/'+ patient,@payload)
+  res = Helper_Methods.post_request("#{ENV['rules_endpoint']}/assignment_report/patient",@payload)
   @res = res.to_json
   p @res
 
@@ -55,19 +61,20 @@ Given(/^a tsv variant report file file "([^"]*)" and treatment arms file "([^"]*
 end
 
 When(/^call the amoi rest service$/) do
-  @res = Helper_Methods.post_request(ENV['rules_endpoint']+'/variant_report/1111/BDD/msn-1111/job-1111/'+@tsv+'?filtered=true',@treatment_arm.to_json)
+  @res = Helper_Methods.post_request("#{ENV['rules_endpoint']}/variant_report/1111/BDD/msn-1111/job-1111/#{@tsv}?filtered=true",@treatment_arm.to_json)
   puts @res.to_json
   expect(@res['status']).to eql("Success")
 end
 
 When(/^the proficiency_competency service is called/) do
-  @res = Helper_Methods.post_request(ENV['rules_endpoint']+'/sample_control_report/proficiency_competency/BDD/msn-1111/job-1111/'+@tsv+'?filtered=true',@treatment_arm.to_json)
+  @res = Helper_Methods.post_request("#{ENV['rules_endpoint']}/sample_control_report/proficiency_competency/BDD/msn-1111/job-1111/#{@tsv}?filtered=true",@treatment_arm.to_json)
   puts @res.to_json
   expect(@res['status']).to eql("Success")
 end
 
 When(/^the no_template service is called/) do
-  @res = Helper_Methods.post_request(ENV['rules_endpoint']+'/sample_control_report/no_template/BDD/msn-1111/job-1111/'+@tsv+'?filtered=true',@treatment_arm.to_json)
+  # @res = Helper_Methods.post_request(ENV['rules_endpoint']+'/sample_control_report/no_template/BDD/msn-1111/job-1111/'+@tsv+'?filtered=true',@treatment_arm.to_json)
+  @res = Helper_Methods.post_request("#{ENV['rules_endpoint']}/sample_control_report/no_template/BDD/msn-1111/job-1111/#{@tsv}?filtered=true",@treatment_arm.to_json)
   puts @res.to_json
   expect(@res['status']).to eql("Success")
 end

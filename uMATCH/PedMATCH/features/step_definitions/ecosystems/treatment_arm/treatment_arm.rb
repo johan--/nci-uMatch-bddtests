@@ -8,7 +8,7 @@ require_relative '../../../support/drug_obj.rb'
 
 
 When(/^the ta service \/version is called$/) do
-  @res=Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/version')
+  @res=Helper_Methods.get_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/version")
 end
 
 Then(/^the version "([^"]*)" is returned$/) do |arg1|
