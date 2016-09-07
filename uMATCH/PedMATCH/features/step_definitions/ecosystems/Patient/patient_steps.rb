@@ -296,6 +296,10 @@ Then(/^returned patient has variant report \(surgical_event_id: "([^"]*)", molec
 
 end
 
+Then(/^returned patient has been assigned to new treatment arm: "([^"]*)", stratum id: "([^"]*)"$/) do |ta_id, stratum|
+  ta_id.should == 'pending'
+end
+
 And(/^this variant report has value: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
   convert_value = value=='null'?nil:value
   @current_variant_report[field].should == convert_value

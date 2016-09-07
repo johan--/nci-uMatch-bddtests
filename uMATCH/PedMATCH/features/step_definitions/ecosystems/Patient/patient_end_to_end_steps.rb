@@ -11,7 +11,7 @@ Given(/^patient: "([^"]*)" with status: "([^"]*)" on step: "([^"]*)"$/) do |pati
   @patient_step_number = step_number
 end
 
-Given(/^other prepared steps for this patient: "([^"]*)"$/) do |arg1|
+Given(/^other background and comments for this patient: "([^"]*)"$/) do |arg1|
 #   this is just a description step
 end
 
@@ -124,13 +124,15 @@ Then(/^API returns a message that includes "([^"]*)" with status "([^"]*)"$/) do
 end
 
 
-Then(/^patient has new assignment request with re\-biopsy: "([^"]*)", step number: "([^"]*)"$/) do |rebio, step_number|
+Then(/^patient has new assignment request with re\-biopsy: "([^"]*)", step number: "([^"]*)", treatment arm id: "([^"]*)", stratum id: "([^"]*)"$/) do |rebio, step_number, ta_id, stratum|
   @request_hash = Patient_helper_methods.load_patient_message_templates('request_assignment')
   @request_hash['patient_id'] = @patient_id
   @request_hash['status'] = 'REQUEST_ASSIGNMENT'
-  @request_hash['rebiopsy'] = rebio=='true'?'Y':'N'
+  @request_hash['rebiopsy'] = rebio
   @request_hash['status_date'] = Helper_Methods.getDateAsRequired('current')
   @request_hash['step_number'] = step_number
+  @request_hash['treatment_arm_id'] = ta_id
+  @request_hash['stratum_id'] = stratum
 
   post_to_trigger
   validate_response('Success', 'successfully')
@@ -142,6 +144,18 @@ Then(/^set patient off_study on step number: "([^"]*)"$/) do |step_number|
   @request_hash['status'] = 'OFF_STUDY'
   @request_hash['status_date'] = Helper_Methods.getDateAsRequired('current')
   @request_hash['step_number'] = step_number
+
+  post_to_trigger
+  validate_response('Success', 'successfully')
+end
+
+Then(/^patient has on treatment arm approval with treatment arm id: "([^"]*)", stratum id: "([^"]*)" to step: "([^"]*)"$/) do |ta_id, stratum, step_number|
+  @request_hash = Patient_helper_methods.load_patient_message_templates('on_treatment_arm')
+  @request_hash['patient_id'] = @patient_id
+  @request_hash['assignment_date'] = Helper_Methods.getDateAsRequired('current')
+  @request_hash['step_number'] = step_number
+  @request_hash['treatment_arm_id'] = ta_id
+  @request_hash['stratum_id'] = stratum
 
   post_to_trigger
   validate_response('Success', 'successfully')

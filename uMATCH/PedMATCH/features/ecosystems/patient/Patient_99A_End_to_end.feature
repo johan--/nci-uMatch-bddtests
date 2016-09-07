@@ -17,12 +17,14 @@ Feature: Patients end to end tests
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
     Then "BLOOD" variant report confirmed with status: "REJECTED"
     Then wait for "30" seconds
+    When retrieve patient: "PT_ETE01" from API
+    Then returned patient has value: "PEDING_CONFIRMATION" in field: "current_status"
     Then assignment report is "CONFIRMED"
     Then wait for "30" seconds
     When retrieve patient: "PT_ETE01" from API
     Then returned patient has value: "ON_TREATMENT_ARM" in field: "current_status"
     Then returned patient has value: "1.1" in field: "current_step_number"
-    Then patient has new assignment request with re-biopsy: "true", step number: "2.0"
+    Then patient has new assignment request with re-biopsy: "Y", step number: "2.0", treatment arm id: "APEC1621-A", stratum id: "100"
     Then tissue specimen received with surgical_event_id: "PT_ETE01_SEI2"
     Then blood specimen received
     Then "TISSUE" specimen shipped with molecular_id or slide_barcode: "PT_ETE01_MOI2"
@@ -36,19 +38,23 @@ Feature: Patients end to end tests
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
     Then "BLOOD" variant report confirmed with status: "CONFIRMED"
     Then wait for "30" seconds
+    When retrieve patient: "PT_ETE01" from API
+    Then returned patient has value: "PEDING_CONFIRMATION" in field: "current_status"
     Then assignment report is "CONFIRMED"
     Then wait for "30" seconds
     When retrieve patient: "PT_ETE01" from API
     Then returned patient has value: "ON_TREATMENT_ARM" in field: "current_status"
     Then returned patient has value: "2.1" in field: "current_step_number"
-    Then patient has new assignment request with re-biopsy: "false", step number: "3.0"
+    Then patient has new assignment request with re-biopsy: "N", step number: "3.0", treatment arm id: "APEC1621-A", stratum id: "100"
     Then wait for "30" seconds
+    When retrieve patient: "PT_ETE01" from API
+    Then returned patient has value: "PEDING_CONFIRMATION" in field: "current_status"
     Then assignment report is "CONFIRMED"
     Then wait for "30" seconds
     When retrieve patient: "PT_ETE01" from API
     Then returned patient has value: "ON_TREATMENT_ARM" in field: "current_status"
     Then returned patient has value: "3.1" in field: "current_step_number"
-    Then patient has new assignment request with re-biopsy: "true", step number: "4.0"
+    Then patient has new assignment request with re-biopsy: "Y", step number: "4.0", treatment arm id: "APEC1621-A", stratum id: "100"
     Then tissue specimen received with surgical_event_id: "PT_ETE01_SEI3"
     Then "TISSUE" specimen shipped with molecular_id or slide_barcode: "PT_ETE01_MOI3"
     Then "SLIDE" specimen shipped with molecular_id or slide_barcode: "PT_ETE01_BC3"
@@ -58,6 +64,8 @@ Feature: Patients end to end tests
     Then "TISSUE" variant report uploaded with analysis_id: "PT_ETE01_ANI5"
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
     Then wait for "30" seconds
+    When retrieve patient: "PT_ETE01" from API
+    Then returned patient has value: "PEDING_CONFIRMATION" in field: "current_status"
     Then assignment report is "CONFIRMED"
     Then wait for "30" seconds
     When retrieve patient: "PT_ETE01" from API
@@ -68,7 +76,7 @@ Feature: Patients end to end tests
     Given patient: "PT_ETE02" with status: "BLOOD_VARIANT_REPORT_CONFIRMED" on step: "1.0"
     Given this patients's active "TISSUE" molecular_id is "PT_ETE02_MOI1"
     Given this patients's active analysis_id is "PT_ETE02_ANI1"
-    Given other prepared steps for this patient: "assay and pathology are ready"
+    Given other background and comments for this patient: "assay and pathology are ready"
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
     Then wait for "60" seconds
     When retrieve patient: "PT_ETE01" from API
@@ -81,7 +89,7 @@ Feature: Patients end to end tests
     Given patient: "PT_ETE03" in mock service lost patient list, service will come back after "5" tries
     Given this patients's active "TISSUE" molecular_id is "PT_ETE03_MOI1"
     Given this patients's active analysis_id is "PT_ETE03_ANI1"
-    Given other prepared steps for this patient: "assay and pathology are ready"
+    Given other background and comments for this patient: "assay and pathology are ready"
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
     Then wait for "60" seconds
     Then retrieve patient: "PT_ETE03" from API
@@ -110,18 +118,18 @@ Feature: Patients end to end tests
   |PT_ETE04_TsVrRejected   |TISSUE_VARIANT_REPORT_REJECTED   |2.0                |
   |PT_ETE04_BdVrRejected   |BLOOD_VARIANT_REPORT_REJECTED    |1.0                |
   |PT_ETE04_PendingApproval|PENDING_APPROVAL                 |2.0                |
-  |PT_ETE04_OnTreatmentArm |ON_TREATMENT_ARM                 |3.1                |
+  |PT_ETE04_OnTreatmentArm |ON_TREATMENT_ARM                 |4.1                |
   |PT_ETE04_ReqAssignment  |REQUEST_ASSIGNMENT               |2.0                |
 
   Scenario: PT_ETE05. new tissue specimen with a surgical_event_id that was used in previous step should fail
     Given patient: "PT_ETE05" with status: "REQUEST_ASSIGNMENT" on step: "2.0"
-    Given other prepared steps for this patient: "surgical_event_id PT_ETE05_SEI1 has been used in step 1.0"
+    Given other background and comments for this patient: "surgical_event_id PT_ETE05_SEI1 has been used in step 1.0"
     Then tissue specimen received with surgical_event_id: "PT_ETE05_SEI1"
     Then API returns a message that includes "same surgical event id" with status "Failure"
 
   Scenario Outline: PT_ETE06. shipment with molecular_id (or barcode) that was used in previous step should fail
     Given patient: "<patient_id>" with status: "<current_status>" on step: "2.0"
-    Given other prepared steps for this patient: "<moi_or_barcode> has been used in step 1.0"
+    Given other background and comments for this patient: "<moi_or_barcode> has been used in step 1.0"
     Given this patients's active surgical_event_id is "<patient_id>_SEI5"
     Then "<type>" specimen shipped with molecular_id or slide_barcode: "<moi_or_barcode>"
     Then API returns a message that includes "<message>" with status "Failure"
@@ -135,7 +143,7 @@ Feature: Patients end to end tests
     Given patient: "<patient_id>" with status: "TISSUE_VARIANT_REPORT_RECEIVED" on step: "1.0"
     Given this patients's active "TISSUE" molecular_id is "<moi>"
     Given this patients's active analysis_id is "<ani>"
-    Given other prepared steps for this patient: "All data is ready, there will <description>"
+    Given other background and comments for this patient: "All data is ready, there will <description>"
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
     Then wait for "60" seconds
     Then COG received assignment status: "<assignment_status>" for this patient
@@ -146,7 +154,7 @@ Feature: Patients end to end tests
 
   Scenario Outline: PT_ETE05. variant report confirmation should fail if patient is on OFF_STUDY status
     Given patient: "<patient_id>" with status: "<current_status>" on step: "1.0"
-    Given other prepared steps for this patient: "All data is ready, tissue variant report was waiting for confirmation before patient changed to OFF_STUDY"
+    Given other background and comments for this patient: "All data is ready, tissue variant report was waiting for confirmation before patient changed to OFF_STUDY"
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
     Then API returns a message that includes "OFF_STUDY" with status "Failure"
     Examples:
@@ -156,7 +164,7 @@ Feature: Patients end to end tests
 
   Scenario Outline: PT_ETE06. assignment report confirmation should fail if patient is on OFF_STUDY status
     Given patient: "<patient_id>" with status: "<current_status>" on step: "1.0"
-    Given other prepared steps for this patient: "Assignment report was waiting for confirmation before patient changed to OFF_STUDY"
+    Given other background and comments for this patient: "Assignment report was waiting for confirmation before patient changed to OFF_STUDY"
     Then assignment report is "CONFIRMED"
     Then API returns a message that includes "OFF_STUDY" with status "Failure"
     Examples:
@@ -166,6 +174,41 @@ Feature: Patients end to end tests
     
   Scenario: PT_ETE07. request assignment message with rebiopsy = N will fail if the current biopsy is expired
     Given patient: "PT_ETE07" with status: "ON_TREATMENT_ARM" on step: "1.1"
-    Given other prepared steps for this patient: "the specimen received date is over 6 months ago"
-    Then patient has new assignment request with re-biopsy: "false", step number: "2.0"
+    Given other background and comments for this patient: "the specimen received date is over 6 months ago"
+    Then patient has new assignment request with re-biopsy: "N", step number: "2.0", treatment arm id: "APEC1621-A", stratum id: "100"
     Then API returns a message that includes "expired" with status "Failure"
+
+  Scenario Outline: PT_ETE08. assignment process should not be triggered if assignment request has rebiopsy = Y
+    Given patient: "<patient_id>" with status: "<patient_status>" on step: "<step_number>"
+    Then patient has new assignment request with re-biopsy: "Y", step number: "2.0", treatment arm id: "APEC1621-A", stratum id: "100"
+    Then wait for "60" seconds
+    Then retrieve patient: "<patient_id>" from API
+    Then returned patient has value: "REQUEST_ASSIGNMENT" in field: "current_status"
+    Examples:
+    |patient_id              |patient_status       |step_number|
+    |PT_ETE08_OnTreatmentArm |ON_TREATMENT_ARM     |1.1        |
+    |PT_ETE08_PendingAproval |PENDING_APPROVAL     |1.0        |
+
+  Scenario: PT_ETE09. rule engine will find another assignment result, if cog reply assignment request with rebiopsy = N on the first assignment report
+    Given patient: "PT_ETE09" with status: "PENDING_APPROVAL" on step: "1.0"
+    Given other background and comments for this patient: "assignment report finds treatment arm: APEC1621-ETE09"
+    Then patient has new assignment request with re-biopsy: "N", step number: "2.0", treatment arm id: "APEC1621-A", stratum id: "100"
+    Then wait for "60" seconds
+    Then retrieve patient: "PT_ETE09" from API
+    Then returned patient has value: "PENDING_APPROVAL" in field: "current_status"
+    Then returned patient has been assigned to new treatment arm: "APEC1621-B", stratum id: "100"
+
+  Scenario Outline: PT_ETE10. assignment request will fail if patient is on step 4.1
+    Given patient: "<patient_id>" with status: "ON_TREATMENT_ARM" on step: "4.1"
+    Then patient has new assignment request with re-biopsy: "<rebiopsy>", step number: "5.0", treatment arm id: "APEC1621-A", stratum id: "100"
+    Then API returns a message that includes "4" with status "Failure"
+    Examples:
+    |patient_id     |rebiopsy |
+    |PT_ETE10_OnTA1 |Y        |
+    |PT_ETE10_OnTA2 |N        |
+    
+  Scenario: PT_ETE11. on treatment arm message with wrong treatment arm information should fail
+    Given patient: "PT_ETE11" with status: "PENDING_APPROVAL" on step: "1.0"
+    Given other background and comments for this patient: "treatment arm APEC1621-A with stratum id 100 has been selected"
+    Then patient has on treatment arm approval with treatment arm id: "APEC1621-B", stratum id: "100" to step: "1.1"
+    Then API returns a message that includes "treatment arm" with status "Failure"

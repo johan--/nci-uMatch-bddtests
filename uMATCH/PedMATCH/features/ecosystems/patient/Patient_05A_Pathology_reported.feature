@@ -74,7 +74,7 @@ Feature: Pathology Messages
     Then set patient message field: "status" to value: "U"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
     Then wait for "10" seconds
-    Then retrieve patient: "PT_PR06_TissueReceived" from API
+    Then retrieve patient: "PT_PR08_SlideShipped" from API
     Then returned patient has value: "TISSUE_SLIDE_SPECIMEN_SHIPPED" in field: "current_status"
 
 
