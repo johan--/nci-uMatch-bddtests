@@ -168,7 +168,7 @@ class PatientMessageLoader
       patient_id,
       surgical_event_id,
       status='Y',
-      reported_date='2015-04-27T12:13:09.071-05:00')
+      reported_date='2016-04-27T12:13:09.071-05:00')
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['pathology_status']
     # message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['pathology_old']
     message['patient_id'] = patient_id
@@ -178,23 +178,23 @@ class PatientMessageLoader
     send_message_to_local(message, patient_id)
   end
 
-  def self.variant_file_uploaded(
-      patient_id,
-      molecular_id,
-      analysis_id)
-    message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['variant_file_uploaded']
-    message['patient_id'] = patient_id
-    message['molecular_id'] = molecular_id
-    message['analysis_id'] = analysis_id
-    send_message_to_local(message, patient_id)
-  end
+  # def self.variant_file_uploaded(
+  #     patient_id,
+  #     molecular_id,
+  #     analysis_id)
+  #   message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['variant_file_uploaded']
+  #   message['patient_id'] = patient_id
+  #   message['molecular_id'] = molecular_id
+  #   message['analysis_id'] = analysis_id
+  #   send_message_to_local(message, patient_id)
+  # end
 
   def self.tsv_vcf_uploaded(
     patient_id,
     molecular_id,
     analysis_id,
-    tsv_name='3366.tsv',
-    vcf_name='3366-bsn-msn-2.vcf'
+    tsv_name='test1.tsv',
+    vcf_name='test1.vcf'
   )
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['variant_tsv_vcf_uploaded']
     message['molecular_id'] = molecular_id

@@ -10,7 +10,7 @@ PatientMessageLoader.upload_start_with_wait_time(15)
 # PatientMessageLoader.pathology(pt.id, pt.sei, 'Y')
 # PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
 # PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCMLH1s')
-# PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+# PatientMessageLoader.tsv_vcf_uploaded(pt.id, pt.moi, pt.ani)
 # PatientMessageLoader.variant_file_confirmed(pt.id, 'CONFIRMED', pt.moi, pt.ani)
 
 # pt = PatientDataSet.new('PT_SR10_OnTreatmentArm')
@@ -21,13 +21,70 @@ PatientMessageLoader.upload_start_with_wait_time(15)
 # PatientMessageLoader.pathology(pt.id, pt.sei, 'Y')
 # PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
 # PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCMLH1s')
-# PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+# PatientMessageLoader.tsv_vcf_uploaded(pt.id, pt.moi, pt.ani)
 # PatientMessageLoader.variant_file_confirmed(pt.id, 'CONFIRMED', pt.moi, pt.ani)
 # sleep(10.0)
 # PatientMessageLoader.assignment_confirmed(pt.id, 'CONFIRMED', pt.moi, pt.ani)
 
 
 
+
+
+# pt = PatientDataSet.new('PT_SR10_TsVrReceived')
+# PatientMessageLoader.register_patient(pt.id)
+# PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+# PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+# PatientMessageLoader.tsv_vcf_uploaded(pt.id, pt.moi, pt.ani)
+#
+# pt = PatientDataSet.new('PT_SR10_TsVRRejected')
+# PatientMessageLoader.register_patient(pt.id)
+# PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+# PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+# PatientMessageLoader.tsv_vcf_uploaded(pt.id, pt.moi, pt.ani)
+# sleep(10)
+# PatientMessageLoader.variant_file_confirmed(pt.id, 'REJECTED', pt.moi, pt.ani)
+#
+# pt = PatientDataSet.new('PT_SR10_BdVRReceived')
+# PatientMessageLoader.register_patient(pt.id)
+# PatientMessageLoader.specimen_received_blood(pt.id)
+# PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)
+# PatientMessageLoader.tsv_vcf_uploaded(pt.id, pt.bd_moi, pt.ani)
+#
+# pt = PatientDataSet.new('PT_SR10_BdVRRejected')
+# PatientMessageLoader.register_patient(pt.id)
+# PatientMessageLoader.specimen_received_blood(pt.id)
+# PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)
+# PatientMessageLoader.tsv_vcf_uploaded(pt.id, pt.bd_moi, pt.ani)
+# sleep(10)
+# PatientMessageLoader.variant_file_confirmed(pt.id, 'REJECTED', pt.bd_moi, pt.ani)
+#
+# pt = PatientDataSet.new('PT_SR10_BdVRConfirmed')
+# PatientMessageLoader.register_patient(pt.id)
+# PatientMessageLoader.specimen_received_blood(pt.id)
+# PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)
+# PatientMessageLoader.tsv_vcf_uploaded(pt.id, pt.bd_moi, pt.ani)
+# sleep(10)
+# PatientMessageLoader.variant_file_confirmed(pt.id, 'CONFIRMED', pt.bd_moi, pt.ani)
+#
+# pt = PatientDataSet.new('PT_SR12_VariantReportConfirmed')
+# PatientMessageLoader.register_patient(pt.id)
+# PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+# PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+# PatientMessageLoader.tsv_vcf_uploaded(pt.id, pt.moi, pt.ani)
+# sleep(10)
+# PatientMessageLoader.variant_file_confirmed(pt.id, 'CONFIRMED', pt.moi, pt.ani)
+#
+# pt = PatientDataSet.new('PT_SR14_TsVrUploaded')
+# PatientMessageLoader.register_patient(pt.id)
+# PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+# PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+# PatientMessageLoader.tsv_vcf_uploaded(pt.id, pt.moi, pt.ani)
+#
+# pt = PatientDataSet.new('PT_SR14_BdVrUploaded')
+# PatientMessageLoader.register_patient(pt.id)
+# PatientMessageLoader.specimen_received_blood(pt.id)
+# PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)
+# PatientMessageLoader.tsv_vcf_uploaded(pt.id, pt.bd_moi, pt.ani)
 
 
 
