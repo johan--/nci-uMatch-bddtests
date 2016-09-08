@@ -30,7 +30,6 @@ Given(/^with variant report$/) do |variantReport|
 end
 
 When(/^posted to MATCH newTreatmentArm$/) do
-  puts @jsonString
   @response = Helper_Methods.post_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{@ta_id}/#{@stratum_id}/#{@version}",@jsonString)
 end
 
@@ -208,10 +207,7 @@ Given(/^template treatment arm json with an id: "([^"]*)", stratum_id: "([^"]*)"
 end
 
 Then(/^retrieve the posted treatment arm from API$/) do
-  # @ta_id      = @taReq['id']
-  # @stratum_id = @taReq['stratum_id']
-  # @version    = @taReq['version']
-  sleep(5)
+  sleep(7)
   @taFromAPI = find_single_treatment_arm(@ta_id, @stratum_id, @version)
 end
 
@@ -244,13 +240,14 @@ Then(/^retrieve single treatment arm with id: "([^"]*)" and stratum_id: "([^"]*)
 end
 
 Then(/^the returned treatment arm has value: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
-  expectFieldResult = "#{field} is #{value}"
-  returnedResult = "#{field} is #{@taFromAPI[field]}"
-  returnedResult.should == expectFieldResult
+  response = JSON.parse @taFromAPI
+  expected = value == "" ? nil : value
+  expect(response[field]).to eq(expected)
 end
 
 Then(/^the returned treatment arm has "([^"]*)" value: "([^"]*)" in field: "([^"]*)"$/) do |type, value, field|
-  returnedValue = @taFromAPI[field]
+  response = JSON.parse(@taFromAPI)
+  returnedValue = response[field]
   expectedValue = value
   if type == :number || :float || :int
     returnedValue = returnedValue.to_f

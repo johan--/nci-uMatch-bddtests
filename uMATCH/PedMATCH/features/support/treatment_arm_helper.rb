@@ -53,7 +53,6 @@ class Treatment_arm_helper
   def Treatment_arm_helper.validRquestJson()
     valid_json_file = File.join(Support::TEMPLATE_FOLDER, 'validPedMATCHTreatmentArmRequestTemplate.json')
     @treatmentArm = JSON.parse(File.read(valid_json_file))
-    puts @treatmentArm.to_json
     @treatmentArm
   end
 

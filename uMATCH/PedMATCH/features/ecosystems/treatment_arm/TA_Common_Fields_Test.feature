@@ -14,12 +14,12 @@ Feature: Treatment Arm API common tests for all fields
     When posted to MATCH newTreatmentArm
     Then success message is returned:
     Then retrieve the posted treatment arm from API
-    Then the returned treatment arm has value: "<returned_value>" in field: "<returned_field>"
+    Then the returned treatment arm has value: "<returned_value>" in field: "<field>"
     Examples:
-      | treatment_arm_id     | field       | value   | returned_field | returned_value |
-      | APEC1621-CF1-1       | target_id   |         | target_id      |                |
-      | APEC1621-CF1-2       | gene        | null    | gene           |                |
-      | APEC1621-CF1-3       | target_name | (&^$@HK | target_name    | (&^$@HK        |
+      | treatment_arm_id     | field       | value   | returned_value |
+      | APEC1621-CF1-1       | target_id   |         |                |
+      | APEC1621-CF1-2       | gene        | null    |                |
+      | APEC1621-CF1-3       | target_name | (&^$@HK | (&^$@HK        |
 
 
   Scenario Outline: TA_CF2. New Treatment Arm without unrequired field should set the value of this field to empty
