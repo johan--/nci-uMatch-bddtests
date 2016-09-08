@@ -79,6 +79,12 @@ When(/^the no_template service is called/) do
   expect(@res['status']).to eql("Success")
 end
 
+When(/^the positive_control service is called/) do
+  @res = Helper_Methods.post_request("#{ENV['rules_endpoint']}/sample_control_report/positive/BDD/msn-1111/job-1111/#{@tsv}?filtered=true",@treatment_arm.to_json)
+  puts @res.to_json
+  expect(@res['status']).to eql("Success")
+end
+
 Then(/^moi report is returned with the snv variant "([^"]*)" as an amoi$/) do |arg1|
   # JSON.parse(@res)['single_nucleotide_variants'].each do |snv|
   @res['single_nucleotide_variants'].each do |snv|
@@ -134,6 +140,45 @@ end
 Then(/^moi report is returned with (\d+) snv variants$/) do |arg1|
   # expect(JSON.parse(@res)['single_nucleotide_variants'].count).to eql(arg1.to_i)
   expect(@res['single_nucleotide_variants'].count).to eql(arg1.to_i)
+end
+
+Then(/^false positive variants is returned with (\d+) variants$/) do |arg1|
+  expect(@res['false_positive_variants'].count).to eql(arg1.to_i), "Expected #{arg1} but found #{@res['false_positive_variants'].count}"
+end
+
+And(/^match is false for "([^"]*)" variants in the positive variants$/) do |arg1|
+  @res["positive_variants"].each do |var|
+    if var["hgvs"].eql?(arg1)
+      expect(var["match"]).to eql(false), "Identifier with hgvs: '#{var['hgvs']}' has a value of true"
+    end
+  end
+end
+
+Then(/^variant type "([^"]*)" with "([^"]*)" is found in the False positives table$/) do |arg1, arg2|
+  flag = false
+  @res['false_positive_variants'].each do |var|
+    if (var['type'].eql?(arg1) & var['identifier'].eql?(arg2))
+      flag == true
+      break
+    end
+  end
+  if flag == false
+    fail("The variant of type #{arg1} and identifier #{arg2} is not found in the false positives")
+  end
+end
+
+
+Then(/^positive variants is returned with (\d+) variants$/) do |arg1|
+  expect(@res['positive_variants'].count).to eql(arg1.to_i)
+end
+
+And(/^match is true for "([^"]*)" variants in the positive variants$/) do |arg1|
+  if arg1 == "all"
+    @res["positive_variants"].each do |var|
+      expect(var["match"]).to eql(true), "Identifier: '#{var['identifier']}' has a value of false"
+    end
+  end
+
 end
 
 Then(/^moi report is returned with the indel variant "([^"]*)"$/) do |arg1|
