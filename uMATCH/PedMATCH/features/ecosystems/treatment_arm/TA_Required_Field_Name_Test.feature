@@ -41,7 +41,7 @@ Feature: Treatment Arm API Tests that focus on "name" field
 #    Given template treatment arm json with a random id
 #    When posted to MATCH newTreatmentArm
 #    Then success message is returned:
-#    Then set template treatment arm json field: "version" to string value: "2016-06-03"
+#    Then set the version of the treatment arm to "2016-06-03"
 #    And set template treatment arm json field: "name" to string value: ""
 #    When posted to MATCH newTreatmentArm
 #    Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
@@ -51,7 +51,7 @@ Feature: Treatment Arm API Tests that focus on "name" field
 #    Given template treatment arm json with a random id
 #    When posted to MATCH newTreatmentArm
 #    Then success message is returned:
-#    Then set template treatment arm json field: "version" to string value: "2016-06-03"
+#    Then set the version of the treatment arm to "2016-06-03"
 #    And set template treatment arm json field: "name" to string value: "null"
 #    When posted to MATCH newTreatmentArm
 #    Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
@@ -60,7 +60,7 @@ Feature: Treatment Arm API Tests that focus on "name" field
 #    Given template treatment arm json with a random id
 #    When posted to MATCH newTreatmentArm
 #    Then success message is returned:
-#    Then set template treatment arm json field: "version" to string value: "2016-06-03"
+#    Then set the version of the treatment arm to "2016-06-03"
 #    And remove field: "name" from template treatment arm json
 #    When posted to MATCH newTreatmentArm
 #    Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
@@ -70,7 +70,7 @@ Feature: Treatment Arm API Tests that focus on "name" field
 #    Given template treatment arm json with an id: "<treatment_arm_id>" and version: "2015-03-25"
 #    When posted to MATCH newTreatmentArm
 #    Then success message is returned:
-#    Then set template treatment arm json field: "version" to string value: "2016-06-03"
+#    Then set the version of the treatment arm to "2016-06-03"
 #    And set template treatment arm json field: "name" to string value: "<name_value>"
 #    When posted to MATCH newTreatmentArm
 #    Then success message is returned:

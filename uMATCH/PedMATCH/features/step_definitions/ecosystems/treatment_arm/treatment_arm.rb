@@ -50,8 +50,9 @@ end
 
 Given(/^that treatment arm is received from COG:$/) do |taJson|
   request = JSON.parse(taJson)
-  dateCreated = Helper_Methods.dateDDMMYYYYHHMMSS
-  request['date_created'] = dateCreated
+  @ta_id = request['id']
+  @stratum_id = request['stratum_id']
+  @version = request['version']
   @jsonString = request.to_json
 end
 
@@ -65,18 +66,19 @@ Then(/^a failure message is returned which contains: "([^"]*)"$/) do |string|
   actualMessage.should == expectMessage
 end
 
+Then(/^a failure response of "([^"]*)" is returned$/) do |response_code|
+  expect(@response).to eq('failure')
+end
+
 Then(/^the treatmentArmStatus field has a value "([^"]*)" for the ta "([^"]*)"$/) do |status, taId|
   sleep(5)
-  @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/api/v1/treatment_arms',params={"id"=>taId})
+  endpoint = "api/v1/treatment_arms/#{taId}/#{@stratum_id}/#{@version}"
+
+  @response = Helper_Methods.get_request("#{ENV['treatment_arm_endpoint']}/#{endpoint}")
   print "#{@response}\n"
   tas = JSON.parse(@response)
   tas.length.should > 0
-  tas.each do |child|
-    print "#{child}"
-    child['treatment_arm_status'].should == status
-    break
-  end
-
+  expect(tas['treatment_arm_status']).to eq(status)
 end
 
 Then(/^the treatment arm: "([^"]*)" return from database has correct version: "([^"]*)" study_id: "([^"]*)" name: "([^"]*)" description: "([^"]*)" targetId: "([^"]*)" targetName: "([^"]*)" gene: "([^"]*)" and with one drug: "([^"]*)" and with tastatus: "([^"]*)"$/) do |id, version, study_id, name, description, targetId, targetName, gene, drug, tastatus|
@@ -197,7 +199,6 @@ Given(/^template treatment arm json with an id: "([^"]*)", stratum_id: "([^"]*)"
   @taReq['id'] = id == 'null' ? nil : id
   @taReq['version'] = version == 'null' ? nil : version
   @taReq['stratum_id'] = stratum_id == 'null' ? nil : stratum_id
-
   @ta_id = @taReq['id']
   @stratum_id = @taReq['stratum_id']
   @version = @taReq['version']
@@ -355,6 +356,16 @@ And(/^set template treatment arm json field: "([^"]*)" to string value: "([^"]*)
   @taReq[field] = sValue
   @jsonString = @taReq.to_json.to_s
 end
+
+And(/^set the version of the treatment arm to "([^"]*)"$/) do |version|
+  version = nil if version == 'null'
+
+  loadTemplateJson()
+  @taReq[version] = version
+  @version = version
+  @jsonString = @taReq.to_json.to_s
+end
+
 
 And(/^set template treatment arm json field: "([^"]*)" to value: "([^"]*)" in type: "([^"]*)"$/) do |field, value, type|
   loadTemplateJson()

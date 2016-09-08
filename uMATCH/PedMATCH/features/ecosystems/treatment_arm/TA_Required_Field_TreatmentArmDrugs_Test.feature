@@ -56,7 +56,7 @@ Feature: Treatment Arm API Tests that focus on "treatment_arm_drugs" and "exclus
 #    Given template treatment arm json with a random id
 #    When posted to MATCH newTreatmentArm
 #    Then success message is returned:
-#    Then set template treatment arm json field: "version" to string value: "2016-06-03"
+#    Then set the version of the treatment arm to "2016-06-03"
 #    And clear list field: "treatmentArmDrugs" from template treatment arm json
 #    When posted to MATCH newTreatmentArm
 #    Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
@@ -65,7 +65,7 @@ Feature: Treatment Arm API Tests that focus on "treatment_arm_drugs" and "exclus
 #    Given template treatment arm json with a random id
 #    When posted to MATCH newTreatmentArm
 #    Then success message is returned:
-#    Then set template treatment arm json field: "version" to string value: "2016-06-03"
+#    Then set the version of the treatment arm to "2016-06-03"
 #    And set template treatment arm json field: "treatmentArmDrugs" to string value: "null"
 #    When posted to MATCH newTreatmentArm
 #    Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
@@ -74,7 +74,7 @@ Feature: Treatment Arm API Tests that focus on "treatment_arm_drugs" and "exclus
 #    Given template treatment arm json with a random id
 #    When posted to MATCH newTreatmentArm
 #    Then success message is returned:
-#    Then set template treatment arm json field: "version" to string value: "2016-06-03"
+#    Then set the version of the treatment arm to "2016-06-03"
 #    And remove field: "treatmentArmDrugs" from template treatment arm json
 #    When posted to MATCH newTreatmentArm
 #    Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
@@ -85,7 +85,7 @@ Feature: Treatment Arm API Tests that focus on "treatment_arm_drugs" and "exclus
 #    And add drug with name: "AZD9291" pathway: "EGFR" and id: "781254" to template treatment arm json
 #    When posted to MATCH newTreatmentArm
 #    Then success message is returned:
-#    And set template treatment arm json field: "version" to string value: "2016-06-03"
+#    And set the version of the treatment arm to "2016-06-03"
 #    Then add drug with name: "AZD9291" pathway: "EGFR" and id: "781254" to template treatment arm json
 #    When posted to MATCH newTreatmentArm
 #    Then the treatment arm with id: "APEC1621-DG10-1" and version: "2016-06-03" return from API has "1" drug (name:"AZD9291" pathway: "EGFR" and id: "781254")
@@ -94,7 +94,7 @@ Feature: Treatment Arm API Tests that focus on "treatment_arm_drugs" and "exclus
 #    Given template treatment arm json with an id: "APEC1621-DG11-1" and version: "2015-03-25"
 #    When posted to MATCH newTreatmentArm
 #    Then success message is returned:
-#    And set template treatment arm json field: "version" to string value: "2016-06-03"
+#    And set the version of the treatment arm to "2016-06-03"
 #    And add drug with name: "<drugName>" pathway: "<drugPathway>" and id: "<drugId>" to template treatment arm json
 #    When posted to MATCH newTreatmentArm
 #    Then a failure message is returned which contains: "Validation failed."
@@ -112,7 +112,7 @@ Feature: Treatment Arm API Tests that focus on "treatment_arm_drugs" and "exclus
 #    And add drug with name: "AZD9291" pathway: "EGFR" and id: "781254" to template treatment arm json
 #    When posted to MATCH newTreatmentArm
 #    Then success message is returned:
-#    Then set template treatment arm json field: "version" to string value: "2016-06-03"
+#    Then set the version of the treatment arm to "2016-06-03"
 #    And add PedMATCH exclusion drug with name: "AZD9291" and id: "781254" to template treatment arm json
 #    When posted to MATCH newTreatmentArm
 #    Then a failure message is returned which contains: "Validation failed."
@@ -124,7 +124,7 @@ Feature: Treatment Arm API Tests that focus on "treatment_arm_drugs" and "exclus
 #    And add PedMATCH exclusion drug with name: "AZD9291" and id: "781254" to template treatment arm json
 #    When posted to MATCH newTreatmentArm
 #    Then success message is returned:
-#    Then set template treatment arm json field: "version" to string value: "2016-06-03"
+#    Then set the version of the treatment arm to "2016-06-03"
 #    And add drug with name: "AZD9291" pathway: "EGFR" and id: "781254" to template treatment arm json
 #    When posted to MATCH newTreatmentArm
 #    Then a failure message is returned which contains: "Validation failed."

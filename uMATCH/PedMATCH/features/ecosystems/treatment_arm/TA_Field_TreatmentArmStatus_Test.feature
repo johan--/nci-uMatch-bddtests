@@ -33,7 +33,7 @@ Feature: Treatment Arm API Tests that focus on "treatmentArmStatus" field
     Then success message is returned:
     Then wait for "5" seconds
     Then cog changes treatment arm with id:"APEC1621-TAS3-1" and stratumID:"STRATUM1" status to: "SUSPENDED"
-    Then set template treatment arm json field: "version" to string value: "2016-06-28"
+    Then set the version of the treatment arm to "2016-06-28"
     Then set template treatment arm json field: "treatmentArmStatus" to string value: "CLOSED"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
@@ -50,7 +50,7 @@ Feature: Treatment Arm API Tests that focus on "treatmentArmStatus" field
     Then success message is returned:
     Then wait for "5" seconds
     Then cog changes treatment arm with id:"APEC1621-TAS4-1" and stratumID:"STRATUM1" status to: "CLOSED"
-    Then set template treatment arm json field: "version" to string value: "2016-06-28"
+    Then set the version of the treatment arm to "2016-06-28"
     And set template treatment arm json field: "treatmentArmStatus" to string value: "OPEN"
     Then posted to MATCH newTreatmentArm
     Then success message is returned:

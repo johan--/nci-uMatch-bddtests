@@ -38,7 +38,7 @@ Feature: pMATCH Treatment Arm API Tests that focus on numPatientsAssigned and ma
 #    Given template treatment arm json with an id: "APEC1621-PC5-1" and version: "2015-03-25"
 #    When posted to MATCH newTreatmentArm
 #    Then success message is returned:
-#    Then set template treatment arm json field: "version" to string value: "2016-06-03"
+#    Then set the version of the treatment arm to "2016-06-03"
 #    And set template treatment arm json field: "numPatientsAssigned" to value: "-73" in type: "int"
 #    When posted to MATCH newTreatmentArm
 #    Then a failure message is returned which contains: "Validation failed."
@@ -49,7 +49,7 @@ Feature: pMATCH Treatment Arm API Tests that focus on numPatientsAssigned and ma
 #    When posted to MATCH newTreatmentArm
 #    Then success message is returned:
 #    Then set template treatment arm json field: "numPatientsAssigned" to value: "<floatValue>" in type: "float"
-#    And set template treatment arm json field: "version" to string value: "2016-06-03"
+#    And set the version of the treatment arm to "2016-06-03"
 #    When posted to MATCH newTreatmentArm
 #    Then success message is returned:
 #    Then the treatment arm with id: "<treatment_arm_id>" and version: "2016-06-03" return from API has value: "<intValue>" in field: "num_patients_assigned"
@@ -63,7 +63,7 @@ Feature: pMATCH Treatment Arm API Tests that focus on numPatientsAssigned and ma
 #    When posted to MATCH newTreatmentArm
 #    Then success message is returned:
 #    Then set template treatment arm json field: "numPatientsAssigned" to value: "<value>" in type: "int"
-#    And set template treatment arm json field: "version" to string value: "2016-06-03"
+#    And set the version of the treatment arm to "2016-06-03"
 #    When posted to MATCH newTreatmentArm
 #    Then success message is returned:
 #    Then the treatment arm with id: "<treatment_arm_id>" and version: "2016-06-03" return from API has value: "<floatResult>" in field: "num_patients_assigned"
@@ -77,7 +77,7 @@ Feature: pMATCH Treatment Arm API Tests that focus on numPatientsAssigned and ma
 #    And set template treatment arm json field: "study_id" to string value: "APEC1621"
 #    When posted to MATCH newTreatmentArm
 #    Then success message is returned:
-#    Then set template treatment arm json field: "version" to string value: "2016-06-03"
+#    Then set the version of the treatment arm to "2016-06-03"
 #    And set template treatment arm json field: "maxPatientsAllowed" to value: "<value>" in type: "int"
 #    When posted to MATCH newTreatmentArm
 #    Then a failure message is returned which contains: "Validation failed."
@@ -113,7 +113,7 @@ Feature: pMATCH Treatment Arm API Tests that focus on numPatientsAssigned and ma
 #    Given template treatment arm json with a new unique id
 #    When posted to MATCH newTreatmentArm
 #    Then success message is returned:
-#    Then set template treatment arm json field: "version" to string value: "V0000002"
+#    Then set the version of the treatment arm to "V0000002"
 #    And set template treatment arm json field: "maxPatientAllowed" to value: "0" in type: "int"
 #    When posted to MATCH newTreatmentArm
 #    Then a failure message is returned which contains: "Validation failed."
@@ -122,7 +122,7 @@ Feature: pMATCH Treatment Arm API Tests that focus on numPatientsAssigned and ma
 #    Given template treatment arm json with a new unique id
 #    When posted to MATCH newTreatmentArm
 #    Then success message is returned:
-#    Then set template treatment arm json field: "version" to string value: "V0000002"
+#    Then set the version of the treatment arm to "V0000002"
 #    And set template treatment arm json field: "maxPatientAllowed" to value: "-5" in type: "int"
 #    When posted to MATCH newTreatmentArm
 #    Then a failure message is returned which contains: "Validation failed."
@@ -131,7 +131,7 @@ Feature: pMATCH Treatment Arm API Tests that focus on numPatientsAssigned and ma
 #    Given template treatment arm json with a new unique id
 #    When posted to MATCH newTreatmentArm
 #    Then success message is returned:
-#    Then set template treatment arm json field: "version" to string value: "V0000002"
+#    Then set the version of the treatment arm to "V0000002"
 #    And set template treatment arm json field: "numPatientsAssigned" to value: "246" in type: "int"
 #    And set template treatment arm json field: "maxPatientAllowed" to value: "12" in type: "int"
 #    When posted to MATCH newTreatmentArm

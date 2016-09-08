@@ -51,13 +51,13 @@
     },
     {
       "disease_code_type":"ICD-O",
-      "ctepCategory" : "Non-Small Cell Lung Cancer",
+      "disease_code":"8200/4",
       "disease_name" : "Squamous cell lung carcinoma",
       "exclusion": true
     },
     {
       "disease_code_type":"ICD-O",
-      "ctepCategory" : "Small cell lung cancer",
+      "disease_code":"8200/5",
       "disease_name" : "Small Cell Lung Cancer",
       "exclusion": false
     }

@@ -32,8 +32,10 @@ exports.config = {
 
         //Treatment Arm details page
         'features/TA_01_Analysis.feature',
-        'features/TA_02_Rules.feature'
-    ],
+        'features/TA_02_Rules.feature',
+        // Critical
+        'features/PA_06_Critical_Path.feature'
+   ],
 
     getPageTimeout: 10000,
 

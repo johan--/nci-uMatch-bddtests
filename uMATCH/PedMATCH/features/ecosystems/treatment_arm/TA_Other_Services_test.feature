@@ -8,15 +8,15 @@ Feature: Treatment Arm API Tests that focus on treatment arm api service other t
     When posted to MATCH newTreatmentArm
     Then success message is returned:
     Then wait for "5" seconds
-    Then set template treatment arm json field: "version" to string value: "version2"
+    Then set the version of the treatment arm to "version2"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
     Then wait for "5" seconds
-    Then set template treatment arm json field: "version" to string value: "version3"
+    Then set the version of the treatment arm to "version3"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
     Then wait for "5" seconds
-    Then set template treatment arm json field: "version" to string value: "version4"
+    Then set the version of the treatment arm to "version4"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
     Then There are "1" treatment arm with id: "APEC1621-OS1-1" and stratum_id: "STRATUM1" return from API /basicTreatmentArms

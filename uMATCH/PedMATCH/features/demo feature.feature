@@ -57,7 +57,7 @@ Background: wait for process to complete
           "ocp_reference": "T",
           "ocp_alternative": "<CNV>",
           "rare": false,
-          "levelOfEvidence": 2,
+          "level_of_evidence": 2.0,
           "inclusion": true,
           "armSpecific": false,
           "type": "cnv"
@@ -154,13 +154,13 @@ Background: wait for process to complete
             "func_gene" : "PTEN",
             "assayResultStatus" : "POSITIVE",
             "assayVariant" : "PRESENT",
-            "levelOfEvidence" : 3
+            "level_of_evidence" : 3.0
         },
         {
             "func_gene" : "MLH1",
             "assayResultStatus" : "POSITIVE",
             "assayVariant" : "EMPTY",
-            "levelOfEvidence" : 5
+            "level_of_evidence" : 5.0
         }
       ],
       "num_patients_assigned": null,
@@ -180,7 +180,7 @@ Background: wait for process to complete
           "ocp_reference": "A",
           "ocp_alternative": "C",
           "rare": false,
-          "levelOfEvidence": 3,
+          "level_of_evidence": 3.0,
           "inclusion": true,
           "armSpecific": false
         }, {
@@ -192,7 +192,7 @@ Background: wait for process to complete
           "ocp_reference": "C",
           "ocp_alternative": "T",
           "rare": false,
-          "levelOfEvidence": 3,
+          "level_of_evidence": 3.0,
           "inclusion": true,
           "armSpecific": false
         }, {
@@ -204,7 +204,7 @@ Background: wait for process to complete
           "ocp_reference": "T",
           "ocp_alternative": "C",
           "rare": false,
-          "levelOfEvidence": 3,
+          "level_of_evidence": 3.0,
           "inclusion": false,
           "armSpecific": false
         }, {
@@ -216,7 +216,7 @@ Background: wait for process to complete
           "ocp_reference": "C",
           "ocp_alternative": "G",
           "rare": false,
-          "levelOfEvidence": 3,
+          "level_of_evidence": 3.0,
           "inclusion": false,
           "armSpecific": false
         }, {
@@ -228,7 +228,7 @@ Background: wait for process to complete
           "ocp_reference": "A",
           "ocp_alternative": "T",
           "rare": false,
-          "levelOfEvidence": 3,
+          "level_of_evidence": 3.0,
           "inclusion": true,
           "armSpecific": false
         }],
@@ -241,7 +241,7 @@ Background: wait for process to complete
           "ocp_reference": "TTC",
           "ocp_alternative": "-",
           "rare": false,
-          "levelOfEvidence": 3,
+          "level_of_evidence": 3.0,
           "inclusion": true
         }, {
           "type": "id",
@@ -252,7 +252,7 @@ Background: wait for process to complete
           "ocp_reference": "CAAGGTTTCAATAACCAG",
           "ocp_alternative": "-",
           "rare": false,
-          "levelOfEvidence": 3,
+          "level_of_evidence": 3.0,
           "inclusion": true
         }, {
           "type": "id",
@@ -263,21 +263,21 @@ Background: wait for process to complete
           "ocp_reference": "TGCTGTCTCTGGGGA",
           "ocp_alternative": "-",
           "rare": false,
-          "levelOfEvidence": 3,
+          "level_of_evidence": 3.0,
           "inclusion": false
         }],
         "non_hotspot_rules": [{
           "func_gene": "MYCL",
           "oncomine_variant_class": "amplification",
           "rare": false,
-          "levelOfEvidence": 2.3,
+          "level_of_evidence": 2.3,
           "inclusion": true,
           "type": "nhr"
         }, {
           "func_gene": "TP53",
           "function": "Refallele",
           "rare": false,
-          "levelOfEvidence": 3.2,
+          "level_of_evidence": 3.2,
           "inclusion": false,
           "armSpecific": false,
           "type": "nhr"
@@ -295,7 +295,7 @@ Background: wait for process to complete
           "ocp_reference": "C",
           "ocp_alternative": "<CNV>",
           "rare": false,
-          "levelOfEvidence": 2,
+          "level_of_evidence": 2.0,
           "inclusion": true,
           "armSpecific": false,
           "type": "cnv"
@@ -312,7 +312,7 @@ Background: wait for process to complete
           "ocp_reference": "G",
           "ocp_alternative": "<CNV>",
           "rare": false,
-          "levelOfEvidence": 2,
+          "level_of_evidence": 2.0,
           "inclusion": false,
           "armSpecific": false,
           "type": "cnv"
@@ -329,7 +329,7 @@ Background: wait for process to complete
           "ocp_reference": "T",
           "ocp_alternative": "<CNV>",
           "rare": false,
-          "levelOfEvidence": 2,
+          "level_of_evidence": 2.0,
           "inclusion": true,
           "armSpecific": false,
           "type": "cnv"

@@ -128,7 +128,7 @@ class Helper_Methods
     end
     result = JSON.parse(@res)
     httpCode = "#{@res.code}"
-    status = httpCode=='200'?'Success':'Failure'
+    status = httpCode=='200' ? 'Success' : 'Failure'
     result['status'] = status
     if status.eql?('Failure')
       p result['message']

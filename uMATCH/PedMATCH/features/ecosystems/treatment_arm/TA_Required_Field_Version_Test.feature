@@ -47,7 +47,7 @@ Feature: Treatment Arm API Tests that focus on "version" field
     When posted to MATCH newTreatmentArm
     Then success message is returned:
     Then wait for "5" seconds
-    Then set template treatment arm json field: "version" to string value: ""
+    Then set the version of the treatment arm to ""
     When posted to MATCH newTreatmentArm
     Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
 
@@ -56,7 +56,7 @@ Feature: Treatment Arm API Tests that focus on "version" field
     When posted to MATCH newTreatmentArm
     Then success message is returned:
     Then wait for "5" seconds
-    Then set template treatment arm json field: "version" to string value: "null"
+    Then set the version of the treatment arm to "null"
     When posted to MATCH newTreatmentArm
     Then a failure message is returned which contains: "The property '#/version' of type NilClass did not match the following type: string"
 
@@ -73,7 +73,7 @@ Feature: Treatment Arm API Tests that focus on "version" field
 #    Given template treatment arm json with an id: "<treatment_arm_id>" and version: "2015-03-25"
 #    When posted to MATCH newTreatmentArm
 #    Then success message is returned:
-#    Then set template treatment arm json field: "version" to string value: "<version_value>"
+#    Then set the version of the treatment arm to "<version_value>"
 #    When posted to MATCH newTreatmentArm
 #    Then the treatment arm with id: "<treatment_arm_id>" and version: "<version_value>" return from API has value: "<version_value>" in field: "version"
 #    Examples:
@@ -107,15 +107,15 @@ Feature: Treatment Arm API Tests that focus on "version" field
     When posted to MATCH newTreatmentArm
     Then success message is returned:
     Then wait for "5" seconds
-    Then set template treatment arm json field: "version" to string value: "2005-01-24"
+    Then set the version of the treatment arm to "2005-01-24"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
     Then wait for "5" seconds
-    Then set template treatment arm json field: "version" to string value: "APEC1621_V000"
+    Then set the version of the treatment arm to "APEC1621_V000"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
     Then wait for "5" seconds
-    Then set template treatment arm json field: "version" to string value: "24.6"
+    Then set the version of the treatment arm to "24.6"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
     Then retrieve treatment arms with id: "APEC1621-VS11-1" and stratum_id: "STRATUM1" from API
