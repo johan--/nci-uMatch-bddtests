@@ -1,7 +1,7 @@
 Feature: Specimen Tracking page
   User can access and track the specimens
 
-  @ui @broken
+  @ui
   Scenario: User can track Specimens
     Given I am a logged in user
     When I navigate to the Specimen Tracking page

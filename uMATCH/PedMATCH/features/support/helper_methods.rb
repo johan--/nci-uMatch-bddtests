@@ -9,30 +9,21 @@ class Helper_Methods
   @requestGap = 1.0
   @requestTimeout = 10.0
   def Helper_Methods.get_request(service,params={})
-    print "URL: #{service}\n"
-    @params = ''
-    params.each do |key, value|
-      @params =  @params + "#{value}/"
-    end
-    url = "#{service}/#{@params}"
-    len = (url.length)-2
-    @service = url[0..len]
-    print "#{url[0..len]}\n"
+    puts "URL: #{service}\n"
+    @params = params.values.join('/')
+    @service = "#{service}/#{@params}"
+    puts "Calling: #{@service}"
     @res = RestClient::Request.execute(:url => @service, :method => :get, :verify_ssl => false)
     return @res
   end
 
   def Helper_Methods.get_list_request(service, params={})
-    @params = ''
-    params.each do |key, value|
-      @params =  @params + "#{value}/"
-    end
-    url = "#{service}/#{@params}"
-    len = (url.length)-2
-    @service = url[0..len]
-    print "#{url[0..len]}\n"
+    @params = params.values.join('/')
+    @service  = "#{service}/#{@params}"
 
-    result = Array.new()
+    puts "Calling: #{@service}"
+
+    result = []
     runTime = 0.0
     loop do
       sleep(@requestGap)
@@ -40,8 +31,8 @@ class Helper_Methods
       begin
         @res = RestClient::Request.execute(:url => @service, :method => :get, :verify_ssl => false)
       rescue StandardError => e
-        print "Error: #{e.message} occurred\n"
-        print "Response:#{e.response}\n"
+        puts "Error: #{e.message} occurred"
+        puts "Response:#{e.response}"
         @res = '[]'
         result = JSON.parse(@res)
         return result
@@ -67,7 +58,7 @@ class Helper_Methods
     @service = url[0..len]
     print "#{url[0..len]}\n"
 
-    result = Hash.new()
+    result = {}
     runTime = 0.0
     loop do
       sleep(@requestGap)

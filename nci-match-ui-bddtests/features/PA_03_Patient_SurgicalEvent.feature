@@ -10,7 +10,7 @@ Feature: Patient Surgical Events Tab
     And I navigate to the patients page
     And I click on one of the patients
 
-  @patients @ui @broken
+  @patients @ui
   Scenario: Logged in user can see the details of the surgical event
     When I click on the "Surgical Events" tab
     And I collect information about the patient
@@ -28,7 +28,7 @@ Feature: Patient Surgical Events Tab
 #    And I see the Assay History Match with the database
 #    And The status of each molecularId is displayed
 
-  @patients @ui @broken
+  @patients @ui
   Scenario: Switching the Surgical Events will auto update all the elements in the table.
     When I click on the "Surgical Events" tab
     And I capture the current Surgical Event Id from the drop down

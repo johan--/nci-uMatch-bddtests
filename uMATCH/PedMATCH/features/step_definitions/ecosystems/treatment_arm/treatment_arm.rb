@@ -30,6 +30,7 @@ Given(/^with variant report$/) do |variantReport|
 end
 
 When(/^posted to MATCH newTreatmentArm$/) do
+  puts @jsonString
   @response = Helper_Methods.post_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{@ta_id}/#{@stratum_id}/#{@version}",@jsonString)
 end
 
@@ -96,7 +97,7 @@ Then(/^the treatment arm: "([^"]*)" return from database has correct version: "(
   expectDrugID = "Drug ID is #{expectDrug.drugId}"
   expectDrugName = "Drug Name is #{expectDrug.drugName}"
 
-  @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/api/v1/treatment_arms',params={"id"=>id})
+  @response = Helper_Methods.get_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms",params={"id"=>id})
   tas = JSON.parse(@response)
   returnedTASize = tas.length.should > 0
   foundCorrectResult = false
@@ -189,7 +190,7 @@ Given(/^template treatment arm json with an id: "([^"]*)"$/) do |id|
   loadTemplateJson()
   @taReq['id'] = id == 'null' ? nil : id
   @ta_id = @taReq['id']
-  @version = @taReq['varsion']
+  @version = @taReq['version']
   @stratum_id = @taReq['stratum_id']
   @jsonString = @taReq.to_json.to_s
 end
@@ -207,11 +208,15 @@ Given(/^template treatment arm json with an id: "([^"]*)", stratum_id: "([^"]*)"
 end
 
 Then(/^retrieve the posted treatment arm from API$/) do
-  @taFromAPI = findSingleTreatmentArm(para={'id'=>@taReq['id'], 'stratum_id'=>@taReq['stratum_id'], 'version'=>@taReq['version']})
+  # @ta_id      = @taReq['id']
+  # @stratum_id = @taReq['stratum_id']
+  # @version    = @taReq['version']
+  sleep(5)
+  @taFromAPI = find_single_treatment_arm(@ta_id, @stratum_id, @version)
 end
 
 Then(/^retrieve treatment arm with id: "([^"]*)", stratum_id: "([^"]*)" and version: "([^"]*)" from API$/) do |id, stratum, version|
-  @taFromAPI = findSingleTreatmentArm(para={'id'=>id, 'startumId'=>stratum, 'version'=>version})
+  @taFromAPI = find_single_treatment_arm(id, stratum, version)
 end
 
 Then(/^retrieve treatment arms with id: "([^"]*)" and stratum_id: "([^"]*)" from API$/) do |id, stratum|
@@ -484,7 +489,7 @@ end
 
 Then(/^api update status of treatment arm with id:"([^"]*)" from cog$/) do |treatmentArmID|
   queryTreatmentArm = {'treatmentArmId' => treatmentArmID}
-  url = ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/ecogTreatmentArmList'
+  url = ENV['treatment_arm_endpoint']+'/ecogTreatmentArmList'
   Helper_Methods.post_request(url, queryTreatmentArm.to_json)
 end
 
@@ -526,7 +531,6 @@ Then(/^every result from \/basicTreatmentArms should exist in \/treatmentArms$/)
 end
 
 def loadTemplateJson()
-  puts @isTemplateJsonLoaded
   unless @isTemplateJsonLoaded
     @taReq = Treatment_arm_helper.validRquestJson()
     @isTemplateJsonLoaded = true
@@ -534,17 +538,21 @@ def loadTemplateJson()
 end
 
 def findSingleTreatmentArm(para={})
-  @response = Helper_Methods.get_single_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/api/v1/treatment_arms',params=para)
+  @response = Helper_Methods.get_single_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms",params=para)
   @response.should_not == nil
 
   @response
 end
 
+def find_single_treatment_arm(id, stratum, version)
+  Helper_Methods.get_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{id}/#{stratum}/#{version}")
+end
+
 # def findTheOnlyMatchTAResult(id, stratum, version)
 #   # sleep(5.0)
-#   # @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id, "stratum_id"=>stratum,"version"=>version})
+#   # @response = Helper_Methods.get_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms",params={"id"=>id, "stratum_id"=>stratum,"version"=>version})
 #   # result = JSON.parse(@response)
-#   @response = Helper_Methods.get_single_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArm',params={"id"=>id, "stratum_id"=>stratum,"version"=>version})
+#   @response = Helper_Methods.get_single_request(ENV['treatment_arm_endpoint']+'/treatmentArm',params={"id"=>id, "stratum_id"=>stratum,"version"=>version})
 #   @response.should_not == nil
 #
 #   return @response
@@ -552,10 +560,10 @@ end
 
 def findAllVersionsOfTAResult(id, stratum)
   # sleep(5.0)
-  # @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id, "stratum_id"=>stratum})
+  # @response = Helper_Methods.get_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms",params={"id"=>id, "stratum_id"=>stratum})
   # result = JSON.parse(@response)
 
-  @response = Helper_Methods.get_list_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id, "stratum_id"=>stratum})
+  @response = Helper_Methods.get_list_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms",params={"id"=>id, "stratum_id"=>stratum})
   @response.should_not == nil
   returnedTASize = "Returned treatment arm count is #{@response.length}"
   returnedTASize.should_not == 'Returned treatment arm count is 0'
@@ -564,7 +572,7 @@ def findAllVersionsOfTAResult(id, stratum)
 end
 
 def findAllTAs()
-  @response = Helper_Methods.get_list_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={})
+  @response = Helper_Methods.get_list_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms",params={})
   @response.should_not == nil
   returnedTASize = "Returned treatment arm count is #{@response.length}"
   returnedTASize.should_not == 'Returned treatment arm count is 0'
@@ -573,7 +581,7 @@ def findAllTAs()
 end
 
 def findAllTAsByID(id)
-  @response = Helper_Methods.get_list_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/treatmentArms',params={"id"=>id})
+  @response = Helper_Methods.get_list_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms",params={"id"=>id})
   @response.should_not == nil
   returnedTASize = "Returned treatment arm count is #{@response.length}"
   returnedTASize.should_not == 'Returned treatment arm count is 0'
@@ -582,22 +590,22 @@ def findAllTAsByID(id)
 end
 
 def findAllBasicTreatmentArms()
-  @response = Helper_Methods.get_list_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/api/v1/treatment_arms?active=true&basic=true',params={})
+  @response = Helper_Methods.get_list_request(ENV['treatment_arm_endpoint']+'/api/v1/treatment_arms?active=true&basic=true',params={})
   return @response
 end
 
 def findAllBasicTreatmentArmsForID(id)
   # sleep(5.0)
-  # @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/basicTreatmentArms',params={})
-  @response = Helper_Methods.get_list_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/api/v1/treatment_arms',params={})
+  # @response = Helper_Methods.get_request(ENV['treatment_arm_endpoint']+'/basicTreatmentArms',params={})
+  @response = Helper_Methods.get_list_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms",params={})
   allTAs = Treatment_arm_helper.findTreatmentArmsFromResponseUsingID(@response, id)
   return allTAs
 end
 
 def findSpecificBasicTreatmentArms(id)
   # sleep(5.0)
-  # @response = Helper_Methods.get_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/basicTreatmentArms',params={"id"=>id})
-  @response = Helper_Methods.get_list_request(ENV['protocol']+'://'+ENV['DOCKER_HOSTNAME']+':'+ENV['treatment_arm_api_PORT']+'/api/v1/treatment_arms',params={"id"=>id})
+  # @response = Helper_Methods.get_request(ENV['treatment_arm_endpoint']+'/basicTreatmentArms',params={"id"=>id})
+  @response = Helper_Methods.get_list_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms",params={"id"=>id})
   @response.should_not == nil
   return @response
 end

@@ -50,13 +50,13 @@ Feature: Treatment Arms Dashboard
     And I should see Patient Assignment Outcome chart
     And I should see Diseases Represented chart
 
-  @treatment_arm @incomplete @ui @broken
+  @treatment_arm @incomplete @ui
   Scenario: Logged in user can download Treatment Arms in PDF
     When I click on one of the treatment arms
     And I click on the download in PDF Format
     Then I download the file locally in PDF format
 
-  @treatment_arm @incomplete @ui @broken
+  @treatment_arm @incomplete @ui
   Scenario: Logged in user can download Treatment Arms in Excel
     When I click on one of the treatment arms
     And I click on the download in Excel Format
