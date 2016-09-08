@@ -36,6 +36,12 @@ PatientMessageLoader.register_patient(pt.id)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 PatientMessageLoader.pathology(pt.id, pt.sei,'Y')
 
+pt = PatientDataSet.new('PT_SR10_TsVrReceived')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+PatientMessageLoader.tsv_vcf_uploaded(pt.id, pt.moi, pt.ani)
+
 PatientMessageLoader.register_patient('PT_SR11_Registered')
 PatientMessageLoader.upload_done
 

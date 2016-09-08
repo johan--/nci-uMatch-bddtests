@@ -1,6 +1,60 @@
 {
-    "Count": 0,
-    "ScannedCount": 0,
-    "ConsumedCapacity": null,
-    "Items": []
+    "Count": 1,
+    "ScannedCount": 1,
+    "Items": [
+        {
+            "surgical_event_id": {
+                "S": "PT_SR10_TsVrReceived_SEI1"
+            },
+            "patient_id": {
+                "S": "PT_SR10_TsVrReceived"
+            },
+            "total_amois": {
+                "N": "1"
+            },
+            "total_mois": {
+                "N": "7"
+            },
+            "molecular_id": {
+                "S": "PT_SR10_TsVrReceived_MOI1"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "analysis_id": {
+                "S": "PT_SR10_TsVrReceived_ANI1"
+            },
+            "status": {
+                "S": "PENDING"
+            },
+            "total_confirmed_amois": {
+                "N": "1"
+            },
+            "site": {
+                "S": "mocha"
+            },
+            "total_confirmed_mois": {
+                "N": "7"
+            },
+            "cellularity": {
+                "N": "1"
+            },
+            "status_date": {
+                "S": "2016-09-08T21:26:38+00:00"
+            },
+            "vcf_file_name": {
+                "S": "test1.vcf"
+            },
+            "tsv_file_name": {
+                "S": "test1.tsv"
+            },
+            "mapd": {
+                "N": "0.439"
+            },
+            "variant_report_received_date": {
+                "S": "2016-09-08T21:26:38+00:00"
+            }
+        }
+    ],
+    "ConsumedCapacity": null
 }

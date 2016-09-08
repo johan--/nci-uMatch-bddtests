@@ -1,6 +1,506 @@
 {
-    "Items": [],
-    "ScannedCount": 0,
-    "Count": 0,
-    "ConsumedCapacity": null
+    "ConsumedCapacity": null,
+    "Count": 7,
+    "ScannedCount": 7,
+    "Items": [
+        {
+            "partner_gene": {
+                "S": "ALK"
+            },
+            "molecular_id": {
+                "S": "PT_SR10_TsVrReceived_MOI1"
+            },
+            "analysis_id": {
+                "S": "PT_SR10_TsVrReceived_ANI1"
+            },
+            "uuid": {
+                "S": "6f2c22fc-ba00-47d4-8394-5da63263fcc0"
+            },
+            "patient_id": {
+                "S": "PT_SR10_TsVrReceived"
+            },
+            "is_amoi": {
+                "BOOL": true
+            },
+            "amois": {
+                "L": [
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": false
+                            },
+                            "amoi_status": {
+                                "S": "CURRENT"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "treatment_arm_id": {
+                                "S": "APEC1621-A"
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            }
+                        }
+                    }
+                ]
+            },
+            "type": {
+                "S": "fusion"
+            },
+            "variant_type": {
+                "S": "gene_fusions"
+            },
+            "annotation": {
+                "S": "-"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "driver_gene": {
+                "S": "TPM3"
+            },
+            "driver_read_count": {
+                "N": "1001"
+            },
+            "status_date": {
+                "S": "2016-09-08T21:26:38+00:00"
+            },
+            "surgical_event_id": {
+                "S": "PT_SR10_TsVrReceived_SEI1"
+            },
+            "identifier": {
+                "S": "TPM3-ALK.T7A20"
+            },
+            "partner_read_count": {
+                "N": "1001"
+            }
+        },
+        {
+            "molecular_id": {
+                "S": "PT_SR10_TsVrReceived_MOI1"
+            },
+            "read_depth": {
+                "N": "525"
+            },
+            "cds_reference": {
+                "S": "CC"
+            },
+            "patient_id": {
+                "S": "PT_SR10_TsVrReceived"
+            },
+            "flow_alternative_allele_observation_count": {
+                "N": "196"
+            },
+            "amois": {
+                "L": []
+            },
+            "type": {
+                "S": "ins"
+            },
+            "position": {
+                "S": "7579420"
+            },
+            "hgvs": {
+                "S": "c.267_268insCC"
+            },
+            "transcript": {
+                "S": "NM_000546.5"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "chromosome": {
+                "S": "chr17"
+            },
+            "identifier": {
+                "S": "."
+            },
+            "uuid": {
+                "S": "c47530c1-9a9c-48e2-86ae-486ee3816f14"
+            },
+            "is_amoi": {
+                "BOOL": false
+            },
+            "reference_allele_observations": {
+                "N": "308"
+            },
+            "allele_frequency": {
+                "N": "0.373333"
+            },
+            "surgical_event_id": {
+                "S": "PT_SR10_TsVrReceived_SEI1"
+            },
+            "function": {
+                "S": "frameshiftInsertion"
+            },
+            "func_gene": {
+                "S": "TP53"
+            },
+            "oncomine_variant_class": {
+                "S": "Deleterious"
+            },
+            "analysis_id": {
+                "S": "PT_SR10_TsVrReceived_ANI1"
+            },
+            "exon": {
+                "S": "4"
+            },
+            "flow_reference_allele_observations": {
+                "N": "329"
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "location": {
+                "S": "exonic"
+            },
+            "status_date": {
+                "S": "2016-09-08T21:26:38+00:00"
+            },
+            "protein": {
+                "S": "p.Ser90fs"
+            },
+            "variant_type": {
+                "S": "indels"
+            },
+            "ocp_alternative": {
+                "S": "GG"
+            },
+            "ocp_reference": {
+                "S": "-"
+            },
+            "alternative_allele_observation_count": {
+                "N": "154"
+            }
+        },
+        {
+            "copy_number": {
+                "N": "7.01"
+            },
+            "ref_copy_number": {
+                "N": "2"
+            },
+            "confidence_interval_95_percent": {
+                "N": "8.56523"
+            },
+            "confidence_interval_5_percent": {
+                "N": "5.73716"
+            },
+            "patient_id": {
+                "S": "PT_SR10_TsVrReceived"
+            },
+            "molecular_id": {
+                "S": "PT_SR10_TsVrReceived_MOI1"
+            },
+            "raw_copy_number": {
+                "N": "7.01"
+            },
+            "amois": {
+                "L": []
+            },
+            "type": {
+                "S": "cnv"
+            },
+            "analysis_id": {
+                "S": "PT_SR10_TsVrReceived_ANI1"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "uuid": {
+                "S": "3852e7b6-8726-490f-ac28-207296b610f4"
+            },
+            "status_date": {
+                "S": "2016-09-08T21:26:38+00:00"
+            },
+            "variant_type": {
+                "S": "copy_number_variants"
+            },
+            "is_amoi": {
+                "BOOL": false
+            },
+            "identifier": {
+                "S": "AKT1"
+            },
+            "surgical_event_id": {
+                "S": "PT_SR10_TsVrReceived_SEI1"
+            }
+        },
+        {
+            "copy_number": {
+                "N": "12.19"
+            },
+            "ref_copy_number": {
+                "N": "2"
+            },
+            "confidence_interval_95_percent": {
+                "N": "14.3567"
+            },
+            "confidence_interval_5_percent": {
+                "N": "10.3503"
+            },
+            "patient_id": {
+                "S": "PT_SR10_TsVrReceived"
+            },
+            "molecular_id": {
+                "S": "PT_SR10_TsVrReceived_MOI1"
+            },
+            "raw_copy_number": {
+                "N": "12.19"
+            },
+            "amois": {
+                "L": []
+            },
+            "type": {
+                "S": "cnv"
+            },
+            "analysis_id": {
+                "S": "PT_SR10_TsVrReceived_ANI1"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "uuid": {
+                "S": "cc4f2abf-4034-411d-90b9-a23ab09094ad"
+            },
+            "status_date": {
+                "S": "2016-09-08T21:26:38+00:00"
+            },
+            "variant_type": {
+                "S": "copy_number_variants"
+            },
+            "is_amoi": {
+                "BOOL": false
+            },
+            "identifier": {
+                "S": "ERBB2"
+            },
+            "surgical_event_id": {
+                "S": "PT_SR10_TsVrReceived_SEI1"
+            }
+        },
+        {
+            "molecular_id": {
+                "S": "PT_SR10_TsVrReceived_MOI1"
+            },
+            "read_depth": {
+                "N": "1814"
+            },
+            "cds_reference": {
+                "S": "C"
+            },
+            "patient_id": {
+                "S": "PT_SR10_TsVrReceived"
+            },
+            "flow_alternative_allele_observation_count": {
+                "N": "790"
+            },
+            "amois": {
+                "L": []
+            },
+            "type": {
+                "S": "snp"
+            },
+            "cds_alternative": {
+                "S": "T"
+            },
+            "position": {
+                "S": "178952085"
+            },
+            "hgvs": {
+                "S": "c.3140A>G"
+            },
+            "transcript": {
+                "S": "NM_006218.2"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "chromosome": {
+                "S": "chr3"
+            },
+            "identifier": {
+                "S": "COSM775"
+            },
+            "uuid": {
+                "S": "a0bb81ad-4f4b-45cb-8247-06fd44628b78"
+            },
+            "is_amoi": {
+                "BOOL": false
+            },
+            "reference_allele_observations": {
+                "N": "1020"
+            },
+            "allele_frequency": {
+                "N": "0.435502"
+            },
+            "surgical_event_id": {
+                "S": "PT_SR10_TsVrReceived_SEI1"
+            },
+            "function": {
+                "S": "missense"
+            },
+            "func_gene": {
+                "S": "PIK3CA"
+            },
+            "oncomine_variant_class": {
+                "S": "Hotspot"
+            },
+            "analysis_id": {
+                "S": "PT_SR10_TsVrReceived_ANI1"
+            },
+            "exon": {
+                "S": "21"
+            },
+            "flow_reference_allele_observations": {
+                "N": "1024"
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "location": {
+                "S": "exonic"
+            },
+            "status_date": {
+                "S": "2016-09-08T21:26:38+00:00"
+            },
+            "protein": {
+                "S": "p.His1047Arg"
+            },
+            "variant_type": {
+                "S": "single_nucleotide_variants"
+            },
+            "ocp_alternative": {
+                "S": "G"
+            },
+            "ocp_reference": {
+                "S": "A"
+            },
+            "alternative_allele_observation_count": {
+                "N": "790"
+            }
+        },
+        {
+            "partner_gene": {
+                "S": "NCOA4"
+            },
+            "molecular_id": {
+                "S": "PT_SR10_TsVrReceived_MOI1"
+            },
+            "analysis_id": {
+                "S": "PT_SR10_TsVrReceived_ANI1"
+            },
+            "uuid": {
+                "S": "0158fe72-a29d-466f-a713-5daea506c84a"
+            },
+            "patient_id": {
+                "S": "PT_SR10_TsVrReceived"
+            },
+            "is_amoi": {
+                "BOOL": false
+            },
+            "amois": {
+                "L": []
+            },
+            "type": {
+                "S": "fusion"
+            },
+            "variant_type": {
+                "S": "gene_fusions"
+            },
+            "annotation": {
+                "S": "-"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "driver_gene": {
+                "S": "RET"
+            },
+            "driver_read_count": {
+                "N": "48904"
+            },
+            "status_date": {
+                "S": "2016-09-08T21:26:38+00:00"
+            },
+            "surgical_event_id": {
+                "S": "PT_SR10_TsVrReceived_SEI1"
+            },
+            "identifier": {
+                "S": "NCOA4-RET.N7R12"
+            },
+            "partner_read_count": {
+                "N": "48904"
+            }
+        },
+        {
+            "copy_number": {
+                "N": "19.49"
+            },
+            "ref_copy_number": {
+                "N": "2"
+            },
+            "confidence_interval_95_percent": {
+                "N": "23.6871"
+            },
+            "confidence_interval_5_percent": {
+                "N": "16.0366"
+            },
+            "patient_id": {
+                "S": "PT_SR10_TsVrReceived"
+            },
+            "molecular_id": {
+                "S": "PT_SR10_TsVrReceived_MOI1"
+            },
+            "raw_copy_number": {
+                "N": "19.49"
+            },
+            "amois": {
+                "L": []
+            },
+            "type": {
+                "S": "cnv"
+            },
+            "analysis_id": {
+                "S": "PT_SR10_TsVrReceived_ANI1"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "uuid": {
+                "S": "ce6bd26b-6c03-4eec-95b3-52f9962f8e9b"
+            },
+            "status_date": {
+                "S": "2016-09-08T21:26:38+00:00"
+            },
+            "variant_type": {
+                "S": "copy_number_variants"
+            },
+            "is_amoi": {
+                "BOOL": false
+            },
+            "identifier": {
+                "S": "MYCN"
+            },
+            "surgical_event_id": {
+                "S": "PT_SR10_TsVrReceived_SEI1"
+            }
+        }
+    ]
 }

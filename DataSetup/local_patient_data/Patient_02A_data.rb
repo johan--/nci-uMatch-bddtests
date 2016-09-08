@@ -30,11 +30,6 @@ PatientMessageLoader.upload_start_with_wait_time(15)
 
 
 
-# pt = PatientDataSet.new('PT_SR10_TsVrReceived')
-# PatientMessageLoader.register_patient(pt.id)
-# PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
-# PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
-# PatientMessageLoader.tsv_vcf_uploaded(pt.id, pt.moi, pt.ani)
 #
 # pt = PatientDataSet.new('PT_SR10_TsVRRejected')
 # PatientMessageLoader.register_patient(pt.id)
