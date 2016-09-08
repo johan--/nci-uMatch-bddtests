@@ -212,3 +212,5 @@ Feature: Patients end to end tests
     Given other background and comments for this patient: "treatment arm APEC1621-A with stratum id 100 has been selected"
     Then patient has on treatment arm approval with treatment arm id: "APEC1621-B", stratum id: "100" to step: "1.1"
     Then API returns a message that includes "treatment arm" with status "Failure"
+
+  Scenario: PT_ETE12. Assay

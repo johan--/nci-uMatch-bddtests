@@ -181,11 +181,56 @@ class PatientMessageLoader
   def self.variant_file_uploaded(
       patient_id,
       molecular_id,
-      analysis_id)
+      analysis_id,)
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['variant_file_uploaded']
     message['patient_id'] = patient_id
     message['molecular_id'] = molecular_id
     message['analysis_id'] = analysis_id
+    send_message_to_local(message, patient_id)
+  end
+
+  def self.tsv_vcf_uploaded(
+    patient_id,
+    molecular_id,
+    analysis_id,
+    tsv_name='3366.tsv',
+    vcf_name='3366-bsn-msn-2.vcf'
+  )
+    message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['variant_tsv_vcf_uploaded']
+    message['molecular_id'] = molecular_id
+    message['analysis_id'] = analysis_id
+    message['tsv_file_name'] = tsv_name
+    message['vcf_file_name'] = vcf_name
+    send_message_to_local(message, patient_id)
+  end
+
+  def self.dna_uploaded(
+      patient_id,
+          molecular_id,
+          analysis_id,
+          bam_name='dna.bam',
+          bai_name='dna.bam.bai'
+  )
+    message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['variant_tsv_vcf_uploaded']
+    message['molecular_id'] = molecular_id
+    message['analysis_id'] = analysis_id
+    message['dna_bam_file_name'] = bam_name
+    message['dna_bai_file_name'] = bai_name
+    send_message_to_local(message, patient_id)
+  end
+
+  def self.cdna_uploaded(
+      patient_id,
+      molecular_id,
+      analysis_id,
+      bam_name='cdna.bam',
+      bai_name='cdna.bam.bai'
+  )
+    message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['variant_tsv_vcf_uploaded']
+    message['molecular_id'] = molecular_id
+    message['analysis_id'] = analysis_id
+    message['cdna_bam_file_name'] = bam_name
+    message['cdna_bai_file_name'] = bai_name
     send_message_to_local(message, patient_id)
   end
 
