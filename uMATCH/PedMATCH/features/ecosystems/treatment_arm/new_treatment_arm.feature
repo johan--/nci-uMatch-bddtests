@@ -5,7 +5,7 @@ Feature: MATCH-1: New Treatment Arm Message
   Consume the message within MATCH.
 Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
       start treatment-arm-api RAILS_ENV=test rails s
-  @fling
+
   Scenario Outline: 1.1 Consume new treatment arm. Ensure the validity of the message received from EA layer
     Given that a new treatment arm is received from COG with version: "<version>" study_id: "<study_id>" id: "<id>" name: "<name>" description: "<description>" targetId: "<targetId>" targetName: "<targetName>" gene: "<gene>" and with one drug: "<drug>" and with tastatus: "<tastatus>" and with stratum_id "<stratum_id>"
     And with variant report
@@ -121,41 +121,42 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 	When posted to MATCH newTreatmentArm
 	Then a message with Status "SUCCESS" and message "Save to datastore." is returned:
 
-  Scenario: 1.4 Return a failure message when a treatment arm update is received with a version number older than the version of the currently active treatment arm
-	Given that treatment arm is received from COG:
-	"""
-	{"study_id":"APEC1621",
-	"id":"TA_test1",
-	"stratum_id":"1",
-	"version":"2015-05-28",
-	"gene":"ALK",
-	"description":"Afatinib",
-	"name":"Afatinib",
-	"target_id":1234,
-	"target_name":"HGFR Pathway",
-	"treatment_arm_drugs":[{"drugClass":"angiokinase inhibitor","description":"Afatinib","name":"Afatinib","drugId":"1"}],
-	"geneFusions":[],
-	"nonHotspotRules":[],
-	"single_nucleotide_variants":[
-	  {
-	  "gene":"ALK",
-	  "identifier":"COSM1686998",
-	  "protein" : "p.L858R",
-	  "level_of_evidence":2.0,
-	  "chromosome":"1",
-	  "position":"11184573",
-	  "ocp_alternative":"A",
-	  "ocp_reference":"G",
-	  "inclusion":true,
-	  "publicMedIds":["23724913"]
-	  }],
-	"indels":[],
-	"copy_number_variants":[]
-	}
-	"""
-	When posted to MATCH newTreatmentArm
-	Then a message with Status "FAILURE" and message "Version cannot be older thn current version" is returned:
+#  Scenario: 1.4 Return a failure message when a treatment arm update is received with a version number older than the version of the currently active treatment arm
+#	Given that treatment arm is received from COG:
+#	"""
+#	{"study_id":"APEC1621",
+#	"id":"TA_test1",
+#	"stratum_id":"1",
+#	"version":"2015-05-28",
+#	"gene":"ALK",
+#	"description":"Afatinib",
+#	"name":"Afatinib",
+#	"target_id":1234,
+#	"target_name":"HGFR Pathway",
+#	"treatment_arm_drugs":[{"drugClass":"angiokinase inhibitor","description":"Afatinib","name":"Afatinib","drugId":"1"}],
+#	"geneFusions":[],
+#	"nonHotspotRules":[],
+#	"single_nucleotide_variants":[
+#	  {
+#	  "gene":"ALK",
+#	  "identifier":"COSM1686998",
+#	  "protein" : "p.L858R",
+#	  "level_of_evidence":2.0,
+#	  "chromosome":"1",
+#	  "position":"11184573",
+#	  "ocp_alternative":"A",
+#	  "ocp_reference":"G",
+#	  "inclusion":true,
+#	  "publicMedIds":["23724913"]
+#	  }],
+#	"indels":[],
+#	"copy_number_variants":[]
+#	}
+#	"""
+#	When posted to MATCH newTreatmentArm
+#	Then a message with Status "FAILURE" and message "Version cannot be older thn current version" is returned:
 
+@fling
   Scenario: 1.5 Return failure message when treatment arm version is missing or empty
 	Given that treatment arm is received from COG:
 	"""
@@ -186,7 +187,7 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 	}
 	"""
 	When posted to MATCH newTreatmentArm
-    Then a failure response of "404" is returned
+    Then a failure response of "404 Resource Not Found" is returned
 #	Then a failure message is returned which contains: "The property '#/' did not contain a required property of 'version'"
 
 

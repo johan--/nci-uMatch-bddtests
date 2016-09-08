@@ -112,28 +112,37 @@ class Helper_Methods
     print "URL: #{service}\n"
     # # print "JSON:\n#{JSON.pretty_generate(JSON.parse(payload))}\n\n"
     # print "JSON:\n#{payload}\n\n"
+    result = {}
     begin
       @res = RestClient::Request.execute(:url => service, :method => :post, :verify_ssl => false, :payload => payload, :headers=>{:content_type => 'json', :accept => 'json'})
     rescue StandardError => e
-      print "Error: #{e.message} occurred\n"
-      # print "Response:#{e.response}\n"
+      result['message'] = e.message
+      result['status'] = 'Failure'
+      p "Error: #{e.message} occurred"
+
       if (e.response).empty?
-        result = {"Error":e.message}
-      else
-        result = JSON.parse(e.response)
-        result['status'] = 'Failure'
+        result['response'] = Helper_Methods.valid_json?(e.response) ? JSON.parse(e.response) : e.response
       end
       p result['message']
       return result
     end
     result = JSON.parse(@res)
     httpCode = "#{@res.code}"
-    status = httpCode=='200' ? 'Success' : 'Failure'
+    status = httpCode =='200' ? 'Success' : 'Failure'
     result['status'] = status
     if status.eql?('Failure')
       p result['message']
     end
     return result
+  end
+
+  def self.valid_json?(json)
+    begin
+      JSON.parse(json)
+      return true
+    rescue JSON::ParserError => e
+      return false
+    end
   end
 
 

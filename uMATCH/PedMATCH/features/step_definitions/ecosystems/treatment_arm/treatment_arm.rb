@@ -66,8 +66,9 @@ Then(/^a failure message is returned which contains: "([^"]*)"$/) do |string|
   actualMessage.should == expectMessage
 end
 
-Then(/^a failure response of "([^"]*)" is returned$/) do |response_code|
-  expect(@response).to eq('failure')
+Then(/^a failure response of "([^"]*)" is returned$/) do |response_message|
+  expect(@response['status']).to eq('Failure')
+  expect(@response['message']).to eq(response_message)
 end
 
 Then(/^the treatmentArmStatus field has a value "([^"]*)" for the ta "([^"]*)"$/) do |status, taId|
