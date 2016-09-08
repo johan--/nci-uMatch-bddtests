@@ -211,7 +211,7 @@ class PatientMessageLoader
           bam_name='dna.bam',
           bai_name='dna.bam.bai'
   )
-    message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['variant_tsv_vcf_uploaded']
+    message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['variant_dna_file_uploaded']
     message['molecular_id'] = molecular_id
     message['analysis_id'] = analysis_id
     message['dna_bam_file_name'] = bam_name
@@ -226,7 +226,7 @@ class PatientMessageLoader
       bam_name='cdna.bam',
       bai_name='cdna.bam.bai'
   )
-    message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['variant_tsv_vcf_uploaded']
+    message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['variant_cdna_file_uploaded']
     message['molecular_id'] = molecular_id
     message['analysis_id'] = analysis_id
     message['cdna_bam_file_name'] = bam_name
