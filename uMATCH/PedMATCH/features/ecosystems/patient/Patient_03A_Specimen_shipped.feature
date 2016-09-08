@@ -77,6 +77,18 @@ Feature: NCH Specimen shipped messages
     |TISSUE   |
     |SLIDE    |
 
+  Scenario Outline: PT_SS08a. tissue or slide with an active surgical_event_id but doesn't belong to this patient fails
+#    Test patients: PT_SS08a_TissueReceived1a has tissue received with sei PT_SS08a_TissueReceived1a_SEI1,
+#                   PT_SS08a_TissueReceived1b has tissue received with sei PT_SS08a_TissueReceived1b_SEI1,
+#    Test patients: PT_SS08a_TissueReceived2a has tissue received with sei PT_SS08a_TissueReceived2a_SEI1,
+#                   PT_SS08a_TissueReceived2b has tissue received with sei PT_SS08a_TissueReceived2b_SEI1
+    Given template specimen shipped message in type: "TISSUE" for patient: "<patient_id>", it has surgical_event_id: "<sei>", molecular_id: "<moi>", slide_barcode: "<barcode>"
+    When post to MATCH patients service, returns a message that includes "surgical" with status "Failure"
+    Examples:
+      |patient_id                    |sei                            |moi                             |barcode                      |
+      |PT_SS08a_TissueReceived1a     |PT_SS08a_TissueReceived1b_SEI1 |PT_SS08a_TissueReceived1a_MOI1  |                             |
+      |PT_SS08a_TissueReceived2a     |PT_SS08a_TissueReceived2b_SEI1 |                                |PT_SS08a_TissueReceived2a_BC1|
+
   Scenario Outline: PT_SS09. shipped tissue or slide without surgical_event_id fails
 #  Testing patient: PT_SS09_TissueReceived, surgical_event_id: PT_SS09_TissueReceived_SEI1
     Given template specimen shipped message in type: "<type>" for patient: "PT_SS09_TissueReceived", it has surgical_event_id: "PT_SS09_TissueReceived_SEI1", molecular_id: "PT_SS09_TissueReceived_MOI1", slide_barcode: ""

@@ -1,15 +1,15 @@
 #encoding: utf-8
 @patients @variant_file_uploaded
 Feature: Variant files uploaded message
-#  patient_id has been removed from variant upload message
-#  Scenario Outline: PT_VU01. variant files uploaded message with invalid patient_id should fail
-#    Given template variant uploaded message for patient: "<value>", it has molecular_id: "PT_VU01_MOI1" and analysis_id: "PT_VU01_ANI1"
-#    When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
-#    Examples:
-#    |value          |message                                                                            |
-#    |               |can't be blank                                                                     |
-#    |null           |can't be blank                                                                     |
-#    |nonPatient     |has not been registered                                                            |
+  Scenario: PT_VU01. if patient_id and molecular_id don't match the variant files upload message should should fail
+#    Test patients: PT_VU01_TissueShipped1 has tissue shipped with moi PT_VU01_TissueShipped1_MOI1
+  #                 PT_VU01_TissueShipped2 has tissue shipped with moi PT_VU01_TissueShipped2_MOI1
+    Given template "tsv_vcf" uploaded message for patient: "PT_VU01_TissueShipped1", it has molecular_id: "PT_VU01_TissueShipped2_MOI1" and analysis_id: "PT_VU01_ANI1"
+    When post to MATCH patients service, returns a message that includes "molecular" with status "Failure"
+    Given template "dna" uploaded message for patient: "PT_VU01_TissueShipped1", it has molecular_id: "PT_VU01_TissueShipped2_MOI1" and analysis_id: "PT_VU01_ANI1"
+    When post to MATCH patients service, returns a message that includes "molecular" with status "Failure"
+    Given template "cdna" uploaded message for patient: "PT_VU01_TissueShipped1", it has molecular_id: "PT_VU01_TissueShipped2_MOI1" and analysis_id: "PT_VU01_ANI1"
+    When post to MATCH patients service, returns a message that includes "molecular" with status "Failure"
 
     #surgical_event_id has been removed from variant file upload message
 #  Scenario Outline: PT_VU02. variant files uploaded message with invalid surgical_event_id should fail

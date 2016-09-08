@@ -181,7 +181,7 @@ class PatientMessageLoader
   def self.variant_file_uploaded(
       patient_id,
       molecular_id,
-      analysis_id,)
+      analysis_id)
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['variant_file_uploaded']
     message['patient_id'] = patient_id
     message['molecular_id'] = molecular_id

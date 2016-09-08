@@ -67,6 +67,16 @@ PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei_increase, '2016-05-28T15:17:11+00:00')
 PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc_increase, '2016-06-04T19:42:13+00:00')
 
+pt = PatientDataSet.new('PT_AS10aSlideShipped1')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+
+pt = PatientDataSet.new('PT_AS10aSlideShipped2')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+
 pt = PatientDataSet.new('PT_AS12_VRConfirmedNoPatho')
 PatientMessageLoader.register_patient(pt.id)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)

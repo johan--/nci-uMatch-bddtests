@@ -97,6 +97,12 @@ Feature: Assay Messages
     Given template assay message with surgical_event_id: "PT_AS10SlideShipped_SEI1" for patient: "PT_AS10SlideShipped"
     When post to MATCH patients service, returns a message that includes " not the currently active specimen" with status "Failure"
 
+  Scenario: PT_AS10a. Assay result received for active surgical_event_id but doesn't belong to this patient should fail
+#  Test data: Patient=PT_AS10aSlideShipped1, sei=PT_AS10aSlideShipped1_SEI1,
+#             Patient=PT_AS10aSlideShipped2, sei=PT_AS10aSlideShipped2_SEI1,
+    Given template assay message with surgical_event_id: "PT_AS10bSlideShipped2_SEI1" for patient: "PT_AS10aSlideShipped1"
+    When post to MATCH patients service, returns a message that includes "surgical" with status "Failure"
+
   Scenario Outline: PT_AS11. Assay result can be received multiple times with same surgical_event_id (as long as this SEI is latest and has shipped slide)
 #  Test data: Patient=PT_AS11SlideShipped, surgical_event_id=PT_AS11SlideShipped_SEI1, has slide shipped
     Given template assay message with surgical_event_id: "PT_AS11SlideShipped_SEI1" for patient: "PT_AS11SlideShipped"

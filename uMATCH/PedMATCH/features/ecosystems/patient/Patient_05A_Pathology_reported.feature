@@ -99,6 +99,12 @@ Feature: Pathology Messages
     Given template pathology report with surgical_event_id: "PT_PR11TissueReceived_SEI1" for patient: "PT_PR11TissueReceived"
     When post to MATCH patients service, returns a message that includes "is not the currently active specimen" with status "Failure"
 
+  Scenario: PT_PR11a. Pathology report received for active surgical_event_id but doesn't belong to this patient should fail
+#  Test data: Patient=PT_PR11aTissueReceived1, sei=PT_PR11aTissueReceived1_SEI1,
+#             Patient=PT_PR11aTissueReceived2, sei=PT_PR11aTissueReceived2_SEI1,
+    Given template pathology report with surgical_event_id: "PT_PR11aTissueReceived2_SEI1" for patient: "PT_PR11aTissueReceived1"
+    When post to MATCH patients service, returns a message that includes "surgical" with status "Failure"
+
   #if Y received, can receive new specimen(covered by specimen received test), no more pathology
   #if N received, no more pathology received, wait for either new specimen(covered by specimen received test) or patient off_study
   #if U received, either new pathology received to update this to Y or N, or received new specimen(covered by specimen received test), or patient off_study

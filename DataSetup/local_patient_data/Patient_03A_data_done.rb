@@ -36,6 +36,22 @@ PatientMessageLoader.register_patient(pt.id)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei_increase,'2016-04-25T18:17:11+00:00')
 
+pt = PatientDataSet.new('PT_SS08a_TissueReceived1a')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+
+pt = PatientDataSet.new('PT_SS08a_TissueReceived1b')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+
+pt = PatientDataSet.new('PT_SS08a_TissueReceived2a')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+
+pt = PatientDataSet.new('PT_SS08a_TissueReceived2b')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+
 pt = PatientDataSet.new('PT_SS09_TissueReceived')
 PatientMessageLoader.register_patient(pt.id)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
@@ -203,5 +219,4 @@ PatientMessageLoader.specimen_received_blood(pt.id)
 pt = PatientDataSet.new('PT_SS28_BloodReceived3')
 PatientMessageLoader.register_patient(pt.id)
 PatientMessageLoader.specimen_received_blood(pt.id)
-
 PatientMessageLoader.upload_done
