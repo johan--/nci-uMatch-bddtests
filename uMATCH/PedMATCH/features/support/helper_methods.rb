@@ -107,9 +107,13 @@ class Helper_Methods
     begin
       @res = RestClient::Request.execute(:url => service, :method => :post, :verify_ssl => false, :payload => payload, :headers=>{:content_type => 'json', :accept => 'json'})
     rescue StandardError => e
-      result['message'] = e.message
+      if e.response.nil?
+        result['message'] = e.message
+      else
+        result['message'] = e.response
+      end
       result['status'] = 'Failure'
-      p "Error: #{e.message} occurred"
+      # p "Error: #{e.message} occurred"
 
       if (e.response).empty?
         result['response'] = Helper_Methods.valid_json?(e.response) ? JSON.parse(e.response) : e.response

@@ -18,8 +18,8 @@ Feature: Register a new patient in PEDMatchbox:
     When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
     Examples:
     |patient_id             |message                                                                      |
-    |                       |can't be blank                                                               |
-    |null                   |can't be blank                                                               |
+#    |                       |can't be blank                                                               |
+#    |null                   |can't be blank                                                               |
     |PT_RG02_ExistingPatient|This patient has already been registered and cannot be registered again      |
 
 
