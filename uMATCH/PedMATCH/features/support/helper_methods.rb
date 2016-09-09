@@ -103,28 +103,27 @@ class Helper_Methods
     print "URL: #{service}\n"
     # # print "JSON:\n#{JSON.pretty_generate(JSON.parse(payload))}\n\n"
     # print "JSON:\n#{payload}\n\n"
-    result = {}
+    @post_response = {}
     begin
-      @res = RestClient::Request.execute(:url => service, :method => :post, :verify_ssl => false, :payload => payload, :headers=>{:content_type => 'json', :accept => 'json'})
+      response = RestClient::Request.execute(:url => service, :method => :post, :verify_ssl => false, :payload => payload, :headers=>{:content_type => 'json', :accept => 'json'})
     rescue StandardError => e
-      if e.response.nil?
-        result['message'] = e.message
+      @post_response['status'] = 'Failure'
+      if e.message.nil?
+        http_code = '500'
       else
-        result['message'] = e.response
+        http_code = e.message[0,3]
       end
-      result['status'] = 'Failure'
-      # p "Error: #{e.message} occurred"
-
-      if (e.response).empty?
-        result['response'] = Helper_Methods.valid_json?(e.response) ? JSON.parse(e.response) : e.response
-      end
-      p result['message']
-      return result
+      @post_response['http_code'] = http_code
+      @post_response['message'] = e.response
+      p e.response
+      return @post_response
     end
-    result = JSON.parse(@res)
-    httpCode = "#{@res.code}"
-    status = httpCode =='200' ? 'Success' : 'Failure'
-    result['status'] = status
+
+    http_code = "#{response.code}"
+    status = http_code =='200' ? 'Success' : 'Failure'
+    @post_response['status'] = status
+    @post_response['http_code'] = http_code
+    @post_response['message'] = response.body
     if status.eql?('Failure')
       p result['message']
     end
