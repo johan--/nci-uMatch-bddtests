@@ -8,7 +8,7 @@ Feature: Treatment Arm API common tests for all fields
     When posted to MATCH newTreatmentArm
     Then success message is returned:
 
-  Scenario Outline: TA_CF1. New Treatment Arm with unrequired field that has different kinds of value should pass
+  Scenario Outline: TA_CF1. New Treatment Arm with optional field that can be null or empty
     Given template treatment arm json with an id: "<treatment_arm_id>"
     And set template treatment arm json field: "<field>" to string value: "<value>"
     When posted to MATCH newTreatmentArm
@@ -41,7 +41,7 @@ Feature: Treatment Arm API common tests for all fields
     Examples:
     |field              |value              |type                 |
     |gene               |419                |int                  |
-    |target_id          |false              |bool                 |
+    |target_id           |false              |bool                 |
     |variantReport      |23.6592            |float                |
 
   Scenario: TA_CF6. "dateCreated" value can be generated properly

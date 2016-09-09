@@ -67,6 +67,6 @@ Feature: Treatment Arm API Tests that focus on "stratum_id" field
     Then template treatment arm json with an id: "APEC1621-SI5-1", stratum_id: "STRATUM2" and version: "2016-06-15"
     Then posted to MATCH newTreatmentArm
     Then success message is returned:
-    Then retrieve treatment arms with id: "APEC1621-SI5-1" from API
+    Then retrieve all versions of the treatment arm from the API
     Then there are "3" treatment arms in returned list
   

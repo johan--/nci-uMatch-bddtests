@@ -15,12 +15,12 @@ Then(/^the version "([^"]*)" is returned$/) do |arg1|
   expect(@res).to include(arg1)
 end
 
-Given(/^that a new treatment arm is received from COG with version: "([^"]*)" study_id: "([^"]*)" id: "([^"]*)" name: "([^"]*)" description: "([^"]*)" targetId: "([^"]*)" targetName: "([^"]*)" gene: "([^"]*)" and with one drug: "([^"]*)" and with tastatus: "([^"]*)" and with stratum_id "([^"]*)"$/) do |version, study_id, taId, taName, description, targetId, targetName, gene, taDrugs, taStatus, stratum_id|
+Given(/^that a new treatment arm is received from COG with version: "([^"]*)" study_id: "([^"]*)" id: "([^"]*)" name: "([^"]*)" description: "([^"]*)" target_id: "([^"]*)" target_name: "([^"]*)" gene: "([^"]*)" and with one drug: "([^"]*)" and with tastatus: "([^"]*)" and with stratum_id "([^"]*)"$/) do |version, study_id, taId, taName, description, target_id, target_name, gene, taDrugs, taStatus, stratum_id|
   @version = version
   @ta_id = taId
   @stratum_id = stratum_id
 
-  @taReq = Treatment_arm_helper.createTreatmentArmRequestJSON(version, study_id, taId, taName, description, targetId, targetName, gene, taDrugs, taStatus, stratum_id)
+  @taReq = Treatment_arm_helper.createTreatmentArmRequestJSON(version, study_id, taId, taName, description, target_id, target_name, gene, taDrugs, taStatus, stratum_id)
   @jsonString = @taReq.to_json.to_s
 end
 
@@ -41,6 +41,23 @@ end
 
 Then(/^success message is returned:$/) do
   @response['status'].downcase.should == 'success'
+end
+
+When(/^calling with basic "(true|false)" and active "(.+?)"$/) do |basic, active|
+  flag_basic = basic == 'true' ? true : false
+  param = "basic=#{flag_basic}"
+  unless flag == null
+    flag_active = active == 'true' ? true : false
+    param += "active=#{flag_active}"
+  end
+
+  @response = Helper_Methods.get_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{param}")
+end
+
+Then (/^should return "(.+)" of the records$/) do |num_records|
+  jsonified_response = JSON.parse(@response)
+  actual = jsonified_response.select { |e| e['id'] == @ta_id && e['stratum_id'] == @stratum_id}
+  expect(actual.size).to eq(num_records.to_i)
 end
 
 Then(/^wait for "([^"]*)" seconds$/) do |seconds|
@@ -71,7 +88,7 @@ Then(/^a failure response of "([^"]*)" is returned$/) do |response_message|
   expect(@response['message']).to eq(response_message)
 end
 
-Then(/^the treatmentArmStatus field has a value "([^"]*)" for the ta "([^"]*)"$/) do |status, taId|
+Then(/^the treatment_arm_status field has a value "([^"]*)" for the ta "([^"]*)"$/) do |status, taId|
   sleep(5)
   endpoint = "api/v1/treatment_arms/#{taId}/#{@stratum_id}/#{@version}"
 
@@ -82,15 +99,15 @@ Then(/^the treatmentArmStatus field has a value "([^"]*)" for the ta "([^"]*)"$/
   expect(tas['treatment_arm_status']).to eq(status)
 end
 
-Then(/^the treatment arm: "([^"]*)" return from database has correct version: "([^"]*)" study_id: "([^"]*)" name: "([^"]*)" description: "([^"]*)" targetId: "([^"]*)" targetName: "([^"]*)" gene: "([^"]*)" and with one drug: "([^"]*)" and with tastatus: "([^"]*)"$/) do |id, version, study_id, name, description, targetId, targetName, gene, drug, tastatus|
+Then(/^the treatment arm: "([^"]*)" return from database has correct version: "([^"]*)" study_id: "([^"]*)" name: "([^"]*)" description: "([^"]*)" target_id: "([^"]*)" target_name: "([^"]*)" gene: "([^"]*)" and with one drug: "([^"]*)" and with tastatus: "([^"]*)"$/) do |id, version, study_id, name, description, target_id, target_name, gene, drug, tastatus|
 
   expectDrug = Drug_obj.new(drug)
   expectTAStatus = "Treatment Arm Status is #{tastatus}"
   expectStudyID = "Study ID is #{study_id}"
   expectName = "Name is #{name}"
   expectDescription = "Description is #{description}"
-  expectTargetID = "Target ID is #{targetId}"
-  expectTargetName = "Target Name is #{targetName}"
+  expectTargetID = "Target ID is #{target_id}"
+  expectTargetName = "Target Name is #{target_name}"
   expectGene = "Gene is #{gene}"
   expectDrugPathway = "Drug Pathway is #{expectDrug.pathway}"
   expectDrugID = "Drug ID is #{expectDrug.drugId}"
@@ -122,30 +139,19 @@ Then(/^the treatment arm: "([^"]*)" return from database has correct version: "(
   foundCorrectResult.should == true
 end
 
-Then(/^the treatment arm return from \/basciTreatmentArms has correct values, name: "([^"]*)" and status: "([^"]*)"$/) do |id, status|
-  correctBasicTAs = findAllBasicTreatmentArmsForID(id)
-  returnedTASize = "Returned treatment arm count is #{correctBasicTAs.length}"
-  returnedTASize.should_not == 'Returned treatment arm count is 0'
-  
-  expectValue = nil
-  correctBasicTAs[0].each{ |key, value|
-    if key.eql? 'name'
-      realResult = "name value is #{value}"
-      realResult.should == "name value is #{id}"
-    elsif key.eql?'treatment_arm_status'
-      realResult = "status value is #{value}"
-      realResult.should == "status value is #{status}"
-    elsif key.eql?'date_created'
-      convertedValue = (value==nil)?'null':value
-      realResult = "date_created value is #{convertedValue}"
-      realResult.should_not == 'date_created value is null'
-    else
-      convertedValue = (value==nil)?'null':value
-      realResult = "#{key} value is #{convertedValue}"
-      realResult.should == "#{key} value is null"
-    end
-  }
-  
+Then(/^treatment arm return from basic treatment arms has correct status: "([^"]*)"$/) do |status|
+  response = find_all_basic_treatment_arms
+  @response = JSON.parse(response)
+
+  selected_ta = @response.select { |e| e['id'] == @ta_id && e['stratum_id'] == @stratum}
+  expect(selected_ta.size).to be > 0
+
+  element = selected_ta.first
+
+  expected_array = %w(id name stratum_id treatment_arm_status date_opened date_closed current_patients former_patients not_enrolled_patients pending_patients)
+  expect(element.keys).to match_array(expected_array)
+
+  expect(element['treatment_arm_status']).to eq(status)
 end
 
 Then(/^the treatment arm return from \/basciTreatmentArms\/id has correct values, name: "([^"]*)" and status: "([^"]*)"$/) do |id, status|
@@ -219,7 +225,7 @@ Then(/^retrieve treatment arms with id: "([^"]*)" and stratum_id: "([^"]*)" from
   @taListFromAPI = findAllVersionsOfTAResult(id, stratum)
 end
 
-Then(/^retrieve treatment arms with id: "([^"]*)" from API$/) do |id|
+Then(/^retrieve all versions of the treatment arm from the API$/) do |id|
   @taListFromAPI = findAllTAsByID(id)
 end
 
@@ -231,8 +237,8 @@ Then(/^retrieve all basic treatment arms from \/basicTreatmentArms$/) do
   @basicTAListFromAPI = findAllBasicTreatmentArms()
 end
 
-Then(/^retrieve single treatment arm with id: "([^"]*)" using \/treatmentArm service$/) do |id|
-  @taFromAPI = findSingleTreatmentArm(para={'id'=>id})
+Then(/^retrieve the treatment arm using the get service$/) do
+  @taFromAPI = find_single_treatment_arm(@ta_id, @stratum_id, @version)
 end
 
 Then(/^retrieve single treatment arm with id: "([^"]*)" and stratum_id: "([^"]*)" using \/treatmentArm service$/) do |id, stratum_id|
@@ -449,7 +455,7 @@ end
 
 Then(/^clear template treatment arm json's variant: "([^"]*)" list$/) do |variantAbbr|
   loadTemplateJson()
-  @taReq['variantReport'][convertVariantAbbrToFull(variantAbbr)].clear()
+  @taReq[convertVariantAbbrToFull(variantAbbr)].clear()
   @jsonString = @taReq.to_json.to_s
 end
 
@@ -480,8 +486,8 @@ And(/^remove template treatment arm variant field: "([^"]*)"$/) do |field|
   @preparedVariant.delete(field)
 end
 
-Then(/^cog changes treatment arm with id:"([^"]*)" and stratumID:"([^"]*)" status to: "([^"]*)"$/) do |treatmentArmID, stratumID, treatmentArmStatus|
-  COG_helper_methods.setTreatmentArmStatus(treatmentArmID, stratumID, treatmentArmStatus)
+Then(/^cog changes treatment arm with id:"([^"]*)" and stratumID:"([^"]*)" status to: "([^"]*)"$/) do |treatmentArmID, stratumID, treatment_arm_status|
+  COG_helper_methods.setTreatmentArmStatus(treatmentArmID, stratumID, treatment_arm_status)
 end
 
 Then(/^api update status of treatment arm with id:"([^"]*)" from cog$/) do |treatmentArmID|
@@ -545,6 +551,18 @@ def find_single_treatment_arm(id, stratum, version)
   Helper_Methods.get_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{id}/#{stratum}/#{version}")
 end
 
+def find_treatment_arm_all_versions(id, stratum_id)
+  data = Helper_Methods.get_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms",params={id: id, stratum_id: stratum_id})
+  @response = JSON.parse(data)
+  expect(@response.size).to be_greater_than(0)
+
+  return @response
+end
+
+def find_all_basic_treatment_arms
+  Helper_Methods.get_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms?basic=true&active=true")
+end
+
 # def findTheOnlyMatchTAResult(id, stratum, version)
 #   # sleep(5.0)
 #   # @response = Helper_Methods.get_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms",params={"id"=>id, "stratum_id"=>stratum,"version"=>version})
@@ -568,14 +586,8 @@ def findAllVersionsOfTAResult(id, stratum)
   return @response
 end
 
-def findAllTAs()
-  @response = Helper_Methods.get_list_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms",params={})
-  @response.should_not == nil
-  returnedTASize = "Returned treatment arm count is #{@response.length}"
-  returnedTASize.should_not == 'Returned treatment arm count is 0'
 
-  return @response
-end
+
 
 def findAllTAsByID(id)
   @response = Helper_Methods.get_list_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms",params={"id"=>id})
@@ -610,15 +622,15 @@ end
 def convertVariantAbbrToFull(variantAbbr)
   result = case variantAbbr
              when 'snv' then
-               'singleNucleotideVariants'
+               'single_nucleotide_variants'
              when 'id' then
                'indels'
              when 'cnv' then
-               'copyNumberVariants'
+               'copy_number_variants'
              when 'gf' then
-               'geneFusions'
+               'gene_fusions'
              when 'nhr' then
-               'nonHotspotRules'
+               'non_hotspot_rules'
            end
   return result
 end

@@ -6,7 +6,7 @@ require_relative '../support/support'
 
 class Treatment_arm_helper
 
-  def Treatment_arm_helper.createTreatmentArmRequestJSON(version, study_id, taId, taName, description, targetId, targetName, gene, taDrugs, taStatus, stratum_id)
+  def Treatment_arm_helper.createTreatmentArmRequestJSON(version, study_id, taId, taName, description, target_id, target_name, gene, taDrugs, taStatus, stratum_id)
     drugs = taDrugs.split ','
     drugArray = []
 
@@ -34,8 +34,8 @@ class Treatment_arm_helper
                      "name" => taName,
                      "version"=>version,
                      "description" => description,
-                     "target_id" => targetId.to_i,
-                     "target_name" => targetName,
+                     "target_id" => target_id.to_i,
+                     "target_name" => target_name,
                      "gene" => gene,
                      "active" => true,
                      "treatment_arm_status" => taStatus,

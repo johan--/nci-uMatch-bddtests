@@ -12,8 +12,8 @@ When(/^the patient processor service \/version is called$/) do
   @res=Helper_Methods.get_request(ENV['patients_endpoint']+'/version')
 end
 
-Given(/^that Patient StudyID "([^"]*)" PatientSeqNumber "([^"]*)" StepNumber "([^"]*)" PatientStatus "([^"]*)" Message "([^"]*)" with "([^"]*)" dateCreated is received from EA layer$/) do |studyId, psn, stepNumber, patientStatus, message, isDateCreated|
-  str = Patient_helper_methods.createPatientTriggerRequestJSON(studyId, psn, stepNumber, patientStatus, message, isDateCreated)
+Given(/^that Patient StudyID "([^"]*)" PatientSeqNumber "([^"]*)" StepNumber "([^"]*)" PatientStatus "([^"]*)" Message "([^"]*)" with "([^"]*)" dateCreated is received from EA layer$/) do |study_id, psn, stepNumber, patientStatus, message, isDateCreated|
+  str = Patient_helper_methods.createPatientTriggerRequestJSON(study_id, psn, stepNumber, patientStatus, message, isDateCreated)
   @jsonString = str.to_s
 end
 

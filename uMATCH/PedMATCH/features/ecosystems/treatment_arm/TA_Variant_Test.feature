@@ -2,6 +2,7 @@
 
 @treatment_arm
 Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
+
   Scenario Outline: Variant should return correct inclusion/exclusion value
     Given template treatment arm json with an id: "<treatment_arm_id>"
     Then clear template treatment arm json's variant: "<variantType>" list

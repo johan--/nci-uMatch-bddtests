@@ -7,7 +7,7 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
       start treatment-arm-api RAILS_ENV=test rails s
 @flinger
   Scenario Outline: 1.1 Validate the message received from EA layer for new treatment arm request
-    Given that a new treatment arm is received from COG with version: "<version>" study_id: "<study_id>" id: "<id>" name: "<name>" description: "<description>" targetId: "<targetId>" targetName: "<targetName>" gene: "<gene>" and with one drug: "<drug>" and with tastatus: "<tastatus>" and with stratum_id "<stratum_id>"
+    Given that a new treatment arm is received from COG with version: "<version>" study_id: "<study_id>" id: "<id>" name: "<name>" description: "<description>" target_id: "<target_id>" target_name: "<target_name>" gene: "<gene>" and with one drug: "<drug>" and with tastatus: "<tastatus>" and with stratum_id "<stratum_id>"
     And with variant report
 	"""
     {
@@ -37,7 +37,7 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
     When posted to MATCH newTreatmentArm
     Then a message with Status "<Status>" and message "<message>" is returned:
     Examples:
-      |version    |study_id   |id			|name				|description	            |targetId	|targetName		|gene			|drug												|Status			|message									|timestamp						|tastatus | stratum_id |
+      |version    |study_id   |id			|name				|description	            |target_id	|target_name		|gene			|drug												|Status			|message									|timestamp						|tastatus | stratum_id |
       |2016-05-27 |APEC1621   |TA_test1		|Afatinib			|covalent inhibitor 		|1234		|EGFR Pathway	|ALK			|1,Afatinib,Afatinib,angiokinase inhibitor			|SUCCESS		|Saved to datastore.						|2014-06-29 11:34:20.179 GMT	|OPEN	  | 1          |
       |2016-05-27 |APEC1621   |TA_test2		|Afatinib			|covalent inhibitor         |1234		|EGFR Pathway	|ALK			|1,Afatinib,Afatinib,angiokinase inhibitor;2,tylenol,tylenol,angiokinase inhibitor	|SUCCESS|Saved to datastore.|2014-06-29 11:34:20.179 GMT	|OPEN	  | 1          |
       |2016-05-27 |APEC1621   |				|Afatinib			|covalent inhibitor 		|1234		|EGFR Pathway	|ALK			|1,Afatinib,Afatinib,angiokinase inhibitor			|FAILURE		|id may not be empty						|2014-06-29 11:34:20.179 GMT	|OPEN	  | 1          |
@@ -182,7 +182,7 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 	"""
     When posted to MATCH newTreatmentArm
     Then a message with Status "SUCCESS" and message "Saved to datastore." is returned:
-    Then the treatmentArmStatus field has a value "OPEN" for the ta "TA_test3"
+    Then the treatment_arm_status field has a value "OPEN" for the ta "TA_test3"
 
 
 #  Scenario: 1.2 Return a failure message when a treatment arm update is received with a version number and stratum_id same as the one that already exists in MATCH
