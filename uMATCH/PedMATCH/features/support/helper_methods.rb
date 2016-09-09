@@ -125,9 +125,9 @@ class Helper_Methods
     @post_response['http_code'] = http_code
     @post_response['message'] = response.body
     if status.eql?('Failure')
-      p result['message']
+      p @post_response['message']
     end
-    return result
+    return @post_response
   end
 
   def self.valid_json?(json)
