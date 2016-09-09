@@ -1,60 +1,1053 @@
 {
-    "Count": 1,
-    "ScannedCount": 1,
+    "ConsumedCapacity": null,
     "Items": [
         {
-            "surgical_event_id": {
-                "S": "PT_SR10_TsVrReceived_SEI1"
-            },
-            "patient_id": {
-                "S": "PT_SR10_TsVrReceived"
-            },
-            "total_amois": {
-                "N": "1"
-            },
-            "total_mois": {
-                "N": "7"
-            },
-            "molecular_id": {
-                "S": "PT_SR10_TsVrReceived_MOI1"
-            },
-            "variant_report_type": {
-                "S": "TISSUE"
-            },
-            "analysis_id": {
-                "S": "PT_SR10_TsVrReceived_ANI1"
-            },
-            "status": {
-                "S": "PENDING"
-            },
-            "total_confirmed_amois": {
-                "N": "1"
+            "mapd": {
+                "N": "0.439"
             },
             "site": {
                 "S": "mocha"
             },
+            "total_confirmed_amois": {
+                "N": "1"
+            },
+            "surgical_event_id": {
+                "S": "PT_SS26_TsVRReceived_SEI1"
+            },
+            "total_amois": {
+                "N": "1"
+            },
+            "status_date": {
+                "S": "2016-09-09T16:29:47+00:00"
+            },
+            "analysis_id": {
+                "S": "PT_SS26_TsVRReceived_ANI1"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "vcf_file_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_received_date": {
+                "S": "2016-09-09T16:29:47+00:00"
+            },
+            "patient_id": {
+                "S": "PT_SS26_TsVRReceived"
+            },
+            "molecular_id": {
+                "S": "PT_SS26_TsVRReceived_MOI1"
+            },
+            "cellularity": {
+                "N": "1"
+            },
+            "tsv_file_name": {
+                "S": "test1.tsv"
+            },
             "total_confirmed_mois": {
                 "N": "7"
             },
-            "cellularity": {
+            "total_mois": {
+                "N": "7"
+            },
+            "status": {
+                "S": "PENDING"
+            }
+        },
+        {
+            "mapd": {
+                "N": "0.439"
+            },
+            "site": {
+                "S": "mocha"
+            },
+            "total_confirmed_amois": {
+                "N": "1"
+            },
+            "surgical_event_id": {
+                "S": "PT_SR10_TsVrReceived_SEI1"
+            },
+            "total_amois": {
                 "N": "1"
             },
             "status_date": {
                 "S": "2016-09-08T21:26:38+00:00"
             },
+            "analysis_id": {
+                "S": "PT_SR10_TsVrReceived_ANI1"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
             "vcf_file_name": {
                 "S": "test1.vcf"
+            },
+            "variant_report_received_date": {
+                "S": "2016-09-08T21:26:38+00:00"
+            },
+            "patient_id": {
+                "S": "PT_SR10_TsVrReceived"
+            },
+            "molecular_id": {
+                "S": "PT_SR10_TsVrReceived_MOI1"
+            },
+            "cellularity": {
+                "N": "1"
             },
             "tsv_file_name": {
                 "S": "test1.tsv"
             },
+            "total_confirmed_mois": {
+                "N": "7"
+            },
+            "total_mois": {
+                "N": "7"
+            },
+            "status": {
+                "S": "PENDING"
+            }
+        },
+        {
+            "site": {
+                "S": "mocha"
+            },
+            "total_confirmed_amois": {
+                "N": "1"
+            },
+            "total_amois": {
+                "N": "1"
+            },
+            "status_date": {
+                "S": "2016-09-09T21:39:58+00:00"
+            },
             "mapd": {
                 "N": "0.439"
             },
+            "variant_report_type": {
+                "S": "BLOOD"
+            },
+            "comment": {
+                "S": "The committee approves this variant report"
+            },
+            "total_mois": {
+                "N": "7"
+            },
+            "comment_user": {
+                "S": "Rick"
+            },
+            "vcf_file_name": {
+                "S": "test1.vcf"
+            },
             "variant_report_received_date": {
-                "S": "2016-09-08T21:26:38+00:00"
+                "S": "2016-09-09T21:39:39+00:00"
+            },
+            "patient_id": {
+                "S": "PT_SS22_BloodVariantConfirmed"
+            },
+            "molecular_id": {
+                "S": "PT_SS22_BloodVariantConfirmed_BD_MOI1"
+            },
+            "cellularity": {
+                "N": "1"
+            },
+            "tsv_file_name": {
+                "S": "test1.tsv"
+            },
+            "total_confirmed_mois": {
+                "N": "7"
+            },
+            "analysis_id": {
+                "S": "PT_SS22_BloodVariantConfirmed_ANI1"
+            },
+            "status": {
+                "S": "CONFIRMED"
+            }
+        },
+        {
+            "surgical_event_id": {
+                "S": "PT_SS21_TissueVariantConfirmed_SEI1"
+            },
+            "site": {
+                "S": "mocha"
+            },
+            "total_confirmed_amois": {
+                "N": "1"
+            },
+            "total_amois": {
+                "N": "1"
+            },
+            "status_date": {
+                "S": "2016-09-09T16:28:33+00:00"
+            },
+            "mapd": {
+                "N": "0.439"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "comment": {
+                "S": "The committee approves this variant report"
+            },
+            "total_mois": {
+                "N": "7"
+            },
+            "comment_user": {
+                "S": "Rick"
+            },
+            "vcf_file_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_received_date": {
+                "S": "2016-09-09T16:28:25+00:00"
+            },
+            "patient_id": {
+                "S": "PT_SS21_TissueVariantConfirmed"
+            },
+            "molecular_id": {
+                "S": "PT_SS21_TissueVariantConfirmed_MOI1"
+            },
+            "cellularity": {
+                "N": "1"
+            },
+            "tsv_file_name": {
+                "S": "test1.tsv"
+            },
+            "total_confirmed_mois": {
+                "N": "7"
+            },
+            "analysis_id": {
+                "S": "PT_SS21_TissueVariantConfirmed_ANI1"
+            },
+            "status": {
+                "S": "CONFIRMED"
+            }
+        },
+        {
+            "mapd": {
+                "N": "0.439"
+            },
+            "site": {
+                "S": "mocha"
+            },
+            "total_confirmed_amois": {
+                "N": "1"
+            },
+            "surgical_event_id": {
+                "S": "PT_SR14_TsVrUploaded_SEI1"
+            },
+            "total_amois": {
+                "N": "1"
+            },
+            "status_date": {
+                "S": "2016-09-09T16:22:38+00:00"
+            },
+            "analysis_id": {
+                "S": "PT_SR14_TsVrUploaded_ANI1"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "vcf_file_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_received_date": {
+                "S": "2016-09-09T16:22:38+00:00"
+            },
+            "patient_id": {
+                "S": "PT_SR14_TsVrUploaded"
+            },
+            "molecular_id": {
+                "S": "PT_SR14_TsVrUploaded_MOI1"
+            },
+            "cellularity": {
+                "N": "1"
+            },
+            "tsv_file_name": {
+                "S": "test1.tsv"
+            },
+            "total_confirmed_mois": {
+                "N": "7"
+            },
+            "total_mois": {
+                "N": "7"
+            },
+            "status": {
+                "S": "PENDING"
+            }
+        },
+        {
+            "site": {
+                "S": "mocha"
+            },
+            "total_confirmed_amois": {
+                "N": "1"
+            },
+            "total_amois": {
+                "N": "1"
+            },
+            "status_date": {
+                "S": "2016-09-09T21:26:12+00:00"
+            },
+            "mapd": {
+                "N": "0.439"
+            },
+            "variant_report_type": {
+                "S": "BLOOD"
+            },
+            "comment": {
+                "S": "The committee approves this variant report"
+            },
+            "total_mois": {
+                "N": "7"
+            },
+            "comment_user": {
+                "S": "Rick"
+            },
+            "vcf_file_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_received_date": {
+                "S": "2016-09-09T21:25:43+00:00"
+            },
+            "patient_id": {
+                "S": "PT_SR10_BdVRRejected"
+            },
+            "molecular_id": {
+                "S": "PT_SR10_BdVRRejected_BD_MOI1"
+            },
+            "cellularity": {
+                "N": "1"
+            },
+            "tsv_file_name": {
+                "S": "test1.tsv"
+            },
+            "total_confirmed_mois": {
+                "N": "7"
+            },
+            "analysis_id": {
+                "S": "PT_SR10_BdVRRejected_ANI1"
+            },
+            "status": {
+                "S": "REJECTED"
+            }
+        },
+        {
+            "mapd": {
+                "N": "0.439"
+            },
+            "site": {
+                "S": "mocha"
+            },
+            "total_confirmed_amois": {
+                "N": "1"
+            },
+            "surgical_event_id": {
+                "S": "PT_AS12_PathoConfirmedNoVR_SEI1"
+            },
+            "total_amois": {
+                "N": "1"
+            },
+            "status_date": {
+                "S": "2016-09-09T21:46:49+00:00"
+            },
+            "analysis_id": {
+                "S": "PT_AS12_PathoConfirmedNoVR_ANI1"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "vcf_file_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_received_date": {
+                "S": "2016-09-09T21:46:49+00:00"
+            },
+            "patient_id": {
+                "S": "PT_AS12_PathoConfirmedNoVR"
+            },
+            "molecular_id": {
+                "S": "PT_AS12_PathoConfirmedNoVR_MOI1"
+            },
+            "cellularity": {
+                "N": "1"
+            },
+            "tsv_file_name": {
+                "S": "test1.tsv"
+            },
+            "total_confirmed_mois": {
+                "N": "7"
+            },
+            "total_mois": {
+                "N": "7"
+            },
+            "status": {
+                "S": "PENDING"
+            }
+        },
+        {
+            "mapd": {
+                "N": "0.439"
+            },
+            "site": {
+                "S": "mocha"
+            },
+            "total_confirmed_amois": {
+                "N": "1"
+            },
+            "surgical_event_id": {
+                "S": "PT_CR04_VRUploadedAssayReceived_SEI1"
+            },
+            "total_amois": {
+                "N": "1"
+            },
+            "status_date": {
+                "S": "2016-09-09T21:37:28+00:00"
+            },
+            "analysis_id": {
+                "S": "PT_CR04_VRUploadedAssayReceived_ANI1"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "vcf_file_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_received_date": {
+                "S": "2016-09-09T21:37:28+00:00"
+            },
+            "patient_id": {
+                "S": "PT_CR04_VRUploadedAssayReceived"
+            },
+            "molecular_id": {
+                "S": "PT_CR04_VRUploadedAssayReceived_MOI1"
+            },
+            "cellularity": {
+                "N": "1"
+            },
+            "tsv_file_name": {
+                "S": "test1.tsv"
+            },
+            "total_confirmed_mois": {
+                "N": "7"
+            },
+            "total_mois": {
+                "N": "7"
+            },
+            "status": {
+                "S": "PENDING"
+            }
+        },
+        {
+            "mapd": {
+                "N": "0.439"
+            },
+            "site": {
+                "S": "mocha"
+            },
+            "total_confirmed_amois": {
+                "N": "1"
+            },
+            "surgical_event_id": {
+                "S": "PT_SS27_VariantReportUploaded_SEI1"
+            },
+            "total_amois": {
+                "N": "1"
+            },
+            "status_date": {
+                "S": "2016-09-09T16:32:32+00:00"
+            },
+            "analysis_id": {
+                "S": "PT_SS27_VariantReportUploaded_ANI1"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "vcf_file_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_received_date": {
+                "S": "2016-09-09T16:32:32+00:00"
+            },
+            "patient_id": {
+                "S": "PT_SS27_VariantReportUploaded"
+            },
+            "molecular_id": {
+                "S": "PT_SS27_VariantReportUploaded_MOI1"
+            },
+            "cellularity": {
+                "N": "1"
+            },
+            "tsv_file_name": {
+                "S": "test1.tsv"
+            },
+            "total_confirmed_mois": {
+                "N": "7"
+            },
+            "total_mois": {
+                "N": "7"
+            },
+            "status": {
+                "S": "PENDING"
+            }
+        },
+        {
+            "mapd": {
+                "N": "0.439"
+            },
+            "site": {
+                "S": "mocha"
+            },
+            "total_confirmed_amois": {
+                "N": "1"
+            },
+            "surgical_event_id": {
+                "S": "PT_CR01_PathAssayDoneVRUploadedToConfirm_SEI1"
+            },
+            "total_amois": {
+                "N": "1"
+            },
+            "status_date": {
+                "S": "2016-09-09T21:34:15+00:00"
+            },
+            "analysis_id": {
+                "S": "PT_CR01_PathAssayDoneVRUploadedToConfirm_ANI1"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "vcf_file_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_received_date": {
+                "S": "2016-09-09T21:34:15+00:00"
+            },
+            "patient_id": {
+                "S": "PT_CR01_PathAssayDoneVRUploadedToConfirm"
+            },
+            "molecular_id": {
+                "S": "PT_CR01_PathAssayDoneVRUploadedToConfirm_MOI1"
+            },
+            "cellularity": {
+                "N": "1"
+            },
+            "tsv_file_name": {
+                "S": "test1.tsv"
+            },
+            "total_confirmed_mois": {
+                "N": "7"
+            },
+            "total_mois": {
+                "N": "7"
+            },
+            "status": {
+                "S": "PENDING"
+            }
+        },
+        {
+            "site": {
+                "S": "mocha"
+            },
+            "total_confirmed_amois": {
+                "N": "1"
+            },
+            "total_amois": {
+                "N": "1"
+            },
+            "status_date": {
+                "S": "2016-09-09T21:28:37+00:00"
+            },
+            "mapd": {
+                "N": "0.439"
+            },
+            "variant_report_type": {
+                "S": "BLOOD"
+            },
+            "tsv_file_name": {
+                "S": "test1.tsv"
+            },
+            "vcf_file_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_received_date": {
+                "S": "2016-09-09T21:28:37+00:00"
+            },
+            "patient_id": {
+                "S": "PT_SR14_BdVrUploaded"
+            },
+            "molecular_id": {
+                "S": "PT_SR14_BdVrUploaded_BD_MOI1"
+            },
+            "cellularity": {
+                "N": "1"
+            },
+            "analysis_id": {
+                "S": "PT_SR14_BdVrUploaded_ANI1"
+            },
+            "total_confirmed_mois": {
+                "N": "7"
+            },
+            "total_mois": {
+                "N": "7"
+            },
+            "status": {
+                "S": "PENDING"
+            }
+        },
+        {
+            "mapd": {
+                "N": "0.439"
+            },
+            "site": {
+                "S": "mocha"
+            },
+            "total_confirmed_amois": {
+                "N": "1"
+            },
+            "surgical_event_id": {
+                "S": "PT_CR03_VRUploadedPathConfirmed_SEI1"
+            },
+            "total_amois": {
+                "N": "1"
+            },
+            "status_date": {
+                "S": "2016-09-09T21:35:46+00:00"
+            },
+            "analysis_id": {
+                "S": "PT_CR03_VRUploadedPathConfirmed_ANI1"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "vcf_file_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_received_date": {
+                "S": "2016-09-09T21:35:46+00:00"
+            },
+            "patient_id": {
+                "S": "PT_CR03_VRUploadedPathConfirmed"
+            },
+            "molecular_id": {
+                "S": "PT_CR03_VRUploadedPathConfirmed_MOI1"
+            },
+            "cellularity": {
+                "N": "1"
+            },
+            "tsv_file_name": {
+                "S": "test1.tsv"
+            },
+            "total_confirmed_mois": {
+                "N": "7"
+            },
+            "total_mois": {
+                "N": "7"
+            },
+            "status": {
+                "S": "PENDING"
+            }
+        },
+        {
+            "site": {
+                "S": "mocha"
+            },
+            "total_confirmed_amois": {
+                "N": "1"
+            },
+            "total_amois": {
+                "N": "1"
+            },
+            "status_date": {
+                "S": "2016-09-09T21:27:33+00:00"
+            },
+            "mapd": {
+                "N": "0.439"
+            },
+            "variant_report_type": {
+                "S": "BLOOD"
+            },
+            "comment": {
+                "S": "The committee approves this variant report"
+            },
+            "total_mois": {
+                "N": "7"
+            },
+            "comment_user": {
+                "S": "Rick"
+            },
+            "vcf_file_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_received_date": {
+                "S": "2016-09-09T21:27:15+00:00"
+            },
+            "patient_id": {
+                "S": "PT_SR10_BdVRConfirmed"
+            },
+            "molecular_id": {
+                "S": "PT_SR10_BdVRConfirmed_BD_MOI1"
+            },
+            "cellularity": {
+                "N": "1"
+            },
+            "tsv_file_name": {
+                "S": "test1.tsv"
+            },
+            "total_confirmed_mois": {
+                "N": "7"
+            },
+            "analysis_id": {
+                "S": "PT_SR10_BdVRConfirmed_ANI1"
+            },
+            "status": {
+                "S": "CONFIRMED"
+            }
+        },
+        {
+            "site": {
+                "S": "mocha"
+            },
+            "total_confirmed_amois": {
+                "N": "1"
+            },
+            "total_amois": {
+                "N": "1"
+            },
+            "status_date": {
+                "S": "2016-09-09T21:24:42+00:00"
+            },
+            "mapd": {
+                "N": "0.439"
+            },
+            "variant_report_type": {
+                "S": "BLOOD"
+            },
+            "tsv_file_name": {
+                "S": "test1.tsv"
+            },
+            "vcf_file_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_received_date": {
+                "S": "2016-09-09T21:24:42+00:00"
+            },
+            "patient_id": {
+                "S": "PT_SR10_BdVRReceived"
+            },
+            "molecular_id": {
+                "S": "PT_SR10_BdVRReceived_BD_MOI1"
+            },
+            "cellularity": {
+                "N": "1"
+            },
+            "analysis_id": {
+                "S": "PT_SR10_BdVRReceived_ANI1"
+            },
+            "total_confirmed_mois": {
+                "N": "7"
+            },
+            "total_mois": {
+                "N": "7"
+            },
+            "status": {
+                "S": "PENDING"
+            }
+        },
+        {
+            "surgical_event_id": {
+                "S": "PT_AS12_VRAndPathoConfirmed_SEI1"
+            },
+            "site": {
+                "S": "mocha"
+            },
+            "total_confirmed_amois": {
+                "N": "1"
+            },
+            "total_amois": {
+                "N": "1"
+            },
+            "status_date": {
+                "S": "2016-09-09T21:48:40+00:00"
+            },
+            "mapd": {
+                "N": "0.439"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "comment": {
+                "S": "The committee approves this variant report"
+            },
+            "total_mois": {
+                "N": "7"
+            },
+            "comment_user": {
+                "S": "Rick"
+            },
+            "vcf_file_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_received_date": {
+                "S": "2016-09-09T21:48:22+00:00"
+            },
+            "patient_id": {
+                "S": "PT_AS12_VRAndPathoConfirmed"
+            },
+            "molecular_id": {
+                "S": "PT_AS12_VRAndPathoConfirmed_MOI1"
+            },
+            "cellularity": {
+                "N": "1"
+            },
+            "tsv_file_name": {
+                "S": "test1.tsv"
+            },
+            "total_confirmed_mois": {
+                "N": "7"
+            },
+            "analysis_id": {
+                "S": "PT_AS12_VRAndPathoConfirmed_ANI1"
+            },
+            "status": {
+                "S": "CONFIRMED"
+            }
+        },
+        {
+            "surgical_event_id": {
+                "S": "PT_SR12_VariantReportConfirmed_SEI1"
+            },
+            "site": {
+                "S": "mocha"
+            },
+            "total_confirmed_amois": {
+                "N": "1"
+            },
+            "total_amois": {
+                "N": "1"
+            },
+            "status_date": {
+                "S": "2016-09-09T16:21:34+00:00"
+            },
+            "mapd": {
+                "N": "0.439"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "comment": {
+                "S": "The committee approves this variant report"
+            },
+            "total_mois": {
+                "N": "7"
+            },
+            "comment_user": {
+                "S": "Rick"
+            },
+            "vcf_file_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_received_date": {
+                "S": "2016-09-09T16:21:16+00:00"
+            },
+            "patient_id": {
+                "S": "PT_SR12_VariantReportConfirmed"
+            },
+            "molecular_id": {
+                "S": "PT_SR12_VariantReportConfirmed_MOI1"
+            },
+            "cellularity": {
+                "N": "1"
+            },
+            "tsv_file_name": {
+                "S": "test1.tsv"
+            },
+            "total_confirmed_mois": {
+                "N": "7"
+            },
+            "analysis_id": {
+                "S": "PT_SR12_VariantReportConfirmed_ANI1"
+            },
+            "status": {
+                "S": "CONFIRMED"
+            }
+        },
+        {
+            "surgical_event_id": {
+                "S": "PT_SR10_TsVRRejected_SEI1"
+            },
+            "site": {
+                "S": "mocha"
+            },
+            "total_confirmed_amois": {
+                "N": "1"
+            },
+            "total_amois": {
+                "N": "1"
+            },
+            "status_date": {
+                "S": "2016-09-09T16:18:21+00:00"
+            },
+            "mapd": {
+                "N": "0.439"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "comment": {
+                "S": "The committee approves this variant report"
+            },
+            "total_mois": {
+                "N": "7"
+            },
+            "comment_user": {
+                "S": "Rick"
+            },
+            "vcf_file_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_received_date": {
+                "S": "2016-09-09T16:17:53+00:00"
+            },
+            "patient_id": {
+                "S": "PT_SR10_TsVRRejected"
+            },
+            "molecular_id": {
+                "S": "PT_SR10_TsVRRejected_MOI1"
+            },
+            "cellularity": {
+                "N": "1"
+            },
+            "tsv_file_name": {
+                "S": "test1.tsv"
+            },
+            "total_confirmed_mois": {
+                "N": "7"
+            },
+            "analysis_id": {
+                "S": "PT_SR10_TsVRRejected_ANI1"
+            },
+            "status": {
+                "S": "REJECTED"
+            }
+        },
+        {
+            "surgical_event_id": {
+                "S": "PT_SS26_TsVRConfirmed_SEI1"
+            },
+            "site": {
+                "S": "mocha"
+            },
+            "total_confirmed_amois": {
+                "N": "1"
+            },
+            "total_amois": {
+                "N": "1"
+            },
+            "status_date": {
+                "S": "2016-09-09T16:31:28+00:00"
+            },
+            "mapd": {
+                "N": "0.439"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "comment": {
+                "S": "The committee approves this variant report"
+            },
+            "total_mois": {
+                "N": "7"
+            },
+            "comment_user": {
+                "S": "Rick"
+            },
+            "vcf_file_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_received_date": {
+                "S": "2016-09-09T16:31:09+00:00"
+            },
+            "patient_id": {
+                "S": "PT_SS26_TsVRConfirmed"
+            },
+            "molecular_id": {
+                "S": "PT_SS26_TsVRConfirmed_MOI1"
+            },
+            "cellularity": {
+                "N": "1"
+            },
+            "tsv_file_name": {
+                "S": "test1.tsv"
+            },
+            "total_confirmed_mois": {
+                "N": "7"
+            },
+            "analysis_id": {
+                "S": "PT_SS26_TsVRConfirmed_ANI1"
+            },
+            "status": {
+                "S": "CONFIRMED"
+            }
+        },
+        {
+            "surgical_event_id": {
+                "S": "PT_AS12_VRConfirmedNoPatho_SEI1"
+            },
+            "site": {
+                "S": "mocha"
+            },
+            "total_confirmed_amois": {
+                "N": "1"
+            },
+            "total_amois": {
+                "N": "1"
+            },
+            "status_date": {
+                "S": "2016-09-09T21:45:15+00:00"
+            },
+            "mapd": {
+                "N": "0.439"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "comment": {
+                "S": "The committee approves this variant report"
+            },
+            "total_mois": {
+                "N": "7"
+            },
+            "comment_user": {
+                "S": "Rick"
+            },
+            "vcf_file_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_received_date": {
+                "S": "2016-09-09T21:44:46+00:00"
+            },
+            "patient_id": {
+                "S": "PT_AS12_VRConfirmedNoPatho"
+            },
+            "molecular_id": {
+                "S": "PT_AS12_VRConfirmedNoPatho_MOI1"
+            },
+            "cellularity": {
+                "N": "1"
+            },
+            "tsv_file_name": {
+                "S": "test1.tsv"
+            },
+            "total_confirmed_mois": {
+                "N": "7"
+            },
+            "analysis_id": {
+                "S": "PT_AS12_VRConfirmedNoPatho_ANI1"
+            },
+            "status": {
+                "S": "CONFIRMED"
             }
         }
     ],
-    "ConsumedCapacity": null
+    "Count": 19,
+    "ScannedCount": 19
 }

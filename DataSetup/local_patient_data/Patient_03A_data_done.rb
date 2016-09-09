@@ -183,4 +183,42 @@ PatientMessageLoader.specimen_received_blood(pt.id)
 pt = PatientDataSet.new('PT_SS28_BloodReceived3')
 PatientMessageLoader.register_patient(pt.id)
 PatientMessageLoader.specimen_received_blood(pt.id)
+
+
+pt = PatientDataSet.new('PT_SS21_TissueVariantConfirmed')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+PatientMessageLoader.tsv_vcf_uploaded(pt.id, pt.moi, pt.ani)
+PatientMessageLoader.variant_file_confirmed(pt.id, 'CONFIRMED', pt.moi, pt.ani)
+
+pt = PatientDataSet.new('PT_SS26_TsVRReceived')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_blood(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+PatientMessageLoader.tsv_vcf_uploaded(pt.id, pt.moi, pt.ani)
+
+pt = PatientDataSet.new('PT_SS26_TsVRConfirmed')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_blood(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+PatientMessageLoader.tsv_vcf_uploaded(pt.id, pt.moi, pt.ani)
+sleep(10.0)
+PatientMessageLoader.variant_file_confirmed(pt.id, 'CONFIRMED', pt.moi, pt.ani)
+
+pt = PatientDataSet.new('PT_SS27_VariantReportUploaded')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+PatientMessageLoader.tsv_vcf_uploaded(pt.id, pt.moi, pt.ani)
+
+pt = PatientDataSet.new('PT_SS22_BloodVariantConfirmed')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_blood(pt.id)
+PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)
+PatientMessageLoader.tsv_vcf_uploaded(pt.id, pt.bd_moi, pt.ani)
+PatientMessageLoader.variant_file_confirmed(pt.id, 'CONFIRMED', pt.bd_moi, pt.ani)
+
 PatientMessageLoader.upload_done

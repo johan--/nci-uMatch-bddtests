@@ -83,7 +83,6 @@ Feature: Patients end to end tests
     Then returned patient has value: "ON_TREATMENT_ARM" in field: "current_status"
     Then returned patient has value: "1.1" in field: "current_step_number"
 
-
   Scenario: PT_ETE03. patient can reach PENDING_CONFIRMATION status even there is mock service collapse during assignment processing
     Given patient: "PT_ETE03" with status: "BLOOD_VARIANT_REPORT_CONFIRMED" on step: "1.0"
     Given patient: "PT_ETE03" in mock service lost patient list, service will come back after "5" tries
@@ -95,12 +94,14 @@ Feature: Patients end to end tests
     Then retrieve patient: "PT_ETE03" from API
     Then returned patient has value: "PENDING_CONFIRMATION" in field: "current_status"
 
+  @patients
   Scenario Outline: PT_ETE04. patient can be set to OFF_STUDY status from any status
     Given patient: "<patient_id>" with status: "<current_status>" on step: "<current_step_number>"
     Then set patient off_study on step number: "<current_step_number>"
     Then wait for "15" seconds
     Then retrieve patient: "<patient_id>" from API
     Then returned patient has value: "OFF_STUDY" in field: "current_status"
+    Then returned patient has value: "<current_step_number>" in field: "current_step_number"
   Examples:
   |patient_id              |current_status                   |current_step_number|
   |PT_ETE04_Registered     |REGISTRATION                     |1.0                |
