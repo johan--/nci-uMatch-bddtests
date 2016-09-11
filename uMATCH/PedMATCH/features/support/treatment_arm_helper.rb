@@ -257,7 +257,7 @@ class Treatment_arm_helper
   end
 
   def Treatment_arm_helper.addAssayResult(gene, status, variant, loe, description)
-    geneInput = gene=='null'?nil:gene
+    geneInput = gene == 'null' ? nil : gene
     statusInput = status=='null'?nil:status
     variantInput = variant=='null'?nil:variant
     loeInput = loe=='null'?nil:loe.to_f

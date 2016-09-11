@@ -30,12 +30,12 @@ Given(/^with variant report$/) do |variantReport|
 end
 
 When(/^posted to MATCH newTreatmentArm$/) do
-  @response = Helper_Methods.post_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{@ta_id}/#{@stratum_id}/#{@version}",@jsonString)
+  url = "#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{@ta_id}/#{@stratum_id}/#{@version}"
+  @response = Helper_Methods.post_request(url, @jsonString)
 end
 
 
 Then(/^a message with Status "([^"]*)" and message "([^"]*)" is returned:$/) do |status, msg|
-  # @response['message'].should == msg
   @response['status'].downcase.should == status.downcase
 end
 
@@ -83,9 +83,9 @@ Then(/^a failure message is returned which contains: "([^"]*)"$/) do |string|
   actualMessage.should == expectMessage
 end
 
-Then(/^a failure response of "([^"]*)" is returned$/) do |response_message|
+Then(/^a failure response code of "([^"]*)" is returned$/) do |response_code|
   expect(@response['status']).to eq('Failure')
-  expect(@response['message']).to eq(response_message)
+  expect(@response['code']).to eq(response_code)
 end
 
 Then(/^the treatment_arm_status field has a value "([^"]*)" for the ta "([^"]*)"$/) do |status, taId|
@@ -187,6 +187,8 @@ Given(/^template treatment arm json with a random id$/) do
   loadTemplateJson()
   @taReq['id'] = "APEC1621-#{Time.now.to_i.to_s}"
   @ta_id = @taReq['id']
+  @stratum_id = @taReq['stratum_id']
+  @version = @taReq['version']
   @jsonString = @taReq.to_json.to_s
   @savedTAID = @taReq['id']
 end
@@ -248,7 +250,7 @@ end
 Then(/^the returned treatment arm has value: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
   response = JSON.parse @taFromAPI
   expected = value == "" ? nil : value
-  expect(response[field]).to eq(expected)
+  expect(response[field].to_s).to eq(expected)
 end
 
 Then(/^the returned treatment arm has "([^"]*)" value: "([^"]*)" in field: "([^"]*)"$/) do |type, value, field|

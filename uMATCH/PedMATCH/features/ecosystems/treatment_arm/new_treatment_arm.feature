@@ -5,7 +5,7 @@ Feature: MATCH-1: New Treatment Arm Message
   Consume the message within MATCH.
 Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
       start treatment-arm-api RAILS_ENV=test rails s
-@flinger
+
   Scenario Outline: 1.1 Validate the message received from EA layer for new treatment arm request
     Given that a new treatment arm is received from COG with version: "<version>" study_id: "<study_id>" id: "<id>" name: "<name>" description: "<description>" target_id: "<target_id>" target_name: "<target_name>" gene: "<gene>" and with one drug: "<drug>" and with tastatus: "<tastatus>" and with stratum_id "<stratum_id>"
     And with variant report
@@ -113,7 +113,7 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 	}
 	"""
 	When posted to MATCH newTreatmentArm
-    Then a failure response of "404 Resource Not Found" is returned
+    Then a failure response code of "404" is returned
 #	Then a failure message is returned which contains: "The property '#/' did not contain a required property of 'version'"
 
 

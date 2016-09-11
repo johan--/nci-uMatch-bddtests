@@ -139,6 +139,44 @@ class Helper_Methods
     end
   end
 
+  # This a a post_request
+  # Input:
+  #param [service]  Reqd. srting represetation of your url
+  #param payload, Optional: json payload
+  # returns [hash] with information shown below.
+  # {
+  #   status: Success or Failure
+  #   code: response code for the request.
+  #   body: body returned
+  # }
+  def self.post_para_request(service, payload = nil)
+    puts "URL: #{service}"
+    begin
+      response = RestClient::Request.execute(
+                   url: service,
+                   method: :post,
+                   verify_ssl: false,
+                   payload: payload,
+                   headers: {
+                     content_type: 'json',
+                     accept: 'json'}
+      )
+      status = response.code == 200 ? 'Success' : 'Failure'
+      return_response = {
+          status: status,
+          code: response.code,
+          body: response.body
+      }
+    rescue => e
+      return_response = {
+          status: 'Failure',
+          code: e.message[0..2].to_i,
+          body: e.response
+      }
+    end
+    return_response
+  end
+
 
   def Helper_Methods.put_request(service,payload)
     # print "URL: #{service}\n"

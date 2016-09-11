@@ -14,22 +14,6 @@ Feature: Treatment Arm API Tests that focus on "version" field
     |APEC1621-VS1-2     |
     |APEC1621-VS1-3     |
 
-  Scenario: TA_VS2. New Treatment Arm with empty "version" field should fail
-    Given template treatment arm json with an id: "APEC1621-VS2-1", stratum_id: "stratum1" and version: ""
-    When posted to MATCH newTreatmentArm
-    Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
-
-  Scenario: TA_VS3. New Treatment Arm with "version": null should fail
-    Given template treatment arm json with an id: "APEC1621-VS3-1", stratum_id: "stratum1" and version: "null"
-    When posted to MATCH newTreatmentArm
-    Then a failure message is returned which contains: "The property '#/version' of type NilClass did not match the following type: string"
-
-  Scenario: TA_VS4. New Treatment Arm without "version" field should fail
-    Given template treatment arm json with an id: "APEC1621-VS4-1"
-    And remove field: "version" from template treatment arm json
-    When posted to MATCH newTreatmentArm
-    Then a failure message is returned which contains: "did not contain a required property of 'version'"
-
 #  Scenario Outline: TA_VS5. New Treatment Arm, version should take any string value
 #    Given template treatment arm json with an id: "<treatment_arm_id>", stratum_id: "stratum1" and version: "<version_value>"
 #    When posted to MATCH newTreatmentArm
@@ -41,33 +25,6 @@ Feature: Treatment Arm API Tests that focus on "version" field
 #      |APEC1621-VS5-2     |{}[]\/?;'<>,Àü ī        |%7B%7D%5B%5D%5C%2F%3F%3B%27%3C%3E%2C%C3%80%C3%BC%20%C4%AB |
 #      |APEC1621-VS5-3     |2013-04-10 15:32        |2013-04-10%2015%3A32                                      |
 #      |APEC1621-VS5-4     |55.27                   |55.27                                                     |
-
-  Scenario: TA_VS6. Update Treatment Arm with empty "version" field should fail
-    Given template treatment arm json with an id: "APEC1621-VS6-1", stratum_id: "stratum1" and version: "2016-06-03"
-    When posted to MATCH newTreatmentArm
-    Then success message is returned:
-    Then wait for "5" seconds
-    Then set the version of the treatment arm to ""
-    When posted to MATCH newTreatmentArm
-    Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
-
-  Scenario: TA_VS7. Update Treatment Arm with "version": null should fail
-    Given template treatment arm json with an id: "APEC1621-VS7-1", stratum_id: "stratum1" and version: "2016-06-03"
-    When posted to MATCH newTreatmentArm
-    Then success message is returned:
-    Then wait for "5" seconds
-    Then set the version of the treatment arm to "null"
-    When posted to MATCH newTreatmentArm
-    Then a failure message is returned which contains: "The property '#/version' of type NilClass did not match the following type: string"
-
-  Scenario: TA_VS8. Update Treatment Arm without "version" field should fail
-    Given template treatment arm json with an id: "APEC1621-VS8-1", stratum_id: "stratum1" and version: "2016-06-03"
-    When posted to MATCH newTreatmentArm
-    Then success message is returned:
-    Then wait for "5" seconds
-    Then remove field: "version" from template treatment arm json
-    When posted to MATCH newTreatmentArm
-    Then a failure message is returned which contains: "did not contain a required property of 'version'"
 
 #  Scenario Outline: TA_VS9. Update Treatment Arm, version take any string value
 #    Given template treatment arm json with an id: "<treatment_arm_id>" and version: "2015-03-25"
