@@ -7,9 +7,9 @@ Feature: Pathology Messages
     When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
     Examples:
       |value     |message                      |
-      |          |can't be blank               |
+#      |          |can't be blank               |
       |nonPatient|as not been registered       |
-      |null      |can't be blank               |
+#      |null      |can't be blank               |
 
   Scenario Outline: PT_PR02. Pathology report with invalid study_id(empty, non-existing, null) should fail
     Given template pathology report with surgical_event_id: "PT_PR02_TissueReceived_SEI1" for patient: "PT_PR02_TissueReceived"
@@ -54,18 +54,18 @@ Feature: Pathology Messages
     Then set patient message field: "status" to value: "Y"
     Then set patient message field: "reported_date" to value: "2016-08-18T18:42:13+00:00"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then wait for "10" seconds
+    Then wait for "15" seconds
     Then retrieve patient: "PT_PR06_TissueReceived" from API
     Then returned patient has value: "PATHOLOGY_REVIEWED" in field: "current_status"
     Then returned patient has specimen (surgical_event_id: "PT_PR06_TissueReceived_SEI1")
-    Then this specimen has value: "pathology_status" in field: "Y"
-    And this specimen has value: "reported_date" in field: "2016-08-18T18:42:13+00:00"
+    Then this specimen has value: "Y" in field: "pathology_status"
+    And this specimen has value: "2016-08-18T18:42:13+00:00" in field: "pathology_status_date"
   
   Scenario: PT_PR07. Pathology report can be sent on TISSUE_NUCLEIC_ACID_SHIPPED status
     Given template pathology report with surgical_event_id: "PT_PR07_TissueShipped_SEI1" for patient: "PT_PR07_TissueShipped"
     Then set patient message field: "status" to value: "N"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then wait for "10" seconds
+    Then wait for "15" seconds
     Then retrieve patient: "PT_PR06_TissueReceived" from API
     Then returned patient has value: "PATHOLOGY_REVIEWED" in field: "current_status"
 
@@ -73,7 +73,7 @@ Feature: Pathology Messages
     Given template pathology report with surgical_event_id: "PT_PR08_SlideShipped_SEI1" for patient: "PT_PR08_SlideShipped"
     Then set patient message field: "status" to value: "U"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then wait for "10" seconds
+    Then wait for "15" seconds
     Then retrieve patient: "PT_PR08_SlideShipped" from API
     Then returned patient has value: "TISSUE_SLIDE_SPECIMEN_SHIPPED" in field: "current_status"
 
@@ -85,14 +85,14 @@ Feature: Pathology Messages
     When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
     Examples:
       |patient_id                            |sei                            |message                                                       |
-      |PT_PR09_Registered                    |PT_PR09_Registered_SEI1        |TBD                                                           |
+      |PT_PR09_Registered                    |PT_PR09_Registered_SEI1        |can not process this state currently                          |
       |PT_PR09_SEI1HasTissue                 |PT_PR09_SEI1HasTissue_SEI2     |surgical event_id PT_PR09_SEI1HasTissue_SEI2 doesn't exist    |
 
   Scenario: PT_PR10. Pathology report reported_date is older than tissue received date should fail
 #  Test data: Patient=PT_PR10TissueReceived, surgical_event_id=PT_PR10TissueReceived_SEI1, received_dttm: 2016-04-25T16:17:11+00:00,
     Given template pathology report with surgical_event_id: "PT_PR10TissueReceived_SEI1" for patient: "PT_PR10TissueReceived"
     Then set patient message field: "reported_date" to value: "2010-04-25T16:17:11+00:00"
-    When post to MATCH patients service, returns a message that includes "cannot transition from" with status "Failure"
+    When post to MATCH patients service, returns a message that includes " Pathology report date is before specimen collected date" with status "Failure"
 
   Scenario: PT_PR11. Pathology report received for old surgical_event_id should fail
 #  Test data: Patient=PT_PR11TissueReceived, old surgical_event_id=PT_PR11TissueReceived_SEI1, has tissue received, new surgical_event_id=PT_PR11TissueReceived_SEI2, has tissue received

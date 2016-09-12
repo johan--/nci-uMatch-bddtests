@@ -160,8 +160,8 @@
     "site": "MoCha",
     "molecular_id": "3366-bsn-msn-2",
     "analysis_id": "job1",
-    "tsv_file_name": "3366.tsv",
-    "vcf_file_name": "3366-bsn-msn-2.vcf"
+    "tsv_file_name": "test1.tsv",
+    "vcf_file_name": "test1.vcf"
   },
   "variant_dna_file_uploaded": {
     "site": "MoCha",

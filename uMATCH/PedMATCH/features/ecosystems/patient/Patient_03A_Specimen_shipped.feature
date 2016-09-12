@@ -30,8 +30,9 @@ Feature: NCH Specimen shipped messages
     Examples:
     |type   |patient                |status   |message                                                        |
     |TISSUE |PT_SS04_NonExisting    |Failure  |Unable to find patient                                         |
-    |BLOOD  |                       |Failure  |can't be blank                                                 |
-    |SLIDE  |null                   |Failure  |can't be blank                                                 |
+    #since now patient_id need to be appear in the url of webservice, so it's impossible to make the following mistake
+#    |BLOOD  |                       |Failure  |can't be blank                                                 |
+#    |SLIDE  |null                   |Failure  |can't be blank                                                 |
 
   Scenario Outline: PT_SS05. Shipment with invalid study_id fails
 #  Testing patient:PT_SS05_TissueReceived; surgical_event_id: PT_SS05_TissueReceived_SEI1
@@ -82,12 +83,12 @@ Feature: NCH Specimen shipped messages
 #                   PT_SS08a_TissueReceived1b has tissue received with sei PT_SS08a_TissueReceived1b_SEI1,
 #    Test patients: PT_SS08a_TissueReceived2a has tissue received with sei PT_SS08a_TissueReceived2a_SEI1,
 #                   PT_SS08a_TissueReceived2b has tissue received with sei PT_SS08a_TissueReceived2b_SEI1
-    Given template specimen shipped message in type: "TISSUE" for patient: "<patient_id>", it has surgical_event_id: "<sei>", molecular_id: "<moi>", slide_barcode: "<barcode>"
+    Given template specimen shipped message in type: "<type>" for patient: "<patient_id>", it has surgical_event_id: "<sei>", molecular_id: "<moi>", slide_barcode: "<barcode>"
     When post to MATCH patients service, returns a message that includes "surgical" with status "Failure"
     Examples:
-      |patient_id                    |sei                            |moi                             |barcode                      |
-      |PT_SS08a_TissueReceived1a     |PT_SS08a_TissueReceived1b_SEI1 |PT_SS08a_TissueReceived1a_MOI1  |                             |
-      |PT_SS08a_TissueReceived2a     |PT_SS08a_TissueReceived2b_SEI1 |                                |PT_SS08a_TissueReceived2a_BC1|
+      |patient_id                    |sei                            |moi                             |barcode                      |type           |
+      |PT_SS08a_TissueReceived1a     |PT_SS08a_TissueReceived1b_SEI1 |PT_SS08a_TissueReceived1a_MOI1  |                             |TISSUE         |
+      |PT_SS08a_TissueReceived2a     |PT_SS08a_TissueReceived2b_SEI1 |                                |PT_SS08a_TissueReceived2a_BC1|SLIDE          |
 
   Scenario Outline: PT_SS09. shipped tissue or slide without surgical_event_id fails
 #  Testing patient: PT_SS09_TissueReceived, surgical_event_id: PT_SS09_TissueReceived_SEI1

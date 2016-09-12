@@ -25,7 +25,7 @@ When(/^post to MATCH patients service, returns a message that includes "([^"]*)"
   expect(@response['status']).to eql(status)
   expect_message = "returned message include <#{retMsg}>"
   actual_message = @response['message']
-  if @response['message'].include?retMsg
+  if @response['message'].downcase.include?retMsg.downcase
     actual_message = "returned message include <#{retMsg}>"
   end
   actual_message.should == expect_message
@@ -114,6 +114,8 @@ Given(/^template specimen shipped message in type: "([^"]*)" for patient: "([^"]
   end
   if type == 'TISSUE' || type == 'BLOOD'
     @request_json[@patient_message_root_key]['molecular_id'] = @molecular_id
+    @request_json[@patient_message_root_key]['molecular_dna_id'] = @molecular_id+'D'
+    @request_json[@patient_message_root_key]['molecular_cdna_id'] = @molecular_id+'C'
   end
   if type == 'SLIDE'
     @request_json[@patient_message_root_key]['slide_barcode'] = @slide_barcode
@@ -143,12 +145,12 @@ Given(/^template pathology report with surgical_event_id: "([^"]*)" for patient:
 end
 
 Given(/^template "([^"]*)" uploaded message for patient: "([^"]*)", it has molecular_id: "([^"]*)" and analysis_id: "([^"]*)"$/) do |message_type, patientID, moi, ani|
-  json_name = case
+  json_name = case message_type
                 when 'tsv_vcf' then 'variant_tsv_vcf_uploaded'
                 when 'dna' then 'variant_dna_file_uploaded'
                 when 'cdna' then 'variant_cdna_file_uploaded'
               end
-  Patient_helper_methods.load_patient_message_templates(json_name)
+  @request_json = Patient_helper_methods.load_patient_message_templates(json_name)
   @patient_id = patientID=='null'?nil:patientID
   @molecular_id = moi=='null'?nil:moi
   @analysis_id = ani=='null'?nil:ani
@@ -306,7 +308,15 @@ end
 
 And(/^this variant report has value: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
   convert_value = value=='null'?nil:value
-  @current_variant_report[field].should == convert_value
+  expect_result = "Value of field #{field} contains #{convert_value}"
+  returned_value = @current_variant_report[field]
+  real_result = "Value of field #{field} is #{@current_variant_report[field]}"
+  equal = returned_value == convert_value
+  contain = returned_value.downcase.include?(convert_value.downcase)
+  if equal || contain
+    real_result = expect_result
+  end
+  real_result.should == expect_result
 end
 
 And(/^this variant report has correct status_date$/) do
@@ -410,7 +420,7 @@ def find_variant_report (patient_json, sei, moi, ani)
   variant_reports = patient_json['variant_reports']
   variant_reports.each do |thisVariantReport|
     is_this = true
-    if sei!='null'
+    if sei!=nil && sei!='null' && sei!=''
       is_this = is_this && (thisVariantReport['surgical_event_id'] == sei)
     end
     is_this = is_this && (thisVariantReport['molecular_id'] == moi)

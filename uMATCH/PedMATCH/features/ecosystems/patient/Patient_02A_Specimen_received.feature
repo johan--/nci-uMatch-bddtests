@@ -121,17 +121,17 @@ Scenario: PT_SR12. new tissue cannot be received when there is one tissue varian
 Scenario Outline: PT_SR14. new specimen receipt will push all pending variant report from old SEI to "REJECT"
 #    Test patient: PT_SR14_TsVrUploaded; variant report files uploaded: PT_SR14_TsVrUploaded(_SEI1, _MOI1, _ANI1)
 #          Plan to receive new specimen surgical_event_id: PT_SR14_TsVrUploaded_SEI2
-#    Test patient: PT_SR14_BdVrUploaded; variant report files uploaded: PT_SR14_BdVrUploaded(_MOI1, _ANI1)
-  Given template specimen received message in type: "<specimen_type>" for patient: "<patient_id>", it has surgical_event_id: "<sei>"
-  Then set patient message field: "collected_dttm" to value: "2016-08-21T14:20:02-04:00"
-  When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-  Then wait for "15" seconds
+#    Test patient: PT_SR14_BdVrUploaded; variant report files uploaded: PT_SR14_BdVrUploaded(_BD_MOI1, _ANI1)
+#  Given template specimen received message in type: "<specimen_type>" for patient: "<patient_id>", it has surgical_event_id: "<new_sei>"
+#  Then set patient message field: "collected_dttm" to value: "2016-08-21T14:20:02-04:00"
+#  When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
+#  Then wait for "15" seconds
   Then retrieve patient: "<patient_id>" from API
   Then returned patient has value: "<patient_status>" in field: "current_status"
-  Then returned patient has variant report (surgical_event_id: "<sei>", molecular_id: "<moi>", analysis_id: "<ani>")
+  Then returned patient has variant report (surgical_event_id: "<old_sei>", molecular_id: "<old_moi>", analysis_id: "<old_ani>")
   And this variant report has value: "REJECTED" in field: "status"
   Examples:
-  |patient_id            |specimen_type  |sei                       |moi                          |ani                       |patient_status                 |
-  |PT_SR14_TsVrUploaded  |TISSUE         |PT_SR14_TsVrUploaded_SEI1 |PT_SR14_TsVrUploaded_MOI1    |PT_SR14_TsVrUploaded_ANI2 |TISSUE_VARIANT_REPORT_RECEIVED |
-  |PT_SR14_BdVrUploaded  |BLOOD          |                          |PT_SR14_BdVrUploaded_BD_MOI1 |PT_SR14_BdVrUploaded_ANI1 |BLOOD_VARIANT_REPORT_RECEIVED  |
+  |patient_id            |specimen_type  |new_sei                   |old_sei                   |old_moi                      |old_ani                   |patient_status           |
+#  |PT_SR14_TsVrUploaded  |TISSUE         |PT_SR14_TsVrUploaded_SEI2 |PT_SR14_TsVrUploaded_SEI1 |PT_SR14_TsVrUploaded_MOI1    |PT_SR14_TsVrUploaded_ANI1 |TISSUE_SPECIMEN_RECEIVED |
+  |PT_SR14_BdVrUploaded  |BLOOD          |                          |                          |PT_SR14_BdVrUploaded_BD_MOI1 |PT_SR14_BdVrUploaded_ANI1 |BLOOD_SPECIMEN_RECEIVED |
 
