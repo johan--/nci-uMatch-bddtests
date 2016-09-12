@@ -8,18 +8,6 @@ Feature: Treatment Arm API Tests that focus on "id" field
      When posted to MATCH newTreatmentArm
      Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
 
-  Scenario: TA_ID2. New Treatment Arm with "id": null should fail
-    Given template treatment arm json with a random id
-    And set template treatment arm json field: "id" to string value: "null"
-    When posted to MATCH newTreatmentArm
-    Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
-
-  Scenario: TA_ID3. New Treatment Arm without "id" field should fail
-    Given template treatment arm json with a random id
-    And remove field: "id" from template treatment arm json
-    When posted to MATCH newTreatmentArm
-    Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
-
 
   Scenario Outline: TA_ID4. New Treatment Arm with special character in "id" field should pass
     Given template treatment arm json with an id: "<id>", stratum_id: "stratum1" and version: "2016-06-03"

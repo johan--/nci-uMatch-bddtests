@@ -55,18 +55,18 @@ Feature: Treatment Arm API Tests that focus on "stratum_id" field
     Then retrieve treatment arms with id: "APEC1621-SI4-2" and stratum_id: "STRATUM1" from API
     Then there are "1" treatment arms in returned list
 
-  Scenario: TA_SI5. treatmentArms/:id service should return all treatment arms with same id but different stratum_id
-    Given template treatment arm json with an id: "APEC1621-SI5-1", stratum_id: "STRATUM1" and version: "2016-06-03"
-    Then posted to MATCH newTreatmentArm
-    Then success message is returned:
-    Then wait for "5" seconds
-    Then template treatment arm json with an id: "APEC1621-SI5-1", stratum_id: "STRATUM1" and version: "2016-06-15"
-    Then posted to MATCH newTreatmentArm
-    Then success message is returned:
-    Then wait for "5" seconds
-    Then template treatment arm json with an id: "APEC1621-SI5-1", stratum_id: "STRATUM2" and version: "2016-06-15"
-    Then posted to MATCH newTreatmentArm
-    Then success message is returned:
-    Then retrieve all versions of the treatment arm from the API
-    Then there are "3" treatment arms in returned list
-  
+#  Scenario: TA_SI5. treatmentArms/:id service should return all treatment arms with same id but different stratum_id
+#    Given template treatment arm json with an id: "APEC1621-SI5-1", stratum_id: "STRATUM1" and version: "2016-06-03"
+#    Then posted to MATCH newTreatmentArm
+#    Then success message is returned:
+#    Then wait for "5" seconds
+#    Then template treatment arm json with an id: "APEC1621-SI5-1", stratum_id: "STRATUM1" and version: "2016-06-15"
+#    Then posted to MATCH newTreatmentArm
+#    Then success message is returned:
+#    Then wait for "5" seconds
+#    Then template treatment arm json with an id: "APEC1621-SI5-1", stratum_id: "STRATUM2" and version: "2016-06-15"
+#    Then posted to MATCH newTreatmentArm
+#    Then success message is returned:
+#    Then retrieve all versions of the treatment arm from the API
+#    Then there are "3" treatment arms in returned list
+#

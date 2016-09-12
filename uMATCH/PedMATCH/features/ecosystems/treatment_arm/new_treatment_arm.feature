@@ -157,7 +157,7 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
         "single_nucleotide_variants" : [
             {
                 "type":"snp",
-                "publicMedIds" : [
+                "public_med_ids" : [
                     "23724913"
                 ],
                 "gene" : "ALK",
@@ -210,7 +210,7 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 #	  "position":"11184573",
 #	  "ocp_reference":"G",
 #	  "ocp_alternative":"A",
-#	  "publicMedIds":["23724913"],
+#	  "public_med_ids":["23724913"],
 #	  "inclusion":true,
 #	  "arm_specific" : false
 #	  }
@@ -248,7 +248,7 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 #	  "ocp_alternative":"A",
 #	  "ocp_reference":"G",
 #	  "inclusion":true,
-#	  "publicMedIds":["23724913"]
+#	  "public_med_ids":["23724913"]
 #	  }],
 #	"indels":[],
 #	"copy_number_variants":[]

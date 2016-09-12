@@ -27,12 +27,12 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     |APEC1621-VR1-9     |nhr          |id0001                   |true             |
     |APEC1621-VR1-10    |nhr          |id0002                   |false            |
 
-  Scenario Outline: TA_VR2. Variant should return correct armSpecific value
+  Scenario Outline: TA_VR2. Variant should return correct arm_specific value
     Given template treatment arm json with an id: "<treatment_arm_id>"
     Then clear template treatment arm json's variant: "<variantType>" list
     Then create a template variant: "<variantType>" for treatment arm
     And set template treatment arm variant field: "identifier" to string value: "<identifier>"
-    And set template treatment arm variant field: "armSpecific" to bool value: "<inputValue>"
+    And set template treatment arm variant field: "arm_specific" to bool value: "<inputValue>"
     Then add template variant: "<variantType>" to template treatment arm json
     When posted to MATCH newTreatmentArm
     Then success message is returned:
@@ -51,17 +51,17 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
       |APEC1621-VR2-9     |nhr          |id0001                         |true         |
       |APEC1621-VR2-10    |nhr          |id0002                         |false        |
 
-  Scenario Outline: TA_VR3. Variant should return full publicMedIds list
+  Scenario Outline: TA_VR3. Variant should return full public_med_ids list
     Given template treatment arm json with an id: "<treatment_arm_id>"
     Then clear template treatment arm json's variant: "<variantType>" list
     Then create a template variant: "<variantType>" for treatment arm
     And set template treatment arm variant field: "identifier" to string value: "<identifier>"
-    And set template treatment arm variant publicMedIds: "<pmIDs>"
+    And set template treatment arm variant public_med_ids: "<pmIDs>"
     Then add template variant: "<variantType>" to template treatment arm json
     When posted to MATCH newTreatmentArm
     Then success message is returned:
     Then retrieve the posted treatment arm from API
-    Then the returned treatment arm has "<variantType>" variant (id: "<identifier>", publicMedIds: "<pmIDs>")
+    Then the returned treatment arm has "<variantType>" variant (id: "<identifier>", public_med_ids: "<pmIDs>")
     Examples:
       |treatment_arm_id   |variantType  |identifier                     |pmIDs                         |
       |APEC1621-VR3-1     |snv          |COSM1686998                    |14512,2362,32345,7451         |
@@ -93,7 +93,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
       |gf           |
       |id           |
       |nhr          |
-    
+
   Scenario Outline: TA_VR5. Treatment arm which contains variant without ID should fail
     Given template treatment arm json with a random id
     Then clear template treatment arm json's variant: "<variantType>" list
@@ -101,14 +101,14 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     And remove template treatment arm variant field: "identifier"
     And add template variant: "<variantType>" to template treatment arm json
     When posted to MATCH newTreatmentArm
-    Then a failure message is returned which contains: "Validation failed."
+    Then failure message listing "<variantType>" and reason as "identifier" is returned
     Examples:
       |variantType  |
       |snv          |
       |cnv          |
       |gf           |
       |id           |
-  
+
   Scenario Outline: TA_VR6. Variant with valid Oncomine Variant Class value should pass
     Given template treatment arm json with an id: "<treatment_arm_id>"
     Then clear template treatment arm json's variant: "<variantType>" list
@@ -213,7 +213,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     Then clear template treatment arm json's variant: "nhr" list
     Then create a template variant: "nhr" for treatment arm
     And set template treatment arm variant field: "identifier" to string value: "<identifier>"
-    And set template treatment arm variant field: "function" to bool value: "<functionValue>"
+    And set template treatment arm variant field: "function" to string value: "<functionValue>"
     And add template variant: "nhr" to template treatment arm json
     When posted to MATCH newTreatmentArm
     Then success message is returned:

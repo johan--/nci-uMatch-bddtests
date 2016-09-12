@@ -26,26 +26,6 @@ Feature: Treatment Arm API Tests that focus on treatment arm api service other t
     When calling with basic "true" and active "null"
     Then should return "4" of the records
 
-
-  Scenario: TA_OS2. basic version of treatment arm return treatment arm with correct data
-    Given template treatment arm json with an id: "APEC1621-OS2-1", stratum_id: "STRATUM1" and version: "2016-06-03"
-    When posted to MATCH newTreatmentArm
-    Then success message is returned:
-    Then treatment arm return from basic treatment arms has correct status: "OPEN"
-
-
-    #more fields should have values in basicTreatmentArms result, including statusLog,
-  Scenario: TA_OS3. /basicTreatmentArms/id return treatment arm with correct data
-    Given template treatment arm json with an id: "APEC1621-OS3-1", stratum_id: "STRATUM1" and version: "2016-06-03"
-    When posted to MATCH newTreatmentArm
-    Then success message is returned:
-    Then the treatment arm return from /basciTreatmentArms/id has correct values, name: "APEC1621-OS3-1" and status: "OPEN"
-
-  Scenario: TA_OS4. /basicTreatmentArms returns ONE treatment arm for EVERY combination of id-stratumID
-    Given retrieve all treatment arms from /treatmentArms
-    Then retrieve all basic treatment arms from /basicTreatmentArms
-    Then every id-stratumID combination from /treatmentArms should have "1" result in /basicTreatmentArms
-
   Scenario: TA_OS5. every result from /basicTreatmentArms should exist in /treatmentArms
     Given retrieve all treatment arms from /treatmentArms
     Then retrieve all basic treatment arms from /basicTreatmentArms

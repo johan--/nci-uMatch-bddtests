@@ -137,7 +137,7 @@
       "ocp_alternative": "C",
       "level_of_evidence": 3.0,
       "inclusion": true,
-      "armSpecific": false
+      "arm_specific": false
     }, {
       "chromosome": "chr9",
       "position": "80412493",
@@ -146,7 +146,7 @@
       "ocp_alternative": "T",
       "level_of_evidence": 3.0,
       "inclusion": true,
-      "armSpecific": false
+      "arm_specific": false
     }, {
       "chromosome": "chr17",
       "position": "7577064",
@@ -155,7 +155,7 @@
       "ocp_alternative": "C",
       "level_of_evidence": 3.0,
       "inclusion": false,
-      "armSpecific": false
+      "arm_specific": false
     }, {
       "chromosome": "chrX",
       "position": "70349258",
@@ -164,7 +164,7 @@
       "ocp_alternative": "G",
       "level_of_evidence": 3.0,
       "inclusion": false,
-      "armSpecific": false
+      "arm_specific": false
     }, {
       "chromosome": "chrX",
       "position": "100611165",
@@ -173,7 +173,7 @@
       "ocp_alternative": "T",
       "level_of_evidence": 3.0,
       "inclusion": true,
-      "armSpecific": false
+      "arm_specific": false
     }],
     "indels": [{
       "chromosome": "chr22",
@@ -183,7 +183,7 @@
       "ocp_alternative": "-",
       "level_of_evidence": 3.0,
       "inclusion": true,
-      "armSpecific": false
+      "arm_specific": false
     }, {
       "chromosome": "chrX",
       "position": "70339250",
@@ -192,7 +192,7 @@
       "ocp_alternative": "-",
       "level_of_evidence": 3.0,
       "inclusion": true,
-      "armSpecific": false
+      "arm_specific": false
     }, {
       "chromosome": "chrX",
       "position": "70339270",
@@ -201,20 +201,20 @@
       "ocp_alternative": "-",
       "level_of_evidence": 3.0,
       "inclusion": false,
-      "armSpecific": false
+      "arm_specific": false
     }],
     "non_hotspot_rules": [{
       "func_gene": "MYCL",
       "oncomine_variant_class": "amplification",
       "level_of_evidence": 3.0,
       "inclusion": true,
-      "armSpecific": false
+      "arm_specific": false
     }, {
       "func_gene": "TP53",
       "function": "Refallele",
       "level_of_evidence": 2.0,
       "inclusion": false,
-      "armSpecific": false
+      "arm_specific": false
     }],
     "copy_number_variants": [{
       "chromosome": "chr1",
@@ -224,7 +224,7 @@
       "ocp_alternative": "<CNV>",
       "level_of_evidence": 2.0,
       "inclusion": true,
-      "armSpecific": false
+      "arm_specific": false
     }, {
       "chromosome": "chr1",
       "position": "147022100",
@@ -233,7 +233,7 @@
       "ocp_alternative": "<CNV>",
       "level_of_evidence": 2.0,
       "inclusion": false,
-      "armSpecific": false
+      "arm_specific": false
     }, {
       "chromosome": "chr10",
       "position": "89624207",
@@ -242,7 +242,7 @@
       "ocp_alternative": "<CNV>",
       "level_of_evidence": 2.0,
       "inclusion": true,
-      "armSpecific": false
+      "arm_specific": false
     }],
     "gene_fusions": [{
       "ocp_reference": "C",
@@ -254,7 +254,7 @@
       "chromosome": "chr2",
       "ocp_alternative": "C[chr1:156844362[",
       "position": "154142875",
-      "armSpecific": false
+      "arm_specific": false
     },
       {
         "ocp_reference": "G",
@@ -266,7 +266,7 @@
         "chromosome": "chr2",
         "ocp_alternative": "[chr1:154142875[G",
         "position": "156844362",
-        "armSpecific": false
+        "arm_specific": false
       },
       {
         "ocp_reference": "T",
@@ -278,7 +278,7 @@
         "chromosome": "chr1",
         "ocp_alternative": "T]chr6:117642559]",
         "position": "154142877",
-        "armSpecific": false
+        "arm_specific": false
       },
       {
         "ocp_reference": "T",
@@ -290,7 +290,7 @@
         "chromosome": "chr6",
         "ocp_alternative": "[chr1:154142877[T",
         "position": "117642559",
-        "armSpecific": false
+        "arm_specific": false
       }
     ],
     "diseases": [{

@@ -138,23 +138,25 @@ class Treatment_arm_helper
     return result
   end
 
-  def Treatment_arm_helper.findAssayResultFromJson(treatmentArmJson, gene, status, variant, loe, description)
+  def Treatment_arm_helper.findAssayResultFromJson(treatmentArmJson, type, gene, status, variant, loe, description)
     result = Array.new
-    geneInput = gene=='null'?nil:gene
-    statusInput = status=='null'?nil:status
-    variantInput = variant=='null'?nil:variant
-    loeInput = loe=='null'?nil:loe
-    descriptionInput = description=='null'?nil:description
+    geneInput = gene == 'null' ? nil : gene
+    type_input= type == 'null' ? nil : type
+    statusInput = status == 'null' ? nil : status
+    variantInput = variant == 'null' ? nil : variant
+    loeInput = loe =='null' ? nil : loe
+    descriptionInput = description == 'null' ? nil : description
 
+    check_hash = {
+        'gene': geneInput,
+        'description': descriptionInput,
+        'type': type_input,
+        'assay_result_status': statusInput,
+        'level_of_evidence': loeInput,
+        'assay_variant': variantInput
+    }
     treatmentArmJson['assay_results'].each do |thisAssay|
-      isThis = thisAssay['gene'] == geneInput
-      isThis = isThis && (thisAssay['assay_variant'] == variantInput)
-      isThis = isThis && (thisAssay['description'] == descriptionInput)
-      isThis = isThis && (thisAssay['assay_result_status'] == statusInput)
-      isThis = isThis && (thisAssay['level_of_evidence'] == loeInput)
-      if isThis
-        result.push(thisAssay)
-      end
+      result.push(thisAssay) if thisAssay == check_hash
     end
     return result
   end
@@ -198,6 +200,14 @@ class Treatment_arm_helper
 
   def Treatment_arm_helper.findVariantFromJson(treatmentArmJson, variantType, variantId, variantField, variantValue)
     result = Array.new
+    variant_value = case variantValue
+                      when 'true' then
+                        true
+                      when 'false' then
+                        false
+                      else
+                        variantValue
+                    end
     if variantValue == 'null'
       variantValue = nil
     end
@@ -213,10 +223,10 @@ class Treatment_arm_helper
                    when 'nhr' then
                      'non_hotspot_rules'
                  end
-    thisVariantList = treatmentArmJson['variant_report'][typedValue]
+    thisVariantList = treatmentArmJson[typedValue]
     thisVariantList.each do |thisVariant|
       if thisVariant['identifier'] == variantId
-        if thisVariant[variantField] == variantValue
+        if thisVariant[variantField] == variant_value
           result.push(thisVariant)
         end
       end
@@ -256,13 +266,20 @@ class Treatment_arm_helper
     return @treatmentArm
   end
 
-  def Treatment_arm_helper.addAssayResult(gene, status, variant, loe, description)
+  def Treatment_arm_helper.addAssayResult(gene, type, status, variant, loe, description)
+    typeInput = type == 'null' ? nil: type
     geneInput = gene == 'null' ? nil : gene
     statusInput = status=='null'?nil:status
     variantInput = variant=='null'?nil:variant
     loeInput = loe=='null'?nil:loe.to_f
     descriptionInput = description=='null'?nil:description
-    @treatmentArm['assayResults'].push({ 'gene'=>geneInput, 'assayResultStatus'=>statusInput, 'assayVariant'=>variantInput, 'level_of_evidence'=>loeInput, 'description'=>descriptionInput})
+    @treatmentArm['assay_rules'].push(
+        { 'gene'=>geneInput,
+          'type' => typeInput,
+          'assay_result_status'=>statusInput,
+          'assay_variant'=>variantInput,
+          'level_of_evidence'=>loeInput,
+          'description'=>descriptionInput})
     return @treatmentArm
   end
 
@@ -284,7 +301,7 @@ class Treatment_arm_helper
       result = {
           'type'=>'snv',
           'confirmed'=> false,
-          'publicMedIds'=>nil,
+          'public_med_ids'=>nil,
           'geneName'=>'MTOR',
           'chromosome'=>'1',
           'position'=>'11184573',
@@ -295,7 +312,7 @@ class Treatment_arm_helper
           'rare'=>false,
           'level_of_evidence'=>1.0,
           'inclusion'=>true,
-          'armSpecific'=>false
+          'arm_specific'=>false
       }
       return result
     end
@@ -308,7 +325,7 @@ class Treatment_arm_helper
           'confidenceInterval95percent'=>0.0,
           'confidenceInterval5percent'=>0.0,
           'confirmed'=> false,
-          'publicMedIds'=>nil,
+          'public_med_ids'=>nil,
           'geneName'=>'MYCL',
           'chromosome'=>'1',
           'position'=>'40361592',
@@ -319,7 +336,7 @@ class Treatment_arm_helper
           'rare'=>false,
           'level_of_evidence'=>3.0,
           'inclusion'=>true,
-          'armSpecific'=>false
+          'arm_specific'=>false
       }
       return result
     end
@@ -327,7 +344,7 @@ class Treatment_arm_helper
       result = {
           'type'=>'gf',
           'confirmed'=> false,
-          'publicMedIds'=>nil,
+          'public_med_ids'=>nil,
           'geneName'=>'ALK',
           'chromosome'=>'2',
           'position'=>'29446394',
@@ -338,7 +355,7 @@ class Treatment_arm_helper
           'rare'=>false,
           'level_of_evidence'=>2.0,
           'inclusion'=>true,
-          'armSpecific'=>false
+          'arm_specific'=>false
       }
       return result
     end
@@ -346,7 +363,7 @@ class Treatment_arm_helper
       result = {
           'type'=>'cnv',
           'confirmed'=> false,
-          'publicMedIds'=>nil,
+          'public_med_ids'=>nil,
           'geneName'=>'DNMT3A',
           'chromosome'=>'2',
           'position'=>'25463297',
@@ -357,7 +374,7 @@ class Treatment_arm_helper
           'rare'=>false,
           'level_of_evidence'=>3.0,
           'inclusion'=>true,
-          'armSpecific'=>false
+          'arm_specific'=>false
       }
       return result
     end
@@ -369,11 +386,11 @@ class Treatment_arm_helper
           'oncominevariantclass'=>'deleterious',
           'identifier'=>'COSM99742',
           'function'=>'nonframeshiftInsertion',
-          'publicMedIds'=>nil,
+          'public_med_ids'=>nil,
           'rare'=>false,
           'level_of_evidence'=>3.0,
           'inclusion'=>true,
-          'armSpecific'=>false
+          'arm_specific'=>false
       }
       return result
     end

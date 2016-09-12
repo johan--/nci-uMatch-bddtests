@@ -3,12 +3,6 @@
 @treatment_arm
 Feature: pMATCH Treatment Arm API Tests that focus on num_patients_assigned and maxPatientAllowed fields
 
-  Scenario: TA_PC1. New Treatment Arm with num_patients_assigned field that has minus value should fail
-    Given template treatment arm json with a random id
-    And set template treatment arm json field: "num_patients_assigned" to value: "-30" in type: "int"
-    When posted to MATCH newTreatmentArm
-    Then a failure message is returned which contains: "Validation failed."
-    @fling
   Scenario Outline: TA_PC2. New Treatment Arm, float value in numPatientAssigned should be trimmed to int value
     Given template treatment arm json with an id: "<treatmentArmID>"
     And set template treatment arm json field: "num_patients_assigned" to value: "<floatValue>" in type: "float"
@@ -29,9 +23,9 @@ Feature: pMATCH Treatment Arm API Tests that focus on num_patients_assigned and 
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has value: "<floatResult>" in field: "num_patients_assigned"
     Examples:
-      |treatmentArmID|value          |floatResult    |
-      |APEC1621-PC3-1|500            |500.0          |
-      |APEC1621-PC3-2|13025          |13025.0        |
+      |treatmentArmID|value          |floatResult  |
+      |APEC1621-PC3-1|500            |500          |
+      |APEC1621-PC3-2|13025          |13025        |
 
 
 #  Scenario: TA_PC5. Update Treatment Arm with num_patients_assigned that has minus value should fail

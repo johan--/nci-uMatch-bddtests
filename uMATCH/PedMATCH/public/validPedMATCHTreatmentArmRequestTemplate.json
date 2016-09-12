@@ -189,7 +189,7 @@
       "public_med_ids": [
         "23777544"
       ],
-      "armSpecific" : false,
+      "arm_specific" : false,
       "inclusion" : true
     },
     {

@@ -42,14 +42,13 @@ Feature: Treatment Arm API common tests for all fields
     |field              |value              |type                 |
     |gene               |419                |int                  |
     |target_id          |false              |bool                 |
-    |variantReport      |23.6592            |float                |
 
   Scenario: TA_CF6. "dateCreated" value can be generated properly
     Given template treatment arm json with an id: "APEC1621-CF6-1"
     When posted to MATCH newTreatmentArm
     Then success message is returned:
     Then retrieve the posted treatment arm from API
-    Then the returned treatment arm has correct dateCreated value
+    Then the returned treatment arm has correct date_created value
 
   Scenario Outline: TA_CF7. Treatment arm return correct values for single fields
     Given template treatment arm json with an id: "<treatment_arm_id>"
