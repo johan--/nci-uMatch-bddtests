@@ -25,14 +25,30 @@ PatientVariantFolderCreator.create_default('PT_PR13_AssayReceivedVRNotConfirmed'
 PatientVariantFolderCreator.create_default('PT_PR13_AssayAndVRDonePlanToY', 'tissue')
 PatientVariantFolderCreator.create_default('PT_PR13_AssayAndVRDonePlanToN', 'tissue')
 PatientVariantFolderCreator.create_default('PT_PR13_AssayAndVRDonePlanToU', 'tissue')
-PatientVariantFolderCreator.create_default('PT_VU09_VariantReportUploaded', 'tissue')
+PatientVariantFolderCreator.create_default('PT_VU06_TissueShipped', 'tissue')
 PatientVariantFolderCreator.create_default('PT_VU10_VariantReportUploaded', 'tissue')
-PatientVariantFolderCreator.create_default('PT_VU11_VariantReportRejected', 'tissue')
 PatientVariantFolderCreator.create_default('PT_VU13_VariantReportConfirmed', 'tissue')
-PatientVariantFolderCreator.create_default('PT_VU16_BdVRUploaded', 'blood')
+PatientVariantFolderCreator.create_default('PT_VU14_TissueAndBloodShipped', 'blood')
+
+pt = PatientDataSet.new('PT_VU09_VariantReportUploaded')
+PatientVariantFolderCreator.create(pt.moi, pt.ani)
+PatientVariantFolderCreator.create(pt.moi, pt.ani_increase)
+
+pt = PatientDataSet.new('PT_VU11_VariantReportRejected')
+PatientVariantFolderCreator.create(pt.moi, pt.ani)
+PatientVariantFolderCreator.create(pt.moi, pt.ani_increase)
 
 pt = PatientDataSet.new('PT_VU12_VariantReportRejected')
 PatientVariantFolderCreator.create(pt.moi, pt.ani)
+PatientVariantFolderCreator.create(pt.moi, pt.ani_increase)
+
+pt = PatientDataSet.new('PT_VU16_BdVRUploaded')
+PatientVariantFolderCreator.create(pt.bd_moi, pt.ani)
+PatientVariantFolderCreator.create(pt.bd_moi, pt.ani_increase)
+
+pt = PatientDataSet.new('PT_VU17_BdVRConfirmed')
+PatientVariantFolderCreator.create(pt.bd_moi, pt.ani)
+PatientVariantFolderCreator.create(pt.bd_moi, pt.ani_increase)
 PatientVariantFolderCreator.create(pt.moi, pt.ani_increase)
 
 pt = PatientDataSet.new('PT_VC10_VRUploadedSEIExpired')

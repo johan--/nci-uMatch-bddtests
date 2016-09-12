@@ -49,7 +49,7 @@ end
 When(/^post to MATCH variant confirm service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |retMsg, status|
   puts JSON.pretty_generate(@request_json)
   url = ENV['patients_endpoint'] + '/'
-  url = url + @patient_id + '/variant/' + @current_variant_uuid + '/' + @current_variant_comment + '/' + @current_variant_confirm
+  url = url + '/variant/' + @current_variant_uuid + '/' + @current_variant_comment + '/' + @current_variant_confirm
   @response = Helper_Methods.put_request(url, @request)
   expect(@response['status']).to eql(status)
   expect_message = "returned message include <#{retMsg}>"
@@ -246,6 +246,7 @@ end
 
 #retrieval
 Then(/^retrieve patient: "([^"]*)" from API$/) do |patientID|
+  @patient_id = patientID=='null'?nil:patientID
   @retrieved_patient=Helper_Methods.get_single_request(ENV['patients_endpoint']+'/'+patientID)
 
   #for testing purpose
@@ -312,8 +313,14 @@ And(/^this variant report has value: "([^"]*)" in field: "([^"]*)"$/) do |value,
   returned_value = @current_variant_report[field]
   real_result = "Value of field #{field} is #{@current_variant_report[field]}"
   equal = returned_value == convert_value
-  contain = returned_value.downcase.include?(convert_value.downcase)
-  if equal || contain
+  if !equal
+    if returned_value.nil? || convert_value.nil?
+      equal = false
+    else
+      equal = returned_value.downcase.include?(convert_value.downcase)
+    end
+  end
+  if equal
     real_result = expect_result
   end
   real_result.should == expect_result
