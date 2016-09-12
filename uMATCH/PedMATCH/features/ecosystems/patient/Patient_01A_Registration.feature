@@ -22,8 +22,8 @@ Feature: Register a new patient in PEDMatchbox:
 #    |null                   |can't be blank                                                               |
     |PT_RG02_ExistingPatient|This patient has already been registered and cannot be registered again      |
 
-
-  Scenario Outline: PT_RG03. patient registration with study_id which is not 'APEC1621' should fail
+@demo
+  Scenario Outline: PT_RG03. patient registration with study_id "<study_id>" which is not 'APEC1621' should fail with message "<message>"
     Given template patient registration message for patient: "<patient_id>" on date: "current"
     Then set patient message field: "study_id" to value: "<study_id>"
     When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
