@@ -182,31 +182,31 @@ class Helper_Methods
     print "URL: #{service}\n"
     # # print "JSON:\n#{JSON.pretty_generate(JSON.parse(payload))}\n\n"
     # print "JSON:\n#{payload}\n\n"
-    @post_response = {}
+    @put_response = {}
     begin
-      response = RestClient::Request.execute(:url => service, :method => :post, :verify_ssl => false, :payload => payload, :headers=>{:content_type => 'json', :accept => 'json'})
+      response = RestClient::Request.execute(:url => service, :method => :put, :verify_ssl => false, :payload => payload, :headers=>{:content_type => 'json', :accept => 'json'})
     rescue StandardError => e
-      @post_response['status'] = 'Failure'
+      @put_response['status'] = 'Failure'
       if e.message.nil?
         http_code = '500'
       else
         http_code = e.message[0,3]
       end
-      @post_response['http_code'] = http_code
-      @post_response['message'] = e.response
+      @put_response['http_code'] = http_code
+      @put_response['message'] = e.response
       p e.response
-      return @post_response
+      return @put_response
     end
 
     http_code = "#{response.code}"
     status = http_code =='200' ? 'Success' : 'Failure'
-    @post_response['status'] = status
-    @post_response['http_code'] = http_code
-    @post_response['message'] = response.body
+    @put_response['status'] = status
+    @put_response['http_code'] = http_code
+    @put_response['message'] = response.body
     if status.eql?('Failure')
-      p @post_response['message']
+      p @put_response['message']
     end
-    return @post_response
+    return @put_response
   end
 
   def Helper_Methods.aFewDaysOlder()

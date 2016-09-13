@@ -71,6 +71,22 @@ class PatientMessageLoader
     sleep(@wait_time)
   end
 
+  def self.send_variant_report_confirm_message(message_json, patient_id, moi, ani, status)
+    @all_items += 1
+    curl_cmd ="curl -k -X PUT -H \"Content-Type: application/json\""
+    curl_cmd = curl_cmd + " -H \"Accept: application/json\"  -d '" + message_json.to_json
+    curl_cmd = curl_cmd + "' #{LOCAL_PATIENT_API_URL}/#{patient_id}/variant_reports/#{moi}/#{ani}/#{status}"
+    output = `#{curl_cmd}`
+    p "Output from running No.#{@all_items} curl: #{output}"
+    unless output.downcase.include?'success'
+      p 'Failed'
+      puts JSON.pretty_generate(message_json)
+      @failure += 1
+    end
+    sleep(@wait_time)
+
+  end
+
   def self.convert_date(date_string)
     case date_string
       when 'current' then Helper_Methods.dateDDMMYYYYHHMMSS
@@ -240,10 +256,7 @@ class PatientMessageLoader
       molecular_id,
       analysis_id)
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['variant_file_confirmed']
-    message['patient_id'] = patient_id
-    message['status'] = status
-    message['molecular_id'] = molecular_id
-    message['analysis_id'] = analysis_id
+    send_variant_report_confirm_message(patient_id, molecular_id, analysis_id, status, message)
     send_message_to_local(message, patient_id)
   end
 

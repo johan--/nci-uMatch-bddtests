@@ -31,7 +31,7 @@ When(/^post to MATCH patients service, returns a message that includes "([^"]*)"
   actual_message.should == expect_message
 end
 
-When(/^post to MATCH variant report confirm service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |retMsg, status|
+When(/^put to MATCH variant report confirm service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |retMsg, status|
   puts JSON.pretty_generate(@request_json)
   url = ENV['patients_endpoint'] + '/'
   url = url + @patient_id + '/variant_reports/' + @molecular_id + '/' + @analysis_id + '/' + @variant_report_status
@@ -46,7 +46,7 @@ When(/^post to MATCH variant report confirm service, returns a message that incl
 
 end
 
-When(/^post to MATCH variant confirm service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |retMsg, status|
+When(/^put to MATCH variant confirm service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |retMsg, status|
   puts JSON.pretty_generate(@request_json)
   url = ENV['patients_endpoint'] + '/'
   url = url + '/variant/' + @current_variant_uuid + '/' + @current_variant_comment + '/' + @current_variant_confirm
@@ -173,12 +173,8 @@ Given(/^template variant report confirm message for patient: "([^"]*)", it has m
   @patient_id = patient_id=='null'?nil:patient_id
   @molecular_id = moi=='null'?nil:moi
   @analysis_id = ani=='null'?nil:ani
-  @variant_report_status = status=='null'?nil:status
+  @variant_report_status = status
   @patient_message_root_key = ''
-  @request_json['patient_id'] = @patient_id
-  @request_json['molecular_id'] = @molecular_id
-  @request_json['analysis_id'] = @analysis_id
-  @request_json['status'] = @variant_report_status
   @request = @request_json.to_json.to_s
 
 end

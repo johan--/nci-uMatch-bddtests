@@ -194,10 +194,6 @@
     "comment": "bla bla bla"
   },
   "variant_file_confirmed":{
-    "patient_id": "3344",
-    "molecular_id": "MOI_01",
-    "analysis_id": "ANI_01",
-    "status": "CONFIRMED",
     "comment": "The committee approves this variant report",
     "comment_user": "Rick"
   },
