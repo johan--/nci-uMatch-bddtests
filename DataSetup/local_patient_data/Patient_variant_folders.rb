@@ -82,6 +82,7 @@ PatientVariantFolderCreator.create(pt.moi, pt.ani)
 PatientVariantFolderCreator.create(pt.moi, pt.ani_increase)
 
 PatientVariantFolderCreator.create_default('PT_VC04_VRUploaded', 'tissue')
+PatientVariantFolderCreator.create_default('PT_VC04a_VRUploaded', 'tissue')
 PatientVariantFolderCreator.create_default('PT_VC08_VRUploaded', 'tissue')
 PatientVariantFolderCreator.create_default('PT_VC09_VRUploaded', 'tissue')
 PatientVariantFolderCreator.create_default('PT_VC11_VRUploaded', 'tissue')
@@ -102,6 +103,8 @@ PatientVariantFolderCreator.set_output_type('test_data')
 
 PatientVariantFolderCreator.create_default('PT_VU06_TissueShipped', 'tissue')
 PatientVariantFolderCreator.create_default('PT_VU14_TissueAndBloodShipped', 'blood')
+PatientVariantFolderCreator.create_default('PT_VU02a_TissueShippedToMDA', 'tissue')
+PatientVariantFolderCreator.create_default('PT_VU02a_TissueShippedToMoCha', 'tissue')
 
 pt = PatientDataSet.new('PT_VU09_VariantReportUploaded')
 PatientVariantFolderCreator.create(pt.moi, pt.ani_increase)

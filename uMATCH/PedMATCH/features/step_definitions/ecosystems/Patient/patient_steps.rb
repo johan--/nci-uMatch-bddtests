@@ -49,7 +49,7 @@ end
 When(/^put to MATCH variant confirm service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |retMsg, status|
   puts JSON.pretty_generate(@request_json)
   url = ENV['patients_endpoint'] + '/'
-  url = url + '/variant/' + @current_variant_uuid + '/' + @current_variant_comment + '/' + @current_variant_confirm
+  url = url + '/variant/' + @current_variant_uuid + '/' + @current_variant_confirm
   @response = Helper_Methods.put_request(url, @request)
   expect(@response['status']).to eql(status)
   expect_message = "returned message include <#{retMsg}>"
@@ -160,19 +160,19 @@ Given(/^template "([^"]*)" uploaded message for patient: "([^"]*)", it has molec
   @request = @request_json.to_json.to_s
 end
 
-Given(/^template variant confirm message for patient: "([^"]*)", the variant: "([^"]*)" is confirmed: "([^"]*)" with comment: "([^"]*)"$/) do |patient_id, variant_uuid, confirmed, comment|
-  variant_confirm_message(patient_id, variant_uuid, confirmed, comment)
+Given(/^template variant confirm message for patient: "([^"]*)", the variant: "([^"]*)" is checked: "([^"]*)" with comment: "([^"]*)"$/) do |patient_id, variant_uuid, confirmed, comment|
+  variant_confirm_message(variant_uuid, confirmed, comment)
 end
 
-Then(/^create variant confirm message with confirmed: "([^"]*)" and comment: "([^"]*)" for this variant$/) do |confirmed, comment|
-  variant_confirm_message(@patient_id, @current_variant_uuid, confirmed, comment)
+Then(/^create variant confirm message with checked: "([^"]*)" and comment: "([^"]*)" for this variant$/) do |confirmed, comment|
+  variant_confirm_message(@current_variant_uuid, confirmed, comment)
 end
 
 Given(/^template variant report confirm message for patient: "([^"]*)", it has molecular_id: "([^"]*)", analysis_id: "([^"]*)" and status: "([^"]*)"$/) do |patient_id, moi, ani, status|
   @request_json = Patient_helper_methods.load_patient_message_templates('variant_file_confirmed')
-  @patient_id = patient_id=='null'?nil:patient_id
-  @molecular_id = moi=='null'?nil:moi
-  @analysis_id = ani=='null'?nil:ani
+  @patient_id = patient_id
+  @molecular_id = moi
+  @analysis_id = ani
   @variant_report_status = status
   @patient_message_root_key = ''
   @request = @request_json.to_json.to_s
@@ -224,16 +224,12 @@ Then(/^remove field: "([^"]*)" from patient message$/) do |field|
   @request = @request_json.to_json.to_s
 end
 
-def variant_confirm_message(patient_id, variant_uuid, confirmed, comment)
+def variant_confirm_message(variant_uuid, confirmed, comment)
   @request_json = Patient_helper_methods.load_patient_message_templates('variant_confirmed')
-  @patient_id = patient_id=='null'?nil:patient_id
-  @current_variant_uuid = variant_uuid=='null'?nil:variant_uuid
-  @current_variant_confirm = confirmed=='null'?nil:confirmed
+  @current_variant_uuid = variant_uuid
+  @current_variant_confirm = confirmed
   @current_variant_comment = comment=='null'?nil:comment
   @patient_message_root_key = ''
-  @request_json['patient_id'] = @patient_id
-  @request_json['variant_uuid'] = @current_variant_uuid
-  @request_json['confirmed'] = @current_variant_confirm
   @request_json['comment'] = @current_variant_comment
   @request = @request_json.to_json.to_s
 end
@@ -363,7 +359,7 @@ end
 #   timeDiff.should <=20
 # end
 
-Then(/^variants in variant report \(surgical_event_id: "([^"]*)", molecular_id: "([^"]*)", analysis_id: "([^"]*)"\) have confirmed: "([^"]*)"$/) do |sei, moi, ani, confirmed|
+Then(/^variants in variant report \(surgical_event_id: "([^"]*)", molecular_id: "([^"]*)", analysis_id: "([^"]*)"\) have checked: "([^"]*)"$/) do |sei, moi, ani, confirmed|
   converted_sei = sei=='null'?nil:sei
   variant_report = find_variant_report(@retrieved_patient, converted_sei, moi, ani)
 

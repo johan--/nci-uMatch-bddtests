@@ -149,4 +149,9 @@ PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
 PatientMessageLoader.tsv_vcf_uploaded(pt.id, pt.moi, pt.ani)
 
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+PatientMessageLoader.tsv_vcf_uploaded(pt.id, pt.moi, pt.ani)
+
 PatientMessageLoader.upload_done

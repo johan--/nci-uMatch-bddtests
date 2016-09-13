@@ -36,6 +36,19 @@ Feature: Variant files uploaded message
       |null           |can't be blank   |
       |other          |site             |
 
+  Scenario Outline: PT_VU02a. variant files can be uploaded from both MDA and MoCha successfully
+    Given template "tsv_vcf" uploaded message for patient: "<patient_id>", it has molecular_id: "<patient_id>_MOI1" and analysis_id: "<patient_id>_ANI1"
+    Then set patient message field: "site" to value: "<site>"
+    When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
+    Then wait for "15" seconds
+    Then retrieve patient: "<patient_id>" from API
+    Then returned patient has variant report (surgical_event_id: "<patient_id>_SEI1", molecular_id: "<patient_id>_MOI1", analysis_id: "<patient_id>_ANI1")
+    Then this variant report has value: "PENDING" in field: "status"
+    Examples:
+    |patient_id                   |site   |
+    |PT_VU02a_TissueShippedToMDA  |MDA    |
+    |PT_VU02a_TissueShippedToMoCha|MoCha  |
+
   Scenario Outline: PT_VU03. variant files uploaded message with invalid molecular_id should fail
     Given template "tsv_vcf" uploaded message for patient: "PT_VU03_TissueShipped", it has molecular_id: "<MOI>" and analysis_id: "PT_VU03_TissueShipped_ANI1"
     When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
@@ -82,33 +95,22 @@ Feature: Variant files uploaded message
 #  Test patient: PT_VU06_TissueShipped: surgical_event_id: PT_VU06_TissueShipped_SEI1, molecular_id: PT_VU06_TissueShipped_MOI1 tissue shipped;
     Given template "tsv_vcf" uploaded message for patient: "PT_VU06_TissueShipped", it has molecular_id: "PT_VU06_TissueShipped_MOI1" and analysis_id: "PT_VU06_TissueShipped_ANI1"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
+    Then wait for "3" seconds
+    Given template "dna" uploaded message for patient: "PT_VU06_TissueShipped", it has molecular_id: "PT_VU06_TissueShipped_MOI1" and analysis_id: "PT_VU06_TissueShipped_ANI1"
+    When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
+    Then wait for "3" seconds
+    Given template "cdna" uploaded message for patient: "PT_VU06_TissueShipped", it has molecular_id: "PT_VU06_TissueShipped_MOI1" and analysis_id: "PT_VU06_TissueShipped_ANI1"
+    When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
     Then wait for "15" seconds
     Then retrieve patient: "PT_VU06_TissueShipped" from API
     Then returned patient has variant report (surgical_event_id: "PT_VU06_TissueShipped_SEI1", molecular_id: "PT_VU06_TissueShipped_MOI1", analysis_id: "PT_VU06_TissueShipped_ANI1")
     Then this variant report has value: "PENDING" in field: "status"
     Then this variant report has value: "test1.tsv" in field: "tsv_file_name"
     Then this variant report has value: "test1.vcf" in field: "vcf_file_name"
-
-  Scenario: PT_VU06a. dna files uploaded message using new analysis_id can be accepted when patient has TISSUE_NUCLEIC_ACID_SHIPPED status
-#  Test patient: PT_VU06_TissueShipped: PT_VU06_TissueShipped(_SEI1,_MOI1)
-    Given template "dna" uploaded message for patient: "PT_VU06_TissueShipped", it has molecular_id: "PT_VU06_TissueShipped_MOI1" and analysis_id: "PT_VU06_TissueShipped_ANI1"
-    When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then wait for "15" seconds
-    Then retrieve patient: "PT_VU06_TissueShipped" from API
-    Then returned patient has variant report (surgical_event_id: "PT_VU06_TissueShipped_SEI1", molecular_id: "PT_VU06_TissueShipped_MOI1", analysis_id: "PT_VU06_TissueShipped_ANI1")
     Then this variant report has value: "dna.bam" in field: "dna_bam_name"
     Then this variant report has value: "dna.bam.bai" in field: "dna_bai_name"
-
-  Scenario: PT_VU06b. cdna files uploaded message using new analysis_id can be accepted when patient has TISSUE_NUCLEIC_ACID_SHIPPED status
-#  Test patient: PT_VU06_TissueShipped: PT_VU06_TissueShipped(_SEI1,_MOI1)
-    Given template "cdna" uploaded message for patient: "PT_VU06_TissueShipped", it has molecular_id: "PT_VU06_TissueShipped_MOI1" and analysis_id: "PT_VU06_TissueShipped_ANI1"
-    When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then wait for "15" seconds
-    Then retrieve patient: "PT_VU06_TissueShipped" from API
-    Then returned patient has variant report (surgical_event_id: "PT_VU06_TissueShipped_SEI1", molecular_id: "PT_VU06_TissueShipped_MOI1", analysis_id: "PT_VU06_TissueShipped_ANI1")
     Then this variant report has value: "cdna.bam" in field: "cdna_bam_name"
     Then this variant report has value: "cdna.bam.bai" in field: "cdna_bai_name"
-
 
   Scenario: PT_VU07. variant files uploaded with new analysis_id cannot be accepted when patient has only TISSUE_SLIDE_SPECIMEN_SHIPPED status but has no TISSUE_NUCLEIC_ACID_SHIPPED status
 #  Test patient: PT_VU07_SlideShippedNoTissueShipped: surgical_event_id: SEI_01 slide shipped, tissue not shipped;

@@ -129,7 +129,9 @@ class PatientMessageLoader
       patient_id,
       surgical_event_id,
       molecular_id,
-      shipped_time='2016-05-01T19:42:13+00:00')
+      shipped_time='2016-05-01T19:42:13+00:00',
+      destination='MDA'
+  )
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['specimen_shipped_TISSUE']
     message['specimen_shipped']['patient_id'] = patient_id
     message['specimen_shipped']['surgical_event_id'] = surgical_event_id
@@ -137,6 +139,7 @@ class PatientMessageLoader
     message['specimen_shipped']['molecular_dna_id'] = molecular_id+'D'
     message['specimen_shipped']['molecular_cdna_id'] = molecular_id+'C'
     message['specimen_shipped']['shipped_dttm'] = convert_date(shipped_time)
+    message['specimen_shipped']['destination'] = destination
     send_message_to_local(message, patient_id)
   end
 
@@ -156,11 +159,13 @@ class PatientMessageLoader
   def self.specimen_shipped_blood(
       patient_id,
       molecular_id,
-      shipped_time='2016-05-01T19:42:13+00:00')
+      shipped_time='2016-05-01T19:42:13+00:00',
+      destination='MDA')
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['specimen_shipped_BLOOD']
     message['specimen_shipped']['patient_id'] = patient_id
     message['specimen_shipped']['molecular_id'] = molecular_id
     message['specimen_shipped']['shipped_dttm'] = convert_date(shipped_time)
+    message['specimen_shipped']['destination'] = destination
     send_message_to_local(message, patient_id)
   end
 
@@ -256,8 +261,7 @@ class PatientMessageLoader
       molecular_id,
       analysis_id)
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['variant_file_confirmed']
-    send_variant_report_confirm_message(patient_id, molecular_id, analysis_id, status, message)
-    send_message_to_local(message, patient_id)
+    send_variant_report_confirm_message(message, patient_id, molecular_id, analysis_id, status)
   end
 
   def self.assignment_confirmed(

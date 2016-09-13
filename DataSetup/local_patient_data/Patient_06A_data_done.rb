@@ -17,6 +17,16 @@ PatientMessageLoader.register_patient(pt.id)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
 
+pt = PatientDataSet.new('PT_VU02a_TissueShippedToMDA')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-05-01T19:42:13+00:00', 'MDA')
+
+pt = PatientDataSet.new('PT_VU02a_TissueShippedToMoCha')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-05-01T19:42:13+00:00', 'MoCha')
+
 pt = PatientDataSet.new('PT_VU03_TissueShipped')
 PatientMessageLoader.register_patient(pt.id)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
