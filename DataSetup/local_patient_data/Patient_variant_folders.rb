@@ -1,6 +1,9 @@
 require_relative '../patient_variant_folder_creator'
 require_relative '../patient_message_loader'
 
+PatientVariantFolderCreator.clear_all
+
+PatientVariantFolderCreator.set_output_type('seed_data')
 PatientVariantFolderCreator.create_default('PT_SR10_PendingApproval', 'tissue')
 PatientVariantFolderCreator.create_default('PT_SR10_OnTreatmentArm', 'tissue')
 PatientVariantFolderCreator.create_default('PT_SR10_BdVRReceived', 'blood')
@@ -91,3 +94,24 @@ PatientVariantFolderCreator.create_default('PT_CR01_PathAssayDoneVRUploadedToCon
 PatientVariantFolderCreator.create_default('PT_CR02_OnTreatmentArm', 'tissue')
 PatientVariantFolderCreator.create_default('PT_CR03_VRUploadedPathConfirmed', 'tissue')
 PatientVariantFolderCreator.create_default('PT_CR04_VRUploadedAssayReceived', 'tissue')
+
+
+
+
+PatientVariantFolderCreator.set_output_type('test_data')
+
+PatientVariantFolderCreator.create_default('PT_VU06_TissueShipped', 'tissue')
+PatientVariantFolderCreator.create_default('PT_VU14_TissueAndBloodShipped', 'blood')
+
+pt = PatientDataSet.new('PT_VU09_VariantReportUploaded')
+PatientVariantFolderCreator.create(pt.moi, pt.ani_increase)
+
+pt = PatientDataSet.new('PT_VU11_VariantReportRejected')
+PatientVariantFolderCreator.create(pt.moi, pt.ani_increase)
+
+pt = PatientDataSet.new('PT_VU16_BdVRUploaded')
+PatientVariantFolderCreator.create(pt.bd_moi, pt.ani_increase)
+
+pt = PatientDataSet.new('PT_VU17_BdVRConfirmed')
+PatientVariantFolderCreator.create(pt.bd_moi, pt.ani_increase)
+PatientVariantFolderCreator.create(pt.moi, pt.ani_increase)

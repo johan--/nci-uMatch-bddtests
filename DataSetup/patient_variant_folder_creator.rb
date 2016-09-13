@@ -1,11 +1,25 @@
 class PatientVariantFolderCreator
   TEMPLATE_ANI_FOLDER_PATH = "#{File.dirname(__FILE__)}/variant_file_templates/3366_moi/3366_ani"
   TEMPLATE_ANI_FOLDER_NAME = "3366_ani"
-  OUTPUT_FOLDER_PATH = "#{File.dirname(__FILE__)}/variant_file_templates/outputs"
+  ROOT_OUTPUT_FOLDER = "#{File.dirname(__FILE__)}/variant_file_templates/"
+  @output_type = 'seed_data'
 
+  def self.set_output_type(type)
+    @output_type = type
+  end
+
+  def self.clear_all
+    folder = ROOT_OUTPUT_FOLDER + 'seed_data'
+    cmd = "rm -R #{folder}/*"
+    `#{cmd}`
+    folder = ROOT_OUTPUT_FOLDER + 'test_data'
+    cmd = "rm -R #{folder}/*"
+    `#{cmd}`
+  end
 
   def self.create(moi, ani)
-    target_moi_folder = "#{OUTPUT_FOLDER_PATH}/#{moi}"
+    output_folder = ROOT_OUTPUT_FOLDER + @output_type
+    target_moi_folder = "#{output_folder}/#{moi}"
     target_ani_folder = "#{target_moi_folder}/#{ani}"
     if File.directory?(target_ani_folder)
       p "#{target_ani_folder} exists, skipping..."

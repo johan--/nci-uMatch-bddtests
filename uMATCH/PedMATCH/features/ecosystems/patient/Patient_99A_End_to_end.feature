@@ -84,7 +84,7 @@ Feature: Patients end to end tests
     Then returned patient has value: "1.1" in field: "current_step_number"
 
   Scenario: PT_ETE03. patient can reach PENDING_CONFIRMATION status even there is mock service collapse during assignment processing
-    Given patient: "PT_ETE03" with status: "BLOOD_VARIANT_REPORT_CONFIRMED" on step: "1.0"
+    Given patient: "PT_ETE03" with status: "TISSUE_VARIANT_REPORT_RECEIVED" on step: "1.0"
     Given patient: "PT_ETE03" in mock service lost patient list, service will come back after "5" tries
     Given this patients's active "TISSUE" molecular_id is "PT_ETE03_MOI1"
     Given this patients's active analysis_id is "PT_ETE03_ANI1"
@@ -153,33 +153,33 @@ Feature: Patients end to end tests
     |PT_ETE07_TsVrReceived1 |PT_ETE07_TsVrReceived1_MOI1 |PT_ETE07_TsVrReceived1_ANI1 |not have TA available     |NO_TA_AVAILABLE   |
     |PT_ETE07_TsVrReceived2 |PT_ETE07_TsVrReceived2_MOI1 |PT_ETE07_TsVrReceived2_ANI1 |have a closed TA available|COMPASSIONATE_CARE|
 
-  Scenario Outline: PT_ETE05. variant report confirmation should fail if patient is on OFF_STUDY status
+  Scenario Outline: PT_ETE08. variant report confirmation should fail if patient is on OFF_STUDY status
     Given patient: "<patient_id>" with status: "<current_status>" on step: "1.0"
     Given other background and comments for this patient: "All data is ready, tissue variant report was waiting for confirmation before patient changed to OFF_STUDY"
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
     Then API returns a message that includes "OFF_STUDY" with status "Failure"
     Examples:
       |patient_id                 |current_status           |
-      |PT_ETE05_OffStudy1         |OFF_STUDY                |
-      |PT_ETE05_OffStudy2         |OFF_STUDY_BIOPSY_EXPIRED |
+      |PT_ETE08_OffStudy1         |OFF_STUDY                |
+      |PT_ETE08_OffStudy2         |OFF_STUDY_BIOPSY_EXPIRED |
 
-  Scenario Outline: PT_ETE06. assignment report confirmation should fail if patient is on OFF_STUDY status
+  Scenario Outline: PT_ETE09. assignment report confirmation should fail if patient is on OFF_STUDY status
     Given patient: "<patient_id>" with status: "<current_status>" on step: "1.0"
     Given other background and comments for this patient: "Assignment report was waiting for confirmation before patient changed to OFF_STUDY"
     Then assignment report is "CONFIRMED"
     Then API returns a message that includes "OFF_STUDY" with status "Failure"
     Examples:
       |patient_id                 |current_status           |
-      |PT_ETE06_OffStudy1         |OFF_STUDY                |
-      |PT_ETE06_OffStudy2         |OFF_STUDY_BIOPSY_EXPIRED |
+      |PT_ETE09_OffStudy1         |OFF_STUDY                |
+      |PT_ETE09_OffStudy2         |OFF_STUDY_BIOPSY_EXPIRED |
     
-  Scenario: PT_ETE07. request assignment message with rebiopsy = N will fail if the current biopsy is expired
-    Given patient: "PT_ETE07" with status: "ON_TREATMENT_ARM" on step: "1.1"
+  Scenario: PT_ETE10. request assignment message with rebiopsy = N will fail if the current biopsy is expired
+    Given patient: "PT_ETE10" with status: "ON_TREATMENT_ARM" on step: "1.1"
     Given other background and comments for this patient: "the specimen received date is over 6 months ago"
     Then patient has new assignment request with re-biopsy: "N", step number: "2.0", treatment arm id: "APEC1621-A", stratum id: "100"
     Then API returns a message that includes "expired" with status "Failure"
 
-  Scenario Outline: PT_ETE08. assignment process should not be triggered if assignment request has rebiopsy = Y
+  Scenario Outline: PT_ETE11. assignment process should not be triggered if assignment request has rebiopsy = Y
     Given patient: "<patient_id>" with status: "<patient_status>" on step: "<step_number>"
     Then patient has new assignment request with re-biopsy: "Y", step number: "2.0", treatment arm id: "APEC1621-A", stratum id: "100"
     Then wait for "60" seconds
@@ -187,29 +187,29 @@ Feature: Patients end to end tests
     Then returned patient has value: "REQUEST_ASSIGNMENT" in field: "current_status"
     Examples:
     |patient_id              |patient_status       |step_number|
-    |PT_ETE08_OnTreatmentArm |ON_TREATMENT_ARM     |1.1        |
-    |PT_ETE08_PendingAproval |PENDING_APPROVAL     |1.0        |
+    |PT_ETE11_OnTreatmentArm |ON_TREATMENT_ARM     |1.1        |
+    |PT_ETE11_PendingAproval |PENDING_APPROVAL     |1.0        |
 
-  Scenario: PT_ETE09. rule engine will find another assignment result, if cog reply assignment request with rebiopsy = N on the first assignment report
-    Given patient: "PT_ETE09" with status: "PENDING_APPROVAL" on step: "1.0"
+  Scenario: PT_ETE12. rule engine will find another assignment result, if cog reply assignment request with rebiopsy = N on the first assignment report
+    Given patient: "PT_ETE12" with status: "PENDING_APPROVAL" on step: "1.0"
     Given other background and comments for this patient: "assignment report finds treatment arm: APEC1621-ETE09"
     Then patient has new assignment request with re-biopsy: "N", step number: "2.0", treatment arm id: "APEC1621-A", stratum id: "100"
     Then wait for "60" seconds
-    Then retrieve patient: "PT_ETE09" from API
+    Then retrieve patient: "PT_ETE12" from API
     Then returned patient has value: "PENDING_APPROVAL" in field: "current_status"
     Then returned patient has been assigned to new treatment arm: "APEC1621-B", stratum id: "100"
 
-  Scenario Outline: PT_ETE10. assignment request will fail if patient is on step 4.1
+  Scenario Outline: PT_ETE13. assignment request will fail if patient is on step 4.1
     Given patient: "<patient_id>" with status: "ON_TREATMENT_ARM" on step: "4.1"
     Then patient has new assignment request with re-biopsy: "<rebiopsy>", step number: "5.0", treatment arm id: "APEC1621-A", stratum id: "100"
     Then API returns a message that includes "4" with status "Failure"
     Examples:
     |patient_id     |rebiopsy |
-    |PT_ETE10_OnTA1 |Y        |
-    |PT_ETE10_OnTA2 |N        |
+    |PT_ETE13_OnTA1 |Y        |
+    |PT_ETE13_OnTA2 |N        |
     
-  Scenario: PT_ETE11. on treatment arm message with wrong treatment arm information should fail
-    Given patient: "PT_ETE11" with status: "PENDING_APPROVAL" on step: "1.0"
+  Scenario: PT_ETE14. on treatment arm message with wrong treatment arm information should fail
+    Given patient: "PT_ETE14" with status: "PENDING_APPROVAL" on step: "1.0"
     Given other background and comments for this patient: "treatment arm APEC1621-A with stratum id 100 has been selected"
     Then patient has on treatment arm approval with treatment arm id: "APEC1621-B", stratum id: "100" to step: "1.1"
     Then API returns a message that includes "treatment arm" with status "Failure"

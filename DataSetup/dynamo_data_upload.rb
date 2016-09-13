@@ -124,7 +124,8 @@ class DynamoDataUploader
     if field_object.keys[0] == 'M'
       result = {}
       field_object.values[0].each do |key, value|
-        result[key] = value.values[0]
+        # result[key] = value.values[0]
+        result[key] = extract_value(value)
       end
       result
     elsif field_object.keys[0] == 'N'
