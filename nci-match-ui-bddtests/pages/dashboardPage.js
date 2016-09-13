@@ -36,7 +36,7 @@ var DashboardPage = function() {
     };
 
 
-    this.feedRepeaterList     = element.all(by.css('div[ng-init="activity.startLoading(10)"]>div>.timeline-item'));
+    this.feedRepeaterList     = element.all(by.repeater('timelineEvent in activity.data'));
 
     this.dashAmoiChart        = element(by.css('div[ng-init^="setCanvasHeight(\'#amoiCanvas\'"]'));
     this.dashTreatmentAccrual = element(by.css('div[ng-init^="setCanvasHeight(\'#treatmentArmAccrualCanvas\'"]'));

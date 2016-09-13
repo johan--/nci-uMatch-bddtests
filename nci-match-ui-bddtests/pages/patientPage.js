@@ -107,6 +107,15 @@ var PatientPage = function () {
     this.tissueTotalConfirmedMois  = element(by.binding('currentTissueVariantReport.total_confirmed_mois'));
     this.tissueTotalConfirmedAMois = element(by.binding('currentTissueVariantReport.total_confirmed_amois'));
 
+    this.variantConfirmButtonList      = element.all(by.css('input[type="checkbox"]')); // This is to check the properties
+    this.variantConfirmButtonCLickList = element.all(by.css('button[ng-click="vm.confirm()"]')); // This is to perfom actions on the checkbox
+    this.confirmChangeCommentField     = element(by.css('input[name="comment"]'));  // This is the confirmation modal for individual rejection
+    this.confirmVRCHangeCommentField   = element(by.model('input.name')); // THis is the confirmation modal for the complete VR rejection
+    this.gridElement                   = element.all(by.repeater('item in $ctrl.gridOptions.data')); // grid table for all the variants
+    this.commentLinkString             = 'a[ng-click="$ctrl.editComment(item, $ctrl.isEditable )"]'; //the string to get to the comments in the grid
+    this.rejectReportButton            = element(by.css('button[ng-click="rejectVariantReport(currentTissueVariantReport)"]'));
+    this.confirmReportButton           = element(by.css('button[ng-click="confirmVariantReport(currentTissueVariantReport)"]'));
+
     // This is the assignment Report Section panel. You can get access to the other elements within this panel by using #all(by.<property>)
     this.assignmentReportSection = element.all(by.css("div[ng-if=\"variantReportMode!=='QC'\"]")).get(0);
 
@@ -117,6 +126,7 @@ var PatientPage = function () {
     this.bloodReportStatus      = element(by.binding('currentBloodVariantReport.status'));
     this.bloodTotalVariants     = element(by.binding('currentBloodVariantReport.total_variants'));
     this.bloodTotalCellularity  = element(by.binding('currentBloodVariantReport.cellularity'));
+
 
 
     // ****************** Expected values *******************//

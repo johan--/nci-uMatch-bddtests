@@ -61,10 +61,10 @@ module.exports = function () {
             treatmentArmAPIDetails = utilities.getJSONifiedDetails(response.entity());
             firstTreatmentArm = treatmentArmAPIDetails[0];
             browser.setLocation(location , 6000).then(function () {
-                callback();
+
             }, function(err){
                 console.log(err.toString());
-            });
+            }).then(callback);
         })
     });
 

@@ -46,7 +46,7 @@ module.exports = function () {
 
     this.When(/^I click on the "([^"]*)" tab$/, function (tabName, callback) {
         var index = expectedMainTabs.indexOf(tabName);
-        element(by.linkText('Tissue Reports')).click().then(function () {
+        element(by.linkText(tabName)).click().then(function () {
             browser.waitForAngular();
         }).then(callback);
 //        utilities.clickElementArray(actualMainTabsArray, index);

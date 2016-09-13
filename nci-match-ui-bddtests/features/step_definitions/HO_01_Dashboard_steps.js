@@ -178,10 +178,11 @@ module.exports = function() {
 
         var studyElement = element(by.id(subTabLocator[reportType])).all(by.css('th'));
 
-        for(var i = 0; i < dashboardList[reportType].length; i++){
-            expect(studyElement.get(i).getText()).to.eventually.eql(dashboardList[reportType][i]);
-        }
-        browser.sleep(50).then(callback);
+        browser.waitForAngular().then(function () {
+            for(var i = 0; i < dashboardList[reportType].length; i++){
+                expect(studyElement.get(i).getText()).to.eventually.eql(dashboardList[reportType][i]);
+            };
+        }).then(callback);
     });
 
     this.When(/^I enter "(.+?)" in the "(.+?)" filter textbox$/, function (searchText, reportType, callback) {
