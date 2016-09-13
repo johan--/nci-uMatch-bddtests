@@ -16,6 +16,7 @@
     "level_of_evidence": 3.0
   }],
   "copy_number_variants": [],
+  "gene_fusions":[],
   "diseases": [{
     "disease_code_type":"ICD-O",
     "disease_code": "10058354",

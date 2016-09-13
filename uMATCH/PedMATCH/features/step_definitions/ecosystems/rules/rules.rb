@@ -29,13 +29,19 @@ When(/^assignPatient service is called for patient "([^"]*)"$/) do |patient|
   msgHash = Hash.new
   msgHash = { "study_id"=> "APEC1621",'patient'=> @patient, 'treatment_arms'=>@ta}
   @payload = msgHash.to_json
-  @resp = Helper_Methods.post_request("#{ENV['rules_endpoint']}/assignment_report/patient",@payload)
-  @res = JSON.parse(@resp['message'])
-  puts @res
+  puts @payload
+  @resp = Helper_Methods.post_request("#{ENV['rules_endpoint']}/assignment_report/#{patient}",@payload)
+  @res = @resp['http_code'] =='200' ? JSON.parse(@resp['message']) : fail("Error #{@resp['http_code']} is returned by the server")
+  p @res
 end
 
 Then(/^a patient assignment json is returned with reason category "([^"]*)" for treatment arm "([^"]*)"$/) do |assignment_reason,ta|
-  # expect(@res['report_status']).to eql("Success")
+  assignment_result = @res['treatment_assignment_results']
+  assignment_result.each do |tas|
+    if tas['treatment_arm_id'].eql?(ta)
+      expect(tas['assignment_status']).to eql(assignment_reason)
+    end
+  end
 end
 
 Then(/^a patient assignment json is returned with report_status "([^"]*)"$/) do |status|

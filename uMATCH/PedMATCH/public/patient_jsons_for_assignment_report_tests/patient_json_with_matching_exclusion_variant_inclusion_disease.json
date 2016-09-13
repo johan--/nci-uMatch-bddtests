@@ -6,7 +6,10 @@
     }
   ],
   "assay_results": [{
-    "gene":"PTEN",
+    "gene": "PTEN",
+    "status": "INDETERMINATE"
+  }, {
+    "gene": "MLH1",
     "status": "INDETERMINATE"
   }],
   "diseases": [
@@ -23,9 +26,6 @@
     {
       "type":"fusion",
       "identifier" : "TPM3-ALK.T7A20"
-//      "metadata": {
-//        "id": "ba62eecc-d24a-4f62-a918-570deb8a9f6c"
-//      }
     }
   ]
 }

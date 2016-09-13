@@ -1,6 +1,6 @@
 [{
   "id": "Rules-Test1b",
-  "version": "2015-08-06",
+  "version": "v1",
   "stratum_id": "100",
   "num_patients_assigned":null,
   "treatment_arm_status": "OPEN",
