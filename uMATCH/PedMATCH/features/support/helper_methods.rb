@@ -98,7 +98,13 @@ class Helper_Methods
     return @res
   end
 
-
+  # post_request
+  # returns: Hash
+  #   {
+  #       'status' => 'Success' | 'Failure',
+  #       'http_code' => <http_code returned>
+  #       'message'  => UNALTERED body of the response
+  #   }
   def Helper_Methods.post_request(service,payload)
     print "URL: #{service}\n"
     # # print "JSON:\n#{JSON.pretty_generate(JSON.parse(payload))}\n\n"

@@ -82,7 +82,7 @@ end
 
 Then(/^a failure message is returned which contains: "([^"]*)"$/) do |message|
   expect(@response['status'].downcase).to eq('failure')
-  expect(@response.message).to include(message)
+  expect(@response['message']).to include(message)
 end
 
 Then(/^a failure response code of "([^"]*)" is returned$/) do |response_code|

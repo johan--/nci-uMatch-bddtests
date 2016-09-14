@@ -3,17 +3,6 @@
 @treatment_arm
 Feature: Treatment Arm API Tests that focus on "treatment_arm_status" field
 
-  Scenario Outline: TA_TAS1. New Treatment Arm with invalid "treatment_arm_status" value should fail (including empty string)
-    Given template treatment arm json with a random id
-    And set template treatment arm json field: "treatment_arm_status" to string value: "<status>"
-    When posted to MATCH newTreatmentArm
-    Then a failure message is returned which contains: "not match one of the following values: OPEN"
-    Examples:
-    |status   |
-    |XXX      |
-    |         |
-    |32       |
-    
   Scenario Outline: TA_TAS2. The status of new Treatment Arm should be set to "OPEN", no matter what the value of "treatment_arm_status" is
     Given template treatment arm json with an id: "<treatmentArmID>"
     And set template treatment arm json field: "treatment_arm_status" to string value: "<status>"

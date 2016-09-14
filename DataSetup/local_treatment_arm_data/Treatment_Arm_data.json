@@ -330,5 +330,456 @@
       "drug_class": "ALK inhibitor",
       "target": "ALK"
     }]
+  },
+  {
+    "active": true,
+    "id": "APEC1621-C",
+    "study_id": "APEC1621",
+    "name": "APEC1621-C for Testing",
+    "date_created": "2016-06-24T15:38:31+00:00",
+    "version": "2015-08-06",
+    "stratum_id": "100",
+    "description": "Treatment Arm for UI tests",
+    "target_id": "113",
+    "target_name": "Crizotinib",
+    "gene": "ALK",
+    "treatment_arm_status": "OPEN",
+    "assay_rules": [
+      {
+        "type":"IHC",
+        "gene" : "PTEN",
+        "assay_result_status" : "POSITIVE",
+        "assay_variant" : "PRESENT",
+        "level_of_evidence" : 3.0
+      },
+      {
+        "type":"IHC",
+        "gene" : "MLH1",
+        "assay_result_status" : "POSITIVE",
+        "assay_variant" : "EMPTY",
+        "level_of_evidence" : 5.0
+      }
+    ],
+    "num_patients_assigned": null,
+    "total_patients_on_arm": null,
+    "treatment_arm_drugs": [{
+      "name": "Crizotinib",
+      "pathway": "ALK",
+      "drug_id": "113"
+    }],
+    "single_nucleotide_variants": [{
+      "chromosome": "chr6",
+      "gene": "ALK",
+      "protein": "p.Q61H",
+      "position": "152419923",
+      "identifier": "COSM1074639",
+      "ocp_reference": "A",
+      "ocp_alternative": "C",
+      "level_of_evidence": 3.0,
+      "inclusion": true,
+      "arm_specific": false
+    }, {
+      "chromosome": "chr9",
+      "position": "80412493",
+      "gene": "ALK",
+      "protein": "p.Q61H",
+      "identifier": "COSM52975",
+      "ocp_reference": "C",
+      "ocp_alternative": "T",
+      "level_of_evidence": 3.0,
+      "inclusion": true,
+      "arm_specific": false
+    }, {
+      "chromosome": "chr17",
+      "position": "7577064",
+      "gene": "ALK",
+      "protein": "p.Q61H",
+      "identifier": "COSM44451",
+      "ocp_reference": "T",
+      "ocp_alternative": "C",
+      "level_of_evidence": 3.0,
+      "inclusion": false,
+      "arm_specific": false
+    }, {
+      "chromosome": "chrX",
+      "position": "70349258",
+      "gene": "ALK",
+      "protein": "p.Q61H",
+      "identifier": "COSM757681",
+      "ocp_reference": "C",
+      "ocp_alternative": "G",
+      "level_of_evidence": 3.0,
+      "inclusion": false,
+      "arm_specific": false
+    }, {
+      "chromosome": "chrX",
+      "position": "100611165",
+      "identifier": "BT9",
+      "ocp_reference": "A",
+      "gene": "ALK",
+      "protein": "p.Q61H",
+      "ocp_alternative": "T",
+      "level_of_evidence": 3.0,
+      "inclusion": true,
+      "arm_specific": false
+    }],
+    "indels": [{
+      "chromosome": "chr22",
+      "position": "30035190",
+      "gene": "ALK",
+      "protein": "p.Q61H",
+      "identifier": "COSM22189",
+      "ocp_reference": "TTC",
+      "ocp_alternative": "-",
+      "level_of_evidence": 3.0,
+      "inclusion": true,
+      "arm_specific": false
+    }, {
+      "chromosome": "chrX",
+      "position": "70339250",
+      "identifier": "COSM131612",
+      "ocp_reference": "CAAGGTTTCAATAACCAG",
+      "ocp_alternative": "-",
+      "level_of_evidence": 3.0,
+      "inclusion": true,
+      "gene": "ALK",
+      "protein": "p.Q61H",
+      "arm_specific": false
+    }, {
+      "chromosome": "chrX",
+      "position": "70339270",
+      "identifier": "COSM143738",
+      "ocp_reference": "TGCTGTCTCTGGGGA",
+      "ocp_alternative": "-",
+      "level_of_evidence": 3.0,
+      "inclusion": false,
+      "gene": "ALK",
+      "protein": "p.Q61H",
+      "arm_specific": false
+    }],
+    "non_hotspot_rules": [{
+      "func_gene": "MYCL",
+      "oncomine_variant_class": "amplification",
+      "level_of_evidence": 3.0,
+      "inclusion": true,
+      "exon": "19",
+      "arm_specific": false
+    }, {
+      "func_gene": "TP53",
+      "function": "Refallele",
+      "level_of_evidence": 2.0,
+      "inclusion": false,
+      "arm_specific": false
+    }],
+    "copy_number_variants": [{
+      "chromosome": "chr1",
+      "position": "40361592",
+      "gene": "ALK",
+      "protein": "p.Q61H",
+      "identifier": "MYCL",
+      "ocp_reference": "C",
+      "ocp_alternative": "<CNV>",
+      "level_of_evidence": 2.0,
+      "inclusion": true,
+      "arm_specific": false
+    }, {
+      "chromosome": "chr1",
+      "position": "147022100",
+      "gene": "ALK",
+      "protein": "p.Q61H",
+      "identifier": "BCL9",
+      "ocp_reference": "G",
+      "ocp_alternative": "<CNV>",
+      "level_of_evidence": 2.0,
+      "inclusion": false,
+      "arm_specific": false
+    }, {
+      "chromosome": "chr10",
+      "position": "89624207",
+      "gene": "ALK",
+      "protein": "p.Q61H",
+      "identifier": "PTEN",
+      "ocp_reference": "T",
+      "ocp_alternative": "<CNV>",
+      "level_of_evidence": 2.0,
+      "inclusion": true,
+      "arm_specific": false
+    }],
+    "gene_fusions": [{
+      "ocp_reference": null,
+      "gene": "TPM3",
+      "identifier": "TPM3-NTRK1.T7N10.COSF1318_1",
+      "protein": null,
+      "inclusion": true,
+      "public_med_ids": ["18827604"],
+      "level_of_evidence": 2.0,
+      "chromosome": "chr2",
+      "ocp_alternative": null,
+      "position": "154142875",
+      "arm_specific": false
+    },
+      {
+        "ocp_reference": "G",
+        "gene": "NTRK1",
+        "protein": null,
+        "identifier": "TPM3-NTRK1.T7N10.COSF1318_2",
+        "inclusion": true,
+        "public_med_ids": [],
+        "level_of_evidence": 3.0,
+        "chromosome": "chr2",
+        "ocp_alternative": "[chr1:154142875[G",
+        "position": "156844362",
+        "arm_specific": false
+      },
+      {
+        "ocp_reference": "T",
+        "gene": "TPM3",
+        "identifier": "TPM3-ROS1.T7R35.COSF1273_1",
+        "protein": null,
+        "inclusion": false,
+        "public_med_ids": ["1245784"],
+        "level_of_evidence": 3.0,
+        "chromosome": "chr1",
+        "ocp_alternative": "T]chr6:117642559]",
+        "position": "154142877",
+        "arm_specific": false
+      },
+      {
+        "ocp_reference": "T",
+        "gene": "ROS1",
+        "identifier": "TPM3-ROS1.T7R35.COSF1273_2",
+        "protein": null,
+        "inclusion": false,
+        "public_med_ids": [],
+        "level_of_evidence": 3.0,
+        "chromosome": "chr6",
+        "ocp_alternative": "[chr1:154142877[T",
+        "position": "117642559",
+        "arm_specific": false
+      }
+    ],
+    "diseases": [{
+      "disease_code_type":"ICD-O",
+      "disease_code": "10058354",
+      "disease_name": "Bronchioloalveolar carcinoma",
+      "exclusion":true
+    }, {
+      "disease_code_type":"ICD-O",
+      "disease_code": "10025032",
+      "disease_name": "Lung adenocarcinoma",
+      "exclusion":true
+    }, {
+      "disease_code_type":"ICD-O",
+      "disease_code": "90600324",
+      "disease_name": "Lung adenocar. w/ bronch. feat.",
+      "exclusion":true
+    }, {
+      "disease_code_type":"ICD-O",
+      "disease_code": "10029514",
+      "disease_name": "Non-small cell lung cancer, NOS",
+      "exclusion":true
+    }, {
+      "disease_code_type":"ICD-O",
+      "disease_code": "10025125",
+      "disease_name": "Squamous cell lung carcinoma",
+      "exclusion":true
+    },{
+      "disease_code_type":"ICD-O",
+      "disease_code": "10033701",
+      "disease_name": "Papillary thyroid carcinoma",
+      "exclusion":false
+    }],
+    "status_log": {
+      "1471631732": "OPEN",
+      "1472086087": "SUSPENDED",
+      "1473468487": "OPEN"
+    },
+    "date_opened": "2016-09-10T00:48:07+00:00",
+    "date_suspended": "2016-08-25T00:48:07+00:00",
+    "exclusion_drugs": [{
+      "name": "Doxorubicin Hydrochloride",
+      "drug_id": "10001",
+      "drug_class": "ALK inhibitor",
+      "target": "ALK"
+    }],
+    "stratum_statistics": {
+      "current_patients": "2",
+      "former_patients": "0",
+      "not_enrolled_patients": "0",
+      "pending_patients": "1"
+    },
+    "version_statistics": {
+      "current_patients": "2",
+      "former_patients": "0",
+      "not_enrolled_patients": "0",
+      "pending_patients": "1"
+    }
+  },
+  {
+    "active": false,
+    "id": "APEC1621-C",
+    "study_id": "APEC1621",
+    "name": "APEC1621-C for Testing",
+    "date_created": "2015-06-24T15:38:31+00:00",
+    "version": "2014-08-06",
+    "stratum_id": "100",
+    "description": "Treatment Arm for UI tests",
+    "target_id": "113",
+    "target_name": "Crizotinib",
+    "gene": "ALK",
+    "treatment_arm_status": "OPEN",
+    "assay_rules": [
+      {
+        "type":"IHC",
+        "gene" : "PTEN",
+        "assay_result_status" : "POSITIVE",
+        "assay_variant" : "PRESENT",
+        "level_of_evidence" : 3.0
+      },
+      {
+        "type":"IHC",
+        "gene" : "MLH1",
+        "assay_result_status" : "POSITIVE",
+        "assay_variant" : "EMPTY",
+        "level_of_evidence" : 5.0
+      }
+    ],
+    "num_patients_assigned": null,
+    "total_patients_on_arm": null,
+    "treatment_arm_drugs": [{
+      "name": "Crizotinib_pre",
+      "pathway": "ALK",
+      "drug_id": "113"
+    }],
+    "single_nucleotide_variants": [{
+      "chromosome": "chr6",
+      "gene": "ALK",
+      "protein": "p.Q61H",
+      "position": "152419923",
+      "identifier": "COSM1074639",
+      "ocp_reference": "A",
+      "ocp_alternative": "C",
+      "level_of_evidence": 3.0,
+      "inclusion": true,
+      "arm_specific": false
+    }, {
+      "chromosome": "chrX",
+      "position": "70349258",
+      "gene": "ALK",
+      "protein": "p.Q61H",
+      "identifier": "COSM757681",
+      "ocp_reference": "C",
+      "ocp_alternative": "G",
+      "level_of_evidence": 3.0,
+      "inclusion": false,
+      "arm_specific": false
+    }],
+    "indels": [{
+      "chromosome": "chr22",
+      "position": "30035190",
+      "gene": "ALK",
+      "protein": "p.Q61H",
+      "identifier": "COSM22189",
+      "ocp_reference": "TTC",
+      "ocp_alternative": "-",
+      "level_of_evidence": 3.0,
+      "inclusion": true,
+      "arm_specific": false
+    }, {
+      "chromosome": "chrX",
+      "position": "70339270",
+      "identifier": "COSM143738",
+      "ocp_reference": "TGCTGTCTCTGGGGA",
+      "ocp_alternative": "-",
+      "level_of_evidence": 3.0,
+      "inclusion": false,
+      "gene": "ALK",
+      "protein": "p.Q61H",
+      "arm_specific": false
+    }],
+    "non_hotspot_rules": [{
+      "func_gene": "MYCL",
+      "oncomine_variant_class": "amplification",
+      "level_of_evidence": 3.0,
+      "inclusion": true,
+      "exon": "19",
+      "arm_specific": false
+    }, {
+      "func_gene": "TP53",
+      "function": "Refallele",
+      "level_of_evidence": 2.0,
+      "inclusion": false,
+      "arm_specific": false
+    }],
+    "copy_number_variants": [{
+      "chromosome": "chr1",
+      "position": "40361592",
+      "gene": "ALK",
+      "protein": "p.Q61H",
+      "identifier": "MYCL",
+      "ocp_reference": "C",
+      "ocp_alternative": "<CNV>",
+      "level_of_evidence": 2.0,
+      "inclusion": true,
+      "arm_specific": false
+    }, {
+      "chromosome": "chr1",
+      "position": "147022100",
+      "gene": "ALK",
+      "protein": "p.Q61H",
+      "identifier": "BCL9",
+      "ocp_reference": "G",
+      "ocp_alternative": "<CNV>",
+      "level_of_evidence": 2.0,
+      "inclusion": false,
+      "arm_specific": false
+    }],
+    "gene_fusions": [{
+      "ocp_reference": null,
+      "gene": "TPM3",
+      "identifier": "TPM3-NTRK1.T7N10.COSF1318_1",
+      "protein": null,
+      "inclusion": true,
+      "public_med_ids": ["18827604"],
+      "level_of_evidence": 2.0,
+      "chromosome": "chr2",
+      "ocp_alternative": null,
+      "position": "154142875",
+      "arm_specific": false
+    }
+    ],
+    "diseases": [{
+      "disease_code_type":"ICD-O",
+      "disease_code": "10025125",
+      "disease_name": "Squamous cell lung carcinoma",
+      "exclusion":true
+    },{
+      "disease_code_type":"ICD-O",
+      "disease_code": "10033701",
+      "disease_name": "Papillary thyroid carcinoma",
+      "exclusion":false
+    }],
+    "status_log": {
+      "1445950020": "OPEN"
+    },
+    "date_opened": "2015-10-27T12:47:00+00:00",
+    "exclusion_drugs": [{
+      "name": "Doxorubicin Hydrochloride",
+      "drug_id": "10001",
+      "drug_class": "ALK inhibitor",
+      "target": "ALK"
+    }],
+    "stratum_statistics": {
+      "current_patients": "2",
+      "former_patients": "0",
+      "not_enrolled_patients": "0",
+      "pending_patients": "1"
+    },
+    "version_statistics": {
+      "current_patients": "2",
+      "former_patients": "0",
+      "not_enrolled_patients": "0",
+      "pending_patients": "1"
+    }
   }
 ]
