@@ -5,7 +5,7 @@ Feature: TA_AR1. Treatment Arm API Tests that focus on assay_rules
   Scenario Outline: assay_rules with valid values should pass
     Given template treatment arm json with an id: "<treatment_arm_id>"
     Then add assayResult with gene: "<gene>", type: "<type>", assay_result_status: "<status>", assay_variant: "<variant>", LOE: "<loe>" and description: "<description>"
-    When posted to MATCH newTreatmentArm
+    When creating a new treatment arm using post request
     Then success message is returned:
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has assayResult (gene: "<gene>", type: "<type>", assay_result_status: "<status>", assay_variant: "<variant>", LOE: "<loe>", description: "<description>")
@@ -18,7 +18,7 @@ Feature: TA_AR1. Treatment Arm API Tests that focus on assay_rules
   Scenario Outline: TA_AR2. assay_rules with invalid values should fail
     Given template treatment arm json with a random id
     Then add assayResult with gene: "<gene>", type: "<type>", assay_result_status: "<status>", assay_variant: "<variant>", LOE: "<loe>" and description: "<description>"
-    When posted to MATCH newTreatmentArm
+    When creating a new treatment arm using post request
     Then a failure message is returned which contains: "<errorMessage>"
     Examples:
       |gene   | type |status          |variant    |loe       |description             |errorMessage                                        |

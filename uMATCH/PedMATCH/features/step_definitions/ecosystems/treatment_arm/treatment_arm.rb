@@ -29,7 +29,12 @@ Given(/^with variant report$/) do |variantReport|
   @jsonString = @taReq.to_json.to_s
 end
 
-When(/^posted to MATCH newTreatmentArm$/) do
+When(/^creating a new treatment arm using post request$/) do
+  url = "#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{@ta_id}/#{@stratum_id}/#{@version}"
+  @response = Helper_Methods.post_request(url, @jsonString)
+end
+
+When(/^updating an existing treatment arm using put request$/) do
   url = "#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{@ta_id}/#{@stratum_id}/#{@version}"
   @response = Helper_Methods.post_request(url, @jsonString)
 end

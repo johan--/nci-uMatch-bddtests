@@ -4,7 +4,7 @@ Feature: Treatment Arm API Tests that focus on "version" field
 
   Scenario Outline: TA_VS1. Multiple Treatment Arms that have same "version" values but different "id" values should all pass
     Given template treatment arm json with an id: "<treatment_arm_id>", stratum_id: "stratum1" and version: "TA_VERSION_TEST_SAME_VERSION"
-    When posted to MATCH newTreatmentArm
+    When creating a new treatment arm using post request
     Then success message is returned:
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has value: "TA_VERSION_TEST_SAME_VERSION" in field: "version"
@@ -16,7 +16,7 @@ Feature: Treatment Arm API Tests that focus on "version" field
 
 #  Scenario Outline: TA_VS5. New Treatment Arm, version should take any string value
 #    Given template treatment arm json with an id: "<treatment_arm_id>", stratum_id: "stratum1" and version: "<version_value>"
-#    When posted to MATCH newTreatmentArm
+#    When creating a new treatment arm using post request
 #    Then retrieve treatment arm with id: "<treatment_arm_id>", stratum_id: "stratum1" and version: "<encoded_version>" from API
 #    Then the returned treatment arm has value: "<version_value>" in field: "version"
 #    Examples:
@@ -28,10 +28,10 @@ Feature: Treatment Arm API Tests that focus on "version" field
 
 #  Scenario Outline: TA_VS9. Update Treatment Arm, version take any string value
 #    Given template treatment arm json with an id: "<treatment_arm_id>" and version: "2015-03-25"
-#    When posted to MATCH newTreatmentArm
+#    When creating a new treatment arm using post request
 #    Then success message is returned:
 #    Then set the version of the treatment arm to "<version_value>"
-#    When posted to MATCH newTreatmentArm
+#    When creating a new treatment arm using post request
 #    Then the treatment arm with id: "<treatment_arm_id>" and version: "<version_value>" return from API has value: "<version_value>" in field: "version"
 #    Examples:
 #      |treatment_arm_id   |version_value           |
@@ -47,11 +47,11 @@ Feature: Treatment Arm API Tests that focus on "version" field
   Scenario Outline: TA_VS10. Update Treatment Arm with same "version" value should not be taken
     Given template treatment arm json with an id: "<treatment_arm_id>", stratum_id: "STRATUM1" and version: "2016-06-03"
     And set template treatment arm json field: "<field>" to value: "<value_v1>" in type: "<type>"
-    When posted to MATCH newTreatmentArm
+    When creating a new treatment arm using post request
     Then success message is returned:
     Then wait for "5" seconds
     Then set template treatment arm json field: "<field>" to value: "<value_v2>" in type: "<type>"
-    When posted to MATCH newTreatmentArm
+    When creating a new treatment arm using post request
     Then success message is returned:
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has value: "<value_v1>" in field: "<field>"
@@ -61,19 +61,19 @@ Feature: Treatment Arm API Tests that focus on "version" field
 
   Scenario: TA_VS11. Multiple versions of one treatment arm id should return in dateCreated descending order
     Given template treatment arm json with an id: "APEC1621-VS11-1", stratum_id: "STRATUM1" and version: "2016-06-03"
-    When posted to MATCH newTreatmentArm
+    When creating a new treatment arm using post request
     Then success message is returned:
     Then wait for "5" seconds
     Then set the version of the treatment arm to "2005-01-24"
-    When posted to MATCH newTreatmentArm
+    When creating a new treatment arm using post request
     Then success message is returned:
     Then wait for "5" seconds
     Then set the version of the treatment arm to "APEC1621_V000"
-    When posted to MATCH newTreatmentArm
+    When creating a new treatment arm using post request
     Then success message is returned:
     Then wait for "5" seconds
     Then set the version of the treatment arm to "24.6"
-    When posted to MATCH newTreatmentArm
+    When creating a new treatment arm using post request
     Then success message is returned:
     Then retrieve treatment arms with id: "APEC1621-VS11-1" and stratum_id: "STRATUM1" from API
     Then the treatment arm with version: "2016-06-03" is in the place: "4" of returned treatment arm list

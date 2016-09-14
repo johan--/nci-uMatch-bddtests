@@ -10,7 +10,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     And set template treatment arm variant field: "identifier" to string value: "<identifier>"
     And set template treatment arm variant field: "inclusion" to bool value: "<inclusionValue>"
     Then add template variant: "<variantType>" to template treatment arm json
-    When posted to MATCH newTreatmentArm
+    When creating a new treatment arm using post request
     Then success message is returned:
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has "<variantType>" variant (id: "<identifier>", field: "inclusion", value: "<inclusionValue>")
@@ -34,7 +34,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     And set template treatment arm variant field: "identifier" to string value: "<identifier>"
     And set template treatment arm variant field: "arm_specific" to bool value: "<inputValue>"
     Then add template variant: "<variantType>" to template treatment arm json
-    When posted to MATCH newTreatmentArm
+    When creating a new treatment arm using post request
     Then success message is returned:
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has "<variantType>" variant (id: "<identifier>", field: "arm_specific", value: "<inputValue>")
@@ -58,7 +58,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     And set template treatment arm variant field: "identifier" to string value: "<identifier>"
     And set template treatment arm variant public_med_ids: "<pmIDs>"
     Then add template variant: "<variantType>" to template treatment arm json
-    When posted to MATCH newTreatmentArm
+    When creating a new treatment arm using post request
     Then success message is returned:
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has "<variantType>" variant (id: "<identifier>", public_med_ids: "<pmIDs>")
@@ -84,7 +84,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     Then create a template variant: "<variantType>" for treatment arm
     And set template treatment arm variant field: "inclusion" to bool value: "false"
     And add template variant: "<variantType>" to template treatment arm json
-    When posted to MATCH newTreatmentArm
+    When creating a new treatment arm using post request
     Then a failure message is returned which contains: "Validation failed."
     Examples:
       |variantType  |
@@ -100,7 +100,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     Then create a template variant: "<variantType>" for treatment arm
     And remove template treatment arm variant field: "identifier"
     And add template variant: "<variantType>" to template treatment arm json
-    When posted to MATCH newTreatmentArm
+    When creating a new treatment arm using post request
     Then failure message listing "<variantType>" and reason as "identifier" is returned
     Examples:
       |variantType  |
@@ -116,7 +116,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     And set template treatment arm variant field: "identifier" to string value: "<identifier>"
     And set template treatment arm variant field: "oncominevariantclass" to bool value: "<ovcValue>"
     And add template variant: "<variantType>" to template treatment arm json
-    When posted to MATCH newTreatmentArm
+    When creating a new treatment arm using post request
     Then success message is returned:
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has "<variantType>" variant (id: "<identifier>", field: "oncominevariantclass", value: "<ovcValue>")
@@ -134,7 +134,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     Then create a template variant: "<variantType>" for treatment arm
     And set template treatment arm variant field: "oncominevariantclass" to bool value: "<oncominevariantclassValue>"
     And add template variant: "<variantType>" to template treatment arm json
-    When posted to MATCH newTreatmentArm
+    When creating a new treatment arm using post request
     Then a failure message is returned which contains: "Validation failed."
     Examples:
       |variantType  |oncominevariantclassValue        |
@@ -151,7 +151,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     Then create a template variant: "<variantType>" for treatment arm
     And remove template treatment arm variant field: "type"
     And add template variant: "<variantType>" to template treatment arm json
-    When posted to MATCH newTreatmentArm
+    When creating a new treatment arm using post request
     Then a failure message is returned which contains: "Validation failed."
     Examples:
       |variantType  |
@@ -167,7 +167,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     Then create a template variant: "<variantType>" for treatment arm
     And set template treatment arm variant field: "type" to string value: "<typeValue>"
     And add template variant: "<variantType>" to template treatment arm json
-    When posted to MATCH newTreatmentArm
+    When creating a new treatment arm using post request
     Then a failure message is returned which contains: "Validation failed."
     Examples:
       |variantType  |typeValue                        |
@@ -185,7 +185,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     Then create a template variant: "<variantType>" for treatment arm
     And remove template treatment arm variant field: "type"
     And add template variant: "<variantType>" to template treatment arm json
-    When posted to MATCH newTreatmentArm
+    When creating a new treatment arm using post request
     Then a failure message is returned which contains: "Validation failed."
     Examples:
       |variantType  |
@@ -202,7 +202,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     And add template variant: "nhr" to template treatment arm json
     Then create a template variant: "nhr" for treatment arm
     And add template variant: "nhr" to template treatment arm json
-    When posted to MATCH newTreatmentArm
+    When creating a new treatment arm using post request
     Then success message is returned:
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has "nhr" variant count:"1"
@@ -215,7 +215,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     And set template treatment arm variant field: "identifier" to string value: "<identifier>"
     And set template treatment arm variant field: "function" to string value: "<functionValue>"
     And add template variant: "nhr" to template treatment arm json
-    When posted to MATCH newTreatmentArm
+    When creating a new treatment arm using post request
     Then success message is returned:
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has "nhr" variant (id: "<identifier>", field: "function", value: "<functionValue>")
@@ -241,7 +241,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     And set template treatment arm variant field: "identifier" to string value: "<identifier>"
     And set template treatment arm variant field: "function" to bool value: "<functionValue>"
     And add template variant: "nhr" to template treatment arm json
-    When posted to MATCH newTreatmentArm
+    When creating a new treatment arm using post request
     Then a failure message is returned which contains: "Validation failed."
     Examples:
       |identifier             |functionValue                    |

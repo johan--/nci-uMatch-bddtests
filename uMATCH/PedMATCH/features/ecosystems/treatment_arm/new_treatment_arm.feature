@@ -34,7 +34,7 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
     "non_hotspot_rules" : []
 	}
 	"""
-    When posted to MATCH newTreatmentArm
+    When creating a new treatment arm using post request
     Then a message with Status "<Status>" and message "<message>" is returned:
     Examples:
       |version    |study_id   |id			|name				|description	            |target_id	|target_name		|gene			|drug												|Status			|message									|timestamp						|tastatus | stratum_id |
@@ -80,7 +80,7 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 	"copy_number_variants":[]
 	}
 	"""
-	When posted to MATCH newTreatmentArm
+	When creating a new treatment arm using post request
 	Then a message with Status "SUCCESS" and message "Save to datastore." is returned:
 
   Scenario: 1.3 Return failure message when treatment arm version is missing or empty
@@ -112,7 +112,7 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 	"copy_number_variants":[]
 	}
 	"""
-	When posted to MATCH newTreatmentArm
+	When creating a new treatment arm using post request
     Then a failure response code of "404" is returned
 #	Then a failure message is returned which contains: "The property '#/' did not contain a required property of 'version'"
 
@@ -180,7 +180,7 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
         "non_hotspot_rules" : []
 	}
 	"""
-    When posted to MATCH newTreatmentArm
+    When creating a new treatment arm using post request
     Then a message with Status "SUCCESS" and message "Saved to datastore." is returned:
     Then the treatment_arm_status field has a value "OPEN" for the ta "TA_test3"
 
@@ -219,7 +219,7 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 #	"copy_number_variants":[]}
 #	"""
 #
-#    When posted to MATCH newTreatmentArm
+#    When creating a new treatment arm using post request
 #    Then a failure message is returned which contains: "The treatment arm (ID:TA_test1) already exists."
 #
 #  Scenario: 1.4 Return a failure message when a treatment arm update is received with a version number older than the version of the currently active treatment arm
@@ -254,5 +254,5 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 #	"copy_number_variants":[]
 #	}
 #	"""
-#	When posted to MATCH newTreatmentArm
+#	When creating a new treatment arm using post request
 #	Then a message with Status "FAILURE" and message "Version cannot be older thn current version" is returned:

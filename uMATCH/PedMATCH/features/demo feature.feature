@@ -130,7 +130,7 @@ Background: wait for process to complete
       }]
     }
 	"""
-    When posted to MATCH newTreatmentArm
+    When creating a new treatment arm using post request
     Then a message with Status "Success" and message "Saved to datastore." is returned:
 
   Scenario: Load APEC1621-B arm
@@ -424,7 +424,7 @@ Background: wait for process to complete
       }]
     }
     """
-    When posted to MATCH newTreatmentArm
+    When creating a new treatment arm using post request
     Then a message with Status "Success" and message "Saved to datastore." is returned:
 
   Scenario: Check treatment arm status is OPEN
