@@ -32,6 +32,15 @@ Given(/^this patients's active analysis_id is "([^"]*)"$/) do |ani|
     @active_ani = ani
 end
 
+Given(/^patient: "([^"]*)" is registered$/) do |patient_id|
+  @patient_id = patient_id
+  @request_hash = Patient_helper_methods.load_patient_message_templates('registration')
+  @request_hash['patient_id'] = @patient_id
+  @request_hash['registration_date'] = Helper_Methods.getDateAsRequired('current')
+  post_to_trigger
+  validate_response('Success', 'successfully')
+end
+
 Then(/^tissue specimen received with surgical_event_id: "([^"]*)"$/) do |sei|
   @request_hash = Patient_helper_methods.load_patient_message_templates('specimen_received_TISSUE')
   @request_hash['specimen_received']['patient_id'] = @patient_id

@@ -3,7 +3,7 @@
 @patients_end_to_end
 Feature: Patients end to end tests
   Scenario: PT_ETE01. patient can reach step 4.1 successfully
-    Given patient: "PT_ETE01" with status: "REGISTRATION" on step: "1.0"
+    Given patient: "PT_ETE01" is registered
     Then tissue specimen received with surgical_event_id: "PT_ETE01_SEI1"
     Then blood specimen received
     Then "TISSUE" specimen shipped with molecular_id or slide_barcode: "PT_ETE01_MOI1"
@@ -94,7 +94,7 @@ Feature: Patients end to end tests
     Then retrieve patient: "PT_ETE03" from API
     Then returned patient has value: "PENDING_CONFIRMATION" in field: "current_status"
 
-  @patients
+#  @patients
   Scenario Outline: PT_ETE04. patient can be set to OFF_STUDY status from any status
     Given patient: "<patient_id>" with status: "<current_status>" on step: "<current_step_number>"
     Then set patient off_study on step number: "<current_step_number>"
