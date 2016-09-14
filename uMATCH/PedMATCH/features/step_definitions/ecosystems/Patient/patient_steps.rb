@@ -49,7 +49,7 @@ end
 When(/^put to MATCH variant confirm service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |retMsg, status|
   puts JSON.pretty_generate(@request_json)
   url = ENV['patients_endpoint'] + '/'
-  url = url + '/variant/' + @current_variant_uuid + '/' + @current_variant_confirm
+  url = url + 'variant/' + @current_variant_uuid + '/' + @current_variant_confirm
   @response = Helper_Methods.put_request(url, @request)
   expect(@response['status']).to eql(status)
   expect_message = "returned message include <#{retMsg}>"
@@ -300,6 +300,12 @@ Then(/^returned patient has been assigned to new treatment arm: "([^"]*)", strat
 end
 
 And(/^this variant report has value: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
+  expect_field = "variant report block contains field: #{field}"
+  actual_field = expect_field
+  unless @current_variant_report.keys.include?(field)
+    actual_field = "variant report block does not contain field: #{field}"
+  end
+  actual_field.should == expect_field
   convert_value = value=='null'?nil:value
   expect_result = "Value of field #{field} contains #{convert_value}"
   returned_value = @current_variant_report[field]
@@ -344,9 +350,10 @@ Then(/^find the first "([^"]*)" variant in variant report which has surgical_eve
 end
 
 Then(/^this variant has confirmed field: "([^"]*)" and comment field: "([^"]*)"$/) do |confirmed, comment|
+  convertec_comment = comment=='null'?nil:comment
   this_variant = find_variant(@retrieved_patient, @current_variant_uuid)
   this_variant['confirmed'].should == convert_string_to_bool(confirmed)
-  this_variant['comment'].should == comment
+  this_variant['comment'].should == convertec_comment
 end
 
 # we don't have status_date in variant level
@@ -359,7 +366,7 @@ end
 #   timeDiff.should <=20
 # end
 
-Then(/^variants in variant report \(surgical_event_id: "([^"]*)", molecular_id: "([^"]*)", analysis_id: "([^"]*)"\) have checked: "([^"]*)"$/) do |sei, moi, ani, confirmed|
+Then(/^variants in variant report \(surgical_event_id: "([^"]*)", molecular_id: "([^"]*)", analysis_id: "([^"]*)"\) have confirmed: "([^"]*)"$/) do |sei, moi, ani, confirmed|
   converted_sei = sei=='null'?nil:sei
   variant_report = find_variant_report(@retrieved_patient, converted_sei, moi, ani)
 

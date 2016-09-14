@@ -89,7 +89,8 @@ Feature: Assay Messages
   Scenario: PT_AS09a. Assay result report date is older than order date should fail
 #  Test data: Patient=PT_AS09aSlideShipped, surgical_event_id=PT_AS09aSlideShipped_SEI1, ordered_date=2016-05-02T12:13:09.071-05:00
     Given template assay message with surgical_event_id: "PT_AS09aSlideShipped_SEI1" for patient: "PT_AS09aSlideShipped"
-    Then set patient message field: "reported_date" to value: "2016-05-01T12:13:09.071-05:00"
+    Then set patient message field: "ordered_date" to value: "2016-05-05T12:13:09.071-05:00"
+    Then set patient message field: "reported_date" to value: "2016-05-03T12:13:09.071-05:00"
     When post to MATCH patients service, returns a message that includes "Assay ordered date later than result reported date" with status "Failure"
 
   Scenario: PT_AS10. Assay result received for old surgical_event_id should fail

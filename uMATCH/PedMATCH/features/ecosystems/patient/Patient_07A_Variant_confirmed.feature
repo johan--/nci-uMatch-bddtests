@@ -4,14 +4,15 @@
 Feature: Variant files confirmed messages
 #  variant_confirmed:
 
-  Scenario Outline: PT_VC00. variant confirm message with invalid patient_id should fail
-    Given template variant confirm message for patient: "<patient_id>", the variant: "uuid" is checked: "unchecked" with comment: "test"
-    When put to MATCH variant confirm service, returns a message that includes "<message>" with status "Failure"
-    Examples:
-      |patient_id     |message               |
-#      |               |can't be blank        |
-#      |null           |can't be blank        |
-      |nonPatient     |not been registered   |
+  #no patient id in variant confirm service anymore
+#  Scenario Outline: PT_VC00. variant confirm message with invalid patient_id should fail
+#    Given template variant confirm message for patient: "<patient_id>", the variant: "uuid" is checked: "unchecked" with comment: "test"
+#    When put to MATCH variant confirm service, returns a message that includes "<message>" with status "Failure"
+#    Examples:
+#      |patient_id     |message               |
+##      |               |can't be blank        |
+##      |null           |can't be blank        |
+#      |nonPatient     |not been registered   |
 
   Scenario Outline: PT_VC01. variant confirm message with invalid variant_uuid should fail
     Given template variant confirm message for patient: "PT_VC01_VRUploaded", the variant: "<uuid>" is checked: "unchecked" with comment: "test"
@@ -32,7 +33,7 @@ Feature: Variant files confirmed messages
       |confirmed                        |message                                                  |
 #      |                                 |not of a minimum string length of 1                      |
 #      |null                             |NilClass did not match the following type: string        |
-      |not_true_or_false                |not exist                                                |
+      |not_checked_or_unchecked         |Unregnized checked flag in variant confirmation url      |
 
   Scenario: PT_VC03. variant_confirmed message will not be accepted if it is using a variant uuid that belongs to a rejected variant report (uuid should be only ones in current pending variant list)
 #    Test Patient: PT_VC03_VRUploadedAfterRejected, VR rejected: PT_VC03_VRUploadedAfterRejected(_SEI1, _MOI1, _ANI1), VR uploaded PT_VC03_VRUploadedAfterRejected(_SEI1, _MOI1, _ANI2)
@@ -49,25 +50,25 @@ Feature: Variant files confirmed messages
     Given retrieve patient: "PT_VC04_VRUploaded" from API
     Then find the first "snv_id" variant in variant report which has surgical_event_id: "PT_VC04_VRUploaded_SEI1", molecular_id: "PT_VC04_VRUploaded_MOI1" and analysis_id: "PT_VC04_VRUploaded_ANI1"
     Then create variant confirm message with checked: "unchecked" and comment: "TEST" for this variant
-    When put to MATCH variant confirm service, returns a message that includes "Message has been processed successfully" with status "Success"
+    When put to MATCH variant confirm service, returns a message that includes "confirmed status changed to false" with status "Success"
     Then wait for "15" seconds
     Then retrieve patient: "PT_VC04_VRUploaded" from API
     Then this variant has confirmed field: "false" and comment field: "TEST"
     Then create variant confirm message with checked: "checked" and comment: "" for this variant
-    When put to MATCH variant confirm service, returns a message that includes "Message has been processed successfully" with status "Success"
+    When put to MATCH variant confirm service, returns a message that includes "confirmed status changed to true" with status "Success"
     Then wait for "15" seconds
     Then retrieve patient: "PT_VC04_VRUploaded" from API
-    Then this variant has confirmed field: "true" and comment field: ""
+    Then this variant has confirmed field: "true" and comment field: "null"
 
   Scenario: PT_VC04a. comment can be updated properly
     #Test patient: PT_VC04a_VRUploaded, PT_VC04a_VRUploade(_SEI1, _MOI1, _ANI1)
     Given retrieve patient: "PT_VC04a_VRUploaded" from API
     Then find the first "snv_id" variant in variant report which has surgical_event_id: "PT_VC04a_VRUploaded_SEI1", molecular_id: "PT_VC04a_VRUploaded_MOI1" and analysis_id: "PT_VC04a_VRUploaded_ANI1"
     Then create variant confirm message with checked: "unchecked" and comment: "TEST" for this variant
-    When put to MATCH variant confirm service, returns a message that includes "Message has been processed successfully" with status "Success"
+    When put to MATCH variant confirm service, returns a message that includes "confirmed status changed to false" with status "Success"
     Then wait for "15" seconds
     Then create variant confirm message with checked: "unchecked" and comment: "COMMENT_EDITED" for this variant
-    When put to MATCH variant confirm service, returns a message that includes "Message has been processed successfully" with status "Success"
+    When put to MATCH variant confirm service, returns a message that includes "confirmed status changed to false" with status "Success"
     Then wait for "15" seconds
     Then retrieve patient: "PT_VC04a_VRUploaded" from API
     Then this variant has confirmed field: "false" and comment field: "COMMENT_EDITED"
@@ -77,8 +78,8 @@ Feature: Variant files confirmed messages
     Given template "tsv_vcf" uploaded message for patient: "PT_VC05_TissueShipped", it has molecular_id: "PT_VC05_TissueShipped_MOI1" and analysis_id: "PT_VC05_TissueShipped_ANI1"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
     Then wait for "15" seconds
-    Then retrieve patient: "PT_VC05_VRUploaded" from API
-    Then variants in variant report (surgical_event_id: "PT_VC05_TissueShipped_SEI1", molecular_id: "PT_VC05_TissueShipped_MOI1", analysis_id: "PT_VC05_TissueShipped_ANI1") have checked: "checked"
+    Then retrieve patient: "PT_VC05_TissueShipped" from API
+    Then variants in variant report (surgical_event_id: "PT_VC05_TissueShipped_SEI1", molecular_id: "PT_VC05_TissueShipped_MOI1", analysis_id: "PT_VC05_TissueShipped_ANI1") have confirmed: "true"
 
 
 ## we don't have status_date in variant level
@@ -137,10 +138,10 @@ Feature: Variant files confirmed messages
     Given template variant report confirm message for patient: "PT_VC11_VRUploaded", it has molecular_id: "PT_VC11_VRUploaded_MOI1", analysis_id: "PT_VC11_VRUploaded_ANI1" and status: "<status>"
     When put to MATCH variant report confirm service, returns a message that includes "<message>" with status "Failure"
     Examples:
-      |status         |message               |
-#      |               |can't be blank        |
-#      |null           |can't be blank        |
-      |CONFIRMED      |valid status          |
+      |status         |message                                                                         |
+#      |               |can't be blank                                                                  |
+#      |null           |can't be blank                                                                  |
+      |CONFIRMED      |Unrecognized confirm\|reject flag passed in confirm variant report url          |
 
   Scenario Outline: PT_VC12. after accepting variant_file_confirmed message, patient should be set to correct status, comment, user and date
 #  Test patient: PT_VC12_VRUploaded1: vr uploaded PT_VC12_VRUploaded1(_SEI1, _MOI1, _SEI1)
@@ -167,10 +168,12 @@ Feature: Variant files confirmed messages
     Given retrieve patient: "PT_VC13_VRUploaded" from API
     Then find the first "snv_id" variant in variant report which has surgical_event_id: "PT_VC13_VRUploaded_SEI1", molecular_id: "PT_VC13_VRUploaded_MOI1" and analysis_id: "PT_VC13_VRUploaded_ANI1"
     Then create variant confirm message with checked: "unchecked" and comment: "Tests" for this variant
-    When put to MATCH variant confirm service, returns a message that includes "Message has been processed successfully" with status "Success"
+    When put to MATCH variant confirm service, returns a message that includes "confirmed status changed to false" with status "Success"
+    Then wait for "15" seconds
     Then template variant report confirm message for patient: "PT_VC13_VRUploaded", it has molecular_id: "PT_VC13_VRUploaded_MOI1", analysis_id: "PT_VC13_VRUploaded_ANI1" and status: "reject"
     Then set patient message field: "comment" to value: "TEST"
     When put to MATCH variant report confirm service, returns a message that includes "Variant Report status changed successfully to" with status "Success"
+    Then wait for "15" seconds
     Then retrieve patient: "PT_VC13_VRUploaded" from API
     Then find the first "snv_id" variant in variant report which has surgical_event_id: "PT_VC13_VRUploaded_SEI1", molecular_id: "PT_VC13_VRUploaded_MOI1" and analysis_id: "PT_VC13_VRUploaded_ANI1"
     Then this variant has confirmed field: "false" and comment field: "Tests"
