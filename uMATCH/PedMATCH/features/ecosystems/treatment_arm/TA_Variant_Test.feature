@@ -11,7 +11,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     And set template treatment arm variant field: "inclusion" to bool value: "<inclusionValue>"
     Then add template variant: "<variantType>" to template treatment arm json
     When creating a new treatment arm using post request
-    Then success message is returned:
+    Then a success message is returned
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has "<variantType>" variant (id: "<identifier>", field: "inclusion", value: "<inclusionValue>")
     Examples:
@@ -35,7 +35,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     And set template treatment arm variant field: "arm_specific" to bool value: "<inputValue>"
     Then add template variant: "<variantType>" to template treatment arm json
     When creating a new treatment arm using post request
-    Then success message is returned:
+    Then a success message is returned
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has "<variantType>" variant (id: "<identifier>", field: "arm_specific", value: "<inputValue>")
     Examples:
@@ -59,7 +59,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     And set template treatment arm variant public_med_ids: "<pmIDs>"
     Then add template variant: "<variantType>" to template treatment arm json
     When creating a new treatment arm using post request
-    Then success message is returned:
+    Then a success message is returned
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has "<variantType>" variant (id: "<identifier>", public_med_ids: "<pmIDs>")
     Examples:
@@ -117,7 +117,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     And set template treatment arm variant field: "oncominevariantclass" to bool value: "<ovcValue>"
     And add template variant: "<variantType>" to template treatment arm json
     When creating a new treatment arm using post request
-    Then success message is returned:
+    Then a success message is returned
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has "<variantType>" variant (id: "<identifier>", field: "oncominevariantclass", value: "<ovcValue>")
     Examples:
@@ -203,7 +203,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     Then create a template variant: "nhr" for treatment arm
     And add template variant: "nhr" to template treatment arm json
     When creating a new treatment arm using post request
-    Then success message is returned:
+    Then a success message is returned
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has "nhr" variant count:"1"
 
@@ -216,7 +216,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     And set template treatment arm variant field: "function" to string value: "<functionValue>"
     And add template variant: "nhr" to template treatment arm json
     When creating a new treatment arm using post request
-    Then success message is returned:
+    Then a success message is returned
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has "nhr" variant (id: "<identifier>", field: "function", value: "<functionValue>")
     Examples:
@@ -242,9 +242,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     And set template treatment arm variant field: "function" to bool value: "<functionValue>"
     And add template variant: "nhr" to template treatment arm json
     When creating a new treatment arm using post request
-    Then a failure message is returned which contains: "Validation failed."
+    Then a failure message is returned which contains: "did not match the following type."
     Examples:
       |identifier             |functionValue                    |
       |id0001                 |synonymous                       |
-      |id0002                 |unknown                          |
-      |id0003                 |*#$dfb                           |

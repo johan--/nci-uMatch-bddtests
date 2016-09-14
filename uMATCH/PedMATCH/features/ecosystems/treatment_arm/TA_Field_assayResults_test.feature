@@ -6,7 +6,7 @@ Feature: TA_AR1. Treatment Arm API Tests that focus on assay_rules
     Given template treatment arm json with an id: "<treatment_arm_id>"
     Then add assayResult with gene: "<gene>", type: "<type>", assay_result_status: "<status>", assay_variant: "<variant>", LOE: "<loe>" and description: "<description>"
     When creating a new treatment arm using post request
-    Then success message is returned:
+    Then a success message is returned
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has assayResult (gene: "<gene>", type: "<type>", assay_result_status: "<status>", assay_variant: "<variant>", LOE: "<loe>", description: "<description>")
     Examples:

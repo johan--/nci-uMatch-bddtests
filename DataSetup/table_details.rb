@@ -2,12 +2,12 @@ class TableDetails
 
   TREATMENT_ARM = {
       name: 'treatment_arm',
-      keys: %w(name date_created)
+      keys: %w(id date_created)
   }
 
-  TREATMENT_ARM_PATIENT = {
-      name: 'treatment_arm_patient',
-      keys: %w(patient_id date_assigned)
+  TREATMENT_ARM_ASSIGNMENT_EVENT = {
+      name: 'treatment_arm_assignment_event',
+      keys: %w(patient_id date_created)
   }
 
   PATIENT = {
@@ -32,7 +32,6 @@ class TableDetails
 
   SPECIMEN = {
       name: 'specimen',
-      # keys: %w(patient_id collected_date)
       keys: %w(patient_id sorting_key)
   }
 
@@ -47,7 +46,7 @@ class TableDetails
   }
 
   def self.treatment_arm_tables
-    %w(treatment_arm treatment_arm_patient)
+    %w(treatment_arm treatment_arm_assignment_event)
   end
 
   def self.patient_tables

@@ -44,8 +44,17 @@ Then(/^a message with Status "([^"]*)" and message "([^"]*)" is returned:$/) do 
   @response['status'].downcase.should == status.downcase
 end
 
-Then(/^success message is returned:$/) do
+Then(/^a success message is returned$/) do
   @response['status'].downcase.should == 'success'
+end
+
+Then(/^the "(.+?)" field has a "(.+)" value$/) do |field, value|
+  body = JSON.parse(@response['message'])
+  if value == 'null'
+    expect(body[field]).to be_nil
+  else
+    expect(body[field].to_s).to eql value.to_s
+  end
 end
 
 When(/^calling with basic "(true|false)" and active "(.+?)"$/) do |basic, active|
@@ -295,9 +304,8 @@ end
 Then(/^the returned treatment arm has correct date_created value$/) do
   currentTime = Time.now.utc.to_i
   returnedResult = DateTime.parse(@taFromAPI['date_created']).to_i
-  timeDiff = currentTime - returnedResult
-  timeDiff.should >=0
-  timeDiff.should <=15
+
+  expect(returnedResult).to be_within(15).of(currentTime)
 end
 
 Then(/^the returned treatment arm has ptenResults \(ptenhIhcResult: "([^"]*)", ptenVariant: "([^"]*)", description: "([^"]*)"\)$/) do |ptenIhcResult, ptenVariant, description|

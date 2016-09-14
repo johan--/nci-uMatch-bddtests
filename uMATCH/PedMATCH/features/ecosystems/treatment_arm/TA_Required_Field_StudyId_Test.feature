@@ -25,7 +25,7 @@ Feature: Treatment Arm API Tests that focus on "study_id" field
     Given template treatment arm json with an id: "<treatment_arm_id>", stratum_id: "stratum1" and version: "2015-03-25"
     Then set template treatment arm json field: "study_id" to string value: "<origin_study_id>"
     When creating a new treatment arm using post request
-    Then success message is returned:
+    Then a success message is returned
     Then wait for "5" seconds
     Then set the version of the treatment arm to "2016-06-03"
     And set template treatment arm json field: "study_id" to string value: "<new_study_id>"
@@ -40,7 +40,7 @@ Feature: Treatment Arm API Tests that focus on "study_id" field
 #    Given template treatment arm json with an id: "APEC1621-SID4-1" and version: "2015-03-25"
 #    Then set template treatment arm json field: "study_id" to string value: "APEC1621"
 #    When creating a new treatment arm using post request
-#    Then success message is returned:
+#    Then a success message is returned
 #    Then set the version of the treatment arm to "2016-06-03"
 #    And remove field: "study_id" from template treatment arm json
 #    When creating a new treatment arm using post request

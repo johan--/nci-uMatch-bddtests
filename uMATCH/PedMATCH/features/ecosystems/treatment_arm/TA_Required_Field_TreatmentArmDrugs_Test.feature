@@ -55,7 +55,7 @@ Feature: Treatment Arm API Tests that focus on "treatment_arm_drugs" and "exclus
 #  Scenario: TA_DG7. Update Treatment Arm with empty "treatmentArmDrugs" field should fail
 #    Given template treatment arm json with a random id
 #    When creating a new treatment arm using post request
-#    Then success message is returned:
+#    Then a success message is returned
 #    Then set the version of the treatment arm to "2016-06-03"
 #    And clear list field: "treatmentArmDrugs" from template treatment arm json
 #    When creating a new treatment arm using post request
@@ -64,7 +64,7 @@ Feature: Treatment Arm API Tests that focus on "treatment_arm_drugs" and "exclus
 #  Scenario: TA_DG8. Update Treatment Arm with "treatmentArmDrugs": null should fail
 #    Given template treatment arm json with a random id
 #    When creating a new treatment arm using post request
-#    Then success message is returned:
+#    Then a success message is returned
 #    Then set the version of the treatment arm to "2016-06-03"
 #    And set template treatment arm json field: "treatmentArmDrugs" to string value: "null"
 #    When creating a new treatment arm using post request
@@ -73,7 +73,7 @@ Feature: Treatment Arm API Tests that focus on "treatment_arm_drugs" and "exclus
 #  Scenario: TA_DG9. Update Treatment Arm without "treatmentArmDrugs" field should fail
 #    Given template treatment arm json with a random id
 #    When creating a new treatment arm using post request
-#    Then success message is returned:
+#    Then a success message is returned
 #    Then set the version of the treatment arm to "2016-06-03"
 #    And remove field: "treatmentArmDrugs" from template treatment arm json
 #    When creating a new treatment arm using post request
@@ -84,7 +84,7 @@ Feature: Treatment Arm API Tests that focus on "treatment_arm_drugs" and "exclus
 #    And clear list field: "treatmentArmDrugs" from template treatment arm json
 #    And add drug with name: "AZD9291" pathway: "EGFR" and id: "781254" to template treatment arm json
 #    When creating a new treatment arm using post request
-#    Then success message is returned:
+#    Then a success message is returned
 #    And set the version of the treatment arm to "2016-06-03"
 #    Then add drug with name: "AZD9291" pathway: "EGFR" and id: "781254" to template treatment arm json
 #    When creating a new treatment arm using post request
@@ -93,7 +93,7 @@ Feature: Treatment Arm API Tests that focus on "treatment_arm_drugs" and "exclus
 #  Scenario Outline: TA_DG11. Update Treatment Arm with uncompleted drug entity should fail
 #    Given template treatment arm json with an id: "APEC1621-DG11-1" and version: "2015-03-25"
 #    When creating a new treatment arm using post request
-#    Then success message is returned:
+#    Then a success message is returned
 #    And set the version of the treatment arm to "2016-06-03"
 #    And add drug with name: "<drugName>" pathway: "<drugPathway>" and id: "<drugId>" to template treatment arm json
 #    When creating a new treatment arm using post request
@@ -111,7 +111,7 @@ Feature: Treatment Arm API Tests that focus on "treatment_arm_drugs" and "exclus
 #    And clear list field: "exclusion_drugs" from template treatment arm json
 #    And add drug with name: "AZD9291" pathway: "EGFR" and id: "781254" to template treatment arm json
 #    When creating a new treatment arm using post request
-#    Then success message is returned:
+#    Then a success message is returned
 #    Then set the version of the treatment arm to "2016-06-03"
 #    And add PedMATCH exclusion drug with name: "AZD9291" and id: "781254" to template treatment arm json
 #    When creating a new treatment arm using post request
@@ -123,7 +123,7 @@ Feature: Treatment Arm API Tests that focus on "treatment_arm_drugs" and "exclus
 #    And clear list field: "exclusion_drugs" from template treatment arm json
 #    And add PedMATCH exclusion drug with name: "AZD9291" and id: "781254" to template treatment arm json
 #    When creating a new treatment arm using post request
-#    Then success message is returned:
+#    Then a success message is returned
 #    Then set the version of the treatment arm to "2016-06-03"
 #    And add drug with name: "AZD9291" pathway: "EGFR" and id: "781254" to template treatment arm json
 #    When creating a new treatment arm using post request
