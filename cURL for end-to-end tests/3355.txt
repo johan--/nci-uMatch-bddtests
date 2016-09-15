@@ -242,3 +242,29 @@ curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H 
 	"comment": "The committee approves this assignment report",
     "comment_user": "Rick"
 }' "http://localhost:10240/api/v1/patients/3355/assignment_reports/2016-09-14T20:10:48+00:00/confirm"
+
+
+ON_TREATMENT_ARM message:
+-------------------------
+curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: 3b891238-d528-d0a1-a3e4-36a369f3ae8b" -d '{
+  "header": {
+    "msg_guid": "0f8fad5b-d9cb-469f-a165-80067728950e",
+    "msg_dttm": "2016-05-09T22:06:33+00:00"
+  },
+  "study_id": "APEC1621",
+  "patient_id": "3355",
+  "step_number": "1.1",
+  "treatment_arm_id": "APEC1621-A",
+  "stratum_id": "100",
+  "assignment_date": "2016-09-15T17:52:18+00:00",
+  "status": "ON_TREATMENT_ARM",
+  "message": "",
+  "internal_use_only": {
+    "request_id": "4-654400",
+    "environment": "5",
+    "request": "ON_TREATMENT_ARM for patient_id 3355",
+    "treatment_id": "APEC1621-A"
+  }
+}
+' "http://localhost:10240/api/v1/patients/3355"
+
