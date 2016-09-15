@@ -113,6 +113,9 @@ class DynamoDataUploader
         rescue Aws::DynamoDB::Errors::ResourceNotFoundException => e
           puts "#{table_name} not found. Upload failed. Your tests may fail"
           p e.backtrace
+        rescue Aws::DynamoDB::Errors::ValidationException => e
+          puts "#{table_name} has validation exception issues and has not been uploaded."
+          p e.backtrace
         end
       end
     end

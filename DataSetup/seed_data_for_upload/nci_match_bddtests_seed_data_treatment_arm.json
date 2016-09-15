@@ -1,6 +1,6 @@
 {
-    "ScannedCount": 4,
     "Count": 4,
+    "ScannedCount": 4,
     "ConsumedCapacity": null,
     "Items": [
         {
@@ -67,7 +67,10 @@
                 ]
             },
             "date_opened": {
-                "S": "2016-09-13T12:21:30.964-04:00"
+                "S": "2016-09-15T11:13:30.490-04:00"
+            },
+            "id": {
+                "S": "APEC1621-B"
             },
             "diseases": {
                 "L": [
@@ -175,6 +178,12 @@
             "version": {
                 "S": "2015-08-06"
             },
+            "former_patients": {
+                "N": "0"
+            },
+            "current_patients": {
+                "N": "0"
+            },
             "non_hotspot_rules": {
                 "L": [
                     {
@@ -222,7 +231,7 @@
             },
             "status_log": {
                 "M": {
-                    "1473783690": {
+                    "1473952410": {
                         "S": "OPEN"
                     }
                 }
@@ -465,6 +474,9 @@
             "treatment_arm_status": {
                 "S": "OPEN"
             },
+            "not_enrolled_patients": {
+                "N": "0"
+            },
             "name": {
                 "S": "APEC1621-B"
             },
@@ -559,6 +571,9 @@
             "is_active_flag": {
                 "BOOL": true
             },
+            "pending_patients": {
+                "N": "0"
+            },
             "exclusion_drugs": {
                 "L": [
                     {
@@ -583,7 +598,7 @@
                 "S": "APEC1621"
             },
             "date_created": {
-                "S": "2016-06-24T15:38:31+00:00"
+                "S": "2016-09-15T15:13:30.490Z"
             },
             "gene": {
                 "S": "ALK"
@@ -731,7 +746,7 @@
         },
         {
             "target_name": {
-                "S": "Crizotinib"
+                "S": "NewCrizotinib"
             },
             "treatment_arm_drugs": {
                 "L": [
@@ -794,6 +809,9 @@
             },
             "date_opened": {
                 "S": "2016-09-10T00:48:07+00:00"
+            },
+            "id": {
+                "S": "APEC1621-UI"
             },
             "diseases": {
                 "L": [
@@ -896,10 +914,16 @@
                 ]
             },
             "stratum_id": {
-                "S": "STR100"
+                "S": "STRATUM100"
             },
             "version": {
                 "S": "2015-08-06"
+            },
+            "former_patients": {
+                "N": "0"
+            },
+            "current_patients": {
+                "N": "0"
             },
             "non_hotspot_rules": {
                 "L": [
@@ -951,7 +975,7 @@
             },
             "status_log": {
                 "M": {
-                    "1473869313": {
+                    "1473952503": {
                         "S": "OPEN"
                     }
                 }
@@ -1242,8 +1266,11 @@
             "treatment_arm_status": {
                 "S": "OPEN"
             },
+            "not_enrolled_patients": {
+                "N": "0"
+            },
             "name": {
-                "S": "APEC1621-UI"
+                "S": "APEC1621-UI for Newer Version"
             },
             "indels": {
                 "L": [
@@ -1354,6 +1381,9 @@
             "is_active_flag": {
                 "BOOL": true
             },
+            "pending_patients": {
+                "N": "0"
+            },
             "exclusion_drugs": {
                 "L": [
                     {
@@ -1378,7 +1408,7 @@
                 "S": "APEC1621"
             },
             "date_created": {
-                "S": "2016-09-14 16:12:25 UTC"
+                "S": "2016-09-15 15:16:05 UTC"
             },
             "gene": {
                 "S": "GENE"
@@ -1546,7 +1576,7 @@
         },
         {
             "target_name": {
-                "S": "Crizotinib"
+                "S": "Crizotinib_pre"
             },
             "treatment_arm_drugs": {
                 "L": [
@@ -1582,29 +1612,10 @@
                                 "S": "POSITIVE"
                             },
                             "level_of_evidence": {
-                                "N": "3.0"
+                                "N": "3.2"
                             },
                             "type": {
                                 "S": "IHC"
-                            }
-                        }
-                    },
-                    {
-                        "M": {
-                            "assay_variant": {
-                                "S": "EMPTY"
-                            },
-                            "level_of_evidence": {
-                                "N": "5.0"
-                            },
-                            "type": {
-                                "S": "IHC"
-                            },
-                            "assay_result_status": {
-                                "S": "POSITIVE"
-                            },
-                            "gene": {
-                                "S": "MEH1"
                             }
                         }
                     }
@@ -1612,6 +1623,9 @@
             },
             "date_opened": {
                 "S": "2015-09-10T00:48:07+00:00"
+            },
+            "id": {
+                "S": "APEC1621-UI"
             },
             "diseases": {
                 "L": [
@@ -1650,10 +1664,16 @@
                 ]
             },
             "stratum_id": {
-                "S": "STR100"
+                "S": "STRATUM100"
             },
             "version": {
                 "S": "2014-08-06"
+            },
+            "former_patients": {
+                "N": "0"
+            },
+            "current_patients": {
+                "N": "0"
             },
             "non_hotspot_rules": {
                 "L": [
@@ -1672,7 +1692,7 @@
                                 "S": "19"
                             },
                             "level_of_evidence": {
-                                "N": "3.0"
+                                "N": "3"
                             },
                             "arm_specific": {
                                 "BOOL": false
@@ -1686,7 +1706,7 @@
             },
             "status_log": {
                 "M": {
-                    "1473869313": {
+                    "1473952503": {
                         "S": "OPEN"
                     }
                 }
@@ -1730,7 +1750,7 @@
                                 "S": "p.Q61H"
                             },
                             "level_of_evidence": {
-                                "N": "3.0"
+                                "N": "3.2"
                             },
                             "arm_specific": {
                                 "BOOL": false
@@ -1767,7 +1787,7 @@
                                 "S": "p.Q61H"
                             },
                             "level_of_evidence": {
-                                "N": "3.0"
+                                "N": "13.3"
                             },
                             "arm_specific": {
                                 "BOOL": false
@@ -1815,7 +1835,7 @@
                                 "S": "p.Q61H"
                             },
                             "level_of_evidence": {
-                                "N": "2.0"
+                                "N": "2"
                             },
                             "arm_specific": {
                                 "BOOL": false
@@ -1849,7 +1869,7 @@
                                 "S": "p.Q61H"
                             },
                             "level_of_evidence": {
-                                "N": "2.0"
+                                "N": "2"
                             },
                             "arm_specific": {
                                 "BOOL": false
@@ -1864,8 +1884,11 @@
             "treatment_arm_status": {
                 "S": "OPEN"
             },
+            "not_enrolled_patients": {
+                "N": "0"
+            },
             "name": {
-                "S": "APEC1621-UI"
+                "S": "APEC1621-UI Older version"
             },
             "indels": {
                 "L": [
@@ -1900,7 +1923,7 @@
                                 "S": "p.Q61H"
                             },
                             "level_of_evidence": {
-                                "N": "3.0"
+                                "N": "3"
                             },
                             "arm_specific": {
                                 "BOOL": false
@@ -1941,7 +1964,7 @@
                                 "S": "p.Q61H"
                             },
                             "level_of_evidence": {
-                                "N": "3.0"
+                                "N": "3"
                             },
                             "arm_specific": {
                                 "BOOL": false
@@ -1955,6 +1978,9 @@
             },
             "is_active_flag": {
                 "BOOL": false
+            },
+            "pending_patients": {
+                "N": "0"
             },
             "exclusion_drugs": {
                 "L": [
@@ -1980,7 +2006,7 @@
                 "S": "APEC1621"
             },
             "date_created": {
-                "S": "2016-09-14T16:08:33.903Z"
+                "S": "2016-09-15T15:15:03.442Z"
             },
             "gene": {
                 "S": "GENE"
@@ -2018,7 +2044,7 @@
                                 "NULL": true
                             },
                             "level_of_evidence": {
-                                "N": "2.0"
+                                "N": "2"
                             },
                             "arm_specific": {
                                 "BOOL": false
@@ -2056,7 +2082,10 @@
                 "L": []
             },
             "date_opened": {
-                "S": "2016-09-13T12:21:20.728-04:00"
+                "S": "2016-09-15T11:13:30.464-04:00"
+            },
+            "id": {
+                "S": "APEC1621-A"
             },
             "diseases": {
                 "L": [
@@ -2164,6 +2193,12 @@
             "version": {
                 "S": "2015-08-06"
             },
+            "former_patients": {
+                "N": "0"
+            },
+            "current_patients": {
+                "N": "0"
+            },
             "non_hotspot_rules": {
                 "L": [
                     {
@@ -2198,7 +2233,7 @@
             },
             "status_log": {
                 "M": {
-                    "1473783680": {
+                    "1473952410": {
                         "S": "OPEN"
                     }
                 }
@@ -2215,6 +2250,9 @@
             "treatment_arm_status": {
                 "S": "OPEN"
             },
+            "not_enrolled_patients": {
+                "N": "0"
+            },
             "name": {
                 "S": "APEC1621-A"
             },
@@ -2223,6 +2261,9 @@
             },
             "is_active_flag": {
                 "BOOL": true
+            },
+            "pending_patients": {
+                "N": "0"
             },
             "exclusion_drugs": {
                 "L": [
@@ -2248,7 +2289,7 @@
                 "S": "APEC1621"
             },
             "date_created": {
-                "S": "2016-06-24T15:38:31+00:00"
+                "S": "2016-09-15T15:13:30.463Z"
             },
             "gene": {
                 "S": "ALK"
