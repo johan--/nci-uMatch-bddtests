@@ -1,0 +1,244 @@
+REGSITRATION:
+-------------
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 6e553c7d-66a4-260d-a2bb-a064d42e2883" -d '  {
+"header": {
+  "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+  "msg_dttm": "2016-05-09T22:06:33+00:00"
+},
+"study_id": "APEC1621",
+"patient_id": "3355",
+"step_number": "1.0",
+"registration_date": "2016-05-09T22:06:33+00:00",
+"status": "REGISTRATION",
+"message":"",
+"internal_use_only": {
+  "request_id": "4-654321",
+  "environment": "4",
+  "request": "REGISTRATION for patient_id 3355"
+}
+}' "http://localhost:10240/api/v1/patients/3355"
+
+BLOOD SPECIMEN_RECEIVED:
+------------------------
+
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 37bda0ce-8d8e-3b0a-7c84-f569a1c5c962" -d '  {
+"header": {
+  "msg_guid": "5c64192f-8a25-4874-9db6-fd55c398822d",
+  "msg_dttm": "2016-04-25T18:42:13+00:00"
+},
+"specimen_received": {
+  "study_id": "APEC1621",
+  "patient_id": "3355",
+  "type": "BLOOD",
+  "collected_dttm": "2016-05-25T14:17:11+00:00",
+  "received_dttm": "2016-05-25T15:17:11+00:00",
+  "internal_use_only": {
+    "stars_patient_id": "ABCXYZ",
+    "stars_specimen_id": "ABCXYZ-0AK64L",
+    "stars_specimen_type": "Blood Fresh",
+    "received_dttm": "2016-04-25T15:17:11+00:00",
+    "qc_dttm": "2016-04-25T16:21:34+00:00"
+  }
+}
+}' "http://localhost:10240/api/v1/patients/3355"
+
+TISSUE SPECIMEN_RECEIVED:
+-------------------------
+
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 58c2758a-c1db-e10d-7d86-c5f959e56e77" -d '  {
+  "header": {
+    "msg_guid": "ab6d8d37-caf2-4dbb-a360-0032c7a7a76c",
+    "msg_dttm": "2016-04-25T18:42:13+00:00"
+  },
+  "specimen_received": {
+    "patient_id": "3355",
+    "study_id": "APEC1621",
+    "surgical_event_id": "3355-bsn",
+    "type": "TISSUE",
+    "collected_dttm": "2016-05-25T15:17:11+00:00",
+
+    "received_dttm": "2016-05-25T16:17:11+00:00",
+    "internal_use_only": {
+      "stars_patient_id": "ABCXYZ",
+      "stars_specimen_id": "ABCXYZ-0AK64M",
+      "stars_specimen_type": "Paraffin Block Primary",
+      "received_ts": "2016-04-25T15:17:11+00:00",
+      "qc_ts": "2016-04-25T16:21:34+00:00"
+    }
+  }
+}' "http://localhost:10240/api/v1/patients/3355"
+
+TISSUE SPECIMEN_SHIPPED:
+------------------------
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 852b8134-9ea0-9ecc-b1c8-23fa93ceaacb" -d '  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_shipped": {
+      "study_id": "APEC1621",
+      "patient_id": "3355",
+      "type": "TISSUE_DNA_AND_CDNA",
+
+      "surgical_event_id": "3355-bsn",
+      "molecular_id": "3355-bsn-msn",
+
+      "molecular_dna_id": "00012D",
+      "molecular_cdna_id": "00012C",
+
+      "carrier": "Federal Express",
+      "tracking_id": "7956 4568 1235",
+      "shipped_dttm": "2016-06-01T19:42:13+00:00",
+      "destination": "MDA",
+
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id_cdna": "ABCXYZ-0BJ64F",
+        "stars_specimen_id_dna": "ABCXYZ-0BJ64B"
+      }
+    }
+  }' "http://localhost:10240/api/v1/patients/3355"
+
+SLIDE SPECIMEN_SHIPPED:
+-----------------------
+
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: f62cd689-7633-9932-c1d7-c1d442f70024" -d '  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-06-02T19:42:13+00:00"
+    },
+    "specimen_shipped": {
+      "study_id": "APEC1621",
+      "patient_id": "3355",
+      "type": "SLIDE",
+
+      "surgical_event_id": "3355-bsn",
+      "slide_barcode": "0BJ6A5",
+
+      "carrier": "Federal Express",
+      "tracking_id": "7956 4568 1235",
+      "shipped_dttm": "2016-06-02T19:42:13+00:00",
+      "destination": "MDA",
+
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id_slide": "ABCXYZ-0BJ6A5"
+
+      }
+    }
+  }' "http://localhost:10240/api/v1/patients/3355"
+
+TISSUE SPECIMEN_SHIPPED - 2:
+----------------------------
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: e5bca55a-d105-afb2-4110-e3965fcadad5" -d '  {
+    "header": {
+      "msg_guid": "07daa0de-9a19-42c3-be79-0237dfacf134",
+      "msg_dttm": "2016-06-03T19:42:13+00:00"
+    },
+    "specimen_shipped": {
+      "patient_id": "3355",
+      "study_id": "APEC1621",
+      "surgical_event_id": "3355-bsn",
+      "molecular_id": "3355-bsn-msn-2",
+      "type": "TISSUE_DNA_AND_CDNA",
+
+      "molecular_dna_id": "00012D",
+      "molecular_cdna_id": "00012C",
+
+      "carrier": "Federal Express",
+      "tracking_id": "7956 4568 1235",
+      "shipped_dttm": "2016-06-03T19:42:13+00:00",
+      "destination": "MDA",
+
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id": "ABCXYZ-0BJ64F"
+      }
+    }
+  }' "http://localhost:10240/api/v1/patients/3355"
+
+ASSAY RESULT - ICCPTENs:
+------------------------
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 9c37ab98-7f2f-f24d-7936-05f83b723863" -d '  {
+    "patient_id":"3355",
+    "study_id": "APEC1621",
+    "surgical_event_id":"3355-bsn",
+    "case_number": "case-1234",
+    "type": "ASSAY_RESULT_REPORTED",
+    "biomarker":"ICCPTENs",
+    "reported_date":"2016-06-15T13:12:09.071-05:00",
+    "ordered_date":"2016-06-15T13:11:09.071-05:00",
+    "result":"NEGATIVE"
+  }' "http://localhost:10240/api/v1/patients/3355"
+
+ASSAY RESULT - ICCMLH1s:
+------------------------
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: db2876e5-34c5-8f6a-660f-9e567834c188" -d '  {
+    "patient_id":"3355",
+    "study_id": "APEC1621",
+    "surgical_event_id":"3355-bsn",
+    "case_number": "case-1234",
+    "type": "ASSAY_RESULT_REPORTED",
+    "biomarker":"ICCMLH1s",
+    "reported_date":"2016-06-16T12:12:09.071-05:00",
+    "ordered_date":"2016-06-16T12:11:09.071-05:00",
+    "result":"POSITIVE"
+  }' "http://localhost:10240/api/v1/patients/3355"
+
+PATHOLOGY CONFIRMATION:
+-----------------------
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 469539fb-0b3f-8d33-e499-f1f03f5cda20" -d '  {
+    "patient_id":"3355",
+    "surgical_event_id":"3355-bsn",
+    "study_id":"APEC1621",
+    "case_number": "case-1234",
+    "type":"PATHOLOGY_STATUS",
+    "reported_date":"2016-06-18T12:13:09.071-05:00",
+    "status":"Y"
+  }' "http://localhost:10240/api/v1/patients/3355"
+
+TISSUE VARIANT REPORT RECEIVED - TSV:
+-------------------------------------
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 62c0a7b1-39cb-a636-5e37-8ab3a7a87944" -d '  {
+    "site": "MDA",
+    "molecular_id": "3355-bsn-msn-2",
+    "analysis_id": "job1",
+    "tsv_file_name": "00001.tsv",
+    "vcf_file_name": "00001.vcf"
+  }' "http://localhost:10240/api/v1/patients/3355"
+
+TISSUE VARIANT REPORT RECEIVED - DNA:
+-------------------------------------
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 7bb24519-4096-9b7e-6b3f-ae70dff0d8ac" -d '  {
+    "site": "MDA",
+    "molecular_id": "3355-bsn-msn-2",
+    "analysis_id": "job1",
+    "dna_bam_file_name": "dna.bam",
+    "dna_bai_file_name": "dna.bam.bai"
+  }' "http://localhost:10240/api/v1/patients/3355"
+
+TISSUE VARIANT REPORT RECEIVED - cDNA:
+--------------------------------------
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 139e5ddc-843c-f03c-a9f0-04f0b17b3c6a" -d '  {
+    "site": "MDA",
+    "molecular_id": "3355-bsn-msn-2",
+    "analysis_id": "job1",
+    "cdna_bam_file_name": "cdna.bam",
+    "cdna_bai_file_name": "cdna.bam.bai"
+  }' "http://localhost:10240/api/v1/patients/3355"
+
+VARIANT_REPORT_CONFIRMATION:
+---------------------------
+
+curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: e59e5b3b-6388-d792-2be4-6294822d2393" -d '{
+	"comment": "The committee approves this variant report",
+    "comment_user": "Rick"
+}' "http://localhost:10240/api/v1/patients/3355/variant_reports/3355-bsn-msn-2/job1/confirm"
+
+ASSIGNMENT_REPORT_CONFIRMATION:
+-------------------------------
+
+curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: 162c82b1-4a0b-ce05-e733-000fe9fd05a6" -d '{
+	"comment": "The committee approves this assignment report",
+    "comment_user": "Rick"
+}' "http://localhost:10240/api/v1/patients/3355/assignment_reports/2016-09-14T20:10:48+00:00/confirm"
