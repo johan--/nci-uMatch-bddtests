@@ -11,6 +11,11 @@ Given(/^patient: "([^"]*)" with status: "([^"]*)" on step: "([^"]*)"$/) do |pati
   @patient_step_number = step_number
 end
 
+Given(/^patient is currently on treatment arm: "([^"]*)", stratum: "([^"]*)"$/) do |ta_id, stratum|
+  @current_stratum = stratum
+  @current_ta_id = ta_id
+end
+
 Given(/^other background and comments for this patient: "([^"]*)"$/) do |arg1|
 #   this is just a description step
 end
@@ -132,16 +137,16 @@ Then(/^API returns a message that includes "([^"]*)" with status "([^"]*)"$/) do
   validate_response(status, message)
 end
 
-
-Then(/^patient has new assignment request with re\-biopsy: "([^"]*)", step number: "([^"]*)", treatment arm id: "([^"]*)", stratum id: "([^"]*)"$/) do |rebio, step_number, ta_id, stratum|
+Then(/^COG requests assignment for this patient with re\-biopsy: "([^"]*)", step number: "([^"]*)"$/) do |re_bio, step_number|
   @request_hash = Patient_helper_methods.load_patient_message_templates('request_assignment')
   @request_hash['patient_id'] = @patient_id
   @request_hash['status'] = 'REQUEST_ASSIGNMENT'
-  @request_hash['rebiopsy'] = rebio
+  @request_hash['rebiopsy'] = re_bio
   @request_hash['status_date'] = Helper_Methods.getDateAsRequired('current')
   @request_hash['step_number'] = step_number
-  @request_hash['treatment_arm_id'] = ta_id
-  @request_hash['stratum_id'] = stratum
+  @request_hash['treatment_arm_id'] = @current_ta_id
+  @request_hash['stratum_id'] = @current_stratum
+  @patient_step_number = step_number
 
   post_to_trigger
   validate_response('Success', 'successfully')
@@ -158,7 +163,10 @@ Then(/^set patient off_study on step number: "([^"]*)"$/) do |step_number|
   validate_response('Success', 'successfully')
 end
 
-Then(/^patient has on treatment arm approval with treatment arm id: "([^"]*)", stratum id: "([^"]*)" to step: "([^"]*)"$/) do |ta_id, stratum, step_number|
+Then(/^COG approves patient on treatment arm: "([^"]*)", stratum: "([^"]*)" to step: "([^"]*)"$/) do |ta_id, stratum, step_number|
+  @current_ta_id = ta_id
+  @current_stratum = stratum
+  @patient_step_number = step_number
   @request_hash = Patient_helper_methods.load_patient_message_templates('on_treatment_arm')
   @request_hash['patient_id'] = @patient_id
   @request_hash['assignment_date'] = Helper_Methods.getDateAsRequired('current')

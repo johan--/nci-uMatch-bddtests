@@ -2,6 +2,7 @@
 #@patients
 @patients_end_to_end
 Feature: Patients end to end tests
+  @patients
   Scenario: PT_ETE01. patient can reach step 4.1 successfully
     Given patient: "PT_ETE01" is registered
     Then tissue specimen received with surgical_event_id: "PT_ETE01_SEI1"
@@ -16,15 +17,23 @@ Feature: Patients end to end tests
     Then "BLOOD" variant report uploaded with analysis_id: "PT_ETE01_ANI2"
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
     Then "BLOOD" variant report confirmed with status: "REJECTED"
-    Then wait for "30" seconds
     When retrieve patient: "PT_ETE01" from API
     Then returned patient has value: "PEDING_CONFIRMATION" in field: "current_status"
     Then assignment report is "CONFIRMED"
-    Then wait for "30" seconds
+    Then COG approves patient on treatment arm: "APEC1621-A", stratum: "100" to step: "1.1"
     When retrieve patient: "PT_ETE01" from API
     Then returned patient has value: "ON_TREATMENT_ARM" in field: "current_status"
     Then returned patient has value: "1.1" in field: "current_step_number"
-    Then patient has new assignment request with re-biopsy: "Y", step number: "2.0", treatment arm id: "APEC1621-A", stratum id: "100"
+    Then COG requests assignment for this patient with re-biopsy: "N", step number: "2.0"
+    Then wait for "15" seconds
+    When retrieve patient: "PT_ETE01" from API
+    Then returned patient has value: "PEDING_CONFIRMATION" in field: "current_status"
+    Then assignment report is "CONFIRMED"
+    Then COG approves patient on treatment arm: "APEC1621-B", stratum: "100" to step: "2.1"
+    When retrieve patient: "PT_ETE01" from API
+    Then returned patient has value: "ON_TREATMENT_ARM" in field: "current_status"
+    Then returned patient has value: "2.1" in field: "current_step_number"
+    Then COG requests assignment for this patient with re-biopsy: "Y", step number: "3.0"
     Then tissue specimen received with surgical_event_id: "PT_ETE01_SEI2"
     Then blood specimen received
     Then "TISSUE" specimen shipped with molecular_id or slide_barcode: "PT_ETE01_MOI2"
@@ -37,51 +46,35 @@ Feature: Patients end to end tests
     Then "BLOOD" variant report uploaded with analysis_id: "PT_ETE01_ANI4"
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
     Then "BLOOD" variant report confirmed with status: "CONFIRMED"
-    Then wait for "30" seconds
     When retrieve patient: "PT_ETE01" from API
     Then returned patient has value: "PEDING_CONFIRMATION" in field: "current_status"
     Then assignment report is "CONFIRMED"
-    Then wait for "30" seconds
-    When retrieve patient: "PT_ETE01" from API
-    Then returned patient has value: "ON_TREATMENT_ARM" in field: "current_status"
-    Then returned patient has value: "2.1" in field: "current_step_number"
-    Then patient has new assignment request with re-biopsy: "N", step number: "3.0", treatment arm id: "APEC1621-A", stratum id: "100"
-    Then wait for "30" seconds
-    When retrieve patient: "PT_ETE01" from API
-    Then returned patient has value: "PEDING_CONFIRMATION" in field: "current_status"
-    Then assignment report is "CONFIRMED"
-    Then wait for "30" seconds
+    Then COG approves patient on treatment arm: "APEC1621-C", stratum: "100" to step: "3.1"
     When retrieve patient: "PT_ETE01" from API
     Then returned patient has value: "ON_TREATMENT_ARM" in field: "current_status"
     Then returned patient has value: "3.1" in field: "current_step_number"
-    Then patient has new assignment request with re-biopsy: "Y", step number: "4.0", treatment arm id: "APEC1621-A", stratum id: "100"
-    Then tissue specimen received with surgical_event_id: "PT_ETE01_SEI3"
-    Then "TISSUE" specimen shipped with molecular_id or slide_barcode: "PT_ETE01_MOI3"
-    Then "SLIDE" specimen shipped with molecular_id or slide_barcode: "PT_ETE01_BC3"
-    Then "ICCPTENs" assay result received result: "POSITIVE"
-    Then "ICCMLH1s" assay result received result: "INDETERMINATE"
-    Then pathology confirmed with status: "Y"
-    Then "TISSUE" variant report uploaded with analysis_id: "PT_ETE01_ANI5"
-    Then "TISSUE" variant report confirmed with status: "CONFIRMED"
-    Then wait for "30" seconds
+    Then COG requests assignment for this patient with re-biopsy: "N", step number: "4.0"
+    Then wait for "15" seconds
     When retrieve patient: "PT_ETE01" from API
     Then returned patient has value: "PEDING_CONFIRMATION" in field: "current_status"
     Then assignment report is "CONFIRMED"
-    Then wait for "30" seconds
+    Then COG approves patient on treatment arm: "APEC1621-D", stratum: "100" to step: "4.1"
     When retrieve patient: "PT_ETE01" from API
     Then returned patient has value: "ON_TREATMENT_ARM" in field: "current_status"
     Then returned patient has value: "4.1" in field: "current_step_number"
 
-  Scenario: PT_ETE02. rejected blood variant report should not prevent api triggering assignment process
-    Given patient: "PT_ETE02" with status: "BLOOD_VARIANT_REPORT_CONFIRMED" on step: "1.0"
-    Given this patients's active "TISSUE" molecular_id is "PT_ETE02_MOI1"
-    Given this patients's active analysis_id is "PT_ETE02_ANI1"
-    Given other background and comments for this patient: "assay and pathology are ready"
+  Scenario Outline: PT_ETE02. in proper situation, patient ecosystem can send correct status (other than PENDING_APPROVAL) to COG
+    Given patient: "<patient_id>" with status: "TISSUE_VARIANT_REPORT_RECEIVED" on step: "1.0"
+    Given this patients's active "TISSUE" molecular_id is "<moi>"
+    Given this patients's active analysis_id is "<ani>"
+    Given other background and comments for this patient: "All data is ready, there will <description>"
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
     Then wait for "60" seconds
-    When retrieve patient: "PT_ETE01" from API
-    Then returned patient has value: "ON_TREATMENT_ARM" in field: "current_status"
-    Then returned patient has value: "1.1" in field: "current_step_number"
+    Then COG received assignment status: "<assignment_status>" for this patient
+    Examples:
+      |patient_id             |moi                         |ani                         |description               |assignment_status |
+      |PT_ETE02_TsVrReceived1 |PT_ETE02_TsVrReceived1_MOI1 |PT_ETE02_TsVrReceived1_ANI1 |not have TA available     |NO_TA_AVAILABLE   |
+      |PT_ETE02_TsVrReceived2 |PT_ETE02_TsVrReceived2_MOI1 |PT_ETE02_TsVrReceived2_ANI1 |have a closed TA available|COMPASSIONATE_CARE|
 
   Scenario: PT_ETE03. patient can reach PENDING_CONFIRMATION status even there is mock service collapse during assignment processing
     Given patient: "PT_ETE03" with status: "TISSUE_VARIANT_REPORT_RECEIVED" on step: "1.0"
@@ -140,18 +133,16 @@ Feature: Patients end to end tests
       |PT_ETE06_Step2TissueReceived2|PT_ETE06_Step2TissueReceived2_BC1  |SLIDE      |same barcode has been found      |TISSUE_SPECIMEN_RECEIVED  |
       |PT_ETE06_Step2BloodReceived  |PT_ETE06_Step2BloodReceived_BD_MOI1|BLOOD      |same molecular id has been found |BLOOD_SPECIMEN_RECEIVED   |
 
-  Scenario Outline: PT_ETE07. patient ecosystem can send correct status (other than PENDING_APPROVAL) to COG
-    Given patient: "<patient_id>" with status: "TISSUE_VARIANT_REPORT_RECEIVED" on step: "1.0"
-    Given this patients's active "TISSUE" molecular_id is "<moi>"
-    Given this patients's active analysis_id is "<ani>"
-    Given other background and comments for this patient: "All data is ready, there will <description>"
+  Scenario: PT_ETE07. rejected blood variant report should not prevent api triggering assignment process
+    Given patient: "PT_ETE07" with status: "BLOOD_VARIANT_REPORT_CONFIRMED" on step: "1.0"
+    Given this patients's active "TISSUE" molecular_id is "PT_ETE07_MOI1"
+    Given this patients's active analysis_id is "PT_ETE07_ANI1"
+    Given other background and comments for this patient: "assay and pathology are ready"
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
-    Then wait for "60" seconds
-    Then COG received assignment status: "<assignment_status>" for this patient
-    Examples:
-    |patient_id             |moi                         |ani                         |description               |assignment_status |
-    |PT_ETE07_TsVrReceived1 |PT_ETE07_TsVrReceived1_MOI1 |PT_ETE07_TsVrReceived1_ANI1 |not have TA available     |NO_TA_AVAILABLE   |
-    |PT_ETE07_TsVrReceived2 |PT_ETE07_TsVrReceived2_MOI1 |PT_ETE07_TsVrReceived2_ANI1 |have a closed TA available|COMPASSIONATE_CARE|
+    Then COG approves patient on treatment arm: "APEC1621-A", stratum: "100" to step: "1.1"
+    When retrieve patient: "PT_ETE07" from API
+    Then returned patient has value: "ON_TREATMENT_ARM" in field: "current_status"
+    Then returned patient has value: "1.1" in field: "current_step_number"
 
   Scenario Outline: PT_ETE08. variant report confirmation should fail if patient is on OFF_STUDY status
     Given patient: "<patient_id>" with status: "<current_status>" on step: "1.0"
@@ -176,12 +167,14 @@ Feature: Patients end to end tests
   Scenario: PT_ETE10. request assignment message with rebiopsy = N will fail if the current biopsy is expired
     Given patient: "PT_ETE10" with status: "ON_TREATMENT_ARM" on step: "1.1"
     Given other background and comments for this patient: "the specimen received date is over 6 months ago"
-    Then patient has new assignment request with re-biopsy: "N", step number: "2.0", treatment arm id: "APEC1621-A", stratum id: "100"
+    Given patient is currently on treatment arm: "APEC1621-A", stratum: "100"
+    Then COG requests assignment for this patient with re-biopsy: "N", step number: "2.0"
     Then API returns a message that includes "expired" with status "Failure"
 
   Scenario Outline: PT_ETE11. assignment process should not be triggered if assignment request has rebiopsy = Y
     Given patient: "<patient_id>" with status: "<patient_status>" on step: "<step_number>"
-    Then patient has new assignment request with re-biopsy: "Y", step number: "2.0", treatment arm id: "APEC1621-A", stratum id: "100"
+    Given patient is currently on treatment arm: "APEC1621-A", stratum: "100"
+    Then COG requests assignment for this patient with re-biopsy: "Y", step number: "2.0"
     Then wait for "60" seconds
     Then retrieve patient: "<patient_id>" from API
     Then returned patient has value: "REQUEST_ASSIGNMENT" in field: "current_status"
@@ -190,18 +183,10 @@ Feature: Patients end to end tests
     |PT_ETE11_OnTreatmentArm |ON_TREATMENT_ARM     |1.1        |
     |PT_ETE11_PendingAproval |PENDING_APPROVAL     |1.0        |
 
-  Scenario: PT_ETE12. rule engine will find another assignment result, if cog reply assignment request with rebiopsy = N on the first assignment report
-    Given patient: "PT_ETE12" with status: "PENDING_APPROVAL" on step: "1.0"
-    Given other background and comments for this patient: "assignment report finds treatment arm: APEC1621-ETE09"
-    Then patient has new assignment request with re-biopsy: "N", step number: "2.0", treatment arm id: "APEC1621-A", stratum id: "100"
-    Then wait for "60" seconds
-    Then retrieve patient: "PT_ETE12" from API
-    Then returned patient has value: "PENDING_APPROVAL" in field: "current_status"
-    Then returned patient has been assigned to new treatment arm: "APEC1621-B", stratum id: "100"
-
   Scenario Outline: PT_ETE13. assignment request will fail if patient is on step 4.1
     Given patient: "<patient_id>" with status: "ON_TREATMENT_ARM" on step: "4.1"
-    Then patient has new assignment request with re-biopsy: "<rebiopsy>", step number: "5.0", treatment arm id: "APEC1621-A", stratum id: "100"
+    Given patient is currently on treatment arm: "APEC1621-A", stratum: "100"
+    Then COG requests assignment for this patient with re-biopsy: "<rebiopsy>", step number: "5.0"
     Then API returns a message that includes "4" with status "Failure"
     Examples:
     |patient_id     |rebiopsy |
@@ -210,8 +195,8 @@ Feature: Patients end to end tests
     
   Scenario: PT_ETE14. on treatment arm message with wrong treatment arm information should fail
     Given patient: "PT_ETE14" with status: "PENDING_APPROVAL" on step: "1.0"
-    Given other background and comments for this patient: "treatment arm APEC1621-A with stratum id 100 has been selected"
-    Then patient has on treatment arm approval with treatment arm id: "APEC1621-B", stratum id: "100" to step: "1.1"
+    Given patient is currently on treatment arm: "APEC1621-A", stratum: "100"
+    Then COG approves patient on treatment arm: "APEC1621-B", stratum: "100" to step: "1.1"
     Then API returns a message that includes "treatment arm" with status "Failure"
 
-  Scenario: PT_ETE12. Assay
+#  Scenario: PT_ETE12. Assay
