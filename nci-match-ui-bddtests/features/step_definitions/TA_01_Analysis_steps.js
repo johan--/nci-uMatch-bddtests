@@ -40,32 +40,25 @@ module.exports = function () {
         }).then(callback);
     });
 
-    this.Then(/^I collect backend information about the treatment arm$/, function () {
+    this.Then(/^I collect backend information about the treatment arm$/, function (callback) {
         var response;
-        var inputDetails = currentTreatmentId + '/' + currentStratumId;
-        response = utilities.callApiForDetails(inputDetails, 'treatmentArms');
+        var inputDetails = '/api/v1/treatment_arms/' + currentTreatmentId + '/' + currentStratumId;
+        response = utilities.callApi('treatment', inputDetails);
         response.get().then(function () {
             treatmentArmAPIDetails = utilities.getJSONifiedDetails(response.entity());
             firstTreatmentArm = treatmentArmAPIDetails[0];
-        })
+        }).then(callback);
     });
 
-    this.When(/^I go to treatment arm with "(.+)" as the id and "(.+)" as stratum id$/, function (taId,stratem, callback) {
-        var response;
+    this.When(/^I go to treatment arm with "(.+)" as the id and "(.+)" as stratum id$/, function (taId, stratum, callback) {
         currentTreatmentId = taId;
-        taPage.setTreatmentArmId(taId);
-        var location =  'treatment-arm?name=' + taId + '&stratum=' + stratem;
-        response = utilities.callApiForDetails(currentTreatmentId, 'treatmentArms');
+        currentStratumId   = stratum;
 
-        response.get().then(function () {
-            treatmentArmAPIDetails = utilities.getJSONifiedDetails(response.entity());
-            firstTreatmentArm = treatmentArmAPIDetails[0];
-            browser.setLocation(location , 6000).then(function () {
+        var location = 'treatment-arm?name=' + taId + '&stratum=' + stratum;
 
-            }, function(err){
-                console.log(err.toString());
-            }).then(callback);
-        })
+        browser.setLocation(location, '6000').then(function () {
+            browser.waitForAngular();
+        }).then(callback);
     });
 
     this.When(/^I click on (.+) in the treatment arm table$/, function (taId, callback) {
@@ -137,7 +130,7 @@ module.exports = function () {
     });
 
     this.Then(/^I should see the Name Details$/, function (callback) {
-        //todo: Make sure to check for the name as a combination of TA and stratem
+        //todo: Make sure to check for the name as a combination of TA and stratum
         utilities.checkElementArray(taPage.leftInfoBoxLabels, taPage.expectedLeftBoxLabels);
 
         expect(taPage.taName.getText()).to.eventually.equal(firstTreatmentArm.name);

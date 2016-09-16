@@ -5,7 +5,7 @@
 var DashboardPage = function() {
 
     this.title = 'MATCHBox | Dashboard';
-
+    this.dashboardController = element(by.css('div[ng-controller="DashboardController"]'));
     this.dashboardPanel    = element(by.css('.sticky-navbar')); // This is the sticky panel at the top
     this.dashSummary       = element(by.css('.top-dashboard-header-box')); // This is the top dashboard section
     this.summaryHeadings   = this.dashSummary.all(by.css('h3'));

@@ -37,7 +37,7 @@ module.exports = function () {
 
     this.Then(/^I should see the previous login session button$/, function (callback) {
         accessbtn.click().then(function () {
-            browser.waitForAngular().then(function () {
+            utilities.waitForElement(previousLogin, 'Previous login link').then(function () {
                 expect(previousLogin.isPresent()).to.eventually.eql(true)
             });
         }).then(callback);
@@ -70,9 +70,8 @@ module.exports = function () {
 
     this.Then(/^I should be able to the see Dashboard page$/, function (callback){
         var page = dashboardPageObj.dashboardController;
-        browser.sleep(1000)
-        browser.waitForAngular().then(function(){
-            expect(page.isPresent()).to.eventually.be.true;
+        browser.sleep(1000).then (function(){
+            expect(page.isPresent()).to.eventually.eql(true);
             expect(page.element(by.css('h2')).getText()).to.eventually.eql('Dashboard');
         }).then(callback);
     });

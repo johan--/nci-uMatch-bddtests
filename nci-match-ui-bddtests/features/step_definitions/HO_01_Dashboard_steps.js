@@ -83,13 +83,13 @@ module.exports = function() {
     });
 
     this.Then(/^I can see Sequenced and confirmed patients data$/, function (callback) {
-
-        expect(element(by.binding('amoi_0')).getText()).to.eventually.eql(responseData.patients_with_0_amois + ' patients');
-        expect(element(by.binding('amoi_1')).getText()).to.eventually.eql(responseData.patients_with_1_amois + ' patients');
-        expect(element(by.binding('amoi_2')).getText()).to.eventually.eql(responseData.patients_with_2_amois + ' patients');
-        expect(element(by.binding('amoi_3')).getText()).to.eventually.eql(responseData.patients_with_3_amois + ' patients');
-        expect(element(by.binding('amoi_4')).getText()).to.eventually.eql(responseData.patients_with_4_amois + ' patients');
-        expect(element(by.binding('amoi_5')).getText()).to.eventually.eql(responseData.patients_with_5_or_more_amois + ' patients');
+        var amoiLegendList = element.all(by.binding('legendItem.value'))
+        expect(amoiLegendList.get(0).getText()).to.eventually.eql(responseData.patients_with_0_amois + ' patients');
+        expect(amoiLegendList.get(1).getText()).to.eventually.eql(responseData.patients_with_1_amois + ' patients');
+        expect(amoiLegendList.get(2).getText()).to.eventually.eql(responseData.patients_with_2_amois + ' patients');
+        expect(amoiLegendList.get(3).getText()).to.eventually.eql(responseData.patients_with_3_amois + ' patients');
+        expect(amoiLegendList.get(4).getText()).to.eventually.eql(responseData.patients_with_4_amois + ' patients');
+        expect(amoiLegendList.get(5).getText()).to.eventually.eql(responseData.patients_with_5_or_more_amois + ' patients');
         browser.sleep(20).then(callback);
     });
 

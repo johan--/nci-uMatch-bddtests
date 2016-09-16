@@ -18,10 +18,10 @@ Feature: Treatment Arms Dashboard
     And I should see treatment-arms table
     And I should see the headings in the table
     And I should see data in the table
-
+    
   @treatment_arm @ui
   Scenario: Logged in user can access the dashboard of Treatment Arms page
-    When I click on one of the treatment arms
+    When I go to treatment arm with "APEC1621-UI" as the id and "STRATUM100" as stratum id
     And I collect backend information about the treatment arm
     Then I should see the treatment-arms detail dashboard
     And I should see detailed Treatment Arms breadcrumb
@@ -31,12 +31,12 @@ Feature: Treatment Arms Dashboard
 
   @treatment_arm @ui
   Scenario: Logged in user can access different versions of the treatment arm
-    When I click on one of the treatment arms
+    When I go to treatment arm with "APEC1621-UI" as the id and "STRATUM100" as stratum id
     Then I should see the drop down to select different versions of the treatment arm
 
   @treatment_arm @ui
   Scenario: Logged in user can access Patients data on the Analysis Tab
-    When I click on one of the treatment arms
+    When I go to treatment arm with "APEC1621-UI" as the id and "STRATUM100" as stratum id
     And I select the Analysis Main Tab
     Then I should see Analysis Details Tab
     And I should see the All Patients Data Table on the Treatment Arm
@@ -44,7 +44,7 @@ Feature: Treatment Arms Dashboard
 
   @treatment_arm @ui
   Scenario: Logged in user can access Patients Assignment Outcome on the Analysis Tab
-    When I click on one of the treatment arms
+    When I go to treatment arm with "APEC1621-UI" as the id and "STRATUM100" as stratum id
     Then I should see Analysis Details Tab
     And I can see the legend for the charts
     And I should see Patient Assignment Outcome chart
@@ -52,18 +52,18 @@ Feature: Treatment Arms Dashboard
 
   @treatment_arm @incomplete @ui
   Scenario: Logged in user can download Treatment Arms in PDF
-    When I click on one of the treatment arms
+    When I go to treatment arm with "APEC1621-UI" as the id and "STRATUM100" as stratum id
     And I click on the download in PDF Format
     Then I download the file locally in PDF format
 
   @treatment_arm @incomplete @ui
   Scenario: Logged in user can download Treatment Arms in Excel
-    When I click on one of the treatment arms
+    When I go to treatment arm with "APEC1621-UI" as the id and "STRATUM100" as stratum id
     And I click on the download in Excel Format
     Then I download the file locally in Excel format
 
   @treatment_arm @ui
   Scenario: Logged in user can access the different versions of Treatment Arm under the History Tab
-    When I click on one of the treatment arms
+    When I go to treatment arm with "APEC1621-UI" as the id and "STRATUM100" as stratum id
     And I select the History Main Tab
     Then I should see the different versions of the Treatment Arm
