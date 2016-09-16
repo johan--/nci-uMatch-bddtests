@@ -2,7 +2,7 @@
 Feature: Sample control tests for proficiency and competency control
 
   Scenario: SC-PCC_01: Run the rules for proficiency and competency control  with a sample file with variants passing the filters
-    Given a tsv variant report file file "SNV_NO_PASS_filter.tsv" and treatment arms file "MultiTAs.json"
+    Given a tsv variant report file file "SNV_NO_PASS_filter" and treatment arms file "MultiTAs.json"
     When the proficiency_competency service is called
     Then the report status return is "PENDING"
     Then moi report is returned with the snv variant "match769.3.3"
@@ -25,7 +25,7 @@ Feature: Sample control tests for proficiency and competency control
 
 
   Scenario: SC-PCC_02: Run the rules for proficiency and competency control  with a sample file with variants failing the filters
-    Given a tsv variant report file file "SNV_Germline_filter.tsv" and treatment arms file "MultiTAs.json"
+    Given a tsv variant report file file "SNV_Germline_filter" and treatment arms file "MultiTAs.json"
     When the proficiency_competency service is called
     Then the report status return is "PENDING"
     Then moi report is returned with 0 snv variants
@@ -35,20 +35,20 @@ Feature: Sample control tests for proficiency and competency control
 
 
   Scenario: SC-PCC_03: Run rules for proficiency and competency control with a sample file with non-hotspot variant that passes the filter.
-    Given a tsv variant report file file "SNV_nhr_filter.tsv" and treatment arms file "MultiTAs.json"
+    Given a tsv variant report file file "SNV_nhr_filter" and treatment arms file "MultiTAs.json"
     When the proficiency_competency service is called
     Then the report status return is "PENDING"
     Then moi report is returned with the snv variant "moip-1"
 
   Scenario: SC-PCC_04: Run rules for proficiency and competency control with sample file containing CNV variants (CNV with copynumber threshold >= is filtered in)
-    Given a tsv variant report file file "cnv_v5_gene_filter.tsv" and treatment arms file "MultiTAs.json"
+    Given a tsv variant report file file "cnv_v5_gene_filter" and treatment arms file "MultiTAs.json"
     When the proficiency_competency service is called
     Then the report status return is "PENDING"
     Then moi report is returned without the cnv variant "CDK4"
     Then moi report is returned with the cnv variant "MYCL"
 
   Scenario: SC-PCC_05: Run rules for proficiency and competency control  with sample file containing Indels
-    Given a tsv variant report file file "Indel_variants.tsv" and treatment arms file "MultiTAs.json"
+    Given a tsv variant report file file "Indel_variants" and treatment arms file "MultiTAs.json"
     When the proficiency_competency service is called
     Then the report status return is "PENDING"
     Then moi report is returned with the indel variant "WILMA"

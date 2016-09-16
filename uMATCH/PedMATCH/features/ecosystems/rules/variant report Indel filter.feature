@@ -2,7 +2,7 @@
 Feature: Test the functionality that filters the Indel variants based on specified filter criteria
 
   Background: the amoi service is run
-    Given a tsv variant report file file "Indel_variants.tsv" and treatment arms file "APEC1621-B.json"
+    Given a tsv variant report file file "Indel_variants" and treatment arms file "APEC1621-B.json"
     When call the amoi rest service
 
 

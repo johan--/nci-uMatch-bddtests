@@ -21,7 +21,7 @@ Feature: Test the functionality that filters the SNV variants based on specified
     Then moi report is returned with the snv variant "." as an amoi
     Examples:
       |tsvFile                                    |TAFile                         |ta                           |
-      |SNV_location_intronic.tsv                  |SNV_location_intronic_TA.json  |["SNV_location_intronic100"] |
+      |SNV_location_intronic                  |SNV_location_intronic_TA.json  |["SNV_location_intronic100"] |
 
 
   Scenario Outline: FIL-SNV_02: Filter-out a SNV variant that does not have a PASS filter
@@ -30,7 +30,7 @@ Feature: Test the functionality that filters the SNV variants based on specified
     Then moi report is returned without the snv variant "match769.3.1"
     Examples:
       |tsvFile                                    |TAFile                         |
-      |SNV_NO_PASS_filter.tsv                     |SNV_location_intronic_TA.json  |
+      |SNV_NO_PASS_filter                     |SNV_location_intronic_TA.json  |
 
 
   Scenario Outline: FIL-SNV_03: Filter out SVN variants with allele frequency less than 0.05%
@@ -39,7 +39,7 @@ Feature: Test the functionality that filters the SNV variants based on specified
     Then moi report is returned without the snv variant "match769.3.2"
     Examples:
       |tsvFile                                    |TAFile                         |
-      |SNV_NO_PASS_filter.tsv                     |SNV_location_intronic_TA.json  |
+      |SNV_NO_PASS_filter                     |SNV_location_intronic_TA.json  |
 
 
   Scenario Outline: FIL-SNV_04: Filter out SVN variants with FAO less than 25
@@ -48,7 +48,7 @@ Feature: Test the functionality that filters the SNV variants based on specified
     Then moi report is returned without the snv variant "match769.3.4"
     Examples:
       |tsvFile                                    |TAFile                         |
-      |SNV_NO_PASS_filter.tsv                     |SNV_location_intronic_TA.json  |
+      |SNV_NO_PASS_filter                     |SNV_location_intronic_TA.json  |
 
 
   Scenario Outline: FIL-SNV_05: Filter-out SVN variants with function 'synonymous'
@@ -57,7 +57,7 @@ Feature: Test the functionality that filters the SNV variants based on specified
     Then moi report is returned without the snv variant "match769.3.7"
     Examples:
       |tsvFile                                    |TAFile                         |
-      |SNV_NO_PASS_filter.tsv                     |SNV_location_intronic_TA.json  |
+      |SNV_NO_PASS_filter                     |SNV_location_intronic_TA.json  |
 
 
   Scenario Outline: FIL-SNV_06: Filter-in SVN variants with valid function name
@@ -87,7 +87,7 @@ Feature: Test the functionality that filters the SNV variants based on specified
     Then moi report is returned with the snv variant "match769.3.18"
     Examples:
       |tsvFile                                    |TAFile                         |
-      |SNV_NO_PASS_filter.tsv                     |SNV_location_intronic_TA.json  |
+      |SNV_NO_PASS_filter                     |SNV_location_intronic_TA.json  |
 
   Scenario Outline: FIL-SNV_07: Filter-out all Germline SNV variants
     Given a tsv variant report file file "<tsvFile>" and treatment arms file "<TAFile>"
@@ -95,7 +95,7 @@ Feature: Test the functionality that filters the SNV variants based on specified
     Then moi report is returned with 0 snv variants
     Examples:
       |tsvFile                                    |TAFile                         |
-      |SNV_Germline_filter.tsv                    |SNV_location_intronic_TA.json  |
+      |SNV_Germline_filter                    |SNV_location_intronic_TA.json  |
 
 
   Scenario Outline: FIL-SNV_08: Filter-in SNVs if oncomine variant class has the value deleterious
@@ -104,7 +104,7 @@ Feature: Test the functionality that filters the SNV variants based on specified
     Then moi report is returned with 1 snv variants
     Examples:
       |tsvFile                                    |TAFile                         |
-      |SNV_OVA_deleterious_filter.tsv             |SNV_location_intronic_TA.json  |
+      |SNV_OVA_deleterious_filter             |SNV_location_intronic_TA.json  |
 
 
   Scenario Outline: FIL-SNV_09: Filter-in SNVs if oncomine variant class has the value hotspot
@@ -113,7 +113,7 @@ Feature: Test the functionality that filters the SNV variants based on specified
     Then moi report is returned with 1 snv variants
     Examples:
       |tsvFile                                    |TAFile                         |
-      |SNV_OVA_hotspot_filter.tsv                 |SNV_location_intronic_TA.json  |
+      |SNV_OVA_hotspot_filter                 |SNV_location_intronic_TA.json  |
 
 
   Scenario Outline: FIL-SNV_10: Filter-in SNVs if the variant matches a non-hotspot rule of a treatment arm
@@ -122,5 +122,5 @@ Feature: Test the functionality that filters the SNV variants based on specified
     Then moi report is returned with the snv variant "moip-1" as an amoi
     Examples:
       |tsvFile                        |TAFile           |
-      |SNV_nhr_filter.tsv             |APEC1621-B.json  |
+      |SNV_nhr_filter             |APEC1621-B.json  |
 

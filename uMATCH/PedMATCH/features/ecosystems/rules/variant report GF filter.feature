@@ -7,7 +7,7 @@ Feature: Test the functionality that filters the Gene Fusion variants based on s
     Then moi report is returned with the ugf variant "EGFR-EGFR.E1E8.DelPositive"
     Examples:
       |tsvFile                                |TAFile           |
-      |GF_EGFR_read-depth_filter_gt1000.tsv   |APEC1621-B.json  |
+      |GF_EGFR_read-depth_filter_gt1000   |APEC1621-B.json  |
 
 
   Scenario Outline: FIL-GF_02: Filter-out Genefusion with read_depth eq 1000
@@ -16,7 +16,7 @@ Feature: Test the functionality that filters the Gene Fusion variants based on s
     Then moi report is returned without the ugf variant "EGFR-EGFR.E1E8.DelPositive"
     Examples:
       |tsvFile                                |TAFile           |
-      |GF_EGFR_read-depth_filter_eq1000.tsv   |APEC1621-B.json  |
+      |GF_EGFR_read-depth_filter_eq1000   |APEC1621-B.json  |
 
   Scenario Outline: FIL-GF_03: Filter-out Genefusion with FAIL filter
     Given a tsv variant report file file "<tsvFile>" and treatment arms file "<TAFile>"
@@ -24,7 +24,7 @@ Feature: Test the functionality that filters the Gene Fusion variants based on s
     Then moi report is returned without the ugf variant "EGFR-EGFR.E1E8.DelPositive"
     Examples:
       |tsvFile              |TAFile           |
-      |GF_FAIL_filter.tsv   |APEC1621-B.json  |
+      |GF_FAIL_filter   |APEC1621-B.json  |
 
 
   Scenario Outline: FIL-GF_04: If there is match to the treatment arm, the amoi service returns the matching treatment arm
@@ -36,5 +36,5 @@ Feature: Test the functionality that filters the Gene Fusion variants based on s
     """
     Examples:
       |tsvFile                  |TAFile           |
-      |113re_gene-fusion.tsv    |APEC1621-A.json  |
+      |113re_gene-fusion    |APEC1621-A.json  |
 

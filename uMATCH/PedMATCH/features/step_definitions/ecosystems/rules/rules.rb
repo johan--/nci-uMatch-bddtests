@@ -32,7 +32,7 @@ When(/^assignPatient service is called for patient "([^"]*)"$/) do |patient|
   puts @payload
   @resp = Helper_Methods.post_request("#{ENV['rules_endpoint']}/assignment_report/#{patient}",@payload)
   @res = @resp['http_code'] =='200' ? JSON.parse(@resp['message']) : fail("Error #{@resp['http_code']} is returned by the server")
-  p @res
+  puts @res
 end
 
 Then(/^a patient assignment json is returned with reason category "([^"]*)" for treatment arm "([^"]*)"$/) do |assignment_reason,ta|
@@ -49,8 +49,11 @@ Then(/^a patient assignment json is returned with report_status "([^"]*)"$/) do 
 end
 
 Then(/^the patient assignment reason is "([^"]*)"$/) do |reason|
-   # expect(JSON.parse(@res)['patientAssignmentStatus']).to eql(reason)
-   expect(JSON.parse(@res)['status']).to eql("Success")
+  assignment_result = @res['treatment_assignment_results']
+  assignment_result.each do |tas|
+    puts tas['reason']
+    expect(tas['reason']).to include(reason)
+  end
 end
 
 Given(/^a tsv variant report file file "([^"]*)" and treatment arms file "([^"]*)"$/) do |arg1, ta|
@@ -62,26 +65,26 @@ Given(/^a tsv variant report file file "([^"]*)" and treatment arms file "([^"]*
 end
 
 When(/^call the amoi rest service$/) do
-  @resp = Helper_Methods.post_request("#{ENV['rules_endpoint']}/variant_report/1111/BDD/msn-1111/job-1111/#{@tsv}?filtered=true",@treatment_arm.to_json)
+  @resp = Helper_Methods.post_request("#{ENV['rules_endpoint']}/variant_report/1111/BDD/msn-1111/job-1111/#{@tsv}?format=tsv",@treatment_arm.to_json)
   @res = JSON.parse(@resp['message'])
   puts @res
 end
 
 When(/^the proficiency_competency service is called/) do
-  @resp = Helper_Methods.post_request("#{ENV['rules_endpoint']}/sample_control_report/proficiency_competency/BDD/msn-1111/job-1111/#{@tsv}?filtered=true",@treatment_arm.to_json)
+  @resp = Helper_Methods.post_request("#{ENV['rules_endpoint']}/sample_control_report/proficiency_competency/BDD/msn-1111/job-1111/#{@tsv}?format=tsv",@treatment_arm.to_json)
   @res = JSON.parse(@resp['message'])
   puts @res
 end
 
 When(/^the no_template service is called/) do
   # @res = Helper_Methods.post_request(ENV['rules_endpoint']+'/sample_control_report/no_template/BDD/msn-1111/job-1111/'+@tsv+'?filtered=true',@treatment_arm.to_json)
-  @resp = Helper_Methods.post_request("#{ENV['rules_endpoint']}/sample_control_report/no_template/BDD/msn-1111/job-1111/#{@tsv}?filtered=true",@treatment_arm.to_json)
+  @resp = Helper_Methods.post_request("#{ENV['rules_endpoint']}/sample_control_report/no_template/BDD/msn-1111/job-1111/#{@tsv}?format=tsv",@treatment_arm.to_json)
   @res = JSON.parse(@resp['message'])
   puts @res
 end
 
 When(/^the positive_control service is called/) do
-  @resp = Helper_Methods.post_request("#{ENV['rules_endpoint']}/sample_control_report/positive/BDD/msn-1111/job-1111/#{@tsv}?filtered=true",@treatment_arm.to_json)
+  @resp = Helper_Methods.post_request("#{ENV['rules_endpoint']}/sample_control_report/positive/BDD/msn-1111/job-1111/#{@tsv}?format=tsv",@treatment_arm.to_json)
   @res = JSON.parse(@resp['message'])
   puts @res
 end
