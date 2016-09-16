@@ -18,7 +18,7 @@ Feature: Treatment Arms Dashboard
     And I should see treatment-arms table
     And I should see the headings in the table
     And I should see data in the table
-    
+
   @treatment_arm @ui
   Scenario: Logged in user can access the dashboard of Treatment Arms page
     When I go to treatment arm with "APEC1621-UI" as the id and "STRATUM100" as stratum id

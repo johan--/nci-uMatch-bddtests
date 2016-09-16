@@ -11,7 +11,7 @@ var dashboardPageObj = require ('../../pages/dashboardPage');
 var utilities = require ('../../support/utilities.js');
 
 module.exports = function () {
-    var accessbtn = element(by.css('button[ng-click="login()"]'));
+    var accessbtn = element(by.buttonText('ACCESS NCI-MATCHBox'));
     var userId = process.env.NCI_MATCH_USERID;
     var previousLogin = element(by.css('div[title="' + userId + ' (Auth0)"]'));
 
