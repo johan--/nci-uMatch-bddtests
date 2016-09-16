@@ -69,10 +69,11 @@ module.exports = function () {
     });
 
     this.Then(/^I should be able to the see Dashboard page$/, function (callback){
-        var panel = dashboardPageObj.dashboardPanel;
+        var page = dashboardPageObj.dashboardController;
+        browser.sleep(1000)
         browser.waitForAngular().then(function(){
-            expect(panel.element(by.css('h2')).getText()).to.eventually.eql('Dashboard');
-            expect(panel.isPresent()).to.eventually.be.true;
+            expect(page.isPresent()).to.eventually.be.true;
+            expect(page.element(by.css('h2')).getText()).to.eventually.eql('Dashboard');
         }).then(callback);
     });
 
