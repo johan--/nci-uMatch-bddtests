@@ -33,8 +33,13 @@ Given(/^this patients's active "([^"]*)" molecular_id is "([^"]*)"$/) do |type, 
   end
 end
 
-Given(/^this patients's active analysis_id is "([^"]*)"$/) do |ani|
-    @active_ani = ani
+Given(/^this patients's active "([^"]*)" analysis_id is "([^"]*)"$/) do |type, ani|
+  case type
+    when 'TISSUE'
+      @active_ts_ani = ani
+    when 'BLOOD'
+      @active_bd_ani = ani
+  end
 end
 
 Given(/^patient: "([^"]*)" is registered$/) do |patient_id|
@@ -64,7 +69,7 @@ Then(/^blood specimen received$/) do
   validate_response('Success', 'successfully')
 end
 
-Then(/^"([^"]*)" specimen shipped with molecular_id or slide_barcode: "([^"]*)"$/) do |type, id|
+Then(/^"([^"]*)" specimen shipped to "([^"]*)" with molecular_id or slide_barcode: "([^"]*)"$/) do |type, lab, id|
   @request_hash = Patient_helper_methods.load_patient_message_templates("specimen_shipped_#{type}")
   @request_hash['specimen_shipped']['patient_id'] = @patient_id
   @request_hash['specimen_shipped']['shipped_dttm'] = Helper_Methods.getDateAsRequired('current')
@@ -73,13 +78,16 @@ Then(/^"([^"]*)" specimen shipped with molecular_id or slide_barcode: "([^"]*)"$
       @request_hash['specimen_shipped']['surgical_event_id'] = @active_sei
       @request_hash['specimen_shipped']['molecular_id'] = id
       @active_ts_moi = id
+      @active_ts_lab = lab
     when 'SLIDE'
       @request_hash['specimen_shipped']['surgical_event_id'] = @active_sei
       @request_hash['specimen_shipped']['slide_barcode'] = id
       @active_barcode = id
+      @active_slide_lb = lab
     when 'BLOOD'
       @request_hash['specimen_shipped']['molecular_id'] = id
       @active_bd_moi = id
+      @active_bd_lab = lab
   end
   post_to_trigger
   validate_response('Success', 'successfully')
@@ -92,6 +100,7 @@ Then(/^"([^"]*)" assay result received result: "([^"]*)"$/) do |type, result|
   @request_hash['biomarker'] = type
   @request_hash['ordered_date'] = Helper_Methods.getDateAsRequired('one second ago')
   @request_hash['reported_date'] = Helper_Methods.getDateAsRequired('current')
+  @request_hash['case_number'] = "assay_#{@active_sei}_#{@request_hash['ordered_date']}"
   @request_hash['result'] = result
   post_to_trigger
   validate_response('Success', 'successfully')
@@ -102,34 +111,64 @@ Then(/^pathology confirmed with status: "([^"]*)"$/) do |status|
   @request_hash['patient_id'] = @patient_id
   @request_hash['surgical_event_id'] = @active_sei
   @request_hash['reported_date'] = Helper_Methods.getDateAsRequired('current')
-  @request_hash['status'] = result
+  @request_hash['status'] = status
+  @request_hash['case_number'] = "pathology_#{@active_sei}_#{@request_hash['reported_date']}"
   post_to_trigger
   validate_response('Success', 'successfully')
 end
 
 Then(/^"([^"]*)" variant report uploaded with analysis_id: "([^"]*)"$/) do |type, ani|
-  @request_hash = Patient_helper_methods.load_patient_message_templates('variant_file_uploaded')
-  @request_hash['patient_id'] = @patient_id
-  @request_hash['molecular_id'] = case type
-                                    when 'TISSUE' then @active_ts_moi
-                                    when 'BLOOD' then @active_bd_moi  
-                                  end
+  target_moi = case type
+                 when 'TISSUE' then @active_ts_moi
+                 when 'BLOOD' then @active_bd_moi
+               end
+  target_site = case type
+                  when 'TISSUE' then @active_ts_lab
+                  when 'BLOOD' then @active_bd_lab
+                end
+  @request_hash = Patient_helper_methods.load_patient_message_templates('variant_tsv_vcf_uploaded')
+  @request_hash['site'] = target_site
+  @request_hash['molecular_id'] = target_moi
   @request_hash['analysis_id'] = ani
-  @active_ani = ani
+  case type
+    when 'TISSUE'
+      @active_ts_ani = ani
+    when 'BLOOD'
+      @active_bd_ani = ani
+  end
+  post_to_trigger
+  validate_response('Success', 'successfully')
+
+  @request_hash = Patient_helper_methods.load_patient_message_templates('variant_dna_file_uploaded')
+  @request_hash['site'] = target_site
+  @request_hash['molecular_id'] = target_moi
+  @request_hash['analysis_id'] = ani
+  post_to_trigger
+  validate_response('Success', 'successfully')
+
+  @request_hash = Patient_helper_methods.load_patient_message_templates('variant_cdna_file_uploaded')
+  @request_hash['site'] = target_site
+  @request_hash['molecular_id'] = target_moi
+  @request_hash['analysis_id'] = ani
   post_to_trigger
   validate_response('Success', 'successfully')
 end
 
 Then(/^"([^"]*)" variant report confirmed with status: "([^"]*)"$/) do |type, status|
+  target_moi = case type
+                 when 'TISSUE' then @active_ts_moi
+                 when 'BLOOD' then @active_bd_moi
+               end
+  target_ani = case type
+                 when 'TISSUE' then @active_ts_ani
+                 when 'BLOOD' then @active_bd_ani
+               end
+  target_status = case status
+                    when 'CONFIRMED' then 'confirm'
+                    when 'REJECTED' then 'reject'
+                  end
   @request_hash = Patient_helper_methods.load_patient_message_templates('variant_file_confirmed')
-  @request_hash['patient_id'] = @patient_id
-  @request_hash['molecular_id'] = case type
-                                    when 'TISSUE' then @active_ts_moi
-                                    when 'BLOOD' then @active_bd_moi
-                                  end
-  @request_hash['analysis_id'] = @active_ani
-  @request_hash['status'] = status
-  post_to_trigger
+  put_vr_confirm(target_moi, target_ani, target_status)
   validate_response('Success', 'successfully')
 end
 
@@ -194,7 +233,7 @@ Then(/^assignment report is "([^"]*)"$/) do |status|
   @request_hash['patient_id'] = @patient_id
   @request_hash['status'] = status
   @request_hash['molecular_id'] = @active_ts_moi
-  @request_hash['analysis_id'] = @active_ani
+  @request_hash['analysis_id'] = @active_ts_ani
 
   post_to_trigger
   validate_response('Success', 'successfully')
@@ -204,6 +243,13 @@ def post_to_trigger
   puts JSON.pretty_generate(@request_hash)
   @response = Helper_Methods.post_request(ENV['patients_endpoint']+'/'+@patient_id, @request_hash.to_json.to_s)
   sleep(15.0)
+end
+
+def put_vr_confirm(moi, ani, status)
+  puts JSON.pretty_generate(@request_hash)
+  url = ENV['patients_endpoint'] + '/'
+  url = url + @patient_id + '/variant_reports/' + moi + '/' + ani + '/' + status
+  @response = Helper_Methods.put_request(url, @request_hash.to_json.to_s)
 end
 
 def validate_response(expected_status, expected_partial_message)
