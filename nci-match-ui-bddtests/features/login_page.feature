@@ -21,3 +21,10 @@ Feature: Login
     Given I am on the login page
     When  I login with valid email and password
     Then I should be able to the see Dashboard page
+
+  @demo
+  Scenario: A previous session should trigger the presence of previous login button
+    Given I am on the login page
+    Then I should see the previous login session button
+    When I click on the previous session button
+    Then I should be able to the see Dashboard page
