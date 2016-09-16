@@ -35,11 +35,21 @@ module.exports = function () {
         browser.sleep(2000).then(callback);
     });
 
-    this.Then(/^I should see the previous login session button$/, function (callback) {
+    this.Then(/^I should see the login button$/, function (callback) {
+        accessbtn.isPresent().then(function (present) {
+            expect(present).to.eql(true)
+        }).then(callback);
+    });
+
+    this.When(/^I click on the login button$/, function(callback){
         accessbtn.click().then(function () {
-            utilities.waitForElement(previousLogin, 'Previous login link').then(function () {
-                expect(previousLogin.isPresent()).to.eventually.eql(true)
-            });
+            browser.waitForAngular();
+        }).then(callback)
+    });
+
+    this.Then(/^I should see the previous login session button$/, function (callback) {
+        utilities.waitForElement(previousLogin, 'Previous login link').then(function () {
+            expect(previousLogin.isPresent()).to.eventually.eql(true)
         }).then(callback);
     });
 
