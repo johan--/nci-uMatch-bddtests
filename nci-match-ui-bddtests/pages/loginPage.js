@@ -22,7 +22,7 @@ var LoginPage = function() {
     };
 
     this.login = function (username, password, callback) {
-        var loginPopupPanel = element(by.css('div.a0-popup'));
+        var loginPopupPanel = element(by.css('.a0-onestep'));
         var email =  element(by.id('a0-signin_easy_email'));
         var pass = element(by.id('a0-signin_easy_password'));
         var loginbtn = element(by.buttonText('Access'));

@@ -11,6 +11,9 @@ var dashboardPageObj = require ('../../pages/dashboardPage');
 var utilities = require ('../../support/utilities.js');
 
 module.exports = function () {
+    var accessbtn = element(by.css('button[ng-click="login()"]'));
+    var userId = process.env.NCI_MATCH_USERID;
+    var previousLogin = element(by.css('div[title="' + userId + ' (Auth0)"]'));
 
     this.World = require ('../step_definitions/world').World;
 
@@ -30,6 +33,20 @@ module.exports = function () {
         loginPageObj.login(email, password);
 
         browser.sleep(2000).then(callback);
+    });
+
+    this.Then(/^I should see the previous login session button$/, function (callback) {
+        accessbtn.click().then(function () {
+            browser.waitForAngular().then(function () {
+                expect(previousLogin.isPresent()).to.eventually.eql(true)
+            });
+        }).then(callback);
+    });
+
+    this.When(/^I click on the previous session button$/, function (callback) {
+        previousLogin.click().then(function(){
+            browser.waitForAngular();
+            }).then(callback);
     });
 
     this.When(/^I login with (valid|invalid) email and password/, function(validity, callback){
@@ -54,10 +71,9 @@ module.exports = function () {
     this.Then(/^I should be able to the see Dashboard page$/, function (callback){
         var panel = dashboardPageObj.dashboardPanel;
         browser.waitForAngular().then(function(){
+            expect(panel.element(by.css('h2')).getText()).to.eventually.eql('Dashboard');
             expect(panel.isPresent()).to.eventually.be.true;
-        });
-        expect(panel.element(by.css('h2')).getText()).to.eventually.eql('Dashboard');
-        browser.sleep(50).then(callback);
+        }).then(callback);
     });
 
     this.Then(/^I then logout$/, function (callback) {
