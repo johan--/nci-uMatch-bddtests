@@ -8,7 +8,7 @@ var dashboard = require ('../pages/dashboardPage');
 var LoginPage = function() {
 
     this.title = 'MATCHBox | Login';
-    var accessBtn =  element(by.css('button[ng-click="login()"]'));
+    var accessBtn = element(by.css('div[ng-controller="AuthController"]')).element(by.css('button[ng-click="login()"]'));
 
     this.goToLoginPage = function(){
         browser.get('/#/auth/login', 6000).then(function () {
@@ -33,8 +33,10 @@ var LoginPage = function() {
                 utils.waitForElement(loginPopupPanel, 'Login Pop up panel').then(function () {
                     browser.isElementPresent(previousLogin).then(function (present) {
                         if(present === true){
+                            console.log("Logging in by using previous login link")
                             previousLogin.click().then(callback);
                         } else {
+                            console.log('Loggiing in with username and password')
                             email.sendKeys(username);
                             pass.sendKeys(password);
                             loginbtn.click().then(callback);

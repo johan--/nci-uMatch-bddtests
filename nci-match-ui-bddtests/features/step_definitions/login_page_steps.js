@@ -44,7 +44,11 @@ module.exports = function () {
     this.When(/^I click on the login button$/, function(callback){
         accessbtn.click().then(function () {
             browser.waitForAngular();
-        }).then(callback)
+        }, function (error) {
+            console.log(error);
+            console.log('#############################################')
+            console.log(browser.getPageSource());
+        }).then(callback);
     });
 
     this.Then(/^I should see the previous login session button$/, function (callback) {
