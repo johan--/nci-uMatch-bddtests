@@ -56,6 +56,12 @@ module.exports = function () {
     this.Then(/^I should see the previous login session button$/, function (callback) {
         utilities.waitForElement(previousLogin, 'Previous login link').then(function () {
             expect(previousLogin.isPresent()).to.eventually.eql(true)
+        }, function () {
+            console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
+            browser.getPageSource().then(function (text) {
+                console.log(text);
+            })
+
         }).then(callback);
     });
 
