@@ -47,7 +47,9 @@ module.exports = function () {
         }, function (error) {
             console.log(error);
             console.log('#############################################')
-            console.log(browser.getPageSource());
+            browser.getPageSource().then(function (text) {
+                console.log(browser.getPageSource(text));
+            })
         }).then(callback);
     });
 
