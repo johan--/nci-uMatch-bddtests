@@ -29,29 +29,32 @@ var LoginPage = function() {
         var loginPopupPanel = element(by.css('.a0-onestep'));
         var previousLogin = element(by.css('div[title="' + username + ' (Auth0)"]'));
 
-        accessBtn.isPresent().then(function () {
-            accessBtn.click().then(function () {
-                utils.waitForElement(loginPopupPanel, 'Login Pop up panel').then(function () {
-                    browser.isElementPresent(oldUserLink).then(function (present) {
-                        if (present == false) {
-                            email.sendKeys(username);
-                            pass.sendKeys(password);
-                            loginbtn.click().then(function () {
-                                browser.waitForAngular()
-                            }).then(callback)
-                        } else {
-                            oldUserLink.click().then(function () {
+        browser.isElementPresent(accessBtn).then(function (accBtnpresence) {
+            console.log(accBtnpresence)
+            if (accBtnpresence == true){
+                accessBtn.click().then(function () {
+                    utils.waitForElement(loginPopupPanel, 'Login Pop up panel').then(function () {
+                        browser.isElementPresent(oldUserLink).then(function (present) {
+                            if (present == false) {
                                 email.sendKeys(username);
                                 pass.sendKeys(password);
                                 loginbtn.click().then(function () {
                                     browser.waitForAngular()
                                 }).then(callback)
-                            })
-                        }
+                            } else {
+                                oldUserLink.click().then(function () {
+                                    email.sendKeys(username);
+                                    pass.sendKeys(password);
+                                    loginbtn.click().then(function () {
+                                        browser.waitForAngular()
+                                    }).then(callback)
+                                })
+                            }
 
+                        })
                     })
                 })
-            })
+            }
         },function (error) {
             console.log('Failed to find Access button');
             console.log(error);
