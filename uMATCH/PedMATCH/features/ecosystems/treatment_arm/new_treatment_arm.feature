@@ -110,7 +110,7 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 	}
 	"""
 	When creating a new treatment arm using post request
-    Then a failure response code of "404" is returned
+    Then a failure response code of "500" is returned
 #	Then a failure message is returned which contains: "The property '#/' did not contain a required property of 'version'"
 
 
