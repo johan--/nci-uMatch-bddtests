@@ -1,0 +1,114 @@
+curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: 28c00f03-af90-7aab-7482-cb5dfad115a4" -d '{
+    "id" : "CukeTest-00001-D",
+    "name" : "CukeTest-00001-D",
+    "version" : "2015-08-06",
+    "stratum":"1",
+    "study_id":"APEC1621",
+    "treatment_arm_drugs" : [
+        {
+            "drug_id" : "122-1",
+            "name" : "Crizotinib",
+            "pathway" : "MTOR"
+        }
+    ],
+    "diseases" : [
+        {
+        	"disease_code_type":"ICD-O",
+            "disease_code" : "10058354",
+            "disease_name" : "Bronchioloalveolar carcinoma",
+            "exclusion":true
+        },
+        {
+        	"disease_code_type":"ICD-O",
+            "disease_code" : "10025032",
+            "disease_name" : "Lung adenocarcinoma",
+            "exclusion":true
+        },
+        {
+        	"disease_code_type":"ICD-O",
+            "disease_code" : "90600324",
+            "disease_name" : "Lung adenocar. w/ bronch. feat.",
+            "exclusion":true
+        },
+        {
+        	"disease_code_type":"ICD-O",
+            "disease_code" : "10029514",
+            "disease_name" : "Non-small cell lung cancer, NOS",
+            "exclusion":true
+        },
+        {
+        	"disease_code_type":"ICD-O",
+            "disease_code" : "10025125",
+            "disease_name" : "Squamous cell lung carcinoma",
+            "exclusion":true
+        }
+    ],
+    "exclusion_drugs" : [
+        {
+	        "drug_id" : "10002",
+	        "name" : "Crizotinib"
+        },
+        {
+            "drug_id" : "10003",
+            "name" : "Ceritinib"
+        },
+        {
+            "drug_id" : "10004",
+            "name" : "Alectinib"
+        },
+        {
+            "drug_id" : "10005",
+            "name" : "AP26113"
+        },
+        {
+            "drug_id" : "10006",
+            "name" : "TSR-011"
+        },
+        {
+            "drug_id" : "10007",
+            "name" : "PF-06463922"
+        },
+        {
+            "drug_id" : "10008",
+            "name" : "X-396"
+        },
+        {
+            "drug_id" : "10009",
+            "name" : "RXDX-101"
+        },
+        {
+            "drug_id" : "10010",
+            "name" : "CEP-37440"
+        }
+    ],
+    "assay_rules" : [],
+    "num_patients_assigned" : 0,
+    "treatment_arm_status" : "OPEN",
+    "single_nucleotide_variants" : [
+        {
+            "func_gene" : "MTOR",
+            "chromosome" : "1",
+            "position" : "11184573",
+            "identifier" : "COSM1686998",
+            "ocp_reference" : "G",
+            "ocp_alternative" : "A",
+            "level_of_evidence" : 3.0,
+            "inclusion" : true,
+            "armSpecific" : false
+        }
+    ],
+    "indels" : [],
+    "copy_number_variants" : [],
+    "gene_fusions" : [
+        {
+            "func_gene" : "FGFR2",
+            "identifier" : "FGFR2-OFD1.F17O3",
+            "ocp_reference" : "C",
+            "ocp_alternative" : "C[chrX:13754596[",
+            "level_of_evidence" : 3.0,
+            "inclusion" : false,
+            "armSpecific" : false
+        }
+    ],
+    "non_hotspot_rules" : []
+}' "http://localhost:10235/api/v1/treatment_arms/CukeTest-00001-D/1/2015-08-06"

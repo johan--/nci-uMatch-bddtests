@@ -1,0 +1,94 @@
+curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: 080e8d4d-2160-554d-f099-3ab966cab93e" -d '{
+    "id" : "CukeTest-00001-A",
+    "name" : "CukeTest-00001-A",
+    "stratum":"1",
+    "version" : "2015-08-06",
+    "description" : "This TA is used by Cuke Test",
+    "study_id": "APEC1621",
+    "treatment_arm_drugs" : [ 
+        {
+            "drug_id" : "113",
+            "name" : "Crizotinib",
+            "pathway" : "ALK"
+        }
+    ],
+    "diseases" : [ 
+        {
+        	"disease_code_type":"ICD-O",
+            "disease_code" : "10058354",
+            "disease_name" : "Bronchioloalveolar carcinoma",
+            "exclusion":true
+        }, 
+        {
+        	"disease_code_type":"ICD-O",
+            "disease_code" : "10025032",
+            "disease_name" : "Lung adenocarcinoma",
+            "exclusion":true
+        }, 
+        {
+        	"disease_code_type":"ICD-O",
+            "disease_code" : "90600324",
+            "disease_name" : "Lung adenocar. w/ bronch. feat.",
+            "exclusion":true
+        }, 
+        {
+        	"disease_code_type":"ICD-O",
+            "disease_code" : "10029514",
+            "disease_name" : "Non-small cell lung cancer, NOS",
+            "exclusion":true
+        }, 
+        {
+        	"disease_code_type":"ICD-O",
+            "disease_code" : "10025125",
+            "disease_name" : "Squamous cell lung carcinoma",
+            "exclusion":true
+        }
+    ],
+    "exclusion_drugs" : [ 
+        {
+            "drug_id" : "10001",
+            "name" : "Doxorubicin Hydrochloride"
+        }
+    ],
+    "assay_rules": [],
+    "num_patients_assigned" : 1,
+    "treatment_arm_status" : "OPEN",
+    "single_nucleotide_variants" : [],
+    "indels" : [],
+    "copy_number_variants" : [],
+    "gene_fusions" : [ 
+        {
+            "func_gene" : "ALK",
+            "chromosome" : "2",
+            "position" : "29446394",
+            "identifier" : "TPM3-ALK.T7A20",
+            "ocp_reference" : "A",
+            "ocp_alternative" : "[chr1:154142875[A",
+            "description" : "ALK translocation",
+            "level_of_evidence" : 2.0,
+            "inclusion" : true,
+            "armSpecific" : false
+        }, 
+        {
+            "func_gene" : "FGFR2",
+            "chromosome" : "10",
+            "position" : "123243211",
+            "identifier" : "FGFR2-OFD1.F17O3",
+            "ocp_reference" : "C",
+            "ocp_alternative" : "C[chrX:13754596[",
+            "description" : "some description",
+            "level_of_evidence" : 3.0,
+            "inclusion" : true,
+            "armSpecific" : false
+        }
+    ],
+    "non_hotspot_rules" : [ 
+        {
+            "func_gene" : "PTEN",
+            "oncomine_variant_class" : "deleterious",
+            "level_of_evidence" : 3.0,
+            "inclusion" : true,
+            "armSpecific" : false
+        }
+    ]
+}' "http://localhost:10235/api/v1/treatment_arms/CukeTest-00001-A/1/2015-08-06"

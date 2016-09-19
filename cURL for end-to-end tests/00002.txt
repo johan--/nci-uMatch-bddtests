@@ -1,0 +1,564 @@
+REGISTER:
+---------
+
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: ee8a0f5f-55bd-0d69-3ccc-8e11debb7d9b" -d '  {
+    "header": {
+      "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+      "msg_dttm": "2016-05-09T22:06:33+00:00"
+    },
+    "study_id": "APEC1621",
+    "patient_id": "00002",
+    "step_number": "1.0",
+    "registration_date": "2016-09-19T02:06:33+00:00",
+    "status": "REGISTRATION",
+    "message":"",
+    "internal_use_only": {
+      "request_id": "4-654321",
+      "environment": "4",
+      "request": "REGISTRATION for patient_id 00002"
+    }
+}' "http://localhost:10240/api/v1/patients/00002"
+
+BLOOD_SPECIMEN_RECEIVED:
+------------------------
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 320334ae-793f-69a4-8639-e6062e38fb1a" -d '  {
+     "header": {
+       "msg_guid": "5c64192f-8a25-4874-9db6-fd55c398822d",
+       "msg_dttm": "2016-04-25T18:42:13+00:00"
+     },
+     "specimen_received": {
+       "study_id": "APEC1621",
+       "patient_id": "00002",
+       "type": "BLOOD",
+       "collected_dttm": "2016-09-19T03:17:11+00:00",
+       "received_dttm": "2016-09-19T03:17:11+00:00",
+       "internal_use_only": {
+         "stars_patient_id": "ABCXYZ",
+         "stars_specimen_id": "ABCXYZ-0AK64L",
+         "stars_specimen_type": "Blood Fresh",
+         "received_dttm": "2016-04-25T15:17:11+00:00",
+         "qc_dttm": "2016-04-25T16:21:34+00:00"
+       }
+     }
+}' "http://localhost:10240/api/v1/patients/00002"
+
+TISSUE_SPECIMEN_RECEIVED:
+-------------------------
+
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 63e05ada-047b-706f-fff8-8698d51d6cb7" -d '  {
+    "header": {
+      "msg_guid": "ab6d8d37-caf2-4dbb-a360-0032c7a7a76c",
+      "msg_dttm": "2016-04-25T18:42:13+00:00"
+    },
+    "specimen_received": {
+      "patient_id": "00002",
+      "study_id": "APEC1621",
+      "surgical_event_id": "00002-bsn",
+      "type": "TISSUE",
+      "collected_dttm": "2016-09-19T04:17:11+00:00",
+
+      "received_dttm": "2016-09-19T04:17:11+00:00",
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id": "ABCXYZ-0AK64M",
+        "stars_specimen_type": "Paraffin Block Primary",
+        "received_ts": "2016-04-25T15:17:11+00:00",
+        "qc_ts": "2016-04-25T16:21:34+00:00"
+      }
+    }
+}' "http://localhost:10240/api/v1/patients/00002"
+
+TISSUE_SPECIMEN_SHIPPED:
+------------------------
+
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: ad528ed6-5c5f-2c0f-c99e-f12da0084a08" -d '  {
+  "header": {
+    "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+    "msg_dttm": "2016-05-01T19:42:13+00:00"
+  },
+  "specimen_shipped": {
+    "study_id": "APEC1621",
+    "patient_id": "00002",
+    "type": "TISSUE_DNA_AND_CDNA",
+
+    "surgical_event_id": "00002-bsn",
+    "molecular_id": "00002-bsn-msn",
+
+    "molecular_dna_id": "00012D",
+    "molecular_cdna_id": "00012C",
+
+    "carrier": "Federal Express",
+    "tracking_id": "7956 4568 1235",
+    "shipped_dttm": "2016-09-19T05:42:13+00:00",
+    "destination": "MDA",
+
+    "internal_use_only": {
+      "stars_patient_id": "ABCXYZ",
+      "stars_specimen_id_cdna": "ABCXYZ-0BJ64F",
+      "stars_specimen_id_dna": "ABCXYZ-0BJ64B"
+    }
+  }
+}' "http://localhost:10240/api/v1/patients/00002"
+
+SLIDE_SPECIMEN_SHIPPED:
+-----------------------
+
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: db60f561-287c-b581-d05a-f46136064107" -d '  {
+   "header": {
+     "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+     "msg_dttm": "2016-06-02T19:42:13+00:00"
+   },
+   "specimen_shipped": {
+     "study_id": "APEC1621",
+     "patient_id": "00002",
+     "type": "SLIDE",
+
+     "surgical_event_id": "00002-bsn",
+     "slide_barcode": "0BJ6A5",
+
+     "carrier": "Federal Express",
+     "tracking_id": "7956 4568 1235",
+     "shipped_dttm": "2016-09-19T06:42:13+00:00",
+     "destination": "MDA",
+
+     "internal_use_only": {
+       "stars_patient_id": "ABCXYZ",
+       "stars_specimen_id_slide": "ABCXYZ-0BJ6A5"
+
+     }
+   }
+ }' "http://localhost:10240/api/v1/patients/00002"
+
+
+ASSAY_RESULTS - ICCPTENs:
+-------------------------
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 3fd77619-c79b-ef48-a2bc-3fcfc661e151" -d '  {
+    "patient_id":"00002",
+    "study_id": "APEC1621",
+    "surgical_event_id":"00002-bsn",
+    "case_number": "case-1234",
+    "type": "ASSAY_RESULT_REPORTED",
+    "biomarker":"ICCPTENs",
+    "reported_date":"2016-09-19T07:12:09.071-05:00",
+    "ordered_date":"2016-09-19T07:11:09.071-05:00",
+    "result":"NEGATIVE"
+  }' "http://localhost:10240/api/v1/patients/00002"
+
+ASSAY_RESULTS - ICCMLH1s:
+-------------------------
+
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: f19231b2-d9d7-dbf9-1e2f-469adc75bf6e" -d '  {
+    "patient_id":"00002",
+    "study_id": "APEC1621",
+    "surgical_event_id":"00002-bsn",
+    "case_number": "case-1234",
+    "type": "ASSAY_RESULT_REPORTED",
+    "biomarker":"ICCMLH1s",
+    "reported_date":"2016-09-19T07:12:09.071-05:00",
+    "ordered_date":"2016-09-19T07:11:09.071-05:00",
+    "result":"POSITIVE"
+}' "http://localhost:10240/api/v1/patients/00002"
+
+PATHOLOGY_CONFIRMATION:
+-----------------------
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: a4b88c75-0919-403c-787e-f6a38d2b8738" -d '  {
+  "patient_id":"00002",
+  "surgical_event_id":"00002-bsn",
+  "study_id":"APEC1621",
+  "case_number": "case-1234",
+  "type":"PATHOLOGY_STATUS",
+  "reported_date":"2016-09-19T08:13:09.071-05:00",
+  "status":"Y"
+}' "http://localhost:10240/api/v1/patients/00002"
+
+TISSUE_VARIANT_REPORT_RECEIVED - TSVs:
+--------------------------------------
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: d2110e70-e5f2-3f9f-b508-92969100fb9b" -d '  {
+    "site": "MDA",
+    "molecular_id": "00002-bsn-msn",
+    "analysis_id": "job1",
+    "tsv_file_name": "E2E-patient_00002-v1.tsv",
+    "vcf_file_name": "E2E-patient_00002-v1.vcf"
+}' "http://localhost:10240/api/v1/patients/00002"
+
+TISSUE_VARIANT_REPORT_RECEIVED - DNA:
+-------------------------------------
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 7b14a781-6559-2ba0-0349-79e60d24fa35" -d '  {
+     "site": "MDA",
+     "molecular_id": "00002-bsn-msn",
+     "analysis_id": "job1",
+     "dna_bam_file_name": "dna.bam",
+     "dna_bai_file_name": "dna.bam.bai"
+}' "http://localhost:10240/api/v1/patients/00002"
+
+TISSUE_VARIANT_REPORT_RECEIVED - cDNA:
+-------------------------------------
+
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: e75d3e04-32ee-ae89-a63c-dfb25ed19f8a" -d '  {
+  "site": "MDA",
+  "molecular_id": "00002-bsn-msn",
+  "analysis_id": "job1",
+  "cdna_bam_file_name": "cdna.bam",
+  "cdna_bai_file_name": "cdna.bam.bai"
+}' "http://localhost:10240/api/v1/patients/00002"
+
+VARIANT_REPORT_CONFIRMATION:
+----------------------------
+
+curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: 756bccc9-e32f-e20b-9b45-2af47c99a8e3" -d '{
+	"comment": "The committee approves this variant report",
+    "comment_user": "Rick"
+}' "http://localhost:10240/api/v1/patients/00002/variant_reports/00002-bsn-msn/job1/confirm"
+
+ASSIGNMENT_REPORT_CONFIRMATION:
+-------------------------------
+NOTE: Copy the date_generated value from the patients data (http://localhost:10240/api/v1/patients/00002) and paste it in the URL before submitting it.
+
+curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: 36939244-e64c-ec05-ccbe-64702c134bfe" -d '{
+	"comment": "The committee approves this assignment report",
+    "comment_user": "Rick"
+}' "http://localhost:10240/api/v1/patients/00002/assignment_reports/2016-09-19T14:53:49+00:00/confirm"
+
+ON_TREATMENT_ARM (Step 1.1):
+-----------------
+curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: 127d1db5-aaa1-7e0e-0aa6-4e1da3f567bf" -d '{
+  "header": {
+    "msg_guid": "0f8fad5b-d9cb-469f-a165-80067728950e",
+    "msg_dttm": "2016-05-09T22:06:33+00:00"
+  },
+  "study_id": "APEC1621",
+  "patient_id": "00002",
+  "step_number": "1.1",
+  "treatment_arm_id": "CukeTest-00001-B",
+  "stratum_id": "1",
+  "assignment_date": "2016-09-19T09:52:18+00:00",
+  "status": "ON_TREATMENT_ARM",
+  "message": "",
+  "internal_use_only": {
+    "request_id": "4-654400",
+    "environment": "5",
+    "request": "ON_TREATMENT_ARM for patient_id CukeTest-00001-B",
+    "treatment_id": "APEC1621-A"
+  }
+}
+' "http://localhost:10240/api/v1/patients/00002"
+
+Update COG mock with prior Treatment Arm data:
+----------------------------------------------
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: fc312734-a145-5d4b-1890-0f03ba917339" "http://localhost:3000/approveOnTreatmentArm/00002/1.1/CukeTest-00001-B/1"
+
+PROGRESSION Message( REQUEST_ASSIGNMENT ):
+------------------------------------------
+curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: 8cc3a0bb-7ec4-36e8-befe-1bdf08d7b4fd" -d '{
+  "header": {
+    "msg_guid": "0f8fad5b-d9cb-469f-a165-80067728950e",
+    "msg_dttm": "2016-05-09T22:06:33+00:00"
+  },
+  "study_id": "APEC1621",
+  "patient_id": "00002",
+  "step_number": "2.0",
+  "status": "REQUEST_ASSIGNMENT",
+  "status_date": "2016-09-19T10:05:33+00:00",
+  "rebiopsy": "N",
+  "message": "Patient progresses",
+  "internal_use_only": {
+    "request_id": "4-654400",
+    "environment": "5",
+    "request": "REQUEST_ASSIGNMENT for patient_id 00002",
+    "treatment_id": "120"
+  }
+}' "http://localhost:10240/api/v1/patients/00002"
+
+ASSIGNMENT_REPORT_CONFIRMATION - 2:
+-----------------------------------
+NOTE: Copy the date_generated value from the patients data (http://localhost:10240/api/v1/patients/00002) and paste it in the URL before submitting it.
+
+curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: e6cbc250-b817-2d67-bfe7-3b53a16e8cd9" -d '{
+	"comment": "The committee approves this assignment report",
+    "comment_user": "Rick"
+}' "http://localhost:10240/api/v1/patients/00002/assignment_reports/2016-09-16T20:32:39.000+00:00/confirm"
+
+
+ON_TREATMENT_ARM (Step: 2.1)
+----------------------------
+curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: c00bfbd3-d2ae-0ac3-45e1-f2347dabd7f5" -d '{
+  "header": {
+    "msg_guid": "0f8fad5b-d9cb-469f-a165-80067728950e",
+    "msg_dttm": "2016-05-09T22:06:33+00:00"
+  },
+  "study_id": "APEC1621",
+  "patient_id": "00002",
+  "step_number": "2.1",
+  "treatment_arm_id": "CukeTest-00001-A",
+  "stratum_id": "1",
+  "assignment_date": "2016-09-19T11:52:18+00:00",
+  "status": "ON_TREATMENT_ARM",
+  "message": "",
+  "internal_use_only": {
+    "request_id": "4-654400",
+    "environment": "5",
+    "request": "ON_TREATMENT_ARM for patient_id CukeTest-00001-A",
+    "treatment_id": "APEC1621-A"
+  }
+}
+' "http://localhost:10240/api/v1/patients/00002"
+
+PROGRESSION with REBIOPSY (REQUEST_ASSIGNMENT):
+-----------------------------------------------
+curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: 60ac9b17-679f-08e2-6eb3-ce999a62448f" -d '{
+  "header": {
+    "msg_guid": "0f8fad5b-d9cb-469f-a165-80067728950e",
+    "msg_dttm": "2016-05-09T22:06:33+00:00"
+  },
+  "study_id": "APEC1621",
+  "patient_id": "00002",
+  "step_number": "3.0",
+  "status": "REQUEST_ASSIGNMENT",
+  "status_date": "2016-09-19T12:05:33+00:00",
+  "rebiopsy": "Y",
+  "message": "Patient progresses with rebiopsy",
+  "internal_use_only": {
+    "request_id": "4-654400",
+    "environment": "5",
+    "request": "REQUEST_ASSIGNMENT for patient_id 00002",
+    "treatment_id": "120"
+  }
+}' "http://localhost:10240/api/v1/patients/00002"
+
+TISSUE_SPECIMEN_RECEIVED (2):
+------------------------
+
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: a5682ad9-ff9c-bc20-9a7e-096f2950697a" -d '  {
+    "header": {
+      "msg_guid": "ab6d8d37-caf2-4dbb-a360-0032c7a7a76c",
+      "msg_dttm": "2016-04-25T18:42:13+00:00"
+    },
+    "specimen_received": {
+      "patient_id": "00002",
+      "study_id": "APEC1621",
+      "surgical_event_id": "00002-bsn-2",
+      "type": "TISSUE",
+      "collected_dttm": "2016-09-19T13:17:11+00:00",
+
+      "received_dttm": "2016-09-19T13:17:11+00:00",
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id": "ABCXYZ-0AK64M",
+        "stars_specimen_type": "Paraffin Block Primary",
+        "received_ts": "2016-04-25T15:17:11+00:00",
+        "qc_ts": "2016-04-25T16:21:34+00:00"
+      }
+    }
+  }' "http://localhost:10240/api/v1/patients/00002"
+
+TISSUE_SPECIMEN_SHIPPED(2):
+---------------------------
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: f1d8a465-87c8-c9cd-e5ec-bac1547d9af5" -d '  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-05-01T19:42:13+00:00"
+    },
+    "specimen_shipped": {
+      "study_id": "APEC1621",
+      "patient_id": "00002",
+      "type": "TISSUE_DNA_AND_CDNA",
+
+      "surgical_event_id": "00002-bsn-2",
+      "molecular_id": "00002-bsn-msn-2",
+
+      "molecular_dna_id": "00012D",
+      "molecular_cdna_id": "00012C",
+
+      "carrier": "Federal Express",
+      "tracking_id": "7956 4568 1235",
+      "shipped_dttm": "2016-09-19T16:42:13+00:00",
+      "destination": "MDA",
+
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id_cdna": "ABCXYZ-0BJ64F",
+        "stars_specimen_id_dna": "ABCXYZ-0BJ64B"
+      }
+    }
+  }' "http://localhost:10240/api/v1/patients/00002"
+
+SLIDE_SHIPMENT(2):
+------------------
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 9676c4be-b097-524e-a11f-cf0ebf598b17" -d '  {
+    "header": {
+      "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+      "msg_dttm": "2016-06-02T19:42:13+00:00"
+    },
+    "specimen_shipped": {
+      "study_id": "APEC1621",
+      "patient_id": "00002",
+      "type": "SLIDE",
+
+      "surgical_event_id": "00002-bsn-2",
+      "slide_barcode": "0BJ6A5-2",
+
+      "carrier": "Federal Express",
+      "tracking_id": "7956 4568 1235",
+      "shipped_dttm": "2016-09-19T17:42:13+00:00",
+      "destination": "MDA",
+
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id_slide": "ABCXYZ-0BJ6A5"
+
+      }
+    }
+  }' "http://localhost:10240/api/v1/patients/00002"
+
+ASSAY_RESULTS - ICCPTENs(2):
+----------------------------
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: d4f77d6c-fa4f-af29-d5fa-2f2f7711edb4" -d '  {
+    "patient_id":"00002",
+    "study_id": "APEC1621",
+    "surgical_event_id":"00002-bsn-2",
+    "case_number": "case-1234-2",
+    "type": "ASSAY_RESULT_REPORTED",
+    "biomarker":"ICCPTENs",
+    "reported_date":"2016-09-19T18:12:09.071-05:00",
+    "ordered_date":"2016-09-19T18:11:09.071-05:00",
+    "result":"NEGATIVE"
+}' "http://localhost:10240/api/v1/patients/00002"
+
+ASSAY_RESULTS - ICCMLH1s(2):
+----------------------------
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: e4bdee34-e598-8830-ceb8-a75bbc793676" -d '  {
+    "patient_id":"00002",
+    "study_id": "APEC1621",
+    "surgical_event_id":"00002-bsn-2",
+    "case_number": "case-1234-2",
+    "type": "ASSAY_RESULT_REPORTED",
+    "biomarker":"ICCMLH1s",
+    "reported_date":"2016-09-19T18:12:09.071-05:00",
+    "ordered_date":"2016-09-19T18:11:09.071-05:00",
+    "result":"POSITIVE"
+}' "http://localhost:10240/api/v1/patients/00002"
+
+PATHOLOGY_CONFIRMATION(2):
+--------------------------
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: b889e616-0074-76da-3936-2b837fd935ab" -d '  {
+    "patient_id":"00002",
+    "surgical_event_id":"00002-bsn-2",
+    "study_id":"APEC1621",
+    "case_number": "case-1234-2",
+    "type":"PATHOLOGY_STATUS",
+    "reported_date":"2016-09-19T19:13:09.071-05:00",
+    "status":"Y"
+}' "http://localhost:10240/api/v1/patients/00002"
+
+TISSUE_VARIANT_REPORT_RECEIVED(2):
+----------------------------------
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 256f8282-b419-1a29-0072-95f13f53bb17" -d '  {
+    "site": "MDA",
+    "molecular_id": "00002-bsn-msn-2",
+    "analysis_id": "job2",
+    "tsv_file_name": "E2E-patient_00002-v2.tsv",
+    "vcf_file_name": "E2E-patient_00002-v2.vcf"
+}' "http://localhost:10240/api/v1/patients/00002"
+
+VARIANT_REPORT_CONFIRMATION(2):
+-------------------------------
+curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: 41361daa-cd85-70db-fe0a-dc66f278c40d" -d '{
+	"comment": "The committee approves this variant report",
+    "comment_user": "Rick"
+}' "http://localhost:10240/api/v1/patients/00002/variant_reports/00002-bsn-msn-2/job2/confirm"
+
+ASSIGNMENT_REPORT_CONFIRMATION(3):
+----------------------------------
+NOTE: Copy the date_generated value from the patients data (http://localhost:10240/api/v1/patients/00002) and paste it in the URL before submitting it.
+
+curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: f8687f32-440c-e089-52c2-37238f41f3c5" -d '{
+	"comment": "The committee approves this assignment report",
+    "comment_user": "Rick"
+}' "http://localhost:10240/api/v1/patients/00002/assignment_reports/2016-09-16T20:32:39.000+00:00/confirm"
+
+ON_TREATMENT_ARM(3):
+--------------------
+curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: 926e47cb-7290-dc74-8e9e-6741d46d1620" -d '{
+  "header": {
+    "msg_guid": "0f8fad5b-d9cb-469f-a165-80067728950e",
+    "msg_dttm": "2016-05-09T22:06:33+00:00"
+  },
+  "study_id": "APEC1621",
+  "patient_id": "00002",
+  "step_number": "3.1",
+  "treatment_arm_id": "CukeTest-00001-C",
+  "stratum_id": "1",
+  "assignment_date": "2016-09-19T20:52:18+00:00",
+  "status": "ON_TREATMENT_ARM",
+  "message": "",
+  "internal_use_only": {
+    "request_id": "4-654400",
+    "environment": "5",
+    "request": "ON_TREATMENT_ARM for patient_id CukeTest-00001-C",
+    "treatment_id": "APEC1621-A"
+  }
+}
+' "http://localhost:10240/api/v1/patients/00002"
+
+Update COG mock with prior Treatment Arm data:
+----------------------------------------------
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: fc312734-a145-5d4b-1890-0f03ba917339" "http://localhost:3000/approveOnTreatmentArm/00002/3.1/CukeTest-00001-C/1"
+
+
+PROGRESSION (REQUEST_ASSIGNMENT) - 3:
+-------------------------------------
+
+curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: 319536be-cecf-0f08-5e53-2ba46f75d9cf" -d '{
+  "header": {
+    "msg_guid": "0f8fad5b-d9cb-469f-a165-80067728950e",
+    "msg_dttm": "2016-05-09T22:06:33+00:00"
+  },
+  "study_id": "APEC1621",
+  "patient_id": "00002",
+  "step_number": "4.0",
+  "status": "REQUEST_ASSIGNMENT",
+  "status_date": "2016-09-19T21:05:33+00:00",
+  "rebiopsy": "N",
+  "message": "Patient progresses again",
+  "internal_use_only": {
+    "request_id": "4-654400",
+    "environment": "5",
+    "request": "REQUEST_ASSIGNMENT for patient_id 00002",
+    "treatment_id": "120"
+  }
+}' "http://localhost:10240/api/v1/patients/00002"
+
+ASSIGNMENT_REPORT_CONFIRMATION(4):
+----------------------------------
+NOTE: Copy the date_generated value from the patients data (http://localhost:10240/api/v1/patients/00002) and paste it in the URL before submitting it.
+
+curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: f8687f32-440c-e089-52c2-37238f41f3c5" -d '{
+	"comment": "The committee approves this assignment report",
+    "comment_user": "Rick"
+}' "http://localhost:10240/api/v1/patients/00002/assignment_reports/2016-09-16T20:32:39.000+00:00/confirm"
+
+ON_TREATMENT_ARM(4):
+--------------------
+curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: c4951b1f-93ad-3471-229d-b09c436eae72" -d '{
+  "header": {
+    "msg_guid": "0f8fad5b-d9cb-469f-a165-80067728950e",
+    "msg_dttm": "2016-05-09T22:06:33+00:00"
+  },
+  "study_id": "APEC1621",
+  "patient_id": "00002",
+  "step_number": "4.1",
+  "treatment_arm_id": "CukeTest-00001-D",
+  "stratum_id": "1",
+  "assignment_date": "2016-09-19T17:52:18+00:00",
+  "status": "ON_TREATMENT_ARM",
+  "message": "",
+  "internal_use_only": {
+    "request_id": "4-654400",
+    "environment": "5",
+    "request": "ON_TREATMENT_ARM for patient_id CukeTest-00001-D",
+    "treatment_id": "APEC1621-A"
+  }
+}
+' "http://localhost:10240/api/v1/patients/00002"
+
+
