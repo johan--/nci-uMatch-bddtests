@@ -21,8 +21,9 @@ module.exports = function () {
     this.When(/^I select the (.+) sub-tab$/, function(subTabName, callback){
         var elementIndex = taPage.expectedRulesSubTabs.indexOf(subTabName);
         var response;
-        treatment_id = taPage.getTreatmentArmId();
-        response = utilities.callApiForDetails(treatment_id, 'treatmentArms');
+        var inputDetails = '/api/v1/treatment_arms/' + taPage.currentTreatmentId + '/' + taPage.currentStratumId;
+
+        response = utilities.callApi('treatment', inputDetails);
         response.get().then(function () {
             treatmentArmAPIDetails = utilities.getJSONifiedDetails(response.entity());
             firstTreatmentArm = treatmentArmAPIDetails[0];

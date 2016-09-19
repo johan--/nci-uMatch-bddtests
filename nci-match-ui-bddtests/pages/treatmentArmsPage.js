@@ -7,6 +7,8 @@ var utils = require('../support/utilities');
 
 var TreatmentArmsPage = function() {
     var treatment_id;
+    this.currentTreatmentId = '';
+    this.currentStratumId = '';
     //List of Elements on the Treatment Page
     //List of all the treatment arms on the treatment arms landing page.
     this.taTable = element(by.id('treatmentArmGrid'));

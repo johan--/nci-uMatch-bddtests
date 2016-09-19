@@ -35,13 +35,3 @@ Feature: Treatment Arm API Tests that focus on "study_id" field
       |treatment_arm_id     |origin_study_id        |new_study_id     |
       |APEC1621-SID3-1      |APEC1621               |EAY131           |
       |APEC1621-SID3-2      |EAY131                 |APEC1621         |
-
-#  Scenario: TA_SID4. Update Treatment Arm without "study_id" field should fail
-#    Given template treatment arm json with an id: "APEC1621-SID4-1" and version: "2015-03-25"
-#    Then set template treatment arm json field: "study_id" to string value: "APEC1621"
-#    When creating a new treatment arm using post request
-#    Then a success message is returned
-#    Then set the version of the treatment arm to "2016-06-03"
-#    And remove field: "study_id" from template treatment arm json
-#    When creating a new treatment arm using post request
-#    Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"

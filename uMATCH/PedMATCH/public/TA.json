@@ -127,7 +127,7 @@
   "indels": [],
   "non_hotspot_rules": [{
     "inclusion": true,
-    "oncominevariantclass": "deleterious",
+    "oncomine_variant_class": "deleterious",
     "public_med_ids": [],
     "func_gene": "PTEN",
     "arm_specific": false,

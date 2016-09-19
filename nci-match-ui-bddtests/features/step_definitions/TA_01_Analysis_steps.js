@@ -51,6 +51,8 @@ module.exports = function () {
     });
 
     this.When(/^I go to treatment arm with "(.+)" as the id and "(.+)" as stratum id$/, function (taId, stratum, callback) {
+        taPage.currentTreatmentId = taId;
+        taPage.currentStratumId = stratum;
         currentTreatmentId = taId;
         currentStratumId   = stratum;
 

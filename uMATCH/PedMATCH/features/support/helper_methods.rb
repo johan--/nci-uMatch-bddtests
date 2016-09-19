@@ -9,12 +9,12 @@ class Helper_Methods
   @requestGap = 1.0
   @requestTimeout = 10.0
   def Helper_Methods.get_request(service,params={})
-    puts "URL: #{service}\n"
+    puts "URL: #{service}"
     @params = params.values.join('/')
     @service = "#{service}/#{@params}"
     puts "Calling: #{@service}"
     @res = RestClient::Request.execute(:url => @service, :method => :get, :verify_ssl => false)
-    return @res
+    @res
   end
 
   def Helper_Methods.get_list_request(service, params={})

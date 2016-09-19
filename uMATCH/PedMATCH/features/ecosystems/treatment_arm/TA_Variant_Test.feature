@@ -114,12 +114,12 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     Then clear template treatment arm json's variant: "<variantType>" list
     Then create a template variant: "<variantType>" for treatment arm
     And set template treatment arm variant field: "identifier" to string value: "<identifier>"
-    And set template treatment arm variant field: "oncominevariantclass" to bool value: "<ovcValue>"
+    And set template treatment arm variant field: "oncomine_variant_class" to bool value: "<ovcValue>"
     And add template variant: "<variantType>" to template treatment arm json
     When creating a new treatment arm using post request
     Then a success message is returned
     Then retrieve the posted treatment arm from API
-    Then the returned treatment arm has "<variantType>" variant (id: "<identifier>", field: "oncominevariantclass", value: "<ovcValue>")
+    Then the returned treatment arm has "<variantType>" variant (id: "<identifier>", field: "oncomine_variant_class", value: "<ovcValue>")
     Examples:
       |treatment_arm_id   |variantType  |identifier             |ovcValue             |
       |APEC1621-VR6-1     |snv          |COSM1686998            |hotspot              |
@@ -132,12 +132,12 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     Given template treatment arm json with a random id
     Then clear template treatment arm json's variant: "<variantType>" list
     Then create a template variant: "<variantType>" for treatment arm
-    And set template treatment arm variant field: "oncominevariantclass" to bool value: "<oncominevariantclassValue>"
+    And set template treatment arm variant field: "oncomine_variant_class" to bool value: "<oncomine_variant_classValue>"
     And add template variant: "<variantType>" to template treatment arm json
     When creating a new treatment arm using post request
     Then a failure message is returned which contains: "Validation failed."
     Examples:
-      |variantType  |oncominevariantclassValue        |
+      |variantType  |oncomine_variant_classValue        |
       |snv          |deleterious                      |
       |cnv          |other                            |
       |gf           |*&@xx                            |

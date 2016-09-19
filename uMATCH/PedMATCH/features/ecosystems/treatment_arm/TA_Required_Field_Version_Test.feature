@@ -14,36 +14,6 @@ Feature: Treatment Arm API Tests that focus on "version" field
     |APEC1621-VS1-2     |
     |APEC1621-VS1-3     |
 
-#  Scenario Outline: TA_VS5. New Treatment Arm, version should take any string value
-#    Given template treatment arm json with an id: "<treatment_arm_id>", stratum_id: "stratum1" and version: "<version_value>"
-#    When creating a new treatment arm using post request
-#    Then retrieve treatment arm with id: "<treatment_arm_id>", stratum_id: "stratum1" and version: "<encoded_version>" from API
-#    Then the returned treatment arm has value: "<version_value>" in field: "version"
-#    Examples:
-#      |treatment_arm_id   |version_value           |encoded_version                                           |
-#      |APEC1621-VS5-1     |@*$%#!^&*()-_+=         |%40*%24%25%23!%5E%26*()-_%2B%3D                           |
-#      |APEC1621-VS5-2     |{}[]\/?;'<>,Àü ī        |%7B%7D%5B%5D%5C%2F%3F%3B%27%3C%3E%2C%C3%80%C3%BC%20%C4%AB |
-#      |APEC1621-VS5-3     |2013-04-10 15:32        |2013-04-10%2015%3A32                                      |
-#      |APEC1621-VS5-4     |55.27                   |55.27                                                     |
-
-#  Scenario Outline: TA_VS9. Update Treatment Arm, version take any string value
-#    Given template treatment arm json with an id: "<treatment_arm_id>" and version: "2015-03-25"
-#    When creating a new treatment arm using post request
-#    Then a success message is returned
-#    Then set the version of the treatment arm to "<version_value>"
-#    When creating a new treatment arm using post request
-#    Then the treatment arm with id: "<treatment_arm_id>" and version: "<version_value>" return from API has value: "<version_value>" in field: "version"
-#    Examples:
-#      |treatment_arm_id   |version_value           |
-#      |APEC1621-VS9-1     |@*$%sdga#               |
-#      |APEC1621-VS9-2     |!^&*()-_+=              |
-#      |APEC1621-VS9-3     |{}[]\/?                 |
-#      |APEC1621-VS9-4     |;'<>,.                  |
-#      |APEC1621-VS9-5     |?Àü ī                   |
-#      |APEC1621-VS9-6     |2016-MM-4D              |
-#      |APEC1621-VS9-7     |2013-04-10 15:32        |
-
-
   Scenario Outline: TA_VS10. Update Treatment Arm with same "version" value should not be taken
     Given template treatment arm json with an id: "<treatment_arm_id>", stratum_id: "STRATUM1" and version: "2016-06-03"
     And set template treatment arm json field: "<field>" to value: "<value_v1>" in type: "<type>"

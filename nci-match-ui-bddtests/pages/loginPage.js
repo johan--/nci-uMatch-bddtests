@@ -8,7 +8,11 @@ var dashboard = require ('../pages/dashboardPage');
 var LoginPage = function() {
 
     this.title = 'MATCHBox | Login';
+    var email =  element(by.id('a0-signin_easy_email'));
+    var pass = element(by.id('a0-signin_easy_password'));
+    var loginbtn = element(by.buttonText('Access'));
     var accessBtn = element(by.css('div[ng-controller="AuthController"]')).element(by.css('button[ng-click="login()"]'));
+    var oldUserLink = element(by.linkText('Not your account?'));
 
     this.goToLoginPage = function(){
         browser.get('/#/auth/login', 6000).then(function () {
@@ -23,30 +27,35 @@ var LoginPage = function() {
 
     this.login = function (username, password, callback) {
         var loginPopupPanel = element(by.css('.a0-onestep'));
-        var email =  element(by.id('a0-signin_easy_email'));
-        var pass = element(by.id('a0-signin_easy_password'));
-        var loginbtn = element(by.buttonText('Access'));
         var previousLogin = element(by.css('div[title="' + username + ' (Auth0)"]'));
 
-        browser.isElementPresent(accessBtn).then(function () {
+        accessBtn.isPresent().then(function () {
             accessBtn.click().then(function () {
                 utils.waitForElement(loginPopupPanel, 'Login Pop up panel').then(function () {
-                    browser.isElementPresent(previousLogin).then(function (present) {
-                        if(present === true){
-                            console.log("Logging in by using previous login link")
-                            previousLogin.click().then(callback);
-                        } else {
-                            console.log('Loggiing in with username and password')
+                    browser.isElementPresent(oldUserLink).then(function (present) {
+                        if (present == false) {
                             email.sendKeys(username);
                             pass.sendKeys(password);
-                            loginbtn.click().then(callback);
+                            loginbtn.click().then(function () {
+                                browser.waitForAngular()
+                            }).then(callback)
+                        } else {
+                            oldUserLink.click().then(function () {
+                                email.sendKeys(username);
+                                pass.sendKeys(password);
+                                loginbtn.click().then(function () {
+                                    browser.waitForAngular()
+                                }).then(callback)
+                            })
                         }
+
                     })
-                }, function () {
-                    dashboard.goToPageName('dashboard');
-                });
-            });
-        }); // Clicking NCI-Matchbox button
+                })
+            })
+        },function (error) {
+            console.log('Failed to find Access button');
+            console.log(error);
+        }).then(callback);
     };
 
     this.currentLogin = function() {

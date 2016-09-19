@@ -50,60 +50,26 @@ class Treatment_arm_helper
     @treatmentArm
   end
 
-  def Treatment_arm_helper.validRquestJson()
+  def Treatment_arm_helper.valid_request_json
     valid_json_file = File.join(Support::TEMPLATE_FOLDER, 'validPedMATCHTreatmentArmRequestTemplate.json')
     @treatmentArm = JSON.parse(File.read(valid_json_file))
     @treatmentArm
   end
 
-  def Treatment_arm_helper.addDrug(drugName, drugPathway, drugId)
-    if drugName == 'null'
-      drugName = nil
-    end
-    if drugPathway == 'null'
-      drugPathway = nil
-    end
-    if drugId == 'null'
-      drugId = nil
-    end
-    @treatmentArm['treatmentArmDrugs'].push({"drugId"=>drugId, "name"=>drugName, "pathway"=>drugPathway})
-    return @treatmentArm
+  def Treatment_arm_helper.add_drug(drugName, drugId, drugPathway = nil)
+    drug_name = drugName == 'null' ? nil : drugName
+    drug_id = drugId == 'null' ? nil : drugId
+    @treatmentArm['treatment_arm_drugs'] << { 'drug_id' => drug_id, 'name' => drug_name, 'drug_pathway' => drugPathway}
+    @treatmentArm
   end
 
-  def Treatment_arm_helper.addPedMATCHExclusionDrug(drugName, drugId)
-    if drugName == 'null'
-      drugName = nil
-    end
-    if drugId == 'null'
-      drugId = nil
-    end
-    # @treatmentArm['exclusion_drugs'].push({"drugs"=>[{"drugId"=>drugId, "name"=>drugName}]})   #use the next line instead of this one when new "exclusion_drugs" field is available
-    @treatmentArm['exclusion_drugs'].push({"drugId"=>drugId, "name"=>drugName})
-    return @treatmentArm
+  def Treatment_arm_helper.add_exclusion_drug(drugName, drugId)
+    drug_name = drugName == 'null' ? nil : drugName
+    drug_id = drugId == 'null' ? nil : drugId
+    @treatmentArm['exclusion_drugs'] << {"drugId" => drug_id, "name"=> drug_name}
+    @treatmentArm
   end
 
-  # def Treatment_arm_helper.findResultsFromResponseUsingVersion(treatmentArmResponse, version)
-  #   result = Array.new
-  #   tas = JSON.parse(treatmentArmResponse)
-  #   tas.each do |child|
-  #     if child['version'] == version
-  #       result.push(child)
-  #     end
-  #   end
-  #   return result
-  # end
-  #
-  # def Treatment_arm_helper.findPlaceFromResponseUsingVersion(treatmentArmResponse, version)
-  #   tas = JSON.parse(treatmentArmResponse)
-  #   place = 0
-  #   tas.each do |child|
-  #     place += 1
-  #     if child['version'] == version
-  #       break
-  #     end
-  #   end
-  #   return place
-  # end
 
   def Treatment_arm_helper.findTreatmentArmsFromResponseUsingID(treatmentArmResponse, id)
     result = Array.new
@@ -280,7 +246,7 @@ class Treatment_arm_helper
           'assay_variant'=>variantInput,
           'level_of_evidence'=>loeInput,
           'description'=>descriptionInput})
-    return @treatmentArm
+    @treatmentArm
   end
 
   def Treatment_arm_helper.addExclusionCriteria(id, description)
@@ -293,7 +259,7 @@ class Treatment_arm_helper
   def Treatment_arm_helper.addVariant(variantType, variantJson)
     va = JSON.parse(variantJson)
     @treatmentArm['variantReport'][variantType].push(va)
-    return @treatmentArm
+    @treatmentArm
   end
 
   def Treatment_arm_helper.templateVariant(variantAbbr)
@@ -383,7 +349,7 @@ class Treatment_arm_helper
           'type'=>'nhr',
           'gene'=>'EGFR',
           'exon'=>'19',
-          'oncominevariantclass'=>'deleterious',
+          'oncomine_variant_class'=>'deleterious',
           'identifier'=>'COSM99742',
           'function'=>'nonframeshiftInsertion',
           'public_med_ids'=>nil,

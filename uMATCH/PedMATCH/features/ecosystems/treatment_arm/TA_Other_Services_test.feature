@@ -9,15 +9,15 @@ Feature: Treatment Arm API Tests that focus on treatment arm api service other t
     Then a success message is returned
     Then wait for "5" seconds
     Then set the version of the treatment arm to "version2"
-    When creating a new treatment arm using post request
+    When updating an existing treatment arm using put request
     Then a success message is returned
     Then wait for "5" seconds
     Then set the version of the treatment arm to "version3"
-    When creating a new treatment arm using post request
+    When updating an existing treatment arm using put request
     Then a success message is returned
     Then wait for "5" seconds
     Then set the version of the treatment arm to "version4"
-    When creating a new treatment arm using post request
+    When updating an existing treatment arm using put request
     Then a success message is returned
     When calling with basic "true" and active "true"
     Then should return "1" of the records
@@ -28,8 +28,8 @@ Feature: Treatment Arm API Tests that focus on treatment arm api service other t
 
   Scenario: TA_OS5. every result from /basicTreatmentArms should exist in /treatmentArms
     Given retrieve all treatment arms from /treatmentArms
-    Then retrieve all basic treatment arms from /basicTreatmentArms
-    Then every result from /basicTreatmentArms should exist in /treatmentArms
+    Then retrieve basic list of treatment arms
+    Then every result from basic treatment arms should exist in regular call
 
   Scenario: TA_OS7. /treatmentArm/id/stratum_id returns all the versions of the treatment arm in reverse chronological order.
     Given template treatment arm json with an id: "APEC1621-OS7-1", stratum_id: "STRATUM1" and version: "2016-06-03"
