@@ -16,17 +16,18 @@ Feature: TA_AR1. Treatment Arm API Tests that focus on assay_rules
       |APEC1621-AR1-1       |PTEN  | IHC  |POSITIVE        |PRESENT    |2.0       |null                  |
       |APEC1621-AR1-2       |MSCH2 | IHC  |NEGATIVE        |NEGATIVE   |1.2       |description           |
       |APEC1621-AR1-3       |MLH1  | IHC  |INDETERMINATE   |EMPTY      |3.0       |the other description |
-
+@fling
   Scenario Outline: TA_AR2. assay_rules with invalid values should fail
     Given template treatment arm json with a random id
+    And clear list field: "assay_rules" from template treatment arm json
     Then add assayResult with gene: "<gene>", type: "<type>", assay_result_status: "<status>", assay_variant: "<variant>", LOE: "<loe>" and description: "<description>"
     When creating a new treatment arm using post request
     Then a failure message is returned which contains: "<errorMessage>"
     Examples:
       |gene   | type |status          |variant    |loe       |description             |errorMessage                                        |
-      |null   | IHC  |POSITIVE        |PRESENT    |2.0       |null gene               |Validation failed.                                  |
+      |null   | IHC  |POSITIVE        |PRESENT    |2.0       |null gene               |NilClass did not match the following type: string   |
       |PTEN   | IHC  |negative        |NEGATIVE   |1.0       |lower case status       |did not match one of the following values           |
       |MLH1   | IHC  |INDETERMINATE   |Empty      |1.0       |mix case variant        |did not match one of the following values           |
       |PTEN   | IHC  |otherValue      |NEGATIVE   |3.0       |non-enum status         |did not match one of the following values           |
-      |MLH1   | IHC  |INDETERMINATE   |null       |3.0       |null variant            |type NilClass did not match the following type: string|
-      |MSCH2  | IHC  |NEGATIVE        |NEGATIVE   |-2.0      |minus loe               |Validation failed.                                  |
+      |MLH1   | IHC  |INDETERMINATE   |null       |3.0       |null variant            |NilClass did not match the following type: string   |
+      |MSCH2  | IHC  |NEGATIVE        |NEGATIVE   |-2.0      |minus loe               |did not have a minimum value of 0                   |

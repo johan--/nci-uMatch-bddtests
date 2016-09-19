@@ -50,7 +50,7 @@ Feature: Treatment Arm API Tests that focus on "treatment_arm_drugs" and "exclus
     |null           |EGFR               |781254         |
     |null           |null               |null           |
 
-  Scenario: TA_DG7 New Treatment Arm with null or empty drug pathway should pass
+  Scenario Outline: TA_DG7 New Treatment Arm with null or empty drug pathway should pass
     Given template treatment arm json with a random id
     And clear list field: "treatment_arm_drugs" from template treatment arm json
     And add drug with name: "AZD9291" pathway: "<drug_pathway>" and id: "781254" to template treatment arm json
