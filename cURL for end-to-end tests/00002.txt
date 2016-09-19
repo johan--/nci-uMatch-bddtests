@@ -17,7 +17,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: e6b202f6-ac55-5dca-
       "environment": "4",
       "request": "REGISTRATION for patient_id 00002"
     }
-  }' "http://localhost:10240/api/v1/patients/00002"
+  }' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002"
 
 BLOOD_SPECIMEN_RECEIVED:
 ------------------------
@@ -40,7 +40,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 4515a4c3-ec59-6a6f-
         "qc_dttm": "2016-04-25T16:21:34+00:00"
       }
     }
-  }' "http://localhost:10240/api/v1/patients/00002"
+  }' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002"
 
 TISSUE_SPECIMEN_RECEIVED:
 -------------------------
@@ -66,7 +66,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 268ae2b1-7ed4-2420-
         "qc_ts": "2016-04-25T16:21:34+00:00"
       }
     }
-  }' "http://localhost:10240/api/v1/patients/00002"
+  }' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002"
 
 TISSUE_SPECIMEN_SHIPPED:
 ------------------------
@@ -98,7 +98,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 7bd2aa12-64de-3a48-
         "stars_specimen_id_dna": "ABCXYZ-0BJ64B"
       }
     }
-  }' "http://localhost:10240/api/v1/patients/00002"
+  }' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002"
 
 SLIDE_SPECIMEN_SHIPPED:
 -----------------------
@@ -127,7 +127,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 51ace6a1-95eb-d954-
 
       }
     }
-  }' "http://localhost:10240/api/v1/patients/00002"
+  }' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002"
 
 
 ASSAY_RESULTS - ICCPTENs:
@@ -142,7 +142,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: dfd55802-ffce-213e-
     "reported_date":"2016-09-18T07:12:09.071-05:00",
     "ordered_date":"2016-09-18T07:11:09.071-05:00",
     "result":"NEGATIVE"
-  }' "http://localhost:10240/api/v1/patients/00002"
+  }' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002"
 
 ASSAY_RESULTS - ICCMLH1s:
 -------------------------
@@ -157,7 +157,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 71350303-da8c-0be0-
     "reported_date":"2016-09-18T07:12:09.071-05:00",
     "ordered_date":"2016-09-18T07:11:09.071-05:00",
     "result":"POSITIVE"
-  }' "http://localhost:10240/api/v1/patients/00002"
+  }' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002"
 
 PATHOLOGY_CONFIRMATION:
 -----------------------
@@ -169,7 +169,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: a2b91f17-dd93-38c7-
     "type":"PATHOLOGY_STATUS",
     "reported_date":"2016-09-18T08:13:09.071-05:00",
     "status":"Y"
-  }' "http://localhost:10240/api/v1/patients/00002"
+  }' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002"
 
 TISSUE_VARIANT_REPORT_RECEIVED - TSVs:
 --------------------------------------
@@ -179,7 +179,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 584b241b-84e3-e282-
     "analysis_id": "job1",
     "tsv_file_name": "E2E-patient_00002-v1.tsv",
     "vcf_file_name": "E2E-patient_00002-v1.vcf"
-  }' "http://localhost:10240/api/v1/patients/00002"
+  }' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002"
 
 TISSUE_VARIANT_REPORT_RECEIVED - DNA:
 -------------------------------------
@@ -189,7 +189,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 7b14a781-6559-2ba0-
      "analysis_id": "job1",
      "dna_bam_file_name": "dna.bam",
      "dna_bai_file_name": "dna.bam.bai"
-}' "http://localhost:10240/api/v1/patients/00002"
+}' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002"
 
 TISSUE_VARIANT_REPORT_RECEIVED - cDNA:
 -------------------------------------
@@ -200,7 +200,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: e75d3e04-32ee-ae89-
   "analysis_id": "job1",
   "cdna_bam_file_name": "cdna.bam",
   "cdna_bai_file_name": "cdna.bam.bai"
-}' "http://localhost:10240/api/v1/patients/00002"
+}' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002"
 
 VARIANT_REPORT_CONFIRMATION:
 ----------------------------
@@ -208,16 +208,16 @@ VARIANT_REPORT_CONFIRMATION:
 curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: 756bccc9-e32f-e20b-9b45-2af47c99a8e3" -d '{
 	"comment": "The committee approves this variant report",
     "comment_user": "Rick"
-}' "http://localhost:10240/api/v1/patients/00002/variant_reports/00002-bsn-msn/job1/confirm"
+}' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002/variant_reports/00002-bsn-msn/job1/confirm"
 
 ASSIGNMENT_REPORT_CONFIRMATION:
 -------------------------------
-NOTE: Copy the date_generated value from the patients data (http://localhost:10240/api/v1/patients/00002) and paste it in the URL before submitting it.
+NOTE: Copy the date_generated value from the patients data (https://pedmatch-int.nci.nih.gov/api/v1/patients/00002) and paste it in the URL before submitting it.
 
 curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: 36939244-e64c-ec05-ccbe-64702c134bfe" -d '{
 	"comment": "The committee approves this assignment report",
     "comment_user": "Rick"
-}' "http://localhost:10240/api/v1/patients/00002/assignment_reports/2016-09-19T14:53:49+00:00/confirm"
+}' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002/assignment_reports/2016-09-19T14:53:49+00:00/confirm"
 
 ON_TREATMENT_ARM (Step 1.1):
 -----------------
@@ -241,11 +241,11 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H
     "treatment_id": "APEC1621-A"
   }
 }
-' "http://localhost:10240/api/v1/patients/00002"
+' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002"
 
 Update COG mock with prior Treatment Arm data:
 ----------------------------------------------
-curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: fc312734-a145-5d4b-1890-0f03ba917339" "http://localhost:3000/approveOnTreatmentArm/00002/1.1/CukeTest-00001-B/1"
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: fc312734-a145-5d4b-1890-0f03ba917339" "http://pedmatch-int.nci.nih.gov:3000/approveOnTreatmentArm/00002/1.1/CukeTest-00001-B/1"
 
 PROGRESSION Message( REQUEST_ASSIGNMENT ):
 ------------------------------------------
@@ -267,16 +267,16 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H
     "request": "REQUEST_ASSIGNMENT for patient_id 00002",
     "treatment_id": "120"
   }
-}' "http://localhost:10240/api/v1/patients/00002"
+}' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002"
 
 ASSIGNMENT_REPORT_CONFIRMATION - 2:
 -----------------------------------
-NOTE: Copy the date_generated value from the patients data (http://localhost:10240/api/v1/patients/00002) and paste it in the URL before submitting it.
+NOTE: Copy the date_generated value from the patients data (https://pedmatch-int.nci.nih.gov/api/v1/patients/00002) and paste it in the URL before submitting it.
 
 curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: e6cbc250-b817-2d67-bfe7-3b53a16e8cd9" -d '{
 	"comment": "The committee approves this assignment report",
     "comment_user": "Rick"
-}' "http://localhost:10240/api/v1/patients/00002/assignment_reports/2016-09-16T20:32:39.000+00:00/confirm"
+}' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002/assignment_reports/2016-09-16T20:32:39.000+00:00/confirm"
 
 
 ON_TREATMENT_ARM (Step: 2.1)
@@ -301,11 +301,11 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H
     "treatment_id": "APEC1621-A"
   }
 }
-' "http://localhost:10240/api/v1/patients/00002"
+' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002"
 
 Update COG mock service with Prior Treatment Arm:
 --------------------------------------------------
-curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: faebbbb9-995a-a274-c987-5130acf1d929" "http://localhost:3000/approveOnTreatmentArm/00002/2.1/CukeTest-00001-A/1"
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: faebbbb9-995a-a274-c987-5130acf1d929" "http://pedmatch-int.nci.nih.gov:3000/approveOnTreatmentArm/00002/2.1/CukeTest-00001-A/1"
 
 
 PROGRESSION with REBIOPSY (REQUEST_ASSIGNMENT):
@@ -328,7 +328,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H
     "request": "REQUEST_ASSIGNMENT for patient_id 00002",
     "treatment_id": "120"
   }
-}' "http://localhost:10240/api/v1/patients/00002"
+}' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002"
 
 TISSUE_SPECIMEN_RECEIVED (2):
 ------------------------
@@ -354,7 +354,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: a5682ad9-ff9c-bc20-
         "qc_ts": "2016-04-25T16:21:34+00:00"
       }
     }
-  }' "http://localhost:10240/api/v1/patients/00002"
+  }' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002"
 
 TISSUE_SPECIMEN_SHIPPED(2):
 ---------------------------
@@ -385,7 +385,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: f1d8a465-87c8-c9cd-
         "stars_specimen_id_dna": "ABCXYZ-0BJ64B"
       }
     }
-  }' "http://localhost:10240/api/v1/patients/00002"
+  }' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002"
 
 SLIDE_SHIPMENT(2):
 ------------------
@@ -413,7 +413,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 9676c4be-b097-524e-
 
       }
     }
-  }' "http://localhost:10240/api/v1/patients/00002"
+  }' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002"
 
 ASSAY_RESULTS - ICCPTENs(2):
 ----------------------------
@@ -427,7 +427,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: d4f77d6c-fa4f-af29-
     "reported_date":"2016-09-18T18:12:09.071-05:00",
     "ordered_date":"2016-09-18T18:11:09.071-05:00",
     "result":"NEGATIVE"
-}' "http://localhost:10240/api/v1/patients/00002"
+}' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002"
 
 ASSAY_RESULTS - ICCMLH1s(2):
 ----------------------------
@@ -441,7 +441,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: e4bdee34-e598-8830-
     "reported_date":"2016-09-18T18:12:09.071-05:00",
     "ordered_date":"2016-09-18T18:11:09.071-05:00",
     "result":"POSITIVE"
-}' "http://localhost:10240/api/v1/patients/00002"
+}' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002"
 
 PATHOLOGY_CONFIRMATION(2):
 --------------------------
@@ -453,7 +453,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: b889e616-0074-76da-
     "type":"PATHOLOGY_STATUS",
     "reported_date":"2016-09-18T19:13:09.071-05:00",
     "status":"Y"
-}' "http://localhost:10240/api/v1/patients/00002"
+}' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002"
 
 TISSUE_VARIANT_REPORT_RECEIVED(2):
 ----------------------------------
@@ -463,23 +463,23 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 256f8282-b419-1a29-
     "analysis_id": "job2",
     "tsv_file_name": "E2E-patient_00002-v2.tsv",
     "vcf_file_name": "E2E-patient_00002-v2.vcf"
-}' "http://localhost:10240/api/v1/patients/00002"
+}' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002"
 
 VARIANT_REPORT_CONFIRMATION(2):
 -------------------------------
 curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: 41361daa-cd85-70db-fe0a-dc66f278c40d" -d '{
 	"comment": "The committee approves this variant report",
     "comment_user": "Rick"
-}' "http://localhost:10240/api/v1/patients/00002/variant_reports/00002-bsn-msn-2/job2/confirm"
+}' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002/variant_reports/00002-bsn-msn-2/job2/confirm"
 
 ASSIGNMENT_REPORT_CONFIRMATION(3):
 ----------------------------------
-NOTE: Copy the date_generated value from the patients data (http://localhost:10240/api/v1/patients/00002) and paste it in the URL before submitting it.
+NOTE: Copy the date_generated value from the patients data (https://pedmatch-int.nci.nih.gov/api/v1/patients/00002) and paste it in the URL before submitting it.
 
 curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: f8687f32-440c-e089-52c2-37238f41f3c5" -d '{
 	"comment": "The committee approves this assignment report",
     "comment_user": "Rick"
-}' "http://localhost:10240/api/v1/patients/00002/assignment_reports/2016-09-16T20:32:39.000+00:00/confirm"
+}' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002/assignment_reports/2016-09-16T20:32:39.000+00:00/confirm"
 
 ON_TREATMENT_ARM(3):
 --------------------
@@ -503,11 +503,11 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H
     "treatment_id": "APEC1621-A"
   }
 }
-' "http://localhost:10240/api/v1/patients/00002"
+' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002"
 
 Update COG mock with prior Treatment Arm data:
 ----------------------------------------------
-curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: fc312734-a145-5d4b-1890-0f03ba917339" "http://localhost:3000/approveOnTreatmentArm/00002/3.1/CukeTest-00001-C/1"
+curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: fc312734-a145-5d4b-1890-0f03ba917339" "http://pedmatch-int.nci.nih.gov:3000/approveOnTreatmentArm/00002/3.1/CukeTest-00001-C/1"
 
 
 PROGRESSION (REQUEST_ASSIGNMENT) - 3:
@@ -531,16 +531,16 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H
     "request": "REQUEST_ASSIGNMENT for patient_id 00002",
     "treatment_id": "120"
   }
-}' "http://localhost:10240/api/v1/patients/00002"
+}' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002"
 
 ASSIGNMENT_REPORT_CONFIRMATION(4):
 ----------------------------------
-NOTE: Copy the date_generated value from the patients data (http://localhost:10240/api/v1/patients/00002) and paste it in the URL before submitting it.
+NOTE: Copy the date_generated value from the patients data (https://pedmatch-int.nci.nih.gov/api/v1/patients/00002) and paste it in the URL before submitting it.
 
 curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: f8687f32-440c-e089-52c2-37238f41f3c5" -d '{
 	"comment": "The committee approves this assignment report",
     "comment_user": "Rick"
-}' "http://localhost:10240/api/v1/patients/00002/assignment_reports/2016-09-16T20:32:39.000+00:00/confirm"
+}' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002/assignment_reports/2016-09-16T20:32:39.000+00:00/confirm"
 
 ON_TREATMENT_ARM(4):
 --------------------
@@ -564,6 +564,6 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H
     "treatment_id": "APEC1621-A"
   }
 }
-' "http://localhost:10240/api/v1/patients/00002"
+' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002"
 
 

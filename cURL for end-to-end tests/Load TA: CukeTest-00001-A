@@ -91,4 +91,4 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H
             "armSpecific" : false
         }
     ]
-}' "http://localhost:10235/api/v1/treatment_arms/CukeTest-00001-A/1/2015-08-06"
+}' "https://pedmatch-int.nci.nih.gov/api/v1/treatment_arms/CukeTest-00001-A/1/2015-08-06"

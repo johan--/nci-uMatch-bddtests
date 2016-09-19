@@ -16,7 +16,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 6e553c7d-66a4-260d-
   "environment": "4",
   "request": "REGISTRATION for patient_id 00001"
 }
-}' "http://localhost:10240/api/v1/patients/00001"
+}' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00001"
 
 BLOOD SPECIMEN_RECEIVED:
 ------------------------
@@ -40,7 +40,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 37bda0ce-8d8e-3b0a-
     "qc_dttm": "2016-04-25T16:21:34+00:00"
   }
 }
-}' "http://localhost:10240/api/v1/patients/00001"
+}' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00001"
 
 TISSUE SPECIMEN_RECEIVED:
 -------------------------
@@ -66,7 +66,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 58c2758a-c1db-e10d-
       "qc_ts": "2016-04-25T16:21:34+00:00"
     }
   }
-}' "http://localhost:10240/api/v1/patients/00001"
+}' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00001"
 
 TISSUE SPECIMEN_SHIPPED:
 ------------------------
@@ -97,7 +97,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 852b8134-9ea0-9ecc-
         "stars_specimen_id_dna": "ABCXYZ-0BJ64B"
       }
     }
-  }' "http://localhost:10240/api/v1/patients/00001"
+  }' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00001"
 
 SLIDE SPECIMEN_SHIPPED:
 -----------------------
@@ -126,7 +126,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: f62cd689-7633-9932-
 
       }
     }
-  }' "http://localhost:10240/api/v1/patients/00001"
+  }' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00001"
 
 TISSUE SPECIMEN_SHIPPED - 2:
 ----------------------------
@@ -155,21 +155,21 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: e5bca55a-d105-afb2-
         "stars_specimen_id": "ABCXYZ-0BJ64F"
       }
     }
-  }' "http://localhost:10240/api/v1/patients/00001"
+  }' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00001"
 
 ASSAY RESULT - ICCPTENs:
 ------------------------
 curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 9c37ab98-7f2f-f24d-7936-05f83b723863" -d '  {
-                                                       "patient_id":"00001",
-                                                       "study_id": "APEC1621",
-                                                       "surgical_event_id":"00001-bsn",
-                                                       "case_number": "case-1234",
-                                                       "type": "ASSAY_RESULT_REPORTED",
-                                                       "biomarker":"ICCPTENs",
-                                                       "reported_date":"2016-06-15T13:12:09.071-05:00",
-                                                       "ordered_date":"2016-06-15T13:11:09.071-05:00",
-                                                       "result":"NEGATIVE"
-                                                     }' "http://localhost:10240/api/v1/patients/00001"
+   "patient_id":"00001",
+   "study_id": "APEC1621",
+   "surgical_event_id":"00001-bsn",
+   "case_number": "case-1234",
+   "type": "ASSAY_RESULT_REPORTED",
+   "biomarker":"ICCPTENs",
+   "reported_date":"2016-06-15T13:12:09.071-05:00",
+   "ordered_date":"2016-06-15T13:11:09.071-05:00",
+   "result":"NEGATIVE"
+ }' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00001"
 
 ASSAY RESULT - ICCMLH1s:
 ------------------------
@@ -183,7 +183,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: db2876e5-34c5-8f6a-
     "reported_date":"2016-06-16T12:12:09.071-05:00",
     "ordered_date":"2016-06-16T12:11:09.071-05:00",
     "result":"POSITIVE"
-  }' "http://localhost:10240/api/v1/patients/00001"
+  }' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00001"
 
 PATHOLOGY CONFIRMATION:
 -----------------------
@@ -195,7 +195,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 469539fb-0b3f-8d33-
     "type":"PATHOLOGY_STATUS",
     "reported_date":"2016-06-18T12:13:09.071-05:00",
     "status":"Y"
-  }' "http://localhost:10240/api/v1/patients/00001"
+  }' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00001"
 
 TISSUE VARIANT REPORT RECEIVED - TSV:
 -------------------------------------
@@ -205,7 +205,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 62c0a7b1-39cb-a636-
     "analysis_id": "job1",
     "tsv_file_name": "00001.tsv",
     "vcf_file_name": "00001.vcf"
-  }' "http://localhost:10240/api/v1/patients/00001"
+  }' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00001"
 
 TISSUE VARIANT REPORT RECEIVED - DNA:
 -------------------------------------
@@ -215,7 +215,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 7bb24519-4096-9b7e-
     "analysis_id": "job1",
     "dna_bam_file_name": "dna.bam",
     "dna_bai_file_name": "dna.bam.bai"
-  }' "http://localhost:10240/api/v1/patients/00001"
+  }' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00001"
 
 TISSUE VARIANT REPORT RECEIVED - cDNA:
 --------------------------------------
@@ -225,7 +225,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 139e5ddc-843c-f03c-
     "analysis_id": "job1",
     "cdna_bam_file_name": "cdna.bam",
     "cdna_bai_file_name": "cdna.bam.bai"
-  }' "http://localhost:10240/api/v1/patients/00001"
+  }' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00001"
 
 VARIANT_REPORT_CONFIRMATION:
 ---------------------------
@@ -233,7 +233,7 @@ VARIANT_REPORT_CONFIRMATION:
 curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: e59e5b3b-6388-d792-2be4-6294822d2393" -d '{
 	"comment": "The committee approves this variant report",
     "comment_user": "Rick"
-}' "http://localhost:10240/api/v1/patients/00001/variant_reports/00001-bsn-msn-2/job1/confirm"
+}' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00001/variant_reports/00001-bsn-msn-2/job1/confirm"
 
 ASSIGNMENT_REPORT_CONFIRMATION:
 -------------------------------
@@ -241,7 +241,7 @@ ASSIGNMENT_REPORT_CONFIRMATION:
 curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: 162c82b1-4a0b-ce05-e733-000fe9fd05a6" -d '{
 	"comment": "The committee approves this assignment report",
     "comment_user": "Rick"
-}' "http://localhost:10240/api/v1/patients/00001/assignment_reports/2016-09-19T16:45:00+00:00/confirm"
+}' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00001/assignment_reports/2016-09-19T16:45:00+00:00/confirm"
 
 
 ON_TREATMENT_ARM message:
@@ -266,5 +266,5 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H
     "treatment_id": "APEC1621-A"
   }
 }
-' "http://localhost:10240/api/v1/patients/00001"
+' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00001"
 
