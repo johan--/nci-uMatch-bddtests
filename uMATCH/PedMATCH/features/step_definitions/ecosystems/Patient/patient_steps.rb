@@ -250,6 +250,13 @@ Then(/^returned patient has value: "([^"]*)" in field: "([^"]*)"$/) do |value, f
   @retrieved_patient[field].should == convert_value
 end
 
+Then(/^returned patient has selected treatment arm: "([^"]*)" with stratum id: "([^"]*)"$/) do |ta_id, stratum|
+  convert_ta_id = ta_id=='null'?nil:ta_id
+  convert_stratum = stratum=='null'?nil:stratum
+  @retrieved_patient['current_assignment']['selected_treatment_arm']['treatment_arm_id'].should == convert_ta_id
+  @retrieved_patient['current_assignment']['selected_treatment_arm']['stratum_id'].should == convert_stratum
+end
+
 Then(/^returned patient has specimen \(surgical_event_id: "([^"]*)"\)$/) do |sei|
   converted_sei = sei=='null'?nil:sei
   @current_specimen = find_specimen(@retrieved_patient, converted_sei)

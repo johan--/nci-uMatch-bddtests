@@ -53,4 +53,28 @@ class COG_helper_methods
     sleep(1.0)
     return @response
   end
+
+  def COG_helper_methods.on_treatment_arm(patient_id, step_number, ta_id, ta_stratum)
+    url = ENV['cog_mock_endpoint']+'/approveOnTreatmentArm/'+patient_id
+    url = url + '/' + step_number + '/' + ta_id + '/' + ta_stratum
+    @response = Helper_Methods.post_request(url, '')
+    sleep(1.0)
+    return @response
+  end
+
+  def COG_helper_methods.request_assignment(patient_id, step_number, rebiopsy)
+    url = ENV['cog_mock_endpoint']+'/requestAssignment/'+patient_id
+    url = url + '/' + step_number + '/' + rebiopsy
+    @response = Helper_Methods.post_request(url, '')
+    sleep(1.0)
+    return @response
+  end
+
+
+  def COG_helper_methods.reset_patient_data(patient_id)
+    url = ENV['cog_mock_endpoint']+'/resetPatient/'+patient_id
+    @response = Helper_Methods.post_request(url, '')
+    sleep(1.0)
+    return @response
+  end
 end

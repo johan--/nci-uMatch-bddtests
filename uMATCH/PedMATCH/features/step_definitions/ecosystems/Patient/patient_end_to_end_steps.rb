@@ -5,6 +5,11 @@ require_relative '../../../support/helper_methods.rb'
 require_relative '../../../support/patient_helper_methods.rb'
 require_relative '../../../support/cog_helper_methods.rb'
 
+Given(/^reset COG patient data: "([^"]*)"$/) do |patient_id|
+  @response = COG_helper_methods.reset_patient_data(patient_id)
+  validate_response('Success', 'reset')
+end
+
 Given(/^patient: "([^"]*)" with status: "([^"]*)" on step: "([^"]*)"$/) do |patient_id, patient_status, step_number|
   @patient_id = patient_id
   @patient_status = patient_status
@@ -177,17 +182,9 @@ Then(/^API returns a message that includes "([^"]*)" with status "([^"]*)"$/) do
 end
 
 Then(/^COG requests assignment for this patient with re\-biopsy: "([^"]*)", step number: "([^"]*)"$/) do |re_bio, step_number|
-  @request_hash = Patient_helper_methods.load_patient_message_templates('request_assignment')
-  @request_hash['patient_id'] = @patient_id
-  @request_hash['status'] = 'REQUEST_ASSIGNMENT'
-  @request_hash['rebiopsy'] = re_bio
-  @request_hash['status_date'] = Helper_Methods.getDateAsRequired('current')
-  @request_hash['step_number'] = step_number
-  @request_hash['treatment_arm_id'] = @current_ta_id
-  @request_hash['stratum_id'] = @current_stratum
   @patient_step_number = step_number
-
-  post_to_trigger
+  @response = COG_helper_methods.request_assignment(@patient_id, @patient_step_number, re_bio)
+  sleep(15.0)
   validate_response('Success', 'successfully')
 end
 
@@ -206,14 +203,8 @@ Then(/^COG approves patient on treatment arm: "([^"]*)", stratum: "([^"]*)" to s
   @current_ta_id = ta_id
   @current_stratum = stratum
   @patient_step_number = step_number
-  @request_hash = Patient_helper_methods.load_patient_message_templates('on_treatment_arm')
-  @request_hash['patient_id'] = @patient_id
-  @request_hash['assignment_date'] = Helper_Methods.getDateAsRequired('current')
-  @request_hash['step_number'] = step_number
-  @request_hash['treatment_arm_id'] = ta_id
-  @request_hash['stratum_id'] = stratum
-
-  post_to_trigger
+  @response = COG_helper_methods.on_treatment_arm(@patient_id, @patient_step_number, @current_ta_id, @current_stratum)
+  sleep(15.0)
   validate_response('Success', 'successfully')
 end
 
@@ -229,13 +220,14 @@ Then(/^COG received assignment status: "([^"]*)" for this patient$/) do |assignm
 end
 
 Then(/^assignment report is "([^"]*)"$/) do |status|
+  @retrieved_patient=Helper_Methods.get_single_request(ENV['patients_endpoint']+'/'+@patient_id)
+  assignment_date = @retrieved_patient['current_assignment']['date_generated']
+  target_status = case status
+                    when 'CONFIRMED' then 'confirm'
+                    when 'REJECTED' then 'reject'
+                  end
   @request_hash = Patient_helper_methods.load_patient_message_templates('assignment_confirmed')
-  @request_hash['patient_id'] = @patient_id
-  @request_hash['status'] = status
-  @request_hash['molecular_id'] = @active_ts_moi
-  @request_hash['analysis_id'] = @active_ts_ani
-
-  post_to_trigger
+  put_ar_confirm(target_status, assignment_date)
   validate_response('Success', 'successfully')
 end
 
@@ -249,6 +241,13 @@ def put_vr_confirm(moi, ani, status)
   puts JSON.pretty_generate(@request_hash)
   url = ENV['patients_endpoint'] + '/'
   url = url + @patient_id + '/variant_reports/' + moi + '/' + ani + '/' + status
+  @response = Helper_Methods.put_request(url, @request_hash.to_json.to_s)
+end
+
+def put_ar_confirm(status, ar_date)
+  puts JSON.pretty_generate(@request_hash)
+  url = ENV['patients_endpoint'] + '/'
+  url = url + @patient_id + '/assignment_reports/' + ar_date + '/' + status
   @response = Helper_Methods.put_request(url, @request_hash.to_json.to_s)
 end
 

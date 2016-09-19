@@ -196,11 +196,6 @@
     "comment_user": "Rick"
   },
   "assignment_confirmed":{
-    "status_type": "ASSIGNMENT",
-    "patient_id": "3366",
-    "molecular_id": "MOI_01",
-    "analysis_id": "ANI_01",
-    "status": "CONFIRMED",
     "comment": "The committee approves this Assignment report",
     "comment_user": "Rick"
   },
@@ -231,19 +226,11 @@
     },
     "study_id": "APEC1621",
     "patient_id": "1111",
-    "treatment_arm_id": "APEC1621-A",
-    "stratum_id": "100",
     "step_number": "2.0",
     "status": "REQUEST_ASSIGNMENT | REQUEST_NO_ASSIGNMENT",
     "status_date": "2016-05-10T22:05:33+00:00",
     "rebiopsy": "Y|N",
     "message": "Physician determines it is not in the patient’s best interest.",
-    "prior_drugs" : [
-      {
-        "drug_id" : "113",
-        "name": "Crizotinib"
-      }
-    ],
     "internal_use_only": {
       "request_id": "4-654400",
       "environment": "5",
