@@ -159,6 +159,16 @@ Then(/^"([^"]*)" variant report uploaded with analysis_id: "([^"]*)"$/) do |type
   validate_response('Success', 'successfully')
 end
 
+Then(/^"([^"]*)" variant\(type: "([^"]*)", field: "([^"]*)", value: "([^"]*)"\) is "([^"]*)"$/) do |specimen_type, variant_type, field, value, status|
+  @request_hash = Patient_helper_methods.load_patient_message_templates('variant_confirmed')
+  uuid = find_variant_uuid(specimen_type, variant_type, field, value)
+  url = ENV['patients_endpoint'] + '/'
+  url = url + 'variant/' + uuid + '/' + status
+  @response = Helper_Methods.put_request(url, @request_hash.to_json.to_s)
+  validate_response('Success', 'status changed to')
+  sleep(15.0)
+end
+
 Then(/^"([^"]*)" variant report confirmed with status: "([^"]*)"$/) do |type, status|
   target_moi = case type
                  when 'TISSUE' then @active_ts_moi
@@ -259,4 +269,26 @@ def validate_response(expected_status, expected_partial_message)
     actual_message = expect_message
   end
   actual_message.should == expect_message
+end
+
+def find_variant_uuid(specimen_type, variant_type, field, value)
+  target_moi = case specimen_type
+                 when 'BLOOD' then @active_bd_moi
+                 when 'TISSUE' then @active_ts_moi
+               end
+  target_ani = case specimen_type
+                 when 'BLOOD' then @active_bd_ani
+                 when 'TISSUE' then @active_ts_ani
+               end
+  @retrieved_patient=Helper_Methods.get_single_request(ENV['patients_endpoint']+'/'+@patient_id)
+  @retrieved_patient['variant_reports'].each { |this_vr|
+    if this_vr['variant_report_type']==specimen_type && this_vr['molecular_id'] == target_moi && this_vr['analysis_id'] == target_ani
+      this_vr['variants'][variant_type].each { |this_variant|
+        if this_variant[field] == value
+          return this_variant['uuid']
+        end
+      }
+    end
+  }
+  ''
 end
