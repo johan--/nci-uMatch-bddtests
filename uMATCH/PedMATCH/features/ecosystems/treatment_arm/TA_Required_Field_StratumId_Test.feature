@@ -10,7 +10,7 @@ Feature: Treatment Arm API Tests that focus on "stratum_id" field
     Then a success message is returned
     Then wait for "5" seconds
     Then template treatment arm json with an id: "APEC1621-SI3-1", stratum_id: "STRATUM1" and version: "2016-06-15"
-    Then creating a new treatment arm using post request
+    Then updating an existing treatment arm using put request
     Then a success message is returned
     Then wait for "5" seconds
     Then template treatment arm json with an id: "APEC1621-SI3-1", stratum_id: "STRATUM2" and version: "2016-06-15"

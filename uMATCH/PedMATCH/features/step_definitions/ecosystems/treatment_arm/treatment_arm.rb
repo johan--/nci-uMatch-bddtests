@@ -235,8 +235,7 @@ end
 
 Then(/^retrieve the posted treatment arm from API$/) do
   sleep(7)
-  response = find_single_treatment_arm(@ta_id, @stratum_id, @version)
-  @taFromAPI = JSON.parse(response)
+  @taFromAPI = find_single_treatment_arm(@ta_id, @stratum_id, @version)
 end
 
 Then(/^retrieve treatment arm with id: "([^"]*)", stratum_id: "([^"]*)" and version: "([^"]*)" from API$/) do |id, stratum, version|
@@ -245,12 +244,12 @@ Then(/^retrieve treatment arm with id: "([^"]*)", stratum_id: "([^"]*)" and vers
 end
 
 Then(/^retrieve treatment arms with id: "([^"]*)" and stratum_id: "([^"]*)" from API$/) do |id, stratum|
-  @taListFromAPI = find_all_versions(id, stratum)
+  @taFromAPI = find_all_versions(id, stratum)
 end
 
 Given(/^retrieve all treatment arms from \/treatmentArms$/) do
   response = find_all_treatment_arms()
-  @taListFromAPI = JSON.parse(response)
+  @taFromAPI = JSON.parse(response)
 end
 
 Then(/^retrieve basic list of treatment arms$/) do
@@ -267,15 +266,23 @@ Then(/^retrieve single treatment arm with id: "([^"]*)" and stratum_id: "([^"]*)
 end
 
 Then(/^the returned treatment arm has value: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
-  expect(@taFromAPI[field].to_s).to eq(value)
+  response = JSON.parse(@taFromAPI)
+  expect(response[field].to_s).to eq(value)
 end
 
+Then(/^the first returned treatment arm has value: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
+  response = JSON.parse(@taFromAPI).first
+  expect(response[field].to_s).to eq(value)
+end
+
+
 Then(/^the returned treatment arm has "([^"]*)" value: "([^"]*)" in field: "([^"]*)"$/) do |type, value, field|
-  returnedValue = @taFromAPI[field]
-  expectedValue = value
   if type == :number || :float || :int
     returnedValue = returnedValue.to_f
     expectedValue = expectedValue.to_f
+  else
+    returnedValue = @taFromAPI[field]
+    expectedValue = value
   end
   expect("#{field}: #{returnedValue}").to eq("#{field}: #{expectedValue}")
 end
@@ -308,7 +315,8 @@ end
 
 Then(/^the returned treatment arm has correct date_created value$/) do
   currentTime = Time.now.utc.to_i
-  returnedResult = DateTime.parse(@taFromAPI['date_created']).to_i
+  response = JSON.parse(@taFromAPI)
+  returnedResult = DateTime.parse(response['date_created']).to_i
 
   expect(returnedResult).to be_within(15).of(currentTime)
 end
@@ -334,7 +342,7 @@ Then(/^the returned treatment arm has assayResult \(gene: "([^"]*)", type: "([^"
       'level_of_evidence' => loe_expected,
       'description' => desc_expected,
   }
-  assay_rules = @taFromAPI['assay_rules']
+  assay_rules = JSON.parse(@taFromAPI)['assay_rules']
   expect(assay_rules).to include(expected_hash)
 end
 
@@ -344,23 +352,26 @@ Then(/^the returned treatment arm has exclusionCriteria \(id: "([^"]*)", descrip
 end
 
 Then(/^the returned treatment arm has "([^"]*)" variant \(id: "([^"]*)", field: "([^"]*)", value: "([^"]*)"\)$/) do |variantType, variantId, variantField, variantValue|
-  matchVariant = Treatment_arm_helper.findVariantFromJson(@taFromAPI, variantType, variantId, variantField, variantValue)
+  response = JSON.parse(@taFromAPI)
+  matchVariant = Treatment_arm_helper.findVariantFromJson(response, variantType, variantId, variantField, variantValue)
   matchVariant.length.should == 1
 end
 
 Then(/^the returned treatment arm has "([^"]*)" variant \(id: "([^"]*)", public_med_ids: "([^"]*)"\)$/) do |variantType, variantId, pmIdString|
-  matchVariant = Treatment_arm_helper.findVariantFromJson(@taFromAPI, variantType, variantId, "public_med_ids", pmIdString.split(','))
+  response = JSON.parse(@taFromAPI)
+  matchVariant = Treatment_arm_helper.findVariantFromJson(response, variantType, variantId, "public_med_ids", pmIdString.split(','))
   matchVariant.length.should == 1
 end
 
 Then(/^the returned treatment arm has "([^"]*)" variant count:"([^"]*)"$/) do |variantType, count|
-  matchVariants = Treatment_arm_helper.getVariantListFromJson(@taFromAPI, variantType)
-  matchVariants.length.should == count.to_i
+  response = JSON.parse(@taFromAPI)
+  matchVariants = Treatment_arm_helper.getVariantListFromJson(response, variantType)
+  expect(matchVariants.length.to_s).to eql(count)
 end
 
 Then(/^the treatment arm with version: "([^"]*)" is in the place: "([^"]*)" of returned treatment arm list$/) do |version, place|
   returnedPlace = 0
-  @taListFromAPI.each do |child|
+  @taFromAPI.each do |child|
     returnedPlace += 1
     if child['version'] == version
       break
@@ -371,7 +382,7 @@ Then(/^the treatment arm with version: "([^"]*)" is in the place: "([^"]*)" of r
 end
 
 Then(/^there are "([^"]*)" treatment arms in returned list$/) do |count|
-  size = JSON.parse(@taListFromAPI).length
+  size = JSON.parse(@taFromAPI).length
   expect(size).to eql count
 end
 
@@ -406,23 +417,22 @@ end
 
 And(/^set template treatment arm json field: "([^"]*)" to value: "([^"]*)" in type: "([^"]*)"$/) do |field, value, type|
   loadTemplateJson()
-
   if value == 'null'
-    value = nil
-    @taReq[field] = value
-  elsif (typedValue = case type
-                        when 'string' then
-                          value
-                        when 'int' then
-                          value.to_i
-                        when 'bool' then
-                          value=='true'?true:false
-                        when 'float' then
-                          value.to_f
-                      end)
-  @taReq[field] = typedValue
+    @taReq[field] = nil
+  else
+    val = case type
+            when 'string' then
+              value
+            when 'int' then
+              value.to_i
+            when 'bool' then
+              value == 'true' ? true : false
+            when 'float' then
+              value.to_f
+          end
+    @taReq[field] = val
   end
-  @jsonString = @taReq.to_json.to_s
+ @jsonString = @taReq.to_json.to_s
 end
 
 And(/^add prefix: "([^"]*)" to the value of template json field: "([^"]*)"$/) do |prefix, field|
@@ -526,7 +536,7 @@ end
 Then(/^every id\-stratumID combination from \/treatmentArms should have "([^"]*)" result in \/basicTreatmentArms$/) do |count|
   taExtract = Array.new
   basicExtract = Array.new
-  @taListFromAPI.each do |thisTA|
+  @taFromAPI.each do |thisTA|
     thisExtract = "#{thisTA['name']}_#{thisTA['stratum_id']}"
     if !taExtract.include?(thisExtract)
       taExtract.append(thisExtract)
@@ -543,7 +553,7 @@ end
 
 Then(/^every result from basic treatment arms should exist in regular call$/) do
   taExtract = Array.new
-  @taListFromAPI.each do |thisTA|
+  @taFromAPI.each do |thisTA|
     thisExtract = "#{thisTA['name']}_#{thisTA['stratum_id']}"
     if !taExtract.include?(thisExtract)
       taExtract.append(thisExtract)

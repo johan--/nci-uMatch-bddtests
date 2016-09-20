@@ -43,7 +43,7 @@ Feature: Treatment Arm API Tests that focus on treatment arm api service other t
     Then template treatment arm json with an id: "APEC1621-OS7-1", stratum_id: "STRATUM2" and version: "2016-06-15"
     Then creating a new treatment arm using post request
     Then a success message is returned
-    Then retrieve all treatment arms from /treatmentArms
-    Then the returned treatment arm has value: "APEC1621-OS7-1" in field: "name"
-    Then the returned treatment arm has value: "STRATUM1" in field: "stratum_id"
-    Then the returned treatment arm has value: "2016-06-15" in field: "version"
+    Then retrieve treatment arms with id: "APEC1621-OS7-1" and stratum_id: "STRATUM1" from API
+    Then the first returned treatment arm has value: "APEC1621-OS7-1" in field: "id"
+    Then the first returned treatment arm has value: "STRATUM1" in field: "stratum_id"
+    Then the first returned treatment arm has value: "2016-06-15" in field: "version"

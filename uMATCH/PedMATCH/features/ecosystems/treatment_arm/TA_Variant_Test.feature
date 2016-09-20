@@ -114,7 +114,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     Then clear template treatment arm json's variant: "<variantType>" list
     Then create a template variant: "<variantType>" for treatment arm
     And set template treatment arm variant field: "identifier" to string value: "<identifier>"
-    And set template treatment arm variant field: "oncomine_variant_class" to bool value: "<ovcValue>"
+    And set template treatment arm variant field: "oncomine_variant_class" to string value: "<ovcValue>"
     And add template variant: "<variantType>" to template treatment arm json
     When creating a new treatment arm using post request
     Then a success message is returned
@@ -122,10 +122,6 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     Then the returned treatment arm has "<variantType>" variant (id: "<identifier>", field: "oncomine_variant_class", value: "<ovcValue>")
     Examples:
       |treatment_arm_id   |variantType  |identifier             |ovcValue             |
-      |APEC1621-VR6-1     |snv          |COSM1686998            |hotspot              |
-      |APEC1621-VR6-2     |cnv          |COSM583                |hotspot              |
-      |APEC1621-VR6-3     |gf           |MYCL                   |fusion               |
-      |APEC1621-VR6-4     |id           |MET                    |hotspot              |
       |APEC1621-VR6-5     |nhr          |id0001                 |deleterious          |
 
   Scenario Outline: TA_VR7. Variant with invalid Oncomine Variant Class value should fail
@@ -180,7 +176,6 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
 
   Scenario Outline: TA_VR8a. Variant without type field should fail
     Given template treatment arm json with a random id
-    Then clear template treatment arm json's variant: "<string>" list
     Then clear template treatment arm json's variant: "<variantType>" list
     Then create a template variant: "<variantType>" for treatment arm
     And remove template treatment arm variant field: "type"

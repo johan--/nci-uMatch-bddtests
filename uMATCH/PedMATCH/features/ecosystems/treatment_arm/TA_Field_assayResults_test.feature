@@ -16,7 +16,7 @@ Feature: TA_AR1. Treatment Arm API Tests that focus on assay_rules
       |APEC1621-AR1-1       |PTEN  | IHC  |POSITIVE        |PRESENT    |2.0       |null                  |
       |APEC1621-AR1-2       |MSCH2 | IHC  |NEGATIVE        |NEGATIVE   |1.2       |description           |
       |APEC1621-AR1-3       |MLH1  | IHC  |INDETERMINATE   |EMPTY      |3.0       |the other description |
-@fling
+
   Scenario Outline: TA_AR2. assay_rules with invalid values should fail
     Given template treatment arm json with a random id
     And clear list field: "assay_rules" from template treatment arm json

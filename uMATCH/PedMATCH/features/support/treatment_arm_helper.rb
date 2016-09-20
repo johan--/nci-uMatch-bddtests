@@ -171,24 +171,13 @@ class Treatment_arm_helper
                         true
                       when 'false' then
                         false
+                      when 'null' then
+                        nil
                       else
                         variantValue
                     end
-    if variantValue == 'null'
-      variantValue = nil
-    end
-    typedValue = case variantType
-                   when 'snv' then
-                     'single_nucleotide_variants'
-                   when 'id' then
-                     'indels'
-                   when 'gf' then
-                     'gene_fusions'
-                   when 'cnv' then
-                     'copy_number_variants'
-                   when 'nhr' then
-                     'non_hotspot_rules'
-                 end
+
+    typedValue = Treatment_arm_helper.get_long_form_of(variantType)
     thisVariantList = treatmentArmJson[typedValue]
     thisVariantList.each do |thisVariant|
       if thisVariant['identifier'] == variantId
@@ -201,21 +190,19 @@ class Treatment_arm_helper
   end
 
   def Treatment_arm_helper.getVariantListFromJson(treatmentArmJson, variantType)
-    result = Array.new
+    typedValue = Treatment_arm_helper.get_long_form_of variantType
+    treatmentArmJson['variant_report'][typedValue]
+  end
 
-    typedValue = case variantType
-                   when 'snv' then
-                     'single_nucleotide_variants'
-                   when 'id' then
-                     'indels'
-                   when 'gf' then
-                     'gene_fusions'
-                   when 'cnv' then
-                     'copy_number_variants'
-                   when 'nhr' then
-                     'non_hotspot_rules'
-                 end
-    return treatmentArmJson['variant_report'][typedValue]
+  def self.get_long_form_of(variant)
+    variant_map = {
+        snv: 'single_nucleotide_variants',
+        cnv: 'copy_number_variants',
+        id:  'indels',
+        gf:  'gene_fusions',
+        nhr: 'non_hotspot_rules'
+    }
+    variant_map[variant.to_sym]
   end
 
   def Treatment_arm_helper.addPtenResult(ptenIhcResult, ptenVariant, description)
@@ -263,102 +250,78 @@ class Treatment_arm_helper
   end
 
   def Treatment_arm_helper.templateVariant(variantAbbr)
-    if variantAbbr == 'snv'
-      result = {
-          'type'=>'snv',
-          'confirmed'=> false,
-          'public_med_ids'=>nil,
-          'geneName'=>'MTOR',
-          'chromosome'=>'1',
-          'position'=>'11184573',
-          'identifier'=>'COSM1686998',
-          'reference'=>'G',
-          'alternative'=>'A',
-          'description' =>'some description',
-          'rare'=>false,
-          'level_of_evidence'=>1.0,
-          'inclusion'=>true,
-          'arm_specific'=>false
-      }
-      return result
-    end
-    if variantAbbr == 'cnv'
-      result = {
-          'type'=>'cnv',
-          'refCopyNumber'=>0.0,
-          'rawCopyNumber'=>0.0,
-          'copyNumber'=>0.0,
-          'confidenceInterval95percent'=>0.0,
-          'confidenceInterval5percent'=>0.0,
-          'confirmed'=> false,
-          'public_med_ids'=>nil,
-          'geneName'=>'MYCL',
-          'chromosome'=>'1',
-          'position'=>'40361592',
-          'identifier'=>'MYCL',
-          'reference'=>'A',
-          'alternative'=>'<CNV>',
-          'description' =>'MYCL transiocation',
-          'rare'=>false,
-          'level_of_evidence'=>3.0,
-          'inclusion'=>true,
-          'arm_specific'=>false
-      }
-      return result
-    end
-    if variantAbbr == 'gf'
-      result = {
-          'type'=>'gf',
-          'confirmed'=> false,
-          'public_med_ids'=>nil,
-          'geneName'=>'ALK',
-          'chromosome'=>'2',
-          'position'=>'29446394',
-          'identifier'=>'TPM3-ALK.T7A20',
-          'reference'=>'A',
-          'alternative'=>'[chr1:154142875[A',
-          'description' =>'ALK translocation',
-          'rare'=>false,
-          'level_of_evidence'=>2.0,
-          'inclusion'=>true,
-          'arm_specific'=>false
-      }
-      return result
-    end
-    if variantAbbr == 'id'
-      result = {
-          'type'=>'cnv',
-          'confirmed'=> false,
-          'public_med_ids'=>nil,
-          'geneName'=>'DNMT3A',
-          'chromosome'=>'2',
-          'position'=>'25463297',
-          'identifier'=>'COSM99742',
-          'reference'=>'AAAG',
-          'alternative'=>'A',
-          'description' =>'some description',
-          'rare'=>false,
-          'level_of_evidence'=>3.0,
-          'inclusion'=>true,
-          'arm_specific'=>false
-      }
-      return result
-    end
-    if variantAbbr == 'nhr'
-      result = {
-          'type'=>'nhr',
-          'gene'=>'EGFR',
-          'exon'=>'19',
-          'oncomine_variant_class'=>'deleterious',
-          'identifier'=>'COSM99742',
-          'function'=>'nonframeshiftInsertion',
-          'public_med_ids'=>nil,
-          'rare'=>false,
-          'level_of_evidence'=>3.0,
-          'inclusion'=>true,
-          'arm_specific'=>false
-      }
-      return result
+    case variantAbbr
+      when 'snv' then
+        {
+            'gene'=>'MTOR',
+            'identifier'=>'COSM1686998',
+            'protein' => 'p.Q61H',
+            'level_of_evidence'=> 1.0,
+            'chromosome'=>'1',
+            'position'=>'11184573',
+            'ocp_reference'=>'G',
+            'ocp_alternative'=>'A',
+            'public_med_ids'=>nil,
+            'arm_specific'=>false,
+            'inclusion'=>true
+        }
+      when 'cnv' then
+        {
+            'gene'=>'MYCL',
+            'identifier'=>'MYCL',
+            'protein' => 'p.Q61H',
+            'level_of_evidence'=> 3.0,
+            'chromosome'=>'1',
+            'position'=>'40361592',
+            'ocp_reference'=>'A',
+            'ocp_alternative'=>'CNV',
+            'public_med_ids'=>nil,
+            'inclusion'=>true,
+            'arm_specific'=>false
+        }
+      when 'gf' then
+        {
+            'gene'=>'ALK',
+            'identifier'=>'TPM3-ALK.T7A20',
+            'protein' => 'p.Q61H',
+            'level_of_evidence'=> 2.0,
+            'chromosome'=>'2',
+            'position'=>'29446394',
+            'ocp_reference'=>'A',
+            'ocp_alternative'=>'[chr1:154142875[A',
+            'public_med_ids'=>nil,
+            'inclusion'=>true,
+            'arm_specific'=>false
+        }
+      when 'id' then
+        {
+            'geneName'=>'DNMT3A',
+            'identifier'=>'COSM99742',
+            'level_of_evidence'=> 3.0,
+            'chromosome'=>'2',
+            'position'=>'25463297',
+            'ocp_reference'=>'AAAG',
+            'ocp_alternative'=>'A',
+            'public_med_ids'=>nil,
+            'inclusion'=>true,
+            'arm_specific'=>false
+        }
+      when 'nhr' then
+        {
+            'inclusion' => true,
+            'description' => 'This is an example description.',
+            'public_med_ids' => [
+                '18827604',
+                '21917678',
+                '23181703'
+            ],
+            'arm_specific' => false,
+            'level_of_evidence' => 3.0,
+            'func_gene' => 'EGFR',
+            'function' => 'missense',
+            'oncomine_variant_class' => 'deleterious',
+            'exon' => '19'
+        }
     end
   end
 

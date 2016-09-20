@@ -37,11 +37,11 @@ Feature: Treatment Arm API common tests for all fields
     Given template treatment arm json with a random id
     And set template treatment arm json field: "<field>" to value: "<value>" in type: "<type>"
     When creating a new treatment arm using post request
-    Then a failure message is returned which contains: "Validation failed."
+    Then a failure message is returned which contains: "<validation_message>"
     Examples:
-    |field              |value              |type                 |
-    |gene               |419                |int                  |
-    |target_id          |false              |bool                 |
+    | field      | value  | type  | validation_message |
+    | gene       | 419    | int   | Fixnum did not match one or more of the required schemas     |
+    | target_id  | false  | bool  | FalseClass did not match one or more of the required schemas |
 
   Scenario: TA_CF6. "date_created" value can be generated properly
     Given template treatment arm json with an id: "APEC1621-CF6-1"
@@ -54,16 +54,15 @@ Feature: Treatment Arm API common tests for all fields
     Given template treatment arm json with an id: "<treatment_arm_id>"
     And set template treatment arm json field: "<field_name>" to value: "<fieldValue>" in type: "<dataType>"
     When creating a new treatment arm using post request
+    Then a success message is returned
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has "<dataType>" value: "<fieldValue>" in field: "<field_name>"
     Examples:
       |treatment_arm_id | field_name            | fieldValue                                | dataType |
       |APEC1621-CF7-1   | description           | This is a test that verify output values  | string   |
-      |APEC1621-CF7-2   | target_id             | 3453546232                                | int      |
+      |APEC1621-CF7-2   | target_id             | 3453546232                                | string   |
       |APEC1621-CF7-3   | target_id             | Trametinib in GNAQ or GNA11 mutation      | string   |
       |APEC1621-CF7-4   | target_name           | Trametinib                                | string   |
       |APEC1621-CF7-5   | gene                  | GNA                                       | string   |
-      |APEC1621-CF7-6   | treatment_arm_status  | OPEN                                      | string   |
       |APEC1621-CF7-7   | study_id              | APEC1621                                  | string   |
       |APEC1621-CF7-8   | stratum_id            | kjg13gas                                  | string   |
-      |APEC1621-CF7-9   | num_patients_assigned | 5                                         | int      |

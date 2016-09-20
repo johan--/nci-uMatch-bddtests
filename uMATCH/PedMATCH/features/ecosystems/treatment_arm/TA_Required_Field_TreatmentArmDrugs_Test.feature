@@ -26,7 +26,7 @@ Feature: Treatment Arm API Tests that focus on "treatment_arm_drugs" and "exclus
     And add drug with name: "AZD9291" pathway: "EGFR" and id: "781254" to template treatment arm json
     And add drug with name: "AZD9291" pathway: "EGFR" and id: "781254" to template treatment arm json
     When creating a new treatment arm using post request
-    Then a failure response code of "404" is returned
+    Then a failure response code of "500" is returned
 
   Scenario: TA_DG5. New Treatment Arm with same drug in both "treatment_arm_drugs" and "exclusion_drugs" field should pass
     Given template treatment arm json with a random id
@@ -42,13 +42,12 @@ Feature: Treatment Arm API Tests that focus on "treatment_arm_drugs" and "exclus
     And clear list field: "treatment_arm_drugs" from template treatment arm json
     And add drug with name: "<drugName>" pathway: "<drugPathway>" and id: "<drugId>" to template treatment arm json
     When creating a new treatment arm using post request
-    Then a failure message is returned which contains: "Validation failed."
+    Then a failure message is returned which contains: "<validation_message>"
     Examples:
-    |drugName       |drugPathway        |drugId         |
-    |AZD9291        |EGFR               |null           |
-    |AZD9291        |null               |781254         |
-    |null           |EGFR               |781254         |
-    |null           |null               |null           |
+    |drugName       |drugPathway |drugId  | validation_message        |
+    |AZD9291        |EGFR        |null    | drug_id' of type NilClass |
+    |null           |EGFR        |781254  | name' of type NilClass    |
+
 
   Scenario Outline: TA_DG7 New Treatment Arm with null or empty drug pathway should pass
     Given template treatment arm json with a random id
