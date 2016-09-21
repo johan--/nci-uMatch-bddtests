@@ -200,32 +200,12 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 469539fb-0b3f-8d33-
 TISSUE VARIANT REPORT RECEIVED - TSV:
 -------------------------------------
 curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 62c0a7b1-39cb-a636-5e37-8ab3a7a87944" -d '  {
-    "site": "MDA",
+    "ion_reporter_id": "mda",
     "molecular_id": "00001-bsn-msn-2",
     "analysis_id": "job1",
-    "tsv_file_name": "00001.tsv",
-    "vcf_file_name": "00001.vcf"
+    "tsv_file_name": "00001.tsv"
   }' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00001"
 
-TISSUE VARIANT REPORT RECEIVED - DNA:
--------------------------------------
-curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 7bb24519-4096-9b7e-6b3f-ae70dff0d8ac" -d '  {
-    "site": "MDA",
-    "molecular_id": "00001-bsn-msn-2",
-    "analysis_id": "job1",
-    "dna_bam_file_name": "dna.bam",
-    "dna_bai_file_name": "dna.bam.bai"
-  }' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00001"
-
-TISSUE VARIANT REPORT RECEIVED - cDNA:
---------------------------------------
-curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 139e5ddc-843c-f03c-a9f0-04f0b17b3c6a" -d '  {
-    "site": "MDA",
-    "molecular_id": "00001-bsn-msn-2",
-    "analysis_id": "job1",
-    "cdna_bam_file_name": "cdna.bam",
-    "cdna_bai_file_name": "cdna.bam.bai"
-  }' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00001"
 
 VARIANT_REPORT_CONFIRMATION:
 ---------------------------
@@ -241,7 +221,7 @@ ASSIGNMENT_REPORT_CONFIRMATION:
 curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: 162c82b1-4a0b-ce05-e733-000fe9fd05a6" -d '{
 	"comment": "The committee approves this assignment report",
     "comment_user": "Rick"
-}' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00001/assignment_reports/2016-09-19T16:45:00+00:00/confirm"
+}' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00001/assignment_reports/2016-09-20T14:47:52+00:00/confirm"
 
 
 ON_TREATMENT_ARM message:
@@ -265,6 +245,5 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H
     "request": "ON_TREATMENT_ARM for patient_id 00001",
     "treatment_id": "APEC1621-A"
   }
-}
-' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00001"
+}' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00001"
 
