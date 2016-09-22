@@ -83,7 +83,7 @@ after_script:
   - export DATE=`date "+%m-%d-%y-%H%M"`
   #Send result json to S3 for review
   - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_BUILD_NUMBER/ --region us-east-1 --recursive
-  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/cucumber_report.html s3://cucumbertest-reports/$DATE/$TRAVIS_BUILD_NUMBER_$CUC_TAG_report.html --region us-east-1 --recursive
+  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/cucumber_report.html s3://cucumbertest-reports/$DATE/cucumber$CUC_TAG.html --region us-east-1 --recursive
   #- aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/result.json s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_BUILD_NUMBER/ --region us-east-1
   - export DATE=`date "+%m-%d-%y-%H%M"`
   - export TEST_REPORT='BDD Test Report'
