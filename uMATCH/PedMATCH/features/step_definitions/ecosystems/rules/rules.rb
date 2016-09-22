@@ -293,7 +293,7 @@ When(/^a new treatment arm list "([^"]*)" is received by the rules amoi service 
   variantReportHash = {"variant_report"=>@var_report,"treatment_arms"=>@treatment_arm_list}
   puts variantReportHash.to_json
 
-  @resp = Helper_Methods.put_request("#{ENV['rules_endpoint']}/variant_report/amoi",variantReportHash.to_json)
+  @resp = Helper_Methods.put_request("#{ENV['rules_endpoint']}/variant_report/amois",variantReportHash.to_json)
   @res = JSON.parse(@resp['message'])
   puts @res
 end
