@@ -1,0 +1,208 @@
+[
+  {
+    "id": "APEC1621-D",
+    "version": "2015-08-06",
+    "stratum_id": "100",
+    "treatment_arm_status": "OPEN",
+    "assay_rules": [],
+    "num_patients_assigned": null,
+    "single_nucleotide_variants": [],
+    "indels": [],
+    "non_hotspot_rules": [{
+      "inclusion": true,
+      "oncomine_variant_class": "deleterious",
+      "func_gene": "PTEN",
+      "level_of_evidence": 3.0,
+      "function": null,
+      "exon": null
+    }],
+    "copy_number_variants": [{
+      "identifier": "MYCL",
+      "level_of_evidence": 2.0,
+      "inclusion": true
+    }],
+    "gene_fusions": [{
+      "identifier": "TPM3-ALK.T7A20",
+      "inclusion": true,
+      "level_of_evidence": 2.0
+    }, {
+      "identifier": "FGFR2-OFD1.F17O3",
+      "inclusion": true,
+      "level_of_evidence": 3.0
+    }],
+    "diseases": [{
+      "disease_code_type":"ICD-O",
+      "disease_code": "10058354",
+      "disease_name": "Bronchioloalveolar carcinoma",
+      "exclusion":true
+    }, {
+      "disease_code_type":"ICD-O",
+      "disease_code": "10025032",
+      "disease_name": "Lung adenocarcinoma",
+      "exclusion":true
+    }, {
+      "disease_code_type":"ICD-O",
+      "disease_code": "90600324",
+      "disease_name": "Lung adenocar. w/ bronch. feat.",
+      "exclusion":true
+    }, {
+      "disease_code_type":"ICD-O",
+      "disease_code": "10029514",
+      "disease_name": "Non-small cell lung cancer, NOS",
+      "exclusion":true
+    }, {
+      "disease_code_type":"ICD-O",
+      "disease_code": "10025125",
+      "disease_name": "Squamous cell lung carcinoma",
+      "exclusion":true
+    },{
+      "disease_code_type":"ICD-O",
+      "disease_code": "10033701",
+      "disease_name": "Papillary thyroid carcinoma",
+      "exclusion":false
+    }],
+    "exclusion_drugs": [{
+      "name": "Doxorubicin Hydrochloride",
+      "drug_id": "10001"
+    }]
+  },
+  {
+    "id": "APEC1621-B",
+    "version": "2015-08-06",
+    "stratum_id": "100",
+    "treatment_arm_status": "OPEN",
+    "assay_rules": [
+      {
+        "gene" : "PTEN",
+        "assay_result_status" : "POSITIVE",
+        "assay_variant" : "PRESENT",
+        "level_of_evidence" : 3.0
+      },
+      {
+        "gene" : "MLH1",
+        "assay_result_status" : "POSITIVE",
+        "assay_variant" : "EMPTY",
+        "level_of_evidence" : 5.0
+      }
+    ],
+    "num_patients_assigned": null,
+    "single_nucleotide_variants": [{
+      "identifier": "COSM1074639",
+      "level_of_evidence": 3.0,
+      "inclusion": true
+    }, {
+      "identifier": "COSM52975",
+      "level_of_evidence": 3.0,
+      "inclusion": true
+    }, {
+      "identifier": "COSM44451",
+      "level_of_evidence": 3.0,
+      "inclusion": false
+    }, {
+      "identifier": "COSM757681",
+      "level_of_evidence": 3.0,
+      "inclusion": false
+    }, {
+      "identifier": "BT9",
+      "level_of_evidence": 3.0,
+      "inclusion": true
+    }],
+    "indels": [{
+      "identifier": "COSM22189",
+      "level_of_evidence": 3.0,
+      "inclusion": true
+    }, {
+      "identifier": "COSM131612",
+      "level_of_evidence": 3.0,
+      "inclusion": true
+    }, {
+      "identifier": "COSM143738",
+      "level_of_evidence": 3.0,
+      "inclusion": false
+    }],
+    "non_hotspot_rules": [{
+      "func_gene": "MYCL",
+      "oncomine_variant_class": "amplification",
+      "level_of_evidence": 3.2,
+      "inclusion": true,
+      "function": null,
+      "exon": null
+    }, {
+      "func_gene": "TP53",
+      "oncomine_variant_class":null,
+      "function": "Refallele",
+      "level_of_evidence": 2.3,
+      "inclusion": false,
+      "exon": null
+    }],
+    "copy_number_variants": [{
+      "identifier": "MYCL",
+      "level_of_evidence": 2.0,
+      "inclusion": true
+    }, {
+      "identifier": "BCL9",
+      "level_of_evidence": 2.0,
+      "inclusion": false
+    }, {
+      "identifier": "PTEN",
+      "level_of_evidence": 2.0,
+      "inclusion": true
+    }],
+    "gene_fusions": [{
+      "identifier": "TPM3-NTRK1.T7N10.COSF1318_1",
+      "inclusion": true,
+      "level_of_evidence": 2.0
+    },
+      {
+        "identifier": "TPM3-NTRK1.T7N10.COSF1318_2",
+        "inclusion": true,
+        "level_of_evidence": 3.0
+      },
+      {
+        "identifier": "TPM3-ROS1.T7R35.COSF1273_1",
+        "inclusion": false,
+        "level_of_evidence": 3.0
+      },
+      {
+        "identifier": "TPM3-ROS1.T7R35.COSF1273_2",
+        "inclusion": false,
+        "level_of_evidence": 3.0
+      }
+    ],
+    "diseases": [{
+      "disease_code_type":"ICD-O",
+      "disease_code": "10058354",
+      "disease_name": "Bronchioloalveolar carcinoma",
+      "exclusion":true
+    }, {
+      "disease_code_type":"ICD-O",
+      "disease_code": "10025032",
+      "disease_name": "Lung adenocarcinoma",
+      "exclusion":true
+    }, {
+      "disease_code_type":"ICD-O",
+      "disease_code": "90600324",
+      "disease_name": "Lung adenocar. w/ bronch. feat.",
+      "exclusion":true
+    }, {
+      "disease_code_type":"ICD-O",
+      "disease_code": "10029514",
+      "disease_name": "Non-small cell lung cancer, NOS",
+      "exclusion":true
+    }, {
+      "disease_code_type":"ICD-O",
+      "disease_code": "10025125",
+      "disease_name": "Squamous cell lung carcinoma",
+      "exclusion":true
+    },{
+      "disease_code_type":"ICD-O",
+      "disease_code": "10033701",
+      "disease_name": "Papillary thyroid carcinoma",
+      "exclusion":false
+    }],
+    "exclusion_drugs": [{
+      "name": "Doxorubicin Hydrochloride",
+      "drug_id": "10001"
+    }]
+  }
+]
