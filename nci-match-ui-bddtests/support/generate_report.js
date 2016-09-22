@@ -5,7 +5,8 @@ var options = {
     jsonDir: '/home/travis/build/CBIIT/nci-uMatch-bddtests/results/',
     output: '/home/travis/build/CBIIT/nci-uMatch-bddtests/results/cucumber_report.html',
     reportSuiteAsScenarios: true,
-    launchReport: false
+    launchReport: false,
+    ignoreBadJsonFile:true
 };
 
 reporter.generate(options);
