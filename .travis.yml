@@ -65,6 +65,8 @@ script:
   # Run UI tests
   - cd nci-match-ui-bddtests/
   - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG --troubleshoot
+  # Generate html report
+  - node support/generate_report.js
   - ls -alt
 after_success:
   # Tag latest version of docker image tested agains with a date stamp as release candidate
