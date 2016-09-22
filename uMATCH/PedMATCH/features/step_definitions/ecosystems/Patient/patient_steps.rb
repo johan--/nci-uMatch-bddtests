@@ -144,13 +144,8 @@ Given(/^template pathology report with surgical_event_id: "([^"]*)" for patient:
   @request = @request_json.to_json.to_s
 end
 
-Given(/^template "([^"]*)" uploaded message for patient: "([^"]*)", it has molecular_id: "([^"]*)" and analysis_id: "([^"]*)"$/) do |message_type, patientID, moi, ani|
-  json_name = case message_type
-                when 'tsv_vcf' then 'variant_tsv_vcf_uploaded'
-                when 'dna' then 'variant_dna_file_uploaded'
-                when 'cdna' then 'variant_cdna_file_uploaded'
-              end
-  @request_json = Patient_helper_methods.load_patient_message_templates(json_name)
+Given(/^template variant file uploaded message for patient: "([^"]*)", it has molecular_id: "([^"]*)" and analysis_id: "([^"]*)"$/) do |patientID, moi, ani|
+  @request_json = Patient_helper_methods.load_patient_message_templates('variant_file_uploaded')
   @patient_id = patientID=='null'?nil:patientID
   @molecular_id = moi=='null'?nil:moi
   @analysis_id = ani=='null'?nil:ani
