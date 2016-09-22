@@ -68,6 +68,7 @@ When(/^call the amoi rest service$/) do
   @resp = Helper_Methods.post_request("#{ENV['rules_endpoint']}/variant_report/1111/BDD/msn-1111/job-1111/#{@tsv}?format=tsv",@treatment_arm.to_json)
   @res = JSON.parse(@resp['message'])
   puts @res
+  @var_report = @res
 end
 
 When(/^the proficiency_competency service is called/) do
@@ -285,3 +286,14 @@ Then(/^moi report is returned with (\d+) ugf variants$/) do |arg1|
   expect(@res['gene_fusions'].count).to eql(arg1.to_i)
 end
 
+When(/^a new treatment arm list "([^"]*)" is received by the rules amoi service for the above variant report$/) do |ta|
+  treatment_arm = File.join(File.dirname(__FILE__),ENV['rules_treatment_arm_location']+'/'+ta)
+  expect(File.exist?(treatment_arm)).to be_truthy, "File not found"
+  @treatment_arm_list = JSON(IO.read(treatment_arm))
+  variantReportHash = {"variant_report"=>@var_report,"treatment_arms"=>@treatment_arm_list}
+  puts variantReportHash.to_json
+
+  @resp = Helper_Methods.put_request("#{ENV['rules_endpoint']}/variant_report/amoi",variantReportHash.to_json)
+  @res = JSON.parse(@resp['message'])
+  puts @res
+end
