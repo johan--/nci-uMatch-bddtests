@@ -56,7 +56,7 @@ Then(/^the patient assignment reason is "([^"]*)"$/) do |reason|
   end
 end
 
-Given(/^a tsv variant report file file "([^"]*)" and treatment arms file "([^"]*)"$/) do |arg1, ta|
+Given(/^a tsv variant report file "([^"]*)" and treatment arms file "([^"]*)"$/) do |arg1, ta|
   @tsv = arg1
 
   treatment_arm = File.join(File.dirname(__FILE__),ENV['rules_treatment_arm_location']+'/'+ta)
