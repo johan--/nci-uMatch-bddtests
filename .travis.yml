@@ -81,9 +81,11 @@ after_success:
   # - curl -s -X POST -H "Content-Type:application/json" -H "Accept:application/json" -H "Travis-API-Version:3" -H "Authorization:token $TRAVIS_TOKEN" -d "{\"request\":{\"message\":\"Triggered by nci-treatment-arm-processor-api $TRAVIS_COMMIT\", \"branch\":\"master\", \"config\":{\"env\":{\"matrix\":[\"TRIGGER_REPO=nci-treatment-arm-processor-api;CUC_TAG=@treatment_arm\"]}}}}" https://api.travis-ci.org/repo/CBIIT%2Fnci-uMatch-bddtests/requests
 after_script:
   - export DATE=`date "+%m-%d-%y-%H%M"`
+  - export DATE_TRIM=`date "+%m-%d-%y"`
   #Send result json to S3 for review
   - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_BUILD_NUMBER/ --region us-east-1 --recursive
-  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/cucumber_report.html s3://cucumbertest-reports/$DATE/cucumber$CUC_TAG.html --region us-east-1
+  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/cucumber_report.html s3://cucumbertest-reports/$DATE_TRIM/cucumber$CUC_TAG.html --region us-east-1
+  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/screenshot s3://cucumbertest-reports/$DATE_TRIM/ --region us-east-1 --recursive
   #- aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/result.json s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_BUILD_NUMBER/ --region us-east-1
 #  - export DATE=`date "+%m-%d-%y-%H%M"`
   - export TEST_REPORT='BDD Test Report'
