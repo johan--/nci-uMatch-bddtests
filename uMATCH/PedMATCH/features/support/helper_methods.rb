@@ -235,7 +235,7 @@ class Helper_Methods
 
   def Helper_Methods.dateDDMMYYYYHHMMSS ()
     time = DateTime.current.utc
-    return (time).iso8601
+    return (time - 4.hours).iso8601
   end
 
   def Helper_Methods.backDate ()
@@ -257,7 +257,7 @@ class Helper_Methods
   def Helper_Methods.oneSecondOlder ()
     time = DateTime.current.utc
     t = time - 1.seconds
-    return t.iso8601
+    return (time - 4.hours).iso8601
   end
 
   def Helper_Methods.getDateAsRequired(dateStr)

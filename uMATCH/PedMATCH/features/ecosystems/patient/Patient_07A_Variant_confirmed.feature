@@ -75,7 +75,7 @@ Feature: Variant files confirmed messages
 
   Scenario: PT_VC05. confirmed fields should be "true" as default
     #    Test Patient: PT_VC05_TissueShipped, Tissue shipped PT_VC05_TissueShipped(_SEI1, _MOI1)
-    Given template "tsv_vcf" uploaded message for patient: "PT_VC05_TissueShipped", it has molecular_id: "PT_VC05_TissueShipped_MOI1" and analysis_id: "PT_VC05_TissueShipped_ANI1"
+    Given template variant file uploaded message for patient: "PT_VC05_TissueShipped", it has molecular_id: "PT_VC05_TissueShipped_MOI1" and analysis_id: "PT_VC05_TissueShipped_ANI1"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
     Then wait for "15" seconds
     Then retrieve patient: "PT_VC05_TissueShipped" from API

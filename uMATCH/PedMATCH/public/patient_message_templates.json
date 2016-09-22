@@ -156,36 +156,32 @@
     "reported_date":"2016-04-27T12:13:09.071-05:00",
     "status":"Y"
   },
-  "variant_tsv_vcf_uploaded": {
-    "site": "MoCha",
-    "molecular_id": "3366-bsn-msn-2",
-    "analysis_id": "job1",
-    "tsv_file_name": "test1.tsv",
-    "vcf_file_name": "test1.vcf"
-  },
-  "variant_dna_file_uploaded": {
-    "site": "MoCha",
-    "molecular_id": "3366-bsn-msn-2",
-    "analysis_id": "job1",
-    "dna_bam_file_name": "dna.bam",
-    "dna_bai_file_name": "dna.bam.bai"
-  },
-  "variant_cdna_file_uploaded": {
-    "site": "MoCha",
-    "molecular_id": "3366-bsn-msn-2",
-    "analysis_id": "job2",
-    "cdna_bam_file_name": "cdna.bam",
-    "cdna_bai_file_name": "cdna.bam.bai"
-  },
+//  "variant_tsv_vcf_uploaded": {
+//    "site": "MoCha",
+//    "molecular_id": "3366-bsn-msn-2",
+//    "analysis_id": "job1",
+//    "tsv_file_name": "test1.tsv",
+//    "vcf_file_name": "test1.vcf"
+//  },
+//  "variant_dna_file_uploaded": {
+//    "site": "MoCha",
+//    "molecular_id": "3366-bsn-msn-2",
+//    "analysis_id": "job1",
+//    "dna_bam_file_name": "dna.bam",
+//    "dna_bai_file_name": "dna.bam.bai"
+//  },
+//  "variant_cdna_file_uploaded": {
+//    "site": "MoCha",
+//    "molecular_id": "3366-bsn-msn-2",
+//    "analysis_id": "job2",
+//    "cdna_bam_file_name": "cdna.bam",
+//    "cdna_bai_file_name": "cdna.bam.bai"
+//  },
   "variant_file_uploaded":{
-    "patient_id": "3344",
-    "molecular_id": "MOI_01",
-    "analysis_id": "ANI_01",
-    "s3_bucket_name": "bdd-test-data/data",
-    "tsv_file_path_name": "test1.tsv",
-    "vcf_file_path_name": "test1.vcf",
-    "dna_bam_file_path_name": "dna.bam",
-    "cdna_bam_file_path_name": "cdna.bam"
+    "ion_reporter_id": "mocha",
+    "molecular_id": "3355-bsn-msn-2",
+    "analysis_id": "job1",
+    "tsv_file_name": "test1.tsv"
   },
   "variant_confirmed":{
     "comment": "The committee approves this variant report",

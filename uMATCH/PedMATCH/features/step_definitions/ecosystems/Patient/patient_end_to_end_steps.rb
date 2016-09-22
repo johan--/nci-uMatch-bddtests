@@ -131,8 +131,8 @@ Then(/^"([^"]*)" variant report uploaded with analysis_id: "([^"]*)"$/) do |type
                   when 'TISSUE' then @active_ts_lab
                   when 'BLOOD' then @active_bd_lab
                 end
-  @request_hash = Patient_helper_methods.load_patient_message_templates('variant_tsv_vcf_uploaded')
-  @request_hash['site'] = target_site
+  @request_hash = Patient_helper_methods.load_patient_message_templates('variant_file_uploaded')
+  @request_hash['ion_reporter_id'] = target_site.downcase
   @request_hash['molecular_id'] = target_moi
   @request_hash['analysis_id'] = ani
   case type
@@ -141,20 +141,6 @@ Then(/^"([^"]*)" variant report uploaded with analysis_id: "([^"]*)"$/) do |type
     when 'BLOOD'
       @active_bd_ani = ani
   end
-  post_to_trigger
-  validate_response('Success', 'successfully')
-
-  @request_hash = Patient_helper_methods.load_patient_message_templates('variant_dna_file_uploaded')
-  @request_hash['site'] = target_site
-  @request_hash['molecular_id'] = target_moi
-  @request_hash['analysis_id'] = ani
-  post_to_trigger
-  validate_response('Success', 'successfully')
-
-  @request_hash = Patient_helper_methods.load_patient_message_templates('variant_cdna_file_uploaded')
-  @request_hash['site'] = target_site
-  @request_hash['molecular_id'] = target_moi
-  @request_hash['analysis_id'] = ani
   post_to_trigger
   validate_response('Success', 'successfully')
 end
