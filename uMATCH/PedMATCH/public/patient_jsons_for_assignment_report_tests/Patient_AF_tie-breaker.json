@@ -17,7 +17,7 @@
   ],
   "single_nucleotide_variants": [
     {
-      "type":"snp",
+      "variant_type":"snp",
 //      "metadata": {
 //        "id": "ba62eecc-d24a-4f62-a918-570deb8a9f6c"
 //      },
@@ -30,7 +30,7 @@
   ],
   "indels": [
     {
-      "type":"ins",
+      "variant_type":"ins",
 //      "metadata": {
 //        "id": "ba62eecc-d24a-4f62-a918-570deb8a9f6c"
 //      },

@@ -18,7 +18,7 @@
   ],
   "single_nucleotide_variants": [
     {
-      "type":"snp",
+      "variant_type":"snp",
       "identifier" : "RuleTest3",
       "allele_frequency" : ".05000000",
       "func_gene" : "EGFR",

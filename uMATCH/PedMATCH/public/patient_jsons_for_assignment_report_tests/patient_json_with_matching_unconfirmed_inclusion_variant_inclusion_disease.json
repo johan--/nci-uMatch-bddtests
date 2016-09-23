@@ -20,7 +20,7 @@
   "copy_number_variants": [],
   "gene_fusions": [
     {
-      "type":"fusion",
+      "variant_type":"fusion",
 //      "metadata": {
 //        "id": "ba62eecc-d24a-4f62-a918-570deb8a9f6c"
 //      },

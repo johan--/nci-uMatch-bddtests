@@ -24,7 +24,7 @@
   "copy_number_variants": [],
   "gene_fusions": [
     {
-      "type":"fusion",
+      "variant_type":"fusion",
       "identifier" : "TPM3-ALK.T7A20"
     }
   ]
