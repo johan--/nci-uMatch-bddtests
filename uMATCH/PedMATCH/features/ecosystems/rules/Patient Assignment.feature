@@ -1,4 +1,4 @@
-@rules
+@rules_p1
 Feature: Ensure the rules are fired correctly and patients are assigned to the right treatment arm
 
   Scenario: PA_01: Matching inclusion gene fusion variant and inclusion disease - Assign to TA

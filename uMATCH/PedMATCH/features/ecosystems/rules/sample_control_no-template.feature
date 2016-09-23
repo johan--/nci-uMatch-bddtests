@@ -1,4 +1,4 @@
-@rules
+@rules_p2
 Feature: Sample control tests for no template control
 
   Scenario: SC-NT_01: Verify that when the variant report contains variants then the status of the NTC variant report is set to FAILED
