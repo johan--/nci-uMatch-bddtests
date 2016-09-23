@@ -52,9 +52,13 @@ before_script:
   - cd ..
   # Reset ECOG Mock service Data
   - curl -X POST "http://pedmatch-int.nci.nih.gov:3000/restart" -d ''
+env:
+  - PRIORITY=$CUC_TAG_p1
+  - PRIORITY=$CUC_TAG_p2
+  - PRIORITY=$CUC_TAG
 script:
   # Run Cucumber @tag specific tests
-  - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG --format pretty --format json --out ../../results/output-$TEST_ENV_NUMBER.json --expand' -n 4
+  - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $PRIORITY --format pretty --format json --out ../../results/output-$TEST_ENV_NUMBER.json --expand' -n 4
   - cd ../..
   # Run Cucumber end to end tests
   # - bundle exec cucumber --tags @EndtoEnd

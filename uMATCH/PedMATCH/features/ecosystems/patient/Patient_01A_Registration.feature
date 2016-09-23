@@ -1,7 +1,7 @@
 #encoding: utf-8
 @patients @patients_reg
 Feature: Register a new patient in PEDMatchbox:
-  @demo
+  @demo_p1
   Scenario: PT_RG01. New patient can be registered successfully
     Given template patient registration message for patient: "PT_RG01_New" on date: "2016-08-16T14:52:58.000+00:00"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
@@ -22,8 +22,8 @@ Feature: Register a new patient in PEDMatchbox:
 #    |null                   |can't be blank                                                               |
     |PT_RG02_ExistingPatient|This patient has already been registered and cannot be registered again      |
 
-@demo
-  Scenario Outline: PT_RG03. patient registration with study_id "<study_id>" which is not 'APEC1621' should fail with message "<message>"
+  @demo_p2
+  Scenario Outline: PT_RG03. patient registration with invalid study_id
     Given template patient registration message for patient: "<patient_id>" on date: "current"
     Then set patient message field: "study_id" to value: "<study_id>"
     When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
