@@ -1,4 +1,4 @@
-@demo
+@demo_p2
 Feature: This feature ensures the rules api is running
 
   Scenario: Test to ensure that rules service is running
