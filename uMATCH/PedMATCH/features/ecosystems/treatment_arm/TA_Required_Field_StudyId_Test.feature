@@ -14,10 +14,10 @@ Feature: Treatment Arm API Tests that focus on "study_id" field
     Then set template treatment arm json field: "study_id" to string value: "<origin_study_id>"
     When creating a new treatment arm using post request
     Then a success message is returned
-    Then wait for "5" seconds
+    Then wait for processor to complete request in "10" seconds
     Then set the version of the treatment arm to "2016-06-03"
     And set template treatment arm json field: "study_id" to string value: "<new_study_id>"
-    When updating an existing treatment arm using put request
+    When updating an existing treatment arm using "post" request
     Then a failure message is returned which contains: "Validation failed."
     Examples:
       |treatment_arm_id     |origin_study_id        |new_study_id     |

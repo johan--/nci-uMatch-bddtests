@@ -68,16 +68,8 @@
        "name" : "Afatinib"
     },
     {
-      "drug_id" : "",
-      "name" : "Erlotinib"
-    },
-    {
-      "drug_id" : "",
-      "name" : "Neratinib"
-    },
-    {
-      "drug_id" : "",
-      "name" : "Dacomitinib"
+      "drug_id" : "8675309",
+      "name" : "Tutonib"
     }
   ],
   "single_nucleotide_variants" : [

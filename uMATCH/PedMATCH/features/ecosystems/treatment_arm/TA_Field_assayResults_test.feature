@@ -9,6 +9,7 @@ Feature: TA_AR1. Treatment Arm API Tests that focus on assay_rules
     Then add assayResult with gene: "<gene>", type: "<type>", assay_result_status: "<status>", assay_variant: "<variant>", LOE: "<loe>" and description: "<description>"
     When creating a new treatment arm using post request
     Then a success message is returned
+    Then wait for processor to complete request in "10" seconds
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has assayResult (gene: "<gene>", type: "<type>", assay_result_status: "<status>", assay_variant: "<variant>", LOE: "<loe>", description: "<description>")
     Examples:

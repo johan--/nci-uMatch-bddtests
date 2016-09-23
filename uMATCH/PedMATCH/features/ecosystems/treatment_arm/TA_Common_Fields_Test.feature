@@ -13,6 +13,7 @@ Feature: Treatment Arm API common tests for all fields
     And set template treatment arm json field: "<field>" to string value: "<value>"
     When creating a new treatment arm using post request
     Then a success message is returned
+    Then wait for processor to complete request in "10" seconds
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has value: "<returned_value>" in field: "<field>"
     Examples:
@@ -27,6 +28,7 @@ Feature: Treatment Arm API common tests for all fields
     And remove field: "<field>" from template treatment arm json
     When creating a new treatment arm using post request
     Then a success message is returned
+    Then wait for processor to complete request in "10" seconds
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has value: "" in field: "<field>"
     Examples:
@@ -47,6 +49,7 @@ Feature: Treatment Arm API common tests for all fields
     Given template treatment arm json with an id: "APEC1621-CF6-1"
     When creating a new treatment arm using post request
     Then a success message is returned
+    Then wait for processor to complete request in "10" seconds
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has correct date_created value
 
@@ -55,6 +58,7 @@ Feature: Treatment Arm API common tests for all fields
     And set template treatment arm json field: "<field_name>" to value: "<fieldValue>" in type: "<dataType>"
     When creating a new treatment arm using post request
     Then a success message is returned
+    Then wait for processor to complete request in "10" seconds
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has "<dataType>" value: "<fieldValue>" in field: "<field_name>"
     Examples:

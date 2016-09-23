@@ -12,6 +12,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     Then add template variant: "<variantType>" to template treatment arm json
     When creating a new treatment arm using post request
     Then a success message is returned
+    Then wait for processor to complete request in "10" seconds
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has "<variantType>" variant (id: "<identifier>", field: "inclusion", value: "<inclusionValue>")
     Examples:
@@ -36,6 +37,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     Then add template variant: "<variantType>" to template treatment arm json
     When creating a new treatment arm using post request
     Then a success message is returned
+    Then wait for processor to complete request in "10" seconds
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has "<variantType>" variant (id: "<identifier>", field: "arm_specific", value: "<inputValue>")
     Examples:
@@ -60,6 +62,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     Then add template variant: "<variantType>" to template treatment arm json
     When creating a new treatment arm using post request
     Then a success message is returned
+    Then wait for processor to complete request in "10" seconds
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has "<variantType>" variant (id: "<identifier>", public_med_ids: "<pmIDs>")
     Examples:
@@ -118,6 +121,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     And add template variant: "<variantType>" to template treatment arm json
     When creating a new treatment arm using post request
     Then a success message is returned
+    Then wait for processor to complete request in "10" seconds
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has "<variantType>" variant (id: "<identifier>", field: "oncomine_variant_class", value: "<ovcValue>")
     Examples:
@@ -131,15 +135,11 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     And set template treatment arm variant field: "oncomine_variant_class" to bool value: "<oncomine_variant_classValue>"
     And add template variant: "<variantType>" to template treatment arm json
     When creating a new treatment arm using post request
-    Then a failure message is returned which contains: "Validation failed."
+    Then a failure message is returned which contains: "FalseClass did not match the following type: string"
     Examples:
-      |variantType  |oncomine_variant_classValue        |
-      |snv          |deleterious                      |
-      |cnv          |other                            |
-      |gf           |*&@xx                            |
-      |id           |other                            |
-      |nhr          |fusion                           |
-      |nhr          |hotspot                          |
+      |variantType  |oncomine_variant_classValue |
+      |nhr          |fusion                      |
+      |nhr          |hotspot                     |
 
   Scenario Outline: TA_VR8a. Variant without "type" field should fail
     Given template treatment arm json with an id: "APEC1621_VR8a"
@@ -152,10 +152,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     Examples:
       |variantType  |
       |snv          |
-      |cnv          |
-      |gf           |
       |id           |
-      |nhr          |
 
   Scenario Outline: TA_VR8. Variant with invalid type value should fail
     Given template treatment arm json with a random id
@@ -168,11 +165,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     Examples:
       |variantType  |typeValue                        |
       |snv          |cnv                              |
-      |cnv          |gf                               |
-      |gf           |id                               |
       |id           |nhr                              |
-      |nhr          |noAType                          |
-      |snv          |@NT$N                            |
 
   Scenario Outline: TA_VR8a. Variant without type field should fail
     Given template treatment arm json with a random id
@@ -185,10 +178,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     Examples:
       |variantType  |
       |snv          |
-      |cnv          |
-      |gf           |
       |id           |
-      |nhr          |
 
   Scenario: TA_VR9. Duplicated Non-Hotspot Rules will be ignored
     Given template treatment arm json with an id: "APEC1621-VR9-1"
@@ -199,6 +189,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     And add template variant: "nhr" to template treatment arm json
     When creating a new treatment arm using post request
     Then a success message is returned
+    Then wait for processor to complete request in "10" seconds
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has "nhr" variant count:"1"
 
@@ -212,6 +203,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     And add template variant: "nhr" to template treatment arm json
     When creating a new treatment arm using post request
     Then a success message is returned
+    Then wait for processor to complete request in "10" seconds
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has "nhr" variant (id: "<identifier>", field: "function", value: "<functionValue>")
     Examples:
@@ -237,7 +229,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     And set template treatment arm variant field: "function" to bool value: "<functionValue>"
     And add template variant: "nhr" to template treatment arm json
     When creating a new treatment arm using post request
-    Then a failure message is returned which contains: "did not match the following type."
+    Then a failure message is returned which contains: "did not match the following type"
     Examples:
       |identifier             |functionValue                    |
       |id0001                 |synonymous                       |

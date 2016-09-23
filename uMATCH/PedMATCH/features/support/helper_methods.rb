@@ -8,13 +8,39 @@ require 'active_support/core_ext'
 class Helper_Methods
   @requestGap = 1.0
   @requestTimeout = 10.0
-  def Helper_Methods.get_request(service,params={})
-    puts "URL: #{service}"
+
+  def Helper_Methods.get_request(url , params={})
+    get_response = {}
+    no_log = params['no_log']
+    params.delete('no_log')
     @params = params.values.join('/')
-    @service = "#{service}/#{@params}"
-    puts "Calling: #{@service}"
-    @res = RestClient::Request.execute(:url => @service, :method => :get, :verify_ssl => false)
-    @res
+    if @params.empty?
+      @url = url
+    else
+      @url = [url, @params].join('/')
+    end
+    puts "Get Url: #{@url}"
+
+    begin
+      response = RestClient::Request.execute(:url => @url, :method => :get, :verify_ssl => false)
+      get_response['http_code'] = response.code
+      get_response['status']    = response.code == 200 ? 'Success': 'Failure'
+      get_response['message']   = response.body
+
+      puts get_response if get_response['status'].eql? 'Failure'
+
+      return get_response
+    rescue StandardError => e
+      get_response['status'] = 'Failure'
+      get_response['http_code'] = e.message.nil? ? '500' : e.message[0,3]
+      get_response['message'] = e.response
+
+      unless no_log
+        puts get_response['message']
+      end
+
+      return get_response
+    end
   end
 
   def Helper_Methods.get_list_request(service, params={})
@@ -106,8 +132,7 @@ class Helper_Methods
   #       'message'  => UNALTERED body of the response
   #   }
   def Helper_Methods.post_request(service,payload)
-    print "URL: #{service}\n"
-    # # print "JSON:\n#{JSON.pretty_generate(JSON.parse(payload))}\n\n"
+    puts "Post URL: #{service}"
     # print "JSON:\n#{payload}\n\n"
     @post_response = {}
     begin
@@ -145,47 +170,8 @@ class Helper_Methods
     end
   end
 
-  # This a a post_request
-  # Input:
-  #param [service]  Reqd. srting represetation of your url
-  #param payload, Optional: json payload
-  # returns [hash] with information shown below.
-  # {
-  #   status: Success or Failure
-  #   code: response code for the request.
-  #   body: body returned
-  # }
-  def self.post_para_request(service, payload = nil)
-    puts "URL: #{service}"
-    begin
-      response = RestClient::Request.execute(
-                   url: service,
-                   method: :post,
-                   verify_ssl: false,
-                   payload: payload,
-                   headers: {
-                     content_type: 'json',
-                     accept: 'json'}
-      )
-      status = response.code == 200 ? 'Success' : 'Failure'
-      return_response = {
-          status: status,
-          code: response.code,
-          body: response.body
-      }
-    rescue => e
-      return_response = {
-          status: 'Failure',
-          code: e.message[0..2].to_i,
-          body: e.response
-      }
-    end
-    return_response
-  end
-
-
   def Helper_Methods.put_request(service,payload)
-    print "URL: #{service}\n"
+    print "Post URL: #{service}\n"
     # # print "JSON:\n#{JSON.pretty_generate(JSON.parse(payload))}\n\n"
     # print "JSON:\n#{payload}\n\n"
     @put_response = {}
