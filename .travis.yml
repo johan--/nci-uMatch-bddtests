@@ -77,7 +77,7 @@ script:
 after_success:
   # Tag latest version of docker image tested agains with a date stamp as release candidate
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - export DATE=`date "+%m-%d-%y-%H%M"`
+  - export DATE=`TZ=America/New_York date "+%m-%d-%y-%H%M"`
   - docker tag -f matchbox/$TRIGGER_REPO matchbox/$TRIGGER_REPO:$DATE
   - docker images
   - docker push  matchbox/$TRIGGER_REPO:$DATE
