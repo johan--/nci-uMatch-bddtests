@@ -93,7 +93,7 @@ PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
 PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
 sleep(10.0)
-PatientMessageLoader.variant_file_confirmed(pt.id, 'CONFIRMED', pt.moi, pt.ani)
+PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.moi, pt.ani)
 
 pt = PatientDataSet.new('PT_PR13_AssayReceivedVRNotConfirmed')
 PatientMessageLoader.register_patient(pt.id)
@@ -113,7 +113,7 @@ PatientMessageLoader.assay(pt.id, pt.sei, "POSITIVE", 'ICCPTENs', '2016-05-30T12
 PatientMessageLoader.assay(pt.id, pt.sei, "POSITIVE", 'ICCMLH1s', '2016-05-30T12:18:09.071-05:00')
 PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
 sleep(10.0)
-PatientMessageLoader.variant_file_confirmed(pt.id, 'CONFIRMED', pt.moi, pt.ani)
+PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.moi, pt.ani)
 
 pt = PatientDataSet.new('PT_PR13_AssayAndVRDonePlanToN')
 PatientMessageLoader.register_patient(pt.id)
@@ -124,7 +124,7 @@ PatientMessageLoader.assay(pt.id, pt.sei, "POSITIVE", 'ICCPTENs', '2016-05-30T12
 PatientMessageLoader.assay(pt.id, pt.sei, "POSITIVE", 'ICCMLH1s', '2016-05-30T12:18:09.071-05:00')
 PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
 sleep(10.0)
-PatientMessageLoader.variant_file_confirmed(pt.id, 'CONFIRMED', pt.moi, pt.ani)
+PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.moi, pt.ani)
 
 pt = PatientDataSet.new('PT_PR13_AssayAndVRDonePlanToU')
 PatientMessageLoader.register_patient(pt.id)
@@ -135,7 +135,7 @@ PatientMessageLoader.assay(pt.id, pt.sei, "POSITIVE", 'ICCPTENs', '2016-05-30T12
 PatientMessageLoader.assay(pt.id, pt.sei, "POSITIVE", 'ICCMLH1s', '2016-05-30T12:18:09.071-05:00')
 PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
 sleep(10.0)
-PatientMessageLoader.variant_file_confirmed(pt.id, 'CONFIRMED', pt.moi, pt.ani)
+PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.moi, pt.ani)
 
 
 PatientMessageLoader.upload_done

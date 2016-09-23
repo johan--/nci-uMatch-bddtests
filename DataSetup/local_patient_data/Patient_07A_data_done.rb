@@ -104,7 +104,7 @@ PatientMessageLoader.register_patient(pt.id)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
 PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
-PatientMessageLoader.variant_file_confirmed(pt.id, 'REJECTED', pt.moi, pt.ani)
+PatientMessageLoader.variant_file_confirmed(pt.id, 'reject', pt.moi, pt.ani)
 PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani_increase)
 
 pt = PatientDataSet.new('PT_VC04_VRUploaded')
@@ -149,9 +149,9 @@ PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
 PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
 
-PatientMessageLoader.register_patient(pt.id)
-PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
-PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
-PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+# PatientMessageLoader.register_patient(pt.id)
+# PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+# PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+# PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
 
 PatientMessageLoader.upload_done

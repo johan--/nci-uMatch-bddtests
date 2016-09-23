@@ -203,7 +203,7 @@ class PatientMessageLoader
       patient_id,
       molecular_id,
       analysis_id,
-      folder='mocha',
+      folder='seed_data',
       tsv_name='test1.tsv')
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['variant_file_uploaded']
     message['ion_reporter_id'] = folder

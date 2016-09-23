@@ -84,7 +84,7 @@ PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
 PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
 PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
 sleep(10.0)
-PatientMessageLoader.variant_file_confirmed(pt.id, 'CONFIRMED', pt.moi, pt.ani)
+PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.moi, pt.ani)
 
 pt = PatientDataSet.new('PT_AS12_PathoConfirmedNoVR')
 PatientMessageLoader.register_patient(pt.id)
@@ -102,6 +102,6 @@ PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
 PatientMessageLoader.pathology(pt.id, pt.sei)
 PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
 sleep(10.0)
-PatientMessageLoader.variant_file_confirmed(pt.id, 'CONFIRMED', pt.moi, pt.ani)
+PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.moi, pt.ani)
 
 PatientMessageLoader.upload_done
