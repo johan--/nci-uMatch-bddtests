@@ -1,4 +1,4 @@
-@rules
+@rules_p2
 Feature: Sample control tests for positive control
 
   Scenario: SC-PC_01: Verify that when the variant report matches the positive controls, the status returned is PASSED

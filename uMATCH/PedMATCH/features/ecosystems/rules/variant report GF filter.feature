@@ -1,4 +1,4 @@
-@rules
+@rules_p1
 Feature: Test the functionality that filters the Gene Fusion variants based on specified filter criteria
 
   Scenario Outline: FIL-GF_01: Filter-in Genefusion with read_depth > 1000

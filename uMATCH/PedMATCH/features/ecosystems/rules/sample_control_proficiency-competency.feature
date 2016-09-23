@@ -1,4 +1,4 @@
-@rules
+@rules_p2
 Feature: Sample control tests for proficiency and competency control
 
   Scenario: SC-PCC_01: Run the rules for proficiency and competency control  with a sample file with variants passing the filters

@@ -1,4 +1,4 @@
-@rules
+@rules_p1
 Feature: Test the functionality that filters the Indel variants based on specified filter criteria
 
   Background: the amoi service is run
