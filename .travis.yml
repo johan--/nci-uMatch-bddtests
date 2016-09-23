@@ -53,7 +53,6 @@ before_script:
   # Reset ECOG Mock service Data
   - curl -X POST "http://pedmatch-int.nci.nih.gov:3000/restart" -d ''
 env:
-  global:
     - PRIORITY=_p1
     - PRIORITY=_p2
     - PRIORITY=_p3
