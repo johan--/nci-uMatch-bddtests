@@ -58,8 +58,8 @@ env:
   - PRIORITY=_p3
 script:
   # Run Cucumber @tag specific tests
-  - echo $PRIORITY
   - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$PRIORITY --format pretty --format json --out ../../results/output-$TEST_ENV_NUMBER.json --expand' -n 4
+#  - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG --format pretty --format json --out ../../results/output-$TEST_ENV_NUMBER.json --expand' -n 4
   - cd ../..
   # Run Cucumber end to end tests
   # - bundle exec cucumber --tags @EndtoEnd
@@ -69,7 +69,8 @@ script:
   - sleep 3 # give xvfb some time to start
   # Run UI tests
   - cd nci-match-ui-bddtests/
-  - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG --troubleshoot
+  - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$PRIORITY --troubleshoot
+#  - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG --troubleshoot
   # Generate html report
   - node support/generate_report.js
   - ls -alt
@@ -89,7 +90,7 @@ after_script:
   - export DATE_TRIM=`date "+%m-%d-%y"`
   #Send result json to S3 for review
   - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_BUILD_NUMBER/ --region us-east-1 --recursive
-  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/cucumber_report.html s3://cucumbertest-reports/$DATE_TRIM/cucumber$PRIORITY.html --region us-east-1
+  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/cucumber_report.html s3://cucumbertest-reports/$DATE_TRIM/cucumber$CUC_TAG$PRIORITY.html --region us-east-1
   - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/screenshot s3://cucumbertest-reports/$DATE_TRIM/screenshot --region us-east-1 --recursive
   #- aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/result.json s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_BUILD_NUMBER/ --region us-east-1
 #  - export DATE=`date "+%m-%d-%y-%H%M"`
