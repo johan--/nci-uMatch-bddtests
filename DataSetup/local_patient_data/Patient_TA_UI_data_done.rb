@@ -21,7 +21,7 @@ PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
 # PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
 # PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCMLH1s')
 # PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
-# PatientMessageLoader.variant_file_confirmed(pt.id, 'CONFIRMED', pt.moi, pt.ani)
+# PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.moi, pt.ani)
 # sleep(10.0)
 # PatientMessageLoader.assignment_confirmed(pt.id, 'CONFIRMED', pt.moi, pt.ani)
 
