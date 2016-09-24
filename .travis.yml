@@ -52,10 +52,10 @@ before_script:
   - cd ..
   # Reset ECOG Mock service Data
   - curl -X POST "http://pedmatch-int.nci.nih.gov:3000/restart" -d ''
-priority:
-    - PRIORITY=_p1
-    - PRIORITY=_p2
-    - PRIORITY=_p3
+PRIORITY:
+    - _p1
+    - _p2
+    - _p3
 script:
   - echo CUC_TAG PRIORITY = $CUC_TAG$PRIORITY
   # Run Cucumber @tag specific tests
