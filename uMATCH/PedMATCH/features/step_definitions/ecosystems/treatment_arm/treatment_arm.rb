@@ -283,7 +283,7 @@ Then(/^retrieve the treatment arm using the get service$/) do
 end
 
 Then(/^retrieve single treatment arm with id: "([^"]*)" and stratum_id: "([^"]*)" using \/treatmentArm service$/) do |id, stratum_id|
-  @response = findSingleTreatmentArm(para={'id'=>id, 'stratum_id'=>stratum_id})
+  @response = findSingleTreatmentArm(id, stratum_id)
 end
 
 Then(/^the returned treatment arm has value: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
@@ -604,8 +604,8 @@ def loadTemplateJson()
   end
 end
 
-def findSingleTreatmentArm(para={})
-  @response = Helper_Methods.get_single_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms",params=para)
+def findSingleTreatmentArm(id, stratum)
+  @response = Helper_Methods.get_single_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{id}/#{stratum}")
   @response.should_not == nil
 
   @response

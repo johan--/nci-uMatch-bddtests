@@ -54,7 +54,6 @@ Feature: Pathology Messages
     Then set patient message field: "status" to value: "Y"
     Then set patient message field: "reported_date" to value: "2016-08-18T18:42:13+00:00"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then wait for "15" seconds
     Then retrieve patient: "PT_PR06_TissueReceived" from API
     Then returned patient has value: "PATHOLOGY_REVIEWED" in field: "current_status"
     Then returned patient has specimen (surgical_event_id: "PT_PR06_TissueReceived_SEI1")
@@ -65,7 +64,6 @@ Feature: Pathology Messages
     Given template pathology report with surgical_event_id: "PT_PR07_TissueShipped_SEI1" for patient: "PT_PR07_TissueShipped"
     Then set patient message field: "status" to value: "N"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then wait for "15" seconds
     Then retrieve patient: "PT_PR06_TissueReceived" from API
     Then returned patient has value: "PATHOLOGY_REVIEWED" in field: "current_status"
 
@@ -73,7 +71,6 @@ Feature: Pathology Messages
     Given template pathology report with surgical_event_id: "PT_PR08_SlideShipped_SEI1" for patient: "PT_PR08_SlideShipped"
     Then set patient message field: "status" to value: "U"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then wait for "15" seconds
     Then retrieve patient: "PT_PR08_SlideShipped" from API
     Then returned patient has value: "TISSUE_SLIDE_SPECIMEN_SHIPPED" in field: "current_status"
 
@@ -135,13 +132,13 @@ Feature: Pathology Messages
     Given template pathology report with surgical_event_id: "<sei>" for patient: "<patient_id>"
     Then set patient message field: "status" to value: "<confirm_status>"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then wait for "60" seconds
-    Then retrieve patient: "<patient_id>" from API
-    Then returned patient has value: "<patient_status>" in field: "current_status"
+    Then patient "<patient_id>" status will become to "<first_status>"
+    Then patient "<patient_id>" status will become to "<second_status>"
     Examples:
-      |patient_id                           |sei                                      |confirm_status    |patient_status         |
-      |PT_PR13_VRConfirmedNoAssay           |PT_PR13_VRConfirmedNoAssay_SEI1          |Y                 |PATHOLOGY_REVIEWED     |
-      |PT_PR13_AssayReceivedVRNotConfirmed  |PT_PR13_AssayReceivedVRNotConfirmed_SEI1 |Y                 |PATHOLOGY_REVIEWED     |
-      |PT_PR13_AssayAndVRDonePlanToY        |PT_PR13_AssayAndVRDonePlanToY_SEI1       |Y                 |PENDING_CONFIRMATION   |
-      |PT_PR13_AssayAndVRDonePlanToN        |PT_PR13_AssayAndVRDonePlanToN_SEI1       |N                 |PATHOLOGY_REVIEWED     |
-      |PT_PR13_AssayAndVRDonePlanToU        |PT_PR13_AssayAndVRDonePlanToU_SEI1       |U                 |TISSUE_VARIANT_REPORT_CONFIRMED     |
+      |patient_id                           |sei                                      |confirm_status    |first_status           |second_status          |
+      |PT_PR13_VRConfirmedNoAssay           |PT_PR13_VRConfirmedNoAssay_SEI1          |Y                 |PATHOLOGY_REVIEWED     |PATHOLOGY_REVIEWED     |
+      |PT_PR13_AssayReceivedVRNotConfirmed  |PT_PR13_AssayReceivedVRNotConfirmed_SEI1 |Y                 |PATHOLOGY_REVIEWED     |PATHOLOGY_REVIEWED     |
+                                                                    #notice this following case, patient will skip PATHOLOGY_REVIEWED status, not sure is this a bug
+      |PT_PR13_AssayAndVRDonePlanToY        |PT_PR13_AssayAndVRDonePlanToY_SEI1       |Y                 |PENDING_CONFIRMATION     |PENDING_CONFIRMATION   |
+      |PT_PR13_AssayAndVRDonePlanToN        |PT_PR13_AssayAndVRDonePlanToN_SEI1       |N                 |PATHOLOGY_REVIEWED     |PATHOLOGY_REVIEWED     |
+      |PT_PR13_AssayAndVRDonePlanToU        |PT_PR13_AssayAndVRDonePlanToU_SEI1       |U                 |TISSUE_VARIANT_REPORT_CONFIRMED     |TISSUE_VARIANT_REPORT_CONFIRMED     |

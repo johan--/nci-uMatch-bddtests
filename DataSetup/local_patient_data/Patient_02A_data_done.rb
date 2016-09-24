@@ -8,7 +8,7 @@ PatientMessageLoader.register_patient('PT_SR04_Registered')
 PatientMessageLoader.register_patient('PT_SR05_Registered')
 PatientMessageLoader.register_patient('PT_SR06_Registered')
 PatientMessageLoader.register_patient('PT_SR08_Registered')
-PatientMessageLoader.register_patient('PT_SR09_Registered')
+# PatientMessageLoader.register_patient('PT_SR09_Registered')
 PatientMessageLoader.upload_done
 
 
@@ -65,6 +65,11 @@ PatientMessageLoader.register_patient(pt.id)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
 PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+
+pt = PatientDataSet.new('PT_SR09_TsReceivedTwice')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei_increase, '2016-04-28T15:17:11+00:00')
 
 
 pt = PatientDataSet.new('PT_SR10_BdVRReceived')

@@ -5,14 +5,12 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
   Scenario: PT_SR01. Consume a specimen_received message for type "Blood" for a patient already registered in Match
     Given template specimen received message in type: "BLOOD" for patient: "PT_SR01_Registered", it has surgical_event_id: ""
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then wait for "10" seconds
     Then retrieve patient: "PT_SR01_Registered" from API
     Then returned patient has value: "BLOOD_SPECIMEN_RECEIVED" in field: "current_status"
 
   Scenario: PT_SR02. Consume a specimen_received message for type "Tissue" for a patient already registered in Match
     Given template specimen received message in type: "TISSUE" for patient: "PT_SR02_Registered", it has surgical_event_id: "PT_SR02_Registered_SEI1"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then wait for "10" seconds
     Then retrieve patient: "PT_SR02_Registered" from API
     Then returned patient has value: "TISSUE_SPECIMEN_RECEIVED" in field: "current_status"
 
@@ -55,18 +53,15 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     |TISSUE             |                   |can't be blank                  |
     |BLOOD              |SLIDE              |is not a support type           |
 
-  Scenario Outline: PT_SR09. tissue can be received with new surgical event id but not with existing one
-#  One possible scenario: specimen using same surgical_event_id with new received_date can be received again.
-    Given template specimen received message in type: "TISSUE" for patient: "PT_SR09_Registered", it has surgical_event_id: "<SEI>"
+  Scenario Outline: PT_SR09. existing surgical event id should not be used again
+    #test patient: PT_SR09_TsReceivedTwice: (_SEI1, _SEI2) have been received
+    Given template specimen received message in type: "TISSUE" for patient: "PT_SR09_TsReceivedTwice", it has surgical_event_id: "<SEI>"
     Then set patient message field: "collected_dttm" to value: "<collectTime>"
-    Then wait for "<waitTime>" seconds
     When post to MATCH patients service, returns a message that includes "<message>" with status "<status>"
     Examples:
-    |SEI                      |collectTime              |waitTime |status |message                                                                |
-    |PT_SR09_Registered_SEI1  |2016-04-28T15:17:11+00:00|0        |Success|Message has been processed successfully                                |
-    |PT_SR09_Registered_SEI1  |2016-04-30T15:17:11+00:00|10       |Failure|same surgical event id                                                 |
-    |PT_SR09_Registered_SEI2  |2016-04-30T15:17:11+00:00|10       |Success|Message has been processed successfully                                |
-    |PT_SR09_Registered_SEI1  |2016-05-02T15:17:11+00:00|10       |Failure|same surgical event id                                                 |
+    |SEI                           |collectTime              |status |message                 |
+    |PT_SR09_TsReceivedTwice_SEI1  |2016-04-30T15:17:11+00:00|Failure|same surgical event id  |
+    |PT_SR09_TsReceivedTwice_SEI2  |2016-04-30T15:17:11+00:00|Failure|same surgical event id  |
 
   Scenario Outline: PT_SR10a. tissue specimen_received message can only be accepted when patient is in certain status
     #all test patients are using surgical event id SEI_01
@@ -83,7 +78,6 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     |PT_SR10_TsVRRejected    |PT_SR10_TsVRRejected_SEI2    |Success    |Message has been processed successfully                                      |
 #    |PT_SR10_OnTreatmentArm   |PT_SR10_OnTreatmentArm_SEI2  |Failure    |cannot transition from                                                       |
 #    |PT_SR10_ProgressReBioY   |PT_SR10_ProgressReBioY_SEI2  |Success    |Message has been processed successfully                                      |
-#    |PT_SR10_ProgressReBioN   |PT_SR10_ProgressReBioN_SEI2  |Failure    |cannot transition from                                                       |
 #    |PT_SR10_OffStudy         |PT_SR10_OffStudy_SEI2        |Failure    |cannot transition from                                                       |
 
 
@@ -99,7 +93,6 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     |PT_SR10_BdVRConfirmed  |Failure    |confirmed variant report                                                     |
 #    |PT_SR10_PendingApproval|Success    |Message has been processed successfully                                      |
 #    |PT_SR10_ProgressReBioY2|TISSUE          |Success    |Message has been processed successfully                                      |
-#    |PT_SR10_ProgressReBioN2|TISSUE          |Failure    |cannot transition from                                                       |
 #    |PT_SR10_OffStudy       |Failure    |cannot transition from                                                       |
 
   Scenario Outline: PT_SR11. Return error message when study_id is invalid
@@ -125,7 +118,6 @@ Scenario Outline: PT_SR14. new specimen receipt will push all pending variant re
   Given template specimen received message in type: "<specimen_type>" for patient: "<patient_id>", it has surgical_event_id: "<new_sei>"
   Then set patient message field: "collected_dttm" to value: "2016-08-21T14:20:02-04:00"
   When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-  Then wait for "15" seconds
   Then retrieve patient: "<patient_id>" from API
   Then returned patient has value: "<patient_status>" in field: "current_status"
   Then returned patient has variant report (surgical_event_id: "<old_sei>", molecular_id: "<old_moi>", analysis_id: "<old_ani>")
