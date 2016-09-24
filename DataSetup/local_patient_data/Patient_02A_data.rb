@@ -33,6 +33,4 @@ PatientMessageLoader.upload_start_with_wait_time(15)
 
 
 
-
-
 PatientMessageLoader.upload_done

@@ -51,25 +51,21 @@ Feature: Variant files confirmed messages
     Then find the first "snv_id" variant in variant report which has surgical_event_id: "PT_VC04_VRUploaded_SEI1", molecular_id: "PT_VC04_VRUploaded_MOI1" and analysis_id: "PT_VC04_VRUploaded_ANI1"
     Then create variant confirm message with checked: "unchecked" and comment: "TEST" for this variant
     When put to MATCH variant confirm service, returns a message that includes "confirmed status changed to false" with status "Success"
-    Then wait for "15" seconds
     Then retrieve patient: "PT_VC04_VRUploaded" from API
     Then this variant has confirmed field: "false" and comment field: "TEST"
     Then create variant confirm message with checked: "checked" and comment: "" for this variant
     When put to MATCH variant confirm service, returns a message that includes "confirmed status changed to true" with status "Success"
-    Then wait for "15" seconds
     Then retrieve patient: "PT_VC04_VRUploaded" from API
     Then this variant has confirmed field: "true" and comment field: "null"
 
   Scenario: PT_VC04a. comment can be updated properly
-    #Test patient: PT_VC04a_VRUploaded, PT_VC04a_VRUploade(_SEI1, _MOI1, _ANI1)
+    #Test patient: PT_VC04a_VRUploaded, PT_VC04a_VRUploaded(_SEI1, _MOI1, _ANI1)
     Given retrieve patient: "PT_VC04a_VRUploaded" from API
     Then find the first "snv_id" variant in variant report which has surgical_event_id: "PT_VC04a_VRUploaded_SEI1", molecular_id: "PT_VC04a_VRUploaded_MOI1" and analysis_id: "PT_VC04a_VRUploaded_ANI1"
     Then create variant confirm message with checked: "unchecked" and comment: "TEST" for this variant
     When put to MATCH variant confirm service, returns a message that includes "confirmed status changed to false" with status "Success"
-    Then wait for "15" seconds
     Then create variant confirm message with checked: "unchecked" and comment: "COMMENT_EDITED" for this variant
     When put to MATCH variant confirm service, returns a message that includes "confirmed status changed to false" with status "Success"
-    Then wait for "15" seconds
     Then retrieve patient: "PT_VC04a_VRUploaded" from API
     Then this variant has confirmed field: "false" and comment field: "COMMENT_EDITED"
 
@@ -77,7 +73,6 @@ Feature: Variant files confirmed messages
     #    Test Patient: PT_VC05_TissueShipped, Tissue shipped PT_VC05_TissueShipped(_SEI1, _MOI1)
     Given template variant file uploaded message for patient: "PT_VC05_TissueShipped", it has molecular_id: "PT_VC05_TissueShipped_MOI1" and analysis_id: "PT_VC05_TissueShipped_ANI1"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then wait for "15" seconds
     Then retrieve patient: "PT_VC05_TissueShipped" from API
     Then variants in variant report (surgical_event_id: "PT_VC05_TissueShipped_SEI1", molecular_id: "PT_VC05_TissueShipped_MOI1", analysis_id: "PT_VC05_TissueShipped_ANI1") have confirmed: "true"
 
@@ -150,7 +145,6 @@ Feature: Variant files confirmed messages
     Then set patient message field: "comment" to value: "<comment>"
     Then set patient message field: "comment_user" to value: "<user>"
     When put to MATCH variant report confirm service, returns a message that includes "Variant Report status changed successfully to" with status "Success"
-    Then wait for "15" seconds
     Then retrieve patient: "<patient_id>" from API
     Then returned patient has variant report (surgical_event_id: "<sei>", molecular_id: "<moi>", analysis_id: "<ani>")
     And this variant report has value: "<status>" in field: "status"
@@ -163,19 +157,17 @@ Feature: Variant files confirmed messages
     |PT_VC12_VRUploaded2  |PT_VC12_VRUploaded2_SEI1   |PT_VC12_VRUploaded2_MOI1   |PT_VC12_VRUploaded2_ANI1   |reject     |this variant report is rejected  |user2        |
 
   Scenario: PT_VC13. if variant report rejected, comment values for variants that are in this variant report should NOT BE cleared (this test has been changed, before the comments values should BE changed)
-#    Test patient PT_VC13_VRUploaded: vr uploaded   PT_VC13_VRUploaded(_SEI1, _MOI1, _SEI1)
+#    Test patient PT_VC13_VRUploaded1: vr uploaded   PT_VC13_VRUploaded1(_SEI1, _MOI1, _SEI1)
 #    first snv variant has confirmed=false, comment="TEST"
-    Given retrieve patient: "PT_VC13_VRUploaded" from API
-    Then find the first "snv_id" variant in variant report which has surgical_event_id: "PT_VC13_VRUploaded_SEI1", molecular_id: "PT_VC13_VRUploaded_MOI1" and analysis_id: "PT_VC13_VRUploaded_ANI1"
+    Given retrieve patient: "PT_VC13_VRUploaded1" from API
+    Then find the first "snv_id" variant in variant report which has surgical_event_id: "PT_VC13_VRUploaded1_SEI1", molecular_id: "PT_VC13_VRUploaded1_MOI1" and analysis_id: "PT_VC13_VRUploaded1_ANI1"
     Then create variant confirm message with checked: "unchecked" and comment: "Tests" for this variant
     When put to MATCH variant confirm service, returns a message that includes "confirmed status changed to false" with status "Success"
-    Then wait for "15" seconds
-    Then template variant report confirm message for patient: "PT_VC13_VRUploaded", it has molecular_id: "PT_VC13_VRUploaded_MOI1", analysis_id: "PT_VC13_VRUploaded_ANI1" and status: "reject"
+    Then template variant report confirm message for patient: "PT_VC13_VRUploaded1", it has molecular_id: "PT_VC13_VRUploaded1_MOI1", analysis_id: "PT_VC13_VRUploaded1_ANI1" and status: "reject"
     Then set patient message field: "comment" to value: "TEST"
     When put to MATCH variant report confirm service, returns a message that includes "Variant Report status changed successfully to" with status "Success"
-    Then wait for "15" seconds
-    Then retrieve patient: "PT_VC13_VRUploaded" from API
-    Then find the first "snv_id" variant in variant report which has surgical_event_id: "PT_VC13_VRUploaded_SEI1", molecular_id: "PT_VC13_VRUploaded_MOI1" and analysis_id: "PT_VC13_VRUploaded_ANI1"
+    Then retrieve patient: "PT_VC13_VRUploaded1" from API
+    Then find the first "snv_id" variant in variant report which has surgical_event_id: "PT_VC13_VRUploaded1_SEI1", molecular_id: "PT_VC13_VRUploaded1_MOI1" and analysis_id: "PT_VC13_VRUploaded1_ANI1"
     Then this variant has confirmed field: "false" and comment field: "Tests"
     
   Scenario: PT_VC14. confirming blood variant report will not trigger patient assignment process
@@ -183,9 +175,10 @@ Feature: Variant files confirmed messages
   #tissue PT_VC14_BdVRUploadedTsVRUploadedOtherReady(_SEI1, _MOI1, _ANI1) and blood(_BD_MOI1, _ANI2) variant report are uploaded
     Given template variant report confirm message for patient: "PT_VC14_BdVRUploadedTsVRUploadedOtherReady", it has molecular_id: "PT_VC14_BdVRUploadedTsVRUploadedOtherReady_BD_MOI1", analysis_id: "PT_VC14_BdVRUploadedTsVRUploadedOtherReady_ANI2" and status: "confirm"
     When put to MATCH variant report confirm service, returns a message that includes "Variant Report status changed successfully to" with status "Success"
-    Then wait for "20" seconds
-    Then retrieve patient: "PT_VC14_BdVRUploadedTsVRUploadedOtherReady" from API
-    Then returned patient has value: "BLOOD_VARIANT_REPORT_CONFIRMED" in field: "current_status"
+    Then patient "PT_VC14_BdVRUploadedTsVRUploadedOtherReady" status will become to "BLOOD_VARIANT_REPORT_CONFIRMED"
+    #this is a necessary repeat, this will make sure after a 30 second wait the status is still same
+    Then patient "PT_VC14_BdVRUploadedTsVRUploadedOtherReady" status will become to "BLOOD_VARIANT_REPORT_CONFIRMED"
+
 
   Scenario Outline: PT_VC15. variant file confirmation will not trigger patient assignment process unless patient has COMPLETE_MDA_DATA_SET status
   #Test patient PT_VC15_VRUploadedPathConfirmed VR uploaded PT_VC15_VRUploadedPathConfirmed(_SEI1, _MOI1, _ANI1), Pathology confirmed (_SEI1), Assay result is not received yet
@@ -194,7 +187,7 @@ Feature: Variant files confirmed messages
   #             PT_VC15_PathAssayDoneVRUploadedToReject VR uploaded PT_VC15_PathAssayDoneVRUploadedToReject(_SEI1, _MOI1, _ANI1), Assay result received (_SEI1, _BC1), Pathology is confirmed (_SEI1)
     Given template variant report confirm message for patient: "<patient_id>", it has molecular_id: "<moi>", analysis_id: "<ani>" and status: "<vr_status>"
     When put to MATCH variant report confirm service, returns a message that includes "Variant Report status changed successfully to" with status "Success"
-    Then wait for "60" seconds
+    Then wait for "30" seconds
     Then retrieve patient: "<patient_id>" from API
     Then returned patient has value: "<patient_status>" in field: "current_status"
     Examples:

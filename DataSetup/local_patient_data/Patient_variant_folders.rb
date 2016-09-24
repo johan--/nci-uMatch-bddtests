@@ -88,7 +88,7 @@ PatientVariantFolderCreator.create_default('PT_VC09_VRUploaded', 'tissue')
 PatientVariantFolderCreator.create_default('PT_VC11_VRUploaded', 'tissue')
 PatientVariantFolderCreator.create_default('PT_VC12_VRUploaded1', 'tissue')
 PatientVariantFolderCreator.create_default('PT_VC12_VRUploaded2', 'tissue')
-PatientVariantFolderCreator.create_default('PT_VC13_VRUploaded', 'tissue')
+PatientVariantFolderCreator.create_default('PT_VC13_VRUploaded1', 'tissue')
 
 
 PatientVariantFolderCreator.create_default('PT_CR01_PathAssayDoneVRUploadedToConfirm', 'tissue')

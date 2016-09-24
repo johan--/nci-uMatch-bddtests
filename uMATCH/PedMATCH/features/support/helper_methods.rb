@@ -74,40 +74,56 @@ class Helper_Methods
     return result
   end
 
-  def Helper_Methods.get_single_request(service, params={})
-    @params = ''
-    params.each do |key, value|
-      @params =  @params + "#{value}/"
-    end
-    url = "#{service}/#{@params}"
-    len = (url.length)-2
-    @service = url[0..len]
-    print "#{url[0..len]}\n"
+  def Helper_Methods.get_single_request(service,
+                                        print_tick=false,
+                                        key='',
+                                        value='',
+                                        request_gap_seconds=1.0,
+                                        time_out_seconds=15.0)
+    print "#{service}\n"
 
-    result = {}
+    last_response = nil
     runTime = 0.0
     loop do
-      sleep(@requestGap)
-      runTime += @requestGap
       begin
-        @res = RestClient::Request.execute(:url => @service, :method => :get, :verify_ssl => false)
+        response_string = RestClient::Request.execute(:url => service, :method => :get, :verify_ssl => false)
       rescue StandardError => e
         print "Error: #{e.message} occurred\n"
         print "Response:#{e.response}\n"
-        @res = '{}'
-        result = JSON.parse(@res)
-        return result
+        return {}
       end
 
-      if @res=='null'
-        @res = '{}'
+      if response_string=='null'
+        response_string = '{}'
       end
-      result = JSON.parse(@res)
-      if (result!=nil && result.length>0) || runTime >@requestTimeout
-        break
+      new_response = response_string=='null'?{}:JSON.parse(response_string)
+      if print_tick
+          key_value = key==''?'':"#{key}=#{new_response[key]}"
+        p "Http GET on UTC time: #{Time.current.utc.iso8601}   #{key_value}"
       end
+
+      if last_response.nil?
+        last_response = new_response
+      end
+
+      if runTime>time_out_seconds
+        p "time out! after #{time_out_seconds} seconds"
+        return new_response
+      end
+
+      unless new_response == last_response
+        if key==''
+          p "Total Http query length is #{runTime} seconds"
+          return new_response
+        elsif new_response.keys.include?(key) && new_response[key] == value
+            p "Total Http query length is #{runTime} seconds"
+            return new_response
+        end
+      end
+      sleep(request_gap_seconds)
+      runTime += request_gap_seconds
     end
-    return result
+    return {}
   end
 
   def Helper_Methods.get_request_url_param(service,params={})
@@ -264,6 +280,10 @@ class Helper_Methods
         reqDate = dateStr
     end
     return reqDate
+  end
+
+  def self.is_local_tier
+    Environment.getTier == 'local'
   end
 
 end

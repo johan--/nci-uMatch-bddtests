@@ -234,10 +234,21 @@ end
 #retrieval
 Then(/^retrieve patient: "([^"]*)" from API$/) do |patientID|
   @patient_id = patientID=='null'?nil:patientID
-  @retrieved_patient=Helper_Methods.get_single_request(ENV['patients_endpoint']+'/'+patientID)
+  print_log = Helper_Methods.is_local_tier
+  @retrieved_patient=Helper_Methods.get_single_request(ENV['patients_endpoint']+'/'+patientID, Helper_Methods.is_local_tier)
 
   #for testing purpose
   # @retrieved_patient=JSON(IO.read('/Users/wangl17/match_apps/patient_100100.json'))
+end
+
+Then(/^patient "([^"]*)" status will become to "([^"]*)"$/) do |patientID, status|
+  convert_status = status=='null'?nil:status
+  @retrieved_patient=Helper_Methods.get_single_request(ENV['patients_endpoint']+'/'+patientID,
+                                                       Helper_Methods.is_local_tier,
+                                                       'current_status',
+                                                       convert_status,
+                                                       1.0, 30.0)
+  @retrieved_patient['current_status'].should == convert_status
 end
 
 Then(/^returned patient has value: "([^"]*)" in field: "([^"]*)"$/) do |value, field|

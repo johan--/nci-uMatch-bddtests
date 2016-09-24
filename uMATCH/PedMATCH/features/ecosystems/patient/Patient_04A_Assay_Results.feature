@@ -111,7 +111,6 @@ Feature: Assay Messages
     Then set patient message field: "biomarker" to value: "<biomarker>"
     Then set patient message field: "result" to value: "<result>"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then wait for "15" seconds
     Then retrieve patient: "PT_AS11SlideShipped" from API
     Then returned patient has specimen (surgical_event_id: "PT_AS11SlideShipped_SEI1")
     And this specimen has assay (biomarker: "<biomarker>", result: "<result>", reported_date: "<date>")
@@ -136,7 +135,7 @@ Feature: Assay Messages
     Then set patient message field: "biomarker" to value: "ICCMLH1s"
     Then set patient message field: "reported_date" to value: "2016-07-18T13:42:13+00:00"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then wait for "60" seconds
+    Then wait for "30" seconds
     Then retrieve patient: "<patient_id>" from API
     Then returned patient has value: "<patient_status>" in field: "current_status"
     Examples:
