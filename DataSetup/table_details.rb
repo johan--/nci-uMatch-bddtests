@@ -17,7 +17,7 @@ class TableDetails
 
   ASSIGNMENT = {
       name: 'assignment',
-      keys: %w(patient_id date_generated)
+      keys: %w(patient_id assignment_date)
   }
 
   EVENT = {
