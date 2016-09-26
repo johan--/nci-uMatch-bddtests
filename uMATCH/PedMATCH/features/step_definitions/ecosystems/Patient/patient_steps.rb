@@ -34,7 +34,7 @@ end
 When(/^put to MATCH variant report confirm service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |retMsg, status|
   puts JSON.pretty_generate(@request_json)
   url = ENV['patients_endpoint'] + '/'
-  url = url + @patient_id + '/variant_reports/' + @molecular_id + '/' + @analysis_id + '/' + @variant_report_status
+  url = url + @patient_id + '/variant_reports/' + @analysis_id + '/' + @variant_report_status
   @response = Helper_Methods.put_request(url, @request)
   expect(@response['status']).to eql(status)
   expect_message = "returned message include <#{retMsg}>"
@@ -163,15 +163,13 @@ Then(/^create variant confirm message with checked: "([^"]*)" and comment: "([^"
   variant_confirm_message(@current_variant_uuid, confirmed, comment)
 end
 
-Given(/^template variant report confirm message for patient: "([^"]*)", it has molecular_id: "([^"]*)", analysis_id: "([^"]*)" and status: "([^"]*)"$/) do |patient_id, moi, ani, status|
+Given(/^template variant report confirm message for patient: "([^"]*)", it has analysis_id: "([^"]*)" and status: "([^"]*)"$/) do |patient_id, ani, status|
   @request_json = Patient_helper_methods.load_patient_message_templates('variant_file_confirmed')
   @patient_id = patient_id
-  @molecular_id = moi
   @analysis_id = ani
   @variant_report_status = status
   @patient_message_root_key = ''
   @request = @request_json.to_json.to_s
-
 end
 
 Given(/^template assignment report confirm message for patient: "([^"]*)", it has molecular_id: "([^"]*)", analysis_id: "([^"]*)" and status: "([^"]*)"$/) do |patient_id, moi, ani, status|
@@ -296,13 +294,12 @@ Then(/^returned patient's blood specimen has value: "([^"]*)" in field: "([^"]*)
   blood_specimen[field].should == convert_value
 end
 
-Then(/^returned patient has variant report \(surgical_event_id: "([^"]*)", molecular_id: "([^"]*)", analysis_id: "([^"]*)"\)$/) do |sei, moi, ani|
-  converted_sei = sei=='null'?nil:sei
-  @current_variant_report = find_variant_report(@retrieved_patient, converted_sei, moi, ani)
-  expect_find = "Can find variant with surgical_event_id=#{converted_sei}, molecular_id=#{moi} and analysis_id=#{ani}"
+Then(/^returned patient has variant report \(analysis_id: "([^"]*)"\)$/) do |ani|
+  @current_variant_report = find_variant_report(@retrieved_patient, ani)
+  expect_find = "Can find variant with analysis_id=#{ani}"
   actual_find = expect_find
   if @current_variant_report == nil
-    actual_find = "Cannot find variant with surgical_event_id=#{converted_sei}, molecular_id=#{moi} and analysis_id=#{ani}"
+    actual_find = "Cannot find variant with analysis_id=#{ani}"
   end
   actual_find.should == expect_find
 
@@ -345,9 +342,8 @@ And(/^this variant report has correct status_date$/) do
   time_diff.should <=20
 end
 
-Then(/^find the first "([^"]*)" variant in variant report which has surgical_event_id: "([^"]*)", molecular_id: "([^"]*)" and analysis_id: "([^"]*)"$/) do |variant_type, sei, moi, ani|
-  converted_sei = sei=='null'?nil:sei
-  this_variant_report = find_variant_report(@retrieved_patient, converted_sei, moi, ani)
+Then(/^find the first "([^"]*)" variant in variant report which has analysis_id: "([^"]*)"$/) do |variant_type, ani|
+  this_variant_report = find_variant_report(@retrieved_patient, ani)
   variant_list_field = case variant_type
                          when 'snv_id' then 'snvs_and_indels'
                          when 'cnv' then 'copy_number_variants'
@@ -379,9 +375,8 @@ end
 #   timeDiff.should <=20
 # end
 
-Then(/^variants in variant report \(surgical_event_id: "([^"]*)", molecular_id: "([^"]*)", analysis_id: "([^"]*)"\) have confirmed: "([^"]*)"$/) do |sei, moi, ani, confirmed|
-  converted_sei = sei=='null'?nil:sei
-  variant_report = find_variant_report(@retrieved_patient, converted_sei, moi, ani)
+Then(/^variants in variant report \(analysis_id: "([^"]*)"\) have confirmed: "([^"]*)"$/) do |ani, confirmed|
+  variant_report = find_variant_report(@retrieved_patient, ani)
 
   variants = variant_report['variants']
   variants.each {|key, value|
@@ -435,16 +430,10 @@ def find_assay(specimen_json, biomarker, result, date)
   nil
 end
 
-def find_variant_report (patient_json, sei, moi, ani)
+def find_variant_report (patient_json, ani)
   variant_reports = patient_json['variant_reports']
   variant_reports.each do |thisVariantReport|
-    is_this = true
-    if sei!=nil && sei!='null' && sei!=''
-      is_this = is_this && (thisVariantReport['surgical_event_id'] == sei)
-    end
-    is_this = is_this && (thisVariantReport['molecular_id'] == moi)
-    is_this = is_this && (thisVariantReport['analysis_id'] == ani)
-    if is_this
+    if thisVariantReport['analysis_id'] == ani
       return thisVariantReport
     end
   end

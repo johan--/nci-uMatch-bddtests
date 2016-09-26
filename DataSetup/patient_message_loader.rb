@@ -7,6 +7,7 @@ class PatientMessageLoader
   LOCAL_PATIENT_DATA_FOLDER = 'local_patient_data'
   LOCAL_DYNAMODB_URL = 'http://localhost:8000'
   LOCAL_PATIENT_API_URL = 'http://localhost:10240/api/v1/patients/'
+  LOCAL_COG_URL = 'http://localhost:3000'
   SERVICE_NAME = 'trigger'
   MESSAGE_TEMPLATE_FILE = "#{File.dirname(__FILE__)}/../uMATCH/PedMATCH/public/patient_message_templates.json"
 
@@ -71,11 +72,44 @@ class PatientMessageLoader
     sleep(@wait_time)
   end
 
-  def self.send_variant_report_confirm_message(message_json, patient_id, moi, ani, status)
+  def self.put_message_to_local(service, message_json)
     @all_items += 1
     curl_cmd ="curl -k -X PUT -H \"Content-Type: application/json\""
     curl_cmd = curl_cmd + " -H \"Accept: application/json\"  -d '" + message_json.to_json
-    curl_cmd = curl_cmd + "' #{LOCAL_PATIENT_API_URL}/#{patient_id}/variant_reports/#{moi}/#{ani}/#{status}"
+    curl_cmd = curl_cmd + "' #{LOCAL_PATIENT_API_URL}#{service}"
+    output = `#{curl_cmd}`
+    p "Output from running No.#{@all_items} curl: #{output}"
+    unless output.downcase.include?'success'
+      p 'Failed'
+      puts JSON.pretty_generate(message_json)
+      @failure += 1
+    end
+    sleep(@wait_time)
+  end
+
+  def self.send_message_to_local_cog(service, message_json)
+    url = LOCAL_COG_URL+service
+    curl_cmd ="curl -k -X POST -H \"Content-Type: application/json\""
+    curl_cmd = curl_cmd + " -H \"Accept: application/json\"  -d '" + message_json.to_json
+    curl_cmd = curl_cmd + "' #{url}"
+    output = `#{curl_cmd}`
+    sleep(1.0)
+    p "Output from running No.#{@all_items} curl: #{output}"
+    unless output.downcase.include?'success'
+      p 'Failed'
+      unless message_json==''
+        puts JSON.pretty_generate(message_json)
+      end
+      @failure += 1
+    end
+    sleep(@wait_time)
+  end
+
+  def self.send_variant_report_confirm_message(message_json, patient_id, ani, status)
+    @all_items += 1
+    curl_cmd ="curl -k -X PUT -H \"Content-Type: application/json\""
+    curl_cmd = curl_cmd + " -H \"Accept: application/json\"  -d '" + message_json.to_json
+    curl_cmd = curl_cmd + "' #{LOCAL_PATIENT_API_URL}/#{patient_id}/variant_reports/#{ani}/#{status}"
     output = `#{curl_cmd}`
     p "Output from running No.#{@all_items} curl: #{output}"
     unless output.downcase.include?'success'
@@ -261,23 +295,17 @@ class PatientMessageLoader
   def self.variant_file_confirmed(
       patient_id,
       status,
-      molecular_id,
       analysis_id)
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['variant_file_confirmed']
-    send_variant_report_confirm_message(message, patient_id, molecular_id, analysis_id, status)
+    send_variant_report_confirm_message(message, patient_id, analysis_id, status)
   end
 
   def self.assignment_confirmed(
       patient_id,
-      status,
-      molecular_id,
       analysis_id)
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['assignment_confirmed']
-    message['patient_id'] = patient_id
-    message['status'] = status
-    message['molecular_id'] = molecular_id
-    message['analysis_id'] = analysis_id
-    send_message_to_local(message, patient_id)
+    service = patient_id + '/assignment_reports/' + analysis_id + '/confirm'
+    put_message_to_local(service, message)
   end
 
   def self.off_study(
@@ -292,6 +320,8 @@ class PatientMessageLoader
     message['status_date'] = status_date
     send_message_to_local(message, patient_id)
   end
+
+
 
   def self.prepare_request_assignment_message(
     patient_id,
@@ -323,19 +353,12 @@ class PatientMessageLoader
 
   def self.on_treatment_arm(
     patient_id,
-    step_number='1.1',
-    assignment_date='2016-08-10T22:05:33+00:00',
-    treatment_arm_id='APEC1621_A',
-    treatment_arm_version='2015-08-06',
-    stratum_id='100'
-  )
-    message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['on_treatment_arm']
-    message['patient_id'] = patient_id
-    message['assignment_date'] = assignment_date
-    message['step_number'] = step_number
-    message['treatment_arm_id'] = treatment_arm_id
-    message['stratum_id'] = stratum_id
-    send_message_to_local(message, patient_id)
+    treatment_arm_id='APEC1621-A',
+    stratum_id='100',
+    step_number='1.1')
+    service = '/approveOnTreatmentArm/'+patient_id
+    service = service + '/' + step_number + '/' + treatment_arm_id + '/' + stratum_id
+    send_message_to_local_cog(service, '')
   end
 
   # def self.load_patient_script_to_local(message_file, wait_time)

@@ -156,10 +156,6 @@ Then(/^"([^"]*)" variant\(type: "([^"]*)", field: "([^"]*)", value: "([^"]*)"\) 
 end
 
 Then(/^"([^"]*)" variant report confirmed with status: "([^"]*)"$/) do |type, status|
-  target_moi = case type
-                 when 'TISSUE' then @active_ts_moi
-                 when 'BLOOD' then @active_bd_moi
-               end
   target_ani = case type
                  when 'TISSUE' then @active_ts_ani
                  when 'BLOOD' then @active_bd_ani
@@ -169,7 +165,7 @@ Then(/^"([^"]*)" variant report confirmed with status: "([^"]*)"$/) do |type, st
                     when 'REJECTED' then 'reject'
                   end
   @request_hash = Patient_helper_methods.load_patient_message_templates('variant_file_confirmed')
-  put_vr_confirm(target_moi, target_ani, target_status)
+  put_vr_confirm(target_ani, target_status)
   validate_response('Success', 'successfully')
 end
 
@@ -216,14 +212,12 @@ Then(/^COG received assignment status: "([^"]*)" for this patient$/) do |assignm
 end
 
 Then(/^assignment report is "([^"]*)"$/) do |status|
-  @retrieved_patient=Helper_Methods.get_single_request(ENV['patients_endpoint']+'/'+@patient_id)
-  assignment_date = @retrieved_patient['current_assignment']['date_generated']
   target_status = case status
                     when 'CONFIRMED' then 'confirm'
                     when 'REJECTED' then 'reject'
                   end
   @request_hash = Patient_helper_methods.load_patient_message_templates('assignment_confirmed')
-  put_ar_confirm(target_status, assignment_date)
+  put_ar_confirm(target_status, @active_ts_ani)
   validate_response('Success', 'successfully')
 end
 
@@ -233,17 +227,17 @@ def post_to_trigger
   sleep(15.0)
 end
 
-def put_vr_confirm(moi, ani, status)
+def put_vr_confirm(ani, status)
   puts JSON.pretty_generate(@request_hash)
   url = ENV['patients_endpoint'] + '/'
-  url = url + @patient_id + '/variant_reports/' + moi + '/' + ani + '/' + status
+  url = url + @patient_id + '/variant_reports/' + ani + '/' + status
   @response = Helper_Methods.put_request(url, @request_hash.to_json.to_s)
 end
 
-def put_ar_confirm(status, ar_date)
+def put_ar_confirm(status, ani)
   puts JSON.pretty_generate(@request_hash)
   url = ENV['patients_endpoint'] + '/'
-  url = url + @patient_id + '/assignment_reports/' + ar_date + '/' + status
+  url = url + @patient_id + '/assignment_reports/' + ani + '/' + status
   @response = Helper_Methods.put_request(url, @request_hash.to_json.to_s)
 end
 

@@ -74,7 +74,7 @@ Feature: Variant files uploaded message
     Given template variant file uploaded message for patient: "PT_VU06_TissueShipped", it has molecular_id: "PT_VU06_TissueShipped_MOI1" and analysis_id: "PT_VU06_TissueShipped_ANI1"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
     Then retrieve patient: "PT_VU06_TissueShipped" from API
-    Then returned patient has variant report (surgical_event_id: "PT_VU06_TissueShipped_SEI1", molecular_id: "PT_VU06_TissueShipped_MOI1", analysis_id: "PT_VU06_TissueShipped_ANI1")
+    Then returned patient has variant report (analysis_id: "PT_VU06_TissueShipped_ANI1")
     Then this variant report has value: "PENDING" in field: "status"
     Then this variant report has value: "test1.tsv" in field: "tsv_file_name"
 
@@ -90,9 +90,9 @@ Feature: Variant files uploaded message
     Given template variant file uploaded message for patient: "PT_VU09_VariantReportUploaded", it has molecular_id: "PT_VU09_VariantReportUploaded_MOI1" and analysis_id: "PT_VU09_VariantReportUploaded_ANI2"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
     Then retrieve patient: "PT_VU09_VariantReportUploaded" from API
-    Then returned patient has variant report (surgical_event_id: "PT_VU09_VariantReportUploaded_SEI1", molecular_id: "PT_VU09_VariantReportUploaded_MOI1", analysis_id: "PT_VU09_VariantReportUploaded_ANI2")
+    Then returned patient has variant report (analysis_id: "PT_VU09_VariantReportUploaded_ANI2")
     And this variant report has value: "PENDING" in field: "status"
-    Then returned patient has variant report (surgical_event_id: "PT_VU09_VariantReportUploaded_SEI1", molecular_id: "PT_VU09_VariantReportUploaded_MOI1", analysis_id: "PT_VU09_VariantReportUploaded_ANI1")
+    Then returned patient has variant report (analysis_id: "PT_VU09_VariantReportUploaded_ANI1")
     And this variant report has value: "REJECTED" in field: "status"
 #       For this scenario:
 #         SEI_1 MOI_1 shipped->SEI_1 MOI_1 AID_1 uploaded->SEI_1 MOI_1 AID_1 V_UUID_1 confirmed->SEI_2 received->SEI_2 MOI_1 shipped->SEI_2 MOI_1 AID_1 uploaded ==> SEI_1 MOI_1 AID_1 rejected
@@ -110,7 +110,7 @@ Feature: Variant files uploaded message
     Given template variant file uploaded message for patient: "PT_VU11_VariantReportRejected", it has molecular_id: "PT_VU11_VariantReportRejected_MOI1" and analysis_id: "PT_VU11_VariantReportRejected_ANI2"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
     Then retrieve patient: "PT_VU11_VariantReportRejected" from API
-    Then returned patient has variant report (surgical_event_id: "PT_VU11_VariantReportRejected_SEI1", molecular_id: "PT_VU11_VariantReportRejected_MOI1", analysis_id: "PT_VU11_VariantReportRejected_ANI2")
+    Then returned patient has variant report (analysis_id: "PT_VU11_VariantReportRejected_ANI2")
     And this variant report has value: "PENDING" in field: "status"
 
   Scenario Outline: PT_VU12. variant files uploaded with existing(including the one just get rejected) analysis_id cannot be accepted when patient has TISSUE_VARIANT_REPORT_REJECTED status
@@ -133,7 +133,7 @@ Feature: Variant files uploaded message
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
     Then retrieve patient: "PT_VU14_TissueAndBloodShipped" from API
     Then returned patient has value: "BLOOD_VARIANT_REPORT_RECEIVED" in field: "current_status"
-    Then returned patient has variant report (surgical_event_id: "null", molecular_id: "PT_VU14_TissueAndBloodShipped_BD_MOI1", analysis_id: "PT_VU14_TissueAndBloodShipped_ANI1")
+    Then returned patient has variant report (analysis_id: "PT_VU14_TissueAndBloodShipped_ANI1")
     And this variant report has value: "BLOOD" in field: "variant_report_type"
     Then this variant report has value: "test1.tsv" in field: "tsv_file_name"
     Then this variant report has value: "test1.vcf" in field: "vcf_file_name"
@@ -153,9 +153,9 @@ Feature: Variant files uploaded message
     Given template variant file uploaded message for patient: "PT_VU16_BdVRUploaded", it has molecular_id: "PT_VU16_BdVRUploaded_BD_MOI1" and analysis_id: "PT_VU16_BdVRUploaded_ANI2"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
     Then retrieve patient: "PT_VU16_BdVRUploaded" from API
-    Then returned patient has variant report (surgical_event_id: "null", molecular_id: "PT_VU16_BdVRUploaded_BD_MOI1", analysis_id: "PT_VU16_BdVRUploaded_ANI2")
+    Then returned patient has variant report (analysis_id: "PT_VU16_BdVRUploaded_ANI2")
     And this variant report has value: "PENDING" in field: "status"
-    Then returned patient has variant report (surgical_event_id: "null", molecular_id: "PT_VU16_BdVRUploaded_BD_MOI1", analysis_id: "PT_VU16_BdVRUploaded_ANI1")
+    Then returned patient has variant report (analysis_id: "PT_VU16_BdVRUploaded_ANI1")
     And this variant report has value: "REJECTED" in field: "status"
 
 Scenario Outline: PT_VU17. blood variant files cannot be uploaded if patient has BLOOD_VARIANT_REPORT_CONFIRMED status, but still can upload tissue variant files
@@ -164,7 +164,7 @@ Scenario Outline: PT_VU17. blood variant files cannot be uploaded if patient has
   Given template variant file uploaded message for patient: "PT_VU17_BdVRConfirmed", it has molecular_id: "<moi>" and analysis_id: "<ani>"
   When post to MATCH patients service, returns a message that includes "<message>" with status "<post_status>"
   Then retrieve patient: "PT_VU17_BdVRConfirmed" from API
-  Then returned patient has variant report (surgical_event_id: "<sei>", molecular_id: "<moi>", analysis_id: "<query_ani>")
+  Then returned patient has variant report (analysis_id: "<query_ani>")
   And this variant report has value: "<vr_status>" in field: "status"
   Examples:
   |sei                        |moi                            |ani                        |query_ani                  |vr_status|message                                 |post_status|
