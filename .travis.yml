@@ -75,6 +75,8 @@ script:
   # Generate html report
   - node support/generate_report.js
   - ls -alt
+  - cd ..
+  - ls -alt
 after_success:
   # Tag latest version of docker image tested agains with a date stamp as release candidate
   # - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
