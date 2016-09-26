@@ -14,7 +14,7 @@ if [ "$TRIGGER_REPO" eq "nci-match-ir-ecosystem-api" ]; then
   docker push matchbox/nci-match-ir-ecosystem-processor:$DATE
   # Push to UAT AWS
   docker run -it --rm -e AWS_ACCESS_KEY_ID=$UAT_AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$UAT_AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster PedMatch-UAT-Backend --service-name PedMatch-$TRIGGER_REPO-UAT -i matchbox/$TRIGGER_REPO:$DATE
-  #docker run -it --rm -e AWS_ACCESS_KEY_ID=AKIAIV2ZVB5JZ33GS3YA -e AWS_SECRET_ACCESS_KEY=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 -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster PedMatch-UAT-Backend --service-name PedMatch-nci-match-ir-ecosystem-processor-UAT -i matchbox/nci-match-ir-ecosystem-processor:$DATE
+  #docker run -it --rm -e AWS_ACCESS_KEY_ID=$UAT_AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$UAT_AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster PedMatch-UAT-Backend --service-name PedMatch-nci-match-ir-ecosystem-processor-UAT -i matchbox/nci-match-ir-ecosystem-processor:$DATE
 else
   docker tag matchbox/$TRIGGER_REPO matchbox/$TRIGGER_REPO:$DATE
   docker images
