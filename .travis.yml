@@ -77,13 +77,16 @@ script:
   - ls -alt
 after_success:
   # Tag latest version of docker image tested agains with a date stamp as release candidate
-  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - export DATE=`TZ=America/New_York date "+%m-%d-%y-%H%M"`
-  - docker tag matchbox/$TRIGGER_REPO matchbox/$TRIGGER_REPO:$DATE
-  - docker images
-  - docker push  matchbox/$TRIGGER_REPO:$DATE
+  # - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  # - export DATE=`TZ=America/New_York date "+%m-%d-%y-%H%M"`
+  # - docker tag matchbox/$TRIGGER_REPO matchbox/$TRIGGER_REPO:$DATE
+  # - docker images
+  # - docker push  matchbox/$TRIGGER_REPO:$DATE
   # Push to UAT AWS
-  - docker run -it --rm -e AWS_ACCESS_KEY_ID=$UAT_AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$UAT_AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster PedMatch-UAT-Backend --service-name PedMatch-$TRIGGER_REPO-UAT -i matchbox/$TRIGGER_REPO:$DATE
+  # - docker run -it --rm -e AWS_ACCESS_KEY_ID=$UAT_AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$UAT_AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster PedMatch-UAT-Backend --service-name PedMatch-$TRIGGER_REPO-UAT -i matchbox/$TRIGGER_REPO:$DATE
+
+  #All above done in script now, tag docker image with date and deploy to UAT
+  - ./dockerdeploy.sh
   # Trigger Travis script #3
   # - curl -s -X POST -H "Content-Type:application/json" -H "Accept:application/json" -H "Travis-API-Version:3" -H "Authorization:token $TRAVIS_TOKEN" -d "{\"request\":{\"message\":\"Triggered by nci-treatment-arm-processor-api $TRAVIS_COMMIT\", \"branch\":\"master\", \"config\":{\"env\":{\"matrix\":[\"TRIGGER_REPO=nci-treatment-arm-processor-api;CUC_TAG=@treatment_arm\"]}}}}" https://api.travis-ci.org/repo/CBIIT%2Fnci-uMatch-bddtests/requests
 after_script:
@@ -94,7 +97,7 @@ after_script:
   - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/cucumber_report.html s3://cucumbertest-reports/$DATE_TRIM/cucumber$CUC_TAG$PRIORITY.html --region us-east-1
   - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/screenshot s3://cucumbertest-reports/$DATE_TRIM/screenshot --region us-east-1 --recursive
   #- aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/result.json s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_BUILD_NUMBER/ --region us-east-1
-#  - export DATE=`date "+%m-%d-%y-%H%M"`
+  - export DATE=`TZ=America/New_York date "+%m-%d-%y-%H%M"`
   - export TEST_REPORT='BDD Test Report'
   - cd ~/build/CBIIT/nci-uMatch-bddtests/ResultsUpload
   - ./update_google_drive.rb -d ~/build/CBIIT/nci-uMatch-bddtests/results/ -c config.json -t $CUC_TAG -b $TRAVIS_BUILD_NUMBER -f $TEST_REPORT
