@@ -15,7 +15,7 @@
       "disease_name": "Papillary thyroid carcinoma"
     }
   ],
-  "single_nucleotide_variants": [
+  "snv_indels": [
     {
       "variant_type":"snp",
 //      "metadata": {
@@ -26,12 +26,10 @@
       "oncomine_variant_class":null,
       "function":null,
       "allele_frequency" : ".230000"
-    }
-  ],
-  "indels": [
-    {
-      "variant_type":"ins",
+    }, {
+      "variant_type": "del",
 //      "metadata": {
+//        "id": "ba62eecc-d24a-4f62-a918-570deb8a9f6c"
 //        "id": "ba62eecc-d24a-4f62-a918-570deb8a9f6c"
 //      },
       "exon" : "2",

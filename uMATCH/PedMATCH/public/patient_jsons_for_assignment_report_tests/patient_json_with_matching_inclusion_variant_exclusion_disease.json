@@ -16,8 +16,7 @@
       "disease_name": "Non-small cell lung cancer, NOS"
     }
   ],
-  "single_nucleotide_variants": [],
-  "indels": [],
+  "snv_indels": [],
   "copy_number_variants": [],
   "gene_fusions": [
     {

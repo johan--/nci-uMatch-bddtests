@@ -15,7 +15,7 @@
       "disease_name": "Papillary thyroid carcinoma"
     }
   ],
-  "single_nucleotide_variants": [
+  "snv_indels": [
     {
     "variant_type":"snp",
 //    "metadata": {
@@ -42,7 +42,6 @@
       "function": null
     }
   ],
-  "indels": [],
   "copy_number_variants": [],
   "gene_fusions": []
 }

@@ -5,14 +5,13 @@
   "treatment_arm_status": "OPEN",
   "assay_rules": [],
   "num_patients_assigned": null,
-  "single_nucleotide_variants": [
+  "snv_indels": [
     {
       "identifier" : "match769.2",
       "inclusion" : true,
       "level_of_evidence":null
     }
   ],
-  "indels": [],
   "gene_fusions":[],
   "non_hotspot_rules": [
     {

@@ -545,11 +545,12 @@ And(/^remove template treatment arm variant field: "([^"]*)"$/) do |field|
 end
 
 Then(/^cog changes treatment arm with id:"([^"]*)" and stratumID:"([^"]*)" status to: "([^"]*)"$/) do |treatmentArmID, stratumID, treatment_arm_status|
-  COG_helper_methods.setTreatmentArmStatus(treatmentArmID, stratumID, treatment_arm_status)
+  response = COG_helper_methods.setTreatmentArmStatus(treatmentArmID, stratumID, treatment_arm_status)
+  puts response
 end
 
 Then(/^api update status of treatment arm with id:"([^"]*)" from cog$/) do |treatmentArmID|
-  queryTreatmentArm = {'treatmentArmId' => treatmentArmID}
+  queryTreatmentArm = {'treatment_arm_id' => treatmentArmID}
   url = ENV['treatment_arm_endpoint']+'/ecogTreatmentArmList'
   Helper_Methods.post_request(url, queryTreatmentArm.to_json)
 end
@@ -641,7 +642,7 @@ end
 #returns a hash with the variant type and the field missing in the variant
 def extract_cause_from_message(message )
   abbr = {
-      snv: 'single_nucleotide_variants',
+      snv: 'snv_indels',
       id:  'indels',
       cnv: 'copy_number_variants',
       gf: 'gene_fusions',
@@ -692,7 +693,7 @@ end
 
 def convertVariantAbbrToFull(variantAbbr)
   abbr = {
-      snv: 'single_nucleotide_variants',
+      snv: 'snv_indels',
       id:  'indels',
       cnv: 'copy_number_variants',
       gf: 'gene_fusions',

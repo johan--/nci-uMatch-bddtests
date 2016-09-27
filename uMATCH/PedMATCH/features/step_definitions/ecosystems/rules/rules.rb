@@ -95,7 +95,7 @@ Then(/^the report status return is "([^"]*)"$/) do |status|
 end
 
 Then(/^moi report is returned with the snv variant "([^"]*)" as an amoi$/) do |arg1|
-  @res['single_nucleotide_variants'].each do |snv|
+  @res['snv_indels'].each do |snv|
     if snv['identifier'] == arg1
       expect(snv['amois']).not_to be_nil
     end
@@ -104,7 +104,7 @@ end
 
 Then(/^amoi treatment arm names for snv variant "([^"]*)" include:$/) do |arg1, string|
   arrTA = JSON.parse(string)
-  @res['single_nucleotide_variants'].each do |snv|
+  @res['snv_indels'].each do |snv|
     if snv['identifier'] == arg1
       # p snv['amois']
       expect(snv['amois']).to eql(arrTA)
@@ -114,7 +114,7 @@ end
 
 Then(/^amoi treatment arms for snv variant "([^"]*)" include:$/) do |arg1, string|
   taHash = JSON.parse(string)
-  @res['single_nucleotide_variants'].each do |snv|
+  @res['snv_indels'].each do |snv|
     if snv['identifier'] == arg1
       expect((snv['treatment_arms']).flatten).to match_array((taHash).flatten)
     end
@@ -122,7 +122,7 @@ Then(/^amoi treatment arms for snv variant "([^"]*)" include:$/) do |arg1, strin
 end
 
 Then(/^moi report is returned without the snv variant "([^"]*)"$/) do |arg1|
-  @res['single_nucleotide_variants'].each do |snv|
+  @res['snv_indels'].each do |snv|
     if snv['identifier'] == arg1
       fail ("The SNV #{arg1} is found in the moi report")
     end
@@ -131,7 +131,7 @@ end
 
 Then(/^moi report is returned with the snv variant "([^"]*)"$/) do |arg1|
   flag = false
-  @res['single_nucleotide_variants'].each do |snv|
+  @res['snv_indels'].each do |snv|
     if snv['identifier'] == arg1
       flag = true
     end
@@ -142,7 +142,7 @@ Then(/^moi report is returned with the snv variant "([^"]*)"$/) do |arg1|
 end
 
 Then(/^moi report is returned with (\d+) snv variants$/) do |arg1|
-  expect(@res['single_nucleotide_variants'].count).to eql(arg1.to_i)
+  expect(@res['snv_indels'].count).to eql(arg1.to_i)
 end
 
 Then(/^false positive variants is returned with (\d+) variants$/) do |arg1|

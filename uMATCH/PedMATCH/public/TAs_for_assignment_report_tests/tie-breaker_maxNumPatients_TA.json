@@ -6,8 +6,7 @@
     "treatment_arm_status": "OPEN",
     "assay_rules": [],
     "num_patients_assigned": 35,
-    "single_nucleotide_variants": [],
-    "indels": [],
+    "snv_indels": [],
     "non_hotspot_rules": [{
       "inclusion": true,
       "oncomine_variant_class": "deleterious",
@@ -69,14 +68,13 @@
     "treatment_arm_status": "OPEN",
     "assay_rules": [],
     "num_patients_assigned": 36,
-    "single_nucleotide_variants": [
+    "snv_indels": [
       {
         "identifier" : "COSM1234",
         "level_of_evidence": 3.0,
         "inclusion" : true
       }
     ],
-    "indels": [],
     "non_hotspot_rules": [
       {
         "inclusion": false,

@@ -72,8 +72,9 @@
       "name" : "Tutonib"
     }
   ],
-  "single_nucleotide_variants" : [
+  "snv_indels" : [
     {
+      "variant_type": "snp",
       "gene" : "EGFR",
       "identifier" : "COSM6224",
       "protein" : "p.L858R",
@@ -91,6 +92,7 @@
       "arm_specific" : false
     },
     {
+      "variant_type": "snp",
       "gene" : "EGFR",
       "identifier" : "COSM6252",
       "protein" : "p.G719S",
@@ -104,10 +106,9 @@
       ],
       "inclusion" : false,
       "arm_specific" : false
-    }
-  ],
-  "indels" : [
+    },
     {
+      "variant_type" : "del",
       "gene" : "EGFR",
       "identifier" : "COSM26038",
       "protein" : "p.K745_E749del",
@@ -123,6 +124,7 @@
       "arm_specific" : false
     },
     {
+      "variant_type" : "del",
       "gene" : "EGFR",
       "identifier" : "COSM1190791",
       "protein" : "p.K745_A750delinsT",

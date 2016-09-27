@@ -11,8 +11,9 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
     And with variant report
 	"""
     {
-    "single_nucleotide_variants" : [
+    "snv_indels" : [
       {
+        "variant_type": "snp",
         "gene" : "ALK",
         "identifier" : "COSM1686998",
         "protein" : "p.L858",
@@ -28,7 +29,6 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
         "arm_specific" : false
       }
     ],
-    "indels" : [],
     "copy_number_variants" : [],
     "gene_fusions" : [],
     "non_hotspot_rules" : []
@@ -59,8 +59,9 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 	"treatment_arm_drugs":[{"drugClass":"angiokinase inhibitor","description":"Afatinib","name":"Afatinib","drugId":"1"}],
 	"geneFusions":[],
 	"nonHotspotRules":[],
-	"single_nucleotide_variants":[
+	"snv_indels":[
 	  {
+	  "variant_type": "snp",
 	  "gene":"ALK",
 	  "identifier":"COSM1686998",
 	  "chromosome":"1.0",
@@ -73,7 +74,6 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 	  "protein" : "p.L858R"
 	  }
 	],
-	"indels":[],
 	"copy_number_variants":[]
 	}
 	"""
@@ -92,8 +92,9 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 	"target_id":1234,
 	"target_name":"HGFR Pathway",
 	"treatment_arm_drugs":[{"drugClass":"angiokinase inhibitor","description":"Afatinib","name":"Afatinib","drugId":"1"}],
-	"single_nucleotide_variants":[
+	"snv_indels":[
 	  {
+	  "variant_type": "snp",
 	  "gene":"ALK",
 	  "identifier":"COSM1686998",
 	  "protein" : "p.L858R",
@@ -105,14 +106,11 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 	  "inclusion":true,
 	  "public_med_ids":["23724913"]
 	  }],
-	"indels":[],
 	"copy_number_variants":[]
 	}
 	"""
 	When creating a new treatment arm using post request
     Then a failure response code of "404" is returned
-#	Then a failure message is returned which contains: "The property '#/' did not contain a required property of 'version'"
-
 
   Scenario: 1.6 Verify that a treatment arm when created is assigned a status of OPEN
     Given that treatment arm is received from COG:
@@ -151,9 +149,9 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
 					"name" : "AP26113"
 				}
 	    ],
-        "single_nucleotide_variants" : [
+        "snv_indels" : [
             {
-                "type":"snp",
+                "variant_type": "snp",
                 "public_med_ids" : [
                     "23724913"
                 ],
@@ -171,7 +169,6 @@ Note: start treatment-arm-processor RAILS_ENV=test bundle exec shoryuken -R
                 "inclusion" : true
             }
         ],
-        "indels" : [],
         "copy_number_variants" : [],
         "gene_fusions" : [],
         "non_hotspot_rules" : []

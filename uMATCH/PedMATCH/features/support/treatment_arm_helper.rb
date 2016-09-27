@@ -196,7 +196,7 @@ class Treatment_arm_helper
 
   def self.get_long_form_of(variant)
     variant_map = {
-        snv: 'single_nucleotide_variants',
+        snv: 'snv_indels',
         cnv: 'copy_number_variants',
         id:  'indels',
         gf:  'gene_fusions',

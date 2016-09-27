@@ -475,7 +475,7 @@ var TreatmentArmsPage = function() {
 
     function getActualVariantName(variantName){
         var variantMapping = {
-            'SNV / MNV'          : 'single_nucleotide_variants',
+            'SNV / MNV'          : 'snv_indels',
             'Indel'              : 'indels',
             'CNVs'               : 'copy_number_variants',
             'Non-Hotspot Rules'  : 'non_hotspot_rules',

@@ -18,36 +18,43 @@
         }
       ],
       "num_patients_assigned": null,
-      "single_nucleotide_variants": [{
+      "snv_indels": [{
+        "variant_type" : "snp",
         "identifier": "COSM1074639",
         "level_of_evidence": 3.0,
         "inclusion": true
       }, {
+        "variant_type" : "snp",
         "identifier": "COSM52975",
         "level_of_evidence": 3.0,
         "inclusion": true
       }, {
+        "variant_type" : "snp",
         "identifier": "COSM44451",
         "level_of_evidence": 3.0,
         "inclusion": false
       }, {
+        "variant_type" : "snp",
         "identifier": "COSM757681",
         "level_of_evidence": 3.0,
         "inclusion": false
       }, {
+        "variant_type" : "snp",
         "identifier": "BT9",
         "level_of_evidence": 3.0,
         "inclusion": true
-      }],
-      "indels": [{
+      }, {
+        "variant_type" : "del",
         "identifier": "COSM22189",
         "level_of_evidence": 3.0,
         "inclusion": true
       }, {
+        "variant_type" : "del",
         "identifier": "COSM131612",
         "level_of_evidence": 3.0,
         "inclusion": true
       }, {
+        "variant_type" : "del",
         "identifier": "COSM143738",
         "level_of_evidence": 3.0,
         "inclusion": false
@@ -68,34 +75,41 @@
         "exon": null
       }],
       "copy_number_variants": [{
+        "variant_type" : "cnv",
         "identifier": "MYCL",
         "level_of_evidence": 2.0,
         "inclusion": true
       }, {
+        "variant_type" : "cnv",
         "identifier": "BCL9",
         "level_of_evidence": 2.0,
         "inclusion": false
       }, {
+        "variant_type" : "cnv",
         "identifier": "PTEN",
         "level_of_evidence": 2.0,
         "inclusion": true
       }],
       "gene_fusions": [{
+        "variant_type" : "fusion",
         "identifier": "TPM3-NTRK1.T7N10.COSF1318_1",
         "inclusion": true,
         "level_of_evidence": 2.0
       }, 
       {
+        "variant_type" : "fusion",
         "identifier": "TPM3-NTRK1.T7N10.COSF1318_2",
         "inclusion": true,
         "level_of_evidence": 3.0
       },
       {
+        "variant_type" : "fusion",
         "identifier": "TPM3-ROS1.T7R35.COSF1273_1",
         "inclusion": false,
         "level_of_evidence": 3.0
       },
       {
+        "variant_type" : "fusion",
         "identifier": "TPM3-ROS1.T7R35.COSF1273_2",
         "inclusion": false,
         "level_of_evidence": 3.0

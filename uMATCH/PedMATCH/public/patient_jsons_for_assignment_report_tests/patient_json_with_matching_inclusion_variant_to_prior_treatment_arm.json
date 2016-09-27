@@ -20,8 +20,7 @@
     "treatment_arm_id": "Rules-Test1",
     "stratum_id": "100"
   }],
-  "single_nucleotide_variants": [],
-  "indels": [],
+  "snv_indels": [],
   "copy_number_variants": [],
   "gene_fusions": [
     {

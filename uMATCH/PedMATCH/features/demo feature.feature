@@ -29,8 +29,7 @@ Background: wait for process to complete
         "drug_id": "113"
       }],
       "variant_report": {
-        "single_nucleotide_variants": [],
-        "indels": [],
+        "snv_indels": [],
         "non_hotspot_rules": [{
           "inclusion": true,
           "oncomine_variant_class": "deleterious",
@@ -45,6 +44,7 @@ Background: wait for process to complete
         }],
         "copy_number_variants": [
         {
+          "variant_type" : "cnv",
           "ref_copy_number": 2.0,
           "raw_copy_number": 8.8,
           "copy_number": 8.8,
@@ -63,6 +63,7 @@ Background: wait for process to complete
           "type": "cnv"
         }],
         "gene_fusions": [{
+          "variant_type" : "fusion",
           "ocp_reference": "A",
           "func_gene": "ALK",
           "identifier": "TPM3-ALK.T7A20",
@@ -76,6 +77,7 @@ Background: wait for process to complete
           "position": "29446394",
           "type": "gf"
         }, {
+          "variant_type" : "fusion",
           "ocp_reference": "C",
           "func_gene": "FGFR2",
           "identifier": "FGFR2-OFD1.F17O3",
@@ -171,8 +173,8 @@ Background: wait for process to complete
         "drug_id": "113"
       }],
       "variant_report": {
-        "single_nucleotide_variants": [{
-          "type": "snv",
+        "snv_indels": [{
+          "variant_type" : "snp",
           "confirmed": false,
           "chromosome": "chr6",
           "position": "152419923",
@@ -184,7 +186,7 @@ Background: wait for process to complete
           "inclusion": true,
           "armSpecific": false
         }, {
-          "type": "snv",
+          "variant_type": "snp",
           "confirmed": false,
           "chromosome": "chr9",
           "position": "80412493",
@@ -196,7 +198,7 @@ Background: wait for process to complete
           "inclusion": true,
           "armSpecific": false
         }, {
-          "type": "snv",
+          "variant_type": "snp",
           "confirmed": false,
           "chromosome": "chr17",
           "position": "7577064",
@@ -208,7 +210,7 @@ Background: wait for process to complete
           "inclusion": false,
           "armSpecific": false
         }, {
-          "type": "snv",
+          "variant_type": "snp",
           "confirmed": false,
           "chromosome": "chrX",
           "position": "70349258",
@@ -220,7 +222,7 @@ Background: wait for process to complete
           "inclusion": false,
           "armSpecific": false
         }, {
-          "type": "snv",
+          "variant_type": "snp",
           "confirmed": false,
           "chromosome": "chrX",
           "position": "100611165",
@@ -231,8 +233,8 @@ Background: wait for process to complete
           "level_of_evidence": 3.0,
           "inclusion": true,
           "armSpecific": false
-        }],
-        "indels": [{
+        }, {
+          "variant_type": "del",
           "type": "id",
           "confirmed": false,
           "chromosome": "chr22",
@@ -244,6 +246,7 @@ Background: wait for process to complete
           "level_of_evidence": 3.0,
           "inclusion": true
         }, {
+          "variant_type": "del",
           "type": "id",
           "confirmed": false,
           "chromosome": "chrX",
@@ -255,6 +258,7 @@ Background: wait for process to complete
           "level_of_evidence": 3.0,
           "inclusion": true
         }, {
+          "variant_type": "del",
           "type": "id",
           "confirmed": false,
           "chromosome": "chrX",
@@ -283,6 +287,7 @@ Background: wait for process to complete
           "type": "nhr"
         }],
         "copy_number_variants": [{
+          "variant_type": "cnv",
           "ref_copy_number": 2.0,
           "raw_copy_number": 7.7,
           "copy_number": 7.7,
@@ -300,6 +305,7 @@ Background: wait for process to complete
           "armSpecific": false,
           "type": "cnv"
         }, {
+          "variant_type": "cnv",
           "ref_copy_number": 2.0,
           "raw_copy_number": 8.2,
           "copy_number": 8.2,
@@ -317,6 +323,7 @@ Background: wait for process to complete
           "armSpecific": false,
           "type": "cnv"
         }, {
+          "variant_type": "cnv",
           "ref_copy_number": 2.0,
           "raw_copy_number": 8.8,
           "copy_number": 8.8,
@@ -335,6 +342,7 @@ Background: wait for process to complete
           "type": "cnv"
         }],
         "gene_fusions": [{
+          "variant_type": "fusion",
           "ocp_reference": "C",
           "func_gene": "TPM3",
           "identifier": "TPM3-NTRK1.T7N10.COSF1318_1",
@@ -347,6 +355,7 @@ Background: wait for process to complete
           "type": "gf"
         },
         {
+          "variant_type": "fusion",
           "ocp_reference": "G",
           "func_gene": "NTRK1",
           "identifier": "TPM3-NTRK1.T7N10.COSF1318_2",
@@ -359,6 +368,7 @@ Background: wait for process to complete
           "type": "gf"
         },
         {
+          "variant_type": "fusion",
           "ocp_reference": "T",
           "func_gene": "TPM3",
           "identifier": "TPM3-ROS1.T7R35.COSF1273_1",
@@ -371,6 +381,7 @@ Background: wait for process to complete
           "type": "gf"
         },
         {
+          "variant_type": "fusion",
           "ocp_reference": "T",
           "func_gene": "ROS1",
           "identifier": "TPM3-ROS1.T7R35.COSF1273_2",

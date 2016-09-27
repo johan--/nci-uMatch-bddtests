@@ -6,7 +6,7 @@
     "treatment_arm_status": "OPEN",
     "assay_rules": [],
     "num_patients_assigned": null,
-    "single_nucleotide_variants": [],
+    "snv_indels": [],
     "indels": [
       {
         "identifier": "COSM143738",
@@ -69,14 +69,13 @@
     "treatment_arm_status": "OPEN",
     "assay_rules": [],
     "num_patients_assigned": null,
-    "single_nucleotide_variants": [
+    "snv_indels": [
       {
         "identifier" : "BT9",
         "level_of_evidence":null,
         "inclusion" : true
       }
     ],
-    "indels": [],
     "non_hotspot_rules": [],
     "copy_number_variants": [],
     "gene_fusions":[],

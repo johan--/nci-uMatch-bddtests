@@ -7,8 +7,7 @@
   "assay_rules" : [],
   "num_patients_assigned" : 0,
   "treatment_arm_status" : "OPEN",
-  "single_nucleotide_variants" : [],
-  "indels" : [],
+  "snv_indels" : [],
   "copy_number_variants" : [],
   "gene_fusions" : [],
   "non_hotspot_rules" : [

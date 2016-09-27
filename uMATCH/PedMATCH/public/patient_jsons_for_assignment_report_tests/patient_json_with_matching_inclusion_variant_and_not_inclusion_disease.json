@@ -16,8 +16,7 @@
       "disease_name": "Mediastinal large B-cell lymphoma"
     }
   ],
-  "single_nucleotide_variants": [],
-  "indels": [],
+  "snv_indels": [],
   "copy_number_variants": [],
   "gene_fusions": [
     {

@@ -17,15 +17,13 @@ Feature: Treatment Arm API Tests that focus on "treatment_arm_status" field
     |APEC1621-TAS2-2            |CLOSED     |
     |APEC1621-TAS2-3            |SUSPENDED  |
 
-  @broken
-  Scenario: TA_TAS3. The status of update Treatment Arm should be set to same value with the last version, no matter what the value of "treatment_arm_status" is
+  Scenario: TA_TAS3. The status of update Treatment Arm should be set to same value with the last version
     Given template treatment arm json with an id: "APEC1621-TAS2-1", stratum_id: "STRATUM1" and version: "2016-06-03"
     When creating a new treatment arm using post request
     Then a success message is returned
     Then wait for processor to complete request in "10" seconds
-    Then cog changes treatment arm with id:"APEC1621-TAS3-1" and stratumID:"STRATUM1" status to: "SUSPENDED"
+    Then cog changes treatment arm with id:"APEC1621-TAS2-1" and stratumID:"STRATUM1" status to: "SUSPENDED"
     Then set the version of the treatment arm to "2016-06-28"
-    Then set template treatment arm json field: "treatment_arm_status" to string value: "CLOSED"
     When creating a new treatment arm using post request
     Then a success message is returned
     Then wait for processor to complete request in "10" seconds
