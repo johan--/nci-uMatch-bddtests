@@ -9,20 +9,12 @@ Feature: Treatment Arm API Tests that focus on "study_id" field
     When creating a new treatment arm using post request
     Then a failure message is returned which contains: "did not contain a required property of 'study_id'"
 
-  Scenario Outline: TA_SID3. "study_id" field should not be updated to other value
-    Given template treatment arm json with an id: "<treatment_arm_id>", stratum_id: "stratum1" and version: "2015-03-25"
-    Then set template treatment arm json field: "study_id" to string value: "<origin_study_id>"
+  Scenario Outline: TA_SID3. "study_id" value other than APEC1621 should fail
+    Given template treatment arm json with an id: "APEC1621-SID3-1 ", stratum_id: "stratum1" and version: "2015-03-25"
+    Then set template treatment arm json field: "study_id" to string value: "EAY131"
     When creating a new treatment arm using post request
-    Then a success message is returned
-    Then wait for processor to complete request in "10" seconds
-    Then set the version of the treatment arm to "2016-06-03"
-    And set template treatment arm json field: "study_id" to string value: "<new_study_id>"
-    When updating an existing treatment arm using "post" request
-    Then a failure message is returned which contains: "Validation failed."
-    Examples:
-      |treatment_arm_id     |origin_study_id        |new_study_id     |
-      |APEC1621-SID3-1      |APEC1621               |EAY131           |
-      |APEC1621-SID3-2      |EAY131                 |APEC1621         |
+    Then a failure response code of "500" is returned
+    And a failure message is returned which contains: "did not match one of the following values: APEC1621"
 
 
   Scenario: TA_SID3. New Treatment Arm with "study_id" as null should fail

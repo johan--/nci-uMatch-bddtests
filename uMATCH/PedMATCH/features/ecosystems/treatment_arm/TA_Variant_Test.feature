@@ -78,7 +78,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
       |APEC1621-VR3-9     |nhr          |id0001                         |982,546,2436547,243           |
       |APEC1621-VR3-10    |nhr          |id0002                         |2,32,6,13                     |
 
-  Scenario Outline: TA_VR4. Treatment arm which contains two same variants with inclusion true and false in same type should fail
+  Scenario Outline: TA_VR4. Treatment arm which contains two variants of the same identifier should fail
     Given template treatment arm json with a random id
     Then clear template treatment arm json's variant: "<variantType>" list
     Then create a template variant: "<variantType>" for treatment arm
@@ -142,43 +142,49 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
       |nhr          |hotspot                     |
 
   Scenario Outline: TA_VR8a. Variant without "type" field should fail
-    Given template treatment arm json with an id: "APEC1621_VR8a"
+    Given template treatment arm json with an id: "APEC1621_VR8_<variantType>"
     Then clear template treatment arm json's variant: "<variantType>" list
     Then create a template variant: "<variantType>" for treatment arm
-    And remove template treatment arm variant field: "type"
+    And remove template treatment arm variant field: "variant_type"
     And add template variant: "<variantType>" to template treatment arm json
     When creating a new treatment arm using post request
-    Then a failure message is returned which contains: "Validation failed."
+    Then a failure message is returned which contains: "did not contain a required property of 'variant_type'"
     Examples:
       |variantType  |
       |snv          |
       |id           |
+      |cnv          |
+      |gf           |
 
   Scenario Outline: TA_VR8. Variant with invalid type value should fail
     Given template treatment arm json with a random id
     Then clear template treatment arm json's variant: "<variantType>" list
     Then create a template variant: "<variantType>" for treatment arm
-    And set template treatment arm variant field: "type" to string value: "<typeValue>"
+    And set template treatment arm variant field: "variant_type" to string value: "<typeValue>"
     And add template variant: "<variantType>" to template treatment arm json
     When creating a new treatment arm using post request
-    Then a failure message is returned which contains: "Validation failed."
+    Then a failure message is returned which contains: "did not match one of the following values"
     Examples:
       |variantType  |typeValue                        |
       |snv          |cnv                              |
       |id           |nhr                              |
+      |cnv          |snp                              |
+      |gf           |fudge                            |
 
   Scenario Outline: TA_VR8a. Variant without type field should fail
     Given template treatment arm json with a random id
     Then clear template treatment arm json's variant: "<variantType>" list
     Then create a template variant: "<variantType>" for treatment arm
-    And remove template treatment arm variant field: "type"
+    And remove template treatment arm variant field: "variant_type"
     And add template variant: "<variantType>" to template treatment arm json
     When creating a new treatment arm using post request
-    Then a failure message is returned which contains: "Validation failed."
+    Then a failure message is returned which contains: "did not contain a required property of 'variant_type'"
     Examples:
       |variantType  |
       |snv          |
+      |cnv          |
       |id           |
+      |gf           |
 
   Scenario: TA_VR9. Duplicated Non-Hotspot Rules will be ignored
     Given template treatment arm json with an id: "APEC1621-VR9-1"

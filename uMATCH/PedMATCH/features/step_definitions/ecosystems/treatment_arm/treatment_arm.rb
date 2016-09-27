@@ -40,7 +40,6 @@ Given(/^template treatment arm json with a random id$/) do
   @stratum_id = @taReq['stratum_id']
   @version = @taReq['version']
   @jsonString = @taReq.to_json.to_s
-  @savedTAID = @taReq['id']
 end
 
 Given(/^template treatment arm json with an id: "([^"]*)"$/) do |id|
@@ -85,6 +84,7 @@ end
 
 
 Then(/^a message with Status "([^"]*)" and message "([^"]*)" is returned:$/) do |status, msg|
+
   @response['status'].downcase.should == status.downcase
 end
 
@@ -130,7 +130,7 @@ When(/^calling uploaded treatment arm with basic "(true|false)" and active "(.+?
 end
 
 Then (/^should return "(.+)" of the records$/) do |num_records|
-  expect(@response.size).to eq(num_records.to_i)
+  expect(@response['message'].size).to eq(num_records.to_i)
 end
 
 Then(/^wait for "([^"]*)" seconds$/) do |seconds|
@@ -619,9 +619,7 @@ end
 def find_treatment_arm_all_versions(id, stratum_id)
   data = Helper_Methods.get_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms",params={id: id, stratum_id: stratum_id})
   @response = JSON.parse(data)
-  expect(@response.size).to be_greater_than(0)
-
-  @response
+  expect(@response['message'].size).to be_greater_than(0)
 end
 
 def find_all_basic_treatment_arms
@@ -634,9 +632,6 @@ end
 
 def find_all_versions (id, stratum)
   @response = Helper_Methods.get_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{id}/#{stratum}")
-  expect(@response).not_to be_nil
-
-  @response
 end
 
 #returns a hash with the variant type and the field missing in the variant
@@ -694,7 +689,7 @@ end
 def convertVariantAbbrToFull(variantAbbr)
   abbr = {
       snv: 'snv_indels',
-      id:  'indels',
+      id:  'snv_indels',
       cnv: 'copy_number_variants',
       gf: 'gene_fusions',
       nhr: 'non_hotspot_rules'

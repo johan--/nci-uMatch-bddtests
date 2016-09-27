@@ -191,14 +191,14 @@ class Treatment_arm_helper
 
   def Treatment_arm_helper.getVariantListFromJson(treatmentArmJson, variantType)
     typedValue = Treatment_arm_helper.get_long_form_of variantType
-    treatmentArmJson['variant_report'][typedValue]
+    treatmentArmJson[typedValue]
   end
 
   def self.get_long_form_of(variant)
     variant_map = {
         snv: 'snv_indels',
         cnv: 'copy_number_variants',
-        id:  'indels',
+        id:  'snv_indels',
         gf:  'gene_fusions',
         nhr: 'non_hotspot_rules'
     }
@@ -253,6 +253,7 @@ class Treatment_arm_helper
     case variantAbbr
       when 'snv' then
         {
+            'variant_type' => 'snp',
             'gene'=>'MTOR',
             'identifier'=>'COSM1686998',
             'protein' => 'p.Q61H',
@@ -267,6 +268,7 @@ class Treatment_arm_helper
         }
       when 'cnv' then
         {
+            'variant_type' => 'cnv',
             'gene'=>'MYCL',
             'identifier'=>'MYCL',
             'protein' => 'p.Q61H',
@@ -281,6 +283,7 @@ class Treatment_arm_helper
         }
       when 'gf' then
         {
+            'variant_type' => 'fusion',
             'gene'=>'ALK',
             'identifier'=>'TPM3-ALK.T7A20',
             'protein' => 'p.Q61H',
@@ -295,7 +298,8 @@ class Treatment_arm_helper
         }
       when 'id' then
         {
-            'geneName'=>'DNMT3A',
+            'variant_type' => 'del',
+            'gene'=>'DNMT3A',
             'identifier'=>'COSM99742',
             'level_of_evidence'=> 3.0,
             'chromosome'=>'2',
