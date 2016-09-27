@@ -186,7 +186,7 @@ end
 
 Then(/^moi report is returned with the indel variant "([^"]*)"$/) do |arg1|
   flag = false
-  @res['indels'].each do |ind|
+  @res['snv_indels'].each do |ind|
     if ind['identifier'] == arg1
       flag = true
     end
@@ -197,11 +197,11 @@ Then(/^moi report is returned with the indel variant "([^"]*)"$/) do |arg1|
 end
 
 Then(/^moi report is returned with (\d+) indel variants$/) do |arg1|
-  expect(@res['indels'].count).to eql(arg1.to_i)
+  expect(@res['snv_indels'].count).to eql(arg1.to_i)
 end
 
 Then(/^moi report is returned without the indel variant "([^"]*)"$/) do |arg1|
-  @res['indels'].each do |ind|
+  @res['snv_indels'].each do |ind|
     if ind['identifier'] == arg1
       fail ("The Indel #{arg1} is found in the moi report")
     end
@@ -210,7 +210,7 @@ end
 
 Then(/^moi report is returned with the indel variant "([^"]*)" as an amoi$/) do |arg1, string|
   arrTA = JSON.parse(string)
-    @res['indels'].each do |ind|
+    @res['snv_indels'].each do |ind|
     if ind['identifier'] == arg1
       expect(ind['amois']).to eql(arrTA)
     end

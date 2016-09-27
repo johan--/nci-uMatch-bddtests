@@ -18,9 +18,6 @@
   "snv_indels": [
     {
       "variant_type":"snp",
-//      "metadata": {
-//        "id": "ba62eecc-d24a-4f62-a918-570deb8a9f6c"
-//      },
       "func_gene" : "PTEN",
       "exon" : "22",
       "oncomine_variant_class": "deleterious",

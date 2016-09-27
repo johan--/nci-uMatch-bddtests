@@ -7,6 +7,7 @@
   "num_patients_assigned": null,
   "snv_indels": [
     {
+      "variant_type":"snp",
       "identifier" : "match769.2",
       "inclusion" : true,
       "level_of_evidence":null
@@ -15,6 +16,7 @@
   "gene_fusions":[],
   "non_hotspot_rules": [
     {
+      "variant_type":"nhr",
       "inclusion": true,
       "func_gene": "KIT",
       "exon":"12",
@@ -23,6 +25,7 @@
       "level_of_evidence": 3.0
     },
     {
+      "variant_type":"nhr",
       "inclusion": false,
       "oncomine_variant_class": "Deleterious",
       "func_gene": "CCND1",

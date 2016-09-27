@@ -5,9 +5,9 @@
   "num_patients_assigned":null,
   "treatment_arm_status": "OPEN",
   "assay_rules": [],
-  "single_nucleotide_variants": [],
-  "indels": [],
+  "snv_indels": [],
   "non_hotspot_rules": [{
+    "variant_type":"nhr",
     "inclusion": true,
     "oncomine_variant_class": null,
     "func_gene": "EGFR",

@@ -12,6 +12,7 @@
   "gene_fusions" : [],
   "non_hotspot_rules" : [
     {
+      "variant_type":"nhr",
       "func_gene" : "ETV5a",
       "exon" : "2",
       "oncomine_variant_class": null,

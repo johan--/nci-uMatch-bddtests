@@ -7,12 +7,14 @@
   "assay_rules": [],
   "snv_indels": [
     {
+    "variant_type":"snp",
     "identifier" : "COSM1234",
     "inclusion" : true,
     "level_of_evidence":null
     }
   ],
   "non_hotspot_rules": [{
+    "variant_type":"nhr",
     "inclusion": false,
     "func_gene": "EGFR",
     "exon":"20",
