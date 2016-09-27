@@ -6,9 +6,9 @@
     "treatment_arm_status": "OPEN",
     "assay_rules": [],
     "num_patients_assigned": null,
-    "snv_indels": [],
-    "indels": [
+    "snv_indels": [
       {
+        "variant_type":"ins",
         "identifier": "COSM143738",
         "inclusion": true,
         "level_of_evidence": null
@@ -71,6 +71,7 @@
     "num_patients_assigned": null,
     "snv_indels": [
       {
+        "variant_type":"snp",
         "identifier" : "BT9",
         "level_of_evidence":null,
         "inclusion" : true
