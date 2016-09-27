@@ -1,9 +1,7 @@
 [
   {
-    "active":true,
     "id": "APEC1621-A",
     "name": "APEC1621-A",
-    "date_created": "2016-06-24T15:38:31+00:00",
     "version": "2015-08-06",
     "stratum_id": "100",
     "description": "TEST Treatment Arm used by Cucumber Tests",
@@ -96,10 +94,8 @@
     }]
   },
   {
-    "active": true,
     "id": "APEC1621-B",
     "name": "APEC1621-B",
-    "date_created": "2016-06-24T15:38:31+00:00",
     "version": "2015-08-06",
     "stratum_id": "100",
     "description": "TEST Treatment Arm used by Cucumber Tests",
@@ -623,15 +619,13 @@
     }]
   },
   {
-    "active": true,
     "id" : "APEC1621-ETE-A",
     "name" : "APEC1621-ETE-A",
-    "date_created": "2016-06-24T15:38:31+00:00",
     "version" : "2015-08-06",
     "stratum_id" : "100",
     "description" : "This TA is used by patient end-to-end test",
     "target_id": "113",
-    "targetName" : "Crizotinib",
+    "target_name" : "Crizotinib",
     "gene" : "ALK",
     "treatment_arm_status": "OPEN",
     "study_id": "APEC1621",
@@ -685,7 +679,7 @@
       }
     ],
     "snv_indels": [],
-
+    
     "copy_number_variants": [],
     "non_hotspot_rules": [
       {
@@ -727,15 +721,13 @@
     }]
   },
   {
-    "active": true,
     "id" : "APEC1621-ETE-B",
     "name" : "APEC1621-ETE-B",
-    "date_created": "2016-06-24T15:38:31+00:00",
     "version" : "2015-08-06",
     "stratum_id" : "100",
     "description" : "This TA is used by patient end-to-end test",
     "target_id": "115",
-    "targetName" : "Crizotinib",
+    "target_name" : "Crizotinib",
     "gene" : "ALK",
     "treatment_arm_status": "OPEN",
     "study_id": "APEC1621",
@@ -782,62 +774,13 @@
     ],
     "exclusion_drugs" : [
       {
-        "drug_id" : "",
+        "drug_id" : "115",
         "name" : "Crizotinib",
         "drug_class" : "ALK inhibitor",
         "target" : "ALK"
-      },
-      {
-        "drug_id" : "",
-        "name" : "Ceritinib",
-        "drug_class" : "",
-        "target" : ""
-      },
-      {
-        "drug_id" : "",
-        "name" : "Alectinib",
-        "drug_class" : "",
-        "target" : ""
-      },
-      {
-        "drug_id" : "",
-        "name" : "AP26113",
-        "drug_class" : "",
-        "target" : ""
-      },
-      {
-        "drug_id" : "",
-        "name" : "TSR-011",
-        "drug_class" : "",
-        "target" : ""
-      },
-      {
-        "drug_id" : "",
-        "name" : "PF-06463922",
-        "drug_class" : "",
-        "target" : ""
-      },
-      {
-        "drug_id" : "",
-        "name" : "X-396",
-        "drug_class" : "",
-        "target" : ""
-      },
-      {
-        "drug_id" : "",
-        "name" : "RXDX-101",
-        "drug_class" : "",
-        "target" : ""
-      },
-      {
-        "drug_id" : "",
-        "name" : "CEP-37440",
-        "drug_class" : "",
-        "target" : ""
       }
     ],
     "snv_indels": [],
-
     "copy_number_variants": [
       {
         "variant_type": "cnv",
@@ -891,15 +834,13 @@
     ]
   },
   {
-    "active": true,
     "id" : "APEC1621-ETE-C",
     "name" : "APEC1621-ETE-C",
-    "date_created": "2016-06-24T15:38:31+00:00",
     "version" : "2015-08-06",
     "stratum_id" : "100",
     "description" : "This TA is used by patient end-to-end test",
     "target_id": "122",
-    "targetName" : "Crizotinib",
+    "target_name" : "Crizotinib",
     "gene" : "RET",
     "treatment_arm_status": "OPEN",
     "study_id": "APEC1621",
@@ -946,56 +887,44 @@
     ],
     "exclusion_drugs" : [
       {
-        "drug_id" : "",
+        "drug_id" : "122",
         "name" : "Crizotinib",
         "drug_class" : "RET inhibitor",
         "target" : "RET"
       },
       {
-        "drug_id" : "",
+        "drug_id" : "123",
         "name" : "Ceritinib",
         "drug_class" : "",
         "target" : ""
       },
       {
-        "drug_id" : "",
+        "drug_id" : "124",
         "name" : "Alectinib",
         "drug_class" : "",
         "target" : ""
       },
       {
-        "drug_id" : "",
+        "drug_id" : "125",
         "name" : "AP26113",
         "drug_class" : "",
         "target" : ""
       },
       {
-        "drug_id" : "",
+        "drug_id" : "126",
         "name" : "TSR-011",
         "drug_class" : "",
         "target" : ""
       },
       {
-        "drug_id" : "",
+        "drug_id" : "127",
         "name" : "PF-06463922",
         "drug_class" : "",
         "target" : ""
       },
       {
-        "drug_id" : "",
+        "drug_id" : "128",
         "name" : "X-396",
-        "drug_class" : "",
-        "target" : ""
-      },
-      {
-        "drug_id" : "",
-        "name" : "RXDX-101",
-        "drug_class" : "",
-        "target" : ""
-      },
-      {
-        "drug_id" : "",
-        "name" : "CEP-37440",
         "drug_class" : "",
         "target" : ""
       }
@@ -1035,15 +964,13 @@
     ]
   },
   {
-    "active": true,
     "id" : "APEC1621-ETE-D",
     "name" : "APEC1621-ETE-D",
-    "date_created": "2016-06-24T15:38:31+00:00",
     "version" : "2015-08-06",
     "stratum_id" : "100",
     "description" : "This TA is used by patient end-to-end test",
     "target_id": "122-1",
-    "targetName" : "Crizotinib",
+    "target_name" : "Crizotinib",
     "gene" : "MTOR",
     "treatment_arm_status": "OPEN",
     "study_id": "APEC1621",
@@ -1090,58 +1017,10 @@
     ],
     "exclusion_drugs" : [
       {
-        "drug_id" : "",
-        "name" : "Crizotinib",
-        "drug_class" : "MTOR inhibitor",
-        "target" : "MTOR"
-      },
-      {
-        "drug_id" : "",
-        "name" : "Ceritinib",
-        "drug_class" : "",
-        "target" : ""
-      },
-      {
-        "drug_id" : "",
-        "name" : "Alectinib",
-        "drug_class" : "",
-        "target" : ""
-      },
-      {
-        "drug_id" : "",
-        "name" : "AP26113",
-        "drug_class" : "",
-        "target" : ""
-      },
-      {
-        "drug_id" : "",
-        "name" : "TSR-011",
-        "drug_class" : "",
-        "target" : ""
-      },
-      {
-        "drug_id" : "",
-        "name" : "PF-06463922",
-        "drug_class" : "",
-        "target" : ""
-      },
-      {
-        "drug_id" : "",
-        "name" : "X-396",
-        "drug_class" : "",
-        "target" : ""
-      },
-      {
-        "drug_id" : "",
-        "name" : "RXDX-101",
-        "drug_class" : "",
-        "target" : ""
-      },
-      {
-        "drug_id" : "",
-        "name" : "CEP-37440",
-        "drug_class" : "",
-        "target" : ""
+        "drug_id": "123",
+        "name": "Crizotinib",
+        "drug_class": "MTOR inhibitor",
+        "target": "MTOR"
       }
     ],
     "snv_indels": [

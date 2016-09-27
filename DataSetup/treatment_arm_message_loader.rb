@@ -3,11 +3,12 @@ require 'HTTParty'
 class TreatmentArmMessageLoader
   include HTTParty
 
-  LOCAL_TREATMENT_ARM_DATA_FOLDER = 'local_treatment_arm_data'
+  LOCAL_TREATMENT_ARM_DATA_FOLDER = File.expand_path(File.join(__FILE__, '..', 'local_treatment_arm_data'))
   LOCAL_DYNAMODB_URL = 'http://localhost:8000'
   LOCAL_TREATMENT_ARM_API_URL = 'http://localhost:10235/api/v1/treatment_arms'
 
   def self.load_treatment_arm_to_local(message_file, wait_time)
+    message_file = File.basename(message_file, '.json')
     raise 'message file must be valid' if message_file.nil? || message_file.length == 0
     file = File.read("#{LOCAL_TREATMENT_ARM_DATA_FOLDER}/#{message_file}.json")
 
@@ -40,7 +41,6 @@ class TreatmentArmMessageLoader
     end
 
     pass = all_items - failure
-    p ''
-    p "#{all_items} messages processed, #{pass} passed and #{failure} failed"
+    puts "#{all_items} messages processed, #{pass} passed and #{failure} failed"
   end
 end
