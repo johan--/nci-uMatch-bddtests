@@ -20,16 +20,10 @@
   "gene_fusions": [
     {
       "variant_type":"fusion",
-//      "metadata": {
-//        "id": "ba62eecc-d24a-4f62-a918-570deb8a9f6c"
-//      },
       "identifier" : "TPM3-ALK.T7A20"
     },
     {
       "variant_type":"fusion",
-//      "metadata": {
-//        "id": "ba62eecc-d24a-4f62-a918-570deb8a9f6c"
-//      },
       "identifier" : "FGFR2-OFD1.F17O3"
     }
   ]
