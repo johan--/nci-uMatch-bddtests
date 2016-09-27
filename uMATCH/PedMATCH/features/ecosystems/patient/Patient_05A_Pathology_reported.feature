@@ -142,3 +142,8 @@ Feature: Pathology Messages
       |PT_PR13_AssayAndVRDonePlanToY        |PT_PR13_AssayAndVRDonePlanToY_SEI1       |Y                 |PENDING_CONFIRMATION     |PENDING_CONFIRMATION   |
       |PT_PR13_AssayAndVRDonePlanToN        |PT_PR13_AssayAndVRDonePlanToN_SEI1       |N                 |PATHOLOGY_REVIEWED     |PATHOLOGY_REVIEWED     |
       |PT_PR13_AssayAndVRDonePlanToU        |PT_PR13_AssayAndVRDonePlanToU_SEI1       |U                 |TISSUE_VARIANT_REPORT_CONFIRMED     |TISSUE_VARIANT_REPORT_CONFIRMED     |
+
+  Scenario: PT_PR14. extra key-value pair in the message body should NOT fail
+    Given template pathology report with surgical_event_id: "PT_PR14_TissueReceived_SEI1" for patient: "PT_PR14_TissueReceived"
+    Then set patient message field: "extra_info" to value: "This is extra information"
+    When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"

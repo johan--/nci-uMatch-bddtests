@@ -292,3 +292,13 @@ Feature: NCH Specimen shipped messages
 #    |PT_SS29_BdAndTsReceived1   |MDA              |MDA               |Success   |Message has been processed successfully  |
 #    |PT_SS29_BdAndTsReceived2   |Mocha            |Mocha             |Success   |Message has been processed successfully  |
 #    |PT_SS29_BdAndTsReceived3   |Mocha            |MDA               |Failure   |destination                              |
+
+  Scenario Outline: PT_SS30. extra key-value pair in the message body should NOT fail
+    Given template specimen shipped message in type: "<type>" for patient: "PT_SS30_TsBdReceived", it has surgical_event_id: "<sei>", molecular_id: "<moi>", slide_barcode: "<bc>"
+    Then set patient message field: "extra_info" to value: "This is extra information"
+    When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
+    Examples:
+      |type     |sei                        |moi                          |bc                             |
+      |TISSUE   |PT_SS30_TsBdReceived_SEI1  |PT_SS30_TsBdReceived_MOI1    |                               |
+      |BLOOD    |                           |PT_SS30_TsBdReceived_BD_MOI1 |                               |
+      |SLIDE    |PT_SS30_TsBdReceived_SEI1  |                             |PT_SS30_TsBdReceived_BC1       |

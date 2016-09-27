@@ -145,5 +145,9 @@ Feature: Assay Messages
       |PT_AS12_PathoConfirmedNoVR           |ASSAY_RESULTS_RECEIVED    |PT_AS12_PathoConfirmedNoVR_SEI1                         |
 
 
+  Scenario: PT_AS13. extra key-value pair in the message body should NOT fail
+    Given template assay message with surgical_event_id: "PT_AS13_SlideShipped_SEI1" for patient: "PT_AS13_SlideShipped"
+    Then set patient message field: "extra_info" to value: "This is extra information"
+    When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
 
 

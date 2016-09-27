@@ -170,3 +170,9 @@ Scenario Outline: PT_VU17. blood variant files cannot be uploaded if patient has
   |sei                        |moi                            |ani                        |query_ani                  |vr_status|message                                 |post_status|
   |                           |PT_VU17_BdVRConfirmed_BD_MOI1  |PT_VU17_BdVRConfirmed_ANI2 |PT_VU17_BdVRConfirmed_ANI1 |CONFIRMED|confirmed                               |Failure    |
   |PT_VU17_BdVRConfirmed_SEI1 |PT_VU17_BdVRConfirmed_MOI1     |PT_VU17_BdVRConfirmed_ANI3 |PT_VU17_BdVRConfirmed_ANI3 |PENDING  |Message has been processed successfully |Success    |
+
+
+Scenario: PT_VU18. extra key-value pair in the message body should NOT fail
+  Given template pathology report with surgical_event_id: "PT_VU18_TissueShipped_SEI1" for patient: "PT_VU18_TissueShipped"
+  Then set patient message field: "extra_info" to value: "This is extra information"
+  When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"

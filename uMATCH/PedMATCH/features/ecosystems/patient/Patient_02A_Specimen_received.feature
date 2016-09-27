@@ -76,7 +76,7 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     |PT_SR10_YPathoReceived  |PT_SR10_YPathoReceived_SEI2  |Success    |Message has been processed successfully                                       |
     |PT_SR10_TsVrReceived    |PT_SR10_TsVrReceived_SEI2    |Success    |Message has been processed successfully                                       |
     |PT_SR10_TsVRRejected    |PT_SR10_TsVRRejected_SEI2    |Success    |Message has been processed successfully                                      |
-#    |PT_SR10_OnTreatmentArm   |PT_SR10_OnTreatmentArm_SEI2  |Failure    |cannot transition from                                                       |
+    |PT_SR10_OnTreatmentArm   |PT_SR10_OnTreatmentArm_SEI2  |Failure    |cannot transition from                                                       |
 #    |PT_SR10_ProgressReBioY   |PT_SR10_ProgressReBioY_SEI2  |Success    |Message has been processed successfully                                      |
 #    |PT_SR10_OffStudy         |PT_SR10_OffStudy_SEI2        |Failure    |cannot transition from                                                       |
 
@@ -91,7 +91,7 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     |PT_SR10_BdVRReceived   |Success    |Message has been processed successfully                                      |
     |PT_SR10_BdVRRejected   |Success    |Message has been processed successfully                                      |
     |PT_SR10_BdVRConfirmed  |Failure    |confirmed variant report                                                     |
-#    |PT_SR10_PendingApproval|Success    |Message has been processed successfully                                      |
+    |PT_SR10_PendingApproval|Success    |Message has been processed successfully                                      |
 #    |PT_SR10_ProgressReBioY2|TISSUE          |Success    |Message has been processed successfully                                      |
 #    |PT_SR10_OffStudy       |Failure    |cannot transition from                                                       |
 
@@ -120,10 +120,19 @@ Scenario Outline: PT_SR14. new specimen receipt will push all pending variant re
   When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
   Then retrieve patient: "<patient_id>" from API
   Then returned patient has value: "<patient_status>" in field: "current_status"
-  Then returned patient has variant report (surgical_event_id: "<old_sei>", molecular_id: "<old_moi>", analysis_id: "<old_ani>")
+  Then returned patient has variant report (analysis_id: "<old_ani>")
   And this variant report has value: "REJECTED" in field: "status"
   Examples:
   |patient_id            |specimen_type  |new_sei                   |old_sei                   |old_moi                      |old_ani                   |patient_status           |
   |PT_SR14_TsVrUploaded  |TISSUE         |PT_SR14_TsVrUploaded_SEI2 |PT_SR14_TsVrUploaded_SEI1 |PT_SR14_TsVrUploaded_MOI1    |PT_SR14_TsVrUploaded_ANI1 |TISSUE_SPECIMEN_RECEIVED |
   |PT_SR14_BdVrUploaded  |BLOOD          |                          |                          |PT_SR14_BdVrUploaded_BD_MOI1 |PT_SR14_BdVrUploaded_ANI1 |BLOOD_SPECIMEN_RECEIVED |
 
+
+Scenario Outline: PT_SR13. extra key-value pair in the message body should NOT fail
+  Given template specimen received message in type: "<type>" for patient: "PT_SR13_Registered", it has surgical_event_id: "<sei>"
+  Then set patient message field: "extra_info" to value: "This is extra information"
+  When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
+  Examples:
+  |type     |sei                      |
+  |TISSUE   |PT_SR13_Registered_SEI1  |
+  |BLOOD    |                         |

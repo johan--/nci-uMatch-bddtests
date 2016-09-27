@@ -59,3 +59,8 @@ Feature: Register a new patient in PEDMatchbox:
       |PT_RG05_StringDate     |Other                    |invalid date                                            |
       |PT_RG05_FutureDate     |future                   |current date                                            |
       |PT_RG05_TimeStampDate  |1471360795               |invalid date                                            |
+    
+  Scenario: PT_RG06. extra key-value pair in the message body should NOT fail
+    Given template patient registration message for patient: "PT_RG06" on date: "current"
+    Then set patient message field: "extra_info" to value: "This is extra information"
+    When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
