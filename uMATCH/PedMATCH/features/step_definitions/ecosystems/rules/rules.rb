@@ -160,8 +160,8 @@ end
 Then(/^variant type "([^"]*)" with "([^"]*)" is found in the False positives table$/) do |arg1, arg2|
   flag = false
   @res['false_positive_variants'].each do |var|
-    if (var['type'].eql?(arg1) & var['identifier'].eql?(arg2))
-      flag == true
+    if (var['variant_type'].eql?(arg1.downcase) & var['identifier'].eql?(arg2))
+      flag = true
       break
     end
   end
