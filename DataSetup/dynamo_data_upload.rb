@@ -28,6 +28,20 @@ class DynamoDataUploader
     p 'Done!'
   end
 
+  def self.backup_all_patient_local_db
+    TableDetails.patient_tables.each { |table_name|
+      backup_local_table(table_name)
+    }
+    p 'Done!'
+  end
+
+  def self.backup_all_treatment_arm_local_db
+    TableDetails.treatment_arm_tables.each { |table_name|
+      backup_local_table(table_name)
+    }
+    p 'Done!'
+  end
+
   def self.backup_local_table(table_name)
     query_table_name = table_name
     # if query_table_name.start_with?('treatment_arm')

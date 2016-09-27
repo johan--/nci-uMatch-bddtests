@@ -165,6 +165,20 @@ class DynamoDb
       clear_table(table)
     end
   end
+
+  def clear_all_patient_tables
+    LOG.log('Deleting tables patient ecosystem')
+    TableDetails.patient_tables.each do |table|
+      clear_table(table)
+    end
+  end
+
+  def clear_all_treatment_arm_tables
+    LOG.log('Deleting tables treatment arm ecosystem')
+    TableDetails.treatment_arm_tables.each do |table|
+      clear_table(table)
+    end
+  end
 end
 
 # Logger

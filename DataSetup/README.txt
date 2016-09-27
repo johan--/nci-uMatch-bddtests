@@ -43,3 +43,43 @@ DynamoDataUploader-- this class helps upload backup data from local dynamodb to 
         3. Upload to local dynamodb tables in other class
             require_relative 'dynamo_data_upload'
             DynamoDataUploader.new('local').upload_patient_data_to_aws
+
+
+How to work with seed data:
+1. Start with a fresh new full loaded local dynamodb:
+DynamoDb.new('local').clear_all_tables
+DynamoDataUploader.new('local').upload_treatment_arm_to_aws
+DynamoDataUploader.new('local').upload_patient_data_to_aws
+
+2. Start with an empty local dynamodb;
+DynamoDb.new('local').clear_all_tables
+
+3. Replace all patient seed data
+    a.  DynamoDb.new('local').clear_all_patient_tables
+    b.  Do whatever change in the local_patient_data/*.rb file and run the file
+        repeat step a and b until the changes in step b is satisfied
+    c.  load all OTHER "_data_done.rb" like:
+        load 'local_patient_data/Patient_01A_data_done.rb'
+        load 'local_patient_data/Patient_02A_data_done.rb'
+        load 'local_patient_data/Patient_03A_data_done.rb'
+        load 'local_patient_data/Patient_04A_data_done.rb'
+        load 'local_patient_data/Patient_05A_data_done.rb'
+        load 'local_patient_data/Patient_06A_data_done.rb'
+        load 'local_patient_data/Patient_07A_data_done.rb'
+        load 'local_patient_data/Patient_TA_UI_data_done.rb'
+        #load other files if necessary
+    d.  DynamoDataUploader.backup_all_patient_local_db
+    e.  Check in seed_data_for_upload/{patient related table).json files to git
+
+3. Replace all treatment arm seed data
+    a.  DynamoDb.new('local').clear_all_treatment_arm_tables
+    b.  Do whatever change in the local_treatment_arm_data/Treatment_Arm_data.json file and run
+        TreatmentArmMessageLoader.load_treatment_arm_to_local('Treatment_Arm_data', 5)
+        repeat step a and b until the changes in step b is satisfied
+    c.  DynamoDataUploader.backup_all_treatment_arm_local_db
+    d.  Check in seed_data_for_upload/{treatment arm related table).json files to git
+
+
+
+
+
