@@ -21,7 +21,7 @@ module.exports = function () {
         loginPageObj.goToLoginPage();
         utilities.checkTitle(browser, loginPageObj.title);
 
-        browser.sleep(50).then(callback);
+        browser.sleep(5000).then(callback);
     });
 
     this.Given(/^I am a logged in user$/, function(callback) {
@@ -46,7 +46,7 @@ module.exports = function () {
             browser.waitForAngular();
         }, function (error) {
             console.log(error);
-            console.log('#############################################')
+            console.log('#############################################');
             browser.getPageSource().then(function (text) {
                 console.log(text);
             })

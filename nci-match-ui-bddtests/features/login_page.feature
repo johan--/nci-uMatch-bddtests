@@ -16,8 +16,15 @@ Feature: Login
     When I login with invalid email and password
     Then I should be asked to enter the credentials again
 
-  @treatment_arm @patients @ui @demo_p3
+  @treatment_arm @patients @ui @demo_p3 @fling
   Scenario: Login with proper credentials grants access protected pages.
     Given I am on the login page
     When  I login with valid email and password
     Then I should be able to the see Dashboard page
+
+@fling
+  Scenario: Relogin with proper credentials
+    Given I am on the login page
+    And I click on the login button
+    Then I should see the previous login session button
+
