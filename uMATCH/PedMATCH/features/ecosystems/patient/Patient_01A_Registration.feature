@@ -5,13 +5,11 @@ Feature: Register a new patient in PEDMatchbox:
   Scenario: PT_RG01. New patient can be registered successfully
     Given template patient registration message for patient: "PT_RG01_New" on date: "2016-08-16T14:52:58.000+00:00"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then wait for "10" seconds
-    Then retrieve patient: "PT_RG01_New" from API
-    Then returned patient has value: "2016-08-16T14:52:58.000+00:00" in field: "registration_date"
-    Then returned patient has value: "REGISTRATION" in field: "current_status"
-    Then returned patient has value: "APEC1621" in field: "study_id"
-    Then returned patient has value: "1.0" in field: "current_step_number"
-    Then returned patient has value: "PT_RG01_New" in field: "patient_id"
+    Then patient field: "current_status" should have value: "REGISTRATION" within 10 seconds
+    And patient field: "registration_date" should have value: "2016-08-16T14:52:58+00:00" within 10 seconds
+    And patient field: "study_id" should have value: "APEC1621" within 10 seconds
+    And patient field: "current_step_number" should have value: "1.0" within 10 seconds
+    And patient field: "patient_id" should have value: "PT_RG01_New" within 10 seconds
 
   Scenario Outline: PT_RG02. patient registration with invalid patient_id should fail
     Given template patient registration message for patient: "<patient_id>" on date: "current"

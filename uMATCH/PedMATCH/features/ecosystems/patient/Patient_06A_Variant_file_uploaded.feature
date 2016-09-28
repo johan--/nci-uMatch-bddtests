@@ -73,8 +73,7 @@ Feature: Variant files uploaded message
 #  Test patient: PT_VU06_TissueShipped: surgical_event_id: PT_VU06_TissueShipped_SEI1, molecular_id: PT_VU06_TissueShipped_MOI1 tissue shipped;
     Given template variant file uploaded message for patient: "PT_VU06_TissueShipped", it has molecular_id: "PT_VU06_TissueShipped_MOI1" and analysis_id: "PT_VU06_TissueShipped_ANI1"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then retrieve patient: "PT_VU06_TissueShipped" from API
-    Then returned patient has variant report (analysis_id: "PT_VU06_TissueShipped_ANI1")
+    Then patient should have variant report (analysis_id: "PT_VU06_TissueShipped_ANI1") within 15 seconds
     Then this variant report has value: "PENDING" in field: "status"
     Then this variant report has value: "test1.tsv" in field: "tsv_file_name"
 
@@ -89,10 +88,9 @@ Feature: Variant files uploaded message
 #          Plan to uploaded surgical_event_id: _SEI1, molecular_id: _MOI1, analysis_id: _ANI2
     Given template variant file uploaded message for patient: "PT_VU09_VariantReportUploaded", it has molecular_id: "PT_VU09_VariantReportUploaded_MOI1" and analysis_id: "PT_VU09_VariantReportUploaded_ANI2"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then retrieve patient: "PT_VU09_VariantReportUploaded" from API
-    Then returned patient has variant report (analysis_id: "PT_VU09_VariantReportUploaded_ANI2")
+    Then patient should have variant report (analysis_id: "PT_VU09_VariantReportUploaded_ANI2") within 15 seconds
     And this variant report has value: "PENDING" in field: "status"
-    Then returned patient has variant report (analysis_id: "PT_VU09_VariantReportUploaded_ANI1")
+    Then patient should have variant report (analysis_id: "PT_VU09_VariantReportUploaded_ANI1") within 15 seconds
     And this variant report has value: "REJECTED" in field: "status"
 #       For this scenario:
 #         SEI_1 MOI_1 shipped->SEI_1 MOI_1 AID_1 uploaded->SEI_1 MOI_1 AID_1 V_UUID_1 confirmed->SEI_2 received->SEI_2 MOI_1 shipped->SEI_2 MOI_1 AID_1 uploaded ==> SEI_1 MOI_1 AID_1 rejected
@@ -109,8 +107,7 @@ Feature: Variant files uploaded message
 #      Plan to use _SEI1, _MOI1, _ANI2
     Given template variant file uploaded message for patient: "PT_VU11_VariantReportRejected", it has molecular_id: "PT_VU11_VariantReportRejected_MOI1" and analysis_id: "PT_VU11_VariantReportRejected_ANI2"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then retrieve patient: "PT_VU11_VariantReportRejected" from API
-    Then returned patient has variant report (analysis_id: "PT_VU11_VariantReportRejected_ANI2")
+    Then patient should have variant report (analysis_id: "PT_VU11_VariantReportRejected_ANI2") within 15 seconds
     And this variant report has value: "PENDING" in field: "status"
 
   Scenario Outline: PT_VU12. variant files uploaded with existing(including the one just get rejected) analysis_id cannot be accepted when patient has TISSUE_VARIANT_REPORT_REJECTED status
@@ -131,12 +128,10 @@ Feature: Variant files uploaded message
 #    Test patient: PT_VU14_TissueAndBloodShipped; Tissue shipped: _SEI1, _MOI1; Blood shipped: BD_MOI1
     Given template variant file uploaded message for patient: "PT_VU14_TissueAndBloodShipped", it has molecular_id: "PT_VU14_TissueAndBloodShipped_BD_MOI1" and analysis_id: "PT_VU14_TissueAndBloodShipped_ANI1"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then retrieve patient: "PT_VU14_TissueAndBloodShipped" from API
-    Then returned patient has value: "BLOOD_VARIANT_REPORT_RECEIVED" in field: "current_status"
-    Then returned patient has variant report (analysis_id: "PT_VU14_TissueAndBloodShipped_ANI1")
+    Then patient field: "current_status" should have value: "BLOOD_VARIANT_REPORT_RECEIVED" within 15 seconds
+    Then patient should have variant report (analysis_id: "PT_VU14_TissueAndBloodShipped_ANI1") within 15 seconds
     And this variant report has value: "BLOOD" in field: "variant_report_type"
-    Then this variant report has value: "test1.tsv" in field: "tsv_file_name"
-    Then this variant report has value: "test1.vcf" in field: "vcf_file_name"
+    And this variant report has value: "test1.tsv" in field: "tsv_file_name"
 
 #    molecular_id is globally unique now, so this test case is not necessary anymore
 #  Scenario: PT_VU15. tissue variant file uploaded should generate variants for latest surgical event (not older one which use the same molecular_id)
@@ -152,10 +147,9 @@ Feature: Variant files uploaded message
 #          Plan to uploaded molecular_id: _BR_MOI1, analysis_id: _ANI2
     Given template variant file uploaded message for patient: "PT_VU16_BdVRUploaded", it has molecular_id: "PT_VU16_BdVRUploaded_BD_MOI1" and analysis_id: "PT_VU16_BdVRUploaded_ANI2"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then retrieve patient: "PT_VU16_BdVRUploaded" from API
-    Then returned patient has variant report (analysis_id: "PT_VU16_BdVRUploaded_ANI2")
+    Then patient should have variant report (analysis_id: "PT_VU16_BdVRUploaded_ANI2") within 15 seconds
     And this variant report has value: "PENDING" in field: "status"
-    Then returned patient has variant report (analysis_id: "PT_VU16_BdVRUploaded_ANI1")
+    Then patient should have variant report (analysis_id: "PT_VU16_BdVRUploaded_ANI1") within 15 seconds
     And this variant report has value: "REJECTED" in field: "status"
 
 Scenario Outline: PT_VU17. blood variant files cannot be uploaded if patient has BLOOD_VARIANT_REPORT_CONFIRMED status, but still can upload tissue variant files
@@ -163,13 +157,12 @@ Scenario Outline: PT_VU17. blood variant files cannot be uploaded if patient has
 #                                        tissue specimen has been shipped: molecular_id: _MOI1
   Given template variant file uploaded message for patient: "PT_VU17_BdVRConfirmed", it has molecular_id: "<moi>" and analysis_id: "<ani>"
   When post to MATCH patients service, returns a message that includes "<message>" with status "<post_status>"
-  Then retrieve patient: "PT_VU17_BdVRConfirmed" from API
-  Then returned patient has variant report (analysis_id: "<query_ani>")
+  Then patient should have variant report (analysis_id: "<query_ani>") within 15 seconds
   And this variant report has value: "<vr_status>" in field: "status"
   Examples:
-  |sei                        |moi                            |ani                        |query_ani                  |vr_status|message                                 |post_status|
-  |                           |PT_VU17_BdVRConfirmed_BD_MOI1  |PT_VU17_BdVRConfirmed_ANI2 |PT_VU17_BdVRConfirmed_ANI1 |CONFIRMED|confirmed                               |Failure    |
-  |PT_VU17_BdVRConfirmed_SEI1 |PT_VU17_BdVRConfirmed_MOI1     |PT_VU17_BdVRConfirmed_ANI3 |PT_VU17_BdVRConfirmed_ANI3 |PENDING  |Message has been processed successfully |Success    |
+  |moi                            |ani                        |query_ani                  |vr_status|message                                 |post_status|
+  |PT_VU17_BdVRConfirmed_BD_MOI1  |PT_VU17_BdVRConfirmed_ANI2 |PT_VU17_BdVRConfirmed_ANI1 |CONFIRMED|confirmed                               |Failure    |
+  |PT_VU17_BdVRConfirmed_MOI1     |PT_VU17_BdVRConfirmed_ANI3 |PT_VU17_BdVRConfirmed_ANI3 |PENDING  |Message has been processed successfully |Success    |
 
 
 Scenario: PT_VU18. extra key-value pair in the message body should NOT fail

@@ -74,6 +74,17 @@ class Helper_Methods
     return result
   end
 
+  def Helper_Methods.simple_get_request(service)
+    begin
+      response = RestClient::Request.execute(:url => service, :method => :get, :verify_ssl => false)
+    rescue StandardError => e
+      print "Error: #{e.message} occurred\n"
+      print "Response:#{e.response}\n"
+      return []
+    end
+    JSON.parse(response)
+  end
+
   def Helper_Methods.get_single_request(service,
                                         print_tick=false,
                                         key='',

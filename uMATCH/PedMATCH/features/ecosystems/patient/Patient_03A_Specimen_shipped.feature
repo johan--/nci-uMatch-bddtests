@@ -4,22 +4,19 @@ Feature: NCH Specimen shipped messages
   Scenario: PT_SS01. Received specimen_shipped message for type 'BLOOD' from NCH for a patient who has already received the specimen_received message
     Given template specimen shipped message in type: "BLOOD" for patient: "PT_SS01_BloodReceived", it has surgical_event_id: "", molecular_id: "PT_SS01_BloodReceived_BD_MOI1", slide_barcode: ""
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then retrieve patient: "PT_SS01_BloodReceived" from API
-    Then returned patient has value: "BLOOD_NUCLEIC_ACID_SHIPPED" in field: "current_status"
+    Then patient field: "current_status" should have value: "BLOOD_NUCLEIC_ACID_SHIPPED" within 15 seconds
 
   Scenario: PT_SS02. Received specimen_shipped message for type 'TISSUE' from NCH for a patient who has already received the specimen_received message
 #  Testing patient:PT_SS02_TissueReceived; surgical_event_id: PT_SS02_TissueReceived_SEI1
     Given template specimen shipped message in type: "TISSUE" for patient: "PT_SS02_TissueReceived", it has surgical_event_id: "PT_SS02_TissueReceived_SEI1", molecular_id: "PT_SS02_TissueReceived_MOI1", slide_barcode: ""
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then retrieve patient: "PT_SS02_TissueReceived" from API
-    Then returned patient has value: "TISSUE_NUCLEIC_ACID_SHIPPED" in field: "current_status"
+    Then patient field: "current_status" should have value: "TISSUE_NUCLEIC_ACID_SHIPPED" within 15 seconds
 
   Scenario: PT_SS03. Received specimen_shipped message for type 'SLIDE' from NCH for a patient who has already received the specimen_received message
 #  Testing patient:PT_SS03_TissueReceived; surgical_event_id: PT_SS03_TissueReceived_SEI1
     Given template specimen shipped message in type: "SLIDE" for patient: "PT_SS03_TissueReceived", it has surgical_event_id: "PT_SS03_TissueReceived_SEI1", molecular_id: "", slide_barcode: "PT_SS03_TissueReceived_BC1"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then retrieve patient: "PT_SS03_TissueReceived" from API
-    Then returned patient has value: "TISSUE_SLIDE_SPECIMEN_SHIPPED" in field: "current_status"
+    Then patient field: "current_status" should have value: "TISSUE_SLIDE_SPECIMEN_SHIPPED" within 15 seconds
 
   Scenario Outline: PT_SS04. Shipment with invalid patient_id fails
     Given template specimen shipped message in type: "<type>" for patient: "<patient>", it has surgical_event_id: "PT_SS04_SEI1", molecular_id: "PT_SS04_MOI1", slide_barcode: "PT_SS04_BC1"
@@ -125,8 +122,7 @@ Feature: NCH Specimen shipped messages
     Given template specimen shipped message in type: "TISSUE" for patient: "PT_SS12_Tissue1Shipped", it has surgical_event_id: "PT_SS12_Tissue1Shipped_SEI1", molecular_id: "PT_SS12_Tissue1Shipped_MOI2", slide_barcode: ""
     Then set patient message field: "shipped_dttm" to value: "2016-08-25T16:17:11+00:00"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then retrieve patient: "PT_SS12_Tissue1Shipped" from API
-    Then returned patient has specimen (surgical_event_id: "PT_SS12_Tissue1Shipped_SEI1")
+    Then patient should have specimen (surgical_event_id: "PT_SS12_Tissue1Shipped_SEI1") within 15 seconds
     And this specimen has value: "PT_SS12_Tissue1Shipped_MOI2" in field: "active_molecular_id"
 
 
@@ -255,9 +251,8 @@ Feature: NCH Specimen shipped messages
     Then set patient message field: "molecular_cdna_id" to value: "PT_SS27_VariantReportUploaded_MOI2C"
     Then set patient message field: "shipped_dttm" to value: "2016-08-01T15:17:11+00:00"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then retrieve patient: "PT_SS27_VariantReportUploaded" from API
-    Then returned patient has value: "TISSUE_NUCLEIC_ACID_SHIPPED" in field: "current_status"
-    Then returned patient has variant report (surgical_event_id: "PT_SS27_VariantReportUploaded_SEI1", molecular_id: "PT_SS27_VariantReportUploaded_MOI1", analysis_id: "PT_SS27_VariantReportUploaded_ANI1")
+    Then patient field: "current_status" should have value: "TISSUE_NUCLEIC_ACID_SHIPPED" within 15 seconds
+    Then patient should have variant report (analysis_id: "PT_SS27_VariantReportUploaded_ANI1") within 15 seconds
     And this variant report has value: "REJECTED" in field: "status"
 
   Scenario Outline: PT_SS28. destination should be validated

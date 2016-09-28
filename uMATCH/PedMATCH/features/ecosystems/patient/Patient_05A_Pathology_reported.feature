@@ -54,25 +54,22 @@ Feature: Pathology Messages
     Then set patient message field: "status" to value: "Y"
     Then set patient message field: "reported_date" to value: "2016-08-18T18:42:13+00:00"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then retrieve patient: "PT_PR06_TissueReceived" from API
-    Then returned patient has value: "PATHOLOGY_REVIEWED" in field: "current_status"
-    Then returned patient has specimen (surgical_event_id: "PT_PR06_TissueReceived_SEI1")
-    Then this specimen has value: "Y" in field: "pathology_status"
+    Then patient field: "current_status" should have value: "PATHOLOGY_REVIEWED" within 15 seconds
+    Then patient should have specimen (surgical_event_id: "PT_PR06_TissueReceived_SEI1") within 15 seconds
+    And this specimen has value: "Y" in field: "pathology_status"
     And this specimen has value: "2016-08-18T18:42:13+00:00" in field: "pathology_status_date"
   
   Scenario: PT_PR07. Pathology report can be sent on TISSUE_NUCLEIC_ACID_SHIPPED status
     Given template pathology report with surgical_event_id: "PT_PR07_TissueShipped_SEI1" for patient: "PT_PR07_TissueShipped"
     Then set patient message field: "status" to value: "N"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then retrieve patient: "PT_PR06_TissueReceived" from API
-    Then returned patient has value: "PATHOLOGY_REVIEWED" in field: "current_status"
+    Then patient field: "current_status" should have value: "PATHOLOGY_REVIEWED" within 15 seconds
 
   Scenario: PT_PR08. Pathology report can be sent on TISSUE_SLIDE_SHIPPED status but will not change patient status if status is U
     Given template pathology report with surgical_event_id: "PT_PR08_SlideShipped_SEI1" for patient: "PT_PR08_SlideShipped"
     Then set patient message field: "status" to value: "U"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then retrieve patient: "PT_PR08_SlideShipped" from API
-    Then returned patient has value: "TISSUE_SLIDE_SPECIMEN_SHIPPED" in field: "current_status"
+    Then patient field: "current_status" should have value: "TISSUE_SLIDE_SPECIMEN_SHIPPED" within 15 seconds
 
 
   Scenario Outline: PT_PR09. Pathology report received using an non-existing surgical event id should fail
@@ -132,16 +129,14 @@ Feature: Pathology Messages
     Given template pathology report with surgical_event_id: "<sei>" for patient: "<patient_id>"
     Then set patient message field: "status" to value: "<confirm_status>"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then patient "<patient_id>" status will become to "<first_status>"
-    Then patient "<patient_id>" status will become to "<second_status>"
+    Then patient field: "current_status" should have value: "<patient_status>" after 30 seconds
     Examples:
-      |patient_id                           |sei                                      |confirm_status    |first_status           |second_status          |
-      |PT_PR13_VRConfirmedNoAssay           |PT_PR13_VRConfirmedNoAssay_SEI1          |Y                 |PATHOLOGY_REVIEWED     |PATHOLOGY_REVIEWED     |
-      |PT_PR13_AssayReceivedVRNotConfirmed  |PT_PR13_AssayReceivedVRNotConfirmed_SEI1 |Y                 |PATHOLOGY_REVIEWED     |PATHOLOGY_REVIEWED     |
-                                                                    #notice this following case, patient will skip PATHOLOGY_REVIEWED status, not sure is this a bug
-      |PT_PR13_AssayAndVRDonePlanToY        |PT_PR13_AssayAndVRDonePlanToY_SEI1       |Y                 |PENDING_CONFIRMATION     |PENDING_CONFIRMATION   |
-      |PT_PR13_AssayAndVRDonePlanToN        |PT_PR13_AssayAndVRDonePlanToN_SEI1       |N                 |PATHOLOGY_REVIEWED     |PATHOLOGY_REVIEWED     |
-      |PT_PR13_AssayAndVRDonePlanToU        |PT_PR13_AssayAndVRDonePlanToU_SEI1       |U                 |TISSUE_VARIANT_REPORT_CONFIRMED     |TISSUE_VARIANT_REPORT_CONFIRMED     |
+      |patient_id                           |sei                                      |confirm_status    |first_status          |
+      |PT_PR13_VRConfirmedNoAssay           |PT_PR13_VRConfirmedNoAssay_SEI1          |Y                 |PATHOLOGY_REVIEWED     |
+      |PT_PR13_AssayReceivedVRNotConfirmed  |PT_PR13_AssayReceivedVRNotConfirmed_SEI1 |Y                 |PATHOLOGY_REVIEWED     |
+      |PT_PR13_AssayAndVRDonePlanToY        |PT_PR13_AssayAndVRDonePlanToY_SEI1       |Y                 |PENDING_CONFIRMATION   |
+      |PT_PR13_AssayAndVRDonePlanToN        |PT_PR13_AssayAndVRDonePlanToN_SEI1       |N                 |PATHOLOGY_REVIEWED     |
+      |PT_PR13_AssayAndVRDonePlanToU        |PT_PR13_AssayAndVRDonePlanToU_SEI1       |U                 |TISSUE_VARIANT_REPORT_CONFIRMED     |
 
   Scenario: PT_PR14. extra key-value pair in the message body should NOT fail
     Given template pathology report with surgical_event_id: "PT_PR14_TissueReceived_SEI1" for patient: "PT_PR14_TissueReceived"

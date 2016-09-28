@@ -24,30 +24,23 @@ Feature: Patients end to end tests
     Then "BLOOD" variant report confirmed with status: "REJECTED"
     Then wait for "2" seconds
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
-    Then wait for "30" seconds
-    When retrieve patient: "PT_ETE01" from API
-    Then returned patient has value: "PENDING_CONFIRMATION" in field: "current_status"
-    Then returned patient has selected treatment arm: "APEC1621-ETE-C" with stratum id: "100"
+    Then patient status should be "PENDING_CONFIRMATION" within 30 seconds
+    Then patient should have selected treatment arm: "APEC1621-ETE-C" with stratum id: "100" within 15 seconds
     Then assignment report is "CONFIRMED"
     Then COG approves patient on treatment arm: "APEC1621-ETE-C", stratum: "100" to step: "1.1"
-    When retrieve patient: "PT_ETE01" from API
-    Then returned patient has value: "ON_TREATMENT_ARM" in field: "current_status"
-    Then returned patient has value: "1.1" in field: "current_step_number"
+    Then patient status should be "ON_TREATMENT_ARM" within 15 seconds
+    Then patient step number should be "1.1" within 15 seconds
     Then COG requests assignment for this patient with re-biopsy: "N", step number: "2.0"
-    Then wait for "30" seconds
-    When retrieve patient: "PT_ETE01" from API
-    Then returned patient has value: "PENDING_CONFIRMATION" in field: "current_status"
-    Then returned patient has value: "2.0" in field: "current_step_number"
-    Then returned patient has selected treatment arm: "APEC1621-ETE-A" with stratum id: "100"
+    Then patient status should be "PENDING_CONFIRMATION" within 30 seconds
+    Then patient step number should be "2.0" within 15 seconds
+    Then patient should have selected treatment arm: "APEC1621-ETE-A" with stratum id: "100" within 15 seconds
     Then assignment report is "CONFIRMED"
     Then COG approves patient on treatment arm: "APEC1621-ETE-A", stratum: "100" to step: "2.1"
-    When retrieve patient: "PT_ETE01" from API
-    Then returned patient has value: "ON_TREATMENT_ARM" in field: "current_status"
-    Then returned patient has value: "2.1" in field: "current_step_number"
+    Then patient status should be "ON_TREATMENT_ARM" within 15 seconds
+    Then patient step number should be "2.1" within 15 seconds
     Then COG requests assignment for this patient with re-biopsy: "Y", step number: "3.0"
-    When retrieve patient: "PT_ETE01" from API
-    Then returned patient has value: "REQUEST_ASSIGNMENT" in field: "current_status"
-    Then returned patient has value: "3.0" in field: "current_step_number"
+    Then patient status should be "REQUEST_ASSIGNMENT" within 15 seconds
+    Then patient step number should be "3.0" within 15 seconds
     Then tissue specimen received with surgical_event_id: "PT_ETE01_SEI2"
     Then blood specimen received
     Then "TISSUE" specimen shipped to "MoCha" with molecular_id or slide_barcode: "PT_ETE01_MOI2"
@@ -63,26 +56,20 @@ Feature: Patients end to end tests
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
     Then wait for "2" seconds
     Then "BLOOD" variant report confirmed with status: "CONFIRMED"
-    Then wait for "30" seconds
-    When retrieve patient: "PT_ETE01" from API
-    Then returned patient has value: "PENDING_CONFIRMATION" in field: "current_status"
-    Then returned patient has selected treatment arm: "APEC1621-ETE-B" with stratum id: "100"
+    Then patient status should be "PENDING_CONFIRMATION" within 30 seconds
+    Then patient should have selected treatment arm: "APEC1621-ETE-B" with stratum id: "100" within 15 seconds
     Then assignment report is "CONFIRMED"
     Then COG approves patient on treatment arm: "APEC1621-ETE-B", stratum: "100" to step: "3.1"
-    When retrieve patient: "PT_ETE01" from API
-    Then returned patient has value: "ON_TREATMENT_ARM" in field: "current_status"
-    Then returned patient has value: "3.1" in field: "current_step_number"
+    Then patient status should be "ON_TREATMENT_ARM" within 15 seconds
+    Then patient step number should be "3.1" within 15 seconds
     Then COG requests assignment for this patient with re-biopsy: "N", step number: "4.0"
-    Then wait for "30" seconds
-    When retrieve patient: "PT_ETE01" from API
-    Then returned patient has value: "PENDING_CONFIRMATION" in field: "current_status"
-    Then returned patient has value: "4.0" in field: "current_step_number"
-    Then returned patient has selected treatment arm: "APEC1621-ETE-D" with stratum id: "100"
+    Then patient status should be "PENDING_CONFIRMATION" within 30 seconds
+    Then patient step number should be "4.0" within 15 seconds
+    Then patient should have selected treatment arm: "APEC1621-ETE-D" with stratum id: "100" within 15 seconds
     Then assignment report is "CONFIRMED"
     Then COG approves patient on treatment arm: "APEC1621-ETE-D", stratum: "100" to step: "4.1"
-    When retrieve patient: "PT_ETE01" from API
-    Then returned patient has value: "ON_TREATMENT_ARM" in field: "current_status"
-    Then returned patient has value: "4.1" in field: "current_step_number"
+    Then patient status should be "ON_TREATMENT_ARM" within 15 seconds
+    Then patient step number should be "4.1" within 15 seconds
 
 
 
@@ -114,18 +101,14 @@ Feature: Patients end to end tests
     Given this patients's active "TISSUE" analysis_id is "PT_ETE03_ANI1"
     Given other background and comments for this patient: "assay and pathology are ready"
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
-    Then wait for "60" seconds
-    Then retrieve patient: "PT_ETE03" from API
-    Then returned patient has value: "PENDING_CONFIRMATION" in field: "current_status"
+    Then patient status should be "PENDING_CONFIRMATION" within 60 seconds
 
 #  @patients
   Scenario Outline: PT_ETE04. patient can be set to OFF_STUDY status from any status
     Given patient: "<patient_id>" with status: "<current_status>" on step: "<current_step_number>"
     Then set patient off_study on step number: "<current_step_number>"
-    Then wait for "15" seconds
-    Then retrieve patient: "<patient_id>" from API
-    Then returned patient has value: "OFF_STUDY" in field: "current_status"
-    Then returned patient has value: "<current_step_number>" in field: "current_step_number"
+    Then patient status should be "OFF_STUDY" within 15 seconds
+    Then patient step number should be "<current_step_number>" within 15 seconds
   Examples:
   |patient_id              |current_status                   |current_step_number|
   |PT_ETE04_Registered     |REGISTRATION                     |1.0                |
@@ -171,9 +154,8 @@ Feature: Patients end to end tests
     Given other background and comments for this patient: "assay and pathology are ready"
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
     Then COG approves patient on treatment arm: "APEC1621-A", stratum: "100" to step: "1.1"
-    When retrieve patient: "PT_ETE07" from API
-    Then returned patient has value: "ON_TREATMENT_ARM" in field: "current_status"
-    Then returned patient has value: "1.1" in field: "current_step_number"
+    Then patient status should be "ON_TREATMENT_ARM" within 15 seconds
+    Then patient step number should be "1.1" within 15 seconds
 
   Scenario Outline: PT_ETE08. variant report confirmation should fail if patient is on OFF_STUDY status
     Given patient: "<patient_id>" with status: "<current_status>" on step: "1.0"
@@ -225,9 +207,7 @@ Feature: Patients end to end tests
     Given patient: "<patient_id>" with status: "<patient_status>" on step: "<step_number>"
     Given patient is currently on treatment arm: "APEC1621-A", stratum: "100"
     Then COG requests assignment for this patient with re-biopsy: "Y", step number: "2.0"
-    Then wait for "60" seconds
-    Then retrieve patient: "<patient_id>" from API
-    Then returned patient has value: "REQUEST_ASSIGNMENT" in field: "current_status"
+    Then patient status should be "REQUEST_ASSIGNMENT" after 30 seconds
     Examples:
     |patient_id              |patient_status       |step_number|
     |PT_ETE11_OnTreatmentArm |ON_TREATMENT_ARM     |1.1        |

@@ -146,16 +146,15 @@ Feature: Variant files confirmed messages
     Then set patient message field: "comment" to value: "<comment>"
     Then set patient message field: "comment_user" to value: "<user>"
     When put to MATCH variant report confirm service, returns a message that includes "Variant Report status changed successfully to" with status "Success"
-    Then retrieve patient: "<patient_id>" from API
-    Then returned patient has variant report (analysis_id: "<ani>")
+    Then patient should have variant report (analysis_id: "<ani>") within 15 seconds
     And this variant report has value: "<status>" in field: "status"
     And this variant report has value: "<comment>" in field: "comment"
     And this variant report has value: "<user>" in field: "comment_user"
     And this variant report has correct status_date
     Examples:
-    |patient_id           |sei                        |moi                        |ani                        |status     |comment                          |user         |
-    |PT_VC12_VRUploaded1  |PT_VC12_VRUploaded1_SEI1   |PT_VC12_VRUploaded1_MOI1   |PT_VC12_VRUploaded1_ANI1   |confirm    |a                                |user1        |
-    |PT_VC12_VRUploaded2  |PT_VC12_VRUploaded2_SEI1   |PT_VC12_VRUploaded2_MOI1   |PT_VC12_VRUploaded2_ANI1   |reject     |this variant report is rejected  |user2        |
+    |patient_id           |ani                        |status     |comment                          |user         |
+    |PT_VC12_VRUploaded1  |PT_VC12_VRUploaded1_ANI1   |confirm    |a                                |user1        |
+    |PT_VC12_VRUploaded2  |PT_VC12_VRUploaded2_ANI1   |reject     |this variant report is rejected  |user2        |
 
   Scenario: PT_VC13. if variant report rejected, comment values for variants that are in this variant report should NOT BE cleared (this test has been changed, before the comments values should BE changed)
 #    Test patient PT_VC13_VRUploaded1: vr uploaded   PT_VC13_VRUploaded1(_SEI1, _MOI1, _SEI1)
@@ -176,9 +175,7 @@ Feature: Variant files confirmed messages
   #tissue PT_VC14_BdVRUploadedTsVRUploadedOtherReady(_SEI1, _MOI1, _ANI1) and blood(_BD_MOI1, _ANI2) variant report are uploaded
     Given template variant report confirm message for patient: "PT_VC14_BdVRUploadedTsVRUploadedOtherReady", it has analysis_id: "PT_VC14_BdVRUploadedTsVRUploadedOtherReady_ANI2" and status: "confirm"
     When put to MATCH variant report confirm service, returns a message that includes "Variant Report status changed successfully to" with status "Success"
-    Then patient "PT_VC14_BdVRUploadedTsVRUploadedOtherReady" status will become to "BLOOD_VARIANT_REPORT_CONFIRMED"
-    #this is a necessary repeat, this will make sure after a 30 second wait the status is still same
-    Then patient "PT_VC14_BdVRUploadedTsVRUploadedOtherReady" status will become to "BLOOD_VARIANT_REPORT_CONFIRMED"
+    Then patient field: "current_status" should have value: "BLOOD_VARIANT_REPORT_CONFIRMED" after 30 seconds
 
 
   Scenario Outline: PT_VC15. variant file confirmation will not trigger patient assignment process unless patient has COMPLETE_MDA_DATA_SET status
@@ -188,9 +185,8 @@ Feature: Variant files confirmed messages
   #             PT_VC15_PathAssayDoneVRUploadedToReject VR uploaded PT_VC15_PathAssayDoneVRUploadedToReject(_SEI1, _MOI1, _ANI1), Assay result received (_SEI1, _BC1), Pathology is confirmed (_SEI1)
     Given template variant report confirm message for patient: "<patient_id>", it has analysis_id: "<ani>" and status: "<vr_status>"
     When put to MATCH variant report confirm service, returns a message that includes "Variant Report status changed successfully to" with status "Success"
-    Then wait for "30" seconds
-    Then retrieve patient: "<patient_id>" from API
-    Then returned patient has value: "<patient_status>" in field: "current_status"
+    Then patient field: "current_status" should have value: "<patient_status>" after 30 seconds
+
     Examples:
     |patient_id                               |ani                                            |vr_status  |patient_status                     |
     |PT_VC15_VRUploadedPathConfirmed          |PT_VC15_VRUploadedPathConfirmed_ANI1           |confirm    |TISSUE_VARIANT_REPORT_CONFIRMED    |

@@ -230,90 +230,105 @@ end
 
 
 #retrieval
-Then(/^retrieve patient: "([^"]*)" from API$/) do |patientID|
-  @patient_id = patientID=='null'?nil:patientID
-  print_log = Helper_Methods.is_local_tier
-  @retrieved_patient=Helper_Methods.get_single_request(ENV['patients_endpoint']+'/'+patientID, Helper_Methods.is_local_tier)
 
-  #for testing purpose
-  # @retrieved_patient=JSON(IO.read('/Users/wangl17/match_apps/patient_100100.json'))
+# Then(/^retrieve patient: "([^"]*)" from API$/) do |patientID|
+#   @patient_id = patientID=='null'?nil:patientID
+#   print_log = Helper_Methods.is_local_tier
+#   @retrieved_patient=Helper_Methods.get_single_request(ENV['patients_endpoint']+'/'+patientID, Helper_Methods.is_local_tier)
+#
+#   #for testing purpose
+#   # @retrieved_patient=JSON(IO.read('/Users/wangl17/match_apps/patient_100100.json'))
+# end
+
+Then(/^patient field: "([^"]*)" should have value: "([^"]*)" within (\d+) seconds$/) do |field, value, timeout|
+  converted_value = value=='null'?nil:value
+  url = "#{ENV['patients_endpoint']}?patient_id=#{@patient_id}"
+  patient_result = get_result_from_url(url, field, converted_value, timeout)
+  patient_result[field].should == converted_value
 end
 
-Then(/^patient "([^"]*)" status will become to "([^"]*)"$/) do |patientID, status|
-  convert_status = status=='null'?nil:status
-  @retrieved_patient=Helper_Methods.get_single_request(ENV['patients_endpoint']+'/'+patientID,
-                                                       Helper_Methods.is_local_tier,
-                                                       'current_status',
-                                                       convert_status,
-                                                       1.0, 30.0)
-  @retrieved_patient['current_status'].should == convert_status
+Then(/^patient field: "([^"]*)" should have value: "([^"]*)" after (\d+) seconds$/) do |field, value, timeout|
+  sleep(timeout.to_f)
+  converted_value = value=='null'?nil:value
+  url = "#{ENV['patients_endpoint']}?patient_id=#{@patient_id}"
+  patient_result = get_result_from_url(url, field, converted_value, 1.0)
+  patient_result[field].should == converted_value
 end
 
-Then(/^returned patient has value: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
-  convert_value = value=='null'?nil:value
-  @retrieved_patient[field].should == convert_value
-end
+# And(/^patient field: "([^"]*)" has value: "([^"]*)"$/) do |field, value|
+#   convert_value = value=='null'?nil:value
+#   @retrieved_patient[field].should == convert_value
+# end
 
-Then(/^returned patient has selected treatment arm: "([^"]*)" with stratum id: "([^"]*)"$/) do |ta_id, stratum|
-  convert_ta_id = ta_id=='null'?nil:ta_id
-  convert_stratum = stratum=='null'?nil:stratum
-  @retrieved_patient['current_assignment']['selected_treatment_arm']['treatment_arm_id'].should == convert_ta_id
-  @retrieved_patient['current_assignment']['selected_treatment_arm']['stratum_id'].should == convert_stratum
-end
+# Then(/^patient "([^"]*)" status will become to "([^"]*)"$/) do |patientID, status|
+#   convert_status = status=='null'?nil:status
+#   @retrieved_patient=Helper_Methods.get_single_request(ENV['patients_endpoint']+'/'+patientID,
+#                                                        Helper_Methods.is_local_tier,
+#                                                        'current_status',
+#                                                        convert_status,
+#                                                        1.0, 30.0)
+#   @retrieved_patient['current_status'].should == convert_status
+# end
 
-Then(/^returned patient has specimen \(surgical_event_id: "([^"]*)"\)$/) do |sei|
-  converted_sei = sei=='null'?nil:sei
-  @current_specimen = find_specimen(@retrieved_patient, converted_sei)
-  expect_find = "Can find specimen with surgical_event_id=#{converted_sei}"
-  actual_find = expect_find
-  if @current_specimen == nil
-    actual_find = "Cannot find specimen with surgical_event_id=#{converted_sei}"
-  end
-  actual_find.should == expect_find
+# Then(/^returned patient has value: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
+#   convert_value = value=='null'?nil:value
+#   @retrieved_patient[field].should == convert_value
+# end
+
+# Then(/^returned patient has selected treatment arm: "([^"]*)" with stratum id: "([^"]*)"$/) do |ta_id, stratum|
+#   convert_ta_id = ta_id=='null'?nil:ta_id
+#   convert_stratum = stratum=='null'?nil:stratum
+#   @retrieved_patient['current_assignment']['selected_treatment_arm']['treatment_arm_id'].should == convert_ta_id
+#   @retrieved_patient['current_assignment']['selected_treatment_arm']['stratum_id'].should == convert_stratum
+# end
+#
+
+Then(/^patient should have specimen \(surgical_event_id: "([^"]*)"\) within (\d+) seconds$/) do |sei, timeout|
+  url = "#{ENV['patients_endpoint']}/#{@patient_id}/specimens?surgical_event_id=#{sei}"
+  @current_specimen = get_result_from_url(url, 'surgical_event_id', sei, timeout)
+  @current_specimen['surgical_event_id'].should == sei
 end
 
 And(/^this specimen has assay \(biomarker: "([^"]*)", result: "([^"]*)", reported_date: "([^"]*)"\)$/) do |biomarker, result, reported_date|
   converted_biomarker = biomarker=='null'?nil:biomarker
   converted_result = result=='null'?nil:result
   converted_reported_date = reported_date=='null'?nil:reported_date
-  find_assay(@current_specimen, converted_biomarker, converted_result, converted_reported_date)
+  returned_assay = find_assay(@current_specimen, converted_biomarker, converted_result, converted_reported_date)
+  expect_result = "Can find assay with biomarker:#{biomarker}, result:#{result} and report_date:#{reported_date}"
+  actual_result = "Can NOT find assay with biomarker:#{biomarker}, result:#{result} and report_date:#{reported_date}"
+  if returned_assay.nil?
+    actual_result = expect_result
+  end
+  actual_result.should == expect_result
 end
-# And(/^this specimen has assay: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
-#   convert_value = value=='null'?nil:value
-#   @current_specimen[field].should == convert_value
-# end
 
+# # And(/^this specimen has assay: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
+# #   convert_value = value=='null'?nil:value
+# #   @current_specimen[field].should == convert_value
+# # end
+#
 And(/^this specimen has value: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
   convert_value = value=='null'?nil:value
   @current_specimen[field].should == convert_value
 end
-
-Then(/^returned patient's blood specimen has value: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
-  convert_value = value=='null'?nil:value
-  blood_specimen = find_specimen(@retrieved_patient, nil)
-  blood_specimen[field].should == convert_value
-end
-
-Then(/^returned patient has variant report \(analysis_id: "([^"]*)"\)$/) do |ani|
-  @current_variant_report = find_variant_report(@retrieved_patient, ani)
-  expect_find = "Can find variant with analysis_id=#{ani}"
-  actual_find = expect_find
-  if @current_variant_report == nil
-    actual_find = "Cannot find variant with analysis_id=#{ani}"
-  end
-  actual_find.should == expect_find
-
-end
-
-Then(/^returned patient has been assigned to new treatment arm: "([^"]*)", stratum id: "([^"]*)"$/) do |ta_id, stratum|
-  ta_id.should == 'pending'
+#
+# Then(/^returned patient's blood specimen has value: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
+#   convert_value = value=='null'?nil:value
+#   blood_specimen = find_specimen(@retrieved_patient, nil)
+#   blood_specimen[field].should == convert_value
+# end
+#
+Then(/^patient should have variant report \(analysis_id: "([^"]*)"\) within (\d+) seconds$/) do |ani, timeout|
+  url = "#{ENV['patients_endpoint']}/#{@patient_id}/variant_reports?analysis_id=#{ani}"
+  @current_variant_report = get_result_from_url(url, 'analysis_id', ani, timeout)
+  @current_variant_report['analysis_id'].should == ani
 end
 
 And(/^this variant report has value: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
-  expect_field = "variant report block contains field: #{field}"
+  expect_field = "variant report contains field: #{field}"
   actual_field = expect_field
   unless @current_variant_report.keys.include?(field)
-    actual_field = "variant report block does not contain field: #{field}"
+    actual_field = "variant repor does not contain field: #{field}"
   end
   actual_field.should == expect_field
   convert_value = value=='null'?nil:value
@@ -321,7 +336,7 @@ And(/^this variant report has value: "([^"]*)" in field: "([^"]*)"$/) do |value,
   returned_value = @current_variant_report[field]
   real_result = "Value of field #{field} is #{@current_variant_report[field]}"
   equal = returned_value == convert_value
-  if !equal
+  unless equal
     if returned_value.nil? || convert_value.nil?
       equal = false
     else
@@ -341,55 +356,84 @@ And(/^this variant report has correct status_date$/) do
   time_diff.should >=0
   time_diff.should <=20
 end
-
-Then(/^find the first "([^"]*)" variant in variant report which has analysis_id: "([^"]*)"$/) do |variant_type, ani|
-  this_variant_report = find_variant_report(@retrieved_patient, ani)
-  variant_list_field = case variant_type
-                         when 'snv_id' then 'snvs_and_indels'
-                         when 'cnv' then 'copy_number_variants'
-                         when 'gf' then 'gene_fusions'
-                       end
-  all_variants = this_variant_report['variants']
-
-  expect_result = "this patient has #{variant_list_field} variants"
-  actual_result = all_variants.key?(variant_list_field)?expect_result:"this patient doesn't have #{variant_list_field} variants"
-  actual_result.should == expect_result
-
-  @current_variant_uuid = all_variants[variant_list_field][0]['uuid']
-end
-
-Then(/^this variant has confirmed field: "([^"]*)" and comment field: "([^"]*)"$/) do |confirmed, comment|
-  convertec_comment = comment=='null'?nil:comment
-  this_variant = find_variant(@retrieved_patient, @current_variant_uuid)
-  this_variant['confirmed'].should == convert_string_to_bool(confirmed)
-  this_variant['comment'].should == convertec_comment
-end
-
-# we don't have status_date in variant level
-# And(/^this variant has correct status_date value$/) do
-#   this_variant = find_variant(@retrieved_patient, @current_variant_uuid)
-#   currentTime = Time.now.utc.to_i
-#   returnedResult = DateTime.parse(this_variant['status_date']).to_i
-#   timeDiff = currentTime - returnedResult
-#   timeDiff.should >=0
-#   timeDiff.should <=20
+#
+# Then(/^returned patient has been assigned to new treatment arm: "([^"]*)", stratum id: "([^"]*)"$/) do |ta_id, stratum|
+#   ta_id.should == 'pending'
 # end
-
-Then(/^variants in variant report \(analysis_id: "([^"]*)"\) have confirmed: "([^"]*)"$/) do |ani, confirmed|
-  variant_report = find_variant_report(@retrieved_patient, ani)
-
-  variants = variant_report['variants']
-  variants.each {|key, value|
-    value.each{|variant|
-      expect_result = "variant uuid: #{variant['uuid']}, confirmed = #{confirmed}"
-      actual_result = "variant uuid: #{variant['uuid']}, confirmed = #{variant['confirmed']}"
-      actual_result.should == expect_result
-    }
-  }
-end
+#
+#
+#
+# Then(/^find the first "([^"]*)" variant in variant report which has analysis_id: "([^"]*)"$/) do |variant_type, ani|
+#   this_variant_report = find_variant_report(@retrieved_patient, ani)
+#   variant_list_field = case variant_type
+#                          when 'snv_id' then 'snvs_and_indels'
+#                          when 'cnv' then 'copy_number_variants'
+#                          when 'gf' then 'gene_fusions'
+#                        end
+#   all_variants = this_variant_report['variants']
+#
+#   expect_result = "this patient has #{variant_list_field} variants"
+#   actual_result = all_variants.key?(variant_list_field)?expect_result:"this patient doesn't have #{variant_list_field} variants"
+#   actual_result.should == expect_result
+#
+#   @current_variant_uuid = all_variants[variant_list_field][0]['uuid']
+# end
+#
+# Then(/^this variant has confirmed field: "([^"]*)" and comment field: "([^"]*)"$/) do |confirmed, comment|
+#   convertec_comment = comment=='null'?nil:comment
+#   this_variant = find_variant(@retrieved_patient, @current_variant_uuid)
+#   this_variant['confirmed'].should == convert_string_to_bool(confirmed)
+#   this_variant['comment'].should == convertec_comment
+# end
+#
+# # we don't have status_date in variant level
+# # And(/^this variant has correct status_date value$/) do
+# #   this_variant = find_variant(@retrieved_patient, @current_variant_uuid)
+# #   currentTime = Time.now.utc.to_i
+# #   returnedResult = DateTime.parse(this_variant['status_date']).to_i
+# #   timeDiff = currentTime - returnedResult
+# #   timeDiff.should >=0
+# #   timeDiff.should <=20
+# # end
+#
+# Then(/^variants in variant report \(analysis_id: "([^"]*)"\) have confirmed: "([^"]*)"$/) do |ani, confirmed|
+#   variant_report = find_variant_report(@retrieved_patient, ani)
+#
+#   variants = variant_report['variants']
+#   variants.each {|key, value|
+#     value.each{|variant|
+#       expect_result = "variant uuid: #{variant['uuid']}, confirmed = #{confirmed}"
+#       actual_result = "variant uuid: #{variant['uuid']}, confirmed = #{variant['confirmed']}"
+#       actual_result.should == expect_result
+#     }
+#   }
+# end
 
 Given(/^patient: "([^"]*)" in mock service lost patient list, service will come back after "([^"]*)" tries$/) do |patient_id, error_times|
   COG_helper_methods.setServiceLostPatient(patient_id, error_times)
+end
+
+def get_result_from_url(url, field, value, timeout)
+  run_time = 0.0
+  loop do
+    response = Helper_Methods.simple_get_request(url)
+    # p response.to_json + "    #{field}"
+    if response.length==1 && response[0][field]==value
+      return response[0]
+    end
+
+    if run_time>timeout.to_f
+      if response.length==1
+        return response[0]
+      elsif response.length>1
+        return {field=>"More than one (#{response.length}) results found"}
+      else
+        return {field=>"No result found"}
+      end
+    end
+    sleep(0.5)
+    run_time += 0.5
+  end
 end
 
 def convert_string_to_bool(string)

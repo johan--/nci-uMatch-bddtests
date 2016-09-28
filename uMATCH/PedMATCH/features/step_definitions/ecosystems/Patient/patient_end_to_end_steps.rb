@@ -221,6 +221,26 @@ Then(/^assignment report is "([^"]*)"$/) do |status|
   validate_response('Success', 'successfully')
 end
 
+Then(/^patient status should be "([^"]*)" within (\d+) seconds$/) do |status, timeout|
+  url = "#{ENV['patients_endpoint']}?patient_id=#{@patient_id}"
+  patient_result = get_result_from_url(url, 'current_status', status, timeout)
+  patient_result['current_status'].should == status
+end
+
+Then(/^patient status should be "([^"]*)" after (\d+) seconds$/) do |status, timeout|
+  sleep(timeout.to_f)
+  url = "#{ENV['patients_endpoint']}?patient_id=#{@patient_id}"
+  patient_result = get_result_from_url(url, 'current_status', status, 1.0)
+  patient_result['current_status'].should == status
+end
+
+Then(/^patient step number should be "([^"]*)" within (\d+) seconds$/) do |step_number, timeout|
+  url = "#{ENV['patients_endpoint']}?patient_id=#{@patient_id}"
+  patient_result = get_result_from_url(url, 'current_step_number', step_number, timeout)
+  patient_result['current_step_number'].should == step_number
+end
+
+
 def post_to_trigger
   puts JSON.pretty_generate(@request_hash)
   @response = Helper_Methods.post_request(ENV['patients_endpoint']+'/'+@patient_id, @request_hash.to_json.to_s)
@@ -271,4 +291,26 @@ def find_variant_uuid(specimen_type, variant_type, field, value)
     end
   }
   ''
+end
+
+def get_result_from_url(url, field, value, timeout)
+  run_time = 0.0
+  loop do
+    response = Helper_Methods.simple_get_request(url)
+    if response.length==1 && response[0][field]==value
+      return response[0]
+    end
+
+    if run_time>timeout.to_f
+      if response.length==1
+        return response[0]
+      elsif response.length>1
+        return {field=>"More than one (#{response.length}) results found"}
+      else
+        return {field=>"No result found"}
+      end
+    end
+    sleep(0.5)
+    run_time += 0.5
+  end
 end

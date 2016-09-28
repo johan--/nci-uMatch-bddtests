@@ -5,14 +5,12 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
   Scenario: PT_SR01. Consume a specimen_received message for type "Blood" for a patient already registered in Match
     Given template specimen received message in type: "BLOOD" for patient: "PT_SR01_Registered", it has surgical_event_id: ""
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then retrieve patient: "PT_SR01_Registered" from API
-    Then returned patient has value: "BLOOD_SPECIMEN_RECEIVED" in field: "current_status"
+    Then patient field: "current_status" should have value: "BLOOD_SPECIMEN_RECEIVED" within 15 seconds
 
   Scenario: PT_SR02. Consume a specimen_received message for type "Tissue" for a patient already registered in Match
     Given template specimen received message in type: "TISSUE" for patient: "PT_SR02_Registered", it has surgical_event_id: "PT_SR02_Registered_SEI1"
     When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-    Then retrieve patient: "PT_SR02_Registered" from API
-    Then returned patient has value: "TISSUE_SPECIMEN_RECEIVED" in field: "current_status"
+    Then patient field: "current_status" should have value: "TISSUE_SPECIMEN_RECEIVED" within 15 seconds
 
   Scenario: PT_SR03. "Blood" specimen received message with surgical_event_id should fail
     Given template specimen received message in type: "BLOOD" for patient: "PT_SR03_Registered", it has surgical_event_id: ""
@@ -118,14 +116,13 @@ Scenario Outline: PT_SR14. new specimen receipt will push all pending variant re
   Given template specimen received message in type: "<specimen_type>" for patient: "<patient_id>", it has surgical_event_id: "<new_sei>"
   Then set patient message field: "collected_dttm" to value: "2016-08-21T14:20:02-04:00"
   When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
-  Then retrieve patient: "<patient_id>" from API
-  Then returned patient has value: "<patient_status>" in field: "current_status"
-  Then returned patient has variant report (analysis_id: "<old_ani>")
+  Then patient field: "current_status" should have value: "<patient_status>" within 15 seconds
+  Then patient should have variant report (analysis_id: "<old_ani>") within 15 seconds
   And this variant report has value: "REJECTED" in field: "status"
   Examples:
-  |patient_id            |specimen_type  |new_sei                   |old_sei                   |old_moi                      |old_ani                   |patient_status           |
-  |PT_SR14_TsVrUploaded  |TISSUE         |PT_SR14_TsVrUploaded_SEI2 |PT_SR14_TsVrUploaded_SEI1 |PT_SR14_TsVrUploaded_MOI1    |PT_SR14_TsVrUploaded_ANI1 |TISSUE_SPECIMEN_RECEIVED |
-  |PT_SR14_BdVrUploaded  |BLOOD          |                          |                          |PT_SR14_BdVrUploaded_BD_MOI1 |PT_SR14_BdVrUploaded_ANI1 |BLOOD_SPECIMEN_RECEIVED |
+  |patient_id            |specimen_type  |new_sei                   |old_ani                   |patient_status           |
+  |PT_SR14_TsVrUploaded  |TISSUE         |PT_SR14_TsVrUploaded_SEI2 |PT_SR14_TsVrUploaded_ANI1 |TISSUE_SPECIMEN_RECEIVED |
+  |PT_SR14_BdVrUploaded  |BLOOD          |                          |PT_SR14_BdVrUploaded_ANI1 |BLOOD_SPECIMEN_RECEIVED |
 
 
 Scenario Outline: PT_SR13. extra key-value pair in the message body should NOT fail
