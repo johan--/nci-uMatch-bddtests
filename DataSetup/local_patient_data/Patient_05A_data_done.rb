@@ -138,4 +138,8 @@ sleep(10.0)
 PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.ani)
 
 
+pt = PatientDataSet.new('PT_PR14_TissueReceived')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+
 PatientMessageLoader.upload_done

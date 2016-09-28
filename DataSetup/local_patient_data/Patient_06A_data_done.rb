@@ -123,4 +123,9 @@ PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
 PatientMessageLoader.variant_file_uploaded(pt.id, pt.bd_moi, pt.ani)
 PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.ani)
 
+pt = PatientDataSet.new('PT_VU18_TissueShipped')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+
 PatientMessageLoader.upload_done
