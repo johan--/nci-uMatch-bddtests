@@ -19,9 +19,9 @@ module.exports = function () {
 
     this.Given(/^I am on the login page$/, function(callback){
         loginPageObj.goToLoginPage();
-        utilities.checkTitle(browser, loginPageObj.title);
-
-        browser.sleep(5000).then(callback);
+        utilities.checkTitle(browser, loginPageObj.title).then(function () {
+            browser.waitForAngular();
+        }).then(callback);
     });
 
     this.Given(/^I am a logged in user$/, function(callback) {
