@@ -70,8 +70,7 @@ script:
   - sleep 3 # give xvfb some time to start
   # Run UI tests
   - cd nci-match-ui-bddtests/
-  #- protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$PRIORITY --troubleshoot
-  - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=@fling --troubleshoot
+  - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$PRIORITY --troubleshoot
 #  - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG --troubleshoot
   # Generate html report
   - node support/generate_report.js

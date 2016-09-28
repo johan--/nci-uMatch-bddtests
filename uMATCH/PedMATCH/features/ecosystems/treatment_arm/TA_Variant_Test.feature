@@ -239,3 +239,22 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     Examples:
       |identifier             |functionValue                    |
       |id0001                 |synonymous                       |
+
+  Scenario Outline: TA_VR12. Variants can have the approved variant_type and the TA should be created.
+    Given template treatment arm json with a random id
+    And clear template treatment arm json's variant: "<variant_type>" list
+    And create a template variant: "<variant_type>" for treatment arm
+    And set template treatment arm variant field: "variant_type" to string value: "<variant_type_value>"
+    And add template variant: "<variant_type>" to template treatment arm json
+    When creating a new treatment arm using post request
+    Then a success message is returned
+    Examples:
+    | variant_type  | variant_type_value |
+    | snv           | snp                |
+    | snv           | mnp                |
+    | id            | ins                |
+    | id            | del                |
+    | id            | complex            |
+    | cnv           | cnv                |
+    | gf            | fusion             |
+
