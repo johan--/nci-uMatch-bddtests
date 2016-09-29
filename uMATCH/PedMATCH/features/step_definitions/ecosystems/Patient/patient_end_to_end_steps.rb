@@ -149,7 +149,7 @@ end
 
 Then(/^assignment report is confirmed$/) do
   Patient_helper_methods.prepare_assignment_confirm(@patient_id)
-  Patient_helper_methods.put_ar_confirm(@active_ts_ani, 'Success', 'successfully')
+  Patient_helper_methods.put_ar_confirm(@active_ts_ani, 'confirm', 'Success', 'successfully')
   Patient_helper_methods.wait_until_patient_updated(@patient_id)
 end
 
@@ -181,11 +181,7 @@ end
 
 def find_variant_uuid(specimen_type, variant_type, field, value)
   target_moi = get_moi_or_barcode(specimen_type)
-  target_ani = get_ani* case specimen_type
-                 when 'BLOOD' then @active_bd_ani
-                 when 'TISSUE' then @active_ts_ani
-                 else @active_ts_ani
-               end
+  target_ani = get_ani(specimen_type)
   @retrieved_patient=Helper_Methods.get_single_request(ENV['patients_endpoint']+'/'+@patient_id)
   @retrieved_patient['variant_reports'].each { |this_vr|
     if this_vr['variant_report_type']==specimen_type && this_vr['molecular_id'] == target_moi && this_vr['analysis_id'] == target_ani
