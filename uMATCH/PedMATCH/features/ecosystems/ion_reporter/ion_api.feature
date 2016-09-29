@@ -1,4 +1,4 @@
-#@demo
+@demo_p1
 @ion_reporter
 Feature: ion reporter api happy tests
 

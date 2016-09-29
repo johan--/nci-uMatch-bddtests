@@ -7,7 +7,7 @@
     "study_id": "APEC1621",
     "patient_id": "3366",
     "step_number": "1.0",
-    "registration_date": "2016-05-09T22:06:33+00:00",
+    "status_date": "2016-05-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -180,27 +180,19 @@
     "status":"Y"
   },
   {
-    "site": "MoCha",
+    "ion_reporter_id": "IR_WAO85",
     "molecular_id": "3366-bsn-msn-2",
     "analysis_id": "job1",
-    "tsv_file_name": "3366.tsv",
-    "vcf_file_name": "3366-bsn-msn-2.vcf"
-  },
-  {
-    "site": "MoCha",
-    "molecular_id": "3366-bsn-msn-2",
-    "analysis_id": "job1",
-    "dna_bam_file_name": "dna.bam",
-    "dna_bai_file_name": "dna.bam.bai"
-  },
-  {
-    "site": "MoCha",
-    "molecular_id": "3366-bsn-msn-2",
-    "analysis_id": "job1",
-    "cdna_bam_file_name": "cdna.bam",
-    "cdna_bai_file_name": "cdna.bam.bai"
+    "tsv_file_name": "3366.tsv"
   },
 
+  {
+    "patient_id": "3366",
+    "analysis_id": "job1",
+    "status": "CONFIRMED",
+    "comment": "The committee approves this 2nd variant report",
+    "comment_user": "rick"
+  },
   {
     "header": {
       "msg_guid": "07daa0de-9a19-42c3-be79-0237dfacf134",
@@ -228,6 +220,12 @@
     }
   },
   {
+    "ion_reporter_id": "IR_WAO85",
+    "molecular_id": "3366-bsn-msn-blood",
+    "analysis_id": "job2",
+    "tsv_file_name": "3366.tsv"
+  },
+  {
     "header": {
       "msg_guid": "0f8fad5b-d9cb-469f-a165-80067728950e",
       "msg_dttm": "2016-05-09T22:06:33+00:00"
@@ -237,7 +235,7 @@
     "step_number": "1.1",
     "treatment_arm_id": "APEC1621-A",
     "stratum_id": "100",
-    "assignment_date": "2016-09-15T22:05:33+00:00",
+    "status_date": "2016-09-15T22:05:33+00:00",
     "status": "ON_TREATMENT_ARM",
     "message": "",
     "internal_use_only": {
@@ -291,7 +289,7 @@
   "study_id": "APEC1621",
   "patient_id": "3366",
   "step_number": "2.0",
-  "status": "| REQUEST_NO_ASSIGNMENT",
+  "status": "REQUEST_NO_ASSIGNMENT",
   "status_date": "2016-05-10T22:05:33+00:00",
   "rebiopsy": "Y|N|",
   "message": "Physician determines it is not in the patient’s best interest.",

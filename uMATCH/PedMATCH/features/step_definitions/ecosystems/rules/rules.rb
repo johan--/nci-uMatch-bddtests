@@ -9,7 +9,9 @@ When(/^the rules service \/version is called$/) do
 end
 
 Then(/^the version "([^"]*)" is returned as json$/) do |version|
-  expect(JSON.parse(@res)['version']).to include(version)
+  expect(@res['http_code']).to eql(200)
+  message =  JSON.parse(@res['message'])
+  expect(message['version']).to include(version)
 end
 
 Given(/^the patient assignment json "([^"]*)"$/) do |patient_json|
