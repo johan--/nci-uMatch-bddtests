@@ -72,7 +72,7 @@ Feature: Variant files confirmed messages
   Scenario: PT_VC05. confirmed fields should be "true" as default
     #    Test Patient: PT_VC05_TissueShipped, Tissue shipped PT_VC05_TissueShipped(_SEI1, _MOI1)
     Given template variant file uploaded message for patient: "PT_VC05_TissueShipped", it has molecular_id: "PT_VC05_TissueShipped_MOI1" and analysis_id: "PT_VC05_TissueShipped_ANI1"
-    When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
+    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
     Then retrieve patient: "PT_VC05_TissueShipped" from API
     Then variants in variant report (analysis_id: "PT_VC05_TissueShipped_ANI1") have confirmed: "true"
 

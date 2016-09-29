@@ -30,23 +30,11 @@ Given(/^this patients's active surgical_event_id is "([^"]*)"$/) do |sei|
 end
 
 Given(/^this patients's active "([^"]*)" molecular_id is "([^"]*)"$/) do |type, moi|
-  case type
-    when 'TISSUE'
-      @active_ts_moi = moi
-    when 'BLOOD'
-      @active_bd_moi = moi
-    else
-  end
+  update_moi_or_barcode(type, moi)
 end
 
 Given(/^this patients's active "([^"]*)" analysis_id is "([^"]*)"$/) do |type, ani|
-  case type
-    when 'TISSUE'
-      @active_ts_ani = ani
-    when 'BLOOD'
-      @active_bd_ani = ani
-    else
-  end
+  update_ani(type, ani)
 end
 
 Given(/^patient: "([^"]*)" is registered$/) do |patient_id|
@@ -76,18 +64,8 @@ Then(/^"([^"]*)" specimen shipped to "([^"]*)" with molecular_id or slide_barcod
   date = Helper_Methods.getDateAsRequired('current')
   Patient_helper_methods.prepare_specimen_shipped(@patient_id, type, lab, @active_sei, id, date)
 
-  case type
-    when 'TISSUE'
-      @active_ts_moi = id
-      @active_ts_lab = lab
-    when 'SLIDE'
-      @active_barcode = id
-      @active_slide_lab = lab
-    when 'BLOOD'
-      @active_bd_moi = id
-      @active_bd_lab = lab
-    else
-  end
+  update_moi_or_barcode(type, id)
+  update_site(type, lab)
   @response = Patient_helper_methods.post_to_trigger('Success', 'successfully')
   Patient_helper_methods.wait_until_patient_updated(@patient_id)
 end
@@ -108,23 +86,9 @@ Then(/^pathology confirmed with status: "([^"]*)"$/) do |status|
 end
 
 Then(/^"([^"]*)" variant report uploaded with analysis_id: "([^"]*)"$/) do |type, ani|
-  target_moi = case type
-                 when 'TISSUE' then @active_ts_moi
-                 when 'BLOOD' then @active_bd_moi
-                 else @active_ts_moi
-               end
-  target_site = case type
-                  when 'TISSUE' then @active_ts_lab
-                  when 'BLOOD' then @active_bd_lab
-                  else @active_ts_lab
-                end
-  case type
-    when 'TISSUE'
-      @active_ts_ani = ani
-    when 'BLOOD'
-      @active_bd_ani = ani
-    else
-  end
+  target_moi = get_moi_or_barcode(type)
+  target_site = get_site(type)
+  update_ani(type, ani)
   Patient_helper_methods.prepare_vr_upload(@patient_id, target_site, target_moi, ani)
   @response = Patient_helper_methods.post_to_trigger('Success', 'successfully')
   Patient_helper_methods.wait_until_patient_updated(@patient_id)
@@ -138,16 +102,8 @@ Then(/^"([^"]*)" variant\(type: "([^"]*)", field: "([^"]*)", value: "([^"]*)"\) 
 end
 
 Then(/^"([^"]*)" variant report confirmed with status: "([^"]*)"$/) do |type, status|
-  target_ani = case type
-                 when 'TISSUE' then @active_ts_ani
-                 when 'BLOOD' then @active_bd_ani
-                 else @active_ts_ani
-               end
-  target_status = case status
-                    when 'CONFIRMED' then 'confirm'
-                    when 'REJECTED' then 'reject'
-                    else 'confirm'
-                  end
+  target_ani = get_ani(type)
+  target_status = process_status(status)
   Patient_helper_methods.prepare_vr_confirm(@patient_id)
   @response = Patient_helper_methods.put_vr_confirm(target_ani, target_status, 'Success', 'successfully')
   Patient_helper_methods.wait_until_patient_updated(@patient_id)
@@ -224,12 +180,8 @@ end
 
 
 def find_variant_uuid(specimen_type, variant_type, field, value)
-  target_moi = case specimen_type
-                 when 'BLOOD' then @active_bd_moi
-                 when 'TISSUE' then @active_ts_moi
-                 else @active_ts_moi
-               end
-  target_ani = case specimen_type
+  target_moi = get_moi_or_barcode(specimen_type)
+  target_ani = get_ani* case specimen_type
                  when 'BLOOD' then @active_bd_ani
                  when 'TISSUE' then @active_ts_ani
                  else @active_ts_ani
@@ -245,4 +197,89 @@ def find_variant_uuid(specimen_type, variant_type, field, value)
     end
   }
   ''
+end
+
+def update_moi_or_barcode(type, id)
+  case type
+    when 'TISSUE'
+      @active_ts_moi = id
+    when 'BLOOD'
+      @active_bd_moi = id
+    when 'SLIDE'
+      @active_barcode = id
+    else
+      @active_ts_moi = id
+  end
+end
+
+def get_moi_or_barcode(type)
+  case type
+    when 'TISSUE'
+      return @active_ts_moi
+    when 'BLOOD'
+      return @active_bd_moi
+    when 'SLIDE'
+      return @active_barcode
+    else
+      return @active_ts_moi
+  end
+end
+
+def update_ani(type, ani)
+  case type
+    when 'TISSUE'
+      @active_ts_ani = ani
+    when 'BLOOD'
+      @active_bd_ani = ani
+    else
+      @active_ts_ani = ani
+  end
+end
+
+def get_ani(type)
+  case type
+    when 'TISSUE'
+      return @active_ts_ani
+    when 'BLOOD'
+      return @active_bd_ani
+    else
+      return @active_ts_ani
+  end
+end
+
+def update_site(type, site)
+  case type
+    when 'TISSUE'
+      @active_ts_lab = site
+    when 'BLOOD'
+      @active_bd_lab = site
+    when 'SLIDE'
+      @active_slide_lab = site
+    else
+      @active_ts_lab = site
+  end
+end
+
+def get_site(type)
+  case type
+    when 'TISSUE'
+      return @active_ts_lab
+    when 'BLOOD'
+      return @active_bd_lab
+    when 'SLIDE'
+      return @active_slide_lab
+    else
+      return @active_ts_lab
+  end
+end
+
+def process_status(status)
+  case status
+    when 'CONFIRMED'
+      return 'confirm'
+    when 'REJECTED'
+      return 'reject'
+    else
+      return 'confirm'
+  end
 end

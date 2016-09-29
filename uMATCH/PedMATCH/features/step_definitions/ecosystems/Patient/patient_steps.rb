@@ -7,152 +7,60 @@ require_relative '../../../support/cog_helper_methods.rb'
 
 
 #post
-# When(/^posted to MATCH patient trigger service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |retMsg, status|
-#   puts JSON.pretty_generate(@request_json)
-#   @response = Helper_Methods.post_request(ENV['protocol'] + '://' + ENV['DOCKER_HOSTNAME'] + ':' + ENV['patient_api_PORT'] + '/trigger',@request)
-#   expect(@response['status']).to eql(status)
-#   expect_message = "returned message include <#{retMsg}>"
-#   actual_message = @response['message']
-#   if @response['message'].include?retMsg
-#     actual_message = "returned message include <#{retMsg}>"
-#   end
-#   actual_message.should == expect_message
-# end
-
 When(/^post to MATCH patients service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |retMsg, status|
-  puts JSON.pretty_generate(@request_json)
-  @response = Helper_Methods.post_request(ENV['patients_endpoint']+'/'+@patient_id, @request)
-  expect(@response['status']).to eql(status)
-  expect_message = "returned message include <#{retMsg}>"
-  actual_message = @response['message']
-  if @response['message'].downcase.include?retMsg.downcase
-    actual_message = "returned message include <#{retMsg}>"
-  end
-  actual_message.should == expect_message
+  Patient_helper_methods.post_to_trigger(status, retMsg)
 end
 
 When(/^put to MATCH variant report confirm service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |retMsg, status|
-  puts JSON.pretty_generate(@request_json)
-  url = ENV['patients_endpoint'] + '/'
-  url = url + @patient_id + '/variant_reports/' + @analysis_id + '/' + @variant_report_status
-  @response = Helper_Methods.put_request(url, @request)
-  expect(@response['status']).to eql(status)
-  expect_message = "returned message include <#{retMsg}>"
-  actual_message = @response['message']
-  if @response['message'].include?retMsg
-    actual_message = "returned message include <#{retMsg}>"
-  end
-  actual_message.should == expect_message
-
+  Patient_helper_methods.put_vr_confirm(@analysis_id, @variant_report_status, status, retMsg)
 end
 
 When(/^put to MATCH variant confirm service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |retMsg, status|
-  puts JSON.pretty_generate(@request_json)
-  url = ENV['patients_endpoint'] + '/'
-  url = url + 'variant/' + @current_variant_uuid + '/' + @current_variant_confirm
-  @response = Helper_Methods.put_request(url, @request)
-  expect(@response['status']).to eql(status)
-  expect_message = "returned message include <#{retMsg}>"
-  actual_message = @response['message']
-  if @response['message'].include?retMsg
-    actual_message = "returned message include <#{retMsg}>"
-  end
-  actual_message.should == expect_message
-
+  Patient_helper_methods.put_variant_confirm(@current_variant_uuid, @current_variant_confirm, status, retMsg)
 end
 
-When(/^post to MATCH assignment confirm service with assigned_date: "([^"]*)", returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |assign_date, retMsg, status|
-  puts JSON.pretty_generate(@request_json)
-  url = ENV['patients_endpoint'] + '/'
-  url = url + @patient_id + '/assignment_reports/' + assign_date + '/confirm'
-  @response = Helper_Methods.put_request(url, @request)
-  expect(@response['status']).to eql(status)
-  expect_message = "returned message include <#{retMsg}>"
-  actual_message = @response['message']
-  if @response['message'].include?retMsg
-    actual_message = "returned message include <#{retMsg}>"
-  end
-  actual_message.should == expect_message
-
+When(/^post to MATCH assignment confirm service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |retMsg, status|
+  Patient_helper_methods.put_ar_confirm(@analysis_id, @assignment_report_status, status, retMsg)
 end
 
 #messages
 Given(/^template patient registration message for patient: "([^"]*)" on date: "([^"]*)"$/) do |patient_id, date|
-  @request_json = Patient_helper_methods.load_patient_message_templates('registration')
   @patient_id = patient_id=='null'?nil:patient_id
   converted_date = date=='null'?nil:date
   converted_date = Helper_Methods.getDateAsRequired(converted_date)
-  @patient_message_root_key = ''
-  @request_json['patient_id'] = @patient_id
-  @request_json['registration_date'] = converted_date
-  @request = @request_json.to_json.to_s
+  Patient_helper_methods.prepare_register(@patient_id, converted_date)
 end
 
 Given(/^template specimen received message in type: "([^"]*)" for patient: "([^"]*)", it has surgical_event_id: "([^"]*)"$/) do |type, patientID, sei|
-  @request_json = Patient_helper_methods.load_patient_message_templates("specimen_received_#{type}")
   @patient_id = patientID=='null'?nil:patientID
-  @surgical_event_id = sei=='null'?nil:sei
-  @patient_message_root_key = 'specimen_received'
-  @request_json[@patient_message_root_key]['patient_id'] = @patient_id
-  if type == 'TISSUE'
-    @request_json[@patient_message_root_key]['surgical_event_id'] = @surgical_event_id
-  end
-  @request = @request_json.to_json.to_s
+  converted_sei = sei=='null'?nil:sei
+  Patient_helper_methods.prepare_specimen_received(@patient_id, type, converted_sei)
 end
 
-Given(/^template specimen shipped message in type: "([^"]*)" for patient: "([^"]*)", it has surgical_event_id: "([^"]*)", molecular_id: "([^"]*)", slide_barcode: "([^"]*)"/) do |type, patientID, sei, moi, barcode|
-  @request_json = Patient_helper_methods.load_patient_message_templates("specimen_shipped_#{type}")
-  converted_patient_id = patientID=='null'?nil:patientID
-  @patient_id = converted_patient_id
-  @surgical_event_id = sei=='null'?nil:sei
-  @molecular_id = moi=='null'?nil:moi
-  @slide_barcode = barcode=='null'?nil:barcode
-  @patient_message_root_key = 'specimen_shipped'
-  @request_json[@patient_message_root_key]['patient_id'] = @patient_id
-  if type == 'TISSUE' || type == 'SLIDE'
-    @request_json[@patient_message_root_key]['surgical_event_id'] = @surgical_event_id
-  end
-  if type == 'TISSUE' || type == 'BLOOD'
-    @request_json[@patient_message_root_key]['molecular_id'] = @molecular_id
-    @request_json[@patient_message_root_key]['molecular_dna_id'] = @molecular_id+'D'
-    @request_json[@patient_message_root_key]['molecular_cdna_id'] = @molecular_id+'C'
-  end
-  if type == 'SLIDE'
-    @request_json[@patient_message_root_key]['slide_barcode'] = @slide_barcode
-  end
-  @request = @request_json.to_json.to_s
+Given(/^template specimen shipped message in type: "([^"]*)" for patient: "([^"]*)", it has surgical_event_id: "([^"]*)", molecular_id or slide_barcode: "([^"]*)"/) do |type, patientID, sei, moi_or_barcode|
+  @patient_id = patientID=='null'?nil:patientID
+  converted_sei = sei=='null'?nil:sei
+  converted_id = moi_or_barcode=='null'?nil:moi_or_barcode
+  Patient_helper_methods.prepare_specimen_shipped(@patient_id, type, converted_sei, converted_id)
 end
 
 Given(/^template assay message with surgical_event_id: "([^"]*)" for patient: "([^"]*)"$/) do |sei, patientID|
-  @request_json = Patient_helper_methods.load_patient_message_templates('assay_result_reported')
   @patient_id = patientID=='null'?nil:patientID
-  @surgical_event_id = sei=='null'?nil:sei
-
-  @patient_message_root_key = ''
-  @request_json['patient_id'] = @patient_id
-  @request_json['surgical_event_id'] = @surgical_event_id
-  @request = @request_json.to_json.to_s
+  converted_sei = sei=='null'?nil:sei
+  Patient_helper_methods.prepare_assay(@patient_id, converted_sei)
 end
 
 Given(/^template pathology report with surgical_event_id: "([^"]*)" for patient: "([^"]*)"$/) do |sei, patientID|
-  @request_json = Patient_helper_methods.load_patient_message_templates('pathology_status')
   @patient_id = patientID=='null'?nil:patientID
-  @surgical_event_id = sei=='null'?nil:sei
-  @patient_message_root_key = ''
-  @request_json['patient_id'] = @patient_id
-  @request_json['surgical_event_id'] = @surgical_event_id
-  @request = @request_json.to_json.to_s
+  converted_sei = sei=='null'?nil:sei
+  Patient_helper_methods.prepare_pathology(@patient_id, converted_sei)
 end
 
 Given(/^template variant file uploaded message for patient: "([^"]*)", it has molecular_id: "([^"]*)" and analysis_id: "([^"]*)"$/) do |patientID, moi, ani|
-  @request_json = Patient_helper_methods.load_patient_message_templates('variant_file_uploaded')
   @patient_id = patientID=='null'?nil:patientID
-  @molecular_id = moi=='null'?nil:moi
+  converted_moi = moi=='null'?nil:moi
   @analysis_id = ani=='null'?nil:ani
-  @patient_message_root_key = ''
-  @request_json['molecular_id'] = @molecular_id
-  @request_json['analysis_id'] = @analysis_id
-  @request = @request_json.to_json.to_s
+  Patient_helper_methods.prepare_vr_upload(@patient_id, converted_moi, @analysis_id)
 end
 
 Given(/^template variant confirm message for patient: "([^"]*)", the variant: "([^"]*)" is checked: "([^"]*)" with comment: "([^"]*)"$/) do |patient_id, variant_uuid, confirmed, comment|
@@ -164,32 +72,22 @@ Then(/^create variant confirm message with checked: "([^"]*)" and comment: "([^"
 end
 
 Given(/^template variant report confirm message for patient: "([^"]*)", it has analysis_id: "([^"]*)" and status: "([^"]*)"$/) do |patient_id, ani, status|
-  @request_json = Patient_helper_methods.load_patient_message_templates('variant_file_confirmed')
-  @patient_id = patient_id
-  @analysis_id = ani
+  @patient_id = patient_id=='null'?nil:patient_id
+  @analysis_id = ani=='null'?nil:ani
   @variant_report_status = status
-  @patient_message_root_key = ''
-  @request = @request_json.to_json.to_s
+  Patient_helper_methods.prepare_vr_confirm(@patient_id)
 end
 
-Given(/^template assignment report confirm message for patient: "([^"]*)", it has molecular_id: "([^"]*)", analysis_id: "([^"]*)" and status: "([^"]*)"$/) do |patient_id, moi, ani, status|
-  @request_json = Patient_helper_methods.load_patient_message_templates('assignment_confirmed')
+Given(/^template assignment report confirm message for patient: "([^"]*)", it has analysis_id: "([^"]*)" and status: "([^"]*)"$/) do |patient_id, ani, status|
   @patient_id = patient_id=='null'?nil:patient_id
-  @molecular_id = moi=='null'?nil:moi
   @analysis_id = ani=='null'?nil:ani
   @assignment_report_status = status=='null'?nil:status
-  @patient_message_root_key = ''
-  @request_json['patient_id'] = @patient_id
-  @request_json['molecular_id'] = @molecular_id
-  @request_json['analysis_id'] = @analysis_id
-  @request_json['status'] = @assignment_report_status
-  @request = @request_json.to_json.to_s
+  Patient_helper_methods.prepare_assignment_confirm(@patient_id)
 
 end
 
 Then(/^set patient message field: "([^"]*)" to value: "([^"]*)"$/) do |field, value|
-  if value != 'skip_this_value'
-    converted_value = String.new
+  unless value == 'skip_this_value'
     if value == 'null'
       converted_value = nil
     elsif value.eql?('current')
@@ -197,34 +95,19 @@ Then(/^set patient message field: "([^"]*)" to value: "([^"]*)"$/) do |field, va
     else
       converted_value = value
     end
-
-    if @patient_message_root_key == ''
-      @request_json[field] = converted_value
-    else
-      @request_json[@patient_message_root_key][field] = converted_value
-    end
-    @request = @request_json.to_json.to_s
+    Patient_helper_methods.update_patient_message(field, converted_value)
   end
 end
 
 Then(/^remove field: "([^"]*)" from patient message$/) do |field|
-  if @patient_message_root_key == ''
-    @request_json.delete(field)
-  else
-    @request_json[@patient_message_root_key].delete(field)
-  end
-
-  @request = @request_json.to_json.to_s
+  Patient_helper_methods.remove_field_patient_message(field)
 end
 
 def variant_confirm_message(variant_uuid, confirmed, comment)
-  @request_json = Patient_helper_methods.load_patient_message_templates('variant_confirmed')
   @current_variant_uuid = variant_uuid
   @current_variant_confirm = confirmed
   @current_variant_comment = comment=='null'?nil:comment
-  @patient_message_root_key = ''
-  @request_json['comment'] = @current_variant_comment
-  @request = @request_json.to_json.to_s
+  Patient_helper_methods.prepare_variant_confirm(@current_variant_comment)
 end
 
 
@@ -243,7 +126,7 @@ end
 Then(/^patient field: "([^"]*)" should have value: "([^"]*)" within (\d+) seconds$/) do |field, value, timeout|
   converted_value = value=='null'?nil:value
   url = "#{ENV['patients_endpoint']}?patient_id=#{@patient_id}"
-  patient_result = Patient_helper_methods.get_result_from_url(url, field, converted_value, timeout)
+  patient_result = Patient_helper_methods.get_special_result_from_url(url, field, converted_value, timeout)
   patient_result[field].should == converted_value
 end
 
@@ -251,7 +134,7 @@ Then(/^patient field: "([^"]*)" should have value: "([^"]*)" after (\d+) seconds
   sleep(timeout.to_f)
   converted_value = value=='null'?nil:value
   url = "#{ENV['patients_endpoint']}?patient_id=#{@patient_id}"
-  patient_result = Patient_helper_methods.get_result_from_url(url, field, converted_value, 1.0)
+  patient_result = Patient_helper_methods.get_special_result_from_url(url, field, converted_value, 1.0)
   patient_result[field].should == converted_value
 end
 
@@ -285,7 +168,7 @@ end
 
 Then(/^patient should have specimen \(surgical_event_id: "([^"]*)"\) within (\d+) seconds$/) do |sei, timeout|
   url = "#{ENV['patients_endpoint']}/#{@patient_id}/specimens?surgical_event_id=#{sei}"
-  @current_specimen = Patient_helper_methods.get_result_from_url(url, 'surgical_event_id', sei, timeout)
+  @current_specimen = Patient_helper_methods.get_special_result_from_url(url, 'surgical_event_id', sei, timeout)
   @current_specimen['surgical_event_id'].should == sei
 end
 
@@ -320,7 +203,7 @@ end
 #
 Then(/^patient should have variant report \(analysis_id: "([^"]*)"\) within (\d+) seconds$/) do |ani, timeout|
   url = "#{ENV['patients_endpoint']}/#{@patient_id}/variant_reports?analysis_id=#{ani}"
-  @current_variant_report = Patient_helper_methods.get_result_from_url(url, 'analysis_id', ani, timeout)
+  @current_variant_report = Patient_helper_methods.get_special_result_from_url(url, 'analysis_id', ani, timeout)
   @current_variant_report['analysis_id'].should == ani
 end
 

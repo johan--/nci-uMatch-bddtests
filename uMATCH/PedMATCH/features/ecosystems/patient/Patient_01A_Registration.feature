@@ -4,7 +4,7 @@ Feature: Register a new patient in PEDMatchbox:
   @demo_p1
   Scenario: PT_RG01. New patient can be registered successfully
     Given template patient registration message for patient: "PT_RG01_New" on date: "2016-08-16T14:52:58.000+00:00"
-    When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
+    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
     Then patient field: "current_status" should have value: "REGISTRATION" within 10 seconds
     And patient field: "registration_date" should have value: "2016-08-16T14:52:58+00:00" within 10 seconds
     And patient field: "study_id" should have value: "APEC1621" within 10 seconds
@@ -61,4 +61,4 @@ Feature: Register a new patient in PEDMatchbox:
   Scenario: PT_RG06. extra key-value pair in the message body should NOT fail
     Given template patient registration message for patient: "PT_RG06" on date: "current"
     Then set patient message field: "extra_info" to value: "This is extra information"
-    When post to MATCH patients service, returns a message that includes "Message has been processed successfully" with status "Success"
+    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"

@@ -170,7 +170,7 @@ Feature: Patients end to end tests
   Scenario Outline: PT_ETE09. assignment report confirmation should fail if patient is on OFF_STUDY status
     Given patient: "<patient_id>" with status: "<current_status>" on step: "1.0"
     Given other background and comments for this patient: "Assignment report was waiting for confirmation before patient changed to OFF_STUDY"
-    Then assignment report is "CONFIRMED"
+    Then assignment report is confirmed
     Then API returns a message that includes "OFF_STUDY" with status "Failure"
     Examples:
       |patient_id                 |current_status           |
