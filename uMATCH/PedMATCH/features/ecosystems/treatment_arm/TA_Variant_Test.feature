@@ -3,6 +3,7 @@
 @treatment_arm
 Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
 
+  @treatment_arm_p2
   Scenario Outline: Variant should return correct inclusion/exclusion value
     Given template treatment arm json with an id: "<treatment_arm_id>"
     Then clear template treatment arm json's variant: "<variantType>" list
@@ -28,6 +29,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     |APEC1621-VR1-9     |nhr          |id0001                   |true             |
     |APEC1621-VR1-10    |nhr          |id0002                   |false            |
 
+  @treatment_arm_p2
   Scenario Outline: TA_VR2. Variant should return correct arm_specific value
     Given template treatment arm json with an id: "<treatment_arm_id>"
     Then clear template treatment arm json's variant: "<variantType>" list
@@ -53,6 +55,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
       |APEC1621-VR2-9     |nhr          |id0001                         |true         |
       |APEC1621-VR2-10    |nhr          |id0002                         |false        |
 
+  @treatment_arm_p2
   Scenario Outline: TA_VR3. Variant should return full public_med_ids list
     Given template treatment arm json with an id: "<treatment_arm_id>"
     Then clear template treatment arm json's variant: "<variantType>" list
@@ -78,6 +81,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
       |APEC1621-VR3-9     |nhr          |id0001                         |982,546,2436547,243           |
       |APEC1621-VR3-10    |nhr          |id0002                         |2,32,6,13                     |
 
+  @treatment_arm_p2
   Scenario Outline: TA_VR4. Treatment arm which contains two variants of the same identifier should fail
     Given template treatment arm json with a random id
     Then clear template treatment arm json's variant: "<variantType>" list
@@ -97,6 +101,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
       |id           |
       |nhr          |
 
+  @treatment_arm_p2
   Scenario Outline: TA_VR5. Treatment arm which contains variant without ID should fail
     Given template treatment arm json with a random id
     Then clear template treatment arm json's variant: "<variantType>" list
@@ -112,6 +117,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
       |gf           |
       |id           |
 
+  @treatment_arm_p2
   Scenario Outline: TA_VR6. Variant with valid Oncomine Variant Class value should pass
     Given template treatment arm json with an id: "<treatment_arm_id>"
     Then clear template treatment arm json's variant: "<variantType>" list
@@ -128,6 +134,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
       |treatment_arm_id   |variantType  |identifier             |ovcValue             |
       |APEC1621-VR6-5     |nhr          |id0001                 |deleterious          |
 
+  @treatment_arm_p2
   Scenario Outline: TA_VR7. Variant with invalid Oncomine Variant Class value should fail
     Given template treatment arm json with a random id
     Then clear template treatment arm json's variant: "<variantType>" list
@@ -141,6 +148,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
       |nhr          |fusion                      |
       |nhr          |hotspot                     |
 
+  @treatment_arm_p2
   Scenario Outline: TA_VR8a. Variant without "type" field should fail
     Given template treatment arm json with an id: "APEC1621_VR8_<variantType>"
     Then clear template treatment arm json's variant: "<variantType>" list
@@ -156,6 +164,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
       |cnv          |
       |gf           |
 
+  @treatment_arm_p2
   Scenario Outline: TA_VR8. Variant with invalid type value should fail
     Given template treatment arm json with a random id
     Then clear template treatment arm json's variant: "<variantType>" list
@@ -171,6 +180,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
       |cnv          |snp                              |
       |gf           |fudge                            |
 
+  @treatment_arm_p2
   Scenario Outline: TA_VR8a. Variant without type field should fail
     Given template treatment arm json with a random id
     Then clear template treatment arm json's variant: "<variantType>" list
@@ -186,6 +196,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
       |id           |
       |gf           |
 
+  @treatment_arm_p2
   Scenario: TA_VR9. Duplicated Non-Hotspot Rules will be ignored
     Given template treatment arm json with an id: "APEC1621-VR9-1"
     Then clear template treatment arm json's variant: "nhr" list
@@ -199,7 +210,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has "nhr" variant count:"1"
 
-
+  @treatment_arm_p2
   Scenario Outline: TA_VR10. Non-Hotspot Rules with valid function value should pass
     Given template treatment arm json with an id: "<treatment_arm_id>"
     Then clear template treatment arm json's variant: "nhr" list
@@ -227,6 +238,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
       |APEC1621-VR10-11  |id0011                 |nonframeshiftblocksubstitution   |
 
 
+  @treatment_arm_p2
   Scenario Outline: TA_VR11. Non-Hotspot Rules with invalid function value should fail
     Given template treatment arm json with a random id
     Then clear template treatment arm json's variant: "nhr" list
@@ -240,6 +252,7 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
       |identifier             |functionValue                    |
       |id0001                 |synonymous                       |
 
+  @treatment_arm_p2
   Scenario Outline: TA_VR12. Variants can have the approved variant_type and the TA should be created.
     Given template treatment arm json with a random id
     And clear template treatment arm json's variant: "<variant_type>" list

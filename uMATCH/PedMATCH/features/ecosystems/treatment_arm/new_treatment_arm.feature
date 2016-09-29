@@ -1,5 +1,5 @@
 #encoding: utf-8
-@treatment_arm
+
 Feature: MATCH-1: New Treatment Arm Message
   Receive new treatment arm from COG in JSON format
   Consume the message within MATCH.
