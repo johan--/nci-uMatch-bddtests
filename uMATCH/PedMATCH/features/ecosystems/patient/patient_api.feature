@@ -1,4 +1,4 @@
-@demo_p2 @patients
+@demo_p1
 Feature: api that provides access to patient data. This feature ensures the api is running
 
   Scenario Outline: Test to ensure that patient_api service is running
