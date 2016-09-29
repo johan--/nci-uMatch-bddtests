@@ -5,7 +5,7 @@ require_relative 'helper_methods.rb'
 
 class Patient_helper_methods
 
-  def Patient_helper_methods.createPatientTriggerRequestJSON (studyId,psn,stepNumber,status,comment, isDateCreated )
+  def self.createPatientTriggerRequestJSON (studyId,psn,stepNumber,status,comment, isDateCreated )
     dateCreated = Helper_Methods.getDateAsRequired(isDateCreated)
 
     headerHash = {"msg_guid"=>"0f8fad5b-d9cb-469f-al65-80067728950e",
@@ -31,7 +31,7 @@ class Patient_helper_methods
 
   end
 
-  def Patient_helper_methods.createSpecimenRequest(params={})
+  def self.createSpecimenRequest(params={})
     msgHash = JSON.parse(params['msg'])
     specimenHash = msgHash['specimen_received']
     if !params['receivedDate'].nil?
@@ -49,7 +49,7 @@ class Patient_helper_methods
     return msgHash.to_json
   end
 
-  def Patient_helper_methods.create_new_specimen_received_message(psn,type,datePreference)
+  def self.create_new_specimen_received_message(psn,type,datePreference)
     dateCreated = Helper_Methods.getDateAsRequired(datePreference)
     p dateCreated
     header_hash = {"msg_guid"=>"0f8fad5b-d9cb-469f-al65-80067728950e",
@@ -81,7 +81,7 @@ class Patient_helper_methods
     # return srHash.to_json
   end
 
-  def Patient_helper_methods.create_assay_order_message(params={})
+  def self.create_assay_order_message(params={})
     msgHash = JSON.parse(params['msg'])
     if !params['ordered_date'].nil?
       @reportedDate = Helper_Methods.getDateAsRequired(params['ordered_date'])
@@ -90,7 +90,7 @@ class Patient_helper_methods
     return msgHash.to_json
   end
 
-  def Patient_helper_methods.create_assay_result_message(params={})
+  def self.create_assay_result_message(params={})
     msgHash = JSON.parse(params['msg'])
     if !params['reported_date'].nil?
       @reportedDate = Helper_Methods.getDateAsRequired(params['reported_date'])
@@ -99,7 +99,7 @@ class Patient_helper_methods
     return msgHash.to_json
   end
 
-  def Patient_helper_methods.createSpecimenShippedMessageRequest(params={})
+  def self.createSpecimenShippedMessageRequest(params={})
     msgHash = JSON.parse(params['msg'])
     specimenHash = msgHash['specimen_shipped']
     p specimenHash
@@ -111,7 +111,7 @@ class Patient_helper_methods
     return msgHash.to_json
   end
 
-  def Patient_helper_methods.create_new_specimen_shipped_message(psn,type,surgical_id,molecular_id,datePreference)
+  def self.create_new_specimen_shipped_message(psn,type,surgical_id,molecular_id,datePreference)
     dateCreated = Helper_Methods.getDateAsRequired(datePreference)
 
     header_hash = {"msg_guid"=>"0f8fad5b-d9cb-469f-al65-80067728950e",
@@ -165,11 +165,224 @@ class Patient_helper_methods
     return specimen_shipped_hash.to_json
   end
 
-  def Patient_helper_methods.load_patient_message_templates(type)
+
+
+
+
+
+
+
+
+
+
+
+  ########   setup    #######
+
+
+  ######## messages   #######
+  def self.load_patient_message_templates(type)
     whole_json = JSON(IO.read('./public/patient_message_templates.json'))
     whole_json[type]
   end
 
+  def self.prepare_register(pt_id, reg_date='default')
+    @patient_id = pt_id
+    @request_hash = load_patient_message_templates('registration')
+    @request_hash['patient_id'] = @patient_id
+    unless reg_date == 'default'
+      @request_hash['registration_date'] = reg_date
+    end
+  end
+
+  def self.prepare_specimen_received(pt_id, type, sei, collect_date='default')
+    @patient_id = pt_id
+    @request_hash = load_patient_message_templates("specimen_received_#{type}")
+    @request_hash['specimen_received']['patient_id'] = @patient_id
+    if type == 'TISSUE'
+      @request_hash['specimen_received']['surgical_event_id'] = sei
+    end
+    unless collect_date == 'default'
+      @request_hash['specimen_received']['collected_dttm'] = collect_date
+    end
+  end
+
+  def self.prepare_specimen_shipped(pt_id, type, site, sei, moi_or_bc, ship_date='default')
+    @patient_id = pt_id
+    @request_hash = load_patient_message_templates("specimen_shipped_#{type}")
+    @request_hash['specimen_shipped']['patient_id'] = @patient_id
+    @request_hash['specimen_shipped']['destination'] = site
+    unless ship_date == 'default'
+      @request_hash['specimen_shipped']['shipped_dttm'] = ship_date
+    end
+
+    case type
+      when 'TISSUE'
+        @request_hash['specimen_shipped']['surgical_event_id'] = sei
+        @request_hash['specimen_shipped']['molecular_id'] = moi_or_bc
+      when 'SLIDE'
+        @request_hash['specimen_shipped']['surgical_event_id'] = sei
+        @request_hash['specimen_shipped']['slide_barcode'] = moi_or_bc
+      when 'BLOOD'
+        @request_hash['specimen_shipped']['molecular_id'] = moi_or_bc
+    end
+  end
+
+  def self.prepare_assay(pt_id, sei, biomarker, result, order_date='default', report_date='default')
+    @patient_id = pt_id
+    @request_hash = load_patient_message_templates('assay_result_reported')
+    @request_hash['patient_id'] = @patient_id
+    @request_hash['surgical_event_id'] = sei
+    @request_hash['biomarker'] = biomarker
+    unless order_date=='default'
+      @request_hash['ordered_date'] = order_date
+    end
+    unless report_date=='default'
+      @request_hash['reported_date'] = report_date
+    end
+    @request_hash['case_number'] = "assay_#{sei}_#{@request_hash['ordered_date']}"
+    @request_hash['result'] = result
+  end
+
+  def self.prepare_pathology(pt_id, sei, status, report_date='default')
+    @patient_id=pt_id
+    @request_hash = load_patient_message_templates('pathology_status')
+    @request_hash['patient_id'] = @patient_id
+    @request_hash['surgical_event_id'] = sei
+    unless report_date=='default'
+      @request_hash['reported_date'] = report_date
+    end
+    @request_hash['status'] = status
+    @request_hash['case_number'] = "pathology_#{sei}_#{@request_hash['reported_date']}"
+  end
+
+  def self.prepare_vr_upload(pt_id, site, moi, ani)
+    @patient_id = pt_id
+    @request_hash = Patient_helper_methods.load_patient_message_templates('variant_file_uploaded')
+    @request_hash['ion_reporter_id'] = site
+    @request_hash['molecular_id'] = moi
+    @request_hash['analysis_id'] = ani
+  end
+
+  def self.prepare_variant_confirm(comment='default comment', user='default user')
+    @request_hash = load_patient_message_templates('variant_confirmed')
+    @request_hash['comment']=comment
+    @request_hash['comment_user']=user
+  end
+
+  def self.prepare_vr_confirm(pt_id, comment='default comment', user='default user')
+    @patient_id = pt_id
+    @request_hash = load_patient_message_templates('variant_file_confirmed')
+    @request_hash['comment']=comment
+    @request_hash['comment_user']=user
+  end
+
+  def self.prepare_assignment_confirm(pt_id, comment='default comment', user='default user')
+    @patient_id = pt_id
+    @request_hash = load_patient_message_templates('assignment_confirmed')
+    @request_hash['comment']=comment
+    @request_hash['comment_user']=user
+  end
+
+  def self.prepare_off_study(pt_id, step_number, date='default')
+    @patient_id = pt_id
+    @request_hash = load_patient_message_templates('off_study')
+    @request_hash['patient_id'] = @patient_id
+    @request_hash['status'] = 'OFF_STUDY'
+    @request_hash['step_number'] = step_number
+    unless date=='default'
+      @request_hash['status_date'] = date
+    end
+  end
+
+  ######## services #####
+  def self.get_result_from_url(url, field, value, timeout)
+    run_time = 0.0
+    loop do
+      response = Helper_Methods.simple_get_request(url)
+      if response.length==1 && response[0][field]==value
+        return response[0]
+      end
+
+      if run_time>timeout.to_f
+        if response.length==1
+          return response[0]
+        elsif response.length>1
+          return {field=>"More than one (#{response.length}) results found"}
+        else
+          return {field=>"No result found"}
+        end
+      end
+      sleep(0.5)
+      run_time += 0.5
+    end
+  end
+  
+  def self.post_to_trigger(expected_status, expected_partial_message)
+    puts JSON.pretty_generate(@request_hash)
+    response = Helper_Methods.post_request(ENV['patients_endpoint']+'/'+@patient_id, request_hash.to_json.to_s)
+    validate_response(response, expected_status, expected_partial_message)
+    response
+  end
+
+  def self.put_variant_confirm(uuid, status, expected_status, expected_partial_message)
+    puts JSON.pretty_generate(@request_hash)
+    url = ENV['patients_endpoint'] + '/'
+    url = url + 'variant/' + uuid + '/' + status
+    response = Helper_Methods.put_request(url, @request_hash.to_json.to_s)
+    validate_response(response, expected_status, expected_partial_message)
+    response
+  end
+
+  def self.put_vr_confirm(ani, status, expected_status, expected_partial_message)
+    puts JSON.pretty_generate(@request_hash)
+    url = ENV['patients_endpoint'] + '/'
+    url = url + @patient_id + '/variant_reports/' + ani + '/' + status
+    response = Helper_Methods.put_request(url, @request_hash.to_json.to_s)
+    validate_response(response, expected_status, expected_partial_message)
+    response
+  end
+
+  def self.put_ar_confirm(ani, expected_status, expected_partial_message)
+    puts JSON.pretty_generate(@request_hash)
+    url = ENV['patients_endpoint'] + '/'
+    url = url + @patient_id + '/assignment_reports/' + ani + '/confirm'
+    response = Helper_Methods.put_request(url, @request_hash.to_json.to_s)
+    validate_response(response, expected_status, expected_partial_message)
+    response
+  end
+
+  def self.validate_response(response, expected_status, expected_partial_message)
+    response['status'].downcase.should == expected_status.downcase
+    expect_message = "returned message include <#{expected_partial_message}>"
+    actual_message = response['message']
+    if response['message'].downcase.include?expected_partial_message.downcase
+      actual_message = expect_message
+    end
+    actual_message.should == expect_message
+  end
+
+  def self.wait_until_patient_updated(patient_id)
+    timeout = 15.0
+    total_time = 0.0
+    old_status = ''
+    loop do
+      output_hash = Helper_Methods.simple_get_request("#{LOCAL_PATIENT_API_URL}/#{patient_id}")
+      if output_hash.length == 1
+        new_status = output_hash[0]['current_status']
+        if old_status == ''
+          old_status = new_status
+        end
+        unless new_status==old_status
+          return
+        end
+      end
+      total_time += 0.5
+      if total_time>timeout
+        return
+      end
+      sleep(0.5)
+    end
+  end
 
 end
 

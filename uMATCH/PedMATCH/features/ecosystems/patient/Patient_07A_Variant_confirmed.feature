@@ -125,10 +125,10 @@ Feature: Variant files confirmed messages
     Given template variant report confirm message for patient: "<patient_id>", it has analysis_id: "<ani>" and status: "confirm"
     When put to MATCH variant report confirm service, returns a message that includes "<message>" with status "Failure"
     Examples:
-    |patient_id                     |moi                                |ani                                |message                                                  |
-    |PT_VC10_VRUploadedSEIExpired   |PT_VC10_VRUploadedSEIExpired_MOI1  |PT_VC10_VRUploadedSEIExpired_ANI1  |Molecular id doesn't exist or is not currently active    |
-    |PT_VC10_VRUploadedMOIExpired   |PT_VC10_VRUploadedMOIExpired_MOI1  |PT_VC10_VRUploadedMOIExpired_ANI1  |Molecular id doesn't exist or is not currently active    |
-    |PT_VC10_VRUploadedANIExpired   |PT_VC10_VRUploadedANIExpired_MOI1  |PT_VC10_VRUploadedANIExpired_ANI1  |doesn't match current specimen's latest analysis id      |
+    |patient_id                     |ani                                |message                                                  |
+    |PT_VC10_VRUploadedSEIExpired   |PT_VC10_VRUploadedSEIExpired_ANI1  |Molecular id doesn't exist or is not currently active    |
+    |PT_VC10_VRUploadedMOIExpired   |PT_VC10_VRUploadedMOIExpired_ANI1  |Molecular id doesn't exist or is not currently active    |
+    |PT_VC10_VRUploadedANIExpired   |PT_VC10_VRUploadedANIExpired_ANI1  |doesn't match current specimen's latest analysis id      |
 
   Scenario Outline: PT_VC11. variant report confirm message with invalid status should fail
     Given template variant report confirm message for patient: "PT_VC11_VRUploaded", it has analysis_id: "PT_VC11_VRUploaded_ANI1" and status: "<status>"

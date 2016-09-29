@@ -26,7 +26,7 @@ Feature: Patients end to end tests
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
     Then patient status should be "PENDING_CONFIRMATION" within 30 seconds
     Then patient should have selected treatment arm: "APEC1621-ETE-C" with stratum id: "100" within 15 seconds
-    Then assignment report is "CONFIRMED"
+    Then assignment report is confirmed
     Then COG approves patient on treatment arm: "APEC1621-ETE-C", stratum: "100" to step: "1.1"
     Then patient status should be "ON_TREATMENT_ARM" within 15 seconds
     Then patient step number should be "1.1" within 15 seconds
@@ -34,7 +34,7 @@ Feature: Patients end to end tests
     Then patient status should be "PENDING_CONFIRMATION" within 30 seconds
     Then patient step number should be "2.0" within 15 seconds
     Then patient should have selected treatment arm: "APEC1621-ETE-A" with stratum id: "100" within 15 seconds
-    Then assignment report is "CONFIRMED"
+    Then assignment report is confirmed
     Then COG approves patient on treatment arm: "APEC1621-ETE-A", stratum: "100" to step: "2.1"
     Then patient status should be "ON_TREATMENT_ARM" within 15 seconds
     Then patient step number should be "2.1" within 15 seconds
@@ -58,7 +58,7 @@ Feature: Patients end to end tests
     Then "BLOOD" variant report confirmed with status: "CONFIRMED"
     Then patient status should be "PENDING_CONFIRMATION" within 30 seconds
     Then patient should have selected treatment arm: "APEC1621-ETE-B" with stratum id: "100" within 15 seconds
-    Then assignment report is "CONFIRMED"
+    Then assignment report is confirmed
     Then COG approves patient on treatment arm: "APEC1621-ETE-B", stratum: "100" to step: "3.1"
     Then patient status should be "ON_TREATMENT_ARM" within 15 seconds
     Then patient step number should be "3.1" within 15 seconds
@@ -66,7 +66,7 @@ Feature: Patients end to end tests
     Then patient status should be "PENDING_CONFIRMATION" within 30 seconds
     Then patient step number should be "4.0" within 15 seconds
     Then patient should have selected treatment arm: "APEC1621-ETE-D" with stratum id: "100" within 15 seconds
-    Then assignment report is "CONFIRMED"
+    Then assignment report is confirmed
     Then COG approves patient on treatment arm: "APEC1621-ETE-D", stratum: "100" to step: "4.1"
     Then patient status should be "ON_TREATMENT_ARM" within 15 seconds
     Then patient step number should be "4.1" within 15 seconds

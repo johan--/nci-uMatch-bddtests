@@ -22,6 +22,7 @@ PatientVariantFolderCreator.create_default('PT_SS22_BloodVariantConfirmed', 'blo
 PatientVariantFolderCreator.create_default('PT_SS21_TissueVariantConfirmed', 'tissue')
 PatientVariantFolderCreator.create_default('PT_SS26_TsVRReceived', 'tissue')
 PatientVariantFolderCreator.create_default('PT_SS26_TsVRConfirmed', 'tissue')
+PatientVariantFolderCreator.create_default('PT_SS26_Progression', 'tissue')
 PatientVariantFolderCreator.create_default('PT_SS27_VariantReportUploaded', 'tissue')
 PatientVariantFolderCreator.create_default('PT_AS12_VRConfirmedNoPatho', 'tissue')
 PatientVariantFolderCreator.create_default('PT_AS12_PathoConfirmedNoVR', 'tissue')

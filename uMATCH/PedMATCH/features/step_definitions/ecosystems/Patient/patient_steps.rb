@@ -243,7 +243,7 @@ end
 Then(/^patient field: "([^"]*)" should have value: "([^"]*)" within (\d+) seconds$/) do |field, value, timeout|
   converted_value = value=='null'?nil:value
   url = "#{ENV['patients_endpoint']}?patient_id=#{@patient_id}"
-  patient_result = get_result_from_url(url, field, converted_value, timeout)
+  patient_result = Patient_helper_methods.get_result_from_url(url, field, converted_value, timeout)
   patient_result[field].should == converted_value
 end
 
@@ -251,7 +251,7 @@ Then(/^patient field: "([^"]*)" should have value: "([^"]*)" after (\d+) seconds
   sleep(timeout.to_f)
   converted_value = value=='null'?nil:value
   url = "#{ENV['patients_endpoint']}?patient_id=#{@patient_id}"
-  patient_result = get_result_from_url(url, field, converted_value, 1.0)
+  patient_result = Patient_helper_methods.get_result_from_url(url, field, converted_value, 1.0)
   patient_result[field].should == converted_value
 end
 
@@ -285,7 +285,7 @@ end
 
 Then(/^patient should have specimen \(surgical_event_id: "([^"]*)"\) within (\d+) seconds$/) do |sei, timeout|
   url = "#{ENV['patients_endpoint']}/#{@patient_id}/specimens?surgical_event_id=#{sei}"
-  @current_specimen = get_result_from_url(url, 'surgical_event_id', sei, timeout)
+  @current_specimen = Patient_helper_methods.get_result_from_url(url, 'surgical_event_id', sei, timeout)
   @current_specimen['surgical_event_id'].should == sei
 end
 
@@ -320,7 +320,7 @@ end
 #
 Then(/^patient should have variant report \(analysis_id: "([^"]*)"\) within (\d+) seconds$/) do |ani, timeout|
   url = "#{ENV['patients_endpoint']}/#{@patient_id}/variant_reports?analysis_id=#{ani}"
-  @current_variant_report = get_result_from_url(url, 'analysis_id', ani, timeout)
+  @current_variant_report = Patient_helper_methods.get_result_from_url(url, 'analysis_id', ani, timeout)
   @current_variant_report['analysis_id'].should == ani
 end
 
@@ -411,29 +411,6 @@ end
 
 Given(/^patient: "([^"]*)" in mock service lost patient list, service will come back after "([^"]*)" tries$/) do |patient_id, error_times|
   COG_helper_methods.setServiceLostPatient(patient_id, error_times)
-end
-
-def get_result_from_url(url, field, value, timeout)
-  run_time = 0.0
-  loop do
-    response = Helper_Methods.simple_get_request(url)
-    # p response.to_json + "    #{field}"
-    if response.length==1 && response[0][field]==value
-      return response[0]
-    end
-
-    if run_time>timeout.to_f
-      if response.length==1
-        return response[0]
-      elsif response.length>1
-        return {field=>"More than one (#{response.length}) results found"}
-      else
-        return {field=>"No result found"}
-      end
-    end
-    sleep(0.5)
-    run_time += 0.5
-  end
 end
 
 def convert_string_to_bool(string)
