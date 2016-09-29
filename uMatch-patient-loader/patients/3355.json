@@ -7,7 +7,7 @@
     "study_id": "APEC1621",
     "patient_id": "3355",
     "step_number": "1.0",
-    "registration_date": "2016-05-09T22:06:33+00:00",
+    "status_date": "2016-05-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -160,6 +160,7 @@
   },
   {
     "patient_id":"3355",
+    "study_id": "APEC1621",
     "surgical_event_id":"3355-bsn",
     "case_number": "case-3355",
     "type": "PATHOLOGY_STATUS",
@@ -177,6 +178,27 @@
     "cdna_bam_file_path_name": "cdna.bam",
     "dna_bai_file_path_name": "dna.bam.bai",
     "cdna_bai_file_path_name": "cdna.bam.bai"
+  },
+  {
+    "site": "MoCha",
+    "molecular_id": "3355-bsn-msn-2",
+    "analysis_id": "job1",
+    "tsv_file_name": "3366.tsv",
+    "vcf_file_name": "3366-bsn-msn-2.vcf"
+  },
+  {
+    "site": "MoCha",
+    "molecular_id": "3355-bsn-msn-2",
+    "analysis_id": "job1",
+    "dna_bam_file_name": "dna.bam",
+    "dna_bai_file_name": "dna.bam.bai"
+  },
+  {
+    "site": "MoCha",
+    "molecular_id": "3355-bsn-msn-2",
+    "analysis_id": "job1",
+    "cdna_bam_file_name": "cdna.bam",
+    "cdna_bai_file_name": "cdna.bam.bai"
   },
   {
     "patient_id": "3355",
@@ -206,7 +228,7 @@
     "treatment_arm_id": "APEC1621-A",
     "treatment_arm_version": "2015-08-06",
     "stratum_id": "100",
-    "assignment_date": "2016-08-10T22:05:33+00:00",
+    "status_date": "2016-08-10T22:05:33+00:00",
     "status": "ON_TREATMENT_ARM",
     "message": "",
     "internal_use_only": {
@@ -215,6 +237,31 @@
       "request": "ON_TREATMENT_ARM for patient_id 3355",
       "treatment_id": "APEC1621-A"
     }
+  },
+
+  {
+    "site": "MoCha",
+    "molecular_id": "3355-bsn-msn-2",
+    "analysis_id": "job1",
+    "tsv_file_path_name": "test1.tsv",
+    "vcf_file_path_name": "test1.vcf",
+  },
+
+  {
+    "site": "MoCha",
+    "molecular_id": "3355-bsn-msn-2",
+    "analysis_id": "job1",
+    "dna_bam_file_name": "dna.bam",
+    "dna_bai_file_path_name": "dna.bam.bai",
+
+  },
+
+  {
+    "site": "MoCha",
+    "molecular_id": "3355-bsn-msn-2",
+    "analysis_id": "job1",
+    "cdna_bam_file_name": "cdna.bam",
+    "cdna_bai_file_name": "cdna.bam.bai"
   }
 
 ]
