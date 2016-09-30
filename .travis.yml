@@ -62,10 +62,10 @@ env:
     - PRIORITY=_p3
 script:
   #Combining p1 and p2 tags in one job, so on successful completion can promote to UAT env.
-  - if [ $PRIORITY="_p1" ]; then p1="_p1"; CUC_TAG=$CUC_TAG$p1;fi
-  - if [ $PRIORITY="_p2" ]; then p2="_p2"; CUC_TAG=$CUC_TAG$p2;fi
-  - if [ $PRIORITY="_p1_p2" ]; then p1="_p1"; p2="_p2"; CUC_TAG=$CUC_TAG$p1,$CUC_TAG$p2;fi
-  - if [ $PRIORITY="_p3" ]; then p3="_p3"; CUC_TAG=$CUC_TAG$p3;fi
+  #Better way is to have this in a shell script
+#  - if [ $PRIORITY="_p1_p2" ]; then p1="_p1"; p2="_p2"; CUC_TAG=$CUC_TAG$p1,$CUC_TAG$p2;fi
+#  - if [ $PRIORITY="_p3" ]; then p3="_p3"; CUC_TAG=$CUC_TAG$p3;fi
+  - if [[ $PRIORITY == "_p1,_p2" ]]; then p1="_p1"; p2="_p2";CUC_TAG=$CUC_TAG$p1,$CUC_TAG$p2; elif [[ $PRIORITY == "_p3" ]]; then p3="_p3"; CUC_TAG=$CUC_TAG$p3; fi
   - echo $CUC_TAG
 
 #  - echo CUC_TAG PRIORITY = $CUC_TAG$PRIORITY
@@ -82,8 +82,8 @@ script:
   - sleep 3 # give xvfb some time to start
   # Run UI tests
   - cd nci-match-ui-bddtests/
-  - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$PRIORITY --troubleshoot
-#  - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG --troubleshoot
+#  - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$PRIORITY --troubleshoot
+  - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG --troubleshoot
   # Generate html report
   - node support/generate_report.js
   - ls -alt
