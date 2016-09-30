@@ -59,8 +59,8 @@ env:
     - PRIORITY=_p1_p2
     - PRIORITY=_p3
 script:
-  - if[[$PRIORITY == '_p1_p2']];then $CUC_TAG = $CUC_TAG_p1,$CUC_TAG_p2;fi
-  - if[[$PRIORITY == '_p3']];then $CUC_TAG = $CUC_TAG_p3;fi
+  - if [ $PRIORITY == '_p1_p2' ]; then $CUC_TAG = $CUC_TAG_p1,$CUC_TAG_p2;fi
+  - if [ $PRIORITY == '_p3' ]; then $CUC_TAG = $CUC_TAG_p3;fi
   - echo CUC_TAG = $CUC_TAG
 #  - echo CUC_TAG PRIORITY = $CUC_TAG$PRIORITY
   # Run Cucumber @tag specific tests
