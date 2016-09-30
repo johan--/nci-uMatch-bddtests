@@ -19,7 +19,7 @@ class Patient_helper_methods
                       "study_id" => studyId,
                       "patient_id" => psn,
                       "step_number" => stepNumber,
-                      "registration_date" => dateCreated,
+                      "status_date" => dateCreated,
                       "status" => status,
                       # "message" => comment,
                       # "rebiopsy"=>'',
@@ -208,7 +208,7 @@ class Patient_helper_methods
     @request_hash = load_patient_message_templates('registration')
     @request_hash['patient_id'] = @patient_id
     unless reg_date == 'default'
-      @request_hash['registration_date'] = reg_date
+      @request_hash['status_date'] = reg_date
     end
     @patient_message_root_key = ''
   end
@@ -340,12 +340,22 @@ class Patient_helper_methods
     return Helper_Methods.simple_get_request(url)
   end
 
-  def self.get_special_result_from_url(url, field, value, timeout)
+  def self.get_special_result_from_url(url, timeout, query_hash, path=[])
     run_time = 0.0
     loop do
       response = Helper_Methods.simple_get_request(url)
-      if response.length==1 && response[0][field]==value
-        return response[0]
+      if response.length==1
+        target_object = response[0]
+        path.each do |path_key|
+          target_object = target_object[path_key]
+        end
+        is_this = true
+        query_hash.each do |key, value|
+          is_this = is_this && target_object[key]==value
+        end
+        if is_this
+          return response[0]
+        end
       end
 
       if run_time>timeout.to_f
@@ -380,7 +390,7 @@ class Patient_helper_methods
 
   def self.put_vr_confirm(ani, status, expected_status, expected_partial_message)
     puts JSON.pretty_generate(@request_hash)
-    url = "#{ENV['patients_endpoint']}/@#{patient_id}/variant_reports/#{ani}/#{status}"
+    url = "#{ENV['patients_endpoint']}/@#{@patient_id}/variant_reports/#{ani}/#{status}"
     response = Helper_Methods.put_request(url, @request_hash.to_json.to_s)
     validate_response(response, expected_status, expected_partial_message)
     response
@@ -409,7 +419,7 @@ class Patient_helper_methods
     total_time = 0.0
     old_status = ''
     loop do
-      output_hash = Helper_Methods.simple_get_request("#{LOCAL_PATIENT_API_URL}/#{patient_id}")
+      output_hash = Helper_Methods.simple_get_request("#{ENV['patients_endpoint']}/#{patient_id}")
       if output_hash.length == 1
         new_status = output_hash[0]['current_status']
         if old_status == ''

@@ -7,7 +7,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_PR02_TissueReceived",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -44,7 +44,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_PR03_TissueReceived",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -81,7 +81,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_PR04_TissueReceived",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -118,7 +118,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_PR05_TissueReceived",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -155,7 +155,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_PR06_TissueReceived",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -192,7 +192,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_PR07_TissueShipped",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -256,7 +256,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_PR08_SlideShipped",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -341,7 +341,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_PR09_Registered",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -357,7 +357,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_PR09_SEI1HasTissueSEI2NoTissue",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -394,7 +394,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_PR10TissueReceived",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -431,7 +431,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_PR11TissueReceived",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -489,7 +489,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_PR12TissueReceived",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -526,7 +526,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_PR12_PathologyYReceived",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -570,7 +570,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_PR12_PathologyNReceived",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -614,7 +614,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_PR12_PathologyUReceived1",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -658,7 +658,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_PR12_PathologyUReceived2",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -702,7 +702,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_PR12_PathologyUReceived3",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",

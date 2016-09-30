@@ -7,7 +7,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SS01_BloodReceived",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -43,7 +43,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SS02_TissueReceived",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -80,7 +80,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SS03_TissueReceived",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -117,7 +117,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SS05_TissueReceived",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -154,7 +154,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SS06_TissueReceived",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -191,7 +191,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SS07_TissueReceived",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -228,7 +228,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SS08_TissueReceived",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -286,7 +286,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SS09_TissueReceived",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -323,7 +323,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SS10_TissueReceived",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -360,7 +360,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SS11_Tissue1Shipped",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -424,7 +424,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SS12_Tissue1Shipped",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -488,7 +488,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SS13_TissueReceived",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -525,7 +525,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SS14_TissueReceived",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -562,7 +562,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SS15_Slide1Shipped",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -647,7 +647,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SS16_Slide1Shipped",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -732,7 +732,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SS17_Registered",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -748,7 +748,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SS18_BloodReceived",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -784,7 +784,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SS19_Blood1Shipped",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -843,7 +843,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SS20_Blood1Shipped",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -902,7 +902,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SS21_TissueVariantConfirmed",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -984,7 +984,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SS22_BloodVariantConfirmed",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -1061,7 +1061,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SS23_TissueReceived1",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -1098,7 +1098,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SS23_TissueReceived2",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -1135,7 +1135,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SS23_SlideShipped",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -1220,7 +1220,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SS23_TissueShipped",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -1284,7 +1284,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SS24_BloodShipped",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -1364,7 +1364,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SS24_TissueShipped",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -1448,7 +1448,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SS25_BloodShipped",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -1507,7 +1507,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SS26_TsReceived",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -1563,7 +1563,7 @@
   "study_id": "APEC1621",
   "patient_id": "PT_SS26_TsShipped",
   "step_number": "1.0",
-  "registration_date": "2016-02-09T22:06:33+00:00",
+  "status_date": "2016-02-09T22:06:33+00:00",
   "status": "REGISTRATION",
   "internal_use_only": {
     "request_id": "4-654321",

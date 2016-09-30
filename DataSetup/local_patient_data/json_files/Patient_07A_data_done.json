@@ -7,7 +7,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_VC02_VRUploaded",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -81,7 +81,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_VC03_VRUploadedAfterRejected",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -173,7 +173,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_VC04_VRUploaded",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -247,7 +247,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_VC05_VRUploaded",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -321,7 +321,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_VC07_VRUploaded",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -395,7 +395,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_VC08_VRUploaded",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -469,7 +469,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_VC09_VRUploaded",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -543,7 +543,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_VC11_VRUploaded",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -617,7 +617,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_VC12_VRUploaded_1",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -691,7 +691,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_VC12_VRUploaded_2",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -765,7 +765,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_VC13_VRUploaded",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",

@@ -9,7 +9,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: e6b202f6-ac55-5dca-
     "study_id": "APEC1621",
     "patient_id": "00002",
     "step_number": "1.0",
-    "registration_date": "2016-09-18T02:06:33+00:00",
+    "status_date": "2016-09-18T02:06:33+00:00",
     "status": "REGISTRATION",
     "message":"",
     "internal_use_only": {
@@ -210,7 +210,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H
   "step_number": "1.1",
   "treatment_arm_id": "CukeTest-00001-B",
   "stratum_id": "1",
-  "assignment_date": "2016-09-18T09:52:18+00:00",
+  "status_date": "2016-09-18T09:52:18+00:00",
   "status": "ON_TREATMENT_ARM",
   "message": "",
   "internal_use_only": {
@@ -269,7 +269,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H
   "step_number": "2.1",
   "treatment_arm_id": "CukeTest-00001-A",
   "stratum_id": "1",
-  "assignment_date": "2016-09-18T11:52:18+00:00",
+  "status_date": "2016-09-18T11:52:18+00:00",
   "status": "ON_TREATMENT_ARM",
   "message": "",
   "internal_use_only": {
@@ -469,7 +469,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H
   "step_number": "3.1",
   "treatment_arm_id": "CukeTest-00001-C",
   "stratum_id": "1",
-  "assignment_date": "2016-09-18T20:52:18+00:00",
+  "status_date": "2016-09-18T20:52:18+00:00",
   "status": "ON_TREATMENT_ARM",
   "message": "",
   "internal_use_only": {
@@ -529,7 +529,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H
   "step_number": "4.1",
   "treatment_arm_id": "CukeTest-00001-D",
   "stratum_id": "1",
-  "assignment_date": "2016-09-18T17:52:18+00:00",
+  "status_date": "2016-09-18T17:52:18+00:00",
   "status": "ON_TREATMENT_ARM",
   "message": "",
   "internal_use_only": {

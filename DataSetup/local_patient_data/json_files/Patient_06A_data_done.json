@@ -7,7 +7,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_VU02_TissueShipped",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -71,7 +71,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_VU03_TissueShipped",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -135,7 +135,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_VU04_TissueShipped",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -199,7 +199,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_VU05_TissueShipped",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -263,7 +263,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_VU06_TissueShipped",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -327,7 +327,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_VU08_TissueShipped",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -391,7 +391,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_VU09_VariantReportUploaded",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -465,7 +465,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_VU10_VariantReportUploaded",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -539,7 +539,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_VU11_VariantReportRejected",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -621,7 +621,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_VU12_VariantReportRejected",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -724,7 +724,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_VU13_VariantReportConfirmed",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -806,7 +806,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_VU14_TissueAndBloodShipped",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -912,7 +912,7 @@
   "study_id": "APEC1621",
   "patient_id": "PT_VU16_BdVRUploaded",
   "step_number": "1.0",
-  "registration_date": "2016-02-09T22:06:33+00:00",
+  "status_date": "2016-02-09T22:06:33+00:00",
   "status": "REGISTRATION",
   "internal_use_only": {
     "request_id": "4-654321",

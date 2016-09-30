@@ -51,11 +51,11 @@ Feature: Register a new patient in PEDMatchbox:
        |PT_RG04_WrongStpNum4     |1.5                |1.0                                                     |
 
 @patients_p2
-  Scenario Outline: PT_RG05. patient registration with invalid registration_date should fail
-    Given template patient registration message for patient: "<patient_id>" on date: "<registration_date>"
+  Scenario Outline: PT_RG05. patient registration with invalid status_date should fail
+    Given template patient registration message for patient: "<patient_id>" on date: "<status_date>"
     When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
     Examples:
-      |patient_id             |registration_date        |message                                                 |
+      |patient_id             |status_date        |message                                                 |
       |PT_RG05_EmptyDate      |                         |can't be blank                                          |
       |PT_RG05_NullDate       |null                     |can't be blank                                          |
       |PT_RG05_StringDate     |Other                    |invalid date                                            |

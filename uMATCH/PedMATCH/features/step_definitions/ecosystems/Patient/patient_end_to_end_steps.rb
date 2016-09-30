@@ -62,7 +62,7 @@ end
 
 Then(/^"([^"]*)" specimen shipped to "([^"]*)" with molecular_id or slide_barcode: "([^"]*)"$/) do |type, lab, id|
   date = Helper_Methods.getDateAsRequired('current')
-  Patient_helper_methods.prepare_specimen_shipped(@patient_id, type, lab, @active_sei, id, date)
+  Patient_helper_methods.prepare_specimen_shipped(@patient_id, type, @active_sei, id, lab, date)
 
   update_moi_or_barcode(type, id)
   update_site(type, lab)
@@ -87,9 +87,9 @@ end
 
 Then(/^"([^"]*)" variant report uploaded with analysis_id: "([^"]*)"$/) do |type, ani|
   target_moi = get_moi_or_barcode(type)
-  target_site = get_site(type)
+  target_site = get_site(type).downcase
   update_ani(type, ani)
-  Patient_helper_methods.prepare_vr_upload(@patient_id, target_site, target_moi, ani)
+  Patient_helper_methods.prepare_vr_upload(@patient_id, target_moi, ani, target_site)
   @response = Patient_helper_methods.post_to_trigger('Success', 'successfully')
   Patient_helper_methods.wait_until_patient_updated(@patient_id)
 end
@@ -155,28 +155,30 @@ end
 
 Then(/^patient status should be "([^"]*)" within (\d+) seconds$/) do |status, timeout|
   url = "#{ENV['patients_endpoint']}?patient_id=#{@patient_id}"
-  patient_result = Patient_helper_methods.get_result_from_url(url, 'current_status', status, timeout)
+  patient_result = Patient_helper_methods.get_special_result_from_url(url, timeout, {'current_status':status})
   patient_result['current_status'].should == status
 end
 
 Then(/^patient status should be "([^"]*)" after (\d+) seconds$/) do |status, timeout|
   sleep(timeout.to_f)
   url = "#{ENV['patients_endpoint']}?patient_id=#{@patient_id}"
-  patient_result = Patient_helper_methods.get_result_from_url(url, 'current_status', status, 1.0)
+  patient_result = Patient_helper_methods.get_special_result_from_url(url, 1.0, {'current_status':status})
   patient_result['current_status'].should == status
 end
 
 Then(/^patient step number should be "([^"]*)" within (\d+) seconds$/) do |step_number, timeout|
   url = "#{ENV['patients_endpoint']}?patient_id=#{@patient_id}"
-  patient_result = Patient_helper_methods.get_result_from_url(url, 'current_step_number', step_number, timeout)
+  patient_result = Patient_helper_methods.get_special_result_from_url(url, timeout, {'current_step_number':step_number})
   patient_result['current_step_number'].should == step_number
 end
 
-# Then(/^patient should have selected treatment arm: "([^"]*)" with stratum id: "([^"]*)" within (\d+) seconds$/) do |ta_id, stratum, timeout|
-#   url = "#{ENV['patients_endpoint']}?patient_id=#{@patient_id}"
-#   patient_result = Patient_helper_methods.get_result_from_url(url, field, converted_value, timeout)
-#   patient_result[field].should == converted_value
-# end
+Then(/^patient should have selected treatment arm: "([^"]*)" with stratum id: "([^"]*)" within (\d+) seconds$/) do |ta_id, stratum, timeout|
+  url = "#{ENV['patients_endpoint']}?patient_id=#{@patient_id}"
+  query_hash = {'treatment_arm_id':ta_id, 'stratum_id':stratum}
+  query_path = %w(current_assignment selected_treatment_arm)
+  patient_result = Patient_helper_methods.get_special_result_from_url(url, timeout, query_hash, query_path)
+  patient_result[field].should == converted_value
+end
 
 
 def find_variant_uuid(specimen_type, variant_type, field, value)

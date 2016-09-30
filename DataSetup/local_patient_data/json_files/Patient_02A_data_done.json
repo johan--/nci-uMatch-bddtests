@@ -11,7 +11,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SR01_Registered",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -27,7 +27,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SR02_Registered",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -43,7 +43,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SR03_Registered",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -59,7 +59,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SR04_Registered",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -75,7 +75,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SR05_Registered",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -91,7 +91,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SR06_Registered",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -107,7 +107,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SR08_Registered",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -123,7 +123,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SR09_Registered",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -139,7 +139,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SR10_TsVrReceived",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -213,7 +213,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SR11_Registered",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -229,7 +229,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SR12_VariantReportConfirmed",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -314,7 +314,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SR14_VariantReportUploaded",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -388,7 +388,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SR15_VariantReportUploaded",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -462,7 +462,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SR10_UPathoReceived",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -506,7 +506,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SR10_NPathoReceived",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -550,7 +550,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SR10_YPathoReceived",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -594,7 +594,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SR10_BdReceived",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -630,7 +630,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SR10_TsVRRejected",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -712,7 +712,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SR10_TsReceived",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -749,7 +749,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SR10_BdVRReceived",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -818,7 +818,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SR10_BdVRRejected",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",
@@ -895,7 +895,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SR10_BdVRConfirmed",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",

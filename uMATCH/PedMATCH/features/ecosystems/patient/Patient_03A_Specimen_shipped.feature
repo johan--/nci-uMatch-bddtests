@@ -191,8 +191,7 @@ Feature: NCH Specimen shipped messages
     Given template specimen shipped message in type: "BLOOD" for patient: "PT_SS20_Blood1Shipped", it has surgical_event_id: "", molecular_id or slide_barcode: "PT_SS20_Blood1Shipped_BD_MOI2"
     Then set patient message field: "shipped_dttm" to value: "2016-08-25T16:17:11+00:00"
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
-    Then retrieve patient: "PT_SS20_Blood1Shipped" from API
-    Then returned patient's blood specimen has value: "PT_SS20_Blood1Shipped_BD_MOI2" in field: "active_molecular_id"
+    Then patient should have blood specimen (active_molecular_id: "PT_SS20_Blood1Shipped_BD_MOI2") with in 15 seconds
 
 @patients_p2
   Scenario: PT_SS21. Tissue cannot be shipped if there is one tissue variant report get confirmed

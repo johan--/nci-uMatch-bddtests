@@ -7,7 +7,7 @@
     "study_id": "APEC1621",
     "patient_id": "PT_SR10_WaitingPtData",
     "step_number": "1.0",
-    "registration_date": "2016-02-09T22:06:33+00:00",
+    "status_date": "2016-02-09T22:06:33+00:00",
     "status": "REGISTRATION",
     "internal_use_only": {
       "request_id": "4-654321",

@@ -165,7 +165,7 @@ class PatientMessageLoader
   def self.register_patient(patient_id, date='2016-02-09T22:06:33+00:00')
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['registration']
     message['patient_id'] = patient_id
-    message['registration_date'] = convert_date(date)
+    message['status_date'] = convert_date(date)
     send_message_to_local(message, patient_id)
   end
 

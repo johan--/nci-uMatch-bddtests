@@ -126,7 +126,7 @@ end
 Then(/^patient field: "([^"]*)" should have value: "([^"]*)" within (\d+) seconds$/) do |field, value, timeout|
   converted_value = value=='null'?nil:value
   url = "#{ENV['patients_endpoint']}?patient_id=#{@patient_id}"
-  patient_result = Patient_helper_methods.get_special_result_from_url(url, field, converted_value, timeout)
+  patient_result = Patient_helper_methods.get_special_result_from_url(url, timeout, {field=>converted_value})
   patient_result[field].should == converted_value
 end
 
@@ -134,7 +134,7 @@ Then(/^patient field: "([^"]*)" should have value: "([^"]*)" after (\d+) seconds
   sleep(timeout.to_f)
   converted_value = value=='null'?nil:value
   url = "#{ENV['patients_endpoint']}?patient_id=#{@patient_id}"
-  patient_result = Patient_helper_methods.get_special_result_from_url(url, field, converted_value, 1.0)
+  patient_result = Patient_helper_methods.get_special_result_from_url(url, 1.0, {field=>converted_value})
   patient_result[field].should == converted_value
 end
 
@@ -168,7 +168,7 @@ end
 
 Then(/^patient should have specimen \(surgical_event_id: "([^"]*)"\) within (\d+) seconds$/) do |sei, timeout|
   url = "#{ENV['patients_endpoint']}/#{@patient_id}/specimens?surgical_event_id=#{sei}"
-  @current_specimen = Patient_helper_methods.get_special_result_from_url(url, 'surgical_event_id', sei, timeout)
+  @current_specimen = Patient_helper_methods.get_special_result_from_url(url, timeout, {'surgical_event_id':sei})
   @current_specimen['surgical_event_id'].should == sei
 end
 
@@ -194,6 +194,13 @@ And(/^this specimen has value: "([^"]*)" in field: "([^"]*)"$/) do |value, field
   convert_value = value=='null'?nil:value
   @current_specimen[field].should == convert_value
 end
+
+Then(/^patient should have blood specimen \(active_molecular_id: "([^"]*)"\) with in (\d+) seconds$/) do |moi, timeout|
+  converted_moi = moi=='null'?nil:moi
+  url = "#{ENV['patients_endpoint']}/#{@patient_id}/specimens?active_molecular_id=#{converted_moi}"
+  @current_specimen = Patient_helper_methods.get_special_result_from_url(url, timeout, {'active_molecular_id':converted_moi})
+  @current_specimen['active_molecular_id'].should == converted_moi
+end
 #
 # Then(/^returned patient's blood specimen has value: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
 #   convert_value = value=='null'?nil:value
@@ -203,7 +210,7 @@ end
 #
 Then(/^patient should have variant report \(analysis_id: "([^"]*)"\) within (\d+) seconds$/) do |ani, timeout|
   url = "#{ENV['patients_endpoint']}/#{@patient_id}/variant_reports?analysis_id=#{ani}"
-  @current_variant_report = Patient_helper_methods.get_special_result_from_url(url, 'analysis_id', ani, timeout)
+  @current_variant_report = Patient_helper_methods.get_special_result_from_url(url, timeout, {'analysis_id':ani})
   @current_variant_report['analysis_id'].should == ani
 end
 

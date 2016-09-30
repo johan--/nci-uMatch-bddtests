@@ -8,7 +8,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 6e553c7d-66a4-260d-
 "study_id": "APEC1621",
 "patient_id": "00001",
 "step_number": "1.0",
-"registration_date": "2016-05-09T22:06:33+00:00",
+"status_date": "2016-05-09T22:06:33+00:00",
 "status": "REGISTRATION",
 "message":"",
 "internal_use_only": {
@@ -236,7 +236,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H
   "step_number": "1.1",
   "treatment_arm_id": "CukeTest-00001-A",
   "stratum_id": "1",
-  "assignment_date": "2016-09-15T17:52:18+00:00",
+  "status_date": "2016-09-15T17:52:18+00:00",
   "status": "ON_TREATMENT_ARM",
   "message": "",
   "internal_use_only": {
