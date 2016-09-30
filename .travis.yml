@@ -59,9 +59,9 @@ env:
     - PRIORITY=_p1_p2
     - PRIORITY=_p3
 script:
-  - if [ $PRIORITY == '_p1_p2' ]; then $CUC_TAG = $CUC_TAG_p1,$CUC_TAG_p2;fi
-  - if [ $PRIORITY == '_p3' ]; then $CUC_TAG = $CUC_TAG_p3;fi
-  - echo CUC_TAG = $CUC_TAG
+  - if [ $PRIORITY="_p1_p2" ]; then p1="_p1"; p1="_p2"; CUC_TAG=$CUC_TAG$p1,$CUC_TAG$p2;fi
+  - if [ $PRIORITY="_p3" ]; then p3="_p3"; CUC_TAG = $CUC_TAG$p3;fi
+  - echo $CUC_TAG
 #  - echo CUC_TAG PRIORITY = $CUC_TAG$PRIORITY
   # Run Cucumber @tag specific tests
 #  - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$PRIORITY --format pretty --format json --out ../../results/output-$TEST_ENV_NUMBER.json --expand' -n 4
