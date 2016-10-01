@@ -2,6 +2,21 @@
 @pathology
 Feature: Pathology Messages
 
+  @patients_p1
+  Scenario Outline: PT_PR00. Pathology report can be consumed successfully
+    Given template pathology report with surgical_event_id: "<sei>" for patient: "<patient_id>"
+    Then set patient message field: "status" to value: "<status>"
+    Then set patient message field: "reported_date" to value: "<date>"
+    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    Then patient field: "current_status" should have value: "<patient_status>" within 15 seconds
+    And specimen (surgical_event_id: "<sei>") field: "pathology_status" should have value: "<status>" within 15 seconds
+    And specimen (surgical_event_id: "<sei>") field: "pathology_status_date" should have value: "<date>" within 15 seconds
+    Examples:
+    |patient_id         |sei                       |status |date                               |patient_status            |
+    |PT_PR00_TsReceived1|PT_PR00_TsReceived1_SEI1  |Y      |2016-08-18T17:42:13+00:00          |PATHOLOGY_REVIEWED        |
+    |PT_PR00_TsReceived2|PT_PR00_TsReceived2_SEI1  |N      |2016-08-19T17:42:13+00:00          |PATHOLOGY_REVIEWED        |
+    |PT_PR00_TsReceived3|PT_PR00_TsReceived3_SEI1  |U      |2016-08-20T17:42:13+00:00          |TISSUE_SPECIMEN_RECEIVED  |
+
   @patients_p2
   Scenario Outline: PT_PR01. Pathology report with invalid patient_id(empty, non-existing, null) should fail
     Given template pathology report with surgical_event_id: "PT_PR01_SEI1" for patient: "<value>"
@@ -64,9 +79,8 @@ Feature: Pathology Messages
     Then set patient message field: "reported_date" to value: "2016-08-18T18:42:13+00:00"
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
     Then patient field: "current_status" should have value: "PATHOLOGY_REVIEWED" within 15 seconds
-    Then patient should have specimen (surgical_event_id: "PT_PR06_TissueReceived_SEI1") within 15 seconds
-    And this specimen has value: "Y" in field: "pathology_status"
-    And this specimen has value: "2016-08-18T18:42:13+00:00" in field: "pathology_status_date"
+    And specimen (surgical_event_id: "PT_PR06_TissueReceived_SEI1") field: "pathology_status" should have value: "Y" within 15 seconds
+    And specimen (surgical_event_id: "PT_PR06_TissueReceived_SEI1") field: "pathology_status_date" should have value: "2016-08-18T18:42:13+00:00" within 15 seconds
 
   @patients_p2
   Scenario: PT_PR07. Pathology report can be sent on TISSUE_NUCLEIC_ACID_SHIPPED status

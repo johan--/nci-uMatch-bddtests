@@ -2,6 +2,27 @@ require_relative '../patient_message_loader'
 
 PatientMessageLoader.upload_start_with_wait_time(15)
 
+
+pt = PatientDataSet.new('PT_AS00_SlideShipped1')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+
+pt = PatientDataSet.new('PT_AS00_SlideShipped2')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+
+pt = PatientDataSet.new('PT_AS00_SlideShipped3')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+
+pt = PatientDataSet.new('PT_AS00_SlideShipped4')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+
 pt = PatientDataSet.new('PT_AS02_SlideShipped')
 PatientMessageLoader.register_patient(pt.id)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)

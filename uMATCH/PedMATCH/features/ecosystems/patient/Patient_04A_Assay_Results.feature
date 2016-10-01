@@ -2,7 +2,25 @@
 @assay
 Feature: Assay Messages
 
-@patients_p2
+  @patients_p1
+  Scenario Outline: PT_AS00. Assay result message can be consumed successfully
+    Given template assay message with surgical_event_id: "<sei>" for patient: "<patient_id>"
+    Then set patient message field: "biomarker" to value: "<biomarker>"
+    Then set patient message field: "result" to value: "<result>"
+    Then set patient message field: "reported_date" to value: "<reported_date>"
+    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    Then patient field: "current_status" should have value: "ASSAY_RESULTS_RECEIVED" within 15 seconds
+    Then patient should have specimen (surgical_event_id: "<sei>") within 1 seconds
+    And this specimen has assay (biomarker: "<biomarker>", result: "<result>", reported_date: "<reported_date>")
+    Examples:
+      |patient_id            |sei                       |biomarker          |result            |reported_date                             |
+      |PT_AS00_SlideShipped1 |PT_AS00_SlideShipped1_SEI1|ICCPTENs           |POSITIVE          |2016-08-18T10:42:13+00:00        |
+      |PT_AS00_SlideShipped2 |PT_AS00_SlideShipped2_SEI1|ICCMLH1s           |NEGATIVE          |2016-08-18T11:42:13+00:00        |
+      |PT_AS00_SlideShipped3 |PT_AS00_SlideShipped3_SEI1|ICCPTENs           |NEGATIVE          |2016-08-18T12:42:13+00:00        |
+      |PT_AS00_SlideShipped4 |PT_AS00_SlideShipped4_SEI1|ICCMLH1s           |INDETERMINATE     |2016-08-18T13:42:13+00:00        |
+
+
+  @patients_p2
   Scenario Outline: PT_AS01. Assay result with invalid patient_id(empty, non-existing, null) should fail
     Given template assay message with surgical_event_id: "PT_AS01_SEI1" for patient: "<value>"
     When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
@@ -123,7 +141,7 @@ Feature: Assay Messages
     Given template assay message with surgical_event_id: "PT_AS10bSlideShipped2_SEI1" for patient: "PT_AS10aSlideShipped1"
     When post to MATCH patients service, returns a message that includes "surgical" with status "Failure"
 
-@patients_p2
+@patients_p1
   Scenario Outline: PT_AS11. Assay result can be received multiple times with same surgical_event_id (as long as this SEI is latest and has shipped slide)
 #  Test data: Patient=PT_AS11SlideShipped, surgical_event_id=PT_AS11SlideShipped_SEI1, has slide shipped
     Given template assay message with surgical_event_id: "PT_AS11SlideShipped_SEI1" for patient: "PT_AS11SlideShipped"

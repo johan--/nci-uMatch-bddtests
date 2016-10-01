@@ -1,5 +1,4 @@
 #encoding: utf-8
-#@patients
 @variant_confirm
 Feature: Variant files confirmed messages
 #  variant_confirmed:
@@ -26,8 +25,7 @@ Feature: Variant files confirmed messages
   @patients_p2
   Scenario Outline: PT_VC02. variant confirm message with invalid confirmed should fail
     #    Test Patient: PT_VC02_VRUploaded, VR uploaded PT_VC02_VRUploaded(_SEI1, _MOI1, _ANI1)
-    Given retrieve patient: "PT_VC02_VRUploaded" from API
-    Then find the first "snv_id" variant in variant report which has analysis_id: "PT_VC02_VRUploaded_ANI1"
+    Given a random "snp" variant in variant report (analysis_id: "PT_VC02_VRUploaded_ANI1") for patient: "PT_VC02_VRUploaded"
     Then create variant confirm message with checked: "<confirmed>" and comment: "Tests" for this variant
     When put to MATCH variant confirm service, returns a message that includes "<message>" with status "Failure"
     Examples:
@@ -39,8 +37,7 @@ Feature: Variant files confirmed messages
   @patients_p2
   Scenario: PT_VC03. variant_confirmed message will not be accepted if it is using a variant uuid that belongs to a rejected variant report (uuid should be only ones in current pending variant list)
 #    Test Patient: PT_VC03_VRUploadedAfterRejected, VR rejected: PT_VC03_VRUploadedAfterRejected(_SEI1, _MOI1, _ANI1), VR uploaded PT_VC03_VRUploadedAfterRejected(_SEI1, _MOI1, _ANI2)
-    Given retrieve patient: "PT_VC03_VRUploadedAfterRejected" from API
-    Then find the first "snv_id" variant in variant report which has analysis_id: "PT_VC03_VRUploadedAfterRejected_ANI1"
+    Given a random "snp" variant in variant report (analysis_id: "PT_VC03_VRUploadedAfterRejected_ANI1") for patient: "PT_VC03_VRUploadedAfterRejected"
     Then create variant confirm message with checked: "unchecked" and comment: "Tests" for this variant
     When put to MATCH variant confirm service, returns a message that includes "TBD" with status "Failure"
 
@@ -49,36 +46,30 @@ Feature: Variant files confirmed messages
   @patients_p2
   Scenario: PT_VC04. when variant get confirmed again after it get un-confirmed, the comment value should be cleared
     #    Test Patient: PT_VC04_VRUploaded, VR uploaded PT_VC04_VRUploaded(_SEI1, _MOI1, _ANI1)
-    Given retrieve patient: "PT_VC04_VRUploaded" from API
-    Then find the first "snv_id" variant in variant report which has analysis_id: "PT_VC04_VRUploaded_ANI1"
+    Given a random "snp" variant in variant report (analysis_id: "PT_VC04_VRUploaded_ANI1") for patient: "PT_VC04_VRUploaded"
     Then create variant confirm message with checked: "unchecked" and comment: "TEST" for this variant
     When put to MATCH variant confirm service, returns a message that includes "confirmed status changed to false" with status "Success"
-    Then retrieve patient: "PT_VC04_VRUploaded" from API
-    Then this variant has confirmed field: "false" and comment field: "TEST"
+    Then this variant has confirmed field: "false" and comment field: "TEST" within 15 seconds
     Then create variant confirm message with checked: "checked" and comment: "" for this variant
     When put to MATCH variant confirm service, returns a message that includes "confirmed status changed to true" with status "Success"
-    Then retrieve patient: "PT_VC04_VRUploaded" from API
-    Then this variant has confirmed field: "true" and comment field: "null"
+    Then this variant has confirmed field: "true" and comment field: "null" within 15 seconds
 
   @patients_p2
   Scenario: PT_VC04a. comment can be updated properly
     #Test patient: PT_VC04a_VRUploaded, PT_VC04a_VRUploaded(_SEI1, _MOI1, _ANI1)
-    Given retrieve patient: "PT_VC04a_VRUploaded" from API
-    Then find the first "snv_id" variant in variant report which has analysis_id: "PT_VC04a_VRUploaded_ANI1"
+    Given a random "snp" variant in variant report (analysis_id: "PT_VC04a_VRUploaded_ANI1") for patient: "PT_VC04a_VRUploaded"
     Then create variant confirm message with checked: "unchecked" and comment: "TEST" for this variant
     When put to MATCH variant confirm service, returns a message that includes "confirmed status changed to false" with status "Success"
     Then create variant confirm message with checked: "unchecked" and comment: "COMMENT_EDITED" for this variant
     When put to MATCH variant confirm service, returns a message that includes "confirmed status changed to false" with status "Success"
-    Then retrieve patient: "PT_VC04a_VRUploaded" from API
-    Then this variant has confirmed field: "false" and comment field: "COMMENT_EDITED"
+    Then this variant has confirmed field: "false" and comment field: "COMMENT_EDITED" within 15 seconds
 
   @patients_p2
   Scenario: PT_VC05. confirmed fields should be "true" as default
     #    Test Patient: PT_VC05_TissueShipped, Tissue shipped PT_VC05_TissueShipped(_SEI1, _MOI1)
     Given template variant file uploaded message for patient: "PT_VC05_TissueShipped", it has molecular_id: "PT_VC05_TissueShipped_MOI1" and analysis_id: "PT_VC05_TissueShipped_ANI1"
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
-    Then retrieve patient: "PT_VC05_TissueShipped" from API
-    Then variants in variant report (analysis_id: "PT_VC05_TissueShipped_ANI1") have confirmed: "true"
+    Then variants in variant report (analysis_id: "PT_VC05_TissueShipped_ANI1") have confirmed: "true" within 15 seconds
 
 
 ## we don't have status_date in variant level
@@ -169,16 +160,14 @@ Feature: Variant files confirmed messages
   Scenario: PT_VC13. if variant report rejected, comment values for variants that are in this variant report should NOT BE cleared (this test has been changed, before the comments values should BE changed)
 #    Test patient PT_VC13_VRUploaded1: vr uploaded   PT_VC13_VRUploaded1(_SEI1, _MOI1, _SEI1)
 #    first snv variant has confirmed=false, comment="TEST"
-    Given retrieve patient: "PT_VC13_VRUploaded1" from API
-    Then find the first "snv_id" variant in variant report which has analysis_id: "PT_VC13_VRUploaded1_ANI1"
+    Given a random "snp" variant in variant report (analysis_id: "PT_VC13_VRUploaded1_ANI1") for patient: "PT_VC13_VRUploaded1"
     Then create variant confirm message with checked: "unchecked" and comment: "Tests" for this variant
     When put to MATCH variant confirm service, returns a message that includes "confirmed status changed to false" with status "Success"
     Then template variant report confirm message for patient: "PT_VC13_VRUploaded1", it has analysis_id: "PT_VC13_VRUploaded1_ANI1" and status: "reject"
     Then set patient message field: "comment" to value: "TEST"
     When put to MATCH variant report confirm service, returns a message that includes "Variant Report status changed successfully to" with status "Success"
-    Then retrieve patient: "PT_VC13_VRUploaded1" from API
-    Then find the first "snv_id" variant in variant report which has analysis_id: "PT_VC13_VRUploaded1_ANI1"
-    Then this variant has confirmed field: "false" and comment field: "Tests"
+    Then patient field: "current_status" should have value: "TISSUE_VARIANT_REPORT_REJECTED" within 15 seconds
+    Then this variant has confirmed field: "false" and comment field: "Tests" within 15 seconds
 
   @patients_p2
   Scenario: PT_VC14. confirming blood variant report will not trigger patient assignment process

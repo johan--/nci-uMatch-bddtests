@@ -21,9 +21,8 @@ Feature: Patients end to end tests
     Then pathology confirmed with status: "Y"
     Then "TISSUE" variant report uploaded with analysis_id: "PT_ETE01_ANI1"
     Then "BLOOD" variant report uploaded with analysis_id: "PT_ETE01_ANI2"
-    Then "BLOOD" variant report confirmed with status: "REJECTED"
-    Then wait for "2" seconds
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
+#    Then "BLOOD" variant report confirmed with status: "REJECTED"
     Then patient status should be "PENDING_CONFIRMATION" within 30 seconds
     Then patient should have selected treatment arm: "APEC1621-ETE-C" with stratum id: "100" within 15 seconds
     Then assignment report is confirmed
@@ -51,11 +50,11 @@ Feature: Patients end to end tests
     Then pathology confirmed with status: "Y"
     Then "TISSUE" variant report uploaded with analysis_id: "PT_ETE01_ANI3"
     Then "BLOOD" variant report uploaded with analysis_id: "PT_ETE01_ANI4"
-    Then "TISSUE" variant(type: "gene_fusions", field: "identifier", value: "FGFR2-OFD1.F17O3") is "unchecked"
-    Then "TISSUE" variant(type: "gene_fusions", field: "identifier", value: "CCDC6-RET.C1R12.COSF1271") is "unchecked"
+    Then "TISSUE" variant(type: "fusion", field: "identifier", value: "FGFR2-OFD1.F17O3") is "unchecked"
+    Then "TISSUE" variant(type: "fusion", field: "identifier", value: "CCDC6-RET.C1R12.COSF1271") is "unchecked"
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
     Then wait for "2" seconds
-    Then "BLOOD" variant report confirmed with status: "CONFIRMED"
+#    Then "BLOOD" variant report confirmed with status: "CONFIRMED"
     Then patient status should be "PENDING_CONFIRMATION" within 30 seconds
     Then patient should have selected treatment arm: "APEC1621-ETE-B" with stratum id: "100" within 15 seconds
     Then assignment report is confirmed
@@ -94,7 +93,7 @@ Feature: Patients end to end tests
       |PT_ETE02_TsVrReceived1 |PT_ETE02_TsVrReceived1_MOI1 |PT_ETE02_TsVrReceived1_ANI1 |not have TA available     |NO_TA_AVAILABLE   |
       |PT_ETE02_TsVrReceived2 |PT_ETE02_TsVrReceived2_MOI1 |PT_ETE02_TsVrReceived2_ANI1 |have a closed TA available|COMPASSIONATE_CARE|
 
-  Scenario: PT_ETE03. patient can reach PENDING_CONFIRMATION status even there is mock service collapse during assignment processing
+  Scenario: PT_ETE03. patient can reach PENDING_CONFIRMATION status even cog service collapses during assignment processing
     Given patient: "PT_ETE03" with status: "TISSUE_VARIANT_REPORT_RECEIVED" on step: "1.0"
     Given patient: "PT_ETE03" in mock service lost patient list, service will come back after "5" tries
     Given this patients's active "TISSUE" molecular_id is "PT_ETE03_MOI1"

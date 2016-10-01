@@ -351,20 +351,20 @@ class Patient_helper_methods
         end
         is_this = true
         query_hash.each do |key, value|
-          is_this = is_this && target_object[key]==value
+          is_this = is_this && target_object[key.to_s]==value.to_s
         end
         if is_this
-          return response[0]
+          return target_object
         end
       end
 
       if run_time>timeout.to_f
-        if response.length==1
+        if response.length>1
+          return response
+        elsif response.length==1
           return response[0]
-        elsif response.length>1
-          return {field=>"More than one (#{response.length}) results found"}
         else
-          return {field=>"No result found"}
+          return {}
         end
       end
       sleep(0.5)
@@ -390,7 +390,7 @@ class Patient_helper_methods
 
   def self.put_vr_confirm(ani, status, expected_status, expected_partial_message)
     puts JSON.pretty_generate(@request_hash)
-    url = "#{ENV['patients_endpoint']}/@#{@patient_id}/variant_reports/#{ani}/#{status}"
+    url = "#{ENV['patients_endpoint']}/#{@patient_id}/variant_reports/#{ani}/#{status}"
     response = Helper_Methods.put_request(url, @request_hash.to_json.to_s)
     validate_response(response, expected_status, expected_partial_message)
     response

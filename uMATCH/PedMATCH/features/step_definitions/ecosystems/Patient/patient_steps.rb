@@ -60,7 +60,7 @@ Given(/^template variant file uploaded message for patient: "([^"]*)", it has mo
   @patient_id = patientID=='null'?nil:patientID
   converted_moi = moi=='null'?nil:moi
   @analysis_id = ani=='null'?nil:ani
-  Patient_helper_methods.prepare_vr_upload(@patient_id, converted_moi, @analysis_id)
+  Patient_helper_methods.prepare_vr_upload(@patient_id, converted_moi, @analysis_id, 'test_data')
 end
 
 Given(/^template variant confirm message for patient: "([^"]*)", the variant: "([^"]*)" is checked: "([^"]*)" with comment: "([^"]*)"$/) do |patient_id, variant_uuid, confirmed, comment|
@@ -179,7 +179,7 @@ And(/^this specimen has assay \(biomarker: "([^"]*)", result: "([^"]*)", reporte
   returned_assay = find_assay(@current_specimen, converted_biomarker, converted_result, converted_reported_date)
   expect_result = "Can find assay with biomarker:#{biomarker}, result:#{result} and report_date:#{reported_date}"
   actual_result = "Can NOT find assay with biomarker:#{biomarker}, result:#{result} and report_date:#{reported_date}"
-  if returned_assay.nil?
+  unless returned_assay.nil?
     actual_result = expect_result
   end
   actual_result.should == expect_result
@@ -190,10 +190,13 @@ end
 # #   @current_specimen[field].should == convert_value
 # # end
 #
-And(/^this specimen has value: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
-  convert_value = value=='null'?nil:value
-  @current_specimen[field].should == convert_value
+And(/^specimen \(surgical_event_id: "([^"]*)"\) field: "([^"]*)" should have value: "([^"]*)" within (\d+) seconds$/) do |sei, field, value, timeout|
+  converted_value = value=='null'?nil:value
+  url = "#{ENV['patients_endpoint']}/#{@patient_id}/specimens?surgical_event_id=#{sei}"
+  specimen_result = Patient_helper_methods.get_special_result_from_url(url, timeout, {field=>converted_value})
+  specimen_result[field].should == converted_value
 end
+
 
 Then(/^patient should have blood specimen \(active_molecular_id: "([^"]*)"\) with in (\d+) seconds$/) do |moi, timeout|
   converted_moi = moi=='null'?nil:moi
@@ -251,40 +254,28 @@ end
 #   ta_id.should == 'pending'
 # end
 #
-#
-#
-# Then(/^find the first "([^"]*)" variant in variant report which has analysis_id: "([^"]*)"$/) do |variant_type, ani|
-#   this_variant_report = find_variant_report(@retrieved_patient, ani)
-#   variant_list_field = case variant_type
-#                          when 'snv_id' then 'snvs_and_indels'
-#                          when 'cnv' then 'copy_number_variants'
-#                          when 'gf' then 'gene_fusions'
-#                        end
-#   all_variants = this_variant_report['variants']
-#
-#   expect_result = "this patient has #{variant_list_field} variants"
-#   actual_result = all_variants.key?(variant_list_field)?expect_result:"this patient doesn't have #{variant_list_field} variants"
-#   actual_result.should == expect_result
-#
-#   @current_variant_uuid = all_variants[variant_list_field][0]['uuid']
-# end
-#
-# Then(/^this variant has confirmed field: "([^"]*)" and comment field: "([^"]*)"$/) do |confirmed, comment|
-#   convertec_comment = comment=='null'?nil:comment
-#   this_variant = find_variant(@retrieved_patient, @current_variant_uuid)
-#   this_variant['confirmed'].should == convert_string_to_bool(confirmed)
-#   this_variant['comment'].should == convertec_comment
-# end
-#
-# # we don't have status_date in variant level
-# # And(/^this variant has correct status_date value$/) do
-# #   this_variant = find_variant(@retrieved_patient, @current_variant_uuid)
-# #   currentTime = Time.now.utc.to_i
-# #   returnedResult = DateTime.parse(this_variant['status_date']).to_i
-# #   timeDiff = currentTime - returnedResult
-# #   timeDiff.should >=0
-# #   timeDiff.should <=20
-# # end
+Given(/^a random "([^"]*)" variant in variant report \(analysis_id: "([^"]*)"\) for patient: "([^"]*)"$/) do |variant_type, ani, pt_id|
+  @patient_id = pt_id
+  url = "#{ENV['patients_endpoint']}/#{@patient_id}/variants?analysis_id=#{ani}&variant_type=#{variant_type}"
+  this_variant = Patient_helper_methods.get_special_result_from_url(url, 2.0, {'analysis_id':ani})
+  @current_variant_uuid = this_variant['uuid']
+end
+
+Then(/^this variant has confirmed field: "([^"]*)" and comment field: "([^"]*)" within (\d+) seconds$/) do |confirmed, comment, timeout|
+  converted_comment = comment=='null'?nil:comment
+  url = "#{ENV['patients_endpoint']}/#{@patient_id}/variants?uuid=#{@current_variant_uuid}"
+  this_variant = Patient_helper_methods.get_special_result_from_url(url, timeout.to_f, {'uuid':@current_variant_uuid})
+  this_variant['confirmed'].should == convert_string_to_bool(confirmed)
+  this_variant['comment'].should == converted_comment
+end
+
+Then(/^variants in variant report \(analysis_id: "([^"]*)"\) have confirmed: "([^"]*)" within (\d+) seconds$/) do |ani, confirmed, timeout|
+  url = "#{ENV['patients_endpoint']}/#{@patient_id}/variants?analysis_id=#{ani}"
+  variants = Patient_helper_methods.get_special_result_from_url(url, timeout.to_f, {'analysis_id':ani})
+  variants.each { |this_variant|
+    this_variant['confirmed'].to_s.should==confirmed
+  }
+end
 #
 # Then(/^variants in variant report \(analysis_id: "([^"]*)"\) have confirmed: "([^"]*)"$/) do |ani, confirmed|
 #   variant_report = find_variant_report(@retrieved_patient, ani)

@@ -177,24 +177,17 @@ Then(/^patient should have selected treatment arm: "([^"]*)" with stratum id: "(
   query_hash = {'treatment_arm_id':ta_id, 'stratum_id':stratum}
   query_path = %w(current_assignment selected_treatment_arm)
   patient_result = Patient_helper_methods.get_special_result_from_url(url, timeout, query_hash, query_path)
-  patient_result[field].should == converted_value
+  patient_result['treatment_arm_id'].should == ta_id
+  patient_result['stratum_id'].should == stratum
 end
 
 
 def find_variant_uuid(specimen_type, variant_type, field, value)
-  target_moi = get_moi_or_barcode(specimen_type)
   target_ani = get_ani(specimen_type)
-  @retrieved_patient=Helper_Methods.get_single_request(ENV['patients_endpoint']+'/'+@patient_id)
-  @retrieved_patient['variant_reports'].each { |this_vr|
-    if this_vr['variant_report_type']==specimen_type && this_vr['molecular_id'] == target_moi && this_vr['analysis_id'] == target_ani
-      this_vr['variants'][variant_type].each { |this_variant|
-        if this_variant[field] == value
-          return this_variant['uuid']
-        end
-      }
-    end
-  }
-  ''
+  url = "#{ENV['patients_endpoint']}/#{@patient_id}/variants?"
+  url = url + "variant_type=#{variant_type}&#{field}=#{value}&analysis_id=#{target_ani}"
+  @retrieved_variant=Patient_helper_methods.get_special_result_from_url(url, 15, {'analysis_id':target_ani})
+  @retrieved_variant['uuid']
 end
 
 def update_moi_or_barcode(type, id)
