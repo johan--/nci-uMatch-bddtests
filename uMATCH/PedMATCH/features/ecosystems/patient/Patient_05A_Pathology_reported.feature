@@ -161,7 +161,7 @@ Feature: Pathology Messages
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
     Then patient field: "current_status" should have value: "<patient_status>" after 30 seconds
     Examples:
-      |patient_id                           |sei                                      |confirm_status    |first_status          |
+      |patient_id                           |sei                                      |confirm_status    |patient_status          |
       |PT_PR13_VRConfirmedNoAssay           |PT_PR13_VRConfirmedNoAssay_SEI1          |Y                 |PATHOLOGY_REVIEWED     |
       |PT_PR13_AssayReceivedVRNotConfirmed  |PT_PR13_AssayReceivedVRNotConfirmed_SEI1 |Y                 |PATHOLOGY_REVIEWED     |
       |PT_PR13_AssayAndVRDonePlanToY        |PT_PR13_AssayAndVRDonePlanToY_SEI1       |Y                 |PENDING_CONFIRMATION   |
