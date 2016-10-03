@@ -172,6 +172,13 @@ Then(/^patient should have specimen \(surgical_event_id: "([^"]*)"\) within (\d+
   @current_specimen['surgical_event_id'].should == sei
 end
 
+Then(/^patient specimen \(surgical_event_id: "([^"]*)"\) should be updated within (\d+) seconds$/) do |sei, timeout|
+  url = "#{ENV['patients_endpoint']}/#{@patient_id}/specimens?surgical_event_id=#{sei}"
+  @current_specimen = Patient_helper_methods.get_updated_result_from_url(url, timeout)
+  @current_specimen['surgical_event_id'].should == sei
+end
+
+
 And(/^this specimen has assay \(biomarker: "([^"]*)", result: "([^"]*)", reported_date: "([^"]*)"\)$/) do |biomarker, result, reported_date|
   converted_biomarker = biomarker=='null'?nil:biomarker
   converted_result = result=='null'?nil:result
@@ -212,8 +219,15 @@ end
 # end
 #
 Then(/^patient should have variant report \(analysis_id: "([^"]*)"\) within (\d+) seconds$/) do |ani, timeout|
-  url = "#{ENV['patients_endpoint']}/#{@patient_id}/variant_reports?analysis_id=#{ani}"
+  url = "#{ENV['patients_endpoint']}/variant_reports?analysis_id=#{ani}"
   @current_variant_report = Patient_helper_methods.get_special_result_from_url(url, timeout, {'analysis_id':ani})
+  @current_variant_report['analysis_id'].should == ani
+end
+
+Then(/^patient should have variant report \(analysis_id: "([^"]*)"\) after (\d+) seconds$/) do |ani, timeout|
+  sleep(timeout.to_f)
+  url = "#{ENV['patients_endpoint']}/variant_reports?analysis_id=#{ani}"
+  @current_variant_report = Patient_helper_methods.get_special_result_from_url(url, 1.0, {'analysis_id':ani})
   @current_variant_report['analysis_id'].should == ani
 end
 
@@ -256,21 +270,24 @@ end
 #
 Given(/^a random "([^"]*)" variant in variant report \(analysis_id: "([^"]*)"\) for patient: "([^"]*)"$/) do |variant_type, ani, pt_id|
   @patient_id = pt_id
-  url = "#{ENV['patients_endpoint']}/#{@patient_id}/variants?analysis_id=#{ani}&variant_type=#{variant_type}"
+  url = "#{ENV['patients_endpoint']}/variants?analysis_id=#{ani}&variant_type=#{variant_type}"
   this_variant = Patient_helper_methods.get_special_result_from_url(url, 2.0, {'analysis_id':ani})
+  if this_variant.is_a?(Array)
+    this_variant = this_variant[0]
+  end
   @current_variant_uuid = this_variant['uuid']
 end
 
 Then(/^this variant has confirmed field: "([^"]*)" and comment field: "([^"]*)" within (\d+) seconds$/) do |confirmed, comment, timeout|
   converted_comment = comment=='null'?nil:comment
-  url = "#{ENV['patients_endpoint']}/#{@patient_id}/variants?uuid=#{@current_variant_uuid}"
+  url = "#{ENV['patients_endpoint']}/variants?uuid=#{@current_variant_uuid}"
   this_variant = Patient_helper_methods.get_special_result_from_url(url, timeout.to_f, {'uuid':@current_variant_uuid})
   this_variant['confirmed'].should == convert_string_to_bool(confirmed)
   this_variant['comment'].should == converted_comment
 end
 
 Then(/^variants in variant report \(analysis_id: "([^"]*)"\) have confirmed: "([^"]*)" within (\d+) seconds$/) do |ani, confirmed, timeout|
-  url = "#{ENV['patients_endpoint']}/#{@patient_id}/variants?analysis_id=#{ani}"
+  url = "#{ENV['patients_endpoint']}/variants?analysis_id=#{ani}"
   variants = Patient_helper_methods.get_special_result_from_url(url, timeout.to_f, {'analysis_id':ani})
   variants.each { |this_variant|
     this_variant['confirmed'].to_s.should==confirmed

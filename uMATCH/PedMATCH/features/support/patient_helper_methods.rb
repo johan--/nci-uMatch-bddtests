@@ -371,6 +371,31 @@ class Patient_helper_methods
       run_time += 0.5
     end
   end
+
+  def self.get_updated_result_from_url(url, timeout)
+    run_time = 0.0
+    old_response = nil
+    loop do
+      new_response = Helper_Methods.simple_get_request(url)
+      if old_response.nil?
+        old_response = new_response
+      end
+
+      if old_response != new_response || run_time>timeout.to_f
+        if new_response.length>1
+          return new_response
+        elsif new_response.length==1
+          return new_response[0]
+        else
+          return {}
+        end
+      end
+
+      sleep(0.5)
+      run_time += 0.5
+    end
+
+  end
   
   def self.post_to_trigger(expected_status, expected_partial_message)
     puts JSON.pretty_generate(@request_hash)

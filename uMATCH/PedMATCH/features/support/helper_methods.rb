@@ -78,8 +78,10 @@ class Helper_Methods
     begin
       response = RestClient::Request.execute(:url => service, :method => :get, :verify_ssl => false)
     rescue StandardError => e
-      print "Error: #{e.message} occurred\n"
-      print "Response:#{e.response}\n"
+      if is_local_tier
+        print "Error: #{e.message} occurred\n"
+        print "Response:#{e.response}\n"
+      end
       return []
     end
     JSON.parse(response)

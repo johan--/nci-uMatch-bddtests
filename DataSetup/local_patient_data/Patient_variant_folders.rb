@@ -81,6 +81,10 @@ PatientVariantFolderCreator.create_default('PT_VC15_PathAssayDoneVRUploadedToCon
 PatientVariantFolderCreator.create_default('PT_VC15_PathAssayDoneVRUploadedToReject', 'tissue')
 PatientVariantFolderCreator.create_default('PT_VC01_VRUploaded', 'tissue')
 PatientVariantFolderCreator.create_default('PT_VC02_VRUploaded', 'tissue')
+PatientVariantFolderCreator.create_default('PT_VC11b_TsVRConfirmed', 'tissue')
+PatientVariantFolderCreator.create_default('PT_VC11b_TsVRRejected', 'tissue')
+PatientVariantFolderCreator.create_default('PT_VC11b_BdVRConfirmed', 'blood')
+PatientVariantFolderCreator.create_default('PT_VC11b_BdVRRejected', 'blood')
 
 pt = PatientDataSet.new('PT_VC03_VRUploadedAfterRejected')
 PatientVariantFolderCreator.create(pt.moi, pt.ani)

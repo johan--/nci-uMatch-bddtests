@@ -121,12 +121,12 @@ Feature: Variant files confirmed messages
 ##  Test patient: PT_VC10_VRUploadedANIExpired: 1. PT_VC10_VRUploadedANIExpired(_SEI1, _MOI1, _ANI1), 2. PT_VC10_VRUploadedANIExpired(_SEI1, MOI1, _ANI2)
 
     Given template variant report confirm message for patient: "<patient_id>", it has analysis_id: "<ani>" and status: "confirm"
-    When put to MATCH variant report confirm service, returns a message that includes "<message>" with status "Failure"
+    When put to MATCH variant report confirm service, returns a message that includes "doesn't match current specimen's latest analysis id" with status "Failure"
     Examples:
-    |patient_id                     |ani                                |message                                                  |
-    |PT_VC10_VRUploadedSEIExpired   |PT_VC10_VRUploadedSEIExpired_ANI1  |Molecular id doesn't exist or is not currently active    |
-    |PT_VC10_VRUploadedMOIExpired   |PT_VC10_VRUploadedMOIExpired_ANI1  |Molecular id doesn't exist or is not currently active    |
-    |PT_VC10_VRUploadedANIExpired   |PT_VC10_VRUploadedANIExpired_ANI1  |doesn't match current specimen's latest analysis id      |
+    |patient_id                     |ani                                |
+    |PT_VC10_VRUploadedSEIExpired   |PT_VC10_VRUploadedSEIExpired_ANI1  |
+    |PT_VC10_VRUploadedMOIExpired   |PT_VC10_VRUploadedMOIExpired_ANI1  |
+    |PT_VC10_VRUploadedANIExpired   |PT_VC10_VRUploadedANIExpired_ANI1  |
 
   @patients_p2
   Scenario Outline: PT_VC11. variant report confirm message with invalid status should fail
@@ -136,7 +136,25 @@ Feature: Variant files confirmed messages
       |status         |message                                                                         |
 #      |               |can't be blank                                                                  |
 #      |null           |can't be blank                                                                  |
-      |CONFIRMED      |Unrecognized confirm\|reject flag passed in confirm variant report url          |
+      |other      |Unrecognized confirm\|reject flag passed in confirm variant report url          |
+
+  @patient_p2
+  Scenario Outline: PT_VC11b. variant report cannot be confirmed (rejected) more than one time
+    Given template variant report confirm message for patient: "<patient_id>", it has analysis_id: "<patient_id>_ANI1" and status: "<status>"
+    When put to MATCH variant report confirm service, returns a message that includes "latest variant report is not in PENDING state" with status "Failure"
+    Then patient should have variant report (analysis_id: "<patient_id>_ANI1") after 15 seconds
+    And this variant report has value: "<previous_status>" in field: "status"
+    Examples:
+    |patient_id             |status   |previous_status|
+    |PT_VC11b_TsVRConfirmed |confirm  |confirm        |
+    |PT_VC11b_TsVRRejected  |confirm  |reject         |
+    |PT_VC11b_TsVRConfirmed |reject   |confirm        |
+    |PT_VC11b_TsVRRejected  |reject   |reject         |
+    |PT_VC11b_BdVRConfirmed |confirm  |confirm        |
+    |PT_VC11b_BdVRRejected  |confirm  |reject         |
+    |PT_VC11b_BdVRConfirmed |reject   |confirm        |
+    |PT_VC11b_BdVRRejected  |reject   |reject         |
+
 
   @patients_p1
   Scenario Outline: PT_VC12. after accepting variant_file_confirmed message, patient should be set to correct status, comment, user and date

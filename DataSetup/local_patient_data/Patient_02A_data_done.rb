@@ -151,7 +151,7 @@ sleep(10.0)
 PatientMessageLoader.on_treatment_arm(pt.id, 'APEC1621-A')
 PatientMessageLoader.request_assignment(pt.id)
 
-pt = PatientDataSet.new('PT_SR10_ProgressReBioY2')
+pt = PatientDataSet.new('PT_SR10_ProgressReBioY1')
 PatientMessageLoader.register_patient(pt.id)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)

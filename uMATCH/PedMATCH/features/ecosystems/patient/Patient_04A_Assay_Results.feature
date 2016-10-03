@@ -149,7 +149,7 @@ Feature: Assay Messages
     Then set patient message field: "biomarker" to value: "<biomarker>"
     Then set patient message field: "result" to value: "<result>"
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
-    Then patient should have specimen (surgical_event_id: "PT_AS11SlideShipped_SEI1") within 15 seconds
+    Then patient specimen (surgical_event_id: "PT_AS11SlideShipped_SEI1") should be updated within 15 seconds
     And this specimen has assay (biomarker: "<biomarker>", result: "<result>", reported_date: "<date>")
 
     Examples:
@@ -176,8 +176,8 @@ Feature: Assay Messages
     Examples:
       |patient_id                           |patient_status            |sei                                                     |
       |PT_AS12_VRAndPathoConfirmed          |PENDING_CONFIRMATION      |PT_AS12_VRAndPathoConfirmed_SEI1                        |
-      |PT_AS12_VRConfirmedNoPatho           |ASSAY_RESULTS_RECEIVED    |PT_AS12_VRConfirmedNoPatho_SEI1                         |
-      |PT_AS12_PathoConfirmedNoVR           |ASSAY_RESULTS_RECEIVED    |PT_AS12_PathoConfirmedNoVR_SEI1                         |
+#      |PT_AS12_VRConfirmedNoPatho           |ASSAY_RESULTS_RECEIVED    |PT_AS12_VRConfirmedNoPatho_SEI1                         |
+#      |PT_AS12_PathoConfirmedNoVR           |ASSAY_RESULTS_RECEIVED    |PT_AS12_PathoConfirmedNoVR_SEI1                         |
 
 @patients_p3
   Scenario: PT_AS13. extra key-value pair in the message body should NOT fail
