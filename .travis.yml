@@ -55,20 +55,14 @@ before_script:
   - cd ..
   # Reset ECOG Mock service Data
   - curl -X POST "http://pedmatch-int.nci.nih.gov:3000/restart" -d ''
-env:
-    - PRIORITY=_p1_p2
-    - PRIORITY=_p3
-script:
-  #Combining p1 and p2 tags in one job, so on successful completion can promote to UAT env.
-  #Better way is to have this in a shell script
-  - if [[ "$PRIORITY" = "_p1,_p2" ]]; then p1="_p1"; p2="_p2";CUC_TAG=$CUC_TAG$p1,$CUC_TAG$p2; elif [[ "$PRIORITY" = "_p3" ]]; then p3="_p3"; CUC_TAG=$CUC_TAG$p3; fi
-  - echo $CUC_TAG
-  - echo $PRIORITY
 
-#  - echo CUC_TAG PRIORITY = $CUC_TAG$PRIORITY
+script:
+
+  - export P1="_p1"
+  - export P2="_p2"
+  - export P3="_p3"
   # Run Cucumber @tag specific tests
-#  - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$PRIORITY --format pretty --format json --out ../../results/output-$TEST_ENV_NUMBER.json --expand' -n 4
-  - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG --format json --out ../../results/output-$TEST_ENV_NUMBER.json --expand' -n 4
+  - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P1 --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --expand' -n 4 && bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P2 --format json --out ../../results/output-$CUC_TAG$P2-$TEST_ENV_NUMBER.json --expand' -n 4
 #  - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG --format pretty --format json --out ../../results/output-$TEST_ENV_NUMBER.json --expand' -n 4
   - cd ../..
   # Run Cucumber end to end tests
@@ -80,29 +74,57 @@ script:
   # Run UI tests
   - cd nci-match-ui-bddtests/
 #  - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$PRIORITY --troubleshoot
-  - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG --troubleshoot
+  - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$P1,$CUC_TAG$P2 --troubleshoot
   # Generate html report
   - node support/generate_report.js
-  - ls -alt
   - cd ..
   - ls -alt
+  - mv results/ results_critical/; mkdir results
 after_success:
+  #Run P3 cucumber tests
+  - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P3 --format json --out ../../results/output-$CUC_TAG$P3-$TEST_ENV_NUMBER.json --expand' -n 4
+
+  #Run protractor tests
+  - cd ../../nci-match-ui-bddtests/
+  - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$P3 --troubleshoot
+  # Generate html report
+  - node support/generate_report.js
+  - cd ..
+  - ls -alt
+
   # tag docker image with date and deploy to UAT
   - ./dockerdeploy.sh
   # Trigger Travis script #3
   # - curl -s -X POST -H "Content-Type:application/json" -H "Accept:application/json" -H "Travis-API-Version:3" -H "Authorization:token $TRAVIS_TOKEN" -d "{\"request\":{\"message\":\"Triggered by nci-treatment-arm-processor-api $TRAVIS_COMMIT\", \"branch\":\"master\", \"config\":{\"env\":{\"matrix\":[\"TRIGGER_REPO=nci-treatment-arm-processor-api;CUC_TAG=@treatment_arm\"]}}}}" https://api.travis-ci.org/repo/CBIIT%2Fnci-uMatch-bddtests/requests
+after_failure:
+    #Run P3 cucumber tests
+    - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P3 --format json --out ../../results/output-$TEST_ENV_NUMBER.json --expand' -n 4
+
+    #Run protractor tests
+    - cd ../../nci-match-ui-bddtests/
+    - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$P3 --troubleshoot
+    # Generate html report
+    - node support/generate_report.js
 after_script:
   #Set above, - export DATE=`TZ=America/New_York date "+%m-%d-%y-%H%M"`
   - export DATE_TRIM=`TZ=America/New_York date "+%m-%d-%y"`
   #Send result json to S3 for review
-  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_BUILD_NUMBER/ --region us-east-1 --recursive
-  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/cucumber_report.html s3://cucumbertest-reports/$DATE_TRIM/cucumber$CUC_TAG.html --region us-east-1
+  ######COMMENTING FOR NOW###########################
+#  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_BUILD_NUMBER/ --region us-east-1 --recursive
+  ###################################################
+  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results_critical/cucumber_report.html s3://cucumbertest-reports/$DATE_TRIM/critical_cucumber_tests.html --region us-east-1
+  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results_critical/screenshot s3://cucumbertest-reports/$DATE_TRIM/screenshot --region us-east-1 --recursive
+
+  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/cucumber_report.html s3://cucumbertest-reports/$DATE_TRIM/non_critical_cucumber_tests.html --region us-east-1
   - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/screenshot s3://cucumbertest-reports/$DATE_TRIM/screenshot --region us-east-1 --recursive
+
   #- aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/result.json s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_BUILD_NUMBER/ --region us-east-1
-  - export DATE=`TZ=America/New_York date "+%m-%d-%y-%H%M"`
-  - export TEST_REPORT='BDD Test Report'
-  - cd ~/build/CBIIT/nci-uMatch-bddtests/ResultsUpload
-  - ./update_google_drive.rb -d ~/build/CBIIT/nci-uMatch-bddtests/results/ -c config.json -t $CUC_TAG -b $TRAVIS_BUILD_NUMBER -f $TEST_REPORT
+######COMMENTING FOR NOW###########################
+#  - export DATE=`TZ=America/New_York date "+%m-%d-%y-%H%M"`
+#  - export TEST_REPORT='BDD Test Report'
+#  - cd ~/build/CBIIT/nci-uMatch-bddtests/ResultsUpload
+#  - ./update_google_drive.rb -d ~/build/CBIIT/nci-uMatch-bddtests/results/ -c config.json -t $CUC_TAG -b $TRAVIS_BUILD_NUMBER -f $TEST_REPORT
+###################################################
   # - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/uMATCH/PedMATCH/results/output.json s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_COMMIT/ --region us-east-1
   # - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/nci-match-ui-bddtests/results/result.json s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_COMMIT/ --region us-east-1
 notifications:
