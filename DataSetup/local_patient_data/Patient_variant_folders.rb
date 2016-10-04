@@ -6,6 +6,7 @@ PatientVariantFolderCreator.clear_all
 PatientVariantFolderCreator.set_output_type('seed_data')
 PatientVariantFolderCreator.create_default('PT_SR10_PendingApproval', 'tissue')
 PatientVariantFolderCreator.create_default('PT_SR10_OnTreatmentArm', 'tissue')
+PatientVariantFolderCreator.create_default('PT_SR10_ProgressReBioY1', 'tissue')
 PatientVariantFolderCreator.create_default('PT_SR10_ProgressReBioY2', 'tissue')
 PatientVariantFolderCreator.create_default('PT_SR10_ProgressReBioY', 'tissue')
 PatientVariantFolderCreator.create_default('PT_SR10_OffStudy', 'tissue')

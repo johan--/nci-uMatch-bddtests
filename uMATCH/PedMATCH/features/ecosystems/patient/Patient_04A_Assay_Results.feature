@@ -176,8 +176,8 @@ Feature: Assay Messages
     Examples:
       |patient_id                           |patient_status            |sei                                                     |
       |PT_AS12_VRAndPathoConfirmed          |PENDING_CONFIRMATION      |PT_AS12_VRAndPathoConfirmed_SEI1                        |
-#      |PT_AS12_VRConfirmedNoPatho           |ASSAY_RESULTS_RECEIVED    |PT_AS12_VRConfirmedNoPatho_SEI1                         |
-#      |PT_AS12_PathoConfirmedNoVR           |ASSAY_RESULTS_RECEIVED    |PT_AS12_PathoConfirmedNoVR_SEI1                         |
+      |PT_AS12_VRConfirmedNoPatho           |ASSAY_RESULTS_RECEIVED    |PT_AS12_VRConfirmedNoPatho_SEI1                         |
+      |PT_AS12_PathoConfirmedNoVR           |ASSAY_RESULTS_RECEIVED    |PT_AS12_PathoConfirmedNoVR_SEI1                         |
 
 @patients_p3
   Scenario: PT_AS13. extra key-value pair in the message body should NOT fail
