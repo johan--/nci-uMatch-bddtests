@@ -56,9 +56,10 @@ module.exports = function () {
         currentTreatmentId = taId;
         currentStratumId   = stratum;
 
-        var location = 'treatment-arm?name=' + taId + '&stratum=' + stratum;
+        var location = '/#/treatment-arm?id=' + currentTreatmentId + '&stratum=' + currentStratumId;
+        console.log(location)
 
-        browser.setLocation(location, '6000').then(function () {
+        browser.get(location, 6000).then(function () {
             browser.waitForAngular();
         }).then(callback);
     });
@@ -85,19 +86,19 @@ module.exports = function () {
     });
 
 
-    this.When(/^I select the (.+) Main Tab$/, function (tabName, callback) {
-        var elementArray = taPage.expectedMainTabs;
-        var elementIndex = elementArray.indexOf(tabName);
-        utilities.clickElementArray(taPage.middleMainTabs, elementIndex);
-        browser.sleep(50).then(callback);
+    this.When(/^I select the "(.+)" Main Tab$/, function (tabName, callback) {
+        var selectorString = 'li[heading="' + tabName + '"]';
+        element(by.css(selectorString)).click().then(function () {
+            browser.waitForAngular();
+        }).then(callback);
     });
 
     //THEN Section
     this.Then(/^I should see the (.+) Title$/, function (title, callback) {
-        browser.sleep(1000).then(function () {
-            expect(element(by.tagName('h2')).getText()).to.eventually.equal(title);
-        });
-        browser.sleep(50).then(callback);
+        var heading = element(by.tagName('h2'));
+        utilities.waitForElement(heading).then(function () {
+            expect(element(by.css('h2')).getText()).to.eventually.eql(title)
+        }).then(callback);
     });
 
 
@@ -122,13 +123,43 @@ module.exports = function () {
     });
 
     this.Then(/^I should see data in the table$/, function (callback) {
-        expect(taTableData.count()).to.eventually.be.greaterThan(0);
+        browser.waitForAngular().then(function () {
+            expect(taTableData.count()).to.eventually.be.greaterThan(0);
+        }).then(callback);
+    });
+
+    this.When(/^I enter id "(.+?)" and stratum "(.+?)" in the treatment arm filter textbox$/, function (taId, stratumId, callback) {
+        var searchField = element(by.model('filterAll'));
+        currentTreatmentId = taId;
+        currentStratumId = stratumId;
+
+        searchField.sendKeys(taId + ' (' + stratumId + ')');
         browser.sleep(50).then(callback);
     });
 
+    this.Then(/^I should see the data maps to the relevant column$/, function (callback) {
+        var moment = require('moment');
+        var dateExpected = moment.utc(firstTreatmentArm.date_opened).utc().format('LLL');
+        expect(element(by.binding('item.id')).getText()).to.eventually.eql(firstTreatmentArm.id);
+        expect(element(by.binding('item.stratum_id')).getText()).to.eventually.eql(firstTreatmentArm.stratum_id);
+        expect(element(by.binding('item.stratum_statistics.current_patients')).getText()).to.eventually.eql(firstTreatmentArm.stratum_statistics.current_patients.toString());
+        expect(element(by.binding('item.stratum_statistics.former_patients')).getText()).to.eventually.eql(firstTreatmentArm.stratum_statistics.former_patients.toString());
+        expect(element(by.binding('item.stratum_statistics.not_enrolled_patients')).getText()).to.eventually.eql(firstTreatmentArm.stratum_statistics.not_enrolled_patients.toString());
+        expect(element(by.binding('item.stratum_statistics.pending_patients')).getText()).to.eventually.eql(firstTreatmentArm.stratum_statistics.pending_patients.toString());
+        expect(element(by.binding('item.treatment_arm_status')).getText()).to.eventually.eql(firstTreatmentArm.treatment_arm_status);
+        expect(element(by.binding('item.date_opened')).getText()).to.eventually.include(dateExpected).then(function () {
+            browser.sleep(20);
+        }).then(callback);
+    });
+
     this.Then(/^I should see the treatment\-arms detail dashboard$/, function (callback) {
-        expect(browser.getCurrentUrl()).to.eventually.include(browser.baseUrl + '/#/treatment-arm?name=' + currentTreatmentId);
-        callback();
+        browser.getCurrentUrl().then(function (test) {
+            console.log(test);
+        });
+        expect(browser.getCurrentUrl()).to.eventually.include('treatment-arm?id=' + currentTreatmentId + '&stratum=' + currentStratumId)
+            .then(function () {
+                browser.waitForAngular();
+        }).then(callback);
     });
 
     this.Then(/^I should see the Name Details$/, function (callback) {
@@ -178,8 +209,16 @@ module.exports = function () {
 
 
     this.Then(/^I should see the All Patients Data Table on the Treatment Arm$/, function (callback) {
-        expect(browser.isElementPresent(taPage.patientTaTable)).to.eventually.be.true;
-        browser.sleep(50).then(callback);
+
+        for (var i = 0; i < taPage.expecrtedPatientsDataTableHeaders.length; i++ ) {
+            expect (taPage.allPatientsDataTable.all (by.css('th')).get(i).getText ())
+                .to
+                .eventually
+                .eql (taPage.expecrtedPatientsDataTableHeaders[ i ])
+        }
+        expect(browser.isElementPresent(taPage.allPatientsDataTable)).to.eventually.eql(true).then(function () {
+            browser.waitForAngular();
+        }).then(callback);
     });
 
     this.Then(/^I should see the All Patients Data on the Treatment Arm$/, function(callback){

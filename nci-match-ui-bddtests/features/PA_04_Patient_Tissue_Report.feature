@@ -6,7 +6,7 @@ Feature: Patient Report Tab
     And I navigate to the patient page
     And I click on one of the patients
 
-  @patients @ui
+  @patients_p1 @ui_p1
   Scenario: Clicking on Tissue Reports lets the user access information about tissue report
     When I click on the "Tissue Reports" tab
     Then I should see the "Tissue Reports" tab is active
@@ -24,7 +24,7 @@ Feature: Patient Report Tab
     And I can see the "Copy Number Variant(s)" table under "Tissue Reports" tab
     And I can see the "Gene Fusion(s)" table under "Tissue Reports" tab
 
-  @patients @ui
+  @patients_p2 @ui_p2
   Scenario: Clicking on the Blood Variant Report lets the user access information about the Blood variant.
     When I click on the "Blood Variant Reports" tab
     Then I should see the "Blood Variant Reports" tab is active
@@ -42,7 +42,7 @@ Feature: Patient Report Tab
     And I can see the "Copy Number Variant(s)" table under "Blood Variant Reports" tab
     And I can see the "Gene Fusion(s)" table under "Blood Variant Reports" tab
 
-  @patients @ui
+  @patients_p3 @ui_p3
   Scenario: Variant report in Pending status only can access check boxes to confirm
     And I see the check box in the "SNVs/MNVs/Indels" sub section
     And I see the check box in the "Copy Number Variant(s)" sub section
@@ -54,9 +54,7 @@ Feature: Patient Report Tab
     And I do not see the check box in the "Copy Number Variant(s)" sub section
     And I do not see the check box in the "Gene Fusion(s)"n sub section
 
-  Scenario: Variant Report
-
-  @patients @ui
+  @patients_p3 @ui_p3
   Scenario: Clicking on the Blood Variant Report lets the user access information about blood variant report
     When I click on the "Blood Variant Report" tab
     Then I can see the "Analysis" drop down

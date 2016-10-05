@@ -17,7 +17,11 @@ var TreatmentArmsPage = function() {
     this.taTableHeaderArray = this.taTable.all(by.css('th'));
 
     // Patients Table That contains all the patient list Assigned to the selected treatment arm as seen on the treatment arms detailed page.
-    this.patientTaTable = element(by.css('.tab-pane.active.ng-scope table[dt-options="dtOptions"]'));
+    this.allPatientsDataTable = element(by.css('#allPatientsData'));
+    this.expecrtedPatientsDataTableHeaders = [
+        'Patient ID', 'TA Version', 'Patient Assignment Status Outcome',
+        'Variant Report', 'Assignment Report', 'Date Selected',
+        'Date On Arm', 'Date Off Arm', 'Time On Arm', 'Step', 'Disease', 'Reason' ]
 
     // Returns an array of all the rows in the treatment arm table.
     this.taTableData = element.all(by.css('a[href^="#/treatment-arm?"]'));
@@ -66,7 +70,7 @@ var TreatmentArmsPage = function() {
     this.taStratum = element(by.binding('currentVersion.stratum_id'));
     this.taDescription = element(by.binding('currentVersion.description'));
     this.taStatus = element(by.binding('currentVersion.treatment_arm_status'));
-    this.taVersion = element(by.binding('currentVersion.version'));
+    this.taVersion = element.all(by.binding('currentVersion.version')).get(0);
     this.taVersionDropdownList = element.all(by.css('li[ng-repeat="item in versions"]')); // this is the version drop down
 
     // Right info box
@@ -76,8 +80,8 @@ var TreatmentArmsPage = function() {
     this.taDrug= element(by.binding('information.drug'));
 
     // Inclusion/exclusion button
-    this.inclusionButton = element(by.css('.active>.ng-scope>.ibox label[ng-class="getInExclusionTypeClass(\'inclusion\')"]'));
-    this.exclusionButton = element(by.css('.active>.ng-scope>.ibox label[ng-class="getInExclusionTypeClass(\'exclusion\')"]'));
+    this.inclusionButton = element(by.css(".active>.ng-scope>.btn-group>.btn-group>label[ng-click=\"setInExclusionType('inclusion')\"]"));
+    this.exclusionButton = element(by.css(".active>.ng-scope>.btn-group>.btn-group>label[ng-click=\"setInExclusionType('exclusion')\"]"));
 
     //Inclusion / Exclusion Active Table
     this.inclusionTable = element.all(
@@ -109,7 +113,7 @@ var TreatmentArmsPage = function() {
 
     //List of Expected values
     this.expectedLeftBoxLabels = ['Name', 'Stratum ID', 'Description', 'Status', 'Version'];
-    this.expectedRightBoxLabels = ['Gene(s)', 'Patients on Arm Version', 'Total Patients on Arm', 'Drug(s)', 'Download'];
+    this.expectedRightBoxLabels = ['Genes', 'Patients on Arm Version', 'Total Patients on Arm', 'Drugs', 'Download'];
     this.expectedTableHeaders = [
         "Name",
         "Current Patients",
@@ -155,7 +159,7 @@ var TreatmentArmsPage = function() {
 
     this.generateArmDetailForVariant = function (taArmJson, variantName, condition){
         var variant = getActualVariantName(variantName);
-        var variant_report = taArmJson['variant_report'][variant];
+        var variant_report = taArmJson[variant];
         var result = [];
         var flag;
         if (condition == 'Inclusion') {
@@ -424,6 +428,28 @@ var TreatmentArmsPage = function() {
         });
     };
 
+    /**
+     * This Function will receive the WebElement object depicting a row from the list and
+     * return a hash of the treatment_arm and stratum
+     * @param {WebElement} repeaterObject, the element whose text is needed
+     * @param {int} index, a zero ordered index
+     * @param {String} binding,  that is used to define the object
+     *
+     * @return {String} text of the string
+     */
+    this.retrieveTextByBinding = function(repeaterObject, index, binding){
+        var deferred = protractor.promise.defer();
+        repeaterObject.get(index).all(by.binding(binding)).get(0).getText().then(
+            function retrieve(text) {
+                deferred.fulfill(text);
+            },
+            function error(reason) {
+                deferred.reject(reason)
+            }
+        );
+        return deferred.promise;
+    };
+
     this.checkAssayResultsTable = function (refData, repeater) {
         var firstData = refData[0];
         expect(repeater.count()).to.eventually.equal(refData.length);
@@ -451,7 +477,6 @@ var TreatmentArmsPage = function() {
             }
 
         })
-
     };
 
     this.stripTreatmentArmId = function(completeId){
@@ -466,17 +491,16 @@ var TreatmentArmsPage = function() {
 
     this.getTreatmentArmVersions = function(treatmentArm){
         var versionOrder;
+
         treatmentArm.forEach(function (elem, index) {
             versionOrder[index] = elem['version'];
         });
-
         return versionOrder
     };
 
     function getActualVariantName(variantName){
         var variantMapping = {
-            'SNV / MNV'          : 'snv_indels',
-            'Indel'              : 'indels',
+            'SNV / MNV / Indels' : 'snv_indels',
             'CNVs'               : 'copy_number_variants',
             'Non-Hotspot Rules'  : 'non_hotspot_rules',
             'Gene Fusions'       : 'gene_fusions'

@@ -1,6 +1,6 @@
 Feature: Patient Document Tab
 
-  @patients @ui
+  @patients @ui_p3
   Scenario: User can see the documents attached to the patient
     Given I am a logged in user
     And I navigate to the patients page
@@ -9,4 +9,3 @@ Feature: Patient Document Tab
     Then I can patient's document table
     And The number of documents displayed match the ones from the API
 
-    

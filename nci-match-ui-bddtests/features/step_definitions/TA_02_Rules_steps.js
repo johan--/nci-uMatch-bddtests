@@ -31,26 +31,42 @@ module.exports = function () {
         }).then(callback);
     });
 
-    this.Then(/I should see (Inclusionary|Exclusionary) (Drugs|Diseases) table/, function (inclusionType, tableType, callback) {
+    this.Then(/I should see Exclusionary Drugs table/, function (callback) {
         var firstPart;
-        var secondPart;
-        var dataNode;
+        var refData;        // Node to collect data from treatment arm api call.
+
+        refData = firstTreatmentArm['exclusion_drugs'];
+
+        var testElement = element(by.css('#exclusionaryDrugs+table tr[ng-repeat^="item in filtered"]'));
+        expect(testElement.count()).to.eventually.eql(refData.length).then(callback);
+    });
+
+    this.Then(/I should see (Inclusionary|Exclusionary) Diseases table/, function (inclusionType, callback) {
+        var firstPart;
+        var exclusion;
         var refData;        // Node to collect data from treatment arm api call.
         var repeaterString; // repeater string used to collect rows from the relevant table
+        var expectedArray = [];
+        element.all(by.css('#exclusionaryDiseases+table tr[ng-repeat^="item in filtered"]')).get(0).getText()
 
-        firstPart = inclusionType === 'Inclusionary' ? 'inclusion' : 'exclusion';
-        secondPart = tableType === 'Diseases' ? 'diseases': 'drugs';
+        refData = firstTreatmentArm['diseases'];
 
-        dataNode = firstPart + '_' + secondPart;
-        refData = firstTreatmentArm[dataNode]; // Reference data
+        firstPart = inclusionType === 'Inclusionary' ? 'inclusionary' : 'exclusionary';
+        repeaterString = '#' + firstPart + 'Diseases+table tr[ng-repeat^="item in filtered"]'
 
-        repeaterString = 'item in currentVersion.' + dataNode;
+        exclusion = inclusionType === 'Inclusionary' ? false : true;
 
-        if (refData != null) {
-            expect(element.all(by.repeater(repeaterString)).count()).to.eventually.equal(refData.length);
-            tableType === 'Drugs' ? taPage.checkDrugsTable(refData, repeaterString) : taPage.checkDiseasesTable(refData, repeaterString);
+        var exclusion_count = 0;
+
+        for (var i = 0; i < refData.length; i++) {
+            if (refData[i].exclusion === exclusion) {
+                exclusion_count++;
+                expectedArray.push(refData[i]);
+            }
         }
-        browser.sleep(50).then(callback);
+
+        expect(element(by.css(repeaterString)).count()).to.eventually.eql(exclusion_count).then(callback);
+
     });
 
     this.Then(/^I should see that (.+) sub-tab is active$/, function(subTabName, callback){
@@ -85,13 +101,8 @@ module.exports = function () {
     this.Then(/^I should see the (.+) Variants table for (.+)$/, function (inclusionType, variant, callback) {
         var data = [];
         // First getting the data for the variant from the treatment arm
-        if (variant === 'SNVs / MNVs / Indels') {
-            var snv_data = taPage.generateArmDetailForVariant(firstTreatmentArm, 'SNV / MNV', inclusionType);
-            var indel_data = taPage.generateArmDetailForVariant(firstTreatmentArm, 'Indel', inclusionType);
-            data = snv_data.concat(indel_data)
-        } else {
-            data = taPage.generateArmDetailForVariant(firstTreatmentArm, variant, inclusionType);
-        }
+        data = taPage.generateArmDetailForVariant(firstTreatmentArm, variant, inclusionType);
+
         var tableType = inclusionType == 'Inclusion' ? taPage.inclusionTable : taPage.exclusionTable;
 
         switch(variant) {

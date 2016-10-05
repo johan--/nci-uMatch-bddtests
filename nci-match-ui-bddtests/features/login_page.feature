@@ -4,19 +4,19 @@
 
 Feature: Login
   A user should be able to login only with valid credentials.
-  @treatment_arm @patients @ui
+  @ui_p2
   Scenario: Accessing a protected page redirects to login page.
     Given I am on the login page
     When I navigate to the patients page
     Then I am redirected back to the login page
 
-  @treatment_arm @patients @ui
+  @ui_p2
   Scenario: Login with invalid credentials asks the user to login again.
     Given I am on the login page
     When I login with invalid email and password
     Then I should be asked to enter the credentials again
 
-  @treatment_arm @patients @ui @demo_p3
+  @treatment_arm_p2 @patients_p2 @ui_p1 @demo_p3
   Scenario: Login with proper credentials grants access protected pages.
     Given I am on the login page
     When  I login with valid email and password

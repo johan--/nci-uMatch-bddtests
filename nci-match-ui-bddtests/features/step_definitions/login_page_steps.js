@@ -31,6 +31,7 @@ module.exports = function () {
         var password = process.env.NCI_MATCH_PASSWORD;
 
         loginPageObj.login(email, password);
+        utilities.waitForElement(loginPageObj.navBarHeading, 'sticky top menu');
 
         browser.sleep(2000).then(callback);
     });
@@ -85,9 +86,9 @@ module.exports = function () {
     });
 
     this.When(/^I navigate to the (.+) page$/, function (pageName, callback) {
-        dashboardPageObj.goToPageName(pageName);
-
-        browser.sleep(50).then(callback);
+        dashboardPageObj.goToPageName(pageName).then(function () {
+            browser.waitForAngular()
+        }).then(callback);
     });
 
     this.Then(/^I should be able to the see Dashboard page$/, function (callback){

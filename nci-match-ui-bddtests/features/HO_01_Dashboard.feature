@@ -3,7 +3,7 @@
 #  Date: 08/17/2016
 ##
 
-@ui
+@ui_p1
 Feature: Dashboard page.
   This feature deals with all the front page elements.
 

@@ -2,7 +2,7 @@
 # Created by: Raseel Mohamed
 #  Date: 08/31/2016
 ##
-@ui
+@ui_p1
 Feature: This is the critical path test cases
 
   Background: User goes to a patient with 'TISSUE_VARIANT_REPORT_RECEIVED' status

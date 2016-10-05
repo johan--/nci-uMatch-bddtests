@@ -31,8 +31,7 @@ var DashboardPage = function() {
     };
 
     this.goToPageName = function(pageName) {
-        browser.get('/#/' + pageName, 6000);
-        browser.waitForAngular();
+        return browser.get('/#/' + pageName, 6000);
     };
 
 
