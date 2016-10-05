@@ -1,4 +1,4 @@
-Ion_01_sample_controls.feature#encoding: utf-8
+#encoding: utf-8
 @sample_control_reporters
 Feature: Tests for sample_controls service in ion ecosystem
 
