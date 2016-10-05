@@ -4,6 +4,7 @@ require 'rest-client'
 # require_relative 'env'
 require 'active_support'
 require 'active_support/core_ext'
+require 'aws-sdk'
 
 class Helper_Methods
   @requestGap = 1.0
@@ -297,6 +298,28 @@ class Helper_Methods
 
   def self.is_local_tier
     Environment.getTier == 'local'
+  end
+
+  def self.s3_list_files(bucket,
+      path,
+      endpoint='https://s3-accelerate.amazonaws.com',
+      region='us-east-1'
+  )
+    default_option = {
+        endpoint: endpoint,
+        region:   region,
+        access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+        secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
+    }
+
+    Aws.config.update(default_option)
+    s3 = Aws::S3::Resource.new()
+    files = s3.bucket(bucket).objects(prefix:path).collect(&:key)
+    files
+  end
+
+  def self.s3_file_exists(bucket, file_path)
+    return s3_list_files(bucket, file_path).include?(file_path)
   end
 
 end
