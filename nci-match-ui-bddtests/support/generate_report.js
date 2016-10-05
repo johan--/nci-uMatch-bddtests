@@ -6,7 +6,8 @@ var options = {
     output: '/home/travis/build/CBIIT/nci-uMatch-bddtests/results/cucumber_report.html',
     reportSuiteAsScenarios: true,
     launchReport: false,
-    ignoreBadJsonFile:true
+    ignoreBadJsonFile:true,
+    name:'PEDMatch Cucumber Reports'
 };
 
 reporter.generate(options);
