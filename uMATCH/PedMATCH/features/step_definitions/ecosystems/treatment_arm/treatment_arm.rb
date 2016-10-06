@@ -36,6 +36,7 @@ end
 
 Given(/^template treatment arm json with a random id$/) do
   loadTemplateJson()
+  sleep(2)
   @taReq['id'] = "APEC1621-#{Time.now.to_i.to_s}"
   @ta_id = @taReq['id']
   @stratum_id = @taReq['stratum_id']
