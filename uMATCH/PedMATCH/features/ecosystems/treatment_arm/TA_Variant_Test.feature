@@ -271,3 +271,16 @@ Feature: TA_VR1. Treatment Arm API Tests that focus on Variants
     | cnv           | cnv                |
     | gf            | fusion             |
 
+
+  @treatment_arm_p3
+  Scenario: TA_VR13. NonHotSpot Rule should have at least one of the elements from the function block
+    Given template treatment arm json with an id: "APEC1621-VR13", stratum_id: "100" and version: "V100"
+    And clear template treatment arm json's variant: "nhr" list
+    And create a template variant: "nhr" for treatment arm
+    And remove "function" field from the variant
+    And remove "func_gene" field from the variant
+    And remove "oncomine_variant_class" field from the variant
+    And remove "exon" field from the variant
+    And add template variant: "nhr" to template treatment arm json
+    When creating a new treatment arm using post request
+    Then a failure message is returned which contains: "missing required non hotspot rule"

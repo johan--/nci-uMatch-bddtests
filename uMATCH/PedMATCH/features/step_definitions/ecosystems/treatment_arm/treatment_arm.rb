@@ -521,6 +521,10 @@ Then(/^create a template variant: "([^"]*)" for treatment arm$/) do |variantAbbr
   @preparedVariant = Treatment_arm_helper.templateVariant(variantAbbr)
 end
 
+When(/^remove "([^"]*)" field from the variant$/) do |element|
+  @preparedVariant.delete(element)
+end
+
 And(/^set template treatment arm variant field: "([^"]*)" to string value: "([^"]*)"$/) do |field, sValue|
   @preparedVariant[field] = sValue
 end
