@@ -10,8 +10,9 @@ Feature: Treatment Arm Rules
     Given I am a logged in user
     And I navigate to the treatment-arms page
     And I go to treatment arm with "APEC1621-UI" as the id and "STR100" as stratum id
+    And I collect backend information about the treatment arm
 
-  @treatment_arm_p2 @ui_p2
+  @ui_p2
   Scenario Outline: Logged in user can access <subTabName> with Inclusion/Exclusion details under Rules
     When I select the "Rules" Main Tab
     And I select the <subTabName> sub-tab
@@ -27,8 +28,7 @@ Feature: Treatment Arm Rules
       | Gene Fusions         |
       | Non-Hotspot Rules    |
 
-
-  @treatment_arm_p2 @ui_p2
+  @ui_p2
   Scenario: Logged in user can access Drugs/Disease details on the Rules Tab
     When I select the "Rules" Main Tab
     And I select the Drugs / Diseases sub-tab
@@ -37,7 +37,7 @@ Feature: Treatment Arm Rules
     And I should see Exclusionary Drugs table
     And I should see Inclusionary Diseases table
 
-  @treatment_arm_p2 @ui_p2
+  @ui_p2
     Scenario: Logged in user can access the Non-Sequencing Assays details on the Rules Tab
     When I select the "Rules" Main Tab
     And I select the Non-Sequencing Assays sub-tab

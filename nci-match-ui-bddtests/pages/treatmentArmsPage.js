@@ -88,14 +88,17 @@ var TreatmentArmsPage = function() {
         by.css('.active>.panel-body>.ibox [ng-if="inExclusionType == \'inclusion\'"] .dataTables_wrapper>.row>.col-sm-12>table>tbody>tr.ng-valid'));
     this.exclusionTable = element.all(
         by.css('.active>.panel-body>.ibox [ng-if="inExclusionType == \'exclusion\'"] .dataTables_wrapper>.row>.col-sm-12>table>tbody>tr.ng-valid'));
+    this.inclusionsnvTable = element.all(by.css('#snvsMnvsIndelsIncl tr[ng-repeat^="item in filtered"]'));
+    this.exclusionsnvTable = element.all(by.css('#snvsMnvsIndelsExcl tr[ng-repeat^="item in filtered"]'));
+    this.inclusionNHRTable = element.all(by.css('#nonHotspotRulesIncl tr[ng-repeat^="item in filtered"]'));
+    this.exclusionNHRTable = element.all(by.css('#nonHotspotRulesExcl tr[ng-repeat^="item in filtered"]'));
 
     // Assay table elements
-    this.assayColumn = element.all(by.binding('item.assay'));
-    this.assayGeneName = element.all(by.binding('item.gene_name'));
-    this.assayResult = element.all(by.binding('item.result'));
-    this.assayVariantAssc = element.all(by.binding('item.variantAssociation'));
+    this.assayTableRepeater = element.all(by.css('#nonSequencingAssays tr[ng-repeat^="item in filtered"]'));
+    this.assayGene = element.all(by.binding('item.gene'));
+    this.assayResult = element.all(by.binding('item.assay_result_status'));
+    this.assayVariantAssc = element.all(by.binding('item.assay_variant'));
     this.assayLOE = element.all(by.binding('item.level_of_evidence'));
-    this.assayTableRepeater = element.all(by.css('tr[ng-repeat="item in selectedVersion.nonSequencingAssays"]'));
 
     // Key map for Drugs and Diseases values from the treatment arm api call
     var KeyMapConstant = {
@@ -328,10 +331,9 @@ var TreatmentArmsPage = function() {
     this.checkNonHotspotRulesTable = function(data, tableType, inclusionType){
         var firstData = data[0];
         var repeaterValue = 'item in selectedVersion.nhrs' + inclusionType;
-        var rowList = element.all(by.repeater(repeaterValue));
         var med_id_string = getMedIdString(firstData['public_med_ids']);
 
-        expect(rowList.count()).to.eventually.equal(data.length);
+        expect(tableType.count()).to.eventually.equal(data.length);
 
         // Locator Strings for columns
         var oncomineLoc= 'td:nth-of-type(1)'; //todo
@@ -342,9 +344,9 @@ var TreatmentArmsPage = function() {
         var proteinRegexLoc = 'td:nth-of-type(6)'; //todo
         var loeLoc = 'td:nth-of-type(7)';
         var litTableLoc = 'td:nth-of-type(8)';
-        rowList.count().then(function (count) {
+        tableType.count().then(function (count) {
             if (count > 0){
-                rowList.each(function (row, index) {
+                tableType.each(function (row, index) {
                     row.all(by.css(functionLoc)).get(0).getText().then(function(text){
                         if (text == firstData.function){
                             utils.checkValueInTable(row.all(by.css(oncomineLoc)), firstData['oncomine_variant_class'])
@@ -462,20 +464,18 @@ var TreatmentArmsPage = function() {
         repeater.count().then(function (cnt) {
             if(cnt > 0) {
                 repeater.each(function (row, index) {
-                    row.all(by.binding('item.gene_name')).get(0).getText().then(function (gName) {
+                    row.all(by.binding('item.gene')).get(0).getText().then(function (gName) {
+                        if (gName === assayGene){
+                            utils.checkValueInTable(row.all(by.binding('item.gene')), assayGene);
+                            utils.checkValueInTable(row.all(by.binding('item.assay_result_status')), assayResult);
+                            // utils.checkValueInTable(row.all(by.binding('item.description')), assayDescription);
+                            utils.checkValueInTable(row.all(by.binding('item.level_of_evidence')), assayLOE);
+                            utils.checkValueInTable(row.all(by.binding('item.assay_variant')), assayVariant);
+                            // utils.checkValueInTable(row.all(by.binding('item.gene_name')), assayColumn);
+                        }
                     });
-                    if (gName === assayGene){
-                        utils.checkValueInTable(row.all(by.binding('item.gene_name')), assayGene);
-                        utils.checkValueInTable(row.all(by.binding('item.result')), assayResult);
-                        // utils.checkValueInTable(row.all(by.binding('item.description')), assayDescription);
-                        utils.checkValueInTable(row.all(by.binding('item.level_of_evidence')), assayLOE);
-                        utils.checkValueInTable(row.all(by.binding('item.variantAssociation')), assayVariant);
-                        // utils.checkValueInTable(row.all(by.binding('item.gene_name')), assayColumn);
-                    }
-
                 })
             }
-
         })
     };
 
@@ -500,10 +500,10 @@ var TreatmentArmsPage = function() {
 
     function getActualVariantName(variantName){
         var variantMapping = {
-            'SNV / MNV / Indels' : 'snv_indels',
-            'CNVs'               : 'copy_number_variants',
-            'Non-Hotspot Rules'  : 'non_hotspot_rules',
-            'Gene Fusions'       : 'gene_fusions'
+            'SNVs / MNVs / Indels' : 'snv_indels',
+            'CNVs'                 : 'copy_number_variants',
+            'Non-Hotspot Rules'    : 'non_hotspot_rules',
+            'Gene Fusions'         : 'gene_fusions'
         };
         return variantMapping[variantName];
     }

@@ -37,8 +37,10 @@ module.exports = function () {
 
         refData = firstTreatmentArm['exclusion_drugs'];
 
-        var testElement = element(by.css('#exclusionaryDrugs+table tr[ng-repeat^="item in filtered"]'));
-        expect(testElement.count()).to.eventually.eql(refData.length).then(callback);
+        var testElement = element.all(by.css('#exclusionaryDrugs+table tr[ng-repeat^="item in filtered"]'));
+        expect(testElement.count()).to.eventually.eql(refData.length).then(function () {
+            browser.sleep(10);
+        }).then(callback);
     });
 
     this.Then(/I should see (Inclusionary|Exclusionary) Diseases table/, function (inclusionType, callback) {
@@ -65,7 +67,9 @@ module.exports = function () {
             }
         }
 
-        expect(element(by.css(repeaterString)).count()).to.eventually.eql(exclusion_count).then(callback);
+        expect(element.all(by.css(repeaterString)).count()).to.eventually.eql(exclusion_count).then(function () {
+            browser.sleep(10);
+        }).then(callback);
 
     });
 
@@ -100,22 +104,25 @@ module.exports = function () {
 
     this.Then(/^I should see the (.+) Variants table for (.+)$/, function (inclusionType, variant, callback) {
         var data = [];
+        var tableType;
         // First getting the data for the variant from the treatment arm
         data = taPage.generateArmDetailForVariant(firstTreatmentArm, variant, inclusionType);
 
-        var tableType = inclusionType == 'Inclusion' ? taPage.inclusionTable : taPage.exclusionTable;
-
         switch(variant) {
             case 'SNVs / MNVs / Indels':
+                tableType = inclusionType == 'Inclusion' ? taPage.inclusionsnvTable : taPage.exclusionsnvTable;
                 taPage.checkSNVTable(data, tableType, inclusionType);
                 break;
             case 'CNV':
+                tableType = inclusionType == 'Inclusion' ? taPage.inclusionTable : taPage.exclusionTable;
                 taPage.checkCNVTable(data, tableType, inclusionType);
                 break;
             case 'Gene Fusion':
+                tableType = inclusionType == 'Inclusion' ? taPage.inclusionTable : taPage.exclusionTable;
                 taPage.checkGeneFusionTable(data, tableType, inclusionType);
                 break;
             case 'Non-Hotspot Rules':
+                tableType = inclusionType == 'Inclusion' ? taPage.inclusionNHRTable : taPage.exclusionNHRTable;
                 taPage.checkNonHotspotRulesTable(data, tableType, inclusionType);
                 break;
         }
@@ -123,9 +130,9 @@ module.exports = function () {
     });
 
     this.Then(/^I should see the Non\-Sequencing Assays table$/, function (callback) {
-        var data = firstTreatmentArm['assay_results'];
+        var data = firstTreatmentArm['assay_rules'];
         var repeater = taPage.assayTableRepeater;
         taPage.checkAssayResultsTable(data, repeater);
-        callback(null, 'pending');
+        browser.sleep(50).then(callback);
     });
 };

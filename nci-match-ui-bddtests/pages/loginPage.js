@@ -35,7 +35,7 @@ var LoginPage = function() {
         browser.isElementPresent(userLoggedin).then(function(logIn){
             if (logIn === true) {
                 dashboardLink.click().then(function(){
-                    browser.waitForAngular()
+                    utils.waitForElement(element(by.css('.sticky-navbar')), 'Top Menu Bar')
                 }).then(callback)
             } else {
                 browser.isElementPresent(accessBtn).then(function (buttonPresent) {

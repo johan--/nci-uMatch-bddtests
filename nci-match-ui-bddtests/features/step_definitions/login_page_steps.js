@@ -107,7 +107,7 @@ module.exports = function () {
     this.Then(/^I should be asked to enter the credentials again$/, function (callback) {
         var errorPanel = element(by.css('#a0-onestep.a0-errors'));
 
-        utilities.waitForElement(errorPanel, 'Retry Login Window')
+        utilities.waitForElement(errorPanel, 'Retry Login Window');
         utilities.checkPresence('.a0-top-header>.a0-error');
         browser.sleep(50).then(callback);
     });

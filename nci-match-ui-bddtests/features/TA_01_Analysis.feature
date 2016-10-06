@@ -10,7 +10,7 @@ Feature: Treatment Arms Dashboard
     Given I am a logged in user
     And I navigate to the treatment-arms page
 
-  @treatment_arm_p2 @ui_p2
+  @ui_p2
   Scenario: A User can access the Treatment Arms list page
     Then I should see the Treatment Arms Title
     And I should see the Treatment Arms breadcrumb
@@ -21,7 +21,7 @@ Feature: Treatment Arms Dashboard
     And I collect backend information about the treatment arm
     And I should see the data maps to the relevant column
 
-  @treatment_arm_p2 @ui_p2
+  @ui_p2
   Scenario: Logged in user can access the dashboard of Treatment Arms page
     When I go to treatment arm with "APEC1621-UI" as the id and "STR100" as stratum id
     And I collect backend information about the treatment arm
@@ -31,12 +31,12 @@ Feature: Treatment Arms Dashboard
     And I should see the Gene Details
     And I should see three tabs related to the treatment arm
 
-  @treatment_arm_p2 @ui_p2
+  @ui_p2
   Scenario: Logged in user can access different versions of the treatment arm
     When I go to treatment arm with "APEC1621-UI" as the id and "STR100" as stratum id
     Then I should see the drop down to select different versions of the treatment arm
 
-  @treatment_arm_p3 @ui_p3
+  @ui_p3
   Scenario: Logged in user can access Patients data on the Analysis Tab
     When I go to treatment arm with "APEC1621-UI" as the id and "STR100" as stratum id
     And I select the "Analysis" Main Tab
@@ -44,7 +44,7 @@ Feature: Treatment Arms Dashboard
     And I should see the All Patients Data Table on the Treatment Arm
     And I should see data in the All Patients Data Table
 
-  @treatment_arm_p2 @ui_p2
+  @ui_p2
   Scenario: Logged in user can access Patients Assignment Outcome on the Analysis Tab
     When I go to treatment arm with "APEC1621-UI" as the id and "STR100" as stratum id
     Then I should see Analysis Details Tab
@@ -52,13 +52,13 @@ Feature: Treatment Arms Dashboard
     And I should see Patient Assignment Outcome chart
     And I should see Diseases Represented chart
 
-  @treatment_arm_p3 @incomplete @ui_p3
+  @broken @incomplete @ui_p3
   Scenario: Logged in user can download Treatment Arms in PDF
     When I go to treatment arm with "APEC1621-UI" as the id and "STR100" as stratum id
     And I click on the download in PDF Format
     Then I download the file locally in PDF format
 
-  @treatment_arm_p3 @incomplete @ui_p3
+  @broken @incomplete @ui_p3
   Scenario: Logged in user can download Treatment Arms in Excel
     When I go to treatment arm with "APEC1621-UI" as the id and "STR100" as stratum id
     And I click on the download in Excel Format

@@ -9,7 +9,7 @@ Feature: Patient Summary Page
   Background:
     Given I am a logged in user
 
-  @patients_p1  @ui_p1
+  @ui_p1
   Scenario: I can see the patient's details
     When I navigate to the patients page
     And I click on one of the patients
@@ -21,7 +21,7 @@ Feature: Patient Summary Page
     And I should see the main tabs associated with the patient
 
 
-  @patients_p2 @ui_p2
+  @ui_p2
   Scenario: I can see the details within the Summary tab of the patient
     When I go to patient "PT_SR14_VariantReportUploaded" details page
     And I collect the patient Api Information
