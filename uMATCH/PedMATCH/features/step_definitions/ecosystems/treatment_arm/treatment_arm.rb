@@ -127,12 +127,11 @@ When(/^calling uploaded treatment arm with basic "(true|false)" and active "(.+?
   end
   params << "active=#{flag_active}" unless active.empty?
   param = params.join("&")
-  response = Helper_Methods.get_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{@ta_id}/#{@stratum_id}?#{param}")
-  @response = JSON.parse(response['message'])
+  @response = Helper_Methods.get_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{@ta_id}/#{@stratum_id}?#{param}")
 end
 
 Then (/^should return "(.+)" of the records$/) do |num_records|
-  expect(@response['message'].size).to eq(num_records.to_i)
+  expect(JSON.parse(@response['message']).size).to eq(num_records.to_i)
 end
 
 Then(/^wait for "([^"]*)" seconds$/) do |seconds|

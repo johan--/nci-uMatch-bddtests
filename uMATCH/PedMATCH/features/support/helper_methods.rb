@@ -175,8 +175,8 @@ class Helper_Methods
         http_code = e.message[0,3]
       end
       @post_response['http_code'] = http_code
-      @post_response['message'] = e.response
-      p e.response
+      @post_response['message'] = e.message
+      p e.message
       return @post_response
     end
 
