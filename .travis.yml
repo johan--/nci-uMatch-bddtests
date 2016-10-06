@@ -13,29 +13,23 @@ before_install:
   # Pull latest docker image from last step to test against before it gets updated by someone else
   - docker pull matchbox/$TRIGGER_REPO
   # Set Ruby version
-  # - rvm use --install --binary 2.2.3
-  # - rvm use ruby-2.2.3
-  # - rvm get stable --autolibs=enable
-  # - rvm install 2.2.3
-  # - rvm use --install --default --binary ruby-2.2.3
   - rvm use --install --default --binary ruby-2.3.1
   # Install chrome & chromium
   - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
   - sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-  - sudo apt-get update
-  - sudo apt-get install google-chrome-stable
+  - sudo apt-get update && sudo apt-get install -y google-chrome-stable
   # Install xvfb
   - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16"
 before_script:
   # Install chrome & chromium
-  - sudo apt-get update && sudo apt-get -y install awscli
+  - sudo apt-get update && sudo apt-get install -y awscli
   # Install chrome & chromium
-  - sudo apt-get update
-  - sudo apt-get -y install chromium-bsu
+  - sudo apt-get update && sudo apt-get install -y chromium-bsu
   # Install UI test requirements
   - npm install -g protractor@3.3.0 grunt-cli
   - webdriver-manager update
   # Update Ruby cucumber dependencies
+  - gem install bundler
   - bundle install
   # Update Node UI test dependencies
   - cd nci-match-ui-bddtests
@@ -95,8 +89,8 @@ after_success:
 
   # tag docker image with date and deploy to UAT
   - ./dockerdeploy.sh
-  # Trigger Travis script #3
-  # - curl -s -X POST -H "Content-Type:application/json" -H "Accept:application/json" -H "Travis-API-Version:3" -H "Authorization:token $TRAVIS_TOKEN" -d "{\"request\":{\"message\":\"Triggered by nci-treatment-arm-processor-api $TRAVIS_COMMIT\", \"branch\":\"master\", \"config\":{\"env\":{\"matrix\":[\"TRIGGER_REPO=nci-treatment-arm-processor-api;CUC_TAG=@treatment_arm\"]}}}}" https://api.travis-ci.org/repo/CBIIT%2Fnci-uMatch-bddtests/requests
+  # Trigger Travis script #3, UAT Tests
+  - curl -s -X POST -H "Content-Type:application/json" -H "Accept:application/json" -H "Travis-API-Version:3" -H "Authorization:token $UAT_TRAVIS_TOKEN" -d "{\"request\":{\"message\":\"Triggered by $TRIGGER_REPO $TRAVIS_COMMIT\", \"branch\":\"master\", \"config\":{\"env\":{\"matrix\":[\"TRIGGER_REPO=$TRIGGER_REPO;CUC_TAG=$CUC_TAG\"]}}}}" https://api.travis-ci.org/repo/CBIIT%2Fnci-uMatch-uattests/requests
 after_failure:
     #Run P3 cucumber tests
     - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P3 --format json --out ../../results/output-$TEST_ENV_NUMBER.json --expand' -n 4
