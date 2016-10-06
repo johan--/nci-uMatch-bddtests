@@ -229,5 +229,21 @@ Feature: Patients end to end tests
     Then COG approves patient on treatment arm: "APEC1621-B", stratum: "100" to step: "1.1"
     Then API returns a message that includes "treatment arm" with status "Failure"
 
+
+  Scenario Outline: PT_ETE15. treatment arm should be able to assign to multiple patients
+    Given patient: "<patient_id>" with status: "TISSUE_VARIANT_REPORT_RECEIVED" on step: "1.0"
+    Given this patients's active "TISSUE" molecular_id is "<moi>"
+    Given this patients's active "TISSUE" analysis_id is "<ani>"
+    Given other background and comments for this patient: "assay and pathology are ready"
+    Then "TISSUE" variant report confirmed with status: "CONFIRMED"
+    Then COG approves patient on treatment arm: "APEC1621-A", stratum: "100" to step: "1.1"
+    Then patient status should be "ON_TREATMENT_ARM" within 15 seconds
+    Then patient step number should be "1.1" within 15 seconds
+  Examples:
+  |patient_id     |moi                |ani                  |
+  |PT_ETE15a      |PT_ETE15a_MOI1     |PT_ETE15a_ANI1       |
+  |PT_ETE15b      |PT_ETE15b_MOI1     |PT_ETE15b_ANI1       |
+
+
 #  request no assignment status should not accept any message
 #  Scenario: PT_ETE12. Assay

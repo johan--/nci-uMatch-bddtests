@@ -225,9 +225,8 @@ class ION_helper_methods
 
   end
   
-  def self.post_to_trigger(expected_status, expected_partial_message)
-    puts JSON.pretty_generate(@request_hash)
-    url = "#{ENV['patients_endpoint']}/#{@patient_id}"
+  def self.create_ion_reporters(site, message, expected_status, expected_partial_message)
+    url = "#{ENV['ion_system_endpoint']}?site=#{site}"
     response = Helper_Methods.post_request(url, @request_hash.to_json.to_s)
     validate_response(response, expected_status, expected_partial_message)
     response

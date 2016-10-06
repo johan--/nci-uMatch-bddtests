@@ -42,12 +42,12 @@ Feature: Tests for aliquots service in ion ecosystem
 
   Scenario: ION_AQ45. aliquot service should return 404 error if query a non-existing molecular_id
 
-  Scenario: ION_AQ46. aliquot service should return error if no molecular_id and parameter is provided
+  Scenario: ION_AQ46. aliquot service should fail if no molecular_id and parameter is provided
 
 
 
-  Scenario: ION_AQ80. aliquot service should return error when user want to create new item using POST
+  Scenario: ION_AQ80. aliquot service should fail when user want to create new item using POST
 
-  Scenario: ION_AQ81. aliquot service should return error when user want to delete item using DELETE
+  Scenario: ION_AQ81. aliquot service should fail when user want to delete item using DELETE
 
 

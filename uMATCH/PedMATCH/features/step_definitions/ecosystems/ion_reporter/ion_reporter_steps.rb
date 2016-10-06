@@ -11,3 +11,12 @@ When(/^the ion reporter service \/version is called, the version "([^"]*)" is re
   raise "response is expected to contain field version, but it is #{response.to_json.to_s}" unless response.keys.include?('version')
   response['version'].should == version
 end
+
+
+Given(/^site is "([^"]*)"$/) do |site|
+  @site = site
+end
+
+When(/^post to ion_reporters service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |arg1, arg2|
+  pending # Write code here that turns the phrase above into concrete actions
+end
