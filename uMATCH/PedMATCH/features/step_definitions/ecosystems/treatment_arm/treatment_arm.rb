@@ -704,8 +704,9 @@ def wait_for_processor(cnt = 5)
   counter = 0
   while counter <= cnt
     response = Helper_Methods.get_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{@ta_id}/#{@stratum_id}/#{@version}", { 'no_log' => true })
-    if response['message'].match(/(read_attribute_for_serialization|\+)/)
-      sleep(1)
+    # if response['message'].match(/(read_attribute_for_serialization|\+)/)
+    if response['http_code'] != 200
+      sleep(2)
     else
       return true if response['http_code'] == 200
     end
