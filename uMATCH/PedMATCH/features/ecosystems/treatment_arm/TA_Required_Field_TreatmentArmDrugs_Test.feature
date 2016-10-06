@@ -7,7 +7,8 @@ Feature: Treatment Arm API Tests that focus on "treatment_arm_drugs" and "exclus
     Given template treatment arm json with a random id
     And clear list field: "treatment_arm_drugs" from template treatment arm json
     When creating a new treatment arm using post request
-    Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
+#    Then a failure message is returned which contains: "Validation failed.  Please check all required fields are present"
+    Then a failure message is returned which contains: "The property '#/treatment_arm_drugs' did not contain a minimum number of items 1"
 
   @treatment_arm_p2
   Scenario: TA_DG2. New Treatment Arm with "treatment_arm_drugs": null should fail
