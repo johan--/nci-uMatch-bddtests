@@ -12,7 +12,7 @@ Feature: Treatment Arm API Tests that focus on "study_id" field
 
   @treatment_arm_p2
   Scenario: TA_SID3. "study_id" value other than APEC1621 should fail
-    Given template treatment arm json with an id: "APEC1621-SID3-1 ", stratum_id: "stratum1" and version: "2015-03-25"
+    Given template treatment arm json with an id: "APEC1621-SID3-1", stratum_id: "stratum1" and version: "2015-03-25"
     Then set template treatment arm json field: "study_id" to string value: "EAY131"
     When creating a new treatment arm using post request
     Then a failure response code of "500" is returned

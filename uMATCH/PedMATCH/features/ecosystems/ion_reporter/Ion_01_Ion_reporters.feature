@@ -1,5 +1,5 @@
 #encoding: utf-8
-@ion_reporter_reporters @test
+@ion_reporter_reporters
 Feature: Tests for ion_reporters service in ion ecosystem
 
 @ion_reporter_p1

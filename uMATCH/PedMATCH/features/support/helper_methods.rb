@@ -166,7 +166,7 @@ class Helper_Methods
     # print "JSON:\n#{payload}\n\n"
     @post_response = {}
     begin
-      response = RestClient::Request.execute(:url => service, :method => :post, :verify_ssl => false, :payload => payload, :headers=>{:content_type => 'json', :accept => 'json'})
+    response = RestClient::Request.execute(:url => service, :method => :post, :verify_ssl => false, :payload => payload, :headers=>{:content_type => 'json', :accept => 'json'})
     rescue StandardError => e
       @post_response['status'] = 'Failure'
       if e.message.nil?
@@ -175,8 +175,7 @@ class Helper_Methods
         http_code = e.message[0,3]
       end
       @post_response['http_code'] = http_code
-      @post_response['message'] = e.message
-      p e.message
+      @post_response['message'] = e.response.body
       return @post_response
     end
 
