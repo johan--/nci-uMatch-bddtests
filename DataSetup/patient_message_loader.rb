@@ -284,6 +284,7 @@ class PatientMessageLoader
     message['analysis_id'] = analysis_id
     message['tsv_file_name'] = tsv_name
     send_message_to_local(message, patient_id)
+    sleep(5) #variant upload might take more time than other service, so wait internally
   end
 
   # def self.tsv_vcf_uploaded(

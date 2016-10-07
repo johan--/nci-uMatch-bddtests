@@ -200,7 +200,7 @@ class Helper_Methods
   end
 
   def Helper_Methods.put_request(service,payload)
-    print "Post URL: #{service}\n"
+    print "Put URL: #{service}\n"
     # # print "JSON:\n#{JSON.pretty_generate(JSON.parse(payload))}\n\n"
     # print "JSON:\n#{payload}\n\n"
     @put_response = {}
@@ -228,6 +228,35 @@ class Helper_Methods
       p @put_response['message']
     end
     return @put_response
+  end
+
+  def Helper_Methods.delete_request(service)
+    print "Delete URL: #{service}\n"
+    @delete_response = {}
+    begin
+      response = RestClient::Request.execute(:url => service, :method => :delete, :verify_ssl => false, :headers=>{:accept => 'json'})
+    rescue StandardError => e
+      @delete_response['status'] = 'Failure'
+      if e.message.nil?
+        http_code = '500'
+      else
+        http_code = e.message[0,3]
+      end
+      @delete_response['http_code'] = http_code
+      @delete_response['message'] = e.response
+      p e.response
+      return @delete_response
+    end
+
+    http_code = "#{response.code}"
+    status = http_code =='200' ? 'Success' : 'Failure'
+    @delete_response['status'] = status
+    @delete_response['http_code'] = http_code
+    @delete_response['message'] = response.body
+    if status.eql?('Failure')
+      p @delete_response['message']
+    end
+    return @delete_response
   end
 
   def Helper_Methods.aFewDaysOlder()

@@ -226,10 +226,10 @@ class ION_helper_methods
   end
   
   def self.create_ion_reporters(site, message, expected_status, expected_partial_message)
-    url = "#{ENV['ion_system_endpoint']}?site=#{site}"
-    response = Helper_Methods.post_request(url, @request_hash.to_json.to_s)
+    url = "#{ENV['ion_system_endpoint']}/ion_reporters?site=#{site}"
+    response = Helper_Methods.post_request(url, message.to_json.to_s)
     validate_response(response, expected_status, expected_partial_message)
-    response
+    JSON.parse(response['message'])['ion_reporter_id']
   end
 
   def self.put_variant_confirm(uuid, status, expected_status, expected_partial_message)
