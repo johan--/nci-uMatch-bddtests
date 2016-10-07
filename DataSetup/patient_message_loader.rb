@@ -1,5 +1,6 @@
 require 'HTTParty'
 require 'json'
+require_relative '../uMATCH/PedMATCH/features/support/environment'
 require_relative '../uMATCH/PedMATCH/features/support/helper_methods'
 
 class PatientMessageLoader

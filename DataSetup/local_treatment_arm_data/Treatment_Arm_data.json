@@ -688,7 +688,7 @@
         "public_med_ids": [],
         "func_gene": "PTEN",
         "arm_specific": false,
-        "level_of_evidence": 3.0,
+        "level_of_evidence": 3.5,
         "protein_match": null
       }
     ],
@@ -700,7 +700,7 @@
       "inclusion": true,
       "public_med_ids": ["23724913"],
       "arm_specific": false,
-      "level_of_evidence": 2.0,
+      "level_of_evidence": 2.1,
       "chromosome": "chr2",
       "ocp_alternative": "[chr1:154142875[A",
       "description": "ALK translocation",
@@ -713,7 +713,7 @@
       "inclusion": true,
       "public_med_ids": [],
       "arm_specific": false,
-      "level_of_evidence": 3.0,
+      "level_of_evidence": 3.3,
       "chromosome": "chr10",
       "ocp_alternative": "C[chrX:13754596[",
       "description": "some description",
