@@ -1057,5 +1057,137 @@
         "description": "some description"
       }
     ]
+  },
+  {
+    "id": "APEC1621-2V",
+    "name": "APEC1621-2V",
+    "version": "version1",
+    "stratum_id": "100",
+    "description": "Test Treatment Arm with 2 versions for the test",
+    "target_id": "113",
+    "target_name": "Crizotinib",
+    "gene": "ALK",
+    "treatment_arm_status": "OPEN",
+    "study_id": "APEC1621",
+    "assay_rules": [],
+    "num_patients_assigned": null,
+    "treatment_arm_drugs": [{
+      "name": "Crizotinib",
+      "pathway": "ALK",
+      "drug_id": "113"
+    }],
+    "snv_indels": [],
+    "non_hotspot_rules": [],
+    "copy_number_variants": [],
+    "gene_fusions": [{
+      "variant_type": "fusion",
+      "ocp_reference": "A",
+      "gene": "TPS",
+      "identifier": "TPM3",
+      "inclusion": true,
+      "public_med_ids": ["23724913"],
+      "arm_specific": false,
+      "level_of_evidence": 2.0,
+      "chromosome": "chr2",
+      "ocp_alternative": "ALTERNATE",
+      "description": "ALK translocation",
+      "position": "1111111111111"
+    }],
+    "diseases": [{
+      "disease_code_type":"ICD-O",
+      "disease_code": "10058354",
+      "disease_name": "Bronchioloalveolar carcinoma",
+      "exclusion":true
+    }],
+    "exclusion_drugs": [{
+      "name": "Doxorubicin Hydrochloride",
+      "drug_id": "10001",
+      "drug_class": "ALK inhibitor",
+      "target": "ALK"
+    }]
+  },
+  {
+    "id": "APEC1621-2V",
+    "name": "APEC1621-2V",
+    "version": "version2",
+    "stratum_id": "100",
+    "description": "Test Treatment Arm with 2 versions",
+    "target_id": "113",
+    "target_name": "Crizotinib",
+    "gene": "ALK",
+    "treatment_arm_status": "OPEN",
+    "study_id": "APEC1621",
+    "assay_rules": [],
+    "num_patients_assigned": null,
+    "treatment_arm_drugs": [{
+      "name": "Crizotinib",
+      "pathway": "ALK",
+      "drug_id": "113"
+    }],
+    "snv_indels": [{
+      "variant_type": "snp",
+      "chromosome": "chr6",
+      "gene": "GENE",
+      "protein": "p.Q61H",
+      "position": "152419923",
+      "identifier": "COSM1074639",
+      "ocp_reference": "F",
+      "ocp_alternative": "B",
+      "level_of_evidence": 3.0,
+      "inclusion": true,
+      "arm_specific": false
+    }, {
+      "variant_type": "snp",
+      "chromosome": "chr9",
+      "position": "80412493",
+      "gene": "GENE",
+      "protein": "p.Q61H",
+      "identifier": "COSM52975",
+      "ocp_reference": "B",
+      "ocp_alternative": "T",
+      "level_of_evidence": 3.0,
+      "inclusion": true,
+      "arm_specific": false
+    }],
+    "non_hotspot_rules": [],
+    "copy_number_variants": [],
+    "gene_fusions": [],
+    "diseases": [{
+      "disease_code_type":"ICD-O",
+      "disease_code": "10058354",
+      "disease_name": "Bronchioloalveolar carcinoma",
+      "exclusion":true
+    }, {
+      "disease_code_type":"ICD-O",
+      "disease_code": "10025032",
+      "disease_name": "Lung adenocarcinoma",
+      "exclusion":true
+    }, {
+      "disease_code_type":"ICD-O",
+      "disease_code": "90600324",
+      "disease_name": "Lung adenocar. w/ bronch. feat.",
+      "exclusion":true
+    }, {
+      "disease_code_type":"ICD-O",
+      "disease_code": "10029514",
+      "disease_name": "Non-small cell lung cancer, NOS",
+      "exclusion":true
+    }, {
+      "disease_code_type":"ICD-O",
+      "disease_code": "10025125",
+      "disease_name": "Squamous cell lung carcinoma",
+      "exclusion":true
+    },{
+      "disease_code_type":"ICD-O",
+      "disease_code": "10033701",
+      "disease_name": "Papillary thyroid carcinoma",
+      "exclusion":false
+    }],
+    "exclusion_drugs": [{
+      "name": "Doxorubicin Hydrochloride",
+      "drug_id": "10001",
+      "drug_class": "ALK inhibitor",
+      "target": "ALK"
+    }]
   }
 ]
