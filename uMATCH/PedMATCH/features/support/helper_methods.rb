@@ -76,16 +76,36 @@ class Helper_Methods
   end
 
   def Helper_Methods.simple_get_request(service)
+    @get_response={}
     begin
       response = RestClient::Request.execute(:url => service, :method => :get, :verify_ssl => false)
     rescue StandardError => e
-      if is_local_tier
-        print "Error: #{e.message} occurred\n"
-        print "Response:#{e.response}\n"
+      @get_response['status'] = 'Failure'
+      if e.message.nil?
+        http_code = '500'
+      else
+        http_code = e.message[0,3]
       end
-      return []
+      @get_response['http_code'] = http_code
+      @get_response['message'] = e.response
+      p e.response
+      return @get_response
     end
-    JSON.parse(response)
+
+    http_code = "#{response.code}"
+    status = http_code =='200' ? 'Success' : 'Failure'
+    @get_response['status'] = status
+    @get_response['http_code'] = http_code
+    @get_response['message'] = response.body
+    if response.body.nil?
+      @get_response['message_json'] = {}
+    else
+      @get_response['message_json'] = JSON.parse(response.body)
+    end
+    if status.eql?('Failure')
+      p @get_response['message']
+    end
+    return @get_response
   end
 
   def Helper_Methods.get_single_request(service,

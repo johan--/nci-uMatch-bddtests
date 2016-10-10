@@ -64,7 +64,7 @@ class PatientMessageLoader
     total_time = 0.0
     old_status = ''
     loop do
-      output_hash = Helper_Methods.simple_get_request("#{LOCAL_PATIENT_API_URL}/#{patient_id}")
+      output_hash = Helper_Methods.simple_get_request("#{LOCAL_PATIENT_API_URL}/#{patient_id}")['message_json']
       if output_hash.length == 1
         new_status = output_hash[0]['current_status']
         if old_status == ''

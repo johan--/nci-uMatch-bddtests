@@ -31,6 +31,14 @@ Then(/^add field: "([^"]*)" value: "([^"]*)" to url$/) do |field, value|
   @ion_params[field] = value
 end
 
+Then(/^add projection: "([^"]*)" to url$/) do |proj|
+  if @ion_params.nil?
+    @ion_params = {}
+  end
+  @ion_params[proj] = 'projection' #see the implementation of function add_parameters_to_url
+                                  #to find why this line is coded like this
+end
+
 When(/^call ion_reporters POST service (\d+) times, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |times, message, status|
   i = 1
   @generated_ion_ids = []
@@ -79,6 +87,15 @@ When(/^call ion_reporters GET service, returns a message that includes "([^"]*)"
   url = prepare_ion_reporters_url
   response = Helper_Methods.simple_get_request(url)
   validate_response(response, status, message)
+  @returned_ions = response['message_json']
+end
+
+When(/^call ion_reporters GET sample_controls service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
+  @ion_sub_service = 'sample_controls'
+  url = prepare_ion_reporters_url
+  response = Helper_Methods.simple_get_request(url)
+  validate_response(response, status, message)
+  @returned_sample_control = response['message_json']
 end
 
 Then(/^there are (\d+) ion_reporter_ids generated$/) do |count|
@@ -87,7 +104,7 @@ end
 
 Then(/^each generated ion_reporter_id should have (\d+) record$/) do |count|
   url = "#{ENV['ion_system_endpoint']}/ion_reporters"
-  ion_reporters = Helper_Methods.simple_get_request(url)
+  ion_reporters = Helper_Methods.simple_get_request(url)['message_json']
   @generated_ion_ids.each { |this_ion_id|
     total = 0
     ion_reporters.each { |this_ion|
@@ -104,7 +121,7 @@ Then(/^field: "([^"]*)" for each generated ion_reporter should be: "([^"]*)"$/) 
   @generated_ion_ids.each { |this_ion_id|
     @ion_id = this_ion_id
     url = prepare_ion_reporters_url #"#{ENV['ion_system_endpoint']}/ion_reporters/#{this_ion_id}"
-    ion_reporter = Helper_Methods.simple_get_request(url)
+    ion_reporter = Helper_Methods.simple_get_request(url)['message_json']
     ion_reporter[field].should == converted_value
   }
 end
@@ -112,7 +129,7 @@ end
 Then(/^field: "([^"]*)" for this ion_reporter should be: "([^"]*)"$/) do |field, value|
   converted_value = value=='null'?nil:value
   url = prepare_ion_reporters_url #"#{ENV['ion_system_endpoint']}/ion_reporters/#{@ion_id}"
-  ion_reporter = Helper_Methods.simple_get_request(url)
+  ion_reporter = Helper_Methods.simple_get_request(url)['message_json']
   if ion_reporter.is_a?(Array)
     ion_reporter = ion_reporter[0]
   end
@@ -131,7 +148,7 @@ Then(/^each generated ion_reporter_id should have (\d+) field\-value pairs$/) do
   @generated_ion_ids.each { |this_ion_id|
     @ion_id = this_ion_id
     url = prepare_ion_reporters_url #"#{ENV['ion_system_endpoint']}/ion_reporters/#{this_ion_id}"
-    ion_reporter = Helper_Methods.simple_get_request(url)
+    ion_reporter = Helper_Methods.simple_get_request(url)['message_json']
     ion_reporter.keys.length.should == count.to_i
   }
 end
@@ -140,7 +157,7 @@ Then(/^each generated ion_reporter_id should have field: "([^"]*)"$/) do |field|
   @generated_ion_ids.each { |this_ion_id|
     @ion_id = this_ion_id
     url = prepare_ion_reporters_url #"#{ENV['ion_system_endpoint']}/ion_reporters/#{this_ion_id}"
-    ion_reporter = Helper_Methods.simple_get_request(url)
+    ion_reporter = Helper_Methods.simple_get_request(url)['message_json']
     expect_result = "ion_reporter #{this_ion_id} has field: #{field}"
     actual_result = expect_result
     unless ion_reporter.keys.include?(field)
@@ -150,9 +167,29 @@ Then(/^each generated ion_reporter_id should have field: "([^"]*)"$/) do |field|
   }
 end
 
+Then(/^there are\|is (\d+) ion_reporter returned$/) do |count|
+  @returned_ions.length.should == count.to_i
+end
+
+Then(/^each returned ion_reporter should have (\d+) fields$/) do |count|
+  @returned_ions.each { |this_ion|
+    this_ion.keys.length.should == count.to_i }
+end
+
+Then(/^each returned ion_reporter should have field "([^"]*)"$/) do |field|
+  @returned_ions.each { |this_ion|
+    expect_result = "ion_reporter has field: #{field}"
+    actual_result = expect_result
+    unless this_ion.keys.include?(field)
+      actual_result = "ion_reporter fields: #{this_ion.keys.to_s} do not include #{field}"
+    end
+    actual_result.should == expect_result
+  }
+end
+
 Then(/^updated ion_reporter should not have field: "([^"]*)"$/) do |field|
   url = prepare_ion_reporters_url #"#{ENV['ion_system_endpoint']}/ion_reporters/#{@ion_id}"
-  ion_reporter = Helper_Methods.simple_get_request(url)
+  ion_reporter = Helper_Methods.simple_get_request(url)['message_json']
   expect_result = "ion_reporter #{@ion_id} doesn't have field: #{field}"
   actual_result = expect_result
   if ion_reporter.keys.include?(field)
@@ -165,7 +202,7 @@ Then(/^each generated ion_reporter_id should have correct date_ion_reporter_id_c
   @generated_ion_ids.each { |this_ion_id|
     @ion_id = this_ion_id
     url = prepare_ion_reporters_url #"#{ENV['ion_system_endpoint']}/ion_reporters/#{this_ion_id}"
-    ion_reporter = Helper_Methods.simple_get_request(url)
+    ion_reporter = Helper_Methods.simple_get_request(url)['message_json']
     returned_date = DateTime.parse(ion_reporter['date_ion_reporter_id_created']).to_i
     time_diff = @ion_generate_date - returned_date
     max_diff = 5
@@ -181,13 +218,13 @@ end
 
 Then(/^record total ion_reporters count$/) do
   url = "#{ENV['ion_system_endpoint']}/ion_reporters"
-  ion_reporters = Helper_Methods.simple_get_request(url)
+  ion_reporters = Helper_Methods.simple_get_request(url)['message_json']
   @total_ion_count = ion_reporters.length
 end
 
 Then(/^new and old total ion_reporters counts should have (\d+) difference$/) do |diff|
   url = "#{ENV['ion_system_endpoint']}/ion_reporters"
-  ion_reporters = Helper_Methods.simple_get_request(url)
+  ion_reporters = Helper_Methods.simple_get_request(url)['message_json']
   current_count = ion_reporters.length
   count_diff = current_count - @total_ion_count
   count_diff.should == diff.to_i
@@ -195,7 +232,44 @@ end
 
 
 
+##############sample controls###################
+Then(/^there are\|is (\d+) sample_control returned$/) do |count|
+  if @returned_sample_control.nil?
+    @returned_sample_control = []
+  end
+  @returned_sample_control.length.should == count.to_i
+end
 
+Then(/^returned sample_control should contain molecular_id: "([^"]*)"$/) do |moi|
+  if @returned_sample_control.nil?
+    @returned_sample_control = []
+  end
+  expected_result = "Can find molecular_id: #{moi} in returned sample_controls"
+  actual_result = "Cannot find molecular_id: #{moi} in returned sample_controls"
+  @returned_sample_control.each { |this_sc|
+    if this_sc['molecular_id']==moi
+      actual_result = expected_result
+      break
+    end
+  }
+  actual_result.should == expected_result
+end
+
+Then(/^each returned sample_control should have (\d+) fields$/) do |count|
+  @returned_sample_control.each { |this_sc|
+    this_sc.keys.length.should == count.to_i }
+end
+
+Then(/^each returned sample_control should have field "([^"]*)"$/) do |field|
+  @returned_sample_control.each { |this_sc|
+    expect_result = "sample_control has field: #{field}"
+    actual_result = expect_result
+    unless this_sc.keys.include?(field)
+      actual_result = "sample_control fields: #{this_sc.keys.to_s} do not include #{field}"
+    end
+    actual_result.should == expect_result
+  }
+end
 
 
 
@@ -214,7 +288,12 @@ def prepare_ion_reporters_url
   if @ion_id!=nil && @ion_id.length>0
     slash_ion_id = "/#{@ion_id}"
   end
-  url = "#{ENV['ion_system_endpoint']}/ion_reporters#{slash_ion_id}"
+
+  slash_service = ''
+  if @ion_sub_service!=nil && @ion_sub_service.length>0
+    slash_service = "/#{@ion_sub_service}"
+  end
+  url = "#{ENV['ion_system_endpoint']}/ion_reporters#{slash_ion_id}#{slash_service}"
   add_parameters_to_url(url, @ion_params)
 end
 
@@ -222,7 +301,11 @@ def add_parameters_to_url(url, params)
   parameters = ''
   unless params.nil?
     params.each { |key, value|
-      parameters += "&#{key}=#{value}"
+      if value == 'projection' #this is why
+        parameters += "&#{value}=#{key}"
+      else
+        parameters += "&#{key}=#{value}"
+      end
     }
     parameters = '?' + parameters.last(parameters.length-1)
   end

@@ -113,11 +113,13 @@ Feature: Tests for ion_reporters service in ion ecosystem
 
   Scenario: ION_IR41. ion_reporters can be batch deleted
     Given ion_reporter_id is ""
-    Then add field: "ir_status" value: "ion_reporter for test ION_IR41" to url
+    Then add field: "date_ion_reporter_id_created" value: "2016-10-07 15:41:24.770675" to url
+    Then call ion_reporters GET service, returns a message that includes "" with status "Success"
+    Then there are|is 1 ion_reporter returned
     Then call ion_reporters DELETE service, returns a message that includes "Batch deletion request placed on queue to be processed" with status "Success"
     Then wait for "5" seconds
     Then call ion_reporters GET service, returns a message that includes "No ABCMeta" with status "Failure"
-    
+
   Scenario: ION_IR42. ion_reporter service should fail if no ion_reporter_id is passed in, and no ion_reporter is deleted
     Given ion_reporter_id is ""
     Then record total ion_reporters count
@@ -143,6 +145,8 @@ Feature: Tests for ion_reporters service in ion ecosystem
 
 
   Scenario: ION_IR60. ion_reporter service can list all existing ion_reporters
+    Given ion_reporter_id is ""
+    When call ion_reporters GET service, returns a message that includes "ion_reporter_id" with status "Success"
 
   Scenario: ION_IR61. ion_reporter service can list all ion_reporters that meet query parameters(special characters?)
     Given ion_reporter_id is ""
@@ -150,24 +154,63 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Then field: "ion_reporter_id" for this ion_reporter should be: "IR_DHR9Z"
 
   Scenario: ION_IR62. ion_reporter service can return single ion_reporter with specified ion_reporter_id
+    Given ion_reporter_id is "IR_L46IS"
+    Then field: "site" for this ion_reporter should be: "mda"
 
-  Scenario: ION_IR63. ion_reporter service should only return projected key-value pair
+  Scenario Outline: ION_IR63. ion_reporter service should only return projected key-value pair
+    Given ion_reporter_id is "<ion_id>"
+    Then add projection: "<field1>" to url
+    Then add projection: "<field2>" to url
+    Then call ion_reporters GET service, returns a message that includes "" with status "Success"
+    Then each returned ion_reporter should have 2 fields
+    Then each returned ion_reporter should have field "<field1>"
+    Then each returned ion_reporter should have field "<field2>"
+    Examples:
+    |ion_id       |field1                       |field2                 |
+    |IR_LB123     |host_name                    |ion_reporter_id        |
+    |             |date_ion_reporter_id_created |site                   |
 
-  Scenario: ION_IR64. ion_reporter service should fail if an invalid key is projected
+  Scenario: ION_IR64. ion_reporter service should fail(or just not return this field?) if an invalid key is projected
+    Given ion_reporter_id is ""
+    Then add projection: "non_existing_key" to url
+    Then call ion_reporters GET service, returns a message that includes "No ABCMeta" with status "Failure"
+#    Then call ion_reporters GET service, returns a message that includes "" with status "Success"
+
 
   Scenario: ION_IR65. ion_reporter service should return 404 error if query a non-existing ion_reporter_id
+    Given ion_reporter_id is ""
+    Then add field: "site" value: "non_existing_site" to url
+    Then call ion_reporters GET service, returns a message that includes "No records meet the query parameters" with status "Failure"
 
 
 
   Scenario: ION_IR80. ion_reporter service can list all patients on specified ion_reporter
 
   Scenario: ION_IR81. ion_reporter service can list all sample controls on specified ion_reporter
+    Given ion_reporter_id is "IR_WAO85"
+    When call ion_reporters GET sample_controls service, returns a message that includes "" with status "Success"
+    Then there are|is 3 sample_control returned
+    Then returned sample_control should contain molecular_id: "SC_SA1CB"
+    Then returned sample_control should contain molecular_id: "SC_YQ111"
+    Then returned sample_control should contain molecular_id: "SC_67VKV"
 
-  Scenario: ION_IR82. ion_reporter service should fail if projection is used when query patients
+#  Scenario: ION_IR82. ion_reporter service should fail if projection is used when query patients
 
   Scenario: ION_IR83. ion_reporter service should only return projected key-value pair when query sample controls
+    Given ion_reporter_id is "IR_WAO85"
+    Then add projection: "molecular_id" to url
+    Then add projection: "control_type" to url
+    When call ion_reporters GET sample_controls service, returns a message that includes "" with status "Success"
+    Then each returned sample_control should have 2 fields
+    Then each returned sample_control should have field "molecular_id"
+    Then each returned sample_control should have field "control_type"
 
-  Scenario: ION_IR84. ion_reporter service should fail if an invalid key is projected when query sample controls
+  Scenario: ION_IR84. ion_reporter service should fail(or just not return this field?) if an invalid key is projected when query sample controls
+    Given ion_reporter_id is "IR_WAO85"
+    Then add field: "molecular_id" value: "non_existing_moi" to url
+    Then call ion_reporters GET sample_controls service, returns a message that includes "No records meet the query parameters" with status "Failure"
+
+
 
 
 

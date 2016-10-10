@@ -165,13 +165,13 @@ class ION_helper_methods
   ######## services #####
 
   def self.get_any_result_from_url(url)
-    return Helper_Methods.simple_get_request(url)
+    return Helper_Methods.simple_get_request(url)['message_json']
   end
 
   def self.get_special_result_from_url(url, timeout, query_hash, path=[])
     run_time = 0.0
     loop do
-      response = Helper_Methods.simple_get_request(url)
+      response = Helper_Methods.simple_get_request(url)['message_json']
       if response.length==1
         target_object = response[0]
         path.each do |path_key|
@@ -204,7 +204,7 @@ class ION_helper_methods
     run_time = 0.0
     old_response = nil
     loop do
-      new_response = Helper_Methods.simple_get_request(url)
+      new_response = Helper_Methods.simple_get_request(url)['message_json']
       if old_response.nil?
         old_response = new_response
       end
@@ -271,7 +271,7 @@ class ION_helper_methods
     total_time = 0.0
     old_status = ''
     loop do
-      output_hash = Helper_Methods.simple_get_request("#{ENV['patients_endpoint']}/#{patient_id}")
+      output_hash = Helper_Methods.simple_get_request("#{ENV['patients_endpoint']}/#{patient_id}")['message_json']
       if output_hash.length == 1
         new_status = output_hash[0]['current_status']
         if old_status == ''
