@@ -181,7 +181,7 @@ Feature: TA_VR. Treatment Arm API Tests that focus on Variants
       |gf           |fudge                            |
 
 
-  @treatment_arm_p2
+  @treatment_arm_p3
   Scenario: TA_VR9. Duplicated Non-Hotspot Rules will be ignored
     Given template treatment arm json with an id: "APEC1621-VR9-1"
     Then clear template treatment arm json's variant: "nhr" list

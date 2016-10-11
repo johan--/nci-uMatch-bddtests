@@ -67,7 +67,7 @@ Feature: TA_DG. Treatment Arm API Tests that focus on "treatment_arm_drugs" and 
     | null         |
     |              |
 
-  @treatment_arm_p2
+  @treatment_arm_p3
   Scenario Outline: TA_DG8 Validate the treatment_arm json message received for new treatment arm request
     Given that a new treatment arm is received from COG with version: "<version>" study_id: "<study_id>" id: "<id>" name: "<name>" description: "<description>" target_id: "<target_id>" target_name: "<target_name>" gene: "<gene>" and with one drug: "<drug>" and with tastatus: "<tastatus>" and with stratum_id "<stratum_id>"
     And with variant report

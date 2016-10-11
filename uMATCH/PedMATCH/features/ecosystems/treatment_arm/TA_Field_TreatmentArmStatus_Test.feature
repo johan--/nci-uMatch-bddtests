@@ -18,7 +18,7 @@ Feature: TA_TAS. Treatment Arm API Tests that focus on "treatment_arm_status" fi
     |APEC1621-TAS2-2            |CLOSED     |
     |APEC1621-TAS2-3            |SUSPENDED  |
 
-  @treatment_arm_p2
+  @treatment_arm_p3
   Scenario: TA_TAS2. The status of update Treatment Arm should be set to same value with the last version
     Given template treatment arm json with an id: "APEC1621-TAS2-1", stratum_id: "STRATUM1" and version: "2016-06-03"
     When creating a new treatment arm using post request
