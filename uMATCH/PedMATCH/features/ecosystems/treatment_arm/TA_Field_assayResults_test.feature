@@ -1,10 +1,10 @@
 #encoding: utf-8
 
 @treatment_arm
-Feature: TA_AR1. Treatment Arm API Tests that focus on assay_rules
+Feature: TA_AR. Treatment Arm API Tests that focus on assay_rules
 
   @treatment_arm_p2
-  Scenario Outline: assay_rules with valid values should pass
+  Scenario Outline: TA_AR1. assay_rules with valid values should pass
     Given template treatment arm json with an id: "<treatment_arm_id>"
     And clear list field: "assay_rules" from template treatment arm json
     Then add assayResult with gene: "<gene>", type: "<type>", assay_result_status: "<status>", assay_variant: "<variant>", LOE: "<loe>" and description: "<description>"
@@ -19,7 +19,7 @@ Feature: TA_AR1. Treatment Arm API Tests that focus on assay_rules
       |APEC1621-AR1-2       |MSCH2 | IHC  |NEGATIVE        |NEGATIVE   |1.2       |description           |
       |APEC1621-AR1-3       |MLH1  | IHC  |INDETERMINATE   |EMPTY      |3.0       |the other description |
 
-  @treatment_arm_p2
+  @treatment_arm_p3
   Scenario Outline: TA_AR2. assay_rules with invalid values should fail
     Given template treatment arm json with a random id
     And clear list field: "assay_rules" from template treatment arm json
