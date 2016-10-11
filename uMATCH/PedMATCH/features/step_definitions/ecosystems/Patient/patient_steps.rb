@@ -123,6 +123,10 @@ end
 #   # @retrieved_patient=JSON(IO.read('/Users/wangl17/match_apps/patient_100100.json'))
 # end
 
+Given(/^patient id is "([^"]*)"$/) do |patient_id|
+  @patient_id = patient_id
+end
+
 Then(/^patient field: "([^"]*)" should have value: "([^"]*)" within (\d+) seconds$/) do |field, value, timeout|
   converted_value = value=='null'?nil:value
   url = "#{ENV['patients_endpoint']}?patient_id=#{@patient_id}"

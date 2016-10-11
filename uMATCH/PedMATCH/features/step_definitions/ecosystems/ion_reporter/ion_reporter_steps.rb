@@ -25,14 +25,13 @@ Given(/^control_type is "([^"]*)"$/) do |control_type|
     @url_params = {}
   end
   @url_params['control_type'] = control_type
-  end
-
-Given(/^sample_control molecular id is "([^"]*)"$/) do |moi|
-  @sc_moi = moi
 end
 
+Given(/^molecular id is "([^"]*)"$/) do |moi|
+  @molecular_id = moi
+end
 
-  Given(/^ion_reporter_id is "([^"]*)"$/) do |ion_reporter_id|
+Given(/^ion_reporter_id is "([^"]*)"$/) do |ion_reporter_id|
   @ion_id = ion_reporter_id
 end
 
@@ -48,7 +47,7 @@ Then(/^add projection: "([^"]*)" to url$/) do |proj|
     @url_params = {}
   end
   @url_params[proj] = 'projection' #see the implementation of function add_parameters_to_url
-                                  #to find why this line is coded like this
+  #to find why this line is coded like this
 end
 
 When(/^call ion_reporters POST service (\d+) times, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |times, message, status|
@@ -129,7 +128,7 @@ Then(/^each generated ion_reporter_id should have (\d+) record$/) do |count|
 end
 
 Then(/^field: "([^"]*)" for each generated ion_reporter should be: "([^"]*)"$/) do |field, value|
-  converted_value = value=='null'?nil:value
+  converted_value = value=='null' ? nil : value
   @generated_ion_ids.each { |this_ion_id|
     @ion_id = this_ion_id
     url = prepare_ion_reporters_url #"#{ENV['ion_system_endpoint']}/ion_reporters/#{this_ion_id}"
@@ -139,7 +138,7 @@ Then(/^field: "([^"]*)" for each generated ion_reporter should be: "([^"]*)"$/) 
 end
 
 Then(/^field: "([^"]*)" for this ion_reporter should be: "([^"]*)"$/) do |field, value|
-  converted_value = value=='null'?nil:value
+  converted_value = value=='null' ? nil : value
   url = prepare_ion_reporters_url #"#{ENV['ion_system_endpoint']}/ion_reporters/#{@ion_id}"
   ion_reporter = Helper_Methods.simple_get_request(url)['message_json']
   if ion_reporter.is_a?(Array)
@@ -149,7 +148,7 @@ Then(/^field: "([^"]*)" for this ion_reporter should be: "([^"]*)"$/) do |field,
 end
 
 Then(/^add field: "([^"]*)" value: "([^"]*)" to message body$/) do |field, value|
-  converted_value = value=='null'?nil:value
+  converted_value = value=='null' ? nil : value
   if @payload.nil?
     @payload = {}
   end
@@ -269,10 +268,6 @@ Then(/^new and old total ion_reporters counts should have (\d+) difference$/) do
 end
 
 
-
-
-
-
 ################################################
 ##############               ###################
 ##############sample controls###################
@@ -284,7 +279,7 @@ When(/^call sample_controls POST service, returns a message that includes "([^"]
   response = Helper_Methods.post_request(url, @payload.to_json.to_s)
   validate_response(response, status, message)
   @sc_generate_date = Time.now.utc.to_i
-   @sc_moi = JSON.parse(response['message'])['molecular_id']
+  @molecular_id = JSON.parse(response['message'])['molecular_id']
 end
 
 When(/^call sample_controls PUT service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
@@ -307,7 +302,7 @@ When(/^call sample_controls GET service, returns a message that includes "([^"]*
 end
 
 Then(/^field: "([^"]*)" for generated sample_control should be: "([^"]*)"$/) do |field, value|
-  converted_value = value=='null'?nil:value
+  converted_value = value=='null' ? nil : value
   url = prepare_sample_controls_url
   sample_control = Helper_Methods.simple_get_request(url)['message_json']
   sample_control[field].should == converted_value
@@ -322,7 +317,7 @@ end
 Then(/^generated sample_control should have field: "([^"]*)"$/) do |field|
   url = prepare_sample_controls_url
   sample_control = Helper_Methods.simple_get_request(url)['message_json']
-  expect_result = "sample_control #{@sc_moi} has field: #{field}"
+  expect_result = "sample_control #{@molecular_id} has field: #{field}"
   actual_result = expect_result
   unless sample_control.keys.include?(field)
     actual_result = "sample_control fields: #{sample_control.keys.to_s} do not include #{field}"
@@ -336,7 +331,7 @@ Then(/^generated sample_control molecular id should have (\d+) record$/) do |cou
   sample_controls = Helper_Methods.simple_get_request(url)['message_json']
   total = 0
   sample_controls.each { |this_sc|
-    if this_sc['molecular_id']==@sc_moi
+    if this_sc['molecular_id']==@molecular_id
       total+=1
     end
   }
@@ -344,10 +339,10 @@ Then(/^generated sample_control molecular id should have (\d+) record$/) do |cou
 end
 
 Then(/^generated sample_control should have correct date_molecular_id_created/) do
-    url = prepare_sample_controls_url
-    sample_control = Helper_Methods.simple_get_request(url)['message_json']
-    returned_date = DateTime.parse(sample_control['date_molecular_id_created']).to_i
-    validate_date_diff('date_molecular_id_created', @sc_generate_date, returned_date)
+  url = prepare_sample_controls_url
+  sample_control = Helper_Methods.simple_get_request(url)['message_json']
+  returned_date = DateTime.parse(sample_control['date_molecular_id_created']).to_i
+  validate_date_diff('date_molecular_id_created', @sc_generate_date, returned_date)
 end
 
 Then(/^there are\|is (\d+) sample_control returned$/) do |count|
@@ -366,7 +361,7 @@ end
 Then(/^updated sample_control should not have field: "([^"]*)"$/) do |field|
   url = prepare_sample_controls_url
   sample_control = Helper_Methods.simple_get_request(url)['message_json']
-  expect_result = "sample_control #{@sc_moi} doesn't have field: #{field}"
+  expect_result = "sample_control #{@molecular_id} doesn't have field: #{field}"
   actual_result = expect_result
   if sample_control.keys.include?(field)
     actual_result = "sample_control has fields: #{field}, value is #{sample_control[field]}"
@@ -446,7 +441,7 @@ Then(/^new and old total sample_controls counts should have (\d+) difference$/) 
 end
 
 Then(/^field: "([^"]*)" for this sample_control should be: "([^"]*)"$/) do |field, value|
-  converted_value = value=='null'?nil:value
+  converted_value = value=='null' ? nil : value
   url = prepare_sample_controls_url
   sample_control = Helper_Methods.simple_get_request(url)['message_json']
   if sample_control.is_a?(Array)
@@ -456,12 +451,145 @@ Then(/^field: "([^"]*)" for this sample_control should be: "([^"]*)"$/) do |fiel
 end
 
 
+################################################
+##############               ###################
+##############    aliquot   ###################
+##############               ###################
+################################################
+Then(/^call aliquot PUT service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
+  url = prepare_aliquot_url
+  response = Helper_Methods.put_request(url, @payload.to_json.to_s)
+  validate_response(response, status, message)
+end
+
+When(/^call aliquot GET service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
+  url = prepare_aliquot_url
+  response = Helper_Methods.simple_get_request(url)
+  validate_response(response, status, message)
+  @returned_aliquot_result = response['message_json']
+end
+
+When(/^call aliquot POST service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
+  url = prepare_aliquot_url
+  response = Helper_Methods.post_request(url, @payload.to_json.to_s)
+  validate_response(response, status, message)
+end
+
+When(/^call aliquot DELETE service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
+  url = prepare_aliquot_url
+  response = Helper_Methods.delete_request(url)
+  validate_response(response, status, message)
+end
+
+Then(/^field: "([^"]*)" for this sample control should be: "([^"]*)" within (\d+) seconds$/) do |field, value, timeout|
+  converted_value = value=='null' ? nil : value
+  url = prepare_aliquot_url
+  aliquot_result = Patient_helper_methods.get_special_result_from_url(url, timeout, {field => converted_value})
+  aliquot_result[field].should == converted_value
+end
+
+And(/^file: "([^"]*)" should be available in S3$/) do |file|
+  Helper_Methods.s3_file_exists(ENV['s3_bucket'], file).should == true
+end
+
+Then(/^call aliquot GET service, field: "([^"]*)" for this sample_control should be: "([^"]*)"$/) do |field, value|
+  converted_value = value=='null' ? nil : value
+  url = prepare_aliquot_url
+  sample_control = Helper_Methods.simple_get_request(url)['message_json']
+  if sample_control.is_a?(Array)
+    sample_control = sample_control[0]
+  end
+  sample_control[field].should == converted_value
+end
+
+Then(/^each returned aliquot result should have (\d+) fields$/) do |count|
+  if @returned_aliquot_result.is_a?(Array)
+    @returned_aliquot_result.each { |this_aq|
+      this_aq.keys.length.should == count.to_i }
+  elsif @returned_aliquot_result.is_a?(Hash)
+    @returned_aliquot_result.keys.length.should == count.to_i
+  else
+    0.should == count.to_i
+  end
+end
+
+Then(/^each returned aliquot result should have field "([^"]*)"$/) do |field|
+  if @returned_aliquot_result.is_a?(Array)
+    @returned_aliquot_result.each { |this_aq|
+      expect_result = "aliquot result has field: #{field}"
+      actual_result = expect_result
+      unless this_aq.keys.include?(field)
+        actual_result = "aliquot result fields: #{this_aq.keys.to_s} do not include #{field}"
+      end
+      actual_result.should == expect_result
+    }
+  elsif @returned_aliquot_result.is_a?(Hash)
+    expect_result = "aliquot result has field: #{field}"
+    actual_result = expect_result
+    unless @returned_aliquot_result.keys.include?(field)
+      actual_result = "aliquot result fields: #{@returned_aliquot_result.keys.to_s} do not include #{field}"
+    end
+    actual_result.should == expect_result
+  else
+    expect_result = 'aliquot result returned'
+    actual_result = 'no aliquot result returned'
+    actual_result.should == expect_result
+  end
+end
+
+
+
+
+################################################
+##############               ###################
+##############   files(seq)  ###################
+##############               ###################
+################################################
+Given(/^sequence file type: "([^"]*)", nucleic acid type: "([^"]*)"$/) do |type, sub_type|
+  @sequence_file_type = type
+  @sequence_file_sub_type = sub_type
+end
+
+# Then(/^sequence file type: "([^"]*)", nucleic acid type: "([^"]*)" for this molecular id should be "([^"]*)"$/) do |type, sub_type, result|
+#   url = prepare_sequence_file_url(@sequence_file_type, @sequence_file_sub_type)
+#   response = Helper_Methods.simple_get_request(url)
+#   unless response.keys.include?('s3_download_file_url')
+#     raise "response doesn't contain file url: \n#{response.to_json.to_s}"
+#   end
+#   validate_file_url(response['s3_download_file_url'], result)
+# end
+
+Then(/^call sequence_files PUT service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
+  url = prepare_sequence_file_url(@sequence_file_type, @sequence_file_sub_type)
+  response = Helper_Methods.put_request(url, @payload.to_json.to_s)
+  validate_response(response, status, message)
+end
+
+When(/^call sequence_files GET service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
+  url = prepare_sequence_file_url(@sequence_file_type, @sequence_file_sub_type)
+  response = Helper_Methods.simple_get_request(url)
+  validate_response(response, status, message)
+  @returned_sequence_file = response['message_json']
+end
+
+When(/^call sequence_files POST service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
+  url = prepare_sequence_file_url(@sequence_file_type, @sequence_file_sub_type)
+  response = Helper_Methods.post_request(url, @payload.to_json.to_s)
+  validate_response(response, status, message)
+end
+
+When(/^call sequence_files DELETE service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
+  url = prepare_sequence_file_url(@sequence_file_type, @sequence_file_sub_type)
+  response = Helper_Methods.delete_request(url)
+  validate_response(response, status, message)
+end
+
 
 def validate_response(response, expected_status, expected_partial_message)
   response['status'].downcase.should == expected_status.downcase
   expect_message = "returned message include <#{expected_partial_message}>"
   actual_message = response['message']
-  if response['message'].downcase.include?expected_partial_message.downcase
+  if response['message'].downcase.include? expected_partial_message.downcase
     actual_message = expect_message
   end
   actual_message.should == expect_message
@@ -483,8 +611,8 @@ end
 
 def prepare_sample_controls_url
   slash_moi = ''
-  if @sc_moi!=nil && @sc_moi.length>0
-    slash_moi = "/#{@sc_moi}"
+  if @molecular_id!=nil && @molecular_id.length>0
+    slash_moi = "/#{@molecular_id}"
   end
 
   # slash_service = ''
@@ -494,6 +622,32 @@ def prepare_sample_controls_url
   # url = "#{ENV['ion_system_endpoint']}/ion_reporters#{slash_ion_id}#{slash_service}"
   url = "#{ENV['ion_system_endpoint']}/sample_controls#{slash_moi}"
 
+  add_parameters_to_url(url, @url_params)
+end
+
+def prepare_sequence_file_url(type, sub_type)
+  slash_moi = ''
+  if @molecular_id!=nil && @molecular_id.length>0
+    slash_moi = "/#{@molecular_id}"
+  end
+  slash_type = ''
+  if type!=nil && type.length>0
+    slash_type = "/#{type}"
+  end
+  slash_sub_type = ''
+  if sub_type!=nil && sub_type.length>0
+    slash_sub_type = "/#{sub_type}"
+  end
+  url = "#{ENV['ion_system_endpoint']}/sequence_files#{slash_moi}#{slash_type}#{slash_sub_type}"
+  add_parameters_to_url(url, @url_params)
+end
+
+def prepare_aliquot_url
+  slash_moi = ''
+  if @molecular_id!=nil && @molecular_id.length>0
+    slash_moi = "/#{@molecular_id}"
+  end
+  url = "#{ENV['ion_system_endpoint']}/aliquot#{slash_moi}"
   add_parameters_to_url(url, @url_params)
 end
 
@@ -514,11 +668,11 @@ end
 
 def validate_date_diff(date_field, expect_date, actual_date, max_diff_second=5)
   time_diff = expect_date - actual_date
-  expect_result = "#{date_field} is #{DateTime.strptime(expect_date.to_s,'%s')} "
+  expect_result = "#{date_field} is #{DateTime.strptime(expect_date.to_s, '%s')} "
   expect_result += "(#{max_diff_second} seconds difference is allowed)"
   actual_result = expect_result
   if time_diff < 0 || time_diff > max_diff_second
-    actual_result = "#{date_field} is #{DateTime.strptime(actual_date.to_s,'%s')}"
+    actual_result = "#{date_field} is #{DateTime.strptime(actual_date.to_s, '%s')}"
   end
   actual_result.should == expect_result
 end

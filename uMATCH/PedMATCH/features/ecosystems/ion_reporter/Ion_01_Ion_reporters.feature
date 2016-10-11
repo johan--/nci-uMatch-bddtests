@@ -2,16 +2,16 @@
 @ion_reporter_reporters
 Feature: Tests for ion_reporters service in ion ecosystem
 
-@ion_reporter_p1
+  @ion_reporter_p1
   Scenario Outline: ION_IR01. new ion_reporter can be created successfully
     Given site is "<site>"
     When call ion_reporters POST service 1 times, returns a message that includes "New ion reporter created" with status "Success"
     Then each generated ion_reporter_id should have 1 record
     Then field: "site" for each generated ion_reporter should be: "<site>"
     Examples:
-    |site       |
-    |mda        |
-    |mocha      |
+      | site  |
+      | mda   |
+      | mocha |
 
   Scenario: ION_IR02. multiple ion_reporters can be generated for same site
     Given site is "mda"
@@ -24,10 +24,10 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Given site is "<site>"
     When call ion_reporters POST service 1 times, returns a message that includes "site" with status "Failure"
     Examples:
-    |site           |
-    |MDA            |
-    |MoCha          |
-    |invalid_site   |
+      | site         |
+      | MDA          |
+      | MoCha        |
+      | invalid_site |
 
   Scenario: ION_IR04. ion_reporter POST service can take any message body but should not store it (no-related values, ion_reporter_id, site...)
     Given site is "mocha"
@@ -52,13 +52,11 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Then add field: "<field>" value: "<value>" to url
     When call ion_reporters POST service 1 times, returns a message that includes "<field> was passed in request" with status "Failure"
     Examples:
-    |field                        |value                          |
-    |date_ion_reporter_id_created |2010-01-07                     |
-    |ion_reporter_id              |IR_O2YIA                       |
-    |ir_status                    |Contacted 4 minutes ago        |
-    |host_name                    |YSM-MATCH-IR                   |
-
-
+      | field                        | value                   |
+      | date_ion_reporter_id_created | 2010-01-07              |
+      | ion_reporter_id              | IR_O2YIA                |
+      | ir_status                    | Contacted 4 minutes ago |
+      | host_name                    | YSM-MATCH-IR            |
 
 
   Scenario: ION_IR20. ion_reporter can be updated successfully
@@ -82,10 +80,10 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Then add field: "<field>" value: "<value>" to message body
     When call ion_reporters PUT service, returns a message that includes "<field>" with status "Failure"
     Examples:
-    |field                          |value                            |
-    |date_ion_reporter_id_created   |2010-04-25                       |
-    |ion_reporter_id                |IR_XXJXX                         |
-    |site                           |mocha                            |
+      | field                        | value      |
+      | date_ion_reporter_id_created | 2010-04-25 |
+      | ion_reporter_id              | IR_XXJXX   |
+      | site                         | mocha      |
 
   Scenario: ION_IR22. ion_reporter update request should fail if non-existing ion_reporter_id is passed in
     Given ion_reporter_id is "IR_NON_EXISTING"
@@ -104,8 +102,6 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Then updated ion_reporter should not have field: "extra_information"
 
   Scenario: ION_IR24. ion_reporter update request should not remove existing fields that are not in PUT message body
-
-
 
 
   Scenario: ION_IR40. specific ion_reporter can be deleted successfully
@@ -145,7 +141,6 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Then new and old total ion_reporters counts should have 0 difference
 
 
-
   Scenario: ION_IR60. ion_reporter service can list all existing ion_reporters
     Given ion_reporter_id is ""
     When call ion_reporters GET service, returns a message that includes "ion_reporter_id" with status "Success"
@@ -163,14 +158,15 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Given ion_reporter_id is "<ion_id>"
     Then add projection: "<field1>" to url
     Then add projection: "<field2>" to url
+    Then add projection: "bad_projection" to url
     Then call ion_reporters GET service, returns a message that includes "" with status "Success"
     Then each returned ion_reporter should have 2 fields
     Then each returned ion_reporter should have field "<field1>"
     Then each returned ion_reporter should have field "<field2>"
     Examples:
-    |ion_id       |field1                       |field2                 |
-    |IR_LB123     |host_name                    |ion_reporter_id        |
-    |             |date_ion_reporter_id_created |site                   |
+      | ion_id   | field1                       | field2          |
+      | IR_LB123 | host_name                    | ion_reporter_id |
+      |          | date_ion_reporter_id_created | site            |
 
   Scenario: ION_IR64. ion_reporter service should fail(or just not return this field?) if an invalid key is projected
     Given ion_reporter_id is ""
@@ -183,7 +179,6 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Given ion_reporter_id is ""
     Then add field: "site" value: "non_existing_site" to url
     Then call ion_reporters GET service, returns a message that includes "No records meet the query parameters" with status "Failure"
-
 
 
   Scenario: ION_IR80. ion_reporter service can list all patients on specified ion_reporter
