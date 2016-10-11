@@ -35,17 +35,17 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Then add field: "site" value: "yale" to message body
     Then add field: "ip_address" value: "204.60.187.1" to message body
     When call ion_reporters POST service 1 times, returns a message that includes "New ion reporter created" with status "Success"
-    Then each generated ion_reporter_id should have 3 field-value pairs
-    Then each generated ion_reporter_id should have field: "date_ion_reporter_id_created"
-    Then each generated ion_reporter_id should have field: "ion_reporter_id"
-    Then each generated ion_reporter_id should have field: "site"
+    Then each generated ion_reporter should have 3 field-value pairs
+    Then each generated ion_reporter should have field: "date_ion_reporter_id_created"
+    Then each generated ion_reporter should have field: "ion_reporter_id"
+    Then each generated ion_reporter should have field: "site"
     Then field: "site" for each generated ion_reporter should be: "mocha"
 
 
   Scenario: ION_IR05. date_ion_reporter_id_created should be generated properly
     Given site is "mda"
     When call ion_reporters POST service 1 times, returns a message that includes "New ion reporter created" with status "Success"
-    Then each generated ion_reporter_id should have correct date_ion_reporter_id_created
+    Then each generated ion_reporter should have correct date_ion_reporter_id_created
 
   Scenario Outline: ION_IR06. ion_reporter service should fail if parameters other than "site" are passed in
     Given site is "mocha"
@@ -100,8 +100,10 @@ Feature: Tests for ion_reporters service in ion ecosystem
   Scenario: ION_IR23. ion_reporter update request should not fail if extra key-value pair in message body, but doesn't store them
     Given ion_reporter_id is "IR_UL0OM"
     Then add field: "extra_information" value: "other" to message body
-    When call ion_reporters put service, returns a message that includes "updated" with status "Success"
+    When call ion_reporters PUT service, returns a message that includes "updated" with status "Success"
     Then updated ion_reporter should not have field: "extra_information"
+
+  Scenario: ION_IR24. ion_reporter update request should not remove existing fields that are not in PUT message body
 
 
 
@@ -135,7 +137,7 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Then new and old total ion_reporters counts should have 0 difference
 
   Scenario: ION_IR44. ion_reporter service should fail if no ion_reporter meet batch delete parameters, and no ion_reporter is deleted
-    Given ion_reporter_id is "IR_NON_EXISTING"
+    Given ion_reporter_id is ""
     Then add field: "site" value: "invalid_site" to url
     Then record total ion_reporters count
     Then call ion_reporters DELETE service, returns a message that includes "ion_reporter_id" with status "Failure"
