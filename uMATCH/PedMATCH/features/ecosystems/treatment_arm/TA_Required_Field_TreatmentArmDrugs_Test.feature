@@ -100,6 +100,5 @@ Feature: TA_DG. Treatment Arm API Tests that focus on "treatment_arm_drugs" and 
     Then a failure message is returned which contains: "<message>"
     Examples:
       |version    |study_id   |id			|name				|description	            |target_id	|target_name	|gene			|drug												|Status			|message									                                                          |timestamp					|tastatus | stratum_id |
-      |2016-05-27 |APEC1621   |				|Afatinib			|covalent inhibitor 		|1234		|EGFR Pathway	|ALK			|1,Afatinib,Afatinib,angiokinase inhibitor			|FAILURE		|id may not be empty						                                                          |2014-06-29 11:34:20.179 GMT	|OPEN	  | 1          |
       |2016-05-27 |APEC1621   |TA_test5		|Afatinib			|covalent inhibitor 		|1234		|EGFR Pathway	|ALK			|1,,Afatinib,angiokinase inhibitor					|FAILURE		|The property '#/treatment_arm_drugs/0/name' of type NilClass did not match the following type: string|2014-06-29 11:34:20.179 GMT	|OPEN	  | 1          |
       |2016-05-27 |APEC1621   |TA_test6		|Afatinib			|covalent inhibitor 		|1234		|EGFR Pathway	|ALK			|1,null,Afatinib,angiokinase inhibitor				|FAILURE		|The property '#/treatment_arm_drugs/0/name' of type NilClass did not match the following type: string|2014-06-29 11:34:20.179 GMT	|OPEN	  | 1          |
