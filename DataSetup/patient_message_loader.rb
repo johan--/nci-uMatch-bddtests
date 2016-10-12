@@ -65,7 +65,7 @@ class PatientMessageLoader
     old_status = ''
     loop do
       output_hash = Helper_Methods.simple_get_request("#{LOCAL_PATIENT_API_URL}/#{patient_id}")['message_json']
-      if output_hash.length == 1
+      if output_hash!=nil && output_hash.length == 1
         new_status = output_hash[0]['current_status']
         if old_status == ''
           old_status = new_status

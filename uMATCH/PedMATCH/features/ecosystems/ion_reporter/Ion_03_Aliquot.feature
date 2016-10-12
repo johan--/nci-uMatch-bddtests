@@ -53,34 +53,34 @@ Feature: Tests for aliquot service in ion ecosystem
 
   @ion_reporter_p1
   Scenario: ION_AQ03. for patient blood specimen, aliquot service will generate tsv and bai files and upload to S3, then send variant files uploaded message to patient ecosystem once process done
-    Given molecular id is "ION_AQ03_BdShipped_MOI1"
+    Given molecular id is "ION_AQ03_BdShipped_BD_MOI1"
     Given patient id is "ION_AQ03_BdShipped"
     Then add field: "analysis_id" value: "ION_AQ03_BdShipped_ANI1" to message body
     Then add field: "site" value: "mda" to message body
     Then add field: "ion_reporter_id" value: "IR_Y1TKW" to message body
-    Then add field: "vcf_name" value: "ion_api_test_data/ION_AQ03_BdShipped_MOI1/ION_AQ03_BdShipped_ANI1/test1.vcf" to message body
-    Then add field: "dna_bam_name" value: "ion_api_test_data/ION_AQ03_BdShipped_MOI1/ION_AQ03_BdShipped_ANI1/dna.bam" to message body
-    Then add field: "cdna_bam_name" value: "ion_api_test_data/ION_AQ03_BdShipped_MOI1/ION_AQ03_BdShipped_ANI1/cdna.bam" to message body
-    Then add field: "qc_name" value: "ion_api_test_data/ION_AQ03_BdShipped_MOI1/ION_AQ03_BdShipped_ANI1/PT_PR07_TissueShipped_ANI1_QC.pdf" to message body
+    Then add field: "vcf_name" value: "ion_api_test_data/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/test1.vcf" to message body
+    Then add field: "dna_bam_name" value: "ion_api_test_data/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/dna.bam" to message body
+    Then add field: "cdna_bam_name" value: "ion_api_test_data/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/cdna.bam" to message body
+    Then add field: "qc_name" value: "ion_api_test_data/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/PT_PR07_TissueShipped_ANI1_QC.pdf" to message body
     Then call aliquot PUT service, returns a message that includes "Item updated" with status "Success"
     Then patient should have variant report (analysis_id: "ION_AQ03_BdShipped_ANI1") within 30 seconds
     And this variant report has value: "ion_api_test_data/PT_PR07_TissueShipped_MOI1/ION_AQ03_BdShipped_ANI1/test1.tsv" in field: "tsv_file_name"
-    And file: "ion_api_test_data/ION_AQ03_BdShipped_MOI1/ION_AQ03_BdShipped_ANI1/test1.tsv" should be available in S3
-    And file: "ion_api_test_data/ION_AQ03_BdShipped_MOI1/ION_AQ03_BdShipped_ANI1/dna.bam.bai" should be available in S3
-    And file: "ion_api_test_data/ION_AQ03_BdShipped_MOI1/ION_AQ03_BdShipped_ANI1/cdna.bam.bai" should be available in S3
+    And file: "ion_api_test_data/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/test1.tsv" should be available in S3
+    And file: "ion_api_test_data/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/dna.bam.bai" should be available in S3
+    And file: "ion_api_test_data/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/cdna.bam.bai" should be available in S3
     Then add field: "analysis_id" value: "ION_AQ03_BdShipped_ANI2" to message body
     Then add field: "site" value: "mda" to message body
     Then add field: "ion_reporter_id" value: "IR_Y1TKW" to message body
-    Then add field: "vcf_name" value: "ion_api_test_data/ION_AQ03_BdShipped_MOI1/ION_AQ03_BdShipped_ANI2/test1.vcf" to message body
-    Then add field: "dna_bam_name" value: "ion_api_test_data/ION_AQ03_BdShipped_MOI1/ION_AQ03_BdShipped_ANI2/dna.bam" to message body
-    Then add field: "cdna_bam_name" value: "ion_api_test_data/ION_AQ03_BdShipped_MOI1/ION_AQ03_BdShipped_ANI2/cdna.bam" to message body
-    Then add field: "qc_name" value: "ion_api_test_data/ION_AQ03_BdShipped_MOI1/ION_AQ03_BdShipped_ANI2/ION_AQ03_BdShipped_ANI2_QC.pdf" to message body
+    Then add field: "vcf_name" value: "ion_api_test_data/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/test1.vcf" to message body
+    Then add field: "dna_bam_name" value: "ion_api_test_data/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/dna.bam" to message body
+    Then add field: "cdna_bam_name" value: "ion_api_test_data/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/cdna.bam" to message body
+    Then add field: "qc_name" value: "ion_api_test_data/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/ION_AQ03_BdShipped_ANI2_QC.pdf" to message body
     Then call aliquot PUT service, returns a message that includes "Item updated" with status "Success"
     Then patient should have variant report (analysis_id: "ION_AQ03_BdShipped_ANI2") within 30 seconds
-    And this variant report has value: "ion_api_test_data/ION_AQ03_BdShipped_MOI1/ION_AQ03_BdShipped_ANI2/test1.tsv" in field: "tsv_file_name"
-    And file: "ion_api_test_data/ION_AQ03_BdShipped_MOI1/ION_AQ03_BdShipped_ANI2/test1.tsv" should be available in S3
-    And file: "ion_api_test_data/ION_AQ03_BdShipped_MOI1/ION_AQ03_BdShipped_ANI2/dna.bam.bai" should be available in S3
-    And file: "ion_api_test_data/ION_AQ03_BdShipped_MOI1/ION_AQ03_BdShipped_ANI2/cdna.bam.bai" should be available in S3
+    And this variant report has value: "ion_api_test_data/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/test1.tsv" in field: "tsv_file_name"
+    And file: "ion_api_test_data/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/test1.tsv" should be available in S3
+    And file: "ion_api_test_data/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/dna.bam.bai" should be available in S3
+    And file: "ion_api_test_data/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/cdna.bam.bai" should be available in S3
 
   @ion_reporter_p3
   Scenario Outline: ION_AQ04. aliquot service will return error if any file value(vcf, bam, qc) is missing
@@ -94,7 +94,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Examples:
       | moi                     | ani                     | vcf                                                | dna_bam                                                                   |
       | SC_S5ONQ                | SC_S5ONQ_ANI1           | ion_api_test_data/SC_S5ONQ/SC_S5ONQ_ANI1/test1.vcf |                                                                           |
-      | ION_AQ03_TsShipped_MOI1 | ION_AQ03_TsShipped_ANI1 |                                                    | ion_api_test_data/ION_AQ03_TsShipped_MOI1/ION_AQ03_TsShipped_ANI1/dna.bam |
+      | ION_AQ04_TsShipped_MOI1 | ION_AQ04_TsShipped_ANI1 |                                                    | ion_api_test_data/ION_AQ04_TsShipped_MOI1/ION_AQ04_TsShipped_ANI1/dna.bam |
 
   @ion_reporter_p3
   Scenario: ION_AQ05. extra key-value pair in the message body should NOT fail

@@ -25,7 +25,7 @@ PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.ani)
 sleep(10.0)
 PatientMessageLoader.assignment_confirmed(pt.id, pt.ani)
 sleep(5.0)
-PatientMessageLoader.on_treatment_arm(pt.id, 'APEC1621-ETE-A')
+PatientMessageLoader.on_treatment_arm(pt.id, 'APEC1621-A')
 
 pt = PatientDataSet.new('PT_CR03_VRUploadedPathConfirmed')
 PatientMessageLoader.register_patient(pt.id)

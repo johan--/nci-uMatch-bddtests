@@ -45,6 +45,16 @@ class TableDetails
       keys: %w(patient_id variant_report_received_date)
   }
 
+  ION_REPORTERS = {
+      name: 'ion_reporters',
+      keys: %w(ion_reporter_id)
+  }
+
+  SAMPLE_CONTROLS = {
+      name: 'sample_controls',
+      keys: %w(molecular_id)
+  }
+
   def self.treatment_arm_tables
     %w(treatment_arm treatment_arm_assignment_event)
   end
@@ -53,8 +63,12 @@ class TableDetails
     %w(patient assignment event shipment specimen variant variant_report)
   end
 
+  def self.ion_tables
+    %w(ion_reporters sample_controls)
+  end
+
   def self.all_tables
-    (self.patient_tables << self.treatment_arm_tables).flatten
+    (self.patient_tables << self.treatment_arm_tables << self.ion_tables).flatten
   end
 
 end

@@ -63,7 +63,7 @@ Feature: Tests for ion_reporters service in ion ecosystem
 
   @ion_reporter_p1
   Scenario: ION_IR20. ion_reporter can be updated successfully
-    Given ion_reporter_id is "IR_LNFGD"
+    Given ion_reporter_id is "IR_CFUER"
     Then add field: "last_contact" value: "October 03, 2016 10:35 PM" to message body
     Then add field: "internal_ip_address" value: "172.20.174.24" to message body
     Then add field: "ir_status" value: "Contacted 5 days ago" to message body
@@ -80,7 +80,7 @@ Feature: Tests for ion_reporters service in ion ecosystem
 
   @ion_reporter_p2
   Scenario Outline: ION_IR21. ion_reporter update request should fail if ion_reporter_id, site or date_ion_reporter_id_created is in message body
-    Given ion_reporter_id is "IR_D0RRN"
+    Given ion_reporter_id is "IR_GBOPP"
     Then add field: "<field>" value: "<value>" to message body
     When call ion_reporters PUT service, returns a message that includes "<field>" with status "Failure"
     Examples:
@@ -102,25 +102,27 @@ Feature: Tests for ion_reporters service in ion ecosystem
     When call ion_reporters PUT service, returns a message that includes "The method is not allowed for the requested URL" with status "Failure"
 
   @ion_reporter_p3
-  Scenario: ION_IR23. ion_reporter update request should not fail if extra key-value pair in message body, but doesn't store them
-    Given ion_reporter_id is "IR_UL0OM"
+  Scenario: ION_IR24. ion_reporter update request should not fail if extra key-value pair in message body, but doesn't store them
+    Given ion_reporter_id is "IR_1H9XW"
     Then add field: "extra_information" value: "other" to message body
     When call ion_reporters PUT service, returns a message that includes "updated" with status "Success"
     Then updated ion_reporter should not have field: "extra_information"
 
   @ion_reporter_p2
-  Scenario: ION_IR24. ion_reporter update request should not remove existing fields that are not in PUT message body
+  Scenario: ION_IR25. ion_reporter update request should not remove existing fields that are not in PUT message body
+    Given ion_reporter_id is "IR_3I4AB"
 
   @ion_reporter_p1
   Scenario: ION_IR40. specific ion_reporter can be deleted successfully
-    Given ion_reporter_id is "IR_X529R"
+    Given ion_reporter_id is "IR_TG2DY"
     Then call ion_reporters DELETE service, returns a message that includes "Item deleted" with status "Success"
     Then call ion_reporters GET service, returns a message that includes "No ABCMeta" with status "Failure"
 
   @ion_reporter_p1
   Scenario: ION_IR41. ion_reporters can be batch deleted
+    #ion_reporter IR_37Y4Y should be deleted
     Given ion_reporter_id is ""
-    Then add field: "date_ion_reporter_id_created" value: "2016-10-07 15:41:24.770675" to url
+    Then add field: "date_ion_reporter_id_created" value: "2016-10-12 21:19:38.752627" to url
     Then call ion_reporters GET service, returns a message that includes "" with status "Success"
     Then there are|is 1 ion_reporter returned
     Then call ion_reporters DELETE service, returns a message that includes "Batch deletion request placed on queue to be processed" with status "Success"
@@ -160,13 +162,13 @@ Feature: Tests for ion_reporters service in ion ecosystem
   @ion_reporter_p1
   Scenario: ION_IR61. ion_reporter service can list all ion_reporters that meet query parameters(special characters?)
     Given ion_reporter_id is ""
-    Then add field: "date_ion_reporter_id_created" value: "2016-10-07 15:41:21.529980" to url
-    Then field: "ion_reporter_id" for this ion_reporter should be: "IR_DHR9Z"
+    Then add field: "date_ion_reporter_id_created" value: "2016-10-12 21:19:37.073738" to url
+    Then field: "ion_reporter_id" for this ion_reporter should be: "IR_ONO31"
 
   @ion_reporter_p1
   Scenario: ION_IR62. ion_reporter service can return single ion_reporter with specified ion_reporter_id
-    Given ion_reporter_id is "IR_L46IS"
-    Then field: "site" for this ion_reporter should be: "mda"
+    Given ion_reporter_id is "IR_PU4NI"
+    Then field: "site" for this ion_reporter should be: "mocha"
 
   @ion_reporter_p2
   Scenario Outline: ION_IR63. ion_reporter service should only return VALID projected key-value pair
@@ -180,7 +182,7 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Then each returned ion_reporter should have field "<field2>"
     Examples:
       | ion_id   | field1                       | field2          |
-      | IR_LB123 | host_name                    | ion_reporter_id |
+      | IR_NX0TL | host_name                    | ion_reporter_id |
       |          | date_ion_reporter_id_created | site            |
 
   @ion_reporter_p3
@@ -201,7 +203,7 @@ Feature: Tests for ion_reporters service in ion ecosystem
 
   @ion_reporter_p1
   Scenario: ION_IR81. ion_reporter service can list all sample controls on specified ion_reporter
-    Given ion_reporter_id is "IR_WAO85"
+    Given ion_reporter_id is "IR_0HV52"
     When call ion_reporters GET sample_controls service, returns a message that includes "" with status "Success"
     Then there are|is 3 sample_control returned
     Then returned sample_control should contain molecular_id: "SC_SA1CB"
@@ -212,7 +214,7 @@ Feature: Tests for ion_reporters service in ion ecosystem
 
   @ion_reporter_p2
   Scenario: ION_IR83. ion_reporter service should only return VALID projected key-value pair when query sample controls
-    Given ion_reporter_id is "IR_WAO85"
+    Given ion_reporter_id is "IR_0R0WO"
     Then add projection: "molecular_id" to url
     Then add projection: "control_type" to url
     Then add projection: "bad_projection" to url
@@ -223,7 +225,7 @@ Feature: Tests for ion_reporters service in ion ecosystem
 
   @ion_reporter_p3
   Scenario: ION_IR84. ion_reporter service should fail(or just not return this field?) if an invalid key is projected when query sample controls
-    Given ion_reporter_id is "IR_WAO85"
+    Given ion_reporter_id is "IR_TCWEV"
     Then add field: "molecular_id" value: "non_existing_moi" to url
     Then call ion_reporters GET sample_controls service, returns a message that includes "No records meet the query parameters" with status "Failure"
 

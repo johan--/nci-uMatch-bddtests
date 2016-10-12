@@ -179,6 +179,13 @@ class DynamoDb
       clear_table(table)
     end
   end
+
+  def clear_all_ion_tables
+    LOG.log('Deleting tables ion ecosystem')
+    TableDetails.ion_tables.each do |table|
+      clear_table(table)
+    end
+  end
 end
 
 # Logger

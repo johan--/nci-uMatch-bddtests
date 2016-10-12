@@ -121,6 +121,7 @@ Feature: Tests for sample_controls service in ion ecosystem
 
   @ion_reporter_p2
   Scenario: ION_SC26. sample_control update request should not remove existing fields that are not in PUT message body
+    Given molecular id is "SC_TESTS"
 
   @ion_reporter_p1
   Scenario: ION_SC40. sample_control with specific molecular_id can be deleted successfully
@@ -139,7 +140,7 @@ Feature: Tests for sample_controls service in ion ecosystem
     Then call sample_controls GET service, returns a message that includes "No ABCMeta" with status "Failure"
 
   @ion_reporter_p2
-  Scenario: ION_SC41. sample_controls cannot be batch deleted without parameters
+  Scenario: ION_SC42. sample_controls cannot be batch deleted without parameters
     Given molecular id is ""
     Then record total sample_controls count
     Then call sample_controls DELETE service, returns a message that includes "Cannot use batch delete to delete all records" with status "Failure"
@@ -147,7 +148,7 @@ Feature: Tests for sample_controls service in ion ecosystem
     Then new and old total sample_controls counts should have 0 difference
 
   @ion_reporter_p2
-  Scenario Outline: ION_SC42. sample_control service should fail if the specified molecular_id doesn't exist (including existing patient molecular_id), and no sample_control is deleted
+  Scenario Outline: ION_SC43. sample_control service should fail if the specified molecular_id doesn't exist (including existing patient molecular_id), and no sample_control is deleted
     Given molecular id is "<moi>"
     Then record total sample_controls count
     Then call sample_controls DELETE service, returns a message that includes "molecular id" with status "Failure"
@@ -156,10 +157,10 @@ Feature: Tests for sample_controls service in ion ecosystem
     Examples:
       | moi                     |
       | SC_NON_EXISTING         |
-      | ION_SC42_TsShipped_MOI1 |
+      | ION_SC43_TsShipped_MOI1 |
 
   @ion_reporter_p2
-  Scenario: ION_SC43. no sample_control will be deleted if no sample_control meet batch delete parameters
+  Scenario: ION_SC44. no sample_control will be deleted if no sample_control meet batch delete parameters
     Given molecular id is ""
     Then add field: "site" value: "invalid_site" to url
     Then record total sample_controls count

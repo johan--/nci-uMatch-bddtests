@@ -42,6 +42,13 @@ class DynamoDataUploader
     p 'Done!'
   end
 
+  def self.backup_all_ion_local_db
+    TableDetails.ion_tables.each { |table_name|
+      backup_local_table(table_name)
+    }
+    p 'Done!'
+  end
+
   def self.backup_local_table(table_name)
     query_table_name = table_name
     cmd = "aws dynamodb scan --table-name #{query_table_name} "
@@ -95,6 +102,14 @@ class DynamoDataUploader
     end_stamp = Time.now
     diff = (end_stamp - start_stamp) * 1000.0
     p "All treatment arm local to aws uploaded in #{diff.to_f / 1000.0} secs!"
+  end
+
+  def upload_ion_to_aws
+    start_stamp = Time.now
+    TableDetails.ion_tables.each { |table| upload_table_to_aws(table) }
+    end_stamp = Time.now
+    diff = (end_stamp - start_stamp) * 1000.0
+    p "All ion local to aws uploaded in #{diff.to_f / 1000.0} secs!"
   end
 
   def upload_table_to_aws(table_name)

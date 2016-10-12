@@ -34,7 +34,7 @@ PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 pt = PatientDataSet.new('PT_SS08_TissueReceived')
 PatientMessageLoader.register_patient(pt.id)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
-PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei_increase,'2016-04-25T18:17:11+00:00')
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei_increase, '2016-04-25T18:17:11+00:00')
 
 pt = PatientDataSet.new('PT_SS08a_TissueReceived1a')
 PatientMessageLoader.register_patient(pt.id)
