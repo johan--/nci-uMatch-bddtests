@@ -6,7 +6,7 @@ require_relative '../../../support/ion_helper_methods.rb'
 
 When(/^the ion reporter service \/version is called, the version "([^"]*)" is returned$/) do |version|
   url = "#{ENV['ion_system_endpoint']}/ion_reporters/version"
-  response = Helper_Methods.simple_get_request(url)
+  response = Helper_Methods.simple_get_request(url)['message_json']
   raise "response is expected to be a Hash, but it is a #{response.class.to_s}" unless response.is_a?(Hash)
   raise "response is expected to contain field version, but it is #{response.to_json.to_s}" unless response.keys.include?('version')
   response['version'].should == version
@@ -550,6 +550,10 @@ Given(/^sequence file type: "([^"]*)", nucleic acid type: "([^"]*)"$/) do |type,
   @sequence_file_sub_type = sub_type
 end
 
+Given(/^file name for files service is: "([^"]*)"$/) do |file_name|
+  @misc_file_name = file_name
+end
+
 # Then(/^sequence file type: "([^"]*)", nucleic acid type: "([^"]*)" for this molecular id should be "([^"]*)"$/) do |type, sub_type, result|
 #   url = prepare_sequence_file_url(@sequence_file_type, @sequence_file_sub_type)
 #   response = Helper_Methods.simple_get_request(url)
@@ -580,6 +584,31 @@ end
 
 When(/^call sequence_files DELETE service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
   url = prepare_sequence_file_url(@sequence_file_type, @sequence_file_sub_type)
+  response = Helper_Methods.delete_request(url)
+  validate_response(response, status, message)
+end
+
+Then(/^call files PUT service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
+  url = prepare_files_url(@misc_file_name)
+  response = Helper_Methods.put_request(url, @payload.to_json.to_s)
+  validate_response(response, status, message)
+end
+
+When(/^call files GET service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
+  url = prepare_files_url(@misc_file_name)
+  response = Helper_Methods.simple_get_request(url)
+  validate_response(response, status, message)
+  @returned_sequence_file = response['message_json']
+end
+
+When(/^call files POST service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
+  url = prepare_files_url(@misc_file_name)
+  response = Helper_Methods.post_request(url, @payload.to_json.to_s)
+  validate_response(response, status, message)
+end
+
+When(/^call files DELETE service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
+  url = prepare_files_url(@misc_file_name)
   response = Helper_Methods.delete_request(url)
   validate_response(response, status, message)
 end
@@ -639,6 +668,19 @@ def prepare_sequence_file_url(type, sub_type)
     slash_sub_type = "/#{sub_type}"
   end
   url = "#{ENV['ion_system_endpoint']}/sequence_files#{slash_moi}#{slash_type}#{slash_sub_type}"
+  add_parameters_to_url(url, @url_params)
+end
+
+def prepare_files_url(file_name)
+  slash_moi = ''
+  if @molecular_id!=nil && @molecular_id.length>0
+    slash_moi = "/#{@molecular_id}"
+  end
+  slash_file_name = ''
+  if file_name!=nil && file_name.length>0
+    slash_file_name = "/#{file_name}"
+  end
+  url = "#{ENV['ion_system_endpoint']}/files#{slash_moi}#{slash_file_name}"
   add_parameters_to_url(url, @url_params)
 end
 
