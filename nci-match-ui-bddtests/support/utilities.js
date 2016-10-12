@@ -161,6 +161,15 @@ var Utilities = function() {
         }
     };
 
+    this.moveAndCheckElement = function(webElementCollection, index, expectedValue){
+        browser.actions().mouseMove(webElementCollection.get(index)).perform().then(function () {
+            expect(webElementCollection.get(index).getText()).to.eventually.eql(expectedValue);
+        }, function (error) {
+            console.log(error);
+            console.log('Could not move to element at ' + index + ' with expected value ' + expectedValue);
+        })
+    };
+
     function buildUrl(id, api) {
         var url = browser.baseUrl;
         if (url.match('localhost')){

@@ -34,9 +34,7 @@ var LoginPage = function() {
     this.login = function(username, password, callback) {
         browser.isElementPresent(userLoggedin).then(function(logIn){
             if (logIn === true) {
-                dashboardLink.click().then(function(){
-                    utils.waitForElement(element(by.css('.sticky-navbar')), 'Top Menu Bar')
-                }).then(callback)
+                dashboardLink.click().then(callback);
             } else {
                 browser.isElementPresent(accessBtn).then(function (buttonPresent) {
                     if (buttonPresent === true) {
@@ -44,16 +42,12 @@ var LoginPage = function() {
                             utils.waitForElement(loginPopupPanel, 'Login Popup panel').then(function () {
                                 browser.isElementPresent(previousAccountUsed).then(function(previousLogin){
                                     if (previousAccountUsed == true){
-                                        previousAccountUsed.click().then(function () {
-                                            browser.waitForAngular();
-                                        }).then(callback);
+                                        previousAccountUsed.click().then(callback);
                                     } else {
                                         utils.waitForElement(email).then(function () {
                                             email.sendKeys(username);
                                             pass.sendKeys(password);
-                                            loginbtn.click().then(function () {
-                                                browser.waitForAngular();
-                                            }).then(callback);
+                                            loginbtn.click().then(callback);
                                         });
                                     }
                                 })

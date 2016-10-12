@@ -31,7 +31,7 @@ module.exports = function () {
         var password = process.env.NCI_MATCH_PASSWORD;
 
         loginPageObj.login(email, password);
-        utilities.waitForElement(loginPageObj.navBarHeading, 'sticky top menu');
+//        utilities.waitForElement(loginPageObj.navBarHeading, 'sticky top menu');
 
         browser.sleep(2000).then(callback);
     });
@@ -57,12 +57,6 @@ module.exports = function () {
     this.Then(/^I should see the previous login session button$/, function (callback) {
         utilities.waitForElement(previousLogin, 'Previous login link').then(function () {
             expect(previousLogin.isPresent()).to.eventually.eql(true)
-        }, function () {
-            console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
-            browser.getPageSource().then(function (text) {
-                console.log(text);
-            })
-
         }).then(callback);
     });
 
@@ -86,17 +80,15 @@ module.exports = function () {
     });
 
     this.When(/^I navigate to the (.+) page$/, function (pageName, callback) {
-        dashboardPageObj.goToPageName(pageName).then(function () {
-            browser.waitForAngular()
-        }).then(callback);
+        dashboardPageObj.goToPageName(pageName).then(callback);
     });
 
     this.Then(/^I should be able to the see Dashboard page$/, function (callback){
         var page = dashboardPageObj.dashboardController;
-        browser.sleep(1000).then (function(){
-            expect(page.isPresent()).to.eventually.eql(true);
-            expect(page.element(by.css('h2')).getText()).to.eventually.eql('Dashboard');
-        }).then(callback);
+
+        expect(element(by.css('h2')).getText()).to.eventually.eql('Dashboard');
+        browser.sleep(50).then(callback);
+
     });
 
     this.Then(/^I then logout$/, function (callback) {
