@@ -109,6 +109,16 @@ When(/^call ion_reporters GET sample_controls service, returns a message that in
   @returned_sample_control = response['message_json']
 end
 
+Then(/^wait up to (\d+) seconds until this ion_reporter get updated$/) do |timeout|
+  url = prepare_ion_reporters_url
+  Helper_Methods.wait_until_updated(url, timeout.to_f)
+end
+
+Then(/^wait up to (\d+) seconds until this sample_control get updated$/) do |timeout|
+  url = prepare_sample_controls_url
+  Helper_Methods.wait_until_updated(url, timeout.to_f)
+end
+
 Then(/^there are (\d+) ion_reporter_ids generated$/) do |count|
   @generated_ion_ids.length.should==count.to_i
 end
@@ -458,6 +468,7 @@ end
 ################################################
 Then(/^call aliquot PUT service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
   url = prepare_aliquot_url
+  puts @payload.to_json.to_s
   response = Helper_Methods.put_request(url, @payload.to_json.to_s)
   validate_response(response, status, message)
 end

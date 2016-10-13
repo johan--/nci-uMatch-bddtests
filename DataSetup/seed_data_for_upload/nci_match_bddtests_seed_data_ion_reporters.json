@@ -1,5 +1,5 @@
 {
-    "ScannedCount": 15,
+    "ConsumedCapacity": null,
     "Count": 15,
     "Items": [
         {
@@ -91,14 +91,29 @@
             }
         },
         {
-            "site": {
-                "S": "mocha"
-            },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:43.815673"
             },
+            "internal_ip_address": {
+                "S": "129.43.39.182"
+            },
+            "host_name": {
+                "S": "NCI-MATCH-IR"
+            },
+            "last_contact": {
+                "S": "August 29, 2016 2:01 PM GMT"
+            },
+            "site": {
+                "S": "mocha"
+            },
+            "ip_address": {
+                "S": "129.43.39.182"
+            },
             "ion_reporter_id": {
                 "S": "IR_NX0TL"
+            },
+            "data_files": {
+                "S": "DB Report"
             }
         },
         {
@@ -168,5 +183,5 @@
             }
         }
     ],
-    "ConsumedCapacity": null
+    "ScannedCount": 15
 }

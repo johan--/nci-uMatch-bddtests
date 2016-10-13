@@ -88,7 +88,7 @@ class Helper_Methods
       end
       @get_response['http_code'] = http_code
       @get_response['message'] = e.response
-      p e.response
+      # p e.response
       return @get_response
     end
 
@@ -172,6 +172,27 @@ class Helper_Methods
     print "#{url[0..len]}\n"
     @res = RestClient::Request.execute(:url => @service, :method => :get, :verify_ssl => false)
     return @res
+  end
+
+  def Helper_Methods.wait_until_updated(url, timeout)
+    total_time = 0.0
+    old_hash = nil
+    loop do
+      new_hash = Helper_Methods.simple_get_request(url)['message_json']
+      # puts new_hash.to_json.to_s
+      if old_hash.nil?
+        old_hash = new_hash
+      end
+
+      unless old_hash == new_hash
+        return
+      end
+      total_time += 0.5
+      if total_time>timeout
+        return
+      end
+      sleep(0.5)
+    end
   end
 
   # post_request

@@ -70,21 +70,22 @@ Feature: Tests for sample_controls service in ion ecosystem
 
   @ion_reporter_p1
   Scenario: ION_SC20. sample_control can be updated successfully
-    Given molecular id is "SC_RZJ2M"
-    Then add field: "ion_reporter_id" value: "IR_WAO85" to message body
-    Then add field: "analysis_id" value: "SC_RZJ2M_a888_v1" to message body
+    Given molecular id is "SC_3KSN8"
+    Then add field: "ion_reporter_id" value: "IR_1H9XW" to message body
+    Then add field: "analysis_id" value: "SC_3KSN8_a888_v1" to message body
     Then add field: "site" value: "mocha" to message body
-    Then add field: "vcf_name" value: "SC_RZJ2M/SC_RZJ2M_a888_v1/SC_RZJ2M_a888_v1.vcf" to message body
-    Then add field: "dna_bam_name" value: "SC_RZJ2M/SC_RZJ2M_a888_v1/SC_RZJ2M_a888_v1_DNA_v1.bam" to message body
-    Then add field: "cdna_bam_name" value: "SC_RZJ2M/SC_RZJ2M_a888_v1/SC_RZJ2M_a888_v1_RNA_v1.bam" to message body
-    Then add field: "qc_name" value: "SC_RZJ2M/SC_RZJ2M_a888_v1/SC_RZJ2M_a888_v1_QC.pdf" to message body
+    Then add field: "vcf_name" value: "SC_3KSN8/SC_3KSN8_a888_v1/SC_3KSN8_a888_v1.vcf" to message body
+    Then add field: "dna_bam_name" value: "SC_3KSN8/SC_3KSN8_a888_v1/SC_3KSN8_a888_v1_DNA_v1.bam" to message body
+    Then add field: "cdna_bam_name" value: "SC_3KSN8/SC_3KSN8_a888_v1/SC_3KSN8_a888_v1_RNA_v1.bam" to message body
+    Then add field: "qc_name" value: "SC_3KSN8/SC_3KSN8_a888_v1/SC_3KSN8_a888_v1_QC.pdf" to message body
     When call sample_controls PUT service, returns a message that includes "updated" with status "Success"
-    Then field: "analysis_id" for this ion_reporter should be: "SC_RZJ2M_a888_v1"
-    Then field: "site" for this ion_reporter should be: "mocha"
-    Then field: "vcf_name" for this ion_reporter should be: "SC_RZJ2M/SC_RZJ2M_a888_v1/SC_RZJ2M_a888_v1.vcf"
-    Then field: "dna_bam_name" for this ion_reporter should be: "SC_RZJ2M/SC_RZJ2M_a888_v1/SC_RZJ2M_a888_v1_DNA_v1.bam"
-    Then field: "cdna_bam_name" for this ion_reporter should be: "SC_RZJ2M/SC_RZJ2M_a888_v1/SC_RZJ2M_a888_v1_RNA_v1.bam"
-    Then field: "qc_name" for this ion_reporter should be: "SC_RZJ2M/SC_RZJ2M_a888_v1/SC_RZJ2M_a888_v1_QC.pdf"
+    Then wait up to 30 seconds until this sample_control get updated
+    Then field: "analysis_id" for this sample_control should be: "SC_3KSN8_a888_v1"
+    Then field: "site" for this sample_control should be: "mocha"
+    Then field: "vcf_name" for this sample_control should be: "SC_3KSN8/SC_3KSN8_a888_v1/SC_3KSN8_a888_v1.vcf"
+    Then field: "dna_bam_name" for this sample_control should be: "SC_3KSN8/SC_3KSN8_a888_v1/SC_3KSN8_a888_v1_DNA_v1.bam"
+    Then field: "cdna_bam_name" for this sample_control should be: "SC_3KSN8/SC_3KSN8_a888_v1/SC_3KSN8_a888_v1_RNA_v1.bam"
+    Then field: "qc_name" for this sample_control should be: "SC_3KSN8/SC_3KSN8_a888_v1/SC_3KSN8_a888_v1_QC.pdf"
 
   @ion_reporter_p2
   Scenario: ION_SC21. sample_control update request with non-existing molecular_id should fail
@@ -100,44 +101,47 @@ Feature: Tests for sample_controls service in ion ecosystem
 
   @ion_reporter_p3
   Scenario: ION_SC23. sample_control service should fail if site-ion_reporter_id pair in message body is invalid
-    Given molecular id is "SC_RZJ2M"
-    Then add field: "ion_reporter_id" value: "IR_WAO85" to message body
+    #ion_reporter IR_TG2DY belongs to site mocha
+    Given molecular id is "SC_307VJ"
+    Then add field: "ion_reporter_id" value: "IR_TG2DY" to message body
     Then add field: "site" value: "mda" to message body
     When call sample_controls PUT service, returns a message that includes "site" with status "Failure"
 
   @ion_reporter_p2
   Scenario: ION_SC24. sample_control service should fail if existing analysis_id is used
-    #SC_JQFX5_ANI is in seed data, used by sample control SC_JQFX5
-    Given molecular id is "SC_83OZJ"
-    Then add field: "analysis_id" value: "SC_JQFX5_ANI" to message body
+    #SC_7XM2S_ANI is in seed data, used by sample control SC_7XM2S
+    Given molecular id is "SC_8SGBC"
+    Then add field: "analysis_id" value: "SC_7XM2S_ANI" to message body
     When call sample_controls PUT service, returns a message that includes "analysis id" with status "Failure"
 
   @ion_reporter_p3
   Scenario: ION_SC25. sample_control update request should not fail if extra key-value pair in message body, but doesn't store them
-    Given molecular id is "SC_RZJ2M"
+    Given molecular id is "SC_WF2KR"
     Then add field: "extra_information" value: "other" to message body
     When call sample_controls PUT service, returns a message that includes "updated" with status "Success"
+    Then wait up to 15 seconds until this sample_control get updated
     Then updated sample_control should not have field: "extra_information"
 
   @ion_reporter_p2
   Scenario: ION_SC26. sample_control update request should not remove existing fields that are not in PUT message body
-    Given molecular id is "SC_TESTS"
+    Given molecular id is "SC_ZCCND"
 
   @ion_reporter_p1
   Scenario: ION_SC40. sample_control with specific molecular_id can be deleted successfully
-    Given molecular id is "SC_TIBZY"
+    Given molecular id is "SC_R5H61"
     Then call sample_controls DELETE service, returns a message that includes "Item deleted" with status "Success"
+    Then wait up to 15 seconds until this sample_control get updated
     Then call sample_controls GET service, returns a message that includes "No ABCMeta" with status "Failure"
 
   @ion_reporter_p1
   Scenario: ION_SC41. sample_controls can be batch deleted using parameters
     Given molecular id is ""
-    Then add field: "date_molecular_id_created" value: "2016-10-11 00:49:59.937464" to url
+    Then add field: "date_molecular_id_created" value: "2016-10-12 21:19:52.241313" to url
     Then call sample_controls GET service, returns a message that includes "" with status "Success"
     Then there are|is 1 sample_control returned
     Then call sample_controls DELETE service, returns a message that includes "Batch deletion request placed on queue to be processed" with status "Success"
     Then wait for "5" seconds
-    Then call sample_controls GET service, returns a message that includes "No ABCMeta" with status "Failure"
+    Then call sample_controls GET service, returns a message that includes "No records meet the query parameters" with status "Failure"
 
   @ion_reporter_p2
   Scenario: ION_SC42. sample_controls cannot be batch deleted without parameters
@@ -176,15 +180,16 @@ Feature: Tests for sample_controls service in ion ecosystem
   @ion_reporter_p1
   Scenario: ION_SC61. sample_control service can list all sample_controls that meet query parameters
     Given molecular id is ""
-    Then add field: "date_molecular_id_created" value: "2016-10-04 14:29:43.780998" to url
-    Then field: "site" for this sample_control should be: "mocha"
+    Then add field: "date_molecular_id_created" value: "2016-10-12 21:20:05.158803" to url
+    Then field: "site" for this sample_control should be: "mda"
+    Then field: "control_type" for this sample_control should be: "proficiency_competency"
 
   @ion_reporter_p1
   Scenario: ION_SC62. sample_control service can return single sample_control with specified molecular_id
-    Given molecular id is "SC_S5ONQ"
-    Then field: "site" for this sample_control should be: "mocha"
+    Given molecular id is "SC_MFIK1"
+    Then field: "site" for this sample_control should be: "mda"
     Then field: "control_type" for this sample_control should be: "no_template"
-    Then field: "date_molecular_id_created" for this sample_control should be: "2016-10-11 00:28:35.657860"
+    Then field: "date_molecular_id_created" for this sample_control should be: "2016-10-12 21:20:00.113135"
 
   @ion_reporter_p2
   Scenario Outline: ION_SC63. sample_control service should only return VALID projected key-value pair
@@ -198,7 +203,7 @@ Feature: Tests for sample_controls service in ion ecosystem
     Then each returned sample_control should have field "<field2>"
     Examples:
       | moi      | field1                    | field2       |
-      | SC_83OZJ | control_type              | molecular_id |
+      | SC_6VZBN | control_type              | molecular_id |
       |          | date_molecular_id_created | site         |
 
   @ion_reporter_p3

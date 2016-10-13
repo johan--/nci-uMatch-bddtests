@@ -4,21 +4,22 @@ Feature: Tests for aliquot service in ion ecosystem
 
   @ion_reporter_p1
   Scenario: ION_AQ01. for sample control specimen, aliquot service will generate tsv and bai files and upload to S3, then update database
-    Given molecular id is "SC_KK44M"
-    Then add field: "analysis_id" value: "SC_KK44M_ANI1" to message body
-    Then add field: "site" value: "mocha" to message body
-    Then add field: "ion_reporter_id" value: "IR_WAO85" to message body
-    Then add field: "vcf_name" value: "ion_api_test_data/SC_KK44M/SC_KK44M_ANI1/test1.vcf" to message body
-    Then add field: "dna_bam_name" value: "ion_api_test_data/SC_KK44M/SC_KK44M_ANI1/dna.bam" to message body
-    Then add field: "cdna_bam_name" value: "ion_api_test_data/SC_KK44M/SC_KK44M_ANI1/cdna.bam" to message body
-    Then add field: "qc_name" value: "ion_api_test_data/SC_KK44M/SC_KK44M_ANI1/SC_KK44M_ANI1_QA.pdf" to message body
+    Given molecular id is "SC_CN8ZS"
+    Then add field: "analysis_id" value: "SC_CN8ZS_ANI1" to message body
+    Then add field: "site" value: "mda" to message body
+    Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
+    Then add field: "vcf_name" value: "ion_api_test_data/SC_CN8ZS/SC_CN8ZS_ANI1/test1.vcf" to message body
+    Then add field: "dna_bam_name" value: "ion_api_test_data/SC_CN8ZS/SC_CN8ZS_ANI1/dna.bam" to message body
+    Then add field: "cdna_bam_name" value: "ion_api_test_data/SC_CN8ZS/SC_CN8ZS_ANI1/cdna.bam" to message body
+    Then add field: "qc_name" value: "ion_api_test_data/SC_CN8ZS/SC_CN8ZS_ANI1/QA.pdf" to message body
     Then call aliquot PUT service, returns a message that includes "Item updated" with status "Success"
-    Then field: "tsv_name" for this sample control should be: "IR_WAO85/SC_KK44M/SC_KK44M_ANI1/SC_KK44M_ANI1.tsv" within 15 seconds
-    Then field: "dna_bai_name" for this sample control should be: "IR_WAO85/SC_KK44M/SC_KK44M_ANI1/SC_KK44M_ANI1_DNA.bam.bai" within 15 seconds
-    Then field: "cdna_bai_name" for this sample control should be: "IR_WAO85/SC_KK44M/SC_KK44M_ANI1/SC_KK44M_ANI1_RNA.bam.bai" within 15 seconds
-    And file: "ion_api_test_data/SC_KK44M/SC_KK44M_ANI1/SC_KK44M_ANI1.tsv" should be available in S3
-    And file: "ion_api_test_data/SC_KK44M/SC_KK44M_ANI1/SC_KK44M_ANI1_DNA.bam.bai" should be available in S3
-    And file: "ion_api_test_data/SC_KK44M/SC_KK44M_ANI1/SC_KK44M_ANI1_RNA.bam.bai" should be available in S3
+    Then wait up to 30 seconds until this sample_control get updated
+    Then field: "tsv_name" for this sample control should be: "IR_WAO85/SC_CN8ZS/SC_CN8ZS_ANI1/SC_CN8ZS_ANI1.tsv" within 15 seconds
+    Then field: "dna_bai_name" for this sample control should be: "IR_WAO85/SC_CN8ZS/SC_CN8ZS_ANI1/SC_CN8ZS_ANI1_DNA.bam.bai" within 15 seconds
+    Then field: "cdna_bai_name" for this sample control should be: "IR_WAO85/SC_CN8ZS/SC_CN8ZS_ANI1/SC_CN8ZS_ANI1_RNA.bam.bai" within 15 seconds
+    And file: "ion_api_test_data/SC_CN8ZS/SC_CN8ZS_ANI1/SC_CN8ZS_ANI1.tsv" should be available in S3
+    And file: "ion_api_test_data/SC_CN8ZS/SC_CN8ZS_ANI1/SC_CN8ZS_ANI1_DNA.bam.bai" should be available in S3
+    And file: "ion_api_test_data/SC_CN8ZS/SC_CN8ZS_ANI1/SC_CN8ZS_ANI1_RNA.bam.bai" should be available in S3
 
   @ion_reporter_p1
   Scenario: ION_AQ02. for patient tissue specimen, aliquot service will generate tsv and bai files and upload to S3, then send variant files uploaded message to patient ecosystem once process done

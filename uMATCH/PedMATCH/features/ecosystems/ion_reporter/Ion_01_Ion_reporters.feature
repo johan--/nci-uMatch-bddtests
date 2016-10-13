@@ -71,6 +71,7 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Then add field: "data_files" value: "Log File" to message body
     Then add field: "ip_address" value: "132.183.13.75" to message body
     When call ion_reporters PUT service, returns a message that includes "updated" with status "Success"
+    Then wait up to 15 seconds until this ion_reporter get updated
     Then field: "last_contact" for this ion_reporter should be: "October 03, 2016 10:35 PM"
     Then field: "internal_ip_address" for this ion_reporter should be: "172.20.174.24"
     Then field: "ir_status" for this ion_reporter should be: "Contacted 5 days ago"
@@ -106,6 +107,7 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Given ion_reporter_id is "IR_1H9XW"
     Then add field: "extra_information" value: "other" to message body
     When call ion_reporters PUT service, returns a message that includes "updated" with status "Success"
+    Then wait up to 15 seconds until this ion_reporter get updated
     Then updated ion_reporter should not have field: "extra_information"
 
   @ion_reporter_p2
@@ -116,6 +118,7 @@ Feature: Tests for ion_reporters service in ion ecosystem
   Scenario: ION_IR40. specific ion_reporter can be deleted successfully
     Given ion_reporter_id is "IR_TG2DY"
     Then call ion_reporters DELETE service, returns a message that includes "Item deleted" with status "Success"
+    Then wait up to 15 seconds until this ion_reporter get updated
     Then call ion_reporters GET service, returns a message that includes "No ABCMeta" with status "Failure"
 
   @ion_reporter_p1
@@ -127,7 +130,7 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Then there are|is 1 ion_reporter returned
     Then call ion_reporters DELETE service, returns a message that includes "Batch deletion request placed on queue to be processed" with status "Success"
     Then wait for "5" seconds
-    Then call ion_reporters GET service, returns a message that includes "No ABCMeta" with status "Failure"
+    Then call ion_reporters GET service, returns a message that includes "No records meet the query parameters" with status "Failure"
 
   @ion_reporter_p2
   Scenario: ION_IR42. ion_reporter service should fail if no ion_reporter_id is passed in, and no ion_reporter is deleted
@@ -206,9 +209,9 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Given ion_reporter_id is "IR_0HV52"
     When call ion_reporters GET sample_controls service, returns a message that includes "" with status "Success"
     Then there are|is 3 sample_control returned
-    Then returned sample_control should contain molecular_id: "SC_SA1CB"
-    Then returned sample_control should contain molecular_id: "SC_YQ111"
-    Then returned sample_control should contain molecular_id: "SC_67VKV"
+    Then returned sample_control should contain molecular_id: "SC_JFCEO"
+    Then returned sample_control should contain molecular_id: "SC_CN8ZS"
+    Then returned sample_control should contain molecular_id: "SC_C777Z"
 
 #  Scenario: ION_IR82. ion_reporter service should fail if projection is used when query patients
 
