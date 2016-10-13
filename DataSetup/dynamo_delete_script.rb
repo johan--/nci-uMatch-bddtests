@@ -95,6 +95,24 @@ class DynamoDb
     list_tables.select { |table| table.match(regex)}
   end
 
+  def delete_treatment_arm_tables
+    @prefix = 'treatment_arm'
+    clear_tables_by_prefix
+  end
+
+  def delete_patient_tables
+    %w(assignment event patient shipment specimen variant variant_report).each do |table|
+      @prefix = hgtable
+      clear_tables_by_prefix
+    end
+  end
+
+  def delete_all_tables
+    delete_treatment_arm_tables
+    delete_patient_tables
+  end
+
+
   def clear_tables_by_prefix
     begin
       table_list = select_tables
