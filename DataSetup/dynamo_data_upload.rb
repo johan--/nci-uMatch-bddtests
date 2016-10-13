@@ -191,5 +191,6 @@ if __FILE__ == $0
   options = OptionsManager.parse(ARGV)
   DynamoDataUploader.new(options).upload_patient_data_to_aws
   DynamoDataUploader.new(options).upload_treatment_arm_to_aws
+  DynamoDataUploader.new(options).upload_ion_to_aws
 end
 
