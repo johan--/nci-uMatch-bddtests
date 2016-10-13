@@ -336,12 +336,14 @@ class Patient_helper_methods
   end
 
   ######## services #####
-  def self.get_any_reuslt_from_url(url)
+  def self.get_any_result_from_url(url)
     return Helper_Methods.simple_get_request(url)['message_json']
   end
 
   def self.get_special_result_from_url(url, timeout, query_hash, path=[])
+    internal_timeout = 30.0
     run_time = 0.0
+    wait_time = 1.0
     loop do
       response = Helper_Methods.simple_get_request(url)['message_json']
       if response.length==1
@@ -358,7 +360,8 @@ class Patient_helper_methods
         end
       end
 
-      if run_time>timeout.to_f
+      if run_time>internal_timeout
+      # if run_time>timeout.to_f
         if response.length>1
           return response
         elsif response.length==1
@@ -367,13 +370,15 @@ class Patient_helper_methods
           return {}
         end
       end
-      sleep(0.5)
-      run_time += 0.5
+      sleep(wait_time)
+      run_time += wait_time
     end
   end
 
   def self.get_updated_result_from_url(url, timeout)
+    internal_timeout = 30.0
     run_time = 0.0
+    wait_time = 1.0
     old_response = nil
     loop do
       new_response = Helper_Methods.simple_get_request(url)['message_json']
@@ -381,7 +386,8 @@ class Patient_helper_methods
         old_response = new_response
       end
 
-      if old_response != new_response || run_time>timeout.to_f
+      if old_response != new_response || run_time>internal_timeout.to_f
+      # if old_response != new_response || run_time>timeout.to_f
         if new_response.length>1
           return new_response
         elsif new_response.length==1
@@ -391,8 +397,8 @@ class Patient_helper_methods
         end
       end
 
-      sleep(0.5)
-      run_time += 0.5
+      sleep(wait_time)
+      run_time += wait_time
     end
 
   end
@@ -440,7 +446,8 @@ class Patient_helper_methods
   end
 
   def self.wait_until_patient_updated(patient_id)
-    timeout = 15.0
+    timeout = 30.0
+    wait_time = 1.0
     total_time = 0.0
     old_status = ''
     loop do
@@ -454,11 +461,11 @@ class Patient_helper_methods
           return
         end
       end
-      total_time += 0.5
+      total_time += wait_time
       if total_time>timeout
         return
       end
-      sleep(0.5)
+      sleep(wait_time)
     end
   end
 
