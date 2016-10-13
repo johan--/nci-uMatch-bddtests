@@ -636,7 +636,23 @@ def find_treatment_arm_basic(id, stratum, version = nil)
 end
 
 def find_all_versions (id, stratum)
-  @response = Helper_Methods.get_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{id}/#{stratum}")
+  # @response = Helper_Methods.get_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{id}/#{stratum}")
+  cnt = 5
+  counter = 0
+  while counter <= cnt
+    sleep(3)
+    @response = Helper_Methods.get_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{id}/#{stratum}", { 'no_log' => true })
+    # if response['message'].match(/(read_attribute_for_serialization|\+)/)
+
+    if JSON.parse(@response['message']).size == 0
+      sleep(1)
+    else
+      break
+    end
+    counter += 1
+  end
+
+  p @response
 end
 
 #returns a hash with the variant type and the field missing in the variant
@@ -716,5 +732,5 @@ def wait_for_processor(cnt = 5)
     end
     counter += 1
   end
-  false
+  return false
 end
