@@ -1,5 +1,5 @@
 [{
-  "id": "Rules-Test1",
+  "treatment_arm_id": "Rules-Test1",
   "stratum_id": "100",
   "version": "v1",
   "num_patients_assigned":null,

@@ -1,6 +1,6 @@
 [
   {
-    "id": "TB_AF_Rules-Test1a",
+    "treatment_arm_id": "TB_AF_Rules-Test1a",
     "version": "2015-08-06",
     "stratum_id": "100",
     "treatment_arm_status": "OPEN",
@@ -63,7 +63,7 @@
     ]
   },
   {
-    "id": "TB_AF_Rules-Test1b",
+    "treatment_arm_id": "TB_AF_Rules-Test1b",
     "version": "2015-08-06",
     "stratum_id": "100",
     "treatment_arm_status": "OPEN",

@@ -1,5 +1,5 @@
 [{
-  "id": "SNV_location_intronic",
+  "treatment_arm_id": "SNV_location_intronic",
   "version": "2015-08-06",
   "stratum_id": "100",
   "treatment_arm_status": "OPEN",

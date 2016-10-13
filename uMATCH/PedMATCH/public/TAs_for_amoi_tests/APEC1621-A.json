@@ -1,6 +1,6 @@
 [
   {
-      "id": "APEC1621-A",
+      "treatment_arm_id": "APEC1621-A",
       "version": "2015-08-06",
       "stratum_id": "100",
       "treatment_arm_status": "OPEN",
