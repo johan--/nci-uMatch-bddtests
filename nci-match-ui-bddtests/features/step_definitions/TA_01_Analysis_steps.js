@@ -140,8 +140,8 @@ module.exports = function () {
     this.Then(/^I should see the data maps to the relevant column$/, function (callback) {
         var moment = require('moment');
         var dateExpected = moment.utc(firstTreatmentArm.date_opened).utc().format('LLL');
-        expect(element(by.binding('item.id')).getText()).to.eventually.eql(firstTreatmentArm.id);
-        expect(element(by.binding('item.stratum_id')).getText()).to.eventually.eql(firstTreatmentArm.stratum_id);
+        expect(element(by.binding('vm.treatmentArmId')).getText()).to.eventually.eql(firstTreatmentArm.treatment_arm_id);
+        expect(element(by.binding('vm.stratumId')).getText()).to.eventually.eql(firstTreatmentArm.stratum_id);
         expect(element(by.binding('item.stratum_statistics.current_patients')).getText()).to.eventually.eql(firstTreatmentArm.stratum_statistics.current_patients.toString());
         expect(element(by.binding('item.stratum_statistics.former_patients')).getText()).to.eventually.eql(firstTreatmentArm.stratum_statistics.former_patients.toString());
         expect(element(by.binding('item.stratum_statistics.not_enrolled_patients')).getText()).to.eventually.eql(firstTreatmentArm.stratum_statistics.not_enrolled_patients.toString());

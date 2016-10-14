@@ -49,8 +49,8 @@ module.exports = function () {
     this.Then(/^I can see the Distribution of specimens between sites$/, function (callback) {
         shipmentBySite().then(function (details){
             var total = details.mda + details.mocha;
-            var mdaPercentage = details.mda * 100 / total;
-            var mochaPercentage = details.mocha * 100 /total;
+            var mdaPercentage = total === 0 ? 0 : details.mda * 100 / total;
+            var mochaPercentage = total === 0 ? 0 : details.mocha * 100 /total;
             shippingSection.all(by.css('.m-xs.ng-binding')).get(0).getText().then(function (text) {
                 expect(text).to.eql(details.mda.toString());
             });
@@ -98,13 +98,10 @@ module.exports = function () {
                           ];
         var expectedValue;
 
-        console.log('expectedResponse = ' + expectedResponse.toString());
         for(var i = 0; i < elementList.length; i++){
             var elem = elementList[i];
             if (elem.match(/_date/)){
                 expectedValue = expectedResponse[elem] === undefined ? utilities.dashifyIfEmpty(expectedResponse[elem]) : moment.utc(expectedResponse[elem]).utc().format('LLL') + ' GMT';
-            } else if (elem === 'pathology_status') {
-                expectedValue = expectedResponse[elem] === undefined ? '' : expectedResponse[elem]
             } else {
                 expectedValue = utilities.dashifyIfEmpty(expectedResponse[elementList[i]]);
             }

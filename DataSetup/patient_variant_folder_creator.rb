@@ -1,3 +1,4 @@
+require 'fileutils'
 class PatientVariantFolderCreator
   TEMPLATE_ANI_FOLDER_PATH = "#{File.dirname(__FILE__)}/variant_file_templates/3366_moi/3366_ani"
   TEMPLATE_ANI_FOLDER_NAME = "3366_ani"
@@ -9,11 +10,13 @@ class PatientVariantFolderCreator
   end
 
   def self.clear_all
-    folder = ROOT_OUTPUT_FOLDER + 'seed_data'
-    cmd = "rm -R #{folder}/*"
+    seed_data_folder = "#{ROOT_OUTPUT_FOLDER}seed_data"
+    FileUtils.mkdir_p(seed_data_folder) unless File.exists? seed_data_folder
+    cmd = "rm -R #{seed_data_folder}/*"
     `#{cmd}`
-    folder = ROOT_OUTPUT_FOLDER + 'test_data'
-    cmd = "rm -R #{folder}/*"
+    test_data_folder = "#{ROOT_OUTPUT_FOLDER}test_data"
+    FileUtils.mkdir_p(test_data_folder) unless File.exists? test_data_folder
+    cmd = "rm -R #{test_data_folder}/*"
     `#{cmd}`
   end
 
