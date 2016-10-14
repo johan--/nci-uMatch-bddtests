@@ -7,12 +7,11 @@ Feature: Tests for aliquot service in ion ecosystem
     Given molecular id is "SC_OAFXP"
     Then add field: "analysis_id" value: "SC_OAFXP_ANI1" to message body
     Then add field: "site" value: "mda" to message body
-    #why I need control_type in the message body?
     Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
     Then add field: "vcf_name" value: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/test1.vcf" to message body
     Then add field: "dna_bam_name" value: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/dna.bam" to message body
     Then add field: "cdna_bam_name" value: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/cdna.bam" to message body
-    Then add field: "qc_name" value: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/10-10-2016.pdf" to message body
+    Then add field: "qc_name" value: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/QA.pdf" to message body
     Then call aliquot PUT service, returns a message that includes "Item updated" with status "Success"
     Then wait up to 60 seconds until this sample_control get updated
     Then field: "tsv_name" for this sample control should be: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/test1.tsv" within 15 seconds
@@ -175,7 +174,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "vcf_name" value: "IR_TCWEV/ION_AQ24_TsShipped_MOI1/ION_AQ24_TsShipped_ANI1/test1.vcf" to message body
     Then add field: "dna_bam_name" value: "IR_TCWEV/ION_AQ24_TsShipped_MOI1/ION_AQ24_TsShipped_ANI1/dna.bam" to message body
     Then add field: "cdna_bam_name" value: "IR_TCWEV/ION_AQ24_TsShipped_MOI1/ION_AQ24_TsShipped_ANI1/cdna.bam" to message body
-    Then add field: "qc_name" value: "IR_TCWEV/ION_AQ24_TsShipped_MOI1/ION_AQ24_TsShipped_ANI1/ION_AQ24_TsShipped_ANI1_QA.pdf" to message body
+    Then add field: "qc_name" value: "IR_TCWEV/ION_AQ24_TsShipped_MOI1/ION_AQ24_TsShipped_ANI1/10-10-2016.pdf" to message body
     Then call aliquot PUT service, returns a message that includes "Item updated" with status "Success"
     Then patient field: "current_status" should have value: "TISSUE_NUCLEIC_ACID_SHIPPED" after 30 seconds
 
