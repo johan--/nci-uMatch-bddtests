@@ -185,14 +185,38 @@ class Helper_Methods
       end
 
       unless old_hash == new_hash
-        return
+        return new_hash
       end
       total_time += 0.5
       if total_time>timeout
-        return
+        return new_hash
       end
       sleep(0.5)
     end
+    {}
+  end
+
+  def Helper_Methods.get_request_when_its_true(url, proc_object, timeout)
+    total_time = 0.0
+    wait_time = 1.0
+    old_result = nil
+    loop do
+      new_result = Helper_Methods.simple_get_request(url)['message_json']
+      # puts new_result.to_json.to_s
+      if old_result.nil?
+        old_result = new_result
+      end
+
+      if proc_object.call(new_result)
+        return new_result
+      end
+      total_time += wait_time
+      if total_time>timeout
+        return new_result
+      end
+      sleep(wait_time)
+    end
+    {}
   end
 
   # post_request
