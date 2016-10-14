@@ -468,7 +468,6 @@ end
 ################################################
 Then(/^call aliquot PUT service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
   url = prepare_aliquot_url
-  puts @payload.to_json.to_s
   response = Helper_Methods.put_request(url, @payload.to_json.to_s)
   validate_response(response, status, message)
 end
@@ -582,6 +581,7 @@ end
 
 When(/^call sequence_files GET service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
   url = prepare_sequence_file_url(@sequence_file_type, @sequence_file_sub_type)
+  puts url
   response = Helper_Methods.simple_get_request(url)
   validate_response(response, status, message)
   @returned_sequence_file = response['message_json']
@@ -607,6 +607,7 @@ end
 
 When(/^call files GET service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
   url = prepare_files_url(@misc_file_name)
+  puts url
   response = Helper_Methods.simple_get_request(url)
   validate_response(response, status, message)
   @returned_sequence_file = response['message_json']

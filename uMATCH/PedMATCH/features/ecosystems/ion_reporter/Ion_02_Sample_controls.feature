@@ -42,6 +42,7 @@ Feature: Tests for sample_controls service in ion ecosystem
     Then add field: "site" value: "yale" to message body
     Then add field: "molecular_id" value: "SC_S5ONQ" to message body
     When call sample_controls POST service, returns a message that includes "New sample control created" with status "Success"
+    Then wait up to 15 seconds until this sample_control get updated
     Then generated sample_control should have 4 field-value pairs
     Then generated sample_control should have field: "control_type"
     Then generated sample_control should have field: "molecular_id"
@@ -58,7 +59,7 @@ Feature: Tests for sample_controls service in ion ecosystem
     Then generated sample_control should have correct date_molecular_id_created
 
   @ion_reporter_p2
-  Scenario Outline: ION_IR07. ion_reporter service should fail if parameters other than "site" and "control_type" are passed in
+  Scenario Outline: ION_SC07. sample_controls service should fail if parameters other than "site" and "control_type" are passed in
     Given site is "mocha"
     Given control_type is "positive"
     Then add field: "<field>" value: "<value>" to url
@@ -74,18 +75,18 @@ Feature: Tests for sample_controls service in ion ecosystem
     Then add field: "ion_reporter_id" value: "IR_1H9XW" to message body
     Then add field: "analysis_id" value: "SC_3KSN8_a888_v1" to message body
     Then add field: "site" value: "mocha" to message body
-    Then add field: "vcf_name" value: "SC_3KSN8/SC_3KSN8_a888_v1/SC_3KSN8_a888_v1.vcf" to message body
-    Then add field: "dna_bam_name" value: "SC_3KSN8/SC_3KSN8_a888_v1/SC_3KSN8_a888_v1_DNA_v1.bam" to message body
-    Then add field: "cdna_bam_name" value: "SC_3KSN8/SC_3KSN8_a888_v1/SC_3KSN8_a888_v1_RNA_v1.bam" to message body
-    Then add field: "qc_name" value: "SC_3KSN8/SC_3KSN8_a888_v1/SC_3KSN8_a888_v1_QC.pdf" to message body
+    Then add field: "vcf_name" value: "IR_1H9XW/SC_3KSN8_a888_v1/SC_3KSN8_a888_v1.vcf" to message body
+    Then add field: "dna_bam_name" value: "IR_1H9XW/SC_3KSN8_a888_v1/SC_3KSN8_a888_v1_DNA_v1.bam" to message body
+    Then add field: "cdna_bam_name" value: "IR_1H9XW/SC_3KSN8_a888_v1/SC_3KSN8_a888_v1_RNA_v1.bam" to message body
+    Then add field: "qc_name" value: "IR_1H9XW/SC_3KSN8_a888_v1/SC_3KSN8_a888_v1_QC.pdf" to message body
     When call sample_controls PUT service, returns a message that includes "updated" with status "Success"
     Then wait up to 30 seconds until this sample_control get updated
     Then field: "analysis_id" for this sample_control should be: "SC_3KSN8_a888_v1"
     Then field: "site" for this sample_control should be: "mocha"
-    Then field: "vcf_name" for this sample_control should be: "SC_3KSN8/SC_3KSN8_a888_v1/SC_3KSN8_a888_v1.vcf"
-    Then field: "dna_bam_name" for this sample_control should be: "SC_3KSN8/SC_3KSN8_a888_v1/SC_3KSN8_a888_v1_DNA_v1.bam"
-    Then field: "cdna_bam_name" for this sample_control should be: "SC_3KSN8/SC_3KSN8_a888_v1/SC_3KSN8_a888_v1_RNA_v1.bam"
-    Then field: "qc_name" for this sample_control should be: "SC_3KSN8/SC_3KSN8_a888_v1/SC_3KSN8_a888_v1_QC.pdf"
+    Then field: "vcf_name" for this sample_control should be: "IR_1H9XW/SC_3KSN8_a888_v1/SC_3KSN8_a888_v1.vcf"
+    Then field: "dna_bam_name" for this sample_control should be: "IR_1H9XW/SC_3KSN8_a888_v1/SC_3KSN8_a888_v1_DNA_v1.bam"
+    Then field: "cdna_bam_name" for this sample_control should be: "IR_1H9XW/SC_3KSN8_a888_v1/SC_3KSN8_a888_v1_RNA_v1.bam"
+    Then field: "qc_name" for this sample_control should be: "IR_1H9XW/SC_3KSN8_a888_v1/SC_3KSN8_a888_v1_QC.pdf"
 
   @ion_reporter_p2
   Scenario: ION_SC21. sample_control update request with non-existing molecular_id should fail

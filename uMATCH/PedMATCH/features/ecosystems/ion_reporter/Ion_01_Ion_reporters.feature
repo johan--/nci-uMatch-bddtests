@@ -227,7 +227,7 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Then each returned sample_control should have field "control_type"
 
   @ion_reporter_p3
-  Scenario: ION_IR84. ion_reporter service should fail(or just not return this field?) if an invalid key is projected when query sample controls
+  Scenario: ION_IR84. ion_reporter service should fail(or just not return this field?) if no sample control meet the parameter
     Given ion_reporter_id is "IR_TCWEV"
     Then add field: "molecular_id" value: "non_existing_moi" to url
     Then call ion_reporters GET sample_controls service, returns a message that includes "No records meet the query parameters" with status "Failure"
