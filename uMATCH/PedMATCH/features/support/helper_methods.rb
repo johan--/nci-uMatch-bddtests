@@ -88,6 +88,11 @@ class Helper_Methods
       end
       @get_response['http_code'] = http_code
       @get_response['message'] = e.response
+      if e.response.nil?
+        @get_response['message_json'] = {}
+      else
+        @get_response['message_json'] = JSON.parse(e.response)
+      end
       # p e.response
       return @get_response
     end
@@ -196,24 +201,33 @@ class Helper_Methods
     {}
   end
 
-  def Helper_Methods.get_request_when_its_true(url, proc_object, timeout)
+  def Helper_Methods.get_request_when_method_true(url, method, timeout=30.0)
     total_time = 0.0
     wait_time = 1.0
-    old_result = nil
     loop do
       new_result = Helper_Methods.simple_get_request(url)['message_json']
       # puts new_result.to_json.to_s
-      if old_result.nil?
-        old_result = new_result
+      total_time += wait_time
+      if method.call(new_result) || total_time>timeout
+        return new_result
       end
 
-      if proc_object.call(new_result)
-        return new_result
-      end
+      sleep(wait_time)
+    end
+    {}
+  end
+
+  def Helper_Methods.get_request_when_method_false(url, method, timeout=30.0)
+    total_time = 0.0
+    wait_time = 1.0
+    loop do
+      new_result = Helper_Methods.simple_get_request(url)['message_json']
+      # puts new_result.to_json.to_s
       total_time += wait_time
-      if total_time>timeout
+      if !method.call(new_result) || total_time>timeout
         return new_result
       end
+
       sleep(wait_time)
     end
     {}

@@ -62,20 +62,14 @@ class PatientMessageLoader
   def self.wait_until_updated(patient_id)
     timeout = 15.0
     total_time = 0.0
-    old_status = ''
+    old_hash = nil
     loop do
-      output_hash = Helper_Methods.simple_get_request("#{LOCAL_PATIENT_API_URL}/#{patient_id}")['message_json']
-      if output_hash!=nil && output_hash.length == 1
-        new_status = output_hash[0]['current_status']
-        if old_status == ''
-          old_status = new_status
-        end
-        unless new_status==old_status
-          return
-        end
+      new_hash = Helper_Methods.simple_get_request("#{LOCAL_PATIENT_API_URL}/#{patient_id}")['message_json']
+      if old_hash.nil?
+        old_hash = new_hash
       end
       total_time += 0.5
-      if total_time>timeout
+      if new_hash!= old_hash || total_time>timeout
         return
       end
       sleep(0.5)

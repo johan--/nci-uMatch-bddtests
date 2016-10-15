@@ -13,11 +13,18 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "cdna_bam_name" value: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/cdna.bam" to message body
     Then add field: "qc_name" value: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/QA.pdf" to message body
     Then call aliquot PUT service, returns a message that includes "Item updated" with status "Success"
-    Then wait up to 60 seconds until this sample_control get updated
-    Then field: "tsv_name" for this sample control should be: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/test1.tsv" within 15 seconds
-    Then field: "dna_bai_name" for this sample control should be: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/dna.bai" within 15 seconds
-    Then field: "cdna_bai_name" for this sample control should be: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/cdna.bai" within 15 seconds
+    Then wait for "30" seconds
+    Then call aliquot GET service, returns a message that includes "" with status "Success"
+    Then field: "tsv_name" for this aliquot should be: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/test1.tsv"
+    Then field: "dna_bai_name" for this aliquot should be: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/dna.bai"
+    Then field: "cdna_bai_name" for this aliquot should be: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/cdna.bai"
+    Then field: "status" for this aliquot variant_report should be: "PASSED"
+    Then field: "analysis_id" for this aliquot variant_report should be: "SC_OAFXP_ANI1"
+    Then field: "ion_reporter_id" for this aliquot variant_report should be: "IR_TCWEV"
+    Then field: "filename" for this aliquot variant_report should be: "test1"
+    Then field: "molecular_id" for this aliquot variant_report should be: "SC_OAFXP"
     And file: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/test1.tsv" should be available in S3
+    And file: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/test1.json" should be available in S3
     And file: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/dna.bai" should be available in S3
     And file: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/cdna.bai" should be available in S3
 
@@ -123,9 +130,10 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "qc_name" value: "IR_TCWEV/SC_Q5E0X/SC_Q5E0X_ANI1/10-10-2016.pdf" to message body
     Then call aliquot PUT service, returns a message that includes "Item updated" with status "Success"
     Then wait for "30" seconds
-    Then field: "tsv_name" for this sample control should be: "null" within 1 seconds
-    Then field: "dna_bai_name" for this sample control should be: "null" within 1 seconds
-    Then field: "cdna_bai_name" for this sample control should be: "null" within 1 seconds
+    Then call aliquot GET service, returns a message that includes "" with status "Success"
+    Then field: "tsv_name" for this aliquot should be: "null"
+    Then field: "dna_bai_name" for this aliquot should be: "null"
+    Then field: "cdna_bai_name" for this aliquot should be: "null"
 
   @ion_reporter_p2
   Scenario: ION_AQ21. for sample control specimen, if the file conversion failed, aliquot service will not update database
@@ -140,10 +148,11 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "qc_name" value: "IR_TCWEV/SC_M4UAF/SC_M4UAF_ANI1/10-10-2016.pdf" to message body
     Then call aliquot PUT service, returns a message that includes "Item updated" with status "Success"
     Then wait for "30" seconds
+    Then call aliquot GET service, returns a message that includes "" with status "Success"
     #don't check tsv, because any text file can be converted to tsv file
 #    Then field: "tsv_name" for this sample control should be: "null" within 1 seconds
-    Then field: "dna_bai_name" for this sample control should be: "null" within 1 seconds
-    Then field: "cdna_bai_name" for this sample control should be: "null" within 1 seconds
+    Then field: "dna_bai_name" for this aliquot should be: "null"
+    Then field: "cdna_bai_name" for this aliquot should be: "null"
 
   @ion_reporter_p2
   Scenario: ION_AQ22. for sample control specimen, if the file uploading fails, aliquot service will not update database

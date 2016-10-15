@@ -116,7 +116,12 @@ end
 
 Then(/^wait up to (\d+) seconds until this sample_control get updated$/) do |timeout|
   url = prepare_sample_controls_url
-  Helper_Methods.wait_until_updated(url, timeout.to_f)
+  @returned_sample_control_result = Helper_Methods.wait_until_updated(url, timeout.to_f)
+end
+
+Then(/^wait up to (\d+) seconds until this aliquot get updated$/) do |timeout|
+  url = prepare_aliquot_url
+  @returned_aliquot_result = Helper_Methods.wait_until_updated(url, timeout.to_f)
 end
 
 Then(/^there are (\d+) ion_reporter_ids generated$/) do |count|
@@ -491,11 +496,17 @@ When(/^call aliquot DELETE service, returns a message that includes "([^"]*)" wi
   validate_response(response, status, message)
 end
 
-Then(/^field: "([^"]*)" for this sample control should be: "([^"]*)" within (\d+) seconds$/) do |field, value, timeout|
+Then(/^field: "([^"]*)" for this aliquot should be: "([^"]*)"$/) do |field, value|
   converted_value = value=='null' ? nil : value
-  url = prepare_aliquot_url
-  aliquot_result = Patient_helper_methods.get_special_result_from_url(url, timeout, {field => converted_value})
-  aliquot_result[field].should == converted_value
+  @returned_aliquot_result[field].should == converted_value
+end
+
+Then(/^field: "([^"]*)" for this aliquot variant_report should be: "([^"]*)"$/) do |field, value|
+  converted_value = value=='null' ? nil : value
+  unless @returned_aliquot_result.keys.include?('variant_report')
+    raise 'This returned aliquot doesn not have variant_report field'
+  end
+  @returned_aliquot_result['variant_report'][field].should == converted_value
 end
 
 And(/^file: "([^"]*)" should be available in S3$/) do |file|
