@@ -9,7 +9,7 @@ When(/^the patient service \/version is called$/) do
 end
 
 When(/^the patient processor service \/version is called$/) do
-  @res=Helper_Methods.get_request(ENV['patients_endpoint']+'/version')
+  @res=Helper_Methods.get_request(ENV['HOSTNAME']+':3010/version')
 end
 
 Given(/^that Patient StudyID "([^"]*)" PatientSeqNumber "([^"]*)" StepNumber "([^"]*)" PatientStatus "([^"]*)" Message "([^"]*)" with "([^"]*)" dateCreated is received from EA layer$/) do |study_id, psn, stepNumber, patientStatus, message, isDateCreated|

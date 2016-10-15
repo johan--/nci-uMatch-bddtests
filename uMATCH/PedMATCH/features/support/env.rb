@@ -8,7 +8,7 @@
 # ENV['PATIENT_ASSIGNMENT_JSON_LOCATION'] = '../../../../public'
 
 
-
+ENV['HOSTNAME'] = 'https://pedmatch-int.nci.nih.gov'
 ENV['rules_endpoint'] = 'https://pedmatch-int.nci.nih.gov/api/v1/rules'
 ENV['patients_endpoint'] = 'https://pedmatch-int.nci.nih.gov/api/v1/patients'
 ENV['treatment_arm_endpoint'] = 'https://pedmatch-int.nci.nih.gov'
