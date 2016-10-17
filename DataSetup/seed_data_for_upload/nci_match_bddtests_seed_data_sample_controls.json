@@ -1,683 +1,683 @@
 {
     "Items": [
         {
-            "site": {
-                "S": "mda"
-            },
             "control_type": {
                 "S": "no_template"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:19:56.170379"
             },
+            "site": {
+                "S": "mda"
+            },
             "molecular_id": {
                 "S": "SC_3KSN8"
             }
         },
         {
-            "site": {
-                "S": "mda"
-            },
             "control_type": {
                 "S": "no_template"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:19:55.608332"
             },
+            "site": {
+                "S": "mda"
+            },
             "molecular_id": {
                 "S": "SC_307VJ"
             }
         },
         {
-            "site": {
-                "S": "mocha"
-            },
             "control_type": {
                 "S": "positive"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:19:46.058546"
             },
+            "site": {
+                "S": "mocha"
+            },
             "molecular_id": {
                 "S": "SC_8SGBC"
             }
         },
         {
-            "site": {
-                "S": "mocha"
-            },
             "control_type": {
                 "S": "no_template"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:19:52.803025"
             },
+            "site": {
+                "S": "mocha"
+            },
             "molecular_id": {
                 "S": "SC_WF2KR"
             }
         },
         {
-            "site": {
-                "S": "mda"
-            },
             "control_type": {
                 "S": "proficiency_competency"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:20:02.355028"
             },
+            "site": {
+                "S": "mda"
+            },
             "molecular_id": {
                 "S": "SC_ZCCND"
             }
         },
         {
-            "site": {
-                "S": "mda"
-            },
             "control_type": {
                 "S": "proficiency_competency"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:20:04.036666"
             },
+            "site": {
+                "S": "mda"
+            },
             "molecular_id": {
                 "S": "SC_R5H61"
             }
         },
         {
-            "site": {
-                "S": "mocha"
-            },
             "control_type": {
                 "S": "no_template"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:19:52.241313"
             },
+            "site": {
+                "S": "mocha"
+            },
             "molecular_id": {
                 "S": "SC_LFCQP"
             }
         },
         {
-            "site": {
-                "S": "mda"
-            },
             "control_type": {
                 "S": "proficiency_competency"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:20:05.158803"
             },
+            "site": {
+                "S": "mda"
+            },
             "molecular_id": {
                 "S": "SC_GP6TQ"
             }
         },
         {
-            "site": {
-                "S": "mda"
-            },
             "control_type": {
                 "S": "no_template"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:20:00.113135"
             },
+            "site": {
+                "S": "mda"
+            },
             "molecular_id": {
                 "S": "SC_MFIK1"
             }
         },
         {
-            "site": {
-                "S": "mda"
-            },
             "control_type": {
                 "S": "proficiency_competency"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:20:03.476190"
             },
+            "site": {
+                "S": "mda"
+            },
             "molecular_id": {
                 "S": "SC_6VZBN"
             }
         },
         {
-            "ion_reporter_id": {
-                "S": "IR_0HV52"
-            },
-            "site": {
-                "S": "mocha"
-            },
             "control_type": {
                 "S": "no_template"
             },
+            "ion_reporter_id": {
+                "S": "IR_0HV52"
+            },
             "date_molecular_id_created": {
                 "S": "2016-10-13 02:44:46.921836"
+            },
+            "site": {
+                "S": "mocha"
             },
             "molecular_id": {
                 "S": "SC_CN8ZS"
             }
         },
         {
-            "site": {
-                "S": "mocha"
-            },
             "control_type": {
                 "S": "positive"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:19:51.681454"
             },
+            "site": {
+                "S": "mocha"
+            },
             "molecular_id": {
                 "S": "SC_EP4AI"
             }
         },
         {
-            "site": {
-                "S": "mocha"
-            },
             "control_type": {
                 "S": "positive"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:19:48.880369"
             },
+            "site": {
+                "S": "mocha"
+            },
             "molecular_id": {
                 "S": "SC_C8K7G"
             }
         },
         {
-            "site": {
-                "S": "mocha"
-            },
             "control_type": {
                 "S": "positive"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:19:45.498087"
             },
+            "site": {
+                "S": "mocha"
+            },
             "molecular_id": {
                 "S": "SC_HY9S5"
             }
         },
         {
-            "site": {
-                "S": "mda"
-            },
-            "analysis_id": {
-                "S": "SC_7XM2S_ANI"
-            },
             "control_type": {
                 "S": "no_template"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-13 03:23:04.592088"
             },
-            "molecular_id": {
-                "S": "SC_7XM2S"
-            }
-        },
-        {
             "site": {
                 "S": "mda"
             },
+            "molecular_id": {
+                "S": "SC_7XM2S"
+            },
+            "analysis_id": {
+                "S": "SC_7XM2S_ANI"
+            }
+        },
+        {
             "control_type": {
                 "S": "proficiency_competency"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:20:01.795037"
             },
+            "site": {
+                "S": "mda"
+            },
             "molecular_id": {
                 "S": "SC_CVLCZ"
             }
         },
         {
-            "site": {
-                "S": "mda"
-            },
             "control_type": {
                 "S": "no_template"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:19:58.993651"
             },
+            "site": {
+                "S": "mda"
+            },
             "molecular_id": {
                 "S": "SC_OAFXP"
             }
         },
         {
-            "site": {
-                "S": "mda"
-            },
             "control_type": {
                 "S": "proficiency_competency"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:20:06.280805"
             },
+            "site": {
+                "S": "mda"
+            },
             "molecular_id": {
                 "S": "SC_LGUXF"
             }
         },
         {
-            "site": {
-                "S": "mda"
-            },
             "control_type": {
                 "S": "no_template"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:19:54.486570"
             },
+            "site": {
+                "S": "mda"
+            },
             "molecular_id": {
                 "S": "SC_BKWJR"
             }
         },
         {
-            "site": {
-                "S": "mda"
-            },
             "control_type": {
                 "S": "no_template"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:19:59.550374"
             },
+            "site": {
+                "S": "mda"
+            },
             "molecular_id": {
                 "S": "SC_Q5E0X"
             }
         },
         {
-            "site": {
-                "S": "mocha"
-            },
             "control_type": {
                 "S": "positive"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:19:49.440438"
             },
+            "site": {
+                "S": "mocha"
+            },
             "molecular_id": {
                 "S": "SC_M4UAF"
             }
         },
         {
-            "site": {
-                "S": "mocha"
-            },
             "control_type": {
                 "S": "positive"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:19:50.001799"
             },
+            "site": {
+                "S": "mocha"
+            },
             "molecular_id": {
                 "S": "SC_9LL0Q"
             }
         },
         {
-            "ion_reporter_id": {
-                "S": "IR_0R0WO"
-            },
-            "site": {
-                "S": "mocha"
-            },
             "control_type": {
                 "S": "positive"
             },
+            "ion_reporter_id": {
+                "S": "IR_0R0WO"
+            },
             "date_molecular_id_created": {
                 "S": "2016-10-13 02:48:59.699661"
+            },
+            "site": {
+                "S": "mocha"
             },
             "molecular_id": {
                 "S": "SC_6Y4FV"
             }
         },
         {
-            "site": {
-                "S": "mda"
-            },
             "control_type": {
                 "S": "no_template"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:19:57.290066"
             },
+            "site": {
+                "S": "mda"
+            },
             "molecular_id": {
                 "S": "SC_4CPNX"
             }
         },
         {
-            "site": {
-                "S": "mocha"
-            },
             "control_type": {
                 "S": "positive"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:19:48.301310"
             },
+            "site": {
+                "S": "mocha"
+            },
             "molecular_id": {
                 "S": "SC_N44B1"
             }
         },
         {
-            "site": {
-                "S": "mocha"
-            },
             "control_type": {
                 "S": "positive"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:19:50.563827"
             },
+            "site": {
+                "S": "mocha"
+            },
             "molecular_id": {
                 "S": "SC_K7IO0"
             }
         },
         {
-            "site": {
-                "S": "mocha"
-            },
             "control_type": {
                 "S": "positive"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:19:47.741411"
             },
+            "site": {
+                "S": "mocha"
+            },
             "molecular_id": {
                 "S": "SC_QC422"
             }
         },
         {
-            "ion_reporter_id": {
-                "S": "IR_0HV52"
-            },
-            "site": {
-                "S": "mocha"
-            },
             "control_type": {
                 "S": "positive"
             },
+            "ion_reporter_id": {
+                "S": "IR_0HV52"
+            },
             "date_molecular_id_created": {
                 "S": "2016-10-13 02:44:46.354772"
+            },
+            "site": {
+                "S": "mocha"
             },
             "molecular_id": {
                 "S": "SC_JFCEO"
             }
         },
         {
-            "ion_reporter_id": {
-                "S": "IR_0HV52"
-            },
-            "site": {
-                "S": "mocha"
-            },
             "control_type": {
                 "S": "proficiency_competency"
             },
+            "ion_reporter_id": {
+                "S": "IR_0HV52"
+            },
             "date_molecular_id_created": {
                 "S": "2016-10-13 02:44:47.498405"
+            },
+            "site": {
+                "S": "mocha"
             },
             "molecular_id": {
                 "S": "SC_C777Z"
             }
         },
         {
-            "site": {
-                "S": "mocha"
-            },
             "control_type": {
                 "S": "no_template"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:19:53.363516"
             },
+            "site": {
+                "S": "mocha"
+            },
             "molecular_id": {
                 "S": "SC_EUPC2"
             }
         },
         {
-            "site": {
-                "S": "mocha"
-            },
             "control_type": {
                 "S": "no_template"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:19:53.926851"
             },
+            "site": {
+                "S": "mocha"
+            },
             "molecular_id": {
                 "S": "SC_AWBSY"
             }
         },
         {
-            "site": {
-                "S": "mda"
-            },
             "control_type": {
                 "S": "no_template"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:20:00.672778"
             },
+            "site": {
+                "S": "mda"
+            },
             "molecular_id": {
                 "S": "SC_NPID3"
             }
         },
         {
-            "site": {
-                "S": "mocha"
-            },
             "control_type": {
                 "S": "positive"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:19:47.183462"
             },
+            "site": {
+                "S": "mocha"
+            },
             "molecular_id": {
                 "S": "SC_XPCQG"
             }
         },
         {
-            "site": {
-                "S": "mda"
-            },
             "control_type": {
                 "S": "proficiency_competency"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:20:04.597019"
             },
+            "site": {
+                "S": "mda"
+            },
             "molecular_id": {
                 "S": "SC_2A9FY"
             }
         },
         {
-            "site": {
-                "S": "mda"
-            },
             "control_type": {
                 "S": "proficiency_competency"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:20:01.232418"
             },
+            "site": {
+                "S": "mda"
+            },
             "molecular_id": {
                 "S": "SC_XZD70"
             }
         },
         {
-            "site": {
-                "S": "mocha"
-            },
             "control_type": {
                 "S": "positive"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:19:51.122041"
             },
+            "site": {
+                "S": "mocha"
+            },
             "molecular_id": {
                 "S": "SC_73JIO"
             }
         },
         {
-            "site": {
-                "S": "mda"
-            },
             "control_type": {
                 "S": "no_template"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:19:57.851491"
             },
+            "site": {
+                "S": "mda"
+            },
             "molecular_id": {
                 "S": "SC_43K8V"
             }
         },
         {
-            "site": {
-                "S": "mda"
-            },
             "control_type": {
                 "S": "proficiency_competency"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:20:06.843306"
             },
+            "site": {
+                "S": "mda"
+            },
             "molecular_id": {
                 "S": "SC_IEWC6"
             }
         },
         {
-            "site": {
-                "S": "mda"
-            },
             "control_type": {
                 "S": "no_template"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:19:55.049068"
             },
+            "site": {
+                "S": "mda"
+            },
             "molecular_id": {
                 "S": "SC_J6RDR"
             }
         },
         {
-            "site": {
-                "S": "mda"
-            },
             "control_type": {
                 "S": "no_template"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:19:56.731128"
             },
+            "site": {
+                "S": "mda"
+            },
             "molecular_id": {
                 "S": "SC_ZO9VD"
             }
         },
         {
-            "site": {
-                "S": "mda"
-            },
             "control_type": {
                 "S": "proficiency_competency"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:20:02.913472"
             },
+            "site": {
+                "S": "mda"
+            },
             "molecular_id": {
                 "S": "SC_LL7IZ"
             }
         },
         {
-            "site": {
-                "S": "mocha"
-            },
             "control_type": {
                 "S": "positive"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:19:44.377012"
             },
+            "site": {
+                "S": "mocha"
+            },
             "molecular_id": {
                 "S": "SC_76HQS"
             }
         },
         {
-            "ion_reporter_id": {
-                "S": "IR_TCWEV"
-            },
-            "site": {
-                "S": "mda"
-            },
             "control_type": {
                 "S": "no_template"
             },
+            "ion_reporter_id": {
+                "S": "IR_TCWEV"
+            },
             "date_molecular_id_created": {
                 "S": "2016-10-13 02:49:00.303486"
+            },
+            "site": {
+                "S": "mda"
             },
             "molecular_id": {
                 "S": "SC_NUWQS"
             }
         },
         {
-            "site": {
-                "S": "mda"
-            },
             "control_type": {
                 "S": "no_template"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:19:58.431200"
             },
+            "site": {
+                "S": "mda"
+            },
             "molecular_id": {
                 "S": "SC_4Y49T"
             }
         },
         {
-            "site": {
-                "S": "mda"
-            },
             "control_type": {
                 "S": "proficiency_competency"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:20:05.720618"
             },
+            "site": {
+                "S": "mda"
+            },
             "molecular_id": {
                 "S": "SC_D8ZTD"
             }
         },
         {
-            "site": {
-                "S": "mocha"
-            },
             "control_type": {
                 "S": "positive"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:19:44.939367"
             },
+            "site": {
+                "S": "mocha"
+            },
             "molecular_id": {
                 "S": "SC_QSQTO"
             }
         },
         {
-            "site": {
-                "S": "mocha"
-            },
             "control_type": {
                 "S": "positive"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:19:46.619925"
             },
+            "site": {
+                "S": "mocha"
+            },
             "molecular_id": {
                 "S": "SC_X9FR1"
             }
         }
     ],
+    "ConsumedCapacity": null,
     "ScannedCount": 47,
-    "Count": 47,
-    "ConsumedCapacity": null
+    "Count": 47
 }

@@ -79,7 +79,7 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     |PT_SR10_TsVRRejected    |PT_SR10_TsVRRejected_SEI2    |Success    |processed successfully  |
     |PT_SR10_OnTreatmentArm  |PT_SR10_OnTreatmentArm_SEI2  |Failure    |cannot transition from  |
     |PT_SR10_ProgressReBioY  |PT_SR10_ProgressReBioY_SEI2  |Success    |processed successfully  |
-#    |PT_SR10_OffStudy         |PT_SR10_OffStudy_SEI2        |Failure    |cannot transition from  |
+    |PT_SR10_OffStudy         |PT_SR10_OffStudy_SEI2        |Failure    |cannot transition from  |
 
 @patients_p2
   Scenario Outline: PT_SR10b. blood specimen_received message can only be accepted when patient is in certain status
@@ -94,7 +94,7 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     |PT_SR10_BdVRConfirmed  |Failure    |confirmed variant report  |
     |PT_SR10_PendingApproval|Success    |processed successfully    |
     |PT_SR10_ProgressReBioY1|Success    |processed successfully    |
-#    |PT_SR10_OffStudy       |Failure    |cannot transition from    |
+    |PT_SR10_OffStudy       |Failure    |cannot transition from    |
 
 @patients_p2
   Scenario Outline: PT_SR11. Return error message when study_id is invalid

@@ -1,107 +1,102 @@
 {
+    "ScannedCount": 15,
     "ConsumedCapacity": null,
     "Count": 15,
     "Items": [
         {
-            "ion_reporter_id": {
-                "S": "IR_CFUER"
+            "site": {
+                "S": "mda"
             },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:37.632102"
             },
-            "site": {
-                "S": "mda"
+            "ion_reporter_id": {
+                "S": "IR_CFUER"
             }
         },
         {
-            "ion_reporter_id": {
-                "S": "IR_GBOPP"
+            "site": {
+                "S": "mda"
             },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:35.952421"
             },
-            "site": {
-                "S": "mda"
+            "ion_reporter_id": {
+                "S": "IR_GBOPP"
             }
         },
         {
-            "ion_reporter_id": {
-                "S": "IR_1H9XW"
+            "site": {
+                "S": "mocha"
             },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:41.018144"
             },
-            "site": {
-                "S": "mocha"
+            "ion_reporter_id": {
+                "S": "IR_1H9XW"
             }
         },
         {
-            "ion_reporter_id": {
-                "S": "IR_3I4AB"
+            "site": {
+                "S": "mda"
             },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:39.894323"
             },
-            "site": {
-                "S": "mda"
+            "ion_reporter_id": {
+                "S": "IR_3I4AB"
             }
         },
         {
-            "ion_reporter_id": {
-                "S": "IR_TG2DY"
+            "site": {
+                "S": "mocha"
             },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:41.577614"
             },
-            "site": {
-                "S": "mocha"
+            "ion_reporter_id": {
+                "S": "IR_TG2DY"
             }
         },
         {
-            "ion_reporter_id": {
-                "S": "IR_37Y4Y"
+            "site": {
+                "S": "mda"
             },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:38.752627"
             },
-            "site": {
-                "S": "mda"
+            "ion_reporter_id": {
+                "S": "IR_37Y4Y"
             }
         },
         {
-            "ion_reporter_id": {
-                "S": "IR_ONO31"
+            "site": {
+                "S": "mda"
             },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:37.073738"
             },
-            "site": {
-                "S": "mda"
+            "ion_reporter_id": {
+                "S": "IR_ONO31"
             }
         },
         {
-            "ion_reporter_id": {
-                "S": "IR_PU4NI"
+            "site": {
+                "S": "mocha"
             },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:42.698643"
             },
-            "site": {
-                "S": "mocha"
+            "ion_reporter_id": {
+                "S": "IR_PU4NI"
             }
         },
         {
-            "date_ion_reporter_id_created": {
-                "S": "2016-10-12 21:19:43.815673"
-            },
-            "internal_ip_address": {
-                "S": "129.43.39.182"
+            "last_contact": {
+                "S": "August 29, 2016 2:01 PM GMT"
             },
             "data_files": {
                 "S": "DB Report"
-            },
-            "ip_address": {
-                "S": "129.43.39.182"
             },
             "ion_reporter_id": {
                 "S": "IR_NX0TL"
@@ -109,79 +104,84 @@
             "host_name": {
                 "S": "NCI-MATCH-IR"
             },
-            "last_contact": {
-                "S": "August 29, 2016 2:01 PM GMT"
-            },
             "site": {
                 "S": "mocha"
+            },
+            "internal_ip_address": {
+                "S": "129.43.39.182"
+            },
+            "date_ion_reporter_id_created": {
+                "S": "2016-10-12 21:19:43.815673"
+            },
+            "ip_address": {
+                "S": "129.43.39.182"
             }
         },
         {
-            "ion_reporter_id": {
-                "S": "IR_0HV52"
+            "site": {
+                "S": "mocha"
             },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:40.458413"
             },
-            "site": {
-                "S": "mocha"
+            "ion_reporter_id": {
+                "S": "IR_0HV52"
             }
         },
         {
-            "ion_reporter_id": {
-                "S": "IR_0R0WO"
+            "site": {
+                "S": "mocha"
             },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:42.140228"
             },
-            "site": {
-                "S": "mocha"
+            "ion_reporter_id": {
+                "S": "IR_0R0WO"
             }
         },
         {
-            "ion_reporter_id": {
-                "S": "IR_TCWEV"
+            "site": {
+                "S": "mda"
             },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:39.312361"
             },
-            "site": {
-                "S": "mda"
+            "ion_reporter_id": {
+                "S": "IR_TCWEV"
             }
         },
         {
-            "ion_reporter_id": {
-                "S": "IR_X6WHA"
+            "site": {
+                "S": "mocha"
             },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:43.258256"
             },
-            "site": {
-                "S": "mocha"
+            "ion_reporter_id": {
+                "S": "IR_X6WHA"
             }
         },
         {
-            "ion_reporter_id": {
-                "S": "IR_6823R"
+            "site": {
+                "S": "mda"
             },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:38.192693"
             },
-            "site": {
-                "S": "mda"
+            "ion_reporter_id": {
+                "S": "IR_6823R"
             }
         },
         {
-            "ion_reporter_id": {
-                "S": "IR_IGEAW"
+            "site": {
+                "S": "mda"
             },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:36.514328"
             },
-            "site": {
-                "S": "mda"
+            "ion_reporter_id": {
+                "S": "IR_IGEAW"
             }
         }
-    ],
-    "ScannedCount": 15
+    ]
 }

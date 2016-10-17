@@ -122,6 +122,10 @@ PatientVariantFolderCreator.create_default('PT_VU02a_TissueShippedToMDA', 'tissu
 PatientVariantFolderCreator.create_default('PT_VU02a_TissueShippedToMoCha', 'tissue')
 PatientVariantFolderCreator.create_default('PT_VC05_TissueShipped', 'tissue')
 
+pt = PatientDataSet.new('PT_VU12_VariantReportRejected')
+PatientVariantFolderCreator.create(pt.moi, pt.ani)
+PatientVariantFolderCreator.create(pt.moi, pt.ani_increase)
+
 pt = PatientDataSet.new('PT_VU09_VariantReportUploaded')
 PatientVariantFolderCreator.create(pt.moi, pt.ani_increase)
 
