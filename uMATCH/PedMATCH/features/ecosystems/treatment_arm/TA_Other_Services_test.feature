@@ -8,19 +8,19 @@ Feature: TA_OS. Treatment Arm API Tests that focus on treatment arm api service 
     Given template treatment arm json with an id: "APEC1621-OS1-1", stratum_id: "STRATUM1" and version: "version1"
     When creating a new treatment arm using post request
     Then a success message is returned
-    Then wait for processor to complete request in "10" seconds
+    Then wait for processor to complete request in "10" attempts
     Then set the version of the treatment arm to "version2"
     When creating a new treatment arm using post request
     Then a success message is returned
-    Then wait for processor to complete request in "10" seconds
+    Then wait for processor to complete request in "10" attempts
     Then set the version of the treatment arm to "version3"
     When creating a new treatment arm using post request
     Then a success message is returned
-    Then wait for processor to complete request in "10" seconds
+    Then wait for processor to complete request in "10" attempts
     Then set the version of the treatment arm to "version4"
     When creating a new treatment arm using post request
     Then a success message is returned
-    Then wait for processor to complete request in "10" seconds
+    Then wait for processor to complete request in "10" attempts
     When calling uploaded treatment arm with basic "true" and active "true"
     Then should return "1" of the records
     And the returned treatment arm has "version4" as the version
@@ -40,12 +40,12 @@ Feature: TA_OS. Treatment Arm API Tests that focus on treatment arm api service 
     Given template treatment arm json with an id: "APEC1621-OS7-1", stratum_id: "STRATUM1" and version: "2016-06-03"
     Then creating a new treatment arm using post request
     Then a success message is returned
-    Then wait for processor to complete request in "10" seconds
+    Then wait for processor to complete request in "10" attempts
     Then template treatment arm json with an id: "APEC1621-OS7-1", stratum_id: "STRATUM1" and version: "2016-06-15"
     Then creating a new treatment arm using post request
     Then a success message is returned
-    Then wait for processor to complete request in "10" seconds
+    Then wait for processor to complete request in "10" attempts
     Then retrieve treatment arms with id: "APEC1621-OS7-1" and stratum_id: "STRATUM1" from API
-    Then the first returned treatment arm has value: "APEC1621-OS7-1" in field: "id"
+    Then the first returned treatment arm has value: "APEC1621-OS7-1" in field: "treatment_arm_id"
     Then the first returned treatment arm has value: "STRATUM1" in field: "stratum_id"
     Then the first returned treatment arm has value: "2016-06-15" in field: "version"

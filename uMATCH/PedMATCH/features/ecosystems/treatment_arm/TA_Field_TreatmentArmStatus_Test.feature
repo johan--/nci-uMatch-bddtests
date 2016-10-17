@@ -9,7 +9,7 @@ Feature: TA_TAS. Treatment Arm API Tests that focus on "treatment_arm_status" fi
     And set template treatment arm json field: "treatment_arm_status" to string value: "<status>"
     When creating a new treatment arm using post request
     Then a success message is returned
-    Then wait for processor to complete request in "10" seconds
+    Then wait for processor to complete request in "10" attempts
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has value: "OPEN" in field: "treatment_arm_status"
     Examples:
@@ -23,14 +23,14 @@ Feature: TA_TAS. Treatment Arm API Tests that focus on "treatment_arm_status" fi
     Given template treatment arm json with an id: "APEC1621-TAS2-1", stratum_id: "STRATUM1" and version: "2016-06-03"
     When creating a new treatment arm using post request
     Then a success message is returned
-    Then wait for processor to complete request in "10" seconds
+    Then wait for processor to complete request in "10" attempts
     Then cog changes treatment arm with id:"APEC1621-TAS2-1" and stratumID:"STRATUM1" status to: "SUSPENDED"
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has value: "SUSPENDED" in field: "treatment_arm_status"
     Then set the version of the treatment arm to "2016-06-28"
     When creating a new treatment arm using post request
     Then a success message is returned
-    Then wait for processor to complete request in "10" seconds
+    Then wait for processor to complete request in "10" attempts
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has value: "SUSPENDED" in field: "treatment_arm_status"
 
@@ -43,7 +43,7 @@ Feature: TA_TAS. Treatment Arm API Tests that focus on "treatment_arm_status" fi
 #    Given template treatment arm json with an id: "APEC1621-TAS4-1", stratum_id: "STRATUM1" and version: "2016-06-03"
 #    When creating a new treatment arm using post request
 #    Then a success message is returned
-#    Then wait for processor to complete request in "10" seconds
+#    Then wait for processor to complete request in "10" attempts
 #    Then cog changes treatment arm with id:"APEC1621-TAS4-1" and stratumID:"STRATUM1" status to: "CLOSED"
 #    Then set the version of the treatment arm to "2016-06-28"
 #    And set template treatment arm json field: "treatment_arm_status" to string value: "OPEN"

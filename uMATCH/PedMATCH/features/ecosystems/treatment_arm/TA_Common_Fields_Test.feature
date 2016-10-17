@@ -14,11 +14,11 @@ Feature: TA_CF. Treatment Arm API common tests for all fields
     Given template treatment arm json with an id: "APEC1621-DUP-1", stratum_id: "STRATUM1" and version: "2016-01-01"
     When creating a new treatment arm using post request
     Then a success message is returned
-    Then wait for processor to complete request in "10" seconds
+    Then wait for processor to complete request in "10" attempts
     When creating a new treatment arm using post request
     Then a failure response code of "400" is returned
     And a failure message is returned which contains: "already exists in the DataBase"
-    Then wait for processor to complete request in "10" seconds
+    Then wait for processor to complete request in "10" attempts
     When retrieve treatment arms with id: "APEC1621-DUP-1" and stratum_id: "STRATUM1" from API
     Then should return "1" of the records
 
@@ -28,7 +28,7 @@ Feature: TA_CF. Treatment Arm API common tests for all fields
     And set template treatment arm json field: "gene" to value: "EGFR" in type: "string"
     When creating a new treatment arm using post request
     Then a success message is returned
-    Then wait for processor to complete request in "10" seconds
+    Then wait for processor to complete request in "10" attempts
     Then set template treatment arm json field: "gene" to value: "xxyyyy" in type: "string"
     When creating a new treatment arm using post request
     Then a failure response code of "400" is returned
@@ -41,7 +41,7 @@ Feature: TA_CF. Treatment Arm API common tests for all fields
     Given that treatment arm is received from COG:
 	"""
 	{"study_id":"APEC1621",
-	"id":"TA_test1",
+	"treatment_arm_id":"TA_test1",
 	"stratum_id":"1",
 	"version":"2016-05-28",
 	"gene":"ALK",
@@ -78,7 +78,7 @@ Feature: TA_CF. Treatment Arm API common tests for all fields
     Given that treatment arm is received from COG:
 	"""
 	{"study_id":"APEC1621",
-	"id":"NoVersion",
+	"treatment_arm_id":"NoVersion",
 	"stratum_id":"1",
 	"gene":"ALK",
 	"description":"Afatinib",
@@ -112,7 +112,7 @@ Feature: TA_CF. Treatment Arm API common tests for all fields
 	"""
 		{
 		"study_id":"APEC1621",
-	    "id" : "TA_test3",
+	    "treatment_arm_id" : "TA_test3",
 	    "stratum_id":"1",
 	    "name" : "ta_test3",
 	    "target_id" : 1234,
@@ -179,7 +179,7 @@ Feature: TA_CF. Treatment Arm API common tests for all fields
     And set template treatment arm json field: "<field>" to string value: "<value>"
     When creating a new treatment arm using post request
     Then a success message is returned
-    Then wait for processor to complete request in "10" seconds
+    Then wait for processor to complete request in "10" attempts
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has value: "<returned_value>" in field: "<field>"
     Examples:
@@ -194,7 +194,7 @@ Feature: TA_CF. Treatment Arm API common tests for all fields
     And remove field: "<field>" from template treatment arm json
     When creating a new treatment arm using post request
     Then a success message is returned
-    Then wait for processor to complete request in "10" seconds
+    Then wait for processor to complete request in "10" attempts
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has value: "" in field: "<field>"
     Examples:
@@ -217,7 +217,7 @@ Feature: TA_CF. Treatment Arm API common tests for all fields
     Given template treatment arm json with an id: "APEC1621-CF6-1"
     When creating a new treatment arm using post request
     Then a success message is returned
-    Then wait for processor to complete request in "10" seconds
+    Then wait for processor to complete request in "10" attempts
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has correct date_created value
 
@@ -227,7 +227,7 @@ Feature: TA_CF. Treatment Arm API common tests for all fields
     And set template treatment arm json field: "<field_name>" to value: "<fieldValue>" in type: "<dataType>"
     When creating a new treatment arm using post request
     Then a success message is returned
-    Then wait for processor to complete request in "10" seconds
+    Then wait for processor to complete request in "10" attempts
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has "<dataType>" value: "<fieldValue>" in field: "<field_name>"
     Examples:

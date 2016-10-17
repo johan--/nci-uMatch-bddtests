@@ -9,15 +9,15 @@ Feature: TA_SI. Treatment Arm API Tests that focus on "stratum_id" field
     Given template treatment arm json with an id: "APEC1621-SI3-1", stratum_id: "STRATUM1" and version: "2016-06-03"
     Then creating a new treatment arm using post request
     Then a success message is returned
-    Then wait for processor to complete request in "10" seconds
+    Then wait for processor to complete request in "10" attempts
     Then template treatment arm json with an id: "APEC1621-SI3-1", stratum_id: "STRATUM1" and version: "2016-06-15"
     Then creating a new treatment arm using post request
     Then a success message is returned
-    Then wait for processor to complete request in "10" seconds
+    Then wait for processor to complete request in "10" attempts
     Then template treatment arm json with an id: "APEC1621-SI3-1", stratum_id: "STRATUM2" and version: "2016-06-15"
     Then creating a new treatment arm using post request
     Then a success message is returned
-    Then wait for processor to complete request in "10" seconds
+    Then wait for processor to complete request in "10" attempts
     Then template treatment arm json with an id: "APEC1621-SI3-2", stratum_id: "STRATUM2" and version: "2016-06-15"
     Then creating a new treatment arm using post request
     Then a success message is returned

@@ -29,7 +29,7 @@ class Treatment_arm_helper
     # dateCreated = Helper_Methods.getDateAsRequired('current')
 
     @treatmentArm = {"study_id"=> study_id,
-                     "id" => taId,
+                     "treatment_arm_id" => taId,
                      "stratum_id"=> stratum_id,
                      "name" => taName,
                      "version"=>version,

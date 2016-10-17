@@ -13,7 +13,7 @@ Feature: TA_VR. Treatment Arm API Tests that focus on Variants
     Then add template variant: "<variantType>" to template treatment arm json
     When creating a new treatment arm using post request
     Then a success message is returned
-    Then wait for processor to complete request in "10" seconds
+    Then wait for processor to complete request in "10" attempts
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has "<variantType>" variant (id: "<identifier>", field: "inclusion", value: "<inclusionValue>")
     Examples:
@@ -39,7 +39,7 @@ Feature: TA_VR. Treatment Arm API Tests that focus on Variants
     Then add template variant: "<variantType>" to template treatment arm json
     When creating a new treatment arm using post request
     Then a success message is returned
-    Then wait for processor to complete request in "10" seconds
+    Then wait for processor to complete request in "10" attempts
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has "<variantType>" variant (id: "<identifier>", field: "arm_specific", value: "<inputValue>")
     Examples:
@@ -65,7 +65,7 @@ Feature: TA_VR. Treatment Arm API Tests that focus on Variants
     Then add template variant: "<variantType>" to template treatment arm json
     When creating a new treatment arm using post request
     Then a success message is returned
-    Then wait for processor to complete request in "10" seconds
+    Then wait for processor to complete request in "10" attempts
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has "<variantType>" variant (id: "<identifier>", public_med_ids: "<pmIDs>")
     Examples:
@@ -127,7 +127,7 @@ Feature: TA_VR. Treatment Arm API Tests that focus on Variants
     And add template variant: "<variantType>" to template treatment arm json
     When creating a new treatment arm using post request
     Then a success message is returned
-    Then wait for processor to complete request in "10" seconds
+    Then wait for processor to complete request in "10" attempts
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has "<variantType>" variant (id: "<identifier>", field: "oncomine_variant_class", value: "<ovcValue>")
     Examples:
@@ -191,7 +191,7 @@ Feature: TA_VR. Treatment Arm API Tests that focus on Variants
     And add template variant: "nhr" to template treatment arm json
     When creating a new treatment arm using post request
     Then a success message is returned
-    Then wait for processor to complete request in "10" seconds
+    Then wait for processor to complete request in "10" attempts
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has "nhr" variant count:"1"
 
@@ -205,7 +205,7 @@ Feature: TA_VR. Treatment Arm API Tests that focus on Variants
     And add template variant: "nhr" to template treatment arm json
     When creating a new treatment arm using post request
     Then a success message is returned
-    Then wait for processor to complete request in "10" seconds
+    Then wait for processor to complete request in "10" attempts
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has "nhr" variant (id: "<identifier>", field: "function", value: "<functionValue>")
     Examples:

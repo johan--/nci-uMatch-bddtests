@@ -9,7 +9,7 @@ Background: wait for process to complete
 	"""
     {
       "active": null,
-      "id": "APEC1621-A",
+      "treatment_arm_id": "APEC1621-A",
       "name": "APEC1621-A",
       "date_created": "2016-06-24T15:38:31+00:00",
       "version": "2015-08-06",
@@ -140,7 +140,7 @@ Background: wait for process to complete
     """
 {
       "active": null,
-      "id": "APEC1621-B",
+      "treatment_arm_id": "APEC1621-B",
       "name": "APEC1621-B",
       "date_created": "2016-06-24T15:38:31+00:00",
       "version": "2015-08-06",

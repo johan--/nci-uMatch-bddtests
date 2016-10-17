@@ -56,7 +56,7 @@ end
 
 Given(/^template treatment arm json with an id: "([^"]*)", stratum_id: "([^"]*)" and version: "([^"]*)"$/) do |id, stratum_id, version|
   loadTemplateJson()
-  @taReq['id'] = id == 'null' ? nil : id
+  @taReq['treatment_arm_id'] = id == 'null' ? nil : id
   @taReq['version'] = version == 'null' ? nil : version
   @taReq['stratum_id'] = stratum_id == 'null' ? nil : stratum_id
   @ta_id = @taReq['id']
@@ -140,8 +140,8 @@ Then(/^wait for "([^"]*)" seconds$/) do |seconds|
   sleep(seconds.to_f)
 end
 
-Then(/^wait for processor to complete request in "(.+?)" seconds$/) do |seconds|
-  status = wait_for_processor(seconds.to_i)
+Then(/^wait for processor to complete request in "(.+?)" attempts/) do |attempts|
+  status = wait_for_processor(attempts.to_i, 2)
   expect(status).to eql true
 end
 
@@ -187,7 +187,7 @@ Then(/^the treatment arm: "([^"]*)" return from database has correct version: "(
   expectDrugID = "Drug ID is #{expectDrug.drugId}"
   expectDrugName = "Drug Name is #{expectDrug.drugName}"
 
-  @response = Helper_Methods.get_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms",params={"id"=>id})
+  @response = Helper_Methods.get_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms",params={"treatment_arm_id"=>id})
   tas = JSON.parse(@response)
   returnedTASize = tas.length.should > 0
   foundCorrectResult = false
@@ -652,8 +652,6 @@ def find_all_versions (id, stratum)
     end
     counter += 1
   end
-
-  p @response
 end
 
 #returns a hash with the variant type and the field missing in the variant
@@ -679,7 +677,7 @@ end
 
 
 def findAllTAsByID(id)
-  @response = Helper_Methods.get_list_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms",params={"id"=>id})
+  @response = Helper_Methods.get_list_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms",params={"treatment_arm_id"=>id})
   @response.should_not == nil
   returnedTASize = "Returned treatment arm count is #{@response.length}"
   returnedTASize.should_not == 'Returned treatment arm count is 0'
@@ -703,7 +701,7 @@ end
 def findSpecificBasicTreatmentArms(id)
   # sleep(5.0)
   # @response = Helper_Methods.get_request(ENV['treatment_arm_endpoint']+'/basicTreatmentArms',params={"id"=>id})
-  @response = Helper_Methods.get_list_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms",params={"id"=>id})
+  @response = Helper_Methods.get_list_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms",params={"treatment_arm_id"=>id})
   @response.should_not == nil
   @response
 end
@@ -721,13 +719,13 @@ end
 
 # pings the api "cnt" times. If it is successful in getting a treatment arm within that count it returns a true.
 # if we do not get a 200 or get any other error after "cnt" times it will return a false.
-def wait_for_processor(cnt = 5)
+def wait_for_processor(cnt = 5, retry_in = 1)
   counter = 0
   while counter <= cnt
     response = Helper_Methods.get_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{@ta_id}/#{@stratum_id}/#{@version}", { 'no_log' => true })
     # if response['message'].match(/(read_attribute_for_serialization|\+)/)
     if response['http_code'] != 200
-      sleep(2)
+      sleep(retry_in)
     else
       return true if response['http_code'] == 200
     end
