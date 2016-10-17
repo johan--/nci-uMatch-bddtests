@@ -27,7 +27,7 @@ end
 
 Given(/^that treatment arm is received from COG:$/) do |taJson|
   request = JSON.parse(taJson)
-  @ta_id = request['id']
+  @ta_id = request['treatment_arm_id']
   @stratum_id = request['stratum_id']
   @version = request['version']
   @jsonString = request.to_json
@@ -37,8 +37,8 @@ end
 Given(/^template treatment arm json with a random id$/) do
   loadTemplateJson()
   sleep(2)
-  @taReq['id'] = "APEC1621-#{Time.now.to_i.to_s}"
-  @ta_id = @taReq['id']
+  @taReq['treatment_arm_id'] = "APEC1621-#{Time.now.to_i.to_s}"
+  @ta_id = @taReq['treatment_arm_id']
   @stratum_id = @taReq['stratum_id']
   @version = @taReq['version']
   @jsonString = @taReq.to_json.to_s
@@ -46,8 +46,8 @@ end
 
 Given(/^template treatment arm json with an id: "([^"]*)"$/) do |id|
   loadTemplateJson()
-  @taReq['id'] = id == 'null' ? nil : id
-  @ta_id = @taReq['id']
+  @taReq['treatment_arm_id'] = id == 'null' ? nil : id
+  @ta_id = @taReq['treatment_arm_id']
   @version = @taReq['version']
   @stratum_id = @taReq['stratum_id']
   @jsonString = @taReq.to_json.to_s
@@ -59,7 +59,7 @@ Given(/^template treatment arm json with an id: "([^"]*)", stratum_id: "([^"]*)"
   @taReq['treatment_arm_id'] = id == 'null' ? nil : id
   @taReq['version'] = version == 'null' ? nil : version
   @taReq['stratum_id'] = stratum_id == 'null' ? nil : stratum_id
-  @ta_id = @taReq['id']
+  @ta_id = @taReq['treatment_arm_id']
   @stratum_id = @taReq['stratum_id']
   @version = @taReq['version']
   @jsonString = @taReq.to_json.to_s
@@ -167,7 +167,6 @@ Then(/^the treatment_arm_status field has a value "([^"]*)" for the ta "([^"]*)"
   endpoint = "api/v1/treatment_arms/#{taId}/#{@stratum_id}/#{@version}"
 
   response = Helper_Methods.get_request("#{ENV['treatment_arm_endpoint']}/#{endpoint}")
-  puts response
   tas = JSON.parse(response['message'])
   tas.length.should > 0
   expect(tas['treatment_arm_status']).to eq(status)
@@ -269,7 +268,7 @@ Then(/^retrieve treatment arm with id: "([^"]*)", stratum_id: "([^"]*)" and vers
 end
 
 Then(/^retrieve treatment arms with id: "([^"]*)" and stratum_id: "([^"]*)" from API$/) do |id, stratum|
-  @response = find_all_versions(id, stratum)
+  find_all_versions(id, stratum)
 end
 
 Given(/^retrieve all treatment arms from \/treatmentArms$/) do
@@ -642,7 +641,7 @@ def find_all_versions (id, stratum)
   counter = 0
   while counter <= cnt
     sleep(3)
-    @response = Helper_Methods.get_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{id}/#{stratum}", { 'no_log' => true })
+    @response = Helper_Methods.get_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{id}/#{stratum}")
     # if response['message'].match(/(read_attribute_for_serialization|\+)/)
 
     if JSON.parse(@response['message']).size == 0
