@@ -16,8 +16,8 @@ Feature: TA_CF. Treatment Arm API common tests for all fields
     Then a success message is returned
     Then wait for processor to complete request in "10" seconds
     When creating a new treatment arm using post request
-    Then a failure response code of "500" is returned
-    And a failure message is returned which contains: "already exists in the DataBase. Ignoring"
+    Then a failure response code of "400" is returned
+    And a failure message is returned which contains: "already exists in the DataBase"
     Then wait for processor to complete request in "10" seconds
     When retrieve treatment arms with id: "APEC1621-DUP-1" and stratum_id: "STRATUM1" from API
     Then should return "1" of the records
@@ -31,8 +31,8 @@ Feature: TA_CF. Treatment Arm API common tests for all fields
     Then wait for processor to complete request in "10" seconds
     Then set template treatment arm json field: "gene" to value: "xxyyyy" in type: "string"
     When creating a new treatment arm using post request
-    Then a failure response code of "500" is returned
-    And a failure message is returned which contains: "already exists in the DataBase. Ignoring"
+    Then a failure response code of "400" is returned
+    And a failure message is returned which contains: "already exists in the DataBase"
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has value: "EGFR" in field: "gene"
 

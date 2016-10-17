@@ -23,6 +23,7 @@ Feature: TA_OS. Treatment Arm API Tests that focus on treatment arm api service 
     Then wait for processor to complete request in "10" seconds
     When calling uploaded treatment arm with basic "true" and active "true"
     Then should return "1" of the records
+    And the returned treatment arm has "version4" as the version
     When calling uploaded treatment arm with basic "true" and active "false"
     Then should return "3" of the records
     When calling uploaded treatment arm with basic "true" and active "null"

@@ -119,19 +119,20 @@ end
 
 When(/^calling uploaded treatment arm with basic "(true|false)" and active "(.+?)"$/) do |basic, active|
   params = []
-  flag_basic = basic == 'true' ? true : false
-  params << "basic=#{flag_basic}"
-  flag_active = nil
   if active.match(/true|false/)
     flag_active = active == 'true' ? true : false
   end
-  params << "active=#{flag_active}" unless active.empty?
+  params << "active=#{flag_active}" unless active.match(/null/)
   param = params.join("&")
   @response = Helper_Methods.get_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{@ta_id}/#{@stratum_id}?#{param}")
 end
 
 Then (/^should return "(.+)" of the records$/) do |num_records|
   expect(JSON.parse(@response['message']).size).to eq(num_records.to_i)
+end
+
+Then (/^the returned treatment arm has "(.+?)" as the version$/) do |version|
+  expect(JSON.parse(@response['message']).first['version']).to eql(version)
 end
 
 Then(/^wait for "([^"]*)" seconds$/) do |seconds|
