@@ -358,6 +358,20 @@ class PatientMessageLoader
     send_message_to_local(message, patient_id)
   end
 
+  def self.off_study_biopsy_expired(
+      patient_id,
+          step_number,
+          status_date='2016-08-30T12:11:09.071-05:00'
+  )
+    wait_until_updated(patient_id)
+    message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['off_study']
+    message['patient_id'] = patient_id
+    message['step_number'] = step_number
+    message['status'] = 'OFF_STUDY_BIOPSY_EXPIRED'
+    message['status_date'] = status_date
+    send_message_to_local(message, patient_id)
+  end
+
 
 
   def self.request_assignment(
@@ -366,6 +380,7 @@ class PatientMessageLoader
     step_number='2.0',
     status_date='2016-08-10T22:05:33+00:00'
   )
+    wait_until_updated(patient_id)
     @request_assignment_message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['request_assignment']
     @request_assignment_message['patient_id'] = patient_id
     @request_assignment_message['status_date'] = status_date
