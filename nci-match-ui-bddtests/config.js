@@ -4,16 +4,15 @@
 var helper = require('./support/setup');
 
 exports.config = {
-    baseUrl: 'http://localhost:9000', //https://pedmatch-int.nci.nih.gov',  //when developing tests use http://localhost:9000',
+    baseUrl: 'https://pedmatch-int.nci.nih.gov',  //when developing tests use http://localhost:9000',
 
     //seleniumAddress: 'http://localhost:4444/wd/hub',
     chromeOnly: true,
     directConnect: true,
     capabilities: {
-        browserName: 'firefox',
+        browserName: 'chrome',
         version: ''
     },
-    chromeOnly: true,
 
     specs: [
         // Login Page
