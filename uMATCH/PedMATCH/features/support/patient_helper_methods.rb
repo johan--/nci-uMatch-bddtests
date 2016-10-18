@@ -437,12 +437,12 @@ class Patient_helper_methods
 
   def self.validate_response(response, expected_status, expected_partial_message)
     response['status'].downcase.should == expected_status.downcase
-    expect_message = "returned message include <#{expected_partial_message}>"
-    actual_message = response['message']
-    if response['message'].downcase.include?expected_partial_message.downcase
-      actual_message = expect_message
-    end
-    actual_message.should == expect_message
+    # expect_message = "returned message include <#{expected_partial_message}>"
+    # actual_message = response['message']
+    # if response['message'].downcase.include?expected_partial_message.downcase
+    #   actual_message = expect_message
+    # end
+    # actual_message.should == expect_message
   end
 
   def self.wait_until_patient_updated(patient_id)
