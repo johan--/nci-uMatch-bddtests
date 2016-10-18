@@ -730,6 +730,6 @@ def wait_for_processor(cnt = 5, retry_in = 1)
     end
     counter += 1
   end
-  p response['message']
+  p "Wait for processor ended with http_code: #{response['http_code']}"
   return false
 end
