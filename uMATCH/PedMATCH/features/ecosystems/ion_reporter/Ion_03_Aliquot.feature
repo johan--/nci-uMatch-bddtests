@@ -18,7 +18,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then field: "tsv_name" for this aliquot should be: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/test1.tsv"
     Then field: "dna_bai_name" for this aliquot should be: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/dna.bai"
     Then field: "cdna_bai_name" for this aliquot should be: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/cdna.bai"
-    Then field: "status" for this aliquot variant_report should be: "PASSED"
+    Then field: "report_status" for this aliquot variant_report should be: "PASSED"
     Then field: "analysis_id" for this aliquot variant_report should be: "SC_OAFXP_ANI1"
     Then field: "ion_reporter_id" for this aliquot variant_report should be: "IR_TCWEV"
     Then field: "filename" for this aliquot variant_report should be: "test1"
