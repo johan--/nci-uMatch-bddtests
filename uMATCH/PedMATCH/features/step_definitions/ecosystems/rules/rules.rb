@@ -93,7 +93,7 @@ When(/^the positive_control service is called/) do
 end
 
 Then(/^the report status return is "([^"]*)"$/) do |status|
-  expect(@res['status']).to eql(status)
+  expect(@res['report_status']).to eql(status)
 end
 
 Then(/^moi report is returned with the snv variant "([^"]*)" as an amoi$/) do |arg1|
