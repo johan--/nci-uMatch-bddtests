@@ -628,7 +628,7 @@ def find_treatment_arm_all_versions(id, stratum_id)
 end
 
 def find_all_basic_treatment_arms
-  Helper_Methods.get_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms?basic=true")
+  Helper_Methods.get_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms?projection[]=treatment_arm_id")
 end
 
 def find_treatment_arm_basic(id, stratum, version = nil)
@@ -730,5 +730,6 @@ def wait_for_processor(cnt = 5, retry_in = 1)
     end
     counter += 1
   end
+  p response['message']
   return false
 end
