@@ -24,9 +24,9 @@ Feature: Variant files uploaded message
     Then set patient message field: "ion_reporter_id" to value: "<site_value>"
     When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
     Examples:
-      |site_value     |message          |
-      |               |can't be blank   |
-      |null           |can't be blank   |
+      | site_value | message        |
+      |            | can't be blank |
+      | null       | can't be blank |
 
 #    site has been replaced by ion_reporter, and we don't verify the value
 #  Scenario Outline: PT_VU02a. variant files can be uploaded from both MDA and MoCha successfully
@@ -47,19 +47,19 @@ Feature: Variant files uploaded message
     Given template variant file uploaded message for patient: "PT_VU03_TissueShipped", it has molecular_id: "<MOI>" and analysis_id: "PT_VU03_TissueShipped_ANI1"
     When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
     Examples:
-      |MOI            |message                                                                            |
-      |               |can't be blank                                                                     |
-      |null           |can't be blank                                                                     |
-      |other          |Unable to find shipment with molecular id                                          |
+      | MOI   | message                                   |
+      |       | can't be blank                            |
+      | null  | can't be blank                            |
+      | other | Unable to find shipment with molecular id |
 
   @patients_p2
   Scenario Outline: PT_VU04. variant files uploaded message with invalid analysis_id should fail
     Given template variant file uploaded message for patient: "PT_VU04_TissueShipped", it has molecular_id: "PT_VU04_TissueShipped_MOI1" and analysis_id: "<ANI>"
     When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
     Examples:
-      |ANI            |message                                                                            |
-      |               |can't be blank                                                                     |
-      |null           |can't be blank                                                                     |
+      | ANI  | message        |
+      |      | can't be blank |
+      | null | can't be blank |
 
   @patients_p2
   Scenario Outline: PT_VU05. variant files uploaded message using old molecular_id should fail
@@ -68,12 +68,12 @@ Feature: Variant files uploaded message
     #                                    molecular_id: PT_VU05_TissueShipped_MOI2 tissue shipped;
 #  Test patient: PT_VU05_BloodShipped:  molecular_id: PT_VU05_BloodShipped_BD_MOI1 tissue shipped;
     #                                    molecular_id: PT_VU05_BloodShipped_BD_MOI2 tissue shipped;
-  Given template variant file uploaded message for patient: "<patient_id>", it has molecular_id: "<moi>" and analysis_id: "<ani>"
-  When post to MATCH patients service, returns a message that includes "Molecular id doesn't exist or is not currently active" with status "Failure"
-  Examples:
-    |patient_id             |moi                                        |ani                                          |
-    |PT_VU05_TissueShipped  |PT_VU05_TissueShipped_MOI1                 |PT_VU05_TissueShipped_ANI1                   |
-    |PT_VU05_BloodShipped   |PT_VU05_BloodShipped_BD_MOI1               |PT_VU05_BloodShipped_ANI1                    |
+    Given template variant file uploaded message for patient: "<patient_id>", it has molecular_id: "<moi>" and analysis_id: "<ani>"
+    When post to MATCH patients service, returns a message that includes "Molecular id doesn't exist or is not currently active" with status "Failure"
+    Examples:
+      | patient_id            | moi                          | ani                        |
+      | PT_VU05_TissueShipped | PT_VU05_TissueShipped_MOI1   | PT_VU05_TissueShipped_ANI1 |
+      | PT_VU05_BloodShipped  | PT_VU05_BloodShipped_BD_MOI1 | PT_VU05_BloodShipped_ANI1  |
 
   @patients_p1
   Scenario: PT_VU06. tsv vcf files uploaded message using new analysis_id can be accepted when patient has TISSUE_NUCLEIC_ACID_SHIPPED status and new uploaded variant files should has PENDING as default status
@@ -126,9 +126,9 @@ Feature: Variant files uploaded message
     Given template variant file uploaded message for patient: "PT_VU12_VariantReportRejected", it has molecular_id: "<moi>" and analysis_id: "<ani>"
     When post to MATCH patients service, returns a message that includes "Patient already has a variant report" with status "Failure"
     Examples:
-      |moi                                |ani                                |
-      |PT_VU12_VariantReportRejected_MOI1 |PT_VU12_VariantReportRejected_ANI1 |
-      |PT_VU12_VariantReportRejected_MOI1 |PT_VU12_VariantReportRejected_ANI2 |
+      | moi                                | ani                                |
+      | PT_VU12_VariantReportRejected_MOI1 | PT_VU12_VariantReportRejected_ANI1 |
+      | PT_VU12_VariantReportRejected_MOI1 | PT_VU12_VariantReportRejected_ANI2 |
 
   @patients_p2
   Scenario: PT_VU13. variant files uploaded will not be accepted after a patient has TISSUE_VARIANT_REPORT_CONFIRMED status
@@ -167,20 +167,20 @@ Feature: Variant files uploaded message
     And this variant report has value: "REJECTED" in field: "status"
 
   @patients_p2
-Scenario Outline: PT_VU17. blood variant files cannot be uploaded if patient has BLOOD_VARIANT_REPORT_CONFIRMED status, but still can upload tissue variant files
+  Scenario Outline: PT_VU17. blood variant files cannot be uploaded if patient has BLOOD_VARIANT_REPORT_CONFIRMED status, but still can upload tissue variant files
 #    Test patient: PT_VU17_BdVRConfirmed; blood variant report files confirmed: molecular_id: _BR_MOI1, analysis_id: _ANI1
 #                                        tissue specimen has been shipped: molecular_id: _MOI1
-  Given template variant file uploaded message for patient: "PT_VU17_BdVRConfirmed", it has molecular_id: "<moi>" and analysis_id: "<ani>"
-  When post to MATCH patients service, returns a message that includes "<message>" with status "<post_status>"
-  Then patient should have variant report (analysis_id: "<query_ani>") within 15 seconds
-  And this variant report has value: "<vr_status>" in field: "status"
-  Examples:
-  |moi                            |ani                        |query_ani                  |vr_status|message                                 |post_status|
-  |PT_VU17_BdVRConfirmed_BD_MOI1  |PT_VU17_BdVRConfirmed_ANI2 |PT_VU17_BdVRConfirmed_ANI1 |CONFIRMED|confirmed                               |Failure    |
-  |PT_VU17_BdVRConfirmed_MOI1     |PT_VU17_BdVRConfirmed_ANI3 |PT_VU17_BdVRConfirmed_ANI3 |PENDING  |processed successfully |Success    |
+    Given template variant file uploaded message for patient: "PT_VU17_BdVRConfirmed", it has molecular_id: "<moi>" and analysis_id: "<ani>"
+    When post to MATCH patients service, returns a message that includes "<message>" with status "<post_status>"
+    Then patient should have variant report (analysis_id: "<query_ani>") within 15 seconds
+    And this variant report has value: "<vr_status>" in field: "status"
+    Examples:
+      | moi                           | ani                        | query_ani                  | vr_status | message                | post_status |
+      | PT_VU17_BdVRConfirmed_BD_MOI1 | PT_VU17_BdVRConfirmed_ANI2 | PT_VU17_BdVRConfirmed_ANI1 | CONFIRMED | confirmed              | Failure     |
+      | PT_VU17_BdVRConfirmed_MOI1    | PT_VU17_BdVRConfirmed_ANI3 | PT_VU17_BdVRConfirmed_ANI3 | PENDING   | processed successfully | Success     |
 
-@patients_p3
-Scenario: PT_VU18. extra key-value pair in the message body should NOT fail
-  Given template pathology report with surgical_event_id: "PT_VU18_TissueShipped_SEI1" for patient: "PT_VU18_TissueShipped"
-  Then set patient message field: "extra_info" to value: "This is extra information"
-  When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+  @patients_p3
+  Scenario: PT_VU18. extra key-value pair in the message body should NOT fail
+    Given template pathology report with surgical_event_id: "PT_VU18_TissueShipped_SEI1" for patient: "PT_VU18_TissueShipped"
+    Then set patient message field: "extra_info" to value: "This is extra information"
+    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"

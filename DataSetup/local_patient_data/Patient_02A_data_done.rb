@@ -183,6 +183,13 @@ sleep(10.0)
 PatientMessageLoader.off_study(pt.id, '1.0')
 
 
+pt = PatientDataSet.new('PT_SR10_OffStudy2')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+PatientMessageLoader.pathology(pt.id, pt.sei, 'Y')
+PatientMessageLoader.off_study(pt.id, '1.0')
 
 pt = PatientDataSet.new('PT_SR10_PendingApproval2')
 PatientMessageLoader.register_patient(pt.id)

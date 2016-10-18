@@ -343,7 +343,7 @@ class Patient_helper_methods
   def self.get_special_result_from_url(url, timeout, query_hash, path=[])
     internal_timeout = 30.0
     run_time = 0.0
-    wait_time = 1.0
+    wait_time = 5.0
     loop do
       response = Helper_Methods.simple_get_request(url)['message_json']
       if response.length==1
@@ -378,7 +378,7 @@ class Patient_helper_methods
   def self.get_updated_result_from_url(url, timeout)
     internal_timeout = 30.0
     run_time = 0.0
-    wait_time = 1.0
+    wait_time = 5.0
     old_response = nil
     loop do
       new_response = Helper_Methods.simple_get_request(url)['message_json']
@@ -447,7 +447,7 @@ class Patient_helper_methods
 
   def self.wait_until_patient_updated(patient_id)
     timeout = 30.0
-    wait_time = 1.0
+    wait_time = 5.0
     total_time = 0.0
     old_status = ''
     loop do
