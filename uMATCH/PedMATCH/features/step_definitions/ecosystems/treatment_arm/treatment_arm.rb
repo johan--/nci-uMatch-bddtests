@@ -141,7 +141,7 @@ Then(/^wait for "([^"]*)" seconds$/) do |seconds|
 end
 
 Then(/^wait for processor to complete request in "(.+?)" attempts/) do |attempts|
-  status = wait_for_processor(attempts.to_i, 2)
+  status = wait_for_processor(attempts.to_i, 4)
   expect(status).to eql true
 end
 
@@ -163,7 +163,7 @@ Then(/^a failure response code of "([^"]*)" is returned$/) do |response_code|
 end
 
 Then(/^the treatment_arm_status field has a value "([^"]*)" for the ta "([^"]*)"$/) do |status, taId|
-  sleep(5)
+  sleep(10)
   endpoint = "api/v1/treatment_arms/#{taId}/#{@stratum_id}/#{@version}"
 
   response = Helper_Methods.get_request("#{ENV['treatment_arm_endpoint']}/#{endpoint}")
