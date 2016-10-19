@@ -24,7 +24,7 @@
       "study_id": "APEC1621",
       "patient_id": "3366",
       "type": "BLOOD",
-      "collected_dttm": "2016-05-10T14:17:11+00:00",
+      "collection_dttm": "2016-05-10T14:17:11+00:00",
       "received_dttm": "2016-04-10T15:17:11+00:00",
       "internal_use_only": {
         "stars_patient_id": "ABCXYZ",
@@ -45,7 +45,7 @@
       "study_id": "APEC1621",
       "surgical_event_id": "3366-bsn",
       "type": "TISSUE",
-      "collected_dttm": "2016-05-11T15:17:11+00:00",
+      "collection_dttm": "2016-05-11T15:17:11+00:00",
 
       "received_dttm": "2016-05-11T16:17:11+00:00",
       "internal_use_only": {

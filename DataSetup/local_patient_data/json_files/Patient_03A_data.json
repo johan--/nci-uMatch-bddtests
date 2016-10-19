@@ -25,7 +25,7 @@
       "study_id": "APEC1621",
       "type": "TISSUE",
       "surgical_event_id": "SEI_01",
-      "collected_dttm": "2016-04-25T15:17:11+00:00",
+      "collection_dttm": "2016-04-25T15:17:11+00:00",
       "received_dttm": "2016-04-25T16:17:11+00:00",
       "internal_use_only": {
         "stars_patient_id": "ABCXYZ",
@@ -118,7 +118,7 @@
       "study_id": "APEC1621",
       "type": "TISSUE",
       "surgical_event_id": "SEI_01",
-      "collected_dttm": "2016-04-25T15:17:11+00:00",
+      "collection_dttm": "2016-04-25T15:17:11+00:00",
       "received_dttm": "2016-04-25T16:17:11+00:00",
       "internal_use_only": {
         "stars_patient_id": "ABCXYZ",
@@ -162,7 +162,7 @@
       "study_id": "APEC1621",
       "type": "TISSUE",
       "surgical_event_id": "SEI_01",
-      "collected_dttm": "2016-04-25T15:17:11+00:00",
+      "collection_dttm": "2016-04-25T15:17:11+00:00",
       "received_dttm": "2016-04-25T16:17:11+00:00",
       "internal_use_only": {
         "stars_patient_id": "ABCXYZ",
@@ -236,7 +236,7 @@
       "study_id": "APEC1621",
       "type": "TISSUE",
       "surgical_event_id": "SEI_01",
-      "collected_dttm": "2016-04-25T15:17:11+00:00",
+      "collection_dttm": "2016-04-25T15:17:11+00:00",
       "received_dttm": "2016-04-25T16:17:11+00:00",
       "internal_use_only": {
         "stars_patient_id": "ABCXYZ",
@@ -318,7 +318,7 @@
       "study_id": "APEC1621",
       "type": "TISSUE",
       "surgical_event_id": "SEI_01",
-      "collected_dttm": "2016-04-25T15:17:11+00:00",
+      "collection_dttm": "2016-04-25T15:17:11+00:00",
       "received_dttm": "2016-04-25T16:17:11+00:00",
       "internal_use_only": {
         "stars_patient_id": "ABCXYZ",

@@ -30,7 +30,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 4515a4c3-ec59-6a6f-
       "study_id": "APEC1621",
       "patient_id": "00002",
       "type": "BLOOD",
-      "collected_dttm": "2016-09-18T03:17:11+00:00",
+      "collection_dttm": "2016-09-18T03:17:11+00:00",
       "received_dttm": "2016-09-18T03:17:11+00:00",
       "internal_use_only": {
         "stars_patient_id": "ABCXYZ",
@@ -55,7 +55,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 268ae2b1-7ed4-2420-
       "study_id": "APEC1621",
       "surgical_event_id": "00002-bsn",
       "type": "TISSUE",
-      "collected_dttm": "2016-09-18T04:17:11+00:00",
+      "collection_dttm": "2016-09-18T04:17:11+00:00",
 
       "received_dttm": "2016-09-18T04:17:11+00:00",
       "internal_use_only": {
@@ -320,7 +320,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: a5682ad9-ff9c-bc20-
       "study_id": "APEC1621",
       "surgical_event_id": "00002-bsn-2",
       "type": "TISSUE",
-      "collected_dttm": "2016-09-18T13:17:11+00:00",
+      "collection_dttm": "2016-09-18T13:17:11+00:00",
 
       "received_dttm": "2016-09-18T13:17:11+00:00",
       "internal_use_only": {

@@ -1,5 +1,5 @@
 {
-    "ScannedCount": 15,
+    "ScannedCount": 20,
     "ConsumedCapacity": null,
     "Items": [
         {
@@ -181,7 +181,152 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:36.514328"
             }
+        },
+        {
+            "site": {
+                "S": "mocha"
+            },
+            "ion_reporter_id": {
+                "S": "IR_WO3IA"
+            },
+            "date_ion_reporter_id_created": {
+                "S": "2016-10-12 21:19:36.514328"
+            },
+            "ip_address": {
+                "S": "10.133.226.13"
+            },
+            "internal_ip_address": {
+                "S": "10.133.226.13"
+            },
+            "host_name": {
+                "S": "NCIAS-D1356"
+            },
+            "ir_status": {
+                "S": "Contacted 4 minutes ago"
+            },
+            "last_contact": {
+                "S": "August 29, 2016 2:01 PM GMT"
+            },
+            "data_files": {
+                "S": "DB Report"
+            }
+        },
+        {
+            "site": {
+                "S": "mocha"
+            },
+            "ion_reporter_id": {
+                "S": "IR_LB123"
+            },
+            "date_ion_reporter_id_created": {
+                "S": "2016-10-12 21:19:36.514328"
+            },
+            "ip_address": {
+                "S": "10.133.226.13"
+            },
+            "internal_ip_address": {
+                "S": "10.133.226.13"
+            },
+            "host_name": {
+                "S": "NCIAS-D1356"
+            },
+            "ir_status": {
+                "S": "Contacted 4 minutes ago"
+            },
+            "last_contact": {
+                "S": "August 29, 2016 2:01 PM GMT"
+            },
+            "data_files": {
+                "S": "DB Report"
+            }
+        },
+        {
+            "site": {
+                "S": "mocha"
+            },
+            "ion_reporter_id": {
+                "S": "IR_WAO85"
+            },
+            "date_ion_reporter_id_created": {
+                "S": "2016-10-12 21:19:36.514328"
+            },
+            "ip_address": {
+                "S": "129.43.127.133"
+            },
+            "internal_ip_address": {
+                "S": "129.43.127.133"
+            },
+            "host_name": {
+                "S": "NCI-MATCH-IR"
+            },
+            "ir_status": {
+                "S": "Lost contact! Last heartbeat was sent 10255 minutes ago"
+            },
+            "last_contact": {
+                "S": "August 22, 2016 11:10 AM GMT"
+            },
+            "data_files": {
+                "S": "Data File"
+            }
+        },
+        {
+            "site": {
+                "S": "mdacc"
+            },
+            "ion_reporter_id": {
+                "S": "IR_AIO78"
+            },
+            "date_ion_reporter_id_created": {
+                "S": "2016-10-12 21:19:36.514328"
+            },
+            "ip_address": {
+                "S": "132.183.13.75"
+            },
+            "internal_ip_address": {
+                "S": "172.20.174.24"
+            },
+            "host_name": {
+                "S": "MDACC-MATCH-IR"
+            },
+            "ir_status": {
+                "S": "Contacted 4 minutes ago"
+            },
+            "last_contact": {
+                "S": "August 29, 2016 2:01 PM GMT"
+            },
+            "data_files": {
+                "S": "Log File"
+            }
+        },
+        {
+            "site": {
+                "S": "yale"
+            },
+            "ion_reporter_id": {
+                "S": "IR_SAO13"
+            },
+            "date_ion_reporter_id_created": {
+                "S": "2016-10-12 21:19:36.514328"
+            },
+            "ip_address": {
+                "S": "204.60.187.1"
+            },
+            "internal_ip_address": {
+                "S": "10.84.20.162"
+            },
+            "host_name": {
+                "S": "YSM-MATCH-IR"
+            },
+            "ir_status": {
+                "S": "Contacted 4 minutes ago"
+            },
+            "last_contact": {
+                "S": "August 29, 2016 2:01 PM GMT"
+            },
+            "data_files": {
+                "S": "DB Report, Data File"
+            }
         }
     ],
-    "Count": 15
+    "Count": 20
 }

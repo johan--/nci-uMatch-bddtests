@@ -60,7 +60,7 @@ Given(/^template variant file uploaded message for patient: "([^"]*)", it has mo
   @patient_id = patientID=='null'?nil:patientID
   converted_moi = moi=='null'?nil:moi
   @analysis_id = ani=='null'?nil:ani
-  Patient_helper_methods.prepare_vr_upload(@patient_id, converted_moi, @analysis_id, 'test_data')
+  Patient_helper_methods.prepare_vr_upload(@patient_id, converted_moi, @analysis_id, 'bdd_test_ion_reporter')
 end
 
 Given(/^template variant confirm message for patient: "([^"]*)", the variant: "([^"]*)" is checked: "([^"]*)" with comment: "([^"]*)"$/) do |patient_id, variant_uuid, confirmed, comment|

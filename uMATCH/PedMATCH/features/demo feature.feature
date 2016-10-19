@@ -457,7 +457,7 @@ Background: wait for process to complete
 
   Scenario Outline: Patient's Blood specimen is received
     Given template specimen received message in type: "BLOOD" for patient: "<patient_id>", it has surgical_event_id: ""
-    Then set patient message field: "collected_dttm" to value: "current"
+    Then set patient message field: "collection_dttm" to value: "current"
     Then set patient message field: "received_dttm" to value: "current"
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
   Examples:
@@ -470,7 +470,7 @@ Background: wait for process to complete
 
   Scenario Outline: Patient's Tissue specimen is received
     Given template specimen received message in type: "TISSUE" for patient: "<patient_id>", it has surgical_event_id: "<surgical_event_id>"
-    Then set patient message field: "collected_dttm" to value: "current"
+    Then set patient message field: "collection_dttm" to value: "current"
     Then set patient message field: "received_dttm" to value: "current"
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
   Examples:

@@ -172,7 +172,7 @@ class PatientMessageLoader
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['specimen_received_TISSUE']
     message['specimen_received']['patient_id'] = patient_id
     message['specimen_received']['surgical_event_id'] = surgical_event_id
-    message['specimen_received']['collected_dttm'] = convert_date(collect_time)
+    message['specimen_received']['collection_dttm'] = convert_date(collect_time)
     send_message_to_local(message, patient_id)
   end
 
@@ -182,7 +182,7 @@ class PatientMessageLoader
     wait_until_updated(patient_id)
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['specimen_received_BLOOD']
     message['specimen_received']['patient_id'] = patient_id
-    message['specimen_received']['collected_dttm'] = convert_date(collect_time)
+    message['specimen_received']['collection_dttm'] = convert_date(collect_time)
     send_message_to_local(message, patient_id)
   end
 
@@ -269,7 +269,7 @@ class PatientMessageLoader
       patient_id,
       molecular_id,
       analysis_id,
-      folder='seed_data',
+      folder='bdd_test_ion_reporter',
       tsv_name='test1.tsv')
     wait_until_updated(patient_id)
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['variant_file_uploaded']
@@ -397,6 +397,16 @@ class PatientMessageLoader
     step_number='1.1')
     service = 'approveOnTreatmentArm/'+patient_id
     service = service + '/' + step_number + '/' + treatment_arm_id + '/' + stratum_id
+    send_message_to_local_cog(service, '')
+  end
+
+  def self.reset_cog
+    service ='restart'
+    send_message_to_local_cog(service, '')
+  end
+
+  def self.reset_cog_patient(patient_id)
+    service = 'resetPatient/'+patient_id
     send_message_to_local_cog(service, '')
   end
 
