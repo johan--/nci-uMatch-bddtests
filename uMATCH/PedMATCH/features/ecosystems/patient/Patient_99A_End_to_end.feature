@@ -241,4 +241,5 @@ Feature: Patients end to end tests
 
 
 #  request no assignment status should not accept any message
+  #variant_reports table should be capable to store many variant reports (more than 150 big tsv)
 #  Scenario: PT_ETE12. Assay
