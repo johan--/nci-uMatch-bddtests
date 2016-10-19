@@ -22,13 +22,13 @@ Feature: Tests for sample_controls service in ion ecosystem
     When call sample_controls POST service, returns a message that includes "New sample control created" with status "Success"
     Then generated sample_control molecular id should have 1 record
 
-  @ion_reporter_p3
+  @ion_reporter_not_required
   Scenario: ION_SC03. sample control service should fail if site is invalid
     Given site is "non_existing_site"
     Given control_type is "positive"
     When call sample_controls POST service, returns a message that includes "site" with status "Failure"
 
-  @ion_reporter_p3
+  @ion_reporter_not_required
   Scenario: ION_SC04. sample control service should fail if control_type is invalid
     Given site is "mda"
     Given control_type is "non_existing_type"
@@ -100,7 +100,7 @@ Feature: Tests for sample_controls service in ion ecosystem
     Then add field: "analysis_id" value: "ION_SC22_TsShipped_ANI1" to message body
     When call sample_controls PUT service, returns a message that includes "exist" with status "Failure"
 
-  @ion_reporter_p3
+  @ion_reporter_not_required
   Scenario: ION_SC23. sample_control service should fail if site-ion_reporter_id pair in message body is invalid
     #ion_reporter IR_TG2DY belongs to site mocha
     Given molecular id is "SC_307VJ"
@@ -108,14 +108,14 @@ Feature: Tests for sample_controls service in ion ecosystem
     Then add field: "site" value: "mda" to message body
     When call sample_controls PUT service, returns a message that includes "site" with status "Failure"
 
-  @ion_reporter_p2
+  @ion_reporter_not_required
   Scenario: ION_SC24. sample_control service should fail if existing analysis_id is used
     #SC_7XM2S_ANI is in seed data, used by sample control SC_7XM2S
     Given molecular id is "SC_8SGBC"
     Then add field: "analysis_id" value: "SC_7XM2S_ANI" to message body
     When call sample_controls PUT service, returns a message that includes "analysis id" with status "Failure"
 
-  @ion_reporter_p3
+  @ion_reporter_not_required
   Scenario: ION_SC25. sample_control update request should not fail if extra key-value pair in message body, but doesn't store them
     Given molecular id is "SC_WF2KR"
     Then add field: "extra_information" value: "other" to message body
@@ -207,7 +207,7 @@ Feature: Tests for sample_controls service in ion ecosystem
       | SC_6VZBN | control_type              | molecular_id |
       |          | date_molecular_id_created | site         |
 
-  @ion_reporter_p3
+  @ion_reporter_not_required
   Scenario: ION_SC64. sample_control service should fail(or just not return this field?) if an invalid key is projected
     Given molecular id is ""
     Then add projection: "non_existing_key" to url

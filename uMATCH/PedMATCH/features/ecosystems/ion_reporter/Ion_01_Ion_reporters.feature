@@ -20,7 +20,7 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Then there are 20 ion_reporter_ids generated
     And each generated ion_reporter_id should have 1 record
 
-  @ion_reporter_p3
+  @ion_reporter_not_required
   Scenario Outline: ION_IR03. new ion_reporter for invalid site should fail
     Given site is "<site>"
     When call ion_reporters POST service 1 times, returns a message that includes "site" with status "Failure"
@@ -102,7 +102,7 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Then add field: "last_contact" value: "October 03, 2016 10:35 PM" to message body
     When call ion_reporters PUT service, returns a message that includes "The method is not allowed for the requested URL" with status "Failure"
 
-  @ion_reporter_p3
+  @ion_reporter_not_required
   Scenario: ION_IR24. ion_reporter update request should not fail if extra key-value pair in message body, but doesn't store them
     Given ion_reporter_id is "IR_1H9XW"
     Then add field: "extra_information" value: "other" to message body
