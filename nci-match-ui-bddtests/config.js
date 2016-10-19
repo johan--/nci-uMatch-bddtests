@@ -7,7 +7,7 @@ exports.config = {
     baseUrl: 'https://pedmatch-int.nci.nih.gov',  //when developing tests use http://localhost:9000',
 
     //seleniumAddress: 'http://localhost:4444/wd/hub',
-    //chromeOnly: true,
+    chromeOnly: true,
     //directConnect: true,
     capabilities: {
         browserName: 'chrome',
