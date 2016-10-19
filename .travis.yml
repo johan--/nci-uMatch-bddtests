@@ -46,8 +46,9 @@ before_script:
   # - sleep 3 # give xvfb some time to start
   # Run Delete Script to empty DynamoDB before tests start
   - cd DataSetup
-  - ./dynamo_delete_script.rb -a $AWS_ACCESS_KEY_ID -s $AWS_SECRET_ACCESS_KEY -e 'https://dynamodb.us-east-1.amazonaws.com' -r us-east-1
-  - ./dynamo_data_upload.rb -a $AWS_ACCESS_KEY_ID -s $AWS_SECRET_ACCESS_KEY -e 'https://dynamodb.us-east-1.amazonaws.com' -r us-east-1
+  #commenting for demo
+#  - ./dynamo_delete_script.rb -a $AWS_ACCESS_KEY_ID -s $AWS_SECRET_ACCESS_KEY -e 'https://dynamodb.us-east-1.amazonaws.com' -r us-east-1
+#  - ./dynamo_data_upload.rb -a $AWS_ACCESS_KEY_ID -s $AWS_SECRET_ACCESS_KEY -e 'https://dynamodb.us-east-1.amazonaws.com' -r us-east-1
   - cd ..
   # Reset ECOG Mock service Data
   - curl -X POST "http://pedmatch-int.nci.nih.gov:3000/restart" -d ''
@@ -59,7 +60,8 @@ script:
   - export P3="_p3"
   # Run Cucumber @tag specific tests
 #  - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P1 --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --expand' -n 2 && bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P2 --format json --out ../../results/output-$CUC_TAG$P2-$TEST_ENV_NUMBER.json --expand' -n 2
-  - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P1,$CUC_TAG$P2 --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --expand' -n 4
+#commenting for demo
+#  - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P1,$CUC_TAG$P2 --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --expand' -n 4
   - cd ../..
   # Run Cucumber end to end tests
   # - bundle exec cucumber --tags @EndtoEnd
@@ -70,21 +72,25 @@ script:
   # Run UI tests
   - cd nci-match-ui-bddtests/
 #  - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$PRIORITY --troubleshoot
-  - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$P1,$CUC_TAG$P2 --troubleshoot
+#commenting for demo
+#  - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$P1,$CUC_TAG$P2 --troubleshoot
   # Generate html report
-  - node support/generate_report.js
+  #commenting for demo
+#  - node support/generate_report.js
   - cd ..
   - ls -alt
   - mv results/ results_critical/; mkdir results
 after_success:
   #Run P3 cucumber tests
-  - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P3 --format json --out ../../results/output-$CUC_TAG$P3-$TEST_ENV_NUMBER.json --expand' -n 4
+  #commenting for demo
+#  - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P3 --format json --out ../../results/output-$CUC_TAG$P3-$TEST_ENV_NUMBER.json --expand' -n 4
 
   #Run protractor tests
   - cd ../../nci-match-ui-bddtests/
-  - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$P3 --troubleshoot
+  #commenting for demo
+#  - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$P3 --troubleshoot
   # Generate html report
-  - node support/generate_report.js
+#  - node support/generate_report.js
   - cd ..
   - ls -alt
 
@@ -94,13 +100,15 @@ after_success:
   - curl -s -X POST -H "Content-Type:application/json" -H "Accept:application/json" -H "Travis-API-Version:3" -H "Authorization:token $UAT_TRAVIS_TOKEN" -d "{\"request\":{\"message\":\"Triggered by $TRIGGER_REPO $TRAVIS_COMMIT\", \"branch\":\"master\", \"config\":{\"env\":{\"matrix\":[\"TRIGGER_REPO=$TRIGGER_REPO;CUC_TAG=$CUC_TAG\"]}}}}" https://api.travis-ci.org/repo/CBIIT%2Fnci-uMatch-uattests/requests
 after_failure:
     #Run P3 cucumber tests
-    - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P3 --format json --out ../../results/output-$TEST_ENV_NUMBER.json --expand' -n 4
+    #commenting for demo
+#    - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P3 --format json --out ../../results/output-$TEST_ENV_NUMBER.json --expand' -n 4
 
     #Run protractor tests
-    - cd ../../nci-match-ui-bddtests/
-    - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$P3 --troubleshoot
+#    - cd ../../nci-match-ui-bddtests/
+    #commenting for demo
+#    - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$P3 --troubleshoot
     # Generate html report
-    - node support/generate_report.js
+#    - node support/generate_report.js
 after_script:
   #Set above, - export DATE=`TZ=America/New_York date "+%m-%d-%y-%H%M"`
   - export DATE_TRIM=`TZ=America/New_York date "+%m-%d-%y"`
