@@ -141,7 +141,7 @@ Then(/^wait for "([^"]*)" seconds$/) do |seconds|
 end
 
 Then(/^wait for processor to complete request in "(.+?)" attempts/) do |attempts|
-  status = wait_for_processor(attempts.to_i, 4)
+  status = wait_for_processor(attempts.to_i, 10)
   expect(status).to eql true
 end
 
