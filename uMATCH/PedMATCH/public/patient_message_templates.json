@@ -25,7 +25,7 @@
       "patient_id": "894561",
       "type": "TISSUE",
       "surgical_event_id": "SEI_01",
-      "collected_dttm": "2016-04-25T15:17:11+00:00",
+      "collection_dttm": "2016-04-25T15:17:11+00:00",
       "received_dttm": "2016-04-26T15:17:11+00:00"
     },
     "internal_use_only": {
@@ -45,7 +45,7 @@
       "study_id": "APEC1621",
       "patient_id": "894561",
       "type": "BLOOD",
-      "collected_dttm": "2016-04-22T15:17:11+00:00",
+      "collection_dttm": "2016-04-22T15:17:11+00:00",
       "received_dttm": "2016-04-23T15:17:11+00:00"
     },
     "internal_use_only": {

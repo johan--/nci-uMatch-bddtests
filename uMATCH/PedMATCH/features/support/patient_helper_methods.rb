@@ -221,7 +221,7 @@ class Patient_helper_methods
       @request_hash['specimen_received']['surgical_event_id'] = sei
     end
     unless collect_date == 'default'
-      @request_hash['specimen_received']['collected_dttm'] = collect_date
+      @request_hash['specimen_received']['collection_dttm'] = collect_date
     end
     @patient_message_root_key = 'specimen_received'
   end
@@ -447,26 +447,28 @@ class Patient_helper_methods
 
   def self.wait_until_patient_updated(patient_id)
     timeout = 30.0
-    wait_time = 5.0
-    total_time = 0.0
-    old_status = ''
-    loop do
-      output_hash = Helper_Methods.simple_get_request("#{ENV['patients_endpoint']}/#{patient_id}")['message_json']
-      if output_hash.length == 1
-        new_status = output_hash[0]['current_status']
-        if old_status == ''
-          old_status = new_status
-        end
-        unless new_status==old_status
-          return
-        end
-      end
-      total_time += wait_time
-      if total_time>timeout
-        return
-      end
-      sleep(wait_time)
-    end
+    url = "#{ENV['patients_endpoint']}/#{patient_id}"
+    Helper_Methods.wait_until_updated(url, timeout)
+    # wait_time = 5.0
+    # total_time = 0.0
+    # old_status = ''
+    # loop do
+    #   output_hash = Helper_Methods.simple_get_request("#{ENV['patients_endpoint']}/#{patient_id}")['message_json']
+    #   if output_hash.length == 1
+    #     new_status = output_hash[0]['current_status']
+    #     if old_status == ''
+    #       old_status = new_status
+    #     end
+    #     unless new_status==old_status
+    #       return
+    #     end
+    #   end
+    #   total_time += wait_time
+    #   if total_time>timeout
+    #     return
+    #   end
+    #   sleep(wait_time)
+    # end
   end
 
 end

@@ -1,22 +1,26 @@
 require 'fileutils'
 class PatientVariantFolderCreator
-  TEMPLATE_ANI_FOLDER_PATH = "#{File.dirname(__FILE__)}/variant_file_templates/3366_moi/3366_ani"
-  TEMPLATE_ANI_FOLDER_NAME = "3366_ani"
+  TEMPLATE_ANI_FOLDER_PATH = "#{File.dirname(__FILE__)}/variant_file_templates/template_moi/template_ani"
+  TEMPLATE_ANI_FOLDER_NAME = "template_ani"
   ROOT_OUTPUT_FOLDER = "#{File.dirname(__FILE__)}/variant_file_templates/"
-  @output_type = 'seed_data'
+  @output_type = 'bdd_test_ion_reporter'
 
   def self.set_output_type(type)
     @output_type = type
   end
 
   def self.clear_all
-    seed_data_folder = "#{ROOT_OUTPUT_FOLDER}seed_data"
+    # seed_data_folder = "#{ROOT_OUTPUT_FOLDER}seed_data"
+    # FileUtils.mkdir_p(seed_data_folder) unless File.exists? seed_data_folder
+    # cmd = "rm -R #{seed_data_folder}/*"
+    # `#{cmd}`
+    # test_data_folder = "#{ROOT_OUTPUT_FOLDER}test_data"
+    # FileUtils.mkdir_p(test_data_folder) unless File.exists? test_data_folder
+    # cmd = "rm -R #{test_data_folder}/*"
+    # `#{cmd}`
+    seed_data_folder = "#{ROOT_OUTPUT_FOLDER}#{@output_type}"
     FileUtils.mkdir_p(seed_data_folder) unless File.exists? seed_data_folder
     cmd = "rm -R #{seed_data_folder}/*"
-    `#{cmd}`
-    test_data_folder = "#{ROOT_OUTPUT_FOLDER}test_data"
-    FileUtils.mkdir_p(test_data_folder) unless File.exists? test_data_folder
-    cmd = "rm -R #{test_data_folder}/*"
     `#{cmd}`
   end
 

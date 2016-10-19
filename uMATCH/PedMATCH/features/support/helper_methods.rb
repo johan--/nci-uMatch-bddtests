@@ -255,6 +255,7 @@ class Helper_Methods
       end
       @post_response['http_code'] = http_code
       @post_response['message'] = e.response.body
+      p @post_response['message']
       return @post_response
     end
 

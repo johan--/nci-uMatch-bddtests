@@ -1,9 +1,9 @@
 require_relative '../patient_variant_folder_creator'
 require_relative '../patient_message_loader'
 
-PatientVariantFolderCreator.clear_all
 
-PatientVariantFolderCreator.set_output_type('seed_data')
+PatientVariantFolderCreator.set_output_type('bdd_test_ion_reporter')
+PatientVariantFolderCreator.clear_all
 PatientVariantFolderCreator.create_default('PT_SR10_PendingApproval', 'tissue')
 PatientVariantFolderCreator.create_default('PT_SR10_PendingApproval2', 'tissue')
 PatientVariantFolderCreator.create_default('PT_SR10_OnTreatmentArm', 'tissue')
@@ -77,6 +77,11 @@ pt = PatientDataSet.new('PT_VC14_BdVRUploadedTsVRUploadedOtherReady')
 PatientVariantFolderCreator.create(pt.moi, pt.ani)
 PatientVariantFolderCreator.create(pt.bd_moi, pt.ani_increase)
 
+
+PatientVariantFolderCreator.create_default('PT_VU02a_TissueShippedToMDA', 'tissue')
+PatientVariantFolderCreator.create_default('PT_VU02a_TissueShippedToMoCha', 'tissue')
+PatientVariantFolderCreator.create_default('PT_VC05_TissueShipped', 'tissue')
+
 PatientVariantFolderCreator.create_default('PT_VC15_VRUploadedPathConfirmed', 'tissue')
 PatientVariantFolderCreator.create_default('PT_VC15_VRUploadedAssayReceived', 'tissue')
 PatientVariantFolderCreator.create_default('PT_VC15_PathAssayDoneVRUploadedToConfirm', 'tissue')
@@ -148,36 +153,37 @@ PatientVariantFolderCreator.create_default('ION_AQ41_TsVrUploaded', 'tissue')
 PatientVariantFolderCreator.create_default('ION_AQ42_BdVrUploaded', 'blood')
 PatientVariantFolderCreator.create_default('ION_AQ43_TsVrUploaded', 'tissue')
 PatientVariantFolderCreator.create_default('ION_SF03_TsVrUploaded', 'tissue')
+PatientVariantFolderCreator.create_default('ION_FL02_TsVrUploaded', 'tissue')
 PatientVariantFolderCreator.create_default('PT_ETE14', 'tissue')
 
 
-PatientVariantFolderCreator.set_output_type('test_data')
+# PatientVariantFolderCreator.set_output_type('test_data')
 
-PatientVariantFolderCreator.create_default('PT_VU06_TissueShipped', 'tissue')
-PatientVariantFolderCreator.create_default('PT_VU14_TissueAndBloodShipped', 'blood')
-PatientVariantFolderCreator.create_default('PT_VU02a_TissueShippedToMDA', 'tissue')
-PatientVariantFolderCreator.create_default('PT_VU02a_TissueShippedToMoCha', 'tissue')
-PatientVariantFolderCreator.create_default('PT_VC05_TissueShipped', 'tissue')
+# PatientVariantFolderCreator.create_default('PT_VU06_TissueShipped', 'tissue')
+# PatientVariantFolderCreator.create_default('PT_VU14_TissueAndBloodShipped', 'blood')
+# PatientVariantFolderCreator.create_default('PT_VU02a_TissueShippedToMDA', 'tissue')
+# PatientVariantFolderCreator.create_default('PT_VU02a_TissueShippedToMoCha', 'tissue')
+# PatientVariantFolderCreator.create_default('PT_VC05_TissueShipped', 'tissue')
 
-pt = PatientDataSet.new('PT_VU12_VariantReportRejected')
-PatientVariantFolderCreator.create(pt.moi, pt.ani)
-PatientVariantFolderCreator.create(pt.moi, pt.ani_increase)
+# pt = PatientDataSet.new('PT_VU12_VariantReportRejected')
+# PatientVariantFolderCreator.create(pt.moi, pt.ani)
+# PatientVariantFolderCreator.create(pt.moi, pt.ani_increase)
 
-pt = PatientDataSet.new('PT_VU09_VariantReportUploaded')
-PatientVariantFolderCreator.create(pt.moi, pt.ani_increase)
+# pt = PatientDataSet.new('PT_VU09_VariantReportUploaded')
+# PatientVariantFolderCreator.create(pt.moi, pt.ani_increase)
 
-pt = PatientDataSet.new('PT_VU11_VariantReportRejected')
-PatientVariantFolderCreator.create(pt.moi, pt.ani_increase)
+# pt = PatientDataSet.new('PT_VU11_VariantReportRejected')
+# PatientVariantFolderCreator.create(pt.moi, pt.ani_increase)
 
-pt = PatientDataSet.new('PT_VU16_BdVRUploaded')
-PatientVariantFolderCreator.create(pt.bd_moi, pt.ani_increase)
+# pt = PatientDataSet.new('PT_VU16_BdVRUploaded')
+# PatientVariantFolderCreator.create(pt.bd_moi, pt.ani_increase)
 
-pt = PatientDataSet.new('PT_VU17_BdVRConfirmed')
-PatientVariantFolderCreator.create(pt.bd_moi, pt.ani_increase)
-PatientVariantFolderCreator.create(pt.moi, pt.ani_increase)
+# pt = PatientDataSet.new('PT_VU17_BdVRConfirmed')
+# PatientVariantFolderCreator.create(pt.bd_moi, pt.ani_increase)
+# PatientVariantFolderCreator.create(pt.moi, pt.ani_increase)
 
-PatientVariantFolderCreator.create_default('ION_AQ41_TsVrUploaded', 'tissue')
-PatientVariantFolderCreator.create_default('ION_AQ42_BdVrUploaded', 'blood')
-PatientVariantFolderCreator.create_default('ION_AQ43_TsVrUploaded', 'tissue')
-PatientVariantFolderCreator.create_default('ION_SF03_TsVrUploaded', 'tissue')
-PatientVariantFolderCreator.create_default('ION_FL02_TsVrUploaded', 'tissue')
+# PatientVariantFolderCreator.create_default('ION_AQ41_TsVrUploaded', 'tissue')
+# PatientVariantFolderCreator.create_default('ION_AQ42_BdVrUploaded', 'blood')
+# PatientVariantFolderCreator.create_default('ION_AQ43_TsVrUploaded', 'tissue')
+# PatientVariantFolderCreator.create_default('ION_SF03_TsVrUploaded', 'tissue')
+# PatientVariantFolderCreator.create_default('ION_FL02_TsVrUploaded', 'tissue')

@@ -1,0 +1,143 @@
+##fileformat=VCFv4.1
+##fileDate=2014/08/29
+##fileDate=20140829
+##source="tvc 4.2-13 (88293) - Torrent Variant Caller"
+##reference=/data/IR/data/.reference/hg19/hg19.fasta
+##sampleGender=Unknown
+##sampleDiseaseType=Unknown
+##contig=<ID=chr1,length=249250621,assembly=hg19>
+##contig=<ID=chr2,length=243199373,assembly=hg19>
+##contig=<ID=chr3,length=198022430,assembly=hg19>
+##contig=<ID=chr4,length=191154276,assembly=hg19>
+##contig=<ID=chr5,length=180915260,assembly=hg19>
+##contig=<ID=chr6,length=171115067,assembly=hg19>
+##contig=<ID=chr7,length=159138663,assembly=hg19>
+##contig=<ID=chr8,length=146364022,assembly=hg19>
+##contig=<ID=chr9,length=141213431,assembly=hg19>
+##contig=<ID=chr10,length=135534747,assembly=hg19>
+##contig=<ID=chr11,length=135006516,assembly=hg19>
+##contig=<ID=chr12,length=133851895,assembly=hg19>
+##contig=<ID=chr13,length=115169878,assembly=hg19>
+##contig=<ID=chr14,length=107349540,assembly=hg19>
+##contig=<ID=chr15,length=102531392,assembly=hg19>
+##contig=<ID=chr16,length=90354753,assembly=hg19>
+##contig=<ID=chr17,length=81195210,assembly=hg19>
+##contig=<ID=chr18,length=78077248,assembly=hg19>
+##contig=<ID=chr19,length=59128983,assembly=hg19>
+##contig=<ID=chr20,length=63025520,assembly=hg19>
+##contig=<ID=chr21,length=48129895,assembly=hg19>
+##contig=<ID=chr22,length=51304566,assembly=hg19>
+##contig=<ID=chrX,length=155270560,assembly=hg19>
+##contig=<ID=chrY,length=59373566,assembly=hg19>
+##contig=<ID=chrM,length=16569,assembly=hg19>
+##ALT=<ID=CNV,Description="Copy number variable region">
+##ALT=<ID=DEL,Description="Deletion">
+##ALT=<ID=DEL:ME:ALU,Description="Deletion of ALU element">
+##ALT=<ID=DEL:ME:L1,Description="Deletion of L1 element">
+##ALT=<ID=DUP,Description="Duplication">
+##ALT=<ID=DUP:TANDEM,Description="Tandem Duplication">
+##ALT=<ID=INS,Description="Insertion of novel sequence">
+##ALT=<ID=INS:ME:ALU,Description="Insertion of ALU element">
+##ALT=<ID=INS:ME:L1,Description="Insertion of L1 element">
+##ALT=<ID=INV,Description="Inversion">
+##AssumedGender=M
+##CellularityAsAFractionBetween0-1=1.000000
+##DiploidCopyNumber=2.0
+##TotalMappedFusionPanelReads=849327
+##fileUTCtime=2014-08-29T08:45:35
+##mapd=0.666
+##IonReporterExportVersion=0.1.2
+##OncomineVariantAnnotationToolVersion=1.0.5
+##annotationSources=[clinvar_1, dgv_20130723, drugbank_1, hg19_esp6500_1, hg19_go_1218, hg19_pfam_26, hg19_phylop_1, hg19_refgene_63, namedVariants_1, Oncomine, VARIANTKB1, canonical_refseq_v63_updated.txt]
+##INFO=<ID=5P_3P_ASSAYS,Number=1,Type=Float,Description="Relative expression of 3p to 5p markers expression of the driver gene">
+##INFO=<ID=AF,Number=A,Type=Float,Description="Allele frequency based on Flow Evaluator observation counts">
+##INFO=<ID=ANNOTATION,Number=1,Type=String,Description="Public Annotation like Cosmic or NCBI id for the Fusions">
+##INFO=<ID=AO,Number=A,Type=Integer,Description="Alternate allele observations">
+##INFO=<ID=BKPTID,Number=.,Type=String,Description="ID of the assembled alternate allele in the assembly file">
+##INFO=<ID=CDF_LD,Number=.,Type=String,Description="A list of pair of numbers to represent Cumulative distribution function (CDF) derived from likelihood distribution">
+##INFO=<ID=CDF_MAPD,Number=.,Type=String,Description="A list of pair of numbers to represent Cumulative distribution function (CDF) derived from MAPD">
+##INFO=<ID=CI,Number=.,Type=String,Description="confidence: CN value is adjusted for Cellularity given REF_CN">
+##INFO=<ID=CIEND,Number=2,Type=Integer,Description="Confidence interval around END for imprecise variants">
+##INFO=<ID=CIPOS,Number=2,Type=Integer,Description="Confidence interval around POS for imprecise variants">
+##INFO=<ID=CONFIDENCE,Number=1,Type=Float,Description="Log Likelihood Ratio of the observed ploidy to the expected ploidy">
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Total read depth at the locus">
+##INFO=<ID=END,Number=1,Type=Integer,Description="End position of the variant described in this record">
+##INFO=<ID=EXON_NUM,Number=1,Type=Integer,Description="Number of the closest Exon">
+##INFO=<ID=FAO,Number=A,Type=Integer,Description="Flow Evaluator Alternate allele observations">
+##INFO=<ID=FDP,Number=1,Type=Integer,Description="Flow Evaluator read depth at the locus">
+##INFO=<ID=FR,Number=.,Type=String,Description="Reason why the variant was filtered.">
+##INFO=<ID=FRO,Number=1,Type=Integer,Description="Flow Evaluator Reference allele observations">
+##INFO=<ID=FSAF,Number=A,Type=Integer,Description="Flow Evaluator Alternate allele observations on the forward strand">
+##INFO=<ID=FSAR,Number=A,Type=Integer,Description="Flow Evaluator Alternate allele observations on the reverse strand">
+##INFO=<ID=FSRF,Number=1,Type=Integer,Description="Flow Evaluator Reference observations on the forward strand">
+##INFO=<ID=FSRR,Number=1,Type=Integer,Description="Flow Evaluator Reference observations on the reverse strand">
+##INFO=<ID=FWDB,Number=A,Type=Float,Description="Forward strand bias in prediction.">
+##INFO=<ID=FXX,Number=1,Type=Float,Description="Flow Evaluator failed read ratio">
+##INFO=<ID=GENE_NAME,Number=1,Type=String,Description="Name of the Gene">
+##INFO=<ID=HOMLEN,Number=.,Type=Integer,Description="Length of base pair identical micro-homology at event breakpoints">
+##INFO=<ID=HOMSEQ,Number=.,Type=String,Description="Sequence of base pair identical micro-homology at event breakpoints">
+##INFO=<ID=HRUN,Number=A,Type=Integer,Description="Run length: the number of consecutive repeats of the alternate allele in the reference genome">
+##INFO=<ID=HS,Number=0,Type=Flag,Description="Indicate it is at a hot spot">
+##INFO=<ID=LEN,Number=.,Type=Integer,Description="Length of Allele or Copy Number Segment">
+##INFO=<ID=MEINFO,Number=4,Type=String,Description="Mobile element info of the form NAME,START,END,POLARITY">
+##INFO=<ID=MLLD,Number=A,Type=Float,Description="Mean log-likelihood delta per read.">
+##INFO=<ID=NOVEL,Number=0,Type=Flag,Description="Indicates if this is a novel fusion not present in the original list of targets">
+##INFO=<ID=NS,Number=1,Type=Integer,Description="Number of samples with data">
+##INFO=<ID=NUMTILES,Number=1,Type=Integer,Description="Number of tiles in the Copy Number Segment described in this record">
+##INFO=<ID=OALT,Number=.,Type=String,Description="List of original variant bases">
+##INFO=<ID=OID,Number=.,Type=String,Description="List of original Hotspot IDs">
+##INFO=<ID=OMAPALT,Number=.,Type=String,Description="Maps OID,OPOS,OREF,OALT entries to specific ALT alleles">
+##INFO=<ID=OPOS,Number=.,Type=Integer,Description="List of original allele positions">
+##INFO=<ID=OREF,Number=.,Type=String,Description="List of original reference bases">
+##INFO=<ID=PRECISE,Number=.,Type=String,Description="TRUE or FALSE value to indicate Precise or Imprecise structural variation">
+##INFO=<ID=PRECISION,Number=1,Type=Float,Description="Log Likelihood Ratio of the nearest ploidy (plus or minus one increment to the observed ploidy) to the expected ploidy">
+##INFO=<ID=QD,Number=1,Type=Float,Description="QualityByDepth as 4*QUAL/FDP (analogous to GATK)">
+##INFO=<ID=RAW_CN,Number=1,Type=Float,Description="CN unadjusted for cellularity or diploid value adjustment">
+##INFO=<ID=RBI,Number=A,Type=Float,Description="Distance of bias parameters from zero.">
+##INFO=<ID=READ_COUNT,Number=.,Type=String,Description="Number of reads aligned to the Target">
+##INFO=<ID=REFB,Number=A,Type=Float,Description="Reference Hypothesis bias in prediction.">
+##INFO=<ID=REF_CN,Number=1,Type=Float,Description="Reference CN in normal DNA expected in this sample">
+##INFO=<ID=REVB,Number=A,Type=Float,Description="Reverse strand bias in prediction.">
+##INFO=<ID=RO,Number=1,Type=Integer,Description="Reference allele observations">
+##INFO=<ID=SAF,Number=A,Type=Integer,Description="Alternate allele observations on the forward strand">
+##INFO=<ID=SAR,Number=A,Type=Integer,Description="Alternate allele observations on the reverse strand">
+##INFO=<ID=SRF,Number=1,Type=Integer,Description="Number of reference observations on the forward strand">
+##INFO=<ID=SRR,Number=1,Type=Integer,Description="Number of reference observations on the reverse strand">
+##INFO=<ID=SSEN,Number=A,Type=Float,Description="Strand-specific-error prediction on negative strand.">
+##INFO=<ID=SSEP,Number=A,Type=Float,Description="Strand-specific-error prediction on positive strand.">
+##INFO=<ID=SSSB,Number=A,Type=Float,Description="Strand-specific strand bias for allele.">
+##INFO=<ID=STB,Number=A,Type=Float,Description="Strand bias in variant relative to reference.">
+##INFO=<ID=STBP,Number=A,Type=Float,Description="Pval of Strand bias in variant relative to reference.">
+##INFO=<ID=SVLEN,Number=.,Type=Integer,Description="Difference in length between REF and ALT alleles">
+##INFO=<ID=SVTYPE,Number=1,Type=String,Description="Type of structural variant">
+##INFO=<ID=THREE_PRIME_POS,Number=1,Type=Integer,Description="Genomic coordiante for three prime target for End ratio targets">
+##INFO=<ID=TYPE,Number=A,Type=String,Description="The type of allele, either snp, mnp, ins, del, or complex.">
+##INFO=<ID=VARB,Number=A,Type=Float,Description="Variant Hypothesis bias in prediction.">
+##INFO=<ID=FUNC,Number=.,Type=String,Description="Functional Annotations">
+##FILTER=<ID=NOCALL,Description="Generic filter. Filtering details stored in FR info tag.">
+##FORMAT=<ID=AF,Number=A,Type=Float,Description="Allele frequency based on Flow Evaluator observation counts">
+##FORMAT=<ID=AO,Number=A,Type=Integer,Description="Alternate allele observation count">
+##FORMAT=<ID=CN,Number=1,Type=Float,Description="Copy number genotype for imprecise events">
+##FORMAT=<ID=CNQ,Number=1,Type=Float,Description="Copy number genotype quality for imprecise events">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Read Depth">
+##FORMAT=<ID=FAO,Number=A,Type=Integer,Description="Flow Evaluator Alternate allele observation count">
+##FORMAT=<ID=FDP,Number=1,Type=Integer,Description="Flow Evaluator Read Depth">
+##FORMAT=<ID=FRO,Number=1,Type=Integer,Description="Flow Evaluator Reference allele observation count">
+##FORMAT=<ID=FSAF,Number=A,Type=Integer,Description="Flow Evaluator Alternate allele observations on the forward strand">
+##FORMAT=<ID=FSAR,Number=A,Type=Integer,Description="Flow Evaluator Alternate allele observations on the reverse strand">
+##FORMAT=<ID=FSRF,Number=1,Type=Integer,Description="Flow Evaluator reference observations on the forward strand">
+##FORMAT=<ID=FSRR,Number=1,Type=Integer,Description="Flow Evaluator reference observations on the reverse strand">
+##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality, the Phred-scaled marginal (or unconditional) probability of the called genotype">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=RO,Number=1,Type=Integer,Description="Reference allele observation count">
+##FORMAT=<ID=SAF,Number=A,Type=Integer,Description="Alternate allele observations on the forward strand">
+##FORMAT=<ID=SAR,Number=A,Type=Integer,Description="Alternate allele observations on the reverse strand">
+##FORMAT=<ID=SRF,Number=1,Type=Integer,Description="Number of reference observations on the forward strand">
+##FORMAT=<ID=SRR,Number=1,Type=Integer,Description="Number of reference observations on the reverse strand">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	HCT-116-FFPE_DNA_mda
+chr10	61665879	CCDC6-RET.C1R12.COSF1271_1	C	C[chr10:43612031[	.	FAIL	SVTYPE=Fusion;READ_COUNT=0;GENE_NAME=CCDC6;EXON_NUM=1;RPM=0.0000;NORM_COUNT=0.0;ANNOTATION=COSF1271;FAIL_REASON=READ_COUNT<=20|NORM_COUNT<=0.0;FUNC=[{'gene':'CCDC6','exon':'1'}]	GT:GQ	./.:.
+chr10	43612031	CCDC6-RET.C1R12.COSF1271_2	G	[chr10:61665879[G	.	FAIL	SVTYPE=Fusion;READ_COUNT=0;GENE_NAME=RET;EXON_NUM=12;RPM=0.0000;NORM_COUNT=0.0;ANNOTATION=COSF1271;FAIL_REASON=READ_COUNT<=20|NORM_COUNT<=0.0;FUNC=[{'gene':'RET','exon':'12'}]	GT:GQ	./.:.
+chr1	154142875	TPM3-ALK.T7A20_1	C	C]chr2:29446394]	.	FAIL	SVTYPE=Fusion;READ_COUNT=0;GENE_NAME=TPM3;EXON_NUM=7;RPM=0.0000;NORM_COUNT=0.0;FAIL_REASON=READ_COUNT<=20|NORM_COUNT<=0.0;FUNC=[{'gene':'TPM3','exon':'7'}]	GT:GQ	./.:.
+chr2	29446394	TPM3-ALK.T7A20_2	A	[chr1:154142875[A	.	FAIL	SVTYPE=Fusion;READ_COUNT=0;GENE_NAME=ALK;EXON_NUM=20;RPM=0.0000;NORM_COUNT=0.0;FAIL_REASON=READ_COUNT<=20|NORM_COUNT<=0.0;FUNC=[{'gene':'ALK','exon':'20'}]	GT:GQ	./.:.
+chr3	178952085	COSM249874;COSM775;COSM776	A	C,G,T	100.0	PASS	AF=0.0,0.435502,0.0;AO=0,790,0;DP=1815;FAO=0,790,0;FDP=1814;FR=.,REALIGNEDx0.4441;FRO=1024;FSAF=0,384,0;FSAR=0,406,0;FSRF=420;FSRR=604;FWDB=0.0764027,0.0628044,0.0870226;FXX=5.50961E-4;HRUN=1,1,1;LEN=1,1,1;MLLD=150.133,77.7198,161.073;OALT=C,G,T;OID=COSM249874,COSM775,COSM776;OMAPALT=C,G,T;OPOS=178952085,178952085,178952085;OREF=A,A,A;QD=13.8781;RBI=0.0766508,0.0643041,0.0870293;REFB=0.00336578,0.00698335,0.0120146;REVB=-0.00616256,0.0138067,0.00107408;RO=1020;SAF=0,384,0;SAR=0,406,0;SRF=420;SRR=600;SSEN=0,0,0;SSEP=0,0,0;SSSB=-7.66709E-8,0.0760868,-7.66709E-8;STB=0.5,0.542991,0.5;STBP=1.0,0.001,1.0;TYPE=snp,snp,snp;VARB=0.0,-0.00950933,0.0;HS;FUNC=[{'origPos':'178952085','origRef':'A','normalizedRef':'A','gene':'PIK3CA','normalizedPos':'178952085','normalizedAlt':'G','polyphen':'0.639','gt':'pos','codon':'CGT','coding':'c.3140A>G','sift':'0.01','grantham':'29.0','transcript':'NM_006218.2','function':'missense','protein':'p.His1047Arg','location':'exonic','origAlt':'G','exon':'21','oncomineGeneClass':'Gain-of-Function','oncomineVariantClass':'Hotspot'}]	GT:GQ:DP:FDP:RO:FRO:AO:FAO:AF:SAR:SAF:SRF:SRR:FSAR:FSAF:FSRF:FSRR	0/2:6294:1815:1814:1020:1024:0,790,0:0,790,0:0.0,0.435502,0.0:0,406,0:0,384,0:420:600:0,406,0:0,384,0:420:604
+chr17	7579419	.	A	AG,AGG	739.629	PASS	AF=0.0,0.373333;AO=39,154;DP=529;FAO=0,196;FDP=525;FR=.;FRO=329;FSAF=0,93;FSAR=0,103;FSRF=153;FSRR=176;FWDB=-0.0490216,-0.0240907;FXX=0.00379499;HRUN=5,5;LEN=1,2;MLLD=14.1349,25.8494;OALT=G,GG;OID=.,.;OMAPALT=AG,AGG;OPOS=7579420,7579420;OREF=-,-;QD=5.63527;RBI=0.171794,0.084309;REFB=-0.0361312,-0.0178733;REVB=0.164651,0.0807938;RO=308;SAF=7,83;SAR=32,71;SRF=155;SRR=153;SSEN=0,0;SSEP=0,0;SSSB=-0.416133,0.0417997;STB=0.5,0.505937;STBP=1.0,0.828;TYPE=ins,ins;VARB=0.0302728,0.0342119;FUNC=[{'origPos':'7579419','origRef':'A','normalizedRef':'A','gene':'TP53','normalizedPos':'7579419','normalizedAlt':'AGG','gt':'pos','codon':'CCT','coding':'c.267_268insCC','transcript':'NM_000546.5','function':'frameshiftInsertion','protein':'p.Ser90fs','location':'exonic','origAlt':'AGG','exon':'4','oncomineGeneClass':'Loss-of-Function','oncomineVariantClass':'Deleterious'}]	GT:GQ:DP:FDP:RO:FRO:AO:FAO:AF:SAR:SAF:SRF:SRR:FSAR:FSAF:FSRF:FSRR	0/2:729:529:525:308:329:39,154:0,196:0.0,0.373333:32,71:7,83:155:153:0,103:0,93:153:176
