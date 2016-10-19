@@ -22,7 +22,7 @@
       "inclusion": true,
       "oncomine_variant_class": "deleterious",
       "public_med_ids": [],
-      "gene": "PTEN",
+      "func_gene": "PTEN",
       "arm_specific": false,
       "level_of_evidence": 3.0,
       "protein_match": null
@@ -679,7 +679,7 @@
       }
     ],
     "snv_indels": [],
-    
+
     "copy_number_variants": [],
     "non_hotspot_rules": [
       {
