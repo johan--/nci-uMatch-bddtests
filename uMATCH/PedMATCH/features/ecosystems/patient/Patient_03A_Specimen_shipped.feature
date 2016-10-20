@@ -2,10 +2,11 @@
 @specimen_shipped
 Feature: NCH Specimen shipped messages
 
+  @patients_p2
   Scenario: PT_SS01. Received specimen_shipped message for type 'BLOOD' from NCH for a patient who has already received the specimen_received message
     Given template specimen shipped message in type: "BLOOD" for patient: "PT_SS01_BloodReceived", it has surgical_event_id: "", molecular_id or slide_barcode: "PT_SS01_BloodReceived_BD_MOI1"
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
-    Then patient field: "current_status" should have value: "BLOOD_NUCLEIC_ACID_SHIPPED" within 15 seconds
+    Then patient should have specimen (field: "active_molecular_id" is "PT_SS01_BloodReceived_BD_MOI1") within 15 seconds
 
   @patients_p1
   Scenario: PT_SS02. Received specimen_shipped message for type 'TISSUE' from NCH for a patient who has already received the specimen_received message

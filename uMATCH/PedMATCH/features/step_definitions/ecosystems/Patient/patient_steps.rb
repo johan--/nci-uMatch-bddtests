@@ -176,6 +176,12 @@ Then(/^patient should have a blood specimen within (\d+) seconds$/) do |timeout|
   @current_specimen['patient_id'].should == @patient_id
 end
 
+Then(/^patient should have specimen \(field: "([^"]*)" is "([^"]*)"\) within (\d+) seconds$/) do |field, value, timeout|
+  url = "#{ENV['patients_endpoint']}/#{@patient_id}/specimens?#{field}=#{value}"
+  @current_specimen = Patient_helper_methods.get_special_result_from_url(url, timeout, {field=>value})
+  @current_specimen[field].should == value
+end
+
 Then(/^patient should have specimen \(surgical_event_id: "([^"]*)"\) within (\d+) seconds$/) do |sei, timeout|
   url = "#{ENV['patients_endpoint']}/#{@patient_id}/specimens?surgical_event_id=#{sei}"
   @current_specimen = Patient_helper_methods.get_special_result_from_url(url, timeout, {'surgical_event_id':sei})
@@ -281,7 +287,7 @@ end
 Given(/^a random "([^"]*)" variant in variant report \(analysis_id: "([^"]*)"\) for patient: "([^"]*)"$/) do |variant_type, ani, pt_id|
   @patient_id = pt_id
   url = "#{ENV['patients_endpoint']}/variants?analysis_id=#{ani}&variant_type=#{variant_type}"
-  this_variant = Patient_helper_methods.get_special_result_from_url(url, 2.0, {'analysis_id':ani})
+  this_variant = Patient_helper_methods.get_any_result_from_url(url)
   if this_variant.is_a?(Array)
     this_variant = this_variant[0]
   end

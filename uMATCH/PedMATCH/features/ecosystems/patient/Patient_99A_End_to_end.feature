@@ -25,17 +25,17 @@ Feature: Patients end to end tests
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
 #    Then "BLOOD" variant report confirmed with status: "REJECTED"
     Then patient status should be "PENDING_CONFIRMATION" within 30 seconds
-    Then patient should have selected treatment arm: "APEC1621-ETE-C" with stratum id: "100" within 15 seconds
+    Then patient should have selected treatment arm: "APEC1621-ETE-A" with stratum id: "100" within 15 seconds
     Then assignment report is confirmed
-    Then COG approves patient on treatment arm: "APEC1621-ETE-C", stratum: "100" to step: "1.1"
+    Then COG approves patient on treatment arm: "APEC1621-ETE-A", stratum: "100" to step: "1.1"
     Then patient status should be "ON_TREATMENT_ARM" within 15 seconds
     Then patient step number should be "1.1" within 15 seconds
     Then COG requests assignment for this patient with re-biopsy: "N", step number: "2.0"
     Then patient status should be "PENDING_CONFIRMATION" within 30 seconds
     Then patient step number should be "2.0" within 15 seconds
-    Then patient should have selected treatment arm: "APEC1621-ETE-A" with stratum id: "100" within 15 seconds
+    Then patient should have selected treatment arm: "APEC1621-ETE-C" with stratum id: "100" within 15 seconds
     Then assignment report is confirmed
-    Then COG approves patient on treatment arm: "APEC1621-ETE-A", stratum: "100" to step: "2.1"
+    Then COG approves patient on treatment arm: "APEC1621-ETE-C", stratum: "100" to step: "2.1"
     Then patient status should be "ON_TREATMENT_ARM" within 15 seconds
     Then patient step number should be "2.1" within 15 seconds
     Then COG requests assignment for this patient with re-biopsy: "Y", step number: "3.0"

@@ -17,27 +17,27 @@ Feature: Variant files confirmed messages
     Given template variant confirm message for patient: "PT_VC01_VRUploaded", the variant: "<uuid>" is checked: "unchecked" with comment: "test"
     When put to MATCH variant confirm service, returns a message that includes "<message>" with status "Failure"
     Examples:
-    |uuid                             |message               |
-#    |                                 |can't be blank        |
-#    |null                             |can't be blank        |
-    |non-existing_uuid                |not exist             |
+      | uuid              | message   |
+  #    |                                 |can't be blank        |
+  #    |null                             |can't be blank        |
+      | non-existing_uuid | not exist |
 
   @patients_p2
   Scenario Outline: PT_VC02. variant confirm message with invalid confirmed should fail
     #    Test Patient: PT_VC02_VRUploaded, VR uploaded PT_VC02_VRUploaded(_SEI1, _MOI1, _ANI1)
-    Given a random "snp" variant in variant report (analysis_id: "PT_VC02_VRUploaded_ANI1") for patient: "PT_VC02_VRUploaded"
+    Given a random "fusion" variant in variant report (analysis_id: "PT_VC02_VRUploaded_ANI1") for patient: "PT_VC02_VRUploaded"
     Then create variant confirm message with checked: "<confirmed>" and comment: "Tests" for this variant
     When put to MATCH variant confirm service, returns a message that includes "<message>" with status "Failure"
     Examples:
-      |confirmed                        |message                                                  |
+      | confirmed                | message                                             |
 #      |                                 |not of a minimum string length of 1                      |
 #      |null                             |NilClass did not match the following type: string        |
-      |not_checked_or_unchecked         |Unregnized checked flag in variant confirmation url      |
+      | not_checked_or_unchecked | Unregnized checked flag in variant confirmation url |
 
   @patients_p2
   Scenario: PT_VC03. variant_confirmed message will not be accepted if it is using a variant uuid that belongs to a rejected variant report (uuid should be only ones in current pending variant list)
 #    Test Patient: PT_VC03_VRUploadedAfterRejected, VR rejected: PT_VC03_VRUploadedAfterRejected(_SEI1, _MOI1, _ANI1), VR uploaded PT_VC03_VRUploadedAfterRejected(_SEI1, _MOI1, _ANI2)
-    Given a random "snp" variant in variant report (analysis_id: "PT_VC03_VRUploadedAfterRejected_ANI1") for patient: "PT_VC03_VRUploadedAfterRejected"
+    Given a random "fusion" variant in variant report (analysis_id: "PT_VC03_VRUploadedAfterRejected_ANI1") for patient: "PT_VC03_VRUploadedAfterRejected"
     Then create variant confirm message with checked: "unchecked" and comment: "Tests" for this variant
     When put to MATCH variant confirm service, returns a message that includes "TBD" with status "Failure"
 
@@ -46,7 +46,7 @@ Feature: Variant files confirmed messages
   @patients_p2
   Scenario: PT_VC04. when variant get confirmed again after it get un-confirmed, the comment value should be cleared
     #    Test Patient: PT_VC04_VRUploaded, VR uploaded PT_VC04_VRUploaded(_SEI1, _MOI1, _ANI1)
-    Given a random "snp" variant in variant report (analysis_id: "PT_VC04_VRUploaded_ANI1") for patient: "PT_VC04_VRUploaded"
+    Given a random "fusion" variant in variant report (analysis_id: "PT_VC04_VRUploaded_ANI1") for patient: "PT_VC04_VRUploaded"
     Then create variant confirm message with checked: "unchecked" and comment: "TEST" for this variant
     When put to MATCH variant confirm service, returns a message that includes "confirmed status changed to false" with status "Success"
     Then this variant has confirmed field: "false" and comment field: "TEST" within 15 seconds
@@ -57,7 +57,7 @@ Feature: Variant files confirmed messages
   @patients_p2
   Scenario: PT_VC04a. comment can be updated properly
     #Test patient: PT_VC04a_VRUploaded, PT_VC04a_VRUploaded(_SEI1, _MOI1, _ANI1)
-    Given a random "snp" variant in variant report (analysis_id: "PT_VC04a_VRUploaded_ANI1") for patient: "PT_VC04a_VRUploaded"
+    Given a random "fusion" variant in variant report (analysis_id: "PT_VC04a_VRUploaded_ANI1") for patient: "PT_VC04a_VRUploaded"
     Then create variant confirm message with checked: "unchecked" and comment: "TEST" for this variant
     When put to MATCH variant confirm service, returns a message that includes "confirmed status changed to false" with status "Success"
     Then create variant confirm message with checked: "unchecked" and comment: "COMMENT_EDITED" for this variant
@@ -89,10 +89,10 @@ Feature: Variant files confirmed messages
     Given template variant report confirm message for patient: "<value>", it has analysis_id: "ANI1" and status: "confirm"
     When put to MATCH variant report confirm service, returns a message that includes "<message>" with status "Failure"
     Examples:
-      |value          |message               |
+      | value      | message             |
 #      |               |can't be blank        |
 #      |null           |can't be blank        |
-      |nonPatient     |not been registered   |
+      | nonPatient | not been registered |
 
 #    molecular_id has been removed from this service
 #  Scenario Outline: PT_VC08. variant report confirm message with invalid molecular_id should fail
@@ -109,10 +109,10 @@ Feature: Variant files confirmed messages
     Given template variant report confirm message for patient: "PT_VC09_VRUploaded", it has analysis_id: "<ANI>" and status: "confirm"
     When put to MATCH variant report confirm service, returns a message that includes "<message>" with status "Failure"
     Examples:
-      |ANI            |message                    |
+      | ANI   | message            |
 #      |               |can't be blank             |
 #      |null           |can't be blank             |
-      |other          |latest analysis id         |
+      | other | latest analysis id |
 
   @patients_p2
   Scenario Outline: PT_VC10. variant report confirm message using non-current ids should fail
@@ -123,20 +123,20 @@ Feature: Variant files confirmed messages
     Given template variant report confirm message for patient: "<patient_id>", it has analysis_id: "<ani>" and status: "confirm"
     When put to MATCH variant report confirm service, returns a message that includes "doesn't match current specimen's latest analysis id" with status "Failure"
     Examples:
-    |patient_id                     |ani                                |
-    |PT_VC10_VRUploadedSEIExpired   |PT_VC10_VRUploadedSEIExpired_ANI1  |
-    |PT_VC10_VRUploadedMOIExpired   |PT_VC10_VRUploadedMOIExpired_ANI1  |
-    |PT_VC10_VRUploadedANIExpired   |PT_VC10_VRUploadedANIExpired_ANI1  |
+      | patient_id                   | ani                               |
+      | PT_VC10_VRUploadedSEIExpired | PT_VC10_VRUploadedSEIExpired_ANI1 |
+      | PT_VC10_VRUploadedMOIExpired | PT_VC10_VRUploadedMOIExpired_ANI1 |
+      | PT_VC10_VRUploadedANIExpired | PT_VC10_VRUploadedANIExpired_ANI1 |
 
   @patients_p2
   Scenario Outline: PT_VC11. variant report confirm message with invalid status should fail
     Given template variant report confirm message for patient: "PT_VC11_VRUploaded", it has analysis_id: "PT_VC11_VRUploaded_ANI1" and status: "<status>"
     When put to MATCH variant report confirm service, returns a message that includes "<message>" with status "Failure"
     Examples:
-      |status         |message                                                                         |
+      | status | message                                                                |
 #      |               |can't be blank                                                                  |
 #      |null           |can't be blank                                                                  |
-      |other      |Unrecognized confirm\|reject flag passed in confirm variant report url          |
+      | other  | Unrecognized confirm\|reject flag passed in confirm variant report url |
 
   @patient_p2
   Scenario Outline: PT_VC11b. variant report cannot be confirmed (rejected) more than one time
@@ -145,15 +145,15 @@ Feature: Variant files confirmed messages
     Then patient should have variant report (analysis_id: "<patient_id>_ANI1") after 15 seconds
     And this variant report has value: "<previous_status>" in field: "status"
     Examples:
-    |patient_id             |status   |previous_status|
-    |PT_VC11b_TsVRConfirmed |confirm  |confirm        |
-    |PT_VC11b_TsVRRejected  |confirm  |reject         |
-    |PT_VC11b_TsVRConfirmed |reject   |confirm        |
-    |PT_VC11b_TsVRRejected  |reject   |reject         |
-    |PT_VC11b_BdVRConfirmed |confirm  |confirm        |
-    |PT_VC11b_BdVRRejected  |confirm  |reject         |
-    |PT_VC11b_BdVRConfirmed |reject   |confirm        |
-    |PT_VC11b_BdVRRejected  |reject   |reject         |
+      | patient_id             | status  | previous_status |
+      | PT_VC11b_TsVRConfirmed | confirm | confirm         |
+      | PT_VC11b_TsVRRejected  | confirm | reject          |
+      | PT_VC11b_TsVRConfirmed | reject  | confirm         |
+      | PT_VC11b_TsVRRejected  | reject  | reject          |
+      | PT_VC11b_BdVRConfirmed | confirm | confirm         |
+      | PT_VC11b_BdVRRejected  | confirm | reject          |
+      | PT_VC11b_BdVRConfirmed | reject  | confirm         |
+      | PT_VC11b_BdVRRejected  | reject  | reject          |
 
 
   @patients_p1
@@ -170,15 +170,15 @@ Feature: Variant files confirmed messages
     And this variant report has value: "<user>" in field: "comment_user"
     And this variant report has correct status_date
     Examples:
-    |patient_id           |ani                        |status     |comment                          |user         |
-    |PT_VC12_VRUploaded1  |PT_VC12_VRUploaded1_ANI1   |confirm    |a                                |user1        |
-    |PT_VC12_VRUploaded2  |PT_VC12_VRUploaded2_ANI1   |reject     |this variant report is rejected  |user2        |
+      | patient_id          | ani                      | status  | comment                         | user  |
+      | PT_VC12_VRUploaded1 | PT_VC12_VRUploaded1_ANI1 | confirm | a                               | user1 |
+      | PT_VC12_VRUploaded2 | PT_VC12_VRUploaded2_ANI1 | reject  | this variant report is rejected | user2 |
 
   @patients_p2
   Scenario: PT_VC13. if variant report rejected, comment values for variants that are in this variant report should NOT BE cleared (this test has been changed, before the comments values should BE changed)
 #    Test patient PT_VC13_VRUploaded1: vr uploaded   PT_VC13_VRUploaded1(_SEI1, _MOI1, _SEI1)
 #    first snv variant has confirmed=false, comment="TEST"
-    Given a random "snp" variant in variant report (analysis_id: "PT_VC13_VRUploaded1_ANI1") for patient: "PT_VC13_VRUploaded1"
+    Given a random "fusion" variant in variant report (analysis_id: "PT_VC13_VRUploaded1_ANI1") for patient: "PT_VC13_VRUploaded1"
     Then create variant confirm message with checked: "unchecked" and comment: "Tests" for this variant
     When put to MATCH variant confirm service, returns a message that includes "confirmed status changed to false" with status "Success"
     Then template variant report confirm message for patient: "PT_VC13_VRUploaded1", it has analysis_id: "PT_VC13_VRUploaded1_ANI1" and status: "reject"
@@ -206,8 +206,8 @@ Feature: Variant files confirmed messages
     Then patient field: "current_status" should have value: "<patient_status>" after 30 seconds
 
     Examples:
-    |patient_id                               |ani                                            |vr_status  |patient_status                     |
-    |PT_VC15_VRUploadedPathConfirmed          |PT_VC15_VRUploadedPathConfirmed_ANI1           |confirm    |TISSUE_VARIANT_REPORT_CONFIRMED    |
-    |PT_VC15_VRUploadedAssayReceived          |PT_VC15_VRUploadedAssayReceived_ANI1           |confirm    |TISSUE_VARIANT_REPORT_CONFIRMED    |
-    |PT_VC15_PathAssayDoneVRUploadedToConfirm |PT_VC15_PathAssayDoneVRUploadedToConfirm_ANI1  |confirm    |PENDING_CONFIRMATION               |
-    |PT_VC15_PathAssayDoneVRUploadedToReject  |PT_VC15_PathAssayDoneVRUploadedToReject_ANI1   |reject     |TISSUE_VARIANT_REPORT_REJECTED     |
+      | patient_id                               | ani                                           | vr_status | patient_status                  |
+      | PT_VC15_VRUploadedPathConfirmed          | PT_VC15_VRUploadedPathConfirmed_ANI1          | confirm   | TISSUE_VARIANT_REPORT_CONFIRMED |
+      | PT_VC15_VRUploadedAssayReceived          | PT_VC15_VRUploadedAssayReceived_ANI1          | confirm   | TISSUE_VARIANT_REPORT_CONFIRMED |
+      | PT_VC15_PathAssayDoneVRUploadedToConfirm | PT_VC15_PathAssayDoneVRUploadedToConfirm_ANI1 | confirm   | PENDING_CONFIRMATION            |
+      | PT_VC15_PathAssayDoneVRUploadedToReject  | PT_VC15_PathAssayDoneVRUploadedToReject_ANI1  | reject    | TISSUE_VARIANT_REPORT_REJECTED  |

@@ -184,8 +184,8 @@ end
 
 def find_variant_uuid(specimen_type, variant_type, field, value)
   target_ani = get_ani(specimen_type)
-  url = "#{ENV['patients_endpoint']}/#{@patient_id}/variants?"
-  url = url + "variant_type=#{variant_type}&#{field}=#{value}&analysis_id=#{target_ani}"
+  url = "#{ENV['patients_endpoint']}/variants?analysis_id=#{target_ani}&variant_type=#{variant_type}&#{field}=#{value}"
+  # @retrieved_variant = Patient_helper_methods.get_any_result_from_url(url)
   @retrieved_variant=Patient_helper_methods.get_special_result_from_url(url, 15, {'analysis_id':target_ani})
   @retrieved_variant['uuid']
 end
