@@ -172,20 +172,33 @@ PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
 sleep(10.0)
 PatientMessageLoader.variant_file_confirmed(pt.id, 'reject', pt.ani)
 
-pt = PatientDataSet.new('PT_VC11b_BdVRConfirmed')
-PatientMessageLoader.register_patient(pt.id)
-PatientMessageLoader.specimen_received_blood(pt.id)
-PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)
-PatientMessageLoader.variant_file_uploaded(pt.id, pt.bd_moi, pt.ani)
-sleep(10.0)
-PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.ani)
-
-pt = PatientDataSet.new('PT_VC11b_BdVRRejected')
-PatientMessageLoader.register_patient(pt.id)
-PatientMessageLoader.specimen_received_blood(pt.id)
-PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)
-PatientMessageLoader.variant_file_uploaded(pt.id, pt.bd_moi, pt.ani)
-sleep(10.0)
-PatientMessageLoader.variant_file_confirmed(pt.id, 'reject', pt.ani)
 
 PatientMessageLoader.upload_done
+
+
+
+
+
+
+
+
+
+
+
+
+
+# pt = PatientDataSet.new('PT_VC11b_BdVRConfirmed')
+# PatientMessageLoader.register_patient(pt.id)
+# PatientMessageLoader.specimen_received_blood(pt.id)
+# PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)
+# PatientMessageLoader.variant_file_uploaded(pt.id, pt.bd_moi, pt.ani)
+# sleep(10.0)
+# PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.ani)
+#
+# pt = PatientDataSet.new('PT_VC11b_BdVRRejected')
+# PatientMessageLoader.register_patient(pt.id)
+# PatientMessageLoader.specimen_received_blood(pt.id)
+# PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)
+# PatientMessageLoader.variant_file_uploaded(pt.id, pt.bd_moi, pt.ani)
+# sleep(10.0)
+# PatientMessageLoader.variant_file_confirmed(pt.id, 'reject', pt.ani)

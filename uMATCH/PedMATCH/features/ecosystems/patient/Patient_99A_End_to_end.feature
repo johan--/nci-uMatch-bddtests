@@ -23,7 +23,6 @@ Feature: Patients end to end tests
     Then "TISSUE" variant report uploaded with analysis_id: "PT_ETE01_ANI1"
     Then "BLOOD" variant report uploaded with analysis_id: "PT_ETE01_ANI2"
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
-#    Then "BLOOD" variant report confirmed with status: "REJECTED"
     Then patient status should be "PENDING_CONFIRMATION" within 30 seconds
     Then patient should have selected treatment arm: "APEC1621-ETE-A" with stratum id: "100" within 15 seconds
     Then assignment report is confirmed
@@ -55,7 +54,6 @@ Feature: Patients end to end tests
     Then "TISSUE" variant(type: "fusion", field: "identifier", value: "CCDC6-RET.C1R12.COSF1271") is "unchecked"
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
     Then wait for "2" seconds
-#    Then "BLOOD" variant report confirmed with status: "CONFIRMED"
     Then patient status should be "PENDING_CONFIRMATION" within 30 seconds
     Then patient should have selected treatment arm: "APEC1621-ETE-B" with stratum id: "100" within 15 seconds
     Then assignment report is confirmed
@@ -139,15 +137,16 @@ Feature: Patients end to end tests
       | PT_ETE06_Step2TsReceived2 | PT_ETE06_Step2TsReceived2_BC1    | SLIDE  | same barcode has been found      | TISSUE_SPECIMEN_RECEIVED |
       | PT_ETE06_Step2BdReceived  | PT_ETE06_Step2BdReceived_BD_MOI1 | BLOOD  | same molecular id has been found | REQUEST_ASSIGNMENT       |
 
-  Scenario: PT_ETE07. rejected blood variant report should not prevent api triggering assignment process
-    Given patient: "PT_ETE07" with status: "TISSUE_VARIANT_REPORT_RECEIVED" on step: "1.0"
-    Given this patients's active "TISSUE" molecular_id is "PT_ETE07_MOI1"
-    Given this patients's active "TISSUE" analysis_id is "PT_ETE07_ANI1"
-    Given other background and comments for this patient: "assay and pathology are ready, blood variant report is rejected"
-    Then "TISSUE" variant report confirmed with status: "CONFIRMED"
-    Then COG approves patient on treatment arm: "APEC1621-A", stratum: "100" to step: "1.1"
-    Then patient status should be "ON_TREATMENT_ARM" within 15 seconds
-    Then patient step number should be "1.1" within 15 seconds
+        #no blood status is used anymore
+#  Scenario: PT_ETE07. rejected blood variant report should not prevent api triggering assignment process
+#    Given patient: "PT_ETE07" with status: "TISSUE_VARIANT_REPORT_RECEIVED" on step: "1.0"
+#    Given this patients's active "TISSUE" molecular_id is "PT_ETE07_MOI1"
+#    Given this patients's active "TISSUE" analysis_id is "PT_ETE07_ANI1"
+#    Given other background and comments for this patient: "assay and pathology are ready, blood variant report is rejected"
+#    Then "TISSUE" variant report confirmed with status: "CONFIRMED"
+#    Then COG approves patient on treatment arm: "APEC1621-A", stratum: "100" to step: "1.1"
+#    Then patient status should be "ON_TREATMENT_ARM" within 15 seconds
+#    Then patient step number should be "1.1" within 15 seconds
 
   Scenario Outline: PT_ETE08. variant report confirmation should fail if patient is on OFF_STUDY status
     Given patient: "<patient_id>" with status: "<current_status>" on step: "1.0"
@@ -178,6 +177,7 @@ Feature: Patients end to end tests
       | patient_id      | current_status           | rebiopsy |
       | PT_ETE09a_OnTA1 | OFF_STUDY                | Y        |
       | PT_ETE09a_OnTA2 | OFF_STUDY_BIOPSY_EXPIRED | N        |
+
 #  Scenario Outline: PT_ETE09b OFF_STUDY should fail if patient is on OFF_STUDY status
 #    Given patient: "<patient_id>" with status: "<current_status>" on step: "1.1"
 #    Given patient is currently on treatment arm: "APEC1621-A", stratum: "100"

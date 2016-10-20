@@ -12,8 +12,6 @@ PatientVariantFolderCreator.create_default('PT_SR10_ProgressReBioY2', 'tissue')
 PatientVariantFolderCreator.create_default('PT_SR10_ProgressReBioY', 'tissue')
 PatientVariantFolderCreator.create_default('PT_SR10_OffStudy', 'tissue')
 PatientVariantFolderCreator.create_default('PT_SR10_BdVRReceived', 'blood')
-PatientVariantFolderCreator.create_default('PT_SR10_BdVRRejected', 'blood')
-PatientVariantFolderCreator.create_default('PT_SR10_BdVRConfirmed', 'blood')
 PatientVariantFolderCreator.create_default('PT_SR14_BdVrUploaded', 'blood')
 PatientVariantFolderCreator.create_default('PT_SR14_BdVrUploaded1', 'blood')
 PatientVariantFolderCreator.create_default('PT_SR10_TsVrReceived', 'tissue')
@@ -22,7 +20,6 @@ PatientVariantFolderCreator.create_default('PT_SS26_PendingApproval', 'tissue')
 PatientVariantFolderCreator.create_default('PT_SR12_VariantReportConfirmed', 'tissue')
 PatientVariantFolderCreator.create_default('PT_SR14_TsVrUploaded', 'tissue')
 PatientVariantFolderCreator.create_default('PT_SR14_TsVrUploaded1', 'tissue')
-PatientVariantFolderCreator.create_default('PT_SS22_BloodVariantConfirmed', 'blood')
 PatientVariantFolderCreator.create_default('PT_SS21_TissueVariantConfirmed', 'tissue')
 PatientVariantFolderCreator.create_default('PT_SS26_TsVRReceived', 'tissue')
 PatientVariantFolderCreator.create_default('PT_SS26_TsVRConfirmed', 'tissue')
@@ -58,11 +55,6 @@ pt = PatientDataSet.new('PT_VU16_BdVRUploaded')
 PatientVariantFolderCreator.create(pt.bd_moi, pt.ani)
 PatientVariantFolderCreator.create(pt.bd_moi, pt.ani_increase)
 
-pt = PatientDataSet.new('PT_VU17_BdVRConfirmed')
-PatientVariantFolderCreator.create(pt.bd_moi, pt.ani)
-PatientVariantFolderCreator.create(pt.bd_moi, pt.ani_increase)
-PatientVariantFolderCreator.create(pt.moi, pt.ani_increase)
-
 pt = PatientDataSet.new('PT_VC10_VRUploadedSEIExpired')
 PatientVariantFolderCreator.create(pt.moi, pt.ani)
 PatientVariantFolderCreator.create(pt.moi_increase, pt.ani_increase)
@@ -92,8 +84,6 @@ PatientVariantFolderCreator.create_default('PT_VC01_VRUploaded', 'tissue')
 PatientVariantFolderCreator.create_default('PT_VC02_VRUploaded', 'tissue')
 PatientVariantFolderCreator.create_default('PT_VC11b_TsVRConfirmed', 'tissue')
 PatientVariantFolderCreator.create_default('PT_VC11b_TsVRRejected', 'tissue')
-PatientVariantFolderCreator.create_default('PT_VC11b_BdVRConfirmed', 'blood')
-PatientVariantFolderCreator.create_default('PT_VC11b_BdVRRejected', 'blood')
 
 pt = PatientDataSet.new('PT_VC03_VRUploadedAfterRejected')
 PatientVariantFolderCreator.create(pt.moi, pt.ani)
@@ -141,10 +131,6 @@ pt = PatientDataSet.new('PT_ETE04_PendingApproval')
 PatientVariantFolderCreator.create(pt.moi, pt.ani)
 PatientVariantFolderCreator.create(pt.moi_increase, pt.ani_increase)
 
-pt = PatientDataSet.new('PT_ETE07')
-PatientVariantFolderCreator.create(pt.bd_moi, pt.ani)
-PatientVariantFolderCreator.create(pt.moi, pt.ani_increase)
-
 
 PatientVariantFolderCreator.create_default('PT_CR01_PathAssayDoneVRUploadedToConfirm', 'tissue')
 PatientVariantFolderCreator.create_default('PT_CR02_OnTreatmentArm', 'tissue')
@@ -189,3 +175,31 @@ PatientVariantFolderCreator.create_default('PT_ETE14', 'tissue')
 # PatientVariantFolderCreator.create_default('ION_AQ43_TsVrUploaded', 'tissue')
 # PatientVariantFolderCreator.create_default('ION_SF03_TsVrUploaded', 'tissue')
 # PatientVariantFolderCreator.create_default('ION_FL02_TsVrUploaded', 'tissue')
+
+
+
+
+
+
+
+
+
+
+
+
+
+# PatientVariantFolderCreator.create_default('PT_SR10_BdVRRejected', 'blood')
+# PatientVariantFolderCreator.create_default('PT_SR10_BdVRConfirmed', 'blood')
+# PatientVariantFolderCreator.create_default('PT_SS22_BloodVariantConfirmed', 'blood')
+#
+# pt = PatientDataSet.new('PT_VU17_BdVRConfirmed')
+# PatientVariantFolderCreator.create(pt.bd_moi, pt.ani)
+# PatientVariantFolderCreator.create(pt.bd_moi, pt.ani_increase)
+# PatientVariantFolderCreator.create(pt.moi, pt.ani_increase)
+#
+# PatientVariantFolderCreator.create_default('PT_VC11b_BdVRConfirmed', 'blood')
+# PatientVariantFolderCreator.create_default('PT_VC11b_BdVRRejected', 'blood')
+#
+# pt = PatientDataSet.new('PT_ETE07')
+# PatientVariantFolderCreator.create(pt.bd_moi, pt.ani)
+# PatientVariantFolderCreator.create(pt.moi, pt.ani_increase)

@@ -95,14 +95,15 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     Then set patient message field: "collection_dttm" to value: "current"
     When post to MATCH patients service, returns a message that includes "<message>" with status "<status>"
     Examples:
-      | patient_id              | status  | message                  |
-      | PT_SR10_TsReceived      | Success | processed successfully   |
-      | PT_SR10_BdVRReceived    | Success | processed successfully   |
-      | PT_SR10_BdVRRejected    | Success | processed successfully   |
-      | PT_SR10_BdVRConfirmed   | Failure | confirmed variant report |
-      | PT_SR10_PendingApproval | Success | processed successfully   |
-      | PT_SR10_ProgressReBioY1 | Success | processed successfully   |
-      | PT_SR10_OffStudy2       | Failure | cannot transition from   |
+      | patient_id              | status  | message                |
+      | PT_SR10_TsReceived      | Success | processed successfully |
+      | PT_SR10_BdVRReceived    | Success | processed successfully |
+      | PT_SR10_PendingApproval | Success | processed successfully |
+      | PT_SR10_ProgressReBioY1 | Success | processed successfully |
+      | PT_SR10_OffStudy2       | Failure | cannot transition from |
+        #we don't confirm or reject BLOOD variant report anymore
+#      | PT_SR10_BdVRRejected    | Success | processed successfully   |
+#      | PT_SR10_BdVRConfirmed   | Failure | confirmed variant report |
 
   @patients_p2
   Scenario Outline: PT_SR11. Return error message when study_id is invalid

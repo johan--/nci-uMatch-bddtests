@@ -166,18 +166,19 @@ Feature: Variant files uploaded message
     Then patient should have variant report (analysis_id: "PT_VU16_BdVRUploaded_ANI1") within 15 seconds
     And this variant report has value: "REJECTED" in field: "status"
 
-  @patients_p2
-  Scenario Outline: PT_VU17. blood variant files cannot be uploaded if patient has BLOOD_VARIANT_REPORT_CONFIRMED status, but still can upload tissue variant files
-#    Test patient: PT_VU17_BdVRConfirmed; blood variant report files confirmed: molecular_id: _BR_MOI1, analysis_id: _ANI1
-#                                        tissue specimen has been shipped: molecular_id: _MOI1
-    Given template variant file uploaded message for patient: "PT_VU17_BdVRConfirmed", it has molecular_id: "<moi>" and analysis_id: "<ani>"
-    When post to MATCH patients service, returns a message that includes "<message>" with status "<post_status>"
-    Then patient should have variant report (analysis_id: "<query_ani>") within 15 seconds
-    And this variant report has value: "<vr_status>" in field: "status"
-    Examples:
-      | moi                           | ani                        | query_ani                  | vr_status | message                | post_status |
-      | PT_VU17_BdVRConfirmed_BD_MOI1 | PT_VU17_BdVRConfirmed_ANI2 | PT_VU17_BdVRConfirmed_ANI1 | CONFIRMED | confirmed              | Failure     |
-      | PT_VU17_BdVRConfirmed_MOI1    | PT_VU17_BdVRConfirmed_ANI3 | PT_VU17_BdVRConfirmed_ANI3 | PENDING   | processed successfully | Success     |
+
+    #no blood status is used anymore
+#  Scenario Outline: PT_VU17. blood variant files cannot be uploaded if patient has BLOOD_VARIANT_REPORT_CONFIRMED status, but still can upload tissue variant files
+##    Test patient: PT_VU17_BdVRConfirmed; blood variant report files confirmed: molecular_id: _BR_MOI1, analysis_id: _ANI1
+##                                        tissue specimen has been shipped: molecular_id: _MOI1
+#    Given template variant file uploaded message for patient: "PT_VU17_BdVRConfirmed", it has molecular_id: "<moi>" and analysis_id: "<ani>"
+#    When post to MATCH patients service, returns a message that includes "<message>" with status "<post_status>"
+#    Then patient should have variant report (analysis_id: "<query_ani>") within 15 seconds
+#    And this variant report has value: "<vr_status>" in field: "status"
+#    Examples:
+#      | moi                           | ani                        | query_ani                  | vr_status | message                | post_status |
+#      | PT_VU17_BdVRConfirmed_BD_MOI1 | PT_VU17_BdVRConfirmed_ANI2 | PT_VU17_BdVRConfirmed_ANI1 | CONFIRMED | confirmed              | Failure     |
+#      | PT_VU17_BdVRConfirmed_MOI1    | PT_VU17_BdVRConfirmed_ANI3 | PT_VU17_BdVRConfirmed_ANI3 | PENDING   | processed successfully | Success     |
 
   @patients_p3
   Scenario: PT_VU18. extra key-value pair in the message body should NOT fail

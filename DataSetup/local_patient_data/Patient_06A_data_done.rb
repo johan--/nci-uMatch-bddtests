@@ -17,16 +17,6 @@ PatientMessageLoader.register_patient(pt.id)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
 
-# pt = PatientDataSet.new('PT_VU02a_TissueShippedToMDA')
-# PatientMessageLoader.register_patient(pt.id)
-# PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
-# PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-05-01T19:42:13+00:00', 'MDA')
-
-# pt = PatientDataSet.new('PT_VU02a_TissueShippedToMoCha')
-# PatientMessageLoader.register_patient(pt.id)
-# PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
-# PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-05-01T19:42:13+00:00', 'MoCha')
-
 pt = PatientDataSet.new('PT_VU03_TissueShipped')
 PatientMessageLoader.register_patient(pt.id)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
@@ -114,14 +104,6 @@ PatientMessageLoader.specimen_received_blood(pt.id)
 PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)
 PatientMessageLoader.variant_file_uploaded(pt.id, pt.bd_moi, pt.ani)
 
-pt = PatientDataSet.new('PT_VU17_BdVRConfirmed')
-PatientMessageLoader.register_patient(pt.id)
-PatientMessageLoader.specimen_received_blood(pt.id)
-PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
-PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)
-PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
-PatientMessageLoader.variant_file_uploaded(pt.id, pt.bd_moi, pt.ani)
-PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.ani)
 
 pt = PatientDataSet.new('PT_VU18_TissueShipped')
 PatientMessageLoader.register_patient(pt.id)
@@ -129,3 +111,28 @@ PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
 
 PatientMessageLoader.upload_done
+
+
+
+
+
+
+# pt = PatientDataSet.new('PT_VU02a_TissueShippedToMDA')
+# PatientMessageLoader.register_patient(pt.id)
+# PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+# PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-05-01T19:42:13+00:00', 'MDA')
+
+# pt = PatientDataSet.new('PT_VU02a_TissueShippedToMoCha')
+# PatientMessageLoader.register_patient(pt.id)
+# PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+# PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-05-01T19:42:13+00:00', 'MoCha')
+
+
+# pt = PatientDataSet.new('PT_VU17_BdVRConfirmed')
+# PatientMessageLoader.register_patient(pt.id)
+# PatientMessageLoader.specimen_received_blood(pt.id)
+# PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+# PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)
+# PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+# PatientMessageLoader.variant_file_uploaded(pt.id, pt.bd_moi, pt.ani)
+# PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.ani)

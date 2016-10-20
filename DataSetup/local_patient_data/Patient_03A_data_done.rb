@@ -214,13 +214,6 @@ PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
 PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
 
-pt = PatientDataSet.new('PT_SS22_BloodVariantConfirmed')
-PatientMessageLoader.register_patient(pt.id)
-PatientMessageLoader.specimen_received_blood(pt.id)
-PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)
-PatientMessageLoader.variant_file_uploaded(pt.id, pt.bd_moi, pt.ani)
-PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.ani)
-
 
 pt = PatientDataSet.new('PT_SS30_TsBdReceived')
 PatientMessageLoader.register_patient(pt.id)
@@ -259,3 +252,21 @@ PatientMessageLoader.on_treatment_arm(pt.id, 'APEC1621-A')
 PatientMessageLoader.request_assignment(pt.id)
 
 PatientMessageLoader.upload_done
+
+
+
+
+
+
+
+
+
+
+
+#
+# pt = PatientDataSet.new('PT_SS22_BloodVariantConfirmed')
+# PatientMessageLoader.register_patient(pt.id)
+# PatientMessageLoader.specimen_received_blood(pt.id)
+# PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)
+# PatientMessageLoader.variant_file_uploaded(pt.id, pt.bd_moi, pt.ani)
+# PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.ani)

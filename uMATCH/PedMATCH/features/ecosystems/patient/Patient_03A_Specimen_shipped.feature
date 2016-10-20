@@ -202,13 +202,13 @@ Feature: NCH Specimen shipped messages
     Then set patient message field: "shipped_dttm" to value: "current"
     When post to MATCH patients service, returns a message that includes "confirmed variant report" with status "Failure"
 
-  @patients_p2
-  Scenario: PT_SS22. Blood cannot be shipped if there is one blood variant report get confirmed
-  #    Testing patient: PT_SS22_BloodVariantConfirmed, molecular_id: PT_SS22_BloodVariantConfirmed_MOI1, analysis_id: PT_SS22_BloodVariantConfirmed_ANI1
-  #      this patient has BLOOD_VARIANT_REPORT_CONFIRMED status
-    Given template specimen shipped message in type: "BLOOD" for patient: "PT_SS22_BloodVariantConfirmed", it has surgical_event_id: "", molecular_id or slide_barcode: "PT_SS22_BloodVariantConfirmed_MOI2"
-    Then set patient message field: "shipped_dttm" to value: "2016-08-25T16:17:11+00:00"
-    When post to MATCH patients service, returns a message that includes "confirmed variant report" with status "Failure"
+    #we don't confirm or reject BLOOD variant report anymore
+#  Scenario: PT_SS22. Blood cannot be shipped if there is one blood variant report get confirmed
+#  #    Testing patient: PT_SS22_BloodVariantConfirmed, molecular_id: PT_SS22_BloodVariantConfirmed_MOI1, analysis_id: PT_SS22_BloodVariantConfirmed_ANI1
+#  #      this patient has BLOOD_VARIANT_REPORT_CONFIRMED status
+#    Given template specimen shipped message in type: "BLOOD" for patient: "PT_SS22_BloodVariantConfirmed", it has surgical_event_id: "", molecular_id or slide_barcode: "PT_SS22_BloodVariantConfirmed_MOI2"
+#    Then set patient message field: "shipped_dttm" to value: "2016-08-25T16:17:11+00:00"
+#    When post to MATCH patients service, returns a message that includes "confirmed variant report" with status "Failure"
 
   @patients_p2
   Scenario Outline: PT_SS23. Tissue shipment and slide shipment should not depend on each other

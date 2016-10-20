@@ -150,10 +150,11 @@ Feature: Variant files confirmed messages
       | PT_VC11b_TsVRRejected  | confirm | reject          |
       | PT_VC11b_TsVRConfirmed | reject  | confirm         |
       | PT_VC11b_TsVRRejected  | reject  | reject          |
-      | PT_VC11b_BdVRConfirmed | confirm | confirm         |
-      | PT_VC11b_BdVRRejected  | confirm | reject          |
-      | PT_VC11b_BdVRConfirmed | reject  | confirm         |
-      | PT_VC11b_BdVRRejected  | reject  | reject          |
+    #we don't confirm or reject BLOOD variant report anymore
+#      | PT_VC11b_BdVRConfirmed | confirm | confirm         |
+#      | PT_VC11b_BdVRRejected  | confirm | reject          |
+#      | PT_VC11b_BdVRConfirmed | reject  | confirm         |
+#      | PT_VC11b_BdVRRejected  | reject  | reject          |
 
 
   @patients_p1
@@ -187,13 +188,13 @@ Feature: Variant files confirmed messages
     Then patient field: "current_status" should have value: "TISSUE_VARIANT_REPORT_REJECTED" within 15 seconds
     Then this variant has confirmed field: "false" and comment field: "Tests" within 15 seconds
 
-  @patients_p2
-  Scenario: PT_VC14. confirming blood variant report will not trigger patient assignment process
-  #Test patient PT_VC14_BdVRUploadedTsVRUploadedOtherReady assay and pathology are ready,
-  #tissue PT_VC14_BdVRUploadedTsVRUploadedOtherReady(_SEI1, _MOI1, _ANI1) and blood(_BD_MOI1, _ANI2) variant report are uploaded
-    Given template variant report confirm message for patient: "PT_VC14_BdVRUploadedTsVRUploadedOtherReady", it has analysis_id: "PT_VC14_BdVRUploadedTsVRUploadedOtherReady_ANI2" and status: "confirm"
-    When put to MATCH variant report confirm service, returns a message that includes "Variant Report status changed successfully to" with status "Success"
-    Then patient field: "current_status" should have value: "BLOOD_VARIANT_REPORT_CONFIRMED" after 30 seconds
+    #we don't confirm or reject BLOOD variant report anymore
+#  Scenario: PT_VC14. confirming blood variant report will not trigger patient assignment process
+#  #Test patient PT_VC14_BdVRUploadedTsVRUploadedOtherReady assay and pathology are ready,
+#  #tissue PT_VC14_BdVRUploadedTsVRUploadedOtherReady(_SEI1, _MOI1, _ANI1) and blood(_BD_MOI1, _ANI2) variant report are uploaded
+#    Given template variant report confirm message for patient: "PT_VC14_BdVRUploadedTsVRUploadedOtherReady", it has analysis_id: "PT_VC14_BdVRUploadedTsVRUploadedOtherReady_ANI2" and status: "confirm"
+#    When put to MATCH variant report confirm service, returns a message that includes "Variant Report status changed successfully to" with status "Success"
+#    Then patient field: "current_status" should have value: "BLOOD_VARIANT_REPORT_CONFIRMED" after 30 seconds
 
   @patients_p2
   Scenario Outline: PT_VC15. variant file confirmation will not trigger patient assignment process unless patient has COMPLETE_MDA_DATA_SET status
