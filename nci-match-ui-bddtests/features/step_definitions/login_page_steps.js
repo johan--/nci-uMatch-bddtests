@@ -83,10 +83,8 @@ module.exports = function () {
         dashboardPageObj.goToPageName(pageName).then(callback);
     });
 
-    this.Then(/^I should be able to the see Dashboard page$/, function (callback){
-        var dashboardHeading = dashboardPageObj.dashboardController.element(by.css('h2'));
-        utilities.waitForElement(dashboardHeading, 'Heading not found')
-        expect(element(by.css('h2')).getText()).to.eventually.eql('Dashboard').notify(callback);
+    this.Then(/^I should be able to the see "(.+?)" page$/, function (pageName, callback){
+        expect(element(by.css('h2')).getText()).to.eventually.eql(pageName).notify(callback);
     });
 
     this.Then(/^I then logout$/, function (callback) {

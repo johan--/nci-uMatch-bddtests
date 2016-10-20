@@ -41,16 +41,12 @@ module.exports = function () {
         var request = utilities.callApi('patient', str)
         request.get().then(function () {
               patientApiInfo = JSON.parse(request.entity());
-        }).then(callback);
+        }).notify(callback);
     });
 
     this.When(/^I click on the "([^"]*)" tab$/, function (tabName, callback) {
         var index = expectedMainTabs.indexOf(tabName);
-        element(by.linkText(tabName)).click().then(function () {
-            browser.waitForAngular();
-        }).then(callback);
-//        utilities.clickElementArray(actualMainTabsArray, index);
-//        browser.sleep(50).then(callback);
+        element(by.linkText(tabName)).click().then(callback)
     });
 
     // Then Section
@@ -61,9 +57,8 @@ module.exports = function () {
     });
 
     this.Then(/^I am taken to the patient details page$/, function (callback) {
-        browser.sleep(200).then(function () {
-            expect(browser.getCurrentUrl()).to.eventually.equal(browser.baseUrl + '/#/patient?patient_id=' + patientPage.patientId)
-        }).then(callback);
+        var url = browser.baseUrl + '/#/patient?patient_id=' + patientPage.patientId
+        expect(browser.getCurrentUrl()).to.eventually.eql(url).notify(callback);
     });
 
     this.Then(/^I should see the patient's information table$/, function (callback) {

@@ -27,8 +27,7 @@ module.exports = function() {
     var reportData;
 
     this.Then(/^I can see the Dashboard banner$/, function (callback) {
-        expect(dash.dashboardPanel.isPresent()).to.eventually.be.true;
-        browser.sleep(50).then(callback);
+        expect(dash.dashboardPanel.isPresent()).to.eventually.eql(true).notify(callback);
     });
 
     this.Then(/^I can see all sub headings under the top Banner$/, function (callback) {

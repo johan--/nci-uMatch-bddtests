@@ -52,7 +52,7 @@ exports.config = {
                   'features/step_definitions/*.js',
                   'support/hooks.js' ],
         format: 'pretty',
-        format: 'json:../results/result.json'
+        format: 'json:../results/output.json'
 
     },
     //resultsJsonOutputFile: <to find out> process.env['HOME'] + '/Desktop/report.json'

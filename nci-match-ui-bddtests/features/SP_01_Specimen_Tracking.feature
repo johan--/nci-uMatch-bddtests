@@ -1,7 +1,7 @@
 Feature: Specimen Tracking page
   User can access and track the specimens
 
-  @ui @fling
+  @ui_p2
   Scenario: User can track Specimens
     Given I am a logged in user
     When I navigate to the specimen-tracking page
@@ -15,6 +15,3 @@ Feature: Specimen Tracking page
     When I collect information about shipment
     And I enter "molecular_id" from response at index "0" in the search field
     Then I can compare the details about shipment against the API
-
-
-#  Scenario: Clicking on the document displays the document below the table - MATCHKB-363

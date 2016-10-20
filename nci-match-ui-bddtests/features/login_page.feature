@@ -20,4 +20,5 @@ Feature: Login
   Scenario: Login with proper credentials grants access protected pages.
     Given I am on the login page
     When  I login with valid email and password
-    Then I should be able to the see Dashboard page
+    And I navigate to the patients page
+    Then I should be able to the see "Patients" page

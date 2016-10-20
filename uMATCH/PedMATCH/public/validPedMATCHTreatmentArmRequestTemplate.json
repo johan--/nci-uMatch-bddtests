@@ -1,6 +1,6 @@
 {
   "name" : "APEC1621-T for testing",
-  "id" : "APEC1621-T",
+  "treatment_arm_id" : "APEC1621-T",
   "version" : "2012-05-23",
   "study_id" : "APEC1621",
   "stratum_id" : "stratum1",
