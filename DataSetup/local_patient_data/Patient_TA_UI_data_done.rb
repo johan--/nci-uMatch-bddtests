@@ -13,6 +13,7 @@ PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCMLH1s')
 PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
 
 pt = PatientDataSet.new('PT_CR02_OnTreatmentArm')
+PatientMessageLoader.reset_cog_patient(pt.id)
 PatientMessageLoader.register_patient(pt.id)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)

@@ -16,7 +16,6 @@ PatientMessageLoader.upload_done
 PatientMessageLoader.upload_start_with_wait_time(15)
 
 
-
 pt = PatientDataSet.new('PT_SR10_PendingApproval')
 PatientMessageLoader.register_patient(pt.id)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
@@ -31,8 +30,8 @@ sleep(10.0)
 PatientMessageLoader.assignment_confirmed(pt.id, pt.ani)
 
 
-
 pt = PatientDataSet.new('PT_SR10_OnTreatmentArm')
+PatientMessageLoader.reset_cog_patient(pt.id)
 PatientMessageLoader.register_patient(pt.id)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
@@ -48,6 +47,7 @@ sleep(5.0)
 PatientMessageLoader.on_treatment_arm(pt.id, 'APEC1621-A')
 
 pt = PatientDataSet.new('PT_SR10_ProgressReBioY')
+PatientMessageLoader.reset_cog_patient(pt.id)
 PatientMessageLoader.register_patient(pt.id)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
@@ -64,6 +64,7 @@ PatientMessageLoader.on_treatment_arm(pt.id, 'APEC1621-A')
 PatientMessageLoader.request_assignment(pt.id)
 
 pt = PatientDataSet.new('PT_SR10_ProgressReBioY1')
+PatientMessageLoader.reset_cog_patient(pt.id)
 PatientMessageLoader.register_patient(pt.id)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
@@ -78,7 +79,6 @@ PatientMessageLoader.assignment_confirmed(pt.id, pt.ani)
 sleep(10.0)
 PatientMessageLoader.on_treatment_arm(pt.id, 'APEC1621-A')
 PatientMessageLoader.request_assignment(pt.id)
-
 
 
 pt = PatientDataSet.new('PT_SR10_BdReceived')
@@ -97,12 +97,12 @@ PatientMessageLoader.pathology(pt.id, pt.sei, 'U')
 pt = PatientDataSet.new('PT_SR10_NPathoReceived')
 PatientMessageLoader.register_patient(pt.id)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
-PatientMessageLoader.pathology(pt.id, pt.sei,'N')
+PatientMessageLoader.pathology(pt.id, pt.sei, 'N')
 
 pt = PatientDataSet.new('PT_SR10_YPathoReceived')
 PatientMessageLoader.register_patient(pt.id)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
-PatientMessageLoader.pathology(pt.id, pt.sei,'Y')
+PatientMessageLoader.pathology(pt.id, pt.sei, 'Y')
 
 pt = PatientDataSet.new('PT_SR10_TsVrReceived')
 PatientMessageLoader.register_patient(pt.id)

@@ -242,6 +242,7 @@ sleep(10.0)
 PatientMessageLoader.assignment_confirmed(pt.id, pt.ani)
 
 pt = PatientDataSet.new('PT_SS26_Progression')
+PatientMessageLoader.reset_cog_patient(pt.id)
 PatientMessageLoader.register_patient(pt.id)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
