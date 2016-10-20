@@ -137,7 +137,7 @@ Feature: Patients end to end tests
       | patient_id                | moi_or_barcode                   | type   | message                          | current_status           |
       | PT_ETE06_Step2TsReceived1 | PT_ETE06_Step2TsReceived1_MOI1   | TISSUE | same molecular id has been found | TISSUE_SPECIMEN_RECEIVED |
       | PT_ETE06_Step2TsReceived2 | PT_ETE06_Step2TsReceived2_BC1    | SLIDE  | same barcode has been found      | TISSUE_SPECIMEN_RECEIVED |
-      | PT_ETE06_Step2BdReceived  | PT_ETE06_Step2BdReceived_BD_MOI1 | BLOOD  | same molecular id has been found | BLOOD_SPECIMEN_RECEIVED  |
+      | PT_ETE06_Step2BdReceived  | PT_ETE06_Step2BdReceived_BD_MOI1 | BLOOD  | same molecular id has been found | REQUEST_ASSIGNMENT       |
 
   Scenario: PT_ETE07. rejected blood variant report should not prevent api triggering assignment process
     Given patient: "PT_ETE07" with status: "TISSUE_VARIANT_REPORT_RECEIVED" on step: "1.0"

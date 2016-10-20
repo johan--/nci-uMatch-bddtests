@@ -168,6 +168,17 @@ PatientMessageLoader.specimen_received_blood(pt.id)
 PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)
 PatientMessageLoader.variant_file_uploaded(pt.id, pt.bd_moi, pt.ani)
 
+pt = PatientDataSet.new('PT_SR14_TsVrUploaded1')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+
+pt = PatientDataSet.new('PT_SR14_BdVrUploaded1')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_blood(pt.id)
+PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)
+PatientMessageLoader.variant_file_uploaded(pt.id, pt.bd_moi, pt.ani)
 
 pt = PatientDataSet.new('PT_SR10_OffStudy')
 PatientMessageLoader.register_patient(pt.id)

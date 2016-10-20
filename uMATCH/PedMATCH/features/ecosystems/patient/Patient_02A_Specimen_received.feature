@@ -6,7 +6,9 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
   Scenario: PT_SR01. Consume a specimen_received message for type "Blood" for a patient already registered in Match
     Given template specimen received message in type: "BLOOD" for patient: "PT_SR01_Registered", it has surgical_event_id: ""
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
-    Then patient field: "current_status" should have value: "BLOOD_SPECIMEN_RECEIVED" within 15 seconds
+    Then patient should have a blood specimen within 15 seconds
+    #Patient just consume the message and has the new specimen, but do not change status to BLOOD_...
+#    Then patient field: "current_status" should have value: "BLOOD_SPECIMEN_RECEIVED" within 15 seconds
 
   @patients_p1
   Scenario: PT_SR02. Consume a specimen_received message for type "Tissue" for a patient already registered in Match
@@ -120,20 +122,44 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     When post to MATCH patients service, returns a message that includes "cannot transition from" with status "Failure"
 
   @patients_p1
-  Scenario Outline: PT_SR14. When a new specimen_received message is received,  the pending variant report from the old Surgical event is set to "REJECTED" status
+  Scenario: PT_SR14a. When a new TISSUE specimen_received message is received,  the pending TISSUE variant report from the old Surgical event is set to "REJECTED" status
   #    Test patient: PT_SR14_TsVrUploaded; variant report files uploaded: PT_SR14_TsVrUploaded(_SEI1, _MOI1, _ANI1)
   #          Plan to receive new specimen surgical_event_id: PT_SR14_TsVrUploaded_SEI2
-  #    Test patient: PT_SR14_BdVrUploaded; variant report files uploaded: PT_SR14_BdVrUploaded(_BD_MOI1, _ANI1)
-    Given template specimen received message in type: "<specimen_type>" for patient: "<patient_id>", it has surgical_event_id: "<new_sei>"
+    Given template specimen received message in type: "TISSUE" for patient: "PT_SR14_TsVrUploaded", it has surgical_event_id: "PT_SR14_TsVrUploaded_SEI2"
     Then set patient message field: "collection_dttm" to value: "2016-08-21T14:20:02-04:00"
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
-    Then patient field: "current_status" should have value: "<patient_status>" within 15 seconds
-    Then patient should have variant report (analysis_id: "<old_ani>") within 15 seconds
+    Then patient field: "current_status" should have value: "TISSUE_SPECIMEN_RECEIVED" within 15 seconds
+    Then patient should have variant report (analysis_id: "PT_SR14_TsVrUploaded_ANI1") within 15 seconds
     And this variant report has value: "REJECTED" in field: "status"
-    Examples:
-      | patient_id           | specimen_type | new_sei                   | old_ani                   | patient_status           |
-      | PT_SR14_TsVrUploaded | TISSUE        | PT_SR14_TsVrUploaded_SEI2 | PT_SR14_TsVrUploaded_ANI1 | TISSUE_SPECIMEN_RECEIVED |
-      | PT_SR14_BdVrUploaded | BLOOD         |                           | PT_SR14_BdVrUploaded_ANI1 | BLOOD_SPECIMEN_RECEIVED  |
+
+  @patients_p1
+  Scenario: PT_SR14b. When a new BLOOD specimen_received message is received,  the pending TISSUE variant report should not change status
+  #    Test patient: PT_SR14_TsVrUploaded1; variant report files uploaded: PT_SR14_BdVrUploaded(_BD_MOI1, _ANI1)
+    Given template specimen received message in type: "BLOOD" for patient: "PT_SR14_TsVrUploaded1", it has surgical_event_id: ""
+    Then set patient message field: "collection_dttm" to value: "2016-08-21T14:20:02-04:00"
+    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    Then wait for "30" seconds
+    Then patient should have variant report (analysis_id: "PT_SR14_TsVrUploaded1_ANI1") within 15 seconds
+    And this variant report has value: "PENDING" in field: "status"
+
+  @patients_p1
+  Scenario: PT_SR14c. When a new BLOOD specimen_received message is received,  the pending BLOOD variant report from the old Surgical event is set to "REJECTED" status
+  #    Test patient: PT_SR14_BdVrUploaded; variant report files uploaded: PT_SR14_BdVrUploaded(_BD_MOI1, _ANI1)
+    Given template specimen received message in type: "BLOOD" for patient: "PT_SR14_BdVrUploaded", it has surgical_event_id: ""
+    Then set patient message field: "collection_dttm" to value: "2016-08-21T14:20:02-04:00"
+    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    Then wait for "30" seconds
+    Then patient should have variant report (analysis_id: "PT_SR14_BdVrUploaded_ANI1") within 15 seconds
+    And this variant report has value: "REJECTED" in field: "status"
+
+  @patients_p1
+  Scenario: PT_SR14d. When a new TISSUE specimen_received message is received,  the pending BLOOD variant report should not change status
+    Given template specimen received message in type: "TISSUE" for patient: "PT_SR14_BdVrUploaded1", it has surgical_event_id: "PT_SR14_BdVrUploaded1_SEI1"
+    Then set patient message field: "collection_dttm" to value: "2016-08-21T14:20:02-04:00"
+    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    Then patient field: "current_status" should have value: "TISSUE_SPECIMEN_RECEIVED" within 15 seconds
+    Then patient should have variant report (analysis_id: "PT_SR14_BdVrUploaded1_ANI1") within 15 seconds
+    And this variant report has value: "PENDING" in field: "status"
 
   @patients_p3
   Scenario Outline: PT_SR13. extra key-value pair in the message body should NOT fail

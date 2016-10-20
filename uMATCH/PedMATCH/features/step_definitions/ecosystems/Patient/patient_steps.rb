@@ -170,6 +170,12 @@ end
 # end
 #
 
+Then(/^patient should have a blood specimen within (\d+) seconds$/) do |timeout|
+  url = "#{ENV['patients_endpoint']}/#{@patient_id}/specimens"
+  @current_specimen = Patient_helper_methods.get_special_result_from_url(url, timeout, {'specimen_type':'BLOOD'})
+  @current_specimen['patient_id'].should == @patient_id
+end
+
 Then(/^patient should have specimen \(surgical_event_id: "([^"]*)"\) within (\d+) seconds$/) do |sei, timeout|
   url = "#{ENV['patients_endpoint']}/#{@patient_id}/specimens?surgical_event_id=#{sei}"
   @current_specimen = Patient_helper_methods.get_special_result_from_url(url, timeout, {'surgical_event_id':sei})
