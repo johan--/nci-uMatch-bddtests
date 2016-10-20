@@ -23,7 +23,7 @@ Feature: Patient Summary Page
 
   @ui_p2
   Scenario: I can see the details within the Summary tab of the patient
-    When I go to patient "PT_SR14_VariantReportUploaded" details page
+    When I go to patient "PT_CR04_VRUploadedAssayReceived" details page
     And I collect the patient Api Information
     And I click on the "Summary" tab
     Then I should see the "Summary" tab is active

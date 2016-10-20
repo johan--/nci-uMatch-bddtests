@@ -70,6 +70,11 @@ var PatientPage = function () {
         }
     };
 
+    // *****************  Surgical Event Tabs ********************//
+    this.surgicalEventPanels = element.all(by.css('.specimen-event-panel'));
+    this.surgicalEventtabs = element.all(by.repeater('surgicalEvent in specimenEvents'));
+    this.surgicalEventId  = element(by.binding('surgicalEvent.surgical_event_id'));
+
     // *****************  Tissue Reports / Blood Variant Reports Tab  ********************//
     // This the master panel STRING for Tissue reports
     this.tissueMasterPanelString = 'div[ng-if="currentTissueVariantReport"]';

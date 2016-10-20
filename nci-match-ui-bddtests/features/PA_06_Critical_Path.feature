@@ -16,6 +16,7 @@ Feature: This is the critical path test cases
       When I uncheck the variant of ordinal "1"
       Then I "should" see the confirmation modal pop up
       And The "OK" button is disabled
+      And the variant table is updated for that variant to "false"
       When I click on the "Cancel" button
       Then The variant at ordinal "1" is checked
 

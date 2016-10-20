@@ -23,7 +23,7 @@ Feature: Treatment Arms Dashboard
 
   @ui_p2
   Scenario: Logged in user can access the dashboard of Treatment Arms page
-    When I go to treatment arm with "APEC1621-UI" as the id and "STR100" as stratum id
+    When I go to treatment arm with "APEC1621-A" as the id and "100" as stratum id
     And I collect backend information about the treatment arm
     Then I should see the treatment-arms detail dashboard
     And I should see detailed Treatment Arms breadcrumb
@@ -38,34 +38,35 @@ Feature: Treatment Arms Dashboard
 
   @ui_p3
   Scenario: Logged in user can access Patients data on the Analysis Tab
-    When I go to treatment arm with "APEC1621-UI" as the id and "STR100" as stratum id
+    When I go to treatment arm with "APEC1621-A" as the id and "100" as stratum id
     And I select the "Analysis" Main Tab
+    And I collect patient information related to treatment arm
     Then I should see Analysis Details Tab
     And I should see the All Patients Data Table on the Treatment Arm
     And I should see data in the All Patients Data Table
 
   @ui_p2
   Scenario: Logged in user can access Patients Assignment Outcome on the Analysis Tab
-    When I go to treatment arm with "APEC1621-UI" as the id and "STR100" as stratum id
+    When I go to treatment arm with "APEC1621-A" as the id and "100" as stratum id
     Then I should see Analysis Details Tab
     And I can see the legend for the charts
     And I should see Patient Assignment Outcome chart
     And I should see Diseases Represented chart
-
-  @broken @incomplete @ui_p3
-  Scenario: Logged in user can download Treatment Arms in PDF
-    When I go to treatment arm with "APEC1621-UI" as the id and "STR100" as stratum id
-    And I click on the download in PDF Format
-    Then I download the file locally in PDF format
-
-  @broken @incomplete @ui_p3
-  Scenario: Logged in user can download Treatment Arms in Excel
-    When I go to treatment arm with "APEC1621-UI" as the id and "STR100" as stratum id
-    And I click on the download in Excel Format
-    Then I download the file locally in Excel format
 
   @ui_p3
   Scenario: Logged in user can access the different versions of Treatment Arm under the History Tab
     When I go to treatment arm with "APEC1621-UI" as the id and "STR100" as stratum id
     And I select the "History" Main Tab
     Then I should see the different versions of the Treatment Arm
+
+#  @broken @incomplete @ui_p3
+#  Scenario: Logged in user can download Treatment Arms in PDF
+#    When I go to treatment arm with "APEC1621-UI" as the id and "STR100" as stratum id
+#    And I click on the download in PDF Format
+#    Then I download the file locally in PDF format
+#
+#  @broken @incomplete @ui_p3
+#  Scenario: Logged in user can download Treatment Arms in Excel
+#    When I go to treatment arm with "APEC1621-UI" as the id and "STR100" as stratum id
+#    And I click on the download in Excel Format
+#    Then I download the file locally in Excel format

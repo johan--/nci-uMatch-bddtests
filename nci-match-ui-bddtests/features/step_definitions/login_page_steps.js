@@ -84,11 +84,9 @@ module.exports = function () {
     });
 
     this.Then(/^I should be able to the see Dashboard page$/, function (callback){
-        var page = dashboardPageObj.dashboardController;
-
-        expect(element(by.css('h2')).getText()).to.eventually.eql('Dashboard');
-        browser.sleep(50).then(callback);
-
+        var dashboardHeading = dashboardPageObj.dashboardController.element(by.css('h2'));
+        utilities.waitForElement(dashboardHeading, 'Heading not found')
+        expect(element(by.css('h2')).getText()).to.eventually.eql('Dashboard').notify(callback);
     });
 
     this.Then(/^I then logout$/, function (callback) {

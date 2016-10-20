@@ -52,6 +52,8 @@ var TreatmentArmsPage = function() {
         by.css('.panel-body [ng-class="[{active: active, disabled: disabled}, classes]"]'));
 
     // returns the element array that maps to the chart legends on the Analysis tab
+    this.patientLegendContainer = element(by.css('#legendContainer'));
+    this.diseaseLegendContainer = element(by.css('#diseaseLegendContainer'));
     this.tableLegendArray = element.all(by.css('.ibox-content>div[style="float:left"]'));
 
     //Container for the patient Assignment Outcome
@@ -75,9 +77,9 @@ var TreatmentArmsPage = function() {
 
     // Right info box
     this.taGene = element(by.binding('currentVersion.gene'));
-    this.taPatientsAssigned = element(by.binding('currentVersion.num_patients_assigned'));
-    this.taTotalPatientsAssigned = element(by.binding('currentVersion.num_patients_assigned_basic'));
-    this.taDrug= element(by.binding('information.drug'));
+    this.taPatientsAssigned = element(by.binding('currentVersion.version_statistics.current_patients'));
+    this.taTotalPatientsAssigned = element(by.binding('currentVersion.stratum_statistics.current_patients'));
+    this.taDrug= element.all(by.repeater('drug in currentVersion.treatment_arm_drugs'));
 
     // Inclusion/exclusion button
     this.inclusionButton = element(by.css(".active>.ng-scope>.btn-group>.btn-group>label[ng-click=\"setInExclusionType('inclusion')\"]"));
@@ -115,7 +117,7 @@ var TreatmentArmsPage = function() {
     };
 
     //List of Expected values
-    this.expectedLeftBoxLabels = ['Name', 'Stratum ID', 'Description', 'Status', 'Version'];
+    this.expectedLeftBoxLabels = ['ID', 'Name', 'Stratum ID', 'Description', 'Status', 'Version'];
     this.expectedRightBoxLabels = ['Genes', 'Patients on Arm Version', 'Total Patients on Arm', 'Drugs', 'Download'];
     this.expectedTableHeaders = [
         "Name",

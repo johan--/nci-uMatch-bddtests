@@ -22,6 +22,7 @@ module.exports = function () {
     var currentStratumId;
     var treatmentArmAPIDetails;
     var firstTreatmentArm;
+    var allPatientDetails;
 
     // GIVEN Section
 
@@ -56,7 +57,7 @@ module.exports = function () {
         currentTreatmentId = taId;
         currentStratumId   = stratum;
 
-        var location = '/#/treatment-arm?id=' + currentTreatmentId + '&stratum=' + currentStratumId;
+        var location = '/#/treatment-arm?treatment_arm_id=' + currentTreatmentId + '&stratum_id=' + currentStratumId;
         console.log(location)
 
         browser.get(location, 6000).then(function () {
@@ -156,7 +157,10 @@ module.exports = function () {
         browser.getCurrentUrl().then(function (test) {
             console.log(test);
         });
-        expect(browser.getCurrentUrl()).to.eventually.include('treatment-arm?id=' + currentTreatmentId + '&stratum=' + currentStratumId)
+
+        var expectedResults = 'treatment-arm?treatment_arm_id=' + currentTreatmentId + '&stratum_id=' + currentStratumId
+
+        expect(browser.getCurrentUrl()).to.eventually.include(expectedResults)
             .then(function () {
                 browser.waitForAngular();
         }).then(callback);
@@ -174,18 +178,34 @@ module.exports = function () {
         browser.sleep(50).then(callback);
     });
 
+    this.When(/^I collect patient information related to treatment arm$/, function (callback) {
+        // http://localhost:10235/api/v1/treatment_arms/APEC1621-A/100/assignment_report
+        var uri = '/api/v1/treatment_arms/' + currentTreatmentId+ '/' + currentStratumId+ '/assignment_report';
+        var request = utilities.callApi('treatment', uri);
+        request.get().then(function () {
+            allPatientDetails = JSON.parse(request.entity());
+        }).then(callback);
+    });
+
+    this.Then(/^I should see data in the All Patients Data Table$/, function (callback) {
+
+        // http://localhost:10235/api/v1/treatment_arms/APEC1621-A/100/assignment_report
+        callback(null, 'pending');
+    });
+
     this.Then(/^I should see the Gene Details$/, function (callback) {
         utilities.checkElementArray(taPage.rightInfoBoxLabels, taPage.expectedRightBoxLabels);
-        var drugDetails = firstTreatmentArm.treatment_arm_drugs[0];
-        var drugName = drugDetails['name'] + ' (' + drugDetails['drug_id'] + ')';
-
+        var expectedDrugList = [];
+        var drugDetails = firstTreatmentArm.treatment_arm_drugs;
+        for(var i = 0; i < drugDetails.length; i ++){
+            expectedDrugList.push(drugDetails[i].name);
+        }
         expect(taPage.taGene.getText()).to.eventually.equal(firstTreatmentArm.gene);
-//        TODO: Fix the app to pull the number of patients from the api rather tha hard code it.
-//        expect(taPage.taPatientsAssigned.getText()).to.eventually.equal(firstTreatmentArm.num_patients_assigned);
-//        expect(taPage.taTotalPatientsAssigned.getText()).to.evetually.equal(firstTreatmentArm.num_patients_assigned_basic);
-//        expect(taPage.taDrug.getText()).to.eventually.equal(drugName);
-
-        browser.sleep(50).then(callback);
+        expect(taPage.taPatientsAssigned.getText()).to.eventually.equal(firstTreatmentArm.version_statistics.current_patients.toString());
+        expect(taPage.taTotalPatientsAssigned.getText()).to.eventually.equal(firstTreatmentArm.stratum_statistics.current_patients.toString());
+        taPage.taDrug.getText().then(function (actualDrugList) {
+            expect(actualDrugList).to.eql(expectedDrugList)
+        }).then(callback);
     });
 
     this.Then(/^I should see three tabs related to the treatment arm$/, function (callback) {
@@ -231,18 +251,16 @@ module.exports = function () {
     });
 
     this.Then(/^I can see the legend for the charts$/, function(callback) {
-        expect(taPage.tableLegendArray.count()).to.eventually.equal(2);
-        browser.sleep(50).then(callback);
+        expect(taPage.patientLegendContainer.isPresent()).to.eventually.eql(true);
+        expect(taPage.diseaseLegendContainer.isPresent()).to.eventually.eql(true).notify(callback)
     });
 
     this.Then(/^I should see Patient Assignment Outcome chart$/, function (callback) {
-        expect(browser.isElementPresent(taPage.patientPieChart)).to.eventually.be.true;
-        browser.sleep(50).then(callback);
+        expect(browser.isElementPresent(taPage.patientPieChart)).to.eventually.eql(true).notify(callback);
     });
 
     this.Then(/^I should see Diseases Represented chart$/, function (callback) {
-        expect(browser.isElementPresent(taPage.diseasePieChart)).to.eventually.be.true;
-        browser.sleep(50).then(callback);
+        expect(browser.isElementPresent(taPage.diseasePieChart)).to.eventually.eql(true).notify(callback);
     });
 
 

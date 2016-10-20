@@ -11,7 +11,7 @@ var patientPage = require ('../../pages/patientPage');
 var utilities = require ('../../support/utilities');
 
 module.exports = function () {
-    var surgicalEventId;
+    var surgicalEventId = '';
     var patientApi;
     var patientId
     var responseData;
@@ -46,11 +46,47 @@ module.exports = function () {
         }).then(callback);
     });
 
-    this.Then(/^The Surgical Event Id match that of the drop down$/, function (callback) {
-        expect(element(by.binding('currentSurgicalEvent.surgical_event_id')).getText()).to.eventually
-            .eql(surgicalEventId);
-        browser.sleep(59).then(callback);
+    this.When(/^I collect specimen information about the patient$/, function (callback) {
+        var call_url = '/api/v1/patients/' + patientPage.patientId + '/specimen_events';
+        var request = utilities.callApi('patient', call_url);
+        request.get().then(function () {
+            patientPage.responseData = JSON.parse(request.entity());
+        }, function () {
+            console.log('Error occured when trying to make the request for: ' + call_url);
+            console.log(error);
+        }).then(callback);
     });
+
+    this.Then(/^I should see the same number of surgical event tabs$/, function (callback) {
+        var expectedCount = 0
+        for (var i = 0; i < patientPage.responseData.length; i++){
+            if (patientPage.responseData[i].surgical_event_id !== null){
+                expectedCount++;
+            }
+        }
+        utilities.waitForElement(patientPage.surgicalEventtabs.get(0), 'Surgical events tabs');
+
+        console.log(expectedCount);
+        expect(patientPage.surgicalEventPanels.count()).to.eventually.eql(expectedCount).then(function () {
+            browser.sleep(20);
+        }).then(callback);
+    });
+
+    this.When(/^I click on the Surgical Event Tab and index "(.+?)"$/, function (index, callback) {
+        patientPage.surgicalEventtabs.get(index).click().then(callback);
+    });
+
+    this.Then(/^The Surgical Event Id match that of the backend$/, function () {
+        for (var i = 0; i < patientPage.responseData.length; i++){
+            if (patientPage.responseData[i].surgical_event_id !== null){
+                surgicalEventId = patientPage.responseData[i].surgical_event_id;
+                break;
+            }
+        }
+        console.log(surgicalEventId);
+        expect(patientPage.surgicalEventId.getText()).to.eventually.eql(surgicalEventId).and(callback);
+    });
+
 
     this.Then(/^I should see the "(Event|Pathology)" Section under patient Surgical Events$/, function (section, callback) {
         var headerBox = patientPage.biopsyHeaderBoxLabels[section];
