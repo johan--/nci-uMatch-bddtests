@@ -9,7 +9,7 @@ Feature: Dashboard page.
 
   Background:
     Given I am a logged in user
-
+  @demo_p1
   Scenario: A User can see the Patients Statistics Section
     When I navigate to the dashboard page
     Then I can see the Dashboard banner
@@ -23,12 +23,12 @@ Feature: Dashboard page.
     And I can see patients with Pending Blood Variant Reports
     And I collect "pendingAssignment" data from backend
     And I can see patients with Pending Assignment Reports
-
+  @demo_p1
   Scenario: A User can see the Sequenced and Confirmed Patients section
     When I navigate to the dashboard page
     And I collect "pendingReportStats" data from backend
     Then I can see Sequenced and confirmed patients data
-
+  @demo_p1
   Scenario: A User can see the Treatment Arm Accrual Section
     When I navigate to the dashboard page
     And I collect "patientStats" data from backend

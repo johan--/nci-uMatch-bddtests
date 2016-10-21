@@ -18,6 +18,7 @@ module.exports = function () {
     this.World = require ('../step_definitions/world').World;
 
     this.Given(/^I am on the login page$/, function(callback){
+        browser.ignoreSynchronization = false;
         loginPageObj.goToLoginPage();
         utilities.checkTitle(browser, loginPageObj.title).then(function () {
             browser.waitForAngular();
@@ -25,6 +26,7 @@ module.exports = function () {
     });
 
     this.Given(/^I am a logged in user$/, function(callback) {
+        browser.ignoreSynchronization = false;
         loginPageObj.goToLoginPage();
 
         var email = process.env.NCI_MATCH_USERID;
@@ -80,6 +82,7 @@ module.exports = function () {
     });
 
     this.When(/^I navigate to the (.+) page$/, function (pageName, callback) {
+        browser.ignoreSynchronization = false;
         dashboardPageObj.goToPageName(pageName).then(callback);
     });
 

@@ -10,11 +10,11 @@ module.exports = function() {
 
     var callList = {
         "patientStats"       : utilities.callApi ('patient', '/api/v1/patients/statistics'),
-        "pendingReportStats" : utilities.callApi ('patient', '/api/v1/patients/sequencedAndConfirmedPatients'),
-        "pendingTissueVR"    : utilities.callApi ('patient', '/api/v1/patients/variant_reports?status=PENDING&type=TISSUE'),
-        "pendingBloodVR"     : utilities.callApi ('patient', '/api/v1/patients/variant_reports?status=PENDING&type=BLOOD'),
-        "pendingAssignment"  : utilities.callApi ('patient', '/api/v1/patients/assignment_reports?status=PENDING'),
-        "timeline"           : utilities.callApi ('patient', '/api/v1/patients/timeline')
+        "pendingReportStats" : utilities.callApi ('patient', '/api/v1/patients/amois'),
+        "pendingTissueVR"    : utilities.callApi ('patient', '/api/v1/patients/variant_reports?status=PENDING&variant_report_type=TISSUE'),
+        "pendingBloodVR"     : utilities.callApi ('patient', '/api/v1/patients/variant_reports?status=PENDING&variant_report_type=BLOOD'),
+        "pendingAssignment"  : utilities.callApi ('patient', '/api/v1/patients/assignments?status=PENDING'),
+        "timeline"           : utilities.callApi ('patient', '/api/v1/patients/events?order=desc&num=10')
     };
 
     var responseData = [];
@@ -27,7 +27,9 @@ module.exports = function() {
     var reportData;
 
     this.Then(/^I can see the Dashboard banner$/, function (callback) {
+        browser.ignoreSynchronization = true;
         expect(dash.dashboardPanel.isPresent()).to.eventually.eql(true).notify(callback);
+
     });
 
     this.Then(/^I can see all sub headings under the top Banner$/, function (callback) {
@@ -82,22 +84,32 @@ module.exports = function() {
     });
 
     this.Then(/^I can see Sequenced and confirmed patients data$/, function (callback) {
-        var amoiLegendList = element.all(by.binding('legendItem.value'))
-        expect(amoiLegendList.get(0).getText()).to.eventually.eql(responseData.patients_with_0_amois + ' patients');
-        expect(amoiLegendList.get(1).getText()).to.eventually.eql(responseData.patients_with_1_amois + ' patients');
-        expect(amoiLegendList.get(2).getText()).to.eventually.eql(responseData.patients_with_2_amois + ' patients');
-        expect(amoiLegendList.get(3).getText()).to.eventually.eql(responseData.patients_with_3_amois + ' patients');
-        expect(amoiLegendList.get(4).getText()).to.eventually.eql(responseData.patients_with_4_amois + ' patients');
-        expect(amoiLegendList.get(5).getText()).to.eventually.eql(responseData.patients_with_5_or_more_amois + ' patients');
-        browser.sleep(20).then(callback);
+        browser.ignoreSynchronization = true;
+        browser.sleep(1000).then(function () {
+            var amoiLegendList = dash.amoiLegendList;
+            var expectedList = responseData.amois;
+            expect(dash.amoiChart.isPresent()).to.eventually.eql(true);
+            expect(amoiLegendList.get(0).getText()).to.eventually.include(expectedList[0] + ' patients');
+            expect(amoiLegendList.get(1).getText()).to.eventually.include(expectedList[1] + ' patients');
+            expect(amoiLegendList.get(2).getText()).to.eventually.include(expectedList[2] + ' patients');
+            expect(amoiLegendList.get(3).getText()).to.eventually.include(expectedList[3] + ' patients');
+            expect(amoiLegendList.get(4).getText()).to.eventually.include(expectedList[4] + ' patients');
+            expect(amoiLegendList.get(5).getText()).to.eventually.include(expectedList[5] + ' patients');
+        }).then(callback);
     });
 
     this.Then(/^I can see the Treatment Arm Accrual chart data$/, function (callback) {
-        console.log(responseData.treatment_arm_accrual);
-        browser.sleep(20).then(callback);
+        var responseSize = Object.keys(responseData.treatment_arm_accrual).length;
+        browser.ignoreSynchronization = true;
+        if (responseSize > 0){
+            expect(dash.accrualChart.isPresent()).to.eventually.eql(true).notify(callback);
+        } else {
+            expect(dash.accrualChart.isPresent()).to.eventually.eql(false).notify(callback);
+        }
     });
 
     this.Then(/^I can see the Pending Review Section Heading$/, function (callback) {
+        browser.ignoreSynchronization = true;
         var heading = element(by.css('.panel-container .ibox-title'));
 
         expect(heading.getText()).to.eventually.eql('Pending Review');

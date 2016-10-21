@@ -13,6 +13,9 @@ var DashboardPage = function() {
     this.dashboardElement   = element(by.css('div[ng-controller="DashboardController"]'));
     this.statisticsLabels   = element.all(by.css('li.list-group-item'));
 
+    this.amoiChart          = element(by.css('.donut-chart'));
+    this.amoiLegendList     = element.all(by.repeater('legendItem in donutData.values'))
+    this.accrualChart       = element(by.id('chartBox'));
 
     this.logoutLink = element(by.css('[ng-click="logout()"]'));
     this.registeredPatients = element(by.binding(' patientStatistics.number_of_patients '));
@@ -37,7 +40,7 @@ var DashboardPage = function() {
     this.feedRepeaterList     = element.all(by.repeater('timelineEvent in activity.data'));
 
     this.dashAmoiChart        = element(by.css('div[ng-init^="setCanvasHeight(\'#amoiCanvas\'"]'));
-    this.dashTreatmentAccrual = element(by.css('div[ng-init^="setCanvasHeight(\'#treatmentArmAccrualCanvas\'"]'));
+
 
     // this is the div id locator string that lest you get access to the individual sub tab on the dashboard Pending Review section
     // use it like this:

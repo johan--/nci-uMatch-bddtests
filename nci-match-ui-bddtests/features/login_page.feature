@@ -16,7 +16,7 @@ Feature: Login
     When I login with invalid email and password
     Then I should be asked to enter the credentials again
 
-  @ui_p1 @demo_p3
+  @ui_p1 @demo_p1
   Scenario: Login with proper credentials grants access protected pages.
     Given I am on the login page
     When  I login with valid email and password
