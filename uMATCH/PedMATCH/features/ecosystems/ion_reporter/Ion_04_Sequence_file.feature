@@ -2,19 +2,19 @@
 @ion_reporter_reporters
 Feature: Tests for sequence files service in ion ecosystem
 
-  @ion_reporter_p1
+  @ion_reporter_p1_not_ready
   Scenario Outline: ION_SF01. sequence files service can return correct result for sample control molecular_id
     Given molecular id is "SC_NPID3"
     Given sequence file type: "<file_type>", nucleic acid type: "<nucleic_acid_type>"
     Then call sequence_files GET service, returns a message that includes "<result>" with status "Success"
     Examples:
-      | file_type | nucleic_acid_type | result |
-      | bam       | dna               |        |
-      | bam       | cdna              |        |
-      | bai       | dna               |        |
-      | bai       | cdna              |        |
-      | tsv       |                   |        |
-      | vcf       |                   |        |
+      | file_type | nucleic_acid_type | result                                                     |
+      | bam       | dna               | s3.amazonaws.com/IR_TCWEV/SC_NPID3/SC_NPID3_ANI1/dna.bam   |
+      | bam       | cdna              | s3.amazonaws.com/IR_TCWEV/SC_NPID3/SC_NPID3_ANI1/cdna.bam  |
+      | bai       | dna               | s3.amazonaws.com/IR_TCWEV/SC_NPID3/SC_NPID3_ANI1/dna.bai   |
+      | bai       | cdna              | s3.amazonaws.com/IR_TCWEV/SC_NPID3/SC_NPID3_ANI1/cdna.bai  |
+      | tsv       |                   | s3.amazonaws.com/IR_TCWEV/SC_NPID3/SC_NPID3_ANI1/test1.tsv |
+      | vcf       |                   | s3.amazonaws.com/IR_TCWEV/SC_NPID3/SC_NPID3_ANI1/test1.vcf |
 
   @ion_reporter_p2
   Scenario: ION_SF02. returned file path should be reachable S3 path
@@ -35,11 +35,12 @@ Feature: Tests for sequence files service in ion ecosystem
   Scenario Outline: ION_SF05. sequence files service should fail if an non-existing file_format or nucleic acid type is passed in
     Given molecular id is "SC_EUPC2"
     Given sequence file type: "<file_type>", nucleic acid type: "<nucleic_acid_type>"
-    Then call sequence_files GET service, returns a message that includes "Only supports bam|bai and cdna|dna" with status "Failure"
+    Then call sequence_files GET service, returns a message that includes "<message>" with status "Failure"
     Examples:
-      | file_type  | nucleic_acid_type  |
-      | other_type | dna                |
-      | bai        | other_nucleic_acid |
+      | file_type  | nucleic_acid_type  | message                              |
+      | other_type | dna                | Only supports bam\|bai and cdna\|dna |
+      | bai        | other_nucleic_acid | Only supports bam\|bai and cdna\|dna |
+      | qc_name    |                    | Only supports vcf and tsv files      |
 
   @ion_reporter_p3
   Scenario Outline: ION_SF06. sequence files service should fail if tsv|vcf and nucleic acid type are passed in

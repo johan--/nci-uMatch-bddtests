@@ -2,12 +2,12 @@
 @ion_reporter_reporters
 Feature: Tests for files service in ion ecosystem
 
-  @ion_reporter_p1_not_ready
+  @ion_reporter_p1
   Scenario: ION_FL01. files service can return correct result for sample control molecular_id
     #not completed, should call aliquot for this sc to prepare all files
     Given molecular id is "SC_J6RDR"
-    Given file name for files service is: "test1.vcf"
-    When call files GET service, returns a message that includes "https://pedmatch-dev.s3.amazonaws.com" with status "Success"
+    Given file name for files service is: "qc_name"
+    When call files GET service, returns a message that includes "s3.amazonaws.com/IR_TCWEV/SC_J6RDR/SC_J6RDR_ANI1/10-10-2016" with status "Success"
 
   @ion_reporter_p2
   Scenario: ION_FL02. files service should fail if a patient molecular_id is passed in

@@ -444,7 +444,9 @@ class Patient_helper_methods
   end
 
   def self.validate_response(response, expected_status, expected_partial_message)
-    response['status'].downcase.should == expected_status.downcase
+    if expected_status.length>1
+      response['status'].downcase.should == expected_status.downcase
+    end
     if Helper_Methods.is_local_tier
       puts response['message']
     end

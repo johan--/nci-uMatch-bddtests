@@ -41,7 +41,7 @@ Given(/^patient: "([^"]*)" is registered$/) do |patient_id|
   @patient_id = patient_id
   date = Helper_Methods.getDateAsRequired('current')
   Patient_helper_methods.prepare_register(patient_id, date)
-  @response = Patient_helper_methods.post_to_trigger('Success', 'successfully')
+  @response = Patient_helper_methods.post_to_trigger('', '')
   Patient_helper_methods.wait_until_patient_updated(@patient_id)
 end
 
@@ -49,14 +49,14 @@ Then(/^tissue specimen received with surgical_event_id: "([^"]*)"$/) do |sei|
   date = Helper_Methods.getDateAsRequired('current')
   @active_sei = sei
   Patient_helper_methods.prepare_specimen_received(@patient_id, 'TISSUE', sei, date)
-  @response = Patient_helper_methods.post_to_trigger('Success', 'successfully')
+  @response = Patient_helper_methods.post_to_trigger('', '')
   Patient_helper_methods.wait_until_patient_updated(@patient_id)
 end
 
 Then(/^blood specimen received$/) do
   date = Helper_Methods.getDateAsRequired('current')
   Patient_helper_methods.prepare_specimen_received(@patient_id, 'BLOOD', '', date)
-  @response = Patient_helper_methods.post_to_trigger('Success', 'successfully')
+  @response = Patient_helper_methods.post_to_trigger('', '')
   Patient_helper_methods.wait_until_patient_updated(@patient_id)
 end
 
@@ -66,7 +66,7 @@ Then(/^"([^"]*)" specimen shipped to "([^"]*)" with molecular_id or slide_barcod
 
   update_moi_or_barcode(type, id)
   update_site(type, lab)
-  @response = Patient_helper_methods.post_to_trigger('Success', 'successfully')
+  @response = Patient_helper_methods.post_to_trigger('', '')
   Patient_helper_methods.wait_until_patient_updated(@patient_id)
 end
 
@@ -74,14 +74,14 @@ Then(/^"([^"]*)" assay result received result: "([^"]*)"$/) do |type, result|
   order_date = Helper_Methods.getDateAsRequired('one second ago')
   report_date = Helper_Methods.getDateAsRequired('current')
   Patient_helper_methods.prepare_assay(@patient_id, @active_sei, type, result, order_date, report_date)
-  @response = Patient_helper_methods.post_to_trigger('Success', 'successfully')
+  @response = Patient_helper_methods.post_to_trigger('', '')
   Patient_helper_methods.wait_until_patient_updated(@patient_id)
 end
 
 Then(/^pathology confirmed with status: "([^"]*)"$/) do |status|
   report_date=Helper_Methods.getDateAsRequired('current')
   Patient_helper_methods.prepare_pathology(@patient_id, @active_sei, status, report_date)
-  @response = Patient_helper_methods.post_to_trigger('Success', 'successfully')
+  @response = Patient_helper_methods.post_to_trigger('', '')
   Patient_helper_methods.wait_until_patient_updated(@patient_id)
 end
 
@@ -90,14 +90,14 @@ Then(/^"([^"]*)" variant report uploaded with analysis_id: "([^"]*)"$/) do |type
   target_site = get_site(type).downcase
   update_ani(type, ani)
   Patient_helper_methods.prepare_vr_upload(@patient_id, target_moi, ani, target_site)
-  @response = Patient_helper_methods.post_to_trigger('Success', 'successfully')
+  @response = Patient_helper_methods.post_to_trigger('', '')
   Patient_helper_methods.wait_until_patient_updated(@patient_id)
 end
 
 Then(/^"([^"]*)" variant\(type: "([^"]*)", field: "([^"]*)", value: "([^"]*)"\) is "([^"]*)"$/) do |specimen_type, variant_type, field, value, status|
   uuid = find_variant_uuid(specimen_type, variant_type, field, value)
   Patient_helper_methods.prepare_variant_confirm
-  @response = Patient_helper_methods.put_variant_confirm(uuid, status, 'Success', 'status changed to')
+  @response = Patient_helper_methods.put_variant_confirm(uuid, status, '', '')
   Patient_helper_methods.wait_until_patient_updated(@patient_id)
 end
 
@@ -105,7 +105,7 @@ Then(/^"([^"]*)" variant report confirmed with status: "([^"]*)"$/) do |type, st
   target_ani = get_ani(type)
   target_status = process_status(status)
   Patient_helper_methods.prepare_vr_confirm(@patient_id)
-  @response = Patient_helper_methods.put_vr_confirm(target_ani, target_status, 'Success', 'successfully')
+  @response = Patient_helper_methods.put_vr_confirm(target_ani, target_status, '', '')
   Patient_helper_methods.wait_until_patient_updated(@patient_id)
 end
 
@@ -149,7 +149,7 @@ end
 
 Then(/^assignment report is confirmed$/) do
   Patient_helper_methods.prepare_assignment_confirm(@patient_id)
-  Patient_helper_methods.put_ar_confirm(@active_ts_ani, 'confirm', 'Success', 'successfully')
+  @response = Patient_helper_methods.put_ar_confirm(@active_ts_ani, 'confirm', '', '')
   Patient_helper_methods.wait_until_patient_updated(@patient_id)
 end
 
