@@ -94,13 +94,15 @@ module.exports = function() {
             browser.sleep(1000).then(function () {
                 var amoiLegendList = dash.amoiLegendList;
                 var expectedList = responseData.amois;
-                expect(dash.amoiChart.isPresent()).to.eventually.eql(true);
-                expect(amoiLegendList.get(0).getText()).to.eventually.include(expectedList[0] + ' patients');
-                expect(amoiLegendList.get(1).getText()).to.eventually.include(expectedList[1] + ' patients');
-                expect(amoiLegendList.get(2).getText()).to.eventually.include(expectedList[2] + ' patients');
-                expect(amoiLegendList.get(3).getText()).to.eventually.include(expectedList[3] + ' patients');
-                expect(amoiLegendList.get(4).getText()).to.eventually.include(expectedList[4] + ' patients');
-                expect(amoiLegendList.get(5).getText()).to.eventually.include(expectedList[5] + ' patients');
+                browser.sleep(2000).then(function () {
+                    expect(dash.amoiChart.isPresent()).to.eventually.eql(true);
+                    expect(amoiLegendList.get(0).getText()).to.eventually.include(expectedList[0] + ' patients');
+                    expect(amoiLegendList.get(1).getText()).to.eventually.include(expectedList[1] + ' patients');
+                    expect(amoiLegendList.get(2).getText()).to.eventually.include(expectedList[2] + ' patients');
+                    expect(amoiLegendList.get(3).getText()).to.eventually.include(expectedList[3] + ' patients');
+                    expect(amoiLegendList.get(4).getText()).to.eventually.include(expectedList[4] + ' patients');
+                    expect(amoiLegendList.get(5).getText()).to.eventually.include(expectedList[5] + ' patients');
+                });
             }).then(callback);
         }
         catch(e){
@@ -112,11 +114,13 @@ module.exports = function() {
         try{
             var responseSize = Object.keys(responseData.treatment_arm_accrual).length;
             browser.ignoreSynchronization = true;
-            if (responseSize > 0){
-                expect(dash.accrualChart.isPresent()).to.eventually.eql(true).notify(callback);
-            } else {
-                expect(dash.accrualChart.isPresent()).to.eventually.eql(false).notify(callback);
-            }
+            browser.sleep(2000).then(function () {
+                if (responseSize > 0){
+                    expect(dash.accrualChart.isPresent()).to.eventually.eql(true).notify(callback);
+                } else {
+                    expect(dash.accrualChart.isPresent()).to.eventually.eql(false).notify(callback);
+                }
+            })
         }
         catch(e) {
             console.log(e);
