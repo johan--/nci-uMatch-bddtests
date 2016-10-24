@@ -77,10 +77,15 @@ module.exports = function() {
     });
 
     this.Then(/^I collect "(.+?)" data from backend$/, function(statsType, callback){
-        var call = callList[statsType];
-        call.get().then(function(){
-            responseData = JSON.parse(call.entity());
-        }).then(callback);
+        try {
+            var call = callList[statsType];
+            call.get().then(function(){
+                responseData = JSON.parse(call.entity());
+            }).then(callback);
+        }
+        catch (e) {
+            console.log(e);
+        }
     });
 
     this.Then(/^I can see Sequenced and confirmed patients data$/, function (callback) {
