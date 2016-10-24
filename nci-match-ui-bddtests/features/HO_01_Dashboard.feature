@@ -33,7 +33,7 @@ Feature: Dashboard page.
     When I navigate to the dashboard page
     And I collect "patientStats" data from backend
     Then I can see the Treatment Arm Accrual chart data
-
+  @demo_p1
   Scenario: A user can see the Pending Review Section
     When I navigate to the dashboard page
     Then I can see the Pending Review Section Heading

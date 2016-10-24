@@ -99,12 +99,17 @@ module.exports = function() {
     });
 
     this.Then(/^I can see the Treatment Arm Accrual chart data$/, function (callback) {
-        var responseSize = Object.keys(responseData.treatment_arm_accrual).length;
-        browser.ignoreSynchronization = true;
-        if (responseSize > 0){
-            expect(dash.accrualChart.isPresent()).to.eventually.eql(true).notify(callback);
-        } else {
-            expect(dash.accrualChart.isPresent()).to.eventually.eql(false).notify(callback);
+        try{
+            var responseSize = Object.keys(responseData.treatment_arm_accrual).length;
+            browser.ignoreSynchronization = true;
+            if (responseSize > 0){
+                expect(dash.accrualChart.isPresent()).to.eventually.eql(true).notify(callback);
+            } else {
+                expect(dash.accrualChart.isPresent()).to.eventually.eql(false).notify(callback);
+            }
+        }
+        catch(e) {
+            console.log(e);
         }
     });
 
