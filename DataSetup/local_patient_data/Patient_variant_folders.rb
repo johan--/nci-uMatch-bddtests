@@ -137,6 +137,10 @@ PatientVariantFolderCreator.create_default('PT_CR02_OnTreatmentArm', 'tissue')
 PatientVariantFolderCreator.create_default('PT_CR03_VRUploadedPathConfirmed', 'tissue')
 PatientVariantFolderCreator.create_default('PT_CR04_VRUploadedAssayReceived', 'tissue')
 
+pt = PatientDataSet.new('PT_CR05_SpecimenShippedTwice')
+PatientVariantFolderCreator.create(pt.moi, pt.ani)
+PatientVariantFolderCreator.create(pt.moi_increase, pt.ani_increase)
+
 PatientVariantFolderCreator.create_default('ION_AQ41_TsVrUploaded', 'tissue')
 PatientVariantFolderCreator.create_default('ION_AQ42_BdVrUploaded', 'blood')
 PatientVariantFolderCreator.create_default('ION_AQ43_TsVrUploaded', 'tissue')
