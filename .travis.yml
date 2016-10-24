@@ -35,6 +35,7 @@ before_script:
   # Update Node UI test dependencies
   - cd nci-match-ui-bddtests
   - npm install
+  - npm ls
   - cd ..
   # Version reporting
   - ruby -v
