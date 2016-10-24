@@ -28,7 +28,7 @@ before_script:
   # Install UI test requirements
   - npm install -g protractor@3.3.0 grunt-cli
 #  - npm install -g protractor@4.0.9 grunt-cli
-  - webdriver-manager update --versions.chrome 2.24
+  - webdriver-manager update #--versions.chrome 2.24
   # Update Ruby cucumber dependencies
   - gem install bundler
   - bundle install
