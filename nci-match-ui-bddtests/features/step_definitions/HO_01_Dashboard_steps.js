@@ -27,7 +27,7 @@ module.exports = function() {
     var reportData;
 
     this.Then(/^I can see the Dashboard banner$/, function (callback) {
-        browser.ignoreSynchronization = true;
+//        browser.ignoreSynchronization = true;
         expect(dash.dashboardPanel.isPresent()).to.eventually.eql(true).notify(callback);
 
     });
@@ -90,7 +90,7 @@ module.exports = function() {
 
     this.Then(/^I can see Sequenced and confirmed patients data$/, function (callback) {
         try {
-            browser.ignoreSynchronization = true;
+//            browser.ignoreSynchronization = true;
             browser.sleep(1000).then(function () {
                 var amoiLegendList = dash.amoiLegendList;
                 var expectedList = responseData.amois;
@@ -113,7 +113,7 @@ module.exports = function() {
     this.Then(/^I can see the Treatment Arm Accrual chart data$/, function (callback) {
         try{
             var responseSize = Object.keys(responseData.treatment_arm_accrual).length;
-            browser.ignoreSynchronization = true;
+//            browser.ignoreSynchronization = true;
             browser.sleep(2000).then(function () {
                 if (responseSize > 0){
                     expect(dash.accrualChart.isPresent()).to.eventually.eql(true).notify(callback);
@@ -128,7 +128,7 @@ module.exports = function() {
     });
 
     this.Then(/^I can see the Pending Review Section Heading$/, function (callback) {
-        browser.ignoreSynchronization = true;
+//        browser.ignoreSynchronization = true;
         var heading = element(by.css('.panel-container .ibox-title'));
 
         expect(heading.getText()).to.eventually.eql('Pending Review');
@@ -173,15 +173,18 @@ module.exports = function() {
     });
 
     this.When(/^I click on the "(.+)" sub\-tab$/, function (reportType, callback) {
-        var tabHeadingElement = element(by.css('li[heading="' + reportType + '"]'));
-        tabHeadingElement.click().then(function () {
-           browser.waitForAngular();
-        }).then(callback);
+        var pendingReviewArray = ['Tissue Variant Reports', 'Blood Variant Reports', 'Assignment Reports'];
+        var index = pendingReviewArray.indexOf(reportType);
+        var tabHeadingElement = element.all(by.binding('heading')).get(index);
+//        browser.ignoreSynchronization = true;
+        tabHeadingElement.click().then(callback);
     });
 
     this.Then(/^The "(.+)" sub\-tab is active$/, function (reportType, callback) {
         var locator = 'li[heading="' + reportType + '"]';
-        utilities.checkElementIncludesAttribute(element(by.css(locator)), "class", 'active').then(callback);
+        browser.sleep(1000).then(function () {
+            utilities.checkElementIncludesAttribute(element(by.css(locator)), "class", 'active').then(callback);
+        })
     });
 
     this.Given(/^Appropriate Message is displayed for empty or filled pending "(.+)" reports$/, function (reportType, callback) {

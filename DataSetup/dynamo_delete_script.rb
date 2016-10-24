@@ -181,7 +181,7 @@ class DynamoDb
         p e.backtrace
       end
     end
-    LOG.log(message)
+    LOG.log("Deleted #{message.size} records from the #{table_name}")
   end
 
   def clear_all_tables

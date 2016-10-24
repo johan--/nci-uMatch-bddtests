@@ -15,7 +15,7 @@ var DashboardPage = function() {
 
     this.amoiChart          = element(by.css('.donut-chart'));
     this.amoiLegendList     = element.all(by.repeater('legendItem in donutData.values'))
-    this.accrualChart       = element(by.id('chartBox'));
+    this.accrualChart       = element(by.css('#chartBox'));
 
     this.logoutLink = element(by.css('[ng-click="logout()"]'));
     this.registeredPatients = element(by.binding(' patientStatistics.number_of_patients '));

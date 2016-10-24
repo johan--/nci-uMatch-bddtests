@@ -23,16 +23,11 @@ Feature: Dashboard page.
     And I can see patients with Pending Blood Variant Reports
     And I collect "pendingAssignment" data from backend
     And I can see patients with Pending Assignment Reports
-  @demo_p1
-  Scenario: A User can see the Sequenced and Confirmed Patients section
-    When I navigate to the dashboard page
     And I collect "pendingReportStats" data from backend
     Then I can see Sequenced and confirmed patients data
-  @demo_p1
-  Scenario: A User can see the Treatment Arm Accrual Section
-    When I navigate to the dashboard page
     And I collect "patientStats" data from backend
     Then I can see the Treatment Arm Accrual chart data
+
   @demo_p1
   Scenario: A user can see the Pending Review Section
     When I navigate to the dashboard page
