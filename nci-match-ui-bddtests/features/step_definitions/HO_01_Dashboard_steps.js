@@ -89,18 +89,23 @@ module.exports = function() {
     });
 
     this.Then(/^I can see Sequenced and confirmed patients data$/, function (callback) {
-        browser.ignoreSynchronization = true;
-        browser.sleep(1000).then(function () {
-            var amoiLegendList = dash.amoiLegendList;
-            var expectedList = responseData.amois;
-            expect(dash.amoiChart.isPresent()).to.eventually.eql(true);
-            expect(amoiLegendList.get(0).getText()).to.eventually.include(expectedList[0] + ' patients');
-            expect(amoiLegendList.get(1).getText()).to.eventually.include(expectedList[1] + ' patients');
-            expect(amoiLegendList.get(2).getText()).to.eventually.include(expectedList[2] + ' patients');
-            expect(amoiLegendList.get(3).getText()).to.eventually.include(expectedList[3] + ' patients');
-            expect(amoiLegendList.get(4).getText()).to.eventually.include(expectedList[4] + ' patients');
-            expect(amoiLegendList.get(5).getText()).to.eventually.include(expectedList[5] + ' patients');
-        }).then(callback);
+        try {
+            browser.ignoreSynchronization = true;
+            browser.sleep(1000).then(function () {
+                var amoiLegendList = dash.amoiLegendList;
+                var expectedList = responseData.amois;
+                expect(dash.amoiChart.isPresent()).to.eventually.eql(true);
+                expect(amoiLegendList.get(0).getText()).to.eventually.include(expectedList[0] + ' patients');
+                expect(amoiLegendList.get(1).getText()).to.eventually.include(expectedList[1] + ' patients');
+                expect(amoiLegendList.get(2).getText()).to.eventually.include(expectedList[2] + ' patients');
+                expect(amoiLegendList.get(3).getText()).to.eventually.include(expectedList[3] + ' patients');
+                expect(amoiLegendList.get(4).getText()).to.eventually.include(expectedList[4] + ' patients');
+                expect(amoiLegendList.get(5).getText()).to.eventually.include(expectedList[5] + ' patients');
+            }).then(callback);
+        }
+        catch(e){
+            console.log(e);
+        }
     });
 
     this.Then(/^I can see the Treatment Arm Accrual chart data$/, function (callback) {
