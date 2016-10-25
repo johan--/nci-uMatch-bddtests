@@ -335,6 +335,18 @@ class Patient_helper_methods
     end
   end
 
+  def self.prepare_request_assignment(pt_id, rebiopsy, step_number, date='default')
+    @patient_id = pt_id
+    @request_hash = load_patient_message_templates('request_assignment')
+    @request_hash['patient_id'] = @patient_id
+    @request_hash['status'] = 'REQUEST_ASSIGNMENT'
+    @request_hash['step_number'] = step_number
+    @request_hash['rebiopsy'] = rebiopsy
+    unless date=='default'
+      @request_hash['status_date'] = date
+    end
+  end
+
   ######## services #####
   def self.get_any_result_from_url(url)
     return Helper_Methods.simple_get_request(url)['message_json']

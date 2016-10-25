@@ -94,6 +94,12 @@ Then(/^"([^"]*)" variant report uploaded with analysis_id: "([^"]*)"$/) do |type
   Patient_helper_methods.wait_until_patient_updated(@patient_id)
 end
 
+Then(/^requests assignment for this patient with re\-biopsy: "([^"]*)", step number: "([^"]*)"$/) do |re_bio, step_number|
+  @patient_step_number = step_number
+  Patient_helper_methods.prepare_request_assignment(@patient_id, re_bio, step_number)
+  @response = Patient_helper_methods.post_to_trigger('', '')
+end
+
 Then(/^"([^"]*)" variant\(type: "([^"]*)", field: "([^"]*)", value: "([^"]*)"\) is "([^"]*)"$/) do |specimen_type, variant_type, field, value, status|
   uuid = find_variant_uuid(specimen_type, variant_type, field, value)
   Patient_helper_methods.prepare_variant_confirm
@@ -117,7 +123,7 @@ Then(/^COG requests assignment for this patient with re\-biopsy: "([^"]*)", step
   @patient_step_number = step_number
   @response = COG_helper_methods.request_assignment(@patient_id, @patient_step_number, re_bio)
   Patient_helper_methods.wait_until_patient_updated(@patient_id)
-  Patient_helper_methods.validate_response(@response, 'Success', 'successfully')
+  # Patient_helper_methods.validate_response(@response, 'Success', 'successfully')
 end
 
 Then(/^set patient off_study on step number: "([^"]*)"$/) do |step_number|
@@ -177,6 +183,9 @@ Then(/^patient should have selected treatment arm: "([^"]*)" with stratum id: "(
   query_hash = {'treatment_arm_id':ta_id, 'stratum_id':stratum}
   query_path = %w(current_assignment selected_treatment_arm)
   patient_result = Patient_helper_methods.get_special_result_from_url(url, timeout, query_hash, query_path)
+  if patient_result.keys.include?('current_assignment')
+    patient_result = patient_result['current_assignment']['selected_treatment_arm']
+  end
   patient_result['treatment_arm_id'].should == ta_id
   patient_result['stratum_id'].should == stratum
 end
@@ -254,14 +263,18 @@ end
 def get_site(type)
   case type
     when 'TISSUE'
-      return @active_ts_lab
+      result = @active_ts_lab
     when 'BLOOD'
-      return @active_bd_lab
+      result = @active_bd_lab
     when 'SLIDE'
-      return @active_slide_lab
+      result = @active_slide_lab
     else
-      return @active_ts_lab
+      result = @active_ts_lab
   end
+  if result.nil?
+    result = 'bdd_test_ion_reporter'
+  end
+  result
 end
 
 def process_status(status)

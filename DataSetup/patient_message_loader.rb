@@ -390,6 +390,23 @@ class PatientMessageLoader
     send_message_to_local(@request_assignment_message, patient_id)
   end
 
+
+
+  def self.request_no_assignment(
+      patient_id,
+          step_number='2.0',
+          status_date='2016-08-10T22:05:33+00:00'
+  )
+    wait_until_updated(patient_id)
+    @request_assignment_message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['request_assignment']
+    @request_assignment_message['patient_id'] = patient_id
+    @request_assignment_message['status_date'] = status_date
+    @request_assignment_message['step_number'] = step_number
+    @request_assignment_message['status'] = 'REQUEST_NO_ASSIGNMENT'
+    @request_assignment_message['rebiopsy'] = 'N'
+    send_message_to_local(@request_assignment_message, patient_id)
+  end
+
   def self.on_treatment_arm(
     patient_id,
     treatment_arm_id='APEC1621-A',
