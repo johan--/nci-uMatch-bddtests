@@ -112,6 +112,7 @@ Feature: Patients end to end tests
       | PT_ETE04_PendingApproval | PENDING_APPROVAL                | 2.0                 |
       | PT_ETE04_OnTreatmentArm  | ON_TREATMENT_ARM                | 1.1                 |
       | PT_ETE04_ReqAssignment   | REQUEST_ASSIGNMENT              | 2.0                 |
+      | PT_ETE04_ReqNoAssignment | REQUEST_NO_ASSIGNMENT           | 1.1                 |
     #no blood status is used anymore
 #  |PT_ETE04_BdReceived     |BLOOD_SPECIMEN_RECEIVED          |2.0                |
 #  |PT_ETE04_BdShipped      |BLOOD_NUCLEIC_ACID_SHIPPED       |2.0                |
@@ -271,7 +272,7 @@ Feature: Patients end to end tests
       | patient_id                   | current_status                  | current_step_number | next_step_number | message | post_status | next_status                     |
       | PT_ETE17_PendingApproval     | PENDING_APPROVAL                | 1.0                 | 1.0              |         | Success     | PENDING_CONFIRMATION            |
       | PT_ETE17_OnTreatmentArm      | ON_TREATMENT_ARM                | 1.1                 | 2.0              |         | Success     | PENDING_CONFIRMATION            |
-      | PT_ETE17_RequestNoAssignment | REQUEST_NO_ASSIGNMENT           | 1.0                 | 1.0              |         | Success     | PENDING_CONFIRMATION            |
+      | PT_ETE17_RequestNoAssignment | REQUEST_NO_ASSIGNMENT           | 1.1                 | 1.1              |         | Success     | PENDING_CONFIRMATION            |
       | PT_ETE17_RequestAssignment   | REQUEST_ASSIGNMENT              | 1.0                 | 1.0              |         | Failure     | REQUEST_ASSIGNMENT              |
       | PT_ETE17_Registered          | REGISTRATION                    | 1.0                 | 1.0              |         | Failure     | REGISTRATION                    |
       | PT_ETE17_TsReceived          | TISSUE_SPECIMEN_RECEIVED        | 1.0                 | 1.0              |         | Failure     | TISSUE_SPECIMEN_RECEIVED        |
@@ -294,7 +295,7 @@ Feature: Patients end to end tests
       | PT_ETE18_PendingApproval     | PENDING_APPROVAL                | 1.0                 | 1.0              |         | Success     | REQUEST_ASSIGNMENT              |
       | PT_ETE18_OnTreatmentArm      | ON_TREATMENT_ARM                | 1.1                 | 2.0              |         | Success     | REQUEST_ASSIGNMENT              |
       | PT_ETE18_RequestAssignment   | REQUEST_ASSIGNMENT              | 1.0                 | 1.0              |         | Success     | REQUEST_ASSIGNMENT              |
-      | PT_ETE18_RequestNoAssignment | REQUEST_NO_ASSIGNMENT           | 1.0                 | 1.0              |         | Failure     | REQUEST_ASSIGNMENT              |
+      | PT_ETE18_RequestNoAssignment | REQUEST_NO_ASSIGNMENT           | 1.1                 | 1.1              |         | Failure     | REQUEST_ASSIGNMENT              |
       | PT_ETE18_Registered          | REGISTRATION                    | 1.0                 | 1.0              |         | Failure     | REGISTRATION                    |
       | PT_ETE18_TsReceived          | TISSUE_SPECIMEN_RECEIVED        | 1.0                 | 1.0              |         | Failure     | TISSUE_SPECIMEN_RECEIVED        |
       | PT_ETE18_TsShipped           | TISSUE_NUCLEIC_ACID_SHIPPED     | 2.0                 | 2.0              |         | Failure     | TISSUE_NUCLEIC_ACID_SHIPPED     |

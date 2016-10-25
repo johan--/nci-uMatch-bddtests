@@ -155,4 +155,15 @@ pt = PatientDataSet.new('PT_PR14_TissueReceived')
 PatientMessageLoader.register_patient(pt.id)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 
+pt = PatientDataSet.new('PT_PR13_VRConfirmedOneAssay')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+PatientMessageLoader.assay(pt.id, pt.sei, 'POSITIVE', 'ICCPTENs')
+PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+sleep(10.0)
+PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.ani)
+
+
 PatientMessageLoader.upload_done

@@ -31,6 +31,7 @@ PatientVariantFolderCreator.create_default('PT_AS12_VRAndPathoConfirmed', 'tissu
 
 PatientVariantFolderCreator.create_default('PT_PR13_VRConfirmedNoAssay', 'tissue')
 PatientVariantFolderCreator.create_default('PT_PR13_AssayReceivedVRNotConfirmed', 'tissue')
+PatientVariantFolderCreator.create_default('PT_PR13_VRConfirmedOneAssay', 'tissue')
 PatientVariantFolderCreator.create_default('PT_PR13_AssayAndVRDonePlanToY', 'tissue')
 PatientVariantFolderCreator.create_default('PT_PR13_AssayAndVRDonePlanToN', 'tissue')
 PatientVariantFolderCreator.create_default('PT_PR13_AssayAndVRDonePlanToU', 'tissue')
@@ -76,6 +77,7 @@ PatientVariantFolderCreator.create_default('PT_VU02a_TissueShippedToMDA', 'tissu
 PatientVariantFolderCreator.create_default('PT_VU02a_TissueShippedToMoCha', 'tissue')
 PatientVariantFolderCreator.create_default('PT_VC05_TissueShipped', 'tissue')
 
+PatientVariantFolderCreator.create_default('PT_VC15_PathDoneOneAssayVRUploaded', 'tissue')
 PatientVariantFolderCreator.create_default('PT_VC15_VRUploadedPathConfirmed', 'tissue')
 PatientVariantFolderCreator.create_default('PT_VC15_VRUploadedAssayReceived', 'tissue')
 PatientVariantFolderCreator.create_default('PT_VC15_PathAssayDoneVRUploadedToConfirm', 'tissue')
@@ -110,6 +112,7 @@ PatientVariantFolderCreator.create_default('PT_ETE04_TsVrConfirmed', 'tissue')
 PatientVariantFolderCreator.create_default('PT_ETE04_TsVrRejected', 'tissue')
 PatientVariantFolderCreator.create_default('PT_ETE04_OnTreatmentArm', 'tissue')
 PatientVariantFolderCreator.create_default('PT_ETE04_ReqAssignment', 'tissue')
+PatientVariantFolderCreator.create_default('PT_ETE04_ReqNoAssignment', 'tissue')
 PatientVariantFolderCreator.create_default('PT_ETE08_OffStudy1', 'tissue')
 PatientVariantFolderCreator.create_default('PT_ETE08_OffStudy2', 'tissue')
 PatientVariantFolderCreator.create_default('PT_ETE09_OffStudy1', 'tissue')

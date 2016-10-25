@@ -12,19 +12,19 @@ Feature: Pathology Messages
     And specimen (surgical_event_id: "<sei>") field: "pathology_status" should have value: "<status>" within 15 seconds
     And specimen (surgical_event_id: "<sei>") field: "pathology_status_date" should have value: "<date>" within 15 seconds
     Examples:
-    |patient_id         |sei                       |status |date                               |patient_status            |
-    |PT_PR00_TsReceived1|PT_PR00_TsReceived1_SEI1  |Y      |2016-08-18T17:42:13+00:00          |PATHOLOGY_REVIEWED        |
-    |PT_PR00_TsReceived2|PT_PR00_TsReceived2_SEI1  |N      |2016-08-19T17:42:13+00:00          |PATHOLOGY_REVIEWED        |
-    |PT_PR00_TsReceived3|PT_PR00_TsReceived3_SEI1  |U      |2016-08-20T17:42:13+00:00          |TISSUE_SPECIMEN_RECEIVED  |
+      | patient_id          | sei                      | status | date                      | patient_status           |
+      | PT_PR00_TsReceived1 | PT_PR00_TsReceived1_SEI1 | Y      | 2016-08-18T17:42:13+00:00 | PATHOLOGY_REVIEWED       |
+      | PT_PR00_TsReceived2 | PT_PR00_TsReceived2_SEI1 | N      | 2016-08-19T17:42:13+00:00 | PATHOLOGY_REVIEWED       |
+      | PT_PR00_TsReceived3 | PT_PR00_TsReceived3_SEI1 | U      | 2016-08-20T17:42:13+00:00 | TISSUE_SPECIMEN_RECEIVED |
 
   @patients_p2
   Scenario Outline: PT_PR01. Pathology report with invalid patient_id(empty, non-existing, null) should fail
     Given template pathology report with surgical_event_id: "PT_PR01_SEI1" for patient: "<value>"
     When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
     Examples:
-      |value     |message                      |
+      | value      | message                |
 #      |          |can't be blank               |
-      |nonPatient|as not been registered       |
+      | nonPatient | as not been registered |
 #      |null      |can't be blank               |
 
   @patients_p2
@@ -33,10 +33,10 @@ Feature: Pathology Messages
     Then set patient message field: "study_id" to value: "<value>"
     When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
     Examples:
-      |value     |message                |
-      |          |can't be blank         |
-      |other     |not a valid study_id   |
-      |null      |can't be blank         |
+      | value | message              |
+      |       | can't be blank       |
+      | other | not a valid study_id |
+      | null  | can't be blank       |
 
   @patients_p2
   Scenario Outline: PT_PR03. Pathology report with invalid surgical_event_id(empty, non-existing, null) should fail
@@ -44,10 +44,10 @@ Feature: Pathology Messages
     Given template pathology report with surgical_event_id: "<value>" for patient: "PT_PR03_TissueReceived"
     When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
     Examples:
-      |value     |message                |
-      |          |can't be blank         |
-      |SEI_NON   |surgical event_id      |
-      |null      |can't be blank         |
+      | value   | message           |
+      |         | can't be blank    |
+      | SEI_NON | surgical event_id |
+      | null    | can't be blank    |
 
   @patients_p2
   Scenario Outline: PT_PR04. Pathology report with invalid reported_date(empty, non-date, null) should fail
@@ -55,10 +55,10 @@ Feature: Pathology Messages
     Then set patient message field: "reported_date" to value: "<value>"
     When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
     Examples:
-      |value     |message          |
-      |          |can't be blank   |
-      |nonDate   |date             |
-      |null      |can't be blank   |
+      | value   | message        |
+      |         | can't be blank |
+      | nonDate | date           |
+      | null    | can't be blank |
 
   @patients_p2
   Scenario Outline: PT_PR05. Pathology report with invalid result(other than Y, N or U) should fail
@@ -66,10 +66,10 @@ Feature: Pathology Messages
     Then set patient message field: "status" to value: "<value>"
     When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
     Examples:
-      |value     |message                                   |
-      |          |can't be blank                            |
-      |other     |is not a valid pathology review status    |
-      |null      |can't be blank                            |
+      | value | message                                |
+      |       | can't be blank                         |
+      | other | is not a valid pathology review status |
+      | null  | can't be blank                         |
 #Field tests:
 
   @patients_p2
@@ -103,9 +103,9 @@ Feature: Pathology Messages
     Given template pathology report with surgical_event_id: "<sei>" for patient: "<patient_id>"
     When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
     Examples:
-      |patient_id                            |sei                            |message                                                       |
-      |PT_PR09_Registered                    |PT_PR09_Registered_SEI1        |can not process this state currently                          |
-      |PT_PR09_SEI1HasTissue                 |PT_PR09_SEI1HasTissue_SEI2     |surgical event_id PT_PR09_SEI1HasTissue_SEI2 doesn't exist    |
+      | patient_id            | sei                        | message                                                    |
+      | PT_PR09_Registered    | PT_PR09_Registered_SEI1    | can not process this state currently                       |
+      | PT_PR09_SEI1HasTissue | PT_PR09_SEI1HasTissue_SEI2 | surgical event_id PT_PR09_SEI1HasTissue_SEI2 doesn't exist |
 
   @patients_p2
   Scenario: PT_PR10. Pathology report reported_date is older than tissue received date should fail
@@ -137,17 +137,17 @@ Feature: Pathology Messages
     Then set patient message field: "reported_date" to value: "<date>"
     Then set patient message field: "status" to value: "<status>"
     When post to MATCH patients service, returns a message that includes "<message>" with status "<postStatus>"
-  Examples:
-  |patientID                  |sei                              |status    |date                             |postStatus  |message                                             |
-  |PT_PR12_PathologyYReceived |PT_PR12_PathologyYReceived_SEI1  |U         |2016-05-18T10:42:13+00:00        |Failure     |already has a valid pathology status                |
-  |PT_PR12_PathologyYReceived |PT_PR12_PathologyYReceived_SEI1  |Y         |2016-05-18T11:42:13+00:00        |Failure     |already has a valid pathology status                |
-  |PT_PR12_PathologyYReceived |PT_PR12_PathologyYReceived_SEI1  |N         |2016-05-18T12:42:13+00:00        |Failure     |already has a valid pathology status                |
-  |PT_PR12_PathologyNReceived |PT_PR12_PathologyNReceived_SEI1  |U         |2016-05-18T13:42:13+00:00        |Failure     |already has a valid pathology status                |
-  |PT_PR12_PathologyNReceived |PT_PR12_PathologyNReceived_SEI1  |Y         |2016-05-18T14:42:13+00:00        |Failure     |already has a valid pathology status                |
-  |PT_PR12_PathologyNReceived |PT_PR12_PathologyNReceived_SEI1  |N         |2016-05-18T15:42:13+00:00        |Failure     |already has a valid pathology status                |
-  |PT_PR12_PathologyUReceived1|PT_PR12_PathologyUReceived1_SEI1 |U         |2016-05-18T16:42:13+00:00        |Success     |processed successfully             |
-  |PT_PR12_PathologyUReceived2|PT_PR12_PathologyUReceived2_SEI1 |Y         |2016-05-18T17:42:13+00:00        |Success     |processed successfully             |
-  |PT_PR12_PathologyUReceived3|PT_PR12_PathologyUReceived3_SEI1 |N         |current                          |Success     |processed successfully             |
+    Examples:
+      | patientID                   | sei                              | status | date                      | postStatus | message                              |
+      | PT_PR12_PathologyYReceived  | PT_PR12_PathologyYReceived_SEI1  | U      | 2016-05-18T10:42:13+00:00 | Failure    | already has a valid pathology status |
+      | PT_PR12_PathologyYReceived  | PT_PR12_PathologyYReceived_SEI1  | Y      | 2016-05-18T11:42:13+00:00 | Failure    | already has a valid pathology status |
+      | PT_PR12_PathologyYReceived  | PT_PR12_PathologyYReceived_SEI1  | N      | 2016-05-18T12:42:13+00:00 | Failure    | already has a valid pathology status |
+      | PT_PR12_PathologyNReceived  | PT_PR12_PathologyNReceived_SEI1  | U      | 2016-05-18T13:42:13+00:00 | Failure    | already has a valid pathology status |
+      | PT_PR12_PathologyNReceived  | PT_PR12_PathologyNReceived_SEI1  | Y      | 2016-05-18T14:42:13+00:00 | Failure    | already has a valid pathology status |
+      | PT_PR12_PathologyNReceived  | PT_PR12_PathologyNReceived_SEI1  | N      | 2016-05-18T15:42:13+00:00 | Failure    | already has a valid pathology status |
+      | PT_PR12_PathologyUReceived1 | PT_PR12_PathologyUReceived1_SEI1 | U      | 2016-05-18T16:42:13+00:00 | Success    | processed successfully               |
+      | PT_PR12_PathologyUReceived2 | PT_PR12_PathologyUReceived2_SEI1 | Y      | 2016-05-18T17:42:13+00:00 | Success    | processed successfully               |
+      | PT_PR12_PathologyUReceived3 | PT_PR12_PathologyUReceived3_SEI1 | N      | current                   | Success    | processed successfully               |
 
   @patients_p2
   Scenario Outline: PT_PR13. pathology confirmation will not trigger patient assignment process unless patient has assay and VR ready
@@ -161,12 +161,13 @@ Feature: Pathology Messages
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
     Then patient field: "current_status" should have value: "<patient_status>" after 30 seconds
     Examples:
-      |patient_id                           |sei                                      |confirm_status    |patient_status          |
-      |PT_PR13_VRConfirmedNoAssay           |PT_PR13_VRConfirmedNoAssay_SEI1          |Y                 |PATHOLOGY_REVIEWED     |
-      |PT_PR13_AssayReceivedVRNotConfirmed  |PT_PR13_AssayReceivedVRNotConfirmed_SEI1 |Y                 |PATHOLOGY_REVIEWED     |
-      |PT_PR13_AssayAndVRDonePlanToY        |PT_PR13_AssayAndVRDonePlanToY_SEI1       |Y                 |PENDING_CONFIRMATION   |
-      |PT_PR13_AssayAndVRDonePlanToN        |PT_PR13_AssayAndVRDonePlanToN_SEI1       |N                 |PATHOLOGY_REVIEWED     |
-      |PT_PR13_AssayAndVRDonePlanToU        |PT_PR13_AssayAndVRDonePlanToU_SEI1       |U                 |TISSUE_VARIANT_REPORT_CONFIRMED     |
+      | patient_id                          | sei                                      | confirm_status | patient_status                  |
+      | PT_PR13_VRConfirmedNoAssay          | PT_PR13_VRConfirmedNoAssay_SEI1          | Y              | PATHOLOGY_REVIEWED              |
+      | PT_PR13_AssayReceivedVRNotConfirmed | PT_PR13_AssayReceivedVRNotConfirmed_SEI1 | Y              | PATHOLOGY_REVIEWED              |
+      | PT_PR13_AssayAndVRDonePlanToY       | PT_PR13_AssayAndVRDonePlanToY_SEI1       | Y              | PENDING_CONFIRMATION            |
+      | PT_PR13_AssayAndVRDonePlanToN       | PT_PR13_AssayAndVRDonePlanToN_SEI1       | N              | PATHOLOGY_REVIEWED              |
+      | PT_PR13_AssayAndVRDonePlanToU       | PT_PR13_AssayAndVRDonePlanToU_SEI1       | U              | TISSUE_VARIANT_REPORT_CONFIRMED |
+      | PT_PR13_VRConfirmedOneAssay         | PT_PR13_VRConfirmedOneAssay_SEI1         | Y              | PATHOLOGY_REVIEWED              |
 
   @patients_p3
   Scenario: PT_PR14. extra key-value pair in the message body should NOT fail

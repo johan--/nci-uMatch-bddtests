@@ -173,6 +173,15 @@ sleep(10.0)
 PatientMessageLoader.variant_file_confirmed(pt.id, 'reject', pt.ani)
 
 
+pt = PatientDataSet.new('PT_VC15_PathDoneOneAssayVRUploaded')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+PatientMessageLoader.pathology(pt.id, pt.sei)
+PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCMLH1s')
+PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+
 PatientMessageLoader.upload_done
 
 
