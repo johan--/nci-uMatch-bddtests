@@ -10,7 +10,7 @@ class DynamoDataUploader
   DEFAULT_AWS_ACCESS_KEY = ENV['AWS_ACCESS_KEY_ID']
   DEFAULT_AWS_SECRET_KEY = ENV['AWS_SECRET_ACCESS_KEY']
   DEFAULT_LOCAL_DB_ENDPOINT = 'http://localhost:8000'
-  DEFAULT_LOCAL_REGION = 'localhost'
+  DEFAULT_LOCAL_REGION = 'us-east-1'
   SEED_DATA_FOLDER = 'seed_data_for_upload'
   SEED_FILE_PREFIX = 'nci_match_bddtests_seed_data'
 

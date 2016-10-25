@@ -293,8 +293,13 @@ class Helper_Methods
         http_code = e.message[0,3]
       end
       @put_response['http_code'] = http_code
-      @put_response['message'] = e.response
-      p e.response
+      if e.methods.include?('response')
+        @put_response['message'] = e.response
+      else
+        @put_response['message'] = e.message
+      end
+      # @put_response['message'] = e.response
+      p @put_response['message']
       return @put_response
     end
 
@@ -409,24 +414,44 @@ class Helper_Methods
 
   def self.s3_list_files(bucket,
       path,
-      endpoint='https://s3-accelerate.amazonaws.com',
+      endpoint='https://s3.amazonaws.com',
       region='us-east-1'
   )
-    default_option = {
+    s3 = Aws::S3::Resource.new(
         endpoint: endpoint,
         region:   region,
         access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-        secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
-    }
-
-    Aws.config.update(default_option)
-    s3 = Aws::S3::Resource.new()
+        secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'])
     files = s3.bucket(bucket).objects(prefix:path).collect(&:key)
     files
   end
 
   def self.s3_file_exists(bucket, file_path)
-    return s3_list_files(bucket, file_path).include?(file_path)
+    files = s3_list_files(bucket, file_path)
+    if files.length>0
+      return s3_list_files(bucket, file_path).include?(file_path)
+    else
+      return false
+    end
+  end
+
+  def self.s3_delete_path(bucket,
+      path,
+      endpoint='https://s3.amazonaws.com',
+      region='us-east-1'
+  )
+    s3 = Aws::S3::Resource.new(
+        endpoint: endpoint,
+        region:   region,
+        access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+        secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
+    )
+    files = s3.bucket(bucket).objects(prefix:path)
+    files.each { |this_file|
+      this_file.delete
+      # puts "Deleted #{this_file.identifiers[:key]} from bucket <#{this_file.identifiers[:bucket_name]}>"
+    }
+
   end
 
 end

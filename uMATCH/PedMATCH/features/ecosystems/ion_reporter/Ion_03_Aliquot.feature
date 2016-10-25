@@ -5,6 +5,10 @@ Feature: Tests for aliquot service in ion ecosystem
   @ion_reporter_p1
   Scenario: ION_AQ01. for sample control specimen, aliquot service will generate tsv and bai files and upload to S3, then update database
     Given molecular id is "SC_OAFXP"
+    And file: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/test1.tsv" has been removed from S3 bucket
+    And file: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/test1.json" has been removed from S3 bucket
+    And file: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/dna.bai" has been removed from S3 bucket
+    And file: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/cdna.bai" has been removed from S3 bucket
     Then add field: "analysis_id" value: "SC_OAFXP_ANI1" to message body
     Then add field: "site" value: "mda" to message body
     Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
@@ -18,11 +22,11 @@ Feature: Tests for aliquot service in ion ecosystem
     Then field: "tsv_name" for this aliquot should be: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/test1.tsv"
     Then field: "dna_bai_name" for this aliquot should be: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/dna.bai"
     Then field: "cdna_bai_name" for this aliquot should be: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/cdna.bai"
-    Then field: "report_status" for this aliquot variant_report should be: "PASSED"
-    Then field: "analysis_id" for this aliquot variant_report should be: "SC_OAFXP_ANI1"
-    Then field: "ion_reporter_id" for this aliquot variant_report should be: "IR_TCWEV"
-    Then field: "filename" for this aliquot variant_report should be: "test1"
-    Then field: "molecular_id" for this aliquot variant_report should be: "SC_OAFXP"
+    Then field: "report_status" for this aliquot should be: "PASSED"
+    Then field: "analysis_id" for this aliquot should be: "SC_OAFXP_ANI1"
+    Then field: "ion_reporter_id" for this aliquot should be: "IR_TCWEV"
+    Then field: "filename" for this aliquot should be: "test1"
+    Then field: "molecular_id" for this aliquot should be: "SC_OAFXP"
     And file: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/test1.tsv" should be available in S3
     And file: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/test1.json" should be available in S3
     And file: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/dna.bai" should be available in S3
@@ -32,6 +36,10 @@ Feature: Tests for aliquot service in ion ecosystem
   Scenario: ION_AQ02. for patient tissue specimen, aliquot service will generate tsv and bai files and upload to S3, then send variant files uploaded message to patient ecosystem once process done
     Given molecular id is "ION_AQ02_TsShipped_MOI1"
     Given patient id is "ION_AQ02_TsShipped"
+    And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/test1.tsv" has been removed from S3 bucket
+    And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/test1.json" has been removed from S3 bucket
+    And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/dna.bai" has been removed from S3 bucket
+    And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/cdna.bai" has been removed from S3 bucket
     Then add field: "analysis_id" value: "ION_AQ02_TsShipped_ANI1" to message body
     Then add field: "site" value: "mda" to message body
     Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
@@ -56,6 +64,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then patient should have variant report (analysis_id: "ION_AQ02_TsShipped_ANI2") within 30 seconds
     And this variant report has value: "test1.tsv" in field: "tsv_file_name"
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/test1.tsv" should be available in S3
+    And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/test1.json" should be available in S3
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/dna.bai" should be available in S3
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/cdna.bai" should be available in S3
 
@@ -63,6 +72,10 @@ Feature: Tests for aliquot service in ion ecosystem
   Scenario: ION_AQ03. for patient blood specimen, aliquot service will generate tsv and bai files and upload to S3, then send variant files uploaded message to patient ecosystem once process done
     Given molecular id is "ION_AQ03_BdShipped_BD_MOI1"
     Given patient id is "ION_AQ03_BdShipped"
+    And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/test1.tsv" has been removed from S3 bucket
+    And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/test1.json" has been removed from S3 bucket
+    And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/dna.bai" has been removed from S3 bucket
+    And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/cdna.bai" has been removed from S3 bucket
     Then add field: "analysis_id" value: "ION_AQ03_BdShipped_ANI1" to message body
     Then add field: "site" value: "mda" to message body
     Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
@@ -87,6 +100,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then patient should have variant report (analysis_id: "ION_AQ03_BdShipped_ANI2") within 30 seconds
     And this variant report has value: "test1.tsv" in field: "tsv_file_name"
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/test1.tsv" should be available in S3
+    And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/test1.json" should be available in S3
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/dna.bai" should be available in S3
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/cdna.bai" should be available in S3
 

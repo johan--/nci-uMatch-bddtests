@@ -501,13 +501,14 @@ Then(/^field: "([^"]*)" for this aliquot should be: "([^"]*)"$/) do |field, valu
   @returned_aliquot_result[field].should == converted_value
 end
 
-Then(/^field: "([^"]*)" for this aliquot variant_report should be: "([^"]*)"$/) do |field, value|
-  converted_value = value=='null' ? nil : value
-  unless @returned_aliquot_result.keys.include?('variant_report')
-    raise 'This returned aliquot doesn not have variant_report field'
-  end
-  @returned_aliquot_result['variant_report'][field].should == converted_value
-end
+# doesn't have varaint_report field anymore, this field has been flatten into root
+# Then(/^field: "([^"]*)" for this aliquot variant_report should be: "([^"]*)"$/) do |field, value|
+#   converted_value = value=='null' ? nil : value
+#   unless @returned_aliquot_result.keys.include?('variant_report')
+#     raise 'This returned aliquot doesn not have variant_report field'
+#   end
+#   @returned_aliquot_result['variant_report'][field].should == converted_value
+# end
 
 And(/^file: "([^"]*)" should be available in S3$/) do |file|
   Helper_Methods.s3_file_exists(ENV['s3_bucket'], file).should == true
@@ -559,6 +560,13 @@ Then(/^each returned aliquot result should have field "([^"]*)"$/) do |field|
 end
 
 
+And(/^file: "([^"]*)" has been removed from S3 bucket$/) do |file_name|
+  Helper_Methods.s3_delete_path(ENV['s3_bucket'], file_name)
+  wrong_result = "#{file_name} is still in bucket <#{ENV['s3_bucket']}>"
+  if Helper_Methods.s3_file_exists(ENV['s3_bucket'], file_name)
+    raise wrong_result
+  end
+end
 
 
 ################################################

@@ -7,15 +7,17 @@ require_relative 'options_manager'
 
 class DynamoDb
   attr_accessor :client
+  # attr_accessor :sqs
   DEFAULT_AWS_ENDPOINT = 'https://dynamodb.us-east-1.amazonaws.com'
   DEFAULT_AWS_REGION = 'us-east-1'
   DEFAULT_ENDPOINT = 'http://localhost:8000'
   DEFAULT_REGION = 'us-east-1'
   DEFAULT_FILENAME = File.expand_path(File.join(ENV['HOME'], '.aws/credentials'))
   DEFAULT_LOCAL_DB_ENDPOINT = 'http://localhost:8000'
-  DEFAULT_LOCAL_REGION = 'localhost'
+  DEFAULT_LOCAL_REGION = 'us-east-1'
   DEFAULT_AWS_ACCESS_KEY = ENV['AWS_ACCESS_KEY_ID']
   DEFAULT_AWS_SECRET_KEY = ENV['AWS_SECRET_ACCESS_KEY']
+  DEFAULT_AWS_S3_ENDPOINT = 'https://s3.amazonaws.com'
 
   DEFAULT_OPTIONS = {
     access_key_id: DEFAULT_AWS_ACCESS_KEY,
@@ -76,6 +78,7 @@ class DynamoDb
                        secret_access_key: @secret_key,
                        region: @region})
     @client = Aws::DynamoDB::Client.new()
+    # @sqs = Aws::SQS::Client.new()
   end
 
   def set_params_from_file
@@ -211,6 +214,70 @@ class DynamoDb
       clear_table(table)
     end
   end
+
+
+
+  def self.sqs_purge_queue(queue_name,
+  queue_owner_id,
+  region=DEFAULT_AWS_REGION)
+    @sqs = Aws::SQS::Client.new(
+        region: region,
+        access_key_id: DEFAULT_AWS_ACCESS_KEY,
+        secret_access_key: DEFAULT_AWS_SECRET_KEY
+    )
+    result = @sqs.get_queue_url(
+        {
+            queue_name: queue_name,
+            queue_owner_aws_account_id: queue_owner_id
+        })
+    begin
+      @sqs.purge_queue({queue_url: result['queue_url']})
+    rescue StandardError => e
+      puts e.message
+      return
+    end
+    puts "#{result['queue_url']} is cleared."
+  end
+
+  # def s3_delete_path(bucket,
+  #                    path,
+  #                    endpoint=DEFAULT_AWS_S3_ENDPOINT
+  # )
+  #   s3 = Aws::S3::Resource.new(
+  #       region: @region,
+  #       endpoint: endpoint,
+  #       access_key_id: DEFAULT_AWS_ACCESS_KEY,
+  #       secret_access_key: DEFAULT_AWS_SECRET_KEY
+  #   )
+  #   files = s3.bucket(bucket).objects(prefix:path)
+  #   files.each { |this_file|
+  #     this_file.delete
+  #     puts "Deleted #{this_file.identifiers[:key]} from bucket <#{this_file.identifiers[:bucket_name]}>"
+  #   }
+  #
+  # end
+
+  # def sqs_purge_queue(queue_name,
+  #     queue_owner_id,
+  #     region=DEFAULT_AWS_REGION)
+  #   @sqs = Aws::SQS::Client.new(
+  #       region: region,
+  #       access_key_id: DEFAULT_AWS_ACCESS_KEY,
+  #       secret_access_key: DEFAULT_AWS_SECRET_KEY
+  #   )
+  #   result = @sqs.get_queue_url(
+  #       {
+  #           queue_name: queue_name,
+  #           queue_owner_aws_account_id: queue_owner_id
+  #       })
+  #   begin
+  #     @sqs.purge_queue({queue_url: result['queue_url']})
+  #   rescue StandardError => e
+  #     puts e.message
+  #     return
+  #   end
+  #   puts "#{result['queue_url']} is cleared."
+  # end
 end
 
 # Logger
@@ -226,4 +293,8 @@ if __FILE__ == $0
   options = OptionsManager.parse(ARGV)
   # DynamoDb.new(options).clear_tables_by_prefix
   DynamoDb.new(options).clear_all_tables
+  # DynamoDb.sqs_purge_queue('ion_reporter_queue','127516845550')
+  # DynamoDb.sqs_purge_queue('patient_queue','127516845550')
+  # DynamoDb.sqs_purge_queue('patient_queue_deadletter','127516845550')
+  # DynamoDb.sqs_purge_queue('treatment_arm_queue','127516845550')
 end
