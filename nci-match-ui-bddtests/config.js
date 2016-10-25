@@ -13,6 +13,7 @@ exports.config = {
         browserName: 'firefox',
         version: ''
     },
+    restartBrowserBetweenTests: false,
 
     specs: [
         // Login Page

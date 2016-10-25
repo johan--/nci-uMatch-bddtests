@@ -23,7 +23,7 @@ Feature: Treatment Arms Dashboard
 
   @ui_p2
   Scenario: Logged in user can access the dashboard of Treatment Arms page
-    When I go to treatment arm with "APEC1621-A" as the id and "100" as stratum id
+    When I go to treatment arm with "APEC1621-2V" as the id and "100" as stratum id
     And I collect backend information about the treatment arm
     Then I should see the treatment-arms detail dashboard
     And I should see detailed Treatment Arms breadcrumb
@@ -55,9 +55,15 @@ Feature: Treatment Arms Dashboard
 
   @ui_p3
   Scenario: Logged in user can access the different versions of Treatment Arm under the History Tab
-    When I go to treatment arm with "APEC1621-UI" as the id and "STR100" as stratum id
+    When I go to treatment arm with "APEC1621-2V" as the id and "100" as stratum id
     And I select the "History" Main Tab
     Then I should see the different versions of the Treatment Arm
+    And I "should" be on the latest version
+    And I should see the message "This is the latest version." regarding the version
+    When I select an another version
+    Then I "should not" be on the latest version
+    And I should see the message "This is not the latest version." regarding the version
+
 
 #  @broken @incomplete @ui_p3
 #  Scenario: Logged in user can download Treatment Arms in PDF

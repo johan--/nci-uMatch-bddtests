@@ -78,7 +78,7 @@ module.exports = function () {
             email = 'abc_xyz@nih.gov';
         }
         loginPageObj.login(email, password, false);
-        browser.sleep(2000).then(callback);
+        browser.sleep(2000).then(callback());
     });
 
     this.When(/^I navigate to the (.+) page$/, function (pageName, callback) {

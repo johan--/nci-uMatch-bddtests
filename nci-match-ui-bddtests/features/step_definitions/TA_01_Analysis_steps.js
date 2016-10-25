@@ -274,6 +274,10 @@ module.exports = function () {
         callback(null, 'pending');
     });
 
+    this.Then(/^I should see the message "(.+?)" regarding the version$/, function (message, callback) {
+
+    });
+
     this.Then(/^I should see the different versions of the Treatment Arm$/, function (callback) {
         expect(taPage.historyTabSubHeading.getText()).to.eventually.equal('Version History');
         expect(taPage.listOfVersions.count()).to.eventually.be.above(0);

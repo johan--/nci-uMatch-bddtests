@@ -12,6 +12,8 @@ var utilities = require ('../../support/utilities');
 module.exports = function () {
     this.World = require ('../step_definitions/world').World;
 
+    var variantReportLink
+
 
     this.Given (/^I enter "([^"]*)" in the patient filter field$/, function (filterValue, callback) {
         patientPage.patientFilterTextBox.sendKeys(filterValue).then(function () {
@@ -19,6 +21,22 @@ module.exports = function () {
             expect(firstPatient.all(by.binding('item.patient_id')).get(0).getText()).to.eventually.eql(filterValue);
         });
         browser.sleep(50).then(callback);
+    });
+
+    this.Then (/^I should see the variant report link for "(.+?)"$/, function (analysisId, callback) {
+        console.log(patientPage.responseData);
+        var varRepString = 'div[ng-if="surgicalEvent"] a[href="#/patient/' + patientPage.patientId + '/variant_report?analysis_id=' + analysisId;
+        variantReportLink = element(by.css(varRepString))
+        expect(variantReportLink.isPresent()).to.eventually.eql(true).notify(callback);
+    });
+
+    this.When(/^I should click on the variant report link$/, function (callback) {
+       variantReportLink.click().then(callback);
+    });
+
+    this.Then(/^the variant table is updated for that variant to "([^"]*)"$/, function (arg1, callback) {
+        // Write code here that turns the phrase above into concrete actions
+        callback(null, 'pending');
     });
 
     this.When (/^I uncheck the variant of ordinal "([^"]*)"$/, function (ordinal, callback) {
@@ -32,13 +50,12 @@ module.exports = function () {
 
     this.Then(/^I see that all the variant check boxes are selected$/, function (callback) {
         //checking the property of all the checkboxes to make sure they are selected
-
         patientPage.variantConfirmButtonList.count().then(function (cnt) {
+            console.log("This is the count: " + cnt);
             for(var i = 0; i < cnt; i++){
                 expect(patientPage.variantConfirmButtonList.get(i).isEnabled()).to.eventually.eql(true);
             }
-        });
-        browser.sleep(50).then(callback);
+        }).then(callback);
     });
 
     this.Then (/^I "(should( not)?)" see the confirmation modal pop up$/, function (seen, callback) {

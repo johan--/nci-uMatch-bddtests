@@ -12,9 +12,11 @@ var utilities = require ('../../support/utilities');
 
 module.exports = function () {
     var surgicalEventId = '';
+    var surgicalEventData;
     var patientApi;
     var patientId
     var responseData;
+    var surgicalTabs = element.all(by.css('li[heading^="Surgical Event"]'));
 
     this.World = require('../step_definitions/world').World;
 
@@ -58,35 +60,45 @@ module.exports = function () {
     });
 
     this.Then(/^I should see the same number of surgical event tabs$/, function (callback) {
+
         var expectedCount = 0
         for (var i = 0; i < patientPage.responseData.length; i++){
             if (patientPage.responseData[i].surgical_event_id !== null){
                 expectedCount++;
             }
         }
-        utilities.waitForElement(patientPage.surgicalEventtabs.get(0), 'Surgical events tabs');
 
-        console.log(expectedCount);
-        expect(patientPage.surgicalEventPanels.count()).to.eventually.eql(expectedCount).then(function () {
-            browser.sleep(20);
+        utilities.waitForElement(surgicalTabs.get(0), 'Surgical events tabs');
+
+        browser.ignoreSynchronization = true;
+
+        expect(surgicalTabs.count()).to.eventually.eql(expectedCount).then(function () {
+            browser.ignoreSynchronization = false;
         }).then(callback);
     });
 
     this.When(/^I click on the Surgical Event Tab and index "(.+?)"$/, function (index, callback) {
-        patientPage.surgicalEventtabs.get(index).click().then(callback);
+        surgicalTabs.get(index).click().then(callback);
     });
 
-    this.Then(/^The Surgical Event Id match that of the backend$/, function () {
+    this.Then(/^The Surgical Event Id match that of the backend$/, function (callback) {
         for (var i = 0; i < patientPage.responseData.length; i++){
             if (patientPage.responseData[i].surgical_event_id !== null){
                 surgicalEventId = patientPage.responseData[i].surgical_event_id;
+                surgicalEventData = patientPage.responseData[i];
                 break;
             }
         }
-        console.log(surgicalEventId);
-        expect(patientPage.surgicalEventId.getText()).to.eventually.eql(surgicalEventId).and(callback);
+
+        expect(patientPage.surgicalEventId.getText()).to.eventually.eql(surgicalEventId).notify(callback);
     });
 
+    this.Then(/^I should see the "(.+?)" under surgical event tab$/, function (heading, callback) {
+        var index = patientPage.expectedSurgicalSectionHeading.indexOf(heading);
+
+        expect(patientPage.surgicalEventSectionHeading.get(index)
+            .getText()).to.eventually.eql(heading).notify(callback);
+    });
 
     this.Then(/^I should see the "(Event|Pathology)" Section under patient Surgical Events$/, function (section, callback) {
         var headerBox = patientPage.biopsyHeaderBoxLabels[section];
@@ -96,22 +108,17 @@ module.exports = function () {
         // Getting to the lables in the above box
         var actualHeaderLabels = actualHeaderBox.all(by.css('.dl-horizontal>dt'));
 
+        browser.ignoreSynchronization = true;
         expect(actualHeaderBox.all(by.css('h4')).get(0).getText()).to.eventually.equal(section);
-        expect(actualHeaderLabels.count()).to.eventually.equal(expectedHeaderBoxLabels.length);
         for( var i = 0; i < expectedHeaderBoxLabels.length; i++){
             expect(actualHeaderLabels.get(i).getText()).to.eventually.equal(expectedHeaderBoxLabels[i]);
         }
-        browser.sleep(50).then(callback);
-    });
+        expect(actualHeaderLabels.count()).to.eventually.equal(expectedHeaderBoxLabels.length).notify(callback);
 
-    this.Then(/^I should see the Surgical Events drop down button$/, function (callback) {
-
-        expect(patientPage.surgicalEventDropDownButton.isPresent()).to.eventually.be.true;
-        browser.sleep(50).then(callback);
     });
 
     this.Then(/^They match with the patient json for "([^"]*)" section$/, function (arg1, callback) {
-        console.log("patientId " + patientId);
+        console.log("patientId " + patientPage.responseData);
 
 
         browser.sleep(50).then(callback);

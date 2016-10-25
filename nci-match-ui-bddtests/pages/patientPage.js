@@ -50,6 +50,7 @@ var PatientPage = function () {
     this.treatmentArmsHistoryElementArray = element.all(by.repeater('ta in data.ta_history'));
 
     // *****************  Surgical Event Tab  ********************//
+    this.surgicalEventSectionHeading = element.all(by.css('div[ng-if="surgicalEvent"]>.ibox-title'));
     // Get all elements under the Surgical Event Panel
     this.surgicalEventPanel = element.all(by.css('div[ng-if="currentSurgicalEvent"]'));
     // This is the drop down button. Clicking this will give you access to the list of options.
@@ -72,7 +73,6 @@ var PatientPage = function () {
 
     // *****************  Surgical Event Tabs ********************//
     this.surgicalEventPanels = element.all(by.css('.specimen-event-panel'));
-    this.surgicalEventtabs = element.all(by.repeater('surgicalEvent in specimenEvents'));
     this.surgicalEventId  = element(by.binding('surgicalEvent.surgical_event_id'));
 
     // *****************  Tissue Reports / Blood Variant Reports Tab  ********************//
@@ -94,10 +94,11 @@ var PatientPage = function () {
 
     };
 
-
     // This the drop down for the surgical event under the Tissue Reports and blood variant.
     this.variantReportDropDown = element(by.binding('tissueVariantReportOption.text'));
     this.bloodVariantReportDropDown = element(by.binding('bloodVariantReportOption.text'));
+
+    this.expectedSurgicalSectionHeading = ['Slide Shipments', 'Assay History', 'Specimen History']
 
     //These are the elements present in the summary boxes of tissue reports
     this.tissueSurgicalEventId     = element(by.binding('currentTissueVariantReport.surgical_event_id'));
