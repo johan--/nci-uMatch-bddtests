@@ -140,13 +140,18 @@ module.exports = function () {
 
     this.Then(/^I should see the data maps to the relevant column$/, function (callback) {
         var moment = require('moment');
+        var currentPatients     = utilities.dashifyIfEmpty(firstTreatmentArm.stratum_statistics.current_patients);
+        var formerPatients      = utilities.dashifyIfEmpty(firstTreatmentArm.stratum_statistics.former_patients);
+        var notEnrolledPatients = utilities.dashifyIfEmpty(firstTreatmentArm.stratum_statistics.not_enrolled_patients);
+        var pendingPatients     = utilities.dashifyIfEmpty(firstTreatmentArm.stratum_statistics.pending_patients);
         var dateExpected = moment.utc(firstTreatmentArm.date_opened).utc().format('LLL');
+        
         expect(element(by.binding('vm.treatmentArmId')).getText()).to.eventually.eql(firstTreatmentArm.treatment_arm_id);
         expect(element(by.binding('vm.stratumId')).getText()).to.eventually.eql(firstTreatmentArm.stratum_id);
-        expect(element(by.binding('item.stratum_statistics.current_patients')).getText()).to.eventually.eql(firstTreatmentArm.stratum_statistics.current_patients.toString());
-        expect(element(by.binding('item.stratum_statistics.former_patients')).getText()).to.eventually.eql(firstTreatmentArm.stratum_statistics.former_patients.toString());
-        expect(element(by.binding('item.stratum_statistics.not_enrolled_patients')).getText()).to.eventually.eql(firstTreatmentArm.stratum_statistics.not_enrolled_patients.toString());
-        expect(element(by.binding('item.stratum_statistics.pending_patients')).getText()).to.eventually.eql(firstTreatmentArm.stratum_statistics.pending_patients.toString());
+        expect(element(by.binding('item.stratum_statistics.current_patients')).getText()).to.eventually.eql(currentPatients.toString());
+        expect(element(by.binding('item.stratum_statistics.former_patients')).getText()).to.eventually.eql(formerPatients.toString());
+        expect(element(by.binding('item.stratum_statistics.not_enrolled_patients')).getText()).to.eventually.eql(notEnrolledPatients.toString());
+        expect(element(by.binding('item.stratum_statistics.pending_patients')).getText()).to.eventually.eql(pendingPatients.toString());
         expect(element(by.binding('item.treatment_arm_status')).getText()).to.eventually.eql(firstTreatmentArm.treatment_arm_status);
         expect(element(by.binding('item.date_opened')).getText()).to.eventually.include(dateExpected).then(function () {
             browser.sleep(20);

@@ -3,7 +3,7 @@ Feature: Patient Report Tab
 
   Background:
     Given I am a logged in user
-    And I navigate to the patient page
+    And I navigate to the patients page
     And I click on one of the patients
 
 #  @ui_p1

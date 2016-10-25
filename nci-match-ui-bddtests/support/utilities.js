@@ -66,7 +66,7 @@ var Utilities = function() {
       */
     this.dashifyIfEmpty = function(strVal){
         var retVal;
-        if ( strVal == null ) {
+        if ( strVal == null || strVal === undefined ) {
             retVal = '-'
         }else {
             retVal = strVal

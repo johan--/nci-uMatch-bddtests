@@ -55,7 +55,7 @@ exports.config = {
         format: 'pretty',
         format: 'json:../results/output.json'
 
-    },
+    }
     //resultsJsonOutputFile: <to find out> process.env['HOME'] + '/Desktop/report.json'
 
     // capabilities: {
