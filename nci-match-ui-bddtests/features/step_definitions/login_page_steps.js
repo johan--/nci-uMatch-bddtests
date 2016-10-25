@@ -77,7 +77,7 @@ module.exports = function () {
         } else {
             email = 'abc_xyz@nih.gov';
         }
-        loginPageObj.login(email, password, false);
+        loginPageObj.login(email, password);
         browser.sleep(2000).then(callback());
     });
 

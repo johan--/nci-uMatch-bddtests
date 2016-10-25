@@ -19,6 +19,10 @@ exports.config = {
         // Login Page
         'features/login_page.feature',
 
+        //Treatment Arm details page
+        'features/TA_01_Analysis.feature',
+        'features/TA_02_Rules.feature',
+        
         // Dashboard page details page
         'features/HO_01_Dashboard.feature',
 
@@ -29,10 +33,6 @@ exports.config = {
         'features/PA_04_Patient_Tissue_Report.feature',
         'features/PA_05_Patient_Documents.feature',
         'features/SP_01_Specimen_Tracking.feature',
-
-        //Treatment Arm details page
-        'features/TA_01_Analysis.feature',
-        'features/TA_02_Rules.feature',
 
         //Specimen Tracking page
         'features/SP_01_Specimen_Tracking.feature',

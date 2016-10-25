@@ -40,8 +40,8 @@ module.exports = function () {
         var str = '/api/v1/patients/' + patientPage.patientId;
         var request = utilities.callApi('patient', str)
         request.get().then(function () {
-              patientApiInfo = JSON.parse(request.entity());
-        }).notify(callback);
+              patientPage.responseData = JSON.parse(request.entity());
+        }).then(callback);
     });
 
     this.When(/^I click on the "([^"]*)" tab$/, function (tabName, callback) {

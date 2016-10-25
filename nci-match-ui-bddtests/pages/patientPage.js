@@ -9,7 +9,7 @@ var PatientPage = function () {
 
     this.patientListTable = element(by.css('#patientGrid>table'));
     this.patientListHeaders = element.all(by.css('.sortable'));
-    this.patientListRowElements = element.all(by.repeater('item in filtered'));
+    this.patientListRowElements = element.all(by.css('tr[ng-repeat^=item in filtered]'));
 
 
     // Patient summary table information on the patient details page

@@ -27,13 +27,14 @@ module.exports = function() {
     var reportData;
 
     this.Then(/^I can see the Dashboard banner$/, function (callback) {
-//        browser.ignoreSynchronization = true;
+        browser.ignoreSynchronization = true;
         expect(dash.dashboardPanel.isPresent()).to.eventually.eql(true).notify(callback);
 
     });
 
     this.Then(/^I can see all sub headings under the top Banner$/, function (callback) {
         var expectedHeadings = ['Patients Statistics', 'Sequenced & Confirmed Patients with aMOIs', 'Top 5 Treatment Arm Accrual'];
+        browser.ignoreSynchronization = true;
         for (var i = 0; i < expectedHeadings.length; i++){
             expect(dash.summaryHeadings.get(i).getText()).to.eventually.eql(expectedHeadings[i]);
         };
@@ -128,17 +129,20 @@ module.exports = function() {
     });
 
     this.Then(/^I can see the Pending Review Section Heading$/, function (callback) {
-//        browser.ignoreSynchronization = true;
+        browser.ignoreSynchronization = true;
         var heading = element(by.css('.panel-container .ibox-title'));
 
-        expect(heading.getText()).to.eventually.eql('Pending Review');
-        browser.sleep(50).then(callback);
+        expect(heading.getText()).to.eventually.eql('Pending Review').then(function () {
+            browser.ignoreSynchronization = false;
+        }).then(callback);
     });
 
     this.Then(/^I can see the pending "(.+)" subtab$/, function (tabName, callback) {
         var tabElement = element(by.linkText(tabName));
-        expect(tabElement.isPresent()).to.eventually.be.true;
-        browser.sleep(50).then(callback);
+        browser.ignoreSynchronization = true;
+        expect(tabElement.isPresent()).to.eventually.eql(true).then(function () {
+            browser.ignoreSynchronization = false;
+        }).then(callback);
     });
 
     this.Given(/^I collect information for "(.+)" Dashboard$/, function (report_type, callback) {
@@ -157,9 +161,10 @@ module.exports = function() {
     this.Then(/^Count of "(.+)" table match with back end data$/, function (reportType, callback) {
         var count = responseData.length;
         var subtabDataList = element.all(by.id(subTabLocator[reportType])).get(0).all(by.repeater('item in filtered'));
-
-        expect(subtabDataList.count()).to.eventually.eql(count);
-        browser.sleep(20).then(callback);
+        browser.ignoreSynchronization = true;
+        expect(subtabDataList.count()).to.eventually.eql(count).then(function () {
+            browser.ignoreSynchronization = false;
+        }).then(callback);
     });
 
     this.Then(/^I select "(.+)" from the "(.+)" drop down$/, function (optionValue, reportType, callback) {
@@ -167,17 +172,17 @@ module.exports = function() {
             .element(by.model('paginationOptions.itemsPerPage'))
             .element(by.cssContainingText('option', optionValue))
             .click().
-            then(function () {
-            browser.waitForAngular();
-        }).then(callback);
+            then(callback);
     });
 
     this.When(/^I click on the "(.+)" sub\-tab$/, function (reportType, callback) {
         var pendingReviewArray = ['Tissue Variant Reports', 'Blood Variant Reports', 'Assignment Reports'];
         var index = pendingReviewArray.indexOf(reportType);
         var tabHeadingElement = element.all(by.binding('heading')).get(index);
-//        browser.ignoreSynchronization = true;
-        tabHeadingElement.click().then(callback);
+        browser.ignoreSynchronization = true;
+        tabHeadingElement.click().then(function () {
+            browser.ignoreSynchronization = false;
+        }).then(callback)
     });
 
     this.Then(/^The "(.+)" sub\-tab is active$/, function (reportType, callback) {
@@ -210,12 +215,11 @@ module.exports = function() {
         };
 
         var studyElement = element(by.id(subTabLocator[reportType])).all(by.css('th'));
-
-        browser.waitForAngular().then(function () {
-            for(var i = 0; i < dashboardList[reportType].length; i++){
-                expect(studyElement.get(i).getText()).to.eventually.eql(dashboardList[reportType][i]);
-            };
-        }).then(callback);
+        browser.ignoreSynchronization = true
+        for(var i = 0; i < dashboardList[reportType].length; i++){
+            expect(studyElement.get(i).getText()).to.eventually.eql(dashboardList[reportType][i]);
+        };
+        browser.sleep(50).then(callback);
     });
 
     this.When(/^I enter "(.+?)" in the "(.+?)" filter textbox$/, function (searchText, reportType, callback) {
@@ -234,8 +238,8 @@ module.exports = function() {
 
     this.Then(/^The patient id "(.+?)" is displayed in "(.+?)" table$/, function (patientId, reportType, callback) {
         var patient = element(by.id(subTabLocator[reportType])).element(by.binding('item.patient_id'));
-        expect(patient.getText()).to.eventually.eql(patientId);
-        browser.sleep(50).then(callback);
+        browser.ignoreSynchronization = true;
+        expect(patient.getText()).to.eventually.eql(patientId).notify(callback);
     });
 
     this.When(/^I collect information on the timeline$/, function (callback) {
@@ -249,15 +253,18 @@ module.exports = function() {
     this.Then(/^I can see the Activity Feed section$/, function (callback) {
         var feedSection = element(by.css('div[ng-controller="ActivityController as activity"]'));
         var heading = feedSection.element(by.css('h3'));
-        expect(heading.getText()).to.eventually.eql('Activity Feed');
-        browser.sleep(50).then(callback);
+        browser.ignoreSynchronization = true;
+        expect(heading.getText()).to.eventually.eql('Activity Feed').then(function () {
+            browser.ignoreSynchronization = false;
+        }).then(callback);
     });
 
     this.Then(/^I can see "(\d+)" entries in the section$/, function (counter, callback) {
-        expect(dash.feedRepeaterList.count()).to.eventually.eql(parseInt(counter)).and.notify(callback);
+        expect(dash.feedRepeaterList.count()).to.eventually.eql(parseInt(counter)).notify(callback);
     });
 
     this.Then(/^They match with the timeline response in order$/, function (callback) {
+        browser.ignoreSynchronization = true;
         for (var i = 0; i < 10 ; i++) {
             var testPatientId = element.all(by.css('patient-title[text="timelineEvent.entity_id"] .ta-name')).get(i);
             var testMessage   = element.all(by.binding('::timelineEvent.event_message')).get(i);
