@@ -698,7 +698,7 @@ def prepare_sequence_file_url(type, sub_type)
   if sub_type!=nil && sub_type.length>0
     slash_sub_type = "/#{sub_type}"
   end
-  url = "#{ENV['ion_system_endpoint']}/sequence_files#{slash_moi}#{slash_type}#{slash_sub_type}"
+  url = "#{ENV['ion_system_endpoint']}/sample_controls/sequence_files#{slash_moi}#{slash_type}#{slash_sub_type}"
   add_parameters_to_url(url, @url_params)
 end
 
@@ -711,7 +711,7 @@ def prepare_files_url(file_name)
   if file_name!=nil && file_name.length>0
     slash_file_name = "/#{file_name}"
   end
-  url = "#{ENV['ion_system_endpoint']}/files#{slash_moi}#{slash_file_name}"
+  url = "#{ENV['ion_system_endpoint']}/sample_controls/files#{slash_moi}#{slash_file_name}"
   add_parameters_to_url(url, @url_params)
 end
 

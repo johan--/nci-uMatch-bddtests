@@ -91,7 +91,11 @@ class Helper_Methods
       if e.response.nil?
         @get_response['message_json'] = {}
       else
-        @get_response['message_json'] = JSON.parse(e.response)
+        begin
+          @get_response['message_json'] = JSON.parse(e.response)
+        rescue
+          @get_response['message_json'] = {}
+        end
       end
       # p e.response
       return @get_response
@@ -182,6 +186,7 @@ class Helper_Methods
   def Helper_Methods.wait_until_updated(url, timeout)
     total_time = 0.0
     old_hash = nil
+    wait_time = 5.0
     loop do
       new_hash = Helper_Methods.simple_get_request(url)['message_json']
       # puts new_hash.to_json.to_s
@@ -192,11 +197,11 @@ class Helper_Methods
       unless old_hash == new_hash
         return new_hash
       end
-      total_time += 0.5
+      total_time += wait_time
       if total_time>timeout
         return new_hash
       end
-      sleep(0.5)
+      sleep(wait_time)
     end
     {}
   end
@@ -293,7 +298,7 @@ class Helper_Methods
         http_code = e.message[0,3]
       end
       @put_response['http_code'] = http_code
-      if e.methods.include?('response')
+      if e.respond_to?('response')
         @put_response['message'] = e.response
       else
         @put_response['message'] = e.message

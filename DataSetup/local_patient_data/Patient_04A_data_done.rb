@@ -60,15 +60,6 @@ pt = PatientDataSet.new('PT_AS08_TissueReceived')
 PatientMessageLoader.register_patient(pt.id)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 
-pt = PatientDataSet.new('PT_AS09SlideShipped')
-PatientMessageLoader.register_patient(pt.id)
-PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
-PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
-
-pt = PatientDataSet.new('PT_AS09aSlideShipped')
-PatientMessageLoader.register_patient(pt.id)
-PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
-PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
 
 pt = PatientDataSet.new('PT_AS11SlideShipped')
 PatientMessageLoader.register_patient(pt.id)
@@ -131,3 +122,32 @@ PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
 
 PatientMessageLoader.upload_done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# pt = PatientDataSet.new('PT_AS09SlideShipped')
+# PatientMessageLoader.register_patient(pt.id)
+# PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+# PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+#
+# pt = PatientDataSet.new('PT_AS09aSlideShipped')
+# PatientMessageLoader.register_patient(pt.id)
+# PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+# PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)

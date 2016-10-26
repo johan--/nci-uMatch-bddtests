@@ -136,12 +136,11 @@ Feature: Variant files uploaded message
     Given template variant file uploaded message for patient: "PT_VU13_VariantReportConfirmed", it has molecular_id: "PT_VU13_VariantReportConfirmed_MOI1" and analysis_id: "PT_VU13_VariantReportConfirmed_ANI2"
     When post to MATCH patients service, returns a message that includes "Patient already has a confirmed  variant report" with status "Failure"
 
-  @patients_p2
+  @patients_p3
   Scenario: PT_VU14. variant file uploaded to blood specimen should has correct result
 #    Test patient: PT_VU14_TissueAndBloodShipped; Tissue shipped: _SEI1, _MOI1; Blood shipped: BD_MOI1
     Given template variant file uploaded message for patient: "PT_VU14_TissueAndBloodShipped", it has molecular_id: "PT_VU14_TissueAndBloodShipped_BD_MOI1" and analysis_id: "PT_VU14_TissueAndBloodShipped_ANI1"
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
-    Then patient field: "current_status" should have value: "BLOOD_VARIANT_REPORT_RECEIVED" within 15 seconds
     Then patient should have variant report (analysis_id: "PT_VU14_TissueAndBloodShipped_ANI1") within 15 seconds
     And this variant report has value: "BLOOD" in field: "variant_report_type"
     And this variant report has value: "test1.tsv" in field: "tsv_file_name"
@@ -155,7 +154,7 @@ Feature: Variant files uploaded message
 #    Then retrieve patient: "PT_VU15_TissueReceivedAndShippedTwice" from API
 #    Then returned patient has variant report (surgical_event_id: "SEI_02", molecular_id: "MOI_01", analysis_id: "ANI_01")
 
-  @patients_p2
+  @patients_p3
   Scenario: PT_VU16. blood variant files uploaded with new analysis_id make all pending old files rejected
 #    Test patient: PT_VU16_BdVRUploaded; variant report files uploaded: molecular_id: _BR_MOI1, analysis_id: _ANI1
 #          Plan to uploaded molecular_id: _BR_MOI1, analysis_id: _ANI2

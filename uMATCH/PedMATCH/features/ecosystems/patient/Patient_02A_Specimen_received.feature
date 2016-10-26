@@ -2,7 +2,7 @@
 @specimen_received
 Feature: Receive NCH specimen messages and consume the message within MATCH:
 
-  @patients_p2
+  @patients_p3
   Scenario: PT_SR01. Consume a specimen_received message for type "Blood" for a patient already registered in Match
     Given template specimen received message in type: "BLOOD" for patient: "PT_SR01_Registered", it has surgical_event_id: ""
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
@@ -16,7 +16,7 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
     Then patient field: "current_status" should have value: "TISSUE_SPECIMEN_RECEIVED" within 15 seconds
 
-  @patients_p2
+  @patients_p3
   Scenario: PT_SR03. "Blood" specimen received message with surgical_event_id should fail
     Given template specimen received message in type: "BLOOD" for patient: "PT_SR03_Registered", it has surgical_event_id: ""
     Then set patient message field: "surgical_event_id" to value: "PT_SR03_Registered_SEI1"
@@ -89,7 +89,7 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
       | PT_SR10_ProgressReBioY   | PT_SR10_ProgressReBioY_SEI2   | Success | processed successfully |
       | PT_SR10_OffStudy         | PT_SR10_OffStudy_SEI2         | Failure | cannot transition from |
 
-  @patients_p2
+  @patients_p3
   Scenario Outline: PT_SR10b. blood specimen_received message can only be accepted when patient is in certain status
     Given template specimen received message in type: "BLOOD" for patient: "<patient_id>", it has surgical_event_id: ""
     Then set patient message field: "collection_dttm" to value: "current"
@@ -143,7 +143,7 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     Then patient should have variant report (analysis_id: "PT_SR14_TsVrUploaded1_ANI1") within 15 seconds
     And this variant report has value: "PENDING" in field: "status"
 
-  @patients_p1
+  @patients_p3
   Scenario: PT_SR14c. When a new BLOOD specimen_received message is received,  the pending BLOOD variant report from the old Surgical event is set to "REJECTED" status
   #    Test patient: PT_SR14_BdVrUploaded; variant report files uploaded: PT_SR14_BdVrUploaded(_BD_MOI1, _ANI1)
     Given template specimen received message in type: "BLOOD" for patient: "PT_SR14_BdVrUploaded", it has surgical_event_id: ""

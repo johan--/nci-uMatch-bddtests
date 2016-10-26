@@ -5,7 +5,7 @@ Feature: Patients end to end tests
 
   @patients_p1
   Scenario: PT_ETE01. patient can reach step 4.1 successfully
-#      Given patient: "PT_ETE01" with status: "BLOOD_VARIANT_REPORT_RECEIVED" on step: "3.0"
+#    Given patient: "PT_ETE01" with status: "BLOOD_VARIANT_REPORT_RECEIVED" on step: "3.0"
 #    Given this patients's active "TISSUE" molecular_id is "PT_ETE01_MOI2"
 #    Given this patients's active "BLOOD" molecular_id is "PT_ETE01_BD_MOI2"
 #    Given this patients's active "TISSUE" analysis_id is "PT_ETE01_ANI3"
@@ -13,15 +13,15 @@ Feature: Patients end to end tests
     Given reset COG patient data: "PT_ETE01"
     Given patient: "PT_ETE01" is registered
     Then tissue specimen received with surgical_event_id: "PT_ETE01_SEI1"
-    Then blood specimen received
+#    Then blood specimen received
     Then "TISSUE" specimen shipped to "MDA" with molecular_id or slide_barcode: "PT_ETE01_MOI1"
     Then "SLIDE" specimen shipped to "MDA" with molecular_id or slide_barcode: "PT_ETE01_BC1"
-    Then "BLOOD" specimen shipped to "MDA" with molecular_id or slide_barcode: "PT_ETE01_BD_MOI1"
+#    Then "BLOOD" specimen shipped to "MDA" with molecular_id or slide_barcode: "PT_ETE01_BD_MOI1"
     Then "ICCPTENs" assay result received result: "NEGATIVE"
     Then "ICCMLH1s" assay result received result: "NEGATIVE"
     Then pathology confirmed with status: "Y"
     Then "TISSUE" variant report uploaded with analysis_id: "PT_ETE01_ANI1"
-    Then "BLOOD" variant report uploaded with analysis_id: "PT_ETE01_ANI2"
+#    Then "BLOOD" variant report uploaded with analysis_id: "PT_ETE01_ANI2"
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
     Then patient status should be "PENDING_CONFIRMATION" within 30 seconds
     Then patient should have selected treatment arm: "APEC1621-ETE-A" with stratum id: "100" within 15 seconds
@@ -41,15 +41,15 @@ Feature: Patients end to end tests
     Then patient status should be "REQUEST_ASSIGNMENT" within 15 seconds
     Then patient step number should be "3.0" within 15 seconds
     Then tissue specimen received with surgical_event_id: "PT_ETE01_SEI2"
-    Then blood specimen received
+#    Then blood specimen received
     Then "TISSUE" specimen shipped to "MoCha" with molecular_id or slide_barcode: "PT_ETE01_MOI2"
     Then "SLIDE" specimen shipped to "MDA" with molecular_id or slide_barcode: "PT_ETE01_BC2"
-    Then "BLOOD" specimen shipped to "MoCha" with molecular_id or slide_barcode: "PT_ETE01_BD_MOI2"
+#    Then "BLOOD" specimen shipped to "MoCha" with molecular_id or slide_barcode: "PT_ETE01_BD_MOI2"
     Then "ICCPTENs" assay result received result: "POSITIVE"
     Then "ICCMLH1s" assay result received result: "INDETERMINATE"
     Then pathology confirmed with status: "Y"
     Then "TISSUE" variant report uploaded with analysis_id: "PT_ETE01_ANI3"
-    Then "BLOOD" variant report uploaded with analysis_id: "PT_ETE01_ANI4"
+#    Then "BLOOD" variant report uploaded with analysis_id: "PT_ETE01_ANI4"
     Then "TISSUE" variant(type: "fusion", field: "identifier", value: "FGFR2-OFD1.F17O3") is "unchecked"
     Then "TISSUE" variant(type: "fusion", field: "identifier", value: "CCDC6-RET.C1R12.COSF1271") is "unchecked"
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
