@@ -74,6 +74,16 @@ var Utilities = function() {
         return retVal;
     };
 
+    this.zerofyIfEmpty = function(strVal){
+        var retVal;
+        if ( strVal == null || strVal === undefined ) {
+            retVal = 0
+        }else {
+            retVal = strVal
+        }
+        return retVal;
+    };
+
     /**
      * Gets all the values for the attributes and checks if the value provided is set.
      * @param element

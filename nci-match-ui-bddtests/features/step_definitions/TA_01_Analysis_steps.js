@@ -145,7 +145,7 @@ module.exports = function () {
         var notEnrolledPatients = utilities.dashifyIfEmpty(firstTreatmentArm.stratum_statistics.not_enrolled_patients);
         var pendingPatients     = utilities.dashifyIfEmpty(firstTreatmentArm.stratum_statistics.pending_patients);
         var dateExpected = moment.utc(firstTreatmentArm.date_opened).utc().format('LLL');
-        
+
         expect(element(by.binding('vm.treatmentArmId')).getText()).to.eventually.eql(firstTreatmentArm.treatment_arm_id);
         expect(element(by.binding('vm.stratumId')).getText()).to.eventually.eql(firstTreatmentArm.stratum_id);
         expect(element(by.binding('item.stratum_statistics.current_patients')).getText()).to.eventually.eql(currentPatients.toString());
@@ -202,12 +202,14 @@ module.exports = function () {
         utilities.checkElementArray(taPage.rightInfoBoxLabels, taPage.expectedRightBoxLabels);
         var expectedDrugList = [];
         var drugDetails = firstTreatmentArm.treatment_arm_drugs;
+        var versionCurrentPatients = utilities.zerofyIfEmpty(firstTreatmentArm.version_statistics.current_patients);
+        var stratumCurrentPatients = utilities.zerofyIfEmpty(firstTreatmentArm.stratum_statistics.current_patients);
         for(var i = 0; i < drugDetails.length; i ++){
             expectedDrugList.push(drugDetails[i].name);
         }
         expect(taPage.taGene.getText()).to.eventually.equal(firstTreatmentArm.gene);
-        expect(taPage.taPatientsAssigned.getText()).to.eventually.equal(firstTreatmentArm.version_statistics.current_patients.toString());
-        expect(taPage.taTotalPatientsAssigned.getText()).to.eventually.equal(firstTreatmentArm.stratum_statistics.current_patients.toString());
+        expect(taPage.taPatientsAssigned.getText()).to.eventually.equal(versionCurrentPatients.toString());
+        expect(taPage.taTotalPatientsAssigned.getText()).to.eventually.equal(stratumCurrentPatients.toString());
         taPage.taDrug.getText().then(function (actualDrugList) {
             expect(actualDrugList).to.eql(expectedDrugList)
         }).then(callback);
