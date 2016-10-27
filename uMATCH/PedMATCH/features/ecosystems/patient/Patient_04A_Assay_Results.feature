@@ -13,11 +13,11 @@ Feature: Assay Messages
     Then patient should have specimen (surgical_event_id: "<sei>") within 1 seconds
     And this specimen has assay (biomarker: "<biomarker>", result: "<result>", reported_date: "<reported_date>")
     Examples:
-      |patient_id            |sei                       |biomarker          |result            |reported_date                             |
-      |PT_AS00_SlideShipped1 |PT_AS00_SlideShipped1_SEI1|ICCPTENs           |POSITIVE          |2016-08-18T10:42:13+00:00        |
-      |PT_AS00_SlideShipped2 |PT_AS00_SlideShipped2_SEI1|ICCMLH1s           |NEGATIVE          |2016-08-18T11:42:13+00:00        |
-      |PT_AS00_SlideShipped3 |PT_AS00_SlideShipped3_SEI1|ICCPTENs           |NEGATIVE          |2016-08-18T12:42:13+00:00        |
-      |PT_AS00_SlideShipped4 |PT_AS00_SlideShipped4_SEI1|ICCMLH1s           |INDETERMINATE     |2016-08-18T13:42:13+00:00        |
+      | patient_id            | sei                        | biomarker | result        | reported_date             |
+      | PT_AS00_SlideShipped1 | PT_AS00_SlideShipped1_SEI1 | ICCPTENs  | POSITIVE      | 2016-08-18T10:42:13+00:00 |
+      | PT_AS00_SlideShipped2 | PT_AS00_SlideShipped2_SEI1 | ICCMLH1s  | NEGATIVE      | 2016-08-18T11:42:13+00:00 |
+      | PT_AS00_SlideShipped3 | PT_AS00_SlideShipped3_SEI1 | ICCPTENs  | NEGATIVE      | 2016-08-18T12:42:13+00:00 |
+      | PT_AS00_SlideShipped4 | PT_AS00_SlideShipped4_SEI1 | ICCMLH1s  | INDETERMINATE | 2016-08-18T13:42:13+00:00 |
 
 
   @patients_p2
@@ -25,33 +25,33 @@ Feature: Assay Messages
     Given template assay message with surgical_event_id: "PT_AS01_SEI1" for patient: "<value>"
     When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
     Examples:
-    |value     |message                    |
-#    |          |can't be blank             |
-    |nonPatient|has not been registered    |
+      | value      | message                 |
+  #    |          |can't be blank             |
+      | nonPatient | has not been registered |
 #    |null      |can't be blank             |
 
-@patients_p2
+  @patients_p2
   Scenario Outline: PT_AS02. Assay result with invalid study_id(empty, non-existing, null) should fail
-#		Test data: Patient=PT_AS02_SlideShipped, with surgical_event_id=PT_AS02_SlideShipped_SEI1, slide_barcode=PT_AS02_SlideShipped_BC1
+  #		Test data: Patient=PT_AS02_SlideShipped, with surgical_event_id=PT_AS02_SlideShipped_SEI1, slide_barcode=PT_AS02_SlideShipped_BC1
     Given template assay message with surgical_event_id: "PT_AS02_SlideShipped_SEI1" for patient: "PT_AS02_SlideShipped"
     Then set patient message field: "study_id" to value: "<value>"
     When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
     Examples:
-      |value     |message                |
-      |          |can't be blank         |
-      |other     |not a valid study_id   |
-      |null      |can't be blank         |
+      | value | message              |
+      |       | can't be blank       |
+      | other | not a valid study_id |
+      | null  | can't be blank       |
 
-@patients_p2
+  @patients_p2
   Scenario Outline: PT_AS03. Assay result with invalid surgical_event_id(empty, non-existing, null) should fail
-#		Test data: Patient=PT_AS03_SlideShipped, with surgical_event_id=PT_AS03_SlideShipped_SEI1
+  #		Test data: Patient=PT_AS03_SlideShipped, with surgical_event_id=PT_AS03_SlideShipped_SEI1
     Given template assay message with surgical_event_id: "<value>" for patient: "PT_AS03_SlideShipped"
     When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
     Examples:
-      |value     |message                |
-      |          |can't be blank         |
-      |SEI_NON   |surgical event_id      |
-      |null      |can't be blank         |
+      | value   | message           |
+      |         | can't be blank    |
+      | SEI_NON | surgical event_id |
+      | null    | can't be blank    |
 
 #    type has been removed from assay message
 #  Scenario Outline: PT_AS04. Assay result with invalid type(other than RESULT) should fail
@@ -64,54 +64,54 @@ Feature: Assay Messages
 #      |OTHER     |cannot transition from                                    |
 #      |null      |NilClass did not match the following type: string         |
 
-@patients_p2
+  @patients_p2
   Scenario Outline: PT_AS05. Assay result with invalid biomarker(other than ICCPTENs or ICCMLH1s) should fail
     Given template assay message with surgical_event_id: "PT_AS05_SlideShipped_SEI1" for patient: "PT_AS05_SlideShipped"
     Then set patient message field: "biomarker" to value: "<value>"
     When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
     Examples:
-      |value     |message          |
-      |          |can't be blank   |
-      |OTHER     |biomarker        |
-      |null      |can't be blank   |
+      | value | message        |
+      |       | can't be blank |
+      | OTHER | biomarker      |
+      | null  | can't be blank |
 
-@patients_p2
+  @patients_p2
   Scenario Outline: PT_AS06. Assay result with invalid reported_date(empty, non-date, null) should fail
     Given template assay message with surgical_event_id: "PT_AS06_SlideShipped_SEI1" for patient: "PT_AS06_SlideShipped"
     Then set patient message field: "reported_date" to value: "<value>"
     When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
     Examples:
-      |value     |message          |
-      |          |can't be blank   |
-      |nonDate   |date             |
-      |null      |can't be blank   |
+      | value   | message        |
+      |         | can't be blank |
+      | nonDate | date           |
+      | null    | can't be blank |
 
-@patients_p2
+  @patients_p2
   Scenario Outline: PT_AS07. Assay result with invalid result(other than POSITIVE, NEGATIVE or INDETERMINATE) should fail
     Given template assay message with surgical_event_id: "PT_AS07_SlideShipped_SEI1" for patient: "PT_AS07_SlideShipped"
     Then set patient message field: "result" to value: "<value>"
     When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
     Examples:
-      |value      |message          |
-      |           |can't be blank   |
-      |otherResult|result           |
-      |null       |can't be blank   |
+      | value       | message        |
+      |             | can't be blank |
+      | otherResult | result         |
+      | null        | can't be blank |
 
 
 #Logic tests:
-@patients_p2
+  @patients_p2
   Scenario Outline: PT_AS08. Assay result received for patient who has no slide shipped (using same surgical_event_id) should fail
-#		Test data: Patient=PT_AS08_Registered, without slide shipment
-#		Patient=PT_AS08_TissueReceived, tissue received with surgical_event_id=PT_AS08_TissueReceived_SEI1, without slide shipment
-#       Patient=PT_AS08_SEI1HasSlideSEI2NoSlide, surgical_event_id=PT_AS08_SEI1HasSlideSEI2NoSlide_SEI1 has slide shipped, surgical_event_id=PT_AS08_SEI1HasSlideSEI2NoSlide_SEI2 has no slide shipment
+  #		Test data: Patient=PT_AS08_Registered, without slide shipment
+  #		Patient=PT_AS08_TissueReceived, tissue received with surgical_event_id=PT_AS08_TissueReceived_SEI1, without slide shipment
+  #       Patient=PT_AS08_SEI1HasSlideSEI2NoSlide, surgical_event_id=PT_AS08_SEI1HasSlideSEI2NoSlide_SEI1 has slide shipped, surgical_event_id=PT_AS08_SEI1HasSlideSEI2NoSlide_SEI2 has no slide shipment
     Given template assay message with surgical_event_id: "<sei>" for patient: "<patient_id>"
     Then set patient message field: "reported_date" to value: "current"
     When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
     Examples:
-      |patient_id                            |sei                                       |message                          |
-      |PT_AS08_Registered                    |SEI_NON                                   |surgical event_id                |
-      |PT_AS08_TissueReceived                |PT_AS08_TissueReceived_SEI1               |doesn't have a slide shipment    |
-      |PT_AS08_SEI1HasSlideSEI2NoSlide       |PT_AS08_SEI1HasSlideSEI2NoSlide_SEI2      |doesn't have a slide shipment    |
+      | patient_id                      | sei                                  | message                       |
+      | PT_AS08_Registered              | SEI_NON                              | surgical event_id             |
+      | PT_AS08_TissueReceived          | PT_AS08_TissueReceived_SEI1          | doesn't have a slide shipment |
+      | PT_AS08_SEI1HasSlideSEI2NoSlide | PT_AS08_SEI1HasSlideSEI2NoSlide_SEI2 | doesn't have a slide shipment |
 
 
   #ordered_date is not required anymore
@@ -127,22 +127,22 @@ Feature: Assay Messages
 #    Then set patient message field: "reported_date" to value: "2016-05-03T12:13:09.071-05:00"
 #    When post to MATCH patients service, returns a message that includes "Assay ordered date later than result reported date" with status "Failure"
 
-@patients_p2
+  @patients_p2
   Scenario: PT_AS10. Assay result received for old surgical_event_id should fail
-#  Test data: Patient=PT_AS10SlideShipped, old surgical_event_id=PT_AS10SlideShipped_SEI1, has slide shipped, new surgical_event_id=PT_AS10SlideShipped_SEI2, has slide shipped
+  #  Test data: Patient=PT_AS10SlideShipped, old surgical_event_id=PT_AS10SlideShipped_SEI1, has slide shipped, new surgical_event_id=PT_AS10SlideShipped_SEI2, has slide shipped
     Given template assay message with surgical_event_id: "PT_AS10SlideShipped_SEI1" for patient: "PT_AS10SlideShipped"
     When post to MATCH patients service, returns a message that includes " not the currently active specimen" with status "Failure"
 
-@patients_p2
+  @patients_p2
   Scenario: PT_AS10a. Assay result received for active surgical_event_id but doesn't belong to this patient should fail
-#  Test data: Patient=PT_AS10aSlideShipped1, sei=PT_AS10aSlideShipped1_SEI1,
-#             Patient=PT_AS10aSlideShipped2, sei=PT_AS10aSlideShipped2_SEI1,
+  #  Test data: Patient=PT_AS10aSlideShipped1, sei=PT_AS10aSlideShipped1_SEI1,
+  #             Patient=PT_AS10aSlideShipped2, sei=PT_AS10aSlideShipped2_SEI1,
     Given template assay message with surgical_event_id: "PT_AS10bSlideShipped2_SEI1" for patient: "PT_AS10aSlideShipped1"
     When post to MATCH patients service, returns a message that includes "surgical" with status "Failure"
 
-@patients_p1
+  @patients_p1
   Scenario Outline: PT_AS11. Assay result can be received multiple times with same surgical_event_id (as long as this SEI is latest and has shipped slide)
-#  Test data: Patient=PT_AS11SlideShipped, surgical_event_id=PT_AS11SlideShipped_SEI1, has slide shipped
+  #  Test data: Patient=PT_AS11SlideShipped, surgical_event_id=PT_AS11SlideShipped_SEI1, has slide shipped
     Given template assay message with surgical_event_id: "PT_AS11SlideShipped_SEI1" for patient: "PT_AS11SlideShipped"
     Then set patient message field: "reported_date" to value: "<date>"
     Then set patient message field: "biomarker" to value: "<biomarker>"
@@ -152,17 +152,14 @@ Feature: Assay Messages
     And this specimen has assay (biomarker: "<biomarker>", result: "<result>", reported_date: "<date>")
 
     Examples:
-    |biomarker          |result            |date                             |
-    |ICCPTENs           |POSITIVE          |2016-05-18T10:42:13+00:00        |
-    |ICCMLH1s           |NEGATIVE          |2016-05-18T11:42:13+00:00        |
-    |ICCPTENs           |NEGATIVE          |2016-05-18T12:42:13+00:00        |
-    |ICCMLH1s           |INDETERMINATE     |2016-05-18T13:42:13+00:00        |
+      | biomarker | result        | date                      |
+      | ICCPTENs  | POSITIVE      | 2016-05-18T10:42:13+00:00 |
+      | ICCMLH1s  | NEGATIVE      | 2016-05-18T11:42:13+00:00 |
+      | ICCPTENs  | NEGATIVE      | 2016-05-18T12:42:13+00:00 |
+      | ICCMLH1s  | INDETERMINATE | 2016-05-18T13:42:13+00:00 |
 
-@patients_p2
+  @patients_p2
   Scenario Outline: PT_AS12. assay result received will not trigger patient assignment process unless patient has pathology and VR ready
-  #Test patient PT_AS12_VRConfirmedNoPatho VR confirmed ids: PT_AS12_VRConfirmedNoPatho_(SEI1, MOI1, ANI1), Pathology is not confirmed yet
-  #             PT_AS12_PathoConfirmedNoVR VR uploaded ids: PT_AS12_PathoConfirmedNoVR_(SEI1, MOI1, ANI1), but not confirmed, Pathology is confirmed (PT_AS12_PathoConfirmedNoVR_SEI1)
-  #             PT_AS12_VRAndPathoConfirmed VR confirmed ids: PT_AS12_VRAndPathoConfirmed_(SEI1, MOI1, ANI1), Pathology is confirmed (PT_AS12_VRAndPathoConfirmed_SEI1)
     Given template assay message with surgical_event_id: "<sei>" for patient: "<patient_id>"
     Then set patient message field: "biomarker" to value: "ICCPTENs"
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
@@ -173,12 +170,15 @@ Feature: Assay Messages
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
     Then patient field: "current_status" should have value: "<patient_status>" after 30 seconds
     Examples:
-      |patient_id                           |patient_status            |sei                                                     |
-      |PT_AS12_VRAndPathoConfirmed          |PENDING_CONFIRMATION      |PT_AS12_VRAndPathoConfirmed_SEI1                        |
-      |PT_AS12_VRConfirmedNoPatho           |ASSAY_RESULTS_RECEIVED    |PT_AS12_VRConfirmedNoPatho_SEI1                         |
-      |PT_AS12_PathoConfirmedNoVR           |ASSAY_RESULTS_RECEIVED    |PT_AS12_PathoConfirmedNoVR_SEI1                         |
+      | patient_id          | patient_status         | sei                      |
+      | PT_AS12_VrConfirmed | PENDING_CONFIRMATION   | PT_AS12_VrConfirmed_SEI1 |
+      | PT_AS12_VrReceived  | ASSAY_RESULTS_RECEIVED | PT_AS12_VrReceived_SEI1  |
+          #there is no “PATHOLOGY_REVIEWED” status anymore
+#      | PT_AS12_VRAndPathoConfirmed | PENDING_CONFIRMATION   | PT_AS12_VRAndPathoConfirmed_SEI1 |
+#      | PT_AS12_VRConfirmedNoPatho  | ASSAY_RESULTS_RECEIVED | PT_AS12_VRConfirmedNoPatho_SEI1  |
+#      | PT_AS12_PathoConfirmedNoVR  | ASSAY_RESULTS_RECEIVED | PT_AS12_PathoConfirmedNoVR_SEI1  |
 
-@patients_p3
+  @patients_p3
   Scenario: PT_AS13. extra key-value pair in the message body should NOT fail
     Given template assay message with surgical_event_id: "PT_AS13_SlideShipped_SEI1" for patient: "PT_AS13_SlideShipped"
     Then set patient message field: "extra_info" to value: "This is extra information"

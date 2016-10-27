@@ -19,7 +19,6 @@ Feature: Patients end to end tests
 #    Then "BLOOD" specimen shipped to "MDA" with molecular_id or slide_barcode: "PT_ETE01_BD_MOI1"
     Then "ICCPTENs" assay result received result: "NEGATIVE"
     Then "ICCMLH1s" assay result received result: "NEGATIVE"
-    Then pathology confirmed with status: "Y"
     Then "TISSUE" variant report uploaded with analysis_id: "PT_ETE01_ANI1"
 #    Then "BLOOD" variant report uploaded with analysis_id: "PT_ETE01_ANI2"
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
@@ -47,7 +46,6 @@ Feature: Patients end to end tests
 #    Then "BLOOD" specimen shipped to "MoCha" with molecular_id or slide_barcode: "PT_ETE01_BD_MOI2"
     Then "ICCPTENs" assay result received result: "POSITIVE"
     Then "ICCMLH1s" assay result received result: "INDETERMINATE"
-    Then pathology confirmed with status: "Y"
     Then "TISSUE" variant report uploaded with analysis_id: "PT_ETE01_ANI3"
 #    Then "BLOOD" variant report uploaded with analysis_id: "PT_ETE01_ANI4"
     Then "TISSUE" variant(type: "fusion", field: "identifier", value: "FGFR2-OFD1.F17O3") is "unchecked"
@@ -88,7 +86,7 @@ Feature: Patients end to end tests
     Given patient: "PT_ETE03" in mock service lost patient list, service will come back after "5" tries
     Given this patients's active "TISSUE" molecular_id is "PT_ETE03_MOI1"
     Given this patients's active "TISSUE" analysis_id is "PT_ETE03_ANI1"
-    Given other background and comments for this patient: "assay and pathology are ready"
+    Given other background and comments for this patient: "assays are ready"
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
     Then patient status should be "PENDING_CONFIRMATION" within 350 seconds
 
@@ -105,7 +103,6 @@ Feature: Patients end to end tests
       | PT_ETE04_TsShipped       | TISSUE_NUCLEIC_ACID_SHIPPED     | 2.0                 |
       | PT_ETE04_slideShipped    | TISSUE_SLIDE_SPECIMEN_SHIPPED   | 2.0                 |
       | PT_ETE04_AssayReceived   | ASSAY_RESULTS_RECEIVED          | 1.0                 |
-      | PT_ETE04_PathoConfirmed  | PATHOLOGY_REVIEWED              | 2.0                 |
       | PT_ETE04_TsVrReceived    | TISSUE_VARIANT_REPORT_RECEIVED  | 2.0                 |
       | PT_ETE04_TsVrConfirmed   | TISSUE_VARIANT_REPORT_CONFIRMED | 1.0                 |
       | PT_ETE04_TsVrRejected    | TISSUE_VARIANT_REPORT_REJECTED  | 1.0                 |
@@ -119,6 +116,8 @@ Feature: Patients end to end tests
 #  |PT_ETE04_BdVrReceived   |BLOOD_VARIANT_REPORT_RECEIVED    |1.0                |
 #  |PT_ETE04_BdVrConfirmed  |BLOOD_VARIANT_REPORT_CONFIRMED   |1.0                |
 #  |PT_ETE04_BdVrRejected   |BLOOD_VARIANT_REPORT_REJECTED    |1.0                |
+    #there is no “PATHOLOGY_REVIEWED” status anymore
+#      | PT_ETE04_PathoConfirmed  | PATHOLOGY_REVIEWED              | 2.0                 |
 
   @patients_p2
   Scenario: PT_ETE05. new tissue specimen with a surgical_event_id that was used in previous step should fail
@@ -238,7 +237,7 @@ Feature: Patients end to end tests
     Given patient: "<patient_id>" with status: "TISSUE_VARIANT_REPORT_RECEIVED" on step: "1.0"
     Given this patients's active "TISSUE" molecular_id is "<moi>"
     Given this patients's active "TISSUE" analysis_id is "<ani>"
-    Given other background and comments for this patient: "assay and pathology are ready"
+    Given other background and comments for this patient: "assays are ready"
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
     Then wait for "10" seconds
     Then assignment report is confirmed
@@ -279,10 +278,11 @@ Feature: Patients end to end tests
       | PT_ETE17_TsShipped           | TISSUE_NUCLEIC_ACID_SHIPPED     | 2.0                 | 2.0              |         | Failure     | TISSUE_NUCLEIC_ACID_SHIPPED     |
       | PT_ETE17_slideShipped        | TISSUE_SLIDE_SPECIMEN_SHIPPED   | 2.0                 | 2.0              |         | Failure     | TISSUE_SLIDE_SPECIMEN_SHIPPED   |
       | PT_ETE17_AssayReceived       | ASSAY_RESULTS_RECEIVED          | 1.0                 | 1.0              |         | Failure     | ASSAY_RESULTS_RECEIVED          |
-      | PT_ETE17_PathoConfirmed      | PATHOLOGY_REVIEWED              | 2.0                 | 2.0              |         | Failure     | PATHOLOGY_REVIEWED              |
       | PT_ETE17_TsVrReceived        | TISSUE_VARIANT_REPORT_RECEIVED  | 2.0                 | 2.0              |         | Failure     | TISSUE_VARIANT_REPORT_RECEIVED  |
       | PT_ETE17_TsVrConfirmed       | TISSUE_VARIANT_REPORT_CONFIRMED | 1.0                 | 1.0              |         | Failure     | TISSUE_VARIANT_REPORT_CONFIRMED |
       | PT_ETE17_TsVrRejected        | TISSUE_VARIANT_REPORT_REJECTED  | 1.0                 | 1.0              |         | Failure     | TISSUE_VARIANT_REPORT_REJECTED  |
+    #there is no “PATHOLOGY_REVIEWED” status anymore
+#      | PT_ETE17_PathoConfirmed      | PATHOLOGY_REVIEWED              | 2.0                 | 2.0              |         | Failure     | PATHOLOGY_REVIEWED              |
 
   @patients_p2
   Scenario Outline: PT_ETE18. patient can only be set to request assignment(rebiopsy=Y) when patient is on certain status
@@ -301,10 +301,11 @@ Feature: Patients end to end tests
       | PT_ETE18_TsShipped           | TISSUE_NUCLEIC_ACID_SHIPPED     | 2.0                 | 2.0              |         | Failure     | TISSUE_NUCLEIC_ACID_SHIPPED     |
       | PT_ETE18_slideShipped        | TISSUE_SLIDE_SPECIMEN_SHIPPED   | 2.0                 | 2.0              |         | Failure     | TISSUE_SLIDE_SPECIMEN_SHIPPED   |
       | PT_ETE18_AssayReceived       | ASSAY_RESULTS_RECEIVED          | 1.0                 | 1.0              |         | Failure     | ASSAY_RESULTS_RECEIVED          |
-      | PT_ETE18_PathoConfirmed      | PATHOLOGY_REVIEWED              | 2.0                 | 2.0              |         | Failure     | PATHOLOGY_REVIEWED              |
       | PT_ETE18_TsVrReceived        | TISSUE_VARIANT_REPORT_RECEIVED  | 2.0                 | 2.0              |         | Failure     | TISSUE_VARIANT_REPORT_RECEIVED  |
       | PT_ETE18_TsVrConfirmed       | TISSUE_VARIANT_REPORT_CONFIRMED | 1.0                 | 1.0              |         | Failure     | TISSUE_VARIANT_REPORT_CONFIRMED |
       | PT_ETE18_TsVrRejected        | TISSUE_VARIANT_REPORT_REJECTED  | 1.0                 | 1.0              |         | Failure     | TISSUE_VARIANT_REPORT_REJECTED  |
+    #there is no “PATHOLOGY_REVIEWED” status anymore
+#      | PT_ETE18_PathoConfirmed      | PATHOLOGY_REVIEWED              | 2.0                 | 2.0              |         | Failure     | PATHOLOGY_REVIEWED              |
 
   @patients_p2
   Scenario: any message should be rejected if patient is on "REQUEST_NO_ASSIGNMENT" status
@@ -323,8 +324,6 @@ Feature: Patients end to end tests
     Then "TISSUE" variant report uploaded with analysis_id: "PT_ETE19_ANI4"
     Then API returns a message that includes "assignment" with status "Failure"
     Then "ICCMLH1s" assay result received result: "NEGATIVE"
-    Then API returns a message that includes "assignment" with status "Failure"
-    Then pathology confirmed with status: "Y"
     Then API returns a message that includes "assignment" with status "Failure"
 
   #variant_reports table should be capable to store many variant reports (more than 150 big tsv)

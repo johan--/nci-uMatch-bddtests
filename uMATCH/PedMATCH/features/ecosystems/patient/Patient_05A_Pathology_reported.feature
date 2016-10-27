@@ -2,7 +2,7 @@
 @pathology
 Feature: Pathology Messages
 
-  @patients_p1
+  @patients_not_required
   Scenario Outline: PT_PR00. Pathology report can be consumed successfully
     Given template pathology report with surgical_event_id: "<sei>" for patient: "<patient_id>"
     Then set patient message field: "status" to value: "<status>"
@@ -17,7 +17,7 @@ Feature: Pathology Messages
       | PT_PR00_TsReceived2 | PT_PR00_TsReceived2_SEI1 | N      | 2016-08-19T17:42:13+00:00 | PATHOLOGY_REVIEWED       |
       | PT_PR00_TsReceived3 | PT_PR00_TsReceived3_SEI1 | U      | 2016-08-20T17:42:13+00:00 | TISSUE_SPECIMEN_RECEIVED |
 
-  @patients_p2
+  @patients_not_required
   Scenario Outline: PT_PR01. Pathology report with invalid patient_id(empty, non-existing, null) should fail
     Given template pathology report with surgical_event_id: "PT_PR01_SEI1" for patient: "<value>"
     When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
@@ -27,7 +27,7 @@ Feature: Pathology Messages
       | nonPatient | as not been registered |
 #      |null      |can't be blank               |
 
-  @patients_p2
+  @patients_not_required
   Scenario Outline: PT_PR02. Pathology report with invalid study_id(empty, non-existing, null) should fail
     Given template pathology report with surgical_event_id: "PT_PR02_TissueReceived_SEI1" for patient: "PT_PR02_TissueReceived"
     Then set patient message field: "study_id" to value: "<value>"
@@ -38,7 +38,7 @@ Feature: Pathology Messages
       | other | not a valid study_id |
       | null  | can't be blank       |
 
-  @patients_p2
+  @patients_not_required
   Scenario Outline: PT_PR03. Pathology report with invalid surgical_event_id(empty, non-existing, null) should fail
 #		Test data: Patient=PT_PR03_TissueReceived, with surgical_event_id=PT_PR03_TissueReceived_SEI1
     Given template pathology report with surgical_event_id: "<value>" for patient: "PT_PR03_TissueReceived"
@@ -49,7 +49,7 @@ Feature: Pathology Messages
       | SEI_NON | surgical event_id |
       | null    | can't be blank    |
 
-  @patients_p2
+  @patients_not_required
   Scenario Outline: PT_PR04. Pathology report with invalid reported_date(empty, non-date, null) should fail
     Given template pathology report with surgical_event_id: "PT_PR04_TissueReceived_SEI1" for patient: "PT_PR04_TissueReceived"
     Then set patient message field: "reported_date" to value: "<value>"
@@ -60,7 +60,7 @@ Feature: Pathology Messages
       | nonDate | date           |
       | null    | can't be blank |
 
-  @patients_p2
+  @patients_not_required
   Scenario Outline: PT_PR05. Pathology report with invalid result(other than Y, N or U) should fail
     Given template pathology report with surgical_event_id: "PT_PR05_TissueReceived_SEI1" for patient: "PT_PR05_TissueReceived"
     Then set patient message field: "status" to value: "<value>"
@@ -72,7 +72,7 @@ Feature: Pathology Messages
       | null  | can't be blank                         |
 #Field tests:
 
-  @patients_p2
+  @patients_not_required
   Scenario: PT_PR06. Pathology report can be sent on TISSUE_SPECIMEN_RECEIVED status
     Given template pathology report with surgical_event_id: "PT_PR06_TissueReceived_SEI1" for patient: "PT_PR06_TissueReceived"
     Then set patient message field: "status" to value: "Y"
@@ -82,21 +82,21 @@ Feature: Pathology Messages
     And specimen (surgical_event_id: "PT_PR06_TissueReceived_SEI1") field: "pathology_status" should have value: "Y" within 15 seconds
     And specimen (surgical_event_id: "PT_PR06_TissueReceived_SEI1") field: "pathology_status_date" should have value: "2016-08-18T18:42:13+00:00" within 15 seconds
 
-  @patients_p2
+  @patients_not_required
   Scenario: PT_PR07. Pathology report can be sent on TISSUE_NUCLEIC_ACID_SHIPPED status
     Given template pathology report with surgical_event_id: "PT_PR07_TissueShipped_SEI1" for patient: "PT_PR07_TissueShipped"
     Then set patient message field: "status" to value: "N"
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
     Then patient field: "current_status" should have value: "PATHOLOGY_REVIEWED" within 15 seconds
 
-  @patients_p2
+  @patients_not_required
   Scenario: PT_PR08. Pathology report can be sent on TISSUE_SLIDE_SHIPPED status but will not change patient status if status is U
     Given template pathology report with surgical_event_id: "PT_PR08_SlideShipped_SEI1" for patient: "PT_PR08_SlideShipped"
     Then set patient message field: "status" to value: "U"
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
     Then patient field: "current_status" should have value: "TISSUE_SLIDE_SPECIMEN_SHIPPED" within 15 seconds
 
-  @patients_p2
+  @patients_not_required
   Scenario Outline: PT_PR09. Pathology report received using an non-existing surgical event id should fail
 #		Test data: Patient=PT_PR09_Registered, without tissue
 #       Patient=PT_PR09_SEI1HasTissue surgical_event_id=_SEI1 has tissue received, has no tissue using surgical_event_id=SEI_02 received
@@ -107,20 +107,20 @@ Feature: Pathology Messages
       | PT_PR09_Registered    | PT_PR09_Registered_SEI1    | can not process this state currently                       |
       | PT_PR09_SEI1HasTissue | PT_PR09_SEI1HasTissue_SEI2 | surgical event_id PT_PR09_SEI1HasTissue_SEI2 doesn't exist |
 
-  @patients_p2
+  @patients_not_required
   Scenario: PT_PR10. Pathology report reported_date is older than tissue received date should fail
 #  Test data: Patient=PT_PR10TissueReceived, surgical_event_id=PT_PR10TissueReceived_SEI1, received_dttm: 2016-04-25T16:17:11+00:00,
     Given template pathology report with surgical_event_id: "PT_PR10TissueReceived_SEI1" for patient: "PT_PR10TissueReceived"
     Then set patient message field: "reported_date" to value: "2010-04-25T16:17:11+00:00"
     When post to MATCH patients service, returns a message that includes " Pathology report date is before specimen collected date" with status "Failure"
 
-  @patients_p2
+  @patients_not_required
   Scenario: PT_PR11. Pathology report received for old surgical_event_id should fail
 #  Test data: Patient=PT_PR11TissueReceived, old surgical_event_id=PT_PR11TissueReceived_SEI1, has tissue received, new surgical_event_id=PT_PR11TissueReceived_SEI2, has tissue received
     Given template pathology report with surgical_event_id: "PT_PR11TissueReceived_SEI1" for patient: "PT_PR11TissueReceived"
     When post to MATCH patients service, returns a message that includes "is not the currently active specimen" with status "Failure"
 
-  @patients_p2
+  @patients_not_required
   Scenario: PT_PR11a. Pathology report received for active surgical_event_id but doesn't belong to this patient should fail
 #  Test data: Patient=PT_PR11aTissueReceived1, sei=PT_PR11aTissueReceived1_SEI1,
 #             Patient=PT_PR11aTissueReceived2, sei=PT_PR11aTissueReceived2_SEI1,
@@ -130,7 +130,7 @@ Feature: Pathology Messages
   #if Y received, can receive new specimen(covered by specimen received test), no more pathology
   #if N received, no more pathology received, wait for either new specimen(covered by specimen received test) or patient off_study
   #if U received, either new pathology received to update this to Y or N, or received new specimen(covered by specimen received test), or patient off_study
-  @patients_p2
+  @patients_not_required
   Scenario Outline: PT_PR12. Pathology result (in current latest surgical_event_id) can only be received again if last pathology's result is U
 #  Test data: Patient=PT_PR12TissueReceived, surgical_event_id=_SEI1, has tissue received
     Given template pathology report with surgical_event_id: "<sei>" for patient: "<patientID>"
@@ -149,7 +149,7 @@ Feature: Pathology Messages
       | PT_PR12_PathologyUReceived2 | PT_PR12_PathologyUReceived2_SEI1 | Y      | 2016-05-18T17:42:13+00:00 | Success    | processed successfully               |
       | PT_PR12_PathologyUReceived3 | PT_PR12_PathologyUReceived3_SEI1 | N      | current                   | Success    | processed successfully               |
 
-  @patients_p2
+  @patients_not_required
   Scenario Outline: PT_PR13. pathology confirmation will not trigger patient assignment process unless patient has assay and VR ready
 #  #Test patient PT_PR13_VRConfirmedNoAssay VR confirmed PT_PR13_VRConfirmedNoAssay(_SEI1, _MOI1, _ANI1), Assay result is not received yet
 #  #             PT_PR13_AssayReceivedVRNotConfirmed VR uploaded PT_PR13_AssayReceivedVRNotConfirmed(_SEI1, _MOI1, _ANI1) but not confirmed, Assay result received (_SEI1)
@@ -169,7 +169,7 @@ Feature: Pathology Messages
       | PT_PR13_AssayAndVRDonePlanToU       | PT_PR13_AssayAndVRDonePlanToU_SEI1       | U              | TISSUE_VARIANT_REPORT_CONFIRMED |
       | PT_PR13_VRConfirmedOneAssay         | PT_PR13_VRConfirmedOneAssay_SEI1         | Y              | PATHOLOGY_REVIEWED              |
 
-  @patients_p3
+  @patients_not_required
   Scenario: PT_PR14. extra key-value pair in the message body should NOT fail
     Given template pathology report with surgical_event_id: "PT_PR14_TissueReceived_SEI1" for patient: "PT_PR14_TissueReceived"
     Then set patient message field: "extra_info" to value: "This is extra information"

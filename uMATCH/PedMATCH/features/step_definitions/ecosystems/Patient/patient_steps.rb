@@ -208,6 +208,11 @@ And(/^this specimen has assay \(biomarker: "([^"]*)", result: "([^"]*)", reporte
   actual_result.should == expect_result
 end
 
+And(/^this specimen has pathology status: "([^"]*)"\)$/) do |pathology_status|
+  converted_patho_status = pathology_status=='null'?nil:pathology_status
+  @current_specimen['pathology_status'].should == converted_patho_status
+end
+
 # # And(/^this specimen has assay: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
 # #   convert_value = value=='null'?nil:value
 # #   @current_specimen[field].should == convert_value

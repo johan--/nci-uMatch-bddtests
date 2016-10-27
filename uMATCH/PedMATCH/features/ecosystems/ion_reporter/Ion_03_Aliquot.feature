@@ -233,7 +233,8 @@ Feature: Tests for aliquot service in ion ecosystem
     Examples:
       | moi                        | field1       | field2        |
       | SC_6Y4FV                   | control_type | molecular_id  |
-      | ION_AQ43_TsVrUploaded_MOI1 | patient_id   | shipment_type |
+      #projection is not supported when query patient molecular id
+#      | ION_AQ43_TsVrUploaded_MOI1 | patient_id   | shipment_type |
 
   @ion_reporter_wait_p3
   Scenario: ION_AQ44. aliquot service should fail if an invalid key is projected

@@ -132,9 +132,8 @@
     "study_id": "APEC1621",
     "surgical_event_id":"SEI_01",
     "case_number": "case-1234",
-    "type": "ASSAY_RESULT_REPORTED",
+    "type": "RESULT",
     "biomarker":"ICCPTENs",
-    "ordered_date":"2016-05-02T12:13:09.071-05:00",
     "reported_date":"2016-05-05T12:13:09.071-05:00",
     "result": "POSITIVE"
   },

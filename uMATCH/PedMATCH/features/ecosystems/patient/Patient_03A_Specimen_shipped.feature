@@ -259,12 +259,13 @@ Feature: NCH Specimen shipped messages
       | PT_SS26_TsReceived         | PT_SS26_TsReceived_BD_MOI1         | Success | processed successfully |
       | PT_SS26_TsShipped          | PT_SS26_TsShipped_BD_MOI1          | Success | processed successfully |
       | PT_SS26_AssayConfirmed     | PT_SS26_AssayConfirmed_BD_MOI1     | Success | processed successfully |
-      | PT_SS26_PathologyConfirmed | PT_SS26_PathologyConfirmed_BD_MOI1 | Success | processed successfully |
       | PT_SS26_TsVRReceived       | PT_SS26_TsVRReceived_BD_MOI1       | Success | processed successfully |
       | PT_SS26_TsVRConfirmed      | PT_SS26_TsVRConfirmed_BD_MOI1      | Success | processed successfully |
       | PT_SS26_PendingApproval    | PT_SS26_PendingApproval_BD_MOI1    | Success | processed successfully |
       | PT_SS26_Progression        | PT_SS26_Progression_BD_MOI1        | Success | processed successfully |
       | PT_SS26_OffStudy           | PT_SS26_OffStudy_BD_MOI1           | Failure | cannot transition from |
+      #there is no “PATHOLOGY_REVIEWED” status anymore
+#      | PT_SS26_PathologyConfirmed | PT_SS26_PathologyConfirmed_BD_MOI1 | Success | processed successfully |
 
   @patients_p2
   Scenario: PT_SS27. new specimen shipped using new MOI in same SEI will push all pending variant report from old MOI to "REJECT"

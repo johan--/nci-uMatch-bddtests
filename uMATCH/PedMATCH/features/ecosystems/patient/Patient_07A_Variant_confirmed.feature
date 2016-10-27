@@ -198,18 +198,19 @@ Feature: Variant files confirmed messages
 
   @patients_p2
   Scenario Outline: PT_VC15. variant file confirmation will not trigger patient assignment process unless patient has COMPLETE_MDA_DATA_SET status
-  #Test patient PT_VC15_VRUploadedPathConfirmed VR uploaded PT_VC15_VRUploadedPathConfirmed(_SEI1, _MOI1, _ANI1), Pathology confirmed (_SEI1), Assay result is not received yet
-  #             PT_VC15_VRUploadedAssayReceived VR uploaded PT_VC15_VRUploadedAssayReceived(_SEI1, _MOI1, _ANI1), Assay result received (_SEI1, _BC1), Pathology is not confirmed yet
-  #             PT_VC15_PathAssayDoneVRUploadedToConfirm VR uploaded PT_VC15_PathAssayDoneVRUploadedToConfirm(_SEI1, _MOI1, _ANI1), Assay result received (_SEI1, _BC1), Pathology is confirmed (_SEI1)
-  #             PT_VC15_PathAssayDoneVRUploadedToReject VR uploaded PT_VC15_PathAssayDoneVRUploadedToReject(_SEI1, _MOI1, _ANI1), Assay result received (_SEI1, _BC1), Pathology is confirmed (_SEI1)
     Given template variant report confirm message for patient: "<patient_id>", it has analysis_id: "<ani>" and status: "<vr_status>"
     When put to MATCH variant report confirm service, returns a message that includes "Variant Report status changed successfully to" with status "Success"
     Then patient field: "current_status" should have value: "<patient_status>" after 30 seconds
 
     Examples:
       | patient_id                               | ani                                           | vr_status | patient_status                  |
-      | PT_VC15_VRUploadedPathConfirmed          | PT_VC15_VRUploadedPathConfirmed_ANI1          | confirm   | TISSUE_VARIANT_REPORT_CONFIRMED |
-      | PT_VC15_VRUploadedAssayReceived          | PT_VC15_VRUploadedAssayReceived_ANI1          | confirm   | TISSUE_VARIANT_REPORT_CONFIRMED |
-      | PT_VC15_PathAssayDoneVRUploadedToConfirm | PT_VC15_PathAssayDoneVRUploadedToConfirm_ANI1 | confirm   | PENDING_CONFIRMATION            |
-      | PT_VC15_PathAssayDoneVRUploadedToReject  | PT_VC15_PathAssayDoneVRUploadedToReject_ANI1  | reject    | TISSUE_VARIANT_REPORT_REJECTED  |
-      | PT_VC15_PathDoneOneAssayVRUploaded       | PT_VC15_PathDoneOneAssayVRUploaded_ANI1       | confirm   | TISSUE_VARIANT_REPORT_CONFIRMED |
+      | PT_VC15_VrReceived                       | PT_VC15_VrReceived_ANI1                       | confirm   | TISSUE_VARIANT_REPORT_CONFIRMED |
+      | PT_VC15_AssayReceivedVrReceivedToConfirm | PT_VC15_AssayReceivedVrReceivedToConfirm_ANI1 | confirm   | PENDING_CONFIRMATION            |
+      | PT_VC15_AssayReceivedVrReceivedToReject  | PT_VC15_AssayReceivedVrReceivedToReject_ANI1  | reject    | TISSUE_VARIANT_REPORT_REJECTED  |
+      | PT_VC15_OneAssayAndVrReceived            | PT_VC15_OneAssayAndVrReceived_ANI1            | confirm   | TISSUE_VARIANT_REPORT_CONFIRMED |
+          #there is no “PATHOLOGY_REVIEWED” status anymore
+#      | PT_VC15_VRUploadedPathConfirmed          | PT_VC15_VRUploadedPathConfirmed_ANI1          | confirm   | TISSUE_VARIANT_REPORT_CONFIRMED |
+#      | PT_VC15_VRUploadedAssayReceived          | PT_VC15_VRUploadedAssayReceived_ANI1          | confirm   | TISSUE_VARIANT_REPORT_CONFIRMED |
+#      | PT_VC15_PathAssayDoneVRUploadedToConfirm | PT_VC15_PathAssayDoneVRUploadedToConfirm_ANI1 | confirm   | PENDING_CONFIRMATION            |
+#      | PT_VC15_PathAssayDoneVRUploadedToReject  | PT_VC15_PathAssayDoneVRUploadedToReject_ANI1  | reject    | TISSUE_VARIANT_REPORT_REJECTED  |
+#      | PT_VC15_PathDoneOneAssayVRUploaded       | PT_VC15_PathDoneOneAssayVRUploaded_ANI1       | confirm   | TISSUE_VARIANT_REPORT_CONFIRMED |
