@@ -141,36 +141,6 @@ var Utilities = function() {
         }
     };
 
-    /** This function returns a hash of details available from the Treatment Arm Based on the id provided
-     * @author: Rick Zakharov, Raseel Mohamed
-     * @param id [String] id
-     * @param api [String] the api being called.
-     * returns [String]
-     */
-
-    this.callApiForDetails = function (id, api ){
-        var routeUrl = buildUrl(id, api);
-        var self = this;
-        return{
-            get: get,
-            entity: getEntity
-        };
-        var _entity;
-        function getEntity(){
-            return self._entity;
-        }
-        function get(){
-            return rest(routeUrl).then(
-                function (response) {
-                    self._entity = response.entity;
-                },
-                function (error) {
-                    console.log(error);
-                }
-            )
-        }
-    };
-
     this.moveAndCheckElement = function(webElementCollection, index, expectedValue){
         browser.actions().mouseMove(webElementCollection.get(index)).perform().then(function () {
             expect(webElementCollection.get(index).getText()).to.eventually.eql(expectedValue);

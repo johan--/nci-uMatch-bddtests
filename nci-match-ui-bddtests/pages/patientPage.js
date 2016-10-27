@@ -6,10 +6,13 @@ var PatientPage = function () {
     var patientId;
     var patientData;
     var responseData;
+    var variantReportId;
+
+    this.confirmedMoi;
 
     this.patientListTable = element(by.css('#patientGrid>table'));
     this.patientListHeaders = element.all(by.css('.sortable'));
-    this.patientListRowElements = element.all(by.css('tr[ng-repeat^=item in filtered]'));
+    this.patientListRowElements = element.all(by.css('tr[ng-repeat^="item in filtered"]'));
 
 
     // Patient summary table information on the patient details page
@@ -133,6 +136,15 @@ var PatientPage = function () {
     this.bloodTotalVariants     = element(by.binding('currentBloodVariantReport.total_variants'));
     this.bloodTotalCellularity  = element(by.binding('currentBloodVariantReport.cellularity'));
 
+    // This is the element found on the variant report page for a patient
+    this.totalMois              =  element(by.binding('variantReport.total_mois'));
+    this.totalAMois             = element(by.binding('variantReport.total_amois'));
+    this.totalconfirmedMOIs     = element(by.binding('variantReport.total_confirmed_mois'));
+    this.totalconfirmedAMOIs    = element(by.binding('variantReport.total_confirmed_amois'));
+
+
+
+
 
 
     // ****************** Expected values *******************//
@@ -180,6 +192,27 @@ var PatientPage = function () {
             .then(function (pId) {
                 return pId;
             });
+    };
+
+    this.isConfirmedMoi = function(index) {
+        var confirmButton = this.variantConfirmButtonList
+        return confirmButton.get(index).getAttribute('checked').then(function (enabled) {
+            if (enabled){
+                return true;
+            } else{
+                return false;
+            }
+        })
+    };
+
+    this.isAMoi = function(index, amoiIndex) {
+        var row = element.all(by.repeater('item in $ctrl.gridOptions.data')).get(index);
+        return row.all(by.css('[treatment-arms="item.amois"]')).get(0).isPresent().then(function (presence) {
+            if(presence){
+                amoiIndex.push(index);
+            }
+            return amoiIndex;
+        })
     };
 
     this.trimSurgicalEventId =  function(completeText){

@@ -12,7 +12,9 @@ var utilities = require ('../../support/utilities');
 module.exports = function () {
     this.World = require ('../step_definitions/world').World;
 
-    var variantReportLink
+    var variantReportLink;
+    var confirmedMoi;
+    var confirmedAMoi;
 
 
     this.Given (/^I enter "([^"]*)" in the patient filter field$/, function (filterValue, callback) {
@@ -24,7 +26,6 @@ module.exports = function () {
     });
 
     this.Then (/^I should see the variant report link for "(.+?)"$/, function (analysisId, callback) {
-        console.log(patientPage.responseData);
         var varRepString = 'div[ng-if="surgicalEvent"] a[href="#/patient/' + patientPage.patientId + '/variant_report?analysis_id=' + analysisId;
         variantReportLink = element(by.css(varRepString))
         expect(variantReportLink.isPresent()).to.eventually.eql(true).notify(callback);
@@ -51,7 +52,6 @@ module.exports = function () {
     this.Then(/^I see that all the variant check boxes are selected$/, function (callback) {
         //checking the property of all the checkboxes to make sure they are selected
         patientPage.variantConfirmButtonList.count().then(function (cnt) {
-            console.log("This is the count: " + cnt);
             for(var i = 0; i < cnt; i++){
                 expect(patientPage.variantConfirmButtonList.get(i).isEnabled()).to.eventually.eql(true);
             }
@@ -75,10 +75,14 @@ module.exports = function () {
         browser.sleep(50).then(callback);
     });
 
-    this.Then (/^The variant at ordinal "([^"]*)" is checked$/, function (ordinal, callback) {
+    this.Then (/^The variant at ordinal "([^"]*)" is "(unchecked|checked)"$/, function (ordinal, checked, callback) {
         var index  = ordinal - 1;
-        expect(patientPage.variantConfirmButtonList.get(index).isEnabled()).to.eventually.eql(true);
-        browser.sleep(50).then(callback);
+        if(checked === 'checked'){
+            expect(patientPage.variantConfirmButtonList.get(index).getAttribute('checked')).to.eventually.eql(true).notify(callback);
+        }else {
+            expect(patientPage.variantConfirmButtonList.get(index).getAttribute('checked')).to.eventually.eql(false).notify(callback);
+        }
+
     });
 
     this.When (/^I enter the comment "([^"]*)" in the modal text box$/, function (comment, callback) {
@@ -131,13 +135,11 @@ module.exports = function () {
         }).then(callback);
     });
 
-    this.When (/^The "(.+?)" button is disabled$/, function (buttonText, callback) {
+    this.When (/^The "(.+?)" button is "(disabled|enabled)"$/, function (buttonText, abled, callback) {
         var button = element(by.buttonText(buttonText));
-        browser.sleep(5000).then(function () {
-            expect(button.isEnabled()).to.eventually.eql(false).then(callback);
-        });
+        var status = abled === 'enabled' ? true : false;
 
-
+        expect(button.isEnabled()).to.eventually.eql(status).notify(callback);
     });
 
     this.Then (/^I see the status of Report as "([^"]*)"$/, function (arg1, callback) {
@@ -149,5 +151,87 @@ module.exports = function () {
     this.Then (/^I can see the name of the commenter is present$/, function (callback) {
         // Write code here that turns the phrase above into concrete actions
         callback.pending ();
+    });
+
+    this.When(/^I go to the patient "([^"]*)" with variant report "([^"]*)"$/, function (patientId, variantReportId, callback) {
+        var uri = '/#/patient/' + patientId + '/variant_report?analysis_id=' + variantReportId;
+        patientPage.patientId = patientId;
+        patientPage.variantReportId = variantReportId;
+        console.log(uri);
+        browser.sleep(3000).then(function () {
+            browser.get(uri).then(function () {
+                browser.waitForAngular ();
+            });
+        }).then(callback);
+    });
+
+    this.Then(/^I can see the variant report page$/, function(callback) {
+        var uri = 'patient/' + patientPage.patientId + '/variant_report?analysis_id=' + patientPage.variantReportId;
+        expect (browser.getCurrentUrl ()).to.eventually.eql (browser.baseUrl + '/#/' + uri).notify(callback);
+    });
+
+    this.Then(/^I see that Total MOIs match the number of MOIs on the page$/, function (callback) {
+        patientPage.totalMois.getText().then(function (totalMOI) {
+            expect(element.all(by.repeater('item in $ctrl.gridOptions.data')).count()).to.eventually.eql(parseInt(totalMOI));
+        }).then(callback);
+    });
+
+    this.Then(/^I see that the Total aMOIs match the number of aMOIs on the page\.$/, function (callback) {
+        patientPage.totalAMois.getText().then(function (totalAMOI) {
+            expect(element.all(by.css('td>[treatment-arms="item.amois"]')).count()).to.eventually.eql(parseInt(totalAMOI));
+        }).then(callback);
+    });
+
+    this.Then(/^I get the Total confirmed MOIs on the page$/, function (callback) {
+        confirmedMoi = 0;
+        element.all(by.repeater('item in $ctrl.gridOptions.data')).count().then(function (cnt) {
+            for(var index = 0; index < cnt; index ++){
+                patientPage.isConfirmedMoi(index).then(function (status) {
+                    if (status) {
+                        confirmedMoi++
+                    }
+                });
+            };
+        }).then(callback);
+    });
+
+    this.Then(/^The total number of confirmed MOI has "(decreased|increased)" by "(.+?)"$/, function (change, changedBy, callback) {
+        var expectedVal;
+        if(change === 'increased'){
+            expectedVal = confirmedMoi + parseInt(changedBy);
+        } else{
+            expectedVal = confirmedMoi - parseInt(changedBy);
+        }
+        expect(patientPage.totalconfirmedMOIs.getText()).to.eventually.eql(expectedVal.toString()).notify(callback);
+    });
+
+    this.Then(/^I get the Total confirmed aMOIs on the page$/, function (callback) {
+        confirmedAMoi = 0;
+        var amoiIndex = []
+        element.all(by.repeater('item in $ctrl.gridOptions.data')).count().then(function (cnt) {
+            for(var index = 0; index < cnt; index ++){
+                patientPage.isAMoi(index, amoiIndex).then(function () {
+
+                }).then(function () {
+                    if (amoiIndex.length > 0){
+                        for(var i = 0; i < amoiIndex.length; i++){
+                            patientPage.isConfirmedMoi(amoiIndex[i]).then(function (status) {
+                                if(status){
+                                    confirmedAMoi++
+                                }
+                            })
+                        }
+                    }
+                });
+            };
+        }).then(callback);
+    });
+
+    this.Then(/^I see that the Total Confirmed MOIs match the number of MOIs on the page$/, function (callback) {
+        expect(patientPage.totalconfirmedMOIs.getText()).to.eventually.eql(confirmedMoi.toString()).notify(callback);
+    });
+
+    this.Then(/^I see that the Total Confirmed aMOIs match the number of aMOIs on the page$/, function (callback) {
+        expect(patientPage.totalconfirmedAMOIs.getText()).to.eventually.eql(confirmedAMoi.toString()).notify(callback);
     });
 };
