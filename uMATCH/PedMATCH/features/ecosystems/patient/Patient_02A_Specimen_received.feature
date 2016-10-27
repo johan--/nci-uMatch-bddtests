@@ -65,18 +65,18 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
   Scenario Outline: PT_SR09. existing surgical event id should not be used again
       #test patient: PT_SR09_TsReceivedTwice: (_SEI1, _SEI2) have been received
     Given template specimen received message in type: "TISSUE" for patient: "PT_SR09_TsReceivedTwice", it has surgical_event_id: "<SEI>"
-    Then set patient message field: "collection_dttm" to value: "<collectTime>"
+    Then set patient message field: "collection_dt" to value: "<collectTime>"
     When post to MATCH patients service, returns a message that includes "<message>" with status "<status>"
     Examples:
       | SEI                          | collectTime               | status  | message                |
-      | PT_SR09_TsReceivedTwice_SEI1 | 2016-04-30T15:17:11+00:00 | Failure | same surgical event id |
-      | PT_SR09_TsReceivedTwice_SEI2 | 2016-04-30T15:17:11+00:00 | Failure | same surgical event id |
+      | PT_SR09_TsReceivedTwice_SEI1 | 2016-04-30 | Failure | same surgical event id |
+      | PT_SR09_TsReceivedTwice_SEI2 | 2016-04-30 | Failure | same surgical event id |
 
   @patients_p2
   Scenario Outline: PT_SR10a. tissue specimen_received message can only be accepted when patient is in certain status
       #all test patients are using surgical event id SEI_01
     Given template specimen received message in type: "TISSUE" for patient: "<patient_id>", it has surgical_event_id: "<new_sei>"
-    Then set patient message field: "collection_dttm" to value: "2016-08-02T15:17:11+00:00"
+    Then set patient message field: "collection_dt" to value: "2016-08-02"
     When post to MATCH patients service, returns a message that includes "<message>" with status "<status>"
     Examples:
       | patient_id               | new_sei                       | status  | message                |
@@ -95,7 +95,7 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
   @patients_p3
   Scenario Outline: PT_SR10b. blood specimen_received message can only be accepted when patient is in certain status
     Given template specimen received message in type: "BLOOD" for patient: "<patient_id>", it has surgical_event_id: ""
-    Then set patient message field: "collection_dttm" to value: "current"
+    Then set patient message field: "collection_dt" to value: "today"
     When post to MATCH patients service, returns a message that includes "<message>" with status "<status>"
     Examples:
       | patient_id              | status  | message                |
@@ -130,7 +130,7 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
   #    Test patient: PT_SR14_TsVrUploaded; variant report files uploaded: PT_SR14_TsVrUploaded(_SEI1, _MOI1, _ANI1)
   #          Plan to receive new specimen surgical_event_id: PT_SR14_TsVrUploaded_SEI2
     Given template specimen received message in type: "TISSUE" for patient: "PT_SR14_TsVrUploaded", it has surgical_event_id: "PT_SR14_TsVrUploaded_SEI2"
-    Then set patient message field: "collection_dttm" to value: "2016-08-21T14:20:02-04:00"
+    Then set patient message field: "collection_dt" to value: "2016-08-21"
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
     Then patient field: "current_status" should have value: "TISSUE_SPECIMEN_RECEIVED" within 15 seconds
     Then patient should have variant report (analysis_id: "PT_SR14_TsVrUploaded_ANI1") within 15 seconds
@@ -140,7 +140,7 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
   Scenario: PT_SR14b. When a new BLOOD specimen_received message is received,  the pending TISSUE variant report should not change status
   #    Test patient: PT_SR14_TsVrUploaded1; variant report files uploaded: PT_SR14_BdVrUploaded(_BD_MOI1, _ANI1)
     Given template specimen received message in type: "BLOOD" for patient: "PT_SR14_TsVrUploaded1", it has surgical_event_id: ""
-    Then set patient message field: "collection_dttm" to value: "2016-08-21T14:20:02-04:00"
+    Then set patient message field: "collection_dt" to value: "2016-08-21"
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
     Then wait for "30" seconds
     Then patient should have variant report (analysis_id: "PT_SR14_TsVrUploaded1_ANI1") within 15 seconds
@@ -150,7 +150,7 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
   Scenario: PT_SR14c. When a new BLOOD specimen_received message is received,  the pending BLOOD variant report from the old Surgical event is set to "REJECTED" status
   #    Test patient: PT_SR14_BdVrUploaded; variant report files uploaded: PT_SR14_BdVrUploaded(_BD_MOI1, _ANI1)
     Given template specimen received message in type: "BLOOD" for patient: "PT_SR14_BdVrUploaded", it has surgical_event_id: ""
-    Then set patient message field: "collection_dttm" to value: "2016-08-21T14:20:02-04:00"
+    Then set patient message field: "collection_dt" to value: "2016-08-21"
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
     Then wait for "30" seconds
     Then patient should have variant report (analysis_id: "PT_SR14_BdVrUploaded_ANI1") within 15 seconds
@@ -159,7 +159,7 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
   @patients_p1
   Scenario: PT_SR14d. When a new TISSUE specimen_received message is received,  the pending BLOOD variant report should not change status
     Given template specimen received message in type: "TISSUE" for patient: "PT_SR14_BdVrUploaded1", it has surgical_event_id: "PT_SR14_BdVrUploaded1_SEI1"
-    Then set patient message field: "collection_dttm" to value: "2016-08-21T14:20:02-04:00"
+    Then set patient message field: "collection_dt" to value: "2016-08-21"
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
     Then patient field: "current_status" should have value: "TISSUE_SPECIMEN_RECEIVED" within 15 seconds
     Then patient should have variant report (analysis_id: "PT_SR14_BdVrUploaded1_ANI1") within 15 seconds

@@ -172,7 +172,7 @@ class PatientMessageLoader
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['specimen_received_TISSUE']
     message['specimen_received']['patient_id'] = patient_id
     message['specimen_received']['surgical_event_id'] = surgical_event_id
-    message['specimen_received']['collection_dttm'] = convert_date(collect_time)
+    message['specimen_received']['collection_dt'] = convert_date(collect_time)
     send_message_to_local(message, patient_id)
   end
 
@@ -182,7 +182,7 @@ class PatientMessageLoader
     wait_until_updated(patient_id)
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['specimen_received_BLOOD']
     message['specimen_received']['patient_id'] = patient_id
-    message['specimen_received']['collection_dttm'] = convert_date(collect_time)
+    message['specimen_received']['collection_dt'] = convert_date(collect_time)
     send_message_to_local(message, patient_id)
   end
 

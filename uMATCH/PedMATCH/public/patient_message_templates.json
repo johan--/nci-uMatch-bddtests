@@ -25,7 +25,7 @@
       "patient_id": "894561",
       "type": "TISSUE",
       "surgical_event_id": "SEI_01",
-      "collection_dttm": "2016-04-25T15:17:11+00:00",
+      "collection_dt": "2016-04-25",
       "received_dttm": "2016-04-26T15:17:11+00:00"
     },
     "internal_use_only": {
@@ -45,7 +45,7 @@
       "study_id": "APEC1621",
       "patient_id": "894561",
       "type": "BLOOD",
-      "collection_dttm": "2016-04-22T15:17:11+00:00",
+      "collection_dt": "2016-04-22",
       "received_dttm": "2016-04-23T15:17:11+00:00"
     },
     "internal_use_only": {
@@ -70,11 +70,11 @@
       "carrier": "Federal Express",
       "tracking_id": "7956 4568 1235",
       "shipped_dttm": "2016-05-01T19:42:13+00:00",
-      "destination": "MDA",
-      "internal_use_only": {
-        "stars_patient_id": "ABCXYZ",
-        "stars_specimen_id_slide": "ABCXYZ-0BJ6A5"
-      }
+      "destination": "MDA"
+    },
+    "internal_use_only": {
+      "stars_patient_id": "ABCXYZ",
+      "stars_specimen_id_slide": "ABCXYZ-0BJ6A5"
     }
   },
   "specimen_shipped_TISSUE": {
@@ -96,12 +96,12 @@
       "destination": "MDA",
       "dna_volume_ul": 10,
       "dna_concentration_ng_per_ul": 25,
-      "cdna_volume_ul": 10,
-      "internal_use_only": {
-        "stars_patient_id": "ABCXYZ",
-        "stars_specimen_id_cdna": "ABCXYZ-0BJ64F",
-        "stars_specimen_id_dna": "ABCXYZ-0BJ64B"
-      }
+      "cdna_volume_ul": 10
+    },
+    "internal_use_only": {
+      "stars_patient_id": "ABCXYZ",
+      "stars_specimen_id_cdna": "ABCXYZ-0BJ64F",
+      "stars_specimen_id_dna": "ABCXYZ-0BJ64B"
     }
   },
   "specimen_shipped_BLOOD": {
@@ -120,11 +120,11 @@
       "destination": "MDA",
       "dna_volume_ul": 10,
       "dna_concentration_ng_per_ul": 25,
-      "cdna_volume_ul": 10,
-      "internal_use_only": {
-        "stars_patient_id": "ABCXYZ",
-        "stars_specimen_id": "ABCXYZ-0BJ64A"
-      }
+      "cdna_volume_ul": 10
+    },
+    "internal_use_only": {
+      "stars_patient_id": "ABCXYZ",
+      "stars_specimen_id": "ABCXYZ-0BJ64A"
     }
   },
   "assay_result_reported":{

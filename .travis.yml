@@ -116,6 +116,12 @@ after_script:
   - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/screenshot s3://cucumber-test-reports/$DATE_TRIM/screenshot --region us-east-1 --recursive
 
   #- aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/result.json s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_BUILD_NUMBER/ --region us-east-1
+
+  #purge queues
+  - aws sqs purge-queue --queue-url https://sqs.us-east-1.amazonaws.com/127516845550/ion_reporter_queue
+  - aws sqs purge-queue --queue-url https://sqs.us-east-1.amazonaws.com/127516845550/patient_queue
+  - aws sqs purge-queue --queue-url https://sqs.us-east-1.amazonaws.com/127516845550/patient_queue_deadletter
+  - aws sqs purge-queue --queue-url https://sqs.us-east-1.amazonaws.com/127516845550/treatment_arm_queue
 ######COMMENTING FOR NOW###########################
 #  - export DATE=`TZ=America/New_York date "+%m-%d-%y-%H%M"`
 #  - export TEST_REPORT='BDD Test Report'

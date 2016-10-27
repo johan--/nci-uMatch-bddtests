@@ -7,7 +7,7 @@ require 'active_support/core_ext'
 require 'aws-sdk'
 
 class Helper_Methods
-  @requestGap = 1.0
+  @requestGap = 5.0
   @requestTimeout = 10.0
 
   def Helper_Methods.get_request(url , params={})
@@ -121,7 +121,7 @@ class Helper_Methods
                                         print_tick=false,
                                         key='',
                                         value='',
-                                        request_gap_seconds=1.0,
+                                        request_gap_seconds=5.0,
                                         time_out_seconds=15.0)
     print "#{service}\n"
 
@@ -371,6 +371,10 @@ class Helper_Methods
     return (time - 4.hours).iso8601
   end
 
+  def Helper_Methods.dateYYYYMMDD ()
+    return Time.now.strftime("%Y-%m-%d")
+  end
+
   def Helper_Methods.backDate ()
     time = DateTime.current.utc
     time = (time - 6.hours).iso8601
@@ -397,6 +401,8 @@ class Helper_Methods
     case dateStr
       when 'current'
         reqDate = Helper_Methods.dateDDMMYYYYHHMMSS
+      when 'today'
+        reqDate = Helper_Methods.dateYYYYMMDD
       when 'older'
         reqDate = Helper_Methods.backDate
       when 'future'

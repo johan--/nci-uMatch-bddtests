@@ -90,7 +90,7 @@ Then(/^set patient message field: "([^"]*)" to value: "([^"]*)"$/) do |field, va
   unless value == 'skip_this_value'
     if value == 'null'
       converted_value = nil
-    elsif value.eql?('current')
+    elsif value.eql?('current') || value.eql?('today')
       converted_value = Helper_Methods.getDateAsRequired(value)
     else
       converted_value = value

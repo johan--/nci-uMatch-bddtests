@@ -15,7 +15,7 @@ PatientMessageLoader.register_patient(pt.id)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
 PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
-PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei_increase, '2016-06-25T15:17:11+00:00')
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei_increase, '2016-06-25')
 PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi_increase, '2016-07-01T19:42:13+00:00')
 PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani_increase)
 

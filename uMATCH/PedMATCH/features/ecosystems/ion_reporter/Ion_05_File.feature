@@ -2,34 +2,34 @@
 @ion_reporter_files
 Feature: Tests for files service in ion ecosystem
 
-  @ion_reporter_wait_p1
+  @ion_reporter1
   Scenario: ION_FL01. files service can return correct result for sample control molecular_id
     Given molecular id is "SC_J6RDR"
     Given file name for files service is: "qc_name"
     When call files GET service, returns a message that includes "s3.amazonaws.com/IR_TCWEV/SC_J6RDR/SC_J6RDR_ANI1/10-10-2016" with status "Success"
 
-  @ion_reporter_wait_p2
+  @ion_reporter2
   Scenario: ION_FL02. files service should fail if a patient molecular_id is passed in
     Given molecular id is "PT_VC08_VRUploaded_MOI1"
     Given file name for files service is: "qc_name"
     When call files GET service, returns a message that includes "PT_VC08_VRUploaded_MOI1 was not found" with status "Failure"
 
-  @ion_reporter_wait_p2
+  @ion_reporter2
   Scenario: ION_FL03. files service should fail if an non-existing molecular_id is passed in
     Given molecular id is "SC_NON_EXISTING"
     Given file name for files service is: "qc_name"
     When call files GET service, returns a message that includes "SC_NON_EXISTING was not found" with status "Failure"
 
-  @ion_reporter_wait_p2
+  @ion_reporter2
   Scenario: ION_FL04. files service should fail if an non-existing file_name is passed in
     Given molecular id is "SC_ZO9VD"
     Given file name for files service is: "extra_file"
     When call files GET service, returns a message that includes "does not exist" with status "Failure"
 
-  @ion_reporter_wait_p2
+  @ion_reporter2
   Scenario: ION_FL06. returned file path should be reachable S3 path
 
-  @ion_reporter_wait_p3
+  @ion_reporter3
   Scenario Outline: ION_FL07. files service should fail if no molecular_id and/or file_name is passed in
     Given molecular id is "<moi>"
     Given file name for files service is: "<file_name>"
@@ -40,26 +40,26 @@ Feature: Tests for files service in ion ecosystem
       | SC_76HQS |           | file name                       |
       |          |           | No ABCMeta with id: files found |
 
-  @ion_reporter_wait_p2
+  @ion_reporter2
   Scenario: ION_FL08. files service should return 404 error if no result for current query
     Given molecular id is "SC_4Y49T"
     Given file name for files service is: "vcf_name"
     Then call files GET service, returns a message that includes "Failed to get download url" with status "Failure"
 
 
-  @ion_reporter_wait_p2
+  @ion_reporter2
   Scenario: ION_FL80. files service should fail when user want to create new item using POST
     Given molecular id is "SC_D8ZTD"
     Given file name for files service is: "qc_name"
     Then call files POST service, returns a message that includes "The method is not allowed for the requested URL" with status "Failure"
 
-  @ion_reporter_wait_p2
+  @ion_reporter2
   Scenario: ION_FL81. files service should fail when user want to delete item using DELETE
     Given molecular id is "SC_QSQTO"
     Given file name for files service is: "dna_bam_name"
     Then call files DELETE service, returns a message that includes "The method is not allowed for the requested URL" with status "Failure"
 
-  @ion_reporter_wait_p2
+  @ion_reporter2
   Scenario: ION_FL82. files service should fail when user want to update item using PUT
     Given molecular id is "SC_X9FR1"
     Given file name for files service is: "vcf_name"
