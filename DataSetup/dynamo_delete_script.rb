@@ -163,8 +163,8 @@ class DynamoDb
     # table_name = add_suffix(table_name) if table_name =~ /treatment_arm/
     # Keeping this here if we need it
     list = collect_key_list(table_name)
-    message = []
-    message << table_name.upcase
+    message = 0
+
 
     return if list.nil?
 
@@ -174,7 +174,7 @@ class DynamoDb
     end
     list.each do |keys|
       key = keys.flatten.first
-      message << "Deleting #{key}: #{keys[key]} from #{table_name}"
+      message += 1
       begin
         @client.delete_item(table_name: table_name, key: keys)
       rescue  Aws::DynamoDB::Errors::ValidationException => e
@@ -184,7 +184,7 @@ class DynamoDb
         p e.backtrace
       end
     end
-    LOG.log("Deleted #{message.size} records from the #{table_name}")
+    LOG.log("Deleted #{message} records from the #{table_name}")
   end
 
   def clear_all_tables

@@ -15,6 +15,7 @@ module.exports = function () {
     var variantReportLink;
     var confirmedMoi;
     var confirmedAMoi;
+    var currentAnalysisId;
 
 
     this.Given (/^I enter "([^"]*)" in the patient filter field$/, function (filterValue, callback) {
@@ -26,6 +27,7 @@ module.exports = function () {
     });
 
     this.Then (/^I should see the variant report link for "(.+?)"$/, function (analysisId, callback) {
+        patientPage.variantAnalysisId = analysisId;
         var varRepString = 'div[ng-if="surgicalEvent"] a[href="#/patient/' + patientPage.patientId + '/variant_report?analysis_id=' + analysisId;
         variantReportLink = element(by.css(varRepString))
         expect(variantReportLink.isPresent()).to.eventually.eql(true).notify(callback);
@@ -78,9 +80,9 @@ module.exports = function () {
     this.Then (/^The variant at ordinal "([^"]*)" is "(unchecked|checked)"$/, function (ordinal, checked, callback) {
         var index  = ordinal - 1;
         if(checked === 'checked'){
-            expect(patientPage.variantConfirmButtonList.get(index).getAttribute('checked')).to.eventually.eql(true).notify(callback);
+            expect(patientPage.variantConfirmButtonList.get(index).getAttribute('checked')).to.eventually.eql('true').notify(callback);
         }else {
-            expect(patientPage.variantConfirmButtonList.get(index).getAttribute('checked')).to.eventually.eql(false).notify(callback);
+            expect(patientPage.variantConfirmButtonList.get(index).getAttribute('checked')).to.eventually.eql(null).notify(callback);
         }
 
     });
@@ -154,9 +156,9 @@ module.exports = function () {
     });
 
     this.When(/^I go to the patient "([^"]*)" with variant report "([^"]*)"$/, function (patientId, variantReportId, callback) {
-        var uri = '/#/patient/' + patientId + '/variant_report?analysis_id=' + variantReportId;
-        patientPage.patientId = patientId;
-        patientPage.variantReportId = variantReportId;
+        var uri                       = '/#/patient/' + patientId + '/variant_report?analysis_id=' + variantReportId;
+        patientPage.patientId         = patientId;
+        patientPage.variantAnalysisId = variantReportId;
         console.log(uri);
         browser.sleep(3000).then(function () {
             browser.get(uri).then(function () {
@@ -166,7 +168,7 @@ module.exports = function () {
     });
 
     this.Then(/^I can see the variant report page$/, function(callback) {
-        var uri = 'patient/' + patientPage.patientId + '/variant_report?analysis_id=' + patientPage.variantReportId;
+        var uri = 'patient/' + patientPage.patientId + '/variant_report?analysis_id=' + patientPage.variantAnalysisId;
         expect (browser.getCurrentUrl ()).to.eventually.eql (browser.baseUrl + '/#/' + uri).notify(callback);
     });
 
@@ -233,5 +235,46 @@ module.exports = function () {
 
     this.Then(/^I see that the Total Confirmed aMOIs match the number of aMOIs on the page$/, function (callback) {
         expect(patientPage.totalconfirmedAMOIs.getText()).to.eventually.eql(confirmedAMoi.toString()).notify(callback);
+    });
+
+    this.Then(/^The variant report status is marked "([^"]*)"$/, function (reportStatus, callback) {
+        expect(patientPage.variantReportStatus.get(0).getText()).to.eventually.include(reportStatus).notify(callback);
+    });
+
+    this.Then(/^The checkboxes are disabled$/, function (callback) {
+        element.all(by.css('check-box-with-confirm button')).count().then(function (cnt) {
+            for(var i = 0; i < cnt; i ++){
+                console.log('element at index: ' + i);
+                patientPage.expectEnabled(element.all(by.css('check-box-with-confirm button')), i, 'disabled')
+            }
+        }).then(callback)
+    });
+
+    this.Then(/^I see the confirmation message in the Patient activity feed$/, function (callback) {
+        var timeline = patientPage.timelineList.get(0);
+        var variantReportStatusString = '[ng-if="timelineEvent.event_data.variant_report_status"]';
+        var variantAnalysisIdString   = 'span[ng-if="timelineEvent.event_data.analysis_id"]';
+
+        timeline.all(by.css(variantAnalysisIdString)).getText().then(function (test) {
+            console.log(test);
+        });
+        browser.ignoreSynchronization = true;
+        expect(timeline.all(by.css(variantReportStatusString)).get(0).getText()).to.eventually.include('CONFIRMED');
+        expect(timeline.all(by.css(variantAnalysisIdString)).get(0)
+            .getText()).to.eventually.eql('Analysis ID: ' + patientPage.variantAnalysisId)
+            .notify(callback);
+    });
+
+    this.Then(/^I see the confirmation message in the Dashboard activity feed$/, function (callback) {
+        var timeline = patientPage.timelineList.get(0);
+        var patientString = '[patient-id="timelineEvent.entity_id"]';
+        var variantReportStatusString = '[ng-if="timelineEvent.event_data.variant_report_status"]';
+        var variantAnalysisIdString   = 'span[ng-if="timelineEvent.event_data.analysis_id"]';
+        browser.ignoreSynchronization = true;
+        expect(timeline.all(by.css(patientString)).get(0).getText()).to.eventually.eql(patientPage.patientId);
+        expect(timeline.all(by.css(variantReportStatusString)).get(0).getText()).to.eventually.include('CONFIRMED');
+        expect(timeline.all(by.css(variantAnalysisIdString)).get(0)
+            .getText()).to.eventually.eql('Analysis ID: ' + patientPage.variantAnalysisId)
+            .notify(callback);
     });
 };

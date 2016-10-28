@@ -141,7 +141,7 @@ var PatientPage = function () {
     this.totalAMois             = element(by.binding('variantReport.total_amois'));
     this.totalconfirmedMOIs     = element(by.binding('variantReport.total_confirmed_mois'));
     this.totalconfirmedAMOIs    = element(by.binding('variantReport.total_confirmed_amois'));
-
+    this.variantReportStatus    = element.all(by.binding('variantReport.status'));
 
 
 
@@ -180,6 +180,8 @@ var PatientPage = function () {
     this.expCNVTableHeadings = [ 'Confirm', 'Comment', 'ID', 'aMOI', 'Chrom', 'Raw CN', 'CN', 'CI 5%', 'CI 95%' ];
     this.expGFTableHeadings = [ 'Confirm', 'Comment', 'ID', 'aMOI', 'Gene 2', 'Gene 2 Count', 'Gene 1', 'Gene 1 Count', 'Annotation' ];
 
+    //**************************** Timeline **********************//
+    this.timelineList = element.all(by.repeater('timelineEvent in activity.data'));
 
 
     //**************************** Functions **********************//
@@ -214,6 +216,14 @@ var PatientPage = function () {
             return amoiIndex;
         })
     };
+
+    this.expectEnabled = function(checkBoxList, index, enabled, callback) {
+        if(enabled === 'disabled'){
+            expect(checkBoxList.get(index).getAttribute('disabled')).to.eventually.eql('true');
+        } else {
+            expect(checkBoxList.get(index).getAttribute('disabled')).to.eventually.eql(null);
+        }
+    }
 
     this.trimSurgicalEventId =  function(completeText){
       return completeText.replace('Surgical Event ', '').replace(/\|.+/, '').trim();

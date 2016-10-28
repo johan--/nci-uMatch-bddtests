@@ -20,6 +20,7 @@ Feature: This is the critical path test cases
     And The "OK" button is "disabled"
 #      And the variant table is updated for that variant to "false"
     When I click on the "Cancel" button
+    Then I "should not" see the confirmation modal pop up
     Then The variant at ordinal "1" is "checked"
     When I uncheck the variant of ordinal "1"
     Then I "should" see the confirmation modal pop up
@@ -53,17 +54,17 @@ Feature: This is the critical path test cases
     Then I can see the "This is a comment" in the modal text box
 
 
-
   Scenario: Confirming a variant report will update the status of the report and also inform the activity feed on both dashboard and patient page.
     When I go to the patient "PT_CR03_VRUploadedPathConfirmed" with variant report "PT_CR03_VRUploadedPathConfirmed_ANI1"
-    And I click on the "Confirm" button
+    Then I can see the variant report page
+    And I click on the "CONFIRM" button
     Then I "should" see the confirmation modal pop up
     When I click on the "OK" button
-    Then The variant report status is marked "Confirmed"
+    Then The variant report status is marked "CONFIRMED"
     And The checkboxes are disabled
     And I "should not" see the "REJECT" button on the VR page
     And I "should not" see the "CONFIRM" button on the VR page
-    When I go to patient "PT_CR04_VRUploadedAssayReceived" details page
+    When I go to patient "PT_CR03_VRUploadedPathConfirmed" details page
     Then I see the confirmation message in the Patient activity feed
     When I navigate to the dashboard page
     Then I see the confirmation message in the Dashboard activity feed

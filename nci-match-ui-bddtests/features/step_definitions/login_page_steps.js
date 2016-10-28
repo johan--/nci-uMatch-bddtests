@@ -35,7 +35,7 @@ module.exports = function () {
         loginPageObj.login(email, password);
 //        utilities.waitForElement(loginPageObj.navBarHeading, 'sticky top menu');
 
-        browser.sleep(2000).then(callback);
+        browser.sleep(3000).then(callback);
     });
 
     this.Then(/^I should see the login button$/, function (callback) {
