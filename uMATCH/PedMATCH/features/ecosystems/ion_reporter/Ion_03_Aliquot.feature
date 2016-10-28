@@ -201,6 +201,19 @@ Feature: Tests for aliquot service in ion ecosystem
   @ion_reporter_p2
   Scenario: ION_AQ25. for patient specimen, if the file uploading fails, aliquot service will not send message to patient ecosystem
 
+  @ion_reporter_p2
+  Scenario: ION_AQ26. if the molecular id is neither a sample control nor patietn molecular id, aliquot PUT service should fail
+    Given molecular id is "NON_EXISTING_MOI"
+    Then add field: "analysis_id" value: "NON_EXISTING_MOI_ANI1" to message body
+    Then add field: "site" value: "mda" to message body
+    Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
+    Then add field: "vcf_name" value: "IR_TCWEV/NON_EXISTING_MOI/NON_EXISTING_MOI_ANI1/test1.vcf" to message body
+    Then add field: "dna_bam_name" value: "IR_TCWEV/NON_EXISTING_MOI/NON_EXISTING_MOI_ANI1/dna.bam" to message body
+    Then add field: "cdna_bam_name" value: "IR_TCWEV/NON_EXISTING_MOI/NON_EXISTING_MOI_ANI1/cdna.bam" to message body
+    Then add field: "qc_name" value: "IR_TCWEV/NON_EXISTING_MOI/NON_EXISTING_MOI_ANI1/10-10-2016.pdf" to message body
+    Then call aliquot PUT service, returns a message that includes "not exist" with status "Failure"
+
+
   @ion_reporter_p1
   Scenario: ION_AQ40. aliquot service can return correct result for sample control molecular_id
     Given molecular id is "SC_9LL0Q"
@@ -231,8 +244,8 @@ Feature: Tests for aliquot service in ion ecosystem
     Then each returned aliquot result should have field "<field1>"
     Then each returned aliquot result should have field "<field2>"
     Examples:
-      | moi                        | field1       | field2        |
-      | SC_6Y4FV                   | control_type | molecular_id  |
+      | moi      | field1       | field2       |
+      | SC_6Y4FV | control_type | molecular_id |
       #projection is not supported when query patient molecular id
 #      | ION_AQ43_TsVrUploaded_MOI1 | patient_id   | shipment_type |
 

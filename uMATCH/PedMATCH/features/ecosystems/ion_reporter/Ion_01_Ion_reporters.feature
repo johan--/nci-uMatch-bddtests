@@ -80,15 +80,17 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Then field: "ip_address" for this ion_reporter should be: "132.183.13.75"
 
   @ion_reporter_p2
-  Scenario Outline: ION_IR21. ion_reporter update request should fail if ion_reporter_id, site or date_ion_reporter_id_created is in message body
+  Scenario Outline: ION_IR21. ion_reporter update request should not update ion_reporter_id
     Given ion_reporter_id is "IR_GBOPP"
-    Then add field: "<field>" value: "<value>" to message body
-    When call ion_reporters PUT service, returns a message that includes "<field>" with status "Failure"
+    Then add field: "<field>" value: "<value1>" to message body
+    When call ion_reporters PUT service, returns a message that includes "updated" with status "Success"
+    Then wait up to 15 seconds until this ion_reporter get updated
+    Then field: "<field>" for this ion_reporter should be: "<value2>"
     Examples:
-      | field                        | value      |
-      | date_ion_reporter_id_created | 2010-04-25 |
-      | ion_reporter_id              | IR_XXJXX   |
-      | site                         | mocha      |
+      | field                        | value1     | value2     |
+      | date_ion_reporter_id_created | 2010-04-25 | 2010-04-25 |
+      | ion_reporter_id              | IR_XXJXX   | IR_GBOPP   |
+      | site                         | mocha      | mocha      |
 
   @ion_reporter_p3
   Scenario: ION_IR22. ion_reporter update request should fail if non-existing ion_reporter_id is passed in

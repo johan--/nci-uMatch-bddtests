@@ -33,14 +33,14 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
   @patients_p2
   Scenario: PT_SR05. Return error message when collection date is older than patient registration date
     Given template specimen received message in type: "TISSUE" for patient: "PT_SR05_Registered", it has surgical_event_id: "PT_SR05_Registered_SEI1"
-    Then set patient message field: "collection_dttm" to value: "1990-04-25T15:17:11+00:00"
+    Then set patient message field: "collection_dt" to value: "1990-04-25"
     When post to MATCH patients service, returns a message that includes "date" with status "Failure"
 
     #this is not required anymore!!!!!!!!!!!!!!!
 #  Scenario: PT_SR06. Return error message when received date is older than collection date
 #    Given template specimen received message in type: "TISSUE" for patient: "PT_SR06_Registered"
 #    Then set patient message field: "surgical_event_id" to value: "PT-SpecimenTest_SE_2"
-#    Then set patient message field: "collection_dttm" to value: "2016-04-25T15:17:11+00:00"
+#    Then set patient message field: "collection_dt" to value: "2016-04-25"
 #    Then set patient message field: "received_dttm" to value: "2016-04-23T15:17:11+00:00"
 #    When post to MATCH patients service, returns a message that includes "date" with status "Failure"
 
