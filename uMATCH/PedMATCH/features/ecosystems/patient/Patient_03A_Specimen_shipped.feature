@@ -53,7 +53,7 @@ Feature: NCH Specimen shipped messages
 
 
   @patients_p2
-  Scenario: PT_SS06. shipped_dttm older than collection_dttm fails
+  Scenario: PT_SS06. shipped_dttm older than collection_dt fails
   #  Testing patient: PT_SS06_TissueReceived, surgical_event_id: PT_SS06_TissueReceived_SEI1, collected_date: "2016-04-25T15:17:11+00:00",
     Given template specimen shipped message in type: "TISSUE" for patient: "PT_SS06_TissueReceived", it has surgical_event_id: "PT_SS06_TissueReceived_SEI1", molecular_id or slide_barcode: "PT_SS06_TissueReceived_MOI1"
     Then set patient message field: "shipped_dttm" to value: "2016-03-25T16:17:11+00:00"

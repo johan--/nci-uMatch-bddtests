@@ -48,7 +48,7 @@ class ION_helper_methods
   #     @request_hash['specimen_received']['surgical_event_id'] = sei
   #   end
   #   unless collect_date == 'default'
-  #     @request_hash['specimen_received']['collection_dttm'] = collect_date
+  #     @request_hash['specimen_received']['collection_dt'] = collect_date
   #   end
   #   @patient_message_root_key = 'specimen_received'
   # end

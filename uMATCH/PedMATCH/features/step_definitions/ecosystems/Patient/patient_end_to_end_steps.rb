@@ -46,7 +46,7 @@ Given(/^patient: "([^"]*)" is registered$/) do |patient_id|
 end
 
 Then(/^tissue specimen received with surgical_event_id: "([^"]*)"$/) do |sei|
-  date = Helper_Methods.getDateAsRequired('current')
+  date = Helper_Methods.getDateAsRequired('today')
   @active_sei = sei
   Patient_helper_methods.prepare_specimen_received(@patient_id, 'TISSUE', sei, date)
   @response = Patient_helper_methods.post_to_trigger('', '')
