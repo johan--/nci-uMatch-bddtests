@@ -10,6 +10,13 @@ pt = PatientDataSet.new('PT_SS02_TissueReceived')
 PatientMessageLoader.register_patient(pt.id)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 
+pt = PatientDataSet.new('PT_SS02a_TsVrRejected')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+PatientMessageLoader.variant_file_confirmed(pt.id, 'reject', pt.ani)
+
 pt = PatientDataSet.new('PT_SS03_TissueReceived')
 PatientMessageLoader.register_patient(pt.id)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)

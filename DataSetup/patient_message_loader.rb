@@ -272,6 +272,8 @@ class PatientMessageLoader
       folder='bdd_test_ion_reporter',
       tsv_name='test1.tsv')
     wait_until_updated(patient_id)
+    upload_vr_to_s3_if_needed('pedmatch-dev', molecular_id, analysis_id, tsv_name)
+    upload_vr_to_s3_if_needed('pedmatch-int', molecular_id, analysis_id, tsv_name)
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['variant_file_uploaded']
     message['ion_reporter_id'] = folder
     message['molecular_id'] = molecular_id
@@ -279,6 +281,35 @@ class PatientMessageLoader
     message['tsv_file_name'] = tsv_name
     send_message_to_local(message, patient_id)
     sleep(5) #variant upload might take more time than other service, so wait internally
+  end
+
+  def self.upload_vr_to_s3_if_needed(bucket, moi, ani, tsv_name = 'test1.tsv')
+    exist = Helper_Methods.s3_file_exists(bucket, "bdd_test_ion_reporter/#{moi}/#{ani}/#{tsv_name}")
+    if exist
+      puts "#{moi} exists in S3 bucket #{bucket}, upload is skipped!"
+    else
+      output_folder = "#{File.dirname(__FILE__)}/variant_file_templates/upload"
+      target_moi_folder = "#{output_folder}/#{moi}"
+      template_ani_path =  "#{File.dirname(__FILE__)}/variant_file_templates/template_moi/template_ani"
+
+      cmd = "mkdir #{output_folder}"
+      `#{cmd}`
+      cmd = "mkdir #{target_moi_folder}"
+      `#{cmd}`
+      cmd = "cp -R #{template_ani_path} #{target_moi_folder}"
+      `#{cmd}`
+      cmd = "mv #{target_moi_folder}/template_ani #{target_moi_folder}/#{ani}"
+      `#{cmd}`
+      cmd = "mv #{target_moi_folder}/#{ani}/test1.tsv #{target_moi_folder}/#{ani}/#{tsv_name}"
+      `#{cmd}`
+
+      cmd = "aws s3 cp #{output_folder} s3://#{bucket}/bdd_test_ion_reporter/ --recursive"
+      `#{cmd}`
+      cmd = "rm -R #{output_folder}"
+      `#{cmd}`
+
+      puts "#{target_moi_folder} has been uploaded to S3 bucket #{bucket}"
+    end
   end
 
   # def self.tsv_vcf_uploaded(
@@ -426,70 +457,6 @@ class PatientMessageLoader
     service = 'resetPatient/'+patient_id
     send_message_to_local_cog(service, '')
   end
-
-  # def self.load_patient_script_to_local(message_file, wait_time)
-  #   raise 'patient_id must be valid' if message_file.nil? || message_file.length == 0
-  #   file = File.read("#{LOCAL_PATIENT_DATA_FOLDER}/#{message_file}.json")
-  #
-  #   message_list = JSON.parse(file)
-  #   p "There are #{message_list.length} script messages in patient json file. Processing..."
-  #
-  #   all_items = 0
-  #   failure = 0
-  #
-  #   message_list.each do |message|
-  #     all_items += 1
-  #
-  #     message_type = message.keys[0]
-  #     message_content = message.values[0]
-  #     message_to_send = generate_message(message_type, message_content)
-  #
-  #     if message_type == 'sleep'
-  #       p "Sleep for #{message_content} seconds"
-  #       sleep(message_content.to_f)
-  #     else
-  #       curl_cmd ="curl -k -X POST -H \"Content-Type: application/json\""
-  #       curl_cmd = curl_cmd + " -H \"Accept: application/json\"  -d '" + message_to_send.to_json
-  #       curl_cmd = curl_cmd + "' #{ç}/#{SERVICE_NAME}"
-  #       output = `#{curl_cmd}`
-  #       p "Output from running No.#{all_items} curl: #{output}"
-  #       unless output.downcase.include?'success'
-  #         p 'Failed'
-  #         puts JSON.pretty_generate(message_to_send)
-  #         failure += 1
-  #       end
-  #       sleep(wait_time)
-  #     end
-  #   end
-  #
-  #   pass = all_items - failure
-  #   p ''
-  #   p "#{all_items} messages processed, #{pass} passed and #{failure} failed"
-  # end
-  #
-  # def self.generate_message(message_type, message_content)
-  #   this_raw_message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))[message_type]
-  #   message = Hash.new
-  #   if message_content.is_a?(String)
-  #     message = set_message_value(this_raw_message, message_type, 'patient_id', message_content)
-  #   elsif message_content.is_a?(Hash)
-  #     message_content.keys.each do |field|
-  #       message = set_message_value(this_raw_message, message_type, field, message_content[field])
-  #     end
-  #   end
-  #   message
-  # end
-  #
-  # def self.set_message_value(raw_message, message_type, message_field, message_value)
-  #   if message_type.start_with?('specimen_received')
-  #     raw_message['specimen_received'][message_field] = message_value
-  #   elsif message_type.start_with?('specimen_shipped')
-  #     raw_message['specimen_shipped'][message_field] = message_value
-  #   else
-  #     raw_message[message_field] = message_value
-  #   end
-  #   raw_message
-  # end
 end
 
 class PatientDataSet

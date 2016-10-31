@@ -15,6 +15,12 @@ Feature: NCH Specimen shipped messages
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
     Then patient field: "current_status" should have value: "TISSUE_NUCLEIC_ACID_SHIPPED" within 15 seconds
 
+  @patients_p2
+  Scenario: PT_SS02a. Received specimen_shipped message for type 'TISSUE' from NCH for a patient who has TISSUE_VARIANT_REPORT_REJECTED status
+    Given template specimen shipped message in type: "TISSUE" for patient: "PT_SS02a_TsVrRejected", it has surgical_event_id: "PT_SS02a_TsVrRejected_SEI1", molecular_id or slide_barcode: "PT_SS02a_TsVrRejected_MOI2"
+    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    Then patient field: "current_status" should have value: "TISSUE_NUCLEIC_ACID_SHIPPED" within 15 seconds
+
   @patients_p1
   Scenario: PT_SS03. Received specimen_shipped message for type 'SLIDE' from NCH for a patient who has already received the specimen_received message
   #  Testing patient:PT_SS03_TissueReceived; surgical_event_id: PT_SS03_TissueReceived_SEI1
