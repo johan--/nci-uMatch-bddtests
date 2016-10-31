@@ -118,8 +118,9 @@ var PatientPage = function () {
 
     this.variantConfirmButtonList      = element.all(by.css('input[type="checkbox"]')); // This is to check the properties
     this.variantConfirmButtonCLickList = element.all(by.css('button[ng-click="vm.confirm()"]')); // This is to perfom actions on the checkbox
+    this.variantIdentifierList         = element.all(by.css('[link-id="item.identifier"]'));
     this.confirmChangeCommentField     = element(by.css('input[name="comment"]'));  // This is the confirmation modal for individual rejection
-    this.confirmVRCHangeCommentField   = element(by.model('input.name')); // THis is the confirmation modal for the complete VR rejection
+    this.confirmVRCHangeCommentField   = element(by.css('input[id="cgPromptInput"]')); // THis is the confirmation modal for the complete VR rejection
     this.gridElement                   = element.all(by.repeater('item in $ctrl.gridOptions.data')); // grid table for all the variants
     this.commentLinkString             = 'a[ng-click="$ctrl.editComment(item, $ctrl.isEditable )"]'; //the string to get to the comments in the grid
     this.rejectReportButton            = element(by.css('button[ng-click="rejectVariantReport(currentTissueVariantReport)"]'));
@@ -182,6 +183,8 @@ var PatientPage = function () {
 
     //**************************** Timeline **********************//
     this.timelineList = element.all(by.repeater('timelineEvent in activity.data'));
+    this.variantReportStatusString = '[ng-if="timelineEvent.event_data.variant_report_status"]';
+    this.variantAnalysisIdString   = 'span[ng-if="timelineEvent.event_data.analysis_id"]';
 
 
     //**************************** Functions **********************//
@@ -227,6 +230,20 @@ var PatientPage = function () {
 
     this.trimSurgicalEventId =  function(completeText){
       return completeText.replace('Surgical Event ', '').replace(/\|.+/, '').trim();
+    };
+
+    this.combineVariantData = function(response){
+        var filteredList = [];
+        var variantList = [ 'snv_indels', 'copy_number_variants', 'gene_fusions' ]
+        for(variantType of variantList){
+//            console.log(response[variantType])
+            if(response[variantType].length > 0){
+                for (index in response[variantType]){
+                    filteredList.push(response[variantType][index])
+                }
+            }
+        }
+        return filteredList;
     };
 
     function setPatientId(id) {

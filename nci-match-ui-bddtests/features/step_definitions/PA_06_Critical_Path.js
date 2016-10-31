@@ -51,6 +51,26 @@ module.exports = function () {
 
     });
 
+    this.When(/^I note the ID of the variant at ordinal "([^"]*)"$/,function (ordinal, callback) {
+        var index = parseInt(ordinal) -1 ;
+        patientPage.variantIdentifierList.get(index).getText().then(function (value) {
+            patientPage.variantIdentifier = value;
+        }).then(callback);
+    });
+
+    this.Then(/^I verify that the status of confirmation of that ID is "(confirmed|rejected)"$/, function (confirmed, callback) {
+        var status = confirmed === 'confirmed';
+        var data = patientPage.combineVariantData(patientPage.responseData);
+
+        for(var idx in data){
+            if(data[idx]['identifier'] === patientPage.variantIdentifier){
+                expect(data[idx]['confirmed'].toString()).to.eql(status.toString());
+                break;
+            }
+        }
+        browser.sleep(59).then(callback);
+    });
+
     this.Then(/^I see that all the variant check boxes are selected$/, function (callback) {
         //checking the property of all the checkboxes to make sure they are selected
         patientPage.variantConfirmButtonList.count().then(function (cnt) {
@@ -167,6 +187,16 @@ module.exports = function () {
         }).then(callback);
     });
 
+    this.When(/^I collect information about the patient variant report$/, function (callback) {
+        var url = '/api/v1/patients/variant_reports/' + patientPage.variantAnalysisId;
+        console.log(url);
+        var request = utilities.callApi('patient', url);
+        request.get().then(function () {
+            var response = request.entity();
+            patientPage.responseData = JSON.parse(response);
+        }).then(callback);
+    });
+
     this.Then(/^I can see the variant report page$/, function(callback) {
         var uri = 'patient/' + patientPage.patientId + '/variant_report?analysis_id=' + patientPage.variantAnalysisId;
         expect (browser.getCurrentUrl ()).to.eventually.eql (browser.baseUrl + '/#/' + uri).notify(callback);
@@ -250,29 +280,26 @@ module.exports = function () {
         }).then(callback)
     });
 
-    this.Then(/^I see the confirmation message in the Patient activity feed$/, function (callback) {
+    this.Then(/^I see the confirmation message in the Patient activity feed as "(.+?)"$/, function (message, callback) {
         var timeline = patientPage.timelineList.get(0);
         var variantReportStatusString = '[ng-if="timelineEvent.event_data.variant_report_status"]';
         var variantAnalysisIdString   = 'span[ng-if="timelineEvent.event_data.analysis_id"]';
 
-        timeline.all(by.css(variantAnalysisIdString)).getText().then(function (test) {
-            console.log(test);
-        });
         browser.ignoreSynchronization = true;
-        expect(timeline.all(by.css(variantReportStatusString)).get(0).getText()).to.eventually.include('CONFIRMED');
+        expect(timeline.all(by.css(variantReportStatusString)).get(0).getText()).to.eventually.include(message);
         expect(timeline.all(by.css(variantAnalysisIdString)).get(0)
             .getText()).to.eventually.eql('Analysis ID: ' + patientPage.variantAnalysisId)
             .notify(callback);
     });
 
-    this.Then(/^I see the confirmation message in the Dashboard activity feed$/, function (callback) {
+    this.Then(/^I see the confirmation message in the Dashboard activity feed as "(.+?)"$/, function (message, callback) {
         var timeline = patientPage.timelineList.get(0);
         var patientString = '[patient-id="timelineEvent.entity_id"]';
         var variantReportStatusString = '[ng-if="timelineEvent.event_data.variant_report_status"]';
         var variantAnalysisIdString   = 'span[ng-if="timelineEvent.event_data.analysis_id"]';
         browser.ignoreSynchronization = true;
         expect(timeline.all(by.css(patientString)).get(0).getText()).to.eventually.eql(patientPage.patientId);
-        expect(timeline.all(by.css(variantReportStatusString)).get(0).getText()).to.eventually.include('CONFIRMED');
+        expect(timeline.all(by.css(variantReportStatusString)).get(0).getText()).to.eventually.include(message);
         expect(timeline.all(by.css(variantAnalysisIdString)).get(0)
             .getText()).to.eventually.eql('Analysis ID: ' + patientPage.variantAnalysisId)
             .notify(callback);
