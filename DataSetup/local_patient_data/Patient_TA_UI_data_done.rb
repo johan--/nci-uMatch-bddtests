@@ -50,4 +50,18 @@ PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
 PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi_increase)
 PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani_increase)
 
+pt = PatientDataSet.new('PT_CR06_RejectOneVariant')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+
+pt = PatientDataSet.new('PT_CR07_RejectVariantReport')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+
 PatientMessageLoader.upload_done
