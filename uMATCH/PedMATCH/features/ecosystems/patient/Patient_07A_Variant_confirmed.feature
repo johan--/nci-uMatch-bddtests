@@ -67,7 +67,7 @@ Feature: Variant files confirmed messages
   @patients_p2
   Scenario: PT_VC05. confirmed fields should be "true" as default
     #    Test Patient: PT_VC05_TissueShipped, Tissue shipped PT_VC05_TissueShipped(_SEI1, _MOI1)
-    Given template variant file uploaded message for patient: "PT_VC05_TissueShipped", it has molecular_id: "PT_VC05_TissueShipped_MOI1" and analysis_id: "PT_VC05_TissueShipped_ANI1"
+    Given template variant file uploaded message for patient: "PT_VC05_TissueShipped", it has molecular_id: "PT_VC05_TissueShipped_MOI1" and analysis_id: "PT_VC05_TissueShipped_ANI1" and need files in S3 Y or N: "Y"
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
     Then variants in variant report (analysis_id: "PT_VC05_TissueShipped_ANI1") have confirmed: "true" within 15 seconds
 
@@ -197,7 +197,7 @@ Feature: Variant files confirmed messages
 #    Then patient field: "current_status" should have value: "BLOOD_VARIANT_REPORT_CONFIRMED" after 30 seconds
 
   @patients_p2
-  Scenario Outline: PT_VC15. variant file confirmation will not trigger patient assignment process unless patient has COMPLETE_MDA_DATA_SET status
+  Scenario Outline: PT_VC15. variant file confirmation will not trigger patient assignment process unless patient has two types of assay ready
     Given template variant report confirm message for patient: "<patient_id>", it has analysis_id: "<ani>" and status: "<vr_status>"
     When put to MATCH variant report confirm service, returns a message that includes "Variant Report status changed successfully to" with status "Success"
     Then patient field: "current_status" should have value: "<patient_status>" after 30 seconds

@@ -89,7 +89,7 @@ Then(/^"([^"]*)" variant report uploaded with analysis_id: "([^"]*)"$/) do |type
   target_moi = get_moi_or_barcode(type)
   target_site = get_site(type).downcase
   update_ani(type, ani)
-  Patient_helper_methods.prepare_vr_upload(@patient_id, target_moi, ani, target_site)
+  Patient_helper_methods.prepare_vr_upload(@patient_id, target_moi, ani, true, target_site)
   @response = Patient_helper_methods.post_to_trigger('', '')
   Patient_helper_methods.wait_until_patient_updated(@patient_id)
 end

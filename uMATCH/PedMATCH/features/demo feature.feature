@@ -565,7 +565,7 @@ Background: wait for process to complete
       |00005              |00005-Tissue_Specimen_1|
 
   Scenario Outline: Patient's Tissue variant report is uploaded to MatchBox
-    Given template variant file uploaded message for patient: "<patient_id>", it has molecular_id: "<molecular_id>" and analysis_id: "<analysis_id>"
+    Given template variant file uploaded message for patient: "<patient_id>", it has molecular_id: "<molecular_id>" and analysis_id: "<analysis_id>" and need files in S3 Y or N: "Y"
     Then set patient message field: "s3_bucket_name" to value: "<bucket>"
     Then set patient message field: "tsv_file_path_name" to value: "<tsv>"
     Then set patient message field: "vcf_file_path_name" to value: "<vcf>"
@@ -581,7 +581,7 @@ Background: wait for process to complete
 
 
   Scenario Outline: Patient's Blood variant report is uploaded to MatchBox
-    Given template variant file uploaded message for patient: "<patient_id>", it has molecular_id: "<molecular_id>" and analysis_id: "<analysis_id>"
+    Given template variant file uploaded message for patient: "<patient_id>", it has molecular_id: "<molecular_id>" and analysis_id: "<analysis_id>" and need files in S3 Y or N: "Y"
     Then set patient message field: "s3_bucket_name" to value: "<bucket>"
     Then set patient message field: "tsv_file_path_name" to value: "<tsv>"
     Then set patient message field: "vcf_file_path_name" to value: "<vcf>"

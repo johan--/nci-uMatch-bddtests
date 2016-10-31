@@ -460,9 +460,46 @@ class Helper_Methods
     files = s3.bucket(bucket).objects(prefix:path)
     files.each { |this_file|
       this_file.delete
-      # puts "Deleted #{this_file.identifiers[:key]} from bucket <#{this_file.identifiers[:bucket_name]}>"
+      if is_local_tier
+        puts "Deleted #{this_file.identifiers[:key]} from bucket <#{this_file.identifiers[:bucket_name]}>"
+      end
     }
 
+  end
+
+  def self.upload_vr_to_s3_if_needed(bucket, moi, ani, tsv_name = 'test1.tsv')
+    template_folder = "#{path_for_named_parent_folder('nci-uMatch-bddtests')}/DataSetup/variant_file_templates"
+    exist = s3_file_exists(bucket, "bdd_test_ion_reporter/#{moi}/#{ani}/#{tsv_name}")
+    if exist && is_local_tier
+      puts "#{moi} exists in S3 bucket #{bucket}, upload is skipped!"
+    else
+      output_folder = "#{template_folder}/upload"
+      target_ani_path = "#{output_folder}/#{moi}/#{ani}"
+      template_ani_path =  "#{template_folder}/template_moi/template_ani"
+
+      cmd = "mkdir -p #{target_ani_path}"
+      `#{cmd}`
+      cmd = "cp #{template_ani_path}/* #{target_ani_path}"
+      `#{cmd}`
+      cmd = "mv #{target_ani_path}/test1.tsv #{target_ani_path}/#{tsv_name}"
+      `#{cmd}`
+
+      cmd = "aws s3 cp #{output_folder} s3://#{bucket}/bdd_test_ion_reporter/ --recursive"
+      `#{cmd}`
+      cmd = "rm -R #{output_folder}"
+      `#{cmd}`
+      if is_local_tier
+        puts "#{target_ani_path} has been uploaded to S3 bucket #{bucket}"
+      end
+    end
+  end
+
+  def self.path_for_named_parent_folder(parent_name)
+    parent_path = __FILE__
+    until parent_path.end_with?(parent_name) do
+      parent_path = File.expand_path('..', parent_path)
+    end
+    parent_path
   end
 
 end

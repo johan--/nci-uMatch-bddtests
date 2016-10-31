@@ -290,8 +290,12 @@ class Patient_helper_methods
     @patient_message_root_key = ''
   end
 
-  def self.prepare_vr_upload(pt_id, moi, ani, site='default')
+  def self.prepare_vr_upload(pt_id, moi, ani, need_upload, site='default')
     @patient_id = pt_id
+    if need_upload
+      Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-dev', moi, ani)
+      Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-int', moi, ani)
+    end
     @request_hash = Patient_helper_methods.load_patient_message_templates('variant_file_uploaded')
     unless site=='default'
       @request_hash['ion_reporter_id'] = site
@@ -456,11 +460,11 @@ class Patient_helper_methods
   end
 
   def self.validate_response(response, expected_status, expected_partial_message)
+    if response['status']=='Failure'
+      puts response['message']
+    end
     if expected_status.length>1
       response['status'].downcase.should == expected_status.downcase
-    end
-    if Helper_Methods.is_local_tier
-      puts response['message']
     end
     # expect_message = "returned message include <#{expected_partial_message}>"
     # actual_message = response['message']

@@ -174,3 +174,10 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
       | type   | sei                     |
       | TISSUE | PT_SR13_Registered_SEI1 |
       | BLOOD  |                         |
+
+  @patients_p2
+  Scenario: PT_SR14. new tissue specimen with a surgical_event_id that was used in previous step should fail
+#    patient: "PT_ETE05" with status: "REQUEST_ASSIGNMENT" on step: "2.0"
+#    surgical_event_id PT_ETE05_SEI1 has been used in step 1.0
+    Given template specimen received message in type: "TISSUE" for patient: "PT_ETE05", it has surgical_event_id: "PT_ETE05_SEI1"
+    When post to MATCH patients service, returns a message that includes "same surgical event id" with status "Failure"

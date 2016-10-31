@@ -272,8 +272,8 @@ class PatientMessageLoader
       folder='bdd_test_ion_reporter',
       tsv_name='test1.tsv')
     wait_until_updated(patient_id)
-    upload_vr_to_s3_if_needed('pedmatch-dev', molecular_id, analysis_id, tsv_name)
-    upload_vr_to_s3_if_needed('pedmatch-int', molecular_id, analysis_id, tsv_name)
+    Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-dev', molecular_id, analysis_id, tsv_name)
+    Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-int', molecular_id, analysis_id, tsv_name)
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['variant_file_uploaded']
     message['ion_reporter_id'] = folder
     message['molecular_id'] = molecular_id
@@ -281,35 +281,6 @@ class PatientMessageLoader
     message['tsv_file_name'] = tsv_name
     send_message_to_local(message, patient_id)
     sleep(5) #variant upload might take more time than other service, so wait internally
-  end
-
-  def self.upload_vr_to_s3_if_needed(bucket, moi, ani, tsv_name = 'test1.tsv')
-    exist = Helper_Methods.s3_file_exists(bucket, "bdd_test_ion_reporter/#{moi}/#{ani}/#{tsv_name}")
-    if exist
-      puts "#{moi} exists in S3 bucket #{bucket}, upload is skipped!"
-    else
-      output_folder = "#{File.dirname(__FILE__)}/variant_file_templates/upload"
-      target_moi_folder = "#{output_folder}/#{moi}"
-      template_ani_path =  "#{File.dirname(__FILE__)}/variant_file_templates/template_moi/template_ani"
-
-      cmd = "mkdir #{output_folder}"
-      `#{cmd}`
-      cmd = "mkdir #{target_moi_folder}"
-      `#{cmd}`
-      cmd = "cp -R #{template_ani_path} #{target_moi_folder}"
-      `#{cmd}`
-      cmd = "mv #{target_moi_folder}/template_ani #{target_moi_folder}/#{ani}"
-      `#{cmd}`
-      cmd = "mv #{target_moi_folder}/#{ani}/test1.tsv #{target_moi_folder}/#{ani}/#{tsv_name}"
-      `#{cmd}`
-
-      cmd = "aws s3 cp #{output_folder} s3://#{bucket}/bdd_test_ion_reporter/ --recursive"
-      `#{cmd}`
-      cmd = "rm -R #{output_folder}"
-      `#{cmd}`
-
-      puts "#{target_moi_folder} has been uploaded to S3 bucket #{bucket}"
-    end
   end
 
   # def self.tsv_vcf_uploaded(

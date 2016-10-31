@@ -56,11 +56,12 @@ Given(/^template pathology report with surgical_event_id: "([^"]*)" for patient:
   Patient_helper_methods.prepare_pathology(@patient_id, converted_sei)
 end
 
-Given(/^template variant file uploaded message for patient: "([^"]*)", it has molecular_id: "([^"]*)" and analysis_id: "([^"]*)"$/) do |patientID, moi, ani|
+Given(/^template variant file uploaded message for patient: "([^"]*)", it has molecular_id: "([^"]*)" and analysis_id: "([^"]*)" and need files in S3 Y or N: "([^"]*)"$/) do |patientID, moi, ani, upload|
   @patient_id = patientID=='null'?nil:patientID
   converted_moi = moi=='null'?nil:moi
   @analysis_id = ani=='null'?nil:ani
-  Patient_helper_methods.prepare_vr_upload(@patient_id, converted_moi, @analysis_id, 'bdd_test_ion_reporter')
+  need_file = upload == 'Y'
+  Patient_helper_methods.prepare_vr_upload(@patient_id, converted_moi, @analysis_id, need_file, 'bdd_test_ion_reporter')
 end
 
 Given(/^template variant confirm message for patient: "([^"]*)", the variant: "([^"]*)" is checked: "([^"]*)" with comment: "([^"]*)"$/) do |patient_id, variant_uuid, confirmed, comment|
