@@ -61,18 +61,16 @@ Feature: Patients request assignment tests
 
   @patients_p2
   Scenario: PT_RA04. any message should be rejected if patient is on "REQUEST_NO_ASSIGNMENT" status
-#    patient: "PT_RA04_RequestNoAssignment" with status: "REQUEST_NO_ASSIGNMENT" on step: "2.0"
-#    this patients's active "TISSUE" molecular_id is "PT_RA04_MOI2"
-#    this patients's active "TISSUE" analysis_id is "PT_RA04_ANI2"
-    Given template variant report confirm message for patient: "PT_RA04_RequestNoAssignment", it has analysis_id: "PT_RA04_RequestNoAssignment_ANI2" and status: "confirm"
+#    patient: "PT_RA04_ReqNoAssignment" with status: "REQUEST_NO_ASSIGNMENT" on step: "2.0"
+    Given template variant report confirm message for patient: "PT_RA04_ReqNoAssignment", it has analysis_id: "PT_RA04_ReqNoAssignment_ANI2" and status: "confirm"
     When post to MATCH patients service, returns a message that includes "assignment" with status "Failure"
-    Then template specimen received message in type: "TISSUE" for patient: "PT_RA04_RequestNoAssignment", it has surgical_event_id: "PT_RA04_RequestNoAssignment_SEI3"
+    Then template specimen received message in type: "TISSUE" for patient: "PT_RA04_ReqNoAssignment", it has surgical_event_id: "PT_RA04_ReqNoAssignment_SEI3"
     When post to MATCH patients service, returns a message that includes "assignment" with status "Failure"
-    Then template specimen shipped message in type: "TISSUE" for patient: "PT_RA04_RequestNoAssignment", it has surgical_event_id: "PT_RA04_RequestNoAssignment_SEI2", molecular_id or slide_barcode: "PT_RA04_RequestNoAssignment_MOI3"
+    Then template specimen shipped message in type: "TISSUE" for patient: "PT_RA04_ReqNoAssignment", it has surgical_event_id: "PT_RA04_ReqNoAssignment_SEI2", molecular_id or slide_barcode: "PT_RA04_ReqNoAssignment_MOI3"
     When post to MATCH patients service, returns a message that includes "assignment" with status "Failure"
-    Then template variant file uploaded message for patient: "PT_RA04_RequestNoAssignment", it has molecular_id: "PT_RA04_RequestNoAssignment_MOI2" and analysis_id: "PT_RA04_RequestNoAssignment_ANI4" and need files in S3 Y or N: "Y"
+    Then template variant file uploaded message for patient: "PT_RA04_ReqNoAssignment", it has molecular_id: "PT_RA04_ReqNoAssignment_MOI2" and analysis_id: "PT_RA04_ReqNoAssignment_ANI4" and need files in S3 Y or N: "Y"
     When post to MATCH patients service, returns a message that includes "assignment" with status "Failure"
-    Then template assay message with surgical_event_id: "PT_RA04_RequestNoAssignment_SEI2" for patient: "PT_RA04_RequestNoAssignment"
+    Then template assay message with surgical_event_id: "PT_RA04_ReqNoAssignment_SEI2" for patient: "PT_RA04_ReqNoAssignment"
     When post to MATCH patients service, returns a message that includes "assignment" with status "Failure"
 
 #  Scenario: PT_RA04a only off study and request assignment can be sent to request no assignment
