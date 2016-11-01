@@ -3,10 +3,10 @@ Feature: Patients off study tests
 
   @patients_p1
   Scenario Outline: PT_OS01. patient can be set to OFF_STUDY status from any status
-    Given patient: "<patient_id>" with status: "<current_status>" on step: "<current_step_number>"
-    Then set patient off_study on step number: "<current_step_number>"
-    Then patient status should be "OFF_STUDY" within 15 seconds
-    Then patient step number should be "<current_step_number>" within 15 seconds
+    Given template off study message for patient: "<patient_id>" on step number: "<current_step_number>"
+    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    Then patient field: "current_status" should have value: "<current_status>" within 15 seconds
+    Then patient field: "current_step_number" should have value: "<current_step_number>" within 15 seconds
     Examples:
       | patient_id               | current_status                  | current_step_number |
       | PT_ETE04_Registered      | REGISTRATION                    | 1.0                 |
@@ -32,34 +32,32 @@ Feature: Patients off study tests
 
   @patients_p2
   Scenario Outline: PT_OS02. variant report confirmation should fail if patient is on OFF_STUDY status
-    Given patient: "<patient_id>" with status: "<current_status>" on step: "1.0"
-    Given this patients's active "TISSUE" analysis_id is "<ani>"
-    Given other background and comments for this patient: "All data is ready, tissue variant report was waiting for confirmation before patient changed to OFF_STUDY"
-    Then "TISSUE" variant report confirmed with status: "CONFIRMED"
-    Then API returns a message that includes "OFF_STUDY" with status "Failure"
+#    patient: "PT_ETE08_OffStudy1" assay ready, tissue vr waiting for confirm before OFF_STUDY
+#    patient: "PT_ETE08_OffStudy2" assay ready, tissue vr waiting for confirm before OFF_STUDY_BIOPSY_EXPIRED
+    Given template variant report confirm message for patient: "<patient_id>", it has analysis_id: "<ani>" and status: "confirm"
+    When put to MATCH variant report confirm service, returns a message that includes "OFF_STUDY" with status "Failure"
     Examples:
-      | patient_id         | current_status           | ani                     |
-      | PT_ETE08_OffStudy1 | OFF_STUDY                | PT_ETE08_OffStudy1_ANI1 |
-      | PT_ETE08_OffStudy2 | OFF_STUDY_BIOPSY_EXPIRED | PT_ETE08_OffStudy2_ANI1 |
+      | patient_id         | ani                     |
+      | PT_ETE08_OffStudy1 | PT_ETE08_OffStudy1_ANI1 |
+      | PT_ETE08_OffStudy2 | PT_ETE08_OffStudy2_ANI1 |
 
   @patients_p2
   Scenario Outline: PT_OS03. assignment report confirmation should fail if patient is on OFF_STUDY status
-    Given patient: "<patient_id>" with status: "<current_status>" on step: "1.0"
-    Given this patients's active "TISSUE" analysis_id is "<ani>"
-    Given other background and comments for this patient: "Assignment report was waiting for confirmation before patient changed to OFF_STUDY"
-    Then assignment report is confirmed
-    Then API returns a message that includes "OFF_STUDY" with status "Failure"
+#    patient: "PT_ETE09_OffStudy1" assay ready, Assignment report waiting for confirmation before OFF_STUDY
+#    patient: "PT_ETE09_OffStudy2" assay ready, Assignment report waiting for confirm before OFF_STUDY_BIOPSY_EXPIRED
+    Given template assignment report confirm message for patient: "<patient_id>", it has analysis_id: "<ani>" and status: "confirm"
+    When put to MATCH assignment report confirm service, returns a message that includes "OFF_STUDY" with status "Failure"
     Examples:
-      | patient_id         | current_status           | ani                     |
-      | PT_ETE09_OffStudy1 | OFF_STUDY                | PT_ETE09_OffStudy1_ANI1 |
-      | PT_ETE09_OffStudy2 | OFF_STUDY_BIOPSY_EXPIRED | PT_ETE09_OffStudy2_ANI1 |
+      | patient_id         | ani                     |
+      | PT_ETE09_OffStudy1 | PT_ETE09_OffStudy1_ANI1 |
+      | PT_ETE09_OffStudy2 | PT_ETE09_OffStudy2_ANI1 |
 
   @patients_p3
   Scenario Outline: PT_OS04. request assignment should fail if patient is on OFF_STUDY status
-    Given patient: "<patient_id>" with status: "<current_status>" on step: "1.1"
-    Given patient is currently on treatment arm: "APEC1621-A", stratum: "100"
-    Then requests assignment for this patient with re-biopsy: "<rebiopsy>", step number: "2.0"
-    Then API returns a message that includes "off" with status "Failure"
+#    Given patient: "<patient_id>" with status: "<current_status>" on step: "1.1"
+#    Given patient is currently on treatment arm: "APEC1621-A", stratum: "100"
+    Given template request assignment message for patient: "<patient_id>" with re-biopsy: "<rebiopsy>", step number: "2.0"
+    When post to MATCH patients service, returns a message that includes "off" with status "Failure"
     Examples:
       | patient_id      | current_status           | rebiopsy |
       | PT_ETE09a_OnTA1 | OFF_STUDY                | Y        |

@@ -351,6 +351,18 @@ class Patient_helper_methods
     end
   end
 
+  def self.prepare_on_treatment_arm(pt_id, ta_id, stratum, step_number, date='default')
+    @patient_id = pt_id
+    @request_hash = load_patient_message_templates('on_treatment_arm')
+    @request_hash['patient_id'] = @patient_id
+    @request_hash['step_number'] = step_number
+    @request_hash['treatment_arm_id'] = ta_id
+    @request_hash['stratum_id'] = stratum
+    unless date=='default'
+      @request_hash['status_date'] = date
+    end
+  end
+
   ######## services #####
   def self.get_any_result_from_url(url)
     return Helper_Methods.simple_get_request(url)['message_json']
