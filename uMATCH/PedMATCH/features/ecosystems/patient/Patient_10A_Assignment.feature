@@ -2,17 +2,16 @@
 Feature: Patients assignment tests
 
   Scenario Outline: PT_AM01. in proper situation, patient ecosystem can send correct status (other than PENDING_APPROVAL) to COG
-    Given patient: "<patient_id>" with status: "TISSUE_VARIANT_REPORT_RECEIVED" on step: "1.0"
-    Given this patients's active "TISSUE" molecular_id is "<moi>"
-    Given this patients's active "TISSUE" analysis_id is "<ani>"
-    Given other background and comments for this patient: "All data is ready, there will <description>"
-    Then "TISSUE" variant report confirmed with status: "CONFIRMED"
+#    patient: PT_ETE02_TsVrReceived1 will not have TA available
+#    patient: PT_ETE02_TsVrReceived1 will have a closed TA available
+    Given template variant report confirm message for patient: "<patient_id>", it has analysis_id: "<ani>" and status: "confirm"
     Then wait for "60" seconds
     Then COG received assignment status: "<assignment_status>" for this patient
+    When put to MATCH variant report confirm service, returns a message that includes "processed successfully" with status "Success"
     Examples:
-      | patient_id             | moi                         | ani                         | description                | assignment_status  |
-      | PT_ETE02_TsVrReceived1 | PT_ETE02_TsVrReceived1_MOI1 | PT_ETE02_TsVrReceived1_ANI1 | not have TA available      | NO_TA_AVAILABLE    |
-      | PT_ETE02_TsVrReceived2 | PT_ETE02_TsVrReceived2_MOI1 | PT_ETE02_TsVrReceived2_ANI1 | have a closed TA available | COMPASSIONATE_CARE |
+      | patient_id             | ani                         | assignment_status  |
+      | PT_ETE02_TsVrReceived1 | PT_ETE02_TsVrReceived1_ANI1 | NO_TA_AVAILABLE    |
+      | PT_ETE02_TsVrReceived2 | PT_ETE02_TsVrReceived2_ANI1 | COMPASSIONATE_CARE |
 
   @patients_p2
   Scenario: PT_AM02. patient can reach PENDING_CONFIRMATION status even cog service collapses during assignment processing

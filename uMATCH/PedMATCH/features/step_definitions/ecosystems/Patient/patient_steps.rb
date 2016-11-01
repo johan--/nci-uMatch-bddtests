@@ -357,6 +357,17 @@ Given(/^patient: "([^"]*)" in mock service lost patient list, service will come 
   COG_helper_methods.setServiceLostPatient(patient_id, error_times)
 end
 
+Then(/^COG received assignment status: "([^"]*)" for this patient$/) do |assignment_status|
+  response = COG_helper_methods.get_patient_assignment_status(@patient_id)
+
+  expect_message = "Assignment status for patient #{@patient_id} is #{assignment_status}"
+  actual_message = response['message']
+  if response['message'].include?assignment_status
+    actual_message = "Assignment status for patient #{@patient_id} is #{assignment_status}"
+  end
+  actual_message.should == expect_message
+end
+
 def convert_string_to_bool(string)
   case string
     when 'true' then

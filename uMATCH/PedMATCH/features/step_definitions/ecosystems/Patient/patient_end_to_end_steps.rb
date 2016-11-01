@@ -10,32 +10,32 @@ Given(/^reset COG patient data: "([^"]*)"$/) do |patient_id|
   Patient_helper_methods.validate_response(@response, 'Success', 'reset')
 end
 
-Given(/^patient: "([^"]*)" with status: "([^"]*)" on step: "([^"]*)"$/) do |patient_id, patient_status, step_number|
-  @patient_id = patient_id
-  @patient_status = patient_status
-  @patient_step_number = step_number
-end
-
-Given(/^patient is currently on treatment arm: "([^"]*)", stratum: "([^"]*)"$/) do |ta_id, stratum|
-  @current_stratum = stratum
-  @current_ta_id = ta_id
-end
-
-Given(/^other background and comments for this patient: "([^"]*)"$/) do |arg1|
-#   this is just a description step
-end
-
-Given(/^this patients's active surgical_event_id is "([^"]*)"$/) do |sei|
-    @active_sei = sei
-end
-
-Given(/^this patients's active "([^"]*)" molecular_id is "([^"]*)"$/) do |type, moi|
-  update_moi_or_barcode(type, moi)
-end
-
-Given(/^this patients's active "([^"]*)" analysis_id is "([^"]*)"$/) do |type, ani|
-  update_ani(type, ani)
-end
+# Given(/^patient: "([^"]*)" with status: "([^"]*)" on step: "([^"]*)"$/) do |patient_id, patient_status, step_number|
+#   @patient_id = patient_id
+#   @patient_status = patient_status
+#   @patient_step_number = step_number
+# end
+#
+# Given(/^patient is currently on treatment arm: "([^"]*)", stratum: "([^"]*)"$/) do |ta_id, stratum|
+#   @current_stratum = stratum
+#   @current_ta_id = ta_id
+# end
+#
+# Given(/^other background and comments for this patient: "([^"]*)"$/) do |arg1|
+# #   this is just a description step
+# end
+#
+# Given(/^this patients's active surgical_event_id is "([^"]*)"$/) do |sei|
+#     @active_sei = sei
+# end
+#
+# Given(/^this patients's active "([^"]*)" molecular_id is "([^"]*)"$/) do |type, moi|
+#   update_moi_or_barcode(type, moi)
+# end
+#
+# Given(/^this patients's active "([^"]*)" analysis_id is "([^"]*)"$/) do |type, ani|
+#   update_ani(type, ani)
+# end
 
 Given(/^patient: "([^"]*)" is registered$/) do |patient_id|
   @patient_id = patient_id
@@ -140,17 +140,6 @@ Then(/^COG approves patient on treatment arm: "([^"]*)", stratum: "([^"]*)" to s
   @response = COG_helper_methods.on_treatment_arm(@patient_id, @patient_step_number, @current_ta_id, @current_stratum)
   Patient_helper_methods.wait_until_patient_updated(@patient_id)
   Patient_helper_methods.validate_response(@response, 'Success', 'successfully')
-end
-
-Then(/^COG received assignment status: "([^"]*)" for this patient$/) do |assignment_status|
-  @response = COG_helper_methods.get_patient_assignment_status(@patient_id)
-
-  expect_message = "Assignment status for patient #{@patient_id} is #{assignment_status}"
-  actual_message = @response['message']
-  if @response['message'].include?assignment_status
-    actual_message = "Assignment status for patient #{@patient_id} is #{assignment_status}"
-  end
-  actual_message.should == expect_message
 end
 
 Then(/^assignment report is confirmed$/) do
