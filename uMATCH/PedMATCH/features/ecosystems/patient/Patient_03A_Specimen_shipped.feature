@@ -138,9 +138,9 @@ Feature: NCH Specimen shipped messages
 
   @patients_p2
   Scenario Outline: PT_SS11a. shipment with molecular_id (or barcode) that was used in previous step should fail
-#    patient: "PT_ETE06_Step2TsReceived1" with status: "TISSUE_SPECIMEN_RECEIVED" on step: "2.0"
-#    patient: "PT_ETE06_Step2TsReceived2" with status: "TISSUE_SPECIMEN_RECEIVED" on step: "2.0"
-#    patient: "PT_ETE06_Step2BdReceived" with status: "REQUEST_ASSIGNMENT" on step: "2.0"
+#    patient: "PT_SS11a_Step2TsReceived1" with status: "TISSUE_SPECIMEN_RECEIVED" on step: "2.0"
+#    patient: "PT_SS11a_Step2TsReceived2" with status: "TISSUE_SPECIMEN_RECEIVED" on step: "2.0"
+#    patient: "PT_SS11a_Step2BdReceived" with status: "REQUEST_ASSIGNMENT" on step: "2.0"
 #    moi or barcode has been used in step 1.0
     Given template specimen shipped message in type: "<type>" for patient: "<patient_id>", it has surgical_event_id: "<patient_id>_SEI5", molecular_id or slide_barcode: "<moi_or_barcode>"
     Then set patient message field: "destination" to value: "MoCha"
@@ -148,9 +148,9 @@ Feature: NCH Specimen shipped messages
     When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
     Examples:
       | patient_id                | moi_or_barcode                   | type   | message                          |
-      | PT_ETE06_Step2TsReceived1 | PT_ETE06_Step2TsReceived1_MOI1   | TISSUE | same molecular id has been found |
-      | PT_ETE06_Step2TsReceived2 | PT_ETE06_Step2TsReceived2_BC1    | SLIDE  | same barcode has been found      |
-      | PT_ETE06_Step2BdReceived  | PT_ETE06_Step2BdReceived_BD_MOI1 | BLOOD  | same molecular id has been found |
+      | PT_SS11a_Step2TsReceived1 | PT_SS11a_Step2TsReceived1_MOI1   | TISSUE | same molecular id has been found |
+      | PT_SS11a_Step2TsReceived2 | PT_SS11a_Step2TsReceived2_BC1    | SLIDE  | same barcode has been found      |
+      | PT_SS11a_Step2BdReceived  | PT_SS11a_Step2BdReceived_BD_MOI1 | BLOOD  | same molecular id has been found |
 
 
 

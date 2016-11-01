@@ -773,7 +773,7 @@
             "active_tissue_specimen": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE17_TsReceived_SEI1"
+                        "S": "PT_RA02_TsReceived_SEI1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
@@ -781,7 +781,7 @@
                 }
             },
             "patient_id": {
-                "S": "PT_ETE17_TsReceived"
+                "S": "PT_RA02_TsReceived"
             },
             "current_step_number": {
                 "S": "1.0"
@@ -830,7 +830,7 @@
             "active_tissue_specimen": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE06_Step2TsReceived1_SEI2"
+                        "S": "PT_SS11a_Step2TsReceived1_SEI2"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
@@ -852,10 +852,10 @@
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE06_Step2TsReceived1_SEI1"
+                        "S": "PT_SS11a_Step2TsReceived1_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE06_Step2TsReceived1_ANI1"
+                        "S": "PT_SS11a_Step2TsReceived1_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -1412,13 +1412,13 @@
                         "S": "2016-10-20 00:25:11 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE06_Step2TsReceived1"
+                        "S": "PT_SS11a_Step2TsReceived1"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-20 00:25:11 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE06_Step2TsReceived1_MOI1"
+                        "S": "PT_SS11a_Step2TsReceived1_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -1464,7 +1464,7 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE06_Step2TsReceived1"
+                "S": "PT_SS11a_Step2TsReceived1"
             },
             "status_date": {
                 "S": "2016-08-10T22:05:33+00:00"
@@ -1503,13 +1503,13 @@
             "active_tissue_specimen": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE19_RequestNoAssignment_SEI2"
+                        "S": "PT_RA04_RequestNoAssignment_SEI2"
                     },
                     "active_destination": {
                         "S": "MDA"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE19_RequestNoAssignment_ANI2"
+                        "S": "PT_RA04_RequestNoAssignment_ANI2"
                     },
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
@@ -1518,7 +1518,7 @@
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE19_RequestNoAssignment_MOI2"
+                        "S": "PT_RA04_RequestNoAssignment_MOI2"
                     },
                     "variant_report_status": {
                         "S": "PENDING"
@@ -1540,7 +1540,7 @@
                         "S": "2016-04-22T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE19_RequestNoAssignment_BD_MOI1"
+                        "S": "PT_RA04_RequestNoAssignment_BD_MOI1"
                     },
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
@@ -1567,15 +1567,15 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE19_RequestNoAssignment"
+                "S": "PT_RA04_RequestNoAssignment"
             },
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE19_RequestNoAssignment_SEI1"
+                        "S": "PT_RA04_RequestNoAssignment_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE19_RequestNoAssignment_ANI1"
+                        "S": "PT_RA04_RequestNoAssignment_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -2132,13 +2132,13 @@
                         "S": "2016-10-25 02:59:11 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE19_RequestNoAssignment"
+                        "S": "PT_RA04_RequestNoAssignment"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-25 02:59:11 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE19_RequestNoAssignment_MOI1"
+                        "S": "PT_RA04_RequestNoAssignment_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -2255,7 +2255,7 @@
             "active_tissue_specimen": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE18_AssayReceived_SEI1"
+                        "S": "PT_RA03_AssayReceived_SEI1"
                     },
                     "ICCPTENs": {
                         "S": "NEGATIVE"
@@ -2264,13 +2264,13 @@
                         "S": "NEGATIVE"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE18_AssayReceived_MOI1"
+                        "S": "PT_RA03_AssayReceived_MOI1"
                     },
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE18_AssayReceived_BC1"
+                        "S": "PT_RA03_AssayReceived_BC1"
                     },
                     "active_destination": {
                         "S": "MDA"
@@ -2290,7 +2290,7 @@
                 }
             },
             "patient_id": {
-                "S": "PT_ETE18_AssayReceived"
+                "S": "PT_RA03_AssayReceived"
             },
             "current_step_number": {
                 "S": "1.0"
@@ -2364,10 +2364,10 @@
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE05_SEI1"
+                        "S": "PT_SR14_RequestAssignment_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE05_ANI1"
+                        "S": "PT_SR14_RequestAssignment_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -2924,13 +2924,13 @@
                         "S": "2016-10-20 00:23:09 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE05"
+                        "S": "PT_SR14_RequestAssignment"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-20 00:23:09 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE05_MOI1"
+                        "S": "PT_SR14_RequestAssignment_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -2976,7 +2976,7 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE05"
+                "S": "PT_SR14_RequestAssignment"
             },
             "status_date": {
                 "S": "2016-08-10T22:05:33+00:00"
@@ -4350,7 +4350,7 @@
             "active_tissue_specimen": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE17_AssayReceived_SEI1"
+                        "S": "PT_RA02_AssayReceived_SEI1"
                     },
                     "ICCPTENs": {
                         "S": "NEGATIVE"
@@ -4359,13 +4359,13 @@
                         "S": "NEGATIVE"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE17_AssayReceived_MOI1"
+                        "S": "PT_RA02_AssayReceived_MOI1"
                     },
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE17_AssayReceived_BC1"
+                        "S": "PT_RA02_AssayReceived_BC1"
                     },
                     "active_destination": {
                         "S": "MDA"
@@ -4385,7 +4385,7 @@
                 }
             },
             "patient_id": {
-                "S": "PT_ETE17_AssayReceived"
+                "S": "PT_RA02_AssayReceived"
             },
             "current_step_number": {
                 "S": "1.0"
@@ -5238,22 +5238,22 @@
             "active_tissue_specimen": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE04_TsVrRejected_SEI1"
+                        "S": "PT_OS01_TsVrRejected_SEI1"
                     },
                     "active_destination": {
                         "S": "MDA"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE04_TsVrRejected_ANI1"
+                        "S": "PT_OS01_TsVrRejected_ANI1"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE04_TsVrRejected_MOI1"
+                        "S": "PT_OS01_TsVrRejected_MOI1"
                     },
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE04_TsVrRejected_BC1"
+                        "S": "PT_OS01_TsVrRejected_BC1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
@@ -5267,7 +5267,7 @@
                 }
             },
             "patient_id": {
-                "S": "PT_ETE04_TsVrRejected"
+                "S": "PT_OS01_TsVrRejected"
             },
             "current_step_number": {
                 "S": "1.0"
@@ -5286,22 +5286,22 @@
             "active_tissue_specimen": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE04_TsVrConfirmed_SEI1"
+                        "S": "PT_OS01_TsVrConfirmed_SEI1"
                     },
                     "active_destination": {
                         "S": "MDA"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE04_TsVrConfirmed_ANI1"
+                        "S": "PT_OS01_TsVrConfirmed_ANI1"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE04_TsVrConfirmed_MOI1"
+                        "S": "PT_OS01_TsVrConfirmed_MOI1"
                     },
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE04_TsVrConfirmed_BC1"
+                        "S": "PT_OS01_TsVrConfirmed_BC1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
@@ -5315,7 +5315,7 @@
                 }
             },
             "patient_id": {
-                "S": "PT_ETE04_TsVrConfirmed"
+                "S": "PT_OS01_TsVrConfirmed"
             },
             "current_step_number": {
                 "S": "1.0"
@@ -5334,7 +5334,7 @@
             "active_tissue_specimen": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE18_TsReceived_SEI1"
+                        "S": "PT_RA03_TsReceived_SEI1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
@@ -5342,7 +5342,7 @@
                 }
             },
             "patient_id": {
-                "S": "PT_ETE18_TsReceived"
+                "S": "PT_RA03_TsReceived"
             },
             "current_step_number": {
                 "S": "1.0"
@@ -5478,10 +5478,10 @@
                         "S": "MDA"
                     },
                     "surgical_event_id": {
-                        "S": "PT_ETE17_TsShipped_SEI2"
+                        "S": "PT_RA02_TsShipped_SEI2"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE17_TsShipped_MOI2"
+                        "S": "PT_RA02_TsShipped_MOI2"
                     },
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
@@ -5506,10 +5506,10 @@
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE17_TsShipped_SEI1"
+                        "S": "PT_RA02_TsShipped_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE17_TsShipped_ANI1"
+                        "S": "PT_RA02_TsShipped_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -6066,13 +6066,13 @@
                         "S": "2016-10-24 21:27:38 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE17_TsShipped"
+                        "S": "PT_RA02_TsShipped"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-24 21:27:38 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE17_TsShipped_MOI1"
+                        "S": "PT_RA02_TsShipped_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -6118,7 +6118,7 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE17_TsShipped"
+                "S": "PT_RA02_TsShipped"
             },
             "status_date": {
                 "S": "2016-08-10T22:05:33+00:00"
@@ -6160,10 +6160,10 @@
                         "S": "MDA"
                     },
                     "surgical_event_id": {
-                        "S": "PT_ETE04_TsShipped_SEI2"
+                        "S": "PT_OS01_TsShipped_SEI2"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE04_TsShipped_MOI2"
+                        "S": "PT_OS01_TsShipped_MOI2"
                     },
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
@@ -6188,10 +6188,10 @@
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE04_TsShipped_SEI1"
+                        "S": "PT_OS01_TsShipped_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE04_TsShipped_ANI1"
+                        "S": "PT_OS01_TsShipped_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -6748,13 +6748,13 @@
                         "S": "2016-10-19 23:48:14 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE04_TsShipped"
+                        "S": "PT_OS01_TsShipped"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-19 23:48:14 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE04_TsShipped_MOI1"
+                        "S": "PT_OS01_TsShipped_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -6800,7 +6800,7 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE04_TsShipped"
+                "S": "PT_OS01_TsShipped"
             },
             "status_date": {
                 "S": "2016-08-10T22:05:33+00:00"
@@ -6858,10 +6858,10 @@
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE04_ReqAssignment_SEI1"
+                        "S": "PT_OS01_ReqAssignment_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE04_ReqAssignment_ANI1"
+                        "S": "PT_OS01_ReqAssignment_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -7418,13 +7418,13 @@
                         "S": "2016-10-20 00:02:47 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE04_ReqAssignment"
+                        "S": "PT_OS01_ReqAssignment"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-20 00:02:47 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE04_ReqAssignment_MOI1"
+                        "S": "PT_OS01_ReqAssignment_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -7470,7 +7470,7 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE04_ReqAssignment"
+                "S": "PT_OS01_ReqAssignment"
             },
             "status_date": {
                 "S": "2016-08-10T22:05:33+00:00"
@@ -7509,13 +7509,13 @@
             "active_tissue_specimen": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE18_TsVrReceived_SEI2"
+                        "S": "PT_RA03_TsVrReceived_SEI2"
                     },
                     "active_destination": {
                         "S": "MDA"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE18_TsVrReceived_ANI2"
+                        "S": "PT_RA03_TsVrReceived_ANI2"
                     },
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
@@ -7524,7 +7524,7 @@
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE18_TsVrReceived_MOI2"
+                        "S": "PT_RA03_TsVrReceived_MOI2"
                     },
                     "variant_report_status": {
                         "S": "PENDING"
@@ -7546,10 +7546,10 @@
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE18_TsVrReceived_SEI1"
+                        "S": "PT_RA03_TsVrReceived_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE18_TsVrReceived_ANI1"
+                        "S": "PT_RA03_TsVrReceived_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -8106,13 +8106,13 @@
                         "S": "2016-10-25 00:23:07 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE18_TsVrReceived"
+                        "S": "PT_RA03_TsVrReceived"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-25 00:23:07 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE18_TsVrReceived_MOI1"
+                        "S": "PT_RA03_TsVrReceived_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -8158,7 +8158,7 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE18_TsVrReceived"
+                "S": "PT_RA03_TsVrReceived"
             },
             "status_date": {
                 "S": "2016-08-10T22:05:33+00:00"
@@ -8386,7 +8386,7 @@
                         "S": "NEGATIVE"
                     },
                     "surgical_event_id": {
-                        "S": "PT_ETE04_PendingApproval_SEI2"
+                        "S": "PT_OS01_PendingApproval_SEI2"
                     },
                     "ICCMLH1s": {
                         "S": "NEGATIVE"
@@ -8395,13 +8395,13 @@
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE04_PendingApproval_BC2"
+                        "S": "PT_OS01_PendingApproval_BC2"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE04_PendingApproval_MOI2"
+                        "S": "PT_OS01_PendingApproval_MOI2"
                     },
                     "ICCPTENs_received_date": {
                         "S": "2016-05-30T12:11:09.071-05:00"
@@ -8410,7 +8410,7 @@
                         "S": "CONFIRMED"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE04_PendingApproval_ANI2"
+                        "S": "PT_OS01_PendingApproval_ANI2"
                     },
                     "active_destination": {
                         "S": "MDA"
@@ -8441,10 +8441,10 @@
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE04_PendingApproval_SEI2"
+                        "S": "PT_OS01_PendingApproval_SEI2"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE04_PendingApproval_ANI2"
+                        "S": "PT_OS01_PendingApproval_ANI2"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -8998,13 +8998,13 @@
                         "S": "2016-10-20 00:06:34 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE04_PendingApproval"
+                        "S": "PT_OS01_PendingApproval"
                     },
                     "received_from_cog_date": {
                         "NULL": true
                     },
                     "molecular_id": {
-                        "S": "PT_ETE04_PendingApproval_MOI2"
+                        "S": "PT_OS01_PendingApproval_MOI2"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -9061,7 +9061,7 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE04_PendingApproval"
+                "S": "PT_OS01_PendingApproval"
             },
             "status_date": {
                 "S": "2016-08-10T22:05:33+00:00"
@@ -10154,22 +10154,22 @@
             "active_tissue_specimen": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE17_TsVrConfirmed_SEI1"
+                        "S": "PT_RA02_TsVrConfirmed_SEI1"
                     },
                     "active_destination": {
                         "S": "MDA"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE17_TsVrConfirmed_ANI1"
+                        "S": "PT_RA02_TsVrConfirmed_ANI1"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE17_TsVrConfirmed_MOI1"
+                        "S": "PT_RA02_TsVrConfirmed_MOI1"
                     },
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE17_TsVrConfirmed_BC1"
+                        "S": "PT_RA02_TsVrConfirmed_BC1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
@@ -10183,7 +10183,7 @@
                 }
             },
             "patient_id": {
-                "S": "PT_ETE17_TsVrConfirmed"
+                "S": "PT_RA02_TsVrConfirmed"
             },
             "current_step_number": {
                 "S": "1.0"
@@ -10244,22 +10244,22 @@
             "active_tissue_specimen": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE17_TsVrRejected_SEI1"
+                        "S": "PT_RA02_TsVrRejected_SEI1"
                     },
                     "active_destination": {
                         "S": "MDA"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE17_TsVrRejected_ANI1"
+                        "S": "PT_RA02_TsVrRejected_ANI1"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE17_TsVrRejected_MOI1"
+                        "S": "PT_RA02_TsVrRejected_MOI1"
                     },
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE17_TsVrRejected_BC1"
+                        "S": "PT_RA02_TsVrRejected_BC1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
@@ -10273,7 +10273,7 @@
                 }
             },
             "patient_id": {
-                "S": "PT_ETE17_TsVrRejected"
+                "S": "PT_RA02_TsVrRejected"
             },
             "current_step_number": {
                 "S": "1.0"
@@ -10479,10 +10479,10 @@
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE18_RequestAssignment_SEI1"
+                        "S": "PT_RA03_RequestAssignment_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE18_RequestAssignment_ANI1"
+                        "S": "PT_RA03_RequestAssignment_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -11039,13 +11039,13 @@
                         "S": "2016-10-25 00:16:58 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE18_RequestAssignment"
+                        "S": "PT_RA03_RequestAssignment"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-25 00:16:58 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE18_RequestAssignment_MOI1"
+                        "S": "PT_RA03_RequestAssignment_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -11091,7 +11091,7 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE18_RequestAssignment"
+                "S": "PT_RA03_RequestAssignment"
             },
             "status_date": {
                 "S": "2016-08-10T22:05:33+00:00"
@@ -11333,13 +11333,13 @@
             "active_tissue_specimen": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE04_slideShipped_SEI2"
+                        "S": "PT_OS01_slideShipped_SEI2"
                     },
                     "active_destination": {
                         "S": "MDA"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE04_slideShipped_MOI2"
+                        "S": "PT_OS01_slideShipped_MOI2"
                     },
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
@@ -11351,7 +11351,7 @@
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE04_slideShipped_BC2"
+                        "S": "PT_OS01_slideShipped_BC2"
                     }
                 }
             },
@@ -11370,10 +11370,10 @@
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE04_slideShipped_SEI1"
+                        "S": "PT_OS01_slideShipped_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE04_slideShipped_ANI1"
+                        "S": "PT_OS01_slideShipped_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -11930,13 +11930,13 @@
                         "S": "2016-10-19 23:50:38 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE04_slideShipped"
+                        "S": "PT_OS01_slideShipped"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-19 23:50:38 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE04_slideShipped_MOI1"
+                        "S": "PT_OS01_slideShipped_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -11982,7 +11982,7 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE04_slideShipped"
+                "S": "PT_OS01_slideShipped"
             },
             "status_date": {
                 "S": "2016-08-10T22:05:33+00:00"
@@ -13598,7 +13598,7 @@
                         "S": "NEGATIVE"
                     },
                     "surgical_event_id": {
-                        "S": "PT_ETE14_SEI1"
+                        "S": "PT_AM03_PendingApproval_SEI1"
                     },
                     "ICCMLH1s": {
                         "S": "NEGATIVE"
@@ -13607,13 +13607,13 @@
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE14_BC1"
+                        "S": "PT_AM03_PendingApproval_BC1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE14_MOI1"
+                        "S": "PT_AM03_PendingApproval_MOI1"
                     },
                     "ICCPTENs_received_date": {
                         "S": "2016-05-30T12:11:09.071-05:00"
@@ -13622,7 +13622,7 @@
                         "S": "CONFIRMED"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE14_ANI1"
+                        "S": "PT_AM03_PendingApproval_ANI1"
                     },
                     "active_destination": {
                         "S": "MDA"
@@ -13671,15 +13671,15 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE14"
+                "S": "PT_AM03_PendingApproval"
             },
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE14_SEI1"
+                        "S": "PT_AM03_PendingApproval_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE14_ANI1"
+                        "S": "PT_AM03_PendingApproval_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -14236,13 +14236,13 @@
                         "S": "2016-10-20 00:18:44 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE14"
+                        "S": "PT_AM03_PendingApproval"
                     },
                     "received_from_cog_date": {
                         "NULL": true
                     },
                     "molecular_id": {
-                        "S": "PT_ETE14_MOI1"
+                        "S": "PT_AM03_PendingApproval_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -15004,22 +15004,22 @@
             "active_tissue_specimen": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE18_TsVrRejected_SEI1"
+                        "S": "PT_RA03_TsVrRejected_SEI1"
                     },
                     "active_destination": {
                         "S": "MDA"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE18_TsVrRejected_ANI1"
+                        "S": "PT_RA03_TsVrRejected_ANI1"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE18_TsVrRejected_MOI1"
+                        "S": "PT_RA03_TsVrRejected_MOI1"
                     },
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE18_TsVrRejected_BC1"
+                        "S": "PT_RA03_TsVrRejected_BC1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
@@ -15033,7 +15033,7 @@
                 }
             },
             "patient_id": {
-                "S": "PT_ETE18_TsVrRejected"
+                "S": "PT_RA03_TsVrRejected"
             },
             "current_step_number": {
                 "S": "1.0"
@@ -15094,7 +15094,7 @@
                         "S": "NEGATIVE"
                     },
                     "surgical_event_id": {
-                        "S": "PT_ETE07_SEI1"
+                        "S": "PT_AM05_SEI1"
                     },
                     "ICCMLH1s": {
                         "S": "NEGATIVE"
@@ -15103,13 +15103,13 @@
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE07_BC1"
+                        "S": "PT_AM05_BC1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE07_MOI1"
+                        "S": "PT_AM05_MOI1"
                     },
                     "ICCPTENs_received_date": {
                         "S": "2016-05-30T12:11:09.071-05:00"
@@ -15118,7 +15118,7 @@
                         "S": "PENDING"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE07_ANI2"
+                        "S": "PT_AM05_ANI2"
                     },
                     "active_destination": {
                         "S": "MDA"
@@ -15135,7 +15135,7 @@
                 }
             },
             "patient_id": {
-                "S": "PT_ETE07"
+                "S": "PT_AM05"
             },
             "current_step_number": {
                 "S": "1.0"
@@ -15146,7 +15146,7 @@
                         "S": "MDA"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE07_ANI1"
+                        "S": "PT_AM05_ANI1"
                     },
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
@@ -15155,7 +15155,7 @@
                         "S": "2016-04-22T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE07_BD_MOI1"
+                        "S": "PT_AM05_BD_MOI1"
                     },
                     "variant_report_status": {
                         "S": "REJECTED"
@@ -15230,7 +15230,7 @@
             "active_tissue_specimen": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE04_TsReceived_SEI1"
+                        "S": "PT_OS01_TsReceived_SEI1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
@@ -15238,7 +15238,7 @@
                 }
             },
             "patient_id": {
-                "S": "PT_ETE04_TsReceived"
+                "S": "PT_OS01_TsReceived"
             },
             "current_step_number": {
                 "S": "1.0"
@@ -15263,7 +15263,7 @@
                         "S": "NEGATIVE"
                     },
                     "surgical_event_id": {
-                        "S": "PT_ETE17_OnTreatmentArm_SEI1"
+                        "S": "PT_RA02_OnTreatmentArm_SEI1"
                     },
                     "ICCMLH1s": {
                         "S": "NEGATIVE"
@@ -15272,13 +15272,13 @@
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE17_OnTreatmentArm_BC1"
+                        "S": "PT_RA02_OnTreatmentArm_BC1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE17_OnTreatmentArm_MOI1"
+                        "S": "PT_RA02_OnTreatmentArm_MOI1"
                     },
                     "ICCPTENs_received_date": {
                         "S": "2016-05-30T12:11:09.071-05:00"
@@ -15287,7 +15287,7 @@
                         "S": "CONFIRMED"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE17_OnTreatmentArm_ANI1"
+                        "S": "PT_RA02_OnTreatmentArm_ANI1"
                     },
                     "active_destination": {
                         "S": "MDA"
@@ -15336,15 +15336,15 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE17_OnTreatmentArm"
+                "S": "PT_RA02_OnTreatmentArm"
             },
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE17_OnTreatmentArm_SEI1"
+                        "S": "PT_RA02_OnTreatmentArm_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE17_OnTreatmentArm_ANI1"
+                        "S": "PT_RA02_OnTreatmentArm_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -15901,13 +15901,13 @@
                         "S": "2016-10-24 21:23:53 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE17_OnTreatmentArm"
+                        "S": "PT_RA02_OnTreatmentArm"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-24 21:23:53 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE17_OnTreatmentArm_MOI1"
+                        "S": "PT_RA02_OnTreatmentArm_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -16236,7 +16236,7 @@
                         "S": "NEGATIVE"
                     },
                     "surgical_event_id": {
-                        "S": "PT_ETE16_PendingApproval_SEI1"
+                        "S": "PT_RA01_PendingApproval_SEI1"
                     },
                     "ICCMLH1s": {
                         "S": "NEGATIVE"
@@ -16245,13 +16245,13 @@
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE16_PendingApproval_BC1"
+                        "S": "PT_RA01_PendingApproval_BC1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE16_PendingApproval_MOI1"
+                        "S": "PT_RA01_PendingApproval_MOI1"
                     },
                     "ICCPTENs_received_date": {
                         "S": "2016-05-30T12:11:09.071-05:00"
@@ -16260,7 +16260,7 @@
                         "S": "CONFIRMED"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE16_PendingApproval_ANI1"
+                        "S": "PT_RA01_PendingApproval_ANI1"
                     },
                     "active_destination": {
                         "S": "MDA"
@@ -16309,15 +16309,15 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE16_PendingApproval"
+                "S": "PT_RA01_PendingApproval"
             },
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE16_PendingApproval_SEI1"
+                        "S": "PT_RA01_PendingApproval_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE16_PendingApproval_ANI1"
+                        "S": "PT_RA01_PendingApproval_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -16874,13 +16874,13 @@
                         "S": "2016-10-24 21:20:19 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE16_PendingApproval"
+                        "S": "PT_RA01_PendingApproval"
                     },
                     "received_from_cog_date": {
                         "NULL": true
                     },
                     "molecular_id": {
-                        "S": "PT_ETE16_PendingApproval_MOI1"
+                        "S": "PT_RA01_PendingApproval_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -17166,7 +17166,7 @@
                         "S": "NEGATIVE"
                     },
                     "surgical_event_id": {
-                        "S": "PT_ETE18_OnTreatmentArm_SEI1"
+                        "S": "PT_RA03_OnTreatmentArm_SEI1"
                     },
                     "ICCMLH1s": {
                         "S": "NEGATIVE"
@@ -17175,13 +17175,13 @@
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE18_OnTreatmentArm_BC1"
+                        "S": "PT_RA03_OnTreatmentArm_BC1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE18_OnTreatmentArm_MOI1"
+                        "S": "PT_RA03_OnTreatmentArm_MOI1"
                     },
                     "ICCPTENs_received_date": {
                         "S": "2016-05-30T12:11:09.071-05:00"
@@ -17190,7 +17190,7 @@
                         "S": "CONFIRMED"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE18_OnTreatmentArm_ANI1"
+                        "S": "PT_RA03_OnTreatmentArm_ANI1"
                     },
                     "active_destination": {
                         "S": "MDA"
@@ -17239,15 +17239,15 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE18_OnTreatmentArm"
+                "S": "PT_RA03_OnTreatmentArm"
             },
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE18_OnTreatmentArm_SEI1"
+                        "S": "PT_RA03_OnTreatmentArm_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE18_OnTreatmentArm_ANI1"
+                        "S": "PT_RA03_OnTreatmentArm_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -17804,13 +17804,13 @@
                         "S": "2016-10-25 00:14:27 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE18_OnTreatmentArm"
+                        "S": "PT_RA03_OnTreatmentArm"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-25 00:14:27 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE18_OnTreatmentArm_MOI1"
+                        "S": "PT_RA03_OnTreatmentArm_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -17911,7 +17911,7 @@
                         "S": "NEGATIVE"
                     },
                     "surgical_event_id": {
-                        "S": "PT_ETE09_OffStudy1_SEI1"
+                        "S": "PT_OS03_OffStudy1_SEI1"
                     },
                     "ICCMLH1s": {
                         "S": "NEGATIVE"
@@ -17920,13 +17920,13 @@
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE09_OffStudy1_BC1"
+                        "S": "PT_OS03_OffStudy1_BC1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE09_OffStudy1_MOI1"
+                        "S": "PT_OS03_OffStudy1_MOI1"
                     },
                     "ICCPTENs_received_date": {
                         "S": "2016-05-30T12:11:09.071-05:00"
@@ -17935,7 +17935,7 @@
                         "S": "CONFIRMED"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE09_OffStudy1_ANI1"
+                        "S": "PT_OS03_OffStudy1_ANI1"
                     },
                     "active_destination": {
                         "S": "MDA"
@@ -17977,15 +17977,15 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE09_OffStudy1"
+                "S": "PT_OS03_OffStudy1"
             },
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE09_OffStudy1_SEI1"
+                        "S": "PT_OS03_OffStudy1_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE09_OffStudy1_ANI1"
+                        "S": "PT_OS03_OffStudy1_ANI1"
                     },
                     "selected_treatment_arm": {
                         "M": {
@@ -18016,10 +18016,10 @@
                         "S": "1.0"
                     },
                     "patient_id": {
-                        "S": "PT_ETE09_OffStudy1"
+                        "S": "PT_OS03_OffStudy1"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE09_OffStudy1_MOI1"
+                        "S": "PT_OS03_OffStudy1_MOI1"
                     },
                     "status": {
                         "S": "PENDING"
@@ -18662,7 +18662,7 @@
                         "S": "NEGATIVE"
                     },
                     "surgical_event_id": {
-                        "S": "PT_ETE03_SEI1"
+                        "S": "PT_AM02_VrReceived_SEI1"
                     },
                     "ICCMLH1s": {
                         "S": "NEGATIVE"
@@ -18671,13 +18671,13 @@
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE03_BC1"
+                        "S": "PT_AM02_VrReceived_BC1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE03_MOI1"
+                        "S": "PT_AM02_VrReceived_MOI1"
                     },
                     "ICCPTENs_received_date": {
                         "S": "2016-05-30T12:11:09.071-05:00"
@@ -18686,7 +18686,7 @@
                         "S": "PENDING"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE03_ANI1"
+                        "S": "PT_AM02_VrReceived_ANI1"
                     },
                     "active_destination": {
                         "S": "MDA"
@@ -18703,7 +18703,7 @@
                 }
             },
             "patient_id": {
-                "S": "PT_ETE03"
+                "S": "PT_AM02_VrReceived"
             },
             "current_step_number": {
                 "S": "1.0"
@@ -18791,13 +18791,13 @@
             "active_tissue_specimen": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE18_slideShipped_SEI2"
+                        "S": "PT_RA03_slideShipped_SEI2"
                     },
                     "active_destination": {
                         "S": "MDA"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE18_slideShipped_MOI2"
+                        "S": "PT_RA03_slideShipped_MOI2"
                     },
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
@@ -18809,7 +18809,7 @@
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE18_slideShipped_BC2"
+                        "S": "PT_RA03_slideShipped_BC2"
                     }
                 }
             },
@@ -18828,10 +18828,10 @@
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE18_slideShipped_SEI1"
+                        "S": "PT_RA03_slideShipped_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE18_slideShipped_ANI1"
+                        "S": "PT_RA03_slideShipped_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -19388,13 +19388,13 @@
                         "S": "2016-10-25 00:19:49 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE18_slideShipped"
+                        "S": "PT_RA03_slideShipped"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-25 00:19:49 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE18_slideShipped_MOI1"
+                        "S": "PT_RA03_slideShipped_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -19440,7 +19440,7 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE18_slideShipped"
+                "S": "PT_RA03_slideShipped"
             },
             "status_date": {
                 "S": "2016-08-10T22:05:33+00:00"
@@ -19886,7 +19886,7 @@
                         "S": "NEGATIVE"
                     },
                     "surgical_event_id": {
-                        "S": "PT_ETE11_OnTreatmentArm_SEI1"
+                        "S": "PT_RA06_OnTreatmentArm_SEI1"
                     },
                     "ICCMLH1s": {
                         "S": "NEGATIVE"
@@ -19895,13 +19895,13 @@
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE11_OnTreatmentArm_BC1"
+                        "S": "PT_RA06_OnTreatmentArm_BC1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE11_OnTreatmentArm_MOI1"
+                        "S": "PT_RA06_OnTreatmentArm_MOI1"
                     },
                     "ICCPTENs_received_date": {
                         "S": "2016-05-30T12:11:09.071-05:00"
@@ -19910,7 +19910,7 @@
                         "S": "CONFIRMED"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE11_OnTreatmentArm_ANI1"
+                        "S": "PT_RA06_OnTreatmentArm_ANI1"
                     },
                     "active_destination": {
                         "S": "MDA"
@@ -19959,15 +19959,15 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE11_OnTreatmentArm"
+                "S": "PT_RA06_OnTreatmentArm"
             },
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE11_OnTreatmentArm_SEI1"
+                        "S": "PT_RA06_OnTreatmentArm_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE11_OnTreatmentArm_ANI1"
+                        "S": "PT_RA06_OnTreatmentArm_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -20524,13 +20524,13 @@
                         "S": "2016-10-20 00:15:27 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE11_OnTreatmentArm"
+                        "S": "PT_RA06_OnTreatmentArm"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-20 00:15:27 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE11_OnTreatmentArm_MOI1"
+                        "S": "PT_RA06_OnTreatmentArm_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -20838,10 +20838,10 @@
                         "S": "MDA"
                     },
                     "surgical_event_id": {
-                        "S": "PT_ETE18_TsShipped_SEI2"
+                        "S": "PT_RA03_TsShipped_SEI2"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE18_TsShipped_MOI2"
+                        "S": "PT_RA03_TsShipped_MOI2"
                     },
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
@@ -20866,10 +20866,10 @@
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE18_TsShipped_SEI1"
+                        "S": "PT_RA03_TsShipped_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE18_TsShipped_ANI1"
+                        "S": "PT_RA03_TsShipped_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -21426,13 +21426,13 @@
                         "S": "2016-10-25 00:18:31 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE18_TsShipped"
+                        "S": "PT_RA03_TsShipped"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-25 00:18:31 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE18_TsShipped_MOI1"
+                        "S": "PT_RA03_TsShipped_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -21478,7 +21478,7 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE18_TsShipped"
+                "S": "PT_RA03_TsShipped"
             },
             "status_date": {
                 "S": "2016-08-10T22:05:33+00:00"
@@ -22210,7 +22210,7 @@
             "active_tissue_specimen": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE17_PathoConfirmed_SEI2"
+                        "S": "PT_RA02_PathoConfirmed_SEI2"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
@@ -22235,10 +22235,10 @@
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE17_PathoConfirmed_SEI1"
+                        "S": "PT_RA02_PathoConfirmed_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE17_PathoConfirmed_ANI1"
+                        "S": "PT_RA02_PathoConfirmed_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -22795,13 +22795,13 @@
                         "S": "2016-10-24 21:31:11 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE17_PathoConfirmed"
+                        "S": "PT_RA02_PathoConfirmed"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-24 21:31:11 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE17_PathoConfirmed_MOI1"
+                        "S": "PT_RA02_PathoConfirmed_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -22847,7 +22847,7 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE17_PathoConfirmed"
+                "S": "PT_RA02_PathoConfirmed"
             },
             "status_date": {
                 "S": "2016-08-10T22:05:33+00:00"
@@ -22889,7 +22889,7 @@
                         "S": "NEGATIVE"
                     },
                     "surgical_event_id": {
-                        "S": "PT_ETE18_PendingApproval_SEI1"
+                        "S": "PT_RA03_PendingApproval_SEI1"
                     },
                     "ICCMLH1s": {
                         "S": "NEGATIVE"
@@ -22898,13 +22898,13 @@
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE18_PendingApproval_BC1"
+                        "S": "PT_RA03_PendingApproval_BC1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE18_PendingApproval_MOI1"
+                        "S": "PT_RA03_PendingApproval_MOI1"
                     },
                     "ICCPTENs_received_date": {
                         "S": "2016-05-30T12:11:09.071-05:00"
@@ -22913,7 +22913,7 @@
                         "S": "CONFIRMED"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE18_PendingApproval_ANI1"
+                        "S": "PT_RA03_PendingApproval_ANI1"
                     },
                     "active_destination": {
                         "S": "MDA"
@@ -22962,15 +22962,15 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE18_PendingApproval"
+                "S": "PT_RA03_PendingApproval"
             },
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE18_PendingApproval_SEI1"
+                        "S": "PT_RA03_PendingApproval_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE18_PendingApproval_ANI1"
+                        "S": "PT_RA03_PendingApproval_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -23527,13 +23527,13 @@
                         "S": "2016-10-25 00:13:11 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE18_PendingApproval"
+                        "S": "PT_RA03_PendingApproval"
                     },
                     "received_from_cog_date": {
                         "NULL": true
                     },
                     "molecular_id": {
-                        "S": "PT_ETE18_PendingApproval_MOI1"
+                        "S": "PT_RA03_PendingApproval_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -23598,7 +23598,7 @@
                         "S": "NEGATIVE"
                     },
                     "surgical_event_id": {
-                        "S": "PT_ETE09a_OnTA2_SEI1"
+                        "S": "PT_OS04_OnTA2_SEI1"
                     },
                     "ICCMLH1s": {
                         "S": "NEGATIVE"
@@ -23607,13 +23607,13 @@
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE09a_OnTA2_BC1"
+                        "S": "PT_OS04_OnTA2_BC1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE09a_OnTA2_MOI1"
+                        "S": "PT_OS04_OnTA2_MOI1"
                     },
                     "ICCPTENs_received_date": {
                         "S": "2016-05-30T12:11:09.071-05:00"
@@ -23622,7 +23622,7 @@
                         "S": "CONFIRMED"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE09a_OnTA2_ANI1"
+                        "S": "PT_OS04_OnTA2_ANI1"
                     },
                     "active_destination": {
                         "S": "MDA"
@@ -23664,15 +23664,15 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE09a_OnTA2"
+                "S": "PT_OS04_OnTA2"
             },
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE09a_OnTA2_SEI1"
+                        "S": "PT_OS04_OnTA2_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE09a_OnTA2_ANI1"
+                        "S": "PT_OS04_OnTA2_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -24229,13 +24229,13 @@
                         "S": "2016-10-19 21:53:09 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE09a_OnTA2"
+                        "S": "PT_OS04_OnTA2"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-19 21:53:09 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE09a_OnTA2_MOI1"
+                        "S": "PT_OS04_OnTA2_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -24304,7 +24304,7 @@
             "active_tissue_specimen": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE06_Step2TsReceived2_SEI2"
+                        "S": "PT_SS11a_Step2TsReceived2_SEI2"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
@@ -24326,10 +24326,10 @@
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE06_Step2TsReceived2_SEI1"
+                        "S": "PT_SS11a_Step2TsReceived2_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE06_Step2TsReceived2_ANI1"
+                        "S": "PT_SS11a_Step2TsReceived2_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -24886,13 +24886,13 @@
                         "S": "2016-10-20 00:27:25 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE06_Step2TsReceived2"
+                        "S": "PT_SS11a_Step2TsReceived2"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-20 00:27:25 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE06_Step2TsReceived2_MOI1"
+                        "S": "PT_SS11a_Step2TsReceived2_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -24938,7 +24938,7 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE06_Step2TsReceived2"
+                "S": "PT_SS11a_Step2TsReceived2"
             },
             "status_date": {
                 "S": "2016-08-10T22:05:33+00:00"
@@ -25040,7 +25040,7 @@
                         "S": "NEGATIVE"
                     },
                     "surgical_event_id": {
-                        "S": "PT_ETE15_TsReceived1_SEI1"
+                        "S": "PT_AM04_TsReceived1_SEI1"
                     },
                     "ICCMLH1s": {
                         "S": "NEGATIVE"
@@ -25049,13 +25049,13 @@
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE15_TsReceived1_BC1"
+                        "S": "PT_AM04_TsReceived1_BC1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE15_TsReceived1_MOI1"
+                        "S": "PT_AM04_TsReceived1_MOI1"
                     },
                     "ICCPTENs_received_date": {
                         "S": "2016-05-30T12:11:09.071-05:00"
@@ -25064,7 +25064,7 @@
                         "S": "PENDING"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE15_TsReceived1_ANI1"
+                        "S": "PT_AM04_TsReceived1_ANI1"
                     },
                     "active_destination": {
                         "S": "MDA"
@@ -25081,7 +25081,7 @@
                 }
             },
             "patient_id": {
-                "S": "PT_ETE15_TsReceived1"
+                "S": "PT_AM04_TsReceived1"
             },
             "current_step_number": {
                 "S": "1.0"
@@ -25208,7 +25208,7 @@
                         "S": "NEGATIVE"
                     },
                     "surgical_event_id": {
-                        "S": "PT_ETE04_ReqNoAssignment_SEI1"
+                        "S": "PT_OS01_ReqNoAssignment_SEI1"
                     },
                     "ICCMLH1s": {
                         "S": "NEGATIVE"
@@ -25217,13 +25217,13 @@
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE04_ReqNoAssignment_BC1"
+                        "S": "PT_OS01_ReqNoAssignment_BC1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE04_ReqNoAssignment_MOI1"
+                        "S": "PT_OS01_ReqNoAssignment_MOI1"
                     },
                     "ICCPTENs_received_date": {
                         "S": "2016-05-30T12:11:09.071-05:00"
@@ -25232,7 +25232,7 @@
                         "S": "CONFIRMED"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE04_ReqNoAssignment_ANI1"
+                        "S": "PT_OS01_ReqNoAssignment_ANI1"
                     },
                     "active_destination": {
                         "S": "MDA"
@@ -25301,15 +25301,15 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE04_ReqNoAssignment"
+                "S": "PT_OS01_ReqNoAssignment"
             },
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE04_ReqNoAssignment_SEI1"
+                        "S": "PT_OS01_ReqNoAssignment_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE04_ReqNoAssignment_ANI1"
+                        "S": "PT_OS01_ReqNoAssignment_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -25866,13 +25866,13 @@
                         "S": "2016-10-25 14:05:52 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE04_ReqNoAssignment"
+                        "S": "PT_OS01_ReqNoAssignment"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-25 14:05:52 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE04_ReqNoAssignment_MOI1"
+                        "S": "PT_OS01_ReqNoAssignment_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -25934,7 +25934,7 @@
                         "S": "NEGATIVE"
                     },
                     "surgical_event_id": {
-                        "S": "PT_ETE09_OffStudy2_SEI1"
+                        "S": "PT_OS03_OffStudy2_SEI1"
                     },
                     "ICCMLH1s": {
                         "S": "NEGATIVE"
@@ -25943,13 +25943,13 @@
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE09_OffStudy2_BC1"
+                        "S": "PT_OS03_OffStudy2_BC1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE09_OffStudy2_MOI1"
+                        "S": "PT_OS03_OffStudy2_MOI1"
                     },
                     "ICCPTENs_received_date": {
                         "S": "2016-05-30T12:11:09.071-05:00"
@@ -25958,7 +25958,7 @@
                         "S": "CONFIRMED"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE09_OffStudy2_ANI1"
+                        "S": "PT_OS03_OffStudy2_ANI1"
                     },
                     "active_destination": {
                         "S": "MDA"
@@ -26000,15 +26000,15 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE09_OffStudy2"
+                "S": "PT_OS03_OffStudy2"
             },
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE09_OffStudy2_SEI1"
+                        "S": "PT_OS03_OffStudy2_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE09_OffStudy2_ANI1"
+                        "S": "PT_OS03_OffStudy2_ANI1"
                     },
                     "selected_treatment_arm": {
                         "M": {
@@ -26039,10 +26039,10 @@
                         "S": "1.0"
                     },
                     "patient_id": {
-                        "S": "PT_ETE09_OffStudy2"
+                        "S": "PT_OS03_OffStudy2"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE09_OffStudy2_MOI1"
+                        "S": "PT_OS03_OffStudy2_MOI1"
                     },
                     "status": {
                         "S": "PENDING"
@@ -26694,22 +26694,22 @@
             "active_tissue_specimen": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE18_TsVrConfirmed_SEI1"
+                        "S": "PT_RA03_TsVrConfirmed_SEI1"
                     },
                     "active_destination": {
                         "S": "MDA"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE18_TsVrConfirmed_ANI1"
+                        "S": "PT_RA03_TsVrConfirmed_ANI1"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE18_TsVrConfirmed_MOI1"
+                        "S": "PT_RA03_TsVrConfirmed_MOI1"
                     },
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE18_TsVrConfirmed_BC1"
+                        "S": "PT_RA03_TsVrConfirmed_BC1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
@@ -26723,7 +26723,7 @@
                 }
             },
             "patient_id": {
-                "S": "PT_ETE18_TsVrConfirmed"
+                "S": "PT_RA03_TsVrConfirmed"
             },
             "current_step_number": {
                 "S": "1.0"
@@ -26748,7 +26748,7 @@
                         "S": "NEGATIVE"
                     },
                     "surgical_event_id": {
-                        "S": "PT_ETE11_PendingAproval_SEI1"
+                        "S": "PT_RA06_PendingAproval_SEI1"
                     },
                     "ICCMLH1s": {
                         "S": "NEGATIVE"
@@ -26757,13 +26757,13 @@
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE11_PendingAproval_BC1"
+                        "S": "PT_RA06_PendingAproval_BC1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE11_PendingAproval_MOI1"
+                        "S": "PT_RA06_PendingAproval_MOI1"
                     },
                     "ICCPTENs_received_date": {
                         "S": "2016-05-30T12:11:09.071-05:00"
@@ -26772,7 +26772,7 @@
                         "S": "CONFIRMED"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE11_PendingAproval_ANI1"
+                        "S": "PT_RA06_PendingAproval_ANI1"
                     },
                     "active_destination": {
                         "S": "MDA"
@@ -26821,15 +26821,15 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE11_PendingAproval"
+                "S": "PT_RA06_PendingAproval"
             },
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE11_PendingAproval_SEI1"
+                        "S": "PT_RA06_PendingAproval_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE11_PendingAproval_ANI1"
+                        "S": "PT_RA06_PendingAproval_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -27386,13 +27386,13 @@
                         "S": "2016-10-20 00:17:01 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE11_PendingAproval"
+                        "S": "PT_RA06_PendingAproval"
                     },
                     "received_from_cog_date": {
                         "NULL": true
                     },
                     "molecular_id": {
-                        "S": "PT_ETE11_PendingAproval_MOI1"
+                        "S": "PT_RA06_PendingAproval_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -27544,7 +27544,7 @@
                         "S": "NEGATIVE"
                     },
                     "surgical_event_id": {
-                        "S": "PT_ETE17_RequestNoAssignment_SEI1"
+                        "S": "PT_RA02_RequestNoAssignment_SEI1"
                     },
                     "ICCMLH1s": {
                         "S": "NEGATIVE"
@@ -27553,13 +27553,13 @@
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE17_RequestNoAssignment_BC1"
+                        "S": "PT_RA02_RequestNoAssignment_BC1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE17_RequestNoAssignment_MOI1"
+                        "S": "PT_RA02_RequestNoAssignment_MOI1"
                     },
                     "ICCPTENs_received_date": {
                         "S": "2016-05-30T12:11:09.071-05:00"
@@ -27568,7 +27568,7 @@
                         "S": "CONFIRMED"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE17_RequestNoAssignment_ANI1"
+                        "S": "PT_RA02_RequestNoAssignment_ANI1"
                     },
                     "active_destination": {
                         "S": "MDA"
@@ -27610,15 +27610,15 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE17_RequestNoAssignment"
+                "S": "PT_RA02_RequestNoAssignment"
             },
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE17_RequestNoAssignment_SEI1"
+                        "S": "PT_RA02_RequestNoAssignment_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE17_RequestNoAssignment_ANI1"
+                        "S": "PT_RA02_RequestNoAssignment_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -28175,13 +28175,13 @@
                         "S": "2016-10-24 21:25:07 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE17_RequestNoAssignment"
+                        "S": "PT_RA02_RequestNoAssignment"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-24 21:25:07 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE17_RequestNoAssignment_MOI1"
+                        "S": "PT_RA02_RequestNoAssignment_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -28413,13 +28413,13 @@
             "active_tissue_specimen": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE04_TsVrReceived_SEI2"
+                        "S": "PT_OS01_TsVrReceived_SEI2"
                     },
                     "active_destination": {
                         "S": "MDA"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE04_TsVrReceived_ANI2"
+                        "S": "PT_OS01_TsVrReceived_ANI2"
                     },
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
@@ -28428,7 +28428,7 @@
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE04_TsVrReceived_MOI2"
+                        "S": "PT_OS01_TsVrReceived_MOI2"
                     },
                     "variant_report_status": {
                         "S": "PENDING"
@@ -28450,10 +28450,10 @@
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE04_TsVrReceived_SEI1"
+                        "S": "PT_OS01_TsVrReceived_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE04_TsVrReceived_ANI1"
+                        "S": "PT_OS01_TsVrReceived_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -29010,13 +29010,13 @@
                         "S": "2016-10-19 23:56:38 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE04_TsVrReceived"
+                        "S": "PT_OS01_TsVrReceived"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-19 23:56:38 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE04_TsVrReceived_MOI1"
+                        "S": "PT_OS01_TsVrReceived_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -29062,7 +29062,7 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE04_TsVrReceived"
+                "S": "PT_OS01_TsVrReceived"
             },
             "status_date": {
                 "S": "2016-08-10T22:05:33+00:00"
@@ -29184,13 +29184,13 @@
             "active_tissue_specimen": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE17_TsVrReceived_SEI2"
+                        "S": "PT_RA02_TsVrReceived_SEI2"
                     },
                     "active_destination": {
                         "S": "MDA"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE17_TsVrReceived_ANI2"
+                        "S": "PT_RA02_TsVrReceived_ANI2"
                     },
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
@@ -29199,7 +29199,7 @@
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE17_TsVrReceived_MOI2"
+                        "S": "PT_RA02_TsVrReceived_MOI2"
                     },
                     "variant_report_status": {
                         "S": "PENDING"
@@ -29221,10 +29221,10 @@
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE17_TsVrReceived_SEI1"
+                        "S": "PT_RA02_TsVrReceived_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE17_TsVrReceived_ANI1"
+                        "S": "PT_RA02_TsVrReceived_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -29781,13 +29781,13 @@
                         "S": "2016-10-24 21:32:32 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE17_TsVrReceived"
+                        "S": "PT_RA02_TsVrReceived"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-24 21:32:32 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE17_TsVrReceived_MOI1"
+                        "S": "PT_RA02_TsVrReceived_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -29833,7 +29833,7 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE17_TsVrReceived"
+                "S": "PT_RA02_TsVrReceived"
             },
             "status_date": {
                 "S": "2016-08-10T22:05:33+00:00"
@@ -29924,7 +29924,7 @@
                         "S": "NEGATIVE"
                     },
                     "surgical_event_id": {
-                        "S": "PT_ETE18_RequestNoAssignment_SEI1"
+                        "S": "PT_RA03_RequestNoAssignment_SEI1"
                     },
                     "ICCMLH1s": {
                         "S": "NEGATIVE"
@@ -29933,13 +29933,13 @@
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE18_RequestNoAssignment_BC1"
+                        "S": "PT_RA03_RequestNoAssignment_BC1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE18_RequestNoAssignment_MOI1"
+                        "S": "PT_RA03_RequestNoAssignment_MOI1"
                     },
                     "ICCPTENs_received_date": {
                         "S": "2016-05-30T12:11:09.071-05:00"
@@ -29948,7 +29948,7 @@
                         "S": "CONFIRMED"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE18_RequestNoAssignment_ANI1"
+                        "S": "PT_RA03_RequestNoAssignment_ANI1"
                     },
                     "active_destination": {
                         "S": "MDA"
@@ -29990,15 +29990,15 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE18_RequestNoAssignment"
+                "S": "PT_RA03_RequestNoAssignment"
             },
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE18_RequestNoAssignment_SEI1"
+                        "S": "PT_RA03_RequestNoAssignment_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE18_RequestNoAssignment_ANI1"
+                        "S": "PT_RA03_RequestNoAssignment_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -30555,13 +30555,13 @@
                         "S": "2016-10-25 00:15:42 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE18_RequestNoAssignment"
+                        "S": "PT_RA03_RequestNoAssignment"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-25 00:15:42 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE18_RequestNoAssignment_MOI1"
+                        "S": "PT_RA03_RequestNoAssignment_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -30768,7 +30768,7 @@
                         "S": "NEGATIVE"
                     },
                     "surgical_event_id": {
-                        "S": "PT_ETE15_TsReceived2_SEI1"
+                        "S": "PT_AM04_TsReceived2_SEI1"
                     },
                     "ICCMLH1s": {
                         "S": "NEGATIVE"
@@ -30777,13 +30777,13 @@
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE15_TsReceived2_BC1"
+                        "S": "PT_AM04_TsReceived2_BC1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE15_TsReceived2_MOI1"
+                        "S": "PT_AM04_TsReceived2_MOI1"
                     },
                     "ICCPTENs_received_date": {
                         "S": "2016-05-30T12:11:09.071-05:00"
@@ -30792,7 +30792,7 @@
                         "S": "PENDING"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE15_TsReceived2_ANI1"
+                        "S": "PT_AM04_TsReceived2_ANI1"
                     },
                     "active_destination": {
                         "S": "MDA"
@@ -30809,7 +30809,7 @@
                 }
             },
             "patient_id": {
-                "S": "PT_ETE15_TsReceived2"
+                "S": "PT_AM04_TsReceived2"
             },
             "current_step_number": {
                 "S": "1.0"
@@ -30888,7 +30888,7 @@
                         "S": "NEGATIVE"
                     },
                     "surgical_event_id": {
-                        "S": "PT_ETE09a_OnTA1_SEI1"
+                        "S": "PT_OS04_OnTA1_SEI1"
                     },
                     "ICCMLH1s": {
                         "S": "NEGATIVE"
@@ -30897,13 +30897,13 @@
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE09a_OnTA1_BC1"
+                        "S": "PT_OS04_OnTA1_BC1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE09a_OnTA1_MOI1"
+                        "S": "PT_OS04_OnTA1_MOI1"
                     },
                     "ICCPTENs_received_date": {
                         "S": "2016-05-30T12:11:09.071-05:00"
@@ -30912,7 +30912,7 @@
                         "S": "CONFIRMED"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE09a_OnTA1_ANI1"
+                        "S": "PT_OS04_OnTA1_ANI1"
                     },
                     "active_destination": {
                         "S": "MDA"
@@ -30954,15 +30954,15 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE09a_OnTA1"
+                "S": "PT_OS04_OnTA1"
             },
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE09a_OnTA1_SEI1"
+                        "S": "PT_OS04_OnTA1_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE09a_OnTA1_ANI1"
+                        "S": "PT_OS04_OnTA1_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -31519,13 +31519,13 @@
                         "S": "2016-10-20 00:11:29 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE09a_OnTA1"
+                        "S": "PT_OS04_OnTA1"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-20 00:11:29 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE09a_OnTA1_MOI1"
+                        "S": "PT_OS04_OnTA1_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -31754,7 +31754,7 @@
                         "S": "NEGATIVE"
                     },
                     "surgical_event_id": {
-                        "S": "PT_ETE17_PendingApproval_SEI1"
+                        "S": "PT_RA02_PendingApproval_SEI1"
                     },
                     "ICCMLH1s": {
                         "S": "NEGATIVE"
@@ -31763,13 +31763,13 @@
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE17_PendingApproval_BC1"
+                        "S": "PT_RA02_PendingApproval_BC1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE17_PendingApproval_MOI1"
+                        "S": "PT_RA02_PendingApproval_MOI1"
                     },
                     "ICCPTENs_received_date": {
                         "S": "2016-05-30T12:11:09.071-05:00"
@@ -31778,7 +31778,7 @@
                         "S": "CONFIRMED"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE17_PendingApproval_ANI1"
+                        "S": "PT_RA02_PendingApproval_ANI1"
                     },
                     "active_destination": {
                         "S": "MDA"
@@ -31827,15 +31827,15 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE17_PendingApproval"
+                "S": "PT_RA02_PendingApproval"
             },
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE17_PendingApproval_SEI1"
+                        "S": "PT_RA02_PendingApproval_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE17_PendingApproval_ANI1"
+                        "S": "PT_RA02_PendingApproval_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -32392,13 +32392,13 @@
                         "S": "2016-10-24 21:22:38 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE17_PendingApproval"
+                        "S": "PT_RA02_PendingApproval"
                     },
                     "received_from_cog_date": {
                         "NULL": true
                     },
                     "molecular_id": {
-                        "S": "PT_ETE17_PendingApproval_MOI1"
+                        "S": "PT_RA02_PendingApproval_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -33232,7 +33232,7 @@
                 "S": "1.0"
             },
             "patient_id": {
-                "S": "PT_ETE04_Registered"
+                "S": "PT_OS01_Registered"
             },
             "current_status": {
                 "S": "REGISTRATION"
@@ -33327,7 +33327,7 @@
                         "S": "2016-04-22T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE06_Step2BdReceived_BD_MOI1"
+                        "S": "PT_SS11a_Step2BdReceived_BD_MOI1"
                     },
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
@@ -33364,15 +33364,15 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE06_Step2BdReceived"
+                "S": "PT_SS11a_Step2BdReceived"
             },
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE06_Step2BdReceived_SEI1"
+                        "S": "PT_SS11a_Step2BdReceived_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE06_Step2BdReceived_ANI1"
+                        "S": "PT_SS11a_Step2BdReceived_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -33929,13 +33929,13 @@
                         "S": "2016-10-20 00:29:39 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE06_Step2BdReceived"
+                        "S": "PT_SS11a_Step2BdReceived"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-20 00:29:39 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE06_Step2BdReceived_MOI1"
+                        "S": "PT_SS11a_Step2BdReceived_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -34055,7 +34055,7 @@
             "active_tissue_specimen": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE18_PathoConfirmed_SEI2"
+                        "S": "PT_RA03_PathoConfirmed_SEI2"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
@@ -34080,10 +34080,10 @@
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE18_PathoConfirmed_SEI1"
+                        "S": "PT_RA03_PathoConfirmed_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE18_PathoConfirmed_ANI1"
+                        "S": "PT_RA03_PathoConfirmed_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -34640,13 +34640,13 @@
                         "S": "2016-10-25 00:22:03 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE18_PathoConfirmed"
+                        "S": "PT_RA03_PathoConfirmed"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-25 00:22:03 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE18_PathoConfirmed_MOI1"
+                        "S": "PT_RA03_PathoConfirmed_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -34692,7 +34692,7 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE18_PathoConfirmed"
+                "S": "PT_RA03_PathoConfirmed"
             },
             "status_date": {
                 "S": "2016-08-10T22:05:33+00:00"
@@ -34734,7 +34734,7 @@
                         "S": "NEGATIVE"
                     },
                     "surgical_event_id": {
-                        "S": "PT_ETE16_OnTreatmentArm_SEI1"
+                        "S": "PT_RA01_OnTreatmentArm_SEI1"
                     },
                     "ICCMLH1s": {
                         "S": "NEGATIVE"
@@ -34743,13 +34743,13 @@
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE16_OnTreatmentArm_BC1"
+                        "S": "PT_RA01_OnTreatmentArm_BC1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE16_OnTreatmentArm_MOI1"
+                        "S": "PT_RA01_OnTreatmentArm_MOI1"
                     },
                     "ICCPTENs_received_date": {
                         "S": "2016-05-30T12:11:09.071-05:00"
@@ -34758,7 +34758,7 @@
                         "S": "CONFIRMED"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE16_OnTreatmentArm_ANI1"
+                        "S": "PT_RA01_OnTreatmentArm_ANI1"
                     },
                     "active_destination": {
                         "S": "MDA"
@@ -34807,15 +34807,15 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE16_OnTreatmentArm"
+                "S": "PT_RA01_OnTreatmentArm"
             },
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE16_OnTreatmentArm_SEI1"
+                        "S": "PT_RA01_OnTreatmentArm_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE16_OnTreatmentArm_ANI1"
+                        "S": "PT_RA01_OnTreatmentArm_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -35372,13 +35372,13 @@
                         "S": "2016-10-24 21:21:34 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE16_OnTreatmentArm"
+                        "S": "PT_RA01_OnTreatmentArm"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-24 21:21:34 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE16_OnTreatmentArm_MOI1"
+                        "S": "PT_RA01_OnTreatmentArm_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -35437,13 +35437,13 @@
             "active_tissue_specimen": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE17_slideShipped_SEI2"
+                        "S": "PT_RA02_slideShipped_SEI2"
                     },
                     "active_destination": {
                         "S": "MDA"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE17_slideShipped_MOI2"
+                        "S": "PT_RA02_slideShipped_MOI2"
                     },
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
@@ -35455,7 +35455,7 @@
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE17_slideShipped_BC2"
+                        "S": "PT_RA02_slideShipped_BC2"
                     }
                 }
             },
@@ -35474,10 +35474,10 @@
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE17_slideShipped_SEI1"
+                        "S": "PT_RA02_slideShipped_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE17_slideShipped_ANI1"
+                        "S": "PT_RA02_slideShipped_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -36034,13 +36034,13 @@
                         "S": "2016-10-24 21:29:15 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE17_slideShipped"
+                        "S": "PT_RA02_slideShipped"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-24 21:29:15 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE17_slideShipped_MOI1"
+                        "S": "PT_RA02_slideShipped_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -36086,7 +36086,7 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE17_slideShipped"
+                "S": "PT_RA02_slideShipped"
             },
             "status_date": {
                 "S": "2016-08-10T22:05:33+00:00"
@@ -36128,7 +36128,7 @@
                         "S": "NEGATIVE"
                     },
                     "surgical_event_id": {
-                        "S": "PT_ETE10_SEI1"
+                        "S": "PT_RA05_OnTreatmentArm_SEI1"
                     },
                     "ICCMLH1s": {
                         "S": "NEGATIVE"
@@ -36137,13 +36137,13 @@
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE10_BC1"
+                        "S": "PT_RA05_OnTreatmentArm_BC1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-15T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE10_MOI1"
+                        "S": "PT_RA05_OnTreatmentArm_MOI1"
                     },
                     "ICCPTENs_received_date": {
                         "S": "2016-05-30T12:11:09.071-05:00"
@@ -36152,7 +36152,7 @@
                         "S": "CONFIRMED"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE10_ANI1"
+                        "S": "PT_RA05_OnTreatmentArm_ANI1"
                     },
                     "active_destination": {
                         "S": "MDA"
@@ -36201,15 +36201,15 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE10"
+                "S": "PT_RA05_OnTreatmentArm"
             },
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE10_SEI1"
+                        "S": "PT_RA05_OnTreatmentArm_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE10_ANI1"
+                        "S": "PT_RA05_OnTreatmentArm_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -36766,13 +36766,13 @@
                         "S": "2016-10-20 00:13:33 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE10"
+                        "S": "PT_RA05_OnTreatmentArm"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-20 00:13:33 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE10_MOI1"
+                        "S": "PT_RA05_OnTreatmentArm_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -36858,7 +36858,7 @@
             "active_tissue_specimen": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE04_PathoConfirmed_SEI2"
+                        "S": "PT_OS01_PathoConfirmed_SEI2"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
@@ -36883,10 +36883,10 @@
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE04_PathoConfirmed_SEI1"
+                        "S": "PT_OS01_PathoConfirmed_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE04_PathoConfirmed_ANI1"
+                        "S": "PT_OS01_PathoConfirmed_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -37443,13 +37443,13 @@
                         "S": "2016-10-19 23:54:13 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE04_PathoConfirmed"
+                        "S": "PT_OS01_PathoConfirmed"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-19 23:54:13 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE04_PathoConfirmed_MOI1"
+                        "S": "PT_OS01_PathoConfirmed_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -37495,7 +37495,7 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE04_PathoConfirmed"
+                "S": "PT_OS01_PathoConfirmed"
             },
             "status_date": {
                 "S": "2016-08-10T22:05:33+00:00"
@@ -37588,7 +37588,7 @@
                         "S": "NEGATIVE"
                     },
                     "surgical_event_id": {
-                        "S": "PT_ETE08_OffStudy1_SEI1"
+                        "S": "PT_OS02_OffStudy1_SEI1"
                     },
                     "ICCMLH1s": {
                         "S": "NEGATIVE"
@@ -37597,13 +37597,13 @@
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE08_OffStudy1_BC1"
+                        "S": "PT_OS02_OffStudy1_BC1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE08_OffStudy1_MOI1"
+                        "S": "PT_OS02_OffStudy1_MOI1"
                     },
                     "ICCPTENs_received_date": {
                         "S": "2016-05-30T12:11:09.071-05:00"
@@ -37612,7 +37612,7 @@
                         "S": "PENDING"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE08_OffStudy1_ANI1"
+                        "S": "PT_OS02_OffStudy1_ANI1"
                     },
                     "active_destination": {
                         "S": "MDA"
@@ -37632,7 +37632,7 @@
                 "S": "death"
             },
             "patient_id": {
-                "S": "PT_ETE08_OffStudy1"
+                "S": "PT_OS02_OffStudy1"
             },
             "current_step_number": {
                 "S": "1.0"
@@ -37882,7 +37882,7 @@
                         "S": "NEGATIVE"
                     },
                     "surgical_event_id": {
-                        "S": "PT_ETE04_OnTreatmentArm_SEI1"
+                        "S": "PT_OS01_OnTreatmentArm_SEI1"
                     },
                     "ICCMLH1s": {
                         "S": "NEGATIVE"
@@ -37891,13 +37891,13 @@
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE04_OnTreatmentArm_BC1"
+                        "S": "PT_OS01_OnTreatmentArm_BC1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE04_OnTreatmentArm_MOI1"
+                        "S": "PT_OS01_OnTreatmentArm_MOI1"
                     },
                     "ICCPTENs_received_date": {
                         "S": "2016-05-30T12:11:09.071-05:00"
@@ -37906,7 +37906,7 @@
                         "S": "CONFIRMED"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE04_OnTreatmentArm_ANI1"
+                        "S": "PT_OS01_OnTreatmentArm_ANI1"
                     },
                     "active_destination": {
                         "S": "MDA"
@@ -37955,15 +37955,15 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE04_OnTreatmentArm"
+                "S": "PT_OS01_OnTreatmentArm"
             },
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE04_OnTreatmentArm_SEI1"
+                        "S": "PT_OS01_OnTreatmentArm_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE04_OnTreatmentArm_ANI1"
+                        "S": "PT_OS01_OnTreatmentArm_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -38520,13 +38520,13 @@
                         "S": "2016-10-20 00:00:54 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE04_OnTreatmentArm"
+                        "S": "PT_OS01_OnTreatmentArm"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-20 00:00:54 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE04_OnTreatmentArm_MOI1"
+                        "S": "PT_OS01_OnTreatmentArm_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -38801,7 +38801,7 @@
             "active_tissue_specimen": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE04_AssayReceived_SEI1"
+                        "S": "PT_OS01_AssayReceived_SEI1"
                     },
                     "ICCPTENs": {
                         "S": "NEGATIVE"
@@ -38810,13 +38810,13 @@
                         "S": "NEGATIVE"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE04_AssayReceived_MOI1"
+                        "S": "PT_OS01_AssayReceived_MOI1"
                     },
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE04_AssayReceived_BC1"
+                        "S": "PT_OS01_AssayReceived_BC1"
                     },
                     "active_destination": {
                         "S": "MDA"
@@ -38836,7 +38836,7 @@
                 }
             },
             "patient_id": {
-                "S": "PT_ETE04_AssayReceived"
+                "S": "PT_OS01_AssayReceived"
             },
             "current_step_number": {
                 "S": "1.0"
@@ -39053,7 +39053,7 @@
                         "S": "NEGATIVE"
                     },
                     "surgical_event_id": {
-                        "S": "PT_ETE08_OffStudy2_SEI1"
+                        "S": "PT_OS02_OffStudy2_SEI1"
                     },
                     "ICCMLH1s": {
                         "S": "NEGATIVE"
@@ -39062,13 +39062,13 @@
                         "S": "2016-05-01T19:42:13+00:00"
                     },
                     "slide_barcode": {
-                        "S": "PT_ETE08_OffStudy2_BC1"
+                        "S": "PT_OS02_OffStudy2_BC1"
                     },
                     "specimen_collected_date": {
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE08_OffStudy2_MOI1"
+                        "S": "PT_OS02_OffStudy2_MOI1"
                     },
                     "ICCPTENs_received_date": {
                         "S": "2016-05-30T12:11:09.071-05:00"
@@ -39077,7 +39077,7 @@
                         "S": "PENDING"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE08_OffStudy2_ANI1"
+                        "S": "PT_OS02_OffStudy2_ANI1"
                     },
                     "active_destination": {
                         "S": "MDA"
@@ -39097,7 +39097,7 @@
                 "S": "death"
             },
             "patient_id": {
-                "S": "PT_ETE08_OffStudy2"
+                "S": "PT_OS02_OffStudy2"
             },
             "current_step_number": {
                 "S": "1.0"
@@ -39405,13 +39405,13 @@
             "active_tissue_specimen": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE19_SEI2"
+                        "S": "PT_RA04_SEI2"
                     },
                     "active_destination": {
                         "S": "MDA"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE19_ANI3"
+                        "S": "PT_RA04_ANI3"
                     },
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
@@ -39420,7 +39420,7 @@
                         "S": "2016-04-25T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE19_MOI2"
+                        "S": "PT_RA04_MOI2"
                     },
                     "variant_report_status": {
                         "S": "PENDING"
@@ -39439,7 +39439,7 @@
                         "S": "MDA"
                     },
                     "active_analysis_id": {
-                        "S": "PT_ETE19_ANI1"
+                        "S": "PT_RA04_ANI1"
                     },
                     "active_molecular_id_shipped_date": {
                         "S": "2016-05-01T19:42:13+00:00"
@@ -39448,7 +39448,7 @@
                         "S": "2016-04-22T15:17:11+00:00"
                     },
                     "active_molecular_id": {
-                        "S": "PT_ETE19_BD_MOI1"
+                        "S": "PT_RA04_BD_MOI1"
                     },
                     "variant_report_status": {
                         "S": "PENDING"
@@ -39475,15 +39475,15 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE19"
+                "S": "PT_RA04"
             },
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE19_SEI1"
+                        "S": "PT_RA04_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE19_ANI2"
+                        "S": "PT_RA04_ANI2"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -40040,13 +40040,13 @@
                         "S": "2016-10-25 00:36:36 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE19"
+                        "S": "PT_RA04"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-25 00:36:36 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE19_MOI1"
+                        "S": "PT_RA04_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -40223,7 +40223,7 @@
                 "S": "1.0"
             },
             "patient_id": {
-                "S": "PT_ETE18_Registered"
+                "S": "PT_RA03_Registered"
             },
             "current_status": {
                 "S": "REGISTRATION"
@@ -41088,7 +41088,7 @@
                 "S": "1.0"
             },
             "patient_id": {
-                "S": "PT_ETE17_Registered"
+                "S": "PT_RA02_Registered"
             },
             "current_status": {
                 "S": "REGISTRATION"
@@ -41189,10 +41189,10 @@
             "current_assignment": {
                 "M": {
                     "surgical_event_id": {
-                        "S": "PT_ETE17_RequestAssignment_SEI1"
+                        "S": "PT_RA02_RequestAssignment_SEI1"
                     },
                     "analysis_id": {
-                        "S": "PT_ETE17_RequestAssignment_ANI1"
+                        "S": "PT_RA02_RequestAssignment_ANI1"
                     },
                     "treatment_assignment_results": {
                         "L": [
@@ -41749,13 +41749,13 @@
                         "S": "2016-10-24 21:26:22 UTC"
                     },
                     "patient_id": {
-                        "S": "PT_ETE17_RequestAssignment"
+                        "S": "PT_RA02_RequestAssignment"
                     },
                     "received_from_cog_date": {
                         "S": "2016-10-24 21:26:22 UTC"
                     },
                     "molecular_id": {
-                        "S": "PT_ETE17_RequestAssignment_MOI1"
+                        "S": "PT_RA02_RequestAssignment_MOI1"
                     },
                     "status": {
                         "S": "CONFIRMED"
@@ -41801,7 +41801,7 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE17_RequestAssignment"
+                "S": "PT_RA02_RequestAssignment"
             },
             "status_date": {
                 "S": "2016-08-10T22:05:33+00:00"

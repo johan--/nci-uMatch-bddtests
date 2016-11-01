@@ -157,13 +157,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE17_TsReceived"
+                "S": "PT_RA02_TsReceived"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE17_TsReceived_SEI1"
+                "S": "PT_RA02_TsReceived_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-24T21:26:26.655"
@@ -260,13 +260,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE06_Step2TsReceived1"
+                "S": "PT_SS11a_Step2TsReceived1"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE06_Step2TsReceived1_SEI1"
+                "S": "PT_SS11a_Step2TsReceived1_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-20T00:23:29.439"
@@ -275,7 +275,7 @@
                 "S": "APEC1621"
             },
             "active_molecular_id": {
-                "S": "PT_ETE06_Step2TsReceived1_MOI1"
+                "S": "PT_SS11a_Step2TsReceived1_MOI1"
             }
         },
         {
@@ -283,13 +283,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE06_Step2TsReceived1"
+                "S": "PT_SS11a_Step2TsReceived1"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE06_Step2TsReceived1_SEI2"
+                "S": "PT_SS11a_Step2TsReceived1_SEI2"
             },
             "sorting_key": {
                 "S": "2016-10-20T00:25:31.911"
@@ -306,7 +306,7 @@
                 "S": "2016-04-23T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE19_RequestNoAssignment"
+                "S": "PT_RA04_RequestNoAssignment"
             },
             "specimen_type": {
                 "S": "BLOOD"
@@ -315,7 +315,7 @@
                 "S": "2016-10-25T02:57:57.252"
             },
             "active_molecular_id": {
-                "S": "PT_ETE19_RequestNoAssignment_BD_MOI1"
+                "S": "PT_RA04_RequestNoAssignment_BD_MOI1"
             },
             "collected_date": {
                 "S": "2016-04-22T15:17:11+00:00"
@@ -386,13 +386,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE19_RequestNoAssignment"
+                "S": "PT_RA04_RequestNoAssignment"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE19_RequestNoAssignment_SEI1"
+                "S": "PT_RA04_RequestNoAssignment_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-25T02:57:59.425"
@@ -401,7 +401,7 @@
                 "S": "APEC1621"
             },
             "active_molecular_id": {
-                "S": "PT_ETE19_RequestNoAssignment_MOI1"
+                "S": "PT_RA04_RequestNoAssignment_MOI1"
             }
         },
         {
@@ -409,19 +409,19 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE19_RequestNoAssignment"
+                "S": "PT_RA04_RequestNoAssignment"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE19_RequestNoAssignment_SEI2"
+                "S": "PT_RA04_RequestNoAssignment_SEI2"
             },
             "sorting_key": {
                 "S": "2016-10-25T02:59:14.332"
             },
             "active_molecular_id": {
-                "S": "PT_ETE19_RequestNoAssignment_MOI2"
+                "S": "PT_RA04_RequestNoAssignment_MOI2"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
@@ -520,19 +520,19 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE18_AssayReceived"
+                "S": "PT_RA03_AssayReceived"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE18_AssayReceived_SEI1"
+                "S": "PT_RA03_AssayReceived_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-25T00:20:41.224"
             },
             "active_molecular_id": {
-                "S": "PT_ETE18_AssayReceived_MOI1"
+                "S": "PT_RA03_AssayReceived_MOI1"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
@@ -620,13 +620,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE05"
+                "S": "PT_SR14_RequestAssignment"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE05_SEI1"
+                "S": "PT_SR14_RequestAssignment_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-20T00:21:26.623"
@@ -638,7 +638,7 @@
                 "S": "Y"
             },
             "active_molecular_id": {
-                "S": "PT_ETE05_MOI1"
+                "S": "PT_SR14_RequestAssignment_MOI1"
             }
         },
         {
@@ -1251,19 +1251,19 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE17_AssayReceived"
+                "S": "PT_RA02_AssayReceived"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE17_AssayReceived_SEI1"
+                "S": "PT_RA02_AssayReceived_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-24T21:29:49.772"
             },
             "active_molecular_id": {
-                "S": "PT_ETE17_AssayReceived_MOI1"
+                "S": "PT_RA02_AssayReceived_MOI1"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
@@ -1429,19 +1429,19 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE04_TsVrRejected"
+                "S": "PT_OS01_TsVrRejected"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE04_TsVrRejected_SEI1"
+                "S": "PT_OS01_TsVrRejected_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-19T23:58:20.707"
             },
             "active_molecular_id": {
-                "S": "PT_ETE04_TsVrRejected_MOI1"
+                "S": "PT_OS01_TsVrRejected_MOI1"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
@@ -1455,19 +1455,19 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE04_TsVrConfirmed"
+                "S": "PT_OS01_TsVrConfirmed"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE04_TsVrConfirmed_SEI1"
+                "S": "PT_OS01_TsVrConfirmed_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-19T23:57:29.845"
             },
             "active_molecular_id": {
-                "S": "PT_ETE04_TsVrConfirmed_MOI1"
+                "S": "PT_OS01_TsVrConfirmed_MOI1"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
@@ -1481,13 +1481,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE18_TsReceived"
+                "S": "PT_RA03_TsReceived"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE18_TsReceived_SEI1"
+                "S": "PT_RA03_TsReceived_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-25T00:17:18.163"
@@ -1636,13 +1636,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE17_TsShipped"
+                "S": "PT_RA02_TsShipped"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE17_TsShipped_SEI1"
+                "S": "PT_RA02_TsShipped_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-24T21:26:28.756"
@@ -1651,7 +1651,7 @@
                 "S": "APEC1621"
             },
             "active_molecular_id": {
-                "S": "PT_ETE17_TsShipped_MOI1"
+                "S": "PT_RA02_TsShipped_MOI1"
             }
         },
         {
@@ -1659,19 +1659,19 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE17_TsShipped"
+                "S": "PT_RA02_TsShipped"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE17_TsShipped_SEI2"
+                "S": "PT_RA02_TsShipped_SEI2"
             },
             "sorting_key": {
                 "S": "2016-10-24T21:27:59.134"
             },
             "active_molecular_id": {
-                "S": "PT_ETE17_TsShipped_MOI2"
+                "S": "PT_RA02_TsShipped_MOI2"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
@@ -1742,13 +1742,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE04_TsShipped"
+                "S": "PT_OS01_TsShipped"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE04_TsShipped_SEI1"
+                "S": "PT_OS01_TsShipped_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-19T23:46:32.823"
@@ -1757,7 +1757,7 @@
                 "S": "APEC1621"
             },
             "active_molecular_id": {
-                "S": "PT_ETE04_TsShipped_MOI1"
+                "S": "PT_OS01_TsShipped_MOI1"
             }
         },
         {
@@ -1765,19 +1765,19 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE04_TsShipped"
+                "S": "PT_OS01_TsShipped"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE04_TsShipped_SEI2"
+                "S": "PT_OS01_TsShipped_SEI2"
             },
             "sorting_key": {
                 "S": "2016-10-19T23:48:35.263"
             },
             "active_molecular_id": {
-                "S": "PT_ETE04_TsShipped_MOI2"
+                "S": "PT_OS01_TsShipped_MOI2"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
@@ -1842,13 +1842,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE04_ReqAssignment"
+                "S": "PT_OS01_ReqAssignment"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE04_ReqAssignment_SEI1"
+                "S": "PT_OS01_ReqAssignment_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-20T00:01:05.069"
@@ -1860,7 +1860,7 @@
                 "S": "Y"
             },
             "active_molecular_id": {
-                "S": "PT_ETE04_ReqAssignment_MOI1"
+                "S": "PT_OS01_ReqAssignment_MOI1"
             }
         },
         {
@@ -1925,13 +1925,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE18_TsVrReceived"
+                "S": "PT_RA03_TsVrReceived"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE18_TsVrReceived_SEI1"
+                "S": "PT_RA03_TsVrReceived_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-25T00:22:11.670"
@@ -1940,7 +1940,7 @@
                 "S": "APEC1621"
             },
             "active_molecular_id": {
-                "S": "PT_ETE18_TsVrReceived_MOI1"
+                "S": "PT_RA03_TsVrReceived_MOI1"
             }
         },
         {
@@ -1948,19 +1948,19 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE18_TsVrReceived"
+                "S": "PT_RA03_TsVrReceived"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE18_TsVrReceived_SEI2"
+                "S": "PT_RA03_TsVrReceived_SEI2"
             },
             "sorting_key": {
                 "S": "2016-10-25T00:23:12.272"
             },
             "active_molecular_id": {
-                "S": "PT_ETE18_TsVrReceived_MOI2"
+                "S": "PT_RA03_TsVrReceived_MOI2"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
@@ -2190,13 +2190,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE04_PendingApproval"
+                "S": "PT_OS01_PendingApproval"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE04_PendingApproval_SEI1"
+                "S": "PT_OS01_PendingApproval_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-20T00:03:07.613"
@@ -2205,7 +2205,7 @@
                 "S": "APEC1621"
             },
             "active_molecular_id": {
-                "S": "PT_ETE04_PendingApproval_MOI1"
+                "S": "PT_OS01_PendingApproval_MOI1"
             }
         },
         {
@@ -2264,13 +2264,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE04_PendingApproval"
+                "S": "PT_OS01_PendingApproval"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE04_PendingApproval_SEI2"
+                "S": "PT_OS01_PendingApproval_SEI2"
             },
             "sorting_key": {
                 "S": "2016-10-20T00:05:09.603"
@@ -2282,7 +2282,7 @@
                 "S": "Y"
             },
             "active_molecular_id": {
-                "S": "PT_ETE04_PendingApproval_MOI2"
+                "S": "PT_OS01_PendingApproval_MOI2"
             }
         },
         {
@@ -2663,19 +2663,19 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE17_TsVrConfirmed"
+                "S": "PT_RA02_TsVrConfirmed"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE17_TsVrConfirmed_SEI1"
+                "S": "PT_RA02_TsVrConfirmed_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-24T21:32:50.038"
             },
             "active_molecular_id": {
-                "S": "PT_ETE17_TsVrConfirmed_MOI1"
+                "S": "PT_RA02_TsVrConfirmed_MOI1"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
@@ -2715,19 +2715,19 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE17_TsVrRejected"
+                "S": "PT_RA02_TsVrRejected"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE17_TsVrRejected_SEI1"
+                "S": "PT_RA02_TsVrRejected_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-24T21:33:20.125"
             },
             "active_molecular_id": {
-                "S": "PT_ETE17_TsVrRejected_MOI1"
+                "S": "PT_RA02_TsVrRejected_MOI1"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
@@ -2941,13 +2941,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE18_RequestAssignment"
+                "S": "PT_RA03_RequestAssignment"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE18_RequestAssignment_SEI1"
+                "S": "PT_RA03_RequestAssignment_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-25T00:15:47.585"
@@ -2959,7 +2959,7 @@
                 "S": "Y"
             },
             "active_molecular_id": {
-                "S": "PT_ETE18_RequestAssignment_MOI1"
+                "S": "PT_RA03_RequestAssignment_MOI1"
             }
         },
         {
@@ -3177,13 +3177,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE04_slideShipped"
+                "S": "PT_OS01_slideShipped"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE04_slideShipped_SEI1"
+                "S": "PT_OS01_slideShipped_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-19T23:48:55.550"
@@ -3192,7 +3192,7 @@
                 "S": "APEC1621"
             },
             "active_molecular_id": {
-                "S": "PT_ETE04_slideShipped_MOI1"
+                "S": "PT_OS01_slideShipped_MOI1"
             }
         },
         {
@@ -3200,19 +3200,19 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE04_slideShipped"
+                "S": "PT_OS01_slideShipped"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE04_slideShipped_SEI2"
+                "S": "PT_OS01_slideShipped_SEI2"
             },
             "sorting_key": {
                 "S": "2016-10-19T23:51:09.530"
             },
             "active_molecular_id": {
-                "S": "PT_ETE04_slideShipped_MOI2"
+                "S": "PT_OS01_slideShipped_MOI2"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
@@ -3564,13 +3564,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE14"
+                "S": "PT_AM03_PendingApproval"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE14_SEI1"
+                "S": "PT_AM03_PendingApproval_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-20T00:17:20.243"
@@ -3582,7 +3582,7 @@
                 "S": "Y"
             },
             "active_molecular_id": {
-                "S": "PT_ETE14_MOI1"
+                "S": "PT_AM03_PendingApproval_MOI1"
             }
         },
         {
@@ -3667,19 +3667,19 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE18_TsVrRejected"
+                "S": "PT_RA03_TsVrRejected"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE18_TsVrRejected_SEI1"
+                "S": "PT_RA03_TsVrRejected_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-25T00:23:53.954"
             },
             "active_molecular_id": {
-                "S": "PT_ETE18_TsVrRejected_MOI1"
+                "S": "PT_RA03_TsVrRejected_MOI1"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
@@ -3767,13 +3767,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE07"
+                "S": "PT_AM05"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE07_SEI1"
+                "S": "PT_AM05_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-20T00:30:09.897"
@@ -3785,7 +3785,7 @@
                 "S": "Y"
             },
             "active_molecular_id": {
-                "S": "PT_ETE07_MOI1"
+                "S": "PT_AM05_MOI1"
             }
         },
         {
@@ -3793,7 +3793,7 @@
                 "S": "2016-04-23T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE07"
+                "S": "PT_AM05"
             },
             "specimen_type": {
                 "S": "BLOOD"
@@ -3802,7 +3802,7 @@
                 "S": "2016-10-20T00:30:20.447"
             },
             "active_molecular_id": {
-                "S": "PT_ETE07_BD_MOI1"
+                "S": "PT_AM05_BD_MOI1"
             },
             "collected_date": {
                 "S": "2016-04-22T15:17:11+00:00"
@@ -3862,13 +3862,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE04_TsReceived"
+                "S": "PT_OS01_TsReceived"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE04_TsReceived_SEI1"
+                "S": "PT_OS01_TsReceived_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-19T23:46:22.202"
@@ -3936,13 +3936,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE17_OnTreatmentArm"
+                "S": "PT_RA02_OnTreatmentArm"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE17_OnTreatmentArm_SEI1"
+                "S": "PT_RA02_OnTreatmentArm_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-24T21:22:43.119"
@@ -3954,7 +3954,7 @@
                 "S": "Y"
             },
             "active_molecular_id": {
-                "S": "PT_ETE17_OnTreatmentArm_MOI1"
+                "S": "PT_RA02_OnTreatmentArm_MOI1"
             }
         },
         {
@@ -4239,13 +4239,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE16_PendingApproval"
+                "S": "PT_RA01_PendingApproval"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE16_PendingApproval_SEI1"
+                "S": "PT_RA01_PendingApproval_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-24T21:19:21.350"
@@ -4257,7 +4257,7 @@
                 "S": "Y"
             },
             "active_molecular_id": {
-                "S": "PT_ETE16_PendingApproval_MOI1"
+                "S": "PT_RA01_PendingApproval_MOI1"
             }
         },
         {
@@ -4475,13 +4475,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE18_OnTreatmentArm"
+                "S": "PT_RA03_OnTreatmentArm"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE18_OnTreatmentArm_SEI1"
+                "S": "PT_RA03_OnTreatmentArm_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-25T00:13:16.090"
@@ -4493,7 +4493,7 @@
                 "S": "Y"
             },
             "active_molecular_id": {
-                "S": "PT_ETE18_OnTreatmentArm_MOI1"
+                "S": "PT_RA03_OnTreatmentArm_MOI1"
             }
         },
         {
@@ -4578,13 +4578,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE09_OffStudy1"
+                "S": "PT_OS03_OffStudy1"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE09_OffStudy1_SEI1"
+                "S": "PT_OS03_OffStudy1_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-20T00:08:04.044"
@@ -4596,7 +4596,7 @@
                 "S": "Y"
             },
             "active_molecular_id": {
-                "S": "PT_ETE09_OffStudy1_MOI1"
+                "S": "PT_OS03_OffStudy1_MOI1"
             }
         },
         {
@@ -4710,13 +4710,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE03"
+                "S": "PT_AM02_VrReceived"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE03_SEI1"
+                "S": "PT_AM02_VrReceived_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-20T00:06:52.062"
@@ -4728,7 +4728,7 @@
                 "S": "Y"
             },
             "active_molecular_id": {
-                "S": "PT_ETE03_MOI1"
+                "S": "PT_AM02_VrReceived_MOI1"
             }
         },
         {
@@ -4839,13 +4839,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE18_slideShipped"
+                "S": "PT_RA03_slideShipped"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE18_slideShipped_SEI1"
+                "S": "PT_RA03_slideShipped_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-25T00:18:39.945"
@@ -4854,7 +4854,7 @@
                 "S": "APEC1621"
             },
             "active_molecular_id": {
-                "S": "PT_ETE18_slideShipped_MOI1"
+                "S": "PT_RA03_slideShipped_MOI1"
             }
         },
         {
@@ -4862,19 +4862,19 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE18_slideShipped"
+                "S": "PT_RA03_slideShipped"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE18_slideShipped_SEI2"
+                "S": "PT_RA03_slideShipped_SEI2"
             },
             "sorting_key": {
                 "S": "2016-10-25T00:20:34.635"
             },
             "active_molecular_id": {
-                "S": "PT_ETE18_slideShipped_MOI2"
+                "S": "PT_RA03_slideShipped_MOI2"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
@@ -5317,13 +5317,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE11_OnTreatmentArm"
+                "S": "PT_RA06_OnTreatmentArm"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE11_OnTreatmentArm_SEI1"
+                "S": "PT_RA06_OnTreatmentArm_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-20T00:13:43.247"
@@ -5335,7 +5335,7 @@
                 "S": "Y"
             },
             "active_molecular_id": {
-                "S": "PT_ETE11_OnTreatmentArm_MOI1"
+                "S": "PT_RA06_OnTreatmentArm_MOI1"
             }
         },
         {
@@ -5624,13 +5624,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE18_TsShipped"
+                "S": "PT_RA03_TsShipped"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE18_TsShipped_SEI1"
+                "S": "PT_RA03_TsShipped_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-25T00:17:20.380"
@@ -5639,7 +5639,7 @@
                 "S": "APEC1621"
             },
             "active_molecular_id": {
-                "S": "PT_ETE18_TsShipped_MOI1"
+                "S": "PT_RA03_TsShipped_MOI1"
             }
         },
         {
@@ -5647,19 +5647,19 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE18_TsShipped"
+                "S": "PT_RA03_TsShipped"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE18_TsShipped_SEI2"
+                "S": "PT_RA03_TsShipped_SEI2"
             },
             "sorting_key": {
                 "S": "2016-10-25T00:18:35.613"
             },
             "active_molecular_id": {
-                "S": "PT_ETE18_TsShipped_MOI2"
+                "S": "PT_RA03_TsShipped_MOI2"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
@@ -6282,13 +6282,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE17_PathoConfirmed"
+                "S": "PT_RA02_PathoConfirmed"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE17_PathoConfirmed_SEI1"
+                "S": "PT_RA02_PathoConfirmed_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-24T21:30:00.693"
@@ -6297,7 +6297,7 @@
                 "S": "APEC1621"
             },
             "active_molecular_id": {
-                "S": "PT_ETE17_PathoConfirmed_MOI1"
+                "S": "PT_RA02_PathoConfirmed_MOI1"
             }
         },
         {
@@ -6308,13 +6308,13 @@
                 "S": "2016-04-27T17:13:09+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE17_PathoConfirmed"
+                "S": "PT_RA02_PathoConfirmed"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE17_PathoConfirmed_SEI2"
+                "S": "PT_RA02_PathoConfirmed_SEI2"
             },
             "sorting_key": {
                 "S": "2016-10-24T21:31:17.880"
@@ -6388,13 +6388,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE18_PendingApproval"
+                "S": "PT_RA03_PendingApproval"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE18_PendingApproval_SEI1"
+                "S": "PT_RA03_PendingApproval_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-25T00:12:12.729"
@@ -6406,7 +6406,7 @@
                 "S": "Y"
             },
             "active_molecular_id": {
-                "S": "PT_ETE18_PendingApproval_MOI1"
+                "S": "PT_RA03_PendingApproval_MOI1"
             }
         },
         {
@@ -6465,13 +6465,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE09a_OnTA2"
+                "S": "PT_OS04_OnTA2"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE09a_OnTA2_SEI1"
+                "S": "PT_OS04_OnTA2_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-19T21:51:27.788"
@@ -6483,7 +6483,7 @@
                 "S": "Y"
             },
             "active_molecular_id": {
-                "S": "PT_ETE09a_OnTA2_MOI1"
+                "S": "PT_OS04_OnTA2_MOI1"
             }
         },
         {
@@ -6548,13 +6548,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE06_Step2TsReceived2"
+                "S": "PT_SS11a_Step2TsReceived2"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE06_Step2TsReceived2_SEI1"
+                "S": "PT_SS11a_Step2TsReceived2_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-20T00:25:42.164"
@@ -6563,7 +6563,7 @@
                 "S": "APEC1621"
             },
             "active_molecular_id": {
-                "S": "PT_ETE06_Step2TsReceived2_MOI1"
+                "S": "PT_SS11a_Step2TsReceived2_MOI1"
             }
         },
         {
@@ -6571,13 +6571,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE06_Step2TsReceived2"
+                "S": "PT_SS11a_Step2TsReceived2"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE06_Step2TsReceived2_SEI2"
+                "S": "PT_SS11a_Step2TsReceived2_SEI2"
             },
             "sorting_key": {
                 "S": "2016-10-20T00:27:45.618"
@@ -6720,13 +6720,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE15_TsReceived1"
+                "S": "PT_AM04_TsReceived1"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE15_TsReceived1_SEI1"
+                "S": "PT_AM04_TsReceived1_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-20T00:19:03.041"
@@ -6738,7 +6738,7 @@
                 "S": "Y"
             },
             "active_molecular_id": {
-                "S": "PT_ETE15_TsReceived1_MOI1"
+                "S": "PT_AM04_TsReceived1_MOI1"
             }
         },
         {
@@ -6866,13 +6866,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE04_ReqNoAssignment"
+                "S": "PT_OS01_ReqNoAssignment"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE04_ReqNoAssignment_SEI1"
+                "S": "PT_OS01_ReqNoAssignment_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-25T14:04:40.259"
@@ -6884,7 +6884,7 @@
                 "S": "Y"
             },
             "active_molecular_id": {
-                "S": "PT_ETE04_ReqNoAssignment_MOI1"
+                "S": "PT_OS01_ReqNoAssignment_MOI1"
             }
         },
         {
@@ -6943,13 +6943,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE09_OffStudy2"
+                "S": "PT_OS03_OffStudy2"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE09_OffStudy2_SEI1"
+                "S": "PT_OS03_OffStudy2_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-19T21:49:44.737"
@@ -6961,7 +6961,7 @@
                 "S": "Y"
             },
             "active_molecular_id": {
-                "S": "PT_ETE09_OffStudy2_MOI1"
+                "S": "PT_OS03_OffStudy2_MOI1"
             }
         },
         {
@@ -7047,19 +7047,19 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE18_TsVrConfirmed"
+                "S": "PT_RA03_TsVrConfirmed"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE18_TsVrConfirmed_SEI1"
+                "S": "PT_RA03_TsVrConfirmed_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-25T00:23:23.845"
             },
             "active_molecular_id": {
-                "S": "PT_ETE18_TsVrConfirmed_MOI1"
+                "S": "PT_RA03_TsVrConfirmed_MOI1"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
@@ -7124,13 +7124,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE11_PendingAproval"
+                "S": "PT_RA06_PendingAproval"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE11_PendingAproval_SEI1"
+                "S": "PT_RA06_PendingAproval_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-20T00:15:37.410"
@@ -7142,7 +7142,7 @@
                 "S": "Y"
             },
             "active_molecular_id": {
-                "S": "PT_ETE11_PendingAproval_MOI1"
+                "S": "PT_RA06_PendingAproval_MOI1"
             }
         },
         {
@@ -7292,13 +7292,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE17_RequestNoAssignment"
+                "S": "PT_RA02_RequestNoAssignment"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE17_RequestNoAssignment_SEI1"
+                "S": "PT_RA02_RequestNoAssignment_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-24T21:23:57.572"
@@ -7310,7 +7310,7 @@
                 "S": "Y"
             },
             "active_molecular_id": {
-                "S": "PT_ETE17_RequestNoAssignment_MOI1"
+                "S": "PT_RA02_RequestNoAssignment_MOI1"
             }
         },
         {
@@ -7499,13 +7499,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE04_TsVrReceived"
+                "S": "PT_OS01_TsVrReceived"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE04_TsVrReceived_SEI1"
+                "S": "PT_OS01_TsVrReceived_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-19T23:54:55.279"
@@ -7514,7 +7514,7 @@
                 "S": "APEC1621"
             },
             "active_molecular_id": {
-                "S": "PT_ETE04_TsVrReceived_MOI1"
+                "S": "PT_OS01_TsVrReceived_MOI1"
             }
         },
         {
@@ -7522,19 +7522,19 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE04_TsVrReceived"
+                "S": "PT_OS01_TsVrReceived"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE04_TsVrReceived_SEI2"
+                "S": "PT_OS01_TsVrReceived_SEI2"
             },
             "sorting_key": {
                 "S": "2016-10-19T23:56:59.401"
             },
             "active_molecular_id": {
-                "S": "PT_ETE04_TsVrReceived_MOI2"
+                "S": "PT_OS01_TsVrReceived_MOI2"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
@@ -7677,13 +7677,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE17_TsVrReceived"
+                "S": "PT_RA02_TsVrReceived"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE17_TsVrReceived_SEI1"
+                "S": "PT_RA02_TsVrReceived_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-24T21:31:22.131"
@@ -7692,7 +7692,7 @@
                 "S": "APEC1621"
             },
             "active_molecular_id": {
-                "S": "PT_ETE17_TsVrReceived_MOI1"
+                "S": "PT_RA02_TsVrReceived_MOI1"
             }
         },
         {
@@ -7700,19 +7700,19 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE17_TsVrReceived"
+                "S": "PT_RA02_TsVrReceived"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE17_TsVrReceived_SEI2"
+                "S": "PT_RA02_TsVrReceived_SEI2"
             },
             "sorting_key": {
                 "S": "2016-10-24T21:32:39.326"
             },
             "active_molecular_id": {
-                "S": "PT_ETE17_TsVrReceived_MOI2"
+                "S": "PT_RA02_TsVrReceived_MOI2"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
@@ -7843,13 +7843,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE18_RequestNoAssignment"
+                "S": "PT_RA03_RequestNoAssignment"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE18_RequestNoAssignment_SEI1"
+                "S": "PT_RA03_RequestNoAssignment_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-25T00:14:31.351"
@@ -7861,7 +7861,7 @@
                 "S": "Y"
             },
             "active_molecular_id": {
-                "S": "PT_ETE18_RequestNoAssignment_MOI1"
+                "S": "PT_RA03_RequestNoAssignment_MOI1"
             }
         },
         {
@@ -8018,13 +8018,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE15_TsReceived2"
+                "S": "PT_AM04_TsReceived2"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE15_TsReceived2_SEI1"
+                "S": "PT_AM04_TsReceived2_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-20T00:20:14.574"
@@ -8036,7 +8036,7 @@
                 "S": "Y"
             },
             "active_molecular_id": {
-                "S": "PT_ETE15_TsReceived2_MOI1"
+                "S": "PT_AM04_TsReceived2_MOI1"
             }
         },
         {
@@ -8127,13 +8127,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE09a_OnTA1"
+                "S": "PT_OS04_OnTA1"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE09a_OnTA1_SEI1"
+                "S": "PT_OS04_OnTA1_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-20T00:09:47.181"
@@ -8145,7 +8145,7 @@
                 "S": "Y"
             },
             "active_molecular_id": {
-                "S": "PT_ETE09a_OnTA1_MOI1"
+                "S": "PT_OS04_OnTA1_MOI1"
             }
         },
         {
@@ -8340,13 +8340,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE17_PendingApproval"
+                "S": "PT_RA02_PendingApproval"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE17_PendingApproval_SEI1"
+                "S": "PT_RA02_PendingApproval_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-24T21:21:39.164"
@@ -8358,7 +8358,7 @@
                 "S": "Y"
             },
             "active_molecular_id": {
-                "S": "PT_ETE17_PendingApproval_MOI1"
+                "S": "PT_RA02_PendingApproval_MOI1"
             }
         },
         {
@@ -8617,13 +8617,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE06_Step2BdReceived"
+                "S": "PT_SS11a_Step2BdReceived"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE06_Step2BdReceived_SEI1"
+                "S": "PT_SS11a_Step2BdReceived_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-20T00:27:55.740"
@@ -8635,7 +8635,7 @@
                 "S": "Y"
             },
             "active_molecular_id": {
-                "S": "PT_ETE06_Step2BdReceived_MOI1"
+                "S": "PT_SS11a_Step2BdReceived_MOI1"
             }
         },
         {
@@ -8643,7 +8643,7 @@
                 "S": "2016-04-23T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE06_Step2BdReceived"
+                "S": "PT_SS11a_Step2BdReceived"
             },
             "specimen_type": {
                 "S": "BLOOD"
@@ -8652,7 +8652,7 @@
                 "S": "2016-10-20T00:29:59.682"
             },
             "active_molecular_id": {
-                "S": "PT_ETE06_Step2BdReceived_BD_MOI1"
+                "S": "PT_SS11a_Step2BdReceived_BD_MOI1"
             },
             "collected_date": {
                 "S": "2016-04-22T15:17:11+00:00"
@@ -8746,13 +8746,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE18_PathoConfirmed"
+                "S": "PT_RA03_PathoConfirmed"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE18_PathoConfirmed_SEI1"
+                "S": "PT_RA03_PathoConfirmed_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-25T00:20:52.146"
@@ -8761,7 +8761,7 @@
                 "S": "APEC1621"
             },
             "active_molecular_id": {
-                "S": "PT_ETE18_PathoConfirmed_MOI1"
+                "S": "PT_RA03_PathoConfirmed_MOI1"
             }
         },
         {
@@ -8772,13 +8772,13 @@
                 "S": "2016-04-27T17:13:09+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE18_PathoConfirmed"
+                "S": "PT_RA03_PathoConfirmed"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE18_PathoConfirmed_SEI2"
+                "S": "PT_RA03_PathoConfirmed_SEI2"
             },
             "sorting_key": {
                 "S": "2016-10-25T00:22:07.367"
@@ -8852,13 +8852,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE16_OnTreatmentArm"
+                "S": "PT_RA01_OnTreatmentArm"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE16_OnTreatmentArm_SEI1"
+                "S": "PT_RA01_OnTreatmentArm_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-24T21:20:25.037"
@@ -8870,7 +8870,7 @@
                 "S": "Y"
             },
             "active_molecular_id": {
-                "S": "PT_ETE16_OnTreatmentArm_MOI1"
+                "S": "PT_RA01_OnTreatmentArm_MOI1"
             }
         },
         {
@@ -8935,13 +8935,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE17_slideShipped"
+                "S": "PT_RA02_slideShipped"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE17_slideShipped_SEI1"
+                "S": "PT_RA02_slideShipped_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-24T21:28:03.350"
@@ -8950,7 +8950,7 @@
                 "S": "APEC1621"
             },
             "active_molecular_id": {
-                "S": "PT_ETE17_slideShipped_MOI1"
+                "S": "PT_RA02_slideShipped_MOI1"
             }
         },
         {
@@ -8958,19 +8958,19 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE17_slideShipped"
+                "S": "PT_RA02_slideShipped"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE17_slideShipped_SEI2"
+                "S": "PT_RA02_slideShipped_SEI2"
             },
             "sorting_key": {
                 "S": "2016-10-24T21:29:43.325"
             },
             "active_molecular_id": {
-                "S": "PT_ETE17_slideShipped_MOI2"
+                "S": "PT_RA02_slideShipped_MOI2"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
@@ -9035,13 +9035,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE10"
+                "S": "PT_RA05_OnTreatmentArm"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE10_SEI1"
+                "S": "PT_RA05_OnTreatmentArm_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-20T00:11:50.333"
@@ -9053,7 +9053,7 @@
                 "S": "Y"
             },
             "active_molecular_id": {
-                "S": "PT_ETE10_MOI1"
+                "S": "PT_RA05_OnTreatmentArm_MOI1"
             }
         },
         {
@@ -9141,13 +9141,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE04_PathoConfirmed"
+                "S": "PT_OS01_PathoConfirmed"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE04_PathoConfirmed_SEI1"
+                "S": "PT_OS01_PathoConfirmed_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-19T23:52:32.057"
@@ -9156,7 +9156,7 @@
                 "S": "APEC1621"
             },
             "active_molecular_id": {
-                "S": "PT_ETE04_PathoConfirmed_MOI1"
+                "S": "PT_OS01_PathoConfirmed_MOI1"
             }
         },
         {
@@ -9167,13 +9167,13 @@
                 "S": "2016-04-27T17:13:09+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE04_PathoConfirmed"
+                "S": "PT_OS01_PathoConfirmed"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE04_PathoConfirmed_SEI2"
+                "S": "PT_OS01_PathoConfirmed_SEI2"
             },
             "sorting_key": {
                 "S": "2016-10-19T23:54:34.565"
@@ -9293,13 +9293,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE08_OffStudy1"
+                "S": "PT_OS02_OffStudy1"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE08_OffStudy1_SEI1"
+                "S": "PT_OS02_OffStudy1_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-19T21:44:26.405"
@@ -9311,7 +9311,7 @@
                 "S": "Y"
             },
             "active_molecular_id": {
-                "S": "PT_ETE08_OffStudy1_MOI1"
+                "S": "PT_OS02_OffStudy1_MOI1"
             }
         },
         {
@@ -9526,13 +9526,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE04_OnTreatmentArm"
+                "S": "PT_OS01_OnTreatmentArm"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE04_OnTreatmentArm_SEI1"
+                "S": "PT_OS01_OnTreatmentArm_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-19T23:59:11.887"
@@ -9544,7 +9544,7 @@
                 "S": "Y"
             },
             "active_molecular_id": {
-                "S": "PT_ETE04_OnTreatmentArm_MOI1"
+                "S": "PT_OS01_OnTreatmentArm_MOI1"
             }
         },
         {
@@ -9767,19 +9767,19 @@
                 ]
             },
             "patient_id": {
-                "S": "PT_ETE04_AssayReceived"
+                "S": "PT_OS01_AssayReceived"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE04_AssayReceived_SEI1"
+                "S": "PT_OS01_AssayReceived_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-19T23:51:40.073"
             },
             "active_molecular_id": {
-                "S": "PT_ETE04_AssayReceived_MOI1"
+                "S": "PT_OS01_AssayReceived_MOI1"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
@@ -9977,13 +9977,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE08_OffStudy2"
+                "S": "PT_OS02_OffStudy2"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE08_OffStudy2_SEI1"
+                "S": "PT_OS02_OffStudy2_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-19T21:47:41.540"
@@ -9995,7 +9995,7 @@
                 "S": "Y"
             },
             "active_molecular_id": {
-                "S": "PT_ETE08_OffStudy2_MOI1"
+                "S": "PT_OS02_OffStudy2_MOI1"
             }
         },
         {
@@ -10242,7 +10242,7 @@
                 "S": "2016-04-23T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE19"
+                "S": "PT_RA04"
             },
             "specimen_type": {
                 "S": "BLOOD"
@@ -10251,7 +10251,7 @@
                 "S": "2016-10-25T00:35:00.627"
             },
             "active_molecular_id": {
-                "S": "PT_ETE19_BD_MOI1"
+                "S": "PT_RA04_BD_MOI1"
             },
             "collected_date": {
                 "S": "2016-04-22T15:17:11+00:00"
@@ -10322,13 +10322,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE19"
+                "S": "PT_RA04"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE19_SEI1"
+                "S": "PT_RA04_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-25T00:35:02.816"
@@ -10337,7 +10337,7 @@
                 "S": "APEC1621"
             },
             "active_molecular_id": {
-                "S": "PT_ETE19_MOI1"
+                "S": "PT_RA04_MOI1"
             }
         },
         {
@@ -10345,19 +10345,19 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE19"
+                "S": "PT_RA04"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE19_SEI2"
+                "S": "PT_RA04_SEI2"
             },
             "sorting_key": {
                 "S": "2016-10-25T00:36:55.933"
             },
             "active_molecular_id": {
-                "S": "PT_ETE19_MOI2"
+                "S": "PT_RA04_MOI2"
             },
             "collected_date": {
                 "S": "2016-04-25T15:17:11+00:00"
@@ -10741,13 +10741,13 @@
                 "S": "2016-04-26T15:17:11+00:00"
             },
             "patient_id": {
-                "S": "PT_ETE17_RequestAssignment"
+                "S": "PT_RA02_RequestAssignment"
             },
             "specimen_type": {
                 "S": "TISSUE"
             },
             "surgical_event_id": {
-                "S": "PT_ETE17_RequestAssignment_SEI1"
+                "S": "PT_RA02_RequestAssignment_SEI1"
             },
             "sorting_key": {
                 "S": "2016-10-24T21:25:11.989"
@@ -10759,7 +10759,7 @@
                 "S": "Y"
             },
             "active_molecular_id": {
-                "S": "PT_ETE17_RequestAssignment_MOI1"
+                "S": "PT_RA02_RequestAssignment_MOI1"
             }
         },
         {
