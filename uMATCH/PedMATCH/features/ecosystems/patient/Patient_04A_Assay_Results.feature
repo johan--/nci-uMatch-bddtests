@@ -168,7 +168,7 @@ Feature: Assay Messages
     Then set patient message field: "biomarker" to value: "ICCMLH1s"
     Then set patient message field: "reported_date" to value: "2016-07-18T13:42:13+00:00"
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
-    Then patient field: "current_status" should have value: "<patient_status>" after 30 seconds
+    Then patient field: "current_status" should have value: "<patient_status>" after 45 seconds
     Examples:
       | patient_id          | patient_status         | sei                      |
       | PT_AS12_VrConfirmed | PENDING_CONFIRMATION   | PT_AS12_VrConfirmed_SEI1 |

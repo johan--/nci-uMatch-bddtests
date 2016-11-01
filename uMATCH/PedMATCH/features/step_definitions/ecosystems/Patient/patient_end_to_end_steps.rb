@@ -181,10 +181,10 @@ end
 Then(/^patient should have selected treatment arm: "([^"]*)" with stratum id: "([^"]*)" within (\d+) seconds$/) do |ta_id, stratum, timeout|
   url = "#{ENV['patients_endpoint']}?patient_id=#{@patient_id}"
   query_hash = {'treatment_arm_id':ta_id, 'stratum_id':stratum}
-  query_path = %w(current_assignment selected_treatment_arm)
+  query_path = %w(current_assignment)
   patient_result = Patient_helper_methods.get_special_result_from_url(url, timeout, query_hash, query_path)
   if patient_result.keys.include?('current_assignment')
-    patient_result = patient_result['current_assignment']['selected_treatment_arm']
+    patient_result = patient_result['current_assignment']
   end
   patient_result['treatment_arm_id'].should == ta_id
   patient_result['stratum_id'].should == stratum

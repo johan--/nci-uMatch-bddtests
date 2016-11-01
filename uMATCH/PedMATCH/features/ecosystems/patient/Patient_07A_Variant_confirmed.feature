@@ -200,7 +200,7 @@ Feature: Variant files confirmed messages
   Scenario Outline: PT_VC15. variant file confirmation will not trigger patient assignment process unless patient has two types of assay ready
     Given template variant report confirm message for patient: "<patient_id>", it has analysis_id: "<ani>" and status: "<vr_status>"
     When put to MATCH variant report confirm service, returns a message that includes "Variant Report status changed successfully to" with status "Success"
-    Then patient field: "current_status" should have value: "<patient_status>" after 30 seconds
+    Then patient field: "current_status" should have value: "<patient_status>" after 45 seconds
 
     Examples:
       | patient_id                               | ani                                           | vr_status | patient_status                  |

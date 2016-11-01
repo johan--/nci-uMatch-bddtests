@@ -206,7 +206,7 @@ class Helper_Methods
     {}
   end
 
-  def Helper_Methods.get_request_when_method_true(url, method, timeout=30.0)
+  def Helper_Methods.get_request_when_method_true(url, method, timeout=45.0)
     total_time = 0.0
     wait_time = 1.0
     loop do
@@ -222,7 +222,7 @@ class Helper_Methods
     {}
   end
 
-  def Helper_Methods.get_request_when_method_false(url, method, timeout=30.0)
+  def Helper_Methods.get_request_when_method_false(url, method, timeout=45.0)
     total_time = 0.0
     wait_time = 1.0
     loop do
