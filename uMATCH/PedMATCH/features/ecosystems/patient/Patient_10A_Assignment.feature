@@ -33,7 +33,7 @@ Feature: Patients assignment tests
   Scenario Outline: PT_AM04. treatment arm should be able to assign to multiple patients
     Given template variant report confirm message for patient: "<patient_id>", it has analysis_id: "<ani>" and status: "confirm"
     When put to MATCH variant report confirm service, returns a message that includes "processed successfully" with status "Success"
-    Then wait for "10" seconds
+    Then patient field: "current_status" should have value: "PENDING_CONFIRMATION" within 45 seconds
     Then template assignment report confirm message for patient: "<patient_id>", it has analysis_id: "<ani>" and status: "confirm"
     When put to MATCH assignment report confirm service, returns a message that includes "processed successfully" with status "Success"
     Then template on treatment arm message for patient: "<patient_id>" with treatment arm id: "APEC1621-A", stratum id: "100" and step number: "1.1"
