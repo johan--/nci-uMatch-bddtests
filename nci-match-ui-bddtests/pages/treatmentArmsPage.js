@@ -31,7 +31,7 @@ var TreatmentArmsPage = function() {
     // The values of the labels within the left side box
     this.leftInfoBoxItems = element.all(by.css('#left-info-box dd'));
     // The drop down showing the versions of the treatment Arm
-    this.versionDropDownSelector = element(by.binding('currentVersion.version'));
+    this.versionDropDownSelector = element(by.css('button#btn-append-to-body'));
 
     // Download PDF
     this.downloadPDFButton = element(by.css('button[title="Export Variant Report to PDF"]'));

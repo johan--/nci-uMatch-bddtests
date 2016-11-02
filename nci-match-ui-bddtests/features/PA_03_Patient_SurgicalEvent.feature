@@ -14,7 +14,7 @@ Feature: Patient Surgical Events Tab
   Scenario: Logged in user can see the details of the surgical event
     When I collect specimen information about the patient
     Then I should see the same number of surgical event tabs
-    When I click on the Surgical Event Tab and index "0"
+    When I click on the Surgical Event Tab at index "0"
     And I should see the "Event" Section under patient Surgical Events
     And The Surgical Event Id match that of the backend
     And I should see the "Pathology" Section under patient Surgical Events

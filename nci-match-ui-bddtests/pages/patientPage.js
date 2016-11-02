@@ -144,6 +144,13 @@ var PatientPage = function () {
     this.totalconfirmedAMOIs    = element(by.binding('variantReport.total_confirmed_amois'));
     this.variantReportStatus    = element.all(by.binding('variantReport.status'));
 
+    // Elements found on Assignment Report TAB
+    this.assignmentSummaryBoxes      = element.all(by.css('.assignment-header-box'));
+    this.selectedAssignmentBoxHeader = element(by.css('div.panel-primary>div.panel-heading'));
+    this.selectedAssignmentBoxText   = element(by.css('div.panel-primary>div.panel-body'));
+    this.ruleNameList                = element.all(by.css('[ng-repeat-start="(ruleName, ruleDetails) in assignmentReport.treatment_assignment_results"]'));
+    this.ruleDetailsList             = element.all(by.repeater('rule in ruleDetails'));
+
 
 
 
@@ -163,7 +170,7 @@ var PatientPage = function () {
     // Patient details page right hand side top summary
     this.expectedDiseaseSummaryLabels = ['Disease Name', 'Disease Code Type', 'Disease Code', 'Prior Drugs'];
 
-    this.expectedPatientMainTabs = [ 'Summary', 'Surgical Events', 'Tissue Reports', 'Blood Variant Reports', 'Documents'];
+    this.expectedPatientMainTabs = [ 'Summary', 'Surgical Event', 'Blood Variant Reports', 'Documents'];
 
     this.expectedMainTabSubHeadings = [
         'Actions Needed', 'Patient Timeline',

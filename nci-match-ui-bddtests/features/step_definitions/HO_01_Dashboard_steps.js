@@ -68,8 +68,9 @@ module.exports = function() {
         var expectedStatLabelArray = [
             'Registered Patients:', 'Patients with Confirmed Variant Report:',
             'Patients on Treatment:', 'Pending Tissue Variant Reports:',
-            'Pending Blood Variant Reports:', 'Pending Assignment Reports:'
+            'Pending Assignment Reports:'
         ];
+        // removed 'Pending Blood Variant Reports:', from the above array
 
         for (var i = 0; i < expectedStatLabelArray.length; i++){
             expect(listings.get(i).getText()).to.eventually.include(expectedStatLabelArray[i]);
@@ -175,7 +176,8 @@ module.exports = function() {
     });
 
     this.When(/^I click on the "(.+)" sub\-tab$/, function (reportType, callback) {
-        var pendingReviewArray = ['Tissue Variant Reports', 'Blood Variant Reports', 'Assignment Reports'];
+        var pendingReviewArray = ['Tissue Variant Reports', 'Assignment Reports'];
+        //Removin 'Blood Variant Reports', from index 1 of the above array
         var index = pendingReviewArray.indexOf(reportType);
         var tabHeadingElement = element.all(by.binding('heading')).get(index);
         browser.ignoreSynchronization = true;

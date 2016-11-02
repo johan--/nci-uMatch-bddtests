@@ -48,8 +48,8 @@ Feature: Dashboard page.
     Examples:
     |report_type            |
     |Tissue Variant Reports |
-#    |Blood Variant Reports  |
     |Assignment Reports     |
+#    |Blood Variant Reports  |
 
   @ui_p3
   Scenario: User can filter results on the page

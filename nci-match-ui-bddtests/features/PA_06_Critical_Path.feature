@@ -82,6 +82,7 @@ Feature: This is the critical path test cases
     Then I "should not" see the confirmation modal pop up
     Then The variant report status is marked "REJECTED"
     And The checkboxes are disabled
+    And Total confirmed MOIs and aMOIs are now '0'
     And I "should not" see the "REJECT" button on the VR page
     And I "should not" see the "CONFIRM" button on the VR page
     When I go to patient "PT_CR07_RejectVariantReport" details page
@@ -89,17 +90,39 @@ Feature: This is the critical path test cases
     When I navigate to the dashboard page
     Then I see the confirmation message in the Dashboard activity feed as "REJECTED"
 
-  Scenario: User comments are required when rejecting a report
-    And I go to patient "PT_CR03_VRUploadedPathConfirmed" details page
-    And I click on the "Tissue Reports" tab
-    And I collect information about the patient
-    When I click on the "REJECT" button
-    Then I "should" see the VR confirmation modal pop up
-    And The "OK" button is disabled
-    When I enter the comment "This is a VR comment" in the VR modal text box
-    And I click on the "OK" button
-    And I "should not" see the VR confirmation modal pop up
-    And I "should not" see the "REJECT" button on the VR page
-    And I "should not" see the "CONFIRM" button on the VR page
-    And I see the status of Report as "Rejected"
-    And I can see the name of the commenter is present
+  Scenario: Confirming a variant report followed by assignment report will update the status to Awaiting assignment
+    When I go to the patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" with variant report "PT_CR01_PathAssayDoneVRUploadedToConfirm_ANI1"
+    Then I can see the variant report page
+    And I click on the "CONFIRM" button
+    Then I "should" see the confirmation modal pop up
+    When I click on the "OK" button
+    Then The variant report status is marked "CONFIRMED"
+    And I wait "59" seconds
+    When I go to patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" details page
+    Then I "should" see the patient "status" as "PENDING_CONFIRMATION"
+    And I click on the Surgical Event Tab at index "0"
+    Then I should see the assignment report link for "PT_CR01_PathAssayDoneVRUploadedToConfirm_ANI1"
+    When I collect information about the assignment
+    And I click on the assignment report link
+    Then I can see the assignment report page
+    And I can see the top level details about assignment report
+    And I can see the selected Treatment arm id "APEC1621-A" and stratum "100" and version "2015-08-06" in a box with reason
+    And I can see the Assignment Logic section
+    And I can see the selected treatment arm and the reason
+    And The Types of Logic is the same as the backend
+    And I "should" see the Assignment report "CONFIRM" button
+    When I click on the Assignment report "CONFIRM" button
+    Then I "should" see the confirmation modal pop up
+    When I click on the "OK" button
+    Then I "should not" see the confirmation modal pop up
+    And I "should not" see the Assignment report "CONFIRM" button
+    When I go to patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" details page
+    Then I "should" see the patient "Status" as "PENDING_APPROVAL"
+    And I "should" see the patient "Treatment Arm Id" as "APEC1621-A"
+    And I "should" see the patient "Stratum Id" as "100"
+    And I "should" see the patient "Version" as "2015-08-06"
+    When I go to the patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" with assignment report "PT_CR01_PathAssayDoneVRUploadedToConfirm_ANI1"
+    When I collect information about the assignment
+    Then I can see more new top level details about assignment report
+
+

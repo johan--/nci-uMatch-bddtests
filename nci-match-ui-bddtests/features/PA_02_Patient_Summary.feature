@@ -12,6 +12,7 @@ Feature: Patient Summary Page
   @ui_p1
   Scenario: I can see the patient's details
     When I navigate to the patients page
+    And I enter "PT_CR02_OnTreatmentArm" in the patient filter field
     And I click on one of the patients
     And I collect the patient Api Information
     Then I am taken to the patient details page
@@ -23,7 +24,7 @@ Feature: Patient Summary Page
 
   @ui_p2
   Scenario: I can see the details within the Summary tab of the patient
-    When I go to patient "PT_CR04_VRUploadedAssayReceived" details page
+    When I go to patient "PT_CR03_VRUploadedPathConfirmed" details page
     And I collect the patient Api Information
     And I click on the "Summary" tab
     Then I should see the "Summary" tab is active

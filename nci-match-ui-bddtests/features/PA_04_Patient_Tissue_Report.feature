@@ -24,7 +24,7 @@ Feature: Patient Report Tab
 #    And I can see the "Copy Number Variant(s)" table under "Tissue Reports" tab
 #    And I can see the "Gene Fusion(s)" table under "Tissue Reports" tab
 
-  @ui_p2
+  @ui_p3
   Scenario: Clicking on the Blood Variant Report lets the user access information about the Blood variant.
     When I click on the "Blood Variant Reports" tab
     Then I should see the "Blood Variant Reports" tab is active

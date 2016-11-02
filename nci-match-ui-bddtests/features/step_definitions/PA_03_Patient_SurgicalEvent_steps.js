@@ -77,7 +77,7 @@ module.exports = function () {
         }).then(callback);
     });
 
-    this.When(/^I click on the Surgical Event Tab and index "(.+?)"$/, function (index, callback) {
+    this.When(/^I click on the Surgical Event Tab at index "(.+?)"$/, function (index, callback) {
         surgicalTabs.get(index).click().then(callback);
     });
 

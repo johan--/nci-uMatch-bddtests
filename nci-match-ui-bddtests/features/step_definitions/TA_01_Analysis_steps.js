@@ -159,10 +159,6 @@ module.exports = function () {
     });
 
     this.Then(/^I should see the treatment\-arms detail dashboard$/, function (callback) {
-        browser.getCurrentUrl().then(function (test) {
-            console.log(test);
-        });
-
         var expectedResults = 'treatment-arm?treatment_arm_id=' + currentTreatmentId + '&stratum_id=' + currentStratumId
 
         expect(browser.getCurrentUrl()).to.eventually.include(expectedResults)
@@ -222,8 +218,7 @@ module.exports = function () {
 
 
     this.Then(/^I should see the drop down to select different versions of the treatment arm$/, function (callback) {
-        expect(browser.isElementPresent(taPage.versionDropDownSelector)).to.eventually.be.true;
-        browser.sleep(50).then(callback);
+        expect(browser.isElementPresent(taPage.versionDropDownSelector)).to.eventually.eql(true).notify(callback);
     });
 
 

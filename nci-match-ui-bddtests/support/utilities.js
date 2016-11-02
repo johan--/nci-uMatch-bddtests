@@ -57,6 +57,12 @@ var Utilities = function() {
         }
     };
 
+    this.checkInclusiveElementArray = function(elementArray, expectedValues){
+        for(var i = 0; i < expectedValues.length ; i++){
+            expect(elementArray.get(i).getText()).to.eventually.include(expectedValues[i]);
+        }
+    };
+
     this.clickElementArray = function(elementArray, index){
         elementArray.get(index).click();
     };
@@ -131,6 +137,7 @@ var Utilities = function() {
         }
 
         function call(){
+            console.log(callUrl)
             return rest(callUrl).then(
                 function (response) {
                     self._entity = response.entity;

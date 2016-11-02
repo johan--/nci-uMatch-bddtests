@@ -13,10 +13,15 @@ module.exports = function () {
     this.World = require ('../step_definitions/world').World;
 
     var variantReportLink;
+    var assignmentReportLink;
+    var assignmentReportPageLink
     var confirmedMoi;
     var confirmedAMoi;
     var currentAnalysisId;
 
+    this.Then(/^I wait "(.\d+)" seconds$/, function (time, callback) {
+        browser.sleep(time * 1000).then(callback)
+    });
 
     this.Given (/^I enter "([^"]*)" in the patient filter field$/, function (filterValue, callback) {
         patientPage.patientFilterTextBox.sendKeys(filterValue).then(function () {
@@ -40,6 +45,24 @@ module.exports = function () {
     this.Then(/^the variant table is updated for that variant to "([^"]*)"$/, function (arg1, callback) {
         // Write code here that turns the phrase above into concrete actions
         callback(null, 'pending');
+    });
+
+    this.Then (/^I should see the assignment report link for "(.+?)"$/, function (analysisId, callback) {
+        patientPage.variantAnalysisId = analysisId;
+
+        var assgnRepString = 'div[ng-if="surgicalEvent"] a[href="#/patient/' + patientPage.patientId + '/variant_report?analysis_id=' + analysisId + '&section=assignment"]';
+        console.log(assgnRepString);
+        assignmentReportLink = element(by.css(assgnRepString));
+        assignmentReportLink.getAttribute('href').then(function (test) {
+            assignmentReportPageLink = test;
+        })
+        expect(assignmentReportLink.isPresent()).to.eventually.eql(true).notify(callback);
+    });
+
+    this.When(/^I click on the assignment report link$/, function (callback) {
+        browser.get(assignmentReportPageLink).then(function () {
+            browser.waitForAngular();
+        }).then(callback);
     });
 
     this.When (/^I uncheck the variant of ordinal "([^"]*)"$/, function (ordinal, callback) {
@@ -80,10 +103,10 @@ module.exports = function () {
         }).then(callback);
     });
 
-    this.Then (/^I "(should( not)?)" see the confirmation modal pop up$/, function (seen, callback) {
+    this.Then (/^I "(should|should not)" see the confirmation modal pop up$/, function (seen, callback) {
         var status = seen === 'should';
 
-        expect(patientPage.modalWindow.isPresent()).to.eventually.eql(status).then(callback);
+        expect(patientPage.modalWindow.isPresent()).to.eventually.eql(status).notify(callback);
     });
 
     this.Then (/^I "(should( not)?)" see the VR confirmation modal pop up$/, function (seen, callback) {
@@ -179,7 +202,17 @@ module.exports = function () {
         var uri                       = '/#/patient/' + patientId + '/variant_report?analysis_id=' + variantReportId;
         patientPage.patientId         = patientId;
         patientPage.variantAnalysisId = variantReportId;
-        console.log(uri);
+        browser.sleep(3000).then(function () {
+            browser.get(uri).then(function () {
+                browser.waitForAngular ();
+            });
+        }).then(callback);
+    });
+
+    this.When(/^I go to the patient "([^"]*)" with assignment report "([^"]*)"$/, function (patientId, variantReportId, callback) {
+        var uri                       = '/#/patient/' + patientId + '/variant_report?analysis_id=' + variantReportId + '&section=assignment';
+        patientPage.patientId         = patientId;
+        patientPage.variantAnalysisId = variantReportId;
         browser.sleep(3000).then(function () {
             browser.get(uri).then(function () {
                 browser.waitForAngular ();
@@ -189,7 +222,6 @@ module.exports = function () {
 
     this.When(/^I collect information about the patient variant report$/, function (callback) {
         var url = '/api/v1/patients/variant_reports/' + patientPage.variantAnalysisId;
-        console.log(url);
         var request = utilities.callApi('patient', url);
         request.get().then(function () {
             var response = request.entity();
@@ -197,8 +229,21 @@ module.exports = function () {
         }).then(callback);
     });
 
+    this.When(/^I collect information about the assignment$/, function (callback) {
+        var url = '/api/v1/patients/analysis_report?patient_id=' + patientPage.patientId + '&analysis_id=' + patientPage.variantAnalysisId
+        var request = utilities.callApi('patient', url);
+        request.get().then(function () {
+            patientPage.responseData = JSON.parse(request.entity());
+        }).then(callback)
+    });
+
     this.Then(/^I can see the variant report page$/, function(callback) {
         var uri = 'patient/' + patientPage.patientId + '/variant_report?analysis_id=' + patientPage.variantAnalysisId;
+        expect (browser.getCurrentUrl ()).to.eventually.eql (browser.baseUrl + '/#/' + uri).notify(callback);
+    });
+
+    this.Then(/^I can see the assignment report page$/, function(callback) {
+        var uri = 'patient/' + patientPage.patientId + '/variant_report?analysis_id=' + patientPage.variantAnalysisId + '&section=assignment';
         expect (browser.getCurrentUrl ()).to.eventually.eql (browser.baseUrl + '/#/' + uri).notify(callback);
     });
 
@@ -210,7 +255,7 @@ module.exports = function () {
 
     this.Then(/^I see that the Total aMOIs match the number of aMOIs on the page\.$/, function (callback) {
         patientPage.totalAMois.getText().then(function (totalAMOI) {
-            expect(element.all(by.css('td>[treatment-arms="item.amois"]')).count()).to.eventually.eql(parseInt(totalAMOI));
+            expect(element.all(by.css('div[ng-if="vm.isAmoi"]')).count()).to.eventually.eql(parseInt(totalAMOI));
         }).then(callback);
     });
 
@@ -280,6 +325,11 @@ module.exports = function () {
         }).then(callback)
     });
 
+    this.Then(/^Total confirmed MOIs and aMOIs are now '(\d+)'$/, function (arg1, callback) {
+        expect(patientPage.totalconfirmedMOIs.getText()).to.eventually.eql(arg1.toString());
+        expect(patientPage.totalconfirmedAMOIs.getText()).to.eventually.eql(arg1.toString()).notify(callback);
+    });
+
     this.Then(/^I see the confirmation message in the Patient activity feed as "(.+?)"$/, function (message, callback) {
         var timeline = patientPage.timelineList.get(0);
         var variantReportStatusString = '[ng-if="timelineEvent.event_data.variant_report_status"]';
@@ -304,4 +354,96 @@ module.exports = function () {
             .getText()).to.eventually.eql('Analysis ID: ' + patientPage.variantAnalysisId)
             .notify(callback);
     });
+
+    this.Then(/^I can see the top level details about assignment report$/, function (callback) {
+        var moment = require('moment');
+        var assignment = patientPage.responseData.assignments[0];
+
+        var ltSideAssignmentValues = patientPage.assignmentSummaryBoxes.get(0).all(by.css('.ng-binding'));
+
+        expect(ltSideAssignmentValues.get(0).getText()).to.eventually.eql(assignment.molecular_id);
+        expect(ltSideAssignmentValues.get(1).getText()).to.eventually.eql(assignment.analysis_id);
+        expect(ltSideAssignmentValues.get(2).getText()).to.eventually.eql(assignment.status).notify(callback);
+    });
+
+    this.Then(/^I can see more new top level details about assignment report$/, function (callback) {
+        var moment = require('moment');
+        var assignment = patientPage.responseData.assignments[0];
+        var dateConfirmed = utilities.dashifyIfEmpty(moment.utc(assignment.status_date).utc().format('LLL'));
+        var dateGenerated = utilities.dashifyIfEmpty(moment.utc(assignment.assignment_date).utc().format('LLL'));
+        var dateSentToCOG = utilities.dashifyIfEmpty(moment.utc(assignment.sent_to_cog_date).utc().format('LLL'));
+
+        var ltSideAssignmentValues = patientPage.assignmentSummaryBoxes.get(0).all(by.css('.ng-binding'));
+        var rtSideAssignmentValues = patientPage.assignmentSummaryBoxes.get(1).all(by.css('.ng-binding'));
+
+        expect(ltSideAssignmentValues.get(0).getText()).to.eventually.eql(assignment.molecular_id);
+        expect(ltSideAssignmentValues.get(1).getText()).to.eventually.eql(assignment.analysis_id);
+        expect(ltSideAssignmentValues.get(2).getText()).to.eventually.include(assignment.status);
+
+        expect(ltSideAssignmentValues.get(5).getText()).to.eventually.include(dateConfirmed);
+
+        expect(rtSideAssignmentValues.get(0).getText()).to.eventually.include(dateGenerated);
+        expect(rtSideAssignmentValues.get(1).getText()).to.eventually.include(dateSentToCOG).notify(callback);
+
+    });
+
+    this.Then(/^I can see the selected Treatment arm id "([^"]*)" and stratum "([^"]*)" and version "([^"]*)" in a box with reason$/, function (taId, stratum, version, callback) {
+
+        var expectedString = 'Selected Treatment Arm: ' + taId + ' (' + stratum + ', ' + version + ')';
+        console.log('Expected String: ' + expectedString);
+        expect(patientPage.selectedAssignmentBoxHeader.getText()).to.eventually.eql(expectedString);
+        expect(patientPage.selectedAssignmentBoxText.getText())
+            .to.eventually.eql(patientPage.responseData.patient.current_assignment.reason)
+            .notify(callback);
+
+    });
+
+    this.Then(/^I can see the Assignment Logic section$/, function (callback) {
+        expect(element.all(by.css('.panel-body h3')).get(4).getText()).to.eventually.eql('Assignment Logic').notify(callback);
+    });
+
+    this.Then(/^I can see the selected treatment arm and the reason$/, function (callback) {
+        var selectedTA = patientPage.responseData.patient.current_assignment
+        var taString = selectedTA.treatment_arm_id + ' ('+ selectedTA.stratum_id + ', ' + selectedTA.version + ')'
+        console.log(taString);
+
+        expect(patientPage.ruleNameList.get(0).getText()).to.eventually.include('SELECTED');
+        expect(patientPage.ruleDetailsList.get(0).all(by.css('.content-cell')).get(0).getText()).to.eventually.eql(taString).notify(callback);
+
+    });
+
+    this.Then(/^The Types of Logic is the same as the backend$/, function (callback) {
+        var assignmentResults = patientPage.responseData.assignments[0].treatment_assignment_results
+        var reasons = Object.keys(assignmentResults);
+
+        utilities.checkInclusiveElementArray(patientPage.ruleNameList, reasons);
+        browser.sleep(50).then(callback)
+    });
+
+    this.Then(/^I "([^"]*)" see the Assignment report "([^"]*)" button$/, function (status, buttonText, callback) {
+        var present = status === 'should'
+
+        expect(element(by.buttonText(buttonText)).isPresent()).to.eventually.eql(present).notify(callback);
+    });
+
+    this.When(/^I click on the Assignment report "([^"]*)" button$/, function (buttonText, callback) {
+        element(by.buttonText(buttonText)).click().then(function () {
+            browser.waitForAngular();
+        }).then(callback);
+    });
+
+    this.Then(/^I "(should|should not)" see the patient "([^"]*)" as "([^"]*)"$/, function (presence, field, value, callback) {
+        var status = presence == 'should';
+        var patientDetailArray = ['Patient ID', 'Patient', 'Last Rejoin Scan Date', 'Status', 'Current Step', 'Treatment Arm Id', 'Stratum Id', 'Version']
+        var index  = patientDetailArray.indexOf(field)
+
+        if (status === true){
+            expect(patientPage.patientSummaryTable.all(by.css('.ng-binding')).get(index).getText()).to.eventually.include(value).notify(callback);
+        } else {
+            patientPage.patientSummaryTable.all(by.css('.ng-binding')).get(index).getText().then(function (text) {
+                expect(text).to.not.eql(value);
+            }).then(callback);
+        }
+    });
+
 };

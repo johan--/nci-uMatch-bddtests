@@ -25,7 +25,8 @@ module.exports = function () {
     });
 
     this.When(/^I enter "(.+?)" from response at index "(.+?)" in the search field$/, function (key, index, callback) {
-        expectedResponse = shippingJSONResponse[index]
+        expectedResponse = shippingJSONResponse[index];
+        console.log('expectedResponse: ' + expectedResponse);
         var molecularId = expectedResponse[key];
         var filter = element.all(by.model('filterAll'));
         filter.sendKeys(molecularId).then(function () {
@@ -84,9 +85,7 @@ module.exports = function () {
 
     this.Then(/^I can see the Shipments table$/, function (callback) {
         expect(shipmentTable.element(by.css('.table-striped')).isPresent()).to.eventually.eql(true);
-        expect(shipmentSection.element(by.css('h3')).getText()).to.eventually.eql('Shipments').then(function () {
-            browser.sleep(50)
-        }).then(callback);
+        expect(shipmentSection.element(by.css('h3')).getText()).to.eventually.eql('Shipments').notify(callback);
     });
 
     this.Then(/^I can compare the details about shipment against the API$/, function (callback) {

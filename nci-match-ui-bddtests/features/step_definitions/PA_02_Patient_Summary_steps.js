@@ -27,6 +27,7 @@ module.exports = function () {
         var tableElement = patientPage.patientListTable;
         patientPage.returnPatientId(tableElement, 0).then(function (id) {
             patientPage.patientId = id;
+            console.log('Patient Selected: ' + patientPage.patientId);
             element(by.linkText(id)).click();
         }).then(callback);
     });
@@ -78,54 +79,34 @@ module.exports = function () {
 
     this.Then(/^I should see the patient's information match database$/, function (callback) {
         var actualTable = patientPage.patientSummaryTable.all(by.css('.ng-binding'));
-        var expectedListfromAPI = [];
+        var selectedTA = patientPage.responseData.current_assignment;
 
-        expectedListfromAPI.push(patientApiInfo.patient_id);
-        expectedListfromAPI.push(patientApiInfo.gender + ', ' + patientApiInfo.ethnicity);
-        expectedListfromAPI.push(utilities.dashifyIfEmpty(patientApiInfo.last_rejoin_scan_date));
-        expectedListfromAPI.push(patientApiInfo.current_status);
-        expectedListfromAPI.push(patientApiInfo.current_step_number);
-
-        for (var i = 0; i < expectedListfromAPI.length; i++) {
-            expect(actualTable.get(i).getText()).to.eventually.eql(expectedListfromAPI[i]);
-        }
-
-        if (patientApiInfo.current_assignment !== null){
-            var selectedTA = patientApiInfo.current_assignment.treatment_arms.selected;
-            expect(element(by.css('treatment-arm-title[name="currentTreatmentArm.name"]'))).to.
-                eventually.equal(selectedTA.treatment_arm);
-
-            expect(element(by.css('treatment-arm-title[name="currentTreatmentArm.stratum"]'))).to.
-            eventually.equal(selectedTA.treatment_arm_stratum);
-
-            expect(element(by.css('treatment-arm-title[name="currentTreatmentArm.version"]'))).to.
-            eventually.equal(selectedTA.treatment_arm_version);
-        }
-
-        browser.sleep(50).then(callback);
+        expect(actualTable.get(0).getText()).to.eventually.eql(patientPage.responseData.patient_id);
+        expect(actualTable.get(1).getText()).to.eventually.eql(patientPage.responseData.gender + ',' + patientPage.responseData.ethnicity);
+        expect(actualTable.get(2).getText()).to.eventually.eql(utilities.dashifyIfEmpty(patientPage.responseData.last_rejoin_scan_date));
+        expect(actualTable.get(3).getText()).to.eventually.eql(patientPage.responseData.current_status);
+        expect(actualTable.get(4).getText()).to.eventually.eql(patientPage.responseData.current_step_number)
+        expect(actualTable.get(5).getText()).to.eventually.eql(selectedTA.treatment_arm_id);
+        expect(actualTable.get(6).getText()).to.eventually.eql(selectedTA.stratum_id);
+        expect(actualTable.get(7).getText()).to.eventually.eql(', ' + selectedTA.version).notify(callback);
     });
 
     this.Then(/^I should see the patient's disease information match the database$/, function (callback) {
         var actualTable = patientPage.diseaseSummaryTable.all(by.css('.ng-binding'));
-        var expectedListfromAPI = [];
-        if (patientApiInfo.disease !== null) {
-            var diseaseName = utilities.dashifyIfEmpty (patientApiInfo.disease.disease_name);
-            var diseaseType = utilities.dashifyIfEmpty (patientApiInfo.disease.disease_code_type);
-            var diseaseCode = utilities.dashifyIfEmpty (patientApiInfo.disease.disease_code);
+
+        if (patientPage.responseData.diseases !== null) {
+            var diseaseName = utilities.dashifyIfEmpty (patientPage.responseData.diseases[0].disease_name);
+            var diseaseType = utilities.dashifyIfEmpty (patientPage.responseData.diseases[0].disease_code_type);
+            var diseaseCode = utilities.dashifyIfEmpty (patientPage.responseData.diseases[0].disease_code);
             //todo:add drugs list/
             var priorDrugs  = '-';
 
-            expectedListfromAPI.push (diseaseName);
-            expectedListfromAPI.push (diseaseType);
-            expectedListfromAPI.push (diseaseCode);
-
-            for (var i = 0; i < expectedListfromAPI.length; i++) {
-                expect (actualTable.get (i).getText ().to.eventually.eql (expectedListfromAPI[ i ]));
-            }
-
+            expect (actualTable.get(0).getText()).to.eventually.eql (diseaseName);
+            expect (actualTable.get(1).getText()).to.eventually.eql (diseaseType);
+            expect (actualTable.get(2).getText()).to.eventually.eql (diseaseCode);
             // todo: add priorDrugs list check.
         }
-        browser.sleep(50).then(callback);
+        browser.sleep(5000).then(callback);
     });
 
     this.Then(/^I should see the patient's disease information table$/, function (callback) {
@@ -142,10 +123,10 @@ module.exports = function () {
     });
 
     this.Then(/^I should see the main tabs associated with the patient$/, function (callback) {
-        // checking for number of tabs
-        expect(actualMainTabsArray.count()).to.eventually.equal(expectedMainTabs.length);
+        // checking for number of tabs. Removed because surgical Event tab can be multiple
+        // expect(actualMainTabsArray.count()).to.eventually.equal(expectedMainTabs.length);
         //checking for each individual tab name in order
-        utilities.checkElementArray(actualMainTabsArray, expectedMainTabs);
+        utilities.checkInclusiveElementArray(actualMainTabsArray, expectedMainTabs);
         browser.sleep(5).then(callback);
     });
 
@@ -186,7 +167,6 @@ module.exports = function () {
         browser.sleep(50).then(callback);
     });
 
-    // todo: All pages that have TA "title" should display Name, Stratum and Version.
     // todo: MATCHKB-349
 
 };
