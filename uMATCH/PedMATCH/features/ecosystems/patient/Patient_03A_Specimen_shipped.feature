@@ -153,7 +153,6 @@ Feature: NCH Specimen shipped messages
       | PT_SS11a_Step2BdReceived  | PT_SS11a_Step2BdReceived_BD_MOI1 | BLOOD  | same molecular id has been found |
 
 
-
   @patients_p2
   Scenario: PT_SS12. shipped tissue with a new molecular_id in latest surgical_event_id pass
   #  Testing patient: PT_SS12_Tissue1Shipped, surgical_event_id: PT_SS12_Tissue1Shipped_SEI1
@@ -278,15 +277,15 @@ Feature: NCH Specimen shipped messages
     Then set patient message field: "shipped_dttm" to value: "2016-07-28T15:17:11+00:00"
     When post to MATCH patients service, returns a message that includes "<message>" with status "<status>"
     Examples:
-      | patient_id                 | moi                                | status  | message                |
-      | PT_SS26_TsReceived         | PT_SS26_TsReceived_BD_MOI1         | Success | processed successfully |
-      | PT_SS26_TsShipped          | PT_SS26_TsShipped_BD_MOI1          | Success | processed successfully |
-      | PT_SS26_AssayConfirmed     | PT_SS26_AssayConfirmed_BD_MOI1     | Success | processed successfully |
-      | PT_SS26_TsVRReceived       | PT_SS26_TsVRReceived_BD_MOI1       | Success | processed successfully |
-      | PT_SS26_TsVRConfirmed      | PT_SS26_TsVRConfirmed_BD_MOI1      | Success | processed successfully |
-      | PT_SS26_PendingApproval    | PT_SS26_PendingApproval_BD_MOI1    | Success | processed successfully |
-      | PT_SS26_Progression        | PT_SS26_Progression_BD_MOI1        | Success | processed successfully |
-      | PT_SS26_OffStudy           | PT_SS26_OffStudy_BD_MOI1           | Failure | cannot transition from |
+      | patient_id               | moi                              | status  | message                |
+      | PT_SS26_TsReceived       | PT_SS26_TsReceived_BD_MOI1       | Success | processed successfully |
+      | PT_SS26_TsShipped        | PT_SS26_TsShipped_BD_MOI1        | Success | processed successfully |
+      | PT_SS26_AssayConfirmed   | PT_SS26_AssayConfirmed_BD_MOI1   | Success | processed successfully |
+      | PT_SS26_TsVRReceived     | PT_SS26_TsVRReceived_BD_MOI1     | Success | processed successfully |
+      | PT_SS26_TsVRConfirmed    | PT_SS26_TsVRConfirmed_BD_MOI1    | Success | processed successfully |
+      | PT_SS26_PendingApproval1 | PT_SS26_PendingApproval1_BD_MOI1 | Success | processed successfully |
+      | PT_SS26_RequestAssignment      | PT_SS26_Progression_BD_MOI1      | Success | processed successfully |
+      | PT_SS26_OffStudy         | PT_SS26_OffStudy_BD_MOI1         | Failure | cannot transition from |
       #there is no “PATHOLOGY_REVIEWED” status anymore
 #      | PT_SS26_PathologyConfirmed | PT_SS26_PathologyConfirmed_BD_MOI1 | Success | processed successfully |
 

@@ -2,12 +2,13 @@
 @variant_file_uploaded
 Feature: Variant files uploaded message
 
-  @patients_p2
-  Scenario: PT_VU01. if patient_id and molecular_id don't match the variant files upload message should fail
-#    Test patients: PT_VU01_TissueShipped1 has tissue shipped with moi PT_VU01_TissueShipped1_MOI1
-  #                 PT_VU01_TissueShipped2 has tissue shipped with moi PT_VU01_TissueShipped2_MOI1
-    Given template variant file uploaded message for patient: "PT_VU01_TissueShipped1", it has molecular_id: "PT_VU01_TissueShipped2_MOI1" and analysis_id: "PT_VU01_TissueShipped2_ANI1" and need files in S3 Y or N: "Y"
-    When post to MATCH patients service, returns a message that includes "molecular" with status "Failure"
+#  not required
+#  @patients_p2
+#  Scenario: PT_VU01. if patient_id and molecular_id don't match the variant files upload message should fail
+##    Test patients: PT_VU01_TissueShipped1 has tissue shipped with moi PT_VU01_TissueShipped1_MOI1
+#  #                 PT_VU01_TissueShipped2 has tissue shipped with moi PT_VU01_TissueShipped2_MOI1
+#    Given template variant file uploaded message for patient: "PT_VU01_TissueShipped1", it has molecular_id: "PT_VU01_TissueShipped2_MOI1" and analysis_id: "PT_VU01_TissueShipped2_ANI1" and need files in S3 Y or N: "Y"
+#    When post to MATCH patients service, returns a message that includes "molecular" with status "Failure"
 
     #surgical_event_id has been removed from variant file upload message
 #  Scenario Outline: PT_VU02. variant files uploaded message with invalid surgical_event_id should fail
