@@ -123,9 +123,9 @@ Feature: Tests for sample_controls service in ion ecosystem
     Then wait up to 15 seconds until this sample_control get updated
     Then updated sample_control should not have field: "extra_information"
 
-  @ion_reporter_p2
-  Scenario: ION_SC26. sample_control update request should not remove existing fields that are not in PUT message body
-    Given molecular id is "SC_ZCCND"
+#  @ion_reporter_p2
+#  Scenario: ION_SC26. sample_control update request should not remove existing fields that are not in PUT message body
+#    Given molecular id is "SC_ZCCND"
 
   @ion_reporter_p1
   Scenario: ION_SC40. sample_control with specific molecular_id can be deleted successfully

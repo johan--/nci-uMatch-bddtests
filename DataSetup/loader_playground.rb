@@ -38,5 +38,3 @@ DynamoDataUploader.new('local').upload_ion_to_aws
 
 
 
-
-

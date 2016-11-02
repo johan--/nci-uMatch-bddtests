@@ -26,8 +26,8 @@ Feature: Tests for files service in ion ecosystem
     Given file name for files service is: "extra_file"
     When call files GET service, returns a message that includes "does not exist" with status "Failure"
 
-  @ion_reporter_p2
-  Scenario: ION_FL06. returned file path should be reachable S3 path
+#  @ion_reporter_p2
+#  Scenario: ION_FL06. returned file path should be reachable S3 path
 
   @ion_reporter_p3
   Scenario Outline: ION_FL07. files service should fail if no molecular_id and/or file_name is passed in

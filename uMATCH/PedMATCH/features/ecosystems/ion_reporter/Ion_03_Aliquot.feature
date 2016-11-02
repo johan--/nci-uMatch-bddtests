@@ -165,8 +165,8 @@ Feature: Tests for aliquot service in ion ecosystem
     Then field: "dna_bai_name" for this aliquot should be: "null"
     Then field: "cdna_bai_name" for this aliquot should be: "null"
 
-  @ion_reporter_p2
-  Scenario: ION_AQ22. for sample control specimen, if the file uploading fails, aliquot service will not update database
+#  @ion_reporter_p2
+#  Scenario: ION_AQ22. for sample control specimen, if the file uploading fails, aliquot service will not update database
 
   @ion_reporter_p2
   Scenario: ION_AQ23. for patient specimen, if the files passed in are not in that path, aliquot service will not send message to patient ecosystem
@@ -198,8 +198,8 @@ Feature: Tests for aliquot service in ion ecosystem
 #    Then call aliquot PUT service, returns a message that includes "Item updated" with status "Success"
 #    Then patient field: "current_status" should have value: "TISSUE_NUCLEIC_ACID_SHIPPED" after 30 seconds
 
-  @ion_reporter_p2
-  Scenario: ION_AQ25. for patient specimen, if the file uploading fails, aliquot service will not send message to patient ecosystem
+#  @ion_reporter_p2
+#  Scenario: ION_AQ25. for patient specimen, if the file uploading fails, aliquot service will not send message to patient ecosystem
 
   @ion_reporter_p2
   Scenario: ION_AQ26. if the molecular id is neither a sample control nor patietn molecular id, aliquot PUT service should fail

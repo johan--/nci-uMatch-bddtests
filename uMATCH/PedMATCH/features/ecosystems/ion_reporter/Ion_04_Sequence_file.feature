@@ -16,8 +16,8 @@ Feature: Tests for sequence files service in ion ecosystem
       | tsv       |                   | s3.amazonaws.com/IR_TCWEV/SC_NPID3/SC_NPID3_ANI1/test1.tsv |
       | vcf       |                   | s3.amazonaws.com/IR_TCWEV/SC_NPID3/SC_NPID3_ANI1/test1.vcf |
 
-  @ion_reporter_p2
-  Scenario: ION_SF02. returned file path should be reachable S3 path
+#  @ion_reporter_p2
+#  Scenario: ION_SF02. returned file path should be reachable S3 path
 
   @ion_reporter_p2
   Scenario: ION_SF03. sequence files service should fail if a patient molecular_id is passed in

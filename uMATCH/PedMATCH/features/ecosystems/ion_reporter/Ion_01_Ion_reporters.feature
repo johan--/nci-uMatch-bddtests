@@ -196,8 +196,8 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Then add field: "site" value: "non_existing_site" to url
     Then call ion_reporters GET service, returns a message that includes "No records meet the query parameters" with status "Failure"
 
-  @ion_reporter_p1
-  Scenario: ION_IR80. ion_reporter service can list all patients on specified ion_reporter
+#  @ion_reporter_p1
+#  Scenario: ION_IR80. ion_reporter service can list all patients on specified ion_reporter
 
   @ion_reporter_p1
   Scenario: ION_IR81. ion_reporter service can list all sample controls on specified ion_reporter

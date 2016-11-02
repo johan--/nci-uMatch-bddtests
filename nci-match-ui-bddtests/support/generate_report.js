@@ -2,8 +2,8 @@ var reporter = require('cucumber-html-reporter');
 
 var options = {
     theme: 'bootstrap',
-    jsonDir: '/home/travis/build/CBIIT/nci-uMatch-bddtests/results/',
-    output: '/home/travis/build/CBIIT/nci-uMatch-bddtests/results/cucumber_report.html',
+    jsonDir: '/tmp/ion_result/',
+    output: '/tmp/ion_result/cucumber_report',
     reportSuiteAsScenarios: true,
     launchReport: false,
     ignoreBadJsonFile:true,
