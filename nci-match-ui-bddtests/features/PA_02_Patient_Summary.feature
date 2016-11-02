@@ -21,14 +21,13 @@ Feature: Patient Summary Page
     And I should see the patient's disease information table
     And I should see the main tabs associated with the patient
 
-
+  @fling
   @ui_p2
   Scenario: I can see the details within the Summary tab of the patient
-    When I go to patient "PT_CR03_VRUploadedPathConfirmed" details page
+    When I go to patient "PT_CR02_OnTreatmentArm" details page
     And I collect the patient Api Information
-    And I click on the "Summary" tab
+    And I turn off synchronization
     Then I should see the "Summary" tab is active
     And I should see the patient's information match database
     And I should see the patient's disease information match the database
-    And I should see the "Actions Needed" section heading
     And I should see the "Patient Timeline" section heading
