@@ -146,15 +146,16 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     Then patient should have variant report (analysis_id: "PT_SR14_TsVrUploaded1_ANI1") within 15 seconds
     And this variant report has value: "PENDING" in field: "status"
 
-  @patients_p3
-  Scenario: PT_SR14c. When a new BLOOD specimen_received message is received,  the pending BLOOD variant report from the old Surgical event is set to "REJECTED" status
-  #    Test patient: PT_SR14_BdVrUploaded; variant report files uploaded: PT_SR14_BdVrUploaded(_BD_MOI1, _ANI1)
-    Given template specimen received message in type: "BLOOD" for patient: "PT_SR14_BdVrUploaded", it has surgical_event_id: ""
-    Then set patient message field: "collection_dt" to value: "2016-08-21"
-    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
-    Then wait for "30" seconds
-    Then patient should have variant report (analysis_id: "PT_SR14_BdVrUploaded_ANI1") within 15 seconds
-    And this variant report has value: "REJECTED" in field: "status"
+#    no requirement now
+#  @patients_p3
+#  Scenario: PT_SR14c. When a new BLOOD specimen_received message is received,  the pending BLOOD variant report from the old Surgical event is set to "REJECTED" status
+#  #    Test patient: PT_SR14_BdVrUploaded; variant report files uploaded: PT_SR14_BdVrUploaded(_BD_MOI1, _ANI1)
+#    Given template specimen received message in type: "BLOOD" for patient: "PT_SR14_BdVrUploaded", it has surgical_event_id: ""
+#    Then set patient message field: "collection_dt" to value: "2016-08-21"
+#    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+#    Then wait for "30" seconds
+#    Then patient should have variant report (analysis_id: "PT_SR14_BdVrUploaded_ANI1") within 15 seconds
+#    And this variant report has value: "REJECTED" in field: "status"
 
   @patients_p1
   Scenario: PT_SR14d. When a new TISSUE specimen_received message is received,  the pending BLOOD variant report should not change status

@@ -70,10 +70,10 @@ Feature: Patients request assignment tests
     When post to MATCH patients service, returns a message that includes "assignment" with status "Failure"
     Then template variant file uploaded message for patient: "PT_RA04_ReqNoAssignment", it has molecular_id: "PT_RA04_ReqNoAssignment_MOI2" and analysis_id: "PT_RA04_ReqNoAssignment_ANI4" and need files in S3 Y or N: "Y"
     When post to MATCH patients service, returns a message that includes "assignment" with status "Failure"
-    Then template assay message with surgical_event_id: "PT_RA04_ReqNoAssignment_SEI2" for patient: "PT_RA04_ReqNoAssignment"
+    Then template assay message with surgical_event_id: "PT_RA04_ReqNoAssignment_SEI1" for patient: "PT_RA04_ReqNoAssignment"
     When post to MATCH patients service, returns a message that includes "assignment" with status "Failure"
 
-#  Scenario: PT_RA04a only off study and request assignment can be sent to request no assignment
+#  Scenario: PT_RA04a off study and request assignment message should be accepted when patient is on request no assignment status
 #
 #  Scenario: PT_RA04b patient can be set to request no assignment only on certain status
 

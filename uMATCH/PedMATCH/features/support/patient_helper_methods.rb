@@ -512,6 +512,11 @@ class Patient_helper_methods
     # end
   end
 
+  def self.wait_until_patient_status_is(patient_id, status)
+    url = "#{ENV['patients_endpoint']}?patient_id=#{patient_id}"
+    get_special_result_from_url(url, 45, {'current_status' => status})
+  end
+
 end
 
 

@@ -10,7 +10,7 @@ class Helper_Methods
   @requestGap = 5.0
   @requestTimeout = 10.0
 
-  def Helper_Methods.get_request(url , params={})
+  def Helper_Methods.get_request(url, params={})
     get_response = {}
     no_log = params['no_log']
     params.delete('no_log')
@@ -25,15 +25,15 @@ class Helper_Methods
     begin
       response = RestClient::Request.execute(:url => @url, :method => :get, :verify_ssl => false)
       get_response['http_code'] = response.code
-      get_response['status']    = response.code == 200 ? 'Success': 'Failure'
-      get_response['message']   = response.body
+      get_response['status'] = response.code == 200 ? 'Success' : 'Failure'
+      get_response['message'] = response.body
 
       puts get_response if get_response['status'].eql? 'Failure'
 
       return get_response
     rescue StandardError => e
       get_response['status'] = 'Failure'
-      get_response['http_code'] = e.message.nil? ? '500' : e.message[0,3]
+      get_response['http_code'] = e.message.nil? ? '500' : e.message[0, 3]
       get_response['message'] = e.response
 
       unless no_log
@@ -46,7 +46,7 @@ class Helper_Methods
 
   def Helper_Methods.get_list_request(service, params={})
     @params = params.values.join('/')
-    @service  = "#{service}/#{@params}"
+    @service = "#{service}/#{@params}"
 
     puts "Calling: #{@service}"
 
@@ -84,7 +84,7 @@ class Helper_Methods
       if e.message.nil?
         http_code = '500'
       else
-        http_code = e.message[0,3]
+        http_code = e.message[0, 3]
       end
       @get_response['http_code'] = http_code
       @get_response['message'] = e.response
@@ -118,11 +118,11 @@ class Helper_Methods
   end
 
   def Helper_Methods.get_single_request(service,
-                                        print_tick=false,
-                                        key='',
-                                        value='',
-                                        request_gap_seconds=5.0,
-                                        time_out_seconds=15.0)
+      print_tick=false,
+      key='',
+      value='',
+      request_gap_seconds=5.0,
+      time_out_seconds=15.0)
     print "#{service}\n"
 
     last_response = nil
@@ -139,9 +139,9 @@ class Helper_Methods
       if response_string=='null'
         response_string = '{}'
       end
-      new_response = response_string=='null'?{}:JSON.parse(response_string)
+      new_response = response_string=='null' ? {} : JSON.parse(response_string)
       if print_tick
-          key_value = key==''?'':"#{key}=#{new_response[key]}"
+        key_value = key=='' ? '' : "#{key}=#{new_response[key]}"
         p "Http GET on UTC time: #{Time.current.utc.iso8601}   #{key_value}"
       end
 
@@ -159,8 +159,8 @@ class Helper_Methods
           p "Total Http query length is #{runTime} seconds"
           return new_response
         elsif new_response.keys.include?(key) && new_response[key] == value
-            p "Total Http query length is #{runTime} seconds"
-            return new_response
+          p "Total Http query length is #{runTime} seconds"
+          return new_response
         end
       end
       sleep(request_gap_seconds)
@@ -169,11 +169,11 @@ class Helper_Methods
     return {}
   end
 
-  def Helper_Methods.get_request_url_param(service,params={})
+  def Helper_Methods.get_request_url_param(service, params={})
     print "URL: #{service}\n"
     @params = ''
     params.each do |key, value|
-      @params =  @params + "#{key}=#{value}&"
+      @params = @params + "#{key}=#{value}&"
     end
     url = "#{service}?#{@params}"
     len = (url.length)-2
@@ -245,18 +245,18 @@ class Helper_Methods
   #       'http_code' => <http_code returned>
   #       'message'  => UNALTERED body of the response
   #   }
-  def Helper_Methods.post_request(service,payload)
+  def Helper_Methods.post_request(service, payload)
     puts "Post URL: #{service}"
     # print "JSON:\n#{payload}\n\n"
     @post_response = {}
     begin
-    response = RestClient::Request.execute(:url => service, :method => :post, :verify_ssl => false, :payload => payload, :headers=>{:content_type => 'json', :accept => 'json'})
+      response = RestClient::Request.execute(:url => service, :method => :post, :verify_ssl => false, :payload => payload, :headers => {:content_type => 'json', :accept => 'json'})
     rescue StandardError => e
       @post_response['status'] = 'Failure'
       if e.message.nil?
         http_code = '500'
       else
-        http_code = e.message[0,3]
+        http_code = e.message[0, 3]
       end
       @post_response['http_code'] = http_code
       @post_response['message'] = e.response.body
@@ -283,19 +283,19 @@ class Helper_Methods
     end
   end
 
-  def Helper_Methods.put_request(service,payload)
+  def Helper_Methods.put_request(service, payload)
     print "Put URL: #{service}\n"
     # # print "JSON:\n#{JSON.pretty_generate(JSON.parse(payload))}\n\n"
     # print "JSON:\n#{payload}\n\n"
     @put_response = {}
     begin
-      response = RestClient::Request.execute(:url => service, :method => :put, :verify_ssl => false, :payload => payload, :headers=>{:content_type => 'json', :accept => 'json'})
+      response = RestClient::Request.execute(:url => service, :method => :put, :verify_ssl => false, :payload => payload, :headers => {:content_type => 'json', :accept => 'json'})
     rescue StandardError => e
       @put_response['status'] = 'Failure'
       if e.message.nil?
         http_code = '500'
       else
-        http_code = e.message[0,3]
+        http_code = e.message[0, 3]
       end
       @put_response['http_code'] = http_code
       if e.respond_to?('response')
@@ -323,13 +323,13 @@ class Helper_Methods
     print "Delete URL: #{service}\n"
     @delete_response = {}
     begin
-      response = RestClient::Request.execute(:url => service, :method => :delete, :verify_ssl => false, :headers=>{:accept => 'json'})
+      response = RestClient::Request.execute(:url => service, :method => :delete, :verify_ssl => false, :headers => {:accept => 'json'})
     rescue StandardError => e
       @delete_response['status'] = 'Failure'
       if e.message.nil?
         http_code = '500'
       else
-        http_code = e.message[0,3]
+        http_code = e.message[0, 3]
       end
       @delete_response['http_code'] = http_code
       @delete_response['message'] = e.response
@@ -430,10 +430,10 @@ class Helper_Methods
   )
     s3 = Aws::S3::Resource.new(
         endpoint: endpoint,
-        region:   region,
+        region: region,
         access_key_id: ENV['AWS_ACCESS_KEY_ID'],
         secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'])
-    files = s3.bucket(bucket).objects(prefix:path).collect(&:key)
+    files = s3.bucket(bucket).objects(prefix: path).collect(&:key)
     files
   end
 
@@ -453,11 +453,11 @@ class Helper_Methods
   )
     s3 = Aws::S3::Resource.new(
         endpoint: endpoint,
-        region:   region,
+        region: region,
         access_key_id: ENV['AWS_ACCESS_KEY_ID'],
         secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
     )
-    files = s3.bucket(bucket).objects(prefix:path)
+    files = s3.bucket(bucket).objects(prefix: path)
     files.each { |this_file|
       this_file.delete
       if is_local_tier
@@ -475,16 +475,17 @@ class Helper_Methods
     else
       output_folder = "#{template_folder}/upload"
       target_ani_path = "#{output_folder}/#{moi}/#{ani}"
-      template_ani_path =  "#{template_folder}/template_moi/template_ani"
+      template_ani_path = "#{template_folder}/template_moi/template_ani"
 
       cmd = "mkdir -p #{target_ani_path}"
       `#{cmd}`
       cmd = "cp #{template_ani_path}/* #{target_ani_path}"
       `#{cmd}`
-      cmd = "mv #{target_ani_path}/test1.tsv #{target_ani_path}/#{tsv_name}"
-      `#{cmd}`
-
-      cmd = "aws s3 cp #{output_folder} s3://#{bucket}/bdd_test_ion_reporter/ --recursive"
+      unless tsv_name=='test1.tsv'
+        cmd = "mv #{target_ani_path}/test1.tsv #{target_ani_path}/#{tsv_name}"
+        `#{cmd}`
+      end
+      cmd = "aws s3 cp #{output_folder} s3://#{bucket}/bdd_test_ion_reporter/ --recursive --region us-east-1"
       `#{cmd}`
       cmd = "rm -R #{output_folder}"
       `#{cmd}`
