@@ -332,7 +332,7 @@ module.exports = function () {
 
     this.Then(/^I see the confirmation message in the Patient activity feed as "(.+?)"$/, function (message, callback) {
         var timeline = patientPage.timelineList.get(0);
-        var variantReportStatusString = '[ng-if="timelineEvent.event_data.variant_report_status"]';
+        var variantReportStatusString = '[ng-if^="timelineEvent.event_data.variant_report_status"]';
         var variantAnalysisIdString   = 'span[ng-if="timelineEvent.event_data.analysis_id"]';
 
         browser.ignoreSynchronization = true;
