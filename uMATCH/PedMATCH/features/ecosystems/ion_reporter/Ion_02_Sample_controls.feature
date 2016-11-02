@@ -58,16 +58,12 @@ Feature: Tests for sample_controls service in ion ecosystem
     When call sample_controls POST service, returns a message that includes "New sample control created" with status "Success"
     Then generated sample_control should have correct date_molecular_id_created
 
-  @ion_reporter_not_required
-  Scenario Outline: ION_SC07. sample_controls POST service should fail if parameters other than "site" and "control_type" are passed in
+  @ion_reporter_p2
+  Scenario: ION_SC07. sample_controls POST service should fail if "molecular_id" is passed in
     Given site is "mocha"
     Given control_type is "positive"
-    Then add field: "<field>" value: "<value>" to url
-    When call sample_controls POST service, returns a message that includes "<field> was passed in request" with status "Failure"
-    Examples:
-      | field                     | value      |
-      | date_molecular_id_created | 2010-01-07 |
-      | molecular_id              | IR_O2YIA   |
+    Then add field: "molecular_id" value: "IR_O2YIA" to url
+    When call sample_controls POST service, returns a message that includes "molecular_id was passed in request" with status "Failure"
 
   @ion_reporter_p1
   Scenario: ION_SC20. sample_control can be updated successfully

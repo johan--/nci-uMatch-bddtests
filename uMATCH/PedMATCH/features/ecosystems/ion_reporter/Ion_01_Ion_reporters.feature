@@ -49,17 +49,11 @@ Feature: Tests for ion_reporters service in ion ecosystem
     When call ion_reporters POST service 1 times, returns a message that includes "New ion reporter created" with status "Success"
     Then each generated ion_reporter should have correct date_ion_reporter_id_created
 
-  @ion_reporter_not_required
-  Scenario Outline: ION_IR06. ion_reporter service should fail if parameters other than "site" are passed in
+  @ion_reporter_p2
+  Scenario: ION_IR06. ion_reporter service should fail if "ion_reporter_id" is passed in
     Given site is "mocha"
-    Then add field: "<field>" value: "<value>" to url
-    When call ion_reporters POST service 1 times, returns a message that includes "<field> was passed in request" with status "Failure"
-    Examples:
-      | field                        | value                   |
-      | date_ion_reporter_id_created | 2010-01-07              |
-      | ion_reporter_id              | IR_O2YIA                |
-      | ir_status                    | Contacted 4 minutes ago |
-      | host_name                    | YSM-MATCH-IR            |
+    Then add field: "ion_reporter_id" value: "IR_O2YIA" to url
+    When call ion_reporters POST service 1 times, returns a message that includes "ion_reporter_id was passed in request" with status "Failure"
 
   @ion_reporter_p1
   Scenario: ION_IR20. ion_reporter can be updated successfully
