@@ -22,7 +22,6 @@ Feature: Patient Summary Page
     And I should see the patient's disease information table
     And I should see the main tabs associated with the patient
 
-  @fling
   @ui_p2
   Scenario: I can see the details within the Summary tab of the patient
     When I go to patient "PT_CR02_OnTreatmentArm" details page

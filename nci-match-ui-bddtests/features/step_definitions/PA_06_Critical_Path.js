@@ -33,7 +33,7 @@ module.exports = function () {
 
     this.Then (/^I should see the variant report link for "(.+?)"$/, function (analysisId, callback) {
         patientPage.variantAnalysisId = analysisId;
-        var varRepString = 'div[ng-if="surgicalEvent"] a[href="#/patient/' + patientPage.patientId + '/variant_report?analysis_id=' + analysisId;
+        var varRepString = 'div[ng-if="surgicalEvent"] a[href="#/patient/' + patientPage.patientId + '/variant_report?analysis_id=' + analysisId + '"]';
         console.log(varRepString);
         variantReportLink = element(by.css(varRepString));
         browser.waitForAngular().then(function () {
@@ -56,17 +56,23 @@ module.exports = function () {
 
         var assgnRepString = 'div[ng-if="surgicalEvent"] a[href="#/patient/' + patientPage.patientId + '/variant_report?analysis_id=' + analysisId + '&section=assignment"]';
         console.log(assgnRepString);
+        browser.ignoreSynchronization = true
         assignmentReportLink = element(by.css(assgnRepString));
         assignmentReportLink.getAttribute('href').then(function (test) {
             assignmentReportPageLink = test;
         })
-        expect(assignmentReportLink.isPresent()).to.eventually.eql(true).notify(callback);
+        expect(assignmentReportLink.isPresent()).to.eventually.eql(true).then(function () {
+            browser.ignoreSynchronization = false;
+        }).then(callback);
     });
 
     this.When(/^I click on the assignment report link$/, function (callback) {
-        browser.get(assignmentReportPageLink).then(function () {
-            browser.waitForAngular();
+        assignmentReportLink.click().then(function () {
+            browser.waitForAngular()
         }).then(callback);
+//        browser.get(assignmentReportPageLink).then(function () {
+//            browser.waitForAngular();
+//        }).then(callback);
     });
 
     this.When (/^I uncheck the variant of ordinal "([^"]*)"$/, function (ordinal, callback) {

@@ -29,7 +29,7 @@ Feature: This is the critical path test cases
     Then The variant at ordinal "1" is "checked"
 
   Scenario: User can see all the amois associated with the patient and matches the table
-    When I go to the patient "PT_CR04_VRUploadedAssayReceived" with variant report "PT_CR04_VRUploadedAssayReceived_ANI1"
+    When I go to the patient "PT_CR07_RejectVariantReport" with variant report "PT_CR07_RejectVariantReport_ANI1"
     Then I can see the variant report page
     Then I see that Total MOIs match the number of MOIs on the page
     And I see that the Total aMOIs match the number of aMOIs on the page.
@@ -99,7 +99,7 @@ Feature: This is the critical path test cases
     Then The variant report status is marked "CONFIRMED"
     And I wait "59" seconds
     When I go to patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" details page
-    Then I "should" see the patient "status" as "PENDING_CONFIRMATION"
+    Then I "should" see the patient "Status" as "PENDING_CONFIRMATION"
     And I click on the Surgical Event Tab at index "0"
     Then I should see the assignment report link for "PT_CR01_PathAssayDoneVRUploadedToConfirm_ANI1"
     When I collect information about the assignment
