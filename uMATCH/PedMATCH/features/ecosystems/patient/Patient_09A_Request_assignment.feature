@@ -25,7 +25,6 @@ Feature: Patients request assignment tests
       | PT_RA02_PendingApproval     | 1.0                 | 1.0              |         | Success     | PENDING_CONFIRMATION            |
       | PT_RA02_OnTreatmentArm      | 1.1                 | 2.0              |         | Success     | PENDING_CONFIRMATION            |
       | PT_RA02_RequestNoAssignment | 1.1                 | 1.1              |         | Success     | PENDING_CONFIRMATION            |
-      | PT_RA02_RequestAssignment   | 1.0                 | 1.0              |         | Failure     | REQUEST_ASSIGNMENT              |
       | PT_RA02_Registered          | 1.0                 | 1.0              |         | Failure     | REGISTRATION                    |
       | PT_RA02_TsReceived          | 1.0                 | 1.0              |         | Failure     | TISSUE_SPECIMEN_RECEIVED        |
       | PT_RA02_TsShipped           | 2.0                 | 2.0              |         | Failure     | TISSUE_NUCLEIC_ACID_SHIPPED     |
@@ -34,11 +33,22 @@ Feature: Patients request assignment tests
       | PT_RA02_TsVrReceived        | 2.0                 | 2.0              |         | Failure     | TISSUE_VARIANT_REPORT_RECEIVED  |
       | PT_RA02_TsVrConfirmed       | 1.0                 | 1.0              |         | Failure     | TISSUE_VARIANT_REPORT_CONFIRMED |
       | PT_RA02_TsVrRejected        | 1.0                 | 1.0              |         | Failure     | TISSUE_VARIANT_REPORT_REJECTED  |
+#    for the case: current status REQUEST_ASSIGNMENT then receive request assignment(rebiopsy=N), please check test PT_RA02a
+#      | PT_RA02_RequestAssignment   | 1.0                 | 1.0              |         | Failure     | REQUEST_ASSIGNMENT              |
     #there is no “PATHOLOGY_REVIEWED” status anymore
-#      | PT_RA02_PathoConfirmed      | PATHOLOGY_REVIEWED              | 2.0                 | 2.0              |         | Failure     | PATHOLOGY_REVIEWED              |
+#      | PT_RA02_PathoConfirmed      | 2.0                 | 2.0              |         | Failure     | PATHOLOGY_REVIEWED              |
+
+  @patients_p3
+  Scenario: PT_RA02a. request assignment(rebiopsy=N) should trigger assignment again if patient is on REQUEST_ASSIGNMENT status
+    Given template request assignment message for patient: "PT_RA02a_RequestAssignment" with re-biopsy: "N", step number: "2.0"
+    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    Then patient field: "current_status" should have value: "PENDING_CONFIRMATION" within 30 seconds
+    Then patient field: "current_step_number" should have value: "2.0" within 30 seconds
+    Then patient should have selected treatment arm: "APEC1621-ETE-A" with stratum id: "100" within 15 seconds
 
   @patients_p2
   Scenario Outline: PT_RA03. patient can only be set to request assignment(rebiopsy=Y) when patient is on certain status
+#    if patient is REQUEST_ASSIGNMENT status then it make no sense to receive another same request assignment (rebiopsy=Y) message, so reject it
     Given template request assignment message for patient: "<patient_id>" with re-biopsy: "Y", step number: "<next_step_number>"
     When post to MATCH patients service, returns a message that includes "<message>" with status "<post_status>"
     Then patient field: "current_status" should have value: "<next_status>" within 30 seconds
@@ -46,7 +56,7 @@ Feature: Patients request assignment tests
       | patient_id                  | current_step_number | next_step_number | message | post_status | next_status                     |
       | PT_RA03_PendingApproval     | 1.0                 | 1.0              |         | Success     | REQUEST_ASSIGNMENT              |
       | PT_RA03_OnTreatmentArm      | 1.1                 | 2.0              |         | Success     | REQUEST_ASSIGNMENT              |
-      | PT_RA03_RequestAssignment   | 1.0                 | 1.0              |         | Success     | REQUEST_ASSIGNMENT              |
+      | PT_RA03_RequestAssignment   | 1.0                 | 1.0              |         | Failure     | REQUEST_ASSIGNMENT              |
       | PT_RA03_RequestNoAssignment | 1.1                 | 1.1              |         | Success     | REQUEST_ASSIGNMENT              |
       | PT_RA03_Registered          | 1.0                 | 1.0              |         | Failure     | REGISTRATION                    |
       | PT_RA03_TsReceived          | 1.0                 | 1.0              |         | Failure     | TISSUE_SPECIMEN_RECEIVED        |
@@ -73,9 +83,29 @@ Feature: Patients request assignment tests
     Then template assay message with surgical_event_id: "PT_RA04_ReqNoAssignment_SEI1" for patient: "PT_RA04_ReqNoAssignment"
     When post to MATCH patients service, returns a message that includes "assignment" with status "Failure"
 
-#  Scenario: PT_RA04a off study and request assignment message should be accepted when patient is on request no assignment status
+  @patients_p2
+  Scenario Outline: PT_RA04a patient can be set to request no assignment only on certain status
+    Given template request no assignment message for patient: "<patient_id>" with step number: "<next_step_number>"
+    When post to MATCH patients service, returns a message that includes "<message>" with status "<post_status>"
+    Then patient field: "current_status" should have value: "<next_status>" within 30 seconds
+    Examples:
+      | patient_id                   | next_step_number | message | post_status | next_status                     |
+      | PT_RA04a_PendingApproval     | 1.0              |         | Success     | REQUEST_NO_ASSIGNMENT           |
+      | PT_RA04a_OnTreatmentArm      | 1.1              |         | Success     | REQUEST_NO_ASSIGNMENT           |
+      | PT_RA04a_RequestAssignment   | 1.0              |         | Success     | REQUEST_NO_ASSIGNMENT           |
+      | PT_RA04a_RequestNoAssignment | 1.1              |         | Failure     | REQUEST_NO_ASSIGNMENT           |
+      | PT_RA04a_Registered          | 1.0              |         | Failure     | REGISTRATION                    |
+      | PT_RA04a_TsReceived          | 1.0              |         | Failure     | TISSUE_SPECIMEN_RECEIVED        |
+      | PT_RA04a_TsShipped           | 2.0              |         | Failure     | TISSUE_NUCLEIC_ACID_SHIPPED     |
+      | PT_RA04a_slideShipped        | 2.0              |         | Failure     | TISSUE_SLIDE_SPECIMEN_SHIPPED   |
+      | PT_RA04a_AssayReceived       | 1.0              |         | Failure     | ASSAY_RESULTS_RECEIVED          |
+      | PT_RA04a_TsVrReceived        | 2.0              |         | Failure     | TISSUE_VARIANT_REPORT_RECEIVED  |
+      | PT_RA04a_TsVrConfirmed       | 1.0              |         | Failure     | TISSUE_VARIANT_REPORT_CONFIRMED |
+      | PT_RA04a_TsVrRejected        | 1.0              |         | Failure     | TISSUE_VARIANT_REPORT_REJECTED  |
+
+#  PT_RA04b off study and request assignment message should be accepted when patient is on request no assignment status
+#    please check test PT_OS01 last example and PT_RA02 example 3, PT_RA03 example 4
 #
-#  Scenario: PT_RA04b patient can be set to request no assignment only on certain status
 
   @patients_p3
   Scenario: PT_RA05. request assignment message with rebiopsy = N will fail if the current biopsy is expired

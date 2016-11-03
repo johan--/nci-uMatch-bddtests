@@ -97,6 +97,7 @@ When(/^call ion_reporters GET service, returns a message that includes "([^"]*)"
   # url = add_parameters_to_url(url, @url_params)
   url = prepare_ion_reporters_url
   response = Helper_Methods.simple_get_request(url)
+  puts response.to_json.to_s
   validate_response(response, status, message)
   @returned_ions = response['message_json']
 end

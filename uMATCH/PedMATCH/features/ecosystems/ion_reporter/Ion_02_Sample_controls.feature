@@ -145,7 +145,7 @@ Feature: Tests for sample_controls service in ion ecosystem
     Given molecular id is ""
     Then record total sample_controls count
     Then call sample_controls DELETE service, returns a message that includes "Cannot use batch delete to delete all records" with status "Failure"
-    Then wait for "5" seconds
+    Then wait for "30" seconds
     Then new and old total sample_controls counts should have 0 difference
 
   @ion_reporter_p2
@@ -153,7 +153,7 @@ Feature: Tests for sample_controls service in ion ecosystem
     Given molecular id is "<moi>"
     Then record total sample_controls count
     Then call sample_controls DELETE service, returns a message that includes "exist" with status "Failure"
-    Then wait for "5" seconds
+    Then wait for "30" seconds
     Then new and old total sample_controls counts should have 0 difference
     Examples:
       | moi                     |
@@ -166,7 +166,7 @@ Feature: Tests for sample_controls service in ion ecosystem
     Then add field: "site" value: "invalid_site" to url
     Then record total sample_controls count
     Then call sample_controls DELETE service, returns a message that includes "" with status "Success"
-    Then wait for "5" seconds
+    Then wait for "30" seconds
     Then new and old total sample_controls counts should have 0 difference
 
   @ion_reporter_p1

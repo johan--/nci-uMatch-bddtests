@@ -351,6 +351,17 @@ class Patient_helper_methods
     end
   end
 
+  def self.prepare_request_no_assignment(pt_id, step_number, date='default')
+    @patient_id = pt_id
+    @request_hash = load_patient_message_templates('request_assignment')
+    @request_hash['patient_id'] = @patient_id
+    @request_hash['status'] = 'REQUEST_NO_ASSIGNMENT'
+    @request_hash['step_number'] = step_number
+    unless date=='default'
+      @request_hash['status_date'] = date
+    end
+  end
+
   def self.prepare_on_treatment_arm(pt_id, ta_id, stratum, step_number, date='default')
     @patient_id = pt_id
     @request_hash = load_patient_message_templates('on_treatment_arm')

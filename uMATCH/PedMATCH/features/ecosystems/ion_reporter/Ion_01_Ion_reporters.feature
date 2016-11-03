@@ -125,7 +125,7 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Then call ion_reporters GET service, returns a message that includes "" with status "Success"
     Then there are|is 1 ion_reporter returned
     Then call ion_reporters DELETE service, returns a message that includes "Batch deletion request placed on queue to be processed" with status "Success"
-    Then wait for "5" seconds
+    Then wait for "30" seconds
     Then call ion_reporters GET service, returns a message that includes "No records meet the query parameters" with status "Failure"
 
   @ion_reporter_p2
@@ -133,7 +133,7 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Given ion_reporter_id is ""
     Then record total ion_reporters count
     Then call ion_reporters DELETE service, returns a message that includes "Cannot use batch delete to delete all records" with status "Failure"
-    Then wait for "5" seconds
+    Then wait for "30" seconds
     Then new and old total ion_reporters counts should have 0 difference
 
   @ion_reporter_p2
@@ -141,7 +141,7 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Given ion_reporter_id is "IR_NON_EXISTING"
     Then record total ion_reporters count
     Then call ion_reporters DELETE service, returns a message that includes "exist" with status "Failure"
-    Then wait for "5" seconds
+    Then wait for "30" seconds
     Then new and old total ion_reporters counts should have 0 difference
 
   @ion_reporter_p2
@@ -150,7 +150,7 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Then add field: "site" value: "invalid_site" to url
     Then record total ion_reporters count
     Then call ion_reporters DELETE service, returns a message that includes "" with status "Success"
-    Then wait for "5" seconds
+    Then wait for "30" seconds
     Then new and old total ion_reporters counts should have 0 difference
 
   @ion_reporter_p1
