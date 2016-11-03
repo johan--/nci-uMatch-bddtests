@@ -467,9 +467,9 @@ class Helper_Methods
 
   end
 
-  def self.upload_vr_to_s3_if_needed(bucket, moi, ani, tsv_name = 'test1.tsv')
+  def self.upload_vr_to_s3_if_needed(bucket, ion_folder, moi, ani, tsv_name = 'test1.tsv')
     template_folder = "#{path_for_named_parent_folder('nci-uMatch-bddtests')}/DataSetup/variant_file_templates"
-    exist = s3_file_exists(bucket, "bdd_test_ion_reporter/#{moi}/#{ani}/#{tsv_name}")
+    exist = s3_file_exists(bucket, "#{ion_folder}/#{moi}/#{ani}/#{tsv_name}")
     if exist && is_local_tier
       puts "#{moi} exists in S3 bucket #{bucket}, upload is skipped!"
     else
@@ -485,13 +485,33 @@ class Helper_Methods
         cmd = "mv #{target_ani_path}/test1.tsv #{target_ani_path}/#{tsv_name}"
         `#{cmd}`
       end
-      cmd = "aws s3 cp #{output_folder} s3://#{bucket}/bdd_test_ion_reporter/ --recursive --region us-east-1"
+      cmd = "aws s3 cp #{output_folder} s3://#{bucket}/#{ion_folder}/ --recursive --region us-east-1"
       `#{cmd}`
       cmd = "rm -R #{output_folder}"
       `#{cmd}`
       if is_local_tier
         puts "#{target_ani_path} has been uploaded to S3 bucket #{bucket}"
       end
+    end
+  end
+
+  def self.s3_download_file(bucket, s3_path, download_target)
+    cmd = "aws s3 cp s3://#{bucket}/#{s3_path} #{download_target}  --recursive --region us-east-1"
+    `#{cmd}`
+    if is_local_tier
+      puts "#{download_target} has been downloaded from S3 #{bucket}/#{s3_path}"
+    end
+  end
+
+  def self.s3_upload_file(file_path, bucket, s3_path)
+    recursive = ''
+    if File.directory?(file_path)
+      recursive = '--recursive'
+    end
+    cmd = "aws s3 cp #{file_path}  s3://#{bucket}/#{s3_path} #{recursive} --region us-east-1"
+    `#{cmd}`
+    if is_local_tier
+      puts "#{file_path} has been uploaded to S3 #{bucket}/#{s3_path}"
     end
   end
 

@@ -293,8 +293,8 @@ class Patient_helper_methods
   def self.prepare_vr_upload(pt_id, moi, ani, need_upload, site='default')
     @patient_id = pt_id
     if need_upload
-      Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-dev', moi, ani)
-      Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-int', moi, ani)
+      Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-dev', 'bdd_test_ion_reporter', moi, ani)
+      Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-int', 'bdd_test_ion_reporter', moi, ani)
     end
     @request_hash = Patient_helper_methods.load_patient_message_templates('variant_file_uploaded')
     unless site=='default'

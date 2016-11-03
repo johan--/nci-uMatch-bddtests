@@ -234,15 +234,16 @@ Feature: Tests for aliquot service in ion ecosystem
     Then call aliquot GET service, field: "molecular_id" for this sample_control should be: "ION_AQ42_BdVrUploaded_BD_MOI1"
 
   @ion_reporter_p2
-  Scenario Outline: ION_AQ43. aliquot service should only return VALID projected key-value pair
+  Scenario Outline: ION_AQ43. aliquot service should only return VALID projected key-value pair and "molecular_id_type" field
     Given molecular id is "<moi>"
     Then add projection: "<field1>" to url
     Then add projection: "<field2>" to url
     Then add projection: "bad_projection" to url
     Then call aliquot GET service, returns a message that includes "" with status "Success"
-    Then each returned aliquot result should have 2 fields
+    Then each returned aliquot result should have 3 fields
     Then each returned aliquot result should have field "<field1>"
     Then each returned aliquot result should have field "<field2>"
+    Then each returned aliquot result should have field "molecular_id_type"
     Examples:
       | moi      | field1       | field2       |
       | SC_6Y4FV | control_type | molecular_id |
