@@ -34,7 +34,7 @@ module.exports = function () {
     this.Then (/^I should see the variant report link for "(.+?)"$/, function (analysisId, callback) {
         patientPage.variantAnalysisId = analysisId;
         var varRepString = 'div[ng-if="surgicalEvent"] a[href="#/patient/' + patientPage.patientId + '/variant_report?analysis_id=' + analysisId;
-        variantReportLink = element(by.css(varRepString))
+        variantReportLink = element(by.css(varRepString));
         expect(variantReportLink.isPresent()).to.eventually.eql(true).notify(callback);
     });
 
@@ -85,7 +85,7 @@ module.exports = function () {
         var status = confirmed === 'confirmed';
         var data = patientPage.combineVariantData(patientPage.responseData);
 
-        for(var idx in data){
+        for (var idx = 0; idx < data.length; idx++){
             if(data[idx]['identifier'] === patientPage.variantIdentifier){
                 expect(data[idx]['confirmed'].toString()).to.eql(status.toString());
                 break;
@@ -333,7 +333,8 @@ module.exports = function () {
     this.Then(/^I see the confirmation message in the Patient activity feed as "(.+?)"$/, function (message, callback) {
         var timeline = patientPage.timelineList.get(0);
         var variantReportStatusString = '[ng-if^="timelineEvent.event_data.variant_report_status"]';
-        var variantAnalysisIdString   = 'span[ng-if="timelineEvent.event_data.analysis_id"]';
+        var variantAnalysisIdString   = 'span[ng-if^="timelineEvent.event_data.analysis_id"]';
+        browser.sleep(3000);
 
         browser.ignoreSynchronization = true;
         expect(timeline.all(by.css(variantReportStatusString)).get(0).getText()).to.eventually.include(message);
@@ -345,8 +346,8 @@ module.exports = function () {
     this.Then(/^I see the confirmation message in the Dashboard activity feed as "(.+?)"$/, function (message, callback) {
         var timeline = patientPage.timelineList.get(0);
         var patientString = '[patient-id="timelineEvent.entity_id"]';
-        var variantReportStatusString = '[ng-if="timelineEvent.event_data.variant_report_status"]';
-        var variantAnalysisIdString   = 'span[ng-if="timelineEvent.event_data.analysis_id"]';
+        var variantReportStatusString = '[ng-if^="timelineEvent.event_data.variant_report_status"]';
+        var variantAnalysisIdString   = 'span[ng-if^="timelineEvent.event_data.analysis_id"]';
         browser.ignoreSynchronization = true;
         expect(timeline.all(by.css(patientString)).get(0).getText()).to.eventually.eql(patientPage.patientId);
         expect(timeline.all(by.css(variantReportStatusString)).get(0).getText()).to.eventually.include(message);
