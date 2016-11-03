@@ -5,22 +5,22 @@ Feature: Patients off study tests
   Scenario Outline: PT_OS01. patient can be set to OFF_STUDY status from any status
     Given template off study message for patient: "<patient_id>" on step number: "<current_step_number>"
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
-    Then patient field: "current_status" should have value: "<current_status>" within 15 seconds
+    Then patient field: "current_status" should have value: "OFF_STUDY" within 15 seconds
     Then patient field: "current_step_number" should have value: "<current_step_number>" within 15 seconds
     Examples:
-      | patient_id               | current_status                  | current_step_number |
-      | PT_OS01_Registered      | REGISTRATION                    | 1.0                 |
-      | PT_OS01_TsReceived      | TISSUE_SPECIMEN_RECEIVED        | 1.0                 |
-      | PT_OS01_TsShipped       | TISSUE_NUCLEIC_ACID_SHIPPED     | 2.0                 |
-      | PT_OS01_slideShipped    | TISSUE_SLIDE_SPECIMEN_SHIPPED   | 2.0                 |
-      | PT_OS01_AssayReceived   | ASSAY_RESULTS_RECEIVED          | 1.0                 |
-      | PT_OS01_TsVrReceived    | TISSUE_VARIANT_REPORT_RECEIVED  | 2.0                 |
-      | PT_OS01_TsVrConfirmed   | TISSUE_VARIANT_REPORT_CONFIRMED | 1.0                 |
-      | PT_OS01_TsVrRejected    | TISSUE_VARIANT_REPORT_REJECTED  | 1.0                 |
-      | PT_OS01_PendingApproval | PENDING_APPROVAL                | 2.0                 |
-      | PT_OS01_OnTreatmentArm  | ON_TREATMENT_ARM                | 1.1                 |
-      | PT_OS01_ReqAssignment   | REQUEST_ASSIGNMENT              | 2.0                 |
-      | PT_OS01_ReqNoAssignment | REQUEST_NO_ASSIGNMENT           | 1.1                 |
+      | patient_id              | current_step_number |
+      | PT_OS01_Registered      | 1.0                 |
+      | PT_OS01_TsReceived      | 1.0                 |
+      | PT_OS01_TsShipped       | 2.0                 |
+      | PT_OS01_slideShipped    | 2.0                 |
+      | PT_OS01_AssayReceived   | 1.0                 |
+      | PT_OS01_TsVrReceived    | 2.0                 |
+      | PT_OS01_TsVrConfirmed   | 1.0                 |
+      | PT_OS01_TsVrRejected    | 1.0                 |
+      | PT_OS01_PendingApproval | 2.0                 |
+      | PT_OS01_OnTreatmentArm  | 1.1                 |
+      | PT_OS01_ReqAssignment   | 2.0                 |
+      | PT_OS01_ReqNoAssignment | 1.1                 |
     #no blood status is used anymore
 #  |PT_OS01_BdReceived     |BLOOD_SPECIMEN_RECEIVED          |2.0                |
 #  |PT_OS01_BdShipped      |BLOOD_NUCLEIC_ACID_SHIPPED       |2.0                |
@@ -37,7 +37,7 @@ Feature: Patients off study tests
     Given template variant report confirm message for patient: "<patient_id>", it has analysis_id: "<ani>" and status: "confirm"
     When put to MATCH variant report confirm service, returns a message that includes "OFF_STUDY" with status "Failure"
     Examples:
-      | patient_id         | ani                     |
+      | patient_id        | ani                    |
       | PT_OS02_OffStudy1 | PT_OS02_OffStudy1_ANI1 |
       | PT_OS02_OffStudy2 | PT_OS02_OffStudy2_ANI1 |
 
@@ -48,7 +48,7 @@ Feature: Patients off study tests
     Given template assignment report confirm message for patient: "<patient_id>", it has analysis_id: "<ani>" and status: "confirm"
     When put to MATCH assignment report confirm service, returns a message that includes "OFF_STUDY" with status "Failure"
     Examples:
-      | patient_id         | ani                     |
+      | patient_id        | ani                    |
       | PT_OS03_OffStudy1 | PT_OS03_OffStudy1_ANI1 |
       | PT_OS03_OffStudy2 | PT_OS03_OffStudy2_ANI1 |
 
@@ -59,7 +59,7 @@ Feature: Patients off study tests
     Given template request assignment message for patient: "<patient_id>" with re-biopsy: "<rebiopsy>", step number: "2.0"
     When post to MATCH patients service, returns a message that includes "off" with status "Failure"
     Examples:
-      | patient_id      | current_status           | rebiopsy |
+      | patient_id    | current_status           | rebiopsy |
       | PT_OS04_OnTA1 | OFF_STUDY                | Y        |
       | PT_OS04_OnTA2 | OFF_STUDY_BIOPSY_EXPIRED | N        |
 
