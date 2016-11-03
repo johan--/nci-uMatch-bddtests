@@ -169,6 +169,17 @@ PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
 PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
 PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
 
+pt = PatientDataSet.new('PT_VC00_CnvVrReceived')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
+PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCMLH1s')
+PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+
+
+
 PatientMessageLoader.upload_done
 
 
