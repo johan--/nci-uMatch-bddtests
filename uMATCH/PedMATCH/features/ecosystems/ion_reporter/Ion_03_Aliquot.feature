@@ -211,7 +211,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "dna_bam_name" value: "IR_TCWEV/NON_EXISTING_MOI/NON_EXISTING_MOI_ANI1/dna.bam" to message body
     Then add field: "cdna_bam_name" value: "IR_TCWEV/NON_EXISTING_MOI/NON_EXISTING_MOI_ANI1/cdna.bam" to message body
     Then add field: "qc_name" value: "IR_TCWEV/NON_EXISTING_MOI/NON_EXISTING_MOI_ANI1/10-10-2016.pdf" to message body
-    Then call aliquot PUT service, returns a message that includes "not exist" with status "Failure"
+    Then call aliquot PUT service, returns a message that includes "not found" with status "Failure"
 
 
   @ion_reporter_p1

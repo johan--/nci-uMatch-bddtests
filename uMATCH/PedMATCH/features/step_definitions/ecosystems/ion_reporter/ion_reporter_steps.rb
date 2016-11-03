@@ -278,6 +278,7 @@ Then(/^new and old total ion_reporters counts should have (\d+) difference$/) do
   url = "#{ENV['ion_system_endpoint']}/ion_reporters"
   ion_reporters = Helper_Methods.simple_get_request(url)['message_json']
   current_count = ion_reporters.length
+  puts "Current ion reporter count is #{current_count}, previous count is #{@total_ion_count}"
   count_diff = current_count - @total_ion_count
   count_diff.should == diff.to_i
 end
@@ -442,16 +443,17 @@ Then(/^each returned sample_control should have field "([^"]*)"$/) do |field|
 end
 
 Then(/^record total sample_controls count$/) do
-  url = "#{ENV['ion_system_endpoint']}/ion_reporters"
-  ion_reporters = Helper_Methods.simple_get_request(url)['message_json']
-  @total_ion_count = ion_reporters.length
+  url = "#{ENV['ion_system_endpoint']}/sample_controls"
+  sample_controls = Helper_Methods.simple_get_request(url)['message_json']
+  @total_sc_count = sample_controls.length
 end
 
 Then(/^new and old total sample_controls counts should have (\d+) difference$/) do |diff|
-  url = "#{ENV['ion_system_endpoint']}/ion_reporters"
-  ion_reporters = Helper_Methods.simple_get_request(url)['message_json']
-  current_count = ion_reporters.length
-  count_diff = current_count - @total_ion_count
+  url = "#{ENV['ion_system_endpoint']}/sample_controls"
+  sample_controls = Helper_Methods.simple_get_request(url)['message_json']
+  current_count = sample_controls.length
+  puts "Current sample control count is #{current_count}, previous count is #{@total_sc_count}"
+  count_diff = current_count - @total_sc_count
   count_diff.should == diff.to_i
 end
 

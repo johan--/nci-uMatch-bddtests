@@ -154,7 +154,7 @@ Feature: Tests for sample_controls service in ion ecosystem
     Then record total sample_controls count
     Then call sample_controls DELETE service, returns a message that includes "exist" with status "Failure"
     Then wait for "5" seconds
-    Then new and old total ion_reporters counts should have 0 difference
+    Then new and old total sample_controls counts should have 0 difference
     Examples:
       | moi                     |
       | SC_NON_EXISTING         |
