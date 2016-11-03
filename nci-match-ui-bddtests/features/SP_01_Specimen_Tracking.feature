@@ -10,6 +10,7 @@ Feature: Specimen Tracking page
     And I can see the chart at index "0" is for "MDA"
     And I can see the chart at index "1" is for "MoCha"
     And I can see the Distribution of specimens between sites
+    And I can see the Shipment Table Heading
     And I can see the Shipments table
     And I can see the Shipment table headers
     When I collect information about shipment

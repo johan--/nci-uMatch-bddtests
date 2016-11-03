@@ -34,8 +34,12 @@ module.exports = function () {
     this.Then (/^I should see the variant report link for "(.+?)"$/, function (analysisId, callback) {
         patientPage.variantAnalysisId = analysisId;
         var varRepString = 'div[ng-if="surgicalEvent"] a[href="#/patient/' + patientPage.patientId + '/variant_report?analysis_id=' + analysisId;
+        console.log(varRepString);
         variantReportLink = element(by.css(varRepString));
-        expect(variantReportLink.isPresent()).to.eventually.eql(true).notify(callback);
+        browser.waitForAngular().then(function () {
+            expect(variantReportLink.isPresent()).to.eventually.eql(true).notify(callback);
+        })
+
     });
 
     this.When(/^I should click on the variant report link$/, function (callback) {
@@ -319,7 +323,6 @@ module.exports = function () {
     this.Then(/^The checkboxes are disabled$/, function (callback) {
         element.all(by.css('check-box-with-confirm button')).count().then(function (cnt) {
             for(var i = 0; i < cnt; i ++){
-                console.log('element at index: ' + i);
                 patientPage.expectEnabled(element.all(by.css('check-box-with-confirm button')), i, 'disabled')
             }
         }).then(callback)

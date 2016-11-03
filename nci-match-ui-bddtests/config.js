@@ -19,10 +19,13 @@ exports.config = {
         // Login Page
         'features/login_page.feature',
 
+        // Critical
+        'features/PA_06_Critical_Path.feature',
+
         //Treatment Arm details page
         'features/TA_01_Analysis.feature',
         'features/TA_02_Rules.feature',
-        
+
         // Dashboard page details page
         'features/HO_01_Dashboard.feature',
 
@@ -35,10 +38,7 @@ exports.config = {
         'features/SP_01_Specimen_Tracking.feature',
 
         //Specimen Tracking page
-        'features/SP_01_Specimen_Tracking.feature',
-
-        // Critical
-        'features/PA_06_Critical_Path.feature'
+        'features/SP_01_Specimen_Tracking.feature'
    ],
 
     getPageTimeout: 10000,

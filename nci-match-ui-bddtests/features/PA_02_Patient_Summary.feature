@@ -16,6 +16,7 @@ Feature: Patient Summary Page
     And I click on one of the patients
     And I collect the patient Api Information
     Then I am taken to the patient details page
+    And I turn off synchronization
     And I should see Patient details breadcrumb
     And I should see the patient's information table
     And I should see the patient's disease information table

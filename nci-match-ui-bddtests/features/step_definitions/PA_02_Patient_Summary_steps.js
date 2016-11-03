@@ -56,7 +56,7 @@ module.exports = function () {
 
     this.Then (/^I should see Patient details breadcrumb$/, function (callback) {
         utilities.checkBreadcrumb ('Dashboard / Patients / Patient ' + patientPage.patientId);
-        browser.sleep (50).then (callback);
+        browser.sleep (500).then (callback);
     });
 
     this.Then (/^I am taken to the patient details page$/, function (callback) {
