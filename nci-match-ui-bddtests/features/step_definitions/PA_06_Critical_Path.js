@@ -43,12 +43,9 @@ module.exports = function () {
     });
 
     this.When(/^I should click on the variant report link$/, function (callback) {
-       variantReportLink.click().then(callback);
-    });
-
-    this.Then(/^the variant table is updated for that variant to "([^"]*)"$/, function (arg1, callback) {
-        // Write code here that turns the phrase above into concrete actions
-        callback(null, 'pending');
+       variantReportLink.click().then(function () {
+           browser.waitForAngular()
+       }).then(callback);
     });
 
     this.Then (/^I should see the assignment report link for "(.+?)"$/, function (analysisId, callback) {
@@ -70,9 +67,6 @@ module.exports = function () {
         assignmentReportLink.click().then(function () {
             browser.waitForAngular()
         }).then(callback);
-//        browser.get(assignmentReportPageLink).then(function () {
-//            browser.waitForAngular();
-//        }).then(callback);
     });
 
     this.When (/^I uncheck the variant of ordinal "([^"]*)"$/, function (ordinal, callback) {
@@ -203,11 +197,6 @@ module.exports = function () {
         }).then(callback);
     });
 
-    this.Then (/^I can see the name of the commenter is present$/, function (callback) {
-        // Write code here that turns the phrase above into concrete actions
-        callback.pending ();
-    });
-
     this.When(/^I go to the patient "([^"]*)" with variant report "([^"]*)"$/, function (patientId, variantReportId, callback) {
         var uri                       = '/#/patient/' + patientId + '/variant_report?analysis_id=' + variantReportId;
         patientPage.patientId         = patientId;
@@ -230,6 +219,11 @@ module.exports = function () {
         }).then(callback);
     });
 
+    this.When (/^I set the Analysis Id to be "(.+)"/, function (AnalysisId, callback) {
+        patientPage.variantAnalysisId = AnalysisId;
+        browser.sleep(50).then(callback);
+    });
+
     this.When(/^I collect information about the patient variant report$/, function (callback) {
         var url = '/api/v1/patients/variant_reports/' + patientPage.variantAnalysisId;
         var request = utilities.callApi('patient', url);
@@ -240,7 +234,7 @@ module.exports = function () {
     });
 
     this.When(/^I collect information about the assignment$/, function (callback) {
-        var url = '/api/v1/patients/analysis_report?patient_id=' + patientPage.patientId + '&analysis_id=' + patientPage.variantAnalysisId
+        var url = '/api/v1/patients/analysis_report?patient_id=' + patientPage.patientId + '&analysis_id=' + patientPage.variantAnalysisId;
         var request = utilities.callApi('patient', url);
         request.get().then(function () {
             patientPage.responseData = JSON.parse(request.entity());
