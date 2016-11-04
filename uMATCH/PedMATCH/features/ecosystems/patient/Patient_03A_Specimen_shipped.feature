@@ -194,6 +194,15 @@ Feature: NCH Specimen shipped messages
     Then set patient message field: "shipped_dttm" to value: "2016-08-25T16:17:11+00:00"
     When post to MATCH patients service, returns a message that includes "slide barcode already exists" with status "Failure"
 
+  @patients_p2
+  Scenario: PT_SS17a. shipped tissue without tissue received fails
+    Given template specimen shipped message in type: "TISSUE" for patient: "PT_SS17a_Registered", it has surgical_event_id: "PT_SS17a_Registered_SEI1", molecular_id or slide_barcode: "PT_SS17a_Registered_MOI1"
+    When post to MATCH patients service, returns a message that includes "Unable to find a TISSUE specimen" with status "Failure"
+  @patients_p2
+  Scenario: PT_SS17b. shipped slide without tissue received fails
+    Given template specimen shipped message in type: "SLIDE" for patient: "PT_SS17b_Registered", it has surgical_event_id: "PT_SS17b_Registered_SEI1", molecular_id or slide_barcode: "PT_SS17b_Registered_BC1"
+    When post to MATCH patients service, returns a message that includes "Unable to find a TISSUE specimen" with status "Failure"
+
   @patients_p3
   Scenario: PT_SS17. shipped blood without blood received fails
   #  Testing patient: PT_SS17_Registered

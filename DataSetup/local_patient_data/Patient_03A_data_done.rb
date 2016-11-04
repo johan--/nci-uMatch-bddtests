@@ -94,6 +94,8 @@ PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
 
 PatientMessageLoader.register_patient('PT_SS17_Registered')
+PatientMessageLoader.register_patient('PT_SS17a_Registered')
+PatientMessageLoader.register_patient('PT_SS17b_Registered')
 
 pt = PatientDataSet.new('PT_SS20_Blood1Shipped')
 PatientMessageLoader.register_patient(pt.id)
