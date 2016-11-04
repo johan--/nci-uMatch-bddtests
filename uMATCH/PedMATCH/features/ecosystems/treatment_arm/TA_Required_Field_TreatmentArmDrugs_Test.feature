@@ -2,6 +2,7 @@
 
 @treatment_arm
 Feature: TA_DG. Treatment Arm API Tests that focus on "treatment_arm_drugs" and "exclusion_drugs" field
+
   @treatment_arm_p2
   Scenario: TA_DG1. New Treatment Arm with empty "treatment_arm_drugs" field should fail
     Given template treatment arm json with a random id
@@ -51,9 +52,9 @@ Feature: TA_DG. Treatment Arm API Tests that focus on "treatment_arm_drugs" and 
     When creating a new treatment arm using post request
     Then a failure message is returned which contains: "<validation_message>"
     Examples:
-    |drugName       |drugPathway |drugId  | validation_message        |
-    |AZD9291        |EGFR        |null    | drug_id' of type NilClass |
-    |null           |EGFR        |781254  | name' of type NilClass    |
+      | drugName | drugPathway | drugId | validation_message        |
+      | AZD9291  | EGFR        | null   | drug_id' of type NilClass |
+      | null     | EGFR        | 781254 | name' of type NilClass    |
 
   @treatment_arm_p2
   Scenario Outline: TA_DG7 New Treatment Arm with null or empty drug pathway should pass
@@ -63,11 +64,11 @@ Feature: TA_DG. Treatment Arm API Tests that focus on "treatment_arm_drugs" and 
     When creating a new treatment arm using post request
     Then a success message is returned
     Examples:
-    | drug_pathway |
-    | null         |
-    |              |
+      | drug_pathway |
+      | null         |
+      |              |
 
-  @treatment_arm_p3
+  @treatment_arm_p3 @test
   Scenario Outline: TA_DG8 Validate the treatment_arm json message received for new treatment arm request
     Given that a new treatment arm is received from COG with version: "<version>" study_id: "<study_id>" id: "<id>" name: "<name>" description: "<description>" target_id: "<target_id>" target_name: "<target_name>" gene: "<gene>" and with one drug: "<drug>" and with tastatus: "<tastatus>" and with stratum_id "<stratum_id>"
     And with variant report
@@ -99,6 +100,6 @@ Feature: TA_DG. Treatment Arm API Tests that focus on "treatment_arm_drugs" and 
     When creating a new treatment arm using post request
     Then a failure message is returned which contains: "<message>"
     Examples:
-      |version    |study_id   |id			|name				|description	            |target_id	|target_name	|gene			|drug												|Status			|message									                                                          |timestamp					|tastatus | stratum_id |
-      |2016-05-27 |APEC1621   |TA_test5		|Afatinib			|covalent inhibitor 		|1234		|EGFR Pathway	|ALK			|1,,Afatinib,angiokinase inhibitor					|FAILURE		|The property '#/treatment_arm_drugs/0/name' of type NilClass did not match the following type: string|2014-06-29 11:34:20.179 GMT	|OPEN	  | 1          |
-      |2016-05-27 |APEC1621   |TA_test6		|Afatinib			|covalent inhibitor 		|1234		|EGFR Pathway	|ALK			|1,null,Afatinib,angiokinase inhibitor				|FAILURE		|The property '#/treatment_arm_drugs/0/name' of type NilClass did not match the following type: string|2014-06-29 11:34:20.179 GMT	|OPEN	  | 1          |
+      | version    | study_id | id       | name     | description        | target_id | target_name  | gene | drug                                  | Status  | message                                                                                               | timestamp                   | tastatus | stratum_id |
+      | 2016-05-27 | APEC1621 | TA_test5 | Afatinib | covalent inhibitor | 1234      | EGFR Pathway | ALK  | 1,,Afatinib,angiokinase inhibitor     | FAILURE | The property '#/treatment_arm_drugs/0/name' was not of a minimum string length of 1                   | 2014-06-29 11:34:20.179 GMT | OPEN     | 1          |
+      | 2016-05-27 | APEC1621 | TA_test6 | Afatinib | covalent inhibitor | 1234      | EGFR Pathway | ALK  | 1,null,Afatinib,angiokinase inhibitor | FAILURE | The property '#/treatment_arm_drugs/0/name' of type NilClass did not match the following type: string | 2014-06-29 11:34:20.179 GMT | OPEN     | 1          |

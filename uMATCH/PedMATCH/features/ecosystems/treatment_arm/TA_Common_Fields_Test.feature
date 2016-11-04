@@ -73,7 +73,7 @@ Feature: TA_CF. Treatment Arm API common tests for all fields
     When creating a new treatment arm using post request
     Then a message with Status "SUCCESS" and message "Save to datastore." is returned:
 
-  @treatment_arm_p3
+@invalid
   Scenario: TA_CF5. Return failure message when treatment arm version is missing or empty
     Given that treatment arm is received from COG:
 	"""
