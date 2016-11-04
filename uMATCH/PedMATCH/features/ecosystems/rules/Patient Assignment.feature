@@ -257,12 +257,13 @@ Feature: Ensure the rules are fired correctly and patients are assigned to the r
     When assignPatient service is called for patient "PID-1234"
     Then a patient assignment json is returned with report_status "TREATMENT_FOUND"
 
+
   Scenario: PA_32: The rules engine should not select the treatment arm for the patient if patient has already taken the arm.
     Given  the patient assignment json "patient_json_with_matching_inclusion_variant_to_prior_treatment_arm"
     And treatment arm json "Rules-Test1"
     When assignPatient service is called for patient "PID-1234"
     Then a patient assignment json is returned with report_status "NO_TREATMENT_FOUND"
-    Then the patient assignment reason is "A match was found for prior treatment arm Rules-Test1 (100)."
+    Then the patient assignment reason is "Rules-Test1 (100) excluded because patient has already taken it or is not eligible."
 
 
 
