@@ -70,8 +70,8 @@ script:
   # Run UI tests
   - cd nci-match-ui-bddtests/
 #  - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$PRIORITY --troubleshoot
-
-  - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$P1,$CUC_TAG$P2 --troubleshoot
+  # Run protractor only if the tag is UI or demo
+  - if [ "$CUC_TAG" = "@ui" -o "$CUC_TAG" = "@demo" ]; then protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$P1,$CUC_TAG$P2 --troubleshoot; fi
   # Generate html report
   - node support/generate_report.js
   - cd ..
@@ -83,7 +83,7 @@ after_success:
 
   #Run protractor tests
   - cd ../../nci-match-ui-bddtests/
-  - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$P3 --troubleshoot
+  - if [ "$CUC_TAG" = "@ui" -o "$CUC_TAG" = "@demo" ]; then protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$P3 --troubleshoot; fi
   # Generate html report
   - node support/generate_report.js
   - cd ..
