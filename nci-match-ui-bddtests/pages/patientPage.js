@@ -170,7 +170,7 @@ var PatientPage = function () {
     // Patient details page right hand side top summary
     this.expectedDiseaseSummaryLabels = ['Disease Name', 'Disease Code Type', 'Disease Code', 'Prior Drugs'];
 
-    this.expectedPatientMainTabs = [ 'Summary', 'Surgical Event', 'Blood Variant Reports', 'Documents'];
+    this.expectedPatientMainTabs = [ 'Summary', 'Surgical Event', 'Blood Specimens', 'Documents'];
 
     this.expectedMainTabSubHeadings = [
         'Actions Needed', 'Patient Timeline',
