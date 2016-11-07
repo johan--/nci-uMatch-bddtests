@@ -52,7 +52,7 @@ PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
 PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
 PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
-PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi_increase)
+PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi_increase, '2016-05-02T19:42:13+00:00')
 PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani_increase)
 PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
 

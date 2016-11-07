@@ -272,11 +272,8 @@ class PatientMessageLoader
       folder='bdd_test_ion_reporter',
       tsv_name='test1.tsv')
     wait_until_updated(patient_id)
-    tier = Environment.getTier
-    Environment.setTier('local')
-      Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-dev', 'bdd_test_ion_reporter', molecular_id, analysis_id, tsv_name)
-      Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-int', 'bdd_test_ion_reporter', molecular_id, analysis_id, tsv_name)
-    Environment.setTier(tier)
+    Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-dev', 'bdd_test_ion_reporter', molecular_id, analysis_id, tsv_name)
+    Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-int', 'bdd_test_ion_reporter', molecular_id, analysis_id, tsv_name)
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['variant_file_uploaded']
     message['ion_reporter_id'] = folder
     message['molecular_id'] = molecular_id
@@ -296,11 +293,8 @@ class PatientMessageLoader
     s3_path = "#{folder}/#{molecular_id}/#{analysis_id}/#{json_name}"
     download_path = '/tmp'
     local_json = "/tmp/#{json_name}"
-    tier = Environment.getTier
-    Environment.setTier('local')
-      Helper_Methods.s3_download_file('pedmatch-dev', s3_path, download_path)
-      Helper_Methods.s3_upload_file(local_json, 'pedmatch-int', s3_path)
-    Environment.setTier(tier)
+    Helper_Methods.s3_download_file('pedmatch-dev', s3_path, download_path)
+    Helper_Methods.s3_upload_file(local_json, 'pedmatch-int', s3_path)
   end
 
   # def self.tsv_vcf_uploaded(

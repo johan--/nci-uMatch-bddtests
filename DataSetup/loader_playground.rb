@@ -3,7 +3,14 @@ require_relative 'treatment_arm_message_loader'
 require_relative 'dynamo_data_upload'
 require_relative 'dynamo_delete_script'
 
-############clear local dynamodb and load all seed data
+############start prepare patient data
+# DynamoDb.new('local').clear_all_tables
+# DynamoDataUploader.new('local').upload_ion_to_aws
+# TreatmentArmMessageLoader.load_treatment_arm_to_local('Treatment_Arm_data', 2)
+
+
+
+############clear local dynamodb and load all existing seed data
 DynamoDb.new('local').clear_all_tables
 DynamoDataUploader.new('local').upload_treatment_arm_to_aws
 DynamoDataUploader.new('local').upload_patient_data_to_aws
@@ -15,8 +22,6 @@ DynamoDataUploader.new('local').upload_ion_to_aws
 # DynamoDb.new('local').clear_all_treatment_arm_tables
 # DynamoDb.new('local').clear_all_ion_tables
 
-############upload treatment arms seed data
-# TreatmentArmMessageLoader.load_treatment_arm_to_local('Treatment_Arm_data', 2)
 
 
 
@@ -29,6 +34,11 @@ DynamoDataUploader.new('local').upload_ion_to_aws
 
 
 
+############clear aws dynamodb and load all seed data
+# DynamoDb.new('default').clear_all_tables
+# DynamoDataUploader.new('default').upload_treatment_arm_to_aws
+# DynamoDataUploader.new('default').upload_patient_data_to_aws
+# DynamoDataUploader.new('default').upload_ion_to_aws
 
 
 

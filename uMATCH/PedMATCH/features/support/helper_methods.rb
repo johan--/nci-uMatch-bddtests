@@ -420,7 +420,12 @@ class Helper_Methods
   end
 
   def self.is_local_tier
-    Environment.getTier == 'local'
+    begin
+      result = Environment.getTier == 'local'
+    rescue
+      return true
+    end
+    result
   end
 
   def self.s3_list_files(bucket,
@@ -470,8 +475,10 @@ class Helper_Methods
   def self.upload_vr_to_s3_if_needed(bucket, ion_folder, moi, ani, tsv_name = 'test1.tsv')
     template_folder = "#{path_for_named_parent_folder('nci-uMatch-bddtests')}/DataSetup/variant_file_templates"
     exist = s3_file_exists(bucket, "#{ion_folder}/#{moi}/#{ani}/#{tsv_name}")
-    if exist && is_local_tier
-      puts "#{moi} exists in S3 bucket #{bucket}, upload is skipped!"
+    if exist
+      if is_local_tier
+        puts "#{moi} exists in S3 bucket #{bucket}, upload is skipped!"
+      end
     else
       output_folder = "#{template_folder}/upload"
       target_ani_path = "#{output_folder}/#{moi}/#{ani}"
