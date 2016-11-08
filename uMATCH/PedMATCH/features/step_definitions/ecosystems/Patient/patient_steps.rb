@@ -273,6 +273,11 @@ end
 Then(/^patient should have variant report \(analysis_id: "([^"]*)"\) within (\d+) seconds$/) do |ani, timeout|
   url = "#{ENV['patients_endpoint']}/variant_reports?analysis_id=#{ani}"
   @current_variant_report = Patient_helper_methods.get_special_result_from_url(url, timeout, {'analysis_id': ani})
+  if @current_variant_report.is_a?(Array)
+    if @current_variant_report.length>1
+      raise "Expect 1 variant report returned, actually #{@current_variant_report.length} returned"
+    end
+  end
   @current_variant_report['analysis_id'].should == ani
 end
 

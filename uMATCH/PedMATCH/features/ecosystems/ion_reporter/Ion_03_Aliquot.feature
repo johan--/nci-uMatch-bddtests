@@ -26,6 +26,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then field: "ion_reporter_id" for this aliquot should be: "IR_TCWEV"
     Then field: "filename" for this aliquot should be: "test1"
     Then field: "molecular_id" for this aliquot should be: "SC_OAFXP"
+    Then field: "report_status" for this aliquot should be: "FAILED"
     And file: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/test1.tsv" should be available in S3
     And file: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/test1.json" should be available in S3
     And file: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/dna.bai" should be available in S3
@@ -202,7 +203,7 @@ Feature: Tests for aliquot service in ion ecosystem
 #  Scenario: ION_AQ25. for patient specimen, if the file uploading fails, aliquot service will not send message to patient ecosystem
 
   @ion_reporter_p2
-  Scenario: ION_AQ26. if the molecular id is neither a sample control nor patietn molecular id, aliquot PUT service should fail
+  Scenario: ION_AQ26. if the molecular id is neither a sample control nor patient molecular id, aliquot PUT service should fail
     Given molecular id is "NON_EXISTING_MOI"
     Then add field: "analysis_id" value: "NON_EXISTING_MOI_ANI1" to message body
     Then add field: "site" value: "mda" to message body

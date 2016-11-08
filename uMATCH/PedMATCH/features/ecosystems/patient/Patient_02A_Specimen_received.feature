@@ -157,7 +157,7 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
 #    Then patient should have variant report (analysis_id: "PT_SR14_BdVrUploaded_ANI1") within 15 seconds
 #    And this variant report has value: "REJECTED" in field: "status"
 
-  @patients_p1
+  @patients_p3
   Scenario: PT_SR14d. When a new TISSUE specimen_received message is received,  the pending BLOOD variant report should not change status
     Given template specimen received message in type: "TISSUE" for patient: "PT_SR14_BdVrUploaded1", it has surgical_event_id: "PT_SR14_BdVrUploaded1_SEI1"
     Then set patient message field: "collection_dt" to value: "2016-08-21"
