@@ -17,6 +17,7 @@ module.exports = function () {
     var shipmentTable   = STPage.shipmentTableElement;
     var shippingJSONResponse;
     var expectedResponse;
+    var actualSelectedArray;
 
     this.When (/^I collect information about shipment$/, function (callback) {
         shipmentDetails ().then (function (responseJSON) {
@@ -32,6 +33,12 @@ module.exports = function () {
         filter.sendKeys (molecularId).then (function () {
             browser.waitForAngular ()
         }).then (callback);
+    });
+
+    this.When(/^I enter "(.+?)" in the search field for tracking table$/, function (searchString, callback) {
+        STPage.searchField.sendKeys(searchString).then(function () {
+            browser.sleep(500)
+        }).then(callback);
     });
 
     this.Then (/^I see the Shipping Location section$/, function (callback) {
@@ -134,6 +141,44 @@ module.exports = function () {
         }
         browser.sleep (50).then (callback);
     });
+
+    this.Then(/^I expect to see "(.+?)" rows in the tracking table$/, function (count, callback) {
+        expect(STPage.tableElementList.count()).to.eventually.eql(parseInt(count)).notify(callback);
+    });
+
+    this.Then(/^I expect to see "(.+?)" rows with patient id of "(.+?)" for the specimens$/, function (cont, patientId, callback) {
+        STPage.tableElementList.all(by.binding('item.patient_id')).filter(function (elem, index) {
+            return(elem.getText().then(function (text) {
+                return text === patientId
+            }))
+        }).then(function(arra){
+            actualSelectedArray = arra;
+            expect(arra.length).to.eql(parseInt(cont))
+        }).then(callback);
+    });
+
+    this.Then(/^I expect to see "(.+?)" rows with surgical ids of "([^"]*)" for both specimens$/, function (cnt, surgicalId, callback) {
+        STPage.tableElementList.all(by.css('[ng-bind^="item.surgical_event_id"]')).filter(function (elem, index) {
+            return (elem.getText().then(function (text) {
+                
+                return text === surgicalId
+            }))
+        }).then(function(arra){
+            actualSelectedArray = arra;
+            expect(arra.length).to.eql(parseInt(cnt))
+        }).then(callback);
+    });
+
+    this.Then(/^I expect to see Molecular Ids of "([^"]*)" in the table\.$/, function (molecularIds, callback) {
+        var elementList = STPage.tableElementList.all(by.binding('item.molecular_id'))
+        var molecularIdList = molecularIds.split(',')
+        
+        browser.waitForAngular().then(function() {
+            utilities.checkIfElementListInExpectedArray(elementList, molecularIdList);
+        }).then(callback);
+        
+    });
+
 
     function shipmentDetails () {
         var request = utilities.callApi ('patient', '/api/v1/patients/shipments');

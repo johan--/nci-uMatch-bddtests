@@ -63,6 +63,15 @@ var Utilities = function() {
         }
     };
 
+    this.checkIfElementListInExpectedArray = function(elemList, expectedArray){
+        elemList.getText().then(function (text) {
+            for(var i = 0; i < text.length; i++){
+                expect(text).to.include(expectedArray[i]);
+            }
+            expect(text.length).to.eql(expectedArray.length);
+        })
+    };
+
     this.clickElementArray = function(elementArray, index){
         elementArray.get(index).click();
     };

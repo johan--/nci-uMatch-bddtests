@@ -403,7 +403,7 @@ module.exports = function () {
 
         expect (ltSideAssignmentValues.get (0).getText ()).to.eventually.eql (assignment.molecular_id);
         expect (ltSideAssignmentValues.get (1).getText ()).to.eventually.eql (assignment.analysis_id);
-        expect (ltSideAssignmentValues.get (2).getText ()).to.eventually.eql (assignment.status).notify (callback);
+        expect (ltSideAssignmentValues.get (2).getText ()).to.eventually.include (assignment.status).notify (callback);
     });
 
     this.Then (/^I can see more new top level details about assignment report$/, function (callback) {
