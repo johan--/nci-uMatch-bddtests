@@ -157,6 +157,13 @@ PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)
 PatientMessageLoader.variant_file_uploaded(pt.id, pt.bd_moi, pt.ani)
 PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.bd_moi, pt.ani)
 
+pt = PatientDataSet.new('PT_SR14d_BdVrUploaded')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_blood(pt.id)
+PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)
+PatientMessageLoader.variant_file_uploaded(pt.id, pt.bd_moi, pt.ani)
+PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.bd_moi, pt.ani)
+
 pt = PatientDataSet.new('PT_SR10_OffStudy')
 PatientMessageLoader.register_patient(pt.id)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
