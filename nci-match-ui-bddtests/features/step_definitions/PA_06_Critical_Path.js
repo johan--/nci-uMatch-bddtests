@@ -42,7 +42,7 @@ module.exports = function () {
         browser.ignoreSynchronization = true;
         expect (variantReportLink.isPresent ()).to.eventually.eql (true).then( function () {
             browser.ignoreSynchronization = false;
-            variantReportLink.click().then(function (){
+            browser.actions().mouseMove(variantReportLink).click().perform().then(function() {
                 browser.waitForAngular();
             });
         }, function () {
@@ -72,7 +72,7 @@ module.exports = function () {
     });
 
     this.When (/^I click on the assignment report link$/, function (callback) {
-        assignmentReportLink.click ().then (function () {
+        browser.mouseMove(assignmentReportLink).click().perform().then(function (){
             browser.waitForAngular ()
         }).then (callback);
     });

@@ -36,7 +36,7 @@ Feature: Treatment Arm Rules
     And I should see Exclusionary Drugs table
     And I should see Inclusionary Diseases table
 
-  @ui_p2 @fling
+  @ui_p2 
     Scenario: Logged in user can access the Non-Sequencing Assays details on the Rules Tab
     When I select the "Rules" Main Tab
     And I select the Non-Sequencing Assays sub-tab

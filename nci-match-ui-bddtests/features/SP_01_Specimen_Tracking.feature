@@ -19,7 +19,7 @@ Feature: Specimen Tracking page
     And I enter "molecular_id" from response at index "0" in the search field
     Then I can compare the details about shipment against the API
 
-    @ui_p2 @fling
+    @ui_p2
     Scenario: All Specimens assigned to a patient shows up on the tracking table
       When I enter "PT_CR05_SpecimenShippedTwice" in the search field for tracking table
       And I collect information about shipment
