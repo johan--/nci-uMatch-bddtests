@@ -8,7 +8,6 @@ Feature: Treatment Arm Rules
 
   Background:
     Given I am a logged in user
-    And I navigate to the treatment-arms page
     And I go to treatment arm with "APEC1621-UI" as the id and "STR100" as stratum id
     And I collect backend information about the treatment arm
 
@@ -37,7 +36,7 @@ Feature: Treatment Arm Rules
     And I should see Exclusionary Drugs table
     And I should see Inclusionary Diseases table
 
-  @ui_p2
+  @ui_p2 @fling
     Scenario: Logged in user can access the Non-Sequencing Assays details on the Rules Tab
     When I select the "Rules" Main Tab
     And I select the Non-Sequencing Assays sub-tab

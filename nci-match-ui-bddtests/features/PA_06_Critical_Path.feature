@@ -7,12 +7,11 @@ Feature: This is the critical path test cases
 
   Background: User goes to a patient with 'TISSUE_VARIANT_REPORT_RECEIVED' status
     Given I am a logged in user
-
+@fling
   Scenario: User can can see and click on a variant report and should be able to access the variant report page.
     And I go to patient "PT_CR04_VRUploadedAssayReceived" details page
     When I click on the "Surgical Event PT_CR04_VRUploadedAssayReceived_SEI1" tab
-    Then I should see the variant report link for "PT_CR04_VRUploadedAssayReceived_ANI1"
-    When I should click on the variant report link
+    Then I should see and click the variant report link for "PT_CR04_VRUploadedAssayReceived_ANI1"
     Then I can see the variant report page
 
   Scenario: User can see that all the variants are be default confirmed

@@ -466,9 +466,9 @@ var TreatmentArmsPage = function() {
         repeater.count().then(function (cnt) {
             if(cnt > 0) {
                 repeater.each(function (row, index) {
-                    row.all(by.binding('item.gene')).get(0).getText().then(function (gName) {
+                    row.all(by.css('cosmic-link[link-id="item.gene"]')).get(0).getText().then(function (gName) {
                         if (gName === assayGene){
-                            utils.checkValueInTable(row.all(by.binding('item.gene')), assayGene);
+                            utils.checkValueInTable(row.all(by.css('cosmic-link[link-id="item.gene"]')), assayGene);
                             utils.checkValueInTable(row.all(by.binding('item.assay_result_status')), assayResult);
                             // utils.checkValueInTable(row.all(by.binding('item.description')), assayDescription);
                             utils.checkValueInTable(row.all(by.binding('item.level_of_evidence')), assayLOE);

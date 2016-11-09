@@ -34,7 +34,7 @@ module.exports = function () {
         browser.sleep(50).then(callback);
     });
 
-    this.Then (/^I should see the variant report link for "(.+?)"$/, function (analysisId, callback) {
+    this.Then (/^I should see and click the variant report link for "(.+?)"$/, function (analysisId, callback) {
         patientPage.variantAnalysisId = analysisId;
         var varRepString              = 'div[ng-if="surgicalEvent"] a[href="#/patient/' + patientPage.patientId + '/variant_report?analysis_id=' + analysisId + '"]';
         console.log (varRepString);
@@ -42,12 +42,15 @@ module.exports = function () {
         browser.ignoreSynchronization = true;
         expect (variantReportLink.isPresent ()).to.eventually.eql (true).then( function () {
             browser.ignoreSynchronization = false;
+            variantReportLink.click().then(function (){
+                browser.waitForAngular();
+            });
         }, function () {
             browser.ignoreSynchronization = false
         }).then(callback);
     });
 
-    this.When (/^I should click on the variant report link$/, function (callback) {
+    this.When (/^I click on the variant report link$/, function (callback) {
         variantReportLink.element(by.css('i.fa.fa-file-text-o')).click ().then (function () {
             browser.waitForAngular ()
         }).then (callback);
