@@ -70,7 +70,7 @@ Feature: Patients request assignment tests
 #      | PT_RA03_PathoConfirmed      | PATHOLOGY_REVIEWED              | 2.0                 | 2.0              |         | Failure     | PATHOLOGY_REVIEWED              |
 
   @patients_p2
-  Scenario: PT_RA04. any message should be rejected if patient is on "REQUEST_NO_ASSIGNMENT" status
+  Scenario: PT_RA04. any message other than request assignment(Rebiopsy=Y) and off study should be rejected if patient is on "REQUEST_NO_ASSIGNMENT" status
 #    patient: "PT_RA04_ReqNoAssignment" with status: "REQUEST_NO_ASSIGNMENT" on step: "2.0"
     Given template variant report confirm message for patient: "PT_RA04_ReqNoAssignment", it has analysis_id: "PT_RA04_ReqNoAssignment_ANI2" and status: "confirm"
     When post to MATCH patients service, returns a message that includes "assignment" with status "Failure"
