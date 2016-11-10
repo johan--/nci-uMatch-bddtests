@@ -244,6 +244,27 @@ And(/^this specimen has pathology status: "([^"]*)"$/) do |pathology_status|
   @current_specimen['pathology_status'].should == converted_patho_status
 end
 
+And(/^this specimen should have a correct failed_date$/) do
+  unless @current_specimen.keys.include?('failed_date')
+    raise "specimen #{@current_specimen['surgical_event_id']} does not have field <failed_date>"
+  end
+  current_time = Time.now.utc.to_i
+  returned_result = DateTime.parse(@current_specimen['failed_date']).to_i
+  time_diff = current_time - returned_result
+  time_diff.should >=0
+  time_diff.should <=300
+end
+
+And(/^this specimen should not have field: "([^"]*)"$/) do |field|
+  expect_result = "specimen #{@current_specimen['surgical_event_id']} does not have field <#{field}>"
+  if @current_specimen.keys.include?(field)
+    actual_result = "specimen #{@current_specimen['surgical_event_id']} has field <#{field}>"
+  else
+    actual_result = expect_result
+  end
+  actual_result.should == expect_result
+end
+
 # # And(/^this specimen has assay: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
 # #   convert_value = value=='null'?nil:value
 # #   @current_specimen[field].should == convert_value
@@ -373,7 +394,7 @@ Then(/^COG received assignment status: "([^"]*)" for this patient$/) do |assignm
 
   expect_message = "Assignment status for patient #{@patient_id} is #{assignment_status}"
   actual_message = response['message']
-  if response['message'].include?assignment_status
+  if response['message'].include? assignment_status
     actual_message = "Assignment status for patient #{@patient_id} is #{assignment_status}"
   end
   actual_message.should == expect_message

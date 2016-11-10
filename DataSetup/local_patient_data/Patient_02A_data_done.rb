@@ -199,6 +199,24 @@ sleep(10.0)
 PatientMessageLoader.assignment_confirmed(pt.id, pt.ani)
 
 
+pt = PatientDataSet.new('PT_SR15_TsShipped')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+
+pt = PatientDataSet.new('PT_SR16_PendingApproval')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
+PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCMLH1s')
+PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
+PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.ani)
+sleep(10.0)
+PatientMessageLoader.assignment_confirmed(pt.id, pt.ani)
+
 PatientMessageLoader.upload_done
 
 

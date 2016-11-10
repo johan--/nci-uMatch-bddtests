@@ -68,9 +68,9 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     Then set patient message field: "collection_dt" to value: "<collectTime>"
     When post to MATCH patients service, returns a message that includes "<message>" with status "<status>"
     Examples:
-      | SEI                          | collectTime               | status  | message                |
-      | PT_SR09_TsReceivedTwice_SEI1 | 2016-04-30 | Failure | same surgical event id |
-      | PT_SR09_TsReceivedTwice_SEI2 | 2016-04-30 | Failure | same surgical event id |
+      | SEI                          | collectTime | status  | message                |
+      | PT_SR09_TsReceivedTwice_SEI1 | 2016-04-30  | Failure | same surgical event id |
+      | PT_SR09_TsReceivedTwice_SEI2 | 2016-04-30  | Failure | same surgical event id |
 
   @patients_p2
   Scenario Outline: PT_SR10a. tissue specimen_received message can only be accepted when patient is in certain status
@@ -182,3 +182,25 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
 #    surgical_event_id PT_SR14_RequestAssignment_SEI1 has been used in step 1.0
     Given template specimen received message in type: "TISSUE" for patient: "PT_SR14_RequestAssignment", it has surgical_event_id: "PT_SR14_RequestAssignment_SEI1"
     When post to MATCH patients service, returns a message that includes "same surgical event id" with status "Failure"
+
+  @patients_p2
+  Scenario: PT_SR15. when a new tissue specimen is received before variant report confirmed, the failed_date of last specimen should be set properly
+    Given template specimen received message in type: "TISSUE" for patient: "PT_SR15_TsShipped", it has surgical_event_id: "PT_SR15_TsShipped_SEI2"
+    Then set patient message field: "collection_dt" to value: "2016-08-21"
+    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    Then patient should have specimen (field: "surgical_event_id" is "PT_SR15_TsShipped_SEI2") within 30 seconds
+    Then patient should have specimen (field: "surgical_event_id" is "PT_SR15_TsShipped_SEI1") within 5 seconds
+    Then this specimen should have a correct failed_date
+
+
+  @patients_p2
+  Scenario: PT_SR16. when a new tissue specimen is received after variant report confirmed, the failed_date of last specimen should not be set
+    Given template request assignment message for patient: "PT_SR16_PendingApproval" with re-biopsy: "Y", step number: "1.0"
+    Then post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    Then patient field: "current_status" should have value: "REQUEST_ASSIGNMENT" within 30 seconds
+    Then template specimen received message in type: "TISSUE" for patient: "PT_SR16_PendingApproval", it has surgical_event_id: "PT_SR16_PendingApproval_SEI2"
+    Then set patient message field: "collection_dt" to value: "2016-08-21"
+    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    Then patient should have specimen (field: "surgical_event_id" is "PT_SR16_PendingApproval_SEI2") within 30 seconds
+    Then patient should have specimen (field: "surgical_event_id" is "PT_SR16_PendingApproval_SEI1") within 5 seconds
+    Then this specimen should not have field: "failed_date"
