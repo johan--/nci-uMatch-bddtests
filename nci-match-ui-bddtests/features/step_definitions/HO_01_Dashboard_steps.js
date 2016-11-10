@@ -50,18 +50,16 @@ module.exports = function() {
     });
 
     this.Then(/^I can see patients with Pending Tissue Variant Reports$/, function (callback) {
-        expect(dash.pendingTVRCount.getText()).to.eventually.eql(responseData.length.toString());
-        browser.sleep(20).then(callback);
+        expect(dash.pendingTVRCount.getText()).to.eventually.eql(responseData.length.toString()).notify(callback);
+       
     });
 
     this.Then(/^I can see patients with Pending Blood Variant Reports$/, function (callback) {
-        expect(dash.pendingBVRCount.getText()).to.eventually.eql(responseData.length.toString());
-        browser.sleep(20).then(callback);
+        expect(dash.pendingBVRCount.getText()).to.eventually.eql(responseData.length.toString()).notify(callback);
     });
 
     this.Then(/^I can see patients with Pending Assignment Reports$/, function (callback) {
-        expect(dash.pendingAssgnCount.getText()).to.eventually.eql(responseData.length.toString());
-        browser.sleep(20).then(callback);
+        expect(dash.pendingAssgnCount.getText()).to.eventually.eql(responseData.length.toString()).notify(callback);
     });
 
     this.Then(/^I can see the Patients Statistics Section$/, function (callback) {
