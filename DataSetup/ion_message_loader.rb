@@ -56,17 +56,16 @@ class IonMessageLoader
     sleep(@wait_time)
   end
 
-  def self.put_message_to_local(service, message_json)
+  def self.put_message_to_local(url, message_json)
     @all_items += 1
-    url = "#{LOCAL_PATIENT_API_URL}/#{service}"
     output = Helper_Methods.put_request(url, message_json.to_json)
     p "Output from running No.#{@all_items} curl: #{output['message']}"
-    unless output['message'].downcase.include?'success'
+    unless output['http_code']=='200'
       p 'Failed'
       puts JSON.pretty_generate(message_json)
       @failure += 1
     end
-    # sleep(@wait_time)
+    sleep(@wait_time)
   end
 
   def self.convert_date(date_string)
@@ -88,5 +87,15 @@ class IonMessageLoader
   def self.create_sample_control(site, control_type)
     url = "#{LOCAL_ION_API_URL}/sample_controls?site=#{site}&control_type=#{control_type}"
     post_request(url)
+  end
+
+  def self.create_variant_report(molecular_id,
+    message_json_name
+  )
+    url = "#{LOCAL_ION_API_URL}/aliquot/#{molecular_id}"
+    file_path = "#{File.dirname(__FILE__)}/local_patient_data/ion_aliquot_service_messages/#{message_json_name}"
+    message_json = JSON.parse(IO.read(file_path))
+    # puts message_json
+    put_message_to_local(url, message_json)
   end
 end
