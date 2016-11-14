@@ -5,10 +5,10 @@
 'use strict';
 var fs = require('fs');
 
-var patientPage = require ('../../pages/patientPage');
+var patientPage = require('../../pages/patientPage');
 
 // Utility Methods
-var utilities = require ('../../support/utilities');
+var utilities = require('../../support/utilities');
 
 module.exports = function () {
     var surgicalEventId = '';
@@ -42,7 +42,7 @@ module.exports = function () {
         var request = utilities.callApi('patient', '/api/v1/patients/' + patientPage.patientId);
 
         request.get().then(function () {
-            patientPage.responseData= JSON.parse(request.entity());
+            patientPage.responseData = JSON.parse(request.entity());
         }, function () {
             console.log("error occurred. Please review the trace to debug")
         }).then(callback);
@@ -61,9 +61,10 @@ module.exports = function () {
 
     this.Then(/^I should see the same number of surgical event tabs$/, function (callback) {
 
+        var response = patientPage.responseData['tissue_specimens']
         var expectedCount = 0
-        for (var i = 0; i < patientPage.responseData.length; i++){
-            if (patientPage.responseData[i].surgical_event_id !== null){
+        for (var i = 0; i < response.length; i++) {
+            if (response.surgical_event_id !== null) {
                 expectedCount++;
             }
         }
@@ -82,10 +83,11 @@ module.exports = function () {
     });
 
     this.Then(/^The Surgical Event Id match that of the backend$/, function (callback) {
-        for (var i = 0; i < patientPage.responseData.length; i++){
-            if (patientPage.responseData[i].surgical_event_id !== null){
-                surgicalEventId = patientPage.responseData[i].surgical_event_id;
-                surgicalEventData = patientPage.responseData[i];
+        var response = patientPage.responseData['tissue_specimens']
+        for (var i = 0; i < response.length; i++) {
+            if (response[i].surgical_event_id !== null) {
+                surgicalEventId = response[i].surgical_event_id;
+                surgicalEventData = response[i];
                 break;
             }
         }
@@ -110,7 +112,7 @@ module.exports = function () {
 
         browser.ignoreSynchronization = true;
         expect(actualHeaderBox.all(by.css('h4')).get(0).getText()).to.eventually.equal(section);
-        for( var i = 0; i < expectedHeaderBoxLabels.length; i++){
+        for (var i = 0; i < expectedHeaderBoxLabels.length; i++) {
             expect(actualHeaderLabels.get(i).getText()).to.eventually.equal(expectedHeaderBoxLabels[i]);
         }
         expect(actualHeaderLabels.count()).to.eventually.equal(expectedHeaderBoxLabels.length).notify(callback);

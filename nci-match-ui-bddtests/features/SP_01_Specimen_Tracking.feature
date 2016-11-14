@@ -16,7 +16,7 @@ Feature: Specimen Tracking page
     And I can see the Shipments table
     And I can see the Shipment table headers
     When I collect information about shipment
-    And I enter "molecular_id" from response at index "0" in the search field
+    And I enter the first available "molecular_id" in the search table
     Then I can compare the details about shipment against the API
 
     @ui_p2

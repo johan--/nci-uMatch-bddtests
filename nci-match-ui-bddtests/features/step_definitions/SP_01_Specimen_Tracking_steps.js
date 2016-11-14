@@ -35,6 +35,20 @@ module.exports = function () {
         }).then (callback);
     });
 
+    this.When(/^I enter the first available "(.+?)" in the search table$/, function (key, callback) {
+        for (var i = 0; i < shippingJSONResponse; i++ ){
+            if (shippingJSONResponse[i][key] !== undefined ){
+                expectedResponse = shippingJSONResponse [i];
+                break;
+            }
+        }
+        var keyValue = expectedResponse[ key ];
+        var filter      = element.all (by.model ('filterAll'));
+        filter.sendKeys (keyValue).then (function () {
+            browser.waitForAngular ()
+        }).then (callback);
+    })
+
     this.When(/^I enter "(.+?)" in the search field for tracking table$/, function (searchString, callback) {
         STPage.searchField.sendKeys(searchString).then(function () {
             browser.sleep(500)
@@ -160,7 +174,7 @@ module.exports = function () {
     this.Then(/^I expect to see "(.+?)" rows with surgical ids of "([^"]*)" for both specimens$/, function (cnt, surgicalId, callback) {
         STPage.tableElementList.all(by.css('[ng-bind^="item.surgical_event_id"]')).filter(function (elem, index) {
             return (elem.getText().then(function (text) {
-                
+
                 return text === surgicalId
             }))
         }).then(function(arra){
@@ -172,11 +186,11 @@ module.exports = function () {
     this.Then(/^I expect to see Molecular Ids of "([^"]*)" in the table\.$/, function (molecularIds, callback) {
         var elementList = STPage.tableElementList.all(by.binding('item.molecular_id'))
         var molecularIdList = molecularIds.split(',')
-        
+
         browser.waitForAngular().then(function() {
             utilities.checkIfElementListInExpectedArray(elementList, molecularIdList);
         }).then(callback);
-        
+
     });
 
 

@@ -83,7 +83,12 @@ module.exports = function () {
 
     this.When(/^I navigate to the (.+) page$/, function (pageName, callback) {
         browser.ignoreSynchronization = false;
-        dashboardPageObj.goToPageName(pageName).then(callback);
+        if (pageName === 'Clia Labs'){
+            var endpoint = 'clia-labs?site=MoCha&type=positive'
+            dashboardPageObj.goToPageName(endpoint).then(callback);
+        }else {
+            dashboardPageObj.goToPageName(pageName).then(callback);
+        }
     });
 
     this.Then(/^I should be able to the see "(.+?)" page$/, function (pageName, callback){

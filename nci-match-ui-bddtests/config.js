@@ -22,13 +22,6 @@ exports.config = {
         // Critical
         'features/PA_06_Critical_Path.feature',
 
-        //Treatment Arm details page
-        'features/TA_01_Analysis.feature',
-        'features/TA_02_Rules.feature',
-
-        // Dashboard page details page
-        'features/HO_01_Dashboard.feature',
-
         // Patient details page
         'features/PA_01_Patient_List.feature',
         'features/PA_02_Patient_Summary.feature',
@@ -37,6 +30,15 @@ exports.config = {
         'features/PA_05_Patient_Documents.feature',
         'features/SP_01_Specimen_Tracking.feature',
 
+        //Treatment Arm details page
+        'features/TA_01_Analysis.feature',
+        'features/TA_02_Rules.feature',
+
+        // Dashboard page details page
+        'features/HO_01_Dashboard.feature',
+
+        // Clia Lab page
+        'features/CL_01_CliaLab.feature',
         //Specimen Tracking page
         'features/SP_01_Specimen_Tracking.feature'
    ],
@@ -45,7 +47,9 @@ exports.config = {
 
     onPrepare: function () {
       browser.manage().timeouts().setScriptTimeout(60000);
+      browser.driver.manage().window().maximize();
     },
+    
     framework: 'custom',
     frameworkPath: require.resolve('protractor-cucumber-framework'),
     cucumberOpts: {
