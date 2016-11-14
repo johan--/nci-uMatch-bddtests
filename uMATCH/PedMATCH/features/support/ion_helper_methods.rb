@@ -68,15 +68,11 @@ class ION_helper_methods
   #     when 'TISSUE'
   #       @request_hash['specimen_shipped']['surgical_event_id'] = sei
   #       @request_hash['specimen_shipped']['molecular_id'] = moi_or_bc
-  #       @request_hash['specimen_shipped']['molecular_dna_id'] = moi_or_bc+'D'
-  #       @request_hash['specimen_shipped']['molecular_cdna_id'] = moi_or_bc+'C'
   #     when 'SLIDE'
   #       @request_hash['specimen_shipped']['surgical_event_id'] = sei
   #       @request_hash['specimen_shipped']['slide_barcode'] = moi_or_bc
   #     when 'BLOOD'
   #       @request_hash['specimen_shipped']['molecular_id'] = moi_or_bc
-  #       @request_hash['specimen_shipped']['molecular_dna_id'] = moi_or_bc+'D'
-  #       @request_hash['specimen_shipped']['molecular_cdna_id'] = moi_or_bc+'C'
   #   end
   #   @patient_message_root_key = 'specimen_shipped'
   # end

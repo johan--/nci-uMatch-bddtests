@@ -113,7 +113,8 @@ Feature: NCH Specimen shipped messages
       | SLIDE  |
 
   @patients_p2
-  Scenario Outline: PT_SS10. shipped tissue without molecular_id or molecular_dna_id or molecular_cdna_id fails
+  Scenario Outline: PT_SS10. shipped tissue without molecular_id fails
+  #or molecular_dna_id or molecular_cdna_id fails   ######not required any more
   #  Testing patient: PT_SS10_TissueReceived, surgical_event_id: PT_SS10_TissueReceived_SEI1
     Given template specimen shipped message in type: "TISSUE" for patient: "PT_SS10_TissueReceived", it has surgical_event_id: "PT_SS10_TissueReceived_SEI1", molecular_id or slide_barcode: "PT_SS10_TissueReceived_MOI1"
     Then remove field: "<field>" from patient message
@@ -121,8 +122,9 @@ Feature: NCH Specimen shipped messages
     Examples:
       | field             |
       | molecular_id      |
-      | molecular_dna_id  |
-      | molecular_cdna_id |
+     ######not required any more
+#      | molecular_dna_id  |
+#      | molecular_cdna_id |
 
   @patients_p2
   Scenario Outline: PT_SS11. shipped tissue with a existing surgical_event_id + molecular_id combination fails
@@ -303,8 +305,6 @@ Feature: NCH Specimen shipped messages
     #    Test patient: PT_SS27_VariantReportUploaded; variant report files uploaded: surgical_event_id: PT_SS27_VariantReportUploaded_SEI1, molecular_id: PT_SS27_VariantReportUploaded_MOI1, analysis_id: PT_SS27_VariantReportUploaded_ANI1
     #          Plan to ship new specimen using same surgical_event_id: PT_SS27_VariantReportUploaded_SEI1 but new molecular_id PT_SS27_VariantReportUploaded_MOI2
     Given template specimen shipped message in type: "TISSUE" for patient: "PT_SS27_VariantReportUploaded", it has surgical_event_id: "PT_SS27_VariantReportUploaded_SEI1", molecular_id or slide_barcode: "PT_SS27_VariantReportUploaded_MOI2"
-    Then set patient message field: "molecular_dna_id" to value: "PT_SS27_VariantReportUploaded_MOI2D"
-    Then set patient message field: "molecular_cdna_id" to value: "PT_SS27_VariantReportUploaded_MOI2C"
     Then set patient message field: "shipped_dttm" to value: "2016-08-01T15:17:11+00:00"
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
     Then patient field: "current_status" should have value: "TISSUE_NUCLEIC_ACID_SHIPPED" within 15 seconds

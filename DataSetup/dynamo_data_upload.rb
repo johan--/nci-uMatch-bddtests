@@ -15,10 +15,10 @@ class DynamoDataUploader
   SEED_FILE_PREFIX = 'nci_match_bddtests_seed_data'
 
   DEFAULT_OPTIONS = {
-    endpoint: DEFAULT_AWS_ENDPOINT,
-    region:   DEFAULT_AWS_REGION,
-    access_key_id: DEFAULT_AWS_ACCESS_KEY,
-    secret_access_key: DEFAULT_AWS_SECRET_KEY
+      endpoint: DEFAULT_AWS_ENDPOINT,
+      region: DEFAULT_AWS_REGION,
+      access_key_id: DEFAULT_AWS_ACCESS_KEY,
+      secret_access_key: DEFAULT_AWS_SECRET_KEY
   }
 
   def self.backup_all_local_db
@@ -66,15 +66,15 @@ class DynamoDataUploader
     elsif options == 'default'
       DEFAULT_OPTIONS
     else
-      @endpoint   = options[:endpoint].nil? ? DEFAULT_AWS_ENDPOINT : options[:endpoint]
-      @region     = options[:region].nil? ? DEFAULT_AWS_REGION : options[:region]
+      @endpoint = options[:endpoint].nil? ? DEFAULT_AWS_ENDPOINT : options[:endpoint]
+      @region = options[:region].nil? ? DEFAULT_AWS_REGION : options[:region]
       @access_key = options[:aws_access_key_id].nil? ? DEFAULT_AWS_ACCESS_KEY : options[:aws_access_key_id]
       @secret_key = options[:@secret_key].nil? ? DEFAULT_AWS_SECRET_KEY : options[:@secret_key]
       DEFAULT_OPTIONS.merge!(
-        endpoint: @endpoint,
-        region: @region,
-        access_key_id: @access_key,
-        secret_access_key: @secret_key
+          endpoint: @endpoint,
+          region: @region,
+          access_key_id: @access_key,
+          secret_access_key: @secret_key
       )
     end
 
@@ -129,13 +129,13 @@ class DynamoDataUploader
 
         converted_item[this_field] = extract_value(this_item[this_field])
       end
-      put_requests << { put_request: { item: converted_item } }
+      put_requests << {put_request: {item: converted_item}}
       if put_requests.count == 25 || (index == (items.count - 1) && put_requests.count > 0)
-        request = { request_items: { table_name => put_requests } }
+        request = {request_items: {table_name => put_requests}}
         begin
           @aws_db.batch_write_item(request)
           items_count += put_requests.count
-          put_requests.clear  
+          put_requests.clear
         rescue Aws::DynamoDB::Errors::ResourceNotFoundException => e
           puts "#{table_name} not found. Upload failed. Your tests may fail"
           p e.backtrace
@@ -184,6 +184,33 @@ class DynamoDataUploader
       p "#{class_name}-#{field_name} has invalid key #{field_object.keys[0]}"
     end
     length_correct && type_correct
+  end
+
+  def self.remove_field_for_file(file_name, field_name)
+    file_location = "#{File.dirname(__FILE__)}/#{SEED_DATA_FOLDER}/#{file_name}"
+    local_json = JSON.parse(File.read(file_location))
+    items = local_json['Items']
+    items_count = 0
+    items.each { |this_item|
+      items_count += recursive_delete_hash_key(this_item, field_name)
+    }
+    puts "There are #{items_count} #{field_name} fields get removed from file #{file_location}"
+
+    File.open(file_location, 'w') do |f|
+      f.write(JSON.pretty_generate(local_json))
+    end
+  end
+
+  def self.recursive_delete_hash_key(hash, field_name)
+    items_count = 0
+    if hash.keys.include?(field_name)
+      hash.delete(field_name)
+      items_count += 1
+    end
+    hash.each_value do |value|
+      items_count += recursive_delete_hash_key(value, field_name) if value.is_a? Hash
+    end
+    items_count
   end
 end
 

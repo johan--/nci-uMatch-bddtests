@@ -198,8 +198,6 @@ class PatientMessageLoader
     message['specimen_shipped']['patient_id'] = patient_id
     message['specimen_shipped']['surgical_event_id'] = surgical_event_id
     message['specimen_shipped']['molecular_id'] = molecular_id
-    message['specimen_shipped']['molecular_dna_id'] = molecular_id+'D'
-    message['specimen_shipped']['molecular_cdna_id'] = molecular_id+'C'
     message['specimen_shipped']['shipped_dttm'] = convert_date(shipped_time)
     message['specimen_shipped']['destination'] = destination
     send_message_to_local(message, patient_id)

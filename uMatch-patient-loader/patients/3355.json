@@ -70,9 +70,6 @@
       "surgical_event_id": "3355-bsn",
       "molecular_id": "3355-bsn-msn",
 
-      "molecular_dna_id": "00012D",
-      "molecular_cdna_id": "00012C",
-
       "carrier": "Federal Express",
       "tracking_id": "7956 4568 1235",
       "shipped_dttm": "2016-05-26T19:42:13+00:00",
@@ -121,9 +118,6 @@
       "surgical_event_id": "3355-bsn",
       "molecular_id": "3355-bsn-msn-2",
       "type": "TISSUE_DNA_AND_CDNA",
-
-      "molecular_dna_id": "00012D",
-      "molecular_cdna_id": "00012C",
 
       "carrier": "Federal Express",
       "tracking_id": "7956 4568 1235",

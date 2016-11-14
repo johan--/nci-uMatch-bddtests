@@ -88,8 +88,6 @@
       "type": "TISSUE_DNA_AND_CDNA",
       "surgical_event_id": "SEI_01",
       "molecular_id": "MOI_01",
-      "molecular_dna_id": "MOI_01D",
-      "molecular_cdna_id": "MOI_01C",
       "carrier": "Federal Express",
       "tracking_id": "7956 4568 1235",
       "shipped_dttm": "2016-05-01T19:42:13+00:00",

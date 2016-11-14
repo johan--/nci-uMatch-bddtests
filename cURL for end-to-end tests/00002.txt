@@ -84,8 +84,6 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 7bd2aa12-64de-3a48-
       "surgical_event_id": "00002-bsn",
       "molecular_id": "00002-bsn-msn",
 
-      "molecular_dna_id": "00012D",
-      "molecular_cdna_id": "00012C",
 
       "carrier": "Federal Express",
       "tracking_id": "7956 4568 1235",
@@ -347,9 +345,6 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: f1d8a465-87c8-c9cd-
 
       "surgical_event_id": "00002-bsn-2",
       "molecular_id": "00002-bsn-msn-2",
-
-      "molecular_dna_id": "00012D",
-      "molecular_cdna_id": "00012C",
 
       "carrier": "Federal Express",
       "tracking_id": "7956 4568 1235",
