@@ -16,7 +16,7 @@ module.exports = function() {
         'MoCha' : {
             'Positive Sample Controls': {
                 'element': clia.mochaPositiveGrid,
-                'control_type': 'postive'
+                'control_type': 'positive'
             },
             'No Template Control': {
                 'element': clia.mochaNoTemplateGrid,
@@ -38,11 +38,12 @@ module.exports = function() {
             },
             'Proficiency And Competency' : {
                 'element': clia.mdaProficiencyGrid,
-                'control_type': 'no_template'
+                'control_type': 'proficiency_competency'
             }
         }
-    }
+    };
 
+    var controlType;
 
 
     this.Then(/^I can see the Clia Labs page$/, function (callback) {
@@ -67,16 +68,40 @@ module.exports = function() {
     });
 
     this.When(/^I click on "([^"]*)" under "(MoCha|MD Andersson)"$/, function (subTabName, sectionName, callback) {
-         var elem = element(by.css('li[heading="' + subTabName + '"]'))
-         elem.click().then(function(){
-             browser.waitForAngular();
-         }).then(callback);
+        var elem = element(by.css('li[heading="' + subTabName + '"]'))
+
+        // Setting the Control type here in anticipation of future needs.
+        controlType = tabNameMap[sectionName][subTabName]['control_type'];
+
+        elem.click().then(function(){
+            browser.waitForAngular();
+        }).then(callback);
     });
 
     this.When(/^I collect information on "([^"]*)" under "(MoCha|MD Andersson)"$/, function (subTabName, sectionName, callback) {
-         var site = sectionName === 'MoCha' ? 'mocha' : 'mdacc';
+        var site = sectionName === 'MoCha' ? 'mocha' : 'mdacc';
+        var url  = '/api/v1/sample_controls?site=' + site + '&control_type=' + controlType;
+        var request = utilities.callApi('ion', url);
+        request.get().then(function() {
+             clia.responseData =JSON.parse(request.entity());
+        }).then(callback);
+    });
 
+    this.When(/^I collect new information on "([^"]*)" under "(MoCha|MD Andersson)"$/, function (subTabName, sectionName, callback) {
+        var site = sectionName === 'MoCha' ? 'mocha' : 'mdacc';
+        var url  = '/api/v1/sample_controls?site=' + site + '&control_type=' + controlType;
+        var request = utilities.callApi('ion', url);
+        request.get().then(function() {
+            clia.newResponseData =JSON.parse(request.entity());
+        }).then(callback);
+    });
 
+    this.When(/^I click on Generate MSN button$/, function (callback) {
+        var generateMSNProperty = element(by.css('form[ng-submit="generateMsn(\'' + controlType + '\')"]>input'));
+
+        generateMSNProperty .click().then(function () {
+            browser.waitForAngular();
+        }).then(callback);
     });
 
     this.Then(/^I verify that "([^"]*)" under "(MoCha|MD Andersson)" is active$/, function (subTabName, sectionName, callback) {
@@ -93,4 +118,21 @@ module.exports = function() {
          // Write code here that turns the phrase above into concrete actions
          callback(null, 'pending');
     });
+
+    this.Then(/^a new Molecular Id is created under the "(MoCha|MD Andersson)"$/, function (sectionName, callback) {
+        console.log(clia.responseData.length);
+        console.log(clia.newResponseData.length);
+         expect(clia.newResponseData.length).to.eql(clia.responseData.length + 1);
+        browser.sleep(50).then(callback)
+    });
+
+    this.When(/^I upload variant report to S3 with the generated MSN$/, function (callback) {
+         // Write code here that turns the phrase above into concrete actions
+         callback(null, 'pending');
+    });
+
+    this.Then(/^I see variant report details for the generated MSN$/, function (callback) {
+         // Write code here that turns the phrase above into concrete actions
+         callback(null, 'pending');
+       });
 };

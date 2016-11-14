@@ -47,7 +47,7 @@ module.exports = function () {
         filter.sendKeys (keyValue).then (function () {
             browser.waitForAngular ()
         }).then (callback);
-    })
+    });
 
     this.When(/^I enter "(.+?)" in the search field for tracking table$/, function (searchString, callback) {
         STPage.searchField.sendKeys(searchString).then(function () {

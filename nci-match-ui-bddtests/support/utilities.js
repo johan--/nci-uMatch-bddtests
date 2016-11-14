@@ -123,7 +123,8 @@ var Utilities = function() {
         var port;
         var portMap = {
             'patient'   : '10240',
-            'treatment' : '10235'
+            'treatment' : '10235',
+            'ion'       : '5000'
         };
         port = portMap[service];
 
