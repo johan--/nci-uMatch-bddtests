@@ -36,7 +36,7 @@ module.exports = function () {
     });
 
     this.When(/^I enter the first available "(.+?)" in the search table$/, function (key, callback) {
-        for (var i = 0; i < shippingJSONResponse; i++ ){
+        for (var i = 0; i < shippingJSONResponse.length; i++ ){
             if (shippingJSONResponse[i][key] !== undefined ){
                 expectedResponse = shippingJSONResponse [i];
                 break;
