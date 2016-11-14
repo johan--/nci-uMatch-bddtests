@@ -47,7 +47,7 @@ exports.config = {
 
     onPrepare: function () {
       browser.manage().timeouts().setScriptTimeout(60000);
-      browser.driver.manage().window().maximize();
+      browser.driver.manage().window().setSize(1600, 900);
     },
     
     framework: 'custom',

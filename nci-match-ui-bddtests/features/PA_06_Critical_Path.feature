@@ -7,7 +7,8 @@ Feature: This is the critical path test cases
 
   Background: User goes to a patient with 'TISSUE_VARIANT_REPORT_RECEIVED' status
     Given I am a logged in user
-@fling
+
+  @demo_p3
   Scenario: User can can see and click on a variant report and should be able to access the variant report page.
     And I go to patient "PT_CR04_VRUploadedAssayReceived" details page
     When I click on the "Surgical Event PT_CR04_VRUploadedAssayReceived_SEI1" tab
@@ -129,6 +130,7 @@ Feature: This is the critical path test cases
     When I go to patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" details page
     Then I "should" see the patient "Status" as "PENDING_CONFIRMATION"
 
+  @demo_p3
   Scenario: Assignment link is provided on the Surgical Event Tab
     When I go to patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" details page
     And I click on the Surgical Event Tab at index "0"

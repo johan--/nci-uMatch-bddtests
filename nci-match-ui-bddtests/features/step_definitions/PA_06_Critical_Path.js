@@ -42,11 +42,16 @@ module.exports = function () {
         browser.ignoreSynchronization = true;
         expect(variantReportLink.isPresent()).to.eventually.eql(true).then(function () {
             browser.ignoreSynchronization = false;
-            browser.sleep(5000).then(function () {
+            browser.executeScript('window.scrollTo(0, 5000)').then(function () {
                 browser.actions().mouseMove(variantReportLink).click().perform().then(function () {
                     browser.waitForAngular();
                 });
-            })
+            });
+            // browser.sleep(5000).then(function () {
+            //     browser.actions().mouseMove(variantReportLink).click().perform().then(function () {
+            //         browser.waitForAngular();
+            //     });
+            // })
         }, function () {
             browser.ignoreSynchronization = false
         }).then(callback);
@@ -74,11 +79,16 @@ module.exports = function () {
     });
 
     this.When(/^I click on the assignment report link$/, function (callback) {
-        browser.sleep(5000).then(function () {
-            browser.actions().mouseMove(assignmentReportLink).click().perform().then(function () {
+        browser.executeScript(window.scrollTo(0,5000)).then(function () {
+            assignmentReportLink.click().then(function () {
                 browser.waitForAngular()
             })
         }).then(callback);
+        // browser.sleep(5000).then(function () {
+        //     browser.actions().mouseMove(assignmentReportLink).click().perform().then(function () {
+        //         browser.waitForAngular()
+        //     })
+        // }).then(callback);
     });
 
     this.When(/^I uncheck the variant of ordinal "([^"]*)"$/, function (ordinal, callback) {

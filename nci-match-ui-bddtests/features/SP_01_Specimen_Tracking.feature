@@ -6,6 +6,7 @@ Feature: Specimen Tracking page
     When I navigate to the specimen-tracking page
 
   @ui_p2
+  @demo_p3
   Scenario: User can track Specimens
     Then I see the Shipping Location section
     And I see the Trend Analysis section
