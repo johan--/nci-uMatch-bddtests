@@ -239,3 +239,19 @@ Feature: TA_CF. Treatment Arm API common tests for all fields
       |APEC1621-CF7-5   | gene                  | GNA                                       | string   |
       |APEC1621-CF7-7   | study_id              | APEC1621                                  | string   |
       |APEC1621-CF7-8   | stratum_id            | kjg13gas                                  | string   |
+
+
+  @treatment_arm_p2
+  Scenario Outline: TA_CF12. Fields in the treatment arm response can be controlled by projections.
+    Given retrieving all treatment arms based on "<projection>"
+    Then each element should only have the keys listed in "<projection>"
+    Examples:
+      | projection                                |
+      | treatment_arm_id,gene,treatment_arm_drugs |
+      | treatment_arm_id,diseases,snv_indels      |
+
+
+  @treatment_arm_p2
+  Scenario: TA_CF13. If projected value does not exist then Array of empty objects are returned
+    Given retrieving all treatment arms based on "apple"
+    Then I should get an array of empty objects equal to the count of treatment arms

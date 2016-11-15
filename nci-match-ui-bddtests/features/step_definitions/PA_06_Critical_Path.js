@@ -47,11 +47,6 @@ module.exports = function () {
                     browser.waitForAngular();
                 });
             });
-            // browser.sleep(5000).then(function () {
-            //     browser.actions().mouseMove(variantReportLink).click().perform().then(function () {
-            //         browser.waitForAngular();
-            //     });
-            // })
         }, function () {
             browser.ignoreSynchronization = false
         }).then(callback);
@@ -84,11 +79,6 @@ module.exports = function () {
                 browser.waitForAngular()
             })
         }).then(callback);
-        // browser.sleep(5000).then(function () {
-        //     browser.actions().mouseMove(assignmentReportLink).click().perform().then(function () {
-        //         browser.waitForAngular()
-        //     })
-        // }).then(callback);
     });
 
     this.When(/^I uncheck the variant of ordinal "([^"]*)"$/, function (ordinal, callback) {

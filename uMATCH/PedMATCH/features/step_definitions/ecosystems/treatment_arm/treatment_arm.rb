@@ -70,6 +70,31 @@ Given(/^with variant report$/) do |variantReport|
   @jsonString = @taReq.to_json.to_s
 end
 
+Given(/^retrieving all treatment arms based on "(.+?)"$/) do |projection|
+  @projections = "?projection[]=#{projection.split(',').join('&projection[]=')}"
+  url = "#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{@projections}"
+  @response = Helper_Methods.get_request(url)
+end
+
+Then(/^I should get an array of empty objects equal to the count of treatment arms$/) do
+  complete_tas = Helper_Methods.get_request("#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms")
+
+  expected = JSON.parse(complete_tas['message'])
+  actual = JSON.parse(@response['message'])
+  expect(expected.size).to eql(actual.size)
+  expect(actual.first.size).to eql(0)
+
+end
+
+Then(/^each element should only have the keys listed in "(.+?)"$/) do |projection|
+  projection_array = projection.split(',')
+
+  # taking and comparing only the first element in the response
+  jsonResponse = JSON.parse(@response['message'])
+  expect(jsonResponse.first.size).to eql(projection_array.size)
+  expect(jsonResponse.first.keys).to eql(projection_array)
+end
+
 When(/^creating a new treatment arm using post request$/) do
   url = "#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{@ta_id}/#{@stratum_id}/#{@version}"
   @response = Helper_Methods.post_request(url, @jsonString)
