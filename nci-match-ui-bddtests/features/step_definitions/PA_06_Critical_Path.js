@@ -79,7 +79,7 @@ module.exports = function () {
     });
 
     this.When(/^I click on the assignment report link$/, function (callback) {
-        browser.executeScript(window.scrollTo(0,5000)).then(function () {
+        browser.executeScript('window.scrollTo(0,5000)').then(function () {
             assignmentReportLink.click().then(function () {
                 browser.waitForAngular()
             })
