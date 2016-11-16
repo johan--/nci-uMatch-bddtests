@@ -8,19 +8,21 @@ Feature: Patients off study tests
     Then patient field: "current_status" should have value: "OFF_STUDY" within 15 seconds
     Then patient field: "current_step_number" should have value: "<current_step_number>" within 15 seconds
     Examples:
-      | patient_id              | current_step_number |
-      | PT_OS01_Registered      | 1.0                 |
-      | PT_OS01_TsReceived      | 1.0                 |
-      | PT_OS01_TsShipped       | 2.0                 |
-      | PT_OS01_slideShipped    | 2.0                 |
-      | PT_OS01_AssayReceived   | 1.0                 |
-      | PT_OS01_TsVrReceived    | 2.0                 |
-      | PT_OS01_TsVrConfirmed   | 1.0                 |
-      | PT_OS01_TsVrRejected    | 1.0                 |
-      | PT_OS01_PendingApproval | 2.0                 |
-      | PT_OS01_OnTreatmentArm  | 1.1                 |
-      | PT_OS01_ReqAssignment   | 2.0                 |
-      | PT_OS01_ReqNoAssignment | 1.1                 |
+      | patient_id                | current_step_number |
+      | PT_OS01_Registered        | 1.0                 |
+      | PT_OS01_TsReceived        | 1.0                 |
+      | PT_OS01_TsShipped         | 2.0                 |
+      | PT_OS01_slideShipped      | 2.0                 |
+      | PT_OS01_AssayReceived     | 1.0                 |
+      | PT_OS01_TsVrReceived      | 2.0                 |
+      | PT_OS01_TsVrConfirmed     | 1.0                 |
+      | PT_OS01_TsVrRejected      | 1.0                 |
+      | PT_OS01_PendingApproval   | 2.0                 |
+      | PT_OS01_OnTreatmentArm    | 1.1                 |
+      | PT_OS01_ReqAssignment     | 2.0                 |
+      | PT_OS01_ReqNoAssignment   | 1.1                 |
+      | PT_OS01_NoTaAvailable     | 1.0                 |
+      | PT_OS01_CompassionateCare | 1.0                 |
     #no blood status is used anymore
 #  |PT_OS01_BdReceived     |BLOOD_SPECIMEN_RECEIVED          |2.0                |
 #  |PT_OS01_BdShipped      |BLOOD_NUCLEIC_ACID_SHIPPED       |2.0                |

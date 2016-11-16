@@ -79,14 +79,16 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     Then set patient message field: "collection_dt" to value: "2016-08-02"
     When post to MATCH patients service, returns a message that includes "<message>" with status "<status>"
     Examples:
-      | patient_id               | new_sei                       | status  | message                |
-      | PT_SR10_BdReceived       | PT_SR10_BdReceived_SEI2       | Success | processed successfully |
-      | PT_SR10_TsVrReceived     | PT_SR10_TsVrReceived_SEI2     | Success | processed successfully |
-      | PT_SR10_TsVRRejected     | PT_SR10_TsVRRejected_SEI2     | Success | processed successfully |
-      | PT_SR10_PendingApproval2 | PT_SR10_PendingApproval2_SEI2 | Failure | cannot transition from |
-      | PT_SR10_OnTreatmentArm   | PT_SR10_OnTreatmentArm_SEI2   | Failure | cannot transition from |
-      | PT_SR10_ProgressReBioY   | PT_SR10_ProgressReBioY_SEI2   | Success | processed successfully |
-      | PT_SR10_OffStudy         | PT_SR10_OffStudy_SEI2         | Failure | cannot transition from |
+      | patient_id                | new_sei                         | status  | message                |
+      | PT_SR10_BdReceived        | PT_SR10_BdReceived_SEI2         | Success | processed successfully |
+      | PT_SR10_TsVrReceived      | PT_SR10_TsVrReceived_SEI2       | Success | processed successfully |
+      | PT_SR10_TsVRRejected      | PT_SR10_TsVRRejected_SEI2       | Success | processed successfully |
+      | PT_SR10_PendingApproval2  | PT_SR10_PendingApproval2_SEI2   | Failure | cannot transition from |
+      | PT_SR10_OnTreatmentArm    | PT_SR10_OnTreatmentArm_SEI2     | Failure | cannot transition from |
+      | PT_SR10_ProgressReBioY    | PT_SR10_ProgressReBioY_SEI2     | Success | processed successfully |
+      | PT_SR10_OffStudy          | PT_SR10_OffStudy_SEI2           | Failure | cannot transition from |
+      | PT_SR10_NoTaAvailable     | PT_SR10_NO_TA_AVAILABLE_SEI2    | Failure | cannot transition from |
+      | PT_SR10_CompassionateCare | PT_SR10_COMPASSIONATE_CARE_SEI2 | Failure | cannot transition from |
       #there is no “PATHOLOGY_REVIEWED” status anymore
 #      | PT_SR10_UPathoReceived   | PT_SR10_UPathoReceived_SEI2   | Success | processed successfully |
 #      | PT_SR10_NPathoReceived   | PT_SR10_NPathoReceived_SEI2   | Success | processed successfully |

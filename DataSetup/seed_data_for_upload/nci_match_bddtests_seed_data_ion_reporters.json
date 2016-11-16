@@ -1,5 +1,5 @@
 {
-    "ConsumedCapacity": null,
+    "ScannedCount": 20,
     "Count": 20,
     "Items": [
         {
@@ -25,32 +25,32 @@
             }
         },
         {
-            "ir_status": {
-                "S": "Contacted 4 minutes ago"
-            },
-            "internal_ip_address": {
-                "S": "10.84.20.162"
-            },
-            "host_name": {
-                "S": "YSM-MATCH-IR"
-            },
             "ion_reporter_id": {
                 "S": "IR_SAO13"
             },
-            "site": {
-                "S": "yale"
+            "date_ion_reporter_id_created": {
+                "S": "2016-10-12 21:19:36.514328"
             },
             "last_contact": {
                 "S": "August 29, 2016 2:01 PM GMT"
             },
-            "ip_address": {
-                "S": "204.60.187.1"
+            "ir_status": {
+                "S": "Contacted 4 minutes ago"
+            },
+            "host_name": {
+                "S": "YSM-MATCH-IR"
             },
             "data_files": {
                 "S": "DB Report, Data File"
             },
-            "date_ion_reporter_id_created": {
-                "S": "2016-10-12 21:19:36.514328"
+            "site": {
+                "S": "yale"
+            },
+            "internal_ip_address": {
+                "S": "10.84.20.162"
+            },
+            "ip_address": {
+                "S": "204.60.187.1"
             }
         },
         {
@@ -120,14 +120,20 @@
             }
         },
         {
+            "ion_reporter_id": {
+                "S": "IR_NX0TL"
+            },
+            "date_ion_reporter_id_created": {
+                "S": "2016-10-12 21:19:43.815673"
+            },
             "last_contact": {
                 "S": "August 29, 2016 2:01 PM GMT"
             },
             "host_name": {
                 "S": "NCI-MATCH-IR"
             },
-            "ion_reporter_id": {
-                "S": "IR_NX0TL"
+            "data_files": {
+                "S": "DB Report"
             },
             "site": {
                 "S": "mocha"
@@ -137,12 +143,6 @@
             },
             "ip_address": {
                 "S": "129.43.39.182"
-            },
-            "data_files": {
-                "S": "DB Report"
-            },
-            "date_ion_reporter_id_created": {
-                "S": "2016-10-12 21:19:43.815673"
             }
         },
         {
@@ -201,119 +201,119 @@
             }
         },
         {
-            "ir_status": {
-                "S": "Contacted 4 minutes ago"
-            },
-            "internal_ip_address": {
-                "S": "10.133.226.13"
-            },
-            "host_name": {
-                "S": "NCIAS-D1356"
-            },
             "ion_reporter_id": {
                 "S": "IR_LB123"
             },
-            "site": {
-                "S": "mocha"
+            "date_ion_reporter_id_created": {
+                "S": "2016-10-12 21:19:36.514328"
             },
             "last_contact": {
                 "S": "August 29, 2016 2:01 PM GMT"
             },
-            "ip_address": {
-                "S": "10.133.226.13"
-            },
-            "data_files": {
-                "S": "DB Report"
-            },
-            "date_ion_reporter_id_created": {
-                "S": "2016-10-12 21:19:36.514328"
-            }
-        },
-        {
             "ir_status": {
                 "S": "Contacted 4 minutes ago"
-            },
-            "internal_ip_address": {
-                "S": "10.133.226.13"
             },
             "host_name": {
                 "S": "NCIAS-D1356"
             },
-            "ion_reporter_id": {
-                "S": "IR_WO3IA"
+            "data_files": {
+                "S": "DB Report"
             },
             "site": {
                 "S": "mocha"
+            },
+            "internal_ip_address": {
+                "S": "10.133.226.13"
+            },
+            "ip_address": {
+                "S": "10.133.226.13"
+            }
+        },
+        {
+            "ion_reporter_id": {
+                "S": "IR_WO3IA"
+            },
+            "date_ion_reporter_id_created": {
+                "S": "2016-10-12 21:19:36.514328"
             },
             "last_contact": {
                 "S": "August 29, 2016 2:01 PM GMT"
             },
-            "ip_address": {
-                "S": "10.133.226.13"
+            "ir_status": {
+                "S": "Contacted 4 minutes ago"
+            },
+            "host_name": {
+                "S": "NCIAS-D1356"
             },
             "data_files": {
                 "S": "DB Report"
             },
-            "date_ion_reporter_id_created": {
-                "S": "2016-10-12 21:19:36.514328"
+            "site": {
+                "S": "mocha"
+            },
+            "internal_ip_address": {
+                "S": "10.133.226.13"
+            },
+            "ip_address": {
+                "S": "10.133.226.13"
             }
         },
         {
-            "ir_status": {
-                "S": "Lost contact! Last heartbeat was sent 10255 minutes ago"
-            },
-            "internal_ip_address": {
-                "S": "129.43.127.133"
-            },
-            "host_name": {
-                "S": "NCI-MATCH-IR"
-            },
             "ion_reporter_id": {
                 "S": "IR_WAO85"
             },
-            "site": {
-                "S": "mocha"
+            "date_ion_reporter_id_created": {
+                "S": "2016-10-12 21:19:36.514328"
             },
             "last_contact": {
                 "S": "August 22, 2016 11:10 AM GMT"
             },
-            "ip_address": {
-                "S": "129.43.127.133"
+            "ir_status": {
+                "S": "Lost contact! Last heartbeat was sent 10255 minutes ago"
+            },
+            "host_name": {
+                "S": "NCI-MATCH-IR"
             },
             "data_files": {
                 "S": "Data File"
             },
-            "date_ion_reporter_id_created": {
-                "S": "2016-10-12 21:19:36.514328"
+            "site": {
+                "S": "mocha"
+            },
+            "internal_ip_address": {
+                "S": "129.43.127.133"
+            },
+            "ip_address": {
+                "S": "129.43.127.133"
             }
         },
         {
-            "ir_status": {
-                "S": "Contacted 4 minutes ago"
-            },
-            "internal_ip_address": {
-                "S": "172.20.174.24"
-            },
-            "host_name": {
-                "S": "MDACC-MATCH-IR"
-            },
             "ion_reporter_id": {
                 "S": "IR_AIO78"
             },
-            "site": {
-                "S": "mdacc"
+            "date_ion_reporter_id_created": {
+                "S": "2016-10-12 21:19:36.514328"
             },
             "last_contact": {
                 "S": "August 29, 2016 2:01 PM GMT"
             },
-            "ip_address": {
-                "S": "132.183.13.75"
+            "ir_status": {
+                "S": "Contacted 4 minutes ago"
+            },
+            "host_name": {
+                "S": "MDACC-MATCH-IR"
             },
             "data_files": {
                 "S": "Log File"
             },
-            "date_ion_reporter_id_created": {
-                "S": "2016-10-12 21:19:36.514328"
+            "site": {
+                "S": "mdacc"
+            },
+            "internal_ip_address": {
+                "S": "172.20.174.24"
+            },
+            "ip_address": {
+                "S": "132.183.13.75"
             }
         },
         {
@@ -328,5 +328,5 @@
             }
         }
     ],
-    "ScannedCount": 20
+    "ConsumedCapacity": null
 }

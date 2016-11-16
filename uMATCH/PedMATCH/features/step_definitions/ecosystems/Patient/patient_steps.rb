@@ -390,14 +390,31 @@ Given(/^patient: "([^"]*)" in mock service lost patient list, service will come 
 end
 
 Then(/^COG received assignment status: "([^"]*)" for this patient$/) do |assignment_status|
+  converted_status = assignment_status=='null'?nil:assignment_status
   response = COG_helper_methods.get_patient_assignment_status(@patient_id)
 
-  expect_message = "Assignment status for patient #{@patient_id} is #{assignment_status}"
-  actual_message = response['message']
-  if response['message'].include? assignment_status
-    actual_message = "Assignment status for patient #{@patient_id} is #{assignment_status}"
+  if response['message_json']['status'].nil?
+    raise response.to_json.to_s
+  else
+    response['message_json']['status'].should == converted_status
   end
-  actual_message.should == expect_message
+end
+
+Then(/^COG received assignment with treatment_arm_id: "([^"]*)" and stratum_id: "([^"]*)" for this patient$/) do |ta_id, stratum|
+  converted_ta_id = ta_id=='null'?nil:ta_id
+  converted_stratum = stratum=='null'?nil:stratum
+  response = COG_helper_methods.get_patient_assignment_status(@patient_id)
+
+  if response['message_json']['treatment_arm_id'].nil?
+    raise response.to_json.to_s
+  else
+    response['message_json']['treatment_arm_id'].should == converted_ta_id
+  end
+  if response['message_json']['stratum_id'].nil?
+    raise response.to_json.to_s
+  else
+    response['message_json']['stratum_id'].should == converted_stratum
+  end
 end
 
 def convert_string_to_bool(string)

@@ -368,7 +368,7 @@ class Helper_Methods
 
   def Helper_Methods.dateDDMMYYYYHHMMSS ()
     time = DateTime.current.utc
-    return (time - 4.hours).iso8601
+    return (time).iso8601
   end
 
   def Helper_Methods.dateYYYYMMDD ()
@@ -472,7 +472,7 @@ class Helper_Methods
 
   end
 
-  def self.upload_vr_to_s3_if_needed(bucket, ion_folder, moi, ani, tsv_name = 'test1.tsv')
+  def self.upload_vr_to_s3_if_needed(bucket, ion_folder, moi, ani, tsv_name = 'test1.tsv', template_type = 'default')
     template_folder = "#{path_for_named_parent_folder('nci-uMatch-bddtests')}/DataSetup/variant_file_templates"
     exist = s3_file_exists(bucket, "#{ion_folder}/#{moi}/#{ani}/#{tsv_name}")
     if exist
@@ -482,7 +482,7 @@ class Helper_Methods
     else
       output_folder = "#{template_folder}/upload"
       target_ani_path = "#{output_folder}/#{moi}/#{ani}"
-      template_ani_path = "#{template_folder}/template_moi/template_ani"
+      template_ani_path = "#{template_folder}/#{template_type}"
 
       cmd = "mkdir -p #{target_ani_path}"
       `#{cmd}`
@@ -519,6 +519,14 @@ class Helper_Methods
     `#{cmd}`
     if is_local_tier
       puts "#{file_path} has been uploaded to S3 #{bucket}/#{s3_path}"
+    end
+  end
+
+  def self.s3_cp_file(source_path, target_path)
+    cmd = "aws s3 cp #{source_path}  s3://#{target_path} --recursive --region us-east-1"
+    `#{cmd}`
+    if is_local_tier
+      puts "#{source_path} has been uploaded to #{target_path}"
     end
   end
 

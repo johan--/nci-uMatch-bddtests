@@ -268,10 +268,11 @@ class PatientMessageLoader
       molecular_id,
       analysis_id,
       folder='bdd_test_ion_reporter',
-      tsv_name='test1.tsv')
+      tsv_name='test1.tsv',
+      vr_type='default')
     wait_until_updated(patient_id)
-    Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-dev', 'bdd_test_ion_reporter', molecular_id, analysis_id, tsv_name)
-    Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-int', 'bdd_test_ion_reporter', molecular_id, analysis_id, tsv_name)
+    Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-dev', folder, molecular_id, analysis_id, tsv_name, vr_type)
+    Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-int', folder, molecular_id, analysis_id, tsv_name, vr_type)
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['variant_file_uploaded']
     message['ion_reporter_id'] = folder
     message['molecular_id'] = molecular_id
@@ -288,11 +289,9 @@ class PatientMessageLoader
       folder='bdd_test_ion_reporter',
       json_name='test1.json')
     wait_until_updated(patient_id)
-    s3_path = "#{folder}/#{molecular_id}/#{analysis_id}/#{json_name}"
-    download_path = '/tmp'
-    local_json = "/tmp/#{json_name}"
-    Helper_Methods.s3_download_file('pedmatch-dev', s3_path, download_path)
-    Helper_Methods.s3_upload_file(local_json, 'pedmatch-int', s3_path)
+    dev_path = "s3://pedmatch-dev/#{folder}/#{molecular_id}/#{analysis_id}/#{json_name}"
+    int_path = "s3://pedmatch-int/#{folder}/#{molecular_id}/#{analysis_id}/#{json_name}"
+    Helper_Methods.s3_cp_file(dev_path, int_path)
   end
 
   # def self.tsv_vcf_uploaded(

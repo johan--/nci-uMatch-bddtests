@@ -120,8 +120,8 @@ Feature: NCH Specimen shipped messages
     Then remove field: "<field>" from patient message
     When post to MATCH patients service, returns a message that includes "<field>" with status "Failure"
     Examples:
-      | field             |
-      | molecular_id      |
+      | field        |
+      | molecular_id |
      ######not required any more
 #      | molecular_dna_id  |
 #      | molecular_cdna_id |
@@ -200,6 +200,7 @@ Feature: NCH Specimen shipped messages
   Scenario: PT_SS17a. shipped tissue without tissue received fails
     Given template specimen shipped message in type: "TISSUE" for patient: "PT_SS17a_Registered", it has surgical_event_id: "PT_SS17a_Registered_SEI1", molecular_id or slide_barcode: "PT_SS17a_Registered_MOI1"
     When post to MATCH patients service, returns a message that includes "Unable to find a TISSUE specimen" with status "Failure"
+
   @patients_p2
   Scenario: PT_SS17b. shipped slide without tissue received fails
     Given template specimen shipped message in type: "SLIDE" for patient: "PT_SS17b_Registered", it has surgical_event_id: "PT_SS17b_Registered_SEI1", molecular_id or slide_barcode: "PT_SS17b_Registered_BC1"
@@ -288,15 +289,15 @@ Feature: NCH Specimen shipped messages
     Then set patient message field: "shipped_dttm" to value: "2016-07-28T15:17:11+00:00"
     When post to MATCH patients service, returns a message that includes "<message>" with status "<status>"
     Examples:
-      | patient_id               | moi                              | status  | message                |
-      | PT_SS26_TsReceived       | PT_SS26_TsReceived_BD_MOI1       | Success | processed successfully |
-      | PT_SS26_TsShipped        | PT_SS26_TsShipped_BD_MOI1        | Success | processed successfully |
-      | PT_SS26_AssayConfirmed   | PT_SS26_AssayConfirmed_BD_MOI1   | Success | processed successfully |
-      | PT_SS26_TsVRReceived     | PT_SS26_TsVRReceived_BD_MOI1     | Success | processed successfully |
-      | PT_SS26_TsVRConfirmed    | PT_SS26_TsVRConfirmed_BD_MOI1    | Success | processed successfully |
-      | PT_SS26_PendingApproval1 | PT_SS26_PendingApproval1_BD_MOI1 | Success | processed successfully |
-      | PT_SS26_RequestAssignment      | PT_SS26_Progression_BD_MOI1      | Success | processed successfully |
-      | PT_SS26_OffStudy         | PT_SS26_OffStudy_BD_MOI1         | Failure | cannot transition from |
+      | patient_id                | moi                              | status  | message                |
+      | PT_SS26_TsReceived        | PT_SS26_TsReceived_BD_MOI1       | Success | processed successfully |
+      | PT_SS26_TsShipped         | PT_SS26_TsShipped_BD_MOI1        | Success | processed successfully |
+      | PT_SS26_AssayConfirmed    | PT_SS26_AssayConfirmed_BD_MOI1   | Success | processed successfully |
+      | PT_SS26_TsVRReceived      | PT_SS26_TsVRReceived_BD_MOI1     | Success | processed successfully |
+      | PT_SS26_TsVRConfirmed     | PT_SS26_TsVRConfirmed_BD_MOI1    | Success | processed successfully |
+      | PT_SS26_PendingApproval1  | PT_SS26_PendingApproval1_BD_MOI1 | Success | processed successfully |
+      | PT_SS26_RequestAssignment | PT_SS26_Progression_BD_MOI1      | Success | processed successfully |
+      | PT_SS26_OffStudy          | PT_SS26_OffStudy_BD_MOI1         | Failure | cannot transition from |
       #there is no “PATHOLOGY_REVIEWED” status anymore
 #      | PT_SS26_PathologyConfirmed | PT_SS26_PathologyConfirmed_BD_MOI1 | Success | processed successfully |
 
@@ -355,4 +356,17 @@ Feature: NCH Specimen shipped messages
       | TISSUE | PT_SS30_TsBdReceived_SEI1 | PT_SS30_TsBdReceived_MOI1    |
       | BLOOD  |                           | PT_SS30_TsBdReceived_BD_MOI1 |
       | SLIDE  | PT_SS30_TsBdReceived_SEI1 | PT_SS30_TsBdReceived_BC1     |
+
+  @patients_p2
+  Scenario Outline: PT_SS31. tissue or slide specimen cannot be shipped when patient is on NO_TA_AVAILABLE or COMPASSIONATE_CARE status
+    Given template specimen shipped message in type: "<type>" for patient: "<patient_id>", it has surgical_event_id: "<sei>", molecular_id or slide_barcode: "<id>"
+    Then set patient message field: "shipped_dttm" to value: "2016-08-01T15:17:11+00:00"
+    When post to MATCH patients service, returns a message that includes "cannot transition from" with status "Failure"
+    Examples:
+      | patient_id                | type   | sei                            | id                             |
+      | PT_SS31_NoTaAvailable     | TISSUE | PT_SS31_NoTaAvailable_SEI1     | PT_SS31_NoTaAvailable_MOI2     |
+      | PT_SS31_NoTaAvailable     | SLIDE  | PT_SS31_NoTaAvailable_SEI1     | PT_SS31_NoTaAvailable_BC2      |
+      | PT_SS31_CompassionateCare | TISSUE | PT_SS31_CompassionateCare_SEI1 | PT_SS31_CompassionateCare_MOI2 |
+      | PT_SS31_CompassionateCare | SLIDE  | PT_SS31_CompassionateCare_SEI1 | PT_SS31_CompassionateCare_BC2  |
+
 

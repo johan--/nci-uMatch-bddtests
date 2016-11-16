@@ -6,12 +6,15 @@ Feature: Patients assignment tests
 #    patient: PT_AM01_TsVrReceived1 will have a closed TA available
     Given template variant report confirm message for patient: "<patient_id>", it has analysis_id: "<ani>" and status: "confirm"
     When put to MATCH variant report confirm service, returns a message that includes "processed successfully" with status "Success"
-    Then wait for "60" seconds
-    Then COG received assignment status: "<assignment_status>" for this patient
+    Then patient field: "current_status" should have value: "PENDING_CONFIRMATION" within 45 seconds
+    Then template assignment report confirm message for patient: "<patient_id>", it has analysis_id: "<ani>" and status: "confirm"
+    When put to MATCH assignment report confirm service, returns a message that includes "processed successfully" with status "Success"
+    Then patient field: "current_status" should have value: "<patient_status>" within 45 seconds
+    Then COG received assignment status: "<patient_status>" for this patient
     Examples:
-      | patient_id            | ani                        | assignment_status  |
-      | PT_AM01_TsVrReceived1 | PT_AM01_TsVrReceived1_ANI1 | NO_TA_AVAILABLE    |
-#      | PT_AM01_TsVrReceived2 | PT_AM01_TsVrReceived2_ANI1 | COMPASSIONATE_CARE |
+      | patient_id            | ani                        | patient_status  |
+      | PT_AM01_TsVrReceived1 | PT_AM01_TsVrReceived1_ANI1 | NO_TA_AVAILABLE |
+      | PT_AM01_TsVrReceived2 | PT_AM01_TsVrReceived2_ANI1 | COMPASSIONATE_CARE |
 
   @patients_p2
   Scenario: PT_AM02. patient can reach PENDING_CONFIRMATION status even cog service collapses during assignment processing
