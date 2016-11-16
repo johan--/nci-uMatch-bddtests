@@ -3,7 +3,7 @@ services:
   - docker
 language: node_js
 node_js:
-  - "6.0"
+  - "5"
 before_install:
   - echo $TRIGGER_REPO
   - echo $TRIGGER_VER

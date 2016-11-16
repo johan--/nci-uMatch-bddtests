@@ -8,7 +8,7 @@ exports.config = {
 
     //seleniumAddress: 'http://localhost:4444/wd/hub',
 //    chromeOnly: true,
-    //directConnect: true,
+    directConnect: true,
     capabilities: {
         browserName: 'firefox',
         version: ''
@@ -49,7 +49,7 @@ exports.config = {
       browser.manage().timeouts().setScriptTimeout(60000);
       browser.driver.manage().window().setSize(1600, 900);
     },
-    
+
     framework: 'custom',
     frameworkPath: require.resolve('protractor-cucumber-framework'),
     cucumberOpts: {
