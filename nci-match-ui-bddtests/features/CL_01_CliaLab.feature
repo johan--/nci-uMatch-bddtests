@@ -32,32 +32,35 @@ Feature: Clia Labs Page
       | MD Andersson | No Template Control        |
       | MD Andersson | Proficiency And Competency |
 
-    @ui_p1
-    Scenario Outline: User can generate an MSN under <sectionName> section
-      When I click on the "<sectionName>" section
-      And I click on "<subTabName>" under "<sectionName>"
-      And I collect information on "<subTabName>" under "<sectionName>"
-      And I click on Generate MSN button
-      And I collect new information on "<subTabName>" under "<sectionName>"
-      Then a new Molecular Id is created under the "<sectionName>"
-      Examples:
+  @ui_p1
+  Scenario Outline: User can generate an MSN under <sectionName> section
+    When I click on the "<sectionName>" section
+    And I click on "<subTabName>" under "<sectionName>"
+    And I collect information on "<subTabName>" under "<sectionName>"
+    And I click on Generate MSN button
+    And I collect new information on "<subTabName>" under "<sectionName>"
+    Then a new Molecular Id is created under the "<sectionName>"
+    Examples:
       | sectionName  | subTabName                 |
       | MoCha        | Positive Sample Controls   |
-      # | MoCha        | No Template Control        |
-      # | MoCha        | Proficiency And Competency |
-      # | MD Andersson | Positive Sample Controls   |
-      # | MD Andersson | No Template Control        |
-      # | MD Andersson | Proficiency And Competency |
+      | MoCha        | No Template Control        |
+      | MoCha        | Proficiency And Competency |
+      | MD Andersson | Positive Sample Controls   |
+      | MD Andersson | No Template Control        |
+      | MD Andersson | Proficiency And Competency |
 
-    @ui_p1
-    Scenario: User can add a varinat report to a generated MSN
-      When I click on the "MoCha" section
-      And I click on "Positive Sample Controls" under "MoCha"
-      And I click on Generate MSN button
-      And I upload variant report to S3 with the generated MSN
-      And I wait "20" seconds
-      And I navigate to the Clia Labs page
-      Then I see variant report details for the generated MSN
-
-
-
+  @ui_p1
+  Scenario: User can add a variant report to a generated MSN
+    When I click on the "MoCha" section
+    And I click on "Positive Sample Controls" under "MoCha"
+    And I collect information on "Positive Sample Controls" under "MoCha"
+    And I click on Generate MSN button
+    And I collect new information on "Positive Sample Controls" under "MoCha"
+    And I capture the new MSN created
+    And I upload variant report to S3 with the generated MSN
+    And I wait "10" seconds
+    And I call the aliquot service with the generated MSN
+    And I wait "30" seconds
+    And I navigate to the Clia Labs page
+    Then I see variant report details for the generated MSN
+    And I delete the variant reports uploaded to S3

@@ -8,7 +8,7 @@ var fs = require('fs');
 var utilities = require ('../../support/utilities');
 var dash      = require ('../../pages/dashboardPage');
 var clia      = require ('../../pages/CLIAPage');
-
+var nodeCmd   = require ('node-cmd');
 module.exports = function() {
     this.World = require ('../step_definitions/world').World;
 
@@ -72,6 +72,7 @@ module.exports = function() {
 
         // Setting the Control type here in anticipation of future needs.
         controlType = tabNameMap[sectionName][subTabName]['control_type'];
+        clia.tableElement = tabNameMap[sectionName][subTabName];
 
         elem.click().then(function(){
             browser.waitForAngular();
@@ -120,19 +121,84 @@ module.exports = function() {
     });
 
     this.Then(/^a new Molecular Id is created under the "(MoCha|MD Andersson)"$/, function (sectionName, callback) {
-        console.log(clia.responseData.length);
-        console.log(clia.newResponseData.length);
-         expect(clia.newResponseData.length).to.eql(clia.responseData.length + 1);
-        browser.sleep(50).then(callback)
+        expect(clia.newResponseData.length).to.eql(clia.responseData.length + 1).notify(callback);
     });
 
     this.When(/^I upload variant report to S3 with the generated MSN$/, function (callback) {
-         // Write code here that turns the phrase above into concrete actions
-         callback(null, 'pending');
+        clia.bucketName = browser.baseUrl.match('localhost') ? 'pedmatch-dev' : 'pedmatch-int';
+        clia.molecularId = clia.newMSNObject['molecular_id'];
+        clia.analysisId = clia.molecularId + '_ANI';
+        clia.S3Path = clia.molecularId + '/' + clia.analysisId;
+
+        browser.sleep(50).then(function () {
+            nodeCmd.get(
+                `cd ../DataSetup/variant_file_templates 
+                mkdir -p ${clia.S3Path} 
+                cp -r ir_template/* ${clia.S3Path}
+                aws s3 cp ${clia.molecularId}  s3://${clia.bucketName}/IR_UITEST/${clia.molecularId} --recursive --region us-east-1 `
+                ,
+                function(data){
+                    console.log(data);
+                    console.log('Copied data from ' + clia.molecularId + 'to S3 with bucket name' + clia.bucketName);
+                }
+            )
+        }).then(callback);
+    });
+
+    this.When(/^I delete the variant reports uploaded to S3$/, function(callback){
+       browser.sleep(50).then(function () {
+           nodeCmd.get(
+               `aws s3 rm ${clia.molecularId}  s3://${clia.bucketName}/IR_UITEST/${clia.molecularId} --recursive --region us-east-1 `
+               ,
+               function (data) {
+                   console.log(data);
+               }
+           )
+       }).then(callback)
+    });
+
+    this.When(/^I call the aliquot service with the generated MSN$/, function(callback){
+        var path = 'IR_UITEST/' + clia.S3Path;
+        var data = 	{
+            "analysis_id": clia.analysisId,
+            "site": "mocha",
+            "ion_reporter_id": "IR_UITEST",
+            "vcf_name": path + '/test1.vcf',
+            "dna_bam_name": path + '/dna.bam',
+            "cdna_bam_name": path + '/cdna.bam'
+        };
+
+        console.log(data);
+        browser.sleep(50).then(function () {
+            utilities.putApi('ion', '/api/v1/aliquot/' + clia.molecularId, data)
+        }).then(callback)
     });
 
     this.Then(/^I see variant report details for the generated MSN$/, function (callback) {
-         // Write code here that turns the phrase above into concrete actions
-         callback(null, 'pending');
-       });
+        //Entering the new MSN generated in to the search field
+        clia.tableElement['element'].element(by.css('input')).sendKeys(clia.molecularId);
+        browser.waitForAngular().then(function () {
+            var firstRow = element.all(by.css('[ng-repeat^="item in filtered"]')).get(0)
+            expect(firstRow.all(by.binding('item.molecular_id')).get(0).getText()).to.eventually.eql(clia.molecularId);
+            expect(firstRow.all(by.css('a')).get(0).isPresent()).to.eventually.eql(true);
+            expect(firstRow.all(by.css('a')).get(0).getText()).to.eventually.eql(clia.molecularId);
+        }).then(callback)
+    });
+
+    this.When(/^I capture the new MSN created$/, function (callback) {
+        var oldMolecularIds = [];
+        var newMolecularIds = [];
+        for (var i = 0; i < clia.responseData.length; i++) {
+            oldMolecularIds.push(clia.responseData[i]["molecular_id"]);
+        }
+        for (var i = 0; i < clia.newResponseData.length; i++) {
+            newMolecularIds.push(clia.newResponseData[i]["molecular_id"]);
+        }
+        clia.newMSNObject = clia.newResponseData.filter(function (item) {
+            return oldMolecularIds.indexOf(item["molecular_id"]) < 0;
+        })[0];
+
+        console.log(clia.newMSNObject);
+        browser.sleep(50).then(callback);
+    });
 };

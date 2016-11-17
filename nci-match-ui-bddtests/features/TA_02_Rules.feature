@@ -36,9 +36,30 @@ Feature: Treatment Arm Rules
     And I should see Exclusionary Drugs table
     And I should see Inclusionary Diseases table
 
-  @ui_p2 
-    Scenario: Logged in user can access the Non-Sequencing Assays details on the Rules Tab
+  @ui_p2
+  Scenario: Logged in user can access the Non-Sequencing Assays details on the Rules Tab
     When I select the "Rules" Main Tab
     And I select the Non-Sequencing Assays sub-tab
     Then I should see that Non-Sequencing Assays sub-tab is active
     And I should see the Non-Sequencing Assays table
+
+  @ui_p2
+  Scenario Outline: Check for links in the <subTabName> table.
+    When I select the "Rules" Main Tab
+    And I select the <subTabName> sub-tab
+    And I select the Inclusion button
+    And I get the index of the "<columnName>" value in "<subTabName>" and "Inclusion"
+    Then I see that the element is a link
+    Examples:
+      | subTabName            | columnName |
+      | SNVs / MNVs / Indels  | ID         |
+      | CNVs                  | Gene       |
+      | Gene Fusions          | ID         |
+      | Non-Hotspot Rules     | Gene       |
+
+  @ui_p2
+  Scenario: Check for links in the Non-Sequencing Assays table.
+    When I select the "Rules" Main Tab
+    And I select the Non-Sequencing Assays sub-tab
+    And I get the index of the "Gene" value in "Non-Sequencing Assays" and "None"
+    Then I see that the element is a link

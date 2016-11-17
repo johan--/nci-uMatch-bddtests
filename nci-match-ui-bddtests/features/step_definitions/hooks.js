@@ -20,7 +20,7 @@ module.exports = function() {
       //this.AfterFeatures(function () {
       //    var Reporter = require('cucumber-html-report');
       //    var options = {
-      //        source: process.cwd() + '/../results/result.json',
+      //        source: process.cwd() + '/../results/output.json',
       //        dest:   '/../results',
       //        name:   'report.html',
       //        title:  'Results in html'

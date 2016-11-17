@@ -31,7 +31,7 @@ module.exports = function () {
         }).then(callback);
     });
 
-    this.Then(/I should see Exclusionary Drugs table/, function (callback) {
+    this.Then(/^I should see Exclusionary Drugs table$/, function (callback) {
         var firstPart;
         var refData;        // Node to collect data from treatment arm api call.
 
@@ -42,6 +42,45 @@ module.exports = function () {
             browser.sleep(10);
         }).then(callback);
     });
+
+    this.When(/^I get the index of the "(.+?)" value in "(.+?)" and "(.+?)"$/, function(columnName, subTabName, exclusionType, callback) {
+        if (subTabName === "Non-Sequencing Assays") {
+            taPage.testElement = element (by.css ('div#nonSequencingAssays'))
+        } else {
+            var suffix            = exclusionType === 'Inclusion' ? 'Incl' : 'Excl'
+            var testElementString = taPage.getTablePrefix (subTabName) + suffix;
+            console.log (testElementString);
+            taPage.testElement = element (by.css ('div#' + testElementString));
+        }
+
+        var tableHeaders = taPage.testElement.all (by.css ('th'));
+        tableHeaders.getText ().then (function (headerArray) {
+            //Getting the index of the columnName
+            taPage.columnIndex = headerArray.indexOf (columnName);
+
+            console.log ('This is the index of ' + columnName + ': ' + taPage.columnIndex);
+
+            // Getting access to each row
+            taPage.dataRows = taPage.testElement.all (by.css ('tr[ng-repeat^="item in filtered |"]'))
+
+            taPage.dataRows.count ().then (function (cnt) {
+                taPage.rowCount = cnt;
+
+            });
+        }).then(callback);
+    });
+
+
+    this.Then(/^I see that the element is a link$/, function(callback){
+        browser.sleep(50).then(function () {
+            // checking for element at index to be a link
+            for (var i = 0; i < taPage.rowCount; i ++){
+                console.log('Testing row:' + i)
+                utilities.checkIfLink(taPage.dataRows.get(i), taPage.columnIndex)
+            }
+        }).then(callback);
+    });
+
 
     this.Then(/I should see (Inclusionary|Exclusionary) Diseases table/, function (inclusionType, callback) {
         var firstPart;

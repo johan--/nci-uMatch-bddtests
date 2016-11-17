@@ -481,6 +481,16 @@ var TreatmentArmsPage = function() {
         })
     };
 
+    this.getTablePrefix = function(tabName){
+        var prefixMapping = {
+            'SNVs / MNVs / Indels': 'snvsMnvsIndels',
+            'CNVs': 'cnvs',
+            'Gene Fusions': 'geneFusions',
+            'Non-Hotspot Rules': 'nonHotspotRules'
+        };
+        return prefixMapping[tabName];
+    };
+
     this.stripTreatmentArmId = function(completeId){
         return completeId.split(' ')[0];
     };

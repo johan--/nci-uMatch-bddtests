@@ -3,6 +3,7 @@
  */
 
 var rest = require('rest');
+var Client = require('node-rest-client').Client;
 
 
 var Utilities = function() {
@@ -156,6 +157,53 @@ var Utilities = function() {
                 }
             )
         }
+    };
+
+    this.putApi = function(service, param, jsonBody){
+        var client = new Client();
+        var portMap = {
+            'patient'   : '10240',
+            'treatment' : '10235',
+            'ion'       : '5000'
+        };
+        var port = portMap[service];
+        var baseUrl = browser.baseUrl;
+
+        if (baseUrl.match('localhost')) {
+            uri = browser.baseUrl.slice(0, -5) + ':' + port;
+        }else {
+            uri = browser.baseUrl;
+        }
+
+        var callUrl = uri + param;
+
+        var args = {
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            data: jsonBody
+        };
+        console.log(callUrl)
+
+        return client.put(callUrl, args, function (data, response) {
+            console.log(response);
+        })
+    };
+
+    this.checkIfLink = function(row, index){
+        var data = row.all(by.css('td')).get(index).all(by.css('span')).get(0);
+        data.getAttribute('ng-if').then(function (attrib) {
+            if (attrib === 'vm.isValidLink()'){
+                data.all(by.css('a')).get(0).isPresent().then(function (status) {
+                    expect(status).to.eql(true);
+                });
+            } else if (attrib === '!vm.isValidLink()'){
+                data.all(by.css('a')).get(0).isPresent().then(function (status) {
+                    expect(status).to.eql(false);
+                });
+            }
+        });
     };
 
     this.moveAndCheckElement = function(webElementCollection, index, expectedValue){
