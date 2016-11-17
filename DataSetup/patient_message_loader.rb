@@ -291,7 +291,7 @@ class PatientMessageLoader
     wait_until_updated(patient_id)
     dev_path = "s3://pedmatch-dev/#{folder}/#{molecular_id}/#{analysis_id}/#{json_name}"
     int_path = "s3://pedmatch-int/#{folder}/#{molecular_id}/#{analysis_id}/#{json_name}"
-    Helper_Methods.s3_cp_file(dev_path, int_path)
+    Helper_Methods.s3_cp_single_file(dev_path, int_path)
   end
 
   # def self.tsv_vcf_uploaded(

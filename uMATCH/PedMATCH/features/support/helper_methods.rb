@@ -522,11 +522,19 @@ class Helper_Methods
     end
   end
 
-  def self.s3_cp_file(source_path, target_path)
-    cmd = "aws s3 cp #{source_path}  s3://#{target_path} --recursive --region us-east-1"
+  def self.s3_cp_single_file(source_path, target_path)
+    cmd = "aws s3 cp #{source_path} #{target_path} --region us-east-1"
     `#{cmd}`
     if is_local_tier
       puts "#{source_path} has been uploaded to #{target_path}"
+    end
+  end
+
+  def self.s3_sync_folder(source_folder, target_folder)
+    cmd = "aws s3 sync #{source_folder} #{target_folder} --region us-east-1"
+    `#{cmd}`
+    if is_local_tier
+      puts "#{target_folder} has been synced from #{source_folder}"
     end
   end
 
