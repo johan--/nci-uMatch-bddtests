@@ -8,6 +8,13 @@ PatientMessageLoader.register_patient(pt.id)
 PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
 PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
 
+pt = PatientDataSet.new('PT_VC05a_VRUploaded')
+PatientMessageLoader.register_patient(pt.id)
+PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
+
 
 
 pt = PatientDataSet.new('PT_VC10_VRUploadedSEIExpired')

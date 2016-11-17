@@ -212,6 +212,30 @@ class DynamoDataUploader
     end
     items_count
   end
+
+  def self.delete_item(file_name, field_name, field_value)
+    file_location = "#{File.dirname(__FILE__)}/#{SEED_DATA_FOLDER}/#{file_name}"
+    local_json = JSON.parse(File.read(file_location))
+    items = local_json['Items']
+    items_count = 0
+    items.each { |this_item|
+      if this_item.keys.include?(field_name)
+        if this_item[field_name] == field_value
+          items_count += 1
+          local_json['Items'].delete(this_item)
+        end
+      end
+    }
+    old_count = local_json['Count'].to_i
+    local_json['Count'] = old_count - items_count
+    local_json['ScannedCount'] = old_count - items_count
+    puts "There are #{items_count} items(#{field_name}=#{field_value}) get removed from file #{file_location}"
+
+    File.open(file_location, 'w') do |f|
+      f.write(JSON.pretty_generate(local_json))
+    end
+
+  end
 end
 
 if __FILE__ == $0

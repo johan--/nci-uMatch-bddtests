@@ -71,6 +71,16 @@ Feature: Variant files confirmed messages
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
     Then variants in variant report (analysis_id: "PT_VC05_TissueShipped_ANI1") have confirmed: "true" within 15 seconds
 
+  @patients_p2
+  Scenario: PT_VC05a. all confirmed fields should be "false" after a new variant report get uploaded
+    #    Test Patient: PT_VC05a_VRUploaded, VR uploaded PT_VC05a_VRUploaded(_SEI1, _MOI1, _ANI1)
+    Given a random "fusion" variant in variant report (analysis_id: "PT_VC05a_VRUploaded_ANI1") for patient: "PT_VC05a_VRUploaded"
+    Then create variant confirm message with checked: "unchecked" and comment: "TEST" for this variant
+    When put to MATCH variant confirm service, returns a message that includes "confirmed status changed to false" with status "Success"
+    Then template variant file uploaded message for patient: "PT_VC05a_VRUploaded", it has molecular_id: "PT_VC05a_VRUploaded_MOI1" and analysis_id: "PT_VC05a_VRUploaded_ANI2" and need files in S3 Y or N: "Y"
+    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    Then variants in variant report (analysis_id: "PT_VC05a_VRUploaded_ANI1") have confirmed: "false" within 15 seconds
+
 
 ## we don't have status_date in variant level
 #  Scenario: PT_VC06. status_date can be generated correctly
