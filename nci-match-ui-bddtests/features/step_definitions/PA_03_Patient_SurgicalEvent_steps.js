@@ -79,7 +79,9 @@ module.exports = function () {
     });
 
     this.When(/^I click on the Surgical Event Tab at index "(.+?)"$/, function (index, callback) {
-        surgicalTabs.get(index).click().then(callback);
+        surgicalTabs.get(index).click().then(function () {
+            browser.sleep(10);
+        }).then(callback);
     });
 
     this.Then(/^The Surgical Event Id match that of the backend$/, function (callback) {

@@ -215,6 +215,11 @@ var Utilities = function() {
         })
     };
 
+    this.selectFromDropDown = function(tablePanel, value){
+        var dropdown = tablePanel.all(by.model('paginationOptions.itemsPerPage')).get(0);
+        dropdown.all(by.cssContainingText('option', value)).get(0).click();
+    };
+
     function buildUrl(id, api) {
         var url = browser.baseUrl;
         if (url.match('localhost')){

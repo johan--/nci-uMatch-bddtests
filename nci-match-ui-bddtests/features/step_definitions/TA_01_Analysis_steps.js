@@ -71,7 +71,7 @@ module.exports = function () {
     });
 
     this.When(/^I click on the download in PDF Format$/, function (callback) {
-        expect(browser.isElementPresent(taPage.downloadPDFButton)).to.eventually.be.true;
+        expect(browser.isElementPresent(taPage.downloadPDFButton)).to.eventually.eql(true).notify(callback)
         // todo: Insert Logic to download the file. Not working on the site when run locally
         // element(taPage.downloadPDFButton).click()
         browser.sleep(50).then(callback);
@@ -80,7 +80,7 @@ module.exports = function () {
 
 
     this.When(/^I click on the download in Excel Format$/, function (callback) {
-        expect(browser.isElementPresent(taPage.downloadExcelButton)).to.eventually.be.true;
+        expect(browser.isElementPresent(taPage.downloadExcelButton)).to.eventually.eql(true).notify(callback)
         // todo: Insert Logic to download the file. Not working on the site when run locally
         // element(taPage.downloadExcelButton).click()
         browser.sleep(50).then(callback);
@@ -188,10 +188,31 @@ module.exports = function () {
         }).then(callback);
     });
 
-    this.Then(/^I should see data in the All Patients Data Table$/, function (callback) {
+    this.Then (/^I should see data in the All Patients Data Table$/, function (callback) {
+        utilities.selectFromDropDown (taPage.allPatientsDataTable, '100');
 
-        // http://localhost:10235/api/v1/treatment_arms/APEC1621-A/100/assignment_report
-        callback(null, 'pending');
+        var allRows = taPage.allPatientDataRows;
+        expect (taPage.allPatientDataRows.count ()).to.eventually.eql (allPatientDetails[ 'patients_list' ].length);
+
+        var patientDetails = allPatientDetails[ 'patients_list' ][ 0 ];
+        var searchField    = taPage.allPatientsDataTable.all (by.model ('filterAll'));
+
+        searchField.sendKeys (patientDetails[ 'patient_id' ]).then (function () {
+            expect (allRows.all (by.binding ('item.patient_id')).get (0).getText ())
+                .to.eventually.eql (patientDetails[ 'patient_id' ]);
+            expect (allRows.all (by.binding ('item.version')).get (0).getText ())
+                .to.eventually.eql (patientDetails[ 'version' ]);
+            expect (allRows.all (by.binding ('item.patient_status')).get (0).getText ())
+                .to.eventually.eql (patientDetails[ 'patient_status' ]);
+            expect (allRows.all (by.css ('a[title="Variant Report"]')).get (0).getAttribute ('href'))
+                .to.eventually.include (patientDetails[ 'patient_id' ]);
+            expect (allRows.all (by.css ('a[title="Assignment Report"]')).get (0).getAttribute ('href'))
+                .to.eventually.include (patientDetails[ 'patient_id' ]);
+            expect (allRows.all (by.binding ('item.assignment_date')).get (0).getText ())
+                .to.eventually.eql(patientDetails[ 'assignment_date' ]);
+            expect (allRows.all (by.binding ('item.step_number')).get (0).getText ())
+                .to.eventually.eql(patientDetails[ 'step_number' ]);
+        }).then(callback);
     });
 
     this.Then(/^I should see the Gene Details$/, function (callback) {

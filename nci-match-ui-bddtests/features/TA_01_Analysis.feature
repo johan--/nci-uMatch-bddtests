@@ -8,10 +8,11 @@ Feature: Treatment Arms Dashboard
 
   Background:
     Given I am a logged in user
-    And I navigate to the treatment-arms page
+
 
   @ui_p2
   Scenario: A User can access the Treatment Arms list page
+    Given I navigate to the treatment-arms page
     Then I should see the Treatment Arms Title
     And I should see the Treatment Arms breadcrumb
     And I should see treatment-arms table
@@ -36,7 +37,7 @@ Feature: Treatment Arms Dashboard
     When I go to treatment arm with "APEC1621-UI" as the id and "STR100" as stratum id
     Then I should see the drop down to select different versions of the treatment arm
 
-  @ui_p3
+  @ui_p2
   Scenario: Logged in user can access Patients data on the Analysis Tab
     When I go to treatment arm with "APEC1621-A" as the id and "100" as stratum id
     And I select the "Analysis" Main Tab
@@ -53,7 +54,7 @@ Feature: Treatment Arms Dashboard
     And I should see Patient Assignment Outcome chart
     And I should see Diseases Represented chart
 
-  @ui_p3
+  @broken
   Scenario: Logged in user can access the different versions of Treatment Arm under the History Tab
     When I go to treatment arm with "APEC1621-2V" as the id and "100" as stratum id
     And I select the "History" Main Tab

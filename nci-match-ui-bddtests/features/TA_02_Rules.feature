@@ -10,11 +10,11 @@ Feature: Treatment Arm Rules
     Given I am a logged in user
     And I go to treatment arm with "APEC1621-UI" as the id and "STR100" as stratum id
     And I collect backend information about the treatment arm
+    When I select the "Rules" Main Tab
 
   @ui_p2
   Scenario Outline: Logged in user can access <subTabName> with Inclusion/Exclusion details under Rules
-    When I select the "Rules" Main Tab
-    And I select the <subTabName> sub-tab
+    When I select the <subTabName> sub-tab
     Then I should see that <subTabName> sub-tab is active
     When I select the Inclusion button
     Then I should see the Inclusion Variants table for <subTabName>
@@ -29,8 +29,7 @@ Feature: Treatment Arm Rules
 
   @ui_p2
   Scenario: Logged in user can access Drugs/Disease details on the Rules Tab
-    When I select the "Rules" Main Tab
-    And I select the Drugs / Diseases sub-tab
+    When I select the Drugs / Diseases sub-tab
     Then I should see that Drugs / Diseases sub-tab is active
     And I should see Exclusionary Diseases table
     And I should see Exclusionary Drugs table
@@ -38,15 +37,13 @@ Feature: Treatment Arm Rules
 
   @ui_p2
   Scenario: Logged in user can access the Non-Sequencing Assays details on the Rules Tab
-    When I select the "Rules" Main Tab
-    And I select the Non-Sequencing Assays sub-tab
+    When I select the Non-Sequencing Assays sub-tab
     Then I should see that Non-Sequencing Assays sub-tab is active
     And I should see the Non-Sequencing Assays table
 
   @ui_p2
   Scenario Outline: Check for links in the <subTabName> table.
-    When I select the "Rules" Main Tab
-    And I select the <subTabName> sub-tab
+    When I select the <subTabName> sub-tab
     And I select the Inclusion button
     And I get the index of the "<columnName>" value in "<subTabName>" and "Inclusion"
     Then I see that the element is a link
@@ -59,7 +56,6 @@ Feature: Treatment Arm Rules
 
   @ui_p2
   Scenario: Check for links in the Non-Sequencing Assays table.
-    When I select the "Rules" Main Tab
-    And I select the Non-Sequencing Assays sub-tab
+    When I select the Non-Sequencing Assays sub-tab
     And I get the index of the "Gene" value in "Non-Sequencing Assays" and "None"
     Then I see that the element is a link

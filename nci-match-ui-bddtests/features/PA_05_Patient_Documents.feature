@@ -1,6 +1,5 @@
 Feature: Patient Document Tab
 
-  @ui_p3
   Scenario: User can see the documents attached to the patient
     Given I am a logged in user
     And I navigate to the patients page

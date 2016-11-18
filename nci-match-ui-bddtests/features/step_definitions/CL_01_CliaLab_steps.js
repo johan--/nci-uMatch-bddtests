@@ -30,7 +30,7 @@ module.exports = function() {
         'MD Anderson' : {
             'Positive Sample Controls': {
                 'element': clia.mdaPositiveGrid,
-                'control_type': 'postive'
+                'control_type': 'positive'
             },
             'No Template Control': {
                 'element': clia.mdaNoTemplateGrid,
@@ -53,21 +53,21 @@ module.exports = function() {
         expect(clia.mdaSectionButton.getText()).to.eventually.eql('MoCha').notify(callback);
     });
 
-    this.When(/^I click on the "(MoCha|MD Andersson)" section$/, function (sectionName, callback) {
+    this.When(/^I click on the "(MoCha|MD Anderson)" section$/, function (sectionName, callback) {
         var elem = sectionName === 'MoCha' ? clia.mochaSectionButton : clia.mdaSectionButton;
         elem.click().then(function() {
             browser.waitForAngular();
         }).then(callback);
     });
 
-    this.Then(/^I am on the "(MoCha|MD Andersson)" section$/, function (sectionName, callback) {
+    this.Then(/^I am on the "(MoCha|MD Anderson)" section$/, function (sectionName, callback) {
         var url = sectionName === 'MoCha' ? 'MoCha' : 'MDACC';
         expect(browser.getCurrentUrl()).to.eventually
             .include('clia-labs?site=' + url + '&type=positive')
             .notify(callback);
     });
 
-    this.When(/^I click on "([^"]*)" under "(MoCha|MD Andersson)"$/, function (subTabName, sectionName, callback) {
+    this.When(/^I click on "([^"]*)" under "(MoCha|MD Anderson)"$/, function (subTabName, sectionName, callback) {
         var elem = element(by.css('li[heading="' + subTabName + '"]'))
 
         // Setting the Control type here in anticipation of future needs.
@@ -79,7 +79,7 @@ module.exports = function() {
         }).then(callback);
     });
 
-    this.When(/^I collect information on "([^"]*)" under "(MoCha|MD Andersson)"$/, function (subTabName, sectionName, callback) {
+    this.When(/^I collect information on "([^"]*)" under "(MoCha|MD Anderson)"$/, function (subTabName, sectionName, callback) {
         var site = sectionName === 'MoCha' ? 'mocha' : 'mdacc';
         var url  = '/api/v1/sample_controls?site=' + site + '&control_type=' + controlType;
         var request = utilities.callApi('ion', url);
@@ -88,7 +88,7 @@ module.exports = function() {
         }).then(callback);
     });
 
-    this.When(/^I collect new information on "([^"]*)" under "(MoCha|MD Andersson)"$/, function (subTabName, sectionName, callback) {
+    this.When(/^I collect new information on "([^"]*)" under "(MoCha|MD Anderson)"$/, function (subTabName, sectionName, callback) {
         var site = sectionName === 'MoCha' ? 'mocha' : 'mdacc';
         var url  = '/api/v1/sample_controls?site=' + site + '&control_type=' + controlType;
         var request = utilities.callApi('ion', url);
@@ -99,29 +99,32 @@ module.exports = function() {
 
     this.When(/^I click on Generate MSN button$/, function (callback) {
         var generateMSNProperty = element(by.css('form[ng-submit="generateMsn(\'' + controlType + '\')"]>input'));
-
-        generateMSNProperty .click().then(function () {
+        utilities.waitForElement(generateMSNProperty, 'Generate MSN button');
+        generateMSNProperty.click().then(function () {
             browser.waitForAngular();
         }).then(callback);
     });
 
-    this.Then(/^I verify that "([^"]*)" under "(MoCha|MD Andersson)" is active$/, function (subTabName, sectionName, callback) {
+    this.Then(/^I verify that "([^"]*)" under "(MoCha|MD Anderson)" is active$/, function (subTabName, sectionName, callback) {
          var elemToCheck = tabNameMap[sectionName][subTabName]['element'];
          expect(elemToCheck.isPresent()).to.eventually.eql(true).notify(callback);
     });
 
-    this.Then(/^I verify the headings for "([^"]*)" under "(MoCha|MD Andersson)"$/, function (subTabName, sectionName, callback) {
+    this.Then(/^I verify the headings for "([^"]*)" under "(MoCha|MD Anderson)"$/, function (subTabName, sectionName, callback) {
+        var tableElement = tabNameMap[sectionName][subTabName]['element'];
+        var headings = tableElement.all(by.css('table>thead>tr>th'))
+
+        expect(headings.getText()).to.eventually.eql(clia.expectedMsnTableHeading).notify(callback);
+    });
+
+    this.Then(/^I verify that the data retrieved is present for "([^"]*)" under "(MoCha|MD Anderson)"$/, function (subTabName, sectionName, callback) {
          // Write code here that turns the phrase above into concrete actions
          callback(null, 'pending');
     });
 
-    this.Then(/^I verify that the data retrieved is present for "([^"]*)" under "(MoCha|MD Andersson)"$/, function (arg1, arg2, callback) {
-         // Write code here that turns the phrase above into concrete actions
-         callback(null, 'pending');
-    });
-
-    this.Then(/^a new Molecular Id is created under the "(MoCha|MD Andersson)"$/, function (sectionName, callback) {
-        expect(clia.newResponseData.length).to.eql(clia.responseData.length + 1).notify(callback);
+    this.Then(/^a new Molecular Id is created under the "(MoCha|MD Anderson)"$/, function (sectionName, callback) {
+        expect(clia.newResponseData.length).to.eql(clia.responseData.length + 1);
+        browser.sleep(20).then(callback);
     });
 
     this.When(/^I upload variant report to S3 with the generated MSN$/, function (callback) {

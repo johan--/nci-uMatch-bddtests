@@ -10,6 +10,10 @@ var CliaPage = function () {
     this.mdaPositiveGrid        = element(by.css('clia_positive_samples[site="MDACC"]'));
     this.mdaNoTemplateGrid      = element(by.css('clia_ntc_samples[site="MDACC"]'));
     this.mdaProficiencyGrid     = element(by.css('clia_pc_samples[site="MDACC"]'));
+
+
+    // Expectation values
+    this.expectedMsnTableHeading = ['Molecular ID', 'Date Created', 'Date Received', 'Variant Reports', 'Status']
 };
 
 module.exports = new CliaPage();

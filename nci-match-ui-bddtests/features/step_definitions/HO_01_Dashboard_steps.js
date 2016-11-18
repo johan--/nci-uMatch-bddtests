@@ -51,7 +51,7 @@ module.exports = function() {
 
     this.Then(/^I can see patients with Pending Tissue Variant Reports$/, function (callback) {
         expect(dash.pendingTVRCount.getText()).to.eventually.eql(responseData.length.toString()).notify(callback);
-       
+
     });
 
     this.Then(/^I can see patients with Pending Blood Variant Reports$/, function (callback) {
@@ -170,7 +170,9 @@ module.exports = function() {
             .element(by.model('paginationOptions.itemsPerPage'))
             .element(by.cssContainingText('option', optionValue))
             .click().
-            then(callback);
+            then(function(){
+                browser.sleep(50)
+        }).then(callback);
     });
 
     this.When(/^I click on the "(.+)" sub\-tab$/, function (reportType, callback) {

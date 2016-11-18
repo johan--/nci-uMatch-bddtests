@@ -19,7 +19,7 @@ module.exports = function () {
     var confirmedAMoi;
     var currentAnalysisId;
 
-    this.Then(/^I wait "(.\d+)" seconds$/, function (time, callback) {
+    this.Then(/^I wait "(.\d*?)" seconds$/, function (time, callback) {
         browser.sleep(time * 1000).then(callback)
     });
 
