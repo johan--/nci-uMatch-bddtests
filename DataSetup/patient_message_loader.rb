@@ -77,6 +77,12 @@ class PatientMessageLoader
   end
 
   def self.send_message_to_local(message_json, patient_id)
+    if @all_items.nil?
+      @all_items = 0
+    end
+    if @failure.nil?
+      @failure = 0
+    end
     @all_items += 1
     output = Helper_Methods.post_request("#{LOCAL_PATIENT_API_URL}/#{patient_id}", message_json.to_json)
     # curl_cmd ="curl -k -X POST -H \"Content-Type: application/json\""
@@ -93,6 +99,12 @@ class PatientMessageLoader
   end
 
   def self.put_message_to_local(service, message_json)
+    if @all_items.nil?
+      @all_items = 0
+    end
+    if @failure.nil?
+      @failure = 0
+    end
     @all_items += 1
     url = "#{LOCAL_PATIENT_API_URL}/#{service}"
     output = Helper_Methods.put_request(url, message_json.to_json)
@@ -110,6 +122,12 @@ class PatientMessageLoader
   end
 
   def self.send_message_to_local_cog(service, message_json)
+    if @all_items.nil?
+      @all_items = 0
+    end
+    if @failure.nil?
+      @failure = 0
+    end
     url = "#{LOCAL_COG_URL}/#{service}"
     output = Helper_Methods.post_request(url, message_json.to_json)
     # curl_cmd ="curl -k -X POST -H \"Content-Type: application/json\""
@@ -129,6 +147,12 @@ class PatientMessageLoader
   end
 
   def self.send_variant_report_confirm_message(message_json, patient_id, ani, status)
+    if @all_items.nil?
+      @all_items = 0
+    end
+    if @failure.nil?
+      @failure = 0
+    end
     @all_items += 1
     url = "#{LOCAL_PATIENT_API_URL}/#{patient_id}/variant_reports/#{ani}/#{status}"
     output = Helper_Methods.put_request(url, message_json.to_json)

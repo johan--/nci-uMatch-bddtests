@@ -41,9 +41,25 @@ DynamoDataUploader.new('local').upload_ion_to_aws
 # DynamoDataUploader.new('default').upload_ion_to_aws
 
 
+# DynamoDataUploader.delete_all_data_for_patient('PT_VU16_BdVRUploaded')
+# DynamoDataUploader.delete_all_data_for_patient('ION_AQ42_BdVrUploaded')
+# DynamoDataUploader.delete_all_data_for_patient('PT_SR10_BdVRReceived')
+# DynamoDataUploader.delete_all_data_for_patient('PT_SR14_BdVrUploaded')
+# DynamoDataUploader.delete_all_data_for_patient('PT_SR14_BdVrUploaded1')
+# DynamoDataUploader.delete_all_data_for_patient('PT_SR14d_BdVrUploaded')
+# DynamoDataUploader.delete_all_data_for_patient('PT_VC14_BdVRUploadedTsVRUploadedOtherReady')
 
 
-
+# require_relative 'local_patient_data/Patient_01A_data_done'
+# require_relative 'local_patient_data/Patient_02A_data_done'
+# require_relative 'local_patient_data/Patient_03A_data_done'
+# require_relative 'local_patient_data/Patient_04A_data_done'
+# require_relative 'local_patient_data/Patient_06A_data_done'
+# require_relative 'local_patient_data/Patient_07A_data_done'
+# require_relative 'local_patient_data/Patient_99A_data_done'
+# require_relative 'local_patient_data/Patient_TA_UI_data_done'
+# require_relative 'local_patient_data/Ion_data_done'
+#
 
 
 

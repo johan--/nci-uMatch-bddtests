@@ -220,7 +220,7 @@ class DynamoDataUploader
     items_count = 0
     items.each { |this_item|
       if this_item.keys.include?(field_name)
-        if this_item[field_name] == field_value
+        if this_item[field_name]['S'] == field_value
           items_count += 1
           local_json['Items'].delete(this_item)
         end
@@ -234,7 +234,17 @@ class DynamoDataUploader
     File.open(file_location, 'w') do |f|
       f.write(JSON.pretty_generate(local_json))
     end
+  end
 
+  def self.delete_all_data_for_patient(patient_id)
+    TableDetails.patient_tables.each { |table|
+      file_name = "#{SEED_FILE_PREFIX}_#{table}.json"
+      field_name = 'patient_id'
+      if table == 'event'
+        field_name = 'entity_id'
+      end
+      delete_item(file_name, field_name, patient_id)
+    }
   end
 end
 
