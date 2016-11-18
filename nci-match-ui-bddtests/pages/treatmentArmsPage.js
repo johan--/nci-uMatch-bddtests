@@ -53,8 +53,8 @@ var TreatmentArmsPage = function() {
         by.css('.panel-body [ng-class="[{active: active, disabled: disabled}, classes]"]'));
 
     // returns the element array that maps to the chart legends on the Analysis tab
-    this.patientLegendContainer = element(by.css('#legendContainer'));
-    this.diseaseLegendContainer = element(by.css('#diseaseLegendContainer'));
+    this.patientLegendContainer = element(by.css('[ng-if="patientPieChartDataset.hasData"]'));
+    this.diseaseLegendContainer = element(by.css('[ng-if="diseasePieChartDataset.hasData"]'));
     this.tableLegendArray = element.all(by.css('.ibox-content>div[style="float:left"]'));
 
     //Container for the patient Assignment Outcome
