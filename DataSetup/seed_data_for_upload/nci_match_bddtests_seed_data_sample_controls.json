@@ -1,5 +1,5 @@
 {
-    "Count": 58, 
+    "Count": 59, 
     "Items": [
         {
             "control_type": {
@@ -731,17 +731,17 @@
             }
         }, 
         {
-            "site": {
-                "S": "mda"
-            }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:19:56.170379"
-            }, 
             "control_type": {
                 "S": "no_template"
             }, 
+            "site": {
+                "S": "mda"
+            }, 
             "molecular_id": {
                 "S": "SC_3KSN8"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:19:56.170379"
             }
         }, 
         {
@@ -807,73 +807,73 @@
             }
         }, 
         {
-            "site": {
-                "S": "mda"
-            }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:19:55.608332"
-            }, 
             "control_type": {
                 "S": "no_template"
+            }, 
+            "site": {
+                "S": "mda"
             }, 
             "molecular_id": {
                 "S": "SC_307VJ"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:19:55.608332"
             }
         }, 
         {
-            "site": {
-                "S": "mocha"
-            }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:19:46.058546"
-            }, 
             "control_type": {
                 "S": "positive"
             }, 
-            "molecular_id": {
-                "S": "SC_8SGBC"
-            }
-        }, 
-        {
             "site": {
                 "S": "mocha"
             }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:19:52.803025"
+            "molecular_id": {
+                "S": "SC_8SGBC"
             }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:19:46.058546"
+            }
+        }, 
+        {
             "control_type": {
                 "S": "no_template"
             }, 
+            "site": {
+                "S": "mocha"
+            }, 
             "molecular_id": {
                 "S": "SC_WF2KR"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:19:52.803025"
             }
         }, 
         {
-            "site": {
-                "S": "mda"
-            }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:20:02.355028"
-            }, 
             "control_type": {
                 "S": "proficiency_competency"
+            }, 
+            "site": {
+                "S": "mda"
             }, 
             "molecular_id": {
                 "S": "SC_ZCCND"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:20:02.355028"
             }
         }, 
         {
-            "site": {
-                "S": "mda"
-            }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:20:04.036666"
-            }, 
             "control_type": {
                 "S": "proficiency_competency"
             }, 
+            "site": {
+                "S": "mda"
+            }, 
             "molecular_id": {
                 "S": "SC_R5H61"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:20:04.036666"
             }
         }, 
         {
@@ -1655,59 +1655,59 @@
             }
         }, 
         {
+            "control_type": {
+                "S": "no_template"
+            }, 
             "site": {
                 "S": "mocha"
             }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:19:52.241313"
-            }, 
-            "control_type": {
-                "S": "no_template"
-            }, 
             "molecular_id": {
                 "S": "SC_LFCQP"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:19:52.241313"
             }
         }, 
         {
-            "site": {
-                "S": "mda"
-            }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:20:05.158803"
-            }, 
             "control_type": {
                 "S": "proficiency_competency"
+            }, 
+            "site": {
+                "S": "mda"
             }, 
             "molecular_id": {
                 "S": "SC_GP6TQ"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:20:05.158803"
             }
         }, 
         {
-            "site": {
-                "S": "mda"
-            }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:20:00.113135"
-            }, 
             "control_type": {
                 "S": "no_template"
             }, 
-            "molecular_id": {
-                "S": "SC_MFIK1"
-            }
-        }, 
-        {
             "site": {
                 "S": "mda"
             }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:20:03.476190"
+            "molecular_id": {
+                "S": "SC_MFIK1"
             }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:20:00.113135"
+            }
+        }, 
+        {
             "control_type": {
                 "S": "proficiency_competency"
             }, 
+            "site": {
+                "S": "mda"
+            }, 
             "molecular_id": {
                 "S": "SC_6VZBN"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:20:03.476190"
             }
         }, 
         {
@@ -1728,50 +1728,50 @@
             }
         }, 
         {
-            "site": {
-                "S": "mocha"
-            }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:19:51.681454"
-            }, 
             "control_type": {
                 "S": "positive"
+            }, 
+            "site": {
+                "S": "mocha"
             }, 
             "molecular_id": {
                 "S": "SC_EP4AI"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:19:51.681454"
             }
         }, 
         {
-            "site": {
-                "S": "mocha"
-            }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:19:48.880369"
-            }, 
             "control_type": {
                 "S": "positive"
+            }, 
+            "site": {
+                "S": "mocha"
             }, 
             "molecular_id": {
                 "S": "SC_C8K7G"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:19:48.880369"
             }
         }, 
         {
-            "site": {
-                "S": "mocha"
-            }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:19:45.498087"
-            }, 
             "control_type": {
                 "S": "positive"
             }, 
+            "site": {
+                "S": "mocha"
+            }, 
             "molecular_id": {
                 "S": "SC_HY9S5"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:19:45.498087"
             }
         }, 
         {
-            "site": {
-                "S": "mda"
+            "date_molecular_id_created": {
+                "S": "2016-10-13 03:23:04.592088"
             }, 
             "molecular_id": {
                 "S": "SC_7XM2S"
@@ -1782,36 +1782,36 @@
             "control_type": {
                 "S": "no_template"
             }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-13 03:23:04.592088"
+            "site": {
+                "S": "mda"
             }
         }, 
         {
-            "site": {
-                "S": "mda"
-            }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:20:01.795037"
-            }, 
             "control_type": {
                 "S": "proficiency_competency"
             }, 
-            "molecular_id": {
-                "S": "SC_CVLCZ"
-            }
-        }, 
-        {
             "site": {
                 "S": "mda"
             }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:19:58.993651"
+            "molecular_id": {
+                "S": "SC_CVLCZ"
             }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:20:01.795037"
+            }
+        }, 
+        {
             "control_type": {
                 "S": "no_template"
             }, 
+            "site": {
+                "S": "mda"
+            }, 
             "molecular_id": {
                 "S": "SC_OAFXP"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:19:58.993651"
             }
         }, 
         {
@@ -2508,84 +2508,84 @@
             "site": {
                 "S": "mdacc"
             }, 
-            "date_molecular_id_created": {
-                "S": "2016-08-18 20:16:34.285"
-            }, 
             "ion_reporter_id": {
                 "S": "IR_AIO78"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-08-18 20:16:34.285"
             }, 
             "molecular_id": {
                 "S": "SC_VEME6"
             }
         }, 
         {
-            "site": {
-                "S": "mda"
-            }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:20:06.280805"
-            }, 
             "control_type": {
                 "S": "proficiency_competency"
             }, 
-            "molecular_id": {
-                "S": "SC_LGUXF"
-            }
-        }, 
-        {
             "site": {
                 "S": "mda"
             }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:19:54.486570"
+            "molecular_id": {
+                "S": "SC_LGUXF"
             }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:20:06.280805"
+            }
+        }, 
+        {
             "control_type": {
                 "S": "no_template"
+            }, 
+            "site": {
+                "S": "mda"
             }, 
             "molecular_id": {
                 "S": "SC_BKWJR"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:19:54.486570"
             }
         }, 
         {
-            "site": {
-                "S": "mda"
-            }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:19:59.550374"
-            }, 
             "control_type": {
                 "S": "no_template"
             }, 
+            "site": {
+                "S": "mda"
+            }, 
             "molecular_id": {
                 "S": "SC_Q5E0X"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:19:59.550374"
             }
         }, 
         {
-            "site": {
-                "S": "mocha"
-            }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:19:49.440438"
-            }, 
             "control_type": {
                 "S": "positive"
+            }, 
+            "site": {
+                "S": "mocha"
             }, 
             "molecular_id": {
                 "S": "SC_M4UAF"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:19:49.440438"
             }
         }, 
         {
-            "site": {
-                "S": "mocha"
-            }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:19:50.001799"
-            }, 
             "control_type": {
                 "S": "positive"
             }, 
+            "site": {
+                "S": "mocha"
+            }, 
             "molecular_id": {
                 "S": "SC_9LL0Q"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:19:50.001799"
             }
         }, 
         {
@@ -2606,17 +2606,17 @@
             }
         }, 
         {
-            "site": {
-                "S": "mda"
-            }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:19:57.290066"
-            }, 
             "control_type": {
                 "S": "no_template"
             }, 
+            "site": {
+                "S": "mda"
+            }, 
             "molecular_id": {
                 "S": "SC_4CPNX"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:19:57.290066"
             }
         }, 
         {
@@ -2685,45 +2685,45 @@
             }
         }, 
         {
-            "site": {
-                "S": "mocha"
-            }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:19:48.301310"
-            }, 
             "control_type": {
                 "S": "positive"
+            }, 
+            "site": {
+                "S": "mocha"
             }, 
             "molecular_id": {
                 "S": "SC_N44B1"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:19:48.301310"
             }
         }, 
         {
-            "site": {
-                "S": "mocha"
-            }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:19:50.563827"
-            }, 
             "control_type": {
                 "S": "positive"
+            }, 
+            "site": {
+                "S": "mocha"
             }, 
             "molecular_id": {
                 "S": "SC_K7IO0"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:19:50.563827"
             }
         }, 
         {
-            "site": {
-                "S": "mocha"
-            }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:19:47.741411"
-            }, 
             "control_type": {
                 "S": "positive"
             }, 
+            "site": {
+                "S": "mocha"
+            }, 
             "molecular_id": {
                 "S": "SC_QC422"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:19:47.741411"
             }
         }, 
         {
@@ -2761,17 +2761,17 @@
             }
         }, 
         {
-            "site": {
-                "S": "mocha"
-            }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:19:53.363516"
-            }, 
             "control_type": {
                 "S": "no_template"
             }, 
+            "site": {
+                "S": "mocha"
+            }, 
             "molecular_id": {
                 "S": "SC_EUPC2"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:19:53.363516"
             }
         }, 
         {
@@ -2926,17 +2926,17 @@
             }
         }, 
         {
-            "site": {
-                "S": "mocha"
-            }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:19:53.926851"
-            }, 
             "control_type": {
                 "S": "no_template"
             }, 
+            "site": {
+                "S": "mocha"
+            }, 
             "molecular_id": {
                 "S": "SC_AWBSY"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:19:53.926851"
             }
         }, 
         {
@@ -3990,87 +3990,87 @@
             }
         }, 
         {
-            "site": {
-                "S": "mocha"
-            }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:19:47.183462"
-            }, 
             "control_type": {
                 "S": "positive"
+            }, 
+            "site": {
+                "S": "mocha"
             }, 
             "molecular_id": {
                 "S": "SC_XPCQG"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:19:47.183462"
             }
         }, 
         {
-            "site": {
-                "S": "mda"
-            }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:20:04.597019"
-            }, 
             "control_type": {
                 "S": "proficiency_competency"
+            }, 
+            "site": {
+                "S": "mda"
             }, 
             "molecular_id": {
                 "S": "SC_2A9FY"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:20:04.597019"
             }
         }, 
         {
-            "site": {
-                "S": "mda"
-            }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:20:01.232418"
-            }, 
             "control_type": {
                 "S": "proficiency_competency"
+            }, 
+            "site": {
+                "S": "mda"
             }, 
             "molecular_id": {
                 "S": "SC_XZD70"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:20:01.232418"
             }
         }, 
         {
-            "site": {
-                "S": "mocha"
-            }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:19:51.122041"
-            }, 
             "control_type": {
                 "S": "positive"
             }, 
+            "site": {
+                "S": "mocha"
+            }, 
             "molecular_id": {
                 "S": "SC_73JIO"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:19:51.122041"
             }
         }, 
         {
-            "site": {
-                "S": "mda"
-            }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:19:57.851491"
-            }, 
             "control_type": {
                 "S": "no_template"
             }, 
-            "molecular_id": {
-                "S": "SC_43K8V"
-            }
-        }, 
-        {
             "site": {
                 "S": "mda"
             }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:20:06.843306"
+            "molecular_id": {
+                "S": "SC_43K8V"
             }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:19:57.851491"
+            }
+        }, 
+        {
             "control_type": {
                 "S": "proficiency_competency"
             }, 
+            "site": {
+                "S": "mda"
+            }, 
             "molecular_id": {
                 "S": "SC_IEWC6"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:20:06.843306"
             }
         }, 
         {
@@ -4148,45 +4148,769 @@
             }
         }, 
         {
-            "site": {
-                "S": "mda"
-            }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:19:56.731128"
-            }, 
             "control_type": {
                 "S": "no_template"
             }, 
-            "molecular_id": {
-                "S": "SC_ZO9VD"
-            }
-        }, 
-        {
             "site": {
                 "S": "mda"
             }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:20:02.913472"
-            }, 
-            "control_type": {
-                "S": "proficiency_competency"
-            }, 
             "molecular_id": {
-                "S": "SC_LL7IZ"
+                "S": "SC_ZO9VD"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:19:56.731128"
             }
         }, 
         {
+            "control_type": {
+                "S": "proficiency_competency"
+            }, 
             "site": {
-                "S": "mocha"
+                "S": "mda"
+            }, 
+            "molecular_id": {
+                "S": "SC_LL7IZ"
             }, 
             "date_molecular_id_created": {
-                "S": "2016-10-12 21:19:44.377012"
-            }, 
+                "S": "2016-10-12 21:20:02.913472"
+            }
+        }, 
+        {
             "control_type": {
                 "S": "positive"
             }, 
+            "site": {
+                "S": "mocha"
+            }, 
             "molecular_id": {
                 "S": "SC_76HQS"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:19:44.377012"
+            }
+        }, 
+        {
+            "control_type": {
+                "S": "positive"
+            }, 
+            "site": {
+                "S": "mocha"
+            }, 
+            "filename": {
+                "S": "test1"
+            }, 
+            "total_variants": {
+                "N": "7"
+            }, 
+            "positive_control_version": {
+                "N": "4"
+            }, 
+            "ion_reporter_id": {
+                "S": "IR_UITEST"
+            }, 
+            "analysis_id": {
+                "S": "SC_A2PD6_ANI"
+            }, 
+            "mapd": {
+                "S": "0.439"
+            }, 
+            "dna_bam_name": {
+                "S": "IR_UITEST/SC_A2PD6/SC_A2PD6_ANI/dna.bam"
+            }, 
+            "report_status": {
+                "S": "FAILED"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-11-21 17:55:16.604130"
+            }, 
+            "tsv_name": {
+                "S": "IR_UITEST/SC_A2PD6/SC_A2PD6_ANI/test1.tsv"
+            }, 
+            "pass_flag": {
+                "BOOL": false
+            }, 
+            "cdna_bam_name": {
+                "S": "IR_UITEST/SC_A2PD6/SC_A2PD6_ANI/cdna.bam"
+            }, 
+            "cdna_bai_name": {
+                "S": "IR_UITEST/SC_A2PD6/SC_A2PD6_ANI/cdna.bai"
+            }, 
+            "molecular_id": {
+                "S": "SC_A2PD6"
+            }, 
+            "confirmed": {
+                "BOOL": true
+            }, 
+            "date_variant_received": {
+                "S": "2016-11-21 17:55:48.307172"
+            }, 
+            "dna_bai_name": {
+                "S": "IR_UITEST/SC_A2PD6/SC_A2PD6_ANI/dna.bai"
+            }, 
+            "vcf_name": {
+                "S": "IR_UITEST/SC_A2PD6/SC_A2PD6_ANI/test1.vcf"
+            }, 
+            "false_positive_variants": {
+                "L": [
+                    {
+                        "M": {
+                            "function": {
+                                "S": "missense"
+                            }, 
+                            "identifier": {
+                                "S": "COSM775"
+                            }, 
+                            "ocp_reference": {
+                                "S": "A"
+                            }, 
+                            "variant_type": {
+                                "S": "snp"
+                            }, 
+                            "ocp_alternative": {
+                                "S": "G"
+                            }, 
+                            "hgvs": {
+                                "S": "c.3140A>G"
+                            }, 
+                            "position": {
+                                "S": "178952085"
+                            }, 
+                            "protein": {
+                                "S": "p.His1047Arg"
+                            }, 
+                            "gene": {
+                                "S": "PIK3CA"
+                            }, 
+                            "chromosome": {
+                                "S": "chr3"
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "function": {
+                                "S": "frameshiftInsertion"
+                            }, 
+                            "identifier": {
+                                "S": "."
+                            }, 
+                            "ocp_reference": {
+                                "S": "-"
+                            }, 
+                            "variant_type": {
+                                "S": "ins"
+                            }, 
+                            "ocp_alternative": {
+                                "S": "GG"
+                            }, 
+                            "hgvs": {
+                                "S": "c.267_268insCC"
+                            }, 
+                            "position": {
+                                "S": "7579420"
+                            }, 
+                            "protein": {
+                                "S": "p.Ser90fs"
+                            }, 
+                            "gene": {
+                                "S": "TP53"
+                            }, 
+                            "chromosome": {
+                                "S": "chr17"
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "function": {
+                                "NULL": true
+                            }, 
+                            "identifier": {
+                                "S": "MYCN"
+                            }, 
+                            "ocp_reference": {
+                                "NULL": true
+                            }, 
+                            "variant_type": {
+                                "S": "cnv"
+                            }, 
+                            "ocp_alternative": {
+                                "NULL": true
+                            }, 
+                            "hgvs": {
+                                "NULL": true
+                            }, 
+                            "position": {
+                                "NULL": true
+                            }, 
+                            "protein": {
+                                "NULL": true
+                            }, 
+                            "gene": {
+                                "NULL": true
+                            }, 
+                            "chromosome": {
+                                "NULL": true
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "function": {
+                                "NULL": true
+                            }, 
+                            "identifier": {
+                                "S": "AKT1"
+                            }, 
+                            "ocp_reference": {
+                                "NULL": true
+                            }, 
+                            "variant_type": {
+                                "S": "cnv"
+                            }, 
+                            "ocp_alternative": {
+                                "NULL": true
+                            }, 
+                            "hgvs": {
+                                "NULL": true
+                            }, 
+                            "position": {
+                                "NULL": true
+                            }, 
+                            "protein": {
+                                "NULL": true
+                            }, 
+                            "gene": {
+                                "NULL": true
+                            }, 
+                            "chromosome": {
+                                "NULL": true
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "function": {
+                                "NULL": true
+                            }, 
+                            "identifier": {
+                                "S": "TPM3-ALK.T7A20"
+                            }, 
+                            "ocp_reference": {
+                                "NULL": true
+                            }, 
+                            "variant_type": {
+                                "S": "fusion"
+                            }, 
+                            "ocp_alternative": {
+                                "NULL": true
+                            }, 
+                            "hgvs": {
+                                "NULL": true
+                            }, 
+                            "position": {
+                                "NULL": true
+                            }, 
+                            "protein": {
+                                "NULL": true
+                            }, 
+                            "gene": {
+                                "NULL": true
+                            }, 
+                            "chromosome": {
+                                "NULL": true
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "function": {
+                                "NULL": true
+                            }, 
+                            "identifier": {
+                                "S": "NCOA4-RET.N7R12"
+                            }, 
+                            "ocp_reference": {
+                                "NULL": true
+                            }, 
+                            "variant_type": {
+                                "S": "fusion"
+                            }, 
+                            "ocp_alternative": {
+                                "NULL": true
+                            }, 
+                            "hgvs": {
+                                "NULL": true
+                            }, 
+                            "position": {
+                                "NULL": true
+                            }, 
+                            "protein": {
+                                "NULL": true
+                            }, 
+                            "gene": {
+                                "NULL": true
+                            }, 
+                            "chromosome": {
+                                "NULL": true
+                            }
+                        }
+                    }
+                ]
+            }, 
+            "cellularity": {
+                "S": "1.000000"
+            }, 
+            "positive_variants": {
+                "L": [
+                    {
+                        "M": {
+                            "function": {
+                                "NULL": true
+                            }, 
+                            "identifier": {
+                                "S": "COSM12580"
+                            }, 
+                            "ocp_reference": {
+                                "S": "G"
+                            }, 
+                            "variant_type": {
+                                "S": "snp"
+                            }, 
+                            "ocp_alternative": {
+                                "S": "C"
+                            }, 
+                            "hgvs": {
+                                "S": "c.333G>C"
+                            }, 
+                            "position": {
+                                "S": "178916946"
+                            }, 
+                            "protein": {
+                                "S": "p.Lys111Asn"
+                            }, 
+                            "gene": {
+                                "S": "PIK3CA"
+                            }, 
+                            "chromosome": {
+                                "S": "chr3"
+                            }, 
+                            "match": {
+                                "BOOL": false
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "function": {
+                                "S": "missense"
+                            }, 
+                            "identifier": {
+                                "S": "COSM476"
+                            }, 
+                            "ocp_reference": {
+                                "S": "A"
+                            }, 
+                            "variant_type": {
+                                "S": "snp"
+                            }, 
+                            "ocp_alternative": {
+                                "S": "T"
+                            }, 
+                            "hgvs": {
+                                "S": "c.1799T>A"
+                            }, 
+                            "position": {
+                                "S": "140453136"
+                            }, 
+                            "protein": {
+                                "S": "p.V600E"
+                            }, 
+                            "gene": {
+                                "S": "BRAF"
+                            }, 
+                            "chromosome": {
+                                "S": "chr7"
+                            }, 
+                            "match": {
+                                "BOOL": false
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "function": {
+                                "NULL": true
+                            }, 
+                            "identifier": {
+                                "S": "."
+                            }, 
+                            "ocp_reference": {
+                                "S": "C"
+                            }, 
+                            "variant_type": {
+                                "S": "snp"
+                            }, 
+                            "ocp_alternative": {
+                                "S": "A"
+                            }, 
+                            "hgvs": {
+                                "S": "c.9281C>A"
+                            }, 
+                            "position": {
+                                "S": "32968850"
+                            }, 
+                            "protein": {
+                                "S": "p.Ser3094Ter"
+                            }, 
+                            "gene": {
+                                "S": "BRCA2"
+                            }, 
+                            "chromosome": {
+                                "S": "chr13"
+                            }, 
+                            "match": {
+                                "BOOL": false
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "function": {
+                                "NULL": true
+                            }, 
+                            "identifier": {
+                                "S": "."
+                            }, 
+                            "ocp_reference": {
+                                "S": "-"
+                            }, 
+                            "variant_type": {
+                                "S": "del"
+                            }, 
+                            "ocp_alternative": {
+                                "S": "A"
+                            }, 
+                            "hgvs": {
+                                "S": "c.741_742insA"
+                            }, 
+                            "position": {
+                                "S": "89717716"
+                            }, 
+                            "protein": {
+                                "S": "p.Pro248fs"
+                            }, 
+                            "gene": {
+                                "S": "PTEN"
+                            }, 
+                            "chromosome": {
+                                "S": "chr10"
+                            }, 
+                            "match": {
+                                "BOOL": false
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "function": {
+                                "NULL": true
+                            }, 
+                            "identifier": {
+                                "NULL": true
+                            }, 
+                            "ocp_reference": {
+                                "S": "ACTT"
+                            }, 
+                            "variant_type": {
+                                "S": "del"
+                            }, 
+                            "ocp_alternative": {
+                                "S": "-"
+                            }, 
+                            "hgvs": {
+                                "S": "c.346_349delACTT"
+                            }, 
+                            "position": {
+                                "S": "48916816"
+                            }, 
+                            "protein": {
+                                "S": "p.T116fs*8"
+                            }, 
+                            "gene": {
+                                "S": "RB1"
+                            }, 
+                            "chromosome": {
+                                "S": "chr13"
+                            }, 
+                            "match": {
+                                "BOOL": false
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "function": {
+                                "NULL": true
+                            }, 
+                            "identifier": {
+                                "S": "."
+                            }, 
+                            "ocp_reference": {
+                                "S": "G"
+                            }, 
+                            "variant_type": {
+                                "S": "del"
+                            }, 
+                            "ocp_alternative": {
+                                "S": "-"
+                            }, 
+                            "hgvs": {
+                                "S": "c.1023delC"
+                            }, 
+                            "position": {
+                                "S": "7574003"
+                            }, 
+                            "protein": {
+                                "S": "p.R342fs*3"
+                            }, 
+                            "gene": {
+                                "S": "TP53"
+                            }, 
+                            "chromosome": {
+                                "S": "chr17"
+                            }, 
+                            "match": {
+                                "BOOL": false
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "function": {
+                                "NULL": true
+                            }, 
+                            "identifier": {
+                                "NULL": true
+                            }, 
+                            "ocp_reference": {
+                                "NULL": true
+                            }, 
+                            "variant_type": {
+                                "S": "cnv"
+                            }, 
+                            "ocp_alternative": {
+                                "NULL": true
+                            }, 
+                            "hgvs": {
+                                "NULL": true
+                            }, 
+                            "position": {
+                                "NULL": true
+                            }, 
+                            "protein": {
+                                "NULL": true
+                            }, 
+                            "gene": {
+                                "S": "ERBB2"
+                            }, 
+                            "chromosome": {
+                                "S": "chr17"
+                            }, 
+                            "match": {
+                                "BOOL": true
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "function": {
+                                "NULL": true
+                            }, 
+                            "identifier": {
+                                "NULL": true
+                            }, 
+                            "ocp_reference": {
+                                "NULL": true
+                            }, 
+                            "variant_type": {
+                                "S": "cnv"
+                            }, 
+                            "ocp_alternative": {
+                                "NULL": true
+                            }, 
+                            "hgvs": {
+                                "NULL": true
+                            }, 
+                            "position": {
+                                "NULL": true
+                            }, 
+                            "protein": {
+                                "NULL": true
+                            }, 
+                            "gene": {
+                                "S": "RPS6KB1"
+                            }, 
+                            "chromosome": {
+                                "S": "chr17"
+                            }, 
+                            "match": {
+                                "BOOL": false
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "function": {
+                                "NULL": true
+                            }, 
+                            "identifier": {
+                                "NULL": true
+                            }, 
+                            "ocp_reference": {
+                                "NULL": true
+                            }, 
+                            "variant_type": {
+                                "S": "cnv"
+                            }, 
+                            "ocp_alternative": {
+                                "NULL": true
+                            }, 
+                            "hgvs": {
+                                "NULL": true
+                            }, 
+                            "position": {
+                                "NULL": true
+                            }, 
+                            "protein": {
+                                "NULL": true
+                            }, 
+                            "gene": {
+                                "S": "ZNF217"
+                            }, 
+                            "chromosome": {
+                                "S": "chr20"
+                            }, 
+                            "match": {
+                                "BOOL": false
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "function": {
+                                "NULL": true
+                            }, 
+                            "identifier": {
+                                "S": "AB374361"
+                            }, 
+                            "ocp_reference": {
+                                "NULL": true
+                            }, 
+                            "variant_type": {
+                                "S": "fusion"
+                            }, 
+                            "ocp_alternative": {
+                                "S": "EML4-ALK.E6aA20"
+                            }, 
+                            "hgvs": {
+                                "S": "EML4-ALK"
+                            }, 
+                            "position": {
+                                "NULL": true
+                            }, 
+                            "protein": {
+                                "NULL": true
+                            }, 
+                            "gene": {
+                                "S": "ALK"
+                            }, 
+                            "chromosome": {
+                                "NULL": true
+                            }, 
+                            "match": {
+                                "BOOL": false
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "function": {
+                                "NULL": true
+                            }, 
+                            "identifier": {
+                                "NULL": true
+                            }, 
+                            "ocp_reference": {
+                                "NULL": true
+                            }, 
+                            "variant_type": {
+                                "S": "fusion"
+                            }, 
+                            "ocp_alternative": {
+                                "S": "ALK-PTPN3.A11P3"
+                            }, 
+                            "hgvs": {
+                                "S": "ALK-PTPN3"
+                            }, 
+                            "position": {
+                                "NULL": true
+                            }, 
+                            "protein": {
+                                "NULL": true
+                            }, 
+                            "gene": {
+                                "S": "ALK"
+                            }, 
+                            "chromosome": {
+                                "NULL": true
+                            }, 
+                            "match": {
+                                "BOOL": false
+                            }
+                        }
+                    }, 
+                    {
+                        "M": {
+                            "function": {
+                                "NULL": true
+                            }, 
+                            "identifier": {
+                                "NULL": true
+                            }, 
+                            "ocp_reference": {
+                                "NULL": true
+                            }, 
+                            "variant_type": {
+                                "S": "fusion"
+                            }, 
+                            "ocp_alternative": {
+                                "S": "MET-MET.M13M15"
+                            }, 
+                            "hgvs": {
+                                "S": "MET-MET"
+                            }, 
+                            "position": {
+                                "NULL": true
+                            }, 
+                            "protein": {
+                                "NULL": true
+                            }, 
+                            "gene": {
+                                "S": "MET"
+                            }, 
+                            "chromosome": {
+                                "NULL": true
+                            }, 
+                            "match": {
+                                "BOOL": false
+                            }
+                        }
+                    }
+                ]
+            }, 
+            "torrent_variant_caller_version": {
+                "S": "5.0-9"
             }
         }, 
         {
@@ -4207,31 +4931,31 @@
             }
         }, 
         {
-            "site": {
-                "S": "mda"
-            }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:19:58.431200"
-            }, 
             "control_type": {
                 "S": "no_template"
             }, 
-            "molecular_id": {
-                "S": "SC_4Y49T"
-            }
-        }, 
-        {
             "site": {
                 "S": "mda"
             }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:20:05.720618"
+            "molecular_id": {
+                "S": "SC_4Y49T"
             }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:19:58.431200"
+            }
+        }, 
+        {
             "control_type": {
                 "S": "proficiency_competency"
             }, 
+            "site": {
+                "S": "mda"
+            }, 
             "molecular_id": {
                 "S": "SC_D8ZTD"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:20:05.720618"
             }
         }, 
         {
@@ -5281,34 +6005,34 @@
             }
         }, 
         {
-            "site": {
-                "S": "mocha"
-            }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:19:44.939367"
-            }, 
             "control_type": {
                 "S": "positive"
+            }, 
+            "site": {
+                "S": "mocha"
             }, 
             "molecular_id": {
                 "S": "SC_QSQTO"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:19:44.939367"
             }
         }, 
         {
-            "site": {
-                "S": "mocha"
-            }, 
-            "date_molecular_id_created": {
-                "S": "2016-10-12 21:19:46.619925"
-            }, 
             "control_type": {
                 "S": "positive"
             }, 
+            "site": {
+                "S": "mocha"
+            }, 
             "molecular_id": {
                 "S": "SC_X9FR1"
+            }, 
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:19:46.619925"
             }
         }
     ], 
-    "ScannedCount": 58, 
+    "ScannedCount": 59, 
     "ConsumedCapacity": null
 }
