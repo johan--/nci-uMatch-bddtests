@@ -45,11 +45,25 @@ DynamoDataUploader-- this class helps upload backup data from local dynamodb to 
             DynamoDataUploader.new('local').upload_patient_data_to_aws
 
 
-How to work with seed data:
+How to work append seed data to current existing seed data lib:
+1. Clear all local data:
+    DynamoDb.new('local').clear_all_tables
+2. Load all existing seed data
+    DynamoDataUploader.new('local').upload_treatment_arm_to_aws
+    DynamoDataUploader.new('local').upload_patient_data_to_aws
+    DynamoDataUploader.new('local').upload_ion_to_aws
+3. Generate new seed data
+4. Backup all data from current local dynamodb:
+    DynamoDataUploader.backup_all_local_db
+5. Check in seed_data_for_upload/{patient related table).json files to git
+
+
+Other tips
 1. Start with a fresh new full loaded local dynamodb:
 DynamoDb.new('local').clear_all_tables
 DynamoDataUploader.new('local').upload_treatment_arm_to_aws
 DynamoDataUploader.new('local').upload_patient_data_to_aws
+DynamoDataUploader.new('local').upload_ion_to_aws
 
 2. Start with an empty local dynamodb;
 DynamoDb.new('local').clear_all_tables
@@ -71,15 +85,7 @@ DynamoDb.new('local').clear_all_tables
     d.  DynamoDataUploader.backup_all_patient_local_db
     e.  Check in seed_data_for_upload/{patient related table).json files to git
 
-3. Replace all treatment arm seed data
-    a.  DynamoDb.new('local').clear_all_treatment_arm_tables
-    b.  Do whatever change in the local_treatment_arm_data/Treatment_Arm_data.json file and run
-        TreatmentArmMessageLoader.load_treatment_arm_to_local('Treatment_Arm_data', 5)
-        repeat step a and b until the changes in step b is satisfied
-    c.  DynamoDataUploader.backup_all_treatment_arm_local_db
-    d.  Check in seed_data_for_upload/{treatment arm related table).json files to git
-
-
-
+4. Remove one patient seed data
+DynamoDataUploader.delete_all_data_for_patient(:patient_id)
 
 

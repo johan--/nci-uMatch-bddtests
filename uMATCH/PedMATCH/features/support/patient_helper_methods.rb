@@ -332,6 +332,17 @@ class Patient_helper_methods
     end
   end
 
+  def self.prepare_off_study_biopsy_expired(pt_id, step_number, date='default')
+    @patient_id = pt_id
+    @request_hash = load_patient_message_templates('off_study')
+    @request_hash['patient_id'] = @patient_id
+    @request_hash['status'] = 'OFF_STUDY_BIOPSY_EXPIRED'
+    @request_hash['step_number'] = step_number
+    unless date=='default'
+      @request_hash['status_date'] = date
+    end
+  end
+
   def self.prepare_request_assignment(pt_id, rebiopsy, step_number, date='default')
     @patient_id = pt_id
     @request_hash = load_patient_message_templates('request_assignment')

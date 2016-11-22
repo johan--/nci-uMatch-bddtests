@@ -107,6 +107,12 @@ Given(/^template request no assignment message for patient: "([^"]*)" with step 
   Patient_helper_methods.prepare_request_no_assignment(@patient_id, converted_step_number)
 end
 
+Given(/^template off study biopsy expired message for patient: "([^"]*)" on step number: "([^"]*)"$/) do |patient_id, step_number|
+  @patient_id = patient_id=='null' ? nil : patient_id
+  converted_step_number = step_number=='null' ? nil : step_number
+  Patient_helper_methods.prepare_off_study_biopsy_expired(@patient_id, converted_step_number)
+end
+
 Given(/^template off study message for patient: "([^"]*)" on step number: "([^"]*)"$/) do |patient_id, step_number|
   @patient_id = patient_id=='null' ? nil : patient_id
   converted_step_number = step_number=='null' ? nil : step_number

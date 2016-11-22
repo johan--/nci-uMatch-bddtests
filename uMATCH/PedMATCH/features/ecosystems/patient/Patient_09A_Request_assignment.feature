@@ -22,6 +22,7 @@ Feature: Patients request assignment tests
     Then patient field: "current_status" should have value: "<next_status>" within 30 seconds
     Examples:
       | patient_id                  | current_step_number | next_step_number | message | post_status | next_status                     |
+      | PT_RA02_PendingConfirmation | 1.0                 | 1.0              |         | Failure     | PENDING_CONFIRMATION            |
       | PT_RA02_PendingApproval     | 1.0                 | 1.0              |         | Success     | PENDING_CONFIRMATION            |
       | PT_RA02_OnTreatmentArm      | 1.1                 | 2.0              |         | Success     | PENDING_CONFIRMATION            |
       | PT_RA02_RequestNoAssignment | 1.1                 | 1.1              |         | Success     | PENDING_CONFIRMATION            |
@@ -35,6 +36,7 @@ Feature: Patients request assignment tests
       | PT_RA02_TsVrRejected        | 1.0                 | 1.0              |         | Failure     | TISSUE_VARIANT_REPORT_REJECTED  |
       | PT_RA02_NoTaAvailable       | 1.0                 | 1.0              |         | Failure     | NO_TA_AVAILABLE                 |
       | PT_RA02_CompassionateCare   | 1.0                 | 1.0              |         | Failure     | COMPASSIONATE_CARE              |
+#   for the case: OFF_STUDY and OFF_STUDY_BIOPSY_EXPIRED, please check test PT_OS04
 #    for the case: current status REQUEST_ASSIGNMENT then receive request assignment(rebiopsy=N), please check test PT_RA02a
 #      | PT_RA02_RequestAssignment   | 1.0                 | 1.0              |         | Failure     | REQUEST_ASSIGNMENT              |
     #there is no “PATHOLOGY_REVIEWED” status anymore
@@ -56,6 +58,7 @@ Feature: Patients request assignment tests
     Then patient field: "current_status" should have value: "<next_status>" within 30 seconds
     Examples:
       | patient_id                  | current_step_number | next_step_number | message | post_status | next_status                     |
+      | PT_RA03_PendingConfirmation | 1.0                 | 1.0              |         | Failure     | PENDING_CONFIRMATION            |
       | PT_RA03_PendingApproval     | 1.0                 | 1.0              |         | Success     | REQUEST_ASSIGNMENT              |
       | PT_RA03_OnTreatmentArm      | 1.1                 | 2.0              |         | Success     | REQUEST_ASSIGNMENT              |
       | PT_RA03_RequestAssignment   | 1.0                 | 1.0              |         | Failure     | REQUEST_ASSIGNMENT              |
@@ -70,6 +73,7 @@ Feature: Patients request assignment tests
       | PT_RA03_TsVrRejected        | 1.0                 | 1.0              |         | Failure     | TISSUE_VARIANT_REPORT_REJECTED  |
       | PT_RA03_NoTaAvailable       | 1.0                 | 1.0              |         | Failure     | NO_TA_AVAILABLE                 |
       | PT_RA03_CompassionateCare   | 1.0                 | 1.0              |         | Failure     | COMPASSIONATE_CARE              |
+#   for the case: OFF_STUDY and OFF_STUDY_BIOPSY_EXPIRED, please check test PT_OS04
     #there is no “PATHOLOGY_REVIEWED” status anymore
 #      | PT_RA03_PathoConfirmed      | PATHOLOGY_REVIEWED              | 2.0                 | 2.0              |         | Failure     | PATHOLOGY_REVIEWED              |
 
@@ -93,21 +97,24 @@ Feature: Patients request assignment tests
     When post to MATCH patients service, returns a message that includes "<message>" with status "<post_status>"
     Then patient field: "current_status" should have value: "<next_status>" within 30 seconds
     Examples:
-      | patient_id                   | next_step_number | message | post_status | next_status                     |
-      | PT_RA04a_PendingApproval     | 1.0              |         | Success     | REQUEST_NO_ASSIGNMENT           |
-      | PT_RA04a_OnTreatmentArm      | 1.1              |         | Success     | REQUEST_NO_ASSIGNMENT           |
-      | PT_RA04a_RequestAssignment   | 1.0              |         | Success     | REQUEST_NO_ASSIGNMENT           |
-      | PT_RA04a_RequestNoAssignment | 1.1              |         | Failure     | REQUEST_NO_ASSIGNMENT           |
-      | PT_RA04a_Registered          | 1.0              |         | Failure     | REGISTRATION                    |
-      | PT_RA04a_TsReceived          | 1.0              |         | Failure     | TISSUE_SPECIMEN_RECEIVED        |
-      | PT_RA04a_TsShipped           | 2.0              |         | Failure     | TISSUE_NUCLEIC_ACID_SHIPPED     |
-      | PT_RA04a_slideShipped        | 2.0              |         | Failure     | TISSUE_SLIDE_SPECIMEN_SHIPPED   |
-      | PT_RA04a_AssayReceived       | 1.0              |         | Failure     | ASSAY_RESULTS_RECEIVED          |
-      | PT_RA04a_TsVrReceived        | 2.0              |         | Failure     | TISSUE_VARIANT_REPORT_RECEIVED  |
-      | PT_RA04a_TsVrConfirmed       | 1.0              |         | Failure     | TISSUE_VARIANT_REPORT_CONFIRMED |
-      | PT_RA04a_TsVrRejected        | 1.0              |         | Failure     | TISSUE_VARIANT_REPORT_REJECTED  |
-      | PT_RA04a_NoTaAvailable       | 1.0              |         | Success     | REQUEST_NO_ASSIGNMENT           |
-      | PT_RA04a_CompassionateCare   | 1.0              |         | Success     | REQUEST_NO_ASSIGNMENT           |
+      | patient_id                     | next_step_number | message | post_status | next_status                     |
+      | PT_RA04a_PendingConfirmation   | 1.0              |         | Failure     | PENDING_CONFIRMATION            |
+      | PT_RA04a_PendingApproval       | 1.0              |         | Success     | REQUEST_NO_ASSIGNMENT           |
+      | PT_RA04a_OnTreatmentArm        | 1.1              |         | Success     | REQUEST_NO_ASSIGNMENT           |
+      | PT_RA04a_RequestAssignment     | 1.0              |         | Success     | REQUEST_NO_ASSIGNMENT           |
+      | PT_RA04a_RequestNoAssignment   | 1.1              |         | Failure     | REQUEST_NO_ASSIGNMENT           |
+      | PT_RA04a_Registered            | 1.0              |         | Failure     | REGISTRATION                    |
+      | PT_RA04a_TsReceived            | 1.0              |         | Failure     | TISSUE_SPECIMEN_RECEIVED        |
+      | PT_RA04a_TsShipped             | 2.0              |         | Failure     | TISSUE_NUCLEIC_ACID_SHIPPED     |
+      | PT_RA04a_slideShipped          | 2.0              |         | Failure     | TISSUE_SLIDE_SPECIMEN_SHIPPED   |
+      | PT_RA04a_AssayReceived         | 1.0              |         | Failure     | ASSAY_RESULTS_RECEIVED          |
+      | PT_RA04a_TsVrReceived          | 2.0              |         | Failure     | TISSUE_VARIANT_REPORT_RECEIVED  |
+      | PT_RA04a_TsVrConfirmed         | 1.0              |         | Failure     | TISSUE_VARIANT_REPORT_CONFIRMED |
+      | PT_RA04a_TsVrRejected          | 1.0              |         | Failure     | TISSUE_VARIANT_REPORT_REJECTED  |
+      | PT_RA04a_NoTaAvailable         | 1.0              |         | Success     | REQUEST_NO_ASSIGNMENT           |
+      | PT_RA04a_CompassionateCare     | 1.0              |         | Success     | REQUEST_NO_ASSIGNMENT           |
+      | PT_RA04a_OffStudy              | 1.0              |         | Failure     | OFF_STUDY                       |
+      | PT_RA04a_OffStudyBiopsyExpired | 1.0              |         | Failure     | OFF_STUDY_BIOPSY_EXPIRED        |
 
 #  PT_RA04b off study and request assignment message should be accepted when patient is on request no assignment status
 #    please check test PT_OS01 last example and PT_RA02 example 3, PT_RA03 example 4

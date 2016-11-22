@@ -181,6 +181,12 @@ class PatientMessageLoader
     end
   end
 
+  def self.patient_exist(patient_id)
+    url = "http://localhost:10240/api/v1/patients/#{patient_id}"
+    response = Helper_Methods.simple_get_request(url)
+    response['http_code'].start_with?('2')
+  end
+
   def self.register_patient(patient_id, date='2016-02-09T22:06:33+00:00')
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['registration']
     message['patient_id'] = patient_id
