@@ -264,7 +264,7 @@ class Helper_Methods
     end
 
     http_code = "#{response.code}"
-    status = http_code =='200' ? 'Success' : 'Failure'
+    status = http_code.match(/20(\d)/) ? 'Success' : 'Failure'
     @post_response['status'] = status
     @post_response['http_code'] = http_code
     @post_response['message'] = response.body
