@@ -54,7 +54,7 @@ Feature: Patients off study tests
       | PT_OS01a_TsVrRejected          | 1.0                 | processed successfully | Success     | OFF_STUDY_BIOPSY_EXPIRED |
       | PT_OS01a_PendingConfirmation   | 2.0                 | processed successfully | Success     | OFF_STUDY_BIOPSY_EXPIRED |
       | PT_OS01a_PendingApproval       | 2.0                 | processed successfully | Success     | OFF_STUDY_BIOPSY_EXPIRED |
-      | PT_OS01a_OnTreatmentArm        | 1.1                 | processed successfully | Success     | OFF_STUDY_BIOPSY_EXPIRED |
+      | PT_OS01a_OnTreatmentArm        | 1.1                 | processed successfully | Failure     | ON_TREATMENT_ARM         |
       | PT_OS01a_ReqAssignment         | 2.0                 | processed successfully | Success     | OFF_STUDY_BIOPSY_EXPIRED |
       | PT_OS01a_ReqNoAssignment       | 1.1                 | processed successfully | Success     | OFF_STUDY_BIOPSY_EXPIRED |
       | PT_OS01a_NoTaAvailable         | 1.0                 | processed successfully | Success     | OFF_STUDY_BIOPSY_EXPIRED |
