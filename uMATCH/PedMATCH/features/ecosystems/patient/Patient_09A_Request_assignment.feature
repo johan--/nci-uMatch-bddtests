@@ -1,7 +1,7 @@
 #encoding: utf-8
 Feature: Patients request assignment tests
 
-  @patients_p1
+  @patients_p1_off
   Scenario Outline: PT_RA01. patient can be set to request assignment (rebiopsy=N) properly
 #    patient: PT_RA01_PendingApproval is on 1.0 now
 #    patient: PT_RA01_OnTreatmentArm is on 1.1 now
@@ -15,7 +15,7 @@ Feature: Patients request assignment tests
       | PT_RA01_PendingApproval | 1.0              | APEC1621-ETE-A | 100           |
       | PT_RA01_OnTreatmentArm  | 2.0              | APEC1621-ETE-A | 100           |
 
-  @patients_p2
+  @patients_p2_off
   Scenario Outline: PT_RA02. patient can only be set to request assignment(rebiopsy=N) when patient is on certain status
     Given template request assignment message for patient: "<patient_id>" with re-biopsy: "N", step number: "<next_step_number>"
     When post to MATCH patients service, returns a message that includes "<message>" with status "<post_status>"
@@ -42,7 +42,7 @@ Feature: Patients request assignment tests
     #there is no “PATHOLOGY_REVIEWED” status anymore
 #      | PT_RA02_PathoConfirmed      | 2.0                 | 2.0              |         | Failure     | PATHOLOGY_REVIEWED              |
 
-  @patients_p3
+  @patients_p3_off
   Scenario: PT_RA02a. request assignment(rebiopsy=N) should trigger assignment again if patient is on REQUEST_ASSIGNMENT status
     Given template request assignment message for patient: "PT_RA02a_RequestAssignment" with re-biopsy: "N", step number: "2.0"
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
@@ -50,7 +50,7 @@ Feature: Patients request assignment tests
     Then patient field: "current_step_number" should have value: "2.0" within 30 seconds
     Then patient should have selected treatment arm: "APEC1621-ETE-A" with stratum id: "100" within 15 seconds
 
-  @patients_p2
+  @patients_p2_off
   Scenario Outline: PT_RA03. patient can only be set to request assignment(rebiopsy=Y) when patient is on certain status
 #    if patient is REQUEST_ASSIGNMENT status then it make no sense to receive another same request assignment (rebiopsy=Y) message, so reject it
     Given template request assignment message for patient: "<patient_id>" with re-biopsy: "Y", step number: "<next_step_number>"
@@ -77,7 +77,7 @@ Feature: Patients request assignment tests
     #there is no “PATHOLOGY_REVIEWED” status anymore
 #      | PT_RA03_PathoConfirmed      | PATHOLOGY_REVIEWED              | 2.0                 | 2.0              |         | Failure     | PATHOLOGY_REVIEWED              |
 
-  @patients_p2
+  @patients_p2_off
   Scenario: PT_RA04. any message other than request assignment(Rebiopsy=Y) and off study should be rejected if patient is on "REQUEST_NO_ASSIGNMENT" status
 #    patient: "PT_RA04_ReqNoAssignment" with status: "REQUEST_NO_ASSIGNMENT" on step: "2.0"
     Given template variant report confirm message for patient: "PT_RA04_ReqNoAssignment", it has analysis_id: "PT_RA04_ReqNoAssignment_ANI2" and status: "confirm"
@@ -91,7 +91,7 @@ Feature: Patients request assignment tests
     Then template assay message with surgical_event_id: "PT_RA04_ReqNoAssignment_SEI1" for patient: "PT_RA04_ReqNoAssignment"
     When post to MATCH patients service, returns a message that includes "assignment" with status "Failure"
 
-  @patients_p2
+  @patients_p2_off
   Scenario Outline: PT_RA04a patient can be set to request no assignment only on certain status
     Given template request no assignment message for patient: "<patient_id>" with step number: "<next_step_number>"
     When post to MATCH patients service, returns a message that includes "<message>" with status "<post_status>"
@@ -120,13 +120,13 @@ Feature: Patients request assignment tests
 #    please check test PT_OS01 last example and PT_RA02 example 3, PT_RA03 example 4
 #
 
-  @patients_p3
+  @patients_p3_off
   Scenario: PT_RA05. request assignment message with rebiopsy = N will fail if the current biopsy is expired
 #   patient: "PT_RA05_OnTreatmentArm" with status: "ON_TREATMENT_ARM" on step: "1.1" the specimen received date is over 6 months ago
     Given template request assignment message for patient: "PT_RA05_OnTreatmentArm" with re-biopsy: "N", step number: "2.0"
     When post to MATCH patients service, returns a message that includes "expired" with status "Failure"
 
-  @patients_p1
+  @patients_p1_off
   Scenario Outline: PT_RA06. assignment process should not be triggered if assignment request has rebiopsy = Y
     Given template request assignment message for patient: "<patient_id>" with re-biopsy: "Y", step number: "2.0"
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"

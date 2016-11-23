@@ -158,7 +158,7 @@ Feature: Assay Messages
       | ICCPTENs  | NEGATIVE      | 2016-05-18T12:42:13+00:00 |
       | ICCMLH1s  | INDETERMINATE | 2016-05-18T13:42:13+00:00 |
 
-  @patients_p2
+  @patients_p2_off
   Scenario Outline: PT_AS12. assay result received will not trigger patient assignment process unless patient has pathology and VR ready
     Given template assay message with surgical_event_id: "<sei>" for patient: "<patient_id>"
     Then set patient message field: "biomarker" to value: "ICCPTENs"

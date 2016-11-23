@@ -195,7 +195,7 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     Then this specimen should have a correct failed_date
 
 
-  @patients_p2
+  @patients_p2_off
   Scenario: PT_SR16. when a new tissue specimen is received after variant report confirmed, the failed_date of last specimen should not be set
     Given template request assignment message for patient: "PT_SR16_PendingApproval" with re-biopsy: "Y", step number: "1.0"
     Then post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
