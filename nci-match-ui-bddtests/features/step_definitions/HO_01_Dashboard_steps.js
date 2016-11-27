@@ -54,7 +54,7 @@ module.exports = function() {
 
     });
 
-    this.Then(/^I can see patients with Pending Blood Variant Reports$/, function (callback) {
+    this.Then(/^I can see patients with Pending Blood Specimens$/, function (callback) {
         expect(dash.pendingBVRCount.getText()).to.eventually.eql(responseData.length.toString()).notify(callback);
     });
 
@@ -68,7 +68,7 @@ module.exports = function() {
             'Patients on Treatment:', 'Pending Tissue Variant Reports:',
             'Pending Assignment Reports:'
         ];
-        // removed 'Pending Blood Variant Reports:', from the above array
+        // removed 'Pending Blood Specimens:', from the above array
 
         for (var i = 0; i < expectedStatLabelArray.length; i++){
             expect(listings.get(i).getText()).to.eventually.include(expectedStatLabelArray[i]);
@@ -146,7 +146,7 @@ module.exports = function() {
     this.Given(/^I collect information for "(.+)" Dashboard$/, function (report_type, callback) {
         var dashboardList = {
           "Tissue Variant Reports": callList.pendingTissueVR,
-          "Blood Variant Reports": callList.pendingBloodVR,
+          "Blood Specimens": callList.pendingBloodVR,
           "Assignment Reports" : callList.pendingAssignment
         };
         var request = dashboardList[report_type];
@@ -177,7 +177,6 @@ module.exports = function() {
 
     this.When(/^I click on the "(.+)" sub\-tab$/, function (reportType, callback) {
         var pendingReviewArray = ['Tissue Variant Reports', 'Assignment Reports'];
-        //Removin 'Blood Variant Reports', from index 1 of the above array
         var index = pendingReviewArray.indexOf(reportType);
         var tabHeadingElement = element.all(by.binding('heading')).get(index);
         browser.ignoreSynchronization = true;
@@ -211,7 +210,7 @@ module.exports = function() {
     this.Then(/^The "(.+)" data columns are seen$/, function (reportType, callback) {
         var dashboardList = {
             "Tissue Variant Reports": dash.expectedTissueVRColumns,
-            "Blood Variant Reports": dash.expectedBloodVRColumns,
+            "Blood Specimens": dash.expectedBloodVRColumns,
             "Assignment Reports" : dash.expectedAssignmentColumns
         };
 

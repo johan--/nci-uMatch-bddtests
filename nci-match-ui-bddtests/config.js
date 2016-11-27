@@ -26,7 +26,7 @@ exports.config = {
         'features/PA_01_Patient_List.feature',
         'features/PA_02_Patient_Summary.feature',
         'features/PA_03_Patient_SurgicalEvent.feature',
-        'features/PA_04_Patient_Tissue_Report.feature',
+        'features/PA_04_Patient_Blood_Specimen.feature',
         'features/PA_05_Patient_Documents.feature',
         'features/SP_01_Specimen_Tracking.feature',
 

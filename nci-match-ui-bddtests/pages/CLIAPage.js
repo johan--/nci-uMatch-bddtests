@@ -11,9 +11,61 @@ var CliaPage = function () {
     this.mdaNoTemplateGrid      = element(by.css('clia_ntc_samples[site="MDACC"]'));
     this.mdaProficiencyGrid     = element(by.css('clia_pc_samples[site="MDACC"]'));
 
+    this.sampleDetailHeaders    = element.all(by.css('.header-info-box'));
+    this.sampleDetailMolecId    = element(by.binding('data.molecular_id'));
+    this.sampleDetailAnalysisId = element(by.binding('data.analysis_id'));
+    this.sampleDetailLoadedDt   = element(by.binding('data.date_molecular_id_created'));
+    this.sampleDetailTorrentVer = element(by.binding('data.torrent_variant_caller_version'));
+    this.sampleDetailPosCtrlVer = element(by.binding('data.positive_control_version'));
+    this.sampleDetailRecvdDate  = element(by.binding('data.date_variant_received'));
+    this.sampleDetailStatus     = element(by.binding('data.report_status'));
+    this.sampleDetailComments   = element(by.binding('data.comments'));
+    this.sampleDetailTotVariant = element(by.binding('data.total_variants'));
+    this.sampleDetailMAPD       = element(by.binding('data.mapd'));
+    this.sampleDetailCell       = element(by.binding('data.cellularity'));
+
+    this.sampleDetailTableHead  = element.all(by.css('.ibox-title.ibox-title-no-line-no-padding'));
+    this.samplePositivePanel    = element(by.css('clia-vr-positive'));
+    this.sampleFalsePosPanel    = element(by.css('clia-vr-false-positive'));
+    this.ntcSNVPanel            = element(by.css('clia-vr-table-snv-mnv-indel'))
+    this.ntcCNVPanel            = element(by.css('clia-vr-table-cnv'))
+    this.ntcGeneFusionPanel     = element(by.css('clia-vr-table-gf'))
+    this.proficiencySNVPanel    = element(by.css('clia-vr-table-snv-mnv-indel-with-check'))
+    this.proficiencyCNVPanel    = element(by.css('clia-vr-table-cnv-with-check'))
+    this.proficiencyGFPanel     = element(by.css('clia-vr-table-gf-with-check'))
 
     // Expectation values
-    this.expectedMsnTableHeading = ['Molecular ID', 'Date Created', 'Date Received', 'Variant Reports', 'Status']
+    this.expectedMsnTableHeading  = ['Molecular ID', 'Date Created', 'Date Received', 'Variant Reports', 'Status']
+    this.expPositiveSampleHeaders = {
+        'left': [
+            'Molecular ID', 'Analysis ID', 'Positive Control Loaded Date', 'Torrent Variant Caller Version',
+            'Positive Control Version', 'File Received Date', 'Status', 'Comments', 'Files'
+        ],
+        'right': [
+            'Total Variants', 'MAPD', 'Cellularity'
+        ]
+
+    };
+
+    this.expNonTempCrtlHeaders    = {
+        'left': [
+            'Molecular ID', 'Analysis ID', 'Torrent Variant Caller Version',
+            'File Received Date', 'Status', 'Comments', 'Files'
+        ],
+        'right': [
+            'Total Variants', 'MAPD', 'Cellularity'
+        ]
+    };
+
+    this.expProfAndCompCrtlHeaders = {
+        'left': [
+            'Molecular ID', 'Analysis ID', 'Torrent Variant Caller Version',
+            'File Received Date', 'Status', 'Comments', 'Files'
+        ],
+        'right': [
+            'Total Variants', 'MAPD', 'Cellularity'
+        ]
+    };
 };
 
 module.exports = new CliaPage();

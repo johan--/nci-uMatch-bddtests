@@ -69,14 +69,14 @@ class PatientMessageLoader
         old_hash = new_hash
       end
       total_time += 0.5
-      if new_hash!= old_hash || total_time>timeout
+      if new_hash != old_hash || total_time > timeout
         return
       end
       sleep(0.5)
     end
   end
 
-  def self.send_message_to_local(message_json, patient_id)
+  def self.send_message_to_local(message_json, patient_id, message = nil)
     if @all_items.nil?
       @all_items = 0
     end
@@ -90,6 +90,7 @@ class PatientMessageLoader
     # curl_cmd = curl_cmd + "' #{LOCAL_PATIENT_API_URL}/#{patient_id}"
     # output = `#{curl_cmd}`
     p "Output from running No.#{@all_items} curl: #{output['message']}"
+    p "#{message} completed"
     unless output['message'].downcase.include?'success'
       p 'Failed'
       puts JSON.pretty_generate(message_json)
@@ -191,7 +192,7 @@ class PatientMessageLoader
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['registration']
     message['patient_id'] = patient_id
     message['status_date'] = convert_date(date)
-    send_message_to_local(message, patient_id)
+    send_message_to_local(message, patient_id, "Patient Registration")
   end
 
   def self.specimen_received_tissue(
@@ -213,7 +214,7 @@ class PatientMessageLoader
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['specimen_received_BLOOD']
     message['specimen_received']['patient_id'] = patient_id
     message['specimen_received']['collection_dt'] = convert_date(collect_time)
-    send_message_to_local(message, patient_id)
+    send_message_to_local(message, patient_id, "Blood Specimen Received")
   end
 
   def self.specimen_shipped_tissue(
@@ -258,7 +259,7 @@ class PatientMessageLoader
     message['specimen_shipped']['molecular_id'] = molecular_id
     message['specimen_shipped']['shipped_dttm'] = convert_date(shipped_time)
     message['specimen_shipped']['destination'] = destination
-    send_message_to_local(message, patient_id)
+    send_message_to_local(message, patient_id, "Blood Specimen Shipped")
   end
 
   def self.assay(

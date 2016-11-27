@@ -47,7 +47,7 @@ var DashboardPage = function() {
     // element(by.id(subTabLocator[<reportType>]))
     this.subTabLocator = {
         "Tissue Variant Reports": "pendingTissueVRs",
-        "Blood Variant Reports": "pendingBloodVRs",
+        "Blood Specimens": "pendingBloodVRs",
         "Assignment Reports" : "pendingAssignReps"
     };
 

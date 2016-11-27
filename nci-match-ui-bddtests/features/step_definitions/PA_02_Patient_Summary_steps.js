@@ -139,7 +139,11 @@ module.exports = function () {
     this.Then (/^I should see the "([^"]*)" tab is active$/, function (tabName, callback) {
         var index       = expectedMainTabs.indexOf (tabName);
         var testElement = element.all (by.css ('li.uib-tab.nav-item')).get (index);
-        utilities.checkElementIncludesAttribute (testElement, 'class', 'active').then (callback);
+        var testElem    = element.all (by.css ('li.uib-tab.nav-item'))
+        utilities.getElementIndex(testElem, tabName).then(function (newIndex){
+            console.log("new INdex = " + newIndex);
+            utilities.checkElementIncludesAttribute (testElem.get(newIndex), 'class', 'active');
+        }).then(callback);
     });
 
     this.Then (/^I should see the "(.+)" section heading$/, function (heading, callback) {

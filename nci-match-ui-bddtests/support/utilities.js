@@ -100,6 +100,56 @@ var Utilities = function() {
         return retVal;
     };
 
+    /** finds the index of the element that matches css and the end text that is provided.
+     * @param elem = list of all the elements that match the locator
+     * @param name = The text of the element.
+     */
+    this.getElementIndex = function (elem, name) {
+        return elem.getText().then(function (nameArray) {
+            return nameArray.indexOf(name)
+        })
+    };
+
+    /** Verified that if the element has cosmicID value then it should be a link and should point to the proper href value
+     * @param elem = element under test. This element ideally should be the direct parent of <a> tag.
+     */
+    this.checkCosmicLink = function (elem) {
+        elem.getText().then(function (linkText) {
+            if (linkText.match(/COSM/)){
+                var id = linkText.substr('COSM'.length)
+                expect(elem.all(by.css('a')).get(0).getAttribute('href')).to.eventually.eql('http://grch37-cancer.sanger.ac.uk/cosmic/mutation/overview?id=' + id)
+            } else {
+                expect(elem.all(by.css('a')).count()).to.eventually.eql(0)
+            }
+        })
+    };
+
+    /** Verify that the link exists and is a valid one to the gene
+     * @param elem = element under test. This element ideally should be the direct parent of <a> tag.
+     * http://grch37-cancer.sanger.ac.uk/cosmic/gene/overview?ln=PIK3CA
+     */
+    this.checkGeneLink = function(elem) {
+        elem.getText().then(function (linkText) {
+            if (linkText.match(/\w/)){
+                expect(elem.all(by.css('a')).get(0).getAttribute('href')).to.eventually.eql('http://grch37-cancer.sanger.ac.uk/cosmic/gene/overview?ln=' + linkText);
+            } else {
+                console.log(linkText);
+                expect(elem.all(by.css('a')).count()).to.eventually.eql(0)
+            }
+        })
+    };
+
+    this.checkCOSFLink = function(elem) {
+        elem.getText().then(function (linkText) {
+            if (linkText.match(/COSF/)){
+                var id = linkText.substr('COSF'.length);
+                expect(elem.all(by.css('a')).get(0).getAttribute('href')).to.eventually.eql('http://grch37-cancer.sanger.ac.uk/cosmic/mutation/overview?id=' + id)
+            } else {
+                expect(elem.all(by.css('a')).count()).to.eventually.eql(0)
+            }
+        })
+    }
+
     /**
      * Gets all the values for the attributes and checks if the value provided is set.
      * @param element

@@ -20,7 +20,7 @@ Feature: Dashboard page.
     And I collect "pendingTissueVR" data from backend
     And I can see patients with Pending Tissue Variant Reports
 #    And I collect "pendingBloodVR" data from backend
-#    And I can see patients with Pending Blood Variant Reports
+#    And I can see patients with Pending Blood Specimens
     And I collect "pendingAssignment" data from backend
     And I can see patients with Pending Assignment Reports
     And I collect "pendingReportStats" data from backend
@@ -34,7 +34,7 @@ Feature: Dashboard page.
     When I navigate to the dashboard page
     Then I can see the Pending Review Section Heading
     And I can see the pending "Tissue Variant Reports" subtab
-#    And I can see the pending "Blood Variant Reports" subtab
+#    And I can see the pending "Blood Specimens" subtab
     And I can see the pending "Assignment Reports" subtab
 
   @ui_p1
@@ -49,7 +49,7 @@ Feature: Dashboard page.
     |report_type            |
     |Tissue Variant Reports |
     |Assignment Reports     |
-#    |Blood Variant Reports  |
+#    |Blood Specimens  |
 
   @ui_p3
   Scenario: User can filter results on the page
@@ -76,5 +76,5 @@ Feature: Dashboard page.
     Examples:
       |report_type            |
       |Tissue Variant Reports |
-#      |Blood Variant Reports  |
+#      |Blood Specimens  |
       |Assignment Reports     |

@@ -75,7 +75,6 @@ module.exports = function () {
         browser.sleep(50).then(function () {
             // checking for element at index to be a link
             for (var i = 0; i < taPage.rowCount; i ++){
-                console.log('Testing row:' + i)
                 utilities.checkIfLink(taPage.dataRows.get(i), taPage.columnIndex)
             }
         }).then(callback);

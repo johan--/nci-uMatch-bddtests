@@ -78,10 +78,10 @@ var PatientPage = function () {
     this.surgicalEventPanels = element.all(by.css('.specimen-event-panel'));
     this.surgicalEventId  = element(by.binding('surgicalEvent.surgical_event_id'));
 
-    // *****************  Tissue Reports / Blood Variant Reports Tab  ********************//
+    // *****************  Tissue Reports / Blood Specimens Tab  ********************//
     // This the master panel STRING for Tissue reports
     this.tissueMasterPanelString = 'div[ng-if="currentTissueVariantReport"]';
-    // master panel string for blood variant reports
+    // master panel string for Blood Specimens
     this.bloodMasterPanelString = 'div[ng-if="currentBloodVariantReport"]';
     //The String is the locator to get access to all the tables under the variant Report section namely, SNV, CNV and GeneFusion
     this.tissueTableString = 'div[ng-if="variantReportMode === \'FILTERED\'"]>.table-responsive';
@@ -129,7 +129,7 @@ var PatientPage = function () {
     // This is the assignment Report Section panel. You can get access to the other elements within this panel by using #all(by.<property>)
     this.assignmentReportSection = element.all(by.css("div[ng-if=\"variantReportMode!=='QC'\"]")).get(0);
 
-    //These are the elements present in the summary boxes of blood variant reports
+    //These are the elements present in the summary boxes of Blood Specimens
     this.bloodAnalysisId        = element(by.binding('currentBloodVariantReport.analysis_id'));
     this.bloodMolecularId       = element(by.binding('currentBloodVariantReport.molecular_id'));
     this.bloodFileReceivedDate  = element(by.binding('currentBloodVariantReport.variant_report_received_date'));

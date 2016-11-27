@@ -7,7 +7,6 @@ Feature: Patient Surgical Events Tab
 
   Background:
     Given I am a logged in user
-    And I navigate to the patients page
     And I go to patient "PT_CR04_VRUploadedAssayReceived" details page
 
   @ui_p2
