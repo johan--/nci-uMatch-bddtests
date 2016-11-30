@@ -3,7 +3,7 @@
 @patients_end_to_end
 Feature: Patients end to end tests
 
-  @patients_p1_off
+  @patients_p1
   Scenario: PT_ETE01. patient can reach step 4.1 successfully
 #    Given patient: "PT_ETE01" with status: "BLOOD_VARIANT_REPORT_RECEIVED" on step: "3.0"
 #    Given this patients's active "TISSUE" molecular_id is "PT_ETE01_MOI2"

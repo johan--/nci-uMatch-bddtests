@@ -9,8 +9,42 @@ require 'aws-sdk'
 class Helper_Methods
   @requestGap = 5.0
   @requestTimeout = 10.0
+  # @auth0_token = nil
 
-  def Helper_Methods.get_request(url, params={})
+
+  # def self.get_auth0_token
+  #   if @auth0_token.nil?
+  #     request_body = {'client_id': ENV['AUTH0_CLIENT_ID'] ,
+  #                     'username': ENV['AUTH0_USERNAME'],
+  #                     'password': ENV['AUTH0_PASSWORD'],
+  #                     'grant_type': 'password',
+  #                     'scope': 'openid',
+  #                     'connection':  ENV['AUTH0_CONNECTION']}
+  #     request_body = request_body.to_json
+  #     url = 'https://ncimatch.auth0.com/oauth/ro'
+  #     begin
+  #       response = RestClient::Request.execute(:url => url,
+  #                                              :method => :post,
+  #                                              :verify_ssl => false,
+  #                                              :payload => request_body,
+  #                                              :headers => {:content_type => 'json', :accept => 'json'})
+  #     rescue StandardError
+  #       @auth0_token = nil
+  #       return @auth0_token
+  #     end
+  # 
+  #     begin
+  #       response_hash = JSON.parse(response.body)
+  #     rescue StandardError
+  #       @auth0_token = nil
+  #       return @auth0_token
+  #     end
+  #     @auth0_token = response_hash['id_token']
+  #   end
+  #   @auth0_token
+  # end
+
+  def Helper_Methods.get_request(url, params={}, auth0_on = true)
     get_response = {}
     no_log = params['no_log']
     params.delete('no_log')
@@ -22,8 +56,12 @@ class Helper_Methods
     end
     puts "Get Url: #{@url}"
 
+    headers = {}
+    if auth0_on
+      headers['Authorization'] = "Bearer #{ENV['AUTH0_TOKEN']}"
+    end
     begin
-      response = RestClient::Request.execute(:url => @url, :method => :get, :verify_ssl => false)
+      response = RestClient::Request.execute(:url => @url, :method => :get, :verify_ssl => false, :headers => headers)
       get_response['http_code'] = response.code
       get_response['status'] = response.code == 200 ? 'Success' : 'Failure'
       get_response['message'] = response.body
@@ -44,11 +82,15 @@ class Helper_Methods
     end
   end
 
-  def Helper_Methods.get_list_request(service, params={})
+  def Helper_Methods.get_list_request(service, params={}, auth0_on = true)
     @params = params.values.join('/')
     @service = "#{service}/#{@params}"
 
     puts "Calling: #{@service}"
+    headers = {}
+    if auth0_on
+      headers['Authorization'] = "Bearer #{ENV['AUTH0_TOKEN']}"
+    end
 
     result = []
     runTime = 0.0
@@ -56,7 +98,7 @@ class Helper_Methods
       sleep(@requestGap)
       runTime += @requestGap
       begin
-        @res = RestClient::Request.execute(:url => @service, :method => :get, :verify_ssl => false)
+        @res = RestClient::Request.execute(:url => @service, :method => :get, :verify_ssl => false, :headers => headers)
       rescue StandardError => e
         puts "Error: #{e.message} occurred"
         puts "Response:#{e.response}"
@@ -75,10 +117,14 @@ class Helper_Methods
     return result
   end
 
-  def Helper_Methods.simple_get_request(service)
+  def Helper_Methods.simple_get_request(service, auth0_on = true)
     @get_response={}
+    headers = {}
+    if auth0_on
+      headers['Authorization'] = "Bearer #{ENV['AUTH0_TOKEN']}"
+    end
     begin
-      response = RestClient::Request.execute(:url => service, :method => :get, :verify_ssl => false)
+      response = RestClient::Request.execute(:url => service, :method => :get, :verify_ssl => false, :headers => headers)
     rescue StandardError => e
       @get_response['status'] = 'Failure'
       if e.message.nil?
@@ -122,14 +168,19 @@ class Helper_Methods
       key='',
       value='',
       request_gap_seconds=5.0,
-      time_out_seconds=15.0)
+      time_out_seconds=15.0,
+      auth0_on = true)
     print "#{service}\n"
 
     last_response = nil
     runTime = 0.0
+    headers = {}
+    if auth0_on
+      headers['Authorization'] = "Bearer #{ENV['AUTH0_TOKEN']}"
+    end
     loop do
       begin
-        response_string = RestClient::Request.execute(:url => service, :method => :get, :verify_ssl => false)
+        response_string = RestClient::Request.execute(:url => service, :method => :get, :verify_ssl => false, :headers => headers)
       rescue StandardError => e
         print "Error: #{e.message} occurred\n"
         print "Response:#{e.response}\n"
@@ -169,7 +220,7 @@ class Helper_Methods
     return {}
   end
 
-  def Helper_Methods.get_request_url_param(service, params={})
+  def Helper_Methods.get_request_url_param(service, params={}, auth0_on = true)
     print "URL: #{service}\n"
     @params = ''
     params.each do |key, value|
@@ -179,7 +230,11 @@ class Helper_Methods
     len = (url.length)-2
     @service = url[0..len]
     print "#{url[0..len]}\n"
-    @res = RestClient::Request.execute(:url => @service, :method => :get, :verify_ssl => false)
+    headers = {}
+    if auth0_on
+      headers['Authorization'] = "Bearer #{ENV['AUTH0_TOKEN']}"
+    end
+    @res = RestClient::Request.execute(:url => @service, :method => :get, :verify_ssl => false, :headers => headers)
     return @res
   end
 
@@ -245,12 +300,16 @@ class Helper_Methods
   #       'http_code' => <http_code returned>
   #       'message'  => UNALTERED body of the response
   #   }
-  def Helper_Methods.post_request(service, payload)
+  def Helper_Methods.post_request(service, payload, auth0_on = true)
     puts "Post URL: #{service}"
     # print "JSON:\n#{payload}\n\n"
     @post_response = {}
+    headers = {:content_type => 'json', :accept => 'json'}
+    if auth0_on
+      headers['Authorization'] = "Bearer #{ENV['AUTH0_TOKEN']}"
+    end
     begin
-      response = RestClient::Request.execute(:url => service, :method => :post, :verify_ssl => false, :payload => payload, :headers => {:content_type => 'json', :accept => 'json'})
+      response = RestClient::Request.execute(:url => service, :method => :post, :verify_ssl => false, :payload => payload, :headers => headers)
     rescue StandardError => e
       @post_response['status'] = 'Failure'
       if e.message.nil?
@@ -283,13 +342,17 @@ class Helper_Methods
     end
   end
 
-  def Helper_Methods.put_request(service, payload)
+  def Helper_Methods.put_request(service, payload, auth0_on = true)
     print "Put URL: #{service}\n"
     # # print "JSON:\n#{JSON.pretty_generate(JSON.parse(payload))}\n\n"
     # print "JSON:\n#{payload}\n\n"
     @put_response = {}
+    headers = {:content_type => 'json', :accept => 'json'}
+    if auth0_on
+      headers['Authorization'] = "Bearer #{ENV['AUTH0_TOKEN']}"
+    end
     begin
-      response = RestClient::Request.execute(:url => service, :method => :put, :verify_ssl => false, :payload => payload, :headers => {:content_type => 'json', :accept => 'json'})
+      response = RestClient::Request.execute(:url => service, :method => :put, :verify_ssl => false, :payload => payload, :headers => headers)
     rescue StandardError => e
       @put_response['status'] = 'Failure'
       if e.message.nil?
@@ -319,11 +382,15 @@ class Helper_Methods
     return @put_response
   end
 
-  def Helper_Methods.delete_request(service)
+  def Helper_Methods.delete_request(service, auth0_on = true)
     print "Delete URL: #{service}\n"
     @delete_response = {}
+    headers = {:accept => 'json'}
+    if auth0_on
+      headers['Authorization'] = "Bearer #{ENV['AUTH0_TOKEN']}"
+    end
     begin
-      response = RestClient::Request.execute(:url => service, :method => :delete, :verify_ssl => false, :headers => {:accept => 'json'})
+      response = RestClient::Request.execute(:url => service, :method => :delete, :verify_ssl => false, :headers => headers)
     rescue StandardError => e
       @delete_response['status'] = 'Failure'
       if e.message.nil?
