@@ -4,9 +4,12 @@
 
 var rest = require('rest');
 var Client = require('node-rest-client').Client;
+var request = require ('request');
 
 
 var Utilities = function() {
+
+    var client = new Client();
 
     this.checkTitle = function(browser, title) {
         return expect(browser.getTitle()).to.eventually.equal(title);
@@ -111,7 +114,7 @@ var Utilities = function() {
     };
 
     /** Verified that if the element has cosmicID value then it should be a link and should point to the proper href value
-     * @param elem = element under test. This element ideally should be the direct parent of <a> tag.
+     * @param elem = element under test. This element ideally should be the parent of <a> tag.
      */
     this.checkCosmicLink = function (elem) {
         elem.getText().then(function (linkText) {
@@ -163,31 +166,39 @@ var Utilities = function() {
         });
     };
 
+    /**
+     * This function is a generic post request. Header and body of the request should be a hash
+     * Usage:
+     * utils.postRequest('https://ncimatch.auth0.com/oauth/ro', data, function(responseData){
+     *     console.log(responseData)
+     * });
+     * @param url: [String] Required. Fully qualified URL
+     * @param body: [Object] Optional. The object used as request body
+     * @param fn: [Function] Callback
+     */
+    this.postRequest = function(url, body, fn) {
+        var args = {
+            data: '',
+            headers: {"content-type":"application/json"}
+
+        };
+        args['data'] = body;
+        console.log("Post URL: " + url);
+        client.registerMethod("post", url, "POST");
+
+        client.methods.post(args, function (dt, response) {
+            fn(dt);
+        });
+    };
+
     /** This function returns the JSON response for api call. The url has to be provided
         url [String] Required: the url of the api. This call is made against the
         baseURL
      */
     this.callApi = function(service, param) {
         var self = this;
-        var _entity;
-        var uri;
-        var port;
-        var portMap = {
-            'patient'   : '10240',
-            'treatment' : '10235',
-            'ion'       : '5000'
-        };
-        port = portMap[service];
 
-        var baseUrl = browser.baseUrl;
-
-        if (baseUrl.match('localhost')) {
-            uri = browser.baseUrl.slice(0, -5) + ':' + port;
-        }else {
-            uri = browser.baseUrl;
-        }
-
-        var callUrl = uri + param;
+        var callUrl = tierBasedURI(service) + param;
         return{
             get: call,
             entity: getResponse
@@ -210,22 +221,8 @@ var Utilities = function() {
     };
 
     this.putApi = function(service, param, jsonBody){
-        var client = new Client();
-        var portMap = {
-            'patient'   : '10240',
-            'treatment' : '10235',
-            'ion'       : '5000'
-        };
-        var port = portMap[service];
-        var baseUrl = browser.baseUrl;
-
-        if (baseUrl.match('localhost')) {
-            uri = browser.baseUrl.slice(0, -5) + ':' + port;
-        }else {
-            uri = browser.baseUrl;
-        }
-
-        var callUrl = uri + param;
+        // var client = new Client();
+        var callUrl = tierBasedURI(service) + param;
 
         var args = {
             headers: {
@@ -240,6 +237,26 @@ var Utilities = function() {
             console.log(response);
         })
     };
+
+    function tierBasedURI(service){
+        var uri
+        var baseUrl = browser.baseUrl;
+        var portMap = {
+            'patient'   : '10240',
+            'treatment' : '10235',
+            'ion'       : '5000'
+        }
+
+        var port = portMap[service];
+
+        if (baseUrl.match('localhost')) {
+            uri = browser.baseUrl.slice(0, -5) + ':' + port;
+        }else {
+            uri = browser.baseUrl;
+        }
+
+        return uri;
+    }
 
     this.checkIfLink = function(row, index){
         var data = row.all(by.css('td')).get(index).all(by.css('span')).get(0);
