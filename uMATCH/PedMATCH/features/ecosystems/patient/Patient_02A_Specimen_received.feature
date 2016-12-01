@@ -205,4 +205,4 @@ Feature: Receive NCH specimen messages and consume the message within MATCH:
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
     Then patient should have specimen (field: "surgical_event_id" is "PT_SR16_PendingApproval_SEI2") within 30 seconds
     Then patient should have specimen (field: "surgical_event_id" is "PT_SR16_PendingApproval_SEI1") within 5 seconds
-    Then this specimen should not have field: "failed_date"
+    And this specimen field: "failed_date" should be: "null"

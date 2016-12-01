@@ -5,44 +5,11 @@ require 'rest-client'
 require 'active_support'
 require 'active_support/core_ext'
 require 'aws-sdk'
+require_relative 'auth0_token'
 
 class Helper_Methods
   @requestGap = 5.0
   @requestTimeout = 10.0
-  # @auth0_token = nil
-
-
-  # def self.get_auth0_token
-  #   if @auth0_token.nil?
-  #     request_body = {'client_id': ENV['AUTH0_CLIENT_ID'] ,
-  #                     'username': ENV['AUTH0_USERNAME'],
-  #                     'password': ENV['AUTH0_PASSWORD'],
-  #                     'grant_type': 'password',
-  #                     'scope': 'openid',
-  #                     'connection':  ENV['AUTH0_CONNECTION']}
-  #     request_body = request_body.to_json
-  #     url = 'https://ncimatch.auth0.com/oauth/ro'
-  #     begin
-  #       response = RestClient::Request.execute(:url => url,
-  #                                              :method => :post,
-  #                                              :verify_ssl => false,
-  #                                              :payload => request_body,
-  #                                              :headers => {:content_type => 'json', :accept => 'json'})
-  #     rescue StandardError
-  #       @auth0_token = nil
-  #       return @auth0_token
-  #     end
-  # 
-  #     begin
-  #       response_hash = JSON.parse(response.body)
-  #     rescue StandardError
-  #       @auth0_token = nil
-  #       return @auth0_token
-  #     end
-  #     @auth0_token = response_hash['id_token']
-  #   end
-  #   @auth0_token
-  # end
 
   def Helper_Methods.get_request(url, params={}, auth0_on = true)
     get_response = {}
@@ -58,7 +25,7 @@ class Helper_Methods
 
     headers = {}
     if auth0_on
-      headers['Authorization'] = "Bearer #{ENV['AUTH0_TOKEN']}"
+      headers['Authorization'] = "Bearer #{Auth0Token.generate_auth0_token}"
     end
     begin
       response = RestClient::Request.execute(:url => @url, :method => :get, :verify_ssl => false, :headers => headers)
@@ -89,7 +56,7 @@ class Helper_Methods
     puts "Calling: #{@service}"
     headers = {}
     if auth0_on
-      headers['Authorization'] = "Bearer #{ENV['AUTH0_TOKEN']}"
+      headers['Authorization'] = "Bearer #{Auth0Token.generate_auth0_token}"
     end
 
     result = []
@@ -121,7 +88,7 @@ class Helper_Methods
     @get_response={}
     headers = {}
     if auth0_on
-      headers['Authorization'] = "Bearer #{ENV['AUTH0_TOKEN']}"
+      headers['Authorization'] = "Bearer #{Auth0Token.generate_auth0_token}"
     end
     begin
       response = RestClient::Request.execute(:url => service, :method => :get, :verify_ssl => false, :headers => headers)
@@ -176,7 +143,7 @@ class Helper_Methods
     runTime = 0.0
     headers = {}
     if auth0_on
-      headers['Authorization'] = "Bearer #{ENV['AUTH0_TOKEN']}"
+      headers['Authorization'] = "Bearer #{Auth0Token.generate_auth0_token}"
     end
     loop do
       begin
@@ -232,7 +199,7 @@ class Helper_Methods
     print "#{url[0..len]}\n"
     headers = {}
     if auth0_on
-      headers['Authorization'] = "Bearer #{ENV['AUTH0_TOKEN']}"
+      headers['Authorization'] = "Bearer #{Auth0Token.generate_auth0_token}"
     end
     @res = RestClient::Request.execute(:url => @service, :method => :get, :verify_ssl => false, :headers => headers)
     return @res
@@ -306,7 +273,7 @@ class Helper_Methods
     @post_response = {}
     headers = {:content_type => 'json', :accept => 'json'}
     if auth0_on
-      headers['Authorization'] = "Bearer #{ENV['AUTH0_TOKEN']}"
+      headers['Authorization'] = "Bearer #{Auth0Token.generate_auth0_token}"
     end
     begin
       response = RestClient::Request.execute(:url => service, :method => :post, :verify_ssl => false, :payload => payload, :headers => headers)
@@ -349,7 +316,7 @@ class Helper_Methods
     @put_response = {}
     headers = {:content_type => 'json', :accept => 'json'}
     if auth0_on
-      headers['Authorization'] = "Bearer #{ENV['AUTH0_TOKEN']}"
+      headers['Authorization'] = "Bearer #{Auth0Token.generate_auth0_token}"
     end
     begin
       response = RestClient::Request.execute(:url => service, :method => :put, :verify_ssl => false, :payload => payload, :headers => headers)
@@ -387,7 +354,7 @@ class Helper_Methods
     @delete_response = {}
     headers = {:accept => 'json'}
     if auth0_on
-      headers['Authorization'] = "Bearer #{ENV['AUTH0_TOKEN']}"
+      headers['Authorization'] = "Bearer #{Auth0Token.generate_auth0_token}"
     end
     begin
       response = RestClient::Request.execute(:url => service, :method => :delete, :verify_ssl => false, :headers => headers)

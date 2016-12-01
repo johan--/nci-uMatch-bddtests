@@ -261,6 +261,11 @@ And(/^this specimen should have a correct failed_date$/) do
   time_diff.should <=300
 end
 
+And(/^this specimen field: "([^"]*)" should be: "([^"]*)"$/) do |field, value|
+  converted_value = value=='null' ? nil : value
+  @current_specimen[field].should == converted_value
+end
+
 And(/^this specimen should not have field: "([^"]*)"$/) do |field|
   expect_result = "specimen #{@current_specimen['surgical_event_id']} does not have field <#{field}>"
   if @current_specimen.keys.include?(field)

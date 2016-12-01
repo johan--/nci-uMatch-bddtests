@@ -198,7 +198,7 @@ class PatientMessageLoader
   def self.specimen_received_tissue(
       patient_id,
       surgical_event_id,
-      collect_time='2016-04-25T15:17:11+00:00')
+      collect_time='2016-04-25')
     wait_until_updated(patient_id)
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['specimen_received_TISSUE']
     message['specimen_received']['patient_id'] = patient_id
@@ -253,7 +253,7 @@ class PatientMessageLoader
       molecular_id,
       shipped_time='2016-05-01T19:42:13+00:00',
       destination='MDA')
-    wait_until_updated(patient_id)
+    # wait_until_updated(patient_id)
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['specimen_shipped_BLOOD']
     message['specimen_shipped']['patient_id'] = patient_id
     message['specimen_shipped']['molecular_id'] = molecular_id
