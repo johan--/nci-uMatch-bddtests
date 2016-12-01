@@ -9,12 +9,12 @@ module.exports = function() {
     this.World = require ('../step_definitions/world').World;
 
     var callList = {
-        "patientStats"       : utilities.callApi ('patient', '/api/v1/patients/statistics'),
-        "pendingReportStats" : utilities.callApi ('patient', '/api/v1/patients/amois'),
-        "pendingTissueVR"    : utilities.callApi ('patient', '/api/v1/patients/variant_reports?status=PENDING&variant_report_type=TISSUE'),
-        "pendingBloodVR"     : utilities.callApi ('patient', '/api/v1/patients/variant_reports?status=PENDING&variant_report_type=BLOOD'),
-        "pendingAssignment"  : utilities.callApi ('patient', '/api/v1/patients/assignments?status=PENDING'),
-        "timeline"           : utilities.callApi ('patient', '/api/v1/patients/events?order=desc&num=10')
+        "patientStats"       : '/api/v1/patients/statistics',
+        "pendingReportStats" : '/api/v1/patients/amois',
+        "pendingTissueVR"    : '/api/v1/patients/variant_reports?status=PENDING&variant_report_type=TISSUE',
+        "pendingBloodVR"     : '/api/v1/patients/variant_reports?status=PENDING&variant_report_type=BLOOD',
+        "pendingAssignment"  : '/api/v1/patients/assignments?status=PENDING',
+        "timeline"           : '/api/v1/patients/events?order=desc&num=10'
     };
 
     var responseData = [];

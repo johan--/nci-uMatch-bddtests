@@ -364,6 +364,7 @@ module.exports = function () {
     });
 
     this.Then(/^The checkboxes are disabled$/, function (callback) {
+        expect(element.all(by.css('check-box-with-confirm button')).count()).to.eventually.be.above(0);
         element.all(by.css('check-box-with-confirm button')).count().then(function (cnt) {
             for (var i = 0; i < cnt; i++) {
                 patientPage.expectEnabled(element.all(by.css('check-box-with-confirm button')), i, 'disabled')

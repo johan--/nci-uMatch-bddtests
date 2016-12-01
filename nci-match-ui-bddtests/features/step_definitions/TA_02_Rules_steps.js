@@ -71,11 +71,18 @@ module.exports = function () {
     });
 
 
-    this.Then(/^I see that the element is a link$/, function(callback){
+    this.Then(/^I see that the element with css "(.*)" is a "(.+?)" link$/, function(selector, type, callback){
+        console.log(selector).then(callback);
         browser.sleep(50).then(function () {
             // checking for element at index to be a link
             for (var i = 0; i < taPage.rowCount; i ++){
-                utilities.checkIfLink(taPage.dataRows.get(i), taPage.columnIndex)
+                if (type === 'Cosmic'){
+                    utilities.checkCosmicLink(taPage.dataRows.get(i), taPage.columnIndex)
+                } else if (type === 'Gene') {
+                    utilities.checkGeneLink(elem)
+                } else if (type === 'Cosf') {
+                    utilities.checkCOSFLink(elem)
+                }
             }
         }).then(callback);
     });

@@ -44,7 +44,18 @@ var LoginPage = function() {
                                     if (previousAccountUsed == true){
                                         previousAccountUsed.click().then(callback);
                                     } else {
-                                        utils.waitForElement(email).then(function () {
+                                        utils.waitForElement(email, 'Email Text box').then(function () {
+                                            var data = {
+                                                "client_id": process.env.AUTH0_CLIENT_ID ,
+                                                "username": process.env.NCI_MATCH_USERID,
+                                                "password": process.env.NCI_MATCH_PASSWORD,
+                                                "grant_type": 'password',
+                                                "scope": 'openid',
+                                                "connection":  process.env.AUTH0_CONNECTION
+                                            };
+                                            utils.postRequest('https://ncimatch.auth0.com/oauth/ro', data, function(responseData){
+                                                browser.idToken = responseData.id_token
+                                            });
                                             email.sendKeys(username);
                                             pass.sendKeys(password);
                                             loginbtn.click().then(callback);

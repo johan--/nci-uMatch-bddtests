@@ -25,6 +25,8 @@ var DashboardPage = function() {
     this.pendingBVRCount    = element(by.binding(' pendingBloodVariantReportGridOptions.data.length '));
     this.pendingAssgnCount  = element(by.binding(' pendingAssignmentReportGridOptions.data.length '));
 
+    this.patientsInLimboList = element.all(by.repeater('item in limboPatients'));
+
 
     this.logout = function () {
         this.logoutLink.click();
@@ -65,6 +67,10 @@ var DashboardPage = function() {
         'Analysis ID', 'Assignment Report',
         'Disease', 'Assigned Treatment Arm',
         'Assignment Date', 'Hours Pending'];
+
+    this.expectedLimboTableColumns = [
+        'Patient ID', 'Current Status', 'Variant Report Status', ''
+    ]
 
 };
 
