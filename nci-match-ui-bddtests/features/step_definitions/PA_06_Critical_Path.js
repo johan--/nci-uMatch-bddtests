@@ -250,19 +250,18 @@ module.exports = function () {
 
     this.When(/^I collect information about the patient variant report$/, function (callback) {
         var url = '/api/v1/patients/variant_reports/' + patientPage.variantAnalysisId;
-        var request = utilities.callApi('patient', url);
-        request.get().then(function () {
-            var response = request.entity();
-            patientPage.responseData = JSON.parse(response);
+
+        utilities.getRequestWithService('patient', url).then(function(response){
+            patientPage.responseData = response
         }).then(callback);
     });
 
     this.When(/^I collect information about the assignment$/, function (callback) {
         var url = '/api/v1/patients/analysis_report?patient_id=' + patientPage.patientId + '&analysis_id=' + patientPage.variantAnalysisId;
-        var request = utilities.callApi('patient', url);
-        request.get().then(function () {
-            patientPage.responseData = JSON.parse(request.entity());
-        }).then(callback)
+
+        utilities.getRequestWithService('patient', url).then(function(response){
+            patientPage.responseData = response
+        }).then(callback);
     });
 
     this.Then(/^I can see the variant report page$/, function (callback) {

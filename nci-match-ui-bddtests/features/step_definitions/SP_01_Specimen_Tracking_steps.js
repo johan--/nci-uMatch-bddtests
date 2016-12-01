@@ -195,16 +195,14 @@ module.exports = function () {
 
 
     function shipmentDetails () {
-        var request = utilities.callApi ('patient', '/api/v1/patients/shipments');
-        return request.get ().then (function () {
-            return JSON.parse (request.entity ());
-        })
+        utilities.getRequestWithService('patient', '/api/v1/patients/shipments').then(function (responseBody) {
+            return responseBody
+        });
     }
 
     function shipmentBySite () {
-        var request = utilities.callApi ('patient', '/api/v1/patients/shipments');
-        return request.get ().then (function () {
-            var details = JSON.parse (request.entity ());
+        utilities.getRequestWithService('patient', '/api/v1/patients/shipments').then(function (responseBody) {
+            var details = responseBody;
             var mda     = 0;
             var mocha   = 0;
             for (var i = 0; i < details.length; i++) {
@@ -219,6 +217,6 @@ module.exports = function () {
                 'mda'   : mda,
                 'mocha' : mocha
             };
-        })
+        });
     }
 };

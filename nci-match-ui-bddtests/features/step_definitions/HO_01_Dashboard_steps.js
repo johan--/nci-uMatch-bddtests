@@ -17,7 +17,6 @@ module.exports = function() {
         "timeline"           : '/api/v1/patients/events?order=desc&num=10'
     };
 
-    var responseData = [];
     // This is all the listing under the patient statistics section on the top banner.
     var listings = dash.statisticsLabels;
 
@@ -41,25 +40,45 @@ module.exports = function() {
         browser.sleep(50).then(callback);
     });
 
-    this.Then(/^I can see Patients Statistics data$/, function (callback) {
-        expect(dash.registeredPatients.getText()).to.eventually.eql(responseData.number_of_patients);
-        expect(dash.patientsWithCVR.getText()).to.eventually.eql(responseData.number_of_patients_with_confirmed_variant_report);
-        expect(dash.patientsOnTA.getText()).to.eventually.eql(responseData.number_of_patients_on_treatment_arm);
 
-        browser.sleep(20).then(callback);
+    this.Then(/^I can see the Registered Patients count$/, function(callback){
+        browser.ignoreSynchronization = true;
+        expect(dash.registeredPatients.getText()).to.eventually.eql(dash.responseData.number_of_patients).then(function(){
+            browser.ignoreSynchronization = false;
+        }).then(callback);
     });
 
-    this.Then(/^I can see patients with Pending Tissue Variant Reports$/, function (callback) {
-        expect(dash.pendingTVRCount.getText()).to.eventually.eql(responseData.length.toString()).notify(callback);
+    this.Then(/^I can see the Patients with Confirmed Variants count$/, function(callback){
+        browser.ignoreSynchronization = true;
+        expect(dash.patientsWithCVR.getText()).to.eventually.eql(dash.responseData.number_of_patients_with_confirmed_variant_report).then(function(){
+            browser.ignoreSynchronization = false;
+        }).then(callback);
+    });
 
+    this.Then(/^I can see the Patients on Treatment Arms count$/, function(callback){
+        browser.ignoreSynchronization = true;
+        expect(dash.patientsOnTA.getText()).to.eventually.eql(dash.responseData.number_of_patients_on_treatment_arm).then(function(){
+            browser.ignoreSynchronization = false;
+        }).then(callback);
+    });
+
+
+    this.Then(/^I can see patients with Pending Tissue Variant Reports$/, function (callback) {
+        browser.ignoreSynchronization = true;
+        expect(dash.pendingTVRCount.getText()).to.eventually.eql(dash.responseData.length.toString()).then(function(){
+            browser.ignoreSynchronization = false;
+        }).then(callback);
     });
 
     this.Then(/^I can see patients with Pending Blood Specimens$/, function (callback) {
-        expect(dash.pendingBVRCount.getText()).to.eventually.eql(responseData.length.toString()).notify(callback);
+        expect(dash.pendingBVRCount.getText()).to.eventually.eql(dash.responseData.length.toString()).notify(callback);
     });
 
     this.Then(/^I can see patients with Pending Assignment Reports$/, function (callback) {
-        expect(dash.pendingAssgnCount.getText()).to.eventually.eql(responseData.length.toString()).notify(callback);
+        browser.ignoreSynchronization = true;
+        expect(dash.pendingAssgnCount.getText()).to.eventually.eql(dash.responseData.length.toString()).then(function(){
+            browser.ignoreSynchronization = false;
+        }).then(callback);
     });
 
     this.Then(/^I can see the Patients Statistics Section$/, function (callback) {
@@ -77,32 +96,28 @@ module.exports = function() {
     });
 
     this.Then(/^I collect "(.+?)" data from backend$/, function(statsType, callback){
-        try {
-            var call = callList[statsType];
-            call.get().then(function(){
-                responseData = JSON.parse(call.entity());
-            }).then(callback);
-        }
-        catch (e) {
-            console.log(e);
-        }
+        var call = callList[statsType];
+
+        utilities.getRequestWithService('patient', call).then(function(responseBody){
+            dash.responseData = responseBody;
+        }).then(callback);
     });
 
     this.Then(/^I can see Sequenced and confirmed patients data$/, function (callback) {
         try {
-//            browser.ignoreSynchronization = true;
-            browser.sleep(1000).then(function () {
+            browser.sleep(2000).then(function () {
                 var amoiLegendList = dash.amoiLegendList;
-                var expectedList = responseData.amois;
-                browser.sleep(2000).then(function () {
-                    expect(dash.amoiChart.isPresent()).to.eventually.eql(true);
-                    expect(amoiLegendList.get(0).getText()).to.eventually.include(expectedList[0] + ' patients');
-                    expect(amoiLegendList.get(1).getText()).to.eventually.include(expectedList[1] + ' patients');
-                    expect(amoiLegendList.get(2).getText()).to.eventually.include(expectedList[2] + ' patients');
-                    expect(amoiLegendList.get(3).getText()).to.eventually.include(expectedList[3] + ' patients');
-                    expect(amoiLegendList.get(4).getText()).to.eventually.include(expectedList[4] + ' patients');
-                    expect(amoiLegendList.get(5).getText()).to.eventually.include(expectedList[5] + ' patients');
-                });
+                var expectedList = dash.responseData.amois;
+                browser.ignoreSynchronization = true;
+                expect(dash.amoiChart.isPresent()).to.eventually.eql(true);
+                expect(amoiLegendList.get(0).getText()).to.eventually.include(expectedList[0] + ' patients');
+                expect(amoiLegendList.get(1).getText()).to.eventually.include(expectedList[1] + ' patients');
+                expect(amoiLegendList.get(2).getText()).to.eventually.include(expectedList[2] + ' patients');
+                expect(amoiLegendList.get(3).getText()).to.eventually.include(expectedList[3] + ' patients');
+                expect(amoiLegendList.get(4).getText()).to.eventually.include(expectedList[4] + ' patients');
+                expect(amoiLegendList.get(5).getText()).to.eventually.include(expectedList[5] + ' patients');
+            }).then(function () {
+                browser.ignoreSynchronization = false;
             }).then(callback);
         }
         catch(e){
@@ -112,30 +127,35 @@ module.exports = function() {
 
     this.Then(/^I can see the Treatment Arm Accrual chart data$/, function (callback) {
         try{
-            var responseSize = Object.keys(responseData.treatment_arm_accrual).length;
+            var responseSize = Object.keys(dash.responseData.treatment_arm_accrual).length;
+            browser.ignoreSynchronization = true;
             browser.sleep(2000).then(function () {
                 if (responseSize > 0){
-                    expect(dash.accrualChart.isPresent()).to.eventually.eql(true).notify(callback);
+                    expect(dash.accrualChart.isPresent()).to.eventually.eql(true).then(function(){
+                        browser.ignoreSynchronization = false;
+                    }).then(callback);
                 } else {
-                    expect(dash.accrualChart.isPresent()).to.eventually.eql(false).notify(callback);
+                    expect(dash.accrualChart.isPresent()).to.eventually.eql(false).then(function(){
+                        browser.ignoreSynchronization = false;
+                    }).then(callback);
                 }
             })
         }
         catch(e) {
-            console.log(e);
+            console.log(e).then(callback);
         }
     });
 
     this.Then(/^I can see the Pending Review Section Heading$/, function (callback) {
         browser.ignoreSynchronization = true;
-        var heading = element(by.css('.panel-container .ibox-title'));
+        var heading = element.all(by.css('.panel-container .ibox-title')).get(0);
 
         expect(heading.getText()).to.eventually.eql('Pending Review').then(function () {
             browser.ignoreSynchronization = false;
         }).then(callback);
     });
 
-    this.Then(/^I can see the pending "(.+)" subtab$/, function (tabName, callback) {
+    this.Then(/^I can see the pending "(.+?)" subtab$/, function (tabName, callback) {
         var tabElement = element(by.css('li[heading^="' + tabName + '"]'));
         browser.ignoreSynchronization = true;
         expect(tabElement.isPresent()).to.eventually.eql(true).then(function () {
@@ -143,7 +163,7 @@ module.exports = function() {
         }).then(callback);
     });
 
-    this.Given(/^I collect information for "(.+)" Dashboard$/, function (report_type, callback) {
+    this.Given(/^I collect information for "(.+?)" Dashboard$/, function (report_type, callback) {
         var dashboardList = {
           "Tissue Variant Reports": callList.pendingTissueVR,
           "Blood Specimens": callList.pendingBloodVR,
@@ -151,13 +171,13 @@ module.exports = function() {
         };
         var request = dashboardList[report_type];
         request.get().then(function () {
-            responseData = JSON.parse(request.entity());
+            dash.responseData = JSON.parse(request.entity());
         });
         browser.sleep(10).then(callback);
     });
 
     this.Then(/^Count of "(.+)" table match with back end data$/, function (reportType, callback) {
-        var count = responseData.length;
+        var count = dash.responseData.length;
         var subtabDataList = element.all(by.id(subTabLocator[reportType])).get(0).all(by.repeater('item in filtered'));
         browser.ignoreSynchronization = true;
         expect(subtabDataList.count()).to.eventually.eql(count).then(function () {
@@ -165,7 +185,7 @@ module.exports = function() {
         }).then(callback);
     });
 
-    this.Then(/^I select "(.+)" from the "(.+)" drop down$/, function (optionValue, reportType, callback) {
+    this.Then(/^I select "(.+?)" from the "(.+?)" drop down$/, function (optionValue, reportType, callback) {
         element(by.id(subTabLocator[reportType]))
             .element(by.model('paginationOptions.itemsPerPage'))
             .element(by.cssContainingText('option', optionValue))
@@ -187,13 +207,14 @@ module.exports = function() {
 
     this.Then(/^The "(.+)" sub\-tab is active$/, function (reportType, callback) {
         var locator = 'li[heading="' + reportType + '"]';
-        browser.sleep(1000).then(function () {
-            utilities.checkElementIncludesAttribute(element(by.css(locator)), "class", 'active').then(callback);
-        })
+        browser.ignoreSynchronization = true;
+        utilities.checkElementIncludesAttribute(element(by.css(locator)), "class", 'active').then(function(){
+            browser.ignoreSynchronization = false;
+        }).then(callback);
     });
 
     this.Given(/^Appropriate Message is displayed for empty or filled pending "(.+)" reports$/, function (reportType, callback) {
-        var count = responseData.length;
+        var count = dash.responseData.length;
         var gridType = reportType.replace(/\s/g, '').slice(0, -1);
         var cssString = '!pending' + gridType + 'GridOptions.data || !pending' + gridType + 'GridOptions.data.length';
         var studyElement = element(by.css('tr[ng-if="' + cssString + '"]'));
@@ -243,11 +264,10 @@ module.exports = function() {
     });
 
     this.When(/^I collect information on the timeline$/, function (callback) {
-        var call = callList.timeline
-        call.get().then(function () {
-            responseData = JSON.parse(call.entity());
-        });
-        browser.sleep(10).then(callback);
+        var url = callList.timeline;
+        utilities.getRequestWithService('patient', url).then(function (responseBody) {
+            dash.responseData = responseBody;
+        }).then(callback);
     });
 
     this.Then(/^I can see the Activity Feed section$/, function (callback) {
@@ -269,11 +289,34 @@ module.exports = function() {
             var testPatientId = element.all(by.css('patient-title[text="timelineEvent.entity_id"] .ta-name')).get(i);
             var testMessage   = element.all(by.binding('::timelineEvent.event_message')).get(i);
 
-            var patientId    = responseData[i]['entity_id'];
-            var expMessage    = responseData[i]['event_message'];
+            var patientId    = dash.responseData[i]['entity_id'];
+            var expMessage    = dash.responseData[i]['event_message'];
             expect(testPatientId.getText()).to.eventually.eql(patientId);
             expect(testMessage.getText()).to.eventually.include(expMessage);
         };
         browser.sleep(50).then(callback);
+    });
+
+    this.When(/^I collect information on patients in limbo$/, function (callback) {
+        var url = '/api/v1/patients/patient_limbos'
+        utilities.getRequestWithService('patient', url).then(function (responseBody) {
+            dash.responseData = responseBody;
+        }).then(callback);
+    });
+
+    this.Then(/^I can see table of Patients Awaiting Further Action Or Information$/, function (callback) {
+        var heading = element.all(by.css('.panel-container .ibox-title')).get(1);
+        var tableHeaders = element.all(by.css('#limboPatients th'))
+        // Checking for table headings.
+        utilities.checkElementArray(tableHeaders, dash.expectedLimboTableColumns);
+        // Checking for the Section heading value
+        expect(heading.getText()).to.eventually.eql('Patients Awaiting Further Action Or Information').notify(callback);
+    });
+
+    this.Then(/^I can see a list of patients and the reasons why there are in limbo\.$/, function (callback) {
+        var dataListElement = dash.patientsInLimboList
+
+        expect(dataListElement.count()).to.eventually.eql(dash.responseData.length);
+
     });
 };

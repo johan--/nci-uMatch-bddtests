@@ -38,11 +38,10 @@ module.exports = function () {
     });
 
     this.When (/^I collect the patient Api Information$/, function (callback) {
-        var str     = '/api/v1/patients/' + patientPage.patientId;
-        var request = utilities.callApi ('patient', str)
-        request.get ().then (function () {
-            patientPage.responseData = JSON.parse (request.entity ());
-        }).then (callback);
+        var url     = '/api/v1/patients/' + patientPage.patientId;
+        utilities.getRequestWithService('patient', url).then(function (responseBody) {
+            patientPage.responseData = responseBody;
+        }).then(callback);
     });
 
     this.When (/^I click on the "([^"]*)" tab$/, function (tabName, callback) {

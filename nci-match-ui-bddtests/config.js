@@ -44,6 +44,10 @@ exports.config = {
    ],
 
     getPageTimeout: 10000,
+    params: {
+        useAuth0 : false
+    },
+
 
     onPrepare: function () {
       browser.manage().timeouts().setScriptTimeout(60000);

@@ -39,23 +39,17 @@ module.exports = function () {
     });
 
     this.When(/^I collect information about the patient$/, function (callback) {
-        var request = utilities.callApi('patient', '/api/v1/patients/' + patientPage.patientId);
+        var url = '/api/v1/patients/' + patientPage.patientId
 
-        request.get().then(function () {
-            patientPage.responseData = JSON.parse(request.entity());
-        }, function () {
-            console.log("error occurred. Please review the trace to debug")
+        utilities.getRequestWithService('patient', url).then(function(response){
+            patientPage.responseData = response
         }).then(callback);
     });
 
     this.When(/^I collect specimen information about the patient$/, function (callback) {
-        var call_url = '/api/v1/patients/' + patientPage.patientId + '/specimen_events';
-        var request = utilities.callApi('patient', call_url);
-        request.get().then(function () {
-            patientPage.responseData = JSON.parse(request.entity());
-        }, function () {
-            console.log('Error occured when trying to make the request for: ' + call_url);
-            console.log(error);
+        var url = '/api/v1/patients/' + patientPage.patientId + '/specimen_events';
+        utilities.getRequestWithService('patient', url).then(function(response){
+            patientPage.responseData = response
         }).then(callback);
     });
 

@@ -12,3 +12,8 @@ The following cucumber tags are used in the project and have specific purposes.
 @end_to_end     - Triggered upon completion of either @treatment_arm, @patients, or @rules AND @ui.   
 @seed_data      - Triggered for all the three above projects. These contain tests that deal with creation of data that can and should be used for preparing data. 
 ```
+
+To run the test using parallel cucumber
+```
+bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t <tag_name> --format json --out <output location> --expand' -n 2
+```

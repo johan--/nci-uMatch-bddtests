@@ -23,9 +23,8 @@ module.exports = function () {
         var response;
         var inputDetails = '/api/v1/treatment_arms/' + taPage.currentTreatmentId + '/' + taPage.currentStratumId;
 
-        response = utilities.callApi('treatment', inputDetails);
-        response.get().then(function () {
-            treatmentArmAPIDetails = utilities.getJSONifiedDetails(response.entity());
+        utilities.getRequestWithService('treatment', '/api/v1/patients/shipments').then(function (responseBody) {
+            treatmentArmAPIDetails = responseBody;
             firstTreatmentArm = treatmentArmAPIDetails[0];
             utilities.clickElementArray(taPage.rulesSubTabLinks, elementIndex);
         }).then(callback);

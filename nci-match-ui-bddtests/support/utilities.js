@@ -4,7 +4,7 @@
 
 var rest = require('rest');
 var Client = require('node-rest-client').Client;
-var request = require ('request');
+var req = require ('request-promise');
 
 
 var Utilities = function() {
@@ -177,17 +177,39 @@ var Utilities = function() {
      * @param fn: [Function] Callback
      */
     this.postRequest = function(url, body, fn) {
+        var reqBody = body !== undefined ? body : {}
         var args = {
-            data: '',
+            data: reqBody,
             headers: {"content-type":"application/json"}
-
         };
-        args['data'] = body;
         console.log("Post URL: " + url);
         client.registerMethod("post", url, "POST");
 
         client.methods.post(args, function (dt, response) {
             fn(dt);
+        });
+    };
+
+    /** This is a Get Request that builds the URL based on the baseUrl, service and the url to navigate to.
+     *
+     * @param service [String] should be a member of ['patient', 'treatment', 'ion']
+     * @param parameters [string] forms the rest of the URL
+     */
+    this.getRequestWithService = function(service, parameters) {
+        var url = tierBasedURI(service) +  parameters
+        var options = {
+            uri: url,
+            method: 'GET',
+            headers: {},
+            json: true
+        };
+
+        options['headers'] = browser.params.useAuth0 ? { 'Authorization': browser.idToken } : {}
+
+        return req(options).then(function (resp) {
+            return resp;
+        }).catch(function(err){
+            console.log(err);
         });
     };
 

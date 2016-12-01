@@ -16,11 +16,11 @@ Feature: Dashboard page.
     And I can see all sub headings under the top Banner
     And I can see the Patients Statistics Section
     And I collect "patientStats" data from backend
-    And I can see Patients Statistics data
+    And I can see the Registered Patients count
+    And I can see the Patients with Confirmed Variants count
+    And I can see the Patients on Treatment Arms count
     And I collect "pendingTissueVR" data from backend
     And I can see patients with Pending Tissue Variant Reports
-#    And I collect "pendingBloodVR" data from backend
-#    And I can see patients with Pending Blood Specimens
     And I collect "pendingAssignment" data from backend
     And I can see patients with Pending Assignment Reports
     And I collect "pendingReportStats" data from backend
@@ -34,7 +34,6 @@ Feature: Dashboard page.
     When I navigate to the dashboard page
     Then I can see the Pending Review Section Heading
     And I can see the pending "Tissue Variant Reports" subtab
-#    And I can see the pending "Blood Specimens" subtab
     And I can see the pending "Assignment Reports" subtab
 
   @ui_p1
@@ -49,9 +48,8 @@ Feature: Dashboard page.
     |report_type            |
     |Tissue Variant Reports |
     |Assignment Reports     |
-#    |Blood Specimens  |
 
-  @ui_p3
+  @ui_p2
   Scenario: User can filter results on the page
     When I navigate to the dashboard page
     And I click on the "Tissue Variant Reports" sub-tab
@@ -67,7 +65,7 @@ Feature: Dashboard page.
     And I can see "10" entries in the section
     And They match with the timeline response in order
 
-  @ui_p3
+  @ui_p2
   Scenario Outline: Pending <report_type> report table look and feel
     When I navigate to the dashboard page
     And I click on the "<report_type>" sub-tab
@@ -76,5 +74,11 @@ Feature: Dashboard page.
     Examples:
       |report_type            |
       |Tissue Variant Reports |
-#      |Blood Specimens  |
       |Assignment Reports     |
+
+  @ui_p3
+  Scenario: User can find a list of all the patients in limbo with their reason
+    When I navigate to the dashboard page
+    And I collect information on patients in limbo
+    Then I can see table of Patients Awaiting Further Action Or Information
+    And I can see a list of patients and the reasons why there are in limbo.

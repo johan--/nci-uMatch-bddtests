@@ -94,9 +94,8 @@ module.exports = function() {
     this.When(/^I collect information on "([^"]*)" under "(MoCha|MD Anderson)"$/, function (subTabName, sectionName, callback) {
         var site = sectionName === 'MoCha' ? 'mocha' : 'mdacc';
         var url  = '/api/v1/sample_controls?site=' + site + '&control_type=' + controlType;
-        var request = utilities.callApi('ion', url);
-        request.get().then(function() {
-             clia.responseData =JSON.parse(request.entity());
+        utilities.getRequestWithService('ion', url).then(function(response){
+            clia.responseData = response
         }).then(callback);
     });
 
@@ -128,10 +127,10 @@ module.exports = function() {
 
     this.When(/^I collect information about the sample variant report$/, function (callback) {
         var url = '/api/v1/sample_controls/' + clia.molecularId;
-        var request = utilities.callApi('ion', url);
-        request.get().then(function () {
-            clia.responseData = JSON.parse(request.entity());
-        }).then(callback)
+
+        utilities.getRequestWithService('ion', url).then(function(response){
+            clia.responseData = response
+        }).then(callback);
     });
 
     this.When(/^I click on the sample control link$/, function (callback) {
@@ -212,7 +211,7 @@ module.exports = function() {
 
     this.Then(/^I see variant report details for the generated MSN$/, function (callback) {
         //Entering the new MSN generated in to the search field
-        clia.tableElement['element'].element(by.css('input')).sendKeys(clia.molecularId);
+        clia.tableElement.element(by.css('input')).sendKeys(clia.molecularId);
         browser.waitForAngular().then(function () {
             var firstRow = element.all(by.css('[ng-repeat^="item in filtered"]')).get(0)
             expect(firstRow.all(by.binding('item.molecular_id')).get(0).getText()).to.eventually.eql(clia.molecularId);

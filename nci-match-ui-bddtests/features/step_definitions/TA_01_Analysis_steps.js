@@ -44,9 +44,9 @@ module.exports = function () {
     this.Then(/^I collect backend information about the treatment arm$/, function (callback) {
         var response;
         var inputDetails = '/api/v1/treatment_arms/' + currentTreatmentId + '/' + currentStratumId;
-        response = utilities.callApi('treatment', inputDetails);
-        response.get().then(function () {
-            treatmentArmAPIDetails = utilities.getJSONifiedDetails(response.entity());
+
+        utilities.getRequestWithService('treatment', '/api/v1/patients/shipments').then(function (responseBody) {
+            treatmentArmAPIDetails = responseBody;
             firstTreatmentArm = treatmentArmAPIDetails[0];
         }).then(callback);
     });

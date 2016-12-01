@@ -55,6 +55,13 @@ Run tests tagged with @tagname1, but avoid @tagname2
 protractor config.js --cucumberOpts.tags='@tagname1' --cucumberOpts.tags='~@tagname2' 
 ```
 
+## Implementing Auth0 Integration
+The default is *NO* AUTH0 integration
+if we need to enable AUTH0 this is the way to run the protractor. 
+```
+protractor config.js [cucumber options] --params.useAuth0 true
+```
+
 ## Additional configuration changes. 
 The configuration settings present in the config.js can be altered at runtime by providing parameters. 
 
