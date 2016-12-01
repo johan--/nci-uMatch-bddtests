@@ -1,7 +1,7 @@
 #encoding: utf-8
 Feature: Patients assignment tests
 
-  @patients_p1
+  @patients_p1_off
   Scenario Outline: PT_AM01. in proper situation, patient ecosystem can send correct status (other than PENDING_APPROVAL) to COG
 #    patient: PT_AM01_TsVrReceived1 will not have TA available
 #    patient: PT_AM01_TsVrReceived1 will have a closed TA available
@@ -17,7 +17,7 @@ Feature: Patients assignment tests
       | PT_AM01_TsVrReceived1 | PT_AM01_TsVrReceived1_ANI1 | NO_TA_AVAILABLE    |
       | PT_AM01_TsVrReceived2 | PT_AM01_TsVrReceived2_ANI1 | COMPASSIONATE_CARE |
 
-  @patients_p2
+  @patients_p2_off
   Scenario: PT_AM02. patient can reach PENDING_CONFIRMATION status even cog service collapses during assignment processing
 #    patient: "PT_AM02_VrReceived" with status: "TISSUE_VARIANT_REPORT_RECEIVED" on step: "1.0", assays are ready
     Given patient: "PT_AM02_VrReceived" in mock service lost patient list, service will come back after "2" tries
