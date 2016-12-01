@@ -71,7 +71,7 @@ script:
   # Run protractor only if the tag is UI or demo
   - if [ "$CUC_TAG" = "@ui" -o "$CUC_TAG" = "@demo" ]; then protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$P1,$CUC_TAG$P2 --troubleshoot; fi
   # Generate html report
-  - node support/generate_report.js
+#  - node support/generate_report.js
   - cd ..
   - ls -alt
   - mv results/ results_critical/; mkdir results
@@ -83,7 +83,7 @@ after_success:
   - cd ../../nci-match-ui-bddtests/
   - if [ "$CUC_TAG" = "@ui" -o "$CUC_TAG" = "@demo" ]; then protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$P3 --troubleshoot; fi
   # Generate html report
-  - node support/generate_report.js
+#  - node support/generate_report.js
   - cd ..
   - ls -alt
 
@@ -99,7 +99,7 @@ after_failure:
     - cd ../../nci-match-ui-bddtests/
     - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$P3 --troubleshoot
     # Generate html report
-    - node support/generate_report.js
+#    - node support/generate_report.js
 after_script:
   #Set above, - export DATE=`TZ=America/New_York date "+%m-%d-%y-%H%M"`
   - export DATE_TRIM=`TZ=America/New_York date "+%m-%d-%y"`
