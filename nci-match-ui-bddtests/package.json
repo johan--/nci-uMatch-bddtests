@@ -21,7 +21,7 @@
     "chai-as-promised": "^5.3.0",
     "cucumber": "^1.2.2",
     "cucumber-html-report": "^0.3.5",
-    "cucumber-html-reporter": "^0.2.10",
+    "cucumber-html-reporter": "0.2.16",
     "firefox-profile": "^0.4.0",
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",
