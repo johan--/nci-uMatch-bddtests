@@ -57,6 +57,8 @@ script:
   - export P2="_p2"
   - export P3="_p3"
   # Run Cucumber @tag specific tests
+  - ls -alt resutls
+  - rm results/*
   - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P1,$CUC_TAG$P2 --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --expand' -n 2
   - cd ../..
   - aws s3 cp results/ s3://bdd-test-data/report_test --region us-east-1 --recursive
