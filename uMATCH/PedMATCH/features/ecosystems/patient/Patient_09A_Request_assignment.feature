@@ -34,7 +34,7 @@ Feature: Patients request assignment tests
       | PT_RA02_TsVrReceived        | 2.0                 | 2.0              |         | Failure     | TISSUE_VARIANT_REPORT_RECEIVED  |
       | PT_RA02_TsVrConfirmed       | 1.0                 | 1.0              |         | Failure     | TISSUE_VARIANT_REPORT_CONFIRMED |
       | PT_RA02_TsVrRejected        | 1.0                 | 1.0              |         | Failure     | TISSUE_VARIANT_REPORT_REJECTED  |
-#      | PT_RA02_NoTaAvailable       | 1.0                 | 1.0              |         | Success     | PENDING_CONFIRMATION            |
+      | PT_RA02_NoTaAvailable       | 1.0                 | 1.0              |         | Success     | PENDING_CONFIRMATION            |
       | PT_RA02_CompassionateCare   | 1.0                 | 1.0              |         | Success     | PENDING_CONFIRMATION            |
 #   for the case: OFF_STUDY and OFF_STUDY_BIOPSY_EXPIRED, please check test PT_OS04
 #    for the case: current status REQUEST_ASSIGNMENT then receive request assignment(rebiopsy=N), please check test PT_RA02a
@@ -71,7 +71,7 @@ Feature: Patients request assignment tests
       | PT_RA03_TsVrReceived        | 2.0                 | 2.0              |         | Failure     | TISSUE_VARIANT_REPORT_RECEIVED  |
       | PT_RA03_TsVrConfirmed       | 1.0                 | 1.0              |         | Failure     | TISSUE_VARIANT_REPORT_CONFIRMED |
       | PT_RA03_TsVrRejected        | 1.0                 | 1.0              |         | Failure     | TISSUE_VARIANT_REPORT_REJECTED  |
-#      | PT_RA03_NoTaAvailable       | 1.0                 | 1.0              |         | Success     | REQUEST_ASSIGNMENT              |
+      | PT_RA03_NoTaAvailable       | 1.0                 | 1.0              |         | Success     | REQUEST_ASSIGNMENT              |
       | PT_RA03_CompassionateCare   | 1.0                 | 1.0              |         | Success     | REQUEST_ASSIGNMENT              |
 #   for the case: OFF_STUDY and OFF_STUDY_BIOPSY_EXPIRED, please check test PT_OS04
     #there is no “PATHOLOGY_REVIEWED” status anymore
@@ -111,7 +111,7 @@ Feature: Patients request assignment tests
       | PT_RA04a_TsVrReceived          | 2.0              |         | Failure     | TISSUE_VARIANT_REPORT_RECEIVED  |
       | PT_RA04a_TsVrConfirmed         | 1.0              |         | Failure     | TISSUE_VARIANT_REPORT_CONFIRMED |
       | PT_RA04a_TsVrRejected          | 1.0              |         | Failure     | TISSUE_VARIANT_REPORT_REJECTED  |
-#      | PT_RA04a_NoTaAvailable         | 1.0              |         | Success     | REQUEST_NO_ASSIGNMENT           |
+      | PT_RA04a_NoTaAvailable         | 1.0              |         | Success     | REQUEST_NO_ASSIGNMENT           |
       | PT_RA04a_CompassionateCare     | 1.0              |         | Success     | REQUEST_NO_ASSIGNMENT           |
       | PT_RA04a_OffStudy              | 1.0              |         | Failure     | OFF_STUDY                       |
       | PT_RA04a_OffStudyBiopsyExpired | 1.0              |         | Failure     | OFF_STUDY_BIOPSY_EXPIRED        |

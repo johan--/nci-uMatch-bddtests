@@ -3,6 +3,7 @@ require_relative 'treatment_arm_message_loader'
 require_relative 'dynamo_data_upload'
 require_relative 'dynamo_delete_script'
 
+
 ############start prepare patient data
 # DynamoDb.new('local').clear_all_tables
 # DynamoDataUploader.new('local').upload_ion_to_aws
@@ -15,7 +16,6 @@ DynamoDb.new('local').clear_all_tables
 DynamoDataUploader.new('local').upload_treatment_arm_to_aws
 DynamoDataUploader.new('local').upload_patient_data_to_aws
 DynamoDataUploader.new('local').upload_ion_to_aws
-
 
 ############clear different tables
 # DynamoDb.new('local').clear_all_patient_tables
@@ -61,6 +61,7 @@ DynamoDataUploader.new('local').upload_ion_to_aws
 # require_relative 'local_patient_data/Ion_data_done'
 #
 
+# Patient99A.upload_patient('PT_RA02_PendingConfirmation')
 
 
 

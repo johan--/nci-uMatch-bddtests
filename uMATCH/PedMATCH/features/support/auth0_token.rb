@@ -33,6 +33,13 @@ class Auth0Token
     end
     return ENV['AUTH0_TOKEN']
   end
+
+  def self.add_auth0_if_needed(headers={})
+    if ENV['NEED_AUTH0'] == 'YES'
+      headers['Authorization'] = "Bearer #{generate_auth0_token}"
+    end
+    headers
+  end
 end
 
 if __FILE__ == $0

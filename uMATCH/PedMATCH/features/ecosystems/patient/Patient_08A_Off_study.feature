@@ -44,7 +44,7 @@ Feature: Patients off study tests
     Then patient field: "current_step_number" should have value: "<current_step_number>" within 15 seconds
     Examples:
       | patient_id                     | current_step_number | message                | post_status | patient_status           |
-#      | PT_OS01a_Registered            | 1.0                 | specimen               | Failure     | REGISTRATION             |
+      | PT_OS01a_Registered            | 1.0                 | specimen               | Failure     | REGISTRATION             |
       | PT_OS01a_TsReceived            | 1.0                 | processed successfully | Success     | OFF_STUDY_BIOPSY_EXPIRED |
       | PT_OS01a_TsShipped             | 2.0                 | processed successfully | Success     | OFF_STUDY_BIOPSY_EXPIRED |
       | PT_OS01a_slideShipped          | 2.0                 | processed successfully | Success     | OFF_STUDY_BIOPSY_EXPIRED |
@@ -54,7 +54,7 @@ Feature: Patients off study tests
       | PT_OS01a_TsVrRejected          | 1.0                 | processed successfully | Success     | OFF_STUDY_BIOPSY_EXPIRED |
       | PT_OS01a_PendingConfirmation   | 2.0                 | processed successfully | Success     | OFF_STUDY_BIOPSY_EXPIRED |
       | PT_OS01a_PendingApproval       | 2.0                 | processed successfully | Success     | OFF_STUDY_BIOPSY_EXPIRED |
-#      | PT_OS01a_OnTreatmentArm        | 1.1                 | processed successfully | Failure     | ON_TREATMENT_ARM         |
+      | PT_OS01a_OnTreatmentArm        | 1.1                 | processed successfully | Failure     | ON_TREATMENT_ARM         |
       | PT_OS01a_ReqAssignment         | 2.0                 | processed successfully | Success     | OFF_STUDY_BIOPSY_EXPIRED |
       | PT_OS01a_ReqNoAssignment       | 1.1                 | processed successfully | Success     | OFF_STUDY_BIOPSY_EXPIRED |
       | PT_OS01a_NoTaAvailable         | 1.0                 | processed successfully | Success     | OFF_STUDY_BIOPSY_EXPIRED |
