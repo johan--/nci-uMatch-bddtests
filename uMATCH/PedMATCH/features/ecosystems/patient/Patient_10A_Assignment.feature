@@ -20,10 +20,11 @@ Feature: Patients assignment tests
   @patients_p2
   Scenario: PT_AM02. patient can reach PENDING_CONFIRMATION status even cog service collapses during assignment processing
 #    patient: "PT_AM02_VrReceived" with status: "TISSUE_VARIANT_REPORT_RECEIVED" on step: "1.0", assays are ready
+    #patient api will retry every 60 seconds
     Given patient: "PT_AM02_VrReceived" in mock service lost patient list, service will come back after "2" tries
     Given template variant report confirm message for patient: "PT_AM02_VrReceived", it has analysis_id: "PT_AM02_VrReceived_ANI1" and status: "confirm"
     When put to MATCH variant report confirm service, returns a message that includes "processed successfully" with status "Success"
-    Then wait for "60" seconds
+    Then wait for "180" seconds
     Then patient field: "current_status" should have value: "PENDING_CONFIRMATION" within 15 seconds
 
   @patients_p3
