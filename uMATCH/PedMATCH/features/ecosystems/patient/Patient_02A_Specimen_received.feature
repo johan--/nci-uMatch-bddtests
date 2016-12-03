@@ -14,8 +14,8 @@ Feature: NCH specimen received messages
   @patients_p1
   Scenario: PT_SR02. Consume a specimen_received message for type "Tissue" for a patient already registered in Match
     Given template specimen received message in type: "TISSUE" for patient: "PT_SR02_Registered", it has surgical_event_id: "PT_SR02_Registered_SEI1"
-    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
     Then set patient message field: "collection_dt" to value: "today"
+    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
     Then patient field: "current_status" should have value: "TISSUE_SPECIMEN_RECEIVED" within 15 seconds
     Then patient should have specimen (field: "surgical_event_id" is "PT_SR02_Registered_SEI1") within 15 seconds
     Then this specimen has pathology status: "Y"
