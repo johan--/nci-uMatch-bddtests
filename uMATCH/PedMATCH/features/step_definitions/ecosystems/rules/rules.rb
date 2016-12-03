@@ -2,7 +2,7 @@
 require 'rspec'
 require 'json'
 require_relative '../../../support/helper_methods.rb'
-
+@@ctr = 1
 
 When(/^the rules service \/version is called$/) do
   @res=Helper_Methods.get_request("#{ENV['rules_endpoint']}/version")
@@ -40,7 +40,8 @@ end
 Then(/^a patient assignment json is returned with reason category "([^"]*)" for treatment arm "([^"]*)"$/) do |assignment_reason,ta|
   assignment_result = @res['treatment_assignment_results']
   assignment_result.each do |tas|
-    if tas['treatment_arm_id'].eql?(ta)
+    responseTA = tas['treatment_arm_id']
+    if responseTA.eql? ta
       expect(tas['assignment_status']).to eql(assignment_reason)
     end
   end
@@ -48,6 +49,15 @@ end
 
 Then(/^a patient assignment json is returned with report_status "([^"]*)"$/) do |status|
   expect(@res['report_status']).to eql(status)
+  # File.open("assignment_reason_#{@@ctr}.json", 'w') { |file| file.puts(@res.to_json) }
+  #
+  # @@ctr = @@ctr+1
+  # temporary way to print all assignment reasons
+  # assignment_result = @res['treatment_assignment_results']
+  # assignment_result.each do |tas|
+  #   File.open('assignment_reason.txt', 'a') { |file| file.puts(tas['reason']+'\n') }
+  # end
+#   ends here
 end
 
 Then(/^the patient assignment reason is "([^"]*)"$/) do |reason|

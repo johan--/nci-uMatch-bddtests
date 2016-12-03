@@ -5,7 +5,7 @@
     "stratum_id": "100",
     "treatment_arm_status": "OPEN",
     "assay_rules": [],
-    "num_patients_assigned": 35,
+    "num_patients_assigned": "35.0",
     "snv_indels": [],
     "non_hotspot_rules": [{
       "variant_type":"nhr",
@@ -14,7 +14,7 @@
       "func_gene": "PTEN",
       "level_of_evidence": 3.0,
       "function": null,
-      "exon": null
+      "exon": "22"
     }],
     "copy_number_variants": [],
     "gene_fusions": [{
@@ -70,9 +70,10 @@
     "stratum_id": "100",
     "treatment_arm_status": "OPEN",
     "assay_rules": [],
-    "num_patients_assigned": 36,
+    "num_patients_assigned": "36.0",
     "snv_indels": [
       {
+        "variant_type":"snp",
         "identifier" : "COSM1234",
         "level_of_evidence": 3.0,
         "inclusion" : true
