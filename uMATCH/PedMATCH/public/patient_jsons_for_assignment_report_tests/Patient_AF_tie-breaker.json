@@ -18,10 +18,8 @@
   "snv_indels": [
     {
       "variant_type":"snp",
+      "identifier":"COSM1234",
       "exon" : "15",
-      "func_gene" : "BTK",
-      "oncomine_variant_class":null,
-      "function":null,
       "allele_frequency" : ".230000"
     }, {
       "variant_type": "del",

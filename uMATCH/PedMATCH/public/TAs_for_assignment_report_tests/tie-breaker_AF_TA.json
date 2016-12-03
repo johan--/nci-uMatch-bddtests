@@ -8,10 +8,10 @@
     "num_patients_assigned": null,
     "snv_indels": [
       {
-        "variant_type":"ins",
+        "variant_type":"del",
         "identifier": "COSM143738",
         "inclusion": true,
-        "level_of_evidence": null
+        "level_of_evidence": 3.0
       }
     ],
     "non_hotspot_rules": [],
@@ -72,8 +72,8 @@
     "snv_indels": [
       {
         "variant_type":"snp",
-        "identifier" : "BT9",
-        "level_of_evidence":null,
+        "identifier" : "COSM1234",
+        "level_of_evidence":3.0,
         "inclusion" : true
       }
     ],

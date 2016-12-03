@@ -229,8 +229,8 @@ Feature: Ensure the rules are fired correctly and patients are assigned to the r
     And treatment arm json "tie-breaker_lowest-accural_TA"
     When assignPatient service is called for patient "PID-1234"
     Then a patient assignment json is returned with report_status "TREATMENT_FOUND"
-    Then a patient assignment json is returned with reason category "SMALLEST_ACCRUED_NUMBER_TIE_BREAKER" for treatment arm "TB_LOE_Rules-Test1b"
-    Then a patient assignment json is returned with reason category "SELECTED" for treatment arm "TB_LOE_Rules-Test1a"
+    Then a patient assignment json is returned with reason category "SMALLEST_ACCRUED_NUMBER_TIE_BREAKER_BASED_EXCLUSION" for treatment arm "TB_lowestAccrual_Rules-Test1b"
+    Then a patient assignment json is returned with reason category "SELECTED" for treatment arm "TB_lowestAccrual_Rules-Test1a"
 
 
   Scenario: PA_29: Tie-breaker - maximum number of patients is not used to determine patient assignment to TA
@@ -238,17 +238,16 @@ Feature: Ensure the rules are fired correctly and patients are assigned to the r
     And treatment arm json "tie-breaker_maxNumPatients_TA"
     When assignPatient service is called for patient "PID-1234"
     Then a patient assignment json is returned with report_status "TREATMENT_FOUND"
-    Then a patient assignment json is returned with reason category "SMALLEST_ACCRUED_NUMBER_TIE_BREAKER" for treatment arm "TB_LOE_Rules-Test1b"
-    Then a patient assignment json is returned with reason category "SELECTED" for treatment arm "TB_LOE_Rules-Test1a"
-
+    Then a patient assignment json is returned with reason category "SMALLEST_ACCRUED_NUMBER_TIE_BREAKER_BASED_EXCLUSION" for treatment arm "TB_maxpatients_Rules-Test1b"
+    Then a patient assignment json is returned with reason category "SELECTED" for treatment arm "TB_maxpatients_Rules-Test1a"
 
   Scenario: PA_30: Tie-breaker - Allele frequency tie-breaker is applied to choose a treatment arm.
     Given  the patient assignment json "Patient_AF_tie-breaker"
     And treatment arm json "tie-breaker_AF_TA"
     When assignPatient service is called for patient "PID-1234"
     Then a patient assignment json is returned with report_status "TREATMENT_FOUND"
-    Then a patient assignment json is returned with reason category "ALLELE_FREQUENCY_TIE_BREAKER" for treatment arm "TB_LOE_Rules-Test1a"
-    Then a patient assignment json is returned with reason category "SELECTED" for treatment arm "TB_LOE_Rules-Test1b"
+    Then a patient assignment json is returned with reason category "ALLELE_FREQUENCY_TIE_BREAKER_BASED_EXCLUSION" for treatment arm "TB_AF_Rules-Test1a"
+    Then a patient assignment json is returned with reason category "SELECTED" for treatment arm "TB_AF_Rules-Test1b"
 
 
   Scenario: PA_31: Tie-breaker - Randomizer is applied to a choose a treatment arm
