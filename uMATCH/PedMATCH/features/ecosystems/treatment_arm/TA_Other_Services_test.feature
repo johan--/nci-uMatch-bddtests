@@ -3,7 +3,7 @@
 @treatment_arm
 Feature: TA_OS. Treatment Arm API Tests that focus on treatment arm api service other than /treatmentArms and /newTreatmentArm
 
-  @treatment_arm_p2
+  @treatment_arm_p2_off
   Scenario: TA_OS1. basic version of treatment arm only return one record for active treatment arm that has multiple versions
     Given template treatment arm json with an id: "APEC1621-OS1-1", stratum_id: "STRATUM1" and version: "version1"
     When creating a new treatment arm using post request

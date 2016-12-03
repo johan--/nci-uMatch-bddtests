@@ -4,7 +4,7 @@
 
 Feature: TA_SI. Treatment Arm API Tests that focus on "stratum_id" field
 
-  @treatment_arm_p2
+  @treatment_arm_p2_off
   Scenario: TA_SI1. Calling treatment arm list filters values by both id and stratum
     Given template treatment arm json with an id: "APEC1621-SI3-1", stratum_id: "STRATUM1" and version: "2016-06-03"
     Then creating a new treatment arm using post request
