@@ -384,7 +384,7 @@ class Patient_helper_methods
   end
 
   def self.get_special_result_from_url(url, timeout, query_hash, path=[])
-    internal_timeout = 45.0
+    internal_timeout = 100.0
     run_time = 0.0
     wait_time = 5.0
     loop do
