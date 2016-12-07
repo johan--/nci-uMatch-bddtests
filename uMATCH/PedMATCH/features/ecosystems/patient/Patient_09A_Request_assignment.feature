@@ -135,3 +135,79 @@ Feature: Patients request assignment tests
       | patient_id             | current_step_number |
       | PT_RA06_OnTreatmentArm | 1.1                 |
       | PT_RA06_PendingAproval | 1.0                 |
+
+#    @patients_p1
+#    Scenario: PT_RA07. request assignment with rebiopsy = N should generate assignment report properly
+#      Given template variant report confirm message for patient: "PT_RA07_VrAndAssayReady", it has analysis_id: "PT_RA07_VrAndAssayReady_ANI1" and status: "confirm"
+#      When put to MATCH variant report confirm service, returns a message that includes "processed successfully" with status "Success"
+#      Then patient field: "current_status" should have value: "PENDING_CONFIRMATION" after 45 seconds
+#      Then wait until patient has 1 assignment reports
+#      Then patient should have assignment report (TA id: "APEC1621-A", stratum id: "100") with status "PENDING"
+#      Then template assignment report confirm message for patient: "PT_RA07_VrAndAssayReady", it has analysis_id: "PT_RA07_VrAndAssayReady_ANI1" and status: "confirm"
+#      When put to MATCH assignment report confirm service, returns a message that includes "processed successfully" with status "Success"
+#      Then wait until patient assignment reports update
+#      Then patient should have assignment report (TA id: "APEC1621-A", stratum id: "100") with status "CONFIRMED"
+#      Then template request assignment message for patient: "PT_RA07_VrAndAssayReady" with re-biopsy: "N", step number: "1.0"
+#      When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+#      Then patient field: "current_status" should have value: "PENDING_CONFIRMATION" after 45 seconds
+#      Then wait until patient has 2 assignment reports
+#      Then patient should have assignment report (TA id: "APEC1621-A", stratum id: "100") with status "REJECTED"
+#      Then patient should have assignment report (TA id: "APEC1621-ETE-A", stratum id: "100") with status "PENDING"
+#      Then template assignment report confirm message for patient: "PT_RA07_VrAndAssayReady", it has analysis_id: "PT_RA07_VrAndAssayReady_ANI1" and status: "confirm"
+#      When put to MATCH assignment report confirm service, returns a message that includes "processed successfully" with status "Success"
+#      Then template request assignment message for patient: "PT_RA07_VrAndAssayReady" with re-biopsy: "N", step number: "1.0"
+#      When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+#      Then patient field: "current_status" should have value: "PENDING_CONFIRMATION" after 45 seconds
+#      Then wait until patient has 3 assignment reports
+#      Then patient should have assignment report (TA id: "APEC1621-A", stratum id: "100") with status "REJECTED"
+#      Then patient should have assignment report (TA id: "APEC1621-ETE-A", stratum id: "100") with status "REJECTED"
+#      Then patient should have assignment report (report status: "NO_TREATMENT_FOUND") with status "PENDING"
+#      Then template assignment report confirm message for patient: "PT_RA07_VrAndAssayReady", it has analysis_id: "PT_RA07_VrAndAssayReady_ANI1" and status: "confirm"
+#      When put to MATCH assignment report confirm service, returns a message that includes "processed successfully" with status "Success"
+#      Then template request assignment message for patient: "PT_RA07_VrAndAssayReady" with re-biopsy: "N", step number: "1.0"
+#      When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+#      Then patient field: "current_status" should have value: "PENDING_CONFIRMATION" after 45 seconds
+#      Then wait until patient has 4 assignment reports
+#      Then patient should have assignment report (TA id: "APEC1621-A", stratum id: "100") with status "REJECTED"
+#      Then patient should have assignment report (TA id: "APEC1621-ETE-A", stratum id: "100") with status "REJECTED"
+#      Then patient should have assignment report (report status: "NO_TREATMENT_FOUND") with status "REJECTED"
+#      Then patient should have assignment report (report status: "NO_TREATMENT_FOUND") with status "PENDING"
+
+
+
+  @patients_p2
+  Scenario Outline: PT_RA08. request assignment message with invalid rebiopsy field should fail
+    Given template request assignment message for patient: "<patient_id>" with re-biopsy: "<rebiopsy>", step number: "1.0"
+    When post to MATCH patients service, returns a message that includes "biopsy" with status "Failure"
+    Examples:
+      | patient_id                  | rebiopsy |
+      | PT_RA08_PendingApproval     | y        |
+      | PT_RA08_OnTreatmentArm      | n        |
+      | PT_RA08_RequestNoAssignment | other    |
+
+  @patients_p2
+  Scenario Outline: PT_RA09. request assignment message without rebiopsy field should works as rebiospy = N
+    Given template request assignment message for patient: "<patient_id>" with re-biopsy: "Y", step number: "1.0"
+    Then remove field: "rebiopsy" from patient message
+    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    Then patient field: "current_status" should have value: "PENDING_CONFIRMATION" within 30 seconds
+    Examples:
+      | patient_id                  |
+      | PT_RA09_PendingApproval     |
+      | PT_RA09_OnTreatmentArm      |
+      | PT_RA09_RequestNoAssignment |
+
+  @patients_p2
+  Scenario Outline: PT_RA10. request assignment message with rebiopsy is "" or null should works as rebiospy = N
+    Given template request assignment message for patient: "<patient_id>" with re-biopsy: "<rebiopsy>", step number: "1.0"
+    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    Then patient field: "current_status" should have value: "PENDING_CONFIRMATION" within 30 seconds
+    Examples:
+      | patient_id                   | rebiopsy |
+      | PT_RA10_PendingApproval      |          |
+      | PT_RA10_OnTreatmentArm       |          |
+      | PT_RA10_RequestNoAssignment  |          |
+      | PT_RA10_PendingApproval1     | null     |
+      | PT_RA10_OnTreatmentArm1      | null     |
+      | PT_RA10_RequestNoAssignment1 | null     |
+

@@ -145,7 +145,15 @@ end
 
 
 #retrieval
+Then(/^wait until patient has (\d+) assignment reports$/) do |ar_count|
 
+end
+Then(/^patient should have assignment report \(TA id: "([^"]*)", stratum id: "([^"]*)"\) with status "([^"]*)"$/) do |arg1, arg2, arg3|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+Then(/^patient should have assignment report \(report status: "([^"]*)"\) with status "([^"]*)"$/) do |arg1, arg2|
+  pending # Write code here that turns the phrase above into concrete actions
+end
 # Then(/^retrieve patient: "([^"]*)" from API$/) do |patientID|
 #   @patient_id = patientID=='null'?nil:patientID
 #   print_log = Helper_Methods.is_local_tier
@@ -401,7 +409,7 @@ Given(/^patient: "([^"]*)" in mock service lost patient list, service will come 
 end
 
 Then(/^COG received assignment status: "([^"]*)" for this patient$/) do |assignment_status|
-  converted_status = assignment_status=='null'?nil:assignment_status
+  converted_status = assignment_status=='null' ? nil : assignment_status
   response = COG_helper_methods.get_patient_assignment_status(@patient_id)
 
   if response['message_json']['status'].nil?
@@ -412,8 +420,8 @@ Then(/^COG received assignment status: "([^"]*)" for this patient$/) do |assignm
 end
 
 Then(/^COG received assignment with treatment_arm_id: "([^"]*)" and stratum_id: "([^"]*)" for this patient$/) do |ta_id, stratum|
-  converted_ta_id = ta_id=='null'?nil:ta_id
-  converted_stratum = stratum=='null'?nil:stratum
+  converted_ta_id = ta_id=='null' ? nil : ta_id
+  converted_stratum = stratum=='null' ? nil : stratum
   response = COG_helper_methods.get_patient_assignment_status(@patient_id)
 
   if response['message_json']['treatment_arm_id'].nil?

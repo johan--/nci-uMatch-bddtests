@@ -173,6 +173,7 @@ class PatientMessageLoader
 
   def self.convert_date(date_string)
     case date_string
+      when 'today' then Helper_Methods.dateYYYYMMDD
       when 'current' then Helper_Methods.dateDDMMYYYYHHMMSS
       when 'older' then Helper_Methods.backDate
       when 'future' then Helper_Methods.futureDate

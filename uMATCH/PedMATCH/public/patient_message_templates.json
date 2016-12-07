@@ -222,7 +222,7 @@
     "step_number": "2.0",
     "status": "REQUEST_ASSIGNMENT | REQUEST_NO_ASSIGNMENT",
     "status_date": "2016-05-10T22:05:33+00:00",
-    "rebiopsy": "Y|N",
+    "rebiopsy": "Y|N|",
     "message": "Physician determines it is not in the patient’s best interest.",
     "internal_use_only": {
       "request_id": "4-654400",
