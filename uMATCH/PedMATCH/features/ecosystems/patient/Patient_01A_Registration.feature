@@ -4,13 +4,13 @@ Feature: Register a new patient in PEDMatchbox:
 
 @patients_p1
   Scenario: PT_RG01. New patient can be registered successfully
-    Given template patient registration message for patient: "PT_RG01_New" on date: "2016-08-16T14:52:58.000+00:00"
+    Given template patient registration message for patient: "PT_RG01_New5" on date: "2016-08-16T14:52:58.000+00:00"
     When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
     Then patient field: "current_status" should have value: "REGISTRATION" within 10 seconds
     And patient field: "registration_date" should have value: "2016-08-16T14:52:58+00:00" within 10 seconds
     And patient field: "study_id" should have value: "APEC1621" within 10 seconds
     And patient field: "current_step_number" should have value: "1.0" within 10 seconds
-    And patient field: "patient_id" should have value: "PT_RG01_New" within 10 seconds
+    And patient field: "patient_id" should have value: "PT_RG01_New5" within 10 seconds
 
 @patients_p2
   Scenario Outline: PT_RG02. patient registration with invalid patient_id should fail
