@@ -354,6 +354,7 @@ class Patient_helper_methods
     @request_hash['patient_id'] = @patient_id
     @request_hash['status'] = 'REQUEST_NO_ASSIGNMENT'
     @request_hash['step_number'] = step_number
+    @request_hash['rebiopsy'] = ''
     unless date=='default'
       @request_hash['status_date'] = date
     end
