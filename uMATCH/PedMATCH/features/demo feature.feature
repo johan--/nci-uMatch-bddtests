@@ -459,7 +459,7 @@ Background: wait for process to complete
     Given template specimen received message in type: "BLOOD" for patient: "<patient_id>", it has surgical_event_id: ""
     Then set patient message field: "collection_dt" to value: "current"
     Then set patient message field: "received_dttm" to value: "current"
-    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
   Examples:
     |patient_id       |
     |00001            |
@@ -472,7 +472,7 @@ Background: wait for process to complete
     Given template specimen received message in type: "TISSUE" for patient: "<patient_id>", it has surgical_event_id: "<surgical_event_id>"
     Then set patient message field: "collection_dt" to value: "current"
     Then set patient message field: "received_dttm" to value: "current"
-    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
   Examples:
     |patient_id         |surgical_event_id      |
     |00001              |00001-Tissue_Specimen_1|
@@ -487,7 +487,7 @@ Background: wait for process to complete
     Given template specimen shipped message in type: "BLOOD" for patient: "<patient_id>", it has surgical_event_id: "", molecular_id or slide_barcode: "<molecular_id>"
     Then set patient message field: "molecular_id" to value: "<molecular_id>"
     Then set patient message field: "shipped_dttm" to value: "current"
-    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
   Examples:
     |patient_id       |molecular_id     |
     |00001            |00001-00013      |
@@ -502,7 +502,7 @@ Background: wait for process to complete
     Then set patient message field: "surgical_event_id" to value: "<surgical_event_id>"
     Then set patient message field: "molecular_id" to value: "<molecular_id>"
     Then set patient message field: "shipped_dttm" to value: "current"
-    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
   Examples:
     |patient_id         |surgical_event_id      |molecular_id     |
     |00001              |00001-Tissue_Specimen_1|00001-00012      |
@@ -514,7 +514,7 @@ Background: wait for process to complete
   Scenario Outline: Patient's SLIDE specimen shipment is received
     Given template specimen shipped message in type: "SLIDE" for patient: "<patient_id>", it has surgical_event_id: "<surgical_event_id>", molecular_id or slide_barcode: "<slide_barcode>"
     Then set patient message field: "shipped_dttm" to value: "current"
-    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
   Examples:
     |patient_id         |surgical_event_id      |slide_barcode                    |
     |00001              |00001-Tissue_Specimen_1|00001_Slide_barcode_1            |
@@ -528,7 +528,7 @@ Background: wait for process to complete
     Then set patient message field: "biomarker" to value: "ICCPTENs"
     Then set patient message field: "reported_date" to value: "current"
     Then set patient message field: "result" to value: "NEGATIVE"
-    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
     Examples:
       |patient_id         |surgical_event_id      |
       |00001              |00001-Tissue_Specimen_1|
@@ -543,7 +543,7 @@ Background: wait for process to complete
     Then set patient message field: "biomarker" to value: "ICCMLH1s"
     Then set patient message field: "reported_date" to value: "current"
     Then set patient message field: "result" to value: "NEGATIVE"
-    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
   Examples:
   |patient_id         |surgical_event_id      |
   |00001              |00001-Tissue_Specimen_1|
@@ -555,7 +555,7 @@ Background: wait for process to complete
   Scenario Outline: Patient's pathology report confirmation is received
     Given template pathology report with surgical_event_id: "<surgical_event_id>" for patient: "<patient_id>"
     Then set patient message field: "reported_date" to value: "current"
-    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
     Examples:
       |patient_id         |surgical_event_id      |
       |00001              |00001-Tissue_Specimen_1|
@@ -569,7 +569,7 @@ Background: wait for process to complete
     Then set patient message field: "s3_bucket_name" to value: "<bucket>"
     Then set patient message field: "tsv_file_path_name" to value: "<tsv>"
     Then set patient message field: "vcf_file_path_name" to value: "<vcf>"
-    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
   Examples:
     |patient_id     |molecular_id       |analysis_id          |bucket                                               |tsv                |vcf                |
     |00001          |00001-00012        |ANI_00001-00012      |bdd-test-data/demo/00001/00001-00012/ANI_00001-00012 |00001.tsv          |00001.vcf          |
@@ -585,7 +585,7 @@ Background: wait for process to complete
     Then set patient message field: "s3_bucket_name" to value: "<bucket>"
     Then set patient message field: "tsv_file_path_name" to value: "<tsv>"
     Then set patient message field: "vcf_file_path_name" to value: "<vcf>"
-    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
     Examples:
       |patient_id     |molecular_id       |analysis_id          |bucket                                               |tsv                |vcf                |
       |00001          |00001-00013        |ANI_00001-00013      |bdd-test-data/demo/00001/00001-00012/ANI_00001-00012 |00001.tsv          |00001.vcf          |
@@ -596,14 +596,14 @@ Background: wait for process to complete
 
 #  Scenario: Patient's Blood variant report is confirmed
 #    Given template variant report confirm message for patient: "00001", it has molecular_id: "00001-00013", analysis_id: "ANI_00001-00013" and status: "CONFIRMED"
-#    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+#    When POST to MATCH patients service, response includes "successfully" with code "202"
 #
 #  Scenario: Patient's Tissue variant report is confirmed
 #    Given template variant report confirm message for patient: "00001", it has molecular_id: "00001-00012", analysis_id: "ANI_00001-00012" and status: "CONFIRMED"
-#    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+#    When POST to MATCH patients service, response includes "successfully" with code "202"
 #
 #
 #  Scenario: Patient's Assignment report is confirmed
 #    Given template assignment report confirm message for patient: "00001", it has molecular_id: "00001-00012", analysis_id: "ANI_00001-00012" and status: "CONFIRMED"
-#    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+#    When POST to MATCH patients service, response includes "successfully" with code "202"
 

@@ -7,20 +7,28 @@ require_relative '../../../support/cog_helper_methods.rb'
 
 
 #post
-When(/^post to MATCH patients service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |retMsg, status|
-  Patient_helper_methods.post_to_trigger(status, retMsg)
+When(/^POST to MATCH patients service, response includes "([^"]*)" with code "([^"]*)"$/) do |retMsg, code|
+  response = Patient_helper_methods.post_to_trigger
+  first_match_second(response['http_code'], code)
+  first_include_second(response['message'], retMsg)
 end
 
-When(/^put to MATCH variant report confirm service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |retMsg, status|
-  Patient_helper_methods.put_vr_confirm(@analysis_id, @variant_report_status, status, retMsg)
+When(/^put to MATCH variant report confirm service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |retMsg, code|
+  Patient_helper_methods.put_vr_confirm(@analysis_id, @variant_report_status)
+  first_match_second(response['http_code'], code)
+  first_include_second(response['message'], retMsg)
 end
 
-When(/^put to MATCH variant confirm service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |retMsg, status|
-  Patient_helper_methods.put_variant_confirm(@current_variant_uuid, @current_variant_confirm, status, retMsg)
+When(/^put to MATCH variant confirm service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |retMsg, code|
+  Patient_helper_methods.put_variant_confirm(@current_variant_uuid, @current_variant_confirm)
+  first_match_second(response['http_code'], code)
+  first_include_second(response['message'], retMsg)
 end
 
-When(/^put to MATCH assignment report confirm service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |retMsg, status|
-  Patient_helper_methods.put_ar_confirm(@analysis_id, @assignment_report_status, status, retMsg)
+When(/^put to MATCH assignment report confirm service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |retMsg, code|
+  Patient_helper_methods.put_ar_confirm(@analysis_id, @assignment_report_status)
+  first_match_second(response['http_code'], code)
+  first_include_second(response['message'], retMsg)
 end
 
 #messages
@@ -171,7 +179,7 @@ Then(/^patient field: "([^"]*)" should have value: "([^"]*)" within (\d+) second
   converted_value = value=='null' ? nil : value
   url = "#{ENV['patients_endpoint']}?patient_id=#{@patient_id}"
   patient_result = Patient_helper_methods.get_special_result_from_url(url, timeout, {field => converted_value})
-  patient_result[field].should == converted_value
+  first_match_second(patient_result[field], converted_value)
 end
 
 Then(/^patient field: "([^"]*)" should have value: "([^"]*)" after (\d+) seconds$/) do |field, value, timeout|
@@ -179,7 +187,7 @@ Then(/^patient field: "([^"]*)" should have value: "([^"]*)" after (\d+) seconds
   converted_value = value=='null' ? nil : value
   url = "#{ENV['patients_endpoint']}?patient_id=#{@patient_id}"
   patient_result = Patient_helper_methods.get_special_result_from_url(url, 1.0, {field => converted_value})
-  patient_result[field].should == converted_value
+  first_match_second(patient_result[field], converted_value)
 end
 
 # And(/^patient field: "([^"]*)" has value: "([^"]*)"$/) do |field, value|
@@ -211,32 +219,32 @@ Then(/^patient should have selected treatment arm: "([^"]*)" with stratum id: "(
   if patient_result.keys.include?('current_assignment')
     patient_result = patient_result['current_assignment']
   end
-  patient_result['treatment_arm_id'].should == ta_id
-  patient_result['stratum_id'].should == stratum
+  first_match_second(patient_result['treatment_arm_id'], ta_id)
+  first_match_second(patient_result['stratum_id'], stratum)
 end
 
 Then(/^patient should have a blood specimen within (\d+) seconds$/) do |timeout|
   url = "#{ENV['patients_endpoint']}/#{@patient_id}/specimens"
   @current_specimen = Patient_helper_methods.get_special_result_from_url(url, timeout, {'specimen_type': 'BLOOD'})
-  @current_specimen['patient_id'].should == @patient_id
+  first_match_second(@current_specimen['patient_id'], @patient_id)
 end
 
 Then(/^patient should have specimen \(field: "([^"]*)" is "([^"]*)"\) within (\d+) seconds$/) do |field, value, timeout|
   url = "#{ENV['patients_endpoint']}/#{@patient_id}/specimens?#{field}=#{value}"
   @current_specimen = Patient_helper_methods.get_special_result_from_url(url, timeout, {field => value})
-  @current_specimen[field].should == value
+  first_match_second(@current_specimen[field], value)
 end
 
 Then(/^patient should have specimen \(surgical_event_id: "([^"]*)"\) within (\d+) seconds$/) do |sei, timeout|
   url = "#{ENV['patients_endpoint']}/#{@patient_id}/specimens?surgical_event_id=#{sei}"
   @current_specimen = Patient_helper_methods.get_special_result_from_url(url, timeout, {'surgical_event_id': sei})
-  @current_specimen['surgical_event_id'].should == sei
+  first_match_second(@current_specimen['surgical_event_id'], sei)
 end
 
 Then(/^patient specimen \(surgical_event_id: "([^"]*)"\) should be updated within (\d+) seconds$/) do |sei, timeout|
   url = "#{ENV['patients_endpoint']}/#{@patient_id}/specimens?surgical_event_id=#{sei}"
   @current_specimen = Patient_helper_methods.get_updated_result_from_url(url, timeout)
-  @current_specimen['surgical_event_id'].should == sei
+  first_match_second(@current_specimen['surgical_event_id'], sei)
 end
 
 
@@ -255,7 +263,7 @@ end
 
 And(/^this specimen has pathology status: "([^"]*)"$/) do |pathology_status|
   converted_patho_status = pathology_status=='null' ? nil : pathology_status
-  @current_specimen['pathology_status'].should == converted_patho_status
+  first_match_second(@current_specimen['pathology_status'], converted_patho_status)
 end
 
 And(/^this specimen should have a correct failed_date$/) do
@@ -265,23 +273,23 @@ And(/^this specimen should have a correct failed_date$/) do
   current_time = Time.now.utc.to_i
   returned_result = DateTime.parse(@current_specimen['failed_date']).to_i
   time_diff = current_time - returned_result
-  time_diff.should >=0
-  time_diff.should <=300
+  first_include_second((0..300), time_diff)
 end
 
 And(/^this specimen field: "([^"]*)" should be: "([^"]*)"$/) do |field, value|
   converted_value = value=='null' ? nil : value
-  @current_specimen[field].should == converted_value
+  first_match_second(@current_specimen[field], converted_value)
 end
 
 And(/^this specimen should not have field: "([^"]*)"$/) do |field|
-  expect_result = "specimen #{@current_specimen['surgical_event_id']} does not have field <#{field}>"
-  if @current_specimen.keys.include?(field)
-    actual_result = "specimen #{@current_specimen['surgical_event_id']} has field <#{field}>"
-  else
-    actual_result = expect_result
-  end
-  actual_result.should == expect_result
+  # expect_result = "specimen #{@current_specimen['surgical_event_id']} does not have field <#{field}>"
+  # if @current_specimen.keys.include?(field)
+  #   actual_result = "specimen #{@current_specimen['surgical_event_id']} has field <#{field}>"
+  # else
+  #   actual_result = expect_result
+  # end
+  # actual_result.should == expect_result
+  expect(@current_specimen.keys).not_to include field
 end
 
 # # And(/^this specimen has assay: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
@@ -293,7 +301,7 @@ And(/^specimen \(surgical_event_id: "([^"]*)"\) field: "([^"]*)" should have val
   converted_value = value=='null' ? nil : value
   url = "#{ENV['patients_endpoint']}/#{@patient_id}/specimens?surgical_event_id=#{sei}"
   specimen_result = Patient_helper_methods.get_special_result_from_url(url, timeout, {field => converted_value})
-  specimen_result[field].should == converted_value
+  first_match_second(specimen_result[field], converted_value)
 end
 
 
@@ -301,7 +309,7 @@ Then(/^patient should have blood specimen \(active_molecular_id: "([^"]*)"\) wit
   converted_moi = moi=='null' ? nil : moi
   url = "#{ENV['patients_endpoint']}/#{@patient_id}/specimens?active_molecular_id=#{converted_moi}"
   @current_specimen = Patient_helper_methods.get_special_result_from_url(url, timeout, {'active_molecular_id': converted_moi})
-  @current_specimen['active_molecular_id'].should == converted_moi
+  first_match_second(@current_specimen['active_molecular_id'], converted_moi)
 end
 #
 # Then(/^returned patient's blood specimen has value: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
@@ -318,47 +326,46 @@ Then(/^patient should have variant report \(analysis_id: "([^"]*)"\) within (\d+
       raise "Expect 1 variant report returned, actually #{@current_variant_report.length} returned"
     end
   end
-  @current_variant_report['analysis_id'].should == ani
+  first_match_second(@current_variant_report['analysis_id'], ani)
 end
 
 Then(/^patient should have variant report \(analysis_id: "([^"]*)"\) after (\d+) seconds$/) do |ani, timeout|
   sleep(timeout.to_f)
   url = "#{ENV['patients_endpoint']}/variant_reports?analysis_id=#{ani}"
   @current_variant_report = Patient_helper_methods.get_special_result_from_url(url, 1.0, {'analysis_id': ani})
-  @current_variant_report['analysis_id'].should == ani
+  first_match_second(@current_variant_report['analysis_id'], ani)
 end
 
 And(/^this variant report has value: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
-  expect_field = "variant report contains field: #{field}"
-  actual_field = expect_field
-  unless @current_variant_report.keys.include?(field)
-    actual_field = "variant repor does not contain field: #{field}"
-  end
-  actual_field.should == expect_field
+  first_include_second(@current_variant_report.keys, field)
   convert_value = value=='null' ? nil : value
-  expect_result = "Value of field #{field} contains #{convert_value}"
   returned_value = @current_variant_report[field]
-  real_result = "Value of field #{field} is #{@current_variant_report[field]}"
-  equal = returned_value == convert_value
-  unless equal
-    if returned_value.nil? || convert_value.nil?
-      equal = false
-    else
-      equal = returned_value.downcase.include?(convert_value.downcase)
-    end
+  if returned_value.nil? || convert_value.nil?
+    first_match_second(convert_value, returned_value)
+  else
+    first_match_second(convert_value.to_s.downcase, returned_value.to_s.downcase)
   end
-  if equal
-    real_result = expect_result
-  end
-  real_result.should == expect_result
+  # expect_result = "Value of field #{field} contains #{convert_value}"
+  # real_result = "Value of field #{field} is #{@current_variant_report[field]}"
+  # equal = returned_value == convert_value
+  # unless equal
+  #   if returned_value.nil? || convert_value.nil?
+  #     equal = false
+  #   else
+  #     equal = returned_value.downcase.include?(convert_value.downcase)
+  #   end
+  # end
+  # if equal
+  #   real_result = expect_result
+  # end
+  # real_result.should == expect_result
 end
 
 And(/^this variant report has correct status_date$/) do
   current_time = Time.now.utc.to_i
   returned_result = DateTime.parse(@current_variant_report['status_date']).to_i
   time_diff = current_time - returned_result
-  time_diff.should >=0
-  time_diff.should <=20
+  first_include_second((0..20), time_diff)
 end
 #
 # Then(/^returned patient has been assigned to new treatment arm: "([^"]*)", stratum id: "([^"]*)"$/) do |ta_id, stratum|
@@ -379,15 +386,15 @@ Then(/^this variant has confirmed field: "([^"]*)" and comment field: "([^"]*)" 
   converted_comment = comment=='null' ? nil : comment
   url = "#{ENV['patients_endpoint']}/variants?uuid=#{@current_variant_uuid}"
   this_variant = Patient_helper_methods.get_special_result_from_url(url, timeout.to_f, {'uuid': @current_variant_uuid})
-  this_variant['confirmed'].should == convert_string_to_bool(confirmed)
-  this_variant['comment'].should == converted_comment
+  first_match_second(this_variant['confirmed'].to_s, confirmed)
+  first_match_second(this_variant['comment'], converted_comment)
 end
 
 Then(/^variants in variant report \(analysis_id: "([^"]*)"\) have confirmed: "([^"]*)" within (\d+) seconds$/) do |ani, confirmed, timeout|
   url = "#{ENV['patients_endpoint']}/variants?analysis_id=#{ani}"
   variants = Patient_helper_methods.get_special_result_from_url(url, timeout.to_f, {'analysis_id': ani})
   variants.each { |this_variant|
-    this_variant['confirmed'].to_s.should==confirmed
+    first_match_second(this_variant['confirmed'].to_s, confirmed)
   }
 end
 #
@@ -415,7 +422,7 @@ Then(/^COG received assignment status: "([^"]*)" for this patient$/) do |assignm
   if response['message_json']['status'].nil?
     raise response.to_json.to_s
   else
-    response['message_json']['status'].should == converted_status
+    first_match_second(response['message_json']['status'], converted_status)
   end
 end
 
@@ -427,13 +434,21 @@ Then(/^COG received assignment with treatment_arm_id: "([^"]*)" and stratum_id: 
   if response['message_json']['treatment_arm_id'].nil?
     raise response.to_json.to_s
   else
-    response['message_json']['treatment_arm_id'].should == converted_ta_id
+    first_match_second(response['message_json']['treatment_arm_id'], converted_ta_id)
   end
   if response['message_json']['stratum_id'].nil?
     raise response.to_json.to_s
   else
-    response['message_json']['stratum_id'].should == converted_stratum
+    first_match_second(response['message_json']['stratum_id'], converted_stratum)
   end
+end
+
+def first_match_second(first, second)
+  expect(first).to eq second
+end
+
+def first_include_second(first, second)
+  expect(first).to include second
 end
 
 def convert_string_to_bool(string)

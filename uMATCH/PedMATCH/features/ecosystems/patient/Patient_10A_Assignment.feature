@@ -32,7 +32,7 @@ Feature: Patients assignment tests
 #    patient: "PT_AM03_PendingApproval" with status: "PENDING_APPROVAL" on step: "1.0"
 #    patient is currently on treatment arm: "APEC1621-A", stratum: "100"
     Given template on treatment arm message for patient: "PT_AM03_PendingApproval" with treatment arm id: "APEC1621-B", stratum id: "100" and step number: "1.1"
-    When post to MATCH patients service, returns a message that includes "treatment arm id" with status "Failure"
+    When POST to MATCH patients service, response includes "treatment arm id" with code "403"
 
   @patients_p1
   Scenario Outline: PT_AM04. treatment arm should be able to assign to multiple patients
@@ -42,7 +42,7 @@ Feature: Patients assignment tests
     Then template assignment report confirm message for patient: "<patient_id>", it has analysis_id: "<ani>" and status: "confirm"
     When put to MATCH assignment report confirm service, returns a message that includes "processed successfully" with status "Success"
     Then template on treatment arm message for patient: "<patient_id>" with treatment arm id: "APEC1621-A", stratum id: "100" and step number: "1.1"
-    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient field: "current_status" should have value: "ON_TREATMENT_ARM" within 30 seconds
     Then patient field: "current_step_number" should have value: "1.1" within 30 seconds
     Examples:

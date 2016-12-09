@@ -6,7 +6,7 @@ Feature: NCH specimen received messages
   Scenario: PT_SR01. Consume a specimen_received message for type "Blood" for a patient already registered in Match
     Given template specimen received message in type: "BLOOD" for patient: "PT_SR01_Registered", it has surgical_event_id: ""
     Then set patient message field: "collection_dt" to value: "today"
-    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient should have a blood specimen within 15 seconds
     #Patient just consume the message and has the new specimen, but do not change status to BLOOD_...
 #    Then patient field: "current_status" should have value: "BLOOD_SPECIMEN_RECEIVED" within 15 seconds
@@ -15,7 +15,7 @@ Feature: NCH specimen received messages
   Scenario: PT_SR02. Consume a specimen_received message for type "Tissue" for a patient already registered in Match
     Given template specimen received message in type: "TISSUE" for patient: "PT_SR02_Registered", it has surgical_event_id: "PT_SR02_Registered_SEI1"
     Then set patient message field: "collection_dt" to value: "today"
-    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient field: "current_status" should have value: "TISSUE_SPECIMEN_RECEIVED" within 15 seconds
     Then patient should have specimen (field: "surgical_event_id" is "PT_SR02_Registered_SEI1") within 15 seconds
     Then this specimen has pathology status: "Y"
@@ -24,25 +24,25 @@ Feature: NCH specimen received messages
   Scenario: PT_SR03. "Blood" specimen received message with surgical_event_id should fail
     Given template specimen received message in type: "BLOOD" for patient: "PT_SR03_Registered", it has surgical_event_id: ""
     Then set patient message field: "surgical_event_id" to value: "PT_SR03_Registered_SEI1"
-    When post to MATCH patients service, returns a message that includes "surgical event id" with status "Failure"
+    When POST to MATCH patients service, response includes "surgical event id" with code "403"
 
   @patients_p2
   Scenario: PT_SR04. "Tissue" specimen received message without surgical_event_id should fail
     Given template specimen received message in type: "TISSUE" for patient: "PT_SR04_Registered", it has surgical_event_id: "PT_SR04_Registered_SEI1"
     Then remove field: "surgical_event_id" from patient message
-    When post to MATCH patients service, returns a message that includes "can't be blank" with status "Failure"
+    When POST to MATCH patients service, response includes "can't be blank" with code "403"
 
   @patients_p2
   Scenario: PT_SR05. Return error message when collection date is older than patient registration date
     Given template specimen received message in type: "TISSUE" for patient: "PT_SR05_Registered", it has surgical_event_id: "PT_SR05_Registered_SEI1"
     Then set patient message field: "collection_dt" to value: "1990-04-25"
-    When post to MATCH patients service, returns a message that includes "date" with status "Failure"
+    When POST to MATCH patients service, response includes "date" with code "403"
 
   @patients_p2
   Scenario: PT_SR06. Return error message when collection date is older than 6 months ago
     Given template specimen received message in type: "TISSUE" for patient: "PT_SR06_Registered", it has surgical_event_id: "PT_SR06_Registered_SEI1"
     Then set patient message field: "collection_dt" to value: "2016-04-25"
-    When post to MATCH patients service, returns a message that includes "Specimen is older then 6 months" with status "Failure"
+    When POST to MATCH patients service, response includes "6 months" with code "403"
 
     #this is not required anymore!!!!!!!!!!!!!!!
 #  Scenario: PT_SR06. Return error message when received date is older than collection date
@@ -50,18 +50,18 @@ Feature: NCH specimen received messages
 #    Then set patient message field: "surgical_event_id" to value: "PT-SpecimenTest_SE_2"
 #    Then set patient message field: "collection_dt" to value: "2016-04-25"
 #    Then set patient message field: "received_dttm" to value: "2016-04-23T15:17:11+00:00"
-#    When post to MATCH patients service, returns a message that includes "date" with status "Failure"
+#    When POST to MATCH patients service, response includes "date" with status "Failure"
 
   @patients_p2
   Scenario: PT_SR07. Return error when specimen received message is received for non-existing patient
     Given template specimen received message in type: "TISSUE" for patient: "PT_NonExistingPatient", it has surgical_event_id: "PT_NonExistingPatient_SEI1"
-    When post to MATCH patients service, returns a message that includes "not been registered" with status "Failure"
+    When POST to MATCH patients service, response includes "not been registered" with code "403"
 
   @patients_p2
   Scenario Outline: PT_SR08. Return error message when invalid type (other than BLOOD or TISSUE) is received
     Given template specimen received message in type: "<specimen_type>" for patient: "PT_SR08_Registered", it has surgical_event_id: "PT_SR08_Registered_SEI1"
     Then set patient message field: "type" to value: "<specimen_type_value>"
-    When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
+    When POST to MATCH patients service, response includes "<message>" with code "403"
     Examples:
       | specimen_type | specimen_type_value | message               |
       | TISSUE        | Tissue              | is not a support type |
@@ -74,29 +74,29 @@ Feature: NCH specimen received messages
       #test patient: PT_SR09_TsReceivedTwice: (_SEI1, _SEI2) have been received
     Given template specimen received message in type: "TISSUE" for patient: "PT_SR09_TsReceivedTwice", it has surgical_event_id: "<SEI>"
     Then set patient message field: "collection_dt" to value: "<collectTime>"
-    When post to MATCH patients service, returns a message that includes "<message>" with status "<status>"
+    When POST to MATCH patients service, response includes "<message>" with code "403"
     Examples:
-      | SEI                          | collectTime | status  | message                |
-      | PT_SR09_TsReceivedTwice_SEI1 | 2016-04-30  | Failure | same surgical event id |
-      | PT_SR09_TsReceivedTwice_SEI2 | 2016-04-30  | Failure | same surgical event id |
+      | SEI                          | collectTime | message                |
+      | PT_SR09_TsReceivedTwice_SEI1 | 2016-04-30  | same surgical event id |
+      | PT_SR09_TsReceivedTwice_SEI2 | 2016-04-30  | same surgical event id |
 
   @patients_p2
   Scenario Outline: PT_SR10a. tissue specimen_received message can only be accepted when patient is in certain status
       #all test patients are using surgical event id SEI_01
     Given template specimen received message in type: "TISSUE" for patient: "<patient_id>", it has surgical_event_id: "<new_sei>"
     Then set patient message field: "collection_dt" to value: "today"
-    When post to MATCH patients service, returns a message that includes "<message>" with status "<status>"
+    When POST to MATCH patients service, response includes "<message>" with code "<http_code>"
     Examples:
-      | patient_id                | new_sei                         | status  | message                |
-      | PT_SR10_BdReceived        | PT_SR10_BdReceived_SEI2         | Success | processed successfully |
-      | PT_SR10_TsVrReceived      | PT_SR10_TsVrReceived_SEI2       | Success | processed successfully |
-      | PT_SR10_TsVRRejected      | PT_SR10_TsVRRejected_SEI2       | Success | processed successfully |
-      | PT_SR10_PendingApproval2  | PT_SR10_PendingApproval2_SEI2   | Failure | cannot transition from |
-      | PT_SR10_OnTreatmentArm    | PT_SR10_OnTreatmentArm_SEI2     | Failure | cannot transition from |
-      | PT_SR10_ProgressReBioY    | PT_SR10_ProgressReBioY_SEI2     | Success | processed successfully |
-      | PT_SR10_OffStudy          | PT_SR10_OffStudy_SEI2           | Failure | cannot transition from |
-      | PT_SR10_NoTaAvailable     | PT_SR10_NO_TA_AVAILABLE_SEI2    | Failure | cannot transition from |
-      | PT_SR10_CompassionateCare | PT_SR10_COMPASSIONATE_CARE_SEI2 | Failure | cannot transition from |
+      | patient_id                | new_sei                         | http_code | message                |
+      | PT_SR10_BdReceived        | PT_SR10_BdReceived_SEI2         | 202       | processed successfully |
+      | PT_SR10_TsVrReceived      | PT_SR10_TsVrReceived_SEI2       | 202       | processed successfully |
+      | PT_SR10_TsVRRejected      | PT_SR10_TsVRRejected_SEI2       | 202       | processed successfully |
+      | PT_SR10_PendingApproval2  | PT_SR10_PendingApproval2_SEI2   | 403       | cannot transition from |
+      | PT_SR10_OnTreatmentArm    | PT_SR10_OnTreatmentArm_SEI2     | 403       | cannot transition from |
+      | PT_SR10_ProgressReBioY    | PT_SR10_ProgressReBioY_SEI2     | 202       | processed successfully |
+      | PT_SR10_OffStudy          | PT_SR10_OffStudy_SEI2           | 403       | cannot transition from |
+      | PT_SR10_NoTaAvailable     | PT_SR10_NO_TA_AVAILABLE_SEI2    | 403       | cannot transition from |
+      | PT_SR10_CompassionateCare | PT_SR10_COMPASSIONATE_CARE_SEI2 | 403       | cannot transition from |
       #there is no “PATHOLOGY_REVIEWED” status anymore
 #      | PT_SR10_UPathoReceived   | PT_SR10_UPathoReceived_SEI2   | Success | processed successfully |
 #      | PT_SR10_NPathoReceived   | PT_SR10_NPathoReceived_SEI2   | Success | processed successfully |
@@ -106,14 +106,14 @@ Feature: NCH specimen received messages
   Scenario Outline: PT_SR10b. blood specimen_received message can only be accepted when patient is in certain status
     Given template specimen received message in type: "BLOOD" for patient: "<patient_id>", it has surgical_event_id: ""
     Then set patient message field: "collection_dt" to value: "today"
-    When post to MATCH patients service, returns a message that includes "<message>" with status "<status>"
+    When POST to MATCH patients service, response includes "<message>" with code "<http_code>"
     Examples:
-      | patient_id              | status  | message                |
-      | PT_SR10_TsReceived      | Success | processed successfully |
-      | PT_SR10_BdVRReceived    | Success | processed successfully |
-      | PT_SR10_PendingApproval | Success | processed successfully |
-      | PT_SR10_ProgressReBioY1 | Success | processed successfully |
-      | PT_SR10_OffStudy2       | Failure | cannot transition from |
+      | patient_id              | http_code | message                |
+      | PT_SR10_TsReceived      | 202       | processed successfully |
+      | PT_SR10_BdVRReceived    | 202       | processed successfully |
+      | PT_SR10_PendingApproval | 202       | processed successfully |
+      | PT_SR10_ProgressReBioY1 | 202       | processed successfully |
+      | PT_SR10_OffStudy2       | 403       | cannot transition from |
         #we don't confirm or reject BLOOD variant report anymore
 #      | PT_SR10_BdVRRejected    | Success | processed successfully   |
 #      | PT_SR10_BdVRConfirmed   | Failure | confirmed variant report |
@@ -122,7 +122,7 @@ Feature: NCH specimen received messages
   Scenario Outline: PT_SR11. Return error message when study_id is invalid
     Given template specimen received message in type: "<specimen_type>" for patient: "PT_SR11_Registered", it has surgical_event_id: "PT_SR11_Registered_SEI1"
     Then set patient message field: "<field>" to value: "<value>"
-    When post to MATCH patients service, returns a message that includes "<message>" with status "Failure"
+    When POST to MATCH patients service, response includes "<message>" with code "403"
     Examples:
       | specimen_type | field    | value | message                 |
       | TISSUE        | study_id |       | can't be blank          |
@@ -133,7 +133,7 @@ Feature: NCH specimen received messages
   Scenario: PT_SR12. new tissue specimen message cannot be received when there is one CONFIRMED tissue variant report
     #  Test patient: PT_SR12_VariantReportConfirmed: VR confirmed PT_SR12_VariantReportConfirmed_SEI1, PT_SR12_VariantReportConfirmed_MOI1, PT_SR12_VariantReportConfirmed_ANI1
     Given template specimen received message in type: "TISSUE" for patient: "PT_SR12_VariantReportConfirmed", it has surgical_event_id: "PT_SR12_VariantReportConfirmed_SEI2"
-    When post to MATCH patients service, returns a message that includes "cannot transition from" with status "Failure"
+    When POST to MATCH patients service, response includes "cannot transition from" with code "403"
 
   @patients_p1
   Scenario: PT_SR14a. When a new TISSUE specimen_received message is received,  the pending TISSUE variant report from the old Surgical event is set to "REJECTED" status
@@ -141,7 +141,7 @@ Feature: NCH specimen received messages
   #          Plan to receive new specimen surgical_event_id: PT_SR14_TsVrUploaded_SEI2
     Given template specimen received message in type: "TISSUE" for patient: "PT_SR14_TsVrUploaded", it has surgical_event_id: "PT_SR14_TsVrUploaded_SEI2"
     Then set patient message field: "collection_dt" to value: "today"
-    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient field: "current_status" should have value: "TISSUE_SPECIMEN_RECEIVED" within 15 seconds
     Then patient should have variant report (analysis_id: "PT_SR14_TsVrUploaded_ANI1") within 15 seconds
     And this variant report has value: "REJECTED" in field: "status"
@@ -151,7 +151,7 @@ Feature: NCH specimen received messages
   #    Test patient: PT_SR14_TsVrUploaded1; variant report files uploaded: PT_SR14_BdVrUploaded(_BD_MOI1, _ANI1)
     Given template specimen received message in type: "BLOOD" for patient: "PT_SR14_TsVrUploaded1", it has surgical_event_id: ""
     Then set patient message field: "collection_dt" to value: "today"
-    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
     Then wait for "30" seconds
     Then patient should have variant report (analysis_id: "PT_SR14_TsVrUploaded1_ANI1") within 15 seconds
     And this variant report has value: "PENDING" in field: "status"
@@ -162,7 +162,7 @@ Feature: NCH specimen received messages
 #  #    Test patient: PT_SR14_BdVrUploaded; variant report files uploaded: PT_SR14_BdVrUploaded(_BD_MOI1, _ANI1)
 #    Given template specimen received message in type: "BLOOD" for patient: "PT_SR14_BdVrUploaded", it has surgical_event_id: ""
 #    Then set patient message field: "collection_dt" to value: "2016-08-21"
-#    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+#    When POST to MATCH patients service, response includes "successfully" with code "202"
 #    Then wait for "30" seconds
 #    Then patient should have variant report (analysis_id: "PT_SR14_BdVrUploaded_ANI1") within 15 seconds
 #    And this variant report has value: "REJECTED" in field: "status"
@@ -171,7 +171,7 @@ Feature: NCH specimen received messages
   Scenario: PT_SR14d. When a new TISSUE specimen_received message is received,  the pending BLOOD variant report should not change status
     Given template specimen received message in type: "TISSUE" for patient: "PT_SR14d_BdVrUploaded", it has surgical_event_id: "PT_SR14d_BdVrUploaded_SEI1"
     Then set patient message field: "collection_dt" to value: "today"
-    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient field: "current_status" should have value: "TISSUE_SPECIMEN_RECEIVED" within 15 seconds
     Then patient should have variant report (analysis_id: "PT_SR14d_BdVrUploaded_ANI1") within 15 seconds
     And this variant report has value: "PENDING" in field: "status"
@@ -181,7 +181,7 @@ Feature: NCH specimen received messages
     Given template specimen received message in type: "<type>" for patient: "PT_SR13_Registered", it has surgical_event_id: "<sei>"
     Then set patient message field: "extra_info" to value: "This is extra information"
     Then set patient message field: "collection_dt" to value: "today"
-    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
     Examples:
       | type   | sei                     |
       | TISSUE | PT_SR13_Registered_SEI1 |
@@ -192,13 +192,13 @@ Feature: NCH specimen received messages
 #    patient: "PT_SR14_RequestAssignment" with status: "REQUEST_ASSIGNMENT" on step: "2.0"
 #    surgical_event_id PT_SR14_RequestAssignment_SEI1 has been used in step 1.0
     Given template specimen received message in type: "TISSUE" for patient: "PT_SR14_RequestAssignment", it has surgical_event_id: "PT_SR14_RequestAssignment_SEI1"
-    When post to MATCH patients service, returns a message that includes "same surgical event id" with status "Failure"
+    When POST to MATCH patients service, response includes "surgical event id" with code "403"
 
   @patients_p2
   Scenario: PT_SR15. when a new tissue specimen is received before variant report confirmed, the failed_date of last specimen should be set properly
     Given template specimen received message in type: "TISSUE" for patient: "PT_SR15_TsShipped", it has surgical_event_id: "PT_SR15_TsShipped_SEI2"
     Then set patient message field: "collection_dt" to value: "today"
-    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient should have specimen (field: "surgical_event_id" is "PT_SR15_TsShipped_SEI2") within 30 seconds
     Then patient should have specimen (field: "surgical_event_id" is "PT_SR15_TsShipped_SEI1") within 5 seconds
     Then this specimen should have a correct failed_date
@@ -207,11 +207,11 @@ Feature: NCH specimen received messages
   @patients_p2
   Scenario: PT_SR16. when a new tissue specimen is received after variant report confirmed, the failed_date of last specimen should not be set
     Given template request assignment message for patient: "PT_SR16_PendingApproval" with re-biopsy: "Y", step number: "1.0"
-    Then post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient field: "current_status" should have value: "REQUEST_ASSIGNMENT" within 30 seconds
     Then template specimen received message in type: "TISSUE" for patient: "PT_SR16_PendingApproval", it has surgical_event_id: "PT_SR16_PendingApproval_SEI2"
     Then set patient message field: "collection_dt" to value: "today"
-    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient should have specimen (field: "surgical_event_id" is "PT_SR16_PendingApproval_SEI2") within 30 seconds
     Then patient should have specimen (field: "surgical_event_id" is "PT_SR16_PendingApproval_SEI1") within 5 seconds
     And this specimen field: "failed_date" should be: "null"

@@ -4,28 +4,28 @@ Feature: Patients off study tests
   @patients_p1
   Scenario Outline: PT_OS01. patient can be set to OFF_STUDY status from certain status
     Given template off study message for patient: "<patient_id>" on step number: "<current_step_number>"
-    When post to MATCH patients service, returns a message that includes "<message>" with status "<post_status>"
+    When POST to MATCH patients service, response includes "<message>" with code "<http_code>"
     Then patient field: "current_status" should have value: "<patient_status>" within 15 seconds
     Then patient field: "current_step_number" should have value: "<current_step_number>" within 15 seconds
     Examples:
-      | patient_id                    | current_step_number | message                | post_status | patient_status           |
-      | PT_OS01_Registered            | 1.0                 | processed successfully | Success     | OFF_STUDY                |
-      | PT_OS01_TsReceived            | 1.0                 | processed successfully | Success     | OFF_STUDY                |
-      | PT_OS01_TsShipped             | 2.0                 | processed successfully | Success     | OFF_STUDY                |
-      | PT_OS01_slideShipped          | 2.0                 | processed successfully | Success     | OFF_STUDY                |
-      | PT_OS01_AssayReceived         | 1.0                 | processed successfully | Success     | OFF_STUDY                |
-      | PT_OS01_TsVrReceived          | 2.0                 | processed successfully | Success     | OFF_STUDY                |
-      | PT_OS01_TsVrConfirmed         | 1.0                 | processed successfully | Success     | OFF_STUDY                |
-      | PT_OS01_TsVrRejected          | 1.0                 | processed successfully | Success     | OFF_STUDY                |
-      | PT_OS01_PendingConfirmation   | 2.0                 | processed successfully | Success     | OFF_STUDY                |
-      | PT_OS01_PendingApproval       | 2.0                 | processed successfully | Success     | OFF_STUDY                |
-      | PT_OS01_OnTreatmentArm        | 1.1                 | processed successfully | Success     | OFF_STUDY                |
-      | PT_OS01_ReqAssignment         | 2.0                 | processed successfully | Success     | OFF_STUDY                |
-      | PT_OS01_ReqNoAssignment       | 1.1                 | processed successfully | Success     | OFF_STUDY                |
-      | PT_OS01_NoTaAvailable         | 1.0                 | processed successfully | Success     | OFF_STUDY                |
-      | PT_OS01_CompassionateCare     | 1.0                 | processed successfully | Success     | OFF_STUDY                |
-      | PT_OS01_OffStudy              | 1.0                 | off                    | Failure     | OFF_STUDY                |
-      | PT_OS01_OffStudyBiopsyExpired | 1.0                 | expired                | Failure     | OFF_STUDY_BIOPSY_EXPIRED |
+      | patient_id                    | current_step_number | message                | http_code | patient_status           |
+      | PT_OS01_Registered            | 1.0                 | processed successfully | 202       | OFF_STUDY                |
+      | PT_OS01_TsReceived            | 1.0                 | processed successfully | 202       | OFF_STUDY                |
+      | PT_OS01_TsShipped             | 2.0                 | processed successfully | 202       | OFF_STUDY                |
+      | PT_OS01_slideShipped          | 2.0                 | processed successfully | 202       | OFF_STUDY                |
+      | PT_OS01_AssayReceived         | 1.0                 | processed successfully | 202       | OFF_STUDY                |
+      | PT_OS01_TsVrReceived          | 2.0                 | processed successfully | 202       | OFF_STUDY                |
+      | PT_OS01_TsVrConfirmed         | 1.0                 | processed successfully | 202       | OFF_STUDY                |
+      | PT_OS01_TsVrRejected          | 1.0                 | processed successfully | 202       | OFF_STUDY                |
+      | PT_OS01_PendingConfirmation   | 2.0                 | processed successfully | 202       | OFF_STUDY                |
+      | PT_OS01_PendingApproval       | 2.0                 | processed successfully | 202       | OFF_STUDY                |
+      | PT_OS01_OnTreatmentArm        | 1.1                 | processed successfully | 202       | OFF_STUDY                |
+      | PT_OS01_ReqAssignment         | 2.0                 | processed successfully | 202       | OFF_STUDY                |
+      | PT_OS01_ReqNoAssignment       | 1.1                 | processed successfully | 202       | OFF_STUDY                |
+      | PT_OS01_NoTaAvailable         | 1.0                 | processed successfully | 202       | OFF_STUDY                |
+      | PT_OS01_CompassionateCare     | 1.0                 | processed successfully | 202       | OFF_STUDY                |
+      | PT_OS01_OffStudy              | 1.0                 | off                    | 403       | OFF_STUDY                |
+      | PT_OS01_OffStudyBiopsyExpired | 1.0                 | expired                | 403       | OFF_STUDY_BIOPSY_EXPIRED |
     #no blood status is used anymore
 #  |PT_OS01_BdReceived     |BLOOD_SPECIMEN_RECEIVED          |2.0                |
 #  |PT_OS01_BdShipped      |BLOOD_NUCLEIC_ACID_SHIPPED       |2.0                |
@@ -39,28 +39,28 @@ Feature: Patients off study tests
   @patients_p2
   Scenario Outline: PT_OS01a. patient can be set to OFF_STUDY_BIOPSY_EXPIRED status from certain status
     Given template off study biopsy expired message for patient: "<patient_id>" on step number: "<current_step_number>"
-    When post to MATCH patients service, returns a message that includes "<message>" with status "<post_status>"
+    When POST to MATCH patients service, response includes "<message>" with code "<http_code>"
     Then patient field: "current_status" should have value: "<patient_status>" within 15 seconds
     Then patient field: "current_step_number" should have value: "<current_step_number>" within 15 seconds
     Examples:
-      | patient_id                     | current_step_number | message                | post_status | patient_status           |
-      | PT_OS01a_Registered            | 1.0                 | specimen               | Failure     | REGISTRATION             |
-      | PT_OS01a_TsReceived            | 1.0                 | processed successfully | Success     | OFF_STUDY_BIOPSY_EXPIRED |
-      | PT_OS01a_TsShipped             | 2.0                 | processed successfully | Success     | OFF_STUDY_BIOPSY_EXPIRED |
-      | PT_OS01a_slideShipped          | 2.0                 | processed successfully | Success     | OFF_STUDY_BIOPSY_EXPIRED |
-      | PT_OS01a_AssayReceived         | 1.0                 | processed successfully | Success     | OFF_STUDY_BIOPSY_EXPIRED |
-      | PT_OS01a_TsVrReceived          | 2.0                 | processed successfully | Success     | OFF_STUDY_BIOPSY_EXPIRED |
-      | PT_OS01a_TsVrConfirmed         | 1.0                 | processed successfully | Success     | OFF_STUDY_BIOPSY_EXPIRED |
-      | PT_OS01a_TsVrRejected          | 1.0                 | processed successfully | Success     | OFF_STUDY_BIOPSY_EXPIRED |
-      | PT_OS01a_PendingConfirmation   | 2.0                 | processed successfully | Success     | OFF_STUDY_BIOPSY_EXPIRED |
-      | PT_OS01a_PendingApproval       | 2.0                 | processed successfully | Success     | OFF_STUDY_BIOPSY_EXPIRED |
-      | PT_OS01a_OnTreatmentArm        | 1.1                 | processed successfully | Failure     | ON_TREATMENT_ARM         |
-      | PT_OS01a_ReqAssignment         | 2.0                 | processed successfully | Success     | OFF_STUDY_BIOPSY_EXPIRED |
-      | PT_OS01a_ReqNoAssignment       | 1.1                 | processed successfully | Success     | OFF_STUDY_BIOPSY_EXPIRED |
-      | PT_OS01a_NoTaAvailable         | 1.0                 | processed successfully | Success     | OFF_STUDY_BIOPSY_EXPIRED |
-      | PT_OS01a_CompassionateCare     | 1.0                 | processed successfully | Success     | OFF_STUDY_BIOPSY_EXPIRED |
-      | PT_OS01a_OffStudy              | 1.0                 | off                    | Failure     | OFF_STUDY                |
-      | PT_OS01a_OffStudyBiopsyExpired | 1.0                 | expired                | Failure     | OFF_STUDY_BIOPSY_EXPIRED |
+      | patient_id                     | current_step_number | message                | http_code | patient_status           |
+      | PT_OS01a_Registered            | 1.0                 | specimen               | 403     | REGISTRATION             |
+      | PT_OS01a_TsReceived            | 1.0                 | processed successfully | 202     | OFF_STUDY_BIOPSY_EXPIRED |
+      | PT_OS01a_TsShipped             | 2.0                 | processed successfully | 202     | OFF_STUDY_BIOPSY_EXPIRED |
+      | PT_OS01a_slideShipped          | 2.0                 | processed successfully | 202     | OFF_STUDY_BIOPSY_EXPIRED |
+      | PT_OS01a_AssayReceived         | 1.0                 | processed successfully | 202     | OFF_STUDY_BIOPSY_EXPIRED |
+      | PT_OS01a_TsVrReceived          | 2.0                 | processed successfully | 202     | OFF_STUDY_BIOPSY_EXPIRED |
+      | PT_OS01a_TsVrConfirmed         | 1.0                 | processed successfully | 202     | OFF_STUDY_BIOPSY_EXPIRED |
+      | PT_OS01a_TsVrRejected          | 1.0                 | processed successfully | 202     | OFF_STUDY_BIOPSY_EXPIRED |
+      | PT_OS01a_PendingConfirmation   | 2.0                 | processed successfully | 202     | OFF_STUDY_BIOPSY_EXPIRED |
+      | PT_OS01a_PendingApproval       | 2.0                 | processed successfully | 202     | OFF_STUDY_BIOPSY_EXPIRED |
+      | PT_OS01a_OnTreatmentArm        | 1.1                 | processed successfully | 403     | ON_TREATMENT_ARM         |
+      | PT_OS01a_ReqAssignment         | 2.0                 | processed successfully | 202     | OFF_STUDY_BIOPSY_EXPIRED |
+      | PT_OS01a_ReqNoAssignment       | 1.1                 | processed successfully | 202     | OFF_STUDY_BIOPSY_EXPIRED |
+      | PT_OS01a_NoTaAvailable         | 1.0                 | processed successfully | 202     | OFF_STUDY_BIOPSY_EXPIRED |
+      | PT_OS01a_CompassionateCare     | 1.0                 | processed successfully | 202     | OFF_STUDY_BIOPSY_EXPIRED |
+      | PT_OS01a_OffStudy              | 1.0                 | off                    | 403     | OFF_STUDY                |
+      | PT_OS01a_OffStudyBiopsyExpired | 1.0                 | expired                | 403     | OFF_STUDY_BIOPSY_EXPIRED |
 
   @patients_p2
   Scenario Outline: PT_OS02. variant report confirmation should fail if patient is on OFF_STUDY status
@@ -89,7 +89,7 @@ Feature: Patients off study tests
 #    Given patient: "<patient_id>" with status: "<current_status>" on step: "1.1"
 #    Given patient is currently on treatment arm: "APEC1621-A", stratum: "100"
     Given template request assignment message for patient: "<patient_id>" with re-biopsy: "<rebiopsy>", step number: "2.0"
-    When post to MATCH patients service, returns a message that includes "off" with status "Failure"
+    When POST to MATCH patients service, response includes "off" with code "403"
     Examples:
       | patient_id    | current_status           | rebiopsy |
       | PT_OS04_OnTA1 | OFF_STUDY                | Y        |

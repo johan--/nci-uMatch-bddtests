@@ -444,57 +444,36 @@ class Patient_helper_methods
 
   end
 
-  def self.post_to_trigger(expected_code, expected_partial_message)
+  def self.post_to_trigger
     if Helper_Methods.is_local_tier
       puts JSON.pretty_generate(@request_hash)
     end
     url = "#{ENV['patients_endpoint']}/#{@patient_id}"
-    response = Helper_Methods.post_request(url, @request_hash.to_json.to_s)
-    validate_response(response, expected_code, expected_partial_message)
-    response
+    Helper_Methods.post_request(url, @request_hash.to_json.to_s)
   end
 
-  def self.put_variant_confirm(uuid, status, expected_code, expected_partial_message)
+  def self.put_variant_confirm(uuid, status)
     if Helper_Methods.is_local_tier
       puts JSON.pretty_generate(@request_hash)
     end
     url = "#{ENV['patients_endpoint']}/variant/#{uuid}/#{status}"
-    response = Helper_Methods.put_request(url, @request_hash.to_json.to_s)
-    validate_response(response, expected_code, expected_partial_message)
-    response
+    Helper_Methods.put_request(url, @request_hash.to_json.to_s)
   end
 
-  def self.put_vr_confirm(ani, status, expected_code, expected_partial_message)
+  def self.put_vr_confirm(ani, status)
     if Helper_Methods.is_local_tier
       puts JSON.pretty_generate(@request_hash)
     end
     url = "#{ENV['patients_endpoint']}/#{@patient_id}/variant_reports/#{ani}/#{status}"
-    response = Helper_Methods.put_request(url, @request_hash.to_json.to_s)
-    validate_response(response, expected_code, expected_partial_message)
-    response
+    Helper_Methods.put_request(url, @request_hash.to_json.to_s)
   end
 
-  def self.put_ar_confirm(ani, status, expected_code, expected_partial_message)
+  def self.put_ar_confirm(ani, status)
     if Helper_Methods.is_local_tier
       puts JSON.pretty_generate(@request_hash)
     end
     url = "#{ENV['patients_endpoint']}/#{@patient_id}/assignment_reports/#{ani}/#{status}"
-    response = Helper_Methods.put_request(url, @request_hash.to_json.to_s)
-    validate_response(response, expected_code, expected_partial_message)
-    response
-  end
-
-  def self.validate_response(response, expected_code, expected_partial_message)
-    puts response['message']
-    if expected_code.length>1
-      response['status'].downcase.should == expected_code.downcase
-    end
-    # expect_message = "returned message include <#{expected_partial_message}>"
-    # actual_message = response['message']
-    # if response['message'].downcase.include? expected_partial_message.downcase
-    #   actual_message = expect_message
-    # end
-    # actual_message.should == expect_message
+    Helper_Methods.put_request(url, @request_hash.to_json.to_s)
   end
 
   def self.wait_until_patient_updated(patient_id)

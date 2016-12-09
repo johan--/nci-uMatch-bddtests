@@ -68,7 +68,7 @@ Feature: Variant files confirmed messages
   Scenario: PT_VC05. confirmed fields should be "true" as default
     #    Test Patient: PT_VC05_TissueShipped, Tissue shipped PT_VC05_TissueShipped(_SEI1, _MOI1)
     Given template variant file uploaded message for patient: "PT_VC05_TissueShipped", it has molecular_id: "PT_VC05_TissueShipped_MOI1" and analysis_id: "PT_VC05_TissueShipped_ANI1" and need files in S3 Y or N: "Y"
-    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
     Then variants in variant report (analysis_id: "PT_VC05_TissueShipped_ANI1") have confirmed: "true" within 15 seconds
 
   @patients_p2
@@ -78,7 +78,7 @@ Feature: Variant files confirmed messages
     Then create variant confirm message with checked: "unchecked" and comment: "TEST" for this variant
     When put to MATCH variant confirm service, returns a message that includes "confirmed status changed to false" with status "Success"
     Then template variant file uploaded message for patient: "PT_VC05a_VRUploaded", it has molecular_id: "PT_VC05a_VRUploaded_MOI1" and analysis_id: "PT_VC05a_VRUploaded_ANI2" and need files in S3 Y or N: "Y"
-    When post to MATCH patients service, returns a message that includes "processed successfully" with status "Success"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
     Then variants in variant report (analysis_id: "PT_VC05a_VRUploaded_ANI1") have confirmed: "false" within 15 seconds
 
 
@@ -88,7 +88,7 @@ Feature: Variant files confirmed messages
 #    Given retrieve patient: "PT_VC04_VRUploaded" from API
 #    Then find the first "gf" variant in variant report which has surgical_event_id: "SEI_01", molecular_id: "MOI_01" and analysis_id: "ANI_01"
 #    Then create variant confirm message with confirmed: "false" and comment: "TEST" for this variant
-#    When post to MATCH patients service, returns a message that includes "TBD" with status "Success"
+#    When POST to MATCH patients service, response includes "TBD" with status "Success"
 #    Then wait for "10" seconds
 #    Then retrieve patient: "PT_VC04_VRUploaded" from API
 #    Then this variant has correct status_date value
