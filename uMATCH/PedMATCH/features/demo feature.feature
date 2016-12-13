@@ -538,9 +538,9 @@ Background: wait for process to complete
       |00005              |00005-Tissue_Specimen_1|
 
 
-  Scenario Outline: Patient's ICCMLH1s assay message is received
+  Scenario Outline: Patient's ICCBAF47s assay message is received
     Given template assay message with surgical_event_id: "<surgical_event_id>" for patient: "<patient_id>"
-    Then set patient message field: "biomarker" to value: "ICCMLH1s"
+    Then set patient message field: "biomarker" to value: "ICCBAF47s"
     Then set patient message field: "reported_date" to value: "current"
     Then set patient message field: "result" to value: "NEGATIVE"
     When POST to MATCH patients service, response includes "successfully" with code "202"

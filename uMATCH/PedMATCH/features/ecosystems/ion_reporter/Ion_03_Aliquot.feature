@@ -48,8 +48,9 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "cdna_bam_name" value: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/cdna.bam" to message body
     Then add field: "qc_name" value: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/10-10-2016.pdf" to message body
     Then call aliquot PUT service, returns a message that includes "Item updated" with status "Success"
-    Then patient should have variant report (analysis_id: "ION_AQ02_TsShipped_ANI1") within 30 seconds
-    And this variant report has value: "test1.tsv" in field: "tsv_file_name"
+    Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
+    Then patient should have variant report (analysis_id: "ION_AQ02_TsShipped_ANI1")
+    And this variant report field: "tsv_file_name" should be "test1.tsv"
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/test1.tsv" should be available in S3
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/dna.bai" should be available in S3
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/cdna.bai" should be available in S3
@@ -61,8 +62,9 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "cdna_bam_name" value: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/cdna.bam" to message body
     Then add field: "qc_name" value: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/10-10-2016.pdf" to message body
     Then call aliquot PUT service, returns a message that includes "Item updated" with status "Success"
-    Then patient should have variant report (analysis_id: "ION_AQ02_TsShipped_ANI2") within 30 seconds
-    And this variant report has value: "test1.tsv" in field: "tsv_file_name"
+    Then wait until patient variant report is updated
+    Then patient should have variant report (analysis_id: "ION_AQ02_TsShipped_ANI2")
+    And this variant report field: "tsv_file_name" should be "test1.tsv"
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/test1.tsv" should be available in S3
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/test1.json" should be available in S3
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/dna.bai" should be available in S3
@@ -84,8 +86,9 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "cdna_bam_name" value: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/cdna.bam" to message body
     Then add field: "qc_name" value: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/10-10-2016.pdf" to message body
     Then call aliquot PUT service, returns a message that includes "Item updated" with status "Success"
-    Then patient should have variant report (analysis_id: "ION_AQ03_BdShipped_ANI1") within 30 seconds
-    And this variant report has value: "test1.tsv" in field: "tsv_file_name"
+    Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
+    Then patient should have variant report (analysis_id: "ION_AQ03_BdShipped_ANI1")
+    And this variant report field: "tsv_file_name" should be "test1.tsv"
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/test1.tsv" should be available in S3
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/dna.bai" should be available in S3
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/cdna.bai" should be available in S3
@@ -97,8 +100,9 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "cdna_bam_name" value: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/cdna.bam" to message body
     Then add field: "qc_name" value: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/10-10-2016.pdf" to message body
     Then call aliquot PUT service, returns a message that includes "Item updated" with status "Success"
-    Then patient should have variant report (analysis_id: "ION_AQ03_BdShipped_ANI2") within 30 seconds
-    And this variant report has value: "test1.tsv" in field: "tsv_file_name"
+    Then wait until patient variant report is updated
+    Then patient should have variant report (analysis_id: "ION_AQ03_BdShipped_ANI2")
+    And this variant report field: "tsv_file_name" should be "test1.tsv"
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/test1.tsv" should be available in S3
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/test1.json" should be available in S3
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/dna.bai" should be available in S3
@@ -114,7 +118,8 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "vcf_name" value: "" to message body
     Then add field: "dna_bam_name" value: "IR_TCWEV/ION_AQ04_TsShipped_MOI1/ION_AQ04_TsShipped_ANI1/dna.bam" to message body
     Then call aliquot PUT service, returns a message that includes "Item updated" with status "Success"
-    Then patient field: "current_status" should have value: "TISSUE_NUCLEIC_ACID_SHIPPED" after 30 seconds
+    Then wait for "30" seconds
+    Then patient status should change to "TISSUE_NUCLEIC_ACID_SHIPPED"
 
   @ion_reporter_p3
   Scenario: ION_AQ05. extra key-value pair in the message body should NOT fail
@@ -182,7 +187,8 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "cdna_bam_name" value: "IR_TCWEV/ION_AQ23_TsShipped_MOI1/ION_AQ23_TsShipped_ANI1/cdna.bam" to message body
     Then add field: "qc_name" value: "IR_TCWEV/ION_AQ23_TsShipped_MOI1/ION_AQ23_TsShipped_ANI1/10-10-2016.pdf" to message body
     Then call aliquot PUT service, returns a message that includes "Item updated" with status "Success"
-    Then patient field: "current_status" should have value: "TISSUE_NUCLEIC_ACID_SHIPPED" after 30 seconds
+    Then wait for "30" seconds
+    Then patient status should change to "TISSUE_NUCLEIC_ACID_SHIPPED"
 
 #  @ion_reporter_p2
 #  Scenario: ION_AQ24. for patient specimen, if the file conversion failed, aliquot service will not send message to patient ecosystem

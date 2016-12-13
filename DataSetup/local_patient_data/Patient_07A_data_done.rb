@@ -83,7 +83,7 @@ class Patient07A
     PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
     PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
     PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
-    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCMLH1s')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBAF47s')
     PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
     PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
     PatientMessageLoader.variant_file_uploaded(pt.id, pt.bd_moi, pt.ani_increase)
@@ -231,7 +231,7 @@ class Patient07A
     PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
     PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
     PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
-    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCMLH1s')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBAF47s')
     PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
     PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
   end
@@ -243,7 +243,7 @@ class Patient07A
     PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
     PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
     PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
-    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCMLH1s')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBAF47s')
     PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
     PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
   end
@@ -266,7 +266,7 @@ class Patient07A
     PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
     PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
     PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
-    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCMLH1s')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBAF47s')
     PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
     PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
   end
@@ -333,7 +333,7 @@ end
 # PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
 # PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
 # PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
-# PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCMLH1s')
+# PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBAF47s')
 # PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
 # PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
 # PatientMessageLoader.variant_file_uploaded(pt.id, pt.bd_moi, pt.ani_increase)
@@ -457,7 +457,7 @@ end
 # PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
 # PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
 # PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
-# PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCMLH1s')
+# PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBAF47s')
 # PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
 # PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
 #
@@ -467,7 +467,7 @@ end
 # PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
 # PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
 # PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
-# PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCMLH1s')
+# PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBAF47s')
 # PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
 # PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
 #
@@ -486,7 +486,7 @@ end
 # PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
 # PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
 # PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
-# PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCMLH1s')
+# PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBAF47s')
 # PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
 # PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
 #
@@ -519,7 +519,7 @@ end
 # # PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
 # # PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
 # # PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
-# # PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCMLH1s')
+# # PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBAF47s')
 # # PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
 # # PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
 # #
@@ -530,7 +530,7 @@ end
 # # PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
 # # PatientMessageLoader.pathology(pt.id, pt.sei)
 # # PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
-# # PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCMLH1s')
+# # PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBAF47s')
 # # PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
 # # PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
 # #
@@ -542,7 +542,7 @@ end
 # # PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
 # # PatientMessageLoader.pathology(pt.id, pt.sei)
 # # PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
-# # PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCMLH1s')
+# # PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBAF47s')
 # # PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
 # # PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
 # #
@@ -552,7 +552,7 @@ end
 # # PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
 # # PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
 # # PatientMessageLoader.pathology(pt.id, pt.sei)
-# # PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCMLH1s')
+# # PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBAF47s')
 # # PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
 # # PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
 #

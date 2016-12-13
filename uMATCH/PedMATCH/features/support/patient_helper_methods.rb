@@ -482,9 +482,27 @@ class Patient_helper_methods
     Helper_Methods.wait_until_updated(url, timeout)
   end
 
-  def self.wait_until_patient_status_is(patient_id, status)
-    url = "#{ENV['patients_endpoint']}?patient_id=#{patient_id}"
-    get_special_result_from_url(url, 45, {'current_status' => status})
+  def self.wait_until_specimen_updated(patient_id)
+    timeout = 30.0
+    url = "#{ENV['patients_endpoint']}/#{patient_id}/specimens"
+    Helper_Methods.wait_until_updated(url, timeout)
+  end
+
+  def self.wait_until_vr_updated(patient_id)
+    timeout = 30.0
+    url = "#{ENV['patients_endpoint']}/variant_reports?patient_id=#{patient_id}"
+    Helper_Methods.wait_until_updated(url, timeout)
+  end
+
+  def self.wait_until_variant_updated(patient_id)
+    timeout = 30.0
+    url = "#{ENV['patients_endpoint']}/variants?patient_id=#{patient_id}"
+    Helper_Methods.wait_until_updated(url, timeout)
+  end
+
+  def self.wait_until_patient_field_is(patient_id, field, value)
+    url = "#{ENV['patients_endpoint']}/#{patient_id}"
+    get_special_result_from_url(url, 45, {field => value})
   end
 
 end

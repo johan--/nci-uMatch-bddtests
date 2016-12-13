@@ -142,7 +142,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: dfd55802-ffce-213e-
     "result":"NEGATIVE"
   }' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002"
 
-ASSAY_RESULTS - ICCMLH1s:
+ASSAY_RESULTS - ICCBAF47s:
 -------------------------
 
 curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 71350303-da8c-0be0-b81c-294173248892" -d '  {
@@ -151,7 +151,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 71350303-da8c-0be0-
     "surgical_event_id":"00002-bsn",
     "case_number": "case-1234",
     "type": "ASSAY_RESULT_REPORTED",
-    "biomarker":"ICCMLH1s",
+    "biomarker":"ICCBAF47s",
     "reported_date":"2016-09-18T07:12:09.071-05:00",
     "ordered_date":"2016-09-18T07:11:09.071-05:00",
     "result":"POSITIVE"
@@ -401,7 +401,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: d4f77d6c-fa4f-af29-
     "result":"NEGATIVE"
 }' "https://pedmatch-int.nci.nih.gov/api/v1/patients/00002"
 
-ASSAY_RESULTS - ICCMLH1s(2):
+ASSAY_RESULTS - ICCBAF47s(2):
 ----------------------------
 curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: e4bdee34-e598-8830-ceb8-a75bbc793676" -d '  {
     "patient_id":"00002",
@@ -409,7 +409,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: e4bdee34-e598-8830-
     "surgical_event_id":"00002-bsn-2",
     "case_number": "case-1234-2",
     "type": "ASSAY_RESULT_REPORTED",
-    "biomarker":"ICCMLH1s",
+    "biomarker":"ICCBAF47s",
     "reported_date":"2016-09-18T18:12:09.071-05:00",
     "ordered_date":"2016-09-18T18:11:09.071-05:00",
     "result":"POSITIVE"

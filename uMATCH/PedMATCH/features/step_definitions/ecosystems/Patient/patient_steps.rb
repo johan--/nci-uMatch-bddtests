@@ -5,47 +5,53 @@ require_relative '../../../support/helper_methods.rb'
 require_relative '../../../support/patient_helper_methods.rb'
 require_relative '../../../support/cog_helper_methods.rb'
 
-
-#post
+#########################################################
+################   service calls   ######################
+#########################################################
 When(/^POST to MATCH patients service, response includes "([^"]*)" with code "([^"]*)"$/) do |retMsg, code|
   response = Patient_helper_methods.post_to_trigger
+  puts response.to_json
   first_match_second(response['http_code'], code)
-  first_include_second(response['message'], retMsg)
+  # first_include_second(response['message'], retMsg)
 end
 
-When(/^put to MATCH variant report confirm service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |retMsg, code|
-  Patient_helper_methods.put_vr_confirm(@analysis_id, @variant_report_status)
+When(/^PUT to MATCH variant report confirm service, response includes "([^"]*)" with code "([^"]*)"$/) do |retMsg, code|
+  response = Patient_helper_methods.put_vr_confirm(@analysis_id, @variant_report_status)
   first_match_second(response['http_code'], code)
-  first_include_second(response['message'], retMsg)
+  # first_include_second(response['message'], retMsg)
 end
 
-When(/^put to MATCH variant confirm service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |retMsg, code|
-  Patient_helper_methods.put_variant_confirm(@current_variant_uuid, @current_variant_confirm)
+When(/^PUT to MATCH variant confirm service, response includes "([^"]*)" with code "([^"]*)"$/) do |retMsg, code|
+  response = Patient_helper_methods.put_variant_confirm(@current_variant_uuid, @current_variant_confirm)
   first_match_second(response['http_code'], code)
-  first_include_second(response['message'], retMsg)
+  # first_include_second(response['message'], retMsg)
 end
 
-When(/^put to MATCH assignment report confirm service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |retMsg, code|
-  Patient_helper_methods.put_ar_confirm(@analysis_id, @assignment_report_status)
+When(/^PUT to MATCH assignment report confirm service, response includes "([^"]*)" with code "([^"]*)"$/) do |retMsg, code|
+  response = Patient_helper_methods.put_ar_confirm(@analysis_id, @assignment_report_status)
   first_match_second(response['http_code'], code)
-  first_include_second(response['message'], retMsg)
+  # first_include_second(response['message'], retMsg)
 end
 
-#messages
-Given(/^template patient registration message for patient: "([^"]*)" on date: "([^"]*)"$/) do |patient_id, date|
+#########################################################
+################  prepare message  ######################
+#########################################################
+Given(/^patient id is "([^"]*)"$/) do |patient_id|
   @patient_id = patient_id=='null' ? nil : patient_id
+end
+
+Given(/^template registration message for this patient on date: "([^"]*)"$/) do |date|
   converted_date = date=='null' ? nil : date
   converted_date = Helper_Methods.getDateAsRequired(converted_date)
   Patient_helper_methods.prepare_register(@patient_id, converted_date)
 end
 
-Given(/^template specimen received message in type: "([^"]*)" for patient: "([^"]*)", it has surgical_event_id: "([^"]*)"$/) do |type, patientID, sei|
-  @patient_id = patientID=='null' ? nil : patientID
+Given(/^template specimen received message for this patient \(type: "([^"]*)", surgical_event_id: "([^"]*)"\)$/) do |type, sei|
   converted_sei = sei=='null' ? nil : sei
   Patient_helper_methods.prepare_specimen_received(@patient_id, type, converted_sei)
 end
 
-Given(/^template specimen shipped message in type: "([^"]*)" for patient: "([^"]*)", it has surgical_event_id: "([^"]*)", molecular_id or slide_barcode: "([^"]*)"/) do |type, patientID, sei, moi_or_barcode|
+Given(/^template specimen shipped message for this patient \(type: "([^"]*)", surgical_event_id: "([^"]*)", molecular_id or slide_barcode: "([^"]*)"\)/) do |type, sei, moi_or_barcode|
   @patient_id = patientID=='null' ? nil : patientID
   converted_sei = sei=='null' ? nil : sei
   converted_id = moi_or_barcode=='null' ? nil : moi_or_barcode
@@ -64,65 +70,62 @@ Given(/^template pathology report with surgical_event_id: "([^"]*)" for patient:
   Patient_helper_methods.prepare_pathology(@patient_id, converted_sei)
 end
 
-Given(/^template variant file uploaded message for patient: "([^"]*)", it has molecular_id: "([^"]*)" and analysis_id: "([^"]*)" and need files in S3 Y or N: "([^"]*)"$/) do |patientID, moi, ani, upload|
-  @patient_id = patientID=='null' ? nil : patientID
+Given(/^template variant file uploaded message for this patient \(molecular_id: "([^"]*)", analysis_id: "([^"]*)"\) and need files in S3 Y or N: "([^"]*)"$/) do |moi, ani, upload|
   converted_moi = moi=='null' ? nil : moi
   @analysis_id = ani=='null' ? nil : ani
   need_file = upload == 'Y'
   Patient_helper_methods.prepare_vr_upload(@patient_id, converted_moi, @analysis_id, need_file, 'bdd_test_ion_reporter')
 end
 
-Given(/^template variant confirm message for patient: "([^"]*)", the variant: "([^"]*)" is checked: "([^"]*)" with comment: "([^"]*)"$/) do |patient_id, variant_uuid, confirmed, comment|
-  variant_confirm_message(variant_uuid, confirmed, comment)
+Given(/^template variant confirm message for this patient \(uuid: "([^"]*)", status: "([^"]*)", comment: "([^"]*)"\)$/) do |variant_uuid, confirmed, comment|
+  @current_variant_uuid = variant_uuid
+  @current_variant_confirm = confirmed
+  converted_comment = comment=='null' ? nil : comment
+  Patient_helper_methods.prepare_variant_confirm(converted_comment)
 end
 
 Then(/^create variant confirm message with checked: "([^"]*)" and comment: "([^"]*)" for this variant$/) do |confirmed, comment|
-  variant_confirm_message(@current_variant_uuid, confirmed, comment)
+  @current_variant_confirm = confirmed
+  converted_comment = comment=='null' ? nil : comment
+  Patient_helper_methods.prepare_variant_confirm(converted_comment)
 end
 
-Given(/^template variant report confirm message for patient: "([^"]*)", it has analysis_id: "([^"]*)" and status: "([^"]*)"$/) do |patient_id, ani, status|
-  @patient_id = patient_id=='null' ? nil : patient_id
+Given(/^template variant report confirm message for this patient \(analysis_id: "([^"]*)", status: "([^"]*)"\)$/) do |ani, status|
   @analysis_id = ani=='null' ? nil : ani
   @variant_report_status = status
   Patient_helper_methods.prepare_vr_confirm(@patient_id)
 end
 
-Given(/^template assignment report confirm message for patient: "([^"]*)", it has analysis_id: "([^"]*)" and status: "([^"]*)"$/) do |patient_id, ani, status|
-  @patient_id = patient_id=='null' ? nil : patient_id
+Given(/^template assignment report confirm message for this patient \(analysis_id: "([^"]*)" and status: "([^"]*)"\)$/) do |ani, status|
   @analysis_id = ani=='null' ? nil : ani
   @assignment_report_status = status=='null' ? nil : status
   Patient_helper_methods.prepare_assignment_confirm(@patient_id)
 end
 
-Given(/^template on treatment arm message for patient: "([^"]*)" with treatment arm id: "([^"]*)", stratum id: "([^"]*)" and step number: "([^"]*)"$/) do |patient_id, ta_id, stratum, step_number|
-  @patient_id = patient_id=='null' ? nil : patient_id
+Given(/^template on treatment arm message for this patient \(treatment arm id: "([^"]*)", stratum id: "([^"]*)", step number: "([^"]*)"\)$/) do |ta_id, stratum, step_number|
   converted_ta_id = ta_id=='null' ? nil : ta_id
   converted_stratum = stratum=='null' ? nil : stratum
   converted_step_number = step_number=='null' ? nil : step_number
   Patient_helper_methods.prepare_on_treatment_arm(@patient_id, converted_ta_id, converted_stratum, converted_step_number)
 end
 
-Given(/^template request assignment message for patient: "([^"]*)" with re\-biopsy: "([^"]*)", step number: "([^"]*)"$/) do |patient_id, re_biopsy, step_number|
-  @patient_id = patient_id=='null' ? nil : patient_id
+Given(/^template request assignment message for this patient \(rebiopsy: "([^"]*)", step number: "([^"]*)"\)$/) do |re_biopsy, step_number|
   converted_rebiopsy = re_biopsy=='null' ? nil : re_biopsy
   converted_step_number = step_number=='null' ? nil : step_number
   Patient_helper_methods.prepare_request_assignment(@patient_id, converted_rebiopsy, converted_step_number)
 end
 
-Given(/^template request no assignment message for patient: "([^"]*)" with step number: "([^"]*)"$/) do |patient_id, step_number|
-  @patient_id = patient_id=='null' ? nil : patient_id
+Given(/^template request no assignment message for this patient with step number: "([^"]*)"$/) do |step_number|
   converted_step_number = step_number=='null' ? nil : step_number
   Patient_helper_methods.prepare_request_no_assignment(@patient_id, converted_step_number)
 end
 
-Given(/^template off study biopsy expired message for patient: "([^"]*)" on step number: "([^"]*)"$/) do |patient_id, step_number|
-  @patient_id = patient_id=='null' ? nil : patient_id
+Given(/^template off study biopsy expired message for this patient \(step number: "([^"]*)"\)$/) do |step_number|
   converted_step_number = step_number=='null' ? nil : step_number
   Patient_helper_methods.prepare_off_study_biopsy_expired(@patient_id, converted_step_number)
 end
 
-Given(/^template off study message for patient: "([^"]*)" on step number: "([^"]*)"$/) do |patient_id, step_number|
-  @patient_id = patient_id=='null' ? nil : patient_id
+Given(/^template off study message for this patient \(step number: "([^"]*)"\)$/) do |step_number|
   converted_step_number = step_number=='null' ? nil : step_number
   Patient_helper_methods.prepare_off_study(@patient_id, converted_step_number)
 end
@@ -144,15 +147,28 @@ Then(/^remove field: "([^"]*)" from patient message$/) do |field|
   Patient_helper_methods.remove_field_patient_message(field)
 end
 
-def variant_confirm_message(variant_uuid, confirmed, comment)
-  @current_variant_uuid = variant_uuid
-  @current_variant_confirm = confirmed
-  @current_variant_comment = comment=='null' ? nil : comment
-  Patient_helper_methods.prepare_variant_confirm(@current_variant_comment)
+
+#########################################################
+################  wait for update  ######################
+#########################################################
+Then(/^patient status should change to "([^"]*)"$/) do |status|
+  field = 'current_status'
+  @current_patient_hash = Patient_helper_methods.wait_until_patient_field_is(@patient_id, field, status)
+  first_match_second(@current_patient_hash[field], status)
 end
 
+Then(/^wait until patient specimen is updated$/) do
+  Patient_helper_methods.wait_until_specimen_updated(@patient_id)
+end
 
-#retrieval
+Then(/^wait until patient variant report is updated$/) do
+  Patient_helper_methods.wait_until_vr_updated(@patient_id)
+end
+
+Then(/^wait until patient variant is updated$/) do
+  Patient_helper_methods.wait_until_variant_updated(@patient_id)
+end
+
 Then(/^wait until patient has (\d+) assignment reports$/) do |ar_count|
 
 end
@@ -171,80 +187,42 @@ end
 #   # @retrieved_patient=JSON(IO.read('/Users/wangl17/match_apps/patient_100100.json'))
 # end
 
-Given(/^patient id is "([^"]*)"$/) do |patient_id|
-  @patient_id = patient_id
-end
-
-Then(/^patient field: "([^"]*)" should have value: "([^"]*)" within (\d+) seconds$/) do |field, value, timeout|
+#########################################################
+###############  result validation  #####################
+#########################################################
+Then(/^patient field: "([^"]*)" should have value: "([^"]*)"$/) do |field, value|
+  get_patient_if_needed
   converted_value = value=='null' ? nil : value
-  url = "#{ENV['patients_endpoint']}?patient_id=#{@patient_id}"
-  patient_result = Patient_helper_methods.get_special_result_from_url(url, timeout, {field => converted_value})
-  first_match_second(patient_result[field], converted_value)
+  first_match_second(@current_patient_hash[field], converted_value)
 end
 
-Then(/^patient field: "([^"]*)" should have value: "([^"]*)" after (\d+) seconds$/) do |field, value, timeout|
-  sleep(timeout.to_f)
-  converted_value = value=='null' ? nil : value
-  url = "#{ENV['patients_endpoint']}?patient_id=#{@patient_id}"
-  patient_result = Patient_helper_methods.get_special_result_from_url(url, 1.0, {field => converted_value})
-  first_match_second(patient_result[field], converted_value)
+Then(/^patient should have selected treatment arm: "([^"]*)" with stratum id: "([^"]*)"$/) do |ta_id, stratum|
+  get_patient_if_needed
+  current_assignment = 'current_assignment'
+  expect(@current_patient_hash.keys).to include current_assignment
+  first_match_second(@current_patient_hash[current_assignment]['treatment_arm_id'], ta_id)
+  first_match_second(@current_patient_hash[current_assignment]['stratum_id'], stratum)
 end
 
-# And(/^patient field: "([^"]*)" has value: "([^"]*)"$/) do |field, value|
-#   convert_value = value=='null'?nil:value
-#   @retrieved_patient[field].should == convert_value
-# end
-
-# Then(/^patient "([^"]*)" status will become to "([^"]*)"$/) do |patientID, status|
-#   convert_status = status=='null'?nil:status
-#   @retrieved_patient=Helper_Methods.get_single_request(ENV['patients_endpoint']+'/'+patientID,
-#                                                        Helper_Methods.is_local_tier,
-#                                                        'current_status',
-#                                                        convert_status,
-#                                                        1.0, 30.0)
-#   @retrieved_patient['current_status'].should == convert_status
-# end
-
-# Then(/^returned patient has value: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
-#   convert_value = value=='null'?nil:value
-#   @retrieved_patient[field].should == convert_value
-# end
-
-
-Then(/^patient should have selected treatment arm: "([^"]*)" with stratum id: "([^"]*)" within (\d+) seconds$/) do |ta_id, stratum, timeout|
-  url = "#{ENV['patients_endpoint']}?patient_id=#{@patient_id}"
-  query_hash = {'treatment_arm_id': ta_id, 'stratum_id': stratum}
-  query_path = %w(current_assignment)
-  patient_result = Patient_helper_methods.get_special_result_from_url(url, timeout, query_hash, query_path)
-  if patient_result.keys.include?('current_assignment')
-    patient_result = patient_result['current_assignment']
-  end
-  first_match_second(patient_result['treatment_arm_id'], ta_id)
-  first_match_second(patient_result['stratum_id'], stratum)
+Then(/^patient should have (\d+) blood specimens$/) do |count|
+  url = "#{ENV['patients_endpoint']}/#{@patient_id}/specimens?specimen_type=BLOOD"
+  @current_specimen = Patient_helper_methods.get_any_result_from_url(url)
+  first_match_second(@current_specimen.length, count.to_i)
 end
 
-Then(/^patient should have a blood specimen within (\d+) seconds$/) do |timeout|
-  url = "#{ENV['patients_endpoint']}/#{@patient_id}/specimens"
-  @current_specimen = Patient_helper_methods.get_special_result_from_url(url, timeout, {'specimen_type': 'BLOOD'})
-  first_match_second(@current_specimen['patient_id'], @patient_id)
-end
-
-Then(/^patient should have specimen \(field: "([^"]*)" is "([^"]*)"\) within (\d+) seconds$/) do |field, value, timeout|
+Then(/^patient should have specimen \(field: "([^"]*)" is "([^"]*)"\)$/) do |field, value|
   url = "#{ENV['patients_endpoint']}/#{@patient_id}/specimens?#{field}=#{value}"
-  @current_specimen = Patient_helper_methods.get_special_result_from_url(url, timeout, {field => value})
+  @current_specimen = Patient_helper_methods.get_any_result_from_url(url)
+  if @current_specimen.is_a?(Array)
+    if @current_specimen.length==1
+      @current_specimen = @current_specimen[0]
+    else
+      raise "Expect 1 specimen returned, actually #{@current_specimen.length} returned"
+    end
+  else
+    raise "Expect array returned, actually #{@current_specimen.class.to_s} returned"
+  end
   first_match_second(@current_specimen[field], value)
-end
-
-Then(/^patient should have specimen \(surgical_event_id: "([^"]*)"\) within (\d+) seconds$/) do |sei, timeout|
-  url = "#{ENV['patients_endpoint']}/#{@patient_id}/specimens?surgical_event_id=#{sei}"
-  @current_specimen = Patient_helper_methods.get_special_result_from_url(url, timeout, {'surgical_event_id': sei})
-  first_match_second(@current_specimen['surgical_event_id'], sei)
-end
-
-Then(/^patient specimen \(surgical_event_id: "([^"]*)"\) should be updated within (\d+) seconds$/) do |sei, timeout|
-  url = "#{ENV['patients_endpoint']}/#{@patient_id}/specimens?surgical_event_id=#{sei}"
-  @current_specimen = Patient_helper_methods.get_updated_result_from_url(url, timeout)
-  first_match_second(@current_specimen['surgical_event_id'], sei)
 end
 
 
@@ -276,6 +254,14 @@ And(/^this specimen should have a correct failed_date$/) do
   first_include_second((0..300), time_diff)
 end
 
+And(/^patient active tissue specimen field "([^"]*)" should be "([^"]*)"$/) do |field, value|
+  get_patient_if_needed
+  converted_value = value=='null' ? nil : value
+  ats = 'active_tissue_specimen'
+  expect(@current_patient_hash.keys).to include ats
+  expect(@current_patient_hash[ats][field]).to eq converted_value
+end
+
 And(/^this specimen field: "([^"]*)" should be: "([^"]*)"$/) do |field, value|
   converted_value = value=='null' ? nil : value
   first_match_second(@current_specimen[field], converted_value)
@@ -296,21 +282,7 @@ end
 # #   convert_value = value=='null'?nil:value
 # #   @current_specimen[field].should == convert_value
 # # end
-#
-And(/^specimen \(surgical_event_id: "([^"]*)"\) field: "([^"]*)" should have value: "([^"]*)" within (\d+) seconds$/) do |sei, field, value, timeout|
-  converted_value = value=='null' ? nil : value
-  url = "#{ENV['patients_endpoint']}/#{@patient_id}/specimens?surgical_event_id=#{sei}"
-  specimen_result = Patient_helper_methods.get_special_result_from_url(url, timeout, {field => converted_value})
-  first_match_second(specimen_result[field], converted_value)
-end
 
-
-Then(/^patient should have blood specimen \(active_molecular_id: "([^"]*)"\) with in (\d+) seconds$/) do |moi, timeout|
-  converted_moi = moi=='null' ? nil : moi
-  url = "#{ENV['patients_endpoint']}/#{@patient_id}/specimens?active_molecular_id=#{converted_moi}"
-  @current_specimen = Patient_helper_methods.get_special_result_from_url(url, timeout, {'active_molecular_id': converted_moi})
-  first_match_second(@current_specimen['active_molecular_id'], converted_moi)
-end
 #
 # Then(/^returned patient's blood specimen has value: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
 #   convert_value = value=='null'?nil:value
@@ -318,30 +290,27 @@ end
 #   blood_specimen[field].should == convert_value
 # end
 #
-Then(/^patient should have variant report \(analysis_id: "([^"]*)"\) within (\d+) seconds$/) do |ani, timeout|
+Then(/^patient should have variant report \(analysis_id: "([^"]*)"\)$/) do |ani|
   url = "#{ENV['patients_endpoint']}/variant_reports?analysis_id=#{ani}"
-  @current_variant_report = Patient_helper_methods.get_special_result_from_url(url, timeout, {'analysis_id': ani})
+  @current_variant_report = Patient_helper_methods.get_any_result_from_url(url)
   if @current_variant_report.is_a?(Array)
-    if @current_variant_report.length>1
+    if @current_variant_report.length==1
+      @current_variant_report = @current_variant_report[0]
+    else
       raise "Expect 1 variant report returned, actually #{@current_variant_report.length} returned"
     end
+  else
+    raise "Expect array returned, actually #{@current_variant_report.class.to_s} returned"
   end
   first_match_second(@current_variant_report['analysis_id'], ani)
 end
 
-Then(/^patient should have variant report \(analysis_id: "([^"]*)"\) after (\d+) seconds$/) do |ani, timeout|
-  sleep(timeout.to_f)
-  url = "#{ENV['patients_endpoint']}/variant_reports?analysis_id=#{ani}"
-  @current_variant_report = Patient_helper_methods.get_special_result_from_url(url, 1.0, {'analysis_id': ani})
-  first_match_second(@current_variant_report['analysis_id'], ani)
-end
-
-And(/^this variant report has value: "([^"]*)" in field: "([^"]*)"$/) do |value, field|
+And(/^this variant report field: "([^"]*)" should be "([^"]*)"$/) do |field, value|
   first_include_second(@current_variant_report.keys, field)
   convert_value = value=='null' ? nil : value
   returned_value = @current_variant_report[field]
   if returned_value.nil? || convert_value.nil?
-    first_match_second(convert_value, returned_value)
+    first_match_second(returned_value, convert_value)
   else
     first_match_second(convert_value.to_s.downcase, returned_value.to_s.downcase)
   end
@@ -372,8 +341,7 @@ end
 #   ta_id.should == 'pending'
 # end
 #
-Given(/^a random "([^"]*)" variant in variant report \(analysis_id: "([^"]*)"\) for patient: "([^"]*)"$/) do |variant_type, ani, pt_id|
-  @patient_id = pt_id
+Given(/^a random "([^"]*)" variant in variant report \(analysis_id: "([^"]*)"\) for this patient$/) do |variant_type, ani|
   url = "#{ENV['patients_endpoint']}/variants?analysis_id=#{ani}&variant_type=#{variant_type}"
   this_variant = Patient_helper_methods.get_any_result_from_url(url)
   if this_variant.is_a?(Array)
@@ -382,17 +350,29 @@ Given(/^a random "([^"]*)" variant in variant report \(analysis_id: "([^"]*)"\) 
   @current_variant_uuid = this_variant['uuid']
 end
 
-Then(/^this variant has confirmed field: "([^"]*)" and comment field: "([^"]*)" within (\d+) seconds$/) do |confirmed, comment, timeout|
+Then(/^this variant should have confirmed field: "([^"]*)" and comment field: "([^"]*)"$/) do |confirmed, comment|
   converted_comment = comment=='null' ? nil : comment
   url = "#{ENV['patients_endpoint']}/variants?uuid=#{@current_variant_uuid}"
-  this_variant = Patient_helper_methods.get_special_result_from_url(url, timeout.to_f, {'uuid': @current_variant_uuid})
+  this_variant = Patient_helper_methods.get_any_result_from_url(url)
+  if this_variant.is_a?(Array)
+    if this_variant.length==1
+      this_variant = this_variant[0]
+    else
+      raise "Expect 1 variant returned, actually #{this_variant.length} returned"
+    end
+  else
+    raise "Expect array returned, actually #{this_variant.class.to_s} returned"
+  end
   first_match_second(this_variant['confirmed'].to_s, confirmed)
   first_match_second(this_variant['comment'], converted_comment)
 end
 
-Then(/^variants in variant report \(analysis_id: "([^"]*)"\) have confirmed: "([^"]*)" within (\d+) seconds$/) do |ani, confirmed, timeout|
+Then(/^variants in variant report \(analysis_id: "([^"]*)"\) have confirmed: "([^"]*)"$/) do |ani, confirmed|
   url = "#{ENV['patients_endpoint']}/variants?analysis_id=#{ani}"
-  variants = Patient_helper_methods.get_special_result_from_url(url, timeout.to_f, {'analysis_id': ani})
+  variants = Patient_helper_methods.get_any_result_from_url(url)
+  unless variants.is_a?(Array)
+    raise "Expect array returned, actually #{variants.class.to_s} returned"
+  end
   variants.each { |this_variant|
     first_match_second(this_variant['confirmed'].to_s, confirmed)
   }
@@ -411,8 +391,8 @@ end
 #   }
 # end
 
-Given(/^patient: "([^"]*)" in mock service lost patient list, service will come back after "([^"]*)" tries$/) do |patient_id, error_times|
-  COG_helper_methods.setServiceLostPatient(patient_id, error_times)
+Given(/^this patient is in mock service lost patient list, service will come back after "([^"]*)" tries$/) do |error_times|
+  COG_helper_methods.setServiceLostPatient(@patient_id, error_times)
 end
 
 Then(/^COG received assignment status: "([^"]*)" for this patient$/) do |assignment_status|
@@ -459,6 +439,13 @@ def convert_string_to_bool(string)
       false
     when 'null' then
       nil
+  end
+end
+
+def get_patient_if_needed
+  if @current_patient_hash.nil?
+    url = "#{ENV['patients_endpoint']}/#{@patient_id}"
+    @current_patient_hash = Patient_helper_methods.get_any_result_from_url(url)
   end
 end
 

@@ -1,5 +1,4 @@
 require_relative '../patient_message_loader'
+require_relative 'Patient_04A_data_done'
 
-PatientMessageLoader.upload_start_with_wait_time(15)
-
-PatientMessageLoader.upload_done
+Patient04A.upload_patient('PT_AS14_SlideShipped')

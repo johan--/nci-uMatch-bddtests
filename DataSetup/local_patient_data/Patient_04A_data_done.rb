@@ -171,6 +171,13 @@ class Patient04A
   end
 
 
+  def self.pt_as14_slide_shipped
+    pt = PatientDataSet.new('PT_AS14_SlideShipped')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei, '2016-11-28')
+    PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc, '2016-11-30T19:42:13+00:00')
+  end
+
 end
 
 

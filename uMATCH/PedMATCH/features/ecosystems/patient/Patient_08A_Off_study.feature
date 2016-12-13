@@ -3,10 +3,11 @@ Feature: Patients off study tests
 
   @patients_p1
   Scenario Outline: PT_OS01. patient can be set to OFF_STUDY status from certain status
-    Given template off study message for patient: "<patient_id>" on step number: "<current_step_number>"
+    Given patient id is "<patient_id>"
+    And template off study message for this patient (step number: "<current_step_number>")
     When POST to MATCH patients service, response includes "<message>" with code "<http_code>"
-    Then patient field: "current_status" should have value: "<patient_status>" within 15 seconds
-    Then patient field: "current_step_number" should have value: "<current_step_number>" within 15 seconds
+    Then patient status should change to "<patient_status>"
+    And patient field: "current_step_number" should have value: "<current_step_number>"
     Examples:
       | patient_id                    | current_step_number | message                | http_code | patient_status           |
       | PT_OS01_Registered            | 1.0                 | processed successfully | 202       | OFF_STUDY                |
@@ -38,10 +39,11 @@ Feature: Patients off study tests
 
   @patients_p2
   Scenario Outline: PT_OS01a. patient can be set to OFF_STUDY_BIOPSY_EXPIRED status from certain status
-    Given template off study biopsy expired message for patient: "<patient_id>" on step number: "<current_step_number>"
+    Given patient id is "<patient_id>"
+    And template off study biopsy expired message for this patient (step number: "<current_step_number>")
     When POST to MATCH patients service, response includes "<message>" with code "<http_code>"
-    Then patient field: "current_status" should have value: "<patient_status>" within 15 seconds
-    Then patient field: "current_step_number" should have value: "<current_step_number>" within 15 seconds
+    Then patient status should change to "<patient_status>"
+    And patient field: "current_step_number" should have value: "<current_step_number>"
     Examples:
       | patient_id                     | current_step_number | message                | http_code | patient_status           |
       | PT_OS01a_Registered            | 1.0                 | specimen               | 403     | REGISTRATION             |
@@ -66,8 +68,9 @@ Feature: Patients off study tests
   Scenario Outline: PT_OS02. variant report confirmation should fail if patient is on OFF_STUDY status
 #    patient: "PT_OS02_OffStudy1" assay ready, tissue vr waiting for confirm before OFF_STUDY
 #    patient: "PT_OS02_OffStudy2" assay ready, tissue vr waiting for confirm before OFF_STUDY_BIOPSY_EXPIRED
-    Given template variant report confirm message for patient: "<patient_id>", it has analysis_id: "<ani>" and status: "confirm"
-    When put to MATCH variant report confirm service, returns a message that includes "OFF_STUDY" with status "Failure"
+    Given patient id is "<patient_id>"
+    And template variant report confirm message for this patient (analysis_id: "<ani>", status: "confirm")
+    When PUT to MATCH variant report confirm service, response includes "OFF_STUDY" with code "403"
     Examples:
       | patient_id        | ani                    |
       | PT_OS02_OffStudy1 | PT_OS02_OffStudy1_ANI1 |
@@ -77,8 +80,9 @@ Feature: Patients off study tests
   Scenario Outline: PT_OS03. assignment report confirmation should fail if patient is on OFF_STUDY status
 #    patient: "PT_OS03_OffStudy1" assay ready, Assignment report waiting for confirmation before OFF_STUDY
 #    patient: "PT_OS03_OffStudy2" assay ready, Assignment report waiting for confirm before OFF_STUDY_BIOPSY_EXPIRED
-    Given template assignment report confirm message for patient: "<patient_id>", it has analysis_id: "<ani>" and status: "confirm"
-    When put to MATCH assignment report confirm service, returns a message that includes "OFF_STUDY" with status "Failure"
+    Given patient id is "<patient_id>"
+    And template assignment report confirm message for this patient (analysis_id: "<ani>" and status: "confirm")
+    When PUT to MATCH assignment report confirm service, response includes "OFF_STUDY" with code "403"
     Examples:
       | patient_id        | ani                    |
       | PT_OS03_OffStudy1 | PT_OS03_OffStudy1_ANI1 |
@@ -88,7 +92,8 @@ Feature: Patients off study tests
   Scenario Outline: PT_OS04. request assignment should fail if patient is on OFF_STUDY status
 #    Given patient: "<patient_id>" with status: "<current_status>" on step: "1.1"
 #    Given patient is currently on treatment arm: "APEC1621-A", stratum: "100"
-    Given template request assignment message for patient: "<patient_id>" with re-biopsy: "<rebiopsy>", step number: "2.0"
+    Given patient id is "<patient_id>"
+    And template request assignment message for this patient (rebiopsy: "<rebiopsy>", step number: "2.0")
     When POST to MATCH patients service, response includes "off" with code "403"
     Examples:
       | patient_id    | current_status           | rebiopsy |

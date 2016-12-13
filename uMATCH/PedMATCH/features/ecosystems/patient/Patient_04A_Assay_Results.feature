@@ -9,15 +9,15 @@ Feature: Assay Messages
     Then set patient message field: "result" to value: "<result>"
     Then set patient message field: "reported_date" to value: "<reported_date>"
     When POST to MATCH patients service, response includes "successfully" with code "202"
-    Then patient field: "current_status" should have value: "ASSAY_RESULTS_RECEIVED" within 15 seconds
-    Then patient should have specimen (surgical_event_id: "<sei>") within 1 seconds
+    Then patient status should change to "ASSAY_RESULTS_RECEIVED"
+    Then patient should have specimen (field: "surgical_event_id" is "<sei>")
     And this specimen has assay (biomarker: "<biomarker>", result: "<result>", reported_date: "<reported_date>")
     Examples:
       | patient_id            | sei                        | biomarker | result        | reported_date             |
       | PT_AS00_SlideShipped1 | PT_AS00_SlideShipped1_SEI1 | ICCPTENs  | POSITIVE      | 2016-08-18T10:42:13+00:00 |
-      | PT_AS00_SlideShipped2 | PT_AS00_SlideShipped2_SEI1 | ICCMLH1s  | NEGATIVE      | 2016-08-18T11:42:13+00:00 |
+      | PT_AS00_SlideShipped2 | PT_AS00_SlideShipped2_SEI1 | ICCBAF47s | NEGATIVE      | 2016-08-18T11:42:13+00:00 |
       | PT_AS00_SlideShipped3 | PT_AS00_SlideShipped3_SEI1 | ICCPTENs  | NEGATIVE      | 2016-08-18T12:42:13+00:00 |
-      | PT_AS00_SlideShipped4 | PT_AS00_SlideShipped4_SEI1 | ICCMLH1s  | INDETERMINATE | 2016-08-18T13:42:13+00:00 |
+      | PT_AS00_SlideShipped4 | PT_AS00_SlideShipped4_SEI1 | ICCBAF47s | INDETERMINATE | 2016-08-18T13:42:13+00:00 |
 
 
   @patients_p2
@@ -25,9 +25,9 @@ Feature: Assay Messages
     Given template assay message with surgical_event_id: "PT_AS01_SEI1" for patient: "<value>"
     When POST to MATCH patients service, response includes "<message>" with code "403"
     Examples:
-      | value      | message                 |
+      | value      | message        |
   #    |          |can't be blank             |
-      | nonPatient | has not been registered |
+      | nonPatient | NOT_REGISTERED |
 #    |null      |can't be blank             |
 
   @patients_p2
@@ -65,15 +65,16 @@ Feature: Assay Messages
 #      |null      |NilClass did not match the following type: string         |
 
   @patients_p2
-  Scenario Outline: PT_AS05. Assay result with invalid biomarker(other than ICCPTENs or ICCMLH1s) should fail
+  Scenario Outline: PT_AS05. Assay result with invalid biomarker(other than ICCPTENs or ICCBAF47s) should fail
     Given template assay message with surgical_event_id: "PT_AS05_SlideShipped_SEI1" for patient: "PT_AS05_SlideShipped"
     Then set patient message field: "biomarker" to value: "<value>"
     When POST to MATCH patients service, response includes "<message>" with code "403"
     Examples:
-      | value | message        |
-      |       | can't be blank |
-      | OTHER | biomarker      |
-      | null  | can't be blank |
+      | value    | message        |
+      |          | can't be blank |
+      | OTHER    | biomarker      |
+      | null     | can't be blank |
+      | ICCMLH1s | biomarker      |
 
   @patients_p2
   Scenario Outline: PT_AS06. Assay result with invalid reported_date(empty, non-date, null) should fail
@@ -141,22 +142,24 @@ Feature: Assay Messages
     When POST to MATCH patients service, response includes "surgical" with code "403"
 
   @patients_p1
-  Scenario Outline: PT_AS11. Assay result can be received multiple times with same surgical_event_id (as long as this SEI is latest and has shipped slide)
+  Scenario Outline: PT_AS11. Assay result can be received multiple times with same active surgical_event_id and the latest assay should be used
   #  Test data: Patient=PT_AS11SlideShipped, surgical_event_id=PT_AS11SlideShipped_SEI1, has slide shipped
     Given template assay message with surgical_event_id: "PT_AS11SlideShipped_SEI1" for patient: "PT_AS11SlideShipped"
     Then set patient message field: "reported_date" to value: "<date>"
     Then set patient message field: "biomarker" to value: "<biomarker>"
     Then set patient message field: "result" to value: "<result>"
     When POST to MATCH patients service, response includes "successfully" with code "202"
-    Then patient specimen (surgical_event_id: "PT_AS11SlideShipped_SEI1") should be updated within 15 seconds
+    Then wait until patient specimen is updated
+    Then patient should have specimen (field: "surgical_event_id" is "PT_AS11SlideShipped_SEI1")
     And this specimen has assay (biomarker: "<biomarker>", result: "<result>", reported_date: "<date>")
-
+    And patient active tissue specimen field "<biomarker>_received_date" should be "<date>"
+    And patient active tissue specimen field "<biomarker>" should be "<result>"
     Examples:
       | biomarker | result        | date                      |
       | ICCPTENs  | POSITIVE      | 2016-05-18T10:42:13+00:00 |
-      | ICCMLH1s  | NEGATIVE      | 2016-05-18T11:42:13+00:00 |
+      | ICCBAF47s | NEGATIVE      | 2016-05-18T11:42:13+00:00 |
       | ICCPTENs  | NEGATIVE      | 2016-05-18T12:42:13+00:00 |
-      | ICCMLH1s  | INDETERMINATE | 2016-05-18T13:42:13+00:00 |
+      | ICCBAF47s | INDETERMINATE | 2016-05-18T13:42:13+00:00 |
 
   @patients_p2
   Scenario Outline: PT_AS12. assay result received will not trigger patient assignment process unless patient has pathology and VR ready
@@ -165,10 +168,11 @@ Feature: Assay Messages
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then wait for "5" seconds
     Then template assay message with surgical_event_id: "<sei>" for patient: "<patient_id>"
-    Then set patient message field: "biomarker" to value: "ICCMLH1s"
+    Then set patient message field: "biomarker" to value: "ICCBAF47s"
     Then set patient message field: "reported_date" to value: "2016-07-18T13:42:13+00:00"
     When POST to MATCH patients service, response includes "successfully" with code "202"
-    Then patient field: "current_status" should have value: "<patient_status>" after 45 seconds
+    Then wait for "60" seconds
+    Then patient status should change to "<patient_status>"
     Examples:
       | patient_id          | patient_status         | sei                      |
       | PT_AS12_VrConfirmed | PENDING_CONFIRMATION   | PT_AS12_VrConfirmed_SEI1 |
@@ -184,4 +188,21 @@ Feature: Assay Messages
     Then set patient message field: "extra_info" to value: "This is extra information"
     When POST to MATCH patients service, response includes "successfully" with code "202"
 
-
+  @patients_p2
+  Scenario Outline: PT_AS14. assay use same report date should be accepted
+    Given template assay message with surgical_event_id: "PT_AS14_SlideShipped_SEI1" for patient: "PT_AS14_SlideShipped"
+    Then set patient message field: "reported_date" to value: "<date>"
+    Then set patient message field: "biomarker" to value: "<biomarker>"
+    Then set patient message field: "result" to value: "<result>"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
+    Then wait until patient specimen is updated
+    Then patient should have specimen (field: "surgical_event_id" is "PT_AS14_SlideShipped_SEI1")
+    And this specimen has assay (biomarker: "<biomarker>", result: "<result>", reported_date: "<date>")
+    And patient active tissue specimen field "<biomarker>_received_date" should be "<date>"
+    And patient active tissue specimen field "<biomarker>" should be "<result>"
+    Examples:
+      | biomarker | result   | date                      |
+      | ICCPTENs  | POSITIVE | 2016-12-01T10:42:13+00:00 |
+      | ICCPTENs  | NEGATIVE | 2016-12-01T10:42:13+00:00 |
+      | ICCBAF47s | POSITIVE | 2016-12-01T11:42:13+00:00 |
+      | ICCBAF47s | NEGATIVE | 2016-12-01T11:42:13+00:00 |
