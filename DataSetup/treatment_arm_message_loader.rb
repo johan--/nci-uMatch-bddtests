@@ -1,4 +1,6 @@
 require 'HTTParty'
+require_relative '../uMATCH/PedMATCH/features/support/environment'
+require_relative '../uMATCH/PedMATCH/features/support/helper_methods'
 
 class TreatmentArmMessageLoader
   include HTTParty
@@ -47,5 +49,16 @@ class TreatmentArmMessageLoader
     else
       puts "#{ta_id} #{stratum} #{version} doesn't exist!!!"
     end
+  end
+
+  def self.update_treatment_arm_status
+    url = "#{LOCAL_TREATMENT_ARM_API_URL}/status"
+    Helper_Methods.put_request(url, '')
+  #   curl_cmd ="curl -k -X PUT"
+  #   # curl_cmd = curl_cmd + " -H \"Content-Type: application/json\""
+  #   # curl_cmd = curl_cmd + " -H \"Accept: application/json\""
+  #   curl_cmd = curl_cmd + " #{LOCAL_TREATMENT_ARM_API_URL}/status"
+  #   puts curl_cmd
+  #   `#{curl_cmd}`
   end
 end

@@ -52,22 +52,9 @@ Given(/^template specimen received message for this patient \(type: "([^"]*)", s
 end
 
 Given(/^template specimen shipped message for this patient \(type: "([^"]*)", surgical_event_id: "([^"]*)", molecular_id or slide_barcode: "([^"]*)"\)/) do |type, sei, moi_or_barcode|
-  @patient_id = patientID=='null' ? nil : patientID
   converted_sei = sei=='null' ? nil : sei
   converted_id = moi_or_barcode=='null' ? nil : moi_or_barcode
   Patient_helper_methods.prepare_specimen_shipped(@patient_id, type, converted_sei, converted_id)
-end
-
-Given(/^template assay message with surgical_event_id: "([^"]*)" for patient: "([^"]*)"$/) do |sei, patientID|
-  @patient_id = patientID=='null' ? nil : patientID
-  converted_sei = sei=='null' ? nil : sei
-  Patient_helper_methods.prepare_assay(@patient_id, converted_sei)
-end
-
-Given(/^template pathology report with surgical_event_id: "([^"]*)" for patient: "([^"]*)"$/) do |sei, patientID|
-  @patient_id = patientID=='null' ? nil : patientID
-  converted_sei = sei=='null' ? nil : sei
-  Patient_helper_methods.prepare_pathology(@patient_id, converted_sei)
 end
 
 Given(/^template variant file uploaded message for this patient \(molecular_id: "([^"]*)", analysis_id: "([^"]*)"\) and need files in S3 Y or N: "([^"]*)"$/) do |moi, ani, upload|
@@ -178,14 +165,7 @@ end
 Then(/^patient should have assignment report \(report status: "([^"]*)"\) with status "([^"]*)"$/) do |arg1, arg2|
   pending # Write code here that turns the phrase above into concrete actions
 end
-# Then(/^retrieve patient: "([^"]*)" from API$/) do |patientID|
-#   @patient_id = patientID=='null'?nil:patientID
-#   print_log = Helper_Methods.is_local_tier
-#   @retrieved_patient=Helper_Methods.get_single_request(ENV['patients_endpoint']+'/'+patientID, Helper_Methods.is_local_tier)
-#
-#   #for testing purpose
-#   # @retrieved_patient=JSON(IO.read('/Users/wangl17/match_apps/patient_100100.json'))
-# end
+
 
 #########################################################
 ###############  result validation  #####################

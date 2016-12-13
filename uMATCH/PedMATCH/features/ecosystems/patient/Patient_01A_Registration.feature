@@ -5,13 +5,13 @@ Feature: Register a new patient in PEDMatchbox:
   @patients_p1
   Scenario: PT_RG01. New patient can be registered successfully
     Given patient id is "PT_RG01_New"
-    Given template registration message for this patient on date: "2016-08-16T14:52:58.000+00:00"
+    And template registration message for this patient on date: "2016-08-16T14:52:58.000+00:00"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "REGISTRATION"
     And patient field: "registration_date" should have value: "2016-08-16T14:52:58+00:00"
     And patient field: "study_id" should have value: "APEC1621"
     And patient field: "current_step_number" should have value: "1.0"
-    And patient field: "patient_id" should have value: "PT_RG01_Newd"
+    And patient field: "patient_id" should have value: "PT_RG01_New"
 
   @patients_p2
   Scenario: PT_RG02. patient registration with invalid patient_id should fail
@@ -22,7 +22,7 @@ Feature: Register a new patient in PEDMatchbox:
   @patients_p2
   Scenario Outline: PT_RG03. patient registration with invalid study_id
     Given patient id is "<patient_id>"
-    Given template registration message for this patient on date: "current"
+    And template registration message for this patient on date: "current"
     Then set patient message field: "study_id" to value: "<study_id>"
     When POST to MATCH patients service, response includes "<message>" with code "403"
     Examples:
@@ -36,7 +36,7 @@ Feature: Register a new patient in PEDMatchbox:
   @patients_p3
   Scenario Outline: PT_RG04. patient registration with invalid step_number should fail
     Given patient id is "<patient_id>"
-    Given template registration message for this patient on date: "current"
+    And template registration message for this patient on date: "current"
     Then set patient message field: "step_number" to value: "<step_number>"
     When POST to MATCH patients service, response includes "<message>" with code "403"
     Examples:
@@ -52,7 +52,7 @@ Feature: Register a new patient in PEDMatchbox:
   @patients_p2
   Scenario Outline: PT_RG05. patient registration with invalid status_date should fail
     Given patient id is "<patient_id>"
-    Given template registration message for this patient on date: "<status_date>"
+    And template registration message for this patient on date: "<status_date>"
     When POST to MATCH patients service, response includes "<message>" with code "403"
     Examples:
       | patient_id            | status_date | message        |
@@ -65,6 +65,6 @@ Feature: Register a new patient in PEDMatchbox:
   @patients_p3
   Scenario: PT_RG06. extra key-value pair in the message body should NOT fail
     Given patient id is "PT_RG06"
-    Given template registration message for this patient on date: "current"
+    And template registration message for this patient on date: "current"
     Then set patient message field: "extra_info" to value: "This is extra information"
     When POST to MATCH patients service, response includes "successfully" with code "202"
