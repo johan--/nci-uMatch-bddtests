@@ -371,6 +371,72 @@ end
 #   }
 # end
 
+And(/^analysis_id "([^"]*)" should have (\d+) PENDING (\d+) REJECTED (\d+) CONFIRMED assignment reports$/) do |ani, pending, rejected, confirmed|
+  url = "#{ENV['patients_endpoint']}/assignments?analysis_id=#{ani}"
+  assignments = Patient_helper_methods.get_any_result_from_url(url)
+  expect_pending = "There are #{pending} PENDING assignment reports"
+  expect_rejected = "There are #{rejected} REJECTED assignment reports"
+  expect_confirmed = "There are #{confirmed} CONFIRMED assignment reports"
+  actual_pending = 0
+  actual_rejected = 0
+  actual_confirmed = 0
+  if assignments.is_a?(Array)
+    assignments.each { |this_assignment|
+      case this_assignment['status']
+        when 'PENDING'
+          actual_pending += 1
+        when 'REJECTED'
+          actual_rejected += 1
+        when 'CONFIRMED'
+          actual_confirmed += 1
+        else
+          raise "Assignment report expect PENDING, CONFIRMED, REJECTED, actually got #{this_assignment['status']}"
+      end
+    }
+    actual_pending = "There are #{actual_pending} PENDING assignment reports"
+    actual_rejected = "There are #{actual_rejected} REJECTED assignment reports"
+    actual_confirmed = "There are #{actual_confirmed} CONFIRMED assignment reports"
+  else
+    raise "Expect array returned, actually #{assignments.class.to_s} returned"
+  end
+  first_match_second(actual_pending, expect_pending)
+  first_match_second(actual_rejected, expect_rejected)
+  first_match_second(actual_confirmed, expect_confirmed)
+end
+
+And(/^patient pending assignment report selected treatment arm is "([^"]*)" with stratum_id "([^"]*)"$/) do |ta_id, stratum|
+  url = "#{ENV['patients_endpoint']}/assignments?patient_id=#{@patient_id}&status=PENDING"
+  @current_assignment = Patient_helper_methods.get_any_result_from_url(url)
+  if @current_assignment.is_a?(Array)
+    if @current_assignment.length==1
+      assignment = @current_assignment[0]
+      selected_ta = 'selected_treatment_arm'
+      expect(assignment.keys).to include selected_ta
+      first_match_second(assignment[selected_ta]['treatment_arm_id'], ta_id)
+      first_match_second(assignment[selected_ta]['stratum_id'], stratum)
+    else
+      raise "Expect 1 assignment report returned, actually #{@current_assignment.length} returned"
+    end
+  else
+    raise "Expect array returned, actually #{@current_assignment.class.to_s} returned"
+  end
+end
+
+And(/^patient pending assignment report field "([^"]*)" should be "([^"]*)"$/) do |field, status|
+  url = "#{ENV['patients_endpoint']}/assignments?patient_id=#{@patient_id}&status=PENDING"
+  @current_assignment = Patient_helper_methods.get_any_result_from_url(url)
+  if @current_assignment.is_a?(Array)
+    if @current_assignment.length==1
+      first_include_second(@current_assignment[0].keys, field)
+      first_match_second(@current_assignment[0][field], status)
+    else
+      raise "Expect 1 assignment report returned, actually #{@current_assignment.length} returned"
+    end
+  else
+    raise "Expect array returned, actually #{@current_assignment.class.to_s} returned"
+  end
+end
+
 Given(/^this patient is in mock service lost patient list, service will come back after "([^"]*)" tries$/) do |error_times|
   COG_helper_methods.setServiceLostPatient(@patient_id, error_times)
 end

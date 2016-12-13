@@ -145,65 +145,46 @@ Feature: Patients request assignment tests
       | PT_RA06_OnTreatmentArm | 1.1                 |
       | PT_RA06_PendingAproval | 1.0                 |
 
-#    @patients_p1
-#    Scenario: PT_RA07. request assignment with rebiopsy = N should generate assignment report properly
-#      Given patient id is "PT_RA07_VrAndAssayReady"
-#      And template variant report confirm message for this patient (analysis_id: "PT_RA07_VrAndAssayReady_ANI1", status: "confirm")
-#      When PUT to MATCH variant report confirm service, response includes "successfully" with code "200"
-#      Then patient status should change to "PENDING_CONFIRMATION"
-#      And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 0 REJECTED 0 CONFIRMED assignment reports
-#      And patient pending assignment report selected treatment arm is "APEC1621-A" with stratum_id "100"
-#      Then template assignment report confirm message for this patient (analysis_id: "PT_RA07_VrAndAssayReady_ANI1" and status: "confirm")
-#      When PUT to MATCH assignment report confirm service, response includes "successfully" with code "200"
-#      Then patient status should change to "PENDING_APPROVAL"
-#      Then template request assignment message for this patient (rebiopsy: "N", step number: "1.0")
-#      When POST to MATCH patients service, response includes "successfully" with code "202"
-#      Then patient status should change to "PENDING_CONFIRMATION"
-#      And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 1 REJECTED 0 CONFIRMED assignment reports
-#      And patient pending assignment report selected treatment arm is "APEC1621-ETE-A" with stratum_id "100"
-#      Then template assignment report confirm message for this patient (analysis_id: "PT_RA07_VrAndAssayReady_ANI1" and status: "confirm")
-#      When PUT to MATCH assignment report confirm service, response includes "successfully" with code "200"
-#      Then patient status should change to "PENDING_APPROVAL"
-#      Then template request assignment message for this patient (rebiopsy: "N", step number: "1.0")
-#      When POST to MATCH patients service, response includes "successfully" with code "202"
-#      Then patient status should change to "PENDING_CONFIRMATION"
-#      And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 2 REJECTED 0 CONFIRMED assignment reports
-#      And patient pending assignment report status should be "NO_TREATMENT_FOUND"
-#      Then template assignment report confirm message for this patient (analysis_id: "PT_RA07_VrAndAssayReady_ANI1" and status: "confirm")
-#      When PUT to MATCH assignment report confirm service, response includes "successfully" with code "200"
-#      Then patient status should change to "PENDING_APPROVAL"
-#      Then template request assignment message for this patient (rebiopsy: "N", step number: "1.0")
-#      When POST to MATCH patients service, response includes "successfully" with code "202"
-#      Then patient status should change to "PENDING_CONFIRMATION"
-#      And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 3 REJECTED 0 CONFIRMED assignment reports
-#      And patient pending assignment report status should be "NO_TREATMENT_FOUND"
-
-
-
-
-
-
-#      Then template assignment report confirm message for patient: "PT_RA07_VrAndAssayReady", it has analysis_id: "PT_RA07_VrAndAssayReady_ANI1" and status: "confirm"
-#      When put to MATCH assignment report confirm service, returns a message that includes "processed successfully" with status "Success"
-#      Then template request assignment message for patient: "PT_RA07_VrAndAssayReady" with re-biopsy: "N", step number: "1.0"
-#      When POST to MATCH patients service, response includes "successfully" with code "202"
-#      Then patient field: "current_status" should have value: "PENDING_CONFIRMATION" after 45 seconds
-#      Then wait until patient has 3 assignment reports
-#      Then patient should have assignment report (TA id: "APEC1621-A", stratum id: "100") with status "REJECTED"
-#      Then patient should have assignment report (TA id: "APEC1621-ETE-A", stratum id: "100") with status "REJECTED"
-#      Then patient should have assignment report (report status: "NO_TREATMENT_FOUND") with status "PENDING"
-#      Then template assignment report confirm message for patient: "PT_RA07_VrAndAssayReady", it has analysis_id: "PT_RA07_VrAndAssayReady_ANI1" and status: "confirm"
-#      When put to MATCH assignment report confirm service, returns a message that includes "processed successfully" with status "Success"
-#      Then template request assignment message for patient: "PT_RA07_VrAndAssayReady" with re-biopsy: "N", step number: "1.0"
-#      When POST to MATCH patients service, response includes "successfully" with code "202"
-#      Then patient field: "current_status" should have value: "PENDING_CONFIRMATION" after 45 seconds
-#      Then wait until patient has 4 assignment reports
-#      Then patient should have assignment report (TA id: "APEC1621-A", stratum id: "100") with status "REJECTED"
-#      Then patient should have assignment report (TA id: "APEC1621-ETE-A", stratum id: "100") with status "REJECTED"
-#      Then patient should have assignment report (report status: "NO_TREATMENT_FOUND") with status "REJECTED"
-#      Then patient should have assignment report (report status: "NO_TREATMENT_FOUND") with status "PENDING"
-
-
+    @patients_p1
+    Scenario: PT_RA07. request assignment with rebiopsy = N should generate assignment report properly
+      Given patient id is "PT_RA07_VrAndAssayReady"
+      And template variant report confirm message for this patient (analysis_id: "PT_RA07_VrAndAssayReady_ANI1", status: "confirm")
+      When PUT to MATCH variant report confirm service, response includes "successfully" with code "200"
+      Then patient status should change to "PENDING_CONFIRMATION"
+      And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 0 REJECTED 0 CONFIRMED assignment reports
+      And patient pending assignment report selected treatment arm is "APEC1621-A" with stratum_id "100"
+      Then template assignment report confirm message for this patient (analysis_id: "PT_RA07_VrAndAssayReady_ANI1" and status: "confirm")
+      When PUT to MATCH assignment report confirm service, response includes "successfully" with code "200"
+      Then patient status should change to "PENDING_APPROVAL"
+      Then template request assignment message for this patient (rebiopsy: "N", step number: "1.0")
+      When POST to MATCH patients service, response includes "successfully" with code "202"
+      Then patient status should change to "PENDING_CONFIRMATION"
+      And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 1 REJECTED 0 CONFIRMED assignment reports
+      And patient pending assignment report selected treatment arm is "APEC1621-ETE-A" with stratum_id "100"
+      Then template assignment report confirm message for this patient (analysis_id: "PT_RA07_VrAndAssayReady_ANI1" and status: "confirm")
+      When PUT to MATCH assignment report confirm service, response includes "successfully" with code "200"
+      Then patient status should change to "PENDING_APPROVAL"
+      Then template request assignment message for this patient (rebiopsy: "N", step number: "1.0")
+      When POST to MATCH patients service, response includes "successfully" with code "202"
+      Then patient status should change to "PENDING_CONFIRMATION"
+      And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 2 REJECTED 0 CONFIRMED assignment reports
+      And patient pending assignment report selected treatment arm is "APEC1621-ETE-C" with stratum_id "100"
+      Then template assignment report confirm message for this patient (analysis_id: "PT_RA07_VrAndAssayReady_ANI1" and status: "confirm")
+      When PUT to MATCH assignment report confirm service, response includes "successfully" with code "200"
+      Then patient status should change to "PENDING_APPROVAL"
+      Then template request assignment message for this patient (rebiopsy: "N", step number: "1.0")
+      When POST to MATCH patients service, response includes "successfully" with code "202"
+      Then patient status should change to "PENDING_CONFIRMATION"
+      And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 3 REJECTED 0 CONFIRMED assignment reports
+      And patient pending assignment report field "report_status" should be "NO_TREATMENT_FOUND"
+      Then template assignment report confirm message for this patient (analysis_id: "PT_RA07_VrAndAssayReady_ANI1" and status: "confirm")
+      When PUT to MATCH assignment report confirm service, response includes "successfully" with code "200"
+      Then patient status should change to "NO_TA_AVAILABLE"
+      Then template request assignment message for this patient (rebiopsy: "N", step number: "1.0")
+      When POST to MATCH patients service, response includes "successfully" with code "202"
+      Then patient status should change to "PENDING_CONFIRMATION"
+      And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 4 REJECTED 0 CONFIRMED assignment reports
+      And patient pending assignment report field "report_status" should be "NO_TREATMENT_FOUND"
 
   @patients_p2
   Scenario Outline: PT_RA08. request assignment message with invalid rebiopsy field should fail
