@@ -126,12 +126,13 @@ Feature: Patients request assignment tests
 #    please check test PT_OS01 last example and PT_RA02 example 3, PT_RA03 example 4
 #
 
-  @patients_p3
-  Scenario: PT_RA05. request assignment message with rebiopsy = N will fail if the current biopsy is expired
-#   patient: "PT_RA05_OnTreatmentArm" with status: "ON_TREATMENT_ARM" on step: "1.1" the specimen received date is over 6 months ago
-    Given patient id is "PT_RA05_OnTreatmentArm"
-    And template request assignment message for this patient (rebiopsy: "N", step number: "2.0")
-    When POST to MATCH patients service, response includes "expired" with code "403"
+      #this is not required anymore!!!!!!!!!!!!!!!
+#  @patients_p3
+#  Scenario: PT_RA05. request assignment message with rebiopsy = N will fail if the current biopsy is expired
+##   patient: "PT_RA05_OnTreatmentArm" with status: "ON_TREATMENT_ARM" on step: "1.1" the specimen received date is over 6 months ago
+#    Given patient id is "PT_RA05_OnTreatmentArm"
+#    And template request assignment message for this patient (rebiopsy: "N", step number: "2.0")
+#    When POST to MATCH patients service, response includes "expired" with code "403"
 
   @patients_p1
   Scenario Outline: PT_RA06. assignment process should not be triggered if assignment request has rebiopsy = Y

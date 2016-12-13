@@ -44,12 +44,13 @@ Feature: NCH specimen received messages
     Then set patient message field: "collection_dt" to value: "1990-04-25"
     When POST to MATCH patients service, response includes "date" with code "403"
 
+    #this is not required anymore!!!!!!!!!!!!!!!
   @patients_p2
-  Scenario: PT_SR06. Return error message when collection date is older than 6 months ago
-    Given patient id is "PT_SR06_Registered"
-    Given template specimen received message for this patient (type: "TISSUE", surgical_event_id: "PT_SR06_Registered_SEI1")
-    Then set patient message field: "collection_dt" to value: "2016-04-25"
-    When POST to MATCH patients service, response includes "6 months" with code "403"
+#  Scenario: PT_SR06. Return error message when collection date is older than 6 months ago
+#    Given patient id is "PT_SR06_Registered"
+#    Given template specimen received message for this patient (type: "TISSUE", surgical_event_id: "PT_SR06_Registered_SEI1")
+#    Then set patient message field: "collection_dt" to value: "2016-04-25"
+#    When POST to MATCH patients service, response includes "6 months" with code "403"
 
     #this is not required anymore!!!!!!!!!!!!!!!
 #  Scenario: PT_SR06. Return error message when received date is older than collection date
@@ -159,7 +160,7 @@ Feature: NCH specimen received messages
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "TISSUE_SPECIMEN_RECEIVED"
     Then patient should have variant report (analysis_id: "PT_SR14_TsVrUploaded_ANI1")
-    And this variant report has value: "REJECTED" in field: "status"
+    And this variant report field: "status" should be "REJECTED"
 
   @patients_p1
   Scenario: PT_SR14b. When a new BLOOD specimen_received message is received,  the pending TISSUE variant report should not change status
@@ -170,7 +171,7 @@ Feature: NCH specimen received messages
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then wait for "30" seconds
     Then patient should have variant report (analysis_id: "PT_SR14_TsVrUploaded1_ANI1")
-    And this variant report has value: "PENDING" in field: "status"
+    And this variant report field: "status" should be "PENDING"
 
 #    no requirement now
 #  @patients_p3
@@ -191,7 +192,7 @@ Feature: NCH specimen received messages
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "TISSUE_SPECIMEN_RECEIVED"
     Then patient should have variant report (analysis_id: "PT_SR14d_BdVrUploaded_ANI1")
-    And this variant report has value: "PENDING" in field: "status"
+    And this variant report field: "status" should be "PENDING"
 
   @patients_p3
   Scenario Outline: PT_SR13. extra key-value pair in the message body should NOT fail
