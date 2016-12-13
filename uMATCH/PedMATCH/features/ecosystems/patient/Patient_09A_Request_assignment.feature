@@ -89,7 +89,7 @@ Feature: Patients request assignment tests
     When POST to MATCH patients service, response includes "assignment" with code "403"
     Then template specimen received message for this patient (type: "TISSUE", surgical_event_id: "PT_RA04_ReqNoAssignment_SEI3")
     When POST to MATCH patients service, response includes "assignment" with code "403"
-    Then template specimen shipped message for this patient (type: "PT_RA04_ReqNoAssignment", surgical_event_id: "PT_RA04_ReqNoAssignment_SEI2", molecular_id or slide_barcode: "PT_RA04_ReqNoAssignment_MOI3")
+    Then template specimen shipped message for this patient (type: "TISSUE", surgical_event_id: "PT_RA04_ReqNoAssignment_SEI2", molecular_id or slide_barcode: "PT_RA04_ReqNoAssignment_MOI3")
     When POST to MATCH patients service, response includes "assignment" with code "403"
     Then template variant file uploaded message for this patient (molecular_id: "PT_RA04_ReqNoAssignment_MOI2", analysis_id: "PT_RA04_ReqNoAssignment_ANI4") and need files in S3 Y or N: "Y"
     When POST to MATCH patients service, response includes "assignment" with code "403"

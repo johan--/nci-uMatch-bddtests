@@ -92,7 +92,7 @@ Feature: NCH Specimen shipped messages
   #  Testing patient: PT_SS08_TissueReceived
   #  surgical event: PT_SS08_TissueReceived_SEI1 received Then PT_SS08_TissueReceived_SEI2 received (PT_SS08_TissueReceived_SEI1 expired)
     Given patient id is "PT_SS08_TissueReceived"
-    And template specimen shipped message for this patient (type: "<type", surgical_event_id: "PT_SS08_TissueReceived_SEI1", molecular_id or slide_barcode: "<moi_bc>")
+    And template specimen shipped message for this patient (type: "<type>", surgical_event_id: "PT_SS08_TissueReceived_SEI1", molecular_id or slide_barcode: "<moi_bc>")
     Then set patient message field: "shipped_dttm" to value: "current"
     When POST to MATCH patients service, response includes "not currently active" with code "403"
     Examples:

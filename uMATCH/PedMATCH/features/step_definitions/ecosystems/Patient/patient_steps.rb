@@ -57,6 +57,12 @@ Given(/^template specimen shipped message for this patient \(type: "([^"]*)", su
   Patient_helper_methods.prepare_specimen_shipped(@patient_id, type, converted_sei, converted_id)
 end
 
+Given(/^template assay message with surgical_event_id: "([^"]*)" for patient: "([^"]*)"$/) do |sei, patientID|
+  @patient_id = patientID=='null' ? nil : patientID
+  converted_sei = sei=='null' ? nil : sei
+  Patient_helper_methods.prepare_assay(@patient_id, converted_sei)
+end
+
 Given(/^template variant file uploaded message for this patient \(molecular_id: "([^"]*)", analysis_id: "([^"]*)"\) and need files in S3 Y or N: "([^"]*)"$/) do |moi, ani, upload|
   converted_moi = moi=='null' ? nil : moi
   @analysis_id = ani=='null' ? nil : ani
