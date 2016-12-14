@@ -556,6 +556,22 @@ class Helper_Methods
     end
   end
 
+  def self.dynamodb_table_items(table, criteria={})
+    if @dynamodb_client.nil?
+      @dynamodb_client = Aws::DynamoDB::Client.new(
+          endpoint: ENV['dynamodb_endpoint'],
+          access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+          secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'])
+    end
+    filter = {}
+    criteria.map { |k, v| filter[k] = {comparison_operator: 'EQ', attribute_value_list: [v]} }
+    scan_option = {table_name: table}
+    scan_option['scan_filter'] = filter if filter.length>0
+    scan_option['conditional_operator'] = 'AND' if filter.length>1
+    table_content = @dynamodb_client.scan(scan_option)
+    table_content.items
+  end
+
   def self.path_for_named_parent_folder(parent_name)
     parent_path = __FILE__
     until parent_path.end_with?(parent_name) do

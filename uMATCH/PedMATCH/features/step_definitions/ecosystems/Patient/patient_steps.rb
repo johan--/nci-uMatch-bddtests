@@ -11,30 +11,84 @@ require_relative '../../../support/cog_helper_methods.rb'
 When(/^POST to MATCH patients service, response includes "([^"]*)" with code "([^"]*)"$/) do |retMsg, code|
   response = Patient_helper_methods.post_to_trigger
   puts response.to_json
-  first_match_second(response['http_code'], code)
-  # first_include_second(response['message'], retMsg)
+  actual_match_expect(response['http_code'], code)
+  # actual_include_expect(response['message'], retMsg)
 end
 
 When(/^PUT to MATCH variant report confirm service, response includes "([^"]*)" with code "([^"]*)"$/) do |retMsg, code|
   response = Patient_helper_methods.put_vr_confirm(@analysis_id, @variant_report_status)
-  first_match_second(response['http_code'], code)
-  # first_include_second(response['message'], retMsg)
+  actual_match_expect(response['http_code'], code)
+  # actual_include_expect(response['message'], retMsg)
 end
 
 When(/^PUT to MATCH variant confirm service, response includes "([^"]*)" with code "([^"]*)"$/) do |retMsg, code|
   response = Patient_helper_methods.put_variant_confirm(@current_variant_uuid, @current_variant_confirm)
-  first_match_second(response['http_code'], code)
-  # first_include_second(response['message'], retMsg)
+  actual_match_expect(response['http_code'], code)
+  # actual_include_expect(response['message'], retMsg)
 end
 
 When(/^PUT to MATCH assignment report confirm service, response includes "([^"]*)" with code "([^"]*)"$/) do |retMsg, code|
   response = Patient_helper_methods.put_ar_confirm(@analysis_id, @assignment_report_status)
-  first_match_second(response['http_code'], code)
-  # first_include_second(response['message'], retMsg)
+  actual_match_expect(response['http_code'], code)
+  # actual_include_expect(response['message'], retMsg)
+end
+
+When(/^GET from MATCH patient API, http code "([^"]*)" should return$/) do |code|
+  url = prepare_get_url
+  puts url
+  response = Patient_helper_methods.get_response_and_code(url)
+  actual_match_expect(response['http_code'], code)
+  @get_response = response['message_json']
+end
+
+
+#########################################################
+###############  prepare GET message  ###################
+#########################################################
+
+Given(/^patient GET service name "([^"]*)"$/) do |service|
+  @get_service_name = service
+end
+
+Given(/^patient GET service name "([^"]*)" for patient "([^"]*)"$/) do |service, patient_id|
+  @get_service_name = "#{patient_id}/#{service}"
+end
+
+Then(/^add projection: "([^"]*)" to patient GET url$/) do |projection|
+  @get_service_projections = [] if @get_service_projections.nil?
+  @get_service_projections << projection
+end
+
+Then(/^add parameter field: "([^"]*)" and value: "([^"]*)" to patient GET url$/) do |field, value|
+  @get_service_parameters = {} if @get_service_parameters.nil?
+  @get_service_parameters[field]=value
+end
+
+Then(/^set id: "([^"]*)" for patient GET url$/) do |id|
+  @get_service_id = id
+end
+
+def prepare_get_url
+  if @get_service_name.nil? || @get_service_name.length<1
+    url = ENV['patients_endpoint']
+  else
+    url = "#{ENV['patients_endpoint']}/#{@get_service_name}"
+  end
+  unless @get_service_id.nil?
+    url += "/#{@get_service_id}"
+  end
+  get_service_queries = ''
+  unless @get_service_projections.nil?
+    get_service_queries = "&projections=[#{@get_service_projections.join(',')}]"
+  end
+  unless @get_service_parameters.nil?
+    get_service_queries += "&#{@get_service_parameters.map { |k, v| "#{k}=#{v}" }.join('&')}"
+  end
+  url += get_service_queries.sub('&', '?') #.sub method only replace the first occurrence
 end
 
 #########################################################
-################  prepare message  ######################
+############  prepare POST PUT message  #################
 #########################################################
 Given(/^patient id is "([^"]*)"$/) do |patient_id|
   @patient_id = patient_id=='null' ? nil : patient_id
@@ -147,7 +201,7 @@ end
 Then(/^patient status should change to "([^"]*)"$/) do |status|
   field = 'current_status'
   @current_patient_hash = Patient_helper_methods.wait_until_patient_field_is(@patient_id, field, status)
-  first_match_second(@current_patient_hash[field], status)
+  actual_match_expect(@current_patient_hash[field], status)
 end
 
 Then(/^wait until patient specimen is updated$/) do
@@ -179,21 +233,21 @@ end
 Then(/^patient field: "([^"]*)" should have value: "([^"]*)"$/) do |field, value|
   get_patient_if_needed
   converted_value = value=='null' ? nil : value
-  first_match_second(@current_patient_hash[field], converted_value)
+  actual_match_expect(@current_patient_hash[field], converted_value)
 end
 
 Then(/^patient should have selected treatment arm: "([^"]*)" with stratum id: "([^"]*)"$/) do |ta_id, stratum|
   get_patient_if_needed
   current_assignment = 'current_assignment'
   expect(@current_patient_hash.keys).to include current_assignment
-  first_match_second(@current_patient_hash[current_assignment]['treatment_arm_id'], ta_id)
-  first_match_second(@current_patient_hash[current_assignment]['stratum_id'], stratum)
+  actual_match_expect(@current_patient_hash[current_assignment]['treatment_arm_id'], ta_id)
+  actual_match_expect(@current_patient_hash[current_assignment]['stratum_id'], stratum)
 end
 
 Then(/^patient should have (\d+) blood specimens$/) do |count|
   url = "#{ENV['patients_endpoint']}/#{@patient_id}/specimens?specimen_type=BLOOD"
   @current_specimen = Patient_helper_methods.get_any_result_from_url(url)
-  first_match_second(@current_specimen.length, count.to_i)
+  actual_match_expect(@current_specimen.length, count.to_i)
 end
 
 Then(/^patient should have specimen \(field: "([^"]*)" is "([^"]*)"\)$/) do |field, value|
@@ -208,7 +262,7 @@ Then(/^patient should have specimen \(field: "([^"]*)" is "([^"]*)"\)$/) do |fie
   else
     raise "Expect array returned, actually #{@current_specimen.class.to_s} returned"
   end
-  first_match_second(@current_specimen[field], value)
+  actual_match_expect(@current_specimen[field], value)
 end
 
 
@@ -227,7 +281,7 @@ end
 
 And(/^this specimen has pathology status: "([^"]*)"$/) do |pathology_status|
   converted_patho_status = pathology_status=='null' ? nil : pathology_status
-  first_match_second(@current_specimen['pathology_status'], converted_patho_status)
+  actual_match_expect(@current_specimen['pathology_status'], converted_patho_status)
 end
 
 And(/^this specimen should have a correct failed_date$/) do
@@ -237,7 +291,7 @@ And(/^this specimen should have a correct failed_date$/) do
   current_time = Time.now.utc.to_i
   returned_result = DateTime.parse(@current_specimen['failed_date']).to_i
   time_diff = current_time - returned_result
-  first_include_second((0..300), time_diff)
+  actual_include_expect((0..300), time_diff)
 end
 
 And(/^patient active tissue specimen field "([^"]*)" should be "([^"]*)"$/) do |field, value|
@@ -250,7 +304,7 @@ end
 
 And(/^this specimen field: "([^"]*)" should be: "([^"]*)"$/) do |field, value|
   converted_value = value=='null' ? nil : value
-  first_match_second(@current_specimen[field], converted_value)
+  actual_match_expect(@current_specimen[field], converted_value)
 end
 
 And(/^this specimen should not have field: "([^"]*)"$/) do |field|
@@ -288,17 +342,17 @@ Then(/^patient should have variant report \(analysis_id: "([^"]*)"\)$/) do |ani|
   else
     raise "Expect array returned, actually #{@current_variant_report.class.to_s} returned"
   end
-  first_match_second(@current_variant_report['analysis_id'], ani)
+  actual_match_expect(@current_variant_report['analysis_id'], ani)
 end
 
 And(/^this variant report field: "([^"]*)" should be "([^"]*)"$/) do |field, value|
-  first_include_second(@current_variant_report.keys, field)
+  actual_include_expect(@current_variant_report.keys, field)
   convert_value = value=='null' ? nil : value
   returned_value = @current_variant_report[field]
   if returned_value.nil? || convert_value.nil?
-    first_match_second(returned_value, convert_value)
+    actual_match_expect(returned_value, convert_value)
   else
-    first_match_second(convert_value.to_s.downcase, returned_value.to_s.downcase)
+    actual_match_expect(convert_value.to_s.downcase, returned_value.to_s.downcase)
   end
   # expect_result = "Value of field #{field} contains #{convert_value}"
   # real_result = "Value of field #{field} is #{@current_variant_report[field]}"
@@ -320,7 +374,7 @@ And(/^this variant report has correct status_date$/) do
   current_time = Time.now.utc.to_i
   returned_result = DateTime.parse(@current_variant_report['status_date']).to_i
   time_diff = current_time - returned_result
-  first_include_second((0..20), time_diff)
+  actual_include_expect((0..20), time_diff)
 end
 #
 # Then(/^returned patient has been assigned to new treatment arm: "([^"]*)", stratum id: "([^"]*)"$/) do |ta_id, stratum|
@@ -349,8 +403,8 @@ Then(/^this variant should have confirmed field: "([^"]*)" and comment field: "(
   else
     raise "Expect array returned, actually #{this_variant.class.to_s} returned"
   end
-  first_match_second(this_variant['confirmed'].to_s, confirmed)
-  first_match_second(this_variant['comment'], converted_comment)
+  actual_match_expect(this_variant['confirmed'].to_s, confirmed)
+  actual_match_expect(this_variant['comment'], converted_comment)
 end
 
 Then(/^variants in variant report \(analysis_id: "([^"]*)"\) have confirmed: "([^"]*)"$/) do |ani, confirmed|
@@ -360,7 +414,7 @@ Then(/^variants in variant report \(analysis_id: "([^"]*)"\) have confirmed: "([
     raise "Expect array returned, actually #{variants.class.to_s} returned"
   end
   variants.each { |this_variant|
-    first_match_second(this_variant['confirmed'].to_s, confirmed)
+    actual_match_expect(this_variant['confirmed'].to_s, confirmed)
   }
 end
 #
@@ -405,9 +459,9 @@ And(/^analysis_id "([^"]*)" should have (\d+) PENDING (\d+) REJECTED (\d+) CONFI
   else
     raise "Expect array returned, actually #{assignments.class.to_s} returned"
   end
-  first_match_second(actual_pending, expect_pending)
-  first_match_second(actual_rejected, expect_rejected)
-  first_match_second(actual_confirmed, expect_confirmed)
+  actual_match_expect(actual_pending, expect_pending)
+  actual_match_expect(actual_rejected, expect_rejected)
+  actual_match_expect(actual_confirmed, expect_confirmed)
 end
 
 And(/^patient pending assignment report selected treatment arm is "([^"]*)" with stratum_id "([^"]*)"$/) do |ta_id, stratum|
@@ -418,8 +472,8 @@ And(/^patient pending assignment report selected treatment arm is "([^"]*)" with
       assignment = @current_assignment[0]
       selected_ta = 'selected_treatment_arm'
       expect(assignment.keys).to include selected_ta
-      first_match_second(assignment[selected_ta]['treatment_arm_id'], ta_id)
-      first_match_second(assignment[selected_ta]['stratum_id'], stratum)
+      actual_match_expect(assignment[selected_ta]['treatment_arm_id'], ta_id)
+      actual_match_expect(assignment[selected_ta]['stratum_id'], stratum)
     else
       raise "Expect 1 assignment report returned, actually #{@current_assignment.length} returned"
     end
@@ -433,8 +487,8 @@ And(/^patient pending assignment report field "([^"]*)" should be "([^"]*)"$/) d
   @current_assignment = Patient_helper_methods.get_any_result_from_url(url)
   if @current_assignment.is_a?(Array)
     if @current_assignment.length==1
-      first_include_second(@current_assignment[0].keys, field)
-      first_match_second(@current_assignment[0][field], status)
+      actual_include_expect(@current_assignment[0].keys, field)
+      actual_match_expect(@current_assignment[0][field], status)
     else
       raise "Expect 1 assignment report returned, actually #{@current_assignment.length} returned"
     end
@@ -454,7 +508,7 @@ Then(/^COG received assignment status: "([^"]*)" for this patient$/) do |assignm
   if response['message_json']['status'].nil?
     raise response.to_json.to_s
   else
-    first_match_second(response['message_json']['status'], converted_status)
+    actual_match_expect(response['message_json']['status'], converted_status)
   end
 end
 
@@ -466,21 +520,55 @@ Then(/^COG received assignment with treatment_arm_id: "([^"]*)" and stratum_id: 
   if response['message_json']['treatment_arm_id'].nil?
     raise response.to_json.to_s
   else
-    first_match_second(response['message_json']['treatment_arm_id'], converted_ta_id)
+    actual_match_expect(response['message_json']['treatment_arm_id'], converted_ta_id)
   end
   if response['message_json']['stratum_id'].nil?
     raise response.to_json.to_s
   else
-    first_match_second(response['message_json']['stratum_id'], converted_stratum)
+    actual_match_expect(response['message_json']['stratum_id'], converted_stratum)
   end
 end
 
-def first_match_second(first, second)
-  expect(first).to eq second
+Then(/^the response type should be "([^"]*)"$/) do |type|
+  expect(@get_response.class.to_s).to eql type
 end
 
-def first_include_second(first, second)
-  expect(first).to include second
+And(/^the count of array elements should match database table "([^"]*)"$/) do |table|
+  @get_service_parameters = {} if @get_service_parameters.nil?
+  if table.length>1
+    expect(@get_response.length).to eql Helper_Methods.dynamodb_table_items(table, @get_service_parameters).length
+  end
+end
+
+And(/^each element of response should have field "([^"]*)"$/) do |field|
+  @get_response.each { |this_element|
+    expect(this_element.keys).to include field
+  }
+end
+
+And(/^each element of response should have field "([^"]*)" with value "([^"]*)"$/) do |field, value|
+  @get_response.each { |this_element|
+    expect(this_element.keys).to include field
+    expect(this_element[field]).to eql value
+  }
+end
+
+And(/^each element of response should have (\d+) fields$/) do |field_count|
+  @get_response.each { |this_element|
+    expect(this_element.length).to eql field_count.to_i
+  }
+end
+
+And(/^hash response should have field "([^"]*)" with value "([^"]*)"$/) do |field, value|
+  expect(@get_response[field]).to eql value
+end
+
+def actual_match_expect(actual, expect)
+  expect(actual).to eq expect
+end
+
+def actual_include_expect(actual, expect)
+  expect(actual).to include expect
 end
 
 def convert_string_to_bool(string)

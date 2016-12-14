@@ -386,6 +386,9 @@ class Patient_helper_methods
   end
 
   ######## services #####
+  def self.get_response_and_code(url)
+    Helper_Methods.simple_get_request(url)
+  end
   def self.get_any_result_from_url(url)
     return Helper_Methods.simple_get_request(url)['message_json']
   end

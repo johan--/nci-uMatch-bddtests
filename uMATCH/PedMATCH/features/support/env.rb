@@ -14,7 +14,9 @@ ENV['patients_endpoint'] = 'https://pedmatch-int.nci.nih.gov/api/v1/patients'
 ENV['treatment_arm_endpoint'] = 'https://pedmatch-int.nci.nih.gov'
 ENV['cog_mock_endpoint'] = 'http://pedmatch-int.nci.nih.gov:3000'
 ENV['ion_system_endpoint'] = 'https://pedmatch-int.nci.nih.gov/api/v1'
+
 ENV['s3_bucket'] = 'pedmatch-int'
+ENV['dynamodb_endpoint'] = 'https://dynamodb.us-east-1.amazonaws.com'
 
 ENV['PATIENT_ASSIGNMENT_JSON_LOCATION'] = '../../../../public/patient_jsons_for_assignment_report_tests'
 ENV['TAs_ASSIGNMENT_JSON_LOCATION'] = '../../../../public/TAs_for_assignment_report_tests'

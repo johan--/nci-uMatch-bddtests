@@ -12,7 +12,9 @@ ENV['patients_endpoint'] = 'http://127.0.0.1:10240/api/v1/patients'
 ENV['treatment_arm_endpoint'] = 'http://127.0.0.1:10235'
 ENV['cog_mock_endpoint'] = 'http://127.0.0.1:3000'
 ENV['ion_system_endpoint'] = 'http://127.0.0.1:5000/api/v1'
+
 ENV['s3_bucket'] = 'pedmatch-dev'
+ENV['dynamodb_endpoint'] = 'http://localhost:8000'
 
 ENV['PATIENT_ASSIGNMENT_JSON_LOCATION'] = '../../../../public/patient_jsons_for_assignment_report_tests'
 ENV['TAs_ASSIGNMENT_JSON_LOCATION'] = '../../../../public/TAs_for_assignment_report_tests'
