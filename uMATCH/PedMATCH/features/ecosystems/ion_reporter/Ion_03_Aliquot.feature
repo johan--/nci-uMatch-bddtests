@@ -52,7 +52,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "cdna_bam_name" value: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/cdna.bam" to message body
     Then add field: "qc_name" value: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/10-10-2016.pdf" to message body
     Then call aliquot PUT service, returns a message that includes "Item updated" with status "Success"
-    Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
+    Then wait until patient variant report is updated
     Then patient should have variant report (analysis_id: "ION_AQ02_TsShipped_ANI1")
     And this variant report field: "tsv_file_name" should be "test1.tsv"
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/test1.tsv" should be available in S3
