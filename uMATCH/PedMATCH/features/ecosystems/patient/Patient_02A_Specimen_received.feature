@@ -45,7 +45,7 @@ Feature: NCH specimen received messages
     When POST to MATCH patients service, response includes "date" with code "403"
 
     #this is not required anymore!!!!!!!!!!!!!!!
-  @patients_p2
+#  @patients_p2
 #  Scenario: PT_SR06. Return error message when collection date is older than 6 months ago
 #    Given patient id is "PT_SR06_Registered"
 #    And template specimen received message for this patient (type: "TISSUE", surgical_event_id: "PT_SR06_Registered_SEI1")

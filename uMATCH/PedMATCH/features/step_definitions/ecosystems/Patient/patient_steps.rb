@@ -36,6 +36,7 @@ end
 When(/^GET from MATCH patient API, http code "([^"]*)" should return$/) do |code|
   url = prepare_get_url
   puts url
+  puts 'GET from MATCH patient API'
   response = Patient_helper_methods.get_response_and_code(url)
   actual_match_expect(response['http_code'], code)
   @get_response = response['message_json']
@@ -69,12 +70,14 @@ Then(/^set id: "([^"]*)" for patient GET url$/) do |id|
 end
 
 def prepare_get_url
-  if @get_service_name.nil? || @get_service_name.length<1
-    url = ENV['patients_endpoint']
-  else
-    url = "#{ENV['patients_endpoint']}/#{@get_service_name}"
+  url = ENV['patients_endpoint']
+  unless @patient_id.nil? || @patient_id.length<1
+    url += "/#{@patient_id}"
   end
-  unless @get_service_id.nil?
+  unless @get_service_name.nil? || @get_service_name.length<1
+    url += "/#{@get_service_name}"
+  end
+  unless @get_service_id.nil? || @get_service_id.length<1
     url += "/#{@get_service_id}"
   end
   get_service_queries = ''
@@ -534,19 +537,28 @@ Then(/^the response type should be "([^"]*)"$/) do |type|
 end
 
 And(/^the count of array elements should match database table "([^"]*)"$/) do |table|
-  @get_service_parameters = {} if @get_service_parameters.nil?
+  if @get_service_parameters.nil?
+    query = {}
+  else
+    query = @get_service_parameters
+  end
+  unless @patient_id.nil? || @patient_id.length<1 || query.keys.include?('patient_id')
+    query['patient_id'] = @patient_id
+  end
   if table.length>1
-    expect(@get_response.length).to eql Helper_Methods.dynamodb_table_items(table, @get_service_parameters).length
+    expect(@get_response.length).to eql Helper_Methods.dynamodb_table_items(table, query).length
   end
 end
 
 And(/^each element of response should have field "([^"]*)"$/) do |field|
+  raise 'GET response is empty' if @get_response.length<1
   @get_response.each { |this_element|
     expect(this_element.keys).to include field
   }
 end
 
 And(/^each element of response should have field "([^"]*)" with value "([^"]*)"$/) do |field, value|
+  raise 'GET response is empty' if @get_response.length<1
   @get_response.each { |this_element|
     expect(this_element.keys).to include field
     expect(this_element[field]).to eql value
@@ -554,6 +566,7 @@ And(/^each element of response should have field "([^"]*)" with value "([^"]*)"$
 end
 
 And(/^each element of response should have (\d+) fields$/) do |field_count|
+  raise 'GET response is empty' if @get_response.length<1
   @get_response.each { |this_element|
     expect(this_element.length).to eql field_count.to_i
   }

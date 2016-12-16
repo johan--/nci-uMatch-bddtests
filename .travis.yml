@@ -61,7 +61,7 @@ script:
   - rm results/*
   - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P1,$CUC_TAG$P2 --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --expand' -n 2
   - cd ../..
-#  - aws s3 cp results/ s3://bdd-test-data/report_test --region us-east-1 --recursive
+  - aws s3 cp results/ s3://bdd-test-data/report_test --region us-east-1 --recursive
   # Run Cucumber end to end tests
   # - bundle exec cucumber --tags @EndtoEnd
   # Install xvfb
@@ -74,7 +74,7 @@ script:
   # Run protractor only if the tag is UI or demo
   - if [ "$CUC_TAG" = "@ui" -o "$CUC_TAG" = "@demo" ]; then protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$P1,$CUC_TAG$P2 --troubleshoot; fi
   # Generate html report
-#  - for filename in ../results/*.json; do filesize=$(wc -c <"$filename"); if [ $filesize -le 0 ]; then echo $filename is 0 bytes, deleted it; rm $filename; fi; done
+  - for filename in ../results/*.json; do filesize=$(wc -c <"$filename"); if [ $filesize -le 0 ]; then echo $filename is 0 bytes, deleted it; rm $filename; fi; done
   - node support/generate_report.js
   - cd ..
   - ls -alt
@@ -87,7 +87,7 @@ after_success:
   - cd ../../nci-match-ui-bddtests/
   - if [ "$CUC_TAG" = "@ui" -o "$CUC_TAG" = "@demo" ]; then protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$P3 --troubleshoot; fi
   # Generate html report
-#  - for filename in ../results/*.json; do filesize=$(wc -c <"$filename"); if [ $filesize -le 0 ]; then echo $filename is 0 bytes, deleted it; rm $filename; fi; done
+  - for filename in ../results/*.json; do filesize=$(wc -c <"$filename"); if [ $filesize -le 0 ]; then echo $filename is 0 bytes, deleted it; rm $filename; fi; done
   - node support/generate_report.js
   - cd ..
   - ls -alt
@@ -104,7 +104,7 @@ after_failure:
     - cd ../../nci-match-ui-bddtests/
     - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$P3 --troubleshoot
     # Generate html report
-#    - for filename in ../results/*.json; do filesize=$(wc -c <"$filename"); if [ $filesize -le 0 ]; then echo $filename is 0 bytes, deleted it; rm $filename; fi; done
+    - for filename in ../results/*.json; do filesize=$(wc -c <"$filename"); if [ $filesize -le 0 ]; then echo $filename is 0 bytes, deleted it; rm $filename; fi; done
     - node support/generate_report.js
 after_script:
   #Set above, - export DATE=`TZ=America/New_York date "+%m-%d-%y-%H%M"`

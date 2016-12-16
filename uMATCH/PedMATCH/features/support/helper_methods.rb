@@ -116,7 +116,11 @@ class Helper_Methods
     if response.body.nil?
       @get_response['message_json'] = {}
     else
-      @get_response['message_json'] = JSON.parse(response.body)
+      begin
+        @get_response['message_json'] = JSON.parse(response.body)
+      rescue
+        @get_response['message_json'] = {'error' => "Bad json format: #{response.body}"}
+      end
     end
     if status.eql?('Failure')
       p @get_response['message']
@@ -199,6 +203,7 @@ class Helper_Methods
     total_time = 0.0
     old_hash = nil
     wait_time = 5.0
+    internal_timeout = 45.0
     loop do
       new_hash = Helper_Methods.simple_get_request(url)['message_json']
       # puts new_hash.to_json.to_s
@@ -210,7 +215,7 @@ class Helper_Methods
         return new_hash
       end
       total_time += wait_time
-      if total_time>timeout
+      if total_time>internal_timeout
         return new_hash
       end
       sleep(wait_time)
