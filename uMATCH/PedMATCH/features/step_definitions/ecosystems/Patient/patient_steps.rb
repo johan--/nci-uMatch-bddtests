@@ -36,7 +36,6 @@ end
 When(/^GET from MATCH patient API, http code "([^"]*)" should return$/) do |code|
   url = prepare_get_url
   puts url
-  puts 'GET from MATCH patient API'
   response = Patient_helper_methods.get_response_and_code(url)
   actual_match_expect(response['http_code'], code)
   @get_response = response['message_json']
@@ -530,6 +529,10 @@ Then(/^COG received assignment with treatment_arm_id: "([^"]*)" and stratum_id: 
   else
     actual_match_expect(response['message_json']['stratum_id'], converted_stratum)
   end
+end
+
+Then(/^the response message should be empty$/) do
+  expect(@get_response.class.to_s).to eql type
 end
 
 Then(/^the response type should be "([^"]*)"$/) do |type|

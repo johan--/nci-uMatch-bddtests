@@ -476,6 +476,7 @@ end
 ################################################
 Then(/^call aliquot PUT service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
   url = prepare_aliquot_url
+  # puts JSON.pretty_generate(@payload)
   response = Helper_Methods.put_request(url, @payload.to_json.to_s)
   validate_response(response, status, message)
 end
