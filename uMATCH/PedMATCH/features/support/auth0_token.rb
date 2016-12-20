@@ -36,7 +36,7 @@ class Auth0Token
         return nil
       end
       ENV['AUTH0_TOKEN'] = response_hash['id_token']
-      puts "Auth0 token is generated: #{ENV['AUTH0_TOKEN']}"
+      puts "A #{ENV['AUTH0_TOKEN'].length} digi auth0 token is generated"
       # else
       # puts 'Auth0 token has been generated already, no need to generate again.'
     end
