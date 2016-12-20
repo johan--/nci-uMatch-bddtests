@@ -3,12 +3,14 @@ require 'rest-client'
 class Auth0Token
   def self.generate_auth0_token
     unless ENV['NEED_AUTH0'] == 'YES'
+      puts 'Auth0 is turned off!'
       return ''
     end
     force_generate_auth0_token
   end
 
   def self.force_generate_auth0_token
+    puts 'Genereating Auth0 token...'
     if ENV['AUTH0_TOKEN'].nil? || ENV['AUTH0_TOKEN'] == ''
       # puts 'Generating auth0 token...'
       request_body = {:client_id => ENV['AUTH0_CLIENT_ID'],
@@ -34,7 +36,7 @@ class Auth0Token
         return nil
       end
       ENV['AUTH0_TOKEN'] = response_hash['id_token']
-      # puts "Auth0 token is generated: #{ENV['AUTH0_TOKEN']}"
+      puts "Auth0 token is generated: #{ENV['AUTH0_TOKEN']}"
       # else
       # puts 'Auth0 token has been generated already, no need to generate again.'
     end
