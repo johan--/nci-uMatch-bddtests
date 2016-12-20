@@ -26,8 +26,8 @@ class Helper_Methods
     headers = {}
     Auth0Token.add_auth0_if_needed(headers)
     begin
-      puts "url is #{@url}"
-      puts "header is #{headers}"
+      # puts "url is #{@url}"
+      # puts "header is #{headers}"
       response = RestClient::Request.execute(:url => @url, :method => :get, :verify_ssl => false, :headers => headers)
       get_response['http_code'] = response.code
       get_response['status'] = response.code == 200 ? 'Success' : 'Failure'
