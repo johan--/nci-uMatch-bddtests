@@ -25,8 +25,6 @@ Feature: Patient GET service tests (false results)
     Then add parameter field: "<parameter>" and value: "INVALID_VALUE" to patient GET url
     When GET from MATCH patient API, http code "404" should return
     Then the response message should be empty
-#    Then the response type should be "Array"
-#    And each element of response should have 0 fields
     Examples:
       | service         | parameter         |
       | events          | entity_id         |
@@ -39,14 +37,46 @@ Feature: Patient GET service tests (false results)
       |                 | registration_date |
 #
 ########## PT_GF_WI Services with id /api/v1/patients/service/:id(.:format)
-#  Scenario Outline: PT_GF_WI01. Service should return 404 and empty result if provided id has no this type of resource
-#    Examples:
-#
-#  Scenario Outline: PT_GF_WI02. Service should return 404 and empty result if provided id doesn't exist
-#    Examples:
-#
-#  Scenario Outline: PT_GF_WI03. Invalid projections should be ignored
-#    Examples:
+  Scenario Outline: PT_GF_WI01. Service should return 404 and empty result if provided id has no this type of resource
+    Given patient GET service name "<service>"
+    Then set id: "<id>" for patient GET url
+    When GET from MATCH patient API, http code "404" should return
+    Then the response message should be empty
+    Examples:
+      | service     | id                           | field1      |
+      | assignments | PT_RA07_VrAndAssayReady_ANI1 | analysis_id |
+
+  Scenario Outline: PT_GF_WI02. Service should return 404 and empty result if provided id doesn't exist
+    Given patient GET service name "<service>"
+    Then set id: "INVALID_ID" for patient GET url
+    When GET from MATCH patient API, http code "404" should return
+    Then the response message should be empty
+    Examples:
+      | service         |
+      | events          |
+      | variant_reports |
+      | variants        |
+      | assignments     |
+      | shipments       |
+      |                 |
+
+  Scenario Outline: PT_GF_WI03. Invalid projections should be ignored
+    Given patient GET service name "<service>"
+    Then set id: "<id>" for patient GET url
+    Then add projection: "bad_pro" to patient GET url
+    When GET from MATCH patient API, http code "200" should return
+    Then the response type should be "Array"
+    And each element of response should have 0 fields
+    Examples:
+    | service         | id                                   |
+    | events          | ION_AQ04_TsShipped                   |
+    | variant_reports | PT_SR10_ProgressReBioY_ANI1          |
+    | variants        | af51e559-db26-498d-9e3e-c9ba19d7507e |
+    | assignments     | PT_RA07_VrAndAssayReady_ANI1         |
+    | shipments       | PT_RA02_OnTreatmentArm_MOI1          |
+    | patient_limbos  | PT_VC15_VrReceived_BC1               |
+    | specimens       | PT_RA08_RequestNoAssignment          |
+    |                 |                                      |
 #
 #  Scenario Outline: PT_GF_WI04. Service should return 404 and empty result if no resource match query parameters
 #    Examples:

@@ -20,9 +20,9 @@ class DynamoDb
   DEFAULT_AWS_S3_ENDPOINT = 'https://s3.amazonaws.com'
 
   DEFAULT_OPTIONS = {
-    access_key_id: DEFAULT_AWS_ACCESS_KEY,
-    secret_access_key: DEFAULT_AWS_SECRET_KEY,
-    region: DEFAULT_REGION
+      access_key_id: DEFAULT_AWS_ACCESS_KEY,
+      secret_access_key: DEFAULT_AWS_SECRET_KEY,
+      region: DEFAULT_REGION
   }
 
   def initialize(options)
@@ -95,7 +95,7 @@ class DynamoDb
 
   def select_tables
     regex = Regexp.new(@prefix)
-    list_tables.select { |table| table.match(regex)}
+    list_tables.select { |table| table.match(regex) }
   end
 
   def delete_treatment_arm_tables
@@ -137,12 +137,9 @@ class DynamoDb
     table_details = TableDetails.const_get(actual_table_name)
     table_list = []
     begin
-      @client.scan(table_name: name)['items'].each do |elem|
-        row = {}
-        table_details[:keys].each do |key|
-          row[key.to_sym] = elem[key]
-        end
-        table_list << row
+      # table_list = @client.scan(table_name: name, attributes_to_get: table_details[:keys])['items']
+      @client.scan(table_name: name, attributes_to_get: table_details[:keys])['items'].each do |this_item|
+        table_list << {delete_request: {key: this_item}}
       end
     rescue Aws::DynamoDB::Errors::ResourceNotFoundException => e
       LOG.log("Table '#{name.upcase}' not found.", :warn)
@@ -154,37 +151,67 @@ class DynamoDb
   end
 
   def add_suffix(name)
-    dev_table  = "#{name}_development"
+    dev_table = "#{name}_development"
     test_table = "#{name}_test"
     @endpoint =~ /localhost/ ? dev_table : test_table
   end
 
   def clear_table(table_name)
+
     # table_name = add_suffix(table_name) if table_name =~ /treatment_arm/
     # Keeping this here if we need it
     list = collect_key_list(table_name)
-    message = 0
-
-
     return if list.nil?
 
-    if list.size.zero?
-      LOG.log("Table '#{table_name.upcase}' is empty skipping...")
-      return
-    end
-    list.each do |keys|
-      key = keys.flatten.first
-      message += 1
+    start_stamp = Time.now
+    message = list.size
+    batch_limit = 25
+    list.each_slice(batch_limit) do |group|
+      request = {request_items: {table_name => group}}
       begin
-        @client.delete_item(table_name: table_name, key: keys)
-      rescue  Aws::DynamoDB::Errors::ValidationException => e
+        @client.batch_write_item(request)
+      rescue Aws::DynamoDB::Errors::ValidationException => e
         puts "The keys in the the table #{table_name} have changed."
       rescue => e
         puts "Could not delete table #{table_name}"
         p e.backtrace
       end
     end
-    LOG.log("Deleted #{message} records from the #{table_name}")
+
+    if message>0
+      end_stamp = Time.now
+      diff = (end_stamp - start_stamp) * 1000.0
+      LOG.log("Deleted #{message} records from the #{table_name} in #{diff.to_f / 1000.0} secs!")
+    else
+      LOG.log("Table '#{table_name.upcase}' is empty skipping...")
+    end
+    #
+    # delete_request = []
+    # list.each_with_index do |keys, index|
+    #   delete_request << {delete_request: {key: keys}}
+    #   if delete_request.count == 25 || (index == (list.count - 1) && delete_request.count > 0)
+    #     request = {request_items: {table_name => delete_request}}
+    #     begin
+    #       @client.batch_write_item(request)
+    #       message += delete_request.count
+    #       delete_request.clear
+    #     rescue Aws::DynamoDB::Errors::ValidationException => e
+    #       puts "The keys in the the table #{table_name} have changed."
+    #     rescue => e
+    #       puts "Could not delete table #{table_name}"
+    #       p e.backtrace
+    #     end
+    #   end
+    # end
+    # LOG.log("Deleted #{message} records from the #{table_name}")
+  end
+
+  def get_keys_from_table(table_name)
+    result = []
+    table_detail = @client.describe_table({table_name: table_name})
+    table_detail.table.key_schema.each { |this_schema|
+      result << this_schema.attribute_name }
+    result
   end
 
   def clear_all_tables
@@ -214,70 +241,6 @@ class DynamoDb
       clear_table(table)
     end
   end
-
-
-
-  def self.sqs_purge_queue(queue_name,
-  queue_owner_id,
-  region=DEFAULT_AWS_REGION)
-    @sqs = Aws::SQS::Client.new(
-        region: region,
-        access_key_id: DEFAULT_AWS_ACCESS_KEY,
-        secret_access_key: DEFAULT_AWS_SECRET_KEY
-    )
-    result = @sqs.get_queue_url(
-        {
-            queue_name: queue_name,
-            queue_owner_aws_account_id: queue_owner_id
-        })
-    begin
-      @sqs.purge_queue({queue_url: result['queue_url']})
-    rescue StandardError => e
-      puts e.message
-      return
-    end
-    puts "#{result['queue_url']} is cleared."
-  end
-
-  # def s3_delete_path(bucket,
-  #                    path,
-  #                    endpoint=DEFAULT_AWS_S3_ENDPOINT
-  # )
-  #   s3 = Aws::S3::Resource.new(
-  #       region: @region,
-  #       endpoint: endpoint,
-  #       access_key_id: DEFAULT_AWS_ACCESS_KEY,
-  #       secret_access_key: DEFAULT_AWS_SECRET_KEY
-  #   )
-  #   files = s3.bucket(bucket).objects(prefix:path)
-  #   files.each { |this_file|
-  #     this_file.delete
-  #     puts "Deleted #{this_file.identifiers[:key]} from bucket <#{this_file.identifiers[:bucket_name]}>"
-  #   }
-  #
-  # end
-
-  # def sqs_purge_queue(queue_name,
-  #     queue_owner_id,
-  #     region=DEFAULT_AWS_REGION)
-  #   @sqs = Aws::SQS::Client.new(
-  #       region: region,
-  #       access_key_id: DEFAULT_AWS_ACCESS_KEY,
-  #       secret_access_key: DEFAULT_AWS_SECRET_KEY
-  #   )
-  #   result = @sqs.get_queue_url(
-  #       {
-  #           queue_name: queue_name,
-  #           queue_owner_aws_account_id: queue_owner_id
-  #       })
-  #   begin
-  #     @sqs.purge_queue({queue_url: result['queue_url']})
-  #   rescue StandardError => e
-  #     puts e.message
-  #     return
-  #   end
-  #   puts "#{result['queue_url']} is cleared."
-  # end
 end
 
 # Logger
@@ -293,8 +256,4 @@ if __FILE__ == $0
   options = OptionsManager.parse(ARGV)
   # DynamoDb.new(options).clear_tables_by_prefix
   DynamoDb.new(options).clear_all_tables
-  # DynamoDb.sqs_purge_queue('ion_reporter_queue','127516845550')
-  # DynamoDb.sqs_purge_queue('patient_queue','127516845550')
-  # DynamoDb.sqs_purge_queue('patient_queue_deadletter','127516845550')
-  # DynamoDb.sqs_purge_queue('treatment_arm_queue','127516845550')
 end

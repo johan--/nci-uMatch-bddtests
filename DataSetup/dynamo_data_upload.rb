@@ -80,7 +80,7 @@ class DynamoDataUploader
 
     Aws.config.update(DEFAULT_OPTIONS)
     @aws_db = Aws::DynamoDB::Client.new()
-    p "AWS endpoint: #{@endpoint}, region: #{@region}"
+    # p "AWS endpoint: #{@endpoint}, region: #{@region}"
   end
 
   def upload_patient_data_to_aws
