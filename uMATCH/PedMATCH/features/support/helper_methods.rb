@@ -577,6 +577,11 @@ class Helper_Methods
     table_content.items
   end
 
+  def self.dynamodb_table_distinct_column(table, criteria={}, distinct_column)
+    all_result = dynamodb_table_items(table, criteria)
+    all_result.map { |hash| hash[distinct_column]}.uniq
+  end
+
   def self.path_for_named_parent_folder(parent_name)
     parent_path = __FILE__
     until parent_path.end_with?(parent_name) do

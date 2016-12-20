@@ -5,6 +5,10 @@ class Auth0Token
     unless ENV['NEED_AUTH0'] == 'YES'
       return ''
     end
+    force_generate_auth0_token
+  end
+
+  def self.force_generate_auth0_token
     if ENV['AUTH0_TOKEN'].nil? || ENV['AUTH0_TOKEN'] == ''
       # puts 'Generating auth0 token...'
       request_body = {:client_id => ENV['AUTH0_CLIENT_ID'],
@@ -31,7 +35,7 @@ class Auth0Token
       end
       ENV['AUTH0_TOKEN'] = response_hash['id_token']
       # puts "Auth0 token is generated: #{ENV['AUTH0_TOKEN']}"
-    # else
+      # else
       # puts 'Auth0 token has been generated already, no need to generate again.'
     end
     return ENV['AUTH0_TOKEN']

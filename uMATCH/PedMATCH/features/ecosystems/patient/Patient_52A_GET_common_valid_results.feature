@@ -160,12 +160,12 @@ Feature: Patient GET service tests (valid results)
     Then the response type should be "Hash"
     And hash response should have field "<field1>" with value "<id>"
     Examples:
-      | patient_id              | service            | id                           | field1            |
-      | PT_RA07_VrAndAssayReady | qc_variant_reports | PT_RA07_VrAndAssayReady_ANI1 | analysis_id       |
-      | PT_RA07_VrAndAssayReady | specimens          | PT_RA07_VrAndAssayReady_SEI1 | surgical_event_id |
-#      | PT_RA07_VrAndAssayReady | analysis_report       | PT_RA07_VrAndAssayReady_ANI1         | analysis_id       |
-#      | patient_id              | analysis_report_amois | af51e559-db26-498d-9e3e-c9ba19d7507e | uuid              |
-#      | patient_id              | variant_file_download | PT_RA02_OnTreatmentArm_MOI1          | molecular_id      |
+      | patient_id              | service               | id                                   | field1            |
+      | PT_RA07_VrAndAssayReady | qc_variant_reports    | PT_RA07_VrAndAssayReady_ANI1         | analysis_id       |
+      | PT_RA07_VrAndAssayReady | specimens             | PT_RA07_VrAndAssayReady_SEI1         | surgical_event_id |
+      | PT_RA07_VrAndAssayReady | analysis_report       | PT_RA07_VrAndAssayReady_ANI1         | analysis_id       |
+      | PT_RA07_VrAndAssayReady | analysis_report_amois | af51e559-db26-498d-9e3e-c9ba19d7507e | uuid              |
+      | PT_RA07_VrAndAssayReady | variant_file_download | PT_RA07_VrAndAssayReady_ANI1         | analysis_id       |
 #
 #
   Scenario Outline: PT_GV32. Service with patient_id and id should return valid projections

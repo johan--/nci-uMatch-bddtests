@@ -579,9 +579,48 @@ And(/^each element of response should have (\d+) fields$/) do |field_count|
   }
 end
 
+And(/^response should have (\d+) fields$/) do |field_count|
+  expect(@get_response.length).to eql field_count.to_i
+end
+
 And(/^hash response should have field "([^"]*)" with value "([^"]*)"$/) do |field, value|
   expect(@get_response[field]).to eql value
 end
+
+
+#########################################################
+############  special case validation  ##################
+#########################################################
+
+And(/^patient statistics field "([^"]*)" should have correct value$/) do |field|
+  expect(@get_response.keys).to include field
+  actual = @get_response[field]
+  case field
+    when 'number_of_patients'
+      expect(actual.to_i).to eql Helper_Methods.dynamodb_table_items('patient', {}).length
+    when 'number_of_patients_on_treatment_arm'
+      expect(actual.to_i).to eql Helper_Methods.dynamodb_table_items('patient', {current_status: 'ON_TREATMENT_ARM'}).length
+    when 'number_of_patients_with_confirmed_variant_report'
+      expect(actual.to_i).to eql Helper_Methods.dynamodb_table_distinct_column('variant_report', {status: 'CONFIRMED'}, 'patient_id').length
+    when 'treatment_arm_accrual'
+      db_accrual = {}
+      patients = Helper_Methods.dynamodb_table_items('patient', {current_status: 'ON_TREATMENT_ARM'})
+      patients.each { |this_patient|
+        ta = this_patient['current_assignment']['selected_treatment_arm']['treatment_arm_id']
+        st = this_patient['current_assignment']['selected_treatment_arm']['stratum_id']
+        vs = this_patient['current_assignment']['selected_treatment_arm']['version']
+        tt = "#{ta} (#{st}, #{vs})"
+        if db_accrual.keys.include?(tt)
+          db_accrual[tt]['patients'] += 1
+        else
+          db_accrual[tt] = {'name'=> ta, 'stratum_id'=> st, 'patients'=> 1}
+        end
+      }
+      expect(@get_response['treatment_arm_accrual']).to eql db_accrual
+    else
+  end
+end
+
 
 def actual_match_expect(actual, expect)
   expect(actual).to eq expect
