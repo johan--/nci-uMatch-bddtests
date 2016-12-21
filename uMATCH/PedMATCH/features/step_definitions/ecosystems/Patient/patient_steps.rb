@@ -613,7 +613,7 @@ And(/^patient statistics field "([^"]*)" should have correct value$/) do |field|
         if db_accrual.keys.include?(tt)
           db_accrual[tt]['patients'] += 1
         else
-          db_accrual[tt] = {'name'=> ta, 'stratum_id'=> st, 'patients'=> 1}
+          db_accrual[tt] = {'name' => ta, 'stratum_id' => st, 'patients' => 1}
         end
       }
       expect(@get_response['treatment_arm_accrual']).to eql db_accrual
@@ -621,6 +621,43 @@ And(/^patient statistics field "([^"]*)" should have correct value$/) do |field|
   end
 end
 
+
+And(/^patient pending_items field "([^"]*)" should have correct value$/) do |field|
+  expect(@get_response.keys).to include field
+  actual_key_list = []
+  expect_key_list = []
+  case field
+    when 'tissue_variant_reports'
+      table = 'variant_report'
+      key = Helper_Methods.dynamodb_table_sorting_key(table)
+      query = {status:'PENDING', variant_report_type:'TISSUE'}
+    when 'assignment_reports'
+      table = 'assignment'
+      key = Helper_Methods.dynamodb_table_sorting_key(table)
+      query = {status:'PENDING'}
+    else
+      table = ''
+      key = ''
+      query = {}
+  end
+  @get_response[field].each { |this_item|
+    begin
+      this_result = DateTime.parse(this_item[key]).to_i
+    rescue
+      this_result = this_item[key]
+    end
+    actual_key_list << this_result
+  }
+  Helper_Methods.dynamodb_table_items(table, query).each{|this_item|
+    begin
+      this_result = DateTime.parse(this_item[key]).to_i
+    rescue
+      this_result = this_item[key]
+    end
+    expect_key_list << this_result
+  }
+  expect(actual_key_list).to eql expect_key_list
+end
 
 def actual_match_expect(actual, expect)
   expect(actual).to eq expect

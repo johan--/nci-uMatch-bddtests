@@ -563,25 +563,55 @@ class Helper_Methods
     end
   end
 
-  def self.dynamodb_table_items(table, criteria={})
+  def self.dynamodb_create_client()
     if @dynamodb_client.nil?
       @dynamodb_client = Aws::DynamoDB::Client.new(
           endpoint: ENV['dynamodb_endpoint'],
           access_key_id: ENV['AWS_ACCESS_KEY_ID'],
           secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'])
     end
+  end
+
+  def self.dynamodb_table_items(table, criteria={}, columns=[])
+    dynamodb_create_client
     filter = {}
     criteria.map { |k, v| filter[k] = {comparison_operator: 'EQ', attribute_value_list: [v]} }
     scan_option = {table_name: table}
     scan_option['scan_filter'] = filter if filter.length>0
     scan_option['conditional_operator'] = 'AND' if filter.length>1
+    scan_option['attributes_to_get'] = columns if columns.length>0
     table_content = @dynamodb_client.scan(scan_option)
     table_content.items
   end
 
   def self.dynamodb_table_distinct_column(table, criteria={}, distinct_column)
+    dynamodb_create_client
     all_result = dynamodb_table_items(table, criteria)
     all_result.map { |hash| hash[distinct_column]}.uniq
+  end
+
+  def self.dynamodb_table_primary_key(table)
+    dynamodb_create_client
+    resp = @dynamodb_client.describe_table({table_name: table})
+    key = 'no_sorting_key'
+    resp.table.key_schema.each{|this_key|
+      if this_key.key_type == 'HASH'
+        key = this_key.attribute_name
+      end
+    }
+    key
+  end
+
+  def self.dynamodb_table_sorting_key(table)
+    dynamodb_create_client
+    resp = @dynamodb_client.describe_table({table_name: table})
+    key = 'no_sorting_key'
+    resp.table.key_schema.each{|this_key|
+      if this_key.key_type == 'RANGE'
+        key = this_key.attribute_name
+      end
+    }
+    key
   end
 
   def self.path_for_named_parent_folder(parent_name)

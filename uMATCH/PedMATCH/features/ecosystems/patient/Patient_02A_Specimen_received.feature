@@ -37,12 +37,13 @@ Feature: NCH specimen received messages
     Then remove field: "surgical_event_id" from patient message
     When POST to MATCH patients service, response includes "can't be blank" with code "403"
 
-  @patients_p2
-  Scenario: PT_SR05. Return error message when collection date is older than patient registration date
-    Given patient id is "PT_SR05_Registered"
-    And template specimen received message for this patient (type: "TISSUE", surgical_event_id: "PT_SR05_Registered_SEI1")
-    Then set patient message field: "collection_dt" to value: "1990-04-25"
-    When POST to MATCH patients service, response includes "date" with code "403"
+#  this is not required anymore!!!!!!!!!!!!!!!
+#  @patients_p2
+#  Scenario: PT_SR05. Return error message when collection date is older than patient registration date
+#    Given patient id is "PT_SR05_Registered"
+#    And template specimen received message for this patient (type: "TISSUE", surgical_event_id: "PT_SR05_Registered_SEI1")
+#    Then set patient message field: "collection_dt" to value: "1990-04-25"
+#    When POST to MATCH patients service, response includes "date" with code "403"
 
     #this is not required anymore!!!!!!!!!!!!!!!
 #  @patients_p2
@@ -61,10 +62,14 @@ Feature: NCH specimen received messages
 #    When POST to MATCH patients service, response includes "date" with status "Failure"
 
   @patients_p2
-  Scenario: PT_SR07. Return error when specimen received message is received for non-existing patient
+  Scenario Outline: PT_SR07. Return error when specimen received message is received for non-existing patient
     Given patient id is "PT_NonExistingPatient"
-    And template specimen received message for this patient (type: "TISSUE", surgical_event_id: "PT_NonExistingPatient_SEI1")
+    And template specimen received message for this patient (type: "<type>", surgical_event_id: "<sei>")
     When POST to MATCH patients service, response includes "not been registered" with code "403"
+    Examples:
+      | type   | sei                        |
+      | TISSUE | PT_NonExistingPatient_SEI1 |
+      | BLOOD  |                            |
 
   @patients_p2
   Scenario Outline: PT_SR08. Return error message when invalid type (other than BLOOD or TISSUE) is received

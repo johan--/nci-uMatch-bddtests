@@ -9,13 +9,13 @@ require_relative 'dynamo_delete_script'
 # DynamoDataUploader.new('local').upload_ion_to_aws
 # TreatmentArmMessageLoader.load_treatment_arm_to_local('Treatment_Arm_data', 2)
 
-puts Auth0Token.force_generate_auth0_token
+# puts Auth0Token.force_generate_auth0_token
 
 # ############clear local dynamodb and load all existing seed data
-# DynamoDb.new('local').clear_all_tables
-# DynamoDataUploader.new('local').upload_treatment_arm_to_aws
-# DynamoDataUploader.new('local').upload_patient_data_to_aws
-# DynamoDataUploader.new('local').upload_ion_to_aws
+DynamoDb.new('local').clear_all_tables
+DynamoDataUploader.new('local').upload_treatment_arm_to_aws
+DynamoDataUploader.new('local').upload_patient_data_to_aws
+DynamoDataUploader.new('local').upload_ion_to_aws
 
 # DynamoDb.new('local').clear_all_treatment_arm_tables
 # DynamoDb.new('local').clear_all_patient_tables

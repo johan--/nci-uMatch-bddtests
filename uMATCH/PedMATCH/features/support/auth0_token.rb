@@ -10,9 +10,8 @@ class Auth0Token
   end
 
   def self.force_generate_auth0_token
-    puts 'Genereating Auth0 token...'
     if ENV['AUTH0_TOKEN'].nil? || ENV['AUTH0_TOKEN'] == ''
-      # puts 'Generating auth0 token...'
+      puts 'Generating auth0 token...'
       request_body = {:client_id => ENV['AUTH0_CLIENT_ID'],
                       :username => ENV['AUTH0_USERNAME'],
                       :password => ENV['AUTH0_PASSWORD'],
@@ -38,15 +37,15 @@ class Auth0Token
       ENV['AUTH0_TOKEN'] = response_hash['id_token']
       puts "A #{ENV['AUTH0_TOKEN'].length} digi auth0 token is generated"
       # else
-      # puts 'Auth0 token has been generated already, no need to generate again.'
+      #   puts 'Auth0 token has been generated already, no need to generate again.'
     end
     return ENV['AUTH0_TOKEN']
   end
 
   def self.add_auth0_if_needed(headers={})
     if ENV['NEED_AUTH0'] == 'YES'
-      # headers['Authorization'] = "Bearer #{generate_auth0_token}"
-      headers['Authorization'] = "#{generate_auth0_token}"
+      headers['Authorization'] = "Bearer #{generate_auth0_token}"
+      # headers['Authorization'] = "#{generate_auth0_token}"
     end
     headers
   end
