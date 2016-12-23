@@ -213,7 +213,6 @@ Feature: Variant files confirmed messages
     Then set patient message field: "comment" to value: "TEST"
     When PUT to MATCH variant report confirm service, response includes "Variant Report status changed successfully to" with code "200"
     Then patient status should change to "TISSUE_VARIANT_REPORT_REJECTED"
-    Then patient field: "current_status" should have value: "TISSUE_VARIANT_REPORT_REJECTED" within 15 seconds
     Then this variant should have confirmed field: "false" and comment field: "Tests"
 
     #we don't confirm or reject BLOOD variant report anymore

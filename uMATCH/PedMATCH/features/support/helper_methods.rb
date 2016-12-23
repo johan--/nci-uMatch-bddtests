@@ -24,7 +24,7 @@ class Helper_Methods
     puts "Get Url: #{@url}"
 
     headers = {}
-    Auth0Token.add_auth0_if_needed(headers)
+    Auth0Token.add_auth0_if_needed(headers) if auth0_on
     begin
       # puts "url is #{@url}"
       # puts "header is #{headers}"

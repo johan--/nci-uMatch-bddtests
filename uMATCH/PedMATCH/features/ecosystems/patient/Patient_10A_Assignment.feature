@@ -23,7 +23,7 @@ Feature: Patients assignment tests
 #    patient: "PT_AM02_VrReceived" with status: "TISSUE_VARIANT_REPORT_RECEIVED" on step: "1.0", assays are ready
     #patient api will retry every 60 seconds
     Given patient id is "PT_AM02_VrReceived"
-    And this patient is in mock service lost patient list, service will come back after "2" tries
+    And this patient is in mock service lost patient list, service will come back after "1" tries
     Then template variant report confirm message for this patient (analysis_id: "PT_AM02_VrReceived_ANI1", status: "confirm")
     When PUT to MATCH variant report confirm service, response includes "successfully" with code "200"
     Then wait for "180" seconds

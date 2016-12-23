@@ -131,28 +131,19 @@
     "surgical_event_id":"SEI_01",
     "case_number": "case-1234",
     "type": "RESULT",
-    "biomarker":"ICCPTENs",
+    "biomarker":"ICCPTENs|ICCBRG1s|ICCBAF47s",
     "reported_date":"2016-05-05T12:13:09.071-05:00",
     "result": "POSITIVE"
   },
-  "assay_old":{
-    "patient_id":"3344",
-    "study_id": "APEC1621",
-    "surgical_event_id":"SEI_01",
-    "biomarker":"ICCMLH1s",
-    "ordered_date":"2016-05-02T12:13:09.071-05:00",
-    "reported_date":"2016-05-05T12:13:09.071-05:00",
-    "result":"POSITIVE"
-  },
-  "pathology_status":{
-    "patient_id":"894561",
-    "study_id": "APEC1621",
-    "surgical_event_id":"SEI_01",
-    "case_number": "case-1234",
-    "type":"PATHOLOGY_STATUS",
-    "reported_date":"2016-04-27T12:13:09.071-05:00",
-    "status":"Y"
-  },
+//  "pathology_status":{
+//    "patient_id":"894561",
+//    "study_id": "APEC1621",
+//    "surgical_event_id":"SEI_01",
+//    "case_number": "case-1234",
+//    "type":"PATHOLOGY_STATUS",
+//    "reported_date":"2016-04-27T12:13:09.071-05:00",
+//    "status":"Y"
+//  },
 //  "variant_tsv_vcf_uploaded": {
 //    "site": "MoCha",
 //    "molecular_id": "3366-bsn-msn-2",

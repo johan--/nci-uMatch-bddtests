@@ -16,7 +16,7 @@ Feature: Assay Messages
       | patient_id            | sei                        | biomarker | result        | reported_date             |
       | PT_AS00_SlideShipped1 | PT_AS00_SlideShipped1_SEI1 | ICCPTENs  | POSITIVE      | 2016-08-18T10:42:13+00:00 |
       | PT_AS00_SlideShipped2 | PT_AS00_SlideShipped2_SEI1 | ICCBAF47s | NEGATIVE      | 2016-08-18T11:42:13+00:00 |
-      | PT_AS00_SlideShipped3 | PT_AS00_SlideShipped3_SEI1 | ICCPTENs  | NEGATIVE      | 2016-08-18T12:42:13+00:00 |
+      | PT_AS00_SlideShipped3 | PT_AS00_SlideShipped3_SEI1 | ICCBRG1s  | NEGATIVE      | 2016-08-18T12:42:13+00:00 |
       | PT_AS00_SlideShipped4 | PT_AS00_SlideShipped4_SEI1 | ICCBAF47s | INDETERMINATE | 2016-08-18T13:42:13+00:00 |
 
 
@@ -65,7 +65,7 @@ Feature: Assay Messages
 #      |null      |NilClass did not match the following type: string         |
 
   @patients_p2
-  Scenario Outline: PT_AS05. Assay result with invalid biomarker(other than ICCPTENs or ICCBAF47s) should fail
+  Scenario Outline: PT_AS05. Assay result with invalid biomarker(other than ICCPTENs, ICCBRG1s or ICCBAF47s) should fail
     Given template assay message with surgical_event_id: "PT_AS05_SlideShipped_SEI1" for patient: "PT_AS05_SlideShipped"
     Then set patient message field: "biomarker" to value: "<value>"
     When POST to MATCH patients service, response includes "<message>" with code "403"
@@ -158,8 +158,10 @@ Feature: Assay Messages
       | biomarker | result        | date                      |
       | ICCPTENs  | POSITIVE      | 2016-05-18T10:42:13+00:00 |
       | ICCBAF47s | NEGATIVE      | 2016-05-18T11:42:13+00:00 |
-      | ICCPTENs  | NEGATIVE      | 2016-05-18T12:42:13+00:00 |
-      | ICCBAF47s | INDETERMINATE | 2016-05-18T13:42:13+00:00 |
+      | ICCBRG1s  | POSITIVE      | 2016-05-18T12:42:13+00:00 |
+      | ICCPTENs  | NEGATIVE      | 2016-05-18T13:42:13+00:00 |
+      | ICCBAF47s | INDETERMINATE | 2016-05-18T14:42:13+00:00 |
+      | ICCBRG1s  | INDETERMINATE | 2016-05-18T15:42:13+00:00 |
 
   @patients_p2
   Scenario Outline: PT_AS12. assay result received will not trigger patient assignment process unless patient has pathology and VR ready
@@ -170,6 +172,10 @@ Feature: Assay Messages
     Then template assay message with surgical_event_id: "<sei>" for patient: "<patient_id>"
     Then set patient message field: "biomarker" to value: "ICCBAF47s"
     Then set patient message field: "reported_date" to value: "2016-07-18T13:42:13+00:00"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
+    Then template assay message with surgical_event_id: "<sei>" for patient: "<patient_id>"
+    Then set patient message field: "biomarker" to value: "ICCBRG1s"
+    Then set patient message field: "reported_date" to value: "2016-07-18T13:52:13+00:00"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then wait for "60" seconds
     Then patient status should change to "<patient_status>"
@@ -206,3 +212,5 @@ Feature: Assay Messages
       | ICCPTENs  | NEGATIVE | 2016-12-01T10:42:13+00:00 |
       | ICCBAF47s | POSITIVE | 2016-12-01T11:42:13+00:00 |
       | ICCBAF47s | NEGATIVE | 2016-12-01T11:42:13+00:00 |
+      | ICCBRG1s  | POSITIVE | 2016-12-01T11:42:13+00:00 |
+      | ICCBRG1s  | NEGATIVE | 2016-12-01T11:42:13+00:00 |

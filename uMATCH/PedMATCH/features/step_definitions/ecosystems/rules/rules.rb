@@ -5,7 +5,7 @@ require_relative '../../../support/helper_methods.rb'
 @@ctr = 1
 
 When(/^the rules service \/version is called$/) do
-  @res=Helper_Methods.get_request("#{ENV['rules_endpoint']}/version")
+  @res=Helper_Methods.get_request("#{ENV['rules_endpoint']}/version",{}, false)
 end
 
 Then(/^the version "([^"]*)" is returned as json$/) do |version|

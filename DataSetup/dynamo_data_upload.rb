@@ -112,9 +112,15 @@ class DynamoDataUploader
     p "All ion local to aws uploaded in #{diff.to_f / 1000.0} secs!"
   end
 
-  def upload_table_to_aws(table_name)
-    # file_name = table_name.gsub(/_(development|test)/, '') Removing suffix as part of cleanup?
+  def table_exist(table_name)
+    @aws_db.list_tables.table_names.include?(table_name)
+  end
 
+  def upload_table_to_aws(table_name)
+    unless table_exist(table_name)
+      puts "Table #{table_name} doesn't exist in target database (#{@aws_db.list_tables.table_names}), skip"
+      return
+    end
     file_location = "#{File.dirname(__FILE__)}/#{SEED_DATA_FOLDER}/#{SEED_FILE_PREFIX}_#{table_name}.json"
     local_json = JSON.parse(File.read(file_location))
     items = local_json['Items']
@@ -254,4 +260,3 @@ if __FILE__ == $0
   DynamoDataUploader.new(options).upload_treatment_arm_to_aws
   DynamoDataUploader.new(options).upload_ion_to_aws
 end
-
