@@ -25,7 +25,7 @@ var PatientPage = function () {
         'Disease',
         'Treatment Arm',
         'Registration Date',
-        'Off Study Date'
+        'Status Date'
     ];
     // Patient Grid box
     this.patientGrid = element(by.id('patientGrid'))
