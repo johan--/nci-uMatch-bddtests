@@ -22,7 +22,9 @@ Feature: Variant files uploaded message
   @patients_p2
   Scenario Outline: PT_VU02. variant files uploaded message with invalid ion_reporter_id should fail
     Given patient id is "PT_VU02_TissueShipped"
-    And template variant file uploaded message for this patient (molecular_id: "PT_VU02_TissueShipped_MOI1", analysis_id: "PT_VU02_TissueShipped_ANI1") and need files in S3 Y or N: "N"
+    And load template variant file uploaded message for this patient
+    Then set patient message field: "molecular_id" to value: "PT_VU02_TissueShipped_MOI1"
+    Then set patient message field: "analysis_id" to value: "PT_VU02_TissueShipped_ANI1"
     Then set patient message field: "ion_reporter_id" to value: "<site_value>"
     When POST to MATCH patients service, response includes "<message>" with code "403"
     Examples:
@@ -47,7 +49,9 @@ Feature: Variant files uploaded message
   @patients_p2
   Scenario Outline: PT_VU03. variant files uploaded message with invalid molecular_id should fail
     Given patient id is "PT_VU03_TissueShipped"
-    And template variant file uploaded message for this patient (molecular_id: "<MOI>", analysis_id: "PT_VU03_TissueShipped_ANI1") and need files in S3 Y or N: "N"
+    And load template variant file uploaded message for this patient
+    Then set patient message field: "molecular_id" to value: "<MOI>"
+    Then set patient message field: "analysis_id" to value: "PT_VU03_TissueShipped_ANI1"
     When POST to MATCH patients service, response includes "<message>" with code "403"
     Examples:
       | MOI   | message                                   |
@@ -58,7 +62,9 @@ Feature: Variant files uploaded message
   @patients_p2
   Scenario Outline: PT_VU04. variant files uploaded message with invalid analysis_id should fail
     Given patient id is "PT_VU04_TissueShipped"
-    And template variant file uploaded message for this patient (molecular_id: "PT_VU04_TissueShipped_MOI1", analysis_id: "<ANI>") and need files in S3 Y or N: "N"
+    And load template variant file uploaded message for this patient
+    Then set patient message field: "molecular_id" to value: "PT_VU04_TissueShipped_MOI1"
+    Then set patient message field: "analysis_id" to value: "<ANI>"
     When POST to MATCH patients service, response includes "<message>" with code "403"
     Examples:
       | ANI  | message        |
@@ -73,7 +79,10 @@ Feature: Variant files uploaded message
 #  Test patient: PT_VU05_BloodShipped:  molecular_id: PT_VU05_BloodShipped_BD_MOI1 tissue shipped;
     #                                    molecular_id: PT_VU05_BloodShipped_BD_MOI2 tissue shipped;
     Given patient id is "<patient_id>"
-    And template variant file uploaded message for this patient (molecular_id: "<moi>", analysis_id: "<ani>") and need files in S3 Y or N: "Y"
+    And load template variant file uploaded message for this patient
+    Then set patient message field: "molecular_id" to value: "<moi>"
+    Then set patient message field: "analysis_id" to value: "<ani>"
+    Then files for molecular_id "<moi>" and analysis_id "<ani>" are in S3
     When POST to MATCH patients service, response includes "Molecular id doesn't exist" with code "403"
     Examples:
       | patient_id            | moi                          | ani                        |
@@ -84,7 +93,10 @@ Feature: Variant files uploaded message
   Scenario: PT_VU06. tsv vcf files uploaded message using new analysis_id can be accepted when patient has TISSUE_NUCLEIC_ACID_SHIPPED status and new uploaded variant files should has PENDING as default status
 #  Test patient: PT_VU06_TissueShipped: surgical_event_id: PT_VU06_TissueShipped_SEI1, molecular_id: PT_VU06_TissueShipped_MOI1 tissue shipped;
     Given patient id is "PT_VU06_TissueShipped"
-    And template variant file uploaded message for this patient (molecular_id: "PT_VU06_TissueShipped_MOI1", analysis_id: "PT_VU06_TissueShipped_ANI1") and need files in S3 Y or N: "Y"
+    And load template variant file uploaded message for this patient
+    Then set patient message field: "molecular_id" to value: "PT_VU06_TissueShipped_MOI1"
+    Then set patient message field: "analysis_id" to value: "PT_VU06_TissueShipped_ANI1"
+    Then files for molecular_id "PT_VU06_TissueShipped_MOI1" and analysis_id "PT_VU06_TissueShipped_ANI1" are in S3
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
     Then patient should have variant report (analysis_id: "PT_VU06_TissueShipped_ANI1")
@@ -95,7 +107,10 @@ Feature: Variant files uploaded message
   Scenario: PT_VU07. variant files uploaded with new analysis_id cannot be accepted when patient has only TISSUE_SLIDE_SPECIMEN_SHIPPED status but has no TISSUE_NUCLEIC_ACID_SHIPPED status
 #  Test patient: PT_VU07_SlideShippedNoTissueShipped: surgical_event_id: SEI_01 slide shipped, tissue not shipped;
     Given patient id is "PT_VU07_SlideShippedNoTissueShipped"
-    And template variant file uploaded message for this patient (molecular_id: "PT_VU07_SlideShippedNoTissueShipped_MOI1", analysis_id: "PT_VU07_SlideShippedNoTissueShipped_ANI1") and need files in S3 Y or N: "Y"
+    And load template variant file uploaded message for this patient
+    Then set patient message field: "molecular_id" to value: "PT_VU07_SlideShippedNoTissueShipped_MOI1"
+    Then set patient message field: "analysis_id" to value: "PT_VU07_SlideShippedNoTissueShipped_ANI1"
+    Then files for molecular_id "PT_VU07_SlideShippedNoTissueShipped_MOI1" and analysis_id "PT_VU07_SlideShippedNoTissueShipped_ANI1" are in S3
     When POST to MATCH patients service, response includes "Unable to find shipment with molecular id" with code "403"
 
   @patients_p2
@@ -103,7 +118,10 @@ Feature: Variant files uploaded message
 #    Test patient: PT_VU09_VariantReportUploaded; variant report files uploaded: surgical_event_id: _SEI1, molecular_id: _MOI1, analysis_id: _ANI1
 #          Plan to uploaded surgical_event_id: _SEI1, molecular_id: _MOI1, analysis_id: _ANI2
     Given patient id is "PT_VU09_VariantReportUploaded"
-    And template variant file uploaded message for this patient (molecular_id: "PT_VU09_VariantReportUploaded_MOI1", analysis_id: "PT_VU09_VariantReportUploaded_ANI2") and need files in S3 Y or N: "Y"
+    And load template variant file uploaded message for this patient
+    Then set patient message field: "molecular_id" to value: "PT_VU09_VariantReportUploaded_MOI1"
+    Then set patient message field: "analysis_id" to value: "PT_VU09_VariantReportUploaded_ANI2"
+    Then files for molecular_id "PT_VU09_VariantReportUploaded_MOI1" and analysis_id "PT_VU09_VariantReportUploaded_ANI2" are in S3
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then wait until patient variant report is updated
     Then patient should have variant report (analysis_id: "PT_VU09_VariantReportUploaded_ANI2")
@@ -119,7 +137,10 @@ Feature: Variant files uploaded message
 #    Test patient: PT_VU10_VariantReportUploaded; VR uploaded: _SEI1, _MOI1, _ANI1, is PENDING
 #      Plan to use _SEI1, _MOI1, _ANI1 again
     Given patient id is "PT_VU10_VariantReportUploaded"
-    And template variant file uploaded message for this patient (molecular_id: "PT_VU10_VariantReportUploaded_MOI1", analysis_id: "PT_VU10_VariantReportUploaded_ANI1") and need files in S3 Y or N: "Y"
+    And load template variant file uploaded message for this patient
+    Then set patient message field: "molecular_id" to value: "PT_VU10_VariantReportUploaded_MOI1"
+    Then set patient message field: "analysis_id" to value: "PT_VU10_VariantReportUploaded_ANI1"
+    Then files for molecular_id "PT_VU10_VariantReportUploaded_MOI1" and analysis_id "PT_VU10_VariantReportUploaded_ANI1" are in S3
     When POST to MATCH patients service, response includes "same molecular id" with code "403"
 
   @patients_p2
@@ -127,7 +148,10 @@ Feature: Variant files uploaded message
 #    Test patient: PT_VU11_VariantReportRejected; VR rejected: _SEI1, _MOI1, _ANI1
 #      Plan to use _SEI1, _MOI1, _ANI2
     Given patient id is "PT_VU11_VariantReportRejected"
-    And template variant file uploaded message for this patient (molecular_id: "PT_VU11_VariantReportRejected_MOI1", analysis_id: "PT_VU11_VariantReportRejected_ANI2") and need files in S3 Y or N: "Y"
+    And load template variant file uploaded message for this patient
+    Then set patient message field: "molecular_id" to value: "PT_VU11_VariantReportRejected_MOI1"
+    Then set patient message field: "analysis_id" to value: "PT_VU11_VariantReportRejected_ANI2"
+    Then files for molecular_id "PT_VU11_VariantReportRejected_MOI1" and analysis_id "PT_VU11_VariantReportRejected_ANI2" are in S3
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
     Then patient should have variant report (analysis_id: "PT_VU11_VariantReportRejected_ANI2")
@@ -137,7 +161,10 @@ Feature: Variant files uploaded message
   Scenario Outline: PT_VU12. variant files uploaded with existing(including the one just get rejected) analysis_id cannot be accepted when patient has TISSUE_VARIANT_REPORT_REJECTED status
 #    Test patient: PT_VU12_VariantReportRejected; VR rejected: _SEI1, _MOI1, _ANI1, VR rejected _SEI1, _MOI1, _ANI2
     Given patient id is "PT_VU12_VariantReportRejected"
-    And template variant file uploaded message for this patient (molecular_id: "<moi>", analysis_id: "<ani>") and need files in S3 Y or N: "Y"
+    And load template variant file uploaded message for this patient
+    Then set patient message field: "molecular_id" to value: "<moi>"
+    Then set patient message field: "analysis_id" to value: "<ani>"
+    Then files for molecular_id "<moi>" and analysis_id "<ani>" are in S3
     When POST to MATCH patients service, response includes "already has a variant report" with code "403"
     Examples:
       | moi                                | ani                                |
@@ -148,14 +175,20 @@ Feature: Variant files uploaded message
   Scenario: PT_VU13. variant files uploaded will not be accepted after a patient has TISSUE_VARIANT_REPORT_CONFIRMED status
   #    Test patient: PT_VU13_VariantReportConfirmed; VR confirmed _SEI1, _MOI1, _ANI1
     Given patient id is "PT_VU13_VariantReportConfirmed"
-    And template variant file uploaded message for this patient (molecular_id: "PT_VU13_VariantReportConfirmed_MOI1", analysis_id: "PT_VU13_VariantReportConfirmed_ANI2") and need files in S3 Y or N: "Y"
+    And load template variant file uploaded message for this patient
+    Then set patient message field: "molecular_id" to value: "PT_VU13_VariantReportConfirmed_MOI1"
+    Then set patient message field: "analysis_id" to value: "PT_VU13_VariantReportConfirmed_ANI2"
+    Then files for molecular_id "PT_VU13_VariantReportConfirmed_MOI1" and analysis_id "PT_VU13_VariantReportConfirmed_ANI2" are in S3
     When POST to MATCH patients service, response includes "already has a confirmed  variant report" with code "403"
 
   @patients_p3
   Scenario: PT_VU14. variant file uploaded to blood specimen should has correct result
 #    Test patient: PT_VU14_TissueAndBloodShipped; Tissue shipped: _SEI1, _MOI1; Blood shipped: BD_MOI1
     Given patient id is "PT_VU14_TissueAndBloodShipped"
-    And template variant file uploaded message for this patient (molecular_id: "PT_VU14_TissueAndBloodShipped_BD_MOI1", analysis_id: "PT_VU14_TissueAndBloodShipped_ANI1") and need files in S3 Y or N: "Y"
+    And load template variant file uploaded message for this patient
+    Then set patient message field: "molecular_id" to value: "PT_VU14_TissueAndBloodShipped_BD_MOI1"
+    Then set patient message field: "analysis_id" to value: "PT_VU14_TissueAndBloodShipped_ANI1"
+    Then files for molecular_id "PT_VU14_TissueAndBloodShipped_BD_MOI1" and analysis_id "PT_VU14_TissueAndBloodShipped_ANI1" are in S3
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then wait until patient variant report is updated
     Then patient should have variant report (analysis_id: "PT_VU14_TissueAndBloodShipped_ANI1")
@@ -176,7 +209,10 @@ Feature: Variant files uploaded message
 #    Test patient: PT_VU16_BdVRUploaded; variant report files uploaded: molecular_id: _BR_MOI1, analysis_id: _ANI1
 #          Plan to uploaded molecular_id: _BR_MOI1, analysis_id: _ANI2
     Given patient id is "PT_VU16_BdVRUploaded"
-    And template variant file uploaded message for this patient (molecular_id: "PT_VU16_BdVRUploaded_BD_MOI1", analysis_id: "PT_VU16_BdVRUploaded_ANI2") and need files in S3 Y or N: "Y"
+    And load template variant file uploaded message for this patient
+    Then set patient message field: "molecular_id" to value: "PT_VU16_BdVRUploaded_BD_MOI1"
+    Then set patient message field: "analysis_id" to value: "PT_VU16_BdVRUploaded_ANI2"
+    Then files for molecular_id "PT_VU16_BdVRUploaded_BD_MOI1" and analysis_id "PT_VU16_BdVRUploaded_ANI2" are in S3
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then wait until patient variant report is updated
     Then patient should have variant report (analysis_id: "PT_VU16_BdVRUploaded_ANI2")

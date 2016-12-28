@@ -5,7 +5,9 @@ Feature: NCH Specimen shipped messages
   @patients_p3
   Scenario: PT_SS01. Received specimen_shipped message for type 'BLOOD' from NCH for a patient who has already received the specimen_received message
     Given patient id is "PT_SS01_BloodReceived"
-    And template specimen shipped message for this patient (type: "BLOOD", surgical_event_id: "", molecular_id or slide_barcode: "PT_SS01_BloodReceived_BD_MOI1")
+    And load template specimen type: "BLOOD" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: ""
+    Then set patient message field: "molecular_id" to value: "PT_SS01_BloodReceived_BD_MOI1"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then wait until patient specimen is updated
     Then patient should have specimen (field: "active_molecular_id" is "PT_SS01_BloodReceived_BD_MOI1")
@@ -14,7 +16,9 @@ Feature: NCH Specimen shipped messages
   Scenario: PT_SS02. Received specimen_shipped message for type 'TISSUE' from NCH for a patient who has already received the specimen_received message
   #  Testing patient:PT_SS02_TissueReceived; surgical_event_id: PT_SS02_TissueReceived_SEI1
     Given patient id is "PT_SS02_TissueReceived"
-    And template specimen shipped message for this patient (type: "TISSUE", surgical_event_id: "PT_SS02_TissueReceived_SEI1", molecular_id or slide_barcode: "PT_SS02_TissueReceived_MOI1")
+    And load template specimen type: "TISSUE" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "PT_SS02_TissueReceived_SEI1"
+    Then set patient message field: "molecular_id" to value: "PT_SS02_TissueReceived_MOI1"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "TISSUE_NUCLEIC_ACID_SHIPPED"
     Then patient should have specimen (field: "active_molecular_id" is "PT_SS02_TissueReceived_MOI1")
@@ -22,7 +26,9 @@ Feature: NCH Specimen shipped messages
   @patients_p2
   Scenario: PT_SS02a. Received specimen_shipped message for type 'TISSUE' from NCH for a patient who has TISSUE_VARIANT_REPORT_REJECTED status
     Given patient id is "PT_SS02a_TsVrRejected"
-    And template specimen shipped message for this patient (type: "TISSUE", surgical_event_id: "PT_SS02a_TsVrRejected_SEI1", molecular_id or slide_barcode: "PT_SS02a_TsVrRejected_MOI2")
+    And load template specimen type: "TISSUE" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "PT_SS02a_TsVrRejected_SEI1"
+    Then set patient message field: "molecular_id" to value: "PT_SS02a_TsVrRejected_MOI2"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "TISSUE_NUCLEIC_ACID_SHIPPED"
     Then patient should have specimen (field: "active_molecular_id" is "PT_SS02a_TsVrRejected_MOI2")
@@ -31,14 +37,18 @@ Feature: NCH Specimen shipped messages
   Scenario: PT_SS03. Received specimen_shipped message for type 'SLIDE' from NCH for a patient who has already received the specimen_received message
   #  Testing patient:PT_SS03_TissueReceived; surgical_event_id: PT_SS03_TissueReceived_SEI1
     Given patient id is "PT_SS03_TissueReceived"
-    And template specimen shipped message for this patient (type: "SLIDE", surgical_event_id: "PT_SS03_TissueReceived_SEI1", molecular_id or slide_barcode: "PT_SS03_TissueReceived_BC1")
+    And load template specimen type: "SLIDE" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "PT_SS03_TissueReceived_SEI1"
+    Then set patient message field: "slide_barcode" to value: "PT_SS03_TissueReceived_BC1"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "TISSUE_SLIDE_SPECIMEN_SHIPPED"
 
   @patients_p2
   Scenario Outline: PT_SS04. Shipment with invalid patient_id fails
     Given patient id is "<patient>"
-    And template specimen shipped message for this patient (type: "<type>", surgical_event_id: "PT_SS04_SEI1", molecular_id or slide_barcode: "PT_SS04_ID1")
+    And load template specimen type: "<type>" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "PT_SS04_SEI1"
+    Then set patient message field: "molecular_id" to value: "PT_SS04_ID1"
     When POST to MATCH patients service, response includes "<message>" with code "<http_code>"
     Examples:
       | type   | patient             | http_code | message                |
@@ -51,7 +61,9 @@ Feature: NCH Specimen shipped messages
   Scenario Outline: PT_SS05. Shipment with invalid study_id fails
   #  Testing patient:PT_SS05_TissueReceived; surgical_event_id: PT_SS05_TissueReceived_SEI1
     Given patient id is "PT_SS05_TissueReceived"
-    And template specimen shipped message for this patient (type: "TISSUE", surgical_event_id: "PT_SS05_TissueReceived_SEI1", molecular_id or slide_barcode: "PT_SS05_TissueReceived_MOI1")
+    And load template specimen type: "TISSUE" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "PT_SS05_TissueReceived_SEI1"
+    Then set patient message field: "molecular_id" to value: "PT_SS05_TissueReceived_MOI1"
     Then set patient message field: "study_id" to value: "<study_id>"
     When POST to MATCH patients service, response includes "<message>" with code "403"
     Examples:
@@ -65,7 +77,9 @@ Feature: NCH Specimen shipped messages
   Scenario: PT_SS06. shipped_dttm older than collection_dt fails
   #  Testing patient: PT_SS06_TissueReceived, surgical_event_id: PT_SS06_TissueReceived_SEI1, collected_date: "2016-04-25T15:17:11+00:00",
     Given patient id is "PT_SS06_TissueReceived"
-    And template specimen shipped message for this patient (type: "TISSUE", surgical_event_id: "PT_SS06_TissueReceived_SEI1", molecular_id or slide_barcode: "PT_SS06_TissueReceived_MOI1")
+    And load template specimen type: "TISSUE" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "PT_SS06_TissueReceived_SEI1"
+    Then set patient message field: "molecular_id" to value: "PT_SS06_TissueReceived_MOI1"
     Then set patient message field: "shipped_dttm" to value: "2016-03-25T16:17:11+00:00"
     When POST to MATCH patients service, response includes "collected date" with code "403"
 
@@ -80,25 +94,29 @@ Feature: NCH Specimen shipped messages
   Scenario Outline: PT_SS07. shipped tissue or slide with a non-exist surgical_event_id fails
   #  Testing patient: PT_SS07_TissueReceived, surgical_event_id: PT_SS07_TissueReceived_SEI1
     Given patient id is "PT_SS07_TissueReceived"
-    And template specimen shipped message for this patient (type: "<type>", surgical_event_id: "<SEI>", molecular_id or slide_barcode: "<moi_bc>")
+    And load template specimen type: "<type>" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "<sei>"
+    Then set patient message field: "<field>" to value: "<value>"
     When POST to MATCH patients service, response includes "<message>" with code "403"
     Examples:
-      | type   | SEI    | moi_bc                      | message        |
-      | TISSUE | badSEI | PT_SS07_TissueReceived_MOI1 | Unable to find |
-      | SLIDE  |        | PT_SS07_TissueReceived_BC1  | can't be blank |
+      | type   | sei    | field         | value                       | message        |
+      | TISSUE | badSEI | molecular_id  | PT_SS07_TissueReceived_MOI1 | Unable to find |
+      | SLIDE  |        | slide_barcode | PT_SS07_TissueReceived_BC1  | can't be blank |
 
   @patients_p2
   Scenario Outline: PT_SS08. tissue or slide with an expired surgical_event_id fails
   #  Testing patient: PT_SS08_TissueReceived
   #  surgical event: PT_SS08_TissueReceived_SEI1 received Then PT_SS08_TissueReceived_SEI2 received (PT_SS08_TissueReceived_SEI1 expired)
     Given patient id is "PT_SS08_TissueReceived"
-    And template specimen shipped message for this patient (type: "<type>", surgical_event_id: "PT_SS08_TissueReceived_SEI1", molecular_id or slide_barcode: "<moi_bc>")
+    And load template specimen type: "<type>" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "PT_SS08_TissueReceived_SEI1"
+    Then set patient message field: "<field>" to value: "<value>"
     Then set patient message field: "shipped_dttm" to value: "current"
     When POST to MATCH patients service, response includes "not currently active" with code "403"
     Examples:
-      | type   | moi_bc                      |
-      | TISSUE | PT_SS08_TissueReceived_MOI1 |
-      | SLIDE  | PT_SS08_TissueReceived_BC1  |
+      | type   | field         | value                       |
+      | TISSUE | molecular_id  | PT_SS08_TissueReceived_MOI1 |
+      | SLIDE  | slide_barcode | PT_SS08_TissueReceived_BC1  |
 
   @patients_p2
   Scenario Outline: PT_SS08a. tissue or slide with an active surgical_event_id but doesn't belong to this patient fails
@@ -107,31 +125,35 @@ Feature: NCH Specimen shipped messages
   #    Test patients: PT_SS08a_TissueReceived2a has tissue received with sei PT_SS08a_TissueReceived2a_SEI1,
   #                   PT_SS08a_TissueReceived2b has tissue received with sei PT_SS08a_TissueReceived2b_SEI1
     Given patient id is "<patient_id>"
-    And template specimen shipped message for this patient (type: "<type>", surgical_event_id: "<sei>", molecular_id or slide_barcode: "<moi_bc>")
+    And load template specimen type: "<type>" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "<sei>"
+    Then set patient message field: "<field>" to value: "<value>"
     When POST to MATCH patients service, response includes "surgical" with code "403"
     Examples:
-      | patient_id                | sei                            | moi_bc                         | type   |
-      | PT_SS08a_TissueReceived1a | PT_SS08a_TissueReceived1b_SEI1 | PT_SS08a_TissueReceived1a_MOI1 | TISSUE |
-      | PT_SS08a_TissueReceived2a | PT_SS08a_TissueReceived2b_SEI1 | PT_SS08a_TissueReceived2a_BC1  | SLIDE  |
+      | patient_id                | sei                            | field         | value                          | type   |
+      | PT_SS08a_TissueReceived1a | PT_SS08a_TissueReceived1b_SEI1 | molecular_id  | PT_SS08a_TissueReceived1a_MOI1 | TISSUE |
+      | PT_SS08a_TissueReceived2a | PT_SS08a_TissueReceived2b_SEI1 | slide_barcode | PT_SS08a_TissueReceived2a_BC1  | SLIDE  |
 
   @patients_p2
   Scenario Outline: PT_SS09. shipped tissue or slide without surgical_event_id fails
   #  Testing patient: PT_SS09_TissueReceived, surgical_event_id: PT_SS09_TissueReceived_SEI1
     Given patient id is "PT_SS09_TissueReceived"
-    And template specimen shipped message for this patient (type: "<type>", surgical_event_id: "PT_SS09_TissueReceived_SEI1", molecular_id or slide_barcode: "PT_SS09_TissueReceived_MOI1")
+    And load template specimen type: "<type>" shipped message for this patient
+    Then set patient message field: "<field>" to value: "PT_SS09_TissueReceived_ID1"
     Then remove field: "surgical_event_id" from patient message
     When POST to MATCH patients service, response includes "surgical" with code "403"
     Examples:
-      | type   |
-      | TISSUE |
-      | SLIDE  |
+      | type   | field         |
+      | TISSUE | molecular_id  |
+      | SLIDE  | slide_barcode |
 
   @patients_p2
   Scenario Outline: PT_SS10. shipped tissue without molecular_id fails
   #or molecular_dna_id or molecular_cdna_id fails   ######not required any more
   #  Testing patient: PT_SS10_TissueReceived, surgical_event_id: PT_SS10_TissueReceived_SEI1
     Given patient id is "PT_SS10_TissueReceived"
-    And template specimen shipped message for this patient (type: "TISSUE", surgical_event_id: "PT_SS10_TissueReceived_SEI1", molecular_id or slide_barcode: "PT_SS10_TissueReceived_MOI1")
+    And load template specimen type: "TISSUE" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "PT_SS10_TissueReceived_SEI1"
     Then remove field: "<field>" from patient message
     When POST to MATCH patients service, response includes "<field>" with code "403"
     Examples:
@@ -146,7 +168,9 @@ Feature: NCH Specimen shipped messages
   #  Testing patient: PT_SS11_Tissue1Shipped, surgical_event_id: PT_SS11_Tissue1Shipped_SEI1
   #    molecular_id: PT_SS11_Tissue1Shipped_MOI1 has shipped and PT_SS11_Tissue1Shipped_MOI2 has shipped
     Given patient id is "PT_SS11_Tissue1Shipped"
-    And template specimen shipped message for this patient (type: "TISSUE", surgical_event_id: "PT_SS11_Tissue1Shipped_SEI1", molecular_id or slide_barcode: "<moi>")
+    And load template specimen type: "TISSUE" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "PT_SS11_Tissue1Shipped_SEI1"
+    Then set patient message field: "molecular_id" to value: "<moi>"
     Then set patient message field: "shipped_dttm" to value: "2016-08-25T16:17:11+00:00"
     When POST to MATCH patients service, response includes "<message>" with code "403"
     Examples:
@@ -161,15 +185,17 @@ Feature: NCH Specimen shipped messages
 #    patient: "PT_SS11a_Step2BdReceived" with status: "REQUEST_ASSIGNMENT" on step: "2.0"
 #    moi or barcode has been used in step 1.0
     Given patient id is "<patient_id>"
-    And template specimen shipped message for this patient (type: "<type>", surgical_event_id: "<patient_id>_SEI5", molecular_id or slide_barcode: "<moi_or_barcode>")
+    And load template specimen type: "<type>" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "<patient_id>_SEI5"
+    Then set patient message field: "<field>" to value: "<value>"
     Then set patient message field: "destination" to value: "MoCha"
     Then set patient message field: "shipped_dttm" to value: "2016-08-01T18:17:11+00:00"
     When POST to MATCH patients service, response includes "<message>" with code "403"
     Examples:
-      | patient_id                | moi_or_barcode                   | type   | message                          |
-      | PT_SS11a_Step2TsReceived1 | PT_SS11a_Step2TsReceived1_MOI1   | TISSUE | same molecular id has been found |
-      | PT_SS11a_Step2TsReceived2 | PT_SS11a_Step2TsReceived2_BC1    | SLIDE  | same barcode has been found      |
-      | PT_SS11a_Step2BdReceived  | PT_SS11a_Step2BdReceived_BD_MOI1 | BLOOD  | same molecular id has been found |
+      | patient_id                | field         | value                            | type   | message           |
+      | PT_SS11a_Step2TsReceived1 | molecular_id  | PT_SS11a_Step2TsReceived1_MOI1   | TISSUE | same molecular id |
+      | PT_SS11a_Step2TsReceived2 | slide_barcode | PT_SS11a_Step2TsReceived2_BC1    | SLIDE  | same barcode      |
+      | PT_SS11a_Step2BdReceived  | molecular_id  | PT_SS11a_Step2BdReceived_BD_MOI1 | BLOOD  | same molecular id |
 
 
   @patients_p2
@@ -177,7 +203,9 @@ Feature: NCH Specimen shipped messages
   #  Testing patient: PT_SS12_Tissue1Shipped, surgical_event_id: PT_SS12_Tissue1Shipped_SEI1
   #    molecular_id: PT_SS12_Tissue1Shipped_MOI1 has shipped
     Given patient id is "PT_SS12_Tissue1Shipped"
-    And template specimen shipped message for this patient (type: "TISSUE", surgical_event_id: "PT_SS12_Tissue1Shipped_SEI1", molecular_id or slide_barcode: "PT_SS12_Tissue1Shipped_MOI2")
+    And load template specimen type: "TISSUE" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "PT_SS12_Tissue1Shipped_SEI1"
+    Then set patient message field: "molecular_id" to value: "PT_SS12_Tissue1Shipped_MOI2"
     Then set patient message field: "shipped_dttm" to value: "2016-08-25T16:17:11+00:00"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then wait until patient specimen is updated
@@ -197,7 +225,9 @@ Feature: NCH Specimen shipped messages
   Scenario: PT_SS14. shipped slide without slide_barcode fails
   #  Testing patient: PT_SS14_TissueReceived, surgical_event_id: PT_SS14_TissueReceived_SEI1
     Given patient id is "PT_SS14_TissueReceived"
-    And template specimen shipped message for this patient (type: "SLIDE", surgical_event_id: "PT_SS14_TissueReceived_SEI1", molecular_id or slide_barcode: "PT_SS14_TissueReceived_BC1")
+    And load template specimen type: "SLIDE" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "PT_SS14_TissueReceived_SEI1"
+    Then set patient message field: "slide_barcode" to value: "PT_SS14_TissueReceived_BC1"
     Then remove field: "slide_barcode" from patient message
     When POST to MATCH patients service, response includes "can't be blank" with code "403"
 
@@ -206,7 +236,9 @@ Feature: NCH Specimen shipped messages
   #  Testing patient: PT_SS15_Slide1Shipped, surgical_event_id: PT_SS15_Slide1Shipped_SEI1
   #    slide with barcode: PT_SS15_Slide1Shipped_BC1 has been shipped
     Given patient id is "PT_SS15_Slide1Shipped"
-    And template specimen shipped message for this patient (type: "SLIDE", surgical_event_id: "PT_SS15_Slide1Shipped_SEI1", molecular_id or slide_barcode: "PT_SS15_Slide1Shipped_BC2")
+    And load template specimen type: "SLIDE" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "PT_SS15_Slide1Shipped_SEI1"
+    Then set patient message field: "slide_barcode" to value: "PT_SS15_Slide1Shipped_BC2"
     Then set patient message field: "shipped_dttm" to value: "2016-08-25T16:17:11+00:00"
     When POST to MATCH patients service, response includes "successfully" with code "202"
 
@@ -215,20 +247,26 @@ Feature: NCH Specimen shipped messages
 #  Testing patient: PT_SS16_Slide1Shipped, surgical_event_id: PT_SS16_Slide1Shipped_SEI1
 #    slide with barcode: PT_SS16_Slide1Shipped_BC1 has been shipped
     Given patient id is "PT_SS16_Slide1Shipped"
-    And template specimen shipped message for this patient (type: "SLIDE", surgical_event_id: "PT_SS16_Slide1Shipped_SEI1", molecular_id or slide_barcode: "PT_SS16_Slide1Shipped_BC1")
+    And load template specimen type: "SLIDE" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "PT_SS16_Slide1Shipped_SEI1"
+    Then set patient message field: "slide_barcode" to value: "PT_SS16_Slide1Shipped_BC1"
     Then set patient message field: "shipped_dttm" to value: "2016-08-25T16:17:11+00:00"
     When POST to MATCH patients service, response includes "slide barcode already exists" with code "403"
 
   @patients_p2
   Scenario: PT_SS17a. shipped tissue without tissue received fails
     Given patient id is "PT_SS17a_Registered"
-    And template specimen shipped message for this patient (type: "TISSUE", surgical_event_id: "PT_SS17a_Registered_SEI1", molecular_id or slide_barcode: "PT_SS17a_Registered_MOI1")
+    And load template specimen type: "TISSUE" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "PT_SS17a_Registered_SEI1"
+    Then set patient message field: "molecular_id" to value: "PT_SS17a_Registered_MOI1"
     When POST to MATCH patients service, response includes "Unable to find a TISSUE specimen" with code "403"
 
   @patients_p2
   Scenario: PT_SS17b. shipped slide without tissue received fails
     Given patient id is "PT_SS17b_Registered"
-    And template specimen shipped message for this patient (type: "SLIDE", surgical_event_id: "PT_SS17b_Registered_SEI1", molecular_id or slide_barcode: "PT_SS17b_Registered_BC1")
+    And load template specimen type: "SLIDE" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "PT_SS17b_Registered_SEI1"
+    Then set patient message field: "slide_barcode" to value: "PT_SS17b_Registered_BC1"
     When POST to MATCH patients service, response includes "Unable to find a TISSUE specimen" with code "403"
 
   @patients_p3
@@ -236,7 +274,9 @@ Feature: NCH Specimen shipped messages
   #  Testing patient: PT_SS17_Registered
   #     These is no blood specimen received event in this patient
     Given patient id is "PT_SS17_Registered"
-    And template specimen shipped message for this patient (type: "BLOOD", surgical_event_id: "", molecular_id or slide_barcode: "PT_SS17_Registered_BD_MOI1")
+    And load template specimen type: "BLOOD" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: ""
+    Then set patient message field: "molecular_id" to value: "PT_SS17_Registered_BD_MOI1"
     When POST to MATCH patients service, response includes "Unable to find a BLOOD specimen" with code "403"
 
     #this test case is not required
@@ -250,7 +290,9 @@ Feature: NCH Specimen shipped messages
   #  Testing patient: PT_SS20_Blood1Shipped
   #    blood molecular_id: PT_SS20_Blood1Shipped_BD_MOI1 has shipped
     Given patient id is "PT_SS20_Blood1Shipped"
-    And template specimen shipped message for this patient (type: "BLOOD", surgical_event_id: "", molecular_id or slide_barcode: "PT_SS20_Blood1Shipped_BD_MOI2")
+    And load template specimen type: "BLOOD" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: ""
+    Then set patient message field: "molecular_id" to value: "PT_SS20_Blood1Shipped_BD_MOI2"
     Then set patient message field: "shipped_dttm" to value: "2016-08-25T16:17:11+00:00"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then wait until patient specimen is updated
@@ -262,7 +304,9 @@ Feature: NCH Specimen shipped messages
   #    Testing patient: PT_SS21_TissueVariantConfirmed, surgical_event_id: PT_SS21_TissueVariantConfirmed_SEI1, molecular_id: PT_SS21_TissueVariantConfirmed_MOI1, analysis_id: PT_SS21_TissueVariantConfirmed_ANI1
   #      this patient has TISSUE_VARIANT_REPORT_CONFIRMED status
     Given patient id is "PT_SS21_TissueVariantConfirmed"
-    And template specimen shipped message for this patient (type: "TISSUE", surgical_event_id: "PT_SS21_TissueVariantConfirmed_SEI1", molecular_id or slide_barcode: "PT_SS21_TissueVariantConfirmed_MOI2")
+    And load template specimen type: "TISSUE" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "PT_SS21_TissueVariantConfirmed_SEI1"
+    Then set patient message field: "molecular_id" to value: "PT_SS21_TissueVariantConfirmed_MOI2"
     Then set patient message field: "shipped_dttm" to value: "current"
     When POST to MATCH patients service, response includes "confirmed variant report" with code "403"
 
@@ -277,15 +321,17 @@ Feature: NCH Specimen shipped messages
   @patients_p2
   Scenario Outline: PT_SS23. Tissue shipment and slide shipment should not depend on each other
     Given patient id is "<patient_id>"
-    And template specimen shipped message for this patient (type: "<type>", surgical_event_id: "<sei>", molecular_id or slide_barcode: "<moi_bc>")
+    And load template specimen type: "<type>" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "<sei>"
+    Then set patient message field: "<field>" to value: "<value>"
     Then set patient message field: "shipped_dttm" to value: "2016-08-25T16:17:11+00:00"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Examples:
-      | type   | patient_id              | sei                          | moi_bc                       |
-      | TISSUE | PT_SS23_TissueReceived1 | PT_SS23_TissueReceived1_SEI1 | PT_SS23_TissueReceived1_MOI1 |
-      | SLIDE  | PT_SS23_TissueReceived2 | PT_SS23_TissueReceived2_SEI1 | PT_SS23_TissueReceived2_BC1  |
-      | TISSUE | PT_SS23_SlideShipped    | PT_SS23_SlideShipped_SEI1    | PT_SS23_SlideShipped_MOI1    |
-      | SLIDE  | PT_SS23_TissueShipped   | PT_SS23_TissueShipped_SEI1   | PT_SS23_TissueShipped_BC1    |
+      | type   | patient_id              | sei                          | field         | value                        |
+      | TISSUE | PT_SS23_TissueReceived1 | PT_SS23_TissueReceived1_SEI1 | molecular_id  | PT_SS23_TissueReceived1_MOI1 |
+      | SLIDE  | PT_SS23_TissueReceived2 | PT_SS23_TissueReceived2_SEI1 | slide_barcode | PT_SS23_TissueReceived2_BC1  |
+      | TISSUE | PT_SS23_SlideShipped    | PT_SS23_SlideShipped_SEI1    | molecular_id  | PT_SS23_SlideShipped_MOI1    |
+      | SLIDE  | PT_SS23_TissueShipped   | PT_SS23_TissueShipped_SEI1   | slide_barcode | PT_SS23_TissueShipped_BC1    |
 
   @patients_p3
   Scenario Outline: PT_SS24. Tissue shipment and blood shipment should not use same molecular_id
@@ -296,7 +342,9 @@ Feature: NCH Specimen shipped messages
   #                          Tissue shipped PT_SS24_TissueShipped_SEI1, PT_SS24_TissueShipped_MOI1,
   #                          Blood received, try to ship it using PT_SS24_TissueShipped_MOI1
     Given patient id is "<patient_id>"
-    And template specimen shipped message for this patient (type: "<type>", surgical_event_id: "<sei>", molecular_id or slide_barcode: "<moi>")
+    And load template specimen type: "<type>" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "<sei>"
+    Then set patient message field: "molecular_id" to value: "<moi>"
     Then set patient message field: "shipped_dttm" to value: "2016-08-25T16:17:11+00:00"
     When POST to MATCH patients service, response includes "<message>" with code "403"
     Examples:
@@ -308,7 +356,9 @@ Feature: NCH Specimen shipped messages
   Scenario Outline: PT_SS25. Blood shipment use old blood molecular_id should fail
   #    Testing patient: PT_SS25_BloodShipped, PT_SS25_BloodShipped_BD_MOI1 has been shipped, PT_SS25_BloodShipped_BD_MOI2 has been shipped
     Given patient id is "PT_SS25_BloodShipped"
-    And template specimen shipped message for this patient (type: "BLOOD", surgical_event_id: "", molecular_id or slide_barcode: "<moi>")
+    And load template specimen type: "BLOOD" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: ""
+    Then set patient message field: "molecular_id" to value: "<moi>"
     Then set patient message field: "shipped_dttm" to value: "<ship_time>"
     When POST to MATCH patients service, response includes "same molecular id" with code "403"
     Examples:
@@ -319,7 +369,9 @@ Feature: NCH Specimen shipped messages
   @patients_p3
   Scenario Outline: PT_SS26. Blood specimen can only be shipped in certain status (blood specimen has been received before)
     Given patient id is "<patient_id>"
-    And template specimen shipped message for this patient (type: "BLOOD", surgical_event_id: "", molecular_id or slide_barcode: "<moi>")
+    And load template specimen type: "BLOOD" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: ""
+    Then set patient message field: "molecular_id" to value: "<moi>"
     Then set patient message field: "shipped_dttm" to value: "2016-07-28T15:17:11+00:00"
     When POST to MATCH patients service, response includes "<message>" with code "<http_code>"
     Examples:
@@ -340,7 +392,9 @@ Feature: NCH Specimen shipped messages
     #    Test patient: PT_SS27_VariantReportUploaded; variant report files uploaded: surgical_event_id: PT_SS27_VariantReportUploaded_SEI1, molecular_id: PT_SS27_VariantReportUploaded_MOI1, analysis_id: PT_SS27_VariantReportUploaded_ANI1
     #          Plan to ship new specimen using same surgical_event_id: PT_SS27_VariantReportUploaded_SEI1 but new molecular_id PT_SS27_VariantReportUploaded_MOI2
     Given patient id is "PT_SS27_VariantReportUploaded"
-    And template specimen shipped message for this patient (type: "TISSUE", surgical_event_id: "PT_SS27_VariantReportUploaded_SEI1", molecular_id or slide_barcode: "PT_SS27_VariantReportUploaded_MOI2")
+    And load template specimen type: "TISSUE" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "PT_SS27_VariantReportUploaded_SEI1"
+    Then set patient message field: "molecular_id" to value: "PT_SS27_VariantReportUploaded_MOI2"
     Then set patient message field: "shipped_dttm" to value: "2016-08-01T15:17:11+00:00"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "TISSUE_NUCLEIC_ACID_SHIPPED"
@@ -351,19 +405,21 @@ Feature: NCH Specimen shipped messages
   Scenario Outline: PT_SS28. destination should be validated
       #slide can only be shipped to MDA, if it is shipped to MoCha, that shoulf fail
     Given patient id is "<patient_id>"
-    And template specimen shipped message for this patient (type: "<type>", surgical_event_id: "<sei>", molecular_id or slide_barcode: "<moi_bc>")
-    Then set patient message field: "destination" to value: "<destination>"
-    When POST to MATCH patients service, response includes "<message>" with code "<http_code>"
+    And load template specimen type: "<type>" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "<sei>"
+    Then set patient message field: "<field>" to value: "<patient_id><suffix>"
+    Then set patient message field: "destination" to value: "<site>"
+    When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
-      | patient_id              | sei                          | moi_bc                         | type   | destination | http_code | message                                             |
-      | PT_SS28_TissueReceived1 | PT_SS28_TissueReceived1_SEI1 | PT_SS28_TissueReceived1_MOI1   | TISSUE | MoCha       | 202       | processed successfully                              |
-      | PT_SS28_TissueReceived2 | PT_SS28_TissueReceived2_SEI1 | PT_SS28_TissueReceived2_MOI1   | TISSUE | MDA         | 202       | processed successfully                              |
-      | PT_SS28_TissueReceived3 | PT_SS28_TissueReceived3_SEI1 | PT_SS28_TissueReceived3_MOI1   | TISSUE | Other       | 403       | destination                                         |
-      | PT_SS28_TissueReceived4 | PT_SS28_TissueReceived4_SEI1 | PT_SS28_TissueReceived4_BC1    | SLIDE  | MDA         | 202       | processed successfully                              |
-      | PT_SS28_TissueReceived5 | PT_SS28_TissueReceived5_SEI1 | PT_SS28_TissueReceived5_BC1    | SLIDE  | MoCha       | 403       | MoCha is not a valid shipping destination for SLIDE |
-      | PT_SS28_BloodReceived1  |                              | PT_SS28_BloodReceived1_BD_MOI1 | BLOOD  | MoCha       | 202       | processed successfully                              |
-      | PT_SS28_BloodReceived2  |                              | PT_SS28_BloodReceived2_BD_MOI1 | BLOOD  | MDA         | 202       | processed successfully                              |
-      | PT_SS28_BloodReceived3  |                              | PT_SS28_BloodReceived3_BD_MOI1 | BLOOD  | mda         | 403       | destination                                         |
+      | patient_id              | sei                          | field         | type   | site  | code | message      |
+      | PT_SS28_TissueReceived1 | PT_SS28_TissueReceived1_SEI1 | molecular_id  | TISSUE | MoCha | 202  | successfully |
+      | PT_SS28_TissueReceived2 | PT_SS28_TissueReceived2_SEI1 | molecular_id  | TISSUE | MDA   | 202  | successfully |
+      | PT_SS28_TissueReceived3 | PT_SS28_TissueReceived3_SEI1 | molecular_id  | TISSUE | Other | 403  | destination  |
+      | PT_SS28_TissueReceived4 | PT_SS28_TissueReceived4_SEI1 | slide_barcode | SLIDE  | MDA   | 202  | successfully |
+      | PT_SS28_TissueReceived5 | PT_SS28_TissueReceived5_SEI1 | slide_barcode | SLIDE  | MoCha | 403  | destination  |
+      | PT_SS28_BloodReceived1  |                              | molecular_id  | BLOOD  | MoCha | 202  | successfully |
+      | PT_SS28_BloodReceived2  |                              | molecular_id  | BLOOD  | MDA   | 202  | successfully |
+      | PT_SS28_BloodReceived3  |                              | molecular_id  | BLOOD  | mda   | 403  | destination  |
 
 #  This test case is not required
 #  Scenario Outline: PT_SS29. Blood and tissue shippment should has same destination (?? not sure)
@@ -385,26 +441,30 @@ Feature: NCH Specimen shipped messages
   @patients_p3
   Scenario Outline: PT_SS30. extra key-value pair in the message body should NOT fail
     Given patient id is "PT_SS30_TsBdReceived"
-    And template specimen shipped message for this patient (type: "<type>", surgical_event_id: "<sei>", molecular_id or slide_barcode: "<moi_bc>")
+    And load template specimen type: "<type>" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "<sei>"
+    Then set patient message field: "<field>" to value: "<value>"
     Then set patient message field: "extra_info" to value: "This is extra information"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Examples:
-      | type   | sei                       | moi_bc                       |
-      | TISSUE | PT_SS30_TsBdReceived_SEI1 | PT_SS30_TsBdReceived_MOI1    |
-      | BLOOD  |                           | PT_SS30_TsBdReceived_BD_MOI1 |
-      | SLIDE  | PT_SS30_TsBdReceived_SEI1 | PT_SS30_TsBdReceived_BC1     |
+      | type   | sei                       | field         | value                        |
+      | TISSUE | PT_SS30_TsBdReceived_SEI1 | molecular_id  | PT_SS30_TsBdReceived_MOI1    |
+      | BLOOD  |                           | molecular_id  | PT_SS30_TsBdReceived_BD_MOI1 |
+      | SLIDE  | PT_SS30_TsBdReceived_SEI1 | slide_barcode | PT_SS30_TsBdReceived_BC1     |
 
   @patients_p2
   Scenario Outline: PT_SS31. tissue or slide specimen cannot be shipped when patient is on NO_TA_AVAILABLE or COMPASSIONATE_CARE status
     Given patient id is "<patient_id>"
-    And template specimen shipped message for this patient (type: "<type>", surgical_event_id: "<sei>", molecular_id or slide_barcode: "<id>")
+    And load template specimen type: "<type>" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "<patient_id>_SEI1"
+    Then set patient message field: "<field>" to value: "<valie>"
     Then set patient message field: "shipped_dttm" to value: "2016-08-01T15:17:11+00:00"
     When POST to MATCH patients service, response includes "cannot transition from" with code "403"
     Examples:
-      | patient_id                | type   | sei                            | id                             |
-      | PT_SS31_NoTaAvailable     | TISSUE | PT_SS31_NoTaAvailable_SEI1     | PT_SS31_NoTaAvailable_MOI2     |
-      | PT_SS31_NoTaAvailable     | SLIDE  | PT_SS31_NoTaAvailable_SEI1     | PT_SS31_NoTaAvailable_BC2      |
-      | PT_SS31_CompassionateCare | TISSUE | PT_SS31_CompassionateCare_SEI1 | PT_SS31_CompassionateCare_MOI2 |
-      | PT_SS31_CompassionateCare | SLIDE  | PT_SS31_CompassionateCare_SEI1 | PT_SS31_CompassionateCare_BC2  |
+      | patient_id                | type   | field         | valie                          |
+      | PT_SS31_NoTaAvailable     | TISSUE | molecular_id  | PT_SS31_NoTaAvailable_MOI2     |
+      | PT_SS31_NoTaAvailable     | SLIDE  | slide_barcode | PT_SS31_NoTaAvailable_BC2      |
+      | PT_SS31_CompassionateCare | TISSUE | molecular_id  | PT_SS31_CompassionateCare_MOI2 |
+      | PT_SS31_CompassionateCare | SLIDE  | slide_barcode | PT_SS31_CompassionateCare_BC2  |
 
 

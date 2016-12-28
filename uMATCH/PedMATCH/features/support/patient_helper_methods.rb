@@ -190,6 +190,19 @@ class Patient_helper_methods
     end
   end
 
+  def self.load_template(pt_id, type)
+    @patient_id = pt_id
+    @request_hash = load_patient_message_templates(type)
+    if type.start_with?('specimen_received')
+      @patient_message_root_key = 'specimen_received'
+    elsif type.start_with?('specimen_shipped')
+      @patient_message_root_key = 'specimen_shipped'
+    else
+      @patient_message_root_key = ''
+    end
+    update_patient_message('patient_id', @patient_id)
+  end
+
   def self.prepare_register(pt_id, reg_date='default')
     @patient_id = pt_id
     @request_hash = load_patient_message_templates('registration')
@@ -271,6 +284,11 @@ class Patient_helper_methods
     end
     @request_hash['case_number'] = "pathology_#{sei}_#{@request_hash['reported_date']}"
     @patient_message_root_key = ''
+  end
+
+  def self.upload_vr_to_s3(moi, ani)
+    Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-dev', 'bdd_test_ion_reporter', moi, ani)
+    Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-int', 'bdd_test_ion_reporter', moi, ani)
   end
 
   def self.prepare_vr_upload(pt_id, moi, ani, need_upload, site='default')
@@ -389,6 +407,7 @@ class Patient_helper_methods
   def self.get_response_and_code(url)
     Helper_Methods.simple_get_request(url)
   end
+
   def self.get_any_result_from_url(url)
     return Helper_Methods.simple_get_request(url)['message_json']
   end

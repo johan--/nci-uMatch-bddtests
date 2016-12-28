@@ -15,8 +15,9 @@ Feature: Variant files confirmed messages
   @patients_p2
   Scenario Outline: PT_VC01. variant confirm message with invalid variant_uuid should fail
     Given patient id is "PT_VC01_VRUploaded"
-    And template variant confirm message for this patient (uuid: "<uuid>", status: "unchecked", comment: "test")
-    When PUT to MATCH variant confirm service, response includes "<message>" with code "403"
+    And variant uuid is "<uuid>"
+    And load template variant confirm message for this patient
+    When PUT to MATCH variant "unchecked" service for this uuid, response includes "<message>" with code "403"
     Examples:
       | uuid              | message   |
   #    |                                 |can't be blank        |
@@ -27,11 +28,11 @@ Feature: Variant files confirmed messages
   Scenario Outline: PT_VC02. variant confirm message with invalid confirmed should fail
     #    Test Patient: PT_VC02_VRUploaded, VR uploaded PT_VC02_VRUploaded(_SEI1, _MOI1, _ANI1)
     Given patient id is "PT_VC02_VRUploaded"
-    And a random "fusion" variant in variant report (analysis_id: "PT_VC02_VRUploaded_ANI1") for this patient
-    Then create variant confirm message with checked: "<confirmed>" and comment: "Tests" for this variant
-    When PUT to MATCH variant confirm service, response includes "<message>" with code "403"
+    And a random "fusion" variant for analysis id "PT_VC02_VRUploaded_ANI1"
+    And load template variant confirm message for this patient
+    Then PUT to MATCH variant "<checked>" service for this uuid, response includes "<message>" with code "403"
     Examples:
-      | confirmed                | message                                             |
+      | checked                | message                                             |
 #      |                                 |not of a minimum string length of 1                      |
 #      |null                             |NilClass did not match the following type: string        |
       | not_checked_or_unchecked | Unregnized checked flag in variant confirmation url |
@@ -40,9 +41,9 @@ Feature: Variant files confirmed messages
   Scenario: PT_VC03. variant_confirmed message will not be accepted if it is using a variant uuid that belongs to a rejected variant report (uuid should be only ones in current pending variant list)
 #    Test Patient: PT_VC03_VRUploadedAfterRejected, VR rejected: PT_VC03_VRUploadedAfterRejected(_SEI1, _MOI1, _ANI1), VR uploaded PT_VC03_VRUploadedAfterRejected(_SEI1, _MOI1, _ANI2)
     Given patient id is "PT_VC03_VRUploadedAfterRejected"
-    And a random "fusion" variant in variant report (analysis_id: "PT_VC03_VRUploadedAfterRejected_ANI1") for this patient
-    Then create variant confirm message with checked: "unchecked" and comment: "Tests" for this variant
-    When PUT to MATCH variant confirm service, response includes "TBD" with code "403"
+    And a random "fusion" variant for analysis id "PT_VC03_VRUploadedAfterRejected_ANI1"
+    And load template variant confirm message for this patient
+    Then PUT to MATCH variant "unchecked" service for this uuid, response includes "TBD" with code "403"
 
 #  comment: should not be null or empty if confirmed is false --- DON'T test, this will be UI work
 
@@ -50,30 +51,35 @@ Feature: Variant files confirmed messages
   Scenario: PT_VC04. when variant get confirmed again after it get un-confirmed, the comment value should be cleared
     #    Test Patient: PT_VC04_VRUploaded, VR uploaded PT_VC04_VRUploaded(_SEI1, _MOI1, _ANI1)
     Given patient id is "PT_VC04_VRUploaded"
-    And a random "fusion" variant in variant report (analysis_id: "PT_VC04_VRUploaded_ANI1") for this patient
-    Then create variant confirm message with checked: "unchecked" and comment: "TEST" for this variant
-    When PUT to MATCH variant confirm service, response includes "confirmed status changed to false" with code "200"
+    And a random "fusion" variant for analysis id "PT_VC04_VRUploaded_ANI1"
+    And load template variant confirm message for this patient
+    Then set patient message field: "comment" to value: "TEST"
+    Then PUT to MATCH variant "unchecked" service for this uuid, response includes "changed to false" with code "200"
     Then this variant should have confirmed field: "false" and comment field: "TEST"
-    Then create variant confirm message with checked: "checked" and comment: "" for this variant
-    When PUT to MATCH variant confirm service, response includes "confirmed status changed to true" with code "200"
+    Then set patient message field: "comment" to value: ""
+    Then PUT to MATCH variant "checked" service for this uuid, response includes "changed to true" with code "200"
     Then this variant should have confirmed field: "true" and comment field: "null"
 
   @patients_p2
   Scenario: PT_VC04a. comment can be updated properly
     #Test patient: PT_VC04a_VRUploaded, PT_VC04a_VRUploaded(_SEI1, _MOI1, _ANI1)
     Given patient id is "PT_VC04a_VRUploaded"
-    And a random "fusion" variant in variant report (analysis_id: "PT_VC04a_VRUploaded_ANI1") for this patient
-    Then create variant confirm message with checked: "unchecked" and comment: "TEST" for this variant
-    When PUT to MATCH variant confirm service, response includes "confirmed status changed to false" with code "200"
-    Then create variant confirm message with checked: "unchecked" and comment: "COMMENT_EDITED" for this variant
-    When PUT to MATCH variant confirm service, response includes "confirmed status changed to false" with code "200"
+    And a random "fusion" variant for analysis id "PT_VC04a_VRUploaded_ANI1"
+    And load template variant confirm message for this patient
+    Then set patient message field: "comment" to value: "TEST"
+    Then PUT to MATCH variant "unchecked" service for this uuid, response includes "changed to false" with code "200"
+    Then set patient message field: "comment" to value: "COMMENT_EDITED"
+    Then PUT to MATCH variant "unchecked" service for this uuid, response includes "changed to false" with code "200"
     Then this variant should have confirmed field: "false" and comment field: "COMMENT_EDITED"
 
   @patients_p2
   Scenario: PT_VC05. confirmed fields should be "true" as default
     #    Test Patient: PT_VC05_TissueShipped, Tissue shipped PT_VC05_TissueShipped(_SEI1, _MOI1)
     Given patient id is "PT_VC05_TissueShipped"
-    And template variant file uploaded message for this patient (molecular_id: "PT_VC05_TissueShipped_MOI1", analysis_id: "PT_VC05_TissueShipped_ANI1") and need files in S3 Y or N: "Y"
+    And load template variant file uploaded message for this patient
+    Then set patient message field: "molecular_id" to value: "PT_VC05_TissueShipped_MOI1"
+    Then set patient message field: "analysis_id" to value: "PT_VC05_TissueShipped_ANI1"
+    Then files for molecular_id "PT_VC05_TissueShipped_MOI1" and analysis_id "PT_VC05_TissueShipped_ANI1" are in S3
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
     Then variants in variant report (analysis_id: "PT_VC05_TissueShipped_ANI1") have confirmed: "true"
@@ -82,10 +88,14 @@ Feature: Variant files confirmed messages
   Scenario: PT_VC05a. all confirmed fields should be "false" after a new variant report get uploaded
     #    Test Patient: PT_VC05a_VRUploaded, VR uploaded PT_VC05a_VRUploaded(_SEI1, _MOI1, _ANI1)
     Given patient id is "PT_VC05a_VRUploaded"
-    Given a random "fusion" variant in variant report (analysis_id: "PT_VC05a_VRUploaded_ANI1") for this patient
-    Then create variant confirm message with checked: "unchecked" and comment: "TEST" for this variant
-    When PUT to MATCH variant confirm service, response includes "confirmed status changed to false" with code "200"
-    Then template variant file uploaded message for this patient (molecular_id: "PT_VC05a_VRUploaded_MOI1", analysis_id: "PT_VC05a_VRUploaded_ANI2") and need files in S3 Y or N: "Y>"
+    And a random "fusion" variant for analysis id "PT_VC05a_VRUploaded_ANI1"
+    And load template variant confirm message for this patient
+    Then set patient message field: "comment" to value: "TEST"
+    Then PUT to MATCH variant "unchecked" service for this uuid, response includes "changed to false" with code "200"
+    And load template variant file uploaded message for this patient
+    Then set patient message field: "molecular_id" to value: "PT_VC05a_VRUploaded_MOI1"
+    Then set patient message field: "analysis_id" to value: "PT_VC05a_VRUploaded_ANI2"
+    Then files for molecular_id "PT_VC05a_VRUploaded_MOI1" and analysis_id "PT_VC05a_VRUploaded_ANI2" are in S3
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then wait until patient variant report is updated
     Then variants in variant report (analysis_id: "PT_VC05a_VRUploaded_ANI1") have confirmed: "false"
@@ -106,8 +116,8 @@ Feature: Variant files confirmed messages
   @patients_p2
   Scenario Outline: PT_VC06. variant report confirm message with invalid patient_id should fail
     Given patient id is "<value>"
-    And template variant report confirm message for this patient (analysis_id: "ANI1", status: "confirm")
-    When PUT to MATCH variant report confirm service, response includes "<message>" with code "403"
+    Then load template variant report confirm message for analysis id: "ANI1"
+    When PUT to MATCH variant report "confirm" service, response includes "<message>" with code "403"
     Examples:
       | value      | message             |
 #      |               |can't be blank        |
@@ -127,8 +137,8 @@ Feature: Variant files confirmed messages
   @patients_p2
   Scenario Outline: PT_VC09. variant report confirm message with invalid analysis_id should fail
     Given patient id is "PT_VC09_VRUploaded"
-    And template variant report confirm message for this patient (analysis_id: "<ANI>", status: "confirm")
-    When PUT to MATCH variant report confirm service, response includes "<message>" with code "403"
+    Then load template variant report confirm message for analysis id: "<ANI>"
+    When PUT to MATCH variant report "confirm" service, response includes "<message>" with code "403"
     Examples:
       | ANI   | message            |
 #      |               |can't be blank             |
@@ -142,8 +152,8 @@ Feature: Variant files confirmed messages
 ##  Test patient: PT_VC10_VRUploadedANIExpired: 1. PT_VC10_VRUploadedANIExpired(_SEI1, _MOI1, _ANI1), 2. PT_VC10_VRUploadedANIExpired(_SEI1, MOI1, _ANI2)
 
     Given patient id is "<patient_id>"
-    And template variant report confirm message for this patient (analysis_id: "<ani>", status: "confirm")
-    When PUT to MATCH variant report confirm service, response includes "doesn't match current specimen's latest analysis id" with code "403"
+    Then load template variant report confirm message for analysis id: "<ani>"
+    When PUT to MATCH variant report "confirm" service, response includes "latest analysis id" with code "403"
     Examples:
       | patient_id                   | ani                               |
       | PT_VC10_VRUploadedSEIExpired | PT_VC10_VRUploadedSEIExpired_ANI1 |
@@ -153,8 +163,8 @@ Feature: Variant files confirmed messages
   @patients_p2
   Scenario Outline: PT_VC11. variant report confirm message with invalid status should fail
     Given patient id is "PT_VC11_VRUploaded"
-    And template variant report confirm message for this patient (analysis_id: "PT_VC11_VRUploaded_ANI1", status: "<status>")
-    When PUT to MATCH variant report confirm service, response includes "<message>" with code "500"
+    Then load template variant report confirm message for analysis id: "PT_VC11_VRUploaded_ANI1"
+    When PUT to MATCH variant report "<status>" service, response includes "<message>" with code "500"
     Examples:
       | status | message                                                                |
 #      |               |can't be blank                                                                  |
@@ -164,17 +174,17 @@ Feature: Variant files confirmed messages
   @patient_p2
   Scenario Outline: PT_VC11b. variant report cannot be confirmed (rejected) more than one time
     Given patient id is "<patient_id>"
-    And template variant report confirm message for this patient (analysis_id: "<patient_id>_ANI1", status: "<status>")
-    When PUT to MATCH variant report confirm service, response includes "latest variant report is not in PENDING state" with code "403"
+    Then load template variant report confirm message for analysis id: "<patient_id>_ANI1"
+    When PUT to MATCH variant report "<status>" service, response includes "not in PENDING state" with code "403"
     Then wait for "15" seconds
     Then patient should have variant report (analysis_id: "<patient_id>_ANI1")
     And this variant report field: "status" should be "<previous_status>"
     Examples:
       | patient_id             | status  | previous_status |
-      | PT_VC11b_TsVRConfirmed | confirm | confirm         |
-      | PT_VC11b_TsVRRejected  | confirm | reject          |
-      | PT_VC11b_TsVRConfirmed | reject  | confirm         |
-      | PT_VC11b_TsVRRejected  | reject  | reject          |
+      | PT_VC11b_TsVRConfirmed | confirm | confirmed         |
+      | PT_VC11b_TsVRRejected  | confirm | rejected          |
+      | PT_VC11b_TsVRConfirmed | reject  | confirmed         |
+      | PT_VC11b_TsVRRejected  | reject  | rejected          |
     #we don't confirm or reject BLOOD variant report anymore
 #      | PT_VC11b_BdVRConfirmed | confirm | confirm         |
 #      | PT_VC11b_BdVRRejected  | confirm | reject          |
@@ -187,10 +197,10 @@ Feature: Variant files confirmed messages
 #  Test patient: PT_VC12_VRUploaded1: vr uploaded PT_VC12_VRUploaded1(_SEI1, _MOI1, _SEI1)
 #  Test patient: PT_VC12_VRUploaded2: vr uploaded PT_VC12_VRUploaded2(_SEI1, _MOI1, _SEI1)
     Given patient id is "<patient_id>"
-    And template variant report confirm message for this patient (analysis_id: "<ani>", status: "<status>")
+    Then load template variant report confirm message for analysis id: "<ani>"
     Then set patient message field: "comment" to value: "<comment>"
     Then set patient message field: "comment_user" to value: "<user>"
-    When PUT to MATCH variant report confirm service, response includes "Variant Report status changed successfully to" with code "200"
+    When PUT to MATCH variant report "<status>" service, response includes "changed successfully to" with code "200"
     Then patient should have variant report (analysis_id: "<ani>")
     And this variant report field: "status" should be "<status>ed"
     And this variant report field: "comment" should be "<comment>"
@@ -203,15 +213,16 @@ Feature: Variant files confirmed messages
 
   @patients_p2
   Scenario: PT_VC13. if variant report rejected, comment values for variants that are in this variant report should NOT BE cleared (this test has been changed, before the comments values should BE changed)
-#    Test patient PT_VC13_VRUploaded1: vr uploaded   PT_VC13_VRUploaded1(_SEI1, _MOI1, _SEI1)
+#    Test patient PT_VC13_VRUploaded1: vr uploaded   PT_VC13_VRUploaded1(_SEI1, _MOI1, _ANI1)
 #    first snv variant has confirmed=false, comment="TEST"
     Given patient id is "PT_VC13_VRUploaded1"
-    Given a random "fusion" variant in variant report (analysis_id: "PT_VC13_VRUploaded1_ANI1") for this patient
-    Then create variant confirm message with checked: "unchecked" and comment: "Tests" for this variant
-    When PUT to MATCH variant confirm service, response includes "confirmed status changed to false" with code "200"
-    And template variant report confirm message for this patient (analysis_id: "PT_VC13_VRUploaded1_ANI1", status: "reject")
+    And a random "fusion" variant for analysis id "PT_VC13_VRUploaded1_ANI1"
+    And load template variant confirm message for this patient
+    Then set patient message field: "comment" to value: "Tests"
+    Then PUT to MATCH variant "unchecked" service for this uuid, response includes "changed to false" with code "200"
+    And load template variant report confirm message for analysis id: "PT_VC13_VRUploaded1_ANI1"
     Then set patient message field: "comment" to value: "TEST"
-    When PUT to MATCH variant report confirm service, response includes "Variant Report status changed successfully to" with code "200"
+    When PUT to MATCH variant report "reject" service, response includes "changed successfully to" with code "200"
     Then patient status should change to "TISSUE_VARIANT_REPORT_REJECTED"
     Then this variant should have confirmed field: "false" and comment field: "Tests"
 
@@ -226,8 +237,8 @@ Feature: Variant files confirmed messages
   @patients_p2
   Scenario Outline: PT_VC15. variant file confirmation will not trigger patient assignment process unless patient has two types of assay ready
     Given patient id is "<patient_id>"
-    And template variant report confirm message for this patient (analysis_id: "<ani>", status: "<vr_status>")
-    When PUT to MATCH variant report confirm service, response includes "Variant Report status changed successfully to" with code "200"
+    Then load template variant report confirm message for analysis id: "<ani>"
+    When PUT to MATCH variant report "<vr_status>" service, response includes "changed successfully to" with code "200"
     Then wait for "45" seconds
     Then patient status should change to "<patient_status>"
 

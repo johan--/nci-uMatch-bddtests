@@ -15,20 +15,20 @@ When(/^POST to MATCH patients service, response includes "([^"]*)" with code "([
   # actual_include_expect(response['message'], retMsg)
 end
 
-When(/^PUT to MATCH variant report confirm service, response includes "([^"]*)" with code "([^"]*)"$/) do |retMsg, code|
-  response = Patient_helper_methods.put_vr_confirm(@analysis_id, @variant_report_status)
+When(/^PUT to MATCH variant report "([^"]*)" service, response includes "([^"]*)" with code "([^"]*)"$/) do |status, retMsg, code|
+  response = Patient_helper_methods.put_vr_confirm(@analysis_id, status)
   actual_match_expect(response['http_code'], code)
   # actual_include_expect(response['message'], retMsg)
 end
 
-When(/^PUT to MATCH variant confirm service, response includes "([^"]*)" with code "([^"]*)"$/) do |retMsg, code|
-  response = Patient_helper_methods.put_variant_confirm(@current_variant_uuid, @current_variant_confirm)
+When(/^PUT to MATCH variant "([^"]*)" service for this uuid, response includes "([^"]*)" with code "([^"]*)"$/) do |checked, retMsg, code|
+  response = Patient_helper_methods.put_variant_confirm(@current_variant_uuid, checked)
   actual_match_expect(response['http_code'], code)
   # actual_include_expect(response['message'], retMsg)
 end
 
-When(/^PUT to MATCH assignment report confirm service, response includes "([^"]*)" with code "([^"]*)"$/) do |retMsg, code|
-  response = Patient_helper_methods.put_ar_confirm(@analysis_id, @assignment_report_status)
+When(/^PUT to MATCH assignment report "([^"]*)" service, response includes "([^"]*)" with code "([^"]*)"$/) do |status, retMsg, code|
+  response = Patient_helper_methods.put_ar_confirm(@analysis_id, status)
   actual_match_expect(response['http_code'], code)
   # actual_include_expect(response['message'], retMsg)
 end
@@ -100,87 +100,75 @@ Given(/^patient id is "([^"]*)"$/) do |patient_id|
   @patient_id = patient_id=='null' ? nil : patient_id
 end
 
-Given(/^template registration message for this patient on date: "([^"]*)"$/) do |date|
-  converted_date = date=='null' ? nil : date
-  converted_date = Helper_Methods.getDateAsRequired(converted_date)
-  Patient_helper_methods.prepare_register(@patient_id, converted_date)
-end
-
-Given(/^template specimen received message for this patient \(type: "([^"]*)", surgical_event_id: "([^"]*)"\)$/) do |type, sei|
-  converted_sei = sei=='null' ? nil : sei
-  Patient_helper_methods.prepare_specimen_received(@patient_id, type, converted_sei)
-end
-
-Given(/^template specimen shipped message for this patient \(type: "([^"]*)", surgical_event_id: "([^"]*)", molecular_id or slide_barcode: "([^"]*)"\)/) do |type, sei, moi_or_barcode|
-  converted_sei = sei=='null' ? nil : sei
-  converted_id = moi_or_barcode=='null' ? nil : moi_or_barcode
-  Patient_helper_methods.prepare_specimen_shipped(@patient_id, type, converted_sei, converted_id)
-end
-
-Given(/^template assay message with surgical_event_id: "([^"]*)" for patient: "([^"]*)"$/) do |sei, patientID|
-  @patient_id = patientID=='null' ? nil : patientID
-  converted_sei = sei=='null' ? nil : sei
-  Patient_helper_methods.prepare_assay(@patient_id, converted_sei)
-end
-
-Given(/^template variant file uploaded message for this patient \(molecular_id: "([^"]*)", analysis_id: "([^"]*)"\) and need files in S3 Y or N: "([^"]*)"$/) do |moi, ani, upload|
-  converted_moi = moi=='null' ? nil : moi
+And(/^analysis id is "([^"]*)"$/) do |ani|
   @analysis_id = ani=='null' ? nil : ani
-  need_file = upload == 'Y'
-  Patient_helper_methods.prepare_vr_upload(@patient_id, converted_moi, @analysis_id, need_file, 'bdd_test_ion_reporter')
 end
 
-Given(/^template variant confirm message for this patient \(uuid: "([^"]*)", status: "([^"]*)", comment: "([^"]*)"\)$/) do |variant_uuid, confirmed, comment|
-  @current_variant_uuid = variant_uuid
-  @current_variant_confirm = confirmed
-  converted_comment = comment=='null' ? nil : comment
-  Patient_helper_methods.prepare_variant_confirm(converted_comment)
+And(/^variant uuid is "([^"]*)"$/) do |uuid|
+  @current_variant_uuid = uuid=='null' ? nil : uuid
 end
 
-Then(/^create variant confirm message with checked: "([^"]*)" and comment: "([^"]*)" for this variant$/) do |confirmed, comment|
-  @current_variant_confirm = confirmed
-  converted_comment = comment=='null' ? nil : comment
-  Patient_helper_methods.prepare_variant_confirm(converted_comment)
+Given(/^load template registration message for this patient$/) do
+  Patient_helper_methods.load_template(@patient_id, 'registration')
 end
 
-Given(/^template variant report confirm message for this patient \(analysis_id: "([^"]*)", status: "([^"]*)"\)$/) do |ani, status|
+Given(/^load template specimen type: "([^"]*)" received message for this patient$/) do |type|
+  Patient_helper_methods.load_template(@patient_id, "specimen_received_#{type}")
+end
+
+Given(/^load template specimen type: "([^"]*)" shipped message for this patient$/) do |type|
+  Patient_helper_methods.load_template(@patient_id, "specimen_shipped_#{type}")
+end
+
+Given(/^load template assay message for this patient$/) do
+  Patient_helper_methods.load_template(@patient_id, 'assay_result_reported')
+end
+
+Given(/^load template variant file uploaded message for this patient$/) do
+  Patient_helper_methods.load_template(@patient_id, 'variant_file_uploaded')
+end
+
+Then(/^files for molecular_id "([^"]*)" and analysis_id "([^"]*)" are in S3$/) do |moi, ani|
+  Patient_helper_methods.upload_vr_to_s3(moi, ani)
+end
+
+Given(/^load template variant confirm message for this patient$/) do
+  Patient_helper_methods.load_template(@patient_id, 'variant_confirmed')
+end
+
+Given(/^load template variant report confirm message for analysis id: "([^"]*)"$/) do |ani|
   @analysis_id = ani=='null' ? nil : ani
-  @variant_report_status = status
-  Patient_helper_methods.prepare_vr_confirm(@patient_id)
+  Patient_helper_methods.load_template(@patient_id, 'variant_file_confirmed')
 end
 
-Given(/^template assignment report confirm message for this patient \(analysis_id: "([^"]*)" and status: "([^"]*)"\)$/) do |ani, status|
+Given(/^load template assignment report confirm message for analysis id: "([^"]*)"$/) do |ani|
   @analysis_id = ani=='null' ? nil : ani
-  @assignment_report_status = status=='null' ? nil : status
-  Patient_helper_methods.prepare_assignment_confirm(@patient_id)
+  Patient_helper_methods.load_template(@patient_id, 'assignment_confirmed')
 end
 
-Given(/^template on treatment arm message for this patient \(treatment arm id: "([^"]*)", stratum id: "([^"]*)", step number: "([^"]*)"\)$/) do |ta_id, stratum, step_number|
-  converted_ta_id = ta_id=='null' ? nil : ta_id
-  converted_stratum = stratum=='null' ? nil : stratum
-  converted_step_number = step_number=='null' ? nil : step_number
-  Patient_helper_methods.prepare_on_treatment_arm(@patient_id, converted_ta_id, converted_stratum, converted_step_number)
+Given(/^load template on treatment arm confirm message for this patient$/) do
+  Patient_helper_methods.load_template(@patient_id, 'on_treatment_arm')
 end
 
-Given(/^template request assignment message for this patient \(rebiopsy: "([^"]*)", step number: "([^"]*)"\)$/) do |re_biopsy, step_number|
-  converted_rebiopsy = re_biopsy=='null' ? nil : re_biopsy
-  converted_step_number = step_number=='null' ? nil : step_number
-  Patient_helper_methods.prepare_request_assignment(@patient_id, converted_rebiopsy, converted_step_number)
+Given(/^load template request assignment message for this patient$/) do
+  Patient_helper_methods.load_template(@patient_id, 'request_assignment')
+  Patient_helper_methods.update_patient_message('status', 'REQUEST_ASSIGNMENT')
 end
 
-Given(/^template request no assignment message for this patient with step number: "([^"]*)"$/) do |step_number|
-  converted_step_number = step_number=='null' ? nil : step_number
-  Patient_helper_methods.prepare_request_no_assignment(@patient_id, converted_step_number)
+Given(/^load template request no assignment message for this patient$/) do
+  Patient_helper_methods.load_template(@patient_id, 'request_assignment')
+  Patient_helper_methods.update_patient_message('status', 'REQUEST_NO_ASSIGNMENT')
+  Patient_helper_methods.update_patient_message('rebiopsy', '')
 end
 
-Given(/^template off study biopsy expired message for this patient \(step number: "([^"]*)"\)$/) do |step_number|
-  converted_step_number = step_number=='null' ? nil : step_number
-  Patient_helper_methods.prepare_off_study_biopsy_expired(@patient_id, converted_step_number)
+Given(/^load template off study biopsy expired message for this patient$/) do
+  Patient_helper_methods.load_template(@patient_id, 'off_study')
+  Patient_helper_methods.update_patient_message('status', 'OFF_STUDY_BIOPSY_EXPIRED')
 end
 
-Given(/^template off study message for this patient \(step number: "([^"]*)"\)$/) do |step_number|
-  converted_step_number = step_number=='null' ? nil : step_number
-  Patient_helper_methods.prepare_off_study(@patient_id, converted_step_number)
+Given(/^load template off study message for this patient$/) do
+  Patient_helper_methods.load_template(@patient_id, 'off_study')
+  Patient_helper_methods.update_patient_message('status', 'OFF_STUDY')
 end
 
 Then(/^set patient message field: "([^"]*)" to value: "([^"]*)"$/) do |field, value|
@@ -387,8 +375,9 @@ end
 #   ta_id.should == 'pending'
 # end
 #
-Given(/^a random "([^"]*)" variant in variant report \(analysis_id: "([^"]*)"\) for this patient$/) do |variant_type, ani|
-  url = "#{ENV['patients_endpoint']}/variants?analysis_id=#{ani}&variant_type=#{variant_type}"
+Given(/^a random "([^"]*)" variant for analysis id "([^"]*)"$/) do |variant_type, ani|
+  @analysis_id = ani=='null' ? nil : ani
+  url = "#{ENV['patients_endpoint']}/variants?analysis_id=#{@analysis_id}&variant_type=#{variant_type}"
   this_variant = Patient_helper_methods.get_any_result_from_url(url)
   if this_variant.is_a?(Array)
     this_variant = this_variant[0]
@@ -626,37 +615,28 @@ And(/^patient pending_items field "([^"]*)" should have correct value$/) do |fie
   expect(@get_response.keys).to include field
   actual_key_list = []
   expect_key_list = []
-  case field
-    when 'tissue_variant_reports'
-      table = 'variant_report'
-      key = Helper_Methods.dynamodb_table_sorting_key(table)
-      query = {status:'PENDING', variant_report_type:'TISSUE'}
-    when 'assignment_reports'
-      table = 'assignment'
-      key = Helper_Methods.dynamodb_table_sorting_key(table)
-      query = {status:'PENDING'}
-    else
-      table = ''
-      key = ''
-      query = {}
-  end
+  patient_list = Patient_helper_methods.get_any_result_from_url(ENV['patients_endpoint'])
+  skip_status = %w(OFF_STUDY OFF_STUDY_BIOPSY_EXPIRED REQUEST_NO_ASSIGNMENT)
+  patient_list.each { |this_patient|
+    next if skip_status.include?(this_patient['current_status'])
+    case field
+      when 'tissue_variant_reports'
+        next unless this_patient.keys.include?('active_tissue_specimen')
+        next unless this_patient['active_tissue_specimen']['variant_report_status'] == 'PENDING'
+        expect_key_list << this_patient['active_tissue_specimen']['active_analysis_id']
+      when 'assignment_reports'
+        if this_patient['current_status'] == 'PENDING_CONFIRMATION'
+          expect_key_list << this_patient['active_tissue_specimen']['active_analysis_id']
+        end
+      else
+    end
+  }
   @get_response[field].each { |this_item|
-    begin
-      this_result = DateTime.parse(this_item[key]).to_i
-    rescue
-      this_result = this_item[key]
-    end
-    actual_key_list << this_result
+    actual_key_list << this_item['analysis_id']
   }
-  Helper_Methods.dynamodb_table_items(table, query).each{|this_item|
-    begin
-      this_result = DateTime.parse(this_item[key]).to_i
-    rescue
-      this_result = this_item[key]
-    end
-    expect_key_list << this_result
-  }
-  expect(actual_key_list).to eql expect_key_list
+  # actual_key_list.each { |this_actual|
+  #   expect(expect_key_list).to include this_actual }
+  expect(actual_key_list.size).to eql expect_key_list.size
 end
 
 def actual_match_expect(actual, expect)

@@ -6,38 +6,42 @@ Feature: Patients request assignment tests
 #    patient: PT_RA01_PendingApproval is on 1.0 now
 #    patient: PT_RA01_OnTreatmentArm is on 1.1 now
     Given patient id is "<patient_id>"
-    And template request assignment message for this patient (rebiopsy: "N", step number: "<next_step_number>")
+    And load template request assignment message for this patient
+    Then set patient message field: "rebiopsy" to value: "N"
+    And set patient message field: "step_number" to value: "<next_step_number>"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "PENDING_CONFIRMATION"
     Then patient field: "current_step_number" should have value: "<next_step_number>"
     Then patient should have selected treatment arm: "<ta_id>" with stratum id: "<ta_stratum_id>"
     Examples:
-      | patient_id             | next_step_number | ta_id          | ta_stratum_id |
+      | patient_id              | next_step_number | ta_id          | ta_stratum_id |
       | PT_RA01_PendingApproval | 1.0              | APEC1621-ETE-A | 100           |
-      | PT_RA01_OnTreatmentArm | 2.0              | APEC1621-ETE-A | 100           |
+      | PT_RA01_OnTreatmentArm  | 2.0              | APEC1621-ETE-A | 100           |
 
   @patients_p2
   Scenario Outline: PT_RA02. patient can only be set to request assignment(rebiopsy=N) when patient is on certain status
     Given patient id is "<patient_id>"
-    And template request assignment message for this patient (rebiopsy: "N", step number: "<next_step_number>")
+    And load template request assignment message for this patient
+    Then set patient message field: "rebiopsy" to value: "N"
+    And set patient message field: "step_number" to value: "<next_step_number>"
     When POST to MATCH patients service, response includes "<message>" with code "<http_code>"
     Then patient status should change to "<next_status>"
     Examples:
-      | patient_id                  | current_step_number | next_step_number | message | http_code | next_status                     |
-      | PT_RA02_PendingConfirmation | 1.0                 | 1.0              |         | 403       | PENDING_CONFIRMATION            |
-      | PT_RA02_PendingApproval     | 1.0                 | 1.0              |         | 202       | PENDING_CONFIRMATION            |
-      | PT_RA02_OnTreatmentArm      | 1.1                 | 2.0              |         | 202       | PENDING_CONFIRMATION            |
-      | PT_RA02_RequestNoAssignment | 1.1                 | 1.1              |         | 202       | PENDING_CONFIRMATION            |
-      | PT_RA02_Registered          | 1.0                 | 1.0              |         | 403       | REGISTRATION                    |
-      | PT_RA02_TsReceived          | 1.0                 | 1.0              |         | 403       | TISSUE_SPECIMEN_RECEIVED        |
-      | PT_RA02_TsShipped           | 2.0                 | 2.0              |         | 403       | TISSUE_NUCLEIC_ACID_SHIPPED     |
-      | PT_RA02_slideShipped        | 2.0                 | 2.0              |         | 403       | TISSUE_SLIDE_SPECIMEN_SHIPPED   |
-      | PT_RA02_AssayReceived       | 1.0                 | 1.0              |         | 403       | ASSAY_RESULTS_RECEIVED          |
-      | PT_RA02_TsVrReceived        | 2.0                 | 2.0              |         | 403       | TISSUE_VARIANT_REPORT_RECEIVED  |
-      | PT_RA02_TsVrConfirmed       | 1.0                 | 1.0              |         | 403       | TISSUE_VARIANT_REPORT_CONFIRMED |
-      | PT_RA02_TsVrRejected        | 1.0                 | 1.0              |         | 403       | TISSUE_VARIANT_REPORT_REJECTED  |
-      | PT_RA02_NoTaAvailable       | 1.0                 | 1.0              |         | 202       | PENDING_CONFIRMATION            |
-      | PT_RA02_CompassionateCare   | 1.0                 | 1.0              |         | 202       | PENDING_CONFIRMATION            |
+      | patient_id                  | step_number | next_step_number | message | http_code | next_status                     |
+      | PT_RA02_PendingConfirmation | 1.0         | 1.0              |         | 403       | PENDING_CONFIRMATION            |
+      | PT_RA02_PendingApproval     | 1.0         | 1.0              |         | 202       | PENDING_CONFIRMATION            |
+      | PT_RA02_OnTreatmentArm      | 1.1         | 2.0              |         | 202       | PENDING_CONFIRMATION            |
+      | PT_RA02_RequestNoAssignment | 1.1         | 1.1              |         | 202       | PENDING_CONFIRMATION            |
+      | PT_RA02_Registered          | 1.0         | 1.0              |         | 403       | REGISTRATION                    |
+      | PT_RA02_TsReceived          | 1.0         | 1.0              |         | 403       | TISSUE_SPECIMEN_RECEIVED        |
+      | PT_RA02_TsShipped           | 2.0         | 2.0              |         | 403       | TISSUE_NUCLEIC_ACID_SHIPPED     |
+      | PT_RA02_slideShipped        | 2.0         | 2.0              |         | 403       | TISSUE_SLIDE_SPECIMEN_SHIPPED   |
+      | PT_RA02_AssayReceived       | 1.0         | 1.0              |         | 403       | ASSAY_RESULTS_RECEIVED          |
+      | PT_RA02_TsVrReceived        | 2.0         | 2.0              |         | 403       | TISSUE_VARIANT_REPORT_RECEIVED  |
+      | PT_RA02_TsVrConfirmed       | 1.0         | 1.0              |         | 403       | TISSUE_VARIANT_REPORT_CONFIRMED |
+      | PT_RA02_TsVrRejected        | 1.0         | 1.0              |         | 403       | TISSUE_VARIANT_REPORT_REJECTED  |
+      | PT_RA02_NoTaAvailable       | 1.0         | 1.0              |         | 202       | PENDING_CONFIRMATION            |
+      | PT_RA02_CompassionateCare   | 1.0         | 1.0              |         | 202       | PENDING_CONFIRMATION            |
 #   for the case: OFF_STUDY and OFF_STUDY_BIOPSY_EXPIRED, please check test PT_OS04
 #    for the case: current status REQUEST_ASSIGNMENT then receive request assignment(rebiopsy=N), please check test PT_RA02a
 #      | PT_RA02_RequestAssignment   | 1.0                 | 1.0              |         | Failure     | REQUEST_ASSIGNMENT              |
@@ -47,7 +51,9 @@ Feature: Patients request assignment tests
   @patients_p3
   Scenario: PT_RA02a. request assignment(rebiopsy=N) should trigger assignment again if patient is on REQUEST_ASSIGNMENT status
     Given patient id is "PT_RA02a_RequestAssignment"
-    And template request assignment message for this patient (rebiopsy: "N", step number: "2.0")
+    And load template request assignment message for this patient
+    Then set patient message field: "rebiopsy" to value: "N"
+    And set patient message field: "step_number" to value: "2.0"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "PENDING_CONFIRMATION"
     Then patient field: "current_step_number" should have value: "2.0"
@@ -57,26 +63,28 @@ Feature: Patients request assignment tests
   Scenario Outline: PT_RA03. patient can only be set to request assignment(rebiopsy=Y) when patient is on certain status
 #    if patient is REQUEST_ASSIGNMENT status then it make no sense to receive another same request assignment (rebiopsy=Y) message, so reject it
     Given patient id is "<patient_id>"
-    And template request assignment message for this patient (rebiopsy: "Y", step number: "<next_step_number>")
+    And load template request assignment message for this patient
+    Then set patient message field: "rebiopsy" to value: "Y"
+    And set patient message field: "step_number" to value: "<next_step_number>"
     When POST to MATCH patients service, response includes "<message>" with code "<http_code>"
     Then patient status should change to "<next_status>"
     Examples:
-      | patient_id                  | current_step_number | next_step_number | message | http_code | next_status                     |
-      | PT_RA03_PendingConfirmation | 1.0                 | 1.0              |         | 403       | PENDING_CONFIRMATION            |
-      | PT_RA03_PendingApproval     | 1.0                 | 1.0              |         | 202       | REQUEST_ASSIGNMENT              |
-      | PT_RA03_OnTreatmentArm      | 1.1                 | 2.0              |         | 202       | REQUEST_ASSIGNMENT              |
-      | PT_RA03_RequestAssignment   | 1.0                 | 1.0              |         | 403       | REQUEST_ASSIGNMENT              |
-      | PT_RA03_RequestNoAssignment | 1.1                 | 1.1              |         | 202       | REQUEST_ASSIGNMENT              |
-      | PT_RA03_Registered          | 1.0                 | 1.0              |         | 403       | REGISTRATION                    |
-      | PT_RA03_TsReceived          | 1.0                 | 1.0              |         | 403       | TISSUE_SPECIMEN_RECEIVED        |
-      | PT_RA03_TsShipped           | 2.0                 | 2.0              |         | 403       | TISSUE_NUCLEIC_ACID_SHIPPED     |
-      | PT_RA03_slideShipped        | 2.0                 | 2.0              |         | 403       | TISSUE_SLIDE_SPECIMEN_SHIPPED   |
-      | PT_RA03_AssayReceived       | 1.0                 | 1.0              |         | 403       | ASSAY_RESULTS_RECEIVED          |
-      | PT_RA03_TsVrReceived        | 2.0                 | 2.0              |         | 403       | TISSUE_VARIANT_REPORT_RECEIVED  |
-      | PT_RA03_TsVrConfirmed       | 1.0                 | 1.0              |         | 403       | TISSUE_VARIANT_REPORT_CONFIRMED |
-      | PT_RA03_TsVrRejected        | 1.0                 | 1.0              |         | 403       | TISSUE_VARIANT_REPORT_REJECTED  |
-      | PT_RA03_NoTaAvailable       | 1.0                 | 1.0              |         | 202       | REQUEST_ASSIGNMENT              |
-      | PT_RA03_CompassionateCare   | 1.0                 | 1.0              |         | 202       | REQUEST_ASSIGNMENT              |
+      | patient_id                  | step_number | next_step_number | message | http_code | next_status                     |
+      | PT_RA03_PendingConfirmation | 1.0         | 1.0              |         | 403       | PENDING_CONFIRMATION            |
+      | PT_RA03_PendingApproval     | 1.0         | 1.0              |         | 202       | REQUEST_ASSIGNMENT              |
+      | PT_RA03_OnTreatmentArm      | 1.1         | 2.0              |         | 202       | REQUEST_ASSIGNMENT              |
+      | PT_RA03_RequestAssignment   | 1.0         | 1.0              |         | 403       | REQUEST_ASSIGNMENT              |
+      | PT_RA03_RequestNoAssignment | 1.1         | 1.1              |         | 202       | REQUEST_ASSIGNMENT              |
+      | PT_RA03_Registered          | 1.0         | 1.0              |         | 403       | REGISTRATION                    |
+      | PT_RA03_TsReceived          | 1.0         | 1.0              |         | 403       | TISSUE_SPECIMEN_RECEIVED        |
+      | PT_RA03_TsShipped           | 2.0         | 2.0              |         | 403       | TISSUE_NUCLEIC_ACID_SHIPPED     |
+      | PT_RA03_slideShipped        | 2.0         | 2.0              |         | 403       | TISSUE_SLIDE_SPECIMEN_SHIPPED   |
+      | PT_RA03_AssayReceived       | 1.0         | 1.0              |         | 403       | ASSAY_RESULTS_RECEIVED          |
+      | PT_RA03_TsVrReceived        | 2.0         | 2.0              |         | 403       | TISSUE_VARIANT_REPORT_RECEIVED  |
+      | PT_RA03_TsVrConfirmed       | 1.0         | 1.0              |         | 403       | TISSUE_VARIANT_REPORT_CONFIRMED |
+      | PT_RA03_TsVrRejected        | 1.0         | 1.0              |         | 403       | TISSUE_VARIANT_REPORT_REJECTED  |
+      | PT_RA03_NoTaAvailable       | 1.0         | 1.0              |         | 202       | REQUEST_ASSIGNMENT              |
+      | PT_RA03_CompassionateCare   | 1.0         | 1.0              |         | 202       | REQUEST_ASSIGNMENT              |
 #   for the case: OFF_STUDY and OFF_STUDY_BIOPSY_EXPIRED, please check test PT_OS04
     #there is no “PATHOLOGY_REVIEWED” status anymore
 #      | PT_RA03_PathoConfirmed      | PATHOLOGY_REVIEWED              | 2.0                 | 2.0              |         | Failure     | PATHOLOGY_REVIEWED              |
@@ -85,21 +93,29 @@ Feature: Patients request assignment tests
   Scenario: PT_RA04. any message other than request assignment(Rebiopsy=Y) and off study should be rejected if patient is on "REQUEST_NO_ASSIGNMENT" status
 #    patient: "PT_RA04_ReqNoAssignment" with status: "REQUEST_NO_ASSIGNMENT" on step: "2.0"
     Given patient id is "PT_RA04_ReqNoAssignment"
-    And template variant report confirm message for this patient (analysis_id: "PT_RA04_ReqNoAssignment_ANI2", status: "confirm")
+    And load template variant report confirm message for analysis id: "PT_RA04_ReqNoAssignment_ANI2"
+    When PUT to MATCH variant report "confirm" service, response includes "assignment" with code "403"
+    Then load template specimen type: "TISSUE" received message for this patient
+    Then set patient message field: "surgical_event_id" to value: "PT_RA04_ReqNoAssignment_SEI3"
     When POST to MATCH patients service, response includes "assignment" with code "403"
-    Then template specimen received message for this patient (type: "TISSUE", surgical_event_id: "PT_RA04_ReqNoAssignment_SEI3")
+    Then load template specimen type: "TISSUE" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "PT_RA04_ReqNoAssignment_SEI2"
+    Then set patient message field: "molecular_id" to value: "PT_RA04_ReqNoAssignment_MOI3"
     When POST to MATCH patients service, response includes "assignment" with code "403"
-    Then template specimen shipped message for this patient (type: "TISSUE", surgical_event_id: "PT_RA04_ReqNoAssignment_SEI2", molecular_id or slide_barcode: "PT_RA04_ReqNoAssignment_MOI3")
+    Then load template variant file uploaded message for this patient
+    Then set patient message field: "molecular_id" to value: "PT_RA04_ReqNoAssignment_MOI2"
+    Then set patient message field: "analysis_id" to value: "PT_RA04_ReqNoAssignment_ANI4"
+    Then files for molecular_id "PT_RA04_ReqNoAssignment_MOI2" and analysis_id "PT_RA04_ReqNoAssignment_ANI4" are in S3
     When POST to MATCH patients service, response includes "assignment" with code "403"
-    Then template variant file uploaded message for this patient (molecular_id: "PT_RA04_ReqNoAssignment_MOI2", analysis_id: "PT_RA04_ReqNoAssignment_ANI4") and need files in S3 Y or N: "Y"
-    When POST to MATCH patients service, response includes "assignment" with code "403"
-    Then template assay message with surgical_event_id: "PT_RA04_ReqNoAssignment_SEI1" for patient: "PT_RA04_ReqNoAssignment"
+    Then load template assay message for this patient
+    Then set patient message field: "surgical_event_id" to value: "PT_RA04_ReqNoAssignment_SEI1"
     When POST to MATCH patients service, response includes "assignment" with code "403"
 
   @patients_p2
   Scenario Outline: PT_RA04a patient can be set to request no assignment only on certain status
     Given patient id is "<patient_id>"
-    Given template request no assignment message for this patient with step number: "<next_step_number>"
+    And load template request no assignment message for this patient
+    And set patient message field: "step_number" to value: "<next_step_number>"
     When POST to MATCH patients service, response includes "<message>" with code "<http_code>"
     Then patient status should change to "<next_status>"
     Examples:
@@ -137,7 +153,9 @@ Feature: Patients request assignment tests
   @patients_p1
   Scenario Outline: PT_RA06. assignment process should not be triggered if assignment request has rebiopsy = Y
     Given patient id is "<patient_id>"
-    And template request assignment message for this patient (rebiopsy: "Y", step number: "2.0")
+    And load template request assignment message for this patient
+    And set patient message field: "rebiopsy" to value: "Y"
+    And set patient message field: "step_number" to value: "2.0"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "REQUEST_ASSIGNMENT"
     Examples:
@@ -145,51 +163,58 @@ Feature: Patients request assignment tests
       | PT_RA06_OnTreatmentArm | 1.1                 |
       | PT_RA06_PendingAproval | 1.0                 |
 
-    @patients_p1
-    Scenario: PT_RA07. request assignment with rebiopsy = N should generate assignment report properly
-      Given patient id is "PT_RA07_VrAndAssayReady"
-      And template variant report confirm message for this patient (analysis_id: "PT_RA07_VrAndAssayReady_ANI1", status: "confirm")
-      When PUT to MATCH variant report confirm service, response includes "successfully" with code "200"
-      Then patient status should change to "PENDING_CONFIRMATION"
-      And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 0 REJECTED 0 CONFIRMED assignment reports
-      And patient pending assignment report selected treatment arm is "APEC1621-A" with stratum_id "100"
-      Then template assignment report confirm message for this patient (analysis_id: "PT_RA07_VrAndAssayReady_ANI1" and status: "confirm")
-      When PUT to MATCH assignment report confirm service, response includes "successfully" with code "200"
-      Then patient status should change to "PENDING_APPROVAL"
-      Then template request assignment message for this patient (rebiopsy: "N", step number: "1.0")
-      When POST to MATCH patients service, response includes "successfully" with code "202"
-      Then patient status should change to "PENDING_CONFIRMATION"
-      And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 1 REJECTED 0 CONFIRMED assignment reports
-      And patient pending assignment report selected treatment arm is "APEC1621-ETE-A" with stratum_id "100"
-      Then template assignment report confirm message for this patient (analysis_id: "PT_RA07_VrAndAssayReady_ANI1" and status: "confirm")
-      When PUT to MATCH assignment report confirm service, response includes "successfully" with code "200"
-      Then patient status should change to "PENDING_APPROVAL"
-      Then template request assignment message for this patient (rebiopsy: "N", step number: "1.0")
-      When POST to MATCH patients service, response includes "successfully" with code "202"
-      Then patient status should change to "PENDING_CONFIRMATION"
-      And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 2 REJECTED 0 CONFIRMED assignment reports
-      And patient pending assignment report selected treatment arm is "APEC1621-ETE-C" with stratum_id "100"
-      Then template assignment report confirm message for this patient (analysis_id: "PT_RA07_VrAndAssayReady_ANI1" and status: "confirm")
-      When PUT to MATCH assignment report confirm service, response includes "successfully" with code "200"
-      Then patient status should change to "PENDING_APPROVAL"
-      Then template request assignment message for this patient (rebiopsy: "N", step number: "1.0")
-      When POST to MATCH patients service, response includes "successfully" with code "202"
-      Then patient status should change to "PENDING_CONFIRMATION"
-      And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 3 REJECTED 0 CONFIRMED assignment reports
-      And patient pending assignment report field "report_status" should be "NO_TREATMENT_FOUND"
-      Then template assignment report confirm message for this patient (analysis_id: "PT_RA07_VrAndAssayReady_ANI1" and status: "confirm")
-      When PUT to MATCH assignment report confirm service, response includes "successfully" with code "200"
-      Then patient status should change to "NO_TA_AVAILABLE"
-      Then template request assignment message for this patient (rebiopsy: "N", step number: "1.0")
-      When POST to MATCH patients service, response includes "successfully" with code "202"
-      Then patient status should change to "PENDING_CONFIRMATION"
-      And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 4 REJECTED 0 CONFIRMED assignment reports
-      And patient pending assignment report field "report_status" should be "NO_TREATMENT_FOUND"
+  @patients_p1
+  Scenario: PT_RA07. request assignment with rebiopsy = N should generate assignment report properly
+    Given patient id is "PT_RA07_VrAndAssayReady"
+    Then load template variant report confirm message for analysis id: "PT_RA07_VrAndAssayReady_ANI1"
+    When PUT to MATCH variant report "confirm" service, response includes "successfully" with code "200"
+    Then patient status should change to "PENDING_CONFIRMATION"
+    And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 0 REJECTED 0 CONFIRMED assignment reports
+    And patient pending assignment report selected treatment arm is "APEC1621-A" with stratum_id "100"
+    Then load template assignment report confirm message for analysis id: "PT_RA07_VrAndAssayReady_ANI1"
+    When PUT to MATCH assignment report "confirm" service, response includes "successfully" with code "200"
+    Then patient status should change to "PENDING_APPROVAL"
+    Then load template request assignment message for this patient
+    And set patient message field: "rebiopsy" to value: "N"
+    And set patient message field: "step_number" to value: "1.0"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
+    Then patient status should change to "PENDING_CONFIRMATION"
+    And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 1 REJECTED 0 CONFIRMED assignment reports
+    And patient pending assignment report selected treatment arm is "APEC1621-ETE-A" with stratum_id "100"
+    When PUT to MATCH assignment report "confirm" service, response includes "successfully" with code "200"
+    Then patient status should change to "PENDING_APPROVAL"
+    Then load template request assignment message for this patient
+    And set patient message field: "rebiopsy" to value: "N"
+    And set patient message field: "step_number" to value: "1.0"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
+    Then patient status should change to "PENDING_CONFIRMATION"
+    And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 2 REJECTED 0 CONFIRMED assignment reports
+    And patient pending assignment report selected treatment arm is "APEC1621-ETE-C" with stratum_id "100"
+    When PUT to MATCH assignment report "confirm" service, response includes "successfully" with code "200"
+    Then patient status should change to "PENDING_APPROVAL"
+    Then load template request assignment message for this patient
+    And set patient message field: "rebiopsy" to value: "N"
+    And set patient message field: "step_number" to value: "1.0"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
+    Then patient status should change to "PENDING_CONFIRMATION"
+    And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 3 REJECTED 0 CONFIRMED assignment reports
+    And patient pending assignment report field "report_status" should be "NO_TREATMENT_FOUND"
+    When PUT to MATCH assignment report "confirm" service, response includes "successfully" with code "200"
+    Then patient status should change to "NO_TA_AVAILABLE"
+    Then load template request assignment message for this patient
+    And set patient message field: "rebiopsy" to value: "N"
+    And set patient message field: "step_number" to value: "1.0"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
+    Then patient status should change to "PENDING_CONFIRMATION"
+    And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 4 REJECTED 0 CONFIRMED assignment reports
+    And patient pending assignment report field "report_status" should be "NO_TREATMENT_FOUND"
 
   @patients_p2
   Scenario Outline: PT_RA08. request assignment message with invalid rebiopsy field should fail
     Given patient id is "<patient_id>"
-    And template request assignment message for this patient (rebiopsy: "<rebiopsy>", step number: "1.0")
+    Then load template request assignment message for this patient
+    And set patient message field: "rebiopsy" to value: "<rebiopsy>"
+    And set patient message field: "step_number" to value: "1.0"
     When POST to MATCH patients service, response includes "biopsy" with code "403"
     Examples:
       | patient_id                  | rebiopsy |
@@ -200,7 +225,8 @@ Feature: Patients request assignment tests
   @patients_p2
   Scenario Outline: PT_RA09. request assignment message without rebiopsy field should works as rebiospy = N
     Given patient id is "<patient_id>"
-    And template request assignment message for this patient (rebiopsy: "Y", step number: "1.0")
+    Then load template request assignment message for this patient
+    And set patient message field: "step_number" to value: "1.0"
     Then remove field: "rebiopsy" from patient message
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "PENDING_CONFIRMATION"
@@ -213,7 +239,9 @@ Feature: Patients request assignment tests
   @patients_p2
   Scenario Outline: PT_RA10. request assignment message with rebiopsy is "" or null should works as rebiospy = N
     Given patient id is "<patient_id>"
-    And template request assignment message for this patient (rebiopsy: "<rebiopsy>", step number: "1.0")
+    Then load template request assignment message for this patient
+    And set patient message field: "rebiopsy" to value: "<rebiopsy>"
+    And set patient message field: "step_number" to value: "1.0"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "PENDING_CONFIRMATION"
     Examples:

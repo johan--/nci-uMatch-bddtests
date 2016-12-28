@@ -29,11 +29,3 @@ class Patient01A
 
 
 end
-
-
-# PatientMessageLoader.upload_start_with_wait_time(1)
-#
-# pt = PatientDataSet.new('PT_RG02_ExistingPatient')
-# PatientMessageLoader.register_patient(pt.id)
-#
-# PatientMessageLoader.upload_done

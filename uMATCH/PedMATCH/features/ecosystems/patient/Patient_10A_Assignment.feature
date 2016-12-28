@@ -6,11 +6,11 @@ Feature: Patients assignment tests
 #    patient: PT_AM01_TsVrReceived1 will not have TA available
 #    patient: PT_AM01_TsVrReceived1 will have a closed TA available
     Given patient id is "<patient_id>"
-    And template variant report confirm message for this patient (analysis_id: "<ani>", status: "confirm")
-    When PUT to MATCH variant report confirm service, response includes "successfully" with code "200"
+    Then load template variant report confirm message for analysis id: "<ani>"
+    When PUT to MATCH variant report "confirm" service, response includes "successfully" with code "200"
     Then patient status should change to "PENDING_CONFIRMATION"
-    Then template assignment report confirm message for this patient (analysis_id: "<ani>" and status: "confirm")
-    When PUT to MATCH assignment report confirm service, response includes "successfully" with code "200"
+    Then load template assignment report confirm message for analysis id: "<ani>"
+    Then PUT to MATCH assignment report "confirm" service, response includes "successfully" with code "200"
     Then patient status should change to "<patient_status>"
     Then COG received assignment status: "<patient_status>" for this patient
     Examples:
@@ -24,8 +24,8 @@ Feature: Patients assignment tests
     #patient api will retry every 60 seconds
     Given patient id is "PT_AM02_VrReceived"
     And this patient is in mock service lost patient list, service will come back after "1" tries
-    Then template variant report confirm message for this patient (analysis_id: "PT_AM02_VrReceived_ANI1", status: "confirm")
-    When PUT to MATCH variant report confirm service, response includes "successfully" with code "200"
+    Then load template variant report confirm message for analysis id: "PT_AM02_VrReceived_ANI1"
+    When PUT to MATCH variant report "confirm" service, response includes "successfully" with code "200"
     Then wait for "180" seconds
     Then patient status should change to "PENDING_CONFIRMATION"
 
@@ -34,18 +34,24 @@ Feature: Patients assignment tests
 #    patient: "PT_AM03_PendingApproval" with status: "PENDING_APPROVAL" on step: "1.0"
 #    patient is currently on treatment arm: "APEC1621-A", stratum: "100"
     Given patient id is "PT_AM03_PendingApproval"
-    And template on treatment arm message for this patient (treatment arm id: "APEC1621-B", stratum id: "100", step number: "1.1")
+    Then load template on treatment arm confirm message for this patient
+    Then set patient message field: "treatment_arm_id" to value: "APEC1621-B"
+    Then set patient message field: "stratum_id" to value: "100"
+    Then set patient message field: "step_number" to value: "1.1"
     When POST to MATCH patients service, response includes "treatment arm id" with code "403"
 
   @patients_p1
   Scenario Outline: PT_AM04. treatment arm should be able to assign to multiple patients
     Given patient id is "<patient_id>"
-    And template variant report confirm message for this patient (analysis_id: "<ani>", status: "confirm")
-    When PUT to MATCH variant report confirm service, response includes "successfully" with code "200"
+    Then load template variant report confirm message for analysis id: "<ani>"
+    When PUT to MATCH variant report "confirm" service, response includes "successfully" with code "200"
     Then patient status should change to "PENDING_CONFIRMATION"
-    Then template assignment report confirm message for this patient (analysis_id: "<ani>" and status: "confirm")
-    When PUT to MATCH assignment report confirm service, response includes "successfully" with code "200"
-    Then template on treatment arm message for this patient (treatment arm id: "APEC1621-A", stratum id: "100", step number: "1.1")
+    Then load template assignment report confirm message for analysis id: "<ani>"
+    Then PUT to MATCH assignment report "confirm" service, response includes "successfully" with code "200"
+    Then load template on treatment arm confirm message for this patient
+    Then set patient message field: "treatment_arm_id" to value: "APEC1621-A"
+    Then set patient message field: "stratum_id" to value: "100"
+    Then set patient message field: "step_number" to value: "1.1"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "ON_TREATMENT_ARM"
     Then patient field: "current_step_number" should have value: "1.1"
