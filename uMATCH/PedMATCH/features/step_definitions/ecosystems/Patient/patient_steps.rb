@@ -50,12 +50,10 @@ end
 ###############  prepare GET message  ###################
 #########################################################
 
-Given(/^patient GET service name "([^"]*)"$/) do |service|
+Given(/^patient GET service: "([^"]*)", patient id: "([^"]*)", id: "([^"]*)"$/) do |service, patient_id, id|
   @get_service_name = service
-end
-
-Given(/^patient GET service name "([^"]*)" for patient "([^"]*)"$/) do |service, patient_id|
-  @get_service_name = "#{patient_id}/#{service}"
+  @get_service_patient_id = patient_id
+  @get_service_id = id
 end
 
 Then(/^add projection: "([^"]*)" to patient GET url$/) do |projection|
@@ -68,14 +66,10 @@ Then(/^add parameter field: "([^"]*)" and value: "([^"]*)" to patient GET url$/)
   @get_service_parameters[field]=value
 end
 
-Then(/^set id: "([^"]*)" for patient GET url$/) do |id|
-  @get_service_id = id
-end
-
 def prepare_get_url
   url = ENV['patients_endpoint']
-  unless @patient_id.nil? || @patient_id.length<1
-    url += "/#{@patient_id}"
+  unless @get_service_patient_id.nil? || @get_service_patient_id.length<1
+    url += "/#{@get_service_patient_id}"
   end
   unless @get_service_name.nil? || @get_service_name.length<1
     url += "/#{@get_service_name}"
@@ -532,6 +526,10 @@ Then(/^the response type should be "([^"]*)"$/) do |type|
   expect(@get_response.class.to_s).to eql type
 end
 
+And(/^the count of array elements should be (\d+)$/) do |count|
+  expect(@get_response.size).to eql count.to_i
+end
+
 And(/^the count of array elements should match database table "([^"]*)"$/) do |table|
   if @get_service_parameters.nil?
     query = {}
@@ -637,6 +635,129 @@ And(/^patient pending_items field "([^"]*)" should have correct value$/) do |fie
   # actual_key_list.each { |this_actual|
   #   expect(expect_key_list).to include this_actual }
   expect(actual_key_list.size).to eql expect_key_list.size
+end
+
+Then(/^there are "([^"]*)" patient "([^"]*)" pending_items have field: "([^"]*)" value: "([^"]*)"$/) do |count, type, field, value|
+  expect(@get_response.class).to eql Hash
+  expect(@get_response.keys).to include type
+  expect_result = "There are #{count} matching results"
+  actual_count = 0
+  @get_response[type].each { |this_item|
+    if this_item[field]==value
+      actual_count += 1
+    end
+  }
+  actual_result = "There are #{actual_count} matching results"
+  expect(actual_result).to eql expect_result
+end
+
+Then(/^there are "([^"]*)" patient_limbos have field: "([^"]*)" value: "([^"]*)"$/) do |count,  field, value|
+  expect(@get_response.class).to eql Array
+  expect_result = "There are #{count} matching results"
+  actual_count = 0
+  @get_response.each { |this_item|
+    if this_item[field]==value
+      actual_count += 1
+    end
+  }
+  actual_result = "There are #{actual_count} matching results"
+  expect(actual_result).to eql expect_result
+end
+
+Then(/^this patient patient_limbos field "([^"]*)" should be correct$/) do |field|
+  expect(@get_response.class).to eql Array
+  this_patient_limbos = @get_response.find {|this_item| this_item['patient_id'] == @patient_id}
+  expect(this_patient_limbos).not_to eql nil
+  get_patient_if_needed
+  expect(this_patient_limbos[field]).to eql @current_patient_hash[field]
+end
+
+Then(/^this patient patient_limbos message should contain "([^"]*)" not "([^"]*)"$/) do |contain, not_contain|
+  expect(@get_response.class).to eql Array
+  this_patient_limbos = @get_response.find {|this_item| this_item['patient_id'] == @patient_id}
+  expect(this_patient_limbos).not_to eql nil
+  expect(this_patient_limbos.keys).to include 'message'
+  contain_list = contain.split('-')
+  not_contain_list = not_contain.split('-')
+  actual_list = this_patient_limbos['message']
+
+  contain_list.each { |this_contain|
+    unless actual_list.any? { |this_actual| this_actual.include?(this_contain)}
+      raise "#{actual_list.to_s} is expected to contain #{this_contain}"
+    end
+  }
+
+  not_contain_list.each { |this_not_contain|
+    if actual_list.any? { |this_actual| this_actual.include?(this_not_contain)}
+      raise "#{actual_list.to_s} is expected NOT to contain #{this_not_contain}"
+    end
+  }
+end
+
+Then(/^this patient patient_limbos days_pending should be correct$/) do
+  expect(@get_response.class).to eql Array
+  this_patient_limbos = @get_response.find {|this_item| this_item['patient_id'] == @patient_id}
+  expect(this_patient_limbos).not_to eql nil
+  expect(this_patient_limbos.keys).to include 'active_tissue_specimen'
+  expect(this_patient_limbos.keys).to include 'days_pending'
+  collect_date = Date.parse(this_patient_limbos['active_tissue_specimen']['specimen_collected_date'])
+  today = Date.today
+  expect_duration = (today-collect_date).to_i
+  actual_duration = this_patient_limbos['days_pending'].to_i
+  expect(actual_duration).to eql expect_duration
+end
+
+Then(/^there are "([^"]*)" patient action_items have field: "([^"]*)" value: "([^"]*)"$/) do |count, field, value|
+  expect(@get_response.class).to eql Array
+  expect_result = "There are #{count} matching results"
+  actual_count = 0
+  @get_response.each { |this_item|
+    if this_item[field]==value
+      actual_count += 1
+    end
+  }
+  actual_result = "There are #{actual_count} matching results"
+  expect(actual_result).to eql expect_result
+end
+
+Then(/^there are "([^"]*)" patient action_items$/) do |count|
+  expect(@get_response.class).to eql Array
+  expect(@get_response.size).to eql count.to_i
+end
+
+Then(/^there are "([^"]*)" patient treatment_arm_history/) do |count|
+  expect(@get_response.class).to eql Array
+  expect(@get_response.size).to eql count.to_i
+end
+
+Then(/^patient treatment_arm_history should have treatment_arm: "([^"]*)", stratum: "([^"]*)", step: "([^"]*)"/) do |ta, stratum, step|
+  expect(@get_response.class).to eql Array
+  has = @get_response.any?{|this_ta|
+    this_ta['treatment_arm_id'] == ta &&
+        this_ta['stratum_id'] == stratum &&
+        this_ta['step'] == step
+  }
+  unless has
+    raise "There is NO treatment arm with id #{ta}, stratum #{stratum} and step #{step}"
+  end
+end
+
+Then(/^patient treatment_arm_history should not have treatment_arm: "([^"]*)", stratum: "([^"]*)"/) do |ta, stratum|
+  expect(@get_response.class).to eql Array
+  has = @get_response.any?{|this_ta|
+    this_ta['treatment_arm_id'] == ta &&
+        this_ta['stratum_id'] == stratum
+  }
+  if has
+    raise "There IS treatment arm with id #{ta} and stratum #{stratum}"
+  end
+end
+
+Then(/^this patient specimen_events type "([^"]*)" should have "([^"]*)" elements/) do |type, count|
+  expect(@get_response.class).to eql Hash
+  expect(@get_response.keys).to include type
+  expect(@get_response[type].class).to eql Array
+  expect(@get_response[type].size).to eql count.to_i
 end
 
 def actual_match_expect(actual, expect)

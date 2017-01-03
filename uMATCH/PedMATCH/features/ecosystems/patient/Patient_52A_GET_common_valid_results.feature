@@ -2,7 +2,7 @@
 Feature: Patient GET service tests (valid results)
 
   Scenario Outline: PT_GV01. Service without id should return valid result
-    Given patient GET service name "<service>"
+    Given patient GET service: "<service>", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return
     Then the response type should be "Array"
     And the count of array elements should match database table "<table>"
@@ -22,7 +22,7 @@ Feature: Patient GET service tests (valid results)
 
 
   Scenario Outline: PT_GV02. Service without id should return valid projections
-    Given patient GET service name "<service>"
+    Given patient GET service: "<service>", patient id: "", id: ""
     Then add projection: "<projection1>" to patient GET url
     Then add projection: "<projection2>" to patient GET url
     Then add projection: "<projection3>" to patient GET url
@@ -45,7 +45,7 @@ Feature: Patient GET service tests (valid results)
 
 
   Scenario Outline: PT_GV03. Service without id should return valid result with parameters
-    Given patient GET service name "<service>"
+    Given patient GET service: "<service>", patient id: "", id: ""
     Then add parameter field: "<field>" and value: "<value>" to patient GET url
     When GET from MATCH patient API, http code "200" should return
     Then the response type should be "Array"
@@ -64,8 +64,7 @@ Feature: Patient GET service tests (valid results)
 
 
   Scenario Outline: PT_GV11. Service with id should return valid result
-    Given patient GET service name "<service>"
-    Then set id: "<id>" for patient GET url
+    Given patient GET service: "<service>", patient id: "", id: "<id>"
     When GET from MATCH patient API, http code "200" should return
     Then the response type should be "Hash"
     And hash response should have field "<field1>" with value "<id>"
@@ -81,8 +80,7 @@ Feature: Patient GET service tests (valid results)
 
 
   Scenario Outline: PT_GV12. Service with id should return valid projections
-    Given patient GET service name "<service>"
-    Then set id: "<value1>" for patient GET url
+    Given patient GET service: "<service>", patient id: "", id: "<value1>"
     Then add projection: "<field1>" to patient GET url
     Then add projection: "<field2>" to patient GET url
     Then add projection: "<field3>" to patient GET url
@@ -107,8 +105,7 @@ Feature: Patient GET service tests (valid results)
 
 
   Scenario Outline: PT_GV21. Service with patient_id should return valid result
-    Given patient id is "<patient_id>"
-    And patient GET service name "<service>"
+    Given patient GET service: "<service>", patient id: "<patient_id>", id: ""
     When GET from MATCH patient API, http code "200" should return
     Then the response type should be "Array"
     And the count of array elements should match database table "<table>"
@@ -122,8 +119,7 @@ Feature: Patient GET service tests (valid results)
 
 
   Scenario Outline: PT_GV22. Service with patient_id should return valid projections
-    Given patient id is "<patient_id>"
-    And patient GET service name "<service>"
+    Given patient GET service: "<service>", patient id: "<patient_id>", id: ""
     Then add projection: "<projection1>" to patient GET url
     Then add projection: "<projection2>" to patient GET url
     Then add projection: "<projection3>" to patient GET url
@@ -140,8 +136,7 @@ Feature: Patient GET service tests (valid results)
       | PT_RA08_RequestNoAssignment | specimens             | failed_date      | collected_date | pathology_status  |
 
   Scenario Outline: PT_GV23. Service with patient_id should return valid result with parameters
-    Given patient id is "<patient_id>"
-    And patient GET service name "<service>"
+    Given patient GET service: "<service>", patient id: "<patient_id>", id: ""
     Then add parameter field: "<field>" and value: "<value>" to patient GET url
     When GET from MATCH patient API, http code "200" should return
     Then the response type should be "Array"
@@ -153,9 +148,7 @@ Feature: Patient GET service tests (valid results)
 
 
   Scenario Outline: PT_GV31. Service with patient_id and id should return valid result
-    Given patient id is "<patient_id>"
-    And patient GET service name "<service>"
-    Then set id: "<id>" for patient GET url
+    Given patient GET service: "<service>", patient id: "<patient_id>", id: "<id>"
     When GET from MATCH patient API, http code "200" should return
     Then the response type should be "Hash"
     And hash response should have field "<field1>" with value "<id>"
@@ -169,9 +162,7 @@ Feature: Patient GET service tests (valid results)
 #
 #
   Scenario Outline: PT_GV32. Service with patient_id and id should return valid projections
-    Given patient id is "<patient_id>"
-    And patient GET service name "<service>"
-    Then set id: "<value1>" for patient GET url
+    Given patient GET service: "<service>", patient id: "<patient_id>", id: "<value1>"
     Then add projection: "<field1>" to patient GET url
     Then add projection: "<field2>" to patient GET url
     Then add projection: "<field3>" to patient GET url

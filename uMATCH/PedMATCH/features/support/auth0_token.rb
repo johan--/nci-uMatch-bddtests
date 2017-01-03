@@ -12,8 +12,6 @@ class Auth0Token
   def self.force_generate_auth0_token
     if ENV['AUTH0_TOKEN'].nil? || ENV['AUTH0_TOKEN'] == ''
       puts 'Generating auth0 token...'
-      cmd = 'source ~/.profile'
-      `#{cmd}`
       request_body = {:client_id => ENV['AUTH0_CLIENT_ID'],
                       :username => ENV['AUTH0_USERNAME'],
                       :password => ENV['AUTH0_PASSWORD'],

@@ -3,13 +3,9 @@
 @patients_end_to_end
 Feature: Patients end to end tests
 
-  @patients_p1_off
+  @patients_p1
   Scenario: PT_ETE01. patient can reach step 4.1 successfully
-#    Given patient: "PT_ETE01" with status: "BLOOD_VARIANT_REPORT_RECEIVED" on step: "3.0"
-#    Given this patients's active "TISSUE" molecular_id is "PT_ETE01_MOI2"
-#    Given this patients's active "BLOOD" molecular_id is "PT_ETE01_BD_MOI2"
-#    Given this patients's active "TISSUE" analysis_id is "PT_ETE01_ANI3"
-#    Given this patients's active "BLOOD" analysis_id is "PT_ETE01_ANI4"
+#    Given patient id is "PT_ETE01" analysis_id is "PT_ETE01_ANI1"
     Given reset COG patient data: "PT_ETE01"
     Given patient: "PT_ETE01" is registered
     Then tissue specimen received with surgical_event_id: "PT_ETE01_SEI1"
@@ -19,6 +15,7 @@ Feature: Patients end to end tests
 #    Then "BLOOD" specimen shipped to "MDA" with molecular_id or slide_barcode: "PT_ETE01_BD_MOI1"
     Then "ICCPTENs" assay result received result: "NEGATIVE"
     Then "ICCBAF47s" assay result received result: "NEGATIVE"
+    Then "ICCBRG1s" assay result received result: "NEGATIVE"
     Then "TISSUE" variant report uploaded with analysis_id: "PT_ETE01_ANI1"
 #    Then "BLOOD" variant report uploaded with analysis_id: "PT_ETE01_ANI2"
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
@@ -46,6 +43,7 @@ Feature: Patients end to end tests
 #    Then "BLOOD" specimen shipped to "MoCha" with molecular_id or slide_barcode: "PT_ETE01_BD_MOI2"
     Then "ICCPTENs" assay result received result: "POSITIVE"
     Then "ICCBAF47s" assay result received result: "INDETERMINATE"
+    Then "ICCBRG1s" assay result received result: "NEGATIVE"
     Then "TISSUE" variant report uploaded with analysis_id: "PT_ETE01_ANI3"
 #    Then "BLOOD" variant report uploaded with analysis_id: "PT_ETE01_ANI4"
     Then "TISSUE" variant(type: "fusion", field: "identifier", value: "FGFR2-OFD1.F17O3") is "unchecked"
