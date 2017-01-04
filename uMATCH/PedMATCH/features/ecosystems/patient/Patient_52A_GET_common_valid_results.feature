@@ -69,14 +69,14 @@ Feature: Patient GET service tests (valid results)
     Then the response type should be "Hash"
     And hash response should have field "<field1>" with value "<id>"
     Examples:
-      | service         | id                         | field1        |
-      | events          | PT_GVF_TsShipped           | entity_id     |
-      | variant_reports | PT_GVF_RARebioY_ANI1       | analysis_id   |
-      | variants        | PT_GVF_TsVrUploaded_UUID   | uuid          |
-      | assignments     | PT_GVF_VrAssayReady_ANI1   | analysis_id   |
-      | shipments       | PT_GVF_OnTreatmentArm_MOI1 | molecular_id  |
-      | shipments       | PT_GVF_VrAssayReady_BC1    | slide_barcode |
-      |                 | PT_GVF_RequestNoAssignment | patient_id    |
+      | service         | id                                   | field1        |
+      | events          | PT_GVF_TsShipped                     | entity_id     |
+      | variant_reports | PT_GVF_RARebioY_ANI1                 | analysis_id   |
+      | variants        | 5f4be20f-dc2b-4f62-9767-25ad7a320b0c | uuid          |
+      | assignments     | PT_GVF_VrAssayReady_ANI1             | analysis_id   |
+      | shipments       | PT_GVF_OnTreatmentArm_MOI1           | molecular_id  |
+      | shipments       | PT_GVF_VrAssayReady_BC1              | slide_barcode |
+      |                 | PT_GVF_RequestNoAssignment           | patient_id    |
 
 
   Scenario Outline: PT_GV12. Service with id should return valid projections
@@ -153,12 +153,12 @@ Feature: Patient GET service tests (valid results)
     Then the response type should be "Hash"
     And hash response should have field "<field1>" with value "<id>"
     Examples:
-      | patient_id          | service               | id                                   | field1            |
-      | PT_GVF_VrAssayReady | qc_variant_reports    | PT_GVF_VrAssayReady_ANI1             | analysis_id       |
-      | PT_GVF_VrAssayReady | specimens             | PT_GVF_VrAssayReady_SEI1             | surgical_event_id |
-      | PT_GVF_VrAssayReady | analysis_report       | PT_GVF_VrAssayReady_ANI1             | analysis_id       |
-      | PT_GVF_VrAssayReady | analysis_report_amois | PT_GVF_VrAssayReady_UUID!!!!!!!!!!!! | uuid              |
-      | PT_GVF_VrAssayReady | variant_file_download | PT_GVF_VrAssayReady_ANI1             | analysis_id       |
+      | patient_id           | service               | id                                   | field1            |
+      | PT_GVF_VrAssay_Ready | qc_variant_reports    | PT_GVF_VrAssayReady_ANI1             | analysis_id       |
+      | PT_GVF_VrAssayReady  | specimens             | PT_GVF_VrAssayReady_SEI1             | surgical_event_id |
+      | PT_GVF_VrAssayReady  | analysis_report       | PT_GVF_VrAssayReady_ANI1             | analysis_id       |
+      | PT_GVF_VrAssayReady  | analysis_report_amois | e0c1ce15-ee5d-4e67-a3da-65ac02d45d4a | uuid              |
+      | PT_GVF_VrAssayReady  | variant_file_download | PT_GVF_VrAssayReady_ANI1             | analysis_id       |
 #
 #
   Scenario Outline: PT_GV32. Service with patient_id and id should return valid projections

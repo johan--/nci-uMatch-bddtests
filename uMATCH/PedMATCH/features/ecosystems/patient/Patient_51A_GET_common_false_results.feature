@@ -42,7 +42,7 @@ Feature: Patient GET service tests (false results)
     When GET from MATCH patient API, http code "404" should return
     Then the response message should be empty
     Examples:
-      | service     | id                      |
+      | service     | id                       |
       | assignments | PT_GVF_VrAssayReady_ANI1 |
 
   Scenario Outline: PT_GF_WI02. Service should return 404 and empty result if provided id doesn't exist
@@ -65,13 +65,13 @@ Feature: Patient GET service tests (false results)
     Then the response type should be "Array"
     And each element of response should have 0 fields
     Examples:
-      | service         | id                        |
-      | events          | PT_GVF_TsShipped           |
-      | variant_reports | PT_GVF_RARebioY_ANI1       |
-      | variants        | PT_GVF_TsVrUploaded_UUID   |
-      | assignments     | PT_GVF_VrAssayReady_ANI1   |
-      | shipments       | PT_GVF_OnTreatmentArm_MOI1 |
-      |                 |                           |
+      | service         | id                                   |
+      | events          | PT_GVF_TsShipped                     |
+      | variant_reports | PT_GVF_RARebioY_ANI1                 |
+      | variants        | 5f4be20f-dc2b-4f62-9767-25ad7a320b0c |
+      | assignments     | PT_GVF_VrAssayReady_ANI1             |
+      | shipments       | PT_GVF_OnTreatmentArm_MOI1           |
+      |                 |                                      |
 #
   Scenario Outline: PT_GF_WI04. Service should return 404 and empty result if no resource match query parameters
     Given patient GET service: "<service>", patient id: "", id: "<id>"
@@ -79,13 +79,13 @@ Feature: Patient GET service tests (false results)
     When GET from MATCH patient API, http code "404" should return
     Then the response message should be empty
     Examples:
-      | service         | id                        | parameter           |
-      | events          | PT_GVF_TsShipped           | event_type          |
-      | variant_reports | PT_GVF_RARebioY_ANI1       | status              |
-      | variants        | PT_GVF_TsVrUploaded_UUID   | variant_type        |
-      | assignments     | PT_GVF_VrAssayReady_ANI1   | report_status       |
-      | shipments       | PT_GVF_OnTreatmentArm_MOI1 | shipment_type       |
-      |                 |                           | current_step_number |
+      | service         | id                                   | parameter           |
+      | events          | PT_GVF_TsShipped                     | event_type          |
+      | variant_reports | PT_GVF_RARebioY_ANI1                 | status              |
+      | variants        | eed59bc3-0ee5-4c3f-8a72-2225440b872d | variant_type        |
+      | assignments     | PT_GVF_VrAssayReady_ANI1             | report_status       |
+      | shipments       | PT_GVF_OnTreatmentArm_MOI1           | shipment_type       |
+      |                 |                                      | current_step_number |
 #
 ########## PT_GF_WP Services with patient_id /api/v1/patients/:patient_id/service(.:format)
   Scenario Outline: PT_GF_WP01. Service should return 404 and empty result if patient_id has no this type of resource
@@ -93,7 +93,7 @@ Feature: Patient GET service tests (false results)
     When GET from MATCH patient API, http code "404" should return
     Then the response message should be empty
     Examples:
-      | patient_id         | service               |
+      | patient_id          | service               |
       | PT_GVF_Registered   | specimens             |
       | PT_GVF_VrAssayReady | treatment_arm_history |
       | PT_GVF_Registered   | specimen_events       |
@@ -116,7 +116,7 @@ Feature: Patient GET service tests (false results)
     Then the response type should be "Array"
     And each element of response should have 0 fields
     Examples:
-      | patient_id           | service               |
+      | patient_id            | service               |
       | PT_GVF_TsVrUploaded   | specimens             |
       | PT_GVF_OnTreatmentArm | treatment_arm_history |
       | PT_GVF_TsVrUploaded   | action_items          |
@@ -129,7 +129,7 @@ Feature: Patient GET service tests (false results)
     Then the response type should be "<type>"
     And response should have 0 fields
     Examples:
-      | patient_id           | service               | field           | type  |
+      | patient_id            | service               | field           | type  |
       | PT_GVF_TsVrUploaded   | specimens             | specimen_type   | Array |
       | PT_GVF_OnTreatmentArm | treatment_arm_history | stratum_id      | Array |
       | PT_GVF_TsVrUploaded   | specimen_events       | blood_shipments | Hash  |
