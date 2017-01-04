@@ -93,7 +93,7 @@ Feature: Patient GET service valid special case tests
     Then there are "1" patient "assignment_reports" pending_items have field: "analysis_id" value: "<ani>"
     Examples:
       | patient_id            | ani                        |
-      | PT_SC02d_TsAsReceived | PT_SC02d_TsAsReceived_ANI1 |
+      | PT_SC02d_VrAssayReady | PT_SC02d_VrAssayReady_ANI1 |
 
   Scenario Outline: PT_SC02e pending_items should decrease assignment_reports value properly
     Given patient id is "<patient_id>"
@@ -145,9 +145,9 @@ Feature: Patient GET service valid special case tests
   Scenario: PT_SC03b amois values can be updated properly
     Given patient id is "PT_SC03b_TsShipped"
     Then load template variant file uploaded message for this patient
-    Then set patient message field: "molecular_id" to value: "PT_VC05_TissueShipped_MOI1"
-    Then set patient message field: "analysis_id" to value: "PT_VC05_TissueShipped_ANI1"
-    Then files for molecular_id "PT_VC05_TissueShipped_MOI1" and analysis_id "PT_VC05_TissueShipped_ANI1" are in S3
+    Then set patient message field: "molecular_id" to value: "PT_SC03b_TsShipped_MOI1"
+    Then set patient message field: "analysis_id" to value: "PT_SC03b_TsShipped_ANI1"
+    Then files for molecular_id "PT_SC03b_TsShipped_MOI1" and analysis_id "PT_SC03b_TsShipped_ANI1" are in S3
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
     Then patient GET service: "amois", patient id: "", id: ""
@@ -219,8 +219,8 @@ Feature: Patient GET service valid special case tests
       | PT_SC04d_TwoAssay | ICCBRG1s  | variant                    | shipment-ICCBAF47s-ICCPTENs-ICCBRG1s |
 
   Scenario: PT_SC04e patient_limbos should update properly after variant report is confirmed
-    Given patient id is "PT_SC04e_VrUploaded"
-    Then load template variant report confirm message for analysis id: "PT_SC04e_VrUploaded_ANI1"
+    Given patient id is "PT_SC04e_TsVrUploaded"
+    Then load template variant report confirm message for analysis id: "PT_SC04e_TsVrUploaded_ANI1"
     When PUT to MATCH variant report "confirm" service, response includes "changed successfully to" with code "200"
     Then patient status should change to "TISSUE_VARIANT_REPORT_CONFIRMED"
     Then patient GET service: "patient_limbos", patient id: "", id: ""
@@ -247,7 +247,7 @@ Feature: Patient GET service valid special case tests
       | patient_id                 | sei                             | date       | old_count | new_count |
       | PT_SC04f_Registered1       | PT_SC04f_Registered1_SEI1       | today      | 0         | 0         |
       | PT_SC04f_Registered2       | PT_SC04f_Registered2_SEI1       | 2016-12-05 | 0         | 1         |
-      | PT_SC04f_TsUploaded        | PT_SC04f_TsUploaded_SEI2        | today      | 1         | 0         |
+      | PT_SC04f_TsVrUploaded      | PT_SC04f_TsVrUploaded_SEI2      | today      | 1         | 0         |
       | PT_SC04f_RequestAssignment | PT_SC04f_RequestAssignment_SEI2 | 2016-12-05 | 1         | 1         |
 
 
@@ -299,10 +299,10 @@ Feature: Patient GET service valid special case tests
     Then there are "1" patient action_items have field: "action_type" value: "<action_type>"
     Then there are "1" patient action_items have field: "analysis_id" value: "<analysis_id>"
     Examples:
-      | patient_id                  | action_type                   | analysis_id                      |
-      | PT_SC05aTsVrUploaded        | pending_tissue_variant_report | PT_SC05aTsVrUploaded_ANI1        |
-      | PT_SC05aTsThenAssayReceived | pending_tissue_variant_report | PT_SC05aTsThenAssayReceived_ANI1 |
-      | PT_SC05aPendingConfirmation | pending_assignment_report     | PT_SC05aPendingConfirmation_ANI1 |
+      | patient_id                   | action_type                   | analysis_id                       |
+      | PT_SC05a_TsVrUploaded        | pending_tissue_variant_report | PT_SC05a_TsVrUploaded_ANI1        |
+      | PT_SC05a_TsThenAssayReceived | pending_tissue_variant_report | PT_SC05a_TsThenAssayReceived_ANI1 |
+      | PT_SC05a_PendingConfirmation | pending_assignment_report     | PT_SC05a_PendingConfirmation_ANI1 |
 
   Scenario Outline: PT_SC05b action_items should add pending_tissue_variant_report item after vr upload
     Given patient id is "<patient_id>"
@@ -344,7 +344,7 @@ Feature: Patient GET service valid special case tests
     Then there are "1" patient action_items have field: "analysis_id" value: "<ani>"
     Examples:
       | patient_id            | ani                        |
-      | PT_SC05d_TsAsReceived | PT_SC05d_TsAsReceived_ANI1 |
+      | PT_SC05d_VrAssayReady | PT_SC05d_VrAssayReady_ANI1 |
 
   Scenario Outline: PT_SC05e action_items should remove pending_assignment_report item after assignment confirmation
     Given patient id is "<patient_id>"

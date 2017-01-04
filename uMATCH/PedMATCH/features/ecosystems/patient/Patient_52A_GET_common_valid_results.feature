@@ -69,14 +69,14 @@ Feature: Patient GET service tests (valid results)
     Then the response type should be "Hash"
     And hash response should have field "<field1>" with value "<id>"
     Examples:
-      | service         | id                                   | field1        |
-      | events          | ION_AQ04_TsShipped                   | entity_id     |
-      | variant_reports | PT_SR10_ProgressReBioY_ANI1          | analysis_id   |
-      | variants        | af51e559-db26-498d-9e3e-c9ba19d7507e | uuid          |
-      | assignments     | PT_RA07_VrAndAssayReady_ANI1         | analysis_id   |
-      | shipments       | PT_RA02_OnTreatmentArm_MOI1          | molecular_id  |
-      | shipments       | PT_VC15_VrReceived_BC1               | slide_barcode |
-      |                 | PT_RA08_RequestNoAssignment          | patient_id    |
+      | service         | id                         | field1        |
+      | events          | PT_GVF_TsShipped           | entity_id     |
+      | variant_reports | PT_GVF_RARebioY_ANI1       | analysis_id   |
+      | variants        | PT_GVF_TsVrUploaded_UUID   | uuid          |
+      | assignments     | PT_GVF_VrAssayReady_ANI1   | analysis_id   |
+      | shipments       | PT_GVF_OnTreatmentArm_MOI1 | molecular_id  |
+      | shipments       | PT_GVF_VrAssayReady_BC1    | slide_barcode |
+      |                 | PT_GVF_RequestNoAssignment | patient_id    |
 
 
   Scenario Outline: PT_GV12. Service with id should return valid projections
@@ -114,8 +114,8 @@ Feature: Patient GET service tests (valid results)
     And each element of response should have field "<field2>"
     And each element of response should have field "<field3>"
     Examples:
-      | patient_id                  | service   | table    | field1      | field2         | field3        |
-      | PT_RA08_RequestNoAssignment | specimens | specimen | failed_date | collected_date | specimen_type |
+      | patient_id                 | service   | table    | field1      | field2         | field3        |
+      | PT_GVF_RequestNoAssignment | specimens | specimen | failed_date | collected_date | specimen_type |
 
 
   Scenario Outline: PT_GV22. Service with patient_id should return valid projections
@@ -130,10 +130,10 @@ Feature: Patient GET service tests (valid results)
     And each element of response should have field "<projection2>"
     And each element of response should have field "<projection3>"
     Examples:
-      | patient_id                  | service               | projection1      | projection2    | projection3       |
-      | PT_VC02_VRUploaded          | action_items          | action_type      | analysis_id    | created_date      |
-      | PT_RA08_RequestNoAssignment | treatment_arm_history | treatment_arm_id | version        | assignment_reason |
-      | PT_RA08_RequestNoAssignment | specimens             | failed_date      | collected_date | pathology_status  |
+      | patient_id                 | service               | projection1      | projection2    | projection3       |
+      | PT_GVF_TsVrUploaded        | action_items          | action_type      | analysis_id    | created_date      |
+      | PT_GVF_RequestNoAssignment | treatment_arm_history | treatment_arm_id | version        | assignment_reason |
+      | PT_GVF_RequestNoAssignment | specimens             | failed_date      | collected_date | pathology_status  |
 
   Scenario Outline: PT_GV23. Service with patient_id should return valid result with parameters
     Given patient GET service: "<service>", patient id: "<patient_id>", id: ""
@@ -143,8 +143,8 @@ Feature: Patient GET service tests (valid results)
     And the count of array elements should match database table "<table>"
     And each element of response should have field "<field>" with value "<value>"
     Examples:
-      | patient_id              | service   | table    | field             | value                        |
-      | PT_SR09_TsReceivedTwice | specimens | specimen | surgical_event_id | PT_SR09_TsReceivedTwice_SEI2 |
+      | patient_id             | service   | table    | field             | value                        |
+      | PT_GVF_TsReceivedTwice | specimens | specimen | surgical_event_id | PT_SR09_TsReceivedTwice_SEI2 |
 
 
   Scenario Outline: PT_GV31. Service with patient_id and id should return valid result
@@ -153,12 +153,12 @@ Feature: Patient GET service tests (valid results)
     Then the response type should be "Hash"
     And hash response should have field "<field1>" with value "<id>"
     Examples:
-      | patient_id              | service               | id                                   | field1            |
-      | PT_RA07_VrAndAssayReady | qc_variant_reports    | PT_RA07_VrAndAssayReady_ANI1         | analysis_id       |
-      | PT_RA07_VrAndAssayReady | specimens             | PT_RA07_VrAndAssayReady_SEI1         | surgical_event_id |
-      | PT_RA07_VrAndAssayReady | analysis_report       | PT_RA07_VrAndAssayReady_ANI1         | analysis_id       |
-      | PT_RA07_VrAndAssayReady | analysis_report_amois | af51e559-db26-498d-9e3e-c9ba19d7507e | uuid              |
-      | PT_RA07_VrAndAssayReady | variant_file_download | PT_RA07_VrAndAssayReady_ANI1         | analysis_id       |
+      | patient_id          | service               | id                                   | field1            |
+      | PT_GVF_VrAssayReady | qc_variant_reports    | PT_GVF_VrAssayReady_ANI1             | analysis_id       |
+      | PT_GVF_VrAssayReady | specimens             | PT_GVF_VrAssayReady_SEI1             | surgical_event_id |
+      | PT_GVF_VrAssayReady | analysis_report       | PT_GVF_VrAssayReady_ANI1             | analysis_id       |
+      | PT_GVF_VrAssayReady | analysis_report_amois | PT_GVF_VrAssayReady_UUID!!!!!!!!!!!! | uuid              |
+      | PT_GVF_VrAssayReady | variant_file_download | PT_GVF_VrAssayReady_ANI1             | analysis_id       |
 #
 #
   Scenario Outline: PT_GV32. Service with patient_id and id should return valid projections
@@ -173,12 +173,12 @@ Feature: Patient GET service tests (valid results)
     And each element of response should have field "<field2>" with value "<value2>"
     And each element of response should have field "<field3>" with value "<value3>"
     Examples:
-      | patient_id              | service               | field1                       | value1 | field2        | value2 | field3           | value3 |
-      | PT_RA07_VrAndAssayReady | specimens             | entity_id                    |        | event_message |        | event_data       |        |
-      | PT_RA07_VrAndAssayReady | analysis_report       | variant_report_received_date |        | tsv_file_name |        | total_amois      |        |
-      | PT_RA07_VrAndAssayReady | analysis_report_amois | uuid                         |        | amois         |        | variant_type     |        |
-      | patient_id              | qc_variant_reports    | assignment_date              |        | step_number   |        | sent_to_cog_date |        |
-      | patient_id              | variant_file_download | shipped_date                 |        | carrier       |        | shipment_type    |        |
+      | patient_id          | service               | field1                       | value1 | field2        | value2 | field3           | value3 |
+      | PT_GVF_VrAssayReady | specimens             | entity_id                    |        | event_message |        | event_data       |        |
+      | PT_GVF_VrAssayReady | analysis_report       | variant_report_received_date |        | tsv_file_name |        | total_amois      |        |
+      | PT_GVF_VrAssayReady | analysis_report_amois | uuid                         |        | amois         |        | variant_type     |        |
+      | patient_id          | qc_variant_reports    | assignment_date              |        | step_number   |        | sent_to_cog_date |        |
+      | patient_id          | variant_file_download | shipped_date                 |        | carrier       |        | shipment_type    |        |
 
 #
 #  not necessary
