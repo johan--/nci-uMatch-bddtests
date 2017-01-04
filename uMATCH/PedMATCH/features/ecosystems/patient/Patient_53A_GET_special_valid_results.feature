@@ -42,6 +42,8 @@ Feature: Patient GET service valid special case tests
     Then set patient message field: "step_number" to value: "<step>"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "ON_TREATMENT_ARM"
+    Then patient GET service: "statistics", patient id: "", id: ""
+    When GET from MATCH patient API, http code "200" should return
     Then patient statistics field "number_of_patients_on_treatment_arm" should have correct value
     Then patient statistics field "treatment_arm_accrual" should have correct value
     Examples:
