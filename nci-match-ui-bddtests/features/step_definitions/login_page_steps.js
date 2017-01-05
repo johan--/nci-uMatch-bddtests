@@ -38,6 +38,23 @@ module.exports = function () {
         browser.sleep(3000).then(callback);
     });
 
+    this.Given(/^I'm logged in as a "(.+?)" user$/, function(user_role,callback) {
+        browser.ignoreSynchronization = false;
+        loginPageObj.goToLoginPage();
+
+        var login_credentials = [];
+        login_credentials = utilities.return_valid_user_credentials(user_role);
+
+        var email = login_credentials[0];
+        var password = login_credentials[1];
+
+        loginPageObj.login(email, password);
+//        utilities.waitForElement(loginPageObj.navBarHeading, 'sticky top menu');
+
+        browser.sleep(3000).then(callback);
+
+    });
+
     this.Then(/^I should see the login button$/, function (callback) {
         accessbtn.isPresent().then(function (present) {
             expect(present).to.eql(true)
