@@ -353,6 +353,28 @@ var Utilities = function() {
     this.capitalize = function (text){
         return text.toLocaleLowerCase().replace(/\b./, function(f) {return f.toLocaleUpperCase();})
     };
+
+    this.return_valid_user_credentials = function (role){
+      var user_credentials = [];
+      if (role === 'VR_Reviewer'){
+          var email = process.env.NCI_MATCH_VR_USERID;
+          var password = process.env.NCI_MATCH_VR_PASSWORD;
+           user_credentials.push(email,password);
+      } else if (role === 'read_only'){
+          var email = process.env.NCI_MATCH_RO_USERID;
+          var password = process.env.NCI_MATCH_RO_PASSWORD;
+          user_credentials.push(email,password);
+      } else if (role === 'AR_Reviewer'){
+          var email = process.env.NCI_MATCH_AR_USERID;
+          var password = process.env.NCI_MATCH_AR_PASSWORD;
+          user_credentials.push(email,password);
+      } else if (role === 'admin'){
+          var email = process.env.NCI_MATCH_USERID;
+          var password = process.env.NCI_MATCH_PASSWORD;
+          user_credentials.push(email,password);
+      }
+        return user_credentials;
+    };
 };
 
 module.exports = new Utilities();
