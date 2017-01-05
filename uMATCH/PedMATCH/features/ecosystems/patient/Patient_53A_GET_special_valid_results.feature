@@ -31,7 +31,6 @@ Feature: Patient GET service valid special case tests
     Examples:
       | patient_id                 | ani                             |
       | PT_SC01c_TsVrUploaded      | PT_SC01c_TsVrUploaded_ANI1      |
-      | PT_SC01c_BdVrUploaded      | PT_SC01c_BdVrUploaded_ANI1      |
       | PT_SC01c_TsVrUploadedStep2 | PT_SC01c_TsVrUploadedStep2_ANI2 |
 
   Scenario Outline: PT_SC01c statistics service should update treatment arm values properly

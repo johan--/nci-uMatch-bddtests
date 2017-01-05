@@ -11,7 +11,7 @@ class Helper_Methods
   @requestGap = 5.0
   @requestTimeout = 10.0
 
-  def Helper_Methods.get_request(url, params={}, auth0_on = true)
+  def Helper_Methods.get_request(url, params={}, auth0_on = true, auth0_role = 'ADMIN')
     get_response = {}
     no_log = params['no_log']
     params.delete('no_log')
@@ -22,9 +22,8 @@ class Helper_Methods
       @url = [url, @params].join('/')
     end
     puts "Get Url: #{@url}"
-
     headers = {}
-    Auth0Token.add_auth0_if_needed(headers) if auth0_on
+    Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
     begin
       # puts "url is #{@url}"
       # puts "header is #{headers}"
@@ -49,13 +48,13 @@ class Helper_Methods
     end
   end
 
-  def Helper_Methods.get_list_request(service, params={}, auth0_on = true)
+  def Helper_Methods.get_list_request(service, params={}, auth0_on = true, auth0_role = 'ADMIN')
     @params = params.values.join('/')
     @service = "#{service}/#{@params}"
 
     puts "Calling: #{@service}"
     headers = {}
-    Auth0Token.add_auth0_if_needed(headers)
+    Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
 
     result = []
     runTime = 0.0
@@ -82,10 +81,10 @@ class Helper_Methods
     return result
   end
 
-  def Helper_Methods.simple_get_request(service, auth0_on = true)
+  def Helper_Methods.simple_get_request(service, auth0_on = true, auth0_role = 'ADMIN')
     @get_response={}
     headers = {}
-    Auth0Token.add_auth0_if_needed(headers)
+    Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
     begin
       response = RestClient::Request.execute(:url => service, :method => :get, :verify_ssl => false, :headers => headers)
     rescue StandardError => e
@@ -136,13 +135,14 @@ class Helper_Methods
       value='',
       request_gap_seconds=5.0,
       time_out_seconds=15.0,
-      auth0_on = true)
+      auth0_on = true,
+      auth0_role = 'ADMIN')
     print "#{service}\n"
 
     last_response = nil
     runTime = 0.0
     headers = {}
-    Auth0Token.add_auth0_if_needed(headers)
+    Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
     loop do
       begin
         response_string = RestClient::Request.execute(:url => service, :method => :get, :verify_ssl => false, :headers => headers)
@@ -185,7 +185,7 @@ class Helper_Methods
     return {}
   end
 
-  def Helper_Methods.get_request_url_param(service, params={}, auth0_on = true)
+  def Helper_Methods.get_request_url_param(service, params={}, auth0_on = true, auth0_role = 'ADMIN')
     print "URL: #{service}\n"
     @params = ''
     params.each do |key, value|
@@ -196,7 +196,7 @@ class Helper_Methods
     @service = url[0..len]
     print "#{url[0..len]}\n"
     headers = {}
-    Auth0Token.add_auth0_if_needed(headers)
+    Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
     @res = RestClient::Request.execute(:url => @service, :method => :get, :verify_ssl => false, :headers => headers)
     return @res
   end
@@ -264,12 +264,12 @@ class Helper_Methods
   #       'http_code' => <http_code returned>
   #       'message'  => UNALTERED body of the response
   #   }
-  def Helper_Methods.post_request(service, payload, auth0_on = true)
+  def Helper_Methods.post_request(service, payload, auth0_on = true, auth0_role = 'ADMIN')
     puts "Post URL: #{service}"
     # print "JSON:\n#{payload}\n\n"
     @post_response = {}
     headers = {:content_type => 'json', :accept => 'json'}
-    Auth0Token.add_auth0_if_needed(headers)
+    Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
     begin
       response = RestClient::Request.execute(:url => service, :method => :post, :verify_ssl => false, :payload => payload, :headers => headers)
     rescue StandardError => e
@@ -304,13 +304,13 @@ class Helper_Methods
     end
   end
 
-  def Helper_Methods.put_request(service, payload, auth0_on = true)
+  def Helper_Methods.put_request(service, payload, auth0_on = true, auth0_role = 'ADMIN')
     print "Put URL: #{service}\n"
     # # print "JSON:\n#{JSON.pretty_generate(JSON.parse(payload))}\n\n"
     # print "JSON:\n#{payload}\n\n"
     @put_response = {}
     headers = {:content_type => 'json', :accept => 'json'}
-    Auth0Token.add_auth0_if_needed(headers)
+    Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
     begin
       response = RestClient::Request.execute(:url => service, :method => :put, :verify_ssl => false, :payload => payload, :headers => headers)
     rescue StandardError => e
@@ -342,11 +342,11 @@ class Helper_Methods
     return @put_response
   end
 
-  def Helper_Methods.delete_request(service, auth0_on = true)
+  def Helper_Methods.delete_request(service, auth0_on = true, auth0_role = 'ADMIN')
     print "Delete URL: #{service}\n"
     @delete_response = {}
     headers = {:accept => 'json'}
-    Auth0Token.add_auth0_if_needed(headers)
+    Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
     begin
       response = RestClient::Request.execute(:url => service, :method => :delete, :verify_ssl => false, :headers => headers)
     rescue StandardError => e

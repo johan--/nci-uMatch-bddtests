@@ -212,7 +212,7 @@ Feature: Assay Messages
     Examples:
       | patient_id          | patient_status         | sei                      |
       | PT_AS12_VrConfirmed | PENDING_CONFIRMATION   | PT_AS12_VrConfirmed_SEI1 |
-#      | PT_AS12_VrReceived  | ASSAY_RESULTS_RECEIVED | PT_AS12_VrReceived_SEI1  |
+      | PT_AS12_VrReceived  | ASSAY_RESULTS_RECEIVED | PT_AS12_VrReceived_SEI1  |
           #there is no “PATHOLOGY_REVIEWED” status anymore
 #      | PT_AS12_VRAndPathoConfirmed | PENDING_CONFIRMATION   | PT_AS12_VRAndPathoConfirmed_SEI1 |
 #      | PT_AS12_VRConfirmedNoPatho  | ASSAY_RESULTS_RECEIVED | PT_AS12_VRConfirmedNoPatho_SEI1  |

@@ -13,6 +13,22 @@ class PatientMessageLoader
   SERVICE_NAME = 'trigger'
   MESSAGE_TEMPLATE_FILE = "#{File.dirname(__FILE__)}/../uMATCH/PedMATCH/public/patient_message_templates.json"
 
+  def self.load_patient_message(file_name, patient_id)
+    message_list = JSON(IO.read(file_name))[patient_id]
+    raise "Patient #{patient_id} doesn't exist in file #{file_name}" if message_list.nil?
+    message_list.each { |this_row|
+      parts = this_row.split(':')
+      func = parts[0]
+      params = [patient_id]
+      if parts.size > 1
+        parts[1].split(',').each { |this_param|
+          params << this_param.gsub('pt.id', patient_id)
+        }
+      end
+      PatientMessageLoader.send(func, *params)
+    }
+  end
+
   def self.upload_start_with_wait_time(time)
     @wait_time = time
     @all_items = 0
@@ -315,9 +331,9 @@ class PatientMessageLoader
       patient_id,
       molecular_id,
       analysis_id,
+      vr_type='default',
       folder='bdd_test_ion_reporter',
-      tsv_name='test1.tsv',
-      vr_type='default')
+      tsv_name='test1.tsv')
     Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-dev', folder, molecular_id, analysis_id, tsv_name, vr_type)
     Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-int', folder, molecular_id, analysis_id, tsv_name, vr_type)
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['variant_file_uploaded']

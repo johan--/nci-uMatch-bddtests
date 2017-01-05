@@ -10,7 +10,7 @@ Environment.setTier 'local' #set this value to 'local' if you are running tests 
 # DynamoDataUploader.new('local').upload_treatment_arm_to_aws
 # DynamoDataUploader.new('local').upload_patient_data_to_aws
 # DynamoDataUploader.new('local').upload_ion_to_aws
-#
+# #
 # Auth0Token.generate_auth0_token
-# Patient5xA.upload_all
+# Patient5xA.upload_patient('PT_SC01c_PendingApproval')
 DynamoDataUploader.backup_all_local_db
