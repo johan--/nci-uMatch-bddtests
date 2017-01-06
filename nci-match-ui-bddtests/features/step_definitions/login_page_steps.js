@@ -129,4 +129,5 @@ module.exports = function () {
         expect(browser.getCurrentUrl()).to.eventually.have.string('/#/auth/login');
         browser.sleep(50).then(callback);
     });
+
 };
