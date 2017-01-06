@@ -1,10 +1,8 @@
-require 'HTTParty'
 require 'json'
 require_relative '../uMATCH/PedMATCH/features/support/environment'
 require_relative '../uMATCH/PedMATCH/features/support/helper_methods'
 
 class PatientMessageLoader
-  include HTTParty
 
   LOCAL_PATIENT_DATA_FOLDER = 'local_patient_data'
   LOCAL_DYNAMODB_URL = 'http://localhost:8000'
