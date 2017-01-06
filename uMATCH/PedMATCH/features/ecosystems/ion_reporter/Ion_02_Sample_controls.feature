@@ -9,6 +9,9 @@ Feature: Tests for sample_controls service in ion ecosystem
     When call sample_controls POST service, returns a message that includes "New sample control created" with status "Success"
     Then field: "site" for generated sample_control should be: "<site>"
     Then field: "control_type" for generated sample_control should be: "<control_type>"
+    Then field: "pass_flag" for generated sample_control should be: "false"
+    Then field: "confirmed" for generated sample_control should be: "true"
+    Then sample_control should not have field: "comments"
     Examples:
       | site  | control_type           |
       | mda   | positive               |
@@ -84,6 +87,16 @@ Feature: Tests for sample_controls service in ion ecosystem
     Then field: "cdna_bam_name" for this sample_control should be: "IR_1H9XW/SC_3KSN8_a888_v1/SC_3KSN8_a888_v1_RNA_v1.bam"
     Then field: "qc_name" for this sample_control should be: "IR_1H9XW/SC_3KSN8_a888_v1/SC_3KSN8_a888_v1_QC.pdf"
 
+  @ion_reporter_p1
+  Scenario: ION_SC20a. sample_control comments and pass_flag can be updated successfully
+    Given molecular id is "SC_R2LAX"
+    Then add field: "pass_flag" value: "true" to message body
+    Then add field: "comments" value: "test comments" to message body
+    When call sample_controls PUT service, returns a message that includes "updated" with status "Success"
+    Then wait up to 30 seconds until this sample_control get updated
+    Then field: "pass_flag" for this sample_control should be: "true"
+    Then field: "comments" for this sample_control should be: "test comments"
+
   @ion_reporter_p2
   Scenario: ION_SC21. sample_control update request with non-existing molecular_id should fail
     Given molecular id is "SC_NON_EXISTING"
@@ -117,7 +130,7 @@ Feature: Tests for sample_controls service in ion ecosystem
     Then add field: "extra_information" value: "other" to message body
     When call sample_controls PUT service, returns a message that includes "updated" with status "Success"
     Then wait up to 15 seconds until this sample_control get updated
-    Then updated sample_control should not have field: "extra_information"
+    Then sample_control should not have field: "extra_information"
 
 #  @ion_reporter_p2
 #  Scenario: ION_SC26. sample_control update request should not remove existing fields that are not in PUT message body

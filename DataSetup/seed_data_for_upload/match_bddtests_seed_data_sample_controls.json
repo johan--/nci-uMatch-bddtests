@@ -12,7 +12,6 @@
         "copy_number": "0.1964E2",
         "variant_type": "cnv",
         "amois": [
-
         ],
         "confidence_interval_95_percent": "0.216801E2",
         "raw_copy_number": "0.1964E2"
@@ -25,7 +24,6 @@
         "copy_number": "0.927E1",
         "variant_type": "cnv",
         "amois": [
-
         ],
         "confidence_interval_95_percent": "0.104627E2",
         "raw_copy_number": "0.927E1"
@@ -38,7 +36,6 @@
         "copy_number": "0.1485E2",
         "variant_type": "cnv",
         "amois": [
-
         ],
         "confidence_interval_95_percent": "0.167607E2",
         "raw_copy_number": "0.1485E2"
@@ -73,7 +70,6 @@
         "ocp_alternative": "C",
         "chromosome": "chr3",
         "amois": [
-
         ],
         "oncomine_variant_class": "Hotspot",
         "hgvs": "c.333G>C",
@@ -99,7 +95,6 @@
         "ocp_alternative": "T",
         "chromosome": "chr7",
         "amois": [
-
         ],
         "oncomine_variant_class": "Hotspot",
         "hgvs": "c.1799T>A",
@@ -125,7 +120,6 @@
         "ocp_alternative": "A",
         "chromosome": "chr13",
         "amois": [
-
         ],
         "oncomine_variant_class": "Deleterious",
         "hgvs": "c.9281C>A",
@@ -151,7 +145,6 @@
         "ocp_alternative": "A",
         "chromosome": "chr10",
         "amois": [
-
         ],
         "oncomine_variant_class": "Deleterious",
         "hgvs": "c.740_741insA",
@@ -177,7 +170,6 @@
         "ocp_alternative": "-",
         "chromosome": "chr13",
         "amois": [
-
         ],
         "oncomine_variant_class": "Deleterious",
         "hgvs": "c.346_349delACTT",
@@ -203,7 +195,6 @@
         "ocp_alternative": "-",
         "chromosome": "chr17",
         "amois": [
-
         ],
         "oncomine_variant_class": "Deleterious",
         "hgvs": "c.1024delC",
@@ -230,7 +221,6 @@
         "driver_gene": "PTPN3",
         "variant_type": "fusion",
         "amois": [
-
         ],
         "read_depth": null,
         "partner_gene": "ALK",
@@ -244,7 +234,6 @@
         "driver_gene": "ALK",
         "variant_type": "fusion",
         "amois": [
-
         ],
         "read_depth": null,
         "partner_gene": "EML4",
@@ -258,7 +247,6 @@
         "driver_gene": "ALK",
         "variant_type": "fusion",
         "amois": [
-
         ],
         "read_depth": null,
         "partner_gene": "EML4",
@@ -272,7 +260,6 @@
         "driver_gene": "MET",
         "variant_type": "fusion",
         "amois": [
-
         ],
         "read_depth": null,
         "partner_gene": "MET",
@@ -292,7 +279,6 @@
     "date_molecular_id_created": "2016-10-28 12:56:19.566",
     "molecular_id": "SC_KGPVI",
     "copy_number_variants": [
-
     ],
     "date_variant_received": "2016-11-10 17:46:49.401014",
     "report_status": "PASSED",
@@ -304,13 +290,11 @@
     "filename": "SC_KGPVI_MoCha_12_notemplate_passed",
     "oncomine_control_panel_summary": null,
     "snv_indels": [
-
     ],
     "mapd": "1.934",
     "torrent_variant_caller_version": "4.4-8",
     "cellularity": "1.000000",
     "gene_fusions": [
-
     ],
     "control_type": "no_template"
   },
@@ -358,7 +342,6 @@
         "copy_number": "0.23E2",
         "variant_type": "cnv",
         "amois": [
-
         ],
         "confidence_interval_95_percent": "0.245494E2",
         "raw_copy_number": "0.230001E2"
@@ -371,7 +354,6 @@
         "copy_number": "0.79E1",
         "variant_type": "cnv",
         "amois": [
-
         ],
         "confidence_interval_95_percent": "0.812819E1",
         "raw_copy_number": "0.789999E1"
@@ -384,7 +366,6 @@
         "copy_number": "0.162E2",
         "variant_type": "cnv",
         "amois": [
-
         ],
         "confidence_interval_95_percent": "0.170665E2",
         "raw_copy_number": "0.162E2"
@@ -397,7 +378,6 @@
         "copy_number": "0.86E1",
         "variant_type": "cnv",
         "amois": [
-
         ],
         "confidence_interval_95_percent": "0.916673E1",
         "raw_copy_number": "0.86E1"
@@ -410,7 +390,6 @@
         "copy_number": "0.125E2",
         "variant_type": "cnv",
         "amois": [
-
         ],
         "confidence_interval_95_percent": "0.133237E2",
         "raw_copy_number": "0.125E2"
@@ -436,7 +415,6 @@
         "ocp_alternative": "C",
         "chromosome": "chr3",
         "amois": [
-
         ],
         "oncomine_variant_class": "Hotspot",
         "hgvs": "c.333G>C",
@@ -462,7 +440,6 @@
         "ocp_alternative": "T",
         "chromosome": "chr7",
         "amois": [
-
         ],
         "oncomine_variant_class": "Hotspot",
         "hgvs": "c.1799T>A",
@@ -488,7 +465,6 @@
         "ocp_alternative": "A",
         "chromosome": "chr13",
         "amois": [
-
         ],
         "oncomine_variant_class": "Deleterious",
         "hgvs": "c.9281C>A",
@@ -514,7 +490,6 @@
         "ocp_alternative": "C",
         "chromosome": "chr17",
         "amois": [
-
         ],
         "oncomine_variant_class": "Hotspot",
         "hgvs": "c.726C>G",
@@ -540,7 +515,6 @@
         "ocp_alternative": "A",
         "chromosome": "chr10",
         "amois": [
-
         ],
         "oncomine_variant_class": "Deleterious",
         "hgvs": "c.740_741insA",
@@ -566,7 +540,6 @@
         "ocp_alternative": "-",
         "chromosome": "chr13",
         "amois": [
-
         ],
         "oncomine_variant_class": "Deleterious",
         "hgvs": "c.346_349delACTT",
@@ -592,7 +565,6 @@
         "ocp_alternative": "-",
         "chromosome": "chr17",
         "amois": [
-
         ],
         "oncomine_variant_class": "Deleterious",
         "hgvs": "c.1024_1024delC",
@@ -621,7 +593,6 @@
         "driver_gene": "ALK",
         "variant_type": "fusion",
         "amois": [
-
         ],
         "read_depth": null,
         "partner_gene": "EML4",
@@ -635,7 +606,6 @@
         "driver_gene": "ALK",
         "variant_type": "fusion",
         "amois": [
-
         ],
         "read_depth": null,
         "partner_gene": "EML4",
@@ -692,6 +662,14 @@
     "date_molecular_id_created": "2016-10-12 21:19:45.498087",
     "molecular_id": "SC_HY9S5",
     "control_type": "positive"
+  },
+  {
+    "confirmed": true,
+    "control_type": "positive",
+    "date_molecular_id_created": "2017-01-06 19:54:52.409820",
+    "molecular_id": "SC_R2LAX",
+    "pass_flag": false,
+    "site": "mdacc"
   },
   {
     "site": "mda",
@@ -1011,7 +989,6 @@
     "date_molecular_id_created": "2016-10-30 21:12:26.123",
     "molecular_id": "SC_LGU30",
     "copy_number_variants": [
-
     ],
     "date_variant_received": "2016-11-10 17:51:52.237562",
     "site_ip_address": "129.43.127.133",
@@ -1024,13 +1001,11 @@
     "filename": "SNV_Germline_filter_proficiency",
     "oncomine_control_panel_summary": null,
     "snv_indels": [
-
     ],
     "mapd": "0.653",
     "torrent_variant_caller_version": "4.4-8",
     "cellularity": "1.000000",
     "gene_fusions": [
-
     ],
     "control_type": "proficiency_competency"
   },
@@ -1077,7 +1052,6 @@
     "date_molecular_id_created": "2016-09-30 21:12:24.123",
     "dna_bam_name": "IR_WAO85/SC_FDK09/SC_FDK09_analysis_1/SC_FDK09_analysis1_dna.bam",
     "copy_number_variants": [
-
     ],
     "date_variant_received": "2016-11-10 17:50:55.185869",
     "site_ip_address": "129.43.127.133",
@@ -1109,7 +1083,6 @@
         "ocp_alternative": "T",
         "chromosome": "chr17",
         "amois": [
-
         ],
         "oncomine_variant_class": "Hotspot",
         "hgvs": "c.2327G>T",
@@ -1128,7 +1101,6 @@
     ],
     "torrent_variant_caller_version": "4.2-13",
     "gene_fusions": [
-
     ]
   },
   {
@@ -1143,7 +1115,6 @@
     "date_molecular_id_created": "2016-10-20 21:10:26.183",
     "molecular_id": "SC_BAXXY",
     "copy_number_variants": [
-
     ],
     "date_variant_received": "2016-11-10 17:52:52.964882",
     "site_ip_address": "129.43.127.133",
@@ -1166,7 +1137,6 @@
         "ocp_alternative": "A",
         "chromosome": "chr3",
         "amois": [
-
         ],
         "oncomine_variant_class": null,
         "hgvs": null,
@@ -1192,7 +1162,6 @@
         "ocp_alternative": "A",
         "chromosome": "chr6",
         "amois": [
-
         ],
         "oncomine_variant_class": null,
         "hgvs": null,
@@ -1218,7 +1187,6 @@
         "ocp_alternative": "A",
         "chromosome": "chr8",
         "amois": [
-
         ],
         "oncomine_variant_class": null,
         "hgvs": null,
@@ -1244,7 +1212,6 @@
         "ocp_alternative": "A",
         "chromosome": "chr9",
         "amois": [
-
         ],
         "oncomine_variant_class": null,
         "hgvs": null,
@@ -1270,7 +1237,6 @@
         "ocp_alternative": "A",
         "chromosome": "chr10",
         "amois": [
-
         ],
         "oncomine_variant_class": null,
         "hgvs": null,
@@ -1296,7 +1262,6 @@
         "ocp_alternative": "A",
         "chromosome": "chr11",
         "amois": [
-
         ],
         "oncomine_variant_class": null,
         "hgvs": null,
@@ -1322,7 +1287,6 @@
         "ocp_alternative": "A",
         "chromosome": "chr12",
         "amois": [
-
         ],
         "oncomine_variant_class": null,
         "hgvs": null,
@@ -1348,7 +1312,6 @@
         "ocp_alternative": "A",
         "chromosome": "chr13",
         "amois": [
-
         ],
         "oncomine_variant_class": null,
         "hgvs": null,
@@ -1374,7 +1337,6 @@
         "ocp_alternative": "A",
         "chromosome": "chr14",
         "amois": [
-
         ],
         "oncomine_variant_class": null,
         "hgvs": null,
@@ -1400,7 +1362,6 @@
         "ocp_alternative": "A",
         "chromosome": "chr15",
         "amois": [
-
         ],
         "oncomine_variant_class": null,
         "hgvs": null,
@@ -1426,7 +1387,6 @@
         "ocp_alternative": "A",
         "chromosome": "chr16",
         "amois": [
-
         ],
         "oncomine_variant_class": null,
         "hgvs": null,
@@ -1452,7 +1412,6 @@
         "ocp_alternative": "A",
         "chromosome": "chr17",
         "amois": [
-
         ],
         "oncomine_variant_class": null,
         "hgvs": null,
@@ -1478,7 +1437,6 @@
         "ocp_alternative": "A",
         "chromosome": "chr18",
         "amois": [
-
         ],
         "oncomine_variant_class": null,
         "hgvs": null,
@@ -1499,7 +1457,6 @@
     "torrent_variant_caller_version": "4.2-13",
     "cellularity": "1.000000",
     "gene_fusions": [
-
     ],
     "control_type": "proficiency_competency"
   },
@@ -2064,7 +2021,6 @@
     "torrent_variant_caller_version": "4.4-8",
     "cellularity": "1.000000",
     "false_positive_variants": [
-
     ],
     "control_type": "positive"
   },
@@ -2254,7 +2210,6 @@
     "torrent_variant_caller_version": "5.0-9",
     "cellularity": "1.000000",
     "false_positive_variants": [
-
     ],
     "control_type": "positive"
   },

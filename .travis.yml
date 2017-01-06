@@ -6,6 +6,7 @@ node_js:
   - "5"
 before_install:
   - echo $TRIGGER_REPO
+  - echo $AUTHOR
   - echo $TRIGGER_VER
   - echo $CUC_TAG
   # Pull latest docker image from last step to test against before it gets updated by someone else

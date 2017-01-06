@@ -27,6 +27,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then field: "filename" for this aliquot should be: "test1"
     Then field: "molecular_id" for this aliquot should be: "SC_OAFXP"
     Then field: "report_status" for this aliquot should be: "FAILED"
+    Then sample_control should not have field: "comments"
     And file: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/test1.tsv" should be available in S3
     And file: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/test1.json" should be available in S3
     And file: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/dna.bai" should be available in S3
@@ -133,7 +134,7 @@ Feature: Tests for aliquot service in ion ecosystem
   Scenario: ION_AQ05. extra key-value pair in the message body should NOT fail
     Given molecular id is "SC_BKWJR"
     Then add field: "analysis_id" value: "SC_BKWJR_ANI1" to message body
-    Then add field: "site" value: "mda" to message body
+    Then add field: "site" value: "mdacc" to message body
     Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
     Then add field: "vcf_name" value: "IR_TCWEV/SC_BKWJR/SC_BKWJR_ANI1/test1.vcf" to message body
     Then add field: "dna_bam_name" value: "IR_TCWEV/SC_BKWJR/SC_BKWJR_ANI1/dna.bam" to message body

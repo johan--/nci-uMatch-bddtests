@@ -165,6 +165,8 @@ end
 
 Then(/^add field: "([^"]*)" value: "([^"]*)" to message body$/) do |field, value|
   converted_value = value=='null' ? nil : value
+  converted_value = true if value == 'true'
+  converted_value = false if value == 'false'
   if @payload.nil?
     @payload = {}
   end
@@ -294,6 +296,7 @@ end
 When(/^call sample_controls POST service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
   url = prepare_sample_controls_url
   response = Helper_Methods.post_request(url, @payload.to_json.to_s)
+  puts response
   validate_response(response, status, message)
   @sc_generate_date = Time.now.utc.to_i
   @molecular_id = JSON.parse(response['message'])['molecular_id']
@@ -322,7 +325,7 @@ Then(/^field: "([^"]*)" for generated sample_control should be: "([^"]*)"$/) do 
   converted_value = value=='null' ? nil : value
   url = prepare_sample_controls_url
   sample_control = Helper_Methods.simple_get_request(url)['message_json']
-  sample_control[field].should == converted_value
+  sample_control[field].to_s.should == converted_value.to_s
 end
 
 Then(/^generated sample_control should have (\d+) field\-value pairs$/) do |count|
@@ -375,7 +378,7 @@ Then(/^there are\|is (\d+) sample_control returned$/) do |count|
   end
 end
 
-Then(/^updated sample_control should not have field: "([^"]*)"$/) do |field|
+Then(/^sample_control should not have field: "([^"]*)"$/) do |field|
   url = prepare_sample_controls_url
   sample_control = Helper_Methods.simple_get_request(url)['message_json']
   expect_result = "sample_control #{@molecular_id} doesn't have field: #{field}"
@@ -465,7 +468,7 @@ Then(/^field: "([^"]*)" for this sample_control should be: "([^"]*)"$/) do |fiel
   if sample_control.is_a?(Array)
     sample_control = sample_control[0]
   end
-  sample_control[field].should == converted_value
+  sample_control[field].to_s.should == converted_value.to_s
 end
 
 
