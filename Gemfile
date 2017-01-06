@@ -41,10 +41,10 @@ group :test, :development do
   gem 'aws-sdk-rails'
   gem 'aws-record'
   gem 'google_drive'
-  gem 'httparty'
   # gem 'nci_match_patient_models', :git => 'git://github.com/CBIIT/nci-match-lib.git', :branch => 'master'
 
-
+  gem 'slack-ruby-bot'
+  gem 'celluloid-io'
 
   #The following gem caused conflict with xls2json
   # gem 'axlsx'
