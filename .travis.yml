@@ -138,4 +138,4 @@ notifications:
   slack: clinicalbiomed:gRp5LqKElNOjUUMPLlq4qC1j
   template:
        # - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository}@%{branch} by %{author} %{result} in %{duration} subject: %{commit_subject} message: %{commit_message}"
-          - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository}@%{branch} %{result} in %{duration} %{commit_message}"
+          - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository}@%{branch} %{result} in %{duration} %{commit_message} @liwang"
