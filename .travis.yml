@@ -135,6 +135,8 @@ after_script:
   # - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/uMATCH/PedMATCH/results/output.json s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_COMMIT/ --region us-east-1
   # - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/nci-match-ui-bddtests/results/result.json s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_COMMIT/ --region us-east-1
 notifications:
-  slack: clinicalbiomed:gRp5LqKElNOjUUMPLlq4qC1j
+  slack:
+    rooms:
+      - clinicalbiomed:gRp5LqKElNOjUUMPLlq4qC1j
     template:
       - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository}@%{branch} %{result} in %{duration} %{commit_message} @liwang"
