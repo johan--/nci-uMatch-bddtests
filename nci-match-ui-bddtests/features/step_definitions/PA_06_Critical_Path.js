@@ -60,8 +60,8 @@ module.exports = function () {
 
     this.Then(/^I should see the assignment report link for "(.+?)"$/, function (analysisId, callback) {
         patientPage.variantAnalysisId = analysisId;
-
-        var assgnRepString = 'div[ng-if="surgicalEvent"] a[href="#/patient/' + patientPage.patientId + '/variant_report?analysis_id=' + analysisId + '&section=assignment"]';
+        var assgnRepString = 'a[href^="#/patient/'+patientPage.patientId+'/variant_report?analysis_id='+analysisId+'"][title="Assignment Report"]';
+        //var assgnRepString = 'div[ng-if="surgicalEvent"] a[href="#/patient/' + patientPage.patientId + '/variant_report?analysis_id=' + analysisId + '&section=assignment"]';
         console.log(assgnRepString);
         browser.ignoreSynchronization = true;
         assignmentReportLink = element(by.css(assgnRepString));
@@ -74,9 +74,11 @@ module.exports = function () {
     });
 
     this.When(/^I click on the assignment report link$/, function (callback) {
+        browser.ignoreSynchronization = true;
         browser.executeScript('window.scrollTo(0,5000)').then(function () {
             assignmentReportLink.click().then(function () {
-                browser.waitForAngular()
+                browser.ignoreSynchronization = true;
+                browser.waitForAngular();
             })
         }).then(callback);
     });
@@ -223,6 +225,7 @@ module.exports = function () {
 
     this.When(/^I go to the patient "([^"]*)" with variant report "([^"]*)"$/, function (patientId, variantReportId, callback) {
         var uri = '/#/patient/' + patientId + '/variant_report?analysis_id=' + variantReportId;
+        console.log(uri);
         patientPage.patientId = patientId;
         patientPage.variantAnalysisId = variantReportId;
         browser.sleep(3000).then(function () {

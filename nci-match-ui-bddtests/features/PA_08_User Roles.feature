@@ -11,7 +11,7 @@ Feature: MATCHKB-352 Ped-Match users are given authorization based on their role
 
   Scenario: The variant report checkboxes are disabled for a read-only user
     Given I'm logged in as a "read_only" user
-  When I go to the patient "ION_AQ41_TsVrUploaded" with variant report "ION_AQ41_TsVrUploaded_ANI1"
+    When I go to the patient "ION_AQ41_TsVrUploaded" with variant report "ION_AQ41_TsVrUploaded_ANI1"
     Then I can see the variant report page
     And The checkboxes are disabled
     Then I then logout
@@ -19,10 +19,10 @@ Feature: MATCHKB-352 Ped-Match users are given authorization based on their role
   Scenario: As a read-only user, I do not have access to approve an assignment report
     Given I'm logged in as a "read_only" user
     When I go to patient "PT_OS01_PendingConfirmation" details page
-    And I click on the Surgical Event Tab at index "0"
+    And I click on the Surgical Event "PT_OS01_PendingConfirmation_SEI1"
     Then I should see the assignment report link for "PT_OS01_PendingConfirmation_ANI1"
     When I click on the assignment report link
-    Then I can see the assignment report page
+#    Then I can see the assignment report page
     And I "should not" see the Assignment report "CONFIRM" button
     Then I then logout
 

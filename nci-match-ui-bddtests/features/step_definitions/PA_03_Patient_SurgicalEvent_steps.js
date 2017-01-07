@@ -16,7 +16,7 @@ module.exports = function () {
     var patientApi;
     var patientId
     var responseData;
-    var surgicalTabs = element.all(by.css('li[heading^="Surgical Event"]'));
+    var surgicalTabs = element.all(by.css('li[ng-repeat="surgicalEvent in specimenEvents"]'));
 
     this.World = require('../step_definitions/world').World;
 
@@ -75,6 +75,23 @@ module.exports = function () {
     this.When(/^I click on the Surgical Event Tab at index "(.+?)"$/, function (index, callback) {
         surgicalTabs.get(index).click().then(function () {
             browser.sleep(10);
+        }).then(callback);
+    });
+
+    this.When(/^I click on the Surgical Event "(.+?)"$/, function (seid, callback) {
+        browser.ignoreSynchronization = true;
+        browser.sleep(5000);
+        var cssSelec = 'li[heading="Surgical Event '+seid+'"] > a'
+        var surgicalEventTab = element(by.css(cssSelec));
+        surgicalEventTab.isPresent().then(function(isVis){
+            console.log(isVis);
+            if(isVis){
+                surgicalEventTab.click().then(function () {
+                    browser.sleep(10);
+                }, function(err){
+                    console.log('Unable to click on the surgical event tab');
+                });
+            }
         }).then(callback);
     });
 
