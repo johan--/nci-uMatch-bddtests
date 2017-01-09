@@ -10,12 +10,12 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Then field: "site" for each generated ion_reporter should be: "<site>"
     Examples:
       | site  |
-      | mda   |
+      | mdacc |
       | mocha |
 
   @ion_reporter_p2
   Scenario: ION_IR02. multiple ion_reporters can be generated for same site
-    Given site is "mda"
+    Given site is "mdacc"
     When call ion_reporters POST service 3 times, returns a message that includes "New ion reporter created" with status "Success"
     Then there are 3 ion_reporter_ids generated
     And each generated ion_reporter_id should have 1 record
@@ -45,7 +45,7 @@ Feature: Tests for ion_reporters service in ion ecosystem
 
   @ion_reporter_p2
   Scenario: ION_IR05. date_ion_reporter_id_created should be generated properly
-    Given site is "mda"
+    Given site is "mdacc"
     When call ion_reporters POST service 1 times, returns a message that includes "New ion reporter created" with status "Success"
     Then each generated ion_reporter should have correct date_ion_reporter_id_created
 

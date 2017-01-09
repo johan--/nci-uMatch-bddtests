@@ -697,9 +697,11 @@ end
 Then(/^this patient patient_limbos days_pending should be correct$/) do
   expect(@get_response.class).to eql Array
   this_patient_limbos = @get_response.find {|this_item| this_item['patient_id'] == @patient_id}
+  ats = 'active_tissue_specimen'
+  dp = 'days_pending'
   expect(this_patient_limbos).not_to eql nil
-  expect(this_patient_limbos.keys).to include 'active_tissue_specimen'
-  expect(this_patient_limbos.keys).to include 'days_pending'
+  expect(this_patient_limbos.keys).to include ats
+  expect(this_patient_limbos.keys).to include dp
   collect_date = Date.parse(this_patient_limbos['active_tissue_specimen']['specimen_collected_date'])
   today = Date.today
   expect_duration = (today-collect_date).to_i

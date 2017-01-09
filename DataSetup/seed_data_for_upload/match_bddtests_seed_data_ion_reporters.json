@@ -1,12 +1,12 @@
 [
   {
     "ion_reporter_id": "IR_CFUER",
-    "site": "mda",
+    "site": "mdacc",
     "date_ion_reporter_id_created": "2016-10-12 21:19:37.632102"
   },
   {
     "ion_reporter_id": "IR_GBOPP",
-    "site": "mda",
+    "site": "mdacc",
     "date_ion_reporter_id_created": "2016-10-12 21:19:35.952421"
   },
   {
@@ -27,7 +27,7 @@
   },
   {
     "ion_reporter_id": "IR_3I4AB",
-    "site": "mda",
+    "site": "mdacc",
     "date_ion_reporter_id_created": "2016-10-12 21:19:39.894323"
   },
   {
@@ -37,12 +37,12 @@
   },
   {
     "ion_reporter_id": "IR_37Y4Y",
-    "site": "mda",
+    "site": "mdacc",
     "date_ion_reporter_id_created": "2016-10-12 21:19:38.752627"
   },
   {
     "ion_reporter_id": "IR_ONO31",
-    "site": "mda",
+    "site": "mdacc",
     "date_ion_reporter_id_created": "2016-10-12 21:19:37.073738"
   },
   {
@@ -72,7 +72,7 @@
   },
   {
     "ion_reporter_id": "IR_TCWEV",
-    "site": "mda",
+    "site": "mdacc",
     "date_ion_reporter_id_created": "2016-10-12 21:19:39.312361"
   },
   {
@@ -82,7 +82,7 @@
   },
   {
     "ion_reporter_id": "IR_6823R",
-    "site": "mda",
+    "site": "mdacc",
     "date_ion_reporter_id_created": "2016-10-12 21:19:38.192693"
   },
   {
@@ -131,7 +131,7 @@
   },
   {
     "ion_reporter_id": "IR_IGEAW",
-    "site": "mda",
+    "site": "mdacc",
     "date_ion_reporter_id_created": "2016-10-12 21:19:36.514328"
   }
 ]

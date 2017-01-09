@@ -14,13 +14,13 @@ Feature: Tests for sample_controls service in ion ecosystem
     Then sample_control should not have field: "comments"
     Examples:
       | site  | control_type           |
-      | mda   | positive               |
+      | mdacc   | positive               |
       | mocha | no_template            |
-      | mda   | proficiency_competency |
+      | mdacc   | proficiency_competency |
 
   @ion_reporter_p2
   Scenario: ION_SC02. sample control service should generate unique molecular_id
-    Given site is "mda"
+    Given site is "mdacc"
     Given control_type is "positive"
     When call sample_controls POST service, returns a message that includes "New sample control created" with status "Success"
     Then generated sample_control molecular id should have 1 record
@@ -33,7 +33,7 @@ Feature: Tests for sample_controls service in ion ecosystem
 
   @ion_reporter_not_required
   Scenario: ION_SC04. sample control service should fail if control_type is invalid
-    Given site is "mda"
+    Given site is "mdacc"
     Given control_type is "non_existing_type"
     When call sample_controls POST service, returns a message that includes "control type" with status "Failure"
 
@@ -114,7 +114,7 @@ Feature: Tests for sample_controls service in ion ecosystem
     #ion_reporter IR_TG2DY belongs to site mocha
     Given molecular id is "SC_307VJ"
     Then add field: "ion_reporter_id" value: "IR_TG2DY" to message body
-    Then add field: "site" value: "mda" to message body
+    Then add field: "site" value: "mdacc" to message body
     When call sample_controls PUT service, returns a message that includes "site" with status "Failure"
 
   @ion_reporter_not_required
@@ -191,13 +191,13 @@ Feature: Tests for sample_controls service in ion ecosystem
   Scenario: ION_SC61. sample_control service can list all sample_controls that meet query parameters
     Given molecular id is ""
     Then add field: "date_molecular_id_created" value: "2016-10-12 21:20:05.158803" to url
-    Then field: "site" for this sample_control should be: "mda"
+    Then field: "site" for this sample_control should be: "mdacc"
     Then field: "control_type" for this sample_control should be: "proficiency_competency"
 
   @ion_reporter_p1
   Scenario: ION_SC62. sample_control service can return single sample_control with specified molecular_id
     Given molecular id is "SC_MFIK1"
-    Then field: "site" for this sample_control should be: "mda"
+    Then field: "site" for this sample_control should be: "mdacc"
     Then field: "control_type" for this sample_control should be: "no_template"
     Then field: "date_molecular_id_created" for this sample_control should be: "2016-10-12 21:20:00.113135"
 
