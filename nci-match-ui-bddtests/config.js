@@ -48,7 +48,7 @@ exports.config = {
 
     getPageTimeout: 10000,
     params: {
-        useAuth0 : false
+        useAuth0 : true
     },
 
 
@@ -67,6 +67,7 @@ exports.config = {
         format: 'json:../results/output.json'
 
     }
+
     //resultsJsonOutputFile: <to find out> process.env['HOME'] + '/Desktop/report.json'
 
     // capabilities: {
