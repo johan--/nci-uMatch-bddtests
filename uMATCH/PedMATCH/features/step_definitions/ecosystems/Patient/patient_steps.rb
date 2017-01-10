@@ -8,27 +8,35 @@ require_relative '../../../support/cog_helper_methods.rb'
 #########################################################
 ################   service calls   ######################
 #########################################################
+And(/^user authorization role is "([^"]*)"$/) do |role|
+  @current_auth0_role = role
+end
+
 When(/^POST to MATCH patients service, response includes "([^"]*)" with code "([^"]*)"$/) do |retMsg, code|
-  response = Patient_helper_methods.post_to_trigger
+  @current_auth0_role = 'ADMIN' if @current_auth0_role.nil?
+  response = Patient_helper_methods.post_to_trigger(@current_auth0_role)
   puts response.to_json
   actual_match_expect(response['http_code'], code)
   # actual_include_expect(response['message'], retMsg)
 end
 
 When(/^PUT to MATCH variant report "([^"]*)" service, response includes "([^"]*)" with code "([^"]*)"$/) do |status, retMsg, code|
-  response = Patient_helper_methods.put_vr_confirm(@analysis_id, status)
+  @current_auth0_role = 'ADMIN' if @current_auth0_role.nil?
+  response = Patient_helper_methods.put_vr_confirm(@analysis_id, status, @current_auth0_role)
   actual_match_expect(response['http_code'], code)
   # actual_include_expect(response['message'], retMsg)
 end
 
 When(/^PUT to MATCH variant "([^"]*)" service for this uuid, response includes "([^"]*)" with code "([^"]*)"$/) do |checked, retMsg, code|
-  response = Patient_helper_methods.put_variant_confirm(@current_variant_uuid, checked)
+  @current_auth0_role = 'ADMIN' if @current_auth0_role.nil?
+  response = Patient_helper_methods.put_variant_confirm(@current_variant_uuid, checked, @current_auth0_role)
   actual_match_expect(response['http_code'], code)
   # actual_include_expect(response['message'], retMsg)
 end
 
 When(/^PUT to MATCH assignment report "([^"]*)" service, response includes "([^"]*)" with code "([^"]*)"$/) do |status, retMsg, code|
-  response = Patient_helper_methods.put_ar_confirm(@analysis_id, status)
+  @current_auth0_role = 'ADMIN' if @current_auth0_role.nil?
+  response = Patient_helper_methods.put_ar_confirm(@analysis_id, status, @current_auth0_role)
   actual_match_expect(response['http_code'], code)
   # actual_include_expect(response['message'], retMsg)
 end
@@ -36,7 +44,8 @@ end
 When(/^GET from MATCH patient API, http code "([^"]*)" should return$/) do |code|
   url = prepare_get_url
   puts url
-  response = Patient_helper_methods.get_response_and_code(url)
+  @current_auth0_role = 'ADMIN' if @current_auth0_role.nil?
+  response = Patient_helper_methods.get_response_and_code(url, @current_auth0_role)
   actual_match_expect(response['http_code'], code)
   if response['message']==''
     @get_response = ''

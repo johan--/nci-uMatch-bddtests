@@ -404,8 +404,8 @@ class Patient_helper_methods
   end
 
   ######## services #####
-  def self.get_response_and_code(url)
-    Helper_Methods.simple_get_request(url)
+  def self.get_response_and_code(url, auth0_role)
+    Helper_Methods.simple_get_request(url, true, auth0_role)
   end
 
   def self.get_any_result_from_url(url)
@@ -466,36 +466,36 @@ class Patient_helper_methods
 
   end
 
-  def self.post_to_trigger
+  def self.post_to_trigger(auth0_role)
     if Helper_Methods.is_local_tier
       puts JSON.pretty_generate(@request_hash)
     end
     url = "#{ENV['patients_endpoint']}/#{@patient_id}"
-    Helper_Methods.post_request(url, @request_hash.to_json.to_s)
+    Helper_Methods.post_request(url, @request_hash.to_json.to_s, true, auth0_role)
   end
 
-  def self.put_variant_confirm(uuid, status)
+  def self.put_variant_confirm(uuid, status, auth0_role)
     if Helper_Methods.is_local_tier
       puts JSON.pretty_generate(@request_hash)
     end
     url = "#{ENV['patients_endpoint']}/variant/#{uuid}/#{status}"
-    Helper_Methods.put_request(url, @request_hash.to_json.to_s)
+    Helper_Methods.put_request(url, @request_hash.to_json.to_s, true, auth0_role)
   end
 
-  def self.put_vr_confirm(ani, status)
+  def self.put_vr_confirm(ani, status, auth0_role)
     if Helper_Methods.is_local_tier
       puts JSON.pretty_generate(@request_hash)
     end
     url = "#{ENV['patients_endpoint']}/#{@patient_id}/variant_reports/#{ani}/#{status}"
-    Helper_Methods.put_request(url, @request_hash.to_json.to_s)
+    Helper_Methods.put_request(url, @request_hash.to_json.to_s, true, auth0_role)
   end
 
-  def self.put_ar_confirm(ani, status)
+  def self.put_ar_confirm(ani, status, auth0_role)
     if Helper_Methods.is_local_tier
       puts JSON.pretty_generate(@request_hash)
     end
     url = "#{ENV['patients_endpoint']}/#{@patient_id}/assignment_reports/#{ani}/#{status}"
-    Helper_Methods.put_request(url, @request_hash.to_json.to_s)
+    Helper_Methods.put_request(url, @request_hash.to_json.to_s, true, auth0_role)
   end
 
   def self.wait_until_patient_updated(patient_id)
