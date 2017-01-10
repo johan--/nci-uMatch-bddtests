@@ -1,4 +1,5 @@
 .idea
 Gemfile.lock
-nci-match-ui-bddtests/node_modules/
+bower_components
+node_modules
 nci-match-ui-bddtests/results/reports

@@ -1,3 +1,14 @@
 // Place your settings in this file to overwrite default and user settings.
 {
+    "cucumberautocomplete.steps": [
+        "nci-match-ui-bddtests/features/step_definitions"
+    ],
+    "cucumberautocomplete.pages": {
+        "clia": "nci-match-ui-bddtests/features/pages/CLIAPage.js",
+        "dashboard": "nci-match-ui-bddtests/features/pages/dashboardPage.js",
+        "login": "nci-match-ui-bddtests/features/pages/loginPage.js",
+        "patient": "nci-match-ui-bddtests/features/pages/patientPage.js",
+        "specimenTracking": "nci-match-ui-bddtests/features/pages/specimenTrackingPage.js",
+        "treatmentArms": "nci-match-ui-bddtests/features/pages/treatmentArmsPage.js"
+    }
 }
