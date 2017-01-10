@@ -94,6 +94,7 @@ class PatientMessageLoader
       end
       sleep(0.5)
     end
+    sleep (1.0)
   end
 
   def self.send_message_to_local(message_json, patient_id, message = nil)

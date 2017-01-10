@@ -94,20 +94,20 @@ Feature: Patient API authorization tests
     And user authorization role is "<auth_role>"
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
-      | patient_id         | site_value | auth_role                     | message | code |
-      | PT_AU04_TsShipped0 | mda        | NO_ROLE                       |         | 401  |
-      | PT_AU04_TsShipped1 | mda        | ADMIN                         | success | 202  |
-      | PT_AU04_TsShipped2 | mocha      | SYSTEM                        | success | 202  |
-      | PT_AU04_TsShipped0 | mda        | ASSIGNMENT_REPORT_REVIEWER    |         | 401  |
-      | PT_AU04_TsShipped0 | mocha      | MDA_VARIANT_REPORT_SENDER     |         | 401  |
-      | PT_AU04_TsShipped3 | mda        | MDA_VARIANT_REPORT_SENDER     | success | 202  |
-      | PT_AU04_TsShipped0 | mda        | MDA_VARIANT_REPORT_REVIEWER   |         | 401  |
-      | PT_AU04_TsShipped0 | mda        | MOCHA_VARIANT_REPORT_SENDER   |         | 401  |
-      | PT_AU04_TsShipped4 | mocha      | MOCHA_VARIANT_REPORT_SENDER   | success | 202  |
-      | PT_AU04_TsShipped0 | mocha      | MOCHA_VARIANT_REPORT_REVIEWER |         | 401  |
-      | PT_AU04_TsShipped0 | mda        | PATIENT_MESSAGE_SENDER        |         | 401  |
-      | PT_AU04_TsShipped0 | mocha      | SPECIMEN_MESSAGE_SENDER       |         | 401  |
-      | PT_AU04_TsShipped0 | mda        | ASSAY_MESSAGE_SENDER          |         | 401  |
+      | patient_id              | site_value | auth_role                     | message | code |
+      | PT_AU04_MdaTsShipped0   | mda        | NO_ROLE                       |         | 401  |
+      | PT_AU04_MdaTsShipped1   | mda        | ADMIN                         | success | 202  |
+      | PT_AU04_MochaTsShipped1 | mocha      | SYSTEM                        | success | 202  |
+      | PT_AU04_MdaTsShipped0   | mda        | ASSIGNMENT_REPORT_REVIEWER    |         | 401  |
+      | PT_AU04_MochaTsShipped0 | mocha      | MDA_VARIANT_REPORT_SENDER     |         | 401  |
+      | PT_AU04_MdaTsShipped2   | mda        | MDA_VARIANT_REPORT_SENDER     | success | 202  |
+      | PT_AU04_MdaTsShipped0   | mda        | MDA_VARIANT_REPORT_REVIEWER   |         | 401  |
+      | PT_AU04_MdaTsShipped0   | mda        | MOCHA_VARIANT_REPORT_SENDER   |         | 401  |
+      | PT_AU04_MochaTsShipped2 | mocha      | MOCHA_VARIANT_REPORT_SENDER   | success | 202  |
+      | PT_AU04_MochaTsShipped0 | mocha      | MOCHA_VARIANT_REPORT_REVIEWER |         | 401  |
+      | PT_AU04_MdaTsShipped0   | mda        | PATIENT_MESSAGE_SENDER        |         | 401  |
+      | PT_AU04_MochaTsShipped0 | mocha      | SPECIMEN_MESSAGE_SENDER       |         | 401  |
+      | PT_AU04_MdaTsShipped0   | mda        | ASSAY_MESSAGE_SENDER          |         | 401  |
 
   Scenario Outline: PT_AU05 role base authorization works properly for patient variant report confirm
     Given patient id is "<patient_id>"
@@ -186,7 +186,7 @@ Feature: Patient API authorization tests
       | PT_AU07_Registered0 | MDA_VARIANT_REPORT_REVIEWER   |         | 401  |
       | PT_AU07_Registered0 | MOCHA_VARIANT_REPORT_SENDER   |         | 401  |
       | PT_AU07_Registered0 | MOCHA_VARIANT_REPORT_REVIEWER |         | 401  |
-      | PT_AU07_Registered7 | PATIENT_MESSAGE_SENDER        | success | 202  |
+      | PT_AU07_Registered6 | PATIENT_MESSAGE_SENDER        | success | 202  |
       | PT_AU07_Registered0 | SPECIMEN_MESSAGE_SENDER       |         | 401  |
       | PT_AU07_Registered0 | ASSAY_MESSAGE_SENDER          |         | 401  |
 
@@ -250,7 +250,7 @@ Feature: Patient API authorization tests
       | PT_AU09_PendingApproval0 | MDA_VARIANT_REPORT_REVIEWER   |         | 401  |
       | PT_AU09_PendingApproval0 | MOCHA_VARIANT_REPORT_SENDER   |         | 401  |
       | PT_AU09_PendingApproval0 | MOCHA_VARIANT_REPORT_REVIEWER |         | 401  |
-      | PT_AU09_PendingApproval4 | PATIENT_MESSAGE_SENDER        | success | 202  |
+      | PT_AU09_PendingApproval3 | PATIENT_MESSAGE_SENDER        | success | 202  |
       | PT_AU09_PendingApproval0 | SPECIMEN_MESSAGE_SENDER       |         | 401  |
       | PT_AU09_PendingApproval0 | ASSAY_MESSAGE_SENDER          |         | 401  |
 
