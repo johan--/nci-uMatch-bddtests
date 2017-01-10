@@ -3,10 +3,6 @@ require_relative 'treatment_arm_message_loader'
 require_relative 'match_test_data_manager'
 
 
-############start prepare patient data
-# DynamoDb.new('local').clear_all_tables
-# DynamoDataUploader.new('local').upload_ion_to_aws
-# TreatmentArmMessageLoader.load_treatment_arm_to_local('Treatment_Arm_data', 2)
 
 # puts Auth0Token.force_generate_auth0_token 'ADMIN'
 
@@ -15,20 +11,14 @@ MatchTestDataManager.clear_all_local_tables
 MatchTestDataManager.upload_all_seed_data_to_local
 
 
-############clear different tables
-# DynamoDb.new('local').clear_all_patient_tables
-# DynamoDb.new('local').clear_all_treatment_arm_tables
-# DynamoDb.new('local').clear_all_ion_tables
-
-
 
 
 
 #################backup the just generated local db
-# DynamoDataUploader.backup_all_local_db
-# DynamoDataUploader.backup_all_patient_local_db
-# DynamoDataUploader.backup_all_ion_local_db
-# DynamoDataUploader.backup_all_treatment_arm_local_db
+# MatchTestDataManager.backup_all_local_db
+# MatchTestDataManager.backup_all_patient_local_db
+# MatchTestDataManager.backup_all_ion_local_db
+# MatchTestDataManager.backup_all_ta_local_db
 
 
 
@@ -39,30 +29,7 @@ MatchTestDataManager.upload_all_seed_data_to_local
 
 
 
-# DynamoDataUploader.delete_all_data_for_patient('PT_VU16_BdVRUploaded')
-# DynamoDataUploader.delete_all_data_for_patient('ION_AQ42_BdVrUploaded')
-# DynamoDataUploader.delete_all_data_for_patient('PT_SR10_BdVRReceived')
-# DynamoDataUploader.delete_all_data_for_patient('PT_SR14_BdVrUploaded')
-# DynamoDataUploader.delete_all_data_for_patient('PT_SR14_BdVrUploaded1')
-# DynamoDataUploader.delete_all_data_for_patient('PT_SR14d_BdVrUploaded')
-# DynamoDataUploader.delete_all_data_for_patient('PT_VC14_BdVRUploadedTsVRUploadedOtherReady')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# MatchTestDataManager.delete_patients_from_seed('patient_id')
 
 
 

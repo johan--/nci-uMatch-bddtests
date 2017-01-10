@@ -1,1605 +1,4116 @@
-[
-  {
-    "version_not_enrolled_patients": 0.0,
-    "target_name": "Crizotinib",
-    "copy_number_variants": [
-      {
-        "inclusion": true,
-        "identifier": "MYCL",
-        "arm_specific": false,
-        "ocp_reference": "C",
-        "level_of_evidence": 2.0,
-        "ocp_alternative": "<CNV>",
-        "variant_type": "cnv",
-        "chromosome": "chr1",
-        "position": "40361592"
-      },
-      {
-        "inclusion": false,
-        "identifier": "BCL9",
-        "arm_specific": false,
-        "ocp_reference": "G",
-        "level_of_evidence": 2.0,
-        "ocp_alternative": "<CNV>",
-        "variant_type": "cnv",
-        "chromosome": "chr1",
-        "position": "147022100"
-      },
-      {
-        "inclusion": true,
-        "identifier": "PTEN",
-        "arm_specific": false,
-        "ocp_reference": "T",
-        "level_of_evidence": 2.0,
-        "ocp_alternative": "<CNV>",
-        "variant_type": "cnv",
-        "chromosome": "chr10",
-        "position": "89624207"
-      }
-    ],
-    "description": "TEST Treatment Arm used by Cucumber Tests",
-    "study_id": "APEC1621",
-    "former_patients": 0.0,
-    "assay_rules": [
-      {
-        "assay_result_status": "POSITIVE",
-        "type": "IHC",
-        "gene": "PTEN",
-        "level_of_evidence": 3.0,
-        "assay_variant": "PRESENT"
-      },
-      {
-        "assay_result_status": "POSITIVE",
-        "type": "IHC",
-        "gene": "MLH1",
-        "level_of_evidence": 5.0,
-        "assay_variant": "EMPTY"
-      }
-    ],
-    "not_enrolled_patients": 0.0,
-    "version_pending_patients": 0.0,
-    "version_current_patients": 0.0,
-    "non_hotspot_rules": [
-      {
-        "inclusion": true,
-        "oncomine_variant_class": "amplification",
-        "arm_specific": false,
-        "level_of_evidence": 3.0,
-        "func_gene": "MYCL"
-      },
-      {
-        "inclusion": false,
-        "arm_specific": false,
-        "level_of_evidence": 2.0,
-        "func_gene": "TP53",
-        "function": "Refallele"
-      }
-    ],
-    "gene": "ALK",
-    "treatment_arm_status": "OPEN",
-    "date_created": "2016-11-07 15:57:10 UTC",
-    "stratum_id": "100",
-    "treatment_arm_id": "APEC1621-B",
-    "diseases": [
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10058354",
-        "disease_name": "Bronchioloalveolar carcinoma"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10025032",
-        "disease_name": "Lung adenocarcinoma"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "90600324",
-        "disease_name": "Lung adenocar. w/ bronch. feat."
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10029514",
-        "disease_name": "Non-small cell lung cancer, NOS"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10025125",
-        "disease_name": "Squamous cell lung carcinoma"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": false,
-        "disease_code": "10033701",
-        "disease_name": "Papillary thyroid carcinoma"
-      }
-    ],
-    "current_patients": 0.0,
-    "target_id": "113",
-    "date_opened": "2016-11-07T10:57:10.234-05:00",
-    "version": "2015-08-06",
-    "treatment_arm_drugs": [
-      {
-        "name": "Crizotinib",
-        "pathway": "ALK",
-        "drug_id": "113"
-      }
-    ],
-    "pending_patients": 0.0,
-    "version_former_patients": 0.0,
-    "name": "APEC1621-B",
-    "status_log": {
-      "1478534230": "OPEN"
-    },
-    "snv_indels": [
-      {
-        "inclusion": true,
-        "identifier": "COSM1074639",
-        "arm_specific": false,
-        "ocp_reference": "A",
-        "level_of_evidence": 3.0,
-        "ocp_alternative": "C",
-        "variant_type": "snp",
-        "chromosome": "chr6",
-        "position": "152419923"
-      },
-      {
-        "inclusion": true,
-        "identifier": "COSM52975",
-        "arm_specific": false,
-        "ocp_reference": "C",
-        "level_of_evidence": 3.0,
-        "ocp_alternative": "T",
-        "variant_type": "snp",
-        "chromosome": "chr9",
-        "position": "80412493"
-      },
-      {
-        "inclusion": false,
-        "identifier": "COSM44451",
-        "arm_specific": false,
-        "ocp_reference": "T",
-        "level_of_evidence": 3.0,
-        "ocp_alternative": "C",
-        "variant_type": "snp",
-        "chromosome": "chr17",
-        "position": "7577064"
-      },
-      {
-        "inclusion": false,
-        "identifier": "COSM757681",
-        "arm_specific": false,
-        "ocp_reference": "C",
-        "level_of_evidence": 3.0,
-        "ocp_alternative": "G",
-        "variant_type": "snp",
-        "chromosome": "chrX",
-        "position": "70349258"
-      },
-      {
-        "inclusion": true,
-        "identifier": "BT9",
-        "arm_specific": false,
-        "ocp_reference": "A",
-        "level_of_evidence": 3.0,
-        "ocp_alternative": "T",
-        "variant_type": "snp",
-        "chromosome": "chrX",
-        "position": "100611165"
-      },
-      {
-        "inclusion": true,
-        "identifier": "COSM22189",
-        "arm_specific": false,
-        "ocp_reference": "TTC",
-        "level_of_evidence": 3.0,
-        "ocp_alternative": "-",
-        "variant_type": "del",
-        "chromosome": "chr22",
-        "position": "30035190"
-      },
-      {
-        "inclusion": true,
-        "identifier": "COSM131612",
-        "arm_specific": false,
-        "ocp_reference": "CAAGGTTTCAATAACCAG",
-        "level_of_evidence": 3.0,
-        "ocp_alternative": "-",
-        "variant_type": "del",
-        "chromosome": "chrX",
-        "position": "70339250"
-      },
-      {
-        "inclusion": false,
-        "identifier": "COSM143738",
-        "arm_specific": false,
-        "ocp_reference": "TGCTGTCTCTGGGGA",
-        "level_of_evidence": 3.0,
-        "ocp_alternative": "-",
-        "variant_type": "del",
-        "chromosome": "chrX",
-        "position": "70339270"
-      }
-    ],
-    "exclusion_drugs": [
-      {
-        "name": "Doxorubicin Hydrochloride",
-        "drug_id": "10001",
-        "drug_class": "ALK inhibitor",
-        "target": "ALK"
-      }
-    ],
-    "is_active_flag": true,
-    "gene_fusions": [
-      {
-        "inclusion": true,
-        "identifier": "TPM3-NTRK1.T7N10.COSF1318_1",
-        "public_med_ids": [
-
-        ],
-        "ocp_reference": "C",
-        "arm_specific": false,
-        "gene": "TPM3",
-        "variant_type": "fusion",
-        "ocp_alternative": "C[chr1:156844362[",
-        "level_of_evidence": 2.0,
-        "chromosome": "chr2",
-        "position": "154142875"
-      },
-      {
-        "inclusion": true,
-        "identifier": "TPM3-NTRK1.T7N10.COSF1318_2",
-        "public_med_ids": [
-
-        ],
-        "ocp_reference": "G",
-        "arm_specific": false,
-        "gene": "NTRK1",
-        "variant_type": "fusion",
-        "ocp_alternative": "[chr1:154142875[G",
-        "level_of_evidence": 3.0,
-        "chromosome": "chr2",
-        "position": "156844362"
-      },
-      {
-        "inclusion": false,
-        "identifier": "TPM3-ROS1.T7R35.COSF1273_1",
-        "public_med_ids": [
-
-        ],
-        "ocp_reference": "T",
-        "arm_specific": false,
-        "gene": "TPM3",
-        "variant_type": "fusion",
-        "ocp_alternative": "T]chr6:117642559]",
-        "level_of_evidence": 3.0,
-        "chromosome": "chr1",
-        "position": "154142877"
-      },
-      {
-        "inclusion": false,
-        "identifier": "TPM3-ROS1.T7R35.COSF1273_2",
-        "public_med_ids": [
-
-        ],
-        "ocp_reference": "T",
-        "arm_specific": false,
-        "gene": "ROS1",
-        "variant_type": "fusion",
-        "ocp_alternative": "[chr1:154142877[T",
-        "level_of_evidence": 3.0,
-        "chromosome": "chr6",
-        "position": "117642559"
-      }
-    ]
-  },
-  {
-    "version_not_enrolled_patients": 0.0,
-    "target_name": "Crizotinib",
-    "copy_number_variants": [
-
-    ],
-    "description": "Test Treatment Arm with 2 versions for the test",
-    "study_id": "APEC1621",
-    "former_patients": 0.0,
-    "assay_rules": [
-
-    ],
-    "not_enrolled_patients": 0.0,
-    "version_pending_patients": 0.0,
-    "version_current_patients": 0.0,
-    "non_hotspot_rules": [
-
-    ],
-    "gene": "ALK",
-    "treatment_arm_status": "OPEN",
-    "date_created": "2016-11-07 15:57:25 UTC",
-    "stratum_id": "100",
-    "treatment_arm_id": "APEC1621-2V",
-    "diseases": [
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10058354",
-        "disease_name": "Bronchioloalveolar carcinoma"
-      }
-    ],
-    "current_patients": 0.0,
-    "target_id": "113",
-    "date_opened": "2016-11-07T10:57:25.743-05:00",
-    "version": "version1",
-    "treatment_arm_drugs": [
-      {
-        "name": "Crizotinib",
-        "pathway": "ALK",
-        "drug_id": "113"
-      }
-    ],
-    "pending_patients": 0.0,
-    "version_former_patients": 0.0,
-    "name": "APEC1621-2V",
-    "status_log": {
-      "1478534245": "OPEN"
-    },
-    "snv_indels": [
-
-    ],
-    "exclusion_drugs": [
-      {
-        "name": "Doxorubicin Hydrochloride",
-        "drug_id": "10001",
-        "drug_class": "ALK inhibitor",
-        "target": "ALK"
-      }
-    ],
-    "is_active_flag": false,
-    "gene_fusions": [
-      {
-        "identifier": "TPM3",
-        "inclusion": true,
-        "public_med_ids": [
-          "23724913"
-        ],
-        "arm_specific": false,
-        "gene": "TPS",
-        "ocp_reference": "A",
-        "level_of_evidence": 2.0,
-        "variant_type": "fusion",
-        "ocp_alternative": "ALTERNATE",
-        "chromosome": "chr2",
-        "description": "ALK translocation",
-        "position": "1111111111111"
-      }
-    ]
-  },
-  {
-    "version_not_enrolled_patients": 0.0,
-    "target_name": "Crizotinib",
-    "copy_number_variants": [
-
-    ],
-    "description": "Test Treatment Arm with 2 versions",
-    "study_id": "APEC1621",
-    "former_patients": 0.0,
-    "assay_rules": [
-
-    ],
-    "not_enrolled_patients": 0.0,
-    "version_pending_patients": 0.0,
-    "version_current_patients": 0.0,
-    "non_hotspot_rules": [
-
-    ],
-    "gene": "ALK",
-    "treatment_arm_status": "OPEN",
-    "date_created": "2016-11-07 15:57:30 UTC",
-    "stratum_id": "100",
-    "treatment_arm_id": "APEC1621-2V",
-    "diseases": [
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10058354",
-        "disease_name": "Bronchioloalveolar carcinoma"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10025032",
-        "disease_name": "Lung adenocarcinoma"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "90600324",
-        "disease_name": "Lung adenocar. w/ bronch. feat."
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10029514",
-        "disease_name": "Non-small cell lung cancer, NOS"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10025125",
-        "disease_name": "Squamous cell lung carcinoma"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": false,
-        "disease_code": "10033701",
-        "disease_name": "Papillary thyroid carcinoma"
-      }
-    ],
-    "current_patients": 0.0,
-    "target_id": "113",
-    "date_opened": "2016-11-07T10:57:25.743-05:00",
-    "version": "version2",
-    "treatment_arm_drugs": [
-      {
-        "name": "Crizotinib",
-        "pathway": "ALK",
-        "drug_id": "113"
-      }
-    ],
-    "pending_patients": 0.0,
-    "version_former_patients": 0.0,
-    "name": "APEC1621-2V",
-    "status_log": {
-      "1478534245": "OPEN"
-    },
-    "snv_indels": [
-      {
-        "inclusion": true,
-        "identifier": "COSM1074639",
-        "arm_specific": false,
-        "ocp_reference": "F",
-        "gene": "GENE",
-        "level_of_evidence": 3.0,
-        "ocp_alternative": "B",
-        "variant_type": "snp",
-        "chromosome": "chr6",
-        "protein": "p.Q61H",
-        "position": "152419923"
-      },
-      {
-        "inclusion": true,
-        "identifier": "COSM52975",
-        "arm_specific": false,
-        "ocp_reference": "B",
-        "gene": "GENE",
-        "level_of_evidence": 3.0,
-        "ocp_alternative": "T",
-        "variant_type": "snp",
-        "chromosome": "chr9",
-        "protein": "p.Q61H",
-        "position": "80412493"
-      }
-    ],
-    "exclusion_drugs": [
-      {
-        "name": "Doxorubicin Hydrochloride",
-        "drug_id": "10001",
-        "drug_class": "ALK inhibitor",
-        "target": "ALK"
-      }
-    ],
-    "is_active_flag": true,
-    "gene_fusions": [
-
-    ]
-  },
-  {
-    "version_not_enrolled_patients": 0.0,
-    "target_name": "Crizotinib",
-    "copy_number_variants": [
-
-    ],
-    "description": "This TA is used by patient end-to-end test",
-    "study_id": "APEC1621",
-    "former_patients": 0.0,
-    "assay_rules": [
-
-    ],
-    "not_enrolled_patients": 0.0,
-    "version_pending_patients": 3.0,
-    "version_current_patients": 0.0,
-    "non_hotspot_rules": [
-      {
-        "inclusion": true,
-        "public_med_ids": [
-
-        ],
-        "arm_specific": false,
-        "func_gene": "PTEN",
-        "level_of_evidence": 3.5,
-        "protein_match": null,
-        "oncomine_variant_class": "deleterious"
-      }
-    ],
-    "gene": "ALK",
-    "treatment_arm_status": "OPEN",
-    "date_created": "2016-11-07 15:57:15 UTC",
-    "stratum_id": "100",
-    "treatment_arm_id": "APEC1621-ETE-A",
-    "diseases": [
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10058354",
-        "disease_name": "Bronchioloalveolar carcinoma"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10025032",
-        "disease_name": "Lung adenocarcinoma"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "90600324",
-        "disease_name": "Lung adenocar. w/ bronch. feat."
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10029514",
-        "disease_name": "Non-small cell lung cancer, NOS"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10025125",
-        "disease_name": "Squamous cell lung carcinoma"
-      }
-    ],
-    "current_patients": 0.0,
-    "target_id": "113",
-    "date_opened": "2016-11-07T10:57:15.352-05:00",
-    "version": "2015-08-06",
-    "treatment_arm_drugs": [
-      {
-        "name": "Crizotinib",
-        "pathway": "ALK",
-        "drug_id": "113"
-      }
-    ],
-    "pending_patients": 3.0,
-    "version_former_patients": 0.0,
-    "name": "APEC1621-ETE-A",
-    "status_log": {
-      "1478534235": "OPEN"
-    },
-    "snv_indels": [
-
-    ],
-    "exclusion_drugs": [
-      {
-        "name": "Doxorubicin Hydrochloride",
-        "drug_id": "10001",
-        "drug_class": "ALK inhibitor",
-        "target": "ALK"
-      }
-    ],
-    "is_active_flag": true,
-    "gene_fusions": [
-      {
-        "identifier": "TPM3-ALK.T7A20",
-        "inclusion": true,
-        "public_med_ids": [
-          "23724913"
-        ],
-        "arm_specific": false,
-        "gene": "ALK",
-        "ocp_reference": "A",
-        "level_of_evidence": 2.1,
-        "variant_type": "fusion",
-        "ocp_alternative": "[chr1:154142875[A",
-        "chromosome": "chr2",
-        "description": "ALK translocation",
-        "position": "29446394"
-      },
-      {
-        "identifier": "FGFR2-OFD1.F17O3",
-        "inclusion": true,
-        "public_med_ids": [
-
-        ],
-        "arm_specific": false,
-        "gene": "FGFR2",
-        "ocp_reference": "C",
-        "level_of_evidence": 3.3000000000000003,
-        "variant_type": "fusion",
-        "ocp_alternative": "C[chrX:13754596[",
-        "chromosome": "chr10",
-        "description": "some description",
-        "position": "123243211"
-      }
-    ]
-  },
-  {
-    "version_not_enrolled_patients": 0.0,
-    "target_name": "Crizotinib",
-    "copy_number_variants": [
-      {
-        "inclusion": true,
-        "identifier": "MYCL",
-        "arm_specific": false,
-        "ocp_reference": "B",
-        "gene": "GENE",
-        "level_of_evidence": 2.0,
-        "ocp_alternative": "<CNV>",
-        "variant_type": "cnv",
-        "chromosome": "chr1",
-        "protein": "p.Q61H",
-        "position": "40361592"
-      },
-      {
-        "inclusion": false,
-        "identifier": "BCL9",
-        "arm_specific": false,
-        "ocp_reference": "G",
-        "gene": "GENE",
-        "level_of_evidence": 2.0,
-        "ocp_alternative": "<CNV>",
-        "variant_type": "cnv",
-        "chromosome": "chr1",
-        "protein": "p.Q61H",
-        "position": "147022100"
-      },
-      {
-        "inclusion": true,
-        "identifier": "PTEN",
-        "arm_specific": false,
-        "ocp_reference": "T",
-        "gene": "GENE",
-        "level_of_evidence": 2.0,
-        "ocp_alternative": "<CNV>",
-        "variant_type": "cnv",
-        "chromosome": "chr10",
-        "protein": "p.Q61H",
-        "position": "89624207"
-      }
-    ],
-    "description": "Treatment Arm for UI tests new version",
-    "study_id": "APEC1621",
-    "former_patients": 0.0,
-    "assay_rules": [
-      {
-        "assay_result_status": "POSITIVE",
-        "type": "IHC",
-        "gene": "PTAN",
-        "level_of_evidence": 3.0,
-        "assay_variant": "PRESENT"
-      },
-      {
-        "assay_result_status": "POSITIVE",
-        "type": "IHC",
-        "gene": "MEH1",
-        "level_of_evidence": 5.0,
-        "assay_variant": "EMPTY"
-      }
-    ],
-    "not_enrolled_patients": 0.0,
-    "version_pending_patients": 0.0,
-    "version_current_patients": 0.0,
-    "non_hotspot_rules": [
-      {
-        "inclusion": true,
-        "oncomine_variant_class": "amplification",
-        "arm_specific": false,
-        "exon": "19",
-        "level_of_evidence": 3.0,
-        "func_gene": "MYCL"
-      },
-      {
-        "inclusion": false,
-        "arm_specific": false,
-        "level_of_evidence": 2.0,
-        "func_gene": "TP53",
-        "function": "Refallele"
-      }
-    ],
-    "gene": "GENE",
-    "treatment_arm_status": "OPEN",
-    "date_created": "2016-11-07 15:57:10 UTC",
-    "stratum_id": "STR100",
-    "treatment_arm_id": "APEC1621-UI",
-    "diseases": [
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10058354",
-        "disease_name": "Bronchioloalveolar carcinoma"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10025032",
-        "disease_name": "Lung adenocarcinoma"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "90600324",
-        "disease_name": "Lung adenocar. w/ bronch. feat."
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10029514",
-        "disease_name": "Non-small cell lung cancer, NOS"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10025125",
-        "disease_name": "Squamous cell lung carcinoma"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": false,
-        "disease_code": "10033701",
-        "disease_name": "Papillary thyroid carcinoma"
-      }
-    ],
-    "current_patients": 0.0,
-    "target_id": "113",
-    "date_opened": "2016-09-10T00:48:07+00:00",
-    "version": "2015-08-06",
-    "treatment_arm_drugs": [
-      {
-        "name": "Crizotinib",
-        "pathway": "GENE",
-        "drug_id": "113"
-      }
-    ],
-    "pending_patients": 0.0,
-    "version_former_patients": 0.0,
-    "name": "APEC1621-UI for Testing",
-    "status_log": {
-      "1478534230": "OPEN"
-    },
-    "snv_indels": [
-      {
-        "inclusion": true,
-        "identifier": "COSM1074639",
-        "arm_specific": false,
-        "ocp_reference": "F",
-        "gene": "GENE",
-        "level_of_evidence": 3.0,
-        "ocp_alternative": "B",
-        "variant_type": "snp",
-        "chromosome": "chr6",
-        "protein": "p.Q61H",
-        "position": "152419923"
-      },
-      {
-        "inclusion": true,
-        "identifier": "COSM52975",
-        "arm_specific": false,
-        "ocp_reference": "B",
-        "gene": "GENE",
-        "level_of_evidence": 3.0,
-        "ocp_alternative": "T",
-        "variant_type": "snp",
-        "chromosome": "chr9",
-        "protein": "p.Q61H",
-        "position": "80412493"
-      },
-      {
-        "inclusion": false,
-        "identifier": "COSM44451",
-        "arm_specific": false,
-        "ocp_reference": "T",
-        "gene": "GENE",
-        "level_of_evidence": 3.0,
-        "ocp_alternative": "B",
-        "variant_type": "snp",
-        "chromosome": "chr17",
-        "protein": "p.Q61H",
-        "position": "7577064"
-      },
-      {
-        "inclusion": false,
-        "identifier": "COSM757681",
-        "arm_specific": false,
-        "ocp_reference": "B",
-        "gene": "GENE",
-        "level_of_evidence": 3.0,
-        "ocp_alternative": "G",
-        "variant_type": "snp",
-        "chromosome": "chr8",
-        "protein": "p.Q61H",
-        "position": "70349258"
-      },
-      {
-        "inclusion": true,
-        "identifier": "BT9",
-        "arm_specific": false,
-        "ocp_reference": "F",
-        "gene": "GENE",
-        "level_of_evidence": 3.0,
-        "ocp_alternative": "T",
-        "variant_type": "snp",
-        "chromosome": "chr9",
-        "protein": "p.Q61H",
-        "position": "100611165"
-      },
-      {
-        "inclusion": true,
-        "identifier": "COSM22189",
-        "arm_specific": false,
-        "ocp_reference": "TTC",
-        "gene": "GENE",
-        "level_of_evidence": 3.0,
-        "ocp_alternative": "-",
-        "variant_type": "del",
-        "chromosome": "chr22",
-        "protein": "p.Q61H",
-        "position": "30035190"
-      },
-      {
-        "inclusion": true,
-        "identifier": "COSM131612",
-        "arm_specific": false,
-        "ocp_reference": "CAAGGTTTCAATAACCAG",
-        "gene": "GENE",
-        "level_of_evidence": 3.0,
-        "ocp_alternative": "-",
-        "variant_type": "del",
-        "chromosome": "chrX",
-        "protein": "p.Q61H",
-        "position": "70339250"
-      },
-      {
-        "inclusion": false,
-        "identifier": "COSM143738",
-        "arm_specific": false,
-        "ocp_reference": "TGCTGTCTCTGGGGA",
-        "gene": "GENE",
-        "level_of_evidence": 3.0,
-        "ocp_alternative": "-",
-        "variant_type": "del",
-        "chromosome": "chrX",
-        "protein": "p.Q61H",
-        "position": "70339270"
-      }
-    ],
-    "exclusion_drugs": [
-      {
-        "name": "Doxorubicin Hydrochloride",
-        "drug_id": "10066674",
-        "drug_class": "GENE inhibitor",
-        "target": "GENE"
-      }
-    ],
-    "is_active_flag": true,
-    "gene_fusions": [
-      {
-        "identifier": "TPM3-NTRK1.T7N10.COSF1318_1",
-        "inclusion": true,
-        "public_med_ids": [
-          "18827604"
-        ],
-        "arm_specific": false,
-        "gene": "TPM3",
-        "ocp_reference": null,
-        "level_of_evidence": 2.0,
-        "variant_type": "fusion",
-        "ocp_alternative": null,
-        "protein": null,
-        "chromosome": "chr2",
-        "position": "154142875"
-      },
-      {
-        "identifier": "TPM3-NTRK1.T7N10.COSF1318_2",
-        "inclusion": true,
-        "public_med_ids": [
-
-        ],
-        "arm_specific": false,
-        "gene": "NTRK1",
-        "ocp_reference": "G",
-        "level_of_evidence": 3.0,
-        "variant_type": "fusion",
-        "ocp_alternative": "[chr1:154142875[G",
-        "protein": null,
-        "chromosome": "chr2",
-        "position": "156844362"
-      },
-      {
-        "identifier": "TPM3-ROS1.T7R35.COSF1273_1",
-        "inclusion": false,
-        "public_med_ids": [
-          "1245784"
-        ],
-        "arm_specific": false,
-        "gene": "TPM3",
-        "ocp_reference": "T",
-        "level_of_evidence": 3.0,
-        "variant_type": "fusion",
-        "ocp_alternative": "T]chr6:117642559]",
-        "protein": null,
-        "chromosome": "chr1",
-        "position": "154142877"
-      },
-      {
-        "identifier": "TPM3-ROS1.T7R35.COSF1273_2",
-        "inclusion": false,
-        "public_med_ids": [
-
-        ],
-        "arm_specific": false,
-        "gene": "ROS1",
-        "ocp_reference": "T",
-        "level_of_evidence": 3.0,
-        "variant_type": "fusion",
-        "ocp_alternative": "[chr1:154142877[T",
-        "protein": null,
-        "chromosome": "chr6",
-        "position": "117642559"
-      }
-    ]
-  },
-  {
-    "version_not_enrolled_patients": 0.0,
-    "target_name": "Crizotinib",
-    "copy_number_variants": [
-
-    ],
-    "description": "This TA is used by patient end-to-end test",
-    "study_id": "APEC1621",
-    "former_patients": 0.0,
-    "assay_rules": [
-
-    ],
-    "not_enrolled_patients": 0.0,
-    "version_pending_patients": 0.0,
-    "version_current_patients": 0.0,
-    "non_hotspot_rules": [
-
-    ],
-    "gene": "RET",
-    "treatment_arm_status": "OPEN",
-    "date_created": "2016-11-07 15:57:20 UTC",
-    "stratum_id": "100",
-    "treatment_arm_id": "APEC1621-ETE-C",
-    "diseases": [
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10058354",
-        "disease_name": "Bronchioloalveolar carcinoma"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10025032",
-        "disease_name": "Lung adenocarcinoma"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "90600324",
-        "disease_name": "Lung adenocar. w/ bronch. feat."
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10029514",
-        "disease_name": "Non-small cell lung cancer, NOS"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10025125",
-        "disease_name": "Squamous cell lung carcinoma"
-      }
-    ],
-    "current_patients": 0.0,
-    "target_id": "122",
-    "date_opened": "2016-11-07T10:57:20.627-05:00",
-    "version": "2015-08-06",
-    "treatment_arm_drugs": [
-      {
-        "name": "Crizotinib",
-        "pathway": "RET",
-        "drug_id": "122"
-      }
-    ],
-    "pending_patients": 0.0,
-    "version_former_patients": 0.0,
-    "name": "APEC1621-ETE-C",
-    "status_log": {
-      "1478534240": "OPEN"
-    },
-    "snv_indels": [
-
-    ],
-    "exclusion_drugs": [
-      {
-        "name": "Crizotinib",
-        "drug_id": "122",
-        "drug_class": "RET inhibitor",
-        "target": "RET"
-      },
-      {
-        "name": "Ceritinib",
-        "drug_id": "123"
-      },
-      {
-        "name": "Alectinib",
-        "drug_id": "124"
-      },
-      {
-        "name": "AP26113",
-        "drug_id": "125"
-      },
-      {
-        "name": "TSR-011",
-        "drug_id": "126"
-      },
-      {
-        "name": "PF-06463922",
-        "drug_id": "127"
-      },
-      {
-        "name": "X-396",
-        "drug_id": "128"
-      }
-    ],
-    "is_active_flag": true,
-    "gene_fusions": [
-      {
-        "identifier": "CCDC6-RET.C1R12.COSF1271",
-        "inclusion": true,
-        "public_med_ids": [
-
-        ],
-        "arm_specific": false,
-        "gene": "RET",
-        "ocp_reference": "G",
-        "level_of_evidence": 4.0,
-        "variant_type": "fusion",
-        "ocp_alternative": "[chr10:61665879[G",
-        "chromosome": "chr10",
-        "description": "RET translocation",
-        "position": "43612031"
-      },
-      {
-        "identifier": "AGTRAP-BRAF.A5B8.COSF828",
-        "inclusion": true,
-        "public_med_ids": [
-
-        ],
-        "arm_specific": false,
-        "gene": "BRAF",
-        "ocp_reference": "C",
-        "level_of_evidence": 3.0,
-        "variant_type": "fusion",
-        "ocp_alternative": "C]chr7:140494267]",
-        "chromosome": "chr1",
-        "description": "some description",
-        "position": "11810822"
-      }
-    ]
-  },
-  {
-    "version_not_enrolled_patients": 0.0,
-    "target_name": "Crizotinib",
-    "copy_number_variants": [
-
-    ],
-    "description": "This TA is used by patient end-to-end test",
-    "study_id": "APEC1621",
-    "former_patients": 0.0,
-    "assay_rules": [
-
-    ],
-    "not_enrolled_patients": 0.0,
-    "version_pending_patients": 0.0,
-    "version_current_patients": 0.0,
-    "non_hotspot_rules": [
-
-    ],
-    "gene": "MTOR",
-    "treatment_arm_status": "OPEN",
-    "date_created": "2016-11-07 15:57:25 UTC",
-    "stratum_id": "100",
-    "treatment_arm_id": "APEC1621-ETE-D",
-    "diseases": [
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10058354",
-        "disease_name": "Bronchioloalveolar carcinoma"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10025032",
-        "disease_name": "Lung adenocarcinoma"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "90600324",
-        "disease_name": "Lung adenocar. w/ bronch. feat."
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10029514",
-        "disease_name": "Non-small cell lung cancer, NOS"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10025125",
-        "disease_name": "Squamous cell lung carcinoma"
-      }
-    ],
-    "current_patients": 0.0,
-    "target_id": "122-1",
-    "date_opened": "2016-11-07T10:57:25.788-05:00",
-    "version": "2015-08-06",
-    "treatment_arm_drugs": [
-      {
-        "name": "Crizotinib",
-        "pathway": "MTOR",
-        "drug_id": "122"
-      }
-    ],
-    "pending_patients": 0.0,
-    "version_former_patients": 0.0,
-    "name": "APEC1621-ETE-D",
-    "status_log": {
-      "1478534245": "OPEN"
-    },
-    "snv_indels": [
-      {
-        "identifier": "COSM1686998",
-        "inclusion": true,
-        "public_med_ids": [
-          "23724913"
-        ],
-        "arm_specific": false,
-        "gene": "MTOR",
-        "ocp_reference": "G",
-        "level_of_evidence": 3.0,
-        "variant_type": "snp",
-        "ocp_alternative": "A",
-        "chromosome": "chr1",
-        "description": "some description",
-        "position": "11184573"
-      }
-    ],
-    "exclusion_drugs": [
-      {
-        "name": "Crizotinib",
-        "drug_id": "123",
-        "drug_class": "MTOR inhibitor",
-        "target": "MTOR"
-      }
-    ],
-    "is_active_flag": true,
-    "gene_fusions": [
-      {
-        "identifier": "FGFR2-OFD1.F17O3",
-        "inclusion": false,
-        "public_med_ids": [
-
-        ],
-        "arm_specific": false,
-        "gene": "FGFR2",
-        "ocp_reference": "C",
-        "level_of_evidence": 3.0,
-        "variant_type": "fusion",
-        "ocp_alternative": "C[chrX:13754596[",
-        "chromosome": "chr10",
-        "description": "some description",
-        "position": "43612031"
-      }
-    ]
-  },
-  {
-    "version_not_enrolled_patients": 0.0,
-    "target_name": "Crizotinib",
-    "copy_number_variants": [
-
-    ],
-    "description": "TEST Treatment Arm used by Cucumber Tests",
-    "study_id": "APEC1621",
-    "former_patients": 0.0,
-    "assay_rules": [
-
-    ],
-    "not_enrolled_patients": 0.0,
-    "version_pending_patients": 0.0,
-    "version_current_patients": 0.0,
-    "non_hotspot_rules": [
-
-    ],
-    "gene": "RET",
-    "treatment_arm_status": "SUSPENDED",
-    "date_created": "2016-12-13 19:16:03 UTC",
-    "stratum_id": "stratum122a",
-    "treatment_arm_id": "CukeTest-122-1-SUSPENDED",
-    "diseases": [
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10058354",
-        "disease_name": "Bronchioloalveolar carcinoma"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10025032",
-        "disease_name": "Lung adenocarcinoma"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "90600324",
-        "disease_name": "Lung adenocar. w/ bronch. feat."
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10029514",
-        "disease_name": "Non-small cell lung cancer, NOS"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10025125",
-        "disease_name": "Squamous cell lung carcinoma"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": false,
-        "disease_code": "10033701",
-        "disease_name": "Papillary thyroid carcinoma"
-      }
-    ],
-    "current_patients": 0.0,
-    "target_id": "122",
-    "date_opened": "2016-12-13T14:16:03.074-05:00",
-    "version": "2015-08-06",
-    "treatment_arm_drugs": [
-      {
-        "name": "Crizotinib",
-        "pathway": "ALK",
-        "drug_id": "113"
-      }
-    ],
-    "pending_patients": 0.0,
-    "version_former_patients": 0.0,
-    "name": "CukeTest-122-1-SUSPENDED",
-    "status_log": {
-      "1481656563": "OPEN",
-      "1481656624": "SUSPENDED"
-    },
-    "snv_indels": [
-
-    ],
-    "exclusion_drugs": [
-      {
-        "name": "Doxorubicin Hydrochloride",
-        "drug_id": "10001",
-        "drug_class": "ALK inhibitor",
-        "target": "ALK"
-      }
-    ],
-    "is_active_flag": true,
-    "gene_fusions": [
-      {
-        "inclusion": true,
-        "identifier": "SUSPENDED.ID",
-        "arm_specific": false,
-        "ocp_reference": "G",
-        "level_of_evidence": 2.0,
-        "func_gene": "RET",
-        "ocp_alternative": "[chr10:61665879[G",
-        "variant_type": "fusion",
-        "chromosome": "chr10",
-        "position": "43612031"
-      },
-      {
-        "inclusion": true,
-        "identifier": "AGTRAP-BRAF.A5B8.COSF828",
-        "arm_specific": false,
-        "ocp_reference": "C",
-        "level_of_evidence": 3.0,
-        "func_gene": "BRAF",
-        "ocp_alternative": "C]chr7:140494267]",
-        "variant_type": "fusion",
-        "chromosome": "chr1",
-        "description": "some description",
-        "position": "11810822"
-      }
-    ]
-  },
-  {
-    "version_not_enrolled_patients": 0.0,
-    "target_name": "Crizotinib",
-    "copy_number_variants": [
-      {
-        "inclusion": true,
-        "identifier": "MYCL",
-        "arm_specific": false,
-        "ocp_reference": "B",
-        "gene": "GENE",
-        "level_of_evidence": 2.0,
-        "ocp_alternative": "<CNV>",
-        "variant_type": "cnv",
-        "chromosome": "chr1",
-        "protein": "p.Q61H",
-        "position": "40361592"
-      }
-    ],
-    "description": "This TA is used by patient end-to-end test",
-    "study_id": "APEC1621",
-    "former_patients": 0.0,
-    "assay_rules": [
-
-    ],
-    "not_enrolled_patients": 0.0,
-    "version_pending_patients": 0.0,
-    "version_current_patients": 0.0,
-    "non_hotspot_rules": [
-
-    ],
-    "gene": "ALK",
-    "treatment_arm_status": "OPEN",
-    "date_created": "2016-11-07 15:57:20 UTC",
-    "stratum_id": "100",
-    "treatment_arm_id": "APEC1621-ETE-B",
-    "diseases": [
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10058354",
-        "disease_name": "Bronchioloalveolar carcinoma"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10025032",
-        "disease_name": "Lung adenocarcinoma"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "90600324",
-        "disease_name": "Lung adenocar. w/ bronch. feat."
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10029514",
-        "disease_name": "Non-small cell lung cancer, NOS"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10025125",
-        "disease_name": "Squamous cell lung carcinoma"
-      }
-    ],
-    "current_patients": 0.0,
-    "target_id": "115",
-    "date_opened": "2016-11-07T10:57:20.569-05:00",
-    "version": "2015-08-06",
-    "treatment_arm_drugs": [
-      {
-        "name": "Crizotinib",
-        "pathway": "ALK",
-        "drug_id": "115"
-      }
-    ],
-    "pending_patients": 0.0,
-    "version_former_patients": 0.0,
-    "name": "APEC1621-ETE-B",
-    "status_log": {
-      "1478534240": "OPEN"
-    },
-    "snv_indels": [
-
-    ],
-    "exclusion_drugs": [
-      {
-        "name": "Crizotinib",
-        "drug_id": "115",
-        "drug_class": "ALK inhibitor",
-        "target": "ALK"
-      }
-    ],
-    "is_active_flag": true,
-    "gene_fusions": [
-      {
-        "inclusion": true,
-        "identifier": "CLIP4-ALK.C11A23",
-        "public_med_ids": [
-          "23724913"
-        ],
-        "arm_specific": false,
-        "gene": "ALK",
-        "variant_type": "fusion",
-        "level_of_evidence": 2.0,
-        "description": "ALK translocation"
-      },
-      {
-        "inclusion": true,
-        "identifier": "EML4-ALK.E13A20.AB462411",
-        "public_med_ids": [
-          "23724913"
-        ],
-        "arm_specific": false,
-        "gene": "ALK",
-        "variant_type": "fusion",
-        "level_of_evidence": 2.0,
-        "description": "ALK translocation"
-      },
-      {
-        "inclusion": false,
-        "identifier": "FGFR2-OFD1.F17O3",
-        "public_med_ids": [
-
-        ],
-        "ocp_reference": "C",
-        "arm_specific": false,
-        "gene": "FGFR2",
-        "variant_type": "fusion",
-        "ocp_alternative": "C[chrX:13754596[",
-        "level_of_evidence": 3.0,
-        "chromosome": "chr10",
-        "description": "some description"
-      }
-    ]
-  },
-  {
-    "version_not_enrolled_patients": 3.0,
-    "target_name": "Crizotinib",
-    "copy_number_variants": [
-
-    ],
-    "description": "TEST Treatment Arm used by Cucumber Tests",
-    "study_id": "APEC1621",
-    "former_patients": 33.0,
-    "assay_rules": [
-
-    ],
-    "not_enrolled_patients": 3.0,
-    "version_pending_patients": 23.0,
-    "version_current_patients": 25.0,
-    "non_hotspot_rules": [
-      {
-        "inclusion": true,
-        "public_med_ids": [
-
-        ],
-        "arm_specific": false,
-        "func_gene": "PTEN",
-        "level_of_evidence": 3.0,
-        "protein_match": null,
-        "oncomine_variant_class": "deleterious"
-      }
-    ],
-    "gene": "ALK",
-    "treatment_arm_status": "OPEN",
-    "date_created": "2016-11-07 15:57:05 UTC",
-    "stratum_id": "100",
-    "treatment_arm_id": "APEC1621-A",
-    "diseases": [
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10058354",
-        "disease_name": "Bronchioloalveolar carcinoma"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10025032",
-        "disease_name": "Lung adenocarcinoma"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "90600324",
-        "disease_name": "Lung adenocar. w/ bronch. feat."
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10029514",
-        "disease_name": "Non-small cell lung cancer, NOS"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": true,
-        "disease_code": "10025125",
-        "disease_name": "Squamous cell lung carcinoma"
-      },
-      {
-        "disease_code_type": "ICD-O",
-        "exclusion": false,
-        "disease_code": "10033701",
-        "disease_name": "Papillary thyroid carcinoma"
-      }
-    ],
-    "current_patients": 25.0,
-    "target_id": "113",
-    "date_opened": "2016-11-07T10:57:05.115-05:00",
-    "version": "2015-08-06",
-    "treatment_arm_drugs": [
-      {
-        "name": "Crizotinib",
-        "pathway": "ALK",
-        "drug_id": "113"
-      }
-    ],
-    "pending_patients": 23.0,
-    "version_former_patients": 33.0,
-    "name": "APEC1621-A",
-    "status_log": {
-      "1478534225": "OPEN"
-    },
-    "snv_indels": [
-
-    ],
-    "exclusion_drugs": [
-      {
-        "name": "Doxorubicin Hydrochloride",
-        "drug_id": "10001",
-        "drug_class": "ALK inhibitor",
-        "target": "ALK"
-      }
-    ],
-    "is_active_flag": true,
-    "gene_fusions": [
-      {
-        "identifier": "TPM3-ALK.T7A20",
-        "inclusion": true,
-        "public_med_ids": [
-          "23724913"
-        ],
-        "arm_specific": false,
-        "gene": "ALK",
-        "ocp_reference": "A",
-        "level_of_evidence": 2.0,
-        "variant_type": "fusion",
-        "ocp_alternative": "[chr1:154142875[A",
-        "chromosome": "chr2",
-        "description": "ALK translocation",
-        "position": "29446394"
-      },
-      {
-        "identifier": "FGFR2-OFD1.F17O3",
-        "inclusion": true,
-        "public_med_ids": [
-
-        ],
-        "arm_specific": false,
-        "gene": "FGFR2",
-        "ocp_reference": "C",
-        "level_of_evidence": 3.0,
-        "variant_type": "fusion",
-        "ocp_alternative": "C[chrX:13754596[",
-        "chromosome": "chr10",
-        "description": "some description",
-        "position": "123243211"
-      }
-    ]
-  }
-]
+{
+    "Count": 10,
+    "Items": [
+        {
+            "version_not_enrolled_patients": {
+                "N": "0"
+            },
+            "target_name": {
+                "S": "Crizotinib"
+            },
+            "non_hotspot_rules": {
+                "L": [
+                    {
+                        "M": {
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "func_gene": {
+                                "S": "MYCL"
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "oncomine_variant_class": {
+                                "S": "amplification"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "arm_specific": {
+                                "BOOL": false
+                            },
+                            "level_of_evidence": {
+                                "N": "2.0"
+                            },
+                            "func_gene": {
+                                "S": "TP53"
+                            },
+                            "inclusion": {
+                                "BOOL": false
+                            },
+                            "function": {
+                                "S": "Refallele"
+                            }
+                        }
+                    }
+                ]
+            },
+            "not_enrolled_patients": {
+                "N": "0"
+            },
+            "copy_number_variants": {
+                "L": [
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "<CNV>"
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "ocp_reference": {
+                                "S": "C"
+                            },
+                            "chromosome": {
+                                "S": "chr1"
+                            },
+                            "identifier": {
+                                "S": "MYCL"
+                            },
+                            "level_of_evidence": {
+                                "N": "2.0"
+                            },
+                            "variant_type": {
+                                "S": "cnv"
+                            },
+                            "position": {
+                                "S": "40361592"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "<CNV>"
+                            },
+                            "inclusion": {
+                                "BOOL": false
+                            },
+                            "ocp_reference": {
+                                "S": "G"
+                            },
+                            "chromosome": {
+                                "S": "chr1"
+                            },
+                            "identifier": {
+                                "S": "BCL9"
+                            },
+                            "level_of_evidence": {
+                                "N": "2.0"
+                            },
+                            "variant_type": {
+                                "S": "cnv"
+                            },
+                            "position": {
+                                "S": "147022100"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "<CNV>"
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "ocp_reference": {
+                                "S": "T"
+                            },
+                            "chromosome": {
+                                "S": "chr10"
+                            },
+                            "identifier": {
+                                "S": "PTEN"
+                            },
+                            "level_of_evidence": {
+                                "N": "2.0"
+                            },
+                            "variant_type": {
+                                "S": "cnv"
+                            },
+                            "position": {
+                                "S": "89624207"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    }
+                ]
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "current_patients": {
+                "N": "0"
+            },
+            "snv_indels": {
+                "L": [
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "C"
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "ocp_reference": {
+                                "S": "A"
+                            },
+                            "chromosome": {
+                                "S": "chr6"
+                            },
+                            "identifier": {
+                                "S": "COSM1074639"
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "variant_type": {
+                                "S": "snp"
+                            },
+                            "position": {
+                                "S": "152419923"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "T"
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "ocp_reference": {
+                                "S": "C"
+                            },
+                            "chromosome": {
+                                "S": "chr9"
+                            },
+                            "identifier": {
+                                "S": "COSM52975"
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "variant_type": {
+                                "S": "snp"
+                            },
+                            "position": {
+                                "S": "80412493"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "C"
+                            },
+                            "inclusion": {
+                                "BOOL": false
+                            },
+                            "ocp_reference": {
+                                "S": "T"
+                            },
+                            "chromosome": {
+                                "S": "chr17"
+                            },
+                            "identifier": {
+                                "S": "COSM44451"
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "variant_type": {
+                                "S": "snp"
+                            },
+                            "position": {
+                                "S": "7577064"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "G"
+                            },
+                            "inclusion": {
+                                "BOOL": false
+                            },
+                            "ocp_reference": {
+                                "S": "C"
+                            },
+                            "chromosome": {
+                                "S": "chrX"
+                            },
+                            "identifier": {
+                                "S": "COSM757681"
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "variant_type": {
+                                "S": "snp"
+                            },
+                            "position": {
+                                "S": "70349258"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "T"
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "ocp_reference": {
+                                "S": "A"
+                            },
+                            "chromosome": {
+                                "S": "chrX"
+                            },
+                            "identifier": {
+                                "S": "BT9"
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "variant_type": {
+                                "S": "snp"
+                            },
+                            "position": {
+                                "S": "100611165"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "-"
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "ocp_reference": {
+                                "S": "TTC"
+                            },
+                            "chromosome": {
+                                "S": "chr22"
+                            },
+                            "identifier": {
+                                "S": "COSM22189"
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "variant_type": {
+                                "S": "del"
+                            },
+                            "position": {
+                                "S": "30035190"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "-"
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "ocp_reference": {
+                                "S": "CAAGGTTTCAATAACCAG"
+                            },
+                            "chromosome": {
+                                "S": "chrX"
+                            },
+                            "identifier": {
+                                "S": "COSM131612"
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "variant_type": {
+                                "S": "del"
+                            },
+                            "position": {
+                                "S": "70339250"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "-"
+                            },
+                            "inclusion": {
+                                "BOOL": false
+                            },
+                            "ocp_reference": {
+                                "S": "TGCTGTCTCTGGGGA"
+                            },
+                            "chromosome": {
+                                "S": "chrX"
+                            },
+                            "identifier": {
+                                "S": "COSM143738"
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "variant_type": {
+                                "S": "del"
+                            },
+                            "position": {
+                                "S": "70339270"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    }
+                ]
+            },
+            "treatment_arm_status": {
+                "S": "OPEN"
+            },
+            "name": {
+                "S": "APEC1621-B"
+            },
+            "treatment_arm_drugs": {
+                "L": [
+                    {
+                        "M": {
+                            "name": {
+                                "S": "Crizotinib"
+                            },
+                            "pathway": {
+                                "S": "ALK"
+                            },
+                            "drug_id": {
+                                "S": "113"
+                            }
+                        }
+                    }
+                ]
+            },
+            "version_former_patients": {
+                "N": "0"
+            },
+            "gene_fusions": {
+                "L": [
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "C[chr1:156844362["
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "gene": {
+                                "S": "TPM3"
+                            },
+                            "chromosome": {
+                                "S": "chr2"
+                            },
+                            "identifier": {
+                                "S": "TPM3-NTRK1.T7N10.COSF1318_1"
+                            },
+                            "ocp_reference": {
+                                "S": "C"
+                            },
+                            "variant_type": {
+                                "S": "fusion"
+                            },
+                            "position": {
+                                "S": "154142875"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            },
+                            "level_of_evidence": {
+                                "N": "2.0"
+                            },
+                            "public_med_ids": {
+                                "L": []
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "[chr1:154142875[G"
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "gene": {
+                                "S": "NTRK1"
+                            },
+                            "chromosome": {
+                                "S": "chr2"
+                            },
+                            "identifier": {
+                                "S": "TPM3-NTRK1.T7N10.COSF1318_2"
+                            },
+                            "ocp_reference": {
+                                "S": "G"
+                            },
+                            "variant_type": {
+                                "S": "fusion"
+                            },
+                            "position": {
+                                "S": "156844362"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "public_med_ids": {
+                                "L": []
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "T]chr6:117642559]"
+                            },
+                            "inclusion": {
+                                "BOOL": false
+                            },
+                            "gene": {
+                                "S": "TPM3"
+                            },
+                            "chromosome": {
+                                "S": "chr1"
+                            },
+                            "identifier": {
+                                "S": "TPM3-ROS1.T7R35.COSF1273_1"
+                            },
+                            "ocp_reference": {
+                                "S": "T"
+                            },
+                            "variant_type": {
+                                "S": "fusion"
+                            },
+                            "position": {
+                                "S": "154142877"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "public_med_ids": {
+                                "L": []
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "[chr1:154142877[T"
+                            },
+                            "inclusion": {
+                                "BOOL": false
+                            },
+                            "gene": {
+                                "S": "ROS1"
+                            },
+                            "chromosome": {
+                                "S": "chr6"
+                            },
+                            "identifier": {
+                                "S": "TPM3-ROS1.T7R35.COSF1273_2"
+                            },
+                            "ocp_reference": {
+                                "S": "T"
+                            },
+                            "variant_type": {
+                                "S": "fusion"
+                            },
+                            "position": {
+                                "S": "117642559"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "public_med_ids": {
+                                "L": []
+                            }
+                        }
+                    }
+                ]
+            },
+            "diseases": {
+                "L": [
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Bronchioloalveolar carcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10058354"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Lung adenocarcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10025032"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Lung adenocar. w/ bronch. feat."
+                            },
+                            "disease_code": {
+                                "S": "90600324"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Non-small cell lung cancer, NOS"
+                            },
+                            "disease_code": {
+                                "S": "10029514"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Squamous cell lung carcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10025125"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": false
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Papillary thyroid carcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10033701"
+                            }
+                        }
+                    }
+                ]
+            },
+            "former_patients": {
+                "N": "0"
+            },
+            "description": {
+                "S": "TEST Treatment Arm used by Cucumber Tests"
+            },
+            "version_current_patients": {
+                "N": "0"
+            },
+            "exclusion_drugs": {
+                "L": [
+                    {
+                        "M": {
+                            "name": {
+                                "S": "Doxorubicin Hydrochloride"
+                            },
+                            "drug_class": {
+                                "S": "ALK inhibitor"
+                            },
+                            "drug_id": {
+                                "S": "10001"
+                            },
+                            "target": {
+                                "S": "ALK"
+                            }
+                        }
+                    }
+                ]
+            },
+            "stratum_id": {
+                "S": "100"
+            },
+            "assay_rules": {
+                "L": [
+                    {
+                        "M": {
+                            "assay_result_status": {
+                                "S": "POSITIVE"
+                            },
+                            "gene": {
+                                "S": "PTEN"
+                            },
+                            "type": {
+                                "S": "IHC"
+                            },
+                            "assay_variant": {
+                                "S": "PRESENT"
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "assay_result_status": {
+                                "S": "POSITIVE"
+                            },
+                            "gene": {
+                                "S": "MLH1"
+                            },
+                            "type": {
+                                "S": "IHC"
+                            },
+                            "assay_variant": {
+                                "S": "EMPTY"
+                            },
+                            "level_of_evidence": {
+                                "N": "5.0"
+                            }
+                        }
+                    }
+                ]
+            },
+            "version_pending_patients": {
+                "N": "0"
+            },
+            "date_opened": {
+                "S": "2016-11-07T10:57:10.234-05:00"
+            },
+            "version": {
+                "S": "2015-08-06"
+            },
+            "pending_patients": {
+                "N": "0"
+            },
+            "target_id": {
+                "S": "113"
+            },
+            "gene": {
+                "S": "ALK"
+            },
+            "date_created": {
+                "S": "2016-11-07 15:57:10 UTC"
+            },
+            "is_active_flag": {
+                "BOOL": true
+            },
+            "status_log": {
+                "M": {
+                    "1478534230": {
+                        "S": "OPEN"
+                    }
+                }
+            },
+            "treatment_arm_id": {
+                "S": "APEC1621-B"
+            }
+        },
+        {
+            "version_not_enrolled_patients": {
+                "N": "0"
+            },
+            "target_name": {
+                "S": "Crizotinib"
+            },
+            "non_hotspot_rules": {
+                "L": []
+            },
+            "not_enrolled_patients": {
+                "N": "0"
+            },
+            "copy_number_variants": {
+                "L": []
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "current_patients": {
+                "N": "0"
+            },
+            "snv_indels": {
+                "L": []
+            },
+            "treatment_arm_status": {
+                "S": "OPEN"
+            },
+            "name": {
+                "S": "APEC1621-2V"
+            },
+            "treatment_arm_drugs": {
+                "L": [
+                    {
+                        "M": {
+                            "name": {
+                                "S": "Crizotinib"
+                            },
+                            "pathway": {
+                                "S": "ALK"
+                            },
+                            "drug_id": {
+                                "S": "113"
+                            }
+                        }
+                    }
+                ]
+            },
+            "version_former_patients": {
+                "N": "0"
+            },
+            "gene_fusions": {
+                "L": [
+                    {
+                        "M": {
+                            "ocp_reference": {
+                                "S": "A"
+                            },
+                            "gene": {
+                                "S": "TPS"
+                            },
+                            "identifier": {
+                                "S": "TPM3"
+                            },
+                            "variant_type": {
+                                "S": "fusion"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            },
+                            "ocp_alternative": {
+                                "S": "ALTERNATE"
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "chromosome": {
+                                "S": "chr2"
+                            },
+                            "level_of_evidence": {
+                                "N": "2.0"
+                            },
+                            "position": {
+                                "S": "1111111111111"
+                            },
+                            "description": {
+                                "S": "ALK translocation"
+                            },
+                            "public_med_ids": {
+                                "L": [
+                                    {
+                                        "S": "23724913"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            "diseases": {
+                "L": [
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Bronchioloalveolar carcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10058354"
+                            }
+                        }
+                    }
+                ]
+            },
+            "former_patients": {
+                "N": "0"
+            },
+            "description": {
+                "S": "Test Treatment Arm with 2 versions for the test"
+            },
+            "version_current_patients": {
+                "N": "0"
+            },
+            "exclusion_drugs": {
+                "L": [
+                    {
+                        "M": {
+                            "name": {
+                                "S": "Doxorubicin Hydrochloride"
+                            },
+                            "drug_class": {
+                                "S": "ALK inhibitor"
+                            },
+                            "drug_id": {
+                                "S": "10001"
+                            },
+                            "target": {
+                                "S": "ALK"
+                            }
+                        }
+                    }
+                ]
+            },
+            "stratum_id": {
+                "S": "100"
+            },
+            "assay_rules": {
+                "L": []
+            },
+            "version_pending_patients": {
+                "N": "0"
+            },
+            "date_opened": {
+                "S": "2016-11-07T10:57:25.743-05:00"
+            },
+            "version": {
+                "S": "version1"
+            },
+            "pending_patients": {
+                "N": "0"
+            },
+            "target_id": {
+                "S": "113"
+            },
+            "gene": {
+                "S": "ALK"
+            },
+            "date_created": {
+                "S": "2016-11-07 15:57:25 UTC"
+            },
+            "is_active_flag": {
+                "BOOL": false
+            },
+            "status_log": {
+                "M": {
+                    "1478534245": {
+                        "S": "OPEN"
+                    }
+                }
+            },
+            "treatment_arm_id": {
+                "S": "APEC1621-2V"
+            }
+        },
+        {
+            "version_not_enrolled_patients": {
+                "N": "0"
+            },
+            "target_name": {
+                "S": "Crizotinib"
+            },
+            "non_hotspot_rules": {
+                "L": []
+            },
+            "not_enrolled_patients": {
+                "N": "0"
+            },
+            "copy_number_variants": {
+                "L": []
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "current_patients": {
+                "N": "0"
+            },
+            "snv_indels": {
+                "L": [
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "B"
+                            },
+                            "ocp_reference": {
+                                "S": "F"
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "gene": {
+                                "S": "GENE"
+                            },
+                            "chromosome": {
+                                "S": "chr6"
+                            },
+                            "identifier": {
+                                "S": "COSM1074639"
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "variant_type": {
+                                "S": "snp"
+                            },
+                            "position": {
+                                "S": "152419923"
+                            },
+                            "protein": {
+                                "S": "p.Q61H"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "T"
+                            },
+                            "ocp_reference": {
+                                "S": "B"
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "gene": {
+                                "S": "GENE"
+                            },
+                            "chromosome": {
+                                "S": "chr9"
+                            },
+                            "identifier": {
+                                "S": "COSM52975"
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "variant_type": {
+                                "S": "snp"
+                            },
+                            "position": {
+                                "S": "80412493"
+                            },
+                            "protein": {
+                                "S": "p.Q61H"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    }
+                ]
+            },
+            "treatment_arm_status": {
+                "S": "OPEN"
+            },
+            "name": {
+                "S": "APEC1621-2V"
+            },
+            "treatment_arm_drugs": {
+                "L": [
+                    {
+                        "M": {
+                            "name": {
+                                "S": "Crizotinib"
+                            },
+                            "pathway": {
+                                "S": "ALK"
+                            },
+                            "drug_id": {
+                                "S": "113"
+                            }
+                        }
+                    }
+                ]
+            },
+            "version_former_patients": {
+                "N": "0"
+            },
+            "gene_fusions": {
+                "L": []
+            },
+            "diseases": {
+                "L": [
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Bronchioloalveolar carcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10058354"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Lung adenocarcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10025032"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Lung adenocar. w/ bronch. feat."
+                            },
+                            "disease_code": {
+                                "S": "90600324"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Non-small cell lung cancer, NOS"
+                            },
+                            "disease_code": {
+                                "S": "10029514"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Squamous cell lung carcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10025125"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": false
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Papillary thyroid carcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10033701"
+                            }
+                        }
+                    }
+                ]
+            },
+            "former_patients": {
+                "N": "0"
+            },
+            "description": {
+                "S": "Test Treatment Arm with 2 versions"
+            },
+            "version_current_patients": {
+                "N": "0"
+            },
+            "exclusion_drugs": {
+                "L": [
+                    {
+                        "M": {
+                            "name": {
+                                "S": "Doxorubicin Hydrochloride"
+                            },
+                            "drug_class": {
+                                "S": "ALK inhibitor"
+                            },
+                            "drug_id": {
+                                "S": "10001"
+                            },
+                            "target": {
+                                "S": "ALK"
+                            }
+                        }
+                    }
+                ]
+            },
+            "stratum_id": {
+                "S": "100"
+            },
+            "assay_rules": {
+                "L": []
+            },
+            "version_pending_patients": {
+                "N": "0"
+            },
+            "date_opened": {
+                "S": "2016-11-07T10:57:25.743-05:00"
+            },
+            "version": {
+                "S": "version2"
+            },
+            "pending_patients": {
+                "N": "0"
+            },
+            "target_id": {
+                "S": "113"
+            },
+            "gene": {
+                "S": "ALK"
+            },
+            "date_created": {
+                "S": "2016-11-07 15:57:30 UTC"
+            },
+            "is_active_flag": {
+                "BOOL": true
+            },
+            "status_log": {
+                "M": {
+                    "1478534245": {
+                        "S": "OPEN"
+                    }
+                }
+            },
+            "treatment_arm_id": {
+                "S": "APEC1621-2V"
+            }
+        },
+        {
+            "version_not_enrolled_patients": {
+                "N": "0"
+            },
+            "target_name": {
+                "S": "Crizotinib"
+            },
+            "non_hotspot_rules": {
+                "L": [
+                    {
+                        "M": {
+                            "protein_match": {
+                                "NULL": true
+                            },
+                            "level_of_evidence": {
+                                "N": "3.5"
+                            },
+                            "func_gene": {
+                                "S": "PTEN"
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "public_med_ids": {
+                                "L": []
+                            },
+                            "oncomine_variant_class": {
+                                "S": "deleterious"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    }
+                ]
+            },
+            "not_enrolled_patients": {
+                "N": "0"
+            },
+            "copy_number_variants": {
+                "L": []
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "current_patients": {
+                "N": "0"
+            },
+            "snv_indels": {
+                "L": []
+            },
+            "treatment_arm_status": {
+                "S": "OPEN"
+            },
+            "name": {
+                "S": "APEC1621-ETE-A"
+            },
+            "treatment_arm_drugs": {
+                "L": [
+                    {
+                        "M": {
+                            "name": {
+                                "S": "Crizotinib"
+                            },
+                            "pathway": {
+                                "S": "ALK"
+                            },
+                            "drug_id": {
+                                "S": "113"
+                            }
+                        }
+                    }
+                ]
+            },
+            "version_former_patients": {
+                "N": "0"
+            },
+            "gene_fusions": {
+                "L": [
+                    {
+                        "M": {
+                            "ocp_reference": {
+                                "S": "A"
+                            },
+                            "gene": {
+                                "S": "ALK"
+                            },
+                            "identifier": {
+                                "S": "TPM3-ALK.T7A20"
+                            },
+                            "variant_type": {
+                                "S": "fusion"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            },
+                            "ocp_alternative": {
+                                "S": "[chr1:154142875[A"
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "chromosome": {
+                                "S": "chr2"
+                            },
+                            "level_of_evidence": {
+                                "N": "2.1"
+                            },
+                            "position": {
+                                "S": "29446394"
+                            },
+                            "description": {
+                                "S": "ALK translocation"
+                            },
+                            "public_med_ids": {
+                                "L": [
+                                    {
+                                        "S": "23724913"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ocp_reference": {
+                                "S": "C"
+                            },
+                            "gene": {
+                                "S": "FGFR2"
+                            },
+                            "identifier": {
+                                "S": "FGFR2-OFD1.F17O3"
+                            },
+                            "variant_type": {
+                                "S": "fusion"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            },
+                            "ocp_alternative": {
+                                "S": "C[chrX:13754596["
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "chromosome": {
+                                "S": "chr10"
+                            },
+                            "level_of_evidence": {
+                                "N": "3.3000000000000003"
+                            },
+                            "position": {
+                                "S": "123243211"
+                            },
+                            "description": {
+                                "S": "some description"
+                            },
+                            "public_med_ids": {
+                                "L": []
+                            }
+                        }
+                    }
+                ]
+            },
+            "diseases": {
+                "L": [
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Bronchioloalveolar carcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10058354"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Lung adenocarcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10025032"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Lung adenocar. w/ bronch. feat."
+                            },
+                            "disease_code": {
+                                "S": "90600324"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Non-small cell lung cancer, NOS"
+                            },
+                            "disease_code": {
+                                "S": "10029514"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Squamous cell lung carcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10025125"
+                            }
+                        }
+                    }
+                ]
+            },
+            "former_patients": {
+                "N": "0"
+            },
+            "description": {
+                "S": "This TA is used by patient end-to-end test"
+            },
+            "version_current_patients": {
+                "N": "0"
+            },
+            "exclusion_drugs": {
+                "L": [
+                    {
+                        "M": {
+                            "name": {
+                                "S": "Doxorubicin Hydrochloride"
+                            },
+                            "drug_class": {
+                                "S": "ALK inhibitor"
+                            },
+                            "drug_id": {
+                                "S": "10001"
+                            },
+                            "target": {
+                                "S": "ALK"
+                            }
+                        }
+                    }
+                ]
+            },
+            "stratum_id": {
+                "S": "100"
+            },
+            "assay_rules": {
+                "L": []
+            },
+            "version_pending_patients": {
+                "N": "3"
+            },
+            "date_opened": {
+                "S": "2016-11-07T10:57:15.352-05:00"
+            },
+            "version": {
+                "S": "2015-08-06"
+            },
+            "pending_patients": {
+                "N": "3"
+            },
+            "target_id": {
+                "S": "113"
+            },
+            "gene": {
+                "S": "ALK"
+            },
+            "date_created": {
+                "S": "2016-11-07 15:57:15 UTC"
+            },
+            "is_active_flag": {
+                "BOOL": true
+            },
+            "status_log": {
+                "M": {
+                    "1478534235": {
+                        "S": "OPEN"
+                    }
+                }
+            },
+            "treatment_arm_id": {
+                "S": "APEC1621-ETE-A"
+            }
+        },
+        {
+            "version_not_enrolled_patients": {
+                "N": "0"
+            },
+            "target_name": {
+                "S": "Crizotinib"
+            },
+            "non_hotspot_rules": {
+                "L": [
+                    {
+                        "M": {
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "func_gene": {
+                                "S": "MYCL"
+                            },
+                            "exon": {
+                                "S": "19"
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "oncomine_variant_class": {
+                                "S": "amplification"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "arm_specific": {
+                                "BOOL": false
+                            },
+                            "level_of_evidence": {
+                                "N": "2.0"
+                            },
+                            "func_gene": {
+                                "S": "TP53"
+                            },
+                            "inclusion": {
+                                "BOOL": false
+                            },
+                            "function": {
+                                "S": "Refallele"
+                            }
+                        }
+                    }
+                ]
+            },
+            "not_enrolled_patients": {
+                "N": "0"
+            },
+            "copy_number_variants": {
+                "L": [
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "<CNV>"
+                            },
+                            "ocp_reference": {
+                                "S": "B"
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "gene": {
+                                "S": "GENE"
+                            },
+                            "chromosome": {
+                                "S": "chr1"
+                            },
+                            "identifier": {
+                                "S": "MYCL"
+                            },
+                            "level_of_evidence": {
+                                "N": "2.0"
+                            },
+                            "variant_type": {
+                                "S": "cnv"
+                            },
+                            "position": {
+                                "S": "40361592"
+                            },
+                            "protein": {
+                                "S": "p.Q61H"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "<CNV>"
+                            },
+                            "ocp_reference": {
+                                "S": "G"
+                            },
+                            "inclusion": {
+                                "BOOL": false
+                            },
+                            "gene": {
+                                "S": "GENE"
+                            },
+                            "chromosome": {
+                                "S": "chr1"
+                            },
+                            "identifier": {
+                                "S": "BCL9"
+                            },
+                            "level_of_evidence": {
+                                "N": "2.0"
+                            },
+                            "variant_type": {
+                                "S": "cnv"
+                            },
+                            "position": {
+                                "S": "147022100"
+                            },
+                            "protein": {
+                                "S": "p.Q61H"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "<CNV>"
+                            },
+                            "ocp_reference": {
+                                "S": "T"
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "gene": {
+                                "S": "GENE"
+                            },
+                            "chromosome": {
+                                "S": "chr10"
+                            },
+                            "identifier": {
+                                "S": "PTEN"
+                            },
+                            "level_of_evidence": {
+                                "N": "2.0"
+                            },
+                            "variant_type": {
+                                "S": "cnv"
+                            },
+                            "position": {
+                                "S": "89624207"
+                            },
+                            "protein": {
+                                "S": "p.Q61H"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    }
+                ]
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "current_patients": {
+                "N": "0"
+            },
+            "snv_indels": {
+                "L": [
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "B"
+                            },
+                            "ocp_reference": {
+                                "S": "F"
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "gene": {
+                                "S": "GENE"
+                            },
+                            "chromosome": {
+                                "S": "chr6"
+                            },
+                            "identifier": {
+                                "S": "COSM1074639"
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "variant_type": {
+                                "S": "snp"
+                            },
+                            "position": {
+                                "S": "152419923"
+                            },
+                            "protein": {
+                                "S": "p.Q61H"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "T"
+                            },
+                            "ocp_reference": {
+                                "S": "B"
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "gene": {
+                                "S": "GENE"
+                            },
+                            "chromosome": {
+                                "S": "chr9"
+                            },
+                            "identifier": {
+                                "S": "COSM52975"
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "variant_type": {
+                                "S": "snp"
+                            },
+                            "position": {
+                                "S": "80412493"
+                            },
+                            "protein": {
+                                "S": "p.Q61H"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "B"
+                            },
+                            "ocp_reference": {
+                                "S": "T"
+                            },
+                            "inclusion": {
+                                "BOOL": false
+                            },
+                            "gene": {
+                                "S": "GENE"
+                            },
+                            "chromosome": {
+                                "S": "chr17"
+                            },
+                            "identifier": {
+                                "S": "COSM44451"
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "variant_type": {
+                                "S": "snp"
+                            },
+                            "position": {
+                                "S": "7577064"
+                            },
+                            "protein": {
+                                "S": "p.Q61H"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "G"
+                            },
+                            "ocp_reference": {
+                                "S": "B"
+                            },
+                            "inclusion": {
+                                "BOOL": false
+                            },
+                            "gene": {
+                                "S": "GENE"
+                            },
+                            "chromosome": {
+                                "S": "chr8"
+                            },
+                            "identifier": {
+                                "S": "COSM757681"
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "variant_type": {
+                                "S": "snp"
+                            },
+                            "position": {
+                                "S": "70349258"
+                            },
+                            "protein": {
+                                "S": "p.Q61H"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "T"
+                            },
+                            "ocp_reference": {
+                                "S": "F"
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "gene": {
+                                "S": "GENE"
+                            },
+                            "chromosome": {
+                                "S": "chr9"
+                            },
+                            "identifier": {
+                                "S": "BT9"
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "variant_type": {
+                                "S": "snp"
+                            },
+                            "position": {
+                                "S": "100611165"
+                            },
+                            "protein": {
+                                "S": "p.Q61H"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "-"
+                            },
+                            "ocp_reference": {
+                                "S": "TTC"
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "gene": {
+                                "S": "GENE"
+                            },
+                            "chromosome": {
+                                "S": "chr22"
+                            },
+                            "identifier": {
+                                "S": "COSM22189"
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "variant_type": {
+                                "S": "del"
+                            },
+                            "position": {
+                                "S": "30035190"
+                            },
+                            "protein": {
+                                "S": "p.Q61H"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "-"
+                            },
+                            "ocp_reference": {
+                                "S": "CAAGGTTTCAATAACCAG"
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "gene": {
+                                "S": "GENE"
+                            },
+                            "chromosome": {
+                                "S": "chrX"
+                            },
+                            "identifier": {
+                                "S": "COSM131612"
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "variant_type": {
+                                "S": "del"
+                            },
+                            "position": {
+                                "S": "70339250"
+                            },
+                            "protein": {
+                                "S": "p.Q61H"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "-"
+                            },
+                            "ocp_reference": {
+                                "S": "TGCTGTCTCTGGGGA"
+                            },
+                            "inclusion": {
+                                "BOOL": false
+                            },
+                            "gene": {
+                                "S": "GENE"
+                            },
+                            "chromosome": {
+                                "S": "chrX"
+                            },
+                            "identifier": {
+                                "S": "COSM143738"
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "variant_type": {
+                                "S": "del"
+                            },
+                            "position": {
+                                "S": "70339270"
+                            },
+                            "protein": {
+                                "S": "p.Q61H"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    }
+                ]
+            },
+            "treatment_arm_status": {
+                "S": "OPEN"
+            },
+            "name": {
+                "S": "APEC1621-UI for Testing"
+            },
+            "treatment_arm_drugs": {
+                "L": [
+                    {
+                        "M": {
+                            "name": {
+                                "S": "Crizotinib"
+                            },
+                            "pathway": {
+                                "S": "GENE"
+                            },
+                            "drug_id": {
+                                "S": "113"
+                            }
+                        }
+                    }
+                ]
+            },
+            "version_former_patients": {
+                "N": "0"
+            },
+            "gene_fusions": {
+                "L": [
+                    {
+                        "M": {
+                            "ocp_reference": {
+                                "NULL": true
+                            },
+                            "gene": {
+                                "S": "TPM3"
+                            },
+                            "identifier": {
+                                "S": "TPM3-NTRK1.T7N10.COSF1318_1"
+                            },
+                            "variant_type": {
+                                "S": "fusion"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            },
+                            "ocp_alternative": {
+                                "NULL": true
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "chromosome": {
+                                "S": "chr2"
+                            },
+                            "protein": {
+                                "NULL": true
+                            },
+                            "level_of_evidence": {
+                                "N": "2.0"
+                            },
+                            "position": {
+                                "S": "154142875"
+                            },
+                            "public_med_ids": {
+                                "L": [
+                                    {
+                                        "S": "18827604"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ocp_reference": {
+                                "S": "G"
+                            },
+                            "gene": {
+                                "S": "NTRK1"
+                            },
+                            "identifier": {
+                                "S": "TPM3-NTRK1.T7N10.COSF1318_2"
+                            },
+                            "variant_type": {
+                                "S": "fusion"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            },
+                            "ocp_alternative": {
+                                "S": "[chr1:154142875[G"
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "chromosome": {
+                                "S": "chr2"
+                            },
+                            "protein": {
+                                "NULL": true
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "position": {
+                                "S": "156844362"
+                            },
+                            "public_med_ids": {
+                                "L": []
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ocp_reference": {
+                                "S": "T"
+                            },
+                            "gene": {
+                                "S": "TPM3"
+                            },
+                            "identifier": {
+                                "S": "TPM3-ROS1.T7R35.COSF1273_1"
+                            },
+                            "variant_type": {
+                                "S": "fusion"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            },
+                            "ocp_alternative": {
+                                "S": "T]chr6:117642559]"
+                            },
+                            "inclusion": {
+                                "BOOL": false
+                            },
+                            "chromosome": {
+                                "S": "chr1"
+                            },
+                            "protein": {
+                                "NULL": true
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "position": {
+                                "S": "154142877"
+                            },
+                            "public_med_ids": {
+                                "L": [
+                                    {
+                                        "S": "1245784"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ocp_reference": {
+                                "S": "T"
+                            },
+                            "gene": {
+                                "S": "ROS1"
+                            },
+                            "identifier": {
+                                "S": "TPM3-ROS1.T7R35.COSF1273_2"
+                            },
+                            "variant_type": {
+                                "S": "fusion"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            },
+                            "ocp_alternative": {
+                                "S": "[chr1:154142877[T"
+                            },
+                            "inclusion": {
+                                "BOOL": false
+                            },
+                            "chromosome": {
+                                "S": "chr6"
+                            },
+                            "protein": {
+                                "NULL": true
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "position": {
+                                "S": "117642559"
+                            },
+                            "public_med_ids": {
+                                "L": []
+                            }
+                        }
+                    }
+                ]
+            },
+            "diseases": {
+                "L": [
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Bronchioloalveolar carcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10058354"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Lung adenocarcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10025032"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Lung adenocar. w/ bronch. feat."
+                            },
+                            "disease_code": {
+                                "S": "90600324"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Non-small cell lung cancer, NOS"
+                            },
+                            "disease_code": {
+                                "S": "10029514"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Squamous cell lung carcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10025125"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": false
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Papillary thyroid carcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10033701"
+                            }
+                        }
+                    }
+                ]
+            },
+            "former_patients": {
+                "N": "0"
+            },
+            "description": {
+                "S": "Treatment Arm for UI tests new version"
+            },
+            "version_current_patients": {
+                "N": "0"
+            },
+            "exclusion_drugs": {
+                "L": [
+                    {
+                        "M": {
+                            "name": {
+                                "S": "Doxorubicin Hydrochloride"
+                            },
+                            "drug_class": {
+                                "S": "GENE inhibitor"
+                            },
+                            "drug_id": {
+                                "S": "10066674"
+                            },
+                            "target": {
+                                "S": "GENE"
+                            }
+                        }
+                    }
+                ]
+            },
+            "stratum_id": {
+                "S": "STR100"
+            },
+            "assay_rules": {
+                "L": [
+                    {
+                        "M": {
+                            "assay_result_status": {
+                                "S": "POSITIVE"
+                            },
+                            "gene": {
+                                "S": "PTAN"
+                            },
+                            "type": {
+                                "S": "IHC"
+                            },
+                            "assay_variant": {
+                                "S": "PRESENT"
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "assay_result_status": {
+                                "S": "POSITIVE"
+                            },
+                            "gene": {
+                                "S": "MEH1"
+                            },
+                            "type": {
+                                "S": "IHC"
+                            },
+                            "assay_variant": {
+                                "S": "EMPTY"
+                            },
+                            "level_of_evidence": {
+                                "N": "5.0"
+                            }
+                        }
+                    }
+                ]
+            },
+            "version_pending_patients": {
+                "N": "0"
+            },
+            "date_opened": {
+                "S": "2016-09-10T00:48:07+00:00"
+            },
+            "version": {
+                "S": "2015-08-06"
+            },
+            "pending_patients": {
+                "N": "0"
+            },
+            "target_id": {
+                "S": "113"
+            },
+            "gene": {
+                "S": "GENE"
+            },
+            "date_created": {
+                "S": "2016-11-07 15:57:10 UTC"
+            },
+            "is_active_flag": {
+                "BOOL": true
+            },
+            "status_log": {
+                "M": {
+                    "1478534230": {
+                        "S": "OPEN"
+                    }
+                }
+            },
+            "treatment_arm_id": {
+                "S": "APEC1621-UI"
+            }
+        },
+        {
+            "version_not_enrolled_patients": {
+                "N": "0"
+            },
+            "target_name": {
+                "S": "Crizotinib"
+            },
+            "non_hotspot_rules": {
+                "L": []
+            },
+            "not_enrolled_patients": {
+                "N": "0"
+            },
+            "copy_number_variants": {
+                "L": []
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "current_patients": {
+                "N": "0"
+            },
+            "snv_indels": {
+                "L": []
+            },
+            "treatment_arm_status": {
+                "S": "OPEN"
+            },
+            "name": {
+                "S": "APEC1621-ETE-C"
+            },
+            "treatment_arm_drugs": {
+                "L": [
+                    {
+                        "M": {
+                            "name": {
+                                "S": "Crizotinib"
+                            },
+                            "pathway": {
+                                "S": "RET"
+                            },
+                            "drug_id": {
+                                "S": "122"
+                            }
+                        }
+                    }
+                ]
+            },
+            "version_former_patients": {
+                "N": "0"
+            },
+            "gene_fusions": {
+                "L": [
+                    {
+                        "M": {
+                            "ocp_reference": {
+                                "S": "G"
+                            },
+                            "gene": {
+                                "S": "RET"
+                            },
+                            "identifier": {
+                                "S": "CCDC6-RET.C1R12.COSF1271"
+                            },
+                            "variant_type": {
+                                "S": "fusion"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            },
+                            "ocp_alternative": {
+                                "S": "[chr10:61665879[G"
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "chromosome": {
+                                "S": "chr10"
+                            },
+                            "level_of_evidence": {
+                                "N": "4.0"
+                            },
+                            "position": {
+                                "S": "43612031"
+                            },
+                            "description": {
+                                "S": "RET translocation"
+                            },
+                            "public_med_ids": {
+                                "L": []
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ocp_reference": {
+                                "S": "C"
+                            },
+                            "gene": {
+                                "S": "BRAF"
+                            },
+                            "identifier": {
+                                "S": "AGTRAP-BRAF.A5B8.COSF828"
+                            },
+                            "variant_type": {
+                                "S": "fusion"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            },
+                            "ocp_alternative": {
+                                "S": "C]chr7:140494267]"
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "chromosome": {
+                                "S": "chr1"
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "position": {
+                                "S": "11810822"
+                            },
+                            "description": {
+                                "S": "some description"
+                            },
+                            "public_med_ids": {
+                                "L": []
+                            }
+                        }
+                    }
+                ]
+            },
+            "diseases": {
+                "L": [
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Bronchioloalveolar carcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10058354"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Lung adenocarcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10025032"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Lung adenocar. w/ bronch. feat."
+                            },
+                            "disease_code": {
+                                "S": "90600324"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Non-small cell lung cancer, NOS"
+                            },
+                            "disease_code": {
+                                "S": "10029514"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Squamous cell lung carcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10025125"
+                            }
+                        }
+                    }
+                ]
+            },
+            "former_patients": {
+                "N": "0"
+            },
+            "description": {
+                "S": "This TA is used by patient end-to-end test"
+            },
+            "version_current_patients": {
+                "N": "0"
+            },
+            "exclusion_drugs": {
+                "L": [
+                    {
+                        "M": {
+                            "name": {
+                                "S": "Crizotinib"
+                            },
+                            "drug_class": {
+                                "S": "RET inhibitor"
+                            },
+                            "drug_id": {
+                                "S": "122"
+                            },
+                            "target": {
+                                "S": "RET"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "name": {
+                                "S": "Ceritinib"
+                            },
+                            "drug_id": {
+                                "S": "123"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "name": {
+                                "S": "Alectinib"
+                            },
+                            "drug_id": {
+                                "S": "124"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "name": {
+                                "S": "AP26113"
+                            },
+                            "drug_id": {
+                                "S": "125"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "name": {
+                                "S": "TSR-011"
+                            },
+                            "drug_id": {
+                                "S": "126"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "name": {
+                                "S": "PF-06463922"
+                            },
+                            "drug_id": {
+                                "S": "127"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "name": {
+                                "S": "X-396"
+                            },
+                            "drug_id": {
+                                "S": "128"
+                            }
+                        }
+                    }
+                ]
+            },
+            "stratum_id": {
+                "S": "100"
+            },
+            "assay_rules": {
+                "L": []
+            },
+            "version_pending_patients": {
+                "N": "0"
+            },
+            "date_opened": {
+                "S": "2016-11-07T10:57:20.627-05:00"
+            },
+            "version": {
+                "S": "2015-08-06"
+            },
+            "pending_patients": {
+                "N": "0"
+            },
+            "target_id": {
+                "S": "122"
+            },
+            "gene": {
+                "S": "RET"
+            },
+            "date_created": {
+                "S": "2016-11-07 15:57:20 UTC"
+            },
+            "is_active_flag": {
+                "BOOL": true
+            },
+            "status_log": {
+                "M": {
+                    "1478534240": {
+                        "S": "OPEN"
+                    }
+                }
+            },
+            "treatment_arm_id": {
+                "S": "APEC1621-ETE-C"
+            }
+        },
+        {
+            "version_not_enrolled_patients": {
+                "N": "0"
+            },
+            "target_name": {
+                "S": "Crizotinib"
+            },
+            "non_hotspot_rules": {
+                "L": []
+            },
+            "not_enrolled_patients": {
+                "N": "0"
+            },
+            "copy_number_variants": {
+                "L": []
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "current_patients": {
+                "N": "0"
+            },
+            "snv_indels": {
+                "L": [
+                    {
+                        "M": {
+                            "ocp_reference": {
+                                "S": "G"
+                            },
+                            "gene": {
+                                "S": "MTOR"
+                            },
+                            "identifier": {
+                                "S": "COSM1686998"
+                            },
+                            "variant_type": {
+                                "S": "snp"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            },
+                            "ocp_alternative": {
+                                "S": "A"
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "chromosome": {
+                                "S": "chr1"
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "position": {
+                                "S": "11184573"
+                            },
+                            "description": {
+                                "S": "some description"
+                            },
+                            "public_med_ids": {
+                                "L": [
+                                    {
+                                        "S": "23724913"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            "treatment_arm_status": {
+                "S": "OPEN"
+            },
+            "name": {
+                "S": "APEC1621-ETE-D"
+            },
+            "treatment_arm_drugs": {
+                "L": [
+                    {
+                        "M": {
+                            "name": {
+                                "S": "Crizotinib"
+                            },
+                            "pathway": {
+                                "S": "MTOR"
+                            },
+                            "drug_id": {
+                                "S": "122"
+                            }
+                        }
+                    }
+                ]
+            },
+            "version_former_patients": {
+                "N": "0"
+            },
+            "gene_fusions": {
+                "L": [
+                    {
+                        "M": {
+                            "ocp_reference": {
+                                "S": "C"
+                            },
+                            "gene": {
+                                "S": "FGFR2"
+                            },
+                            "identifier": {
+                                "S": "FGFR2-OFD1.F17O3"
+                            },
+                            "variant_type": {
+                                "S": "fusion"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            },
+                            "ocp_alternative": {
+                                "S": "C[chrX:13754596["
+                            },
+                            "inclusion": {
+                                "BOOL": false
+                            },
+                            "chromosome": {
+                                "S": "chr10"
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "position": {
+                                "S": "43612031"
+                            },
+                            "description": {
+                                "S": "some description"
+                            },
+                            "public_med_ids": {
+                                "L": []
+                            }
+                        }
+                    }
+                ]
+            },
+            "diseases": {
+                "L": [
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Bronchioloalveolar carcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10058354"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Lung adenocarcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10025032"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Lung adenocar. w/ bronch. feat."
+                            },
+                            "disease_code": {
+                                "S": "90600324"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Non-small cell lung cancer, NOS"
+                            },
+                            "disease_code": {
+                                "S": "10029514"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Squamous cell lung carcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10025125"
+                            }
+                        }
+                    }
+                ]
+            },
+            "former_patients": {
+                "N": "0"
+            },
+            "description": {
+                "S": "This TA is used by patient end-to-end test"
+            },
+            "version_current_patients": {
+                "N": "0"
+            },
+            "exclusion_drugs": {
+                "L": [
+                    {
+                        "M": {
+                            "name": {
+                                "S": "Crizotinib"
+                            },
+                            "drug_class": {
+                                "S": "MTOR inhibitor"
+                            },
+                            "drug_id": {
+                                "S": "123"
+                            },
+                            "target": {
+                                "S": "MTOR"
+                            }
+                        }
+                    }
+                ]
+            },
+            "stratum_id": {
+                "S": "100"
+            },
+            "assay_rules": {
+                "L": []
+            },
+            "version_pending_patients": {
+                "N": "0"
+            },
+            "date_opened": {
+                "S": "2016-11-07T10:57:25.788-05:00"
+            },
+            "version": {
+                "S": "2015-08-06"
+            },
+            "pending_patients": {
+                "N": "0"
+            },
+            "target_id": {
+                "S": "122-1"
+            },
+            "gene": {
+                "S": "MTOR"
+            },
+            "date_created": {
+                "S": "2016-11-07 15:57:25 UTC"
+            },
+            "is_active_flag": {
+                "BOOL": true
+            },
+            "status_log": {
+                "M": {
+                    "1478534245": {
+                        "S": "OPEN"
+                    }
+                }
+            },
+            "treatment_arm_id": {
+                "S": "APEC1621-ETE-D"
+            }
+        },
+        {
+            "version_not_enrolled_patients": {
+                "N": "0"
+            },
+            "target_name": {
+                "S": "Crizotinib"
+            },
+            "non_hotspot_rules": {
+                "L": []
+            },
+            "not_enrolled_patients": {
+                "N": "0"
+            },
+            "copy_number_variants": {
+                "L": []
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "current_patients": {
+                "N": "0"
+            },
+            "snv_indels": {
+                "L": []
+            },
+            "treatment_arm_status": {
+                "S": "SUSPENDED"
+            },
+            "name": {
+                "S": "CukeTest-122-1-SUSPENDED"
+            },
+            "treatment_arm_drugs": {
+                "L": [
+                    {
+                        "M": {
+                            "name": {
+                                "S": "Crizotinib"
+                            },
+                            "pathway": {
+                                "S": "ALK"
+                            },
+                            "drug_id": {
+                                "S": "113"
+                            }
+                        }
+                    }
+                ]
+            },
+            "version_former_patients": {
+                "N": "0"
+            },
+            "gene_fusions": {
+                "L": [
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "[chr10:61665879[G"
+                            },
+                            "ocp_reference": {
+                                "S": "G"
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "func_gene": {
+                                "S": "RET"
+                            },
+                            "chromosome": {
+                                "S": "chr10"
+                            },
+                            "identifier": {
+                                "S": "SUSPENDED.ID"
+                            },
+                            "level_of_evidence": {
+                                "N": "2.0"
+                            },
+                            "variant_type": {
+                                "S": "fusion"
+                            },
+                            "position": {
+                                "S": "43612031"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "C]chr7:140494267]"
+                            },
+                            "ocp_reference": {
+                                "S": "C"
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "func_gene": {
+                                "S": "BRAF"
+                            },
+                            "chromosome": {
+                                "S": "chr1"
+                            },
+                            "identifier": {
+                                "S": "AGTRAP-BRAF.A5B8.COSF828"
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "variant_type": {
+                                "S": "fusion"
+                            },
+                            "position": {
+                                "S": "11810822"
+                            },
+                            "description": {
+                                "S": "some description"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    }
+                ]
+            },
+            "diseases": {
+                "L": [
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Bronchioloalveolar carcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10058354"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Lung adenocarcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10025032"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Lung adenocar. w/ bronch. feat."
+                            },
+                            "disease_code": {
+                                "S": "90600324"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Non-small cell lung cancer, NOS"
+                            },
+                            "disease_code": {
+                                "S": "10029514"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Squamous cell lung carcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10025125"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": false
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Papillary thyroid carcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10033701"
+                            }
+                        }
+                    }
+                ]
+            },
+            "former_patients": {
+                "N": "0"
+            },
+            "description": {
+                "S": "TEST Treatment Arm used by Cucumber Tests"
+            },
+            "version_current_patients": {
+                "N": "0"
+            },
+            "exclusion_drugs": {
+                "L": [
+                    {
+                        "M": {
+                            "name": {
+                                "S": "Doxorubicin Hydrochloride"
+                            },
+                            "drug_class": {
+                                "S": "ALK inhibitor"
+                            },
+                            "drug_id": {
+                                "S": "10001"
+                            },
+                            "target": {
+                                "S": "ALK"
+                            }
+                        }
+                    }
+                ]
+            },
+            "stratum_id": {
+                "S": "stratum122a"
+            },
+            "assay_rules": {
+                "L": []
+            },
+            "version_pending_patients": {
+                "N": "0"
+            },
+            "date_opened": {
+                "S": "2016-12-13T14:16:03.074-05:00"
+            },
+            "version": {
+                "S": "2015-08-06"
+            },
+            "pending_patients": {
+                "N": "0"
+            },
+            "target_id": {
+                "S": "122"
+            },
+            "gene": {
+                "S": "RET"
+            },
+            "date_created": {
+                "S": "2016-12-13 19:16:03 UTC"
+            },
+            "is_active_flag": {
+                "BOOL": true
+            },
+            "status_log": {
+                "M": {
+                    "1481656563": {
+                        "S": "OPEN"
+                    },
+                    "1481656624": {
+                        "S": "SUSPENDED"
+                    }
+                }
+            },
+            "treatment_arm_id": {
+                "S": "CukeTest-122-1-SUSPENDED"
+            }
+        },
+        {
+            "version_not_enrolled_patients": {
+                "N": "0"
+            },
+            "target_name": {
+                "S": "Crizotinib"
+            },
+            "non_hotspot_rules": {
+                "L": []
+            },
+            "not_enrolled_patients": {
+                "N": "0"
+            },
+            "copy_number_variants": {
+                "L": [
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "<CNV>"
+                            },
+                            "ocp_reference": {
+                                "S": "B"
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "gene": {
+                                "S": "GENE"
+                            },
+                            "chromosome": {
+                                "S": "chr1"
+                            },
+                            "identifier": {
+                                "S": "MYCL"
+                            },
+                            "level_of_evidence": {
+                                "N": "2.0"
+                            },
+                            "variant_type": {
+                                "S": "cnv"
+                            },
+                            "position": {
+                                "S": "40361592"
+                            },
+                            "protein": {
+                                "S": "p.Q61H"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    }
+                ]
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "current_patients": {
+                "N": "0"
+            },
+            "snv_indels": {
+                "L": []
+            },
+            "treatment_arm_status": {
+                "S": "OPEN"
+            },
+            "name": {
+                "S": "APEC1621-ETE-B"
+            },
+            "treatment_arm_drugs": {
+                "L": [
+                    {
+                        "M": {
+                            "name": {
+                                "S": "Crizotinib"
+                            },
+                            "pathway": {
+                                "S": "ALK"
+                            },
+                            "drug_id": {
+                                "S": "115"
+                            }
+                        }
+                    }
+                ]
+            },
+            "version_former_patients": {
+                "N": "0"
+            },
+            "gene_fusions": {
+                "L": [
+                    {
+                        "M": {
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "gene": {
+                                "S": "ALK"
+                            },
+                            "identifier": {
+                                "S": "CLIP4-ALK.C11A23"
+                            },
+                            "level_of_evidence": {
+                                "N": "2.0"
+                            },
+                            "variant_type": {
+                                "S": "fusion"
+                            },
+                            "description": {
+                                "S": "ALK translocation"
+                            },
+                            "public_med_ids": {
+                                "L": [
+                                    {
+                                        "S": "23724913"
+                                    }
+                                ]
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "gene": {
+                                "S": "ALK"
+                            },
+                            "identifier": {
+                                "S": "EML4-ALK.E13A20.AB462411"
+                            },
+                            "level_of_evidence": {
+                                "N": "2.0"
+                            },
+                            "variant_type": {
+                                "S": "fusion"
+                            },
+                            "description": {
+                                "S": "ALK translocation"
+                            },
+                            "public_med_ids": {
+                                "L": [
+                                    {
+                                        "S": "23724913"
+                                    }
+                                ]
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ocp_alternative": {
+                                "S": "C[chrX:13754596["
+                            },
+                            "inclusion": {
+                                "BOOL": false
+                            },
+                            "gene": {
+                                "S": "FGFR2"
+                            },
+                            "chromosome": {
+                                "S": "chr10"
+                            },
+                            "identifier": {
+                                "S": "FGFR2-OFD1.F17O3"
+                            },
+                            "ocp_reference": {
+                                "S": "C"
+                            },
+                            "variant_type": {
+                                "S": "fusion"
+                            },
+                            "description": {
+                                "S": "some description"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "public_med_ids": {
+                                "L": []
+                            }
+                        }
+                    }
+                ]
+            },
+            "diseases": {
+                "L": [
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Bronchioloalveolar carcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10058354"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Lung adenocarcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10025032"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Lung adenocar. w/ bronch. feat."
+                            },
+                            "disease_code": {
+                                "S": "90600324"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Non-small cell lung cancer, NOS"
+                            },
+                            "disease_code": {
+                                "S": "10029514"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Squamous cell lung carcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10025125"
+                            }
+                        }
+                    }
+                ]
+            },
+            "former_patients": {
+                "N": "0"
+            },
+            "description": {
+                "S": "This TA is used by patient end-to-end test"
+            },
+            "version_current_patients": {
+                "N": "0"
+            },
+            "exclusion_drugs": {
+                "L": [
+                    {
+                        "M": {
+                            "name": {
+                                "S": "Crizotinib"
+                            },
+                            "drug_class": {
+                                "S": "ALK inhibitor"
+                            },
+                            "drug_id": {
+                                "S": "115"
+                            },
+                            "target": {
+                                "S": "ALK"
+                            }
+                        }
+                    }
+                ]
+            },
+            "stratum_id": {
+                "S": "100"
+            },
+            "assay_rules": {
+                "L": []
+            },
+            "version_pending_patients": {
+                "N": "0"
+            },
+            "date_opened": {
+                "S": "2016-11-07T10:57:20.569-05:00"
+            },
+            "version": {
+                "S": "2015-08-06"
+            },
+            "pending_patients": {
+                "N": "0"
+            },
+            "target_id": {
+                "S": "115"
+            },
+            "gene": {
+                "S": "ALK"
+            },
+            "date_created": {
+                "S": "2016-11-07 15:57:20 UTC"
+            },
+            "is_active_flag": {
+                "BOOL": true
+            },
+            "status_log": {
+                "M": {
+                    "1478534240": {
+                        "S": "OPEN"
+                    }
+                }
+            },
+            "treatment_arm_id": {
+                "S": "APEC1621-ETE-B"
+            }
+        },
+        {
+            "version_not_enrolled_patients": {
+                "N": "3"
+            },
+            "target_name": {
+                "S": "Crizotinib"
+            },
+            "non_hotspot_rules": {
+                "L": [
+                    {
+                        "M": {
+                            "protein_match": {
+                                "NULL": true
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "func_gene": {
+                                "S": "PTEN"
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "public_med_ids": {
+                                "L": []
+                            },
+                            "oncomine_variant_class": {
+                                "S": "deleterious"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            }
+                        }
+                    }
+                ]
+            },
+            "not_enrolled_patients": {
+                "N": "3"
+            },
+            "copy_number_variants": {
+                "L": []
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "current_patients": {
+                "N": "25"
+            },
+            "snv_indels": {
+                "L": []
+            },
+            "treatment_arm_status": {
+                "S": "OPEN"
+            },
+            "name": {
+                "S": "APEC1621-A"
+            },
+            "treatment_arm_drugs": {
+                "L": [
+                    {
+                        "M": {
+                            "name": {
+                                "S": "Crizotinib"
+                            },
+                            "pathway": {
+                                "S": "ALK"
+                            },
+                            "drug_id": {
+                                "S": "113"
+                            }
+                        }
+                    }
+                ]
+            },
+            "version_former_patients": {
+                "N": "33"
+            },
+            "gene_fusions": {
+                "L": [
+                    {
+                        "M": {
+                            "ocp_reference": {
+                                "S": "A"
+                            },
+                            "gene": {
+                                "S": "ALK"
+                            },
+                            "identifier": {
+                                "S": "TPM3-ALK.T7A20"
+                            },
+                            "variant_type": {
+                                "S": "fusion"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            },
+                            "ocp_alternative": {
+                                "S": "[chr1:154142875[A"
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "chromosome": {
+                                "S": "chr2"
+                            },
+                            "level_of_evidence": {
+                                "N": "2.0"
+                            },
+                            "position": {
+                                "S": "29446394"
+                            },
+                            "description": {
+                                "S": "ALK translocation"
+                            },
+                            "public_med_ids": {
+                                "L": [
+                                    {
+                                        "S": "23724913"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "ocp_reference": {
+                                "S": "C"
+                            },
+                            "gene": {
+                                "S": "FGFR2"
+                            },
+                            "identifier": {
+                                "S": "FGFR2-OFD1.F17O3"
+                            },
+                            "variant_type": {
+                                "S": "fusion"
+                            },
+                            "arm_specific": {
+                                "BOOL": false
+                            },
+                            "ocp_alternative": {
+                                "S": "C[chrX:13754596["
+                            },
+                            "inclusion": {
+                                "BOOL": true
+                            },
+                            "chromosome": {
+                                "S": "chr10"
+                            },
+                            "level_of_evidence": {
+                                "N": "3.0"
+                            },
+                            "position": {
+                                "S": "123243211"
+                            },
+                            "description": {
+                                "S": "some description"
+                            },
+                            "public_med_ids": {
+                                "L": []
+                            }
+                        }
+                    }
+                ]
+            },
+            "diseases": {
+                "L": [
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Bronchioloalveolar carcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10058354"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Lung adenocarcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10025032"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Lung adenocar. w/ bronch. feat."
+                            },
+                            "disease_code": {
+                                "S": "90600324"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Non-small cell lung cancer, NOS"
+                            },
+                            "disease_code": {
+                                "S": "10029514"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": true
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Squamous cell lung carcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10025125"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": false
+                            },
+                            "disease_code_type": {
+                                "S": "ICD-O"
+                            },
+                            "disease_name": {
+                                "S": "Papillary thyroid carcinoma"
+                            },
+                            "disease_code": {
+                                "S": "10033701"
+                            }
+                        }
+                    }
+                ]
+            },
+            "former_patients": {
+                "N": "33"
+            },
+            "description": {
+                "S": "TEST Treatment Arm used by Cucumber Tests"
+            },
+            "version_current_patients": {
+                "N": "25"
+            },
+            "exclusion_drugs": {
+                "L": [
+                    {
+                        "M": {
+                            "name": {
+                                "S": "Doxorubicin Hydrochloride"
+                            },
+                            "drug_class": {
+                                "S": "ALK inhibitor"
+                            },
+                            "drug_id": {
+                                "S": "10001"
+                            },
+                            "target": {
+                                "S": "ALK"
+                            }
+                        }
+                    }
+                ]
+            },
+            "stratum_id": {
+                "S": "100"
+            },
+            "assay_rules": {
+                "L": []
+            },
+            "version_pending_patients": {
+                "N": "23"
+            },
+            "date_opened": {
+                "S": "2016-11-07T10:57:05.115-05:00"
+            },
+            "version": {
+                "S": "2015-08-06"
+            },
+            "pending_patients": {
+                "N": "23"
+            },
+            "target_id": {
+                "S": "113"
+            },
+            "gene": {
+                "S": "ALK"
+            },
+            "date_created": {
+                "S": "2016-11-07 15:57:05 UTC"
+            },
+            "is_active_flag": {
+                "BOOL": true
+            },
+            "status_log": {
+                "M": {
+                    "1478534225": {
+                        "S": "OPEN"
+                    }
+                }
+            },
+            "treatment_arm_id": {
+                "S": "APEC1621-A"
+            }
+        }
+    ],
+    "ScannedCount": 10,
+    "ConsumedCapacity": null
+}
