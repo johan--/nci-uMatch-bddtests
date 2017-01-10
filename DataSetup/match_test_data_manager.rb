@@ -70,10 +70,10 @@ class MatchTestDataManager
   def self.delete_patients_from_seed(patient_id_list)
     TableDetails.patient_tables.each { |table_name|
       field_name = table_name=='event' ? 'entity_id' : 'patient_id'
-      remove_json_nodes_from_file(seed_file(table_name), field_name, patient_id_list, table_name)
+      remove_json_nodes_from_file(seed_file(table_name), field_name, patient_id_list, 'S', table_name)
     }
     TableDetails.treatment_arm_tables.each { |table_name|
-      remove_json_nodes_from_file(seed_file(table_name), 'patient_id', patient_id_list, table_name)
+      remove_json_nodes_from_file(seed_file(table_name), 'patient_id', patient_id_list, 'S', table_name)
     }
   end
 
@@ -136,17 +136,19 @@ class MatchTestDataManager
     "#{File.dirname(__FILE__)}/#{SEED_DATA_FOLDER}/#{SEED_FILE_PREFIX}_#{table_name}.json"
   end
 
-  def self.remove_json_nodes_from_file(file, target_field, target_value_list, nickname)
-    items = JSON.parse(File.read(file))
+  def self.remove_json_nodes_from_file(file, target_field, target_value_list, value_type, nickname)
+    file_hash = JSON.parse(File.read(file))
+    items = file_hash['Items']
     old_count = items.size
-    items.delete_if { |this_item| target_value_list.include?(this_item[target_field]) }
+    items.delete_if { |this_item|
+      this_item.keys.include?(target_field) && target_value_list.include?(this_item[target_field][value_type]) }
 
     LOG.log("There are #{old_count-items.size} items(#{target_field}=#{target_value_list.to_s}) get removed from #{nickname}")
-    File.open(file, 'w') { |f| f.write(JSON.pretty_generate(items)) }
+    File.open(file, 'w') { |f| f.write(JSON.pretty_generate(file_hash)) }
   end
 
-  def self.json_node_exist_in_file(file, target_field, target_value)
-    items = JSON.parse(File.read(file))
-    items.any? { |this_item| this_item[target_field] == target_value }
+  def self.json_node_exist_in_file(file, target_field, target_value, value_type)
+    items = JSON.parse(File.read(file))['Items']
+    items.any? { |this_item| this_item[target_field][value_type] == target_value }
   end
 end

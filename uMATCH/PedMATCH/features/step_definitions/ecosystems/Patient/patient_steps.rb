@@ -621,7 +621,9 @@ And(/^patient pending_items field "([^"]*)" should have correct value$/) do |fie
       when 'tissue_variant_reports'
         next unless this_patient.keys.include?('active_tissue_specimen')
         next unless this_patient['active_tissue_specimen']['variant_report_status'] == 'PENDING'
-        expect_key_list << this_patient['active_tissue_specimen']['active_analysis_id']
+        unless expect_key_list.include?(this_patient['active_tissue_specimen']['active_analysis_id'])
+          expect_key_list << this_patient['active_tissue_specimen']['active_analysis_id']
+        end
       when 'assignment_reports'
         if this_patient['current_status'] == 'PENDING_CONFIRMATION'
           expect_key_list << this_patient['active_tissue_specimen']['active_analysis_id']
@@ -632,9 +634,11 @@ And(/^patient pending_items field "([^"]*)" should have correct value$/) do |fie
   @get_response[field].each { |this_item|
     actual_key_list << this_item['analysis_id']
   }
-  # actual_key_list.each { |this_actual|
-  #   expect(expect_key_list).to include this_actual }
-  expect(actual_key_list.size).to eql expect_key_list.size
+  extra_actual = actual_key_list - expect_key_list
+  absent_actual = expect_key_list - actual_key_list
+
+  raise "These items should NOT show up in result: #{extra_actual.to_s}" if extra_actual.size > 0
+  raise "These items should show up in result: #{absent_actual.to_s}" if absent_actual.size > 0
 end
 
 Then(/^there are "([^"]*)" patient "([^"]*)" pending_items have field: "([^"]*)" value: "([^"]*)"$/) do |count, type, field, value|
@@ -651,7 +655,7 @@ Then(/^there are "([^"]*)" patient "([^"]*)" pending_items have field: "([^"]*)"
   expect(actual_result).to eql expect_result
 end
 
-Then(/^there are "([^"]*)" patient_limbos have field: "([^"]*)" value: "([^"]*)"$/) do |count,  field, value|
+Then(/^there are "([^"]*)" patient_limbos have field: "([^"]*)" value: "([^"]*)"$/) do |count, field, value|
   expect(@get_response.class).to eql Array
   expect_result = "There are #{count} matching results"
   actual_count = 0
@@ -666,7 +670,7 @@ end
 
 Then(/^this patient patient_limbos field "([^"]*)" should be correct$/) do |field|
   expect(@get_response.class).to eql Array
-  this_patient_limbos = @get_response.find {|this_item| this_item['patient_id'] == @patient_id}
+  this_patient_limbos = @get_response.find { |this_item| this_item['patient_id'] == @patient_id }
   expect(this_patient_limbos).not_to eql nil
   get_patient_if_needed
   expect(this_patient_limbos[field]).to eql @current_patient_hash[field]
@@ -674,7 +678,7 @@ end
 
 Then(/^this patient patient_limbos message should contain "([^"]*)" not "([^"]*)"$/) do |contain, not_contain|
   expect(@get_response.class).to eql Array
-  this_patient_limbos = @get_response.find {|this_item| this_item['patient_id'] == @patient_id}
+  this_patient_limbos = @get_response.find { |this_item| this_item['patient_id'] == @patient_id }
   expect(this_patient_limbos).not_to eql nil
   expect(this_patient_limbos.keys).to include 'message'
   contain_list = contain.split('-')
@@ -682,13 +686,13 @@ Then(/^this patient patient_limbos message should contain "([^"]*)" not "([^"]*)
   actual_list = this_patient_limbos['message']
 
   contain_list.each { |this_contain|
-    unless actual_list.any? { |this_actual| this_actual.include?(this_contain)}
+    unless actual_list.any? { |this_actual| this_actual.include?(this_contain) }
       raise "#{actual_list.to_s} is expected to contain #{this_contain}"
     end
   }
 
   not_contain_list.each { |this_not_contain|
-    if actual_list.any? { |this_actual| this_actual.include?(this_not_contain)}
+    if actual_list.any? { |this_actual| this_actual.include?(this_not_contain) }
       raise "#{actual_list.to_s} is expected NOT to contain #{this_not_contain}"
     end
   }
@@ -696,7 +700,7 @@ end
 
 Then(/^this patient patient_limbos days_pending should be correct$/) do
   expect(@get_response.class).to eql Array
-  this_patient_limbos = @get_response.find {|this_item| this_item['patient_id'] == @patient_id}
+  this_patient_limbos = @get_response.find { |this_item| this_item['patient_id'] == @patient_id }
   ats = 'active_tissue_specimen'
   dp = 'days_pending'
   expect(this_patient_limbos).not_to eql nil
@@ -734,7 +738,7 @@ end
 
 Then(/^patient treatment_arm_history should have treatment_arm: "([^"]*)", stratum: "([^"]*)", step: "([^"]*)"/) do |ta, stratum, step|
   expect(@get_response.class).to eql Array
-  has = @get_response.any?{|this_ta|
+  has = @get_response.any? { |this_ta|
     this_ta['treatment_arm_id'] == ta &&
         this_ta['stratum_id'] == stratum &&
         this_ta['step'] == step
@@ -746,7 +750,7 @@ end
 
 Then(/^patient treatment_arm_history should not have treatment_arm: "([^"]*)", stratum: "([^"]*)"/) do |ta, stratum|
   expect(@get_response.class).to eql Array
-  has = @get_response.any?{|this_ta|
+  has = @get_response.any? { |this_ta|
     this_ta['treatment_arm_id'] == ta &&
         this_ta['stratum_id'] == stratum
   }
