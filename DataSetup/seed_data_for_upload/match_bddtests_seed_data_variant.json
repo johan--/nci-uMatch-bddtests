@@ -20,10 +20,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01_slideShipped_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01_slideShipped_SEI1",
     "patient_id": "PT_OS01_slideShipped",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -53,10 +53,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA03_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA03_PendingApproval_SEI1",
     "patient_id": "PT_RA03_PendingApproval",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -79,10 +79,10 @@
     "confirmed": true,
     "analysis_id": "PT_SR10_OffStudy_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SR10_OffStudy_SEI1",
     "patient_id": "PT_SR10_OffStudy",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -112,10 +112,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA04a_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA04a_PendingApproval_SEI1",
     "patient_id": "PT_RA04a_PendingApproval",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -145,10 +145,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS04_OnTA2_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS04_OnTA2_SEI1",
     "patient_id": "PT_OS04_OnTA2",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -178,10 +178,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC05d_VrAssayReady_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC05d_VrAssayReady_SEI1",
     "patient_id": "PT_SC05d_VrAssayReady",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -211,10 +211,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01a_slideShipped_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS01a_slideShipped_SEI1",
     "patient_id": "PT_OS01a_slideShipped",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -244,10 +244,10 @@
     "confirmed": true,
     "analysis_id": "PT_SS26_PendingApproval1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SS26_PendingApproval1_SEI1",
     "patient_id": "PT_SS26_PendingApproval1",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -277,10 +277,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA10_OnTreatmentArm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA10_OnTreatmentArm_SEI1",
     "patient_id": "PT_RA10_OnTreatmentArm",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -310,10 +310,10 @@
     "confirmed": true,
     "analysis_id": "PT_AM02_VrReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_AM02_VrReceived_SEI1",
     "patient_id": "PT_AM02_VrReceived",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -336,10 +336,10 @@
     "confirmed": true,
     "analysis_id": "PT_SS11a_Step2TsReceived2_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SS11a_Step2TsReceived2_SEI1",
     "patient_id": "PT_SS11a_Step2TsReceived2",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -369,10 +369,10 @@
     "confirmed": false,
     "analysis_id": "PT_VC03_VRUploadedAfterRejected_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VC03_VRUploadedAfterRejected_SEI1",
     "patient_id": "PT_VC03_VRUploadedAfterRejected",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -402,10 +402,10 @@
     "confirmed": false,
     "analysis_id": "PT_RA03_TsVrRejected_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA03_TsVrRejected_SEI1",
     "patient_id": "PT_RA03_TsVrRejected",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -435,10 +435,10 @@
     "confirmed": true,
     "analysis_id": "PT_SR10_ProgressReBioY_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SR10_ProgressReBioY_SEI1",
     "patient_id": "PT_SR10_ProgressReBioY",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -468,9 +468,9 @@
     "confirmed": true,
     "analysis_id": "PT_SR14_BdVrUploaded1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "patient_id": "PT_SR14_BdVrUploaded1",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -493,10 +493,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS02_OffStudy1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS02_OffStudy1_SEI1",
     "patient_id": "PT_OS02_OffStudy1",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -526,10 +526,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC06a_PendingApprovalStep2_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC06a_PendingApprovalStep2_SEI2",
     "patient_id": "PT_SC06a_PendingApprovalStep2",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -546,10 +546,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA02_NoTaAvailable_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA02_NoTaAvailable_SEI1",
     "patient_id": "PT_RA02_NoTaAvailable",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -579,10 +579,10 @@
     "confirmed": true,
     "analysis_id": "PT_GVF_RequestNoAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_GVF_RequestNoAssignment_SEI1",
     "patient_id": "PT_GVF_RequestNoAssignment",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -612,10 +612,10 @@
     "confirmed": false,
     "analysis_id": "PT_VU12_VariantReportRejected_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VU12_VariantReportRejected_SEI1",
     "patient_id": "PT_VU12_VariantReportRejected",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -645,10 +645,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC04f_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC04f_TsVrUploaded_SEI1",
     "patient_id": "PT_SC04f_TsVrUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -671,10 +671,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC06a_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC06a_PendingApproval_SEI1",
     "patient_id": "PT_SC06a_PendingApproval",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -704,10 +704,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC05f_PendingConfirmation_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC05f_PendingConfirmation_SEI1",
     "patient_id": "PT_SC05f_PendingConfirmation",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -730,10 +730,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA02_TsVrReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA02_TsVrReceived_SEI1",
     "patient_id": "PT_RA02_TsVrReceived",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -763,10 +763,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA03_TsVrReceived_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA03_TsVrReceived_SEI2",
     "patient_id": "PT_RA03_TsVrReceived",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -789,10 +789,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC04b_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC04b_PendingApproval_SEI1",
     "patient_id": "PT_SC04b_PendingApproval",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -822,10 +822,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC01c_TsVrUploadedStep2_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC01c_TsVrUploadedStep2_SEI2",
     "patient_id": "PT_SC01c_TsVrUploadedStep2",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -848,10 +848,10 @@
     "confirmed": true,
     "analysis_id": "PT_SS11a_Step2TsReceived1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SS11a_Step2TsReceived1_SEI1",
     "patient_id": "PT_SS11a_Step2TsReceived1",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -881,10 +881,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01_PendingConfirmation_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS01_PendingConfirmation_SEI1",
     "patient_id": "PT_OS01_PendingConfirmation",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -914,10 +914,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC11b_TsVRConfirmed_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VC11b_TsVRConfirmed_SEI1",
     "patient_id": "PT_VC11b_TsVRConfirmed",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -947,10 +947,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC05a_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC05a_TsVrUploaded_SEI1",
     "patient_id": "PT_SC05a_TsVrUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -973,10 +973,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC05a_TsThenAssayReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC05a_TsThenAssayReceived_SEI1",
     "patient_id": "PT_SC05a_TsThenAssayReceived",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -999,10 +999,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01a_PendingConfirmation_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01a_PendingConfirmation_SEI1",
     "patient_id": "PT_OS01a_PendingConfirmation",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -1032,10 +1032,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA04a_OffStudyBiopsyExpired_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA04a_OffStudyBiopsyExpired_SEI1",
     "patient_id": "PT_RA04a_OffStudyBiopsyExpired",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -1058,10 +1058,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC10_VRUploadedSEIExpired_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VC10_VRUploadedSEIExpired_SEI2",
     "patient_id": "PT_VC10_VRUploadedSEIExpired",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -1084,10 +1084,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC06a_PendingApprovalStep2_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC06a_PendingApprovalStep2_SEI2",
     "patient_id": "PT_SC06a_PendingApprovalStep2",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -1117,10 +1117,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA02_TsVrReceived_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA02_TsVrReceived_SEI2",
     "patient_id": "PT_RA02_TsVrReceived",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -1150,10 +1150,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC01c_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC01c_TsVrUploaded_SEI1",
     "patient_id": "PT_SC01c_TsVrUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -1176,10 +1176,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC05a_PendingConfirmation_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC05a_PendingConfirmation_SEI1",
     "patient_id": "PT_SC05a_PendingConfirmation",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -1202,9 +1202,9 @@
     "confirmed": true,
     "analysis_id": "PT_SC01c_BdVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "patient_id": "PT_SC01c_BdVrUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -1234,10 +1234,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA01_OnTreatmentArm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA01_OnTreatmentArm_SEI1",
     "patient_id": "PT_RA01_OnTreatmentArm",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -1260,10 +1260,10 @@
     "confirmed": true,
     "analysis_id": "PT_AM04_TsReceived1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_AM04_TsReceived1_SEI1",
     "patient_id": "PT_AM04_TsReceived1",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -1286,10 +1286,10 @@
     "confirmed": true,
     "analysis_id": "PT_SR10_ProgressReBioY_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SR10_ProgressReBioY_SEI1",
     "patient_id": "PT_SR10_ProgressReBioY",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -1312,10 +1312,10 @@
     "confirmed": true,
     "analysis_id": "PT_AS12_VrConfirmed_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_AS12_VrConfirmed_SEI1",
     "patient_id": "PT_AS12_VrConfirmed",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -1338,10 +1338,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA04a_TsVrReceived_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA04a_TsVrReceived_SEI2",
     "patient_id": "PT_RA04a_TsVrReceived",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -1364,10 +1364,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC15_AssayReceivedVrReceivedToConfirm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VC15_AssayReceivedVrReceivedToConfirm_SEI1",
     "patient_id": "PT_VC15_AssayReceivedVrReceivedToConfirm",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -1390,10 +1390,10 @@
     "confirmed": false,
     "analysis_id": "PT_VC10_VRUploadedANIExpired_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VC10_VRUploadedANIExpired_SEI1",
     "patient_id": "PT_VC10_VRUploadedANIExpired",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -1416,10 +1416,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA03_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA03_PendingApproval_SEI1",
     "patient_id": "PT_RA03_PendingApproval",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -1442,10 +1442,10 @@
     "confirmed": true,
     "analysis_id": "ION_SF03_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "ION_SF03_TsVrUploaded_SEI1",
     "patient_id": "ION_SF03_TsVrUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -1475,10 +1475,10 @@
     "confirmed": true,
     "analysis_id": "PT_GVF_RARebioY_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_GVF_RARebioY_SEI1",
     "patient_id": "PT_GVF_RARebioY",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -1508,10 +1508,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01a_TsVrReceived_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS01a_TsVrReceived_SEI2",
     "patient_id": "PT_OS01a_TsVrReceived",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -1534,10 +1534,10 @@
     "confirmed": false,
     "analysis_id": "PT_VU11_VariantReportRejected_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VU11_VariantReportRejected_SEI1",
     "patient_id": "PT_VU11_VariantReportRejected",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -1560,10 +1560,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC02e_PendingConfirmation_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC02e_PendingConfirmation_SEI1",
     "patient_id": "PT_SC02e_PendingConfirmation",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -1586,10 +1586,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC06d_PendingApproval2_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC06d_PendingApproval2_SEI1",
     "patient_id": "PT_SC06d_PendingApproval2",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -1612,10 +1612,10 @@
     "confirmed": false,
     "analysis_id": "PT_SS02a_TsVrRejected_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SS02a_TsVrRejected_SEI1",
     "patient_id": "PT_SS02a_TsVrRejected",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -1645,9 +1645,9 @@
     "confirmed": true,
     "analysis_id": "PT_VC14_BdVRUploadedTsVRUploadedOtherReady_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "patient_id": "PT_VC14_BdVRUploadedTsVRUploadedOtherReady",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -1677,10 +1677,10 @@
     "confirmed": true,
     "analysis_id": "PT_GVF_VrAssayReady_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_GVF_VrAssayReady_SEI1",
     "patient_id": "PT_GVF_VrAssayReady",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -1703,10 +1703,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA03_slideShipped_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA03_slideShipped_SEI1",
     "patient_id": "PT_RA03_slideShipped",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -1729,9 +1729,9 @@
     "confirmed": true,
     "analysis_id": "ION_AQ42_BdVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "patient_id": "ION_AQ42_BdVrUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -1761,10 +1761,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA08_OnTreatmentArm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA08_OnTreatmentArm_SEI1",
     "patient_id": "PT_RA08_OnTreatmentArm",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -1787,10 +1787,10 @@
     "confirmed": true,
     "analysis_id": "PT_SR14_TsVrUploaded1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SR14_TsVrUploaded1_SEI1",
     "patient_id": "PT_SR14_TsVrUploaded1",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -1820,10 +1820,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA02_slideShipped_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA02_slideShipped_SEI1",
     "patient_id": "PT_RA02_slideShipped",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -1853,10 +1853,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA04a_OffStudy_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA04a_OffStudy_SEI1",
     "patient_id": "PT_RA04a_OffStudy",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -1886,10 +1886,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC00_CnvVrReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VC00_CnvVrReceived_SEI1",
     "patient_id": "PT_VC00_CnvVrReceived",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -1919,9 +1919,9 @@
     "confirmed": true,
     "analysis_id": "PT_SC01c_BdVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "patient_id": "PT_SC01c_BdVrUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -1951,10 +1951,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA08_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA08_PendingApproval_SEI1",
     "patient_id": "PT_RA08_PendingApproval",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -1984,10 +1984,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC03_VRUploadedAfterRejected_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VC03_VRUploadedAfterRejected_SEI1",
     "patient_id": "PT_VC03_VRUploadedAfterRejected",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -2010,10 +2010,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC04b_VrConfirmedOneAssay_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC04b_VrConfirmedOneAssay_SEI1",
     "patient_id": "PT_SC04b_VrConfirmedOneAssay",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -2036,10 +2036,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC13_VRUploaded1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VC13_VRUploaded1_SEI1",
     "patient_id": "PT_VC13_VRUploaded1",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -2062,10 +2062,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA07_VrAndAssayReady_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA07_VrAndAssayReady_SEI1",
     "patient_id": "PT_RA07_VrAndAssayReady",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -2095,10 +2095,10 @@
     "confirmed": false,
     "analysis_id": "PT_SR10_TsVRRejected_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SR10_TsVRRejected_SEI1",
     "patient_id": "PT_SR10_TsVRRejected",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -2128,10 +2128,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01a_OffStudyBiopsyExpired_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS01a_OffStudyBiopsyExpired_SEI1",
     "patient_id": "PT_OS01a_OffStudyBiopsyExpired",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -2161,10 +2161,10 @@
     "confirmed": true,
     "analysis_id": "PT_SR10_PendingApproval2_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SR10_PendingApproval2_SEI1",
     "patient_id": "PT_SR10_PendingApproval2",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -2187,10 +2187,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA04a_TsVrReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA04a_TsVrReceived_SEI1",
     "patient_id": "PT_RA04a_TsVrReceived",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -2220,10 +2220,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA04a_slideShipped_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA04a_slideShipped_SEI1",
     "patient_id": "PT_RA04a_slideShipped",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -2253,10 +2253,10 @@
     "confirmed": false,
     "analysis_id": "PT_OS01a_TsVrRejected_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS01a_TsVrRejected_SEI1",
     "patient_id": "PT_OS01a_TsVrRejected",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -2286,10 +2286,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC02g_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC02g_TsVrUploaded_SEI1",
     "patient_id": "PT_SC02g_TsVrUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -2312,10 +2312,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01_PendingApproval_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01_PendingApproval_SEI2",
     "patient_id": "PT_OS01_PendingApproval",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -2345,10 +2345,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01a_OffStudy_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS01a_OffStudy_SEI1",
     "patient_id": "PT_OS01a_OffStudy",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -2371,10 +2371,10 @@
     "confirmed": false,
     "analysis_id": "PT_VC10_VRUploadedSEIExpired_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VC10_VRUploadedSEIExpired_SEI1",
     "patient_id": "PT_VC10_VRUploadedSEIExpired",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -2397,10 +2397,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC02g_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC02g_TsVrUploaded_SEI1",
     "patient_id": "PT_SC02g_TsVrUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -2430,10 +2430,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01a_PendingApproval_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS01a_PendingApproval_SEI2",
     "patient_id": "PT_OS01a_PendingApproval",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -2456,10 +2456,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01a_TsVrReceived_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01a_TsVrReceived_SEI2",
     "patient_id": "PT_OS01a_TsVrReceived",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -2482,10 +2482,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC01c_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC01c_TsVrUploaded_SEI1",
     "patient_id": "PT_SC01c_TsVrUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -2508,10 +2508,10 @@
     "confirmed": true,
     "analysis_id": "PT_SS27_VariantReportUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SS27_VariantReportUploaded_SEI1",
     "patient_id": "PT_SS27_VariantReportUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -2541,10 +2541,10 @@
     "confirmed": true,
     "analysis_id": "PT_CR01_PathAssayDoneVRUploadedToConfirm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_CR01_PathAssayDoneVRUploadedToConfirm_SEI1",
     "patient_id": "PT_CR01_PathAssayDoneVRUploadedToConfirm",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -2574,10 +2574,10 @@
     "confirmed": false,
     "analysis_id": "PT_OS01_TsVrRejected_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS01_TsVrRejected_SEI1",
     "patient_id": "PT_OS01_TsVrRejected",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -2600,10 +2600,10 @@
     "confirmed": true,
     "analysis_id": "PT_VU10_VariantReportUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VU10_VariantReportUploaded_SEI1",
     "patient_id": "PT_VU10_VariantReportUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -2633,10 +2633,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA04a_PendingConfirmation_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA04a_PendingConfirmation_SEI1",
     "patient_id": "PT_RA04a_PendingConfirmation",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -2666,10 +2666,10 @@
     "confirmed": true,
     "analysis_id": "PT_VU09_VariantReportUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VU09_VariantReportUploaded_SEI1",
     "patient_id": "PT_VU09_VariantReportUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -2692,10 +2692,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC05c_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC05c_TsVrUploaded_SEI1",
     "patient_id": "PT_SC05c_TsVrUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -2718,10 +2718,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA01_OnTreatmentArm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA01_OnTreatmentArm_SEI1",
     "patient_id": "PT_RA01_OnTreatmentArm",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -2744,30 +2744,30 @@
     "confirmed": true,
     "analysis_id": "PT_VC15_OneAssayAndVrReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VC15_OneAssayAndVrReceived_SEI1",
     "patient_id": "PT_VC15_OneAssayAndVrReceived",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
-    "ref_copy_number": "0.2E1",
-    "confidence_interval_5_percent": "0.103503E2",
+    "ref_copy_number": 2.0,
+    "confidence_interval_5_percent": 10.350299999999999,
     "identifier": "ERBB2",
     "status_date": "2016-11-07T17:46:26+00:00",
-    "copy_number": "0.1219E2",
+    "copy_number": 12.19,
     "variant_type": "cnv",
     "amois": [
 
     ],
     "molecular_id": "PT_VC00_CnvVrReceived_MOI1",
-    "confidence_interval_95_percent": "0.143567E2",
+    "confidence_interval_95_percent": 14.3567,
     "confirmed": true,
     "uuid": "b14a5968-b409-48b0-ab58-961b47fb70bf",
     "analysis_id": "PT_VC00_CnvVrReceived_ANI1",
     "filter": "PASS",
     "surgical_event_id": "PT_VC00_CnvVrReceived_SEI1",
     "patient_id": "PT_VC00_CnvVrReceived",
-    "raw_copy_number": "0.1219E2"
+    "raw_copy_number": 12.19
   },
   {
     "annotation": "-",
@@ -2790,10 +2790,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC05f_PendingConfirmation_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC05f_PendingConfirmation_SEI1",
     "patient_id": "PT_SC05f_PendingConfirmation",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -2816,10 +2816,10 @@
     "confirmed": true,
     "analysis_id": "PT_CR07_RejectVariantReport_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_CR07_RejectVariantReport_SEI1",
     "patient_id": "PT_CR07_RejectVariantReport",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -2842,10 +2842,10 @@
     "confirmed": true,
     "analysis_id": "PT_VU13_VariantReportConfirmed_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VU13_VariantReportConfirmed_SEI1",
     "patient_id": "PT_VU13_VariantReportConfirmed",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -2868,10 +2868,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC02_VRUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VC02_VRUploaded_SEI1",
     "patient_id": "PT_VC02_VRUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -2894,10 +2894,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA05_OnTreatmentArm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA05_OnTreatmentArm_SEI1",
     "patient_id": "PT_RA05_OnTreatmentArm",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -2921,16 +2921,16 @@
         "stratum_id": "100"
       }
     ],
-    "molecular_id": "PT_SC01c_PendingApprovalStep2_MOI2",
+    "molecular_id": "PT_SC01d_PendingApprovalStep2_MOI2",
     "partner_gene": null,
     "uuid": "801c909e-f9df-4daa-a905-409cf228dbe4",
     "confirmed": true,
-    "analysis_id": "PT_SC01c_PendingApprovalStep2_ANI2",
+    "analysis_id": "PT_SC01d_PendingApprovalStep2_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
-    "surgical_event_id": "PT_SC01c_PendingApprovalStep2_SEI2",
-    "patient_id": "PT_SC01c_PendingApprovalStep2",
-    "partner_read_count": "0.1001E4"
+    "driver_read_count": 1001.0,
+    "surgical_event_id": "PT_SC01d_PendingApprovalStep2_SEI2",
+    "patient_id": "PT_SC01d_PendingApprovalStep2",
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -2960,10 +2960,10 @@
     "confirmed": true,
     "analysis_id": "PT_SS11a_Step2BdReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SS11a_Step2BdReceived_SEI1",
     "patient_id": "PT_SS11a_Step2BdReceived",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -2980,10 +2980,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01_NoTaAvailable_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01_NoTaAvailable_SEI1",
     "patient_id": "PT_OS01_NoTaAvailable",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -3013,10 +3013,10 @@
     "confirmed": true,
     "analysis_id": "ION_SF03_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "ION_SF03_TsVrUploaded_SEI1",
     "patient_id": "ION_SF03_TsVrUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -3039,9 +3039,9 @@
     "confirmed": true,
     "analysis_id": "PT_SR10_BdVRReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "patient_id": "PT_SR10_BdVRReceived",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -3071,10 +3071,10 @@
     "confirmed": true,
     "analysis_id": "PT_SR14_RequestAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SR14_RequestAssignment_SEI1",
     "patient_id": "PT_SR14_RequestAssignment",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -3097,10 +3097,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC05a_VRUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VC05a_VRUploaded_SEI1",
     "patient_id": "PT_VC05a_VRUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -3130,10 +3130,10 @@
     "confirmed": true,
     "analysis_id": "PT_SR14_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SR14_TsVrUploaded_SEI1",
     "patient_id": "PT_SR14_TsVrUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -3163,10 +3163,10 @@
     "confirmed": true,
     "analysis_id": "PT_VU13_VariantReportConfirmed_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VU13_VariantReportConfirmed_SEI1",
     "patient_id": "PT_VU13_VariantReportConfirmed",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -3196,10 +3196,10 @@
     "confirmed": true,
     "analysis_id": "PT_SR14_TsVrUploaded1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SR14_TsVrUploaded1_SEI1",
     "patient_id": "PT_SR14_TsVrUploaded1",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -3222,10 +3222,10 @@
     "confirmed": false,
     "analysis_id": "PT_OS01a_TsVrRejected_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01a_TsVrRejected_SEI1",
     "patient_id": "PT_OS01a_TsVrRejected",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -3248,10 +3248,10 @@
     "confirmed": true,
     "analysis_id": "PT_GVF_RARebioY_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_GVF_RARebioY_SEI1",
     "patient_id": "PT_GVF_RARebioY",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -3274,10 +3274,10 @@
     "confirmed": true,
     "analysis_id": "PT_SR10_OnTreatmentArm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SR10_OnTreatmentArm_SEI1",
     "patient_id": "PT_SR10_OnTreatmentArm",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -3300,9 +3300,9 @@
     "confirmed": true,
     "analysis_id": "PT_SR14d_BdVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "patient_id": "PT_SR14d_BdVrUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -3332,10 +3332,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA10_RequestNoAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA10_RequestNoAssignment_SEI1",
     "patient_id": "PT_RA10_RequestNoAssignment",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -3365,9 +3365,9 @@
     "confirmed": true,
     "analysis_id": "PT_SR14_BdVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "patient_id": "PT_SR14_BdVrUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -3397,10 +3397,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01_OffStudyBiopsyExpired_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS01_OffStudyBiopsyExpired_SEI1",
     "patient_id": "PT_OS01_OffStudyBiopsyExpired",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -3423,10 +3423,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA04a_slideShipped_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA04a_slideShipped_SEI1",
     "patient_id": "PT_RA04a_slideShipped",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -3456,10 +3456,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA04a_TsShipped_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA04a_TsShipped_SEI1",
     "patient_id": "PT_RA04a_TsShipped",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -3482,10 +3482,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01a_ReqAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01a_ReqAssignment_SEI1",
     "patient_id": "PT_OS01a_ReqAssignment",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -3502,16 +3502,16 @@
         "stratum_id": "100"
       }
     ],
-    "molecular_id": "PT_SC01c_PendingApprovalStep2_MOI2",
+    "molecular_id": "PT_SC01d_PendingApprovalStep2_MOI2",
     "partner_gene": "RET",
     "uuid": "9114681f-fe1b-4a31-8dd9-133766105763",
     "confirmed": true,
-    "analysis_id": "PT_SC01c_PendingApprovalStep2_ANI2",
+    "analysis_id": "PT_SC01d_PendingApprovalStep2_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
-    "surgical_event_id": "PT_SC01c_PendingApprovalStep2_SEI2",
-    "patient_id": "PT_SC01c_PendingApprovalStep2",
-    "partner_read_count": "0.107E4"
+    "driver_read_count": 1070.0,
+    "surgical_event_id": "PT_SC01d_PendingApprovalStep2_SEI2",
+    "patient_id": "PT_SC01d_PendingApprovalStep2",
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -3541,10 +3541,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA10_RequestNoAssignment1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA10_RequestNoAssignment1_SEI1",
     "patient_id": "PT_RA10_RequestNoAssignment1",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -3567,10 +3567,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA04a_OffStudyBiopsyExpired_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA04a_OffStudyBiopsyExpired_SEI1",
     "patient_id": "PT_RA04a_OffStudyBiopsyExpired",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -3593,10 +3593,10 @@
     "confirmed": true,
     "analysis_id": "ION_FL02_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "ION_FL02_TsVrUploaded_SEI1",
     "patient_id": "ION_FL02_TsVrUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -3619,10 +3619,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC04j_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC04j_PendingApproval_SEI1",
     "patient_id": "PT_SC04j_PendingApproval",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -3645,10 +3645,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01_OffStudy_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01_OffStudy_SEI1",
     "patient_id": "PT_OS01_OffStudy",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -3678,9 +3678,9 @@
     "confirmed": true,
     "analysis_id": "PT_SR14d_BdVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "patient_id": "PT_SR14d_BdVrUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -3710,10 +3710,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA02a_RequestAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA02a_RequestAssignment_SEI1",
     "patient_id": "PT_RA02a_RequestAssignment",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -3743,10 +3743,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC05a_VRUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VC05a_VRUploaded_SEI1",
     "patient_id": "PT_VC05a_VRUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -3769,10 +3769,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA01_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA01_PendingApproval_SEI1",
     "patient_id": "PT_RA01_PendingApproval",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -3802,10 +3802,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA06_OnTreatmentArm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA06_OnTreatmentArm_SEI1",
     "patient_id": "PT_RA06_OnTreatmentArm",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -3828,10 +3828,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01_ReqNoAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01_ReqNoAssignment_SEI1",
     "patient_id": "PT_OS01_ReqNoAssignment",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -3854,10 +3854,10 @@
     "confirmed": true,
     "analysis_id": "PT_AM01_TsVrReceived1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_AM01_TsVrReceived1_SEI1",
     "patient_id": "PT_AM01_TsVrReceived1",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -3880,10 +3880,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC02g_PendingConfirmation_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC02g_PendingConfirmation_SEI1",
     "patient_id": "PT_SC02g_PendingConfirmation",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -3906,10 +3906,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01_TsShipped_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01_TsShipped_SEI1",
     "patient_id": "PT_OS01_TsShipped",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -3932,10 +3932,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC05g_PendingConfirmation_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC05g_PendingConfirmation_SEI1",
     "patient_id": "PT_SC05g_PendingConfirmation",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -3965,10 +3965,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC13_VRUploaded1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VC13_VRUploaded1_SEI1",
     "patient_id": "PT_VC13_VRUploaded1",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -3998,10 +3998,10 @@
     "confirmed": true,
     "analysis_id": "PT_SS26_RequestAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SS26_RequestAssignment_SEI1",
     "patient_id": "PT_SS26_RequestAssignment",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -4031,10 +4031,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC05g_PendingConfirmation_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC05g_PendingConfirmation_SEI1",
     "patient_id": "PT_SC05g_PendingConfirmation",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -4064,10 +4064,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01_TsVrConfirmed_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS01_TsVrConfirmed_SEI1",
     "patient_id": "PT_OS01_TsVrConfirmed",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -4090,10 +4090,10 @@
     "confirmed": true,
     "analysis_id": "PT_SR10_TsVrReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SR10_TsVrReceived_SEI1",
     "patient_id": "PT_SR10_TsVrReceived",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -4123,13 +4123,13 @@
     "confirmed": true,
     "analysis_id": "PT_SC06b_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC06b_PendingApproval_SEI1",
     "patient_id": "PT_SC06b_PendingApproval",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
-    "reference_allele_observations": "0.308E3",
+    "reference_allele_observations": 308.0,
     "status_date": "2016-11-07T17:46:26+00:00",
     "ocp_reference": "-",
     "variant_type": "ins",
@@ -4142,9 +4142,9 @@
     "cds_reference": "CC",
     "function": "frameshiftInsertion",
     "protein": "p.Ser90fs",
-    "read_depth": "0.525E3",
+    "read_depth": 525.0,
     "identifier": ".",
-    "allele_frequency": "0.373333E0",
+    "allele_frequency": 0.373333,
     "ocp_alternative": "GG",
     "chromosome": "chr17",
     "amois": [
@@ -4154,13 +4154,13 @@
     "oncomine_variant_class": "Deleterious",
     "analysis_id": "PT_VC00_CnvVrReceived_ANI1",
     "filter": "PASS",
-    "flow_reference_allele_observations": "0.329E3",
+    "flow_reference_allele_observations": 329.0,
     "patient_id": "PT_VC00_CnvVrReceived",
-    "alternative_allele_observation_count": "0.154E3",
+    "alternative_allele_observation_count": 154.0,
     "location": "exonic",
     "position": "7579420",
     "exon": "4",
-    "flow_alternative_allele_observation_count": "0.196E3"
+    "flow_alternative_allele_observation_count": 196.0
   },
   {
     "annotation": "-",
@@ -4183,10 +4183,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC06c_PendingApprovalStep2_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC06c_PendingApprovalStep2_SEI1",
     "patient_id": "PT_SC06c_PendingApprovalStep2",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -4216,10 +4216,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS02_OffStudy1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS02_OffStudy1_SEI1",
     "patient_id": "PT_OS02_OffStudy1",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -4249,10 +4249,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC02e_PendingConfirmation_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC02e_PendingConfirmation_SEI1",
     "patient_id": "PT_SC02e_PendingConfirmation",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -4275,10 +4275,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC04b_TsVrConfirmed_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC04b_TsVrConfirmed_SEI1",
     "patient_id": "PT_SC04b_TsVrConfirmed",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -4301,10 +4301,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01a_OnTreatmentArm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01a_OnTreatmentArm_SEI1",
     "patient_id": "PT_OS01a_OnTreatmentArm",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -4334,10 +4334,10 @@
     "confirmed": false,
     "analysis_id": "PT_RA04a_TsVrRejected_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA04a_TsVrRejected_SEI1",
     "patient_id": "PT_RA04a_TsVrRejected",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -4360,10 +4360,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC08_VRUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VC08_VRUploaded_SEI1",
     "patient_id": "PT_VC08_VRUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -4393,10 +4393,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS02_OffStudy2_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS02_OffStudy2_SEI1",
     "patient_id": "PT_OS02_OffStudy2",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -4419,10 +4419,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC12_VRUploaded2_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VC12_VRUploaded2_SEI1",
     "patient_id": "PT_VC12_VRUploaded2",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -4445,9 +4445,9 @@
     "confirmed": true,
     "analysis_id": "PT_SR14_BdVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "patient_id": "PT_SR14_BdVrUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -4477,10 +4477,10 @@
     "confirmed": true,
     "analysis_id": "PT_SR10_OffStudy_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SR10_OffStudy_SEI1",
     "patient_id": "PT_SR10_OffStudy",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -4510,10 +4510,10 @@
     "confirmed": false,
     "analysis_id": "PT_CR05_SpecimenShippedTwice_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_CR05_SpecimenShippedTwice_SEI1",
     "patient_id": "PT_CR05_SpecimenShippedTwice",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -4543,10 +4543,10 @@
     "confirmed": false,
     "analysis_id": "PT_VC10_VRUploadedSEIExpired_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VC10_VRUploadedSEIExpired_SEI1",
     "patient_id": "PT_VC10_VRUploadedSEIExpired",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -4576,10 +4576,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC10_VRUploadedSEIExpired_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VC10_VRUploadedSEIExpired_SEI2",
     "patient_id": "PT_VC10_VRUploadedSEIExpired",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -4609,10 +4609,10 @@
     "confirmed": false,
     "analysis_id": "PT_VC11b_TsVRRejected_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VC11b_TsVRRejected_SEI1",
     "patient_id": "PT_VC11b_TsVRRejected",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -4642,10 +4642,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA03_RequestAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA03_RequestAssignment_SEI1",
     "patient_id": "PT_RA03_RequestAssignment",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -4675,9 +4675,9 @@
     "confirmed": true,
     "analysis_id": "PT_SR10_BdVRReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "patient_id": "PT_SR10_BdVRReceived",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -4707,10 +4707,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01_ReqAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS01_ReqAssignment_SEI1",
     "patient_id": "PT_OS01_ReqAssignment",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -4733,10 +4733,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA02_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA02_PendingApproval_SEI1",
     "patient_id": "PT_RA02_PendingApproval",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -4759,10 +4759,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA10_OnTreatmentArm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA10_OnTreatmentArm_SEI1",
     "patient_id": "PT_RA10_OnTreatmentArm",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -4785,30 +4785,30 @@
     "confirmed": true,
     "analysis_id": "PT_SS31_CompassionateCare_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SS31_CompassionateCare_SEI1",
     "patient_id": "PT_SS31_CompassionateCare",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
-    "ref_copy_number": "0.2E1",
-    "confidence_interval_5_percent": "0.160366E2",
+    "ref_copy_number": 2.0,
+    "confidence_interval_5_percent": 16.0366,
     "identifier": "MYCN",
     "status_date": "2016-11-07T17:46:26+00:00",
-    "copy_number": "0.1949E2",
+    "copy_number": 19.49,
     "variant_type": "cnv",
     "amois": [
 
     ],
     "molecular_id": "PT_VC00_CnvVrReceived_MOI1",
-    "confidence_interval_95_percent": "0.236871E2",
+    "confidence_interval_95_percent": 23.6871,
     "confirmed": true,
     "uuid": "d55086f0-caac-4dda-8ca7-a1c96f322cb5",
     "analysis_id": "PT_VC00_CnvVrReceived_ANI1",
     "filter": "PASS",
     "surgical_event_id": "PT_VC00_CnvVrReceived_SEI1",
     "patient_id": "PT_VC00_CnvVrReceived",
-    "raw_copy_number": "0.1949E2"
+    "raw_copy_number": 19.49
   },
   {
     "annotation": "-",
@@ -4838,10 +4838,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC15_OneAssayAndVrReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VC15_OneAssayAndVrReceived_SEI1",
     "patient_id": "PT_VC15_OneAssayAndVrReceived",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -4864,10 +4864,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01_CompassionateCare_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01_CompassionateCare_SEI1",
     "patient_id": "PT_OS01_CompassionateCare",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -4897,10 +4897,10 @@
     "confirmed": true,
     "analysis_id": "PT_VU10_VariantReportUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VU10_VariantReportUploaded_SEI1",
     "patient_id": "PT_VU10_VariantReportUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -4930,10 +4930,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC02f_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC02f_TsVrUploaded_SEI1",
     "patient_id": "PT_SC02f_TsVrUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -4956,10 +4956,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01_ReqAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01_ReqAssignment_SEI1",
     "patient_id": "PT_OS01_ReqAssignment",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -4982,10 +4982,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA02_RequestNoAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA02_RequestNoAssignment_SEI1",
     "patient_id": "PT_RA02_RequestNoAssignment",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -5015,10 +5015,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC04b_TsVrConfirmed_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC04b_TsVrConfirmed_SEI1",
     "patient_id": "PT_SC04b_TsVrConfirmed",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -5048,10 +5048,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01_OnTreatmentArm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS01_OnTreatmentArm_SEI1",
     "patient_id": "PT_OS01_OnTreatmentArm",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -5074,10 +5074,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA04a_RequestAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA04a_RequestAssignment_SEI1",
     "patient_id": "PT_RA04a_RequestAssignment",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -5107,10 +5107,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01_PendingApproval_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS01_PendingApproval_SEI2",
     "patient_id": "PT_OS01_PendingApproval",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -5133,10 +5133,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01a_OffStudy_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01a_OffStudy_SEI1",
     "patient_id": "PT_OS01a_OffStudy",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -5159,10 +5159,10 @@
     "confirmed": true,
     "analysis_id": "PT_SR10_CompassionateCare_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SR10_CompassionateCare_SEI1",
     "patient_id": "PT_SR10_CompassionateCare",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -5185,10 +5185,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA02a_RequestAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA02a_RequestAssignment_SEI1",
     "patient_id": "PT_RA02a_RequestAssignment",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -5218,10 +5218,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC10_VRUploadedANIExpired_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VC10_VRUploadedANIExpired_SEI1",
     "patient_id": "PT_VC10_VRUploadedANIExpired",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -5251,10 +5251,10 @@
     "confirmed": true,
     "analysis_id": "PT_AS12_VrReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_AS12_VrReceived_SEI1",
     "patient_id": "PT_AS12_VrReceived",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -5284,10 +5284,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC12_VRUploaded1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VC12_VRUploaded1_SEI1",
     "patient_id": "PT_VC12_VRUploaded1",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -5310,10 +5310,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC04a_VRUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VC04a_VRUploaded_SEI1",
     "patient_id": "PT_VC04a_VRUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -5343,10 +5343,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS03_OffStudy2_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS03_OffStudy2_SEI1",
     "patient_id": "PT_OS03_OffStudy2",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -5369,10 +5369,10 @@
     "confirmed": false,
     "analysis_id": "PT_VU12_VariantReportRejected_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VU12_VariantReportRejected_SEI1",
     "patient_id": "PT_VU12_VariantReportRejected",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -5402,10 +5402,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA04a_OnTreatmentArm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA04a_OnTreatmentArm_SEI1",
     "patient_id": "PT_RA04a_OnTreatmentArm",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -5428,10 +5428,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA02_TsShipped_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA02_TsShipped_SEI1",
     "patient_id": "PT_RA02_TsShipped",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -5461,10 +5461,10 @@
     "confirmed": true,
     "analysis_id": "PT_CR02_OnTreatmentArm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_CR02_OnTreatmentArm_SEI1",
     "patient_id": "PT_CR02_OnTreatmentArm",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -5487,10 +5487,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA09_OnTreatmentArm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA09_OnTreatmentArm_SEI1",
     "patient_id": "PT_RA09_OnTreatmentArm",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -5507,10 +5507,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC00_CnvVrReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.48904E5",
+    "driver_read_count": 48904.0,
     "surgical_event_id": "PT_VC00_CnvVrReceived_SEI1",
     "patient_id": "PT_VC00_CnvVrReceived",
-    "partner_read_count": "0.48904E5"
+    "partner_read_count": 48904.0
   },
   {
     "annotation": "-",
@@ -5533,10 +5533,10 @@
     "confirmed": true,
     "analysis_id": "PT_SS26_RequestAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SS26_RequestAssignment_SEI1",
     "patient_id": "PT_SS26_RequestAssignment",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -5566,10 +5566,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01_TsShipped_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS01_TsShipped_SEI1",
     "patient_id": "PT_OS01_TsShipped",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -5586,16 +5586,16 @@
         "stratum_id": "100"
       }
     ],
-    "molecular_id": "PT_SC01c_PendingApproval_MOI1",
+    "molecular_id": "PT_SC01d_PendingApproval_MOI1",
     "partner_gene": "RET",
     "uuid": "d4b841f0-1ace-4c3c-9092-2a9ca38c36e4",
     "confirmed": true,
-    "analysis_id": "PT_SC01c_PendingApproval_ANI1",
+    "analysis_id": "PT_SC01d_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
-    "surgical_event_id": "PT_SC01c_PendingApproval_SEI1",
-    "patient_id": "PT_SC01c_PendingApproval",
-    "partner_read_count": "0.107E4"
+    "driver_read_count": 1070.0,
+    "surgical_event_id": "PT_SC01d_PendingApproval_SEI1",
+    "patient_id": "PT_SC01d_PendingApproval",
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -5618,10 +5618,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01a_slideShipped_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01a_slideShipped_SEI1",
     "patient_id": "PT_OS01a_slideShipped",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -5644,10 +5644,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC06c_PendingApprovalStep2_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC06c_PendingApprovalStep2_SEI2",
     "patient_id": "PT_SC06c_PendingApprovalStep2",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -5677,10 +5677,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01a_OnTreatmentArm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS01a_OnTreatmentArm_SEI1",
     "patient_id": "PT_OS01a_OnTreatmentArm",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -5710,10 +5710,10 @@
     "confirmed": true,
     "analysis_id": "PT_GVF_OnTreatmentArm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_GVF_OnTreatmentArm_SEI1",
     "patient_id": "PT_GVF_OnTreatmentArm",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -5736,10 +5736,10 @@
     "confirmed": true,
     "analysis_id": "PT_AS12_VrReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_AS12_VrReceived_SEI1",
     "patient_id": "PT_AS12_VrReceived",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -5762,10 +5762,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA08_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA08_PendingApproval_SEI1",
     "patient_id": "PT_RA08_PendingApproval",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -5788,10 +5788,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA10_PendingApproval1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA10_PendingApproval1_SEI1",
     "patient_id": "PT_RA10_PendingApproval1",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -5814,30 +5814,30 @@
     "confirmed": true,
     "analysis_id": "PT_SS26_TsVRReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SS26_TsVRReceived_SEI1",
     "patient_id": "PT_SS26_TsVRReceived",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
-    "ref_copy_number": "0.2E1",
-    "confidence_interval_5_percent": "0.573716E1",
+    "ref_copy_number": 2.0,
+    "confidence_interval_5_percent": 5.73716,
     "identifier": "AKT1",
     "status_date": "2016-11-07T17:46:26+00:00",
-    "copy_number": "0.701E1",
+    "copy_number": 7.01,
     "variant_type": "cnv",
     "amois": [
 
     ],
     "molecular_id": "PT_VC00_CnvVrReceived_MOI1",
-    "confidence_interval_95_percent": "0.856523E1",
+    "confidence_interval_95_percent": 8.56523,
     "confirmed": true,
     "uuid": "25c5dcbe-f29c-482d-ac51-87ea483a9441",
     "analysis_id": "PT_VC00_CnvVrReceived_ANI1",
     "filter": "PASS",
     "surgical_event_id": "PT_VC00_CnvVrReceived_SEI1",
     "patient_id": "PT_VC00_CnvVrReceived",
-    "raw_copy_number": "0.701E1"
+    "raw_copy_number": 7.01
   },
   {
     "annotation": "-",
@@ -5867,9 +5867,9 @@
     "confirmed": true,
     "analysis_id": "ION_AQ42_BdVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "patient_id": "ION_AQ42_BdVrUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -5899,10 +5899,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01_TsVrReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS01_TsVrReceived_SEI1",
     "patient_id": "PT_OS01_TsVrReceived",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -5925,10 +5925,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA10_RequestNoAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA10_RequestNoAssignment_SEI1",
     "patient_id": "PT_RA10_RequestNoAssignment",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -5951,10 +5951,10 @@
     "confirmed": false,
     "analysis_id": "PT_SR10_TsVRRejected_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SR10_TsVRRejected_SEI1",
     "patient_id": "PT_SR10_TsVRRejected",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -5977,10 +5977,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA03_PendingConfirmation_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA03_PendingConfirmation_SEI1",
     "patient_id": "PT_RA03_PendingConfirmation",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -6003,10 +6003,10 @@
     "confirmed": true,
     "analysis_id": "PT_CR01_PathAssayDoneVRUploadedToConfirm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_CR01_PathAssayDoneVRUploadedToConfirm_SEI1",
     "patient_id": "PT_CR01_PathAssayDoneVRUploadedToConfirm",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -6029,10 +6029,10 @@
     "confirmed": true,
     "analysis_id": "PT_AM02_VrReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_AM02_VrReceived_SEI1",
     "patient_id": "PT_AM02_VrReceived",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -6049,10 +6049,10 @@
     "confirmed": true,
     "analysis_id": "PT_SR10_NoTaAvailable_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SR10_NoTaAvailable_SEI1",
     "patient_id": "PT_SR10_NoTaAvailable",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -6082,10 +6082,10 @@
     "confirmed": true,
     "analysis_id": "PT_CR05_SpecimenShippedTwice_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_CR05_SpecimenShippedTwice_SEI1",
     "patient_id": "PT_CR05_SpecimenShippedTwice",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -6115,10 +6115,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA02_TsVrReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA02_TsVrReceived_SEI1",
     "patient_id": "PT_RA02_TsVrReceived",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -6141,10 +6141,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01_OffStudyBiopsyExpired_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01_OffStudyBiopsyExpired_SEI1",
     "patient_id": "PT_OS01_OffStudyBiopsyExpired",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -6167,10 +6167,10 @@
     "confirmed": true,
     "analysis_id": "PT_GVF_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_GVF_TsVrUploaded_SEI1",
     "patient_id": "PT_GVF_TsVrUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -6200,10 +6200,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA02_PendingConfirmation_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA02_PendingConfirmation_SEI1",
     "patient_id": "PT_RA02_PendingConfirmation",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -6226,10 +6226,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC04i_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC04i_PendingApproval_SEI1",
     "patient_id": "PT_SC04i_PendingApproval",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -6252,10 +6252,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01a_CompassionateCare_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01a_CompassionateCare_SEI1",
     "patient_id": "PT_OS01a_CompassionateCare",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -6285,10 +6285,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA08_RequestNoAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA08_RequestNoAssignment_SEI1",
     "patient_id": "PT_RA08_RequestNoAssignment",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -6311,10 +6311,10 @@
     "confirmed": true,
     "analysis_id": "PT_SS26_TsVRConfirmed_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SS26_TsVRConfirmed_SEI1",
     "patient_id": "PT_SS26_TsVRConfirmed",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -6337,10 +6337,10 @@
     "confirmed": false,
     "analysis_id": "PT_RA02_TsVrRejected_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA02_TsVrRejected_SEI1",
     "patient_id": "PT_RA02_TsVrRejected",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -6370,10 +6370,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA09_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA09_PendingApproval_SEI1",
     "patient_id": "PT_RA09_PendingApproval",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -6403,10 +6403,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC15_VrReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VC15_VrReceived_SEI1",
     "patient_id": "PT_VC15_VrReceived",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -6429,10 +6429,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA04a_OnTreatmentArm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA04a_OnTreatmentArm_SEI1",
     "patient_id": "PT_RA04a_OnTreatmentArm",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -6462,10 +6462,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC04f_RequestAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC04f_RequestAssignment_SEI1",
     "patient_id": "PT_SC04f_RequestAssignment",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -6488,10 +6488,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01_PendingConfirmation_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01_PendingConfirmation_SEI1",
     "patient_id": "PT_OS01_PendingConfirmation",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -6521,10 +6521,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC05a_TsThenAssayReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC05a_TsThenAssayReceived_SEI1",
     "patient_id": "PT_SC05a_TsThenAssayReceived",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -6554,10 +6554,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA03_TsVrReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA03_TsVrReceived_SEI1",
     "patient_id": "PT_RA03_TsVrReceived",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -6580,10 +6580,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA02_TsVrReceived_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA02_TsVrReceived_SEI2",
     "patient_id": "PT_RA02_TsVrReceived",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -6613,10 +6613,10 @@
     "confirmed": true,
     "analysis_id": "PT_AS12_VrConfirmed_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_AS12_VrConfirmed_SEI1",
     "patient_id": "PT_AS12_VrConfirmed",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -6639,10 +6639,10 @@
     "confirmed": true,
     "analysis_id": "PT_SR10_ProgressReBioY1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SR10_ProgressReBioY1_SEI1",
     "patient_id": "PT_SR10_ProgressReBioY1",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -6665,10 +6665,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01_TsVrReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01_TsVrReceived_SEI1",
     "patient_id": "PT_OS01_TsVrReceived",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -6698,10 +6698,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA10_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA10_PendingApproval_SEI1",
     "patient_id": "PT_RA10_PendingApproval",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -6731,10 +6731,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA07_VrAndAssayReady_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA07_VrAndAssayReady_SEI1",
     "patient_id": "PT_RA07_VrAndAssayReady",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -6757,10 +6757,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS03_OffStudy2_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS03_OffStudy2_SEI1",
     "patient_id": "PT_OS03_OffStudy2",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -6783,10 +6783,10 @@
     "confirmed": true,
     "analysis_id": "ION_AQ43_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "ION_AQ43_TsVrUploaded_SEI1",
     "patient_id": "ION_AQ43_TsVrUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -6816,10 +6816,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA02_OnTreatmentArm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA02_OnTreatmentArm_SEI1",
     "patient_id": "PT_RA02_OnTreatmentArm",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -6849,10 +6849,10 @@
     "confirmed": true,
     "analysis_id": "PT_CR07_RejectVariantReport_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_CR07_RejectVariantReport_SEI1",
     "patient_id": "PT_CR07_RejectVariantReport",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -6882,9 +6882,9 @@
     "confirmed": true,
     "analysis_id": "PT_CR08_BloodSpecimenUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "patient_id": "PT_CR08_BloodSpecimenUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -6907,10 +6907,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC15_VrReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VC15_VrReceived_SEI1",
     "patient_id": "PT_VC15_VrReceived",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -6940,10 +6940,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC02c_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC02c_TsVrUploaded_SEI1",
     "patient_id": "PT_SC02c_TsVrUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -6966,10 +6966,10 @@
     "confirmed": false,
     "analysis_id": "PT_VC10_VRUploadedMOIExpired_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VC10_VRUploadedMOIExpired_SEI1",
     "patient_id": "PT_VC10_VRUploadedMOIExpired",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -6992,10 +6992,10 @@
     "confirmed": true,
     "analysis_id": "PT_AM03_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_AM03_PendingApproval_SEI1",
     "patient_id": "PT_AM03_PendingApproval",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -7018,10 +7018,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA08_OnTreatmentArm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA08_OnTreatmentArm_SEI1",
     "patient_id": "PT_RA08_OnTreatmentArm",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -7044,10 +7044,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC02f_PendingConfirmation_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC02f_PendingConfirmation_SEI1",
     "patient_id": "PT_SC02f_PendingConfirmation",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -7077,10 +7077,10 @@
     "confirmed": true,
     "analysis_id": "PT_SS26_TsVRConfirmed_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SS26_TsVRConfirmed_SEI1",
     "patient_id": "PT_SS26_TsVRConfirmed",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -7103,10 +7103,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA03_RequestNoAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA03_RequestNoAssignment_SEI1",
     "patient_id": "PT_RA03_RequestNoAssignment",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -7136,10 +7136,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC05e_PendingConfirmation_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC05e_PendingConfirmation_SEI1",
     "patient_id": "PT_SC05e_PendingConfirmation",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -7162,10 +7162,10 @@
     "confirmed": true,
     "analysis_id": "PT_CR04_VRUploadedAssayReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_CR04_VRUploadedAssayReceived_SEI1",
     "patient_id": "PT_CR04_VRUploadedAssayReceived",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -7188,10 +7188,10 @@
     "confirmed": true,
     "analysis_id": "PT_SR12_VariantReportConfirmed_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SR12_VariantReportConfirmed_SEI1",
     "patient_id": "PT_SR12_VariantReportConfirmed",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -7214,10 +7214,10 @@
     "confirmed": false,
     "analysis_id": "PT_RA03_TsVrRejected_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA03_TsVrRejected_SEI1",
     "patient_id": "PT_RA03_TsVrRejected",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -7240,10 +7240,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC01c_TsVrUploadedStep2_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC01c_TsVrUploadedStep2_SEI2",
     "patient_id": "PT_SC01c_TsVrUploadedStep2",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -7273,10 +7273,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01a_ReqAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS01a_ReqAssignment_SEI1",
     "patient_id": "PT_OS01a_ReqAssignment",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -7306,10 +7306,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01a_PendingConfirmation_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS01a_PendingConfirmation_SEI1",
     "patient_id": "PT_OS01a_PendingConfirmation",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -7332,10 +7332,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA10_RequestNoAssignment1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA10_RequestNoAssignment1_SEI1",
     "patient_id": "PT_RA10_RequestNoAssignment1",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -7365,10 +7365,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA03_slideShipped_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA03_slideShipped_SEI1",
     "patient_id": "PT_RA03_slideShipped",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -7391,10 +7391,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC02c_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC02c_TsVrUploaded_SEI1",
     "patient_id": "PT_SC02c_TsVrUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -7417,10 +7417,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA04a_TsShipped_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA04a_TsShipped_SEI1",
     "patient_id": "PT_RA04a_TsShipped",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -7450,10 +7450,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA09_RequestNoAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA09_RequestNoAssignment_SEI1",
     "patient_id": "PT_RA09_RequestNoAssignment",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -7476,10 +7476,10 @@
     "confirmed": true,
     "analysis_id": "PT_SR16_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SR16_PendingApproval_SEI1",
     "patient_id": "PT_SR16_PendingApproval",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -7509,10 +7509,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA10_PendingApproval1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA10_PendingApproval1_SEI1",
     "patient_id": "PT_RA10_PendingApproval1",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -7535,10 +7535,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC04e_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC04e_TsVrUploaded_SEI1",
     "patient_id": "PT_SC04e_TsVrUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -7561,10 +7561,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC01_VRUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VC01_VRUploaded_SEI1",
     "patient_id": "PT_VC01_VRUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -7587,10 +7587,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01a_TsVrReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01a_TsVrReceived_SEI1",
     "patient_id": "PT_OS01a_TsVrReceived",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -7614,16 +7614,16 @@
         "stratum_id": "100"
       }
     ],
-    "molecular_id": "PT_SC01c_PendingApprovalStep2_MOI1",
+    "molecular_id": "PT_SC01d_PendingApprovalStep2_MOI1",
     "partner_gene": null,
     "uuid": "d66b8e1e-9435-41de-a5c8-1bc94953a998",
     "confirmed": true,
-    "analysis_id": "PT_SC01c_PendingApprovalStep2_ANI1",
+    "analysis_id": "PT_SC01d_PendingApprovalStep2_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
-    "surgical_event_id": "PT_SC01c_PendingApprovalStep2_SEI1",
-    "patient_id": "PT_SC01c_PendingApprovalStep2",
-    "partner_read_count": "0.1001E4"
+    "driver_read_count": 1001.0,
+    "surgical_event_id": "PT_SC01d_PendingApprovalStep2_SEI1",
+    "patient_id": "PT_SC01d_PendingApprovalStep2",
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -7653,10 +7653,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01_TsVrReceived_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS01_TsVrReceived_SEI2",
     "patient_id": "PT_OS01_TsVrReceived",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -7686,10 +7686,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA04a_RequestNoAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA04a_RequestNoAssignment_SEI1",
     "patient_id": "PT_RA04a_RequestNoAssignment",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -7719,10 +7719,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS03_OffStudy1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS03_OffStudy1_SEI1",
     "patient_id": "PT_OS03_OffStudy1",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -7745,10 +7745,10 @@
     "confirmed": true,
     "analysis_id": "PT_SS26_PendingApproval1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SS26_PendingApproval1_SEI1",
     "patient_id": "PT_SS26_PendingApproval1",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -7771,10 +7771,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC06e_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC06e_PendingApproval_SEI1",
     "patient_id": "PT_SC06e_PendingApproval",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -7804,10 +7804,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC06d_PendingApproval1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC06d_PendingApproval1_SEI1",
     "patient_id": "PT_SC06d_PendingApproval1",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -7830,10 +7830,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC04f_RequestAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC04f_RequestAssignment_SEI1",
     "patient_id": "PT_SC04f_RequestAssignment",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -7856,10 +7856,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS04_OnTA2_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS04_OnTA2_SEI1",
     "patient_id": "PT_OS04_OnTA2",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -7882,10 +7882,10 @@
     "confirmed": false,
     "analysis_id": "PT_RA04a_TsVrRejected_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA04a_TsVrRejected_SEI1",
     "patient_id": "PT_RA04a_TsVrRejected",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -7908,10 +7908,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA03_TsShipped_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA03_TsShipped_SEI1",
     "patient_id": "PT_RA03_TsShipped",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -7934,10 +7934,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01a_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01a_PendingApproval_SEI1",
     "patient_id": "PT_OS01a_PendingApproval",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -7960,10 +7960,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS04_OnTA1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS04_OnTA1_SEI1",
     "patient_id": "PT_OS04_OnTA1",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -7986,9 +7986,9 @@
     "confirmed": true,
     "analysis_id": "PT_VC14_BdVRUploadedTsVRUploadedOtherReady_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "patient_id": "PT_VC14_BdVRUploadedTsVRUploadedOtherReady",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -8011,10 +8011,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC06a_PendingApprovalStep2_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC06a_PendingApprovalStep2_SEI1",
     "patient_id": "PT_SC06a_PendingApprovalStep2",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -8044,10 +8044,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC06e_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC06e_PendingApproval_SEI1",
     "patient_id": "PT_SC06e_PendingApproval",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -8077,10 +8077,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA03_PendingConfirmation_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA03_PendingConfirmation_SEI1",
     "patient_id": "PT_RA03_PendingConfirmation",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -8103,10 +8103,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC02f_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC02f_TsVrUploaded_SEI1",
     "patient_id": "PT_SC02f_TsVrUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -8129,10 +8129,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01a_TsVrConfirmed_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01a_TsVrConfirmed_SEI1",
     "patient_id": "PT_OS01a_TsVrConfirmed",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -8155,10 +8155,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA03_OnTreatmentArm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA03_OnTreatmentArm_SEI1",
     "patient_id": "PT_RA03_OnTreatmentArm",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -8181,10 +8181,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC06b_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC06b_PendingApproval_SEI1",
     "patient_id": "PT_SC06b_PendingApproval",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -8207,10 +8207,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA03_TsVrReceived_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA03_TsVrReceived_SEI2",
     "patient_id": "PT_RA03_TsVrReceived",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -8233,10 +8233,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA02_TsVrConfirmed_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA02_TsVrConfirmed_SEI1",
     "patient_id": "PT_RA02_TsVrConfirmed",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -8266,10 +8266,10 @@
     "confirmed": true,
     "analysis_id": "PT_CR03_VRUploadedPathConfirmed_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_CR03_VRUploadedPathConfirmed_SEI1",
     "patient_id": "PT_CR03_VRUploadedPathConfirmed",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -8299,10 +8299,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC05a_PendingConfirmation_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC05a_PendingConfirmation_SEI1",
     "patient_id": "PT_SC05a_PendingConfirmation",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -8325,10 +8325,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA09_RequestNoAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA09_RequestNoAssignment_SEI1",
     "patient_id": "PT_RA09_RequestNoAssignment",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -8351,10 +8351,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01a_ReqNoAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01a_ReqNoAssignment_SEI1",
     "patient_id": "PT_OS01a_ReqNoAssignment",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -8377,10 +8377,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC10_VRUploadedANIExpired_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VC10_VRUploadedANIExpired_SEI1",
     "patient_id": "PT_VC10_VRUploadedANIExpired",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -8403,10 +8403,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01_PendingApproval_SEI1",
     "patient_id": "PT_OS01_PendingApproval",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -8436,10 +8436,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC06a_PendingApprovalStep2_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC06a_PendingApprovalStep2_SEI1",
     "patient_id": "PT_SC06a_PendingApprovalStep2",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -8462,10 +8462,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA04a_RequestNoAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA04a_RequestNoAssignment_SEI1",
     "patient_id": "PT_RA04a_RequestNoAssignment",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -8495,10 +8495,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01a_ReqNoAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS01a_ReqNoAssignment_SEI1",
     "patient_id": "PT_OS01a_ReqNoAssignment",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -8521,10 +8521,10 @@
     "confirmed": true,
     "analysis_id": "PT_GVF_VrAssayReady_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_GVF_VrAssayReady_SEI1",
     "patient_id": "PT_GVF_VrAssayReady",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -8547,10 +8547,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC05e_PendingConfirmation_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC05e_PendingConfirmation_SEI1",
     "patient_id": "PT_SC05e_PendingConfirmation",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -8573,10 +8573,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA03_RequestAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA03_RequestAssignment_SEI1",
     "patient_id": "PT_RA03_RequestAssignment",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -8599,10 +8599,10 @@
     "confirmed": true,
     "analysis_id": "PT_VU09_VariantReportUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VU09_VariantReportUploaded_SEI1",
     "patient_id": "PT_VU09_VariantReportUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -8625,10 +8625,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA02_CompassionateCare_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA02_CompassionateCare_SEI1",
     "patient_id": "PT_RA02_CompassionateCare",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -8658,10 +8658,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA03_RequestNoAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA03_RequestNoAssignment_SEI1",
     "patient_id": "PT_RA03_RequestNoAssignment",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -8691,10 +8691,10 @@
     "confirmed": true,
     "analysis_id": "PT_AM03_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_AM03_PendingApproval_SEI1",
     "patient_id": "PT_AM03_PendingApproval",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -8724,10 +8724,10 @@
     "confirmed": true,
     "analysis_id": "PT_SS21_TissueVariantConfirmed_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SS21_TissueVariantConfirmed_SEI1",
     "patient_id": "PT_SS21_TissueVariantConfirmed",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -8757,10 +8757,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA02_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA02_PendingApproval_SEI1",
     "patient_id": "PT_RA02_PendingApproval",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -8783,10 +8783,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01a_OffStudyBiopsyExpired_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01a_OffStudyBiopsyExpired_SEI1",
     "patient_id": "PT_OS01a_OffStudyBiopsyExpired",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -8816,10 +8816,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA04_ReqNoAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA04_ReqNoAssignment_SEI1",
     "patient_id": "PT_RA04_ReqNoAssignment",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -8849,10 +8849,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC09_VRUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VC09_VRUploaded_SEI1",
     "patient_id": "PT_VC09_VRUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -8875,10 +8875,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA04a_TsVrConfirmed_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA04a_TsVrConfirmed_SEI1",
     "patient_id": "PT_RA04a_TsVrConfirmed",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -8908,10 +8908,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA03_OnTreatmentArm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA03_OnTreatmentArm_SEI1",
     "patient_id": "PT_RA03_OnTreatmentArm",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -8934,10 +8934,10 @@
     "confirmed": true,
     "analysis_id": "PT_CR06_RejectOneVariant_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_CR06_RejectOneVariant_SEI1",
     "patient_id": "PT_CR06_RejectOneVariant",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -8967,10 +8967,10 @@
     "confirmed": true,
     "analysis_id": "PT_SS11a_Step2TsReceived2_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SS11a_Step2TsReceived2_SEI1",
     "patient_id": "PT_SS11a_Step2TsReceived2",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -8993,10 +8993,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC04f_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC04f_TsVrUploaded_SEI1",
     "patient_id": "PT_SC04f_TsVrUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -9019,10 +9019,10 @@
     "confirmed": false,
     "analysis_id": "PT_CR05_SpecimenShippedTwice_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_CR05_SpecimenShippedTwice_SEI1",
     "patient_id": "PT_CR05_SpecimenShippedTwice",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -9052,10 +9052,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC04j_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC04j_PendingApproval_SEI1",
     "patient_id": "PT_SC04j_PendingApproval",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -9085,10 +9085,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC02_VRUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VC02_VRUploaded_SEI1",
     "patient_id": "PT_VC02_VRUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -9118,10 +9118,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA04a_RequestAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA04a_RequestAssignment_SEI1",
     "patient_id": "PT_RA04a_RequestAssignment",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -9151,10 +9151,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01a_TsVrConfirmed_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS01a_TsVrConfirmed_SEI1",
     "patient_id": "PT_OS01a_TsVrConfirmed",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -9184,10 +9184,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS04_OnTA1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS04_OnTA1_SEI1",
     "patient_id": "PT_OS04_OnTA1",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -9204,16 +9204,16 @@
         "stratum_id": "100"
       }
     ],
-    "molecular_id": "PT_SC01c_PendingApprovalStep2_MOI1",
+    "molecular_id": "PT_SC01d_PendingApprovalStep2_MOI1",
     "partner_gene": "RET",
     "uuid": "f594a4b9-78c3-4500-8464-2ef48f8ea6fe",
     "confirmed": true,
-    "analysis_id": "PT_SC01c_PendingApprovalStep2_ANI1",
+    "analysis_id": "PT_SC01d_PendingApprovalStep2_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
-    "surgical_event_id": "PT_SC01c_PendingApprovalStep2_SEI1",
-    "patient_id": "PT_SC01c_PendingApprovalStep2",
-    "partner_read_count": "0.107E4"
+    "driver_read_count": 1070.0,
+    "surgical_event_id": "PT_SC01d_PendingApprovalStep2_SEI1",
+    "patient_id": "PT_SC01d_PendingApprovalStep2",
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -9243,10 +9243,10 @@
     "confirmed": true,
     "analysis_id": "PT_AM04_TsReceived1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_AM04_TsReceived1_SEI1",
     "patient_id": "PT_AM04_TsReceived1",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -9276,10 +9276,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC02f_PendingConfirmation_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC02f_PendingConfirmation_SEI1",
     "patient_id": "PT_SC02f_PendingConfirmation",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -9309,10 +9309,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC01_VRUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VC01_VRUploaded_SEI1",
     "patient_id": "PT_VC01_VRUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -9342,10 +9342,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC04b_VrConfirmedOneAssay_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC04b_VrConfirmedOneAssay_SEI1",
     "patient_id": "PT_SC04b_VrConfirmedOneAssay",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -9368,10 +9368,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA04_ReqNoAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA04_ReqNoAssignment_SEI1",
     "patient_id": "PT_RA04_ReqNoAssignment",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -9394,10 +9394,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA02_OnTreatmentArm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA02_OnTreatmentArm_SEI1",
     "patient_id": "PT_RA02_OnTreatmentArm",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -9427,10 +9427,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC05c_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC05c_TsVrUploaded_SEI1",
     "patient_id": "PT_SC05c_TsVrUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -9454,16 +9454,16 @@
         "stratum_id": "100"
       }
     ],
-    "molecular_id": "PT_SC01c_PendingApproval_MOI1",
+    "molecular_id": "PT_SC01d_PendingApproval_MOI1",
     "partner_gene": null,
     "uuid": "a8704a92-a02f-4c99-930a-5909f353d7c1",
     "confirmed": true,
-    "analysis_id": "PT_SC01c_PendingApproval_ANI1",
+    "analysis_id": "PT_SC01d_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
-    "surgical_event_id": "PT_SC01c_PendingApproval_SEI1",
-    "patient_id": "PT_SC01c_PendingApproval",
-    "partner_read_count": "0.1001E4"
+    "driver_read_count": 1001.0,
+    "surgical_event_id": "PT_SC01d_PendingApproval_SEI1",
+    "patient_id": "PT_SC01d_PendingApproval",
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -9486,9 +9486,9 @@
     "confirmed": true,
     "analysis_id": "PT_VU16_BdVRUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "patient_id": "PT_VU16_BdVRUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -9511,10 +9511,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC06d_PendingApproval1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC06d_PendingApproval1_SEI1",
     "patient_id": "PT_SC06d_PendingApproval1",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -9544,10 +9544,10 @@
     "confirmed": true,
     "analysis_id": "PT_SR10_ProgressReBioY1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SR10_ProgressReBioY1_SEI1",
     "patient_id": "PT_SR10_ProgressReBioY1",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -9577,10 +9577,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA10_OnTreatmentArm1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA10_OnTreatmentArm1_SEI1",
     "patient_id": "PT_RA10_OnTreatmentArm1",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -9603,10 +9603,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC01c_TsVrUploadedStep2_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC01c_TsVrUploadedStep2_SEI1",
     "patient_id": "PT_SC01c_TsVrUploadedStep2",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -9636,10 +9636,10 @@
     "confirmed": true,
     "analysis_id": "PT_SR12_VariantReportConfirmed_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SR12_VariantReportConfirmed_SEI1",
     "patient_id": "PT_SR12_VariantReportConfirmed",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -9662,10 +9662,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA04a_OffStudy_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA04a_OffStudy_SEI1",
     "patient_id": "PT_RA04a_OffStudy",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -9682,10 +9682,10 @@
     "confirmed": true,
     "analysis_id": "PT_SS31_NoTaAvailable_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SS31_NoTaAvailable_SEI1",
     "patient_id": "PT_SS31_NoTaAvailable",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -9715,10 +9715,10 @@
     "confirmed": true,
     "analysis_id": "PT_SR16_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SR16_PendingApproval_SEI1",
     "patient_id": "PT_SR16_PendingApproval",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -9741,10 +9741,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC04_VRUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VC04_VRUploaded_SEI1",
     "patient_id": "PT_VC04_VRUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -9774,10 +9774,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC04b_TsVrUploaed_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC04b_TsVrUploaed_SEI1",
     "patient_id": "PT_SC04b_TsVrUploaed",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -9800,10 +9800,10 @@
     "confirmed": true,
     "analysis_id": "PT_SR10_PendingApproval2_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SR10_PendingApproval2_SEI1",
     "patient_id": "PT_SR10_PendingApproval2",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -9826,9 +9826,9 @@
     "confirmed": true,
     "analysis_id": "PT_CR08_BloodSpecimenUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "patient_id": "PT_CR08_BloodSpecimenUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -9845,10 +9845,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01a_NoTaAvailable_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01a_NoTaAvailable_SEI1",
     "patient_id": "PT_OS01a_NoTaAvailable",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -9878,10 +9878,10 @@
     "confirmed": true,
     "analysis_id": "PT_SR10_OnTreatmentArm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SR10_OnTreatmentArm_SEI1",
     "patient_id": "PT_SR10_OnTreatmentArm",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -9911,10 +9911,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01_OffStudy_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS01_OffStudy_SEI1",
     "patient_id": "PT_OS01_OffStudy",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -9937,10 +9937,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01a_TsShipped_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01a_TsShipped_SEI1",
     "patient_id": "PT_OS01a_TsShipped",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -9963,10 +9963,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC09_VRUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VC09_VRUploaded_SEI1",
     "patient_id": "PT_VC09_VRUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -9996,10 +9996,10 @@
     "confirmed": true,
     "analysis_id": "PT_SS27_VariantReportUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SS27_VariantReportUploaded_SEI1",
     "patient_id": "PT_SS27_VariantReportUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -10029,10 +10029,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC05g_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC05g_TsVrUploaded_SEI1",
     "patient_id": "PT_SC05g_TsVrUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -10055,10 +10055,10 @@
     "confirmed": false,
     "analysis_id": "PT_VC03_VRUploadedAfterRejected_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VC03_VRUploadedAfterRejected_SEI1",
     "patient_id": "PT_VC03_VRUploadedAfterRejected",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -10081,10 +10081,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA10_OnTreatmentArm1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA10_OnTreatmentArm1_SEI1",
     "patient_id": "PT_RA10_OnTreatmentArm1",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -10114,10 +10114,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC04e_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC04e_TsVrUploaded_SEI1",
     "patient_id": "PT_SC04e_TsVrUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -10140,10 +10140,10 @@
     "confirmed": true,
     "analysis_id": "PT_AM01_TsVrReceived2_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_AM01_TsVrReceived2_SEI1",
     "patient_id": "PT_AM01_TsVrReceived2",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -10166,10 +10166,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC03_VRUploadedAfterRejected_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VC03_VRUploadedAfterRejected_SEI1",
     "patient_id": "PT_VC03_VRUploadedAfterRejected",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -10192,10 +10192,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01_TsVrConfirmed_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01_TsVrConfirmed_SEI1",
     "patient_id": "PT_OS01_TsVrConfirmed",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -10218,10 +10218,10 @@
     "confirmed": true,
     "analysis_id": "PT_CR03_VRUploadedPathConfirmed_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_CR03_VRUploadedPathConfirmed_SEI1",
     "patient_id": "PT_CR03_VRUploadedPathConfirmed",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -10251,10 +10251,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA02_TsShipped_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA02_TsShipped_SEI1",
     "patient_id": "PT_RA02_TsShipped",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -10284,10 +10284,10 @@
     "confirmed": true,
     "analysis_id": "ION_AQ43_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "ION_AQ43_TsVrUploaded_SEI1",
     "patient_id": "ION_AQ43_TsVrUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -10310,10 +10310,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA04a_CompassionateCare_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA04a_CompassionateCare_SEI1",
     "patient_id": "PT_RA04a_CompassionateCare",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -10343,10 +10343,10 @@
     "confirmed": true,
     "analysis_id": "PT_SS11a_Step2TsReceived1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SS11a_Step2TsReceived1_SEI1",
     "patient_id": "PT_SS11a_Step2TsReceived1",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -10376,10 +10376,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC05f_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC05f_TsVrUploaded_SEI1",
     "patient_id": "PT_SC05f_TsVrUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -10402,10 +10402,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA03_CompassionateCare_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA03_CompassionateCare_SEI1",
     "patient_id": "PT_RA03_CompassionateCare",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -10435,10 +10435,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC06a_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC06a_PendingApproval_SEI1",
     "patient_id": "PT_SC06a_PendingApproval",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -10468,10 +10468,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC11_VRUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VC11_VRUploaded_SEI1",
     "patient_id": "PT_VC11_VRUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -10501,10 +10501,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA06_PendingAproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA06_PendingAproval_SEI1",
     "patient_id": "PT_RA06_PendingAproval",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -10534,10 +10534,10 @@
     "confirmed": true,
     "analysis_id": "PT_SR10_TsVrReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SR10_TsVrReceived_SEI1",
     "patient_id": "PT_SR10_TsVrReceived",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -10567,10 +10567,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01_slideShipped_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS01_slideShipped_SEI1",
     "patient_id": "PT_OS01_slideShipped",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -10593,10 +10593,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC04b_TsVrUploaed_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC04b_TsVrUploaed_SEI1",
     "patient_id": "PT_SC04b_TsVrUploaed",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -10626,10 +10626,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01a_TsShipped_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS01a_TsShipped_SEI1",
     "patient_id": "PT_OS01a_TsShipped",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -10652,10 +10652,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC05d_VrAssayReady_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC05d_VrAssayReady_SEI1",
     "patient_id": "PT_SC05d_VrAssayReady",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -10678,10 +10678,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC05g_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC05g_TsVrUploaded_SEI1",
     "patient_id": "PT_SC05g_TsVrUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -10704,10 +10704,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA02_PendingConfirmation_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA02_PendingConfirmation_SEI1",
     "patient_id": "PT_RA02_PendingConfirmation",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -10737,10 +10737,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC15_AssayReceivedVrReceivedToConfirm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VC15_AssayReceivedVrReceivedToConfirm_SEI1",
     "patient_id": "PT_VC15_AssayReceivedVrReceivedToConfirm",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -10770,10 +10770,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA04a_TsVrReceived_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA04a_TsVrReceived_SEI2",
     "patient_id": "PT_RA04a_TsVrReceived",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -10790,13 +10790,13 @@
     "confirmed": true,
     "analysis_id": "PT_RA04a_NoTaAvailable_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA04a_NoTaAvailable_SEI1",
     "patient_id": "PT_RA04a_NoTaAvailable",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
-    "reference_allele_observations": "0.102E4",
+    "reference_allele_observations": 1019.9999999999999,
     "status_date": "2016-11-07T17:46:26+00:00",
     "ocp_reference": "A",
     "variant_type": "snp",
@@ -10809,9 +10809,9 @@
     "cds_reference": "C",
     "function": "missense",
     "protein": "p.His1047Arg",
-    "read_depth": "0.1814E4",
+    "read_depth": 1814.0,
     "identifier": "COSM775",
-    "allele_frequency": "0.435502E0",
+    "allele_frequency": 0.435502,
     "ocp_alternative": "G",
     "chromosome": "chr3",
     "amois": [
@@ -10822,13 +10822,13 @@
     "oncomine_variant_class": "Hotspot",
     "analysis_id": "PT_VC00_CnvVrReceived_ANI1",
     "filter": "PASS",
-    "flow_reference_allele_observations": "0.1024E4",
+    "flow_reference_allele_observations": 1024.0,
     "patient_id": "PT_VC00_CnvVrReceived",
-    "alternative_allele_observation_count": "0.79E3",
+    "alternative_allele_observation_count": 790.0,
     "location": "exonic",
     "position": "178952085",
     "exon": "21",
-    "flow_alternative_allele_observation_count": "0.79E3"
+    "flow_alternative_allele_observation_count": 790.0
   },
   {
     "annotation": "-",
@@ -10858,10 +10858,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC10_VRUploadedMOIExpired_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VC10_VRUploadedMOIExpired_SEI1",
     "patient_id": "PT_VC10_VRUploadedMOIExpired",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -10891,10 +10891,10 @@
     "confirmed": false,
     "analysis_id": "PT_VC10_VRUploadedMOIExpired_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VC10_VRUploadedMOIExpired_SEI1",
     "patient_id": "PT_VC10_VRUploadedMOIExpired",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -10924,10 +10924,10 @@
     "confirmed": true,
     "analysis_id": "PT_GVF_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_GVF_TsVrUploaded_SEI1",
     "patient_id": "PT_GVF_TsVrUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -10957,10 +10957,10 @@
     "confirmed": false,
     "analysis_id": "PT_VU12_VariantReportRejected_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VU12_VariantReportRejected_SEI1",
     "patient_id": "PT_VU12_VariantReportRejected",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -10990,10 +10990,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS01_PendingApproval_SEI1",
     "patient_id": "PT_OS01_PendingApproval",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -11016,10 +11016,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01_OnTreatmentArm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01_OnTreatmentArm_SEI1",
     "patient_id": "PT_OS01_OnTreatmentArm",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -11042,10 +11042,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC14_BdVRUploadedTsVRUploadedOtherReady_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VC14_BdVRUploadedTsVRUploadedOtherReady_SEI1",
     "patient_id": "PT_VC14_BdVRUploadedTsVRUploadedOtherReady",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -11068,10 +11068,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA10_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA10_PendingApproval_SEI1",
     "patient_id": "PT_RA10_PendingApproval",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -11094,10 +11094,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC12_VRUploaded1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VC12_VRUploaded1_SEI1",
     "patient_id": "PT_VC12_VRUploaded1",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -11127,10 +11127,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01a_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS01a_PendingApproval_SEI1",
     "patient_id": "PT_OS01a_PendingApproval",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -11160,10 +11160,10 @@
     "confirmed": true,
     "analysis_id": "PT_AM04_TsReceived2_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_AM04_TsReceived2_SEI1",
     "patient_id": "PT_AM04_TsReceived2",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -11186,10 +11186,10 @@
     "confirmed": true,
     "analysis_id": "ION_AQ41_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "ION_AQ41_TsVrUploaded_SEI1",
     "patient_id": "ION_AQ41_TsVrUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -11212,10 +11212,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC11_VRUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VC11_VRUploaded_SEI1",
     "patient_id": "PT_VC11_VRUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -11245,10 +11245,10 @@
     "confirmed": true,
     "analysis_id": "PT_SS26_TsVRReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SS26_TsVRReceived_SEI1",
     "patient_id": "PT_SS26_TsVRReceived",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -11271,10 +11271,10 @@
     "confirmed": true,
     "analysis_id": "PT_SS11a_Step2BdReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SS11a_Step2BdReceived_SEI1",
     "patient_id": "PT_SS11a_Step2BdReceived",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -11304,10 +11304,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC02g_PendingConfirmation_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC02g_PendingConfirmation_SEI1",
     "patient_id": "PT_SC02g_PendingConfirmation",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -11337,10 +11337,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA04a_TsVrConfirmed_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA04a_TsVrConfirmed_SEI1",
     "patient_id": "PT_RA04a_TsVrConfirmed",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -11363,10 +11363,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01_TsVrReceived_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01_TsVrReceived_SEI2",
     "patient_id": "PT_OS01_TsVrReceived",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -11389,10 +11389,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS02_OffStudy2_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS02_OffStudy2_SEI1",
     "patient_id": "PT_OS02_OffStudy2",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -11422,10 +11422,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC04b_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC04b_PendingApproval_SEI1",
     "patient_id": "PT_SC04b_PendingApproval",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -11455,10 +11455,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01_ReqNoAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS01_ReqNoAssignment_SEI1",
     "patient_id": "PT_OS01_ReqNoAssignment",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -11488,10 +11488,10 @@
     "confirmed": false,
     "analysis_id": "PT_SS02a_TsVrRejected_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SS02a_TsVrRejected_SEI1",
     "patient_id": "PT_SS02a_TsVrRejected",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -11521,10 +11521,10 @@
     "confirmed": true,
     "analysis_id": "PT_CR06_RejectOneVariant_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_CR06_RejectOneVariant_SEI1",
     "patient_id": "PT_CR06_RejectOneVariant",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -11554,10 +11554,10 @@
     "confirmed": true,
     "analysis_id": "PT_CR04_VRUploadedAssayReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_CR04_VRUploadedAssayReceived_SEI1",
     "patient_id": "PT_CR04_VRUploadedAssayReceived",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -11580,10 +11580,10 @@
     "confirmed": true,
     "analysis_id": "PT_CR05_SpecimenShippedTwice_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_CR05_SpecimenShippedTwice_SEI1",
     "patient_id": "PT_CR05_SpecimenShippedTwice",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -11613,10 +11613,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA04a_TsVrReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA04a_TsVrReceived_SEI1",
     "patient_id": "PT_RA04a_TsVrReceived",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -11646,10 +11646,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC12_VRUploaded2_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VC12_VRUploaded2_SEI1",
     "patient_id": "PT_VC12_VRUploaded2",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -11679,10 +11679,10 @@
     "confirmed": false,
     "analysis_id": "PT_VC10_VRUploadedANIExpired_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VC10_VRUploadedANIExpired_SEI1",
     "patient_id": "PT_VC10_VRUploadedANIExpired",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -11705,10 +11705,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC15_AssayReceivedVrReceivedToReject_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VC15_AssayReceivedVrReceivedToReject_SEI1",
     "patient_id": "PT_VC15_AssayReceivedVrReceivedToReject",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -11731,10 +11731,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS03_OffStudy1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS03_OffStudy1_SEI1",
     "patient_id": "PT_OS03_OffStudy1",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -11764,10 +11764,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC04i_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC04i_PendingApproval_SEI1",
     "patient_id": "PT_SC04i_PendingApproval",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -11797,10 +11797,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC06c_PendingApprovalStep2_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC06c_PendingApprovalStep2_SEI2",
     "patient_id": "PT_SC06c_PendingApprovalStep2",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -11830,10 +11830,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA02_RequestNoAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA02_RequestNoAssignment_SEI1",
     "patient_id": "PT_RA02_RequestNoAssignment",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -11856,10 +11856,10 @@
     "confirmed": true,
     "analysis_id": "PT_GVF_OnTreatmentArm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_GVF_OnTreatmentArm_SEI1",
     "patient_id": "PT_GVF_OnTreatmentArm",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -11882,10 +11882,10 @@
     "confirmed": true,
     "analysis_id": "PT_SS21_TissueVariantConfirmed_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SS21_TissueVariantConfirmed_SEI1",
     "patient_id": "PT_SS21_TissueVariantConfirmed",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -11915,10 +11915,10 @@
     "confirmed": false,
     "analysis_id": "PT_VU11_VariantReportRejected_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VU11_VariantReportRejected_SEI1",
     "patient_id": "PT_VU11_VariantReportRejected",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -11948,10 +11948,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA09_OnTreatmentArm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA09_OnTreatmentArm_SEI1",
     "patient_id": "PT_RA09_OnTreatmentArm",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -11974,10 +11974,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC11b_TsVRConfirmed_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VC11b_TsVRConfirmed_SEI1",
     "patient_id": "PT_VC11b_TsVRConfirmed",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -12000,10 +12000,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA03_TsVrConfirmed_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA03_TsVrConfirmed_SEI1",
     "patient_id": "PT_RA03_TsVrConfirmed",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -12026,10 +12026,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA09_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA09_PendingApproval_SEI1",
     "patient_id": "PT_RA09_PendingApproval",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -12059,10 +12059,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC04_VRUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VC04_VRUploaded_SEI1",
     "patient_id": "PT_VC04_VRUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -12085,10 +12085,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC10_VRUploadedMOIExpired_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VC10_VRUploadedMOIExpired_SEI1",
     "patient_id": "PT_VC10_VRUploadedMOIExpired",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -12118,10 +12118,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC04a_VRUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VC04a_VRUploaded_SEI1",
     "patient_id": "PT_VC04a_VRUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -12144,10 +12144,10 @@
     "confirmed": false,
     "analysis_id": "PT_VC11b_TsVRRejected_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VC11b_TsVRRejected_SEI1",
     "patient_id": "PT_VC11b_TsVRRejected",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -12170,10 +12170,10 @@
     "confirmed": false,
     "analysis_id": "PT_VU12_VariantReportRejected_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_VU12_VariantReportRejected_SEI1",
     "patient_id": "PT_VU12_VariantReportRejected",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -12203,10 +12203,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC14_BdVRUploadedTsVRUploadedOtherReady_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VC14_BdVRUploadedTsVRUploadedOtherReady_SEI1",
     "patient_id": "PT_VC14_BdVRUploadedTsVRUploadedOtherReady",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -12236,10 +12236,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC06d_PendingApproval2_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC06d_PendingApproval2_SEI1",
     "patient_id": "PT_SC06d_PendingApproval2",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -12269,10 +12269,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC08_VRUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VC08_VRUploaded_SEI1",
     "patient_id": "PT_VC08_VRUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -12295,10 +12295,10 @@
     "confirmed": false,
     "analysis_id": "PT_OS01_TsVrRejected_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01_TsVrRejected_SEI1",
     "patient_id": "PT_OS01_TsVrRejected",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -12321,10 +12321,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC02d_VrAssayReady_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC02d_VrAssayReady_SEI1",
     "patient_id": "PT_SC02d_VrAssayReady",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -12347,10 +12347,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC05f_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC05f_TsVrUploaded_SEI1",
     "patient_id": "PT_SC05f_TsVrUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -12380,10 +12380,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA02_TsVrConfirmed_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA02_TsVrConfirmed_SEI1",
     "patient_id": "PT_RA02_TsVrConfirmed",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -12413,9 +12413,9 @@
     "confirmed": true,
     "analysis_id": "PT_VU16_BdVRUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "patient_id": "PT_VU16_BdVRUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -12438,10 +12438,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA04a_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA04a_PendingApproval_SEI1",
     "patient_id": "PT_RA04a_PendingApproval",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -12464,10 +12464,10 @@
     "confirmed": true,
     "analysis_id": "PT_AM04_TsReceived2_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_AM04_TsReceived2_SEI1",
     "patient_id": "PT_AM04_TsReceived2",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -12490,10 +12490,10 @@
     "confirmed": true,
     "analysis_id": "PT_CR02_OnTreatmentArm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_CR02_OnTreatmentArm_SEI1",
     "patient_id": "PT_CR02_OnTreatmentArm",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -12516,10 +12516,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA06_PendingAproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA06_PendingAproval_SEI1",
     "patient_id": "PT_RA06_PendingAproval",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -12536,10 +12536,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA03_NoTaAvailable_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA03_NoTaAvailable_SEI1",
     "patient_id": "PT_RA03_NoTaAvailable",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -12569,10 +12569,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA03_TsVrConfirmed_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA03_TsVrConfirmed_SEI1",
     "patient_id": "PT_RA03_TsVrConfirmed",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -12595,10 +12595,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01a_PendingApproval_ANI2",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_OS01a_PendingApproval_SEI2",
     "patient_id": "PT_OS01a_PendingApproval",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -12621,10 +12621,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA02_slideShipped_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA02_slideShipped_SEI1",
     "patient_id": "PT_RA02_slideShipped",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -12654,10 +12654,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC02d_VrAssayReady_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC02d_VrAssayReady_SEI1",
     "patient_id": "PT_SC02d_VrAssayReady",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -12687,10 +12687,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA03_TsShipped_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA03_TsShipped_SEI1",
     "patient_id": "PT_RA03_TsShipped",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -12720,10 +12720,10 @@
     "confirmed": true,
     "analysis_id": "PT_VC15_AssayReceivedVrReceivedToReject_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_VC15_AssayReceivedVrReceivedToReject_SEI1",
     "patient_id": "PT_VC15_AssayReceivedVrReceivedToReject",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -12753,10 +12753,10 @@
     "confirmed": true,
     "analysis_id": "ION_FL02_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "ION_FL02_TsVrUploaded_SEI1",
     "patient_id": "ION_FL02_TsVrUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -12779,10 +12779,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA03_TsVrReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA03_TsVrReceived_SEI1",
     "patient_id": "PT_RA03_TsVrReceived",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -12805,10 +12805,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA08_RequestNoAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA08_RequestNoAssignment_SEI1",
     "patient_id": "PT_RA08_RequestNoAssignment",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -12838,10 +12838,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA05_OnTreatmentArm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA05_OnTreatmentArm_SEI1",
     "patient_id": "PT_RA05_OnTreatmentArm",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -12871,10 +12871,10 @@
     "confirmed": true,
     "analysis_id": "PT_AM01_TsVrReceived1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_AM01_TsVrReceived1_SEI1",
     "patient_id": "PT_AM01_TsVrReceived1",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -12897,10 +12897,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC05a_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SC05a_TsVrUploaded_SEI1",
     "patient_id": "PT_SC05a_TsVrUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -12923,10 +12923,10 @@
     "confirmed": true,
     "analysis_id": "PT_SR14_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SR14_TsVrUploaded_SEI1",
     "patient_id": "PT_SR14_TsVrUploaded",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -12949,10 +12949,10 @@
     "confirmed": true,
     "analysis_id": "PT_GVF_RequestNoAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_GVF_RequestNoAssignment_SEI1",
     "patient_id": "PT_GVF_RequestNoAssignment",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -12982,10 +12982,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC01c_TsVrUploadedStep2_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC01c_TsVrUploadedStep2_SEI1",
     "patient_id": "PT_SC01c_TsVrUploadedStep2",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -13015,10 +13015,10 @@
     "confirmed": false,
     "analysis_id": "PT_RA02_TsVrRejected_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA02_TsVrRejected_SEI1",
     "patient_id": "PT_RA02_TsVrRejected",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -13048,10 +13048,10 @@
     "confirmed": true,
     "analysis_id": "ION_AQ41_TsVrUploaded_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "ION_AQ41_TsVrUploaded_SEI1",
     "patient_id": "ION_AQ41_TsVrUploaded",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -13074,10 +13074,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA06_OnTreatmentArm_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA06_OnTreatmentArm_SEI1",
     "patient_id": "PT_RA06_OnTreatmentArm",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -13100,10 +13100,10 @@
     "confirmed": true,
     "analysis_id": "PT_SR14_RequestAssignment_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_SR14_RequestAssignment_SEI1",
     "patient_id": "PT_SR14_RequestAssignment",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -13133,10 +13133,10 @@
     "confirmed": true,
     "analysis_id": "PT_OS01a_TsVrReceived_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_OS01a_TsVrReceived_SEI1",
     "patient_id": "PT_OS01a_TsVrReceived",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -13166,10 +13166,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA01_PendingApproval_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_RA01_PendingApproval_SEI1",
     "patient_id": "PT_RA01_PendingApproval",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -13199,10 +13199,10 @@
     "confirmed": true,
     "analysis_id": "PT_SC06c_PendingApprovalStep2_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.1001E4",
+    "driver_read_count": 1001.0,
     "surgical_event_id": "PT_SC06c_PendingApprovalStep2_SEI1",
     "patient_id": "PT_SC06c_PendingApprovalStep2",
-    "partner_read_count": "0.1001E4"
+    "partner_read_count": 1001.0
   },
   {
     "annotation": "-",
@@ -13225,10 +13225,10 @@
     "confirmed": true,
     "analysis_id": "PT_RA04a_PendingConfirmation_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "surgical_event_id": "PT_RA04a_PendingConfirmation_SEI1",
     "patient_id": "PT_RA04a_PendingConfirmation",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   },
   {
     "annotation": "-",
@@ -13251,8 +13251,8 @@
     "confirmed": true,
     "analysis_id": "PT_SR14_BdVrUploaded1_ANI1",
     "filter": "PASS",
-    "driver_read_count": "0.107E4",
+    "driver_read_count": 1070.0,
     "patient_id": "PT_SR14_BdVrUploaded1",
-    "partner_read_count": "0.107E4"
+    "partner_read_count": 1070.0
   }
 ]

@@ -166,7 +166,7 @@
 //    "cdna_bai_file_name": "cdna.bam.bai"
 //  },
   "variant_file_uploaded":{
-    "ion_reporter_id": "mocha",
+    "ion_reporter_id": "bdd_test_ion_reporter",
     "molecular_id": "3355-bsn-msn-2",
     "analysis_id": "job1",
     "tsv_file_name": "test1.tsv"

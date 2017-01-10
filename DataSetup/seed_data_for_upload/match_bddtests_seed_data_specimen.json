@@ -788,11 +788,11 @@
   {
     "pathology_status_date": "2017-01-04T02:19:30+00:00",
     "specimen_type": "TISSUE",
-    "surgical_event_id": "PT_SC01c_PendingApproval_SEI1",
+    "surgical_event_id": "PT_SC01d_PendingApproval_SEI1",
     "sorting_key": "2017-01-04T02:19:30.163",
     "received_date": "2016-04-26T15:17:11+00:00",
-    "active_molecular_id": "PT_SC01c_PendingApproval_MOI1",
-    "patient_id": "PT_SC01c_PendingApproval",
+    "active_molecular_id": "PT_SC01d_PendingApproval_MOI1",
+    "patient_id": "PT_SC01d_PendingApproval",
     "collected_date": "2016-04-25T00:00:00+00:00",
     "assays": [
       {
@@ -5299,11 +5299,11 @@
   {
     "pathology_status_date": "2017-01-04T01:03:07+00:00",
     "specimen_type": "TISSUE",
-    "surgical_event_id": "PT_SC01c_PendingApprovalStep2_SEI1",
+    "surgical_event_id": "PT_SC01d_PendingApprovalStep2_SEI1",
     "sorting_key": "2017-01-04T01:03:07.044",
     "received_date": "2016-04-26T15:17:11+00:00",
-    "active_molecular_id": "PT_SC01c_PendingApprovalStep2_MOI1",
-    "patient_id": "PT_SC01c_PendingApprovalStep2",
+    "active_molecular_id": "PT_SC01d_PendingApprovalStep2_MOI1",
+    "patient_id": "PT_SC01d_PendingApprovalStep2",
     "collected_date": "2016-04-25T00:00:00+00:00",
     "assays": [
       {
@@ -5331,11 +5331,11 @@
   {
     "pathology_status_date": "2017-01-04T01:04:17+00:00",
     "specimen_type": "TISSUE",
-    "surgical_event_id": "PT_SC01c_PendingApprovalStep2_SEI2",
+    "surgical_event_id": "PT_SC01d_PendingApprovalStep2_SEI2",
     "sorting_key": "2017-01-04T01:04:17.346",
     "received_date": "2016-04-26T15:17:11+00:00",
-    "active_molecular_id": "PT_SC01c_PendingApprovalStep2_MOI2",
-    "patient_id": "PT_SC01c_PendingApprovalStep2",
+    "active_molecular_id": "PT_SC01d_PendingApprovalStep2_MOI2",
+    "patient_id": "PT_SC01d_PendingApprovalStep2",
     "collected_date": "2016-04-25T00:00:00+00:00",
     "assays": [
       {

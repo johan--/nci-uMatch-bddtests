@@ -5,40 +5,43 @@
     "dna_bam_name": "IR_WAO85/SC_SA1CB/SC_SA1CB_SC_SA1CB_a888_v1/SC_SA1CB_SC_SA1CB_analysis888_DNA_v1.bam",
     "copy_number_variants": [
       {
-        "confidence_interval_5_percent": "0.177919E2",
+        "confidence_interval_5_percent": 17.7919,
         "filter": "PASS",
-        "ref_copy_number": "0.2E1",
+        "ref_copy_number": 2.0,
         "identifier": "ERBB2",
-        "copy_number": "0.1964E2",
+        "copy_number": 19.64,
         "variant_type": "cnv",
         "amois": [
+
         ],
-        "confidence_interval_95_percent": "0.216801E2",
-        "raw_copy_number": "0.1964E2"
+        "confidence_interval_95_percent": 21.6801,
+        "raw_copy_number": 19.64
       },
       {
-        "confidence_interval_5_percent": "0.821323E1",
+        "confidence_interval_5_percent": 8.21323,
         "filter": "PASS",
-        "ref_copy_number": "0.2E1",
+        "ref_copy_number": 2.0,
         "identifier": "RPS6KB1",
-        "copy_number": "0.927E1",
+        "copy_number": 9.27,
         "variant_type": "cnv",
         "amois": [
+
         ],
-        "confidence_interval_95_percent": "0.104627E2",
-        "raw_copy_number": "0.927E1"
+        "confidence_interval_95_percent": 10.4627,
+        "raw_copy_number": 9.27
       },
       {
-        "confidence_interval_5_percent": "0.131571E2",
+        "confidence_interval_5_percent": 13.1571,
         "filter": "PASS",
-        "ref_copy_number": "0.2E1",
+        "ref_copy_number": 2.0,
         "identifier": "ZNF217",
-        "copy_number": "0.1485E2",
+        "copy_number": 14.85,
         "variant_type": "cnv",
         "amois": [
+
         ],
-        "confidence_interval_95_percent": "0.167607E2",
-        "raw_copy_number": "0.1485E2"
+        "confidence_interval_95_percent": 16.7607,
+        "raw_copy_number": 14.85
       }
     ],
     "date_variant_received": "2016-11-10 17:44:55.039994",
@@ -54,216 +57,226 @@
     "molecular_id": "SC_SA1CB",
     "analysis_id": "SC_SA1CB_SC_SA1CB_a888_v1",
     "site": "mocha",
-    "total_variants": "0.13E2",
+    "total_variants": 13.0,
     "filename": "SC_SA1CB_SC_SA1CB_analysis888_v1",
     "cdna_bai_name": "IR_WAO85/SC_SA1CB/SC_SA1CB_SC_SA1CB_a888_v1/SC_SA1CB_SC_SA1CB_analysis888_RNA_v1.bai",
     "oncomine_control_panel_summary": null,
     "mapd": "0.265",
     "snv_indels": [
       {
-        "reference_allele_observations": "0.669E3",
+        "reference_allele_observations": 669.0,
         "identifier": "COSM12580",
-        "allele_frequency": "0.147959E0",
+        "allele_frequency": 0.147959,
         "ocp_reference": "G",
         "variant_type": "snp",
         "func_gene": "PIK3CA",
         "ocp_alternative": "C",
         "chromosome": "chr3",
         "amois": [
+
         ],
         "oncomine_variant_class": "Hotspot",
         "hgvs": "c.333G>C",
         "filter": "PASS",
-        "flow_reference_allele_observations": "0.668E3",
+        "flow_reference_allele_observations": 668.0,
         "transcript": "NM_006218.2",
         "function": "missense",
         "protein": "p.Lys111Asn",
-        "read_depth": "0.784E3",
+        "read_depth": 784.0,
         "location": "exonic",
-        "alternative_allele_observation_count": "0.117E3",
+        "alternative_allele_observation_count": 117.0,
         "position": "178916946",
         "exon": "2",
-        "flow_alternative_allele_observation_count": "0.116E3"
+        "flow_alternative_allele_observation_count": 116.0
       },
       {
-        "reference_allele_observations": "0.954E3",
+        "reference_allele_observations": 954.0,
         "identifier": "COSM476",
-        "allele_frequency": "0.185908E0",
+        "allele_frequency": 0.185908,
         "ocp_reference": "A",
         "variant_type": "snp",
         "func_gene": "BRAF",
         "ocp_alternative": "T",
         "chromosome": "chr7",
         "amois": [
+
         ],
         "oncomine_variant_class": "Hotspot",
         "hgvs": "c.1799T>A",
         "filter": "PASS",
-        "flow_reference_allele_observations": "0.959E3",
+        "flow_reference_allele_observations": 959.0,
         "transcript": "NM_004333.4",
         "function": "missense",
         "protein": "p.Val600Glu",
-        "read_depth": "0.1178E4",
+        "read_depth": 1178.0,
         "location": "exonic",
-        "alternative_allele_observation_count": "0.219E3",
+        "alternative_allele_observation_count": 219.0,
         "position": "140453136",
         "exon": "15",
-        "flow_alternative_allele_observation_count": "0.219E3"
+        "flow_alternative_allele_observation_count": 219.0
       },
       {
-        "reference_allele_observations": "0.415E3",
+        "reference_allele_observations": 415.0,
         "identifier": ".",
-        "allele_frequency": "0.208015E0",
+        "allele_frequency": 0.208015,
         "ocp_reference": "C",
         "variant_type": "snp",
         "func_gene": "BRCA2",
         "ocp_alternative": "A",
         "chromosome": "chr13",
         "amois": [
+
         ],
         "oncomine_variant_class": "Deleterious",
         "hgvs": "c.9281C>A",
         "filter": "PASS",
-        "flow_reference_allele_observations": "0.415E3",
+        "flow_reference_allele_observations": 415.0,
         "transcript": "NM_000059.3",
         "function": "nonsense",
         "protein": "p.Ser3094Ter",
-        "read_depth": "0.524E3",
+        "read_depth": 524.0,
         "location": "exonic",
-        "alternative_allele_observation_count": "0.109E3",
+        "alternative_allele_observation_count": 109.0,
         "position": "32968850",
         "exon": "25",
-        "flow_alternative_allele_observation_count": "0.109E3"
+        "flow_alternative_allele_observation_count": 109.0
       },
       {
-        "reference_allele_observations": "0.666E3",
+        "reference_allele_observations": 666.0,
         "identifier": ".",
-        "allele_frequency": "0.187576E0",
+        "allele_frequency": 0.187576,
         "ocp_reference": "-",
         "variant_type": "ins",
         "func_gene": "PTEN",
         "ocp_alternative": "A",
         "chromosome": "chr10",
         "amois": [
+
         ],
         "oncomine_variant_class": "Deleterious",
         "hgvs": "c.740_741insA",
         "filter": "PASS",
-        "flow_reference_allele_observations": "0.667E3",
+        "flow_reference_allele_observations": 667.0,
         "transcript": "NM_000314.4",
         "function": "frameshiftInsertion",
         "protein": "p.Pro248fs",
-        "read_depth": "0.821E3",
+        "read_depth": 821.0,
         "location": "exonic",
-        "alternative_allele_observation_count": "0.147E3",
+        "alternative_allele_observation_count": 147.0,
         "position": "89717716",
         "exon": "7",
-        "flow_alternative_allele_observation_count": "0.154E3"
+        "flow_alternative_allele_observation_count": 154.0
       },
       {
-        "reference_allele_observations": "0.534E3",
+        "reference_allele_observations": 534.0,
         "identifier": ".",
-        "allele_frequency": "0.16085E0",
+        "allele_frequency": 0.16085,
         "ocp_reference": "ACTT",
         "variant_type": "del",
         "func_gene": "RB1",
         "ocp_alternative": "-",
         "chromosome": "chr13",
         "amois": [
+
         ],
         "oncomine_variant_class": "Deleterious",
         "hgvs": "c.346_349delACTT",
         "filter": "PASS",
-        "flow_reference_allele_observations": "0.553E3",
+        "flow_reference_allele_observations": 553.0,
         "transcript": "NM_000321.2",
         "function": "frameshiftDeletion",
         "protein": "p.Thr116fs",
-        "read_depth": "0.659E3",
+        "read_depth": 659.0,
         "location": "exonic",
-        "alternative_allele_observation_count": "0.103E3",
+        "alternative_allele_observation_count": 103.0,
         "position": "48916816",
         "exon": "3",
-        "flow_alternative_allele_observation_count": "0.106E3"
+        "flow_alternative_allele_observation_count": 106.0
       },
       {
-        "reference_allele_observations": "0.914E3",
+        "reference_allele_observations": 914.0,
         "identifier": ".",
-        "allele_frequency": "0.14777E0",
+        "allele_frequency": 0.14777,
         "ocp_reference": "G",
         "variant_type": "del",
         "func_gene": "TP53",
         "ocp_alternative": "-",
         "chromosome": "chr17",
         "amois": [
+
         ],
         "oncomine_variant_class": "Deleterious",
         "hgvs": "c.1024delC",
         "filter": "PASS",
-        "flow_reference_allele_observations": "0.917E3",
+        "flow_reference_allele_observations": 917.0,
         "transcript": "NM_000546.5",
         "function": "frameshiftDeletion",
         "protein": "p.Arg342fs",
-        "read_depth": "0.1076E4",
+        "read_depth": 1076.0,
         "location": "exonic",
-        "alternative_allele_observation_count": "0.157E3",
+        "alternative_allele_observation_count": 157.0,
         "position": "7574003",
         "exon": "10",
-        "flow_alternative_allele_observation_count": "0.159E3"
+        "flow_alternative_allele_observation_count": 159.0
       }
     ],
     "torrent_variant_caller_version": "5.0-9",
     "gene_fusions": [
       {
         "annotation": "-",
-        "driver_read_count": "0.22605E5",
+        "driver_read_count": 22605.0,
         "filter": "PASS",
         "identifier": "ALK-PTPN3.A11P3",
         "driver_gene": "PTPN3",
         "variant_type": "fusion",
         "amois": [
+
         ],
         "read_depth": null,
         "partner_gene": "ALK",
-        "partner_read_count": "0.22605E5"
+        "partner_read_count": 22605.0
       },
       {
         "annotation": "-",
-        "driver_read_count": "0.35639E5",
+        "driver_read_count": 35639.0,
         "filter": "PASS",
         "identifier": "EML4-ALK.E6aA20.AB374361",
         "driver_gene": "ALK",
         "variant_type": "fusion",
         "amois": [
+
         ],
         "read_depth": null,
         "partner_gene": "EML4",
-        "partner_read_count": "0.35639E5"
+        "partner_read_count": 35639.0
       },
       {
         "annotation": "-",
-        "driver_read_count": "0.4624E4",
+        "driver_read_count": 4624.0,
         "filter": "PASS",
         "identifier": "EML4-ALK.E6bA20.AB374362",
         "driver_gene": "ALK",
         "variant_type": "fusion",
         "amois": [
+
         ],
         "read_depth": null,
         "partner_gene": "EML4",
-        "partner_read_count": "0.4624E4"
+        "partner_read_count": 4624.0
       },
       {
         "annotation": "-",
-        "driver_read_count": "0.52197E5",
+        "driver_read_count": 52197.00000000001,
         "filter": "PASS",
         "identifier": "MET-MET.M13M15",
         "driver_gene": "MET",
         "variant_type": "fusion",
         "amois": [
+
         ],
         "read_depth": null,
         "partner_gene": "MET",
-        "partner_read_count": "0.52197E5"
+        "partner_read_count": 52197.00000000001
       }
     ]
   },
@@ -279,6 +292,7 @@
     "date_molecular_id_created": "2016-10-28 12:56:19.566",
     "molecular_id": "SC_KGPVI",
     "copy_number_variants": [
+
     ],
     "date_variant_received": "2016-11-10 17:46:49.401014",
     "report_status": "PASSED",
@@ -290,11 +304,13 @@
     "filename": "SC_KGPVI_MoCha_12_notemplate_passed",
     "oncomine_control_panel_summary": null,
     "snv_indels": [
+
     ],
     "mapd": "1.934",
     "torrent_variant_caller_version": "4.4-8",
     "cellularity": "1.000000",
     "gene_fusions": [
+
     ],
     "control_type": "no_template"
   },
@@ -335,64 +351,69 @@
     "molecular_id": "SC_YQ111",
     "copy_number_variants": [
       {
-        "confidence_interval_5_percent": "0.215486E2",
+        "confidence_interval_5_percent": 21.5486,
         "filter": "PASS",
-        "ref_copy_number": "0.2E1",
+        "ref_copy_number": 2.0,
         "identifier": "MET",
-        "copy_number": "0.23E2",
+        "copy_number": 23.0,
         "variant_type": "cnv",
         "amois": [
+
         ],
-        "confidence_interval_95_percent": "0.245494E2",
-        "raw_copy_number": "0.230001E2"
+        "confidence_interval_95_percent": 24.5494,
+        "raw_copy_number": 23.0001
       },
       {
-        "confidence_interval_5_percent": "0.767819E1",
+        "confidence_interval_5_percent": 7.678190000000001,
         "filter": "PASS",
-        "ref_copy_number": "0.2E1",
+        "ref_copy_number": 2.0,
         "identifier": "ATM",
-        "copy_number": "0.79E1",
+        "copy_number": 7.9,
         "variant_type": "cnv",
         "amois": [
+
         ],
-        "confidence_interval_95_percent": "0.812819E1",
-        "raw_copy_number": "0.789999E1"
+        "confidence_interval_95_percent": 8.12819,
+        "raw_copy_number": 7.89999
       },
       {
-        "confidence_interval_5_percent": "0.153775E2",
+        "confidence_interval_5_percent": 15.3775,
         "filter": "PASS",
-        "ref_copy_number": "0.2E1",
+        "ref_copy_number": 2.0,
         "identifier": "ERBB2",
-        "copy_number": "0.162E2",
+        "copy_number": 16.2,
         "variant_type": "cnv",
         "amois": [
+
         ],
-        "confidence_interval_95_percent": "0.170665E2",
-        "raw_copy_number": "0.162E2"
+        "confidence_interval_95_percent": 17.0665,
+        "raw_copy_number": 16.2
       },
       {
-        "confidence_interval_5_percent": "0.806831E1",
+        "confidence_interval_5_percent": 8.06831,
         "filter": "PASS",
-        "ref_copy_number": "0.2E1",
+        "ref_copy_number": 2.0,
         "identifier": "RPS6KB1",
-        "copy_number": "0.86E1",
+        "copy_number": 8.6,
         "variant_type": "cnv",
         "amois": [
+
         ],
-        "confidence_interval_95_percent": "0.916673E1",
-        "raw_copy_number": "0.86E1"
+        "confidence_interval_95_percent": 9.16673,
+        "raw_copy_number": 8.6
       },
       {
-        "confidence_interval_5_percent": "0.117272E2",
+        "confidence_interval_5_percent": 11.7272,
         "filter": "PASS",
-        "ref_copy_number": "0.2E1",
+        "ref_copy_number": 2.0,
         "identifier": "ZNF217",
-        "copy_number": "0.125E2",
+        "copy_number": 12.5,
         "variant_type": "cnv",
         "amois": [
+
         ],
-        "confidence_interval_95_percent": "0.133237E2",
-        "raw_copy_number": "0.125E2"
+        "confidence_interval_95_percent": 13.323699999999999,
+        "raw_copy_number": 12.5
       }
     ],
     "date_variant_received": "2016-11-10 17:45:49.704602",
@@ -401,95 +422,99 @@
     "analysis_id": "SC_YQ111_analysis_1",
     "copy_number_variant_genes": null,
     "site": "mocha",
-    "total_variants": "0.14E2",
+    "total_variants": 14.000000000000002,
     "filename": "SC_YQ111_negative_FalsePositive",
     "oncomine_control_panel_summary": null,
     "snv_indels": [
       {
-        "reference_allele_observations": "0.1405E4",
+        "reference_allele_observations": 1405.0000000000002,
         "identifier": "COSM12580",
-        "allele_frequency": "0.138275E0",
+        "allele_frequency": 0.138275,
         "ocp_reference": "G",
         "variant_type": "snp",
         "func_gene": "PIK3CA",
         "ocp_alternative": "C",
         "chromosome": "chr3",
         "amois": [
+
         ],
         "oncomine_variant_class": "Hotspot",
         "hgvs": "c.333G>C",
         "filter": "PASS",
-        "flow_reference_allele_observations": "0.1209E4",
+        "flow_reference_allele_observations": 1209.0,
         "transcript": "NM_006218.2",
         "function": "missense",
         "protein": "p.Lys111Asn",
-        "read_depth": "0.1403E4",
+        "read_depth": 1403.0,
         "location": "exonic",
         "alternative_allele_observation_count": "0.0",
         "position": "178916946",
         "exon": "2",
-        "flow_alternative_allele_observation_count": "0.194E3"
+        "flow_alternative_allele_observation_count": 194.0
       },
       {
-        "reference_allele_observations": "0.1875E4",
+        "reference_allele_observations": 1875.0,
         "identifier": "COSM476",
-        "allele_frequency": "0.237406E0",
+        "allele_frequency": 0.237406,
         "ocp_reference": "A",
         "variant_type": "mnp",
         "func_gene": "BRAF",
         "ocp_alternative": "T",
         "chromosome": "chr7",
         "amois": [
+
         ],
         "oncomine_variant_class": "Hotspot",
         "hgvs": "c.1799T>A",
         "filter": "PASS",
-        "flow_reference_allele_observations": "0.1423E4",
+        "flow_reference_allele_observations": 1423.0,
         "transcript": "NM_004333.4",
         "function": "missense",
         "protein": "p.Val600Glu",
-        "read_depth": "0.1866E4",
+        "read_depth": 1865.9999999999998,
         "location": "exonic",
         "alternative_allele_observation_count": "0.0",
         "position": "140453136",
         "exon": "15",
-        "flow_alternative_allele_observation_count": "0.443E3"
+        "flow_alternative_allele_observation_count": 443.0
       },
       {
-        "reference_allele_observations": "0.1079E4",
+        "reference_allele_observations": 1079.0,
         "identifier": ".",
-        "allele_frequency": "0.244413E0",
+        "allele_frequency": 0.244413,
         "ocp_reference": "C",
         "variant_type": "snp",
         "func_gene": "BRCA2",
         "ocp_alternative": "A",
         "chromosome": "chr13",
         "amois": [
+
         ],
         "oncomine_variant_class": "Deleterious",
         "hgvs": "c.9281C>A",
         "filter": "PASS",
-        "flow_reference_allele_observations": "0.1082E4",
+        "flow_reference_allele_observations": 1082.0,
         "transcript": "NM_000059.3",
         "function": "nonsense",
         "protein": "p.Ser3094Ter",
-        "read_depth": "0.1432E4",
+        "read_depth": 1432.0,
         "location": "exonic",
-        "alternative_allele_observation_count": "0.35E3",
+        "alternative_allele_observation_count": 350.0,
         "position": "32968850",
         "exon": "25",
-        "flow_alternative_allele_observation_count": "0.35E3"
+        "flow_alternative_allele_observation_count": 350.0
       },
       {
-        "reference_allele_observations": "0.421E3",
+        "reference_allele_observations": 421.0,
         "identifier": "COSM11356",
-        "allele_frequency": "0.1E1",
+        "allele_frequency": 1.0,
         "ocp_reference": "G",
         "variant_type": "snp",
         "func_gene": "TP53",
         "ocp_alternative": "C",
         "chromosome": "chr17",
         "amois": [
+
         ],
         "oncomine_variant_class": "Hotspot",
         "hgvs": "c.726C>G",
@@ -498,87 +523,90 @@
         "transcript": "NM_000546.5",
         "function": "missense",
         "protein": "p.Cys242Trp",
-        "read_depth": "0.676E3",
+        "read_depth": 676.0,
         "location": "exonic",
         "alternative_allele_observation_count": "0.0",
         "position": "7577555",
         "exon": "7",
-        "flow_alternative_allele_observation_count": "0.676E3"
+        "flow_alternative_allele_observation_count": 676.0
       },
       {
-        "reference_allele_observations": "0.951E3",
+        "reference_allele_observations": 951.0,
         "identifier": ".",
-        "allele_frequency": "0.230831E0",
+        "allele_frequency": 0.230831,
         "ocp_reference": "-",
         "variant_type": "ins",
         "func_gene": "PTEN",
         "ocp_alternative": "A",
         "chromosome": "chr10",
         "amois": [
+
         ],
         "oncomine_variant_class": "Deleterious",
         "hgvs": "c.740_741insA",
         "filter": "PASS",
-        "flow_reference_allele_observations": "0.953E3",
+        "flow_reference_allele_observations": 953.0,
         "transcript": "NM_000314.4",
         "function": "frameshiftInsertion",
         "protein": "p.Pro248fs",
-        "read_depth": "0.1239E4",
+        "read_depth": 1239.0,
         "location": "exonic",
-        "alternative_allele_observation_count": "0.284E3",
+        "alternative_allele_observation_count": 284.0,
         "position": "89717716",
         "exon": "7",
-        "flow_alternative_allele_observation_count": "0.286E3"
+        "flow_alternative_allele_observation_count": 286.0
       },
       {
-        "reference_allele_observations": "0.898E3",
+        "reference_allele_observations": 898.0,
         "identifier": ".",
-        "allele_frequency": "0.221567E0",
+        "allele_frequency": 0.221567,
         "ocp_reference": "ACTT",
         "variant_type": "del",
         "func_gene": "RB1",
         "ocp_alternative": "-",
         "chromosome": "chr13",
         "amois": [
+
         ],
         "oncomine_variant_class": "Deleterious",
         "hgvs": "c.346_349delACTT",
         "filter": "PASS",
-        "flow_reference_allele_observations": "0.924E3",
+        "flow_reference_allele_observations": 924.0,
         "transcript": "NM_000321.2",
         "function": "frameshiftDeletion",
         "protein": "p.Thr116fs",
-        "read_depth": "0.1187E4",
+        "read_depth": 1187.0,
         "location": "exonic",
-        "alternative_allele_observation_count": "0.261E3",
+        "alternative_allele_observation_count": 261.0,
         "position": "48916816",
         "exon": "3",
-        "flow_alternative_allele_observation_count": "0.263E3"
+        "flow_alternative_allele_observation_count": 263.0
       },
       {
-        "reference_allele_observations": "0.1037E4",
+        "reference_allele_observations": 1037.0,
         "identifier": ".",
-        "allele_frequency": "0.171293E0",
+        "allele_frequency": 0.171293,
         "ocp_reference": "G",
         "variant_type": "del",
         "func_gene": "TP53",
         "ocp_alternative": "-",
         "chromosome": "chr17",
         "amois": [
+
         ],
         "oncomine_variant_class": "Deleterious",
         "hgvs": "c.1024_1024delC",
         "filter": "PASS",
-        "flow_reference_allele_observations": "0.1045E4",
+        "flow_reference_allele_observations": 1045.0,
         "transcript": "NM_000546.5",
         "function": "frameshiftDeletion",
         "protein": "p.Arg342fs",
-        "read_depth": "0.1261E4",
+        "read_depth": 1261.0,
         "location": "exonic",
-        "alternative_allele_observation_count": "0.215E3",
+        "alternative_allele_observation_count": 215.0,
         "position": "7574003",
         "exon": "10",
-        "flow_alternative_allele_observation_count": "0.216E3"
+        "flow_alternative_allele_observation_count": 216.0
       }
     ],
     "mapd": "0.268",
@@ -587,29 +615,31 @@
     "gene_fusions": [
       {
         "annotation": "-",
-        "driver_read_count": "0.73149E5",
+        "driver_read_count": 73149.0,
         "filter": "PASS",
         "identifier": "EML4-ALK.E6aA20.AB374361",
         "driver_gene": "ALK",
         "variant_type": "fusion",
         "amois": [
+
         ],
         "read_depth": null,
         "partner_gene": "EML4",
-        "partner_read_count": "0.73149E5"
+        "partner_read_count": 73149.0
       },
       {
         "annotation": "-",
-        "driver_read_count": "0.16372E5",
+        "driver_read_count": 16372.0,
         "filter": "PASS",
         "identifier": "EML4-ALK.E6bA20.AB374362",
         "driver_gene": "ALK",
         "variant_type": "fusion",
         "amois": [
+
         ],
         "read_depth": null,
         "partner_gene": "EML4",
-        "partner_read_count": "0.16372E5"
+        "partner_read_count": 16372.0
       }
     ],
     "control_type": "no_template"
@@ -701,10 +731,10 @@
     "report_status": "FAILED",
     "cdna_bam_name": "IR_WAO85/SC_PALFC/SC_PALFC_analysis_1/SC_PALFC_Mocha_66_v1_falsePositive_RNA.bam",
     "tsv_name": "IR_WAO85/SC_PALFC/SC_PALFC_analysis_1/SC_PALFC_MoCha_66_RNA_v1_falsePositive.tsv",
-    "positive_control_version": "0.4E1",
+    "positive_control_version": 4.0,
     "analysis_id": "SC_PALFC_analysis_1",
     "site": "mocha",
-    "total_variants": "0.16E2",
+    "total_variants": 16.0,
     "filename": "SC_PALFC_MoCha_66_RNA_v1_falsePositive",
     "cdna_bai_name": "IR_WAO85/SC_PALFC/SC_PALFC_analysis_1/SC_PALFC_Mocha_66_v1_falsePositive_RNA.bai",
     "positive_variants": [
@@ -989,6 +1019,7 @@
     "date_molecular_id_created": "2016-10-30 21:12:26.123",
     "molecular_id": "SC_LGU30",
     "copy_number_variants": [
+
     ],
     "date_variant_received": "2016-11-10 17:51:52.237562",
     "site_ip_address": "129.43.127.133",
@@ -1001,11 +1032,13 @@
     "filename": "SNV_Germline_filter_proficiency",
     "oncomine_control_panel_summary": null,
     "snv_indels": [
+
     ],
     "mapd": "0.653",
     "torrent_variant_caller_version": "4.4-8",
     "cellularity": "1.000000",
     "gene_fusions": [
+
     ],
     "control_type": "proficiency_competency"
   },
@@ -1052,6 +1085,7 @@
     "date_molecular_id_created": "2016-09-30 21:12:24.123",
     "dna_bam_name": "IR_WAO85/SC_FDK09/SC_FDK09_analysis_1/SC_FDK09_analysis1_dna.bam",
     "copy_number_variants": [
+
     ],
     "date_variant_received": "2016-11-10 17:50:55.185869",
     "site_ip_address": "129.43.127.133",
@@ -1067,40 +1101,42 @@
     "molecular_id": "SC_FDK09",
     "analysis_id": "SC_FDK09_analysis_1",
     "site": "mocha",
-    "total_variants": "0.1E1",
+    "total_variants": 1.0,
     "filename": "SC_FDK09_analysis_1",
     "cdna_bai_name": "IR_WAO85/SC_FDK09/SC_FDK09_analysis_1/SC_FDK09_analysis_1_cdna.bai",
     "oncomine_control_panel_summary": null,
     "mapd": "0.259",
     "snv_indels": [
       {
-        "reference_allele_observations": "0.93E3",
+        "reference_allele_observations": 930.0,
         "identifier": "COSM18609",
-        "allele_frequency": "0.518327E0",
+        "allele_frequency": 0.518327,
         "ocp_reference": "G",
         "variant_type": "snp",
         "func_gene": "ERBB2",
         "ocp_alternative": "T",
         "chromosome": "chr17",
         "amois": [
+
         ],
         "oncomine_variant_class": "Hotspot",
         "hgvs": "c.2327G>T",
         "filter": "PASS",
-        "flow_reference_allele_observations": "0.933E3",
+        "flow_reference_allele_observations": 933.0,
         "transcript": "NM_004448.3",
         "function": "missense",
         "protein": "p.Gly776Val",
-        "read_depth": "0.1937E4",
+        "read_depth": 1937.0,
         "location": "exonic",
-        "alternative_allele_observation_count": "0.1002E4",
+        "alternative_allele_observation_count": 1002.0,
         "position": "37880998",
         "exon": "20",
-        "flow_alternative_allele_observation_count": "0.1004E4"
+        "flow_alternative_allele_observation_count": 1004.0
       }
     ],
     "torrent_variant_caller_version": "4.2-13",
     "gene_fusions": [
+
     ]
   },
   {
@@ -1115,6 +1151,7 @@
     "date_molecular_id_created": "2016-10-20 21:10:26.183",
     "molecular_id": "SC_BAXXY",
     "copy_number_variants": [
+
     ],
     "date_variant_received": "2016-11-10 17:52:52.964882",
     "site_ip_address": "129.43.127.133",
@@ -1123,340 +1160,354 @@
     "analysis_id": "SC_BAXXY_analysis_1",
     "copy_number_variant_genes": null,
     "site": "mdacc",
-    "total_variants": "0.13E2",
+    "total_variants": 13.0,
     "filename": "SNV_NO_PASS_filter_proficiency",
     "oncomine_control_panel_summary": null,
     "snv_indels": [
       {
-        "reference_allele_observations": "0.1623E4",
+        "reference_allele_observations": 1623.0,
         "identifier": "match769.3.3",
-        "allele_frequency": "0.5E-1",
+        "allele_frequency": 0.05,
         "ocp_reference": "T",
         "variant_type": "snp",
         "func_gene": "KIT",
         "ocp_alternative": "A",
         "chromosome": "chr3",
         "amois": [
+
         ],
         "oncomine_variant_class": null,
         "hgvs": null,
         "filter": "PASS",
-        "flow_reference_allele_observations": "0.1625E4",
+        "flow_reference_allele_observations": 1625.0,
         "transcript": null,
         "function": null,
         "protein": null,
-        "read_depth": "0.1975E4",
+        "read_depth": 1975.0,
         "location": "exonic",
         "alternative_allele_observation_count": "0.0",
         "position": "33593613",
         "exon": "22",
-        "flow_alternative_allele_observation_count": "0.35E3"
+        "flow_alternative_allele_observation_count": 350.0
       },
       {
-        "reference_allele_observations": "0.1623E4",
+        "reference_allele_observations": 1623.0,
         "identifier": "match769.3.6",
-        "allele_frequency": "0.5E-1",
+        "allele_frequency": 0.05,
         "ocp_reference": "T",
         "variant_type": "snp",
         "func_gene": "KIT",
         "ocp_alternative": "A",
         "chromosome": "chr6",
         "amois": [
+
         ],
         "oncomine_variant_class": null,
         "hgvs": null,
         "filter": "PASS",
-        "flow_reference_allele_observations": "0.1625E4",
+        "flow_reference_allele_observations": 1625.0,
         "transcript": null,
         "function": null,
         "protein": "match769",
-        "read_depth": "0.1975E4",
+        "read_depth": 1975.0,
         "location": "exonic",
         "alternative_allele_observation_count": "0.0",
         "position": "66593613",
         "exon": "22",
-        "flow_alternative_allele_observation_count": "0.35E3"
+        "flow_alternative_allele_observation_count": 350.0
       },
       {
-        "reference_allele_observations": "0.1623E4",
+        "reference_allele_observations": 1623.0,
         "identifier": "match769.3.8",
-        "allele_frequency": "0.1E1",
+        "allele_frequency": 1.0,
         "ocp_reference": "T",
         "variant_type": "snp",
         "func_gene": "KIT",
         "ocp_alternative": "A",
         "chromosome": "chr8",
         "amois": [
+
         ],
         "oncomine_variant_class": null,
         "hgvs": null,
         "filter": "PASS",
-        "flow_reference_allele_observations": "0.1625E4",
+        "flow_reference_allele_observations": 1625.0,
         "transcript": null,
         "function": "refallele",
         "protein": null,
-        "read_depth": "0.165E4",
+        "read_depth": 1650.0,
         "location": "exonic",
         "alternative_allele_observation_count": "0.0",
         "position": "88593606",
         "exon": null,
-        "flow_alternative_allele_observation_count": "0.25E2"
+        "flow_alternative_allele_observation_count": 25.0
       },
       {
-        "reference_allele_observations": "0.1623E4",
+        "reference_allele_observations": 1623.0,
         "identifier": "match769.3.9",
-        "allele_frequency": "0.1E1",
+        "allele_frequency": 1.0,
         "ocp_reference": "T",
         "variant_type": "snp",
         "func_gene": "KIT",
         "ocp_alternative": "A",
         "chromosome": "chr9",
         "amois": [
+
         ],
         "oncomine_variant_class": null,
         "hgvs": null,
         "filter": "PASS",
-        "flow_reference_allele_observations": "0.1625E4",
+        "flow_reference_allele_observations": 1625.0,
         "transcript": null,
         "function": "unknown",
         "protein": null,
-        "read_depth": "0.165E4",
+        "read_depth": 1650.0,
         "location": "exonic",
         "alternative_allele_observation_count": "0.0",
         "position": "99593606",
         "exon": null,
-        "flow_alternative_allele_observation_count": "0.25E2"
+        "flow_alternative_allele_observation_count": 25.0
       },
       {
-        "reference_allele_observations": "0.1623E4",
+        "reference_allele_observations": 1623.0,
         "identifier": "match769.3.10",
-        "allele_frequency": "0.1E1",
+        "allele_frequency": 1.0,
         "ocp_reference": "T",
         "variant_type": "snp",
         "func_gene": "KIT",
         "ocp_alternative": "A",
         "chromosome": "chr10",
         "amois": [
+
         ],
         "oncomine_variant_class": null,
         "hgvs": null,
         "filter": "PASS",
-        "flow_reference_allele_observations": "0.1625E4",
+        "flow_reference_allele_observations": 1625.0,
         "transcript": null,
         "function": "missense",
         "protein": null,
-        "read_depth": "0.165E4",
+        "read_depth": 1650.0,
         "location": "exonic",
         "alternative_allele_observation_count": "0.0",
         "position": "10593601",
         "exon": null,
-        "flow_alternative_allele_observation_count": "0.25E2"
+        "flow_alternative_allele_observation_count": 25.0
       },
       {
-        "reference_allele_observations": "0.1623E4",
+        "reference_allele_observations": 1623.0,
         "identifier": "match769.3.11",
-        "allele_frequency": "0.1E1",
+        "allele_frequency": 1.0,
         "ocp_reference": "T",
         "variant_type": "snp",
         "func_gene": "KIT",
         "ocp_alternative": "A",
         "chromosome": "chr11",
         "amois": [
+
         ],
         "oncomine_variant_class": null,
         "hgvs": null,
         "filter": "PASS",
-        "flow_reference_allele_observations": "0.1625E4",
+        "flow_reference_allele_observations": 1625.0,
         "transcript": null,
         "function": "nonsense",
         "protein": null,
-        "read_depth": "0.165E4",
+        "read_depth": 1650.0,
         "location": "exonic",
         "alternative_allele_observation_count": "0.0",
         "position": "11593601",
         "exon": null,
-        "flow_alternative_allele_observation_count": "0.25E2"
+        "flow_alternative_allele_observation_count": 25.0
       },
       {
-        "reference_allele_observations": "0.1623E4",
+        "reference_allele_observations": 1623.0,
         "identifier": "match769.3.12",
-        "allele_frequency": "0.1E1",
+        "allele_frequency": 1.0,
         "ocp_reference": "T",
         "variant_type": "snp",
         "func_gene": "KIT",
         "ocp_alternative": "A",
         "chromosome": "chr12",
         "amois": [
+
         ],
         "oncomine_variant_class": null,
         "hgvs": null,
         "filter": "PASS",
-        "flow_reference_allele_observations": "0.1625E4",
+        "flow_reference_allele_observations": 1625.0,
         "transcript": null,
         "function": "frameshiftinsertion",
         "protein": null,
-        "read_depth": "0.165E4",
+        "read_depth": 1650.0,
         "location": "exonic",
         "alternative_allele_observation_count": "0.0",
         "position": "12593601",
         "exon": null,
-        "flow_alternative_allele_observation_count": "0.25E2"
+        "flow_alternative_allele_observation_count": 25.0
       },
       {
-        "reference_allele_observations": "0.1623E4",
+        "reference_allele_observations": 1623.0,
         "identifier": "match769.3.13",
-        "allele_frequency": "0.1E1",
+        "allele_frequency": 1.0,
         "ocp_reference": "T",
         "variant_type": "snp",
         "func_gene": "KIT",
         "ocp_alternative": "A",
         "chromosome": "chr13",
         "amois": [
+
         ],
         "oncomine_variant_class": null,
         "hgvs": null,
         "filter": "PASS",
-        "flow_reference_allele_observations": "0.1625E4",
+        "flow_reference_allele_observations": 1625.0,
         "transcript": null,
         "function": "frameshiftdeletion",
         "protein": null,
-        "read_depth": "0.165E4",
+        "read_depth": 1650.0,
         "location": "exonic",
         "alternative_allele_observation_count": "0.0",
         "position": "13593601",
         "exon": null,
-        "flow_alternative_allele_observation_count": "0.25E2"
+        "flow_alternative_allele_observation_count": 25.0
       },
       {
-        "reference_allele_observations": "0.1623E4",
+        "reference_allele_observations": 1623.0,
         "identifier": "match769.3.14",
-        "allele_frequency": "0.1E1",
+        "allele_frequency": 1.0,
         "ocp_reference": "T",
         "variant_type": "snp",
         "func_gene": "KIT",
         "ocp_alternative": "A",
         "chromosome": "chr14",
         "amois": [
+
         ],
         "oncomine_variant_class": null,
         "hgvs": null,
         "filter": "PASS",
-        "flow_reference_allele_observations": "0.1625E4",
+        "flow_reference_allele_observations": 1625.0,
         "transcript": null,
         "function": "nonframeshiftinsertion",
         "protein": null,
-        "read_depth": "0.165E4",
+        "read_depth": 1650.0,
         "location": "exonic",
         "alternative_allele_observation_count": "0.0",
         "position": "14593601",
         "exon": null,
-        "flow_alternative_allele_observation_count": "0.25E2"
+        "flow_alternative_allele_observation_count": 25.0
       },
       {
-        "reference_allele_observations": "0.1623E4",
+        "reference_allele_observations": 1623.0,
         "identifier": "match769.3.15",
-        "allele_frequency": "0.1E1",
+        "allele_frequency": 1.0,
         "ocp_reference": "T",
         "variant_type": "snp",
         "func_gene": "KIT",
         "ocp_alternative": "A",
         "chromosome": "chr15",
         "amois": [
+
         ],
         "oncomine_variant_class": null,
         "hgvs": null,
         "filter": "PASS",
-        "flow_reference_allele_observations": "0.1625E4",
+        "flow_reference_allele_observations": 1625.0,
         "transcript": null,
         "function": "nonframeshiftinsertion",
         "protein": null,
-        "read_depth": "0.165E4",
+        "read_depth": 1650.0,
         "location": "exonic",
         "alternative_allele_observation_count": "0.0",
         "position": "15593601",
         "exon": null,
-        "flow_alternative_allele_observation_count": "0.25E2"
+        "flow_alternative_allele_observation_count": 25.0
       },
       {
-        "reference_allele_observations": "0.1623E4",
+        "reference_allele_observations": 1623.0,
         "identifier": "match769.3.16",
-        "allele_frequency": "0.1E1",
+        "allele_frequency": 1.0,
         "ocp_reference": "T",
         "variant_type": "snp",
         "func_gene": "KIT",
         "ocp_alternative": "A",
         "chromosome": "chr16",
         "amois": [
+
         ],
         "oncomine_variant_class": null,
         "hgvs": null,
         "filter": "PASS",
-        "flow_reference_allele_observations": "0.1625E4",
+        "flow_reference_allele_observations": 1625.0,
         "transcript": null,
         "function": "stoploss",
         "protein": null,
-        "read_depth": "0.165E4",
+        "read_depth": 1650.0,
         "location": "exonic",
         "alternative_allele_observation_count": "0.0",
         "position": "16593601",
         "exon": null,
-        "flow_alternative_allele_observation_count": "0.25E2"
+        "flow_alternative_allele_observation_count": 25.0
       },
       {
-        "reference_allele_observations": "0.1623E4",
+        "reference_allele_observations": 1623.0,
         "identifier": "match769.3.17",
-        "allele_frequency": "0.1E1",
+        "allele_frequency": 1.0,
         "ocp_reference": "T",
         "variant_type": "snp",
         "func_gene": "KIT",
         "ocp_alternative": "A",
         "chromosome": "chr17",
         "amois": [
+
         ],
         "oncomine_variant_class": null,
         "hgvs": null,
         "filter": "PASS",
-        "flow_reference_allele_observations": "0.1625E4",
+        "flow_reference_allele_observations": 1625.0,
         "transcript": null,
         "function": "frameshiftblocksubstitution",
         "protein": null,
-        "read_depth": "0.165E4",
+        "read_depth": 1650.0,
         "location": "exonic",
         "alternative_allele_observation_count": "0.0",
         "position": "17593601",
         "exon": null,
-        "flow_alternative_allele_observation_count": "0.25E2"
+        "flow_alternative_allele_observation_count": 25.0
       },
       {
-        "reference_allele_observations": "0.1623E4",
+        "reference_allele_observations": 1623.0,
         "identifier": "match769.3.18",
-        "allele_frequency": "0.1E1",
+        "allele_frequency": 1.0,
         "ocp_reference": "T",
         "variant_type": "snp",
         "func_gene": "KIT",
         "ocp_alternative": "A",
         "chromosome": "chr18",
         "amois": [
+
         ],
         "oncomine_variant_class": null,
         "hgvs": null,
         "filter": "PASS",
-        "flow_reference_allele_observations": "0.1625E4",
+        "flow_reference_allele_observations": 1625.0,
         "transcript": null,
         "function": "nonframeshiftblocksubstitution",
         "protein": null,
-        "read_depth": "0.165E4",
+        "read_depth": 1650.0,
         "location": "exonic",
         "alternative_allele_observation_count": "0.0",
         "position": "18593601",
         "exon": null,
-        "flow_alternative_allele_observation_count": "0.25E2"
+        "flow_alternative_allele_observation_count": 25.0
       }
     ],
     "mapd": "0.224",
     "torrent_variant_caller_version": "4.2-13",
     "cellularity": "1.000000",
     "gene_fusions": [
+
     ],
     "control_type": "proficiency_competency"
   },
@@ -1579,10 +1630,10 @@
     "pass_flag": false,
     "confirmed": true,
     "tsv_name": "IR_UITEST/SC_A2PD6/SC_A2PD6_ANI/test1.tsv",
-    "positive_control_version": "0.4E1",
+    "positive_control_version": 4.0,
     "analysis_id": "SC_A2PD6_ANI",
     "site": "mocha",
-    "total_variants": "0.7E1",
+    "total_variants": 7.0,
     "filename": "test1",
     "cdna_bai_name": "IR_UITEST/SC_A2PD6/SC_A2PD6_ANI/cdna.bai",
     "positive_variants": [
@@ -1853,10 +1904,10 @@
     "report_status": "FAILED",
     "cdna_bam_name": "IR_WAO85/SC_67VKV/SC_67VKV_analysis_2/SC_67VKV_analysis_2_cdna.bam",
     "tsv_name": "IR_WAO85/SC_67VKV/SC_67VKV_analysis_2/SC_67VKV_analysis_2.tsv",
-    "positive_control_version": "0.4E1",
+    "positive_control_version": 4.0,
     "analysis_id": "SC_67VKV_analysis_2",
     "site": "mocha",
-    "total_variants": "0.11E2",
+    "total_variants": 11.0,
     "filename": "SC_67VKV_analysis_2",
     "cdna_bai_name": "IR_WAO85/SC_67VKV/SC_67VKV_analysis_2/SC_67VKV_analysis_2_cdna.bai",
     "positive_variants": [
@@ -2021,6 +2072,7 @@
     "torrent_variant_caller_version": "4.4-8",
     "cellularity": "1.000000",
     "false_positive_variants": [
+
     ],
     "control_type": "positive"
   },
@@ -2042,10 +2094,10 @@
     "report_status": "PASSED",
     "cdna_bam_name": "IR_WAO85/SC_5AMCC/SC_5AMCC_analysis_1/SC_5AMCC_Mocha_25_v1_positive_passed_RNA.bam",
     "tsv_name": "IR_WAO85/SC_5AMCC/SC_5AMCC_analysis_1/SC_5AMCC_MoCha_25_v1_positive_passed.tsv",
-    "positive_control_version": "0.4E1",
+    "positive_control_version": 4.0,
     "analysis_id": "SC_5AMCC_analysis_1",
     "site": "mocha",
-    "total_variants": "0.13E2",
+    "total_variants": 13.0,
     "filename": "SC_5AMCC_MoCha_25_v1_positive_passed",
     "cdna_bai_name": "IR_WAO85/SC_5AMCC/SC_5AMCC_analysis_1/SC_5AMCC_Mocha_25_v1_positive_passed_RNA.bai",
     "positive_variants": [
@@ -2210,6 +2262,7 @@
     "torrent_variant_caller_version": "5.0-9",
     "cellularity": "1.000000",
     "false_positive_variants": [
+
     ],
     "control_type": "positive"
   },

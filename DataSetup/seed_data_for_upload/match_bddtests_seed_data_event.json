@@ -4673,15 +4673,15 @@
       "patient_status": "REGISTRATION",
       "step": "1.0"
     },
-    "event_message": "REGISTRATION message received from COG for patient PT_SC01c_PendingApproval.",
-    "entity_id": "PT_SC01c_PendingApproval",
+    "event_message": "REGISTRATION message received from COG for patient PT_SC01d_PendingApproval.",
+    "entity_id": "PT_SC01d_PendingApproval",
     "event_date": "2017-01-04T02:19:25.977"
   },
   {
     "event_type": "specimen",
     "event_data": {
-      "surgical_event_id": "PT_SC01c_PendingApproval_SEI1",
-      "patient_id": "PT_SC01c_PendingApproval",
+      "surgical_event_id": "PT_SC01d_PendingApproval_SEI1",
+      "patient_id": "PT_SC01d_PendingApproval",
       "step": "1.0",
       "study_id": "APEC1621",
       "type": "TISSUE",
@@ -4689,16 +4689,16 @@
       "collection_dt": "2016-04-25"
     },
     "event_message": "Specimen of type TISSUE received at NCH.",
-    "entity_id": "PT_SC01c_PendingApproval",
+    "entity_id": "PT_SC01d_PendingApproval",
     "event_date": "2017-01-04T02:19:30.176"
   },
   {
     "event_type": "specimen",
     "event_data": {
       "carrier": "Federal Express",
-      "surgical_event_id": "PT_SC01c_PendingApproval_SEI1",
+      "surgical_event_id": "PT_SC01d_PendingApproval_SEI1",
       "molecular_cdna_id": null,
-      "molecular_id": "PT_SC01c_PendingApproval_MOI1",
+      "molecular_id": "PT_SC01d_PendingApproval_MOI1",
       "destination": "MDA",
       "tracking_number": "7956 4568 1235",
       "step": "1.0",
@@ -4706,22 +4706,22 @@
       "type": "TISSUE_DNA_AND_CDNA"
     },
     "event_message": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH.",
-    "entity_id": "PT_SC01c_PendingApproval",
+    "entity_id": "PT_SC01d_PendingApproval",
     "event_date": "2017-01-04T02:19:32.353"
   },
   {
     "event_type": "specimen",
     "event_data": {
       "carrier": "Federal Express",
-      "surgical_event_id": "PT_SC01c_PendingApproval_SEI1",
+      "surgical_event_id": "PT_SC01d_PendingApproval_SEI1",
       "destination": "MDA",
       "tracking_number": "7956 4568 1235",
       "step": "1.0",
-      "slide_barcode": "PT_SC01c_PendingApproval_BC1",
+      "slide_barcode": "PT_SC01d_PendingApproval_BC1",
       "type": "SLIDE"
     },
     "event_message": "Specimen Shipment of type SLIDE shipped from NCH.",
-    "entity_id": "PT_SC01c_PendingApproval",
+    "entity_id": "PT_SC01d_PendingApproval",
     "event_date": "2017-01-04T02:19:34.432"
   },
   {
@@ -4733,7 +4733,7 @@
       "biomarker": "ICCPTENs"
     },
     "event_message": "Assay result for ICCPTENs received from MDA.",
-    "entity_id": "PT_SC01c_PendingApproval",
+    "entity_id": "PT_SC01d_PendingApproval",
     "event_date": "2017-01-04T02:19:36.513"
   },
   {
@@ -4745,7 +4745,7 @@
       "biomarker": "ICCBAF47s"
     },
     "event_message": "Assay result for ICCBAF47s received from MDA.",
-    "entity_id": "PT_SC01c_PendingApproval",
+    "entity_id": "PT_SC01d_PendingApproval",
     "event_date": "2017-01-04T02:19:38.605"
   },
   {
@@ -4757,7 +4757,7 @@
       "biomarker": "ICCBRG1s"
     },
     "event_message": "Assay result for ICCBRG1s received from MDA.",
-    "entity_id": "PT_SC01c_PendingApproval",
+    "entity_id": "PT_SC01d_PendingApproval",
     "event_date": "2017-01-04T02:19:40.732"
   },
   {
@@ -4765,30 +4765,30 @@
     "event_data": {
       "variant_report_status": "PENDING",
       "specimen_received_date": null,
-      "molecular_id": "PT_SC01c_PendingApproval_MOI1",
+      "molecular_id": "PT_SC01d_PendingApproval_MOI1",
       "clia_lab": null,
       "variant_report_type": "TISSUE",
       "step": "1.0",
-      "analysis_id": "PT_SC01c_PendingApproval_ANI1"
+      "analysis_id": "PT_SC01d_PendingApproval_ANI1"
     },
     "event_message": "TISSUE Variant Report received.",
-    "entity_id": "PT_SC01c_PendingApproval",
+    "entity_id": "PT_SC01d_PendingApproval",
     "event_date": "2017-01-04T02:19:49.968"
   },
   {
     "event_type": "variant_report",
     "event_data": {
       "variant_report_status": "CONFIRMED",
-      "surgical_event_id": "PT_SC01c_PendingApproval_SEI1",
-      "patient_id": "PT_SC01c_PendingApproval",
+      "surgical_event_id": "PT_SC01d_PendingApproval_SEI1",
+      "patient_id": "PT_SC01d_PendingApproval",
       "comment_user": "Rick",
       "comment": "The committee approves this variant report",
       "step": "1.0",
-      "analysis_id": "PT_SC01c_PendingApproval_ANI1",
+      "analysis_id": "PT_SC01d_PendingApproval_ANI1",
       "status": "CONFIRMED"
     },
     "event_message": "TISSUE Variant Report updated to CONFIRMED.",
-    "entity_id": "PT_SC01c_PendingApproval",
+    "entity_id": "PT_SC01d_PendingApproval",
     "event_date": "2017-01-04T02:19:51.074"
   },
   {
@@ -4796,13 +4796,13 @@
     "event_data": {
       "step": "1.0",
       "assignment_report_status": "AWAITING_PATIENT_DATA",
-      "surgical_event_id": "PT_SC01c_PendingApproval_SEI1",
-      "analysis_id": "PT_SC01c_PendingApproval_ANI1",
+      "surgical_event_id": "PT_SC01d_PendingApproval_SEI1",
+      "analysis_id": "PT_SC01d_PendingApproval_ANI1",
       "status": "AWAITING_PATIENT_DATA",
-      "molecular_id": "PT_SC01c_PendingApproval_MOI1"
+      "molecular_id": "PT_SC01d_PendingApproval_MOI1"
     },
     "event_message": "Patient is ready for assignment, awaiting patient data from COG.",
-    "entity_id": "PT_SC01c_PendingApproval",
+    "entity_id": "PT_SC01d_PendingApproval",
     "event_date": "2017-01-04T02:19:53.812"
   },
   {
@@ -4810,13 +4810,13 @@
     "event_data": {
       "step": "1.0",
       "assignment_report_status": "AWAITING_TREATMENT_ARM_STATUS",
-      "surgical_event_id": "PT_SC01c_PendingApproval_SEI1",
-      "analysis_id": "PT_SC01c_PendingApproval_ANI1",
+      "surgical_event_id": "PT_SC01d_PendingApproval_SEI1",
+      "analysis_id": "PT_SC01d_PendingApproval_ANI1",
       "status": "AWAITING_TREATMENT_ARM_STATUS",
-      "molecular_id": "PT_SC01c_PendingApproval_MOI1"
+      "molecular_id": "PT_SC01d_PendingApproval_MOI1"
     },
     "event_message": "Patient is ready for assignment, awaiting treatment arm statuses from COG.",
-    "entity_id": "PT_SC01c_PendingApproval",
+    "entity_id": "PT_SC01d_PendingApproval",
     "event_date": "2017-01-04T02:19:55.980"
   },
   {
@@ -4828,16 +4828,16 @@
         "version": "2015-08-06",
         "stratum_id": "100"
       },
-      "surgical_event_id": "PT_SC01c_PendingApproval_SEI1",
+      "surgical_event_id": "PT_SC01d_PendingApproval_SEI1",
       "assignment_report_status": "TREATMENT_FOUND",
-      "molecular_id": "PT_SC01c_PendingApproval_MOI1",
+      "molecular_id": "PT_SC01d_PendingApproval_MOI1",
       "step": "1.0",
       "patient_status": "PENDING_CONFIRMATION",
-      "analysis_id": "PT_SC01c_PendingApproval_ANI1",
+      "analysis_id": "PT_SC01d_PendingApproval_ANI1",
       "status": "PENDING_CONFIRMATION"
     },
     "event_message": "Patient assignment is pending confirmation",
-    "entity_id": "PT_SC01c_PendingApproval",
+    "entity_id": "PT_SC01d_PendingApproval",
     "event_date": "2017-01-04T02:20:03.768"
   },
   {
@@ -4849,18 +4849,18 @@
         "version": "2015-08-06",
         "stratum_id": "100"
       },
-      "surgical_event_id": "PT_SC01c_PendingApproval_SEI1",
+      "surgical_event_id": "PT_SC01d_PendingApproval_SEI1",
       "assignment_report_status": "CONFIRMED",
       "comment_user": "Rick",
-      "molecular_id": "PT_SC01c_PendingApproval_MOI1",
+      "molecular_id": "PT_SC01d_PendingApproval_MOI1",
       "comment": "The committee approves this Assignment report",
       "step": "1.0",
       "patient_status": "PENDING_APPROVAL",
-      "analysis_id": "PT_SC01c_PendingApproval_ANI1",
+      "analysis_id": "PT_SC01d_PendingApproval_ANI1",
       "status": "PENDING_APPROVAL"
     },
     "event_message": "Patient assignment is pending approval by COG",
-    "entity_id": "PT_SC01c_PendingApproval",
+    "entity_id": "PT_SC01d_PendingApproval",
     "event_date": "2017-01-04T02:20:06.674"
   },
   {
@@ -30076,15 +30076,15 @@
       "patient_status": "REGISTRATION",
       "step": "1.0"
     },
-    "event_message": "REGISTRATION message received from COG for patient PT_SC01c_PendingApprovalStep2.",
-    "entity_id": "PT_SC01c_PendingApprovalStep2",
+    "event_message": "REGISTRATION message received from COG for patient PT_SC01d_PendingApprovalStep2.",
+    "entity_id": "PT_SC01d_PendingApprovalStep2",
     "event_date": "2017-01-04T01:03:04.882"
   },
   {
     "event_type": "specimen",
     "event_data": {
-      "surgical_event_id": "PT_SC01c_PendingApprovalStep2_SEI1",
-      "patient_id": "PT_SC01c_PendingApprovalStep2",
+      "surgical_event_id": "PT_SC01d_PendingApprovalStep2_SEI1",
+      "patient_id": "PT_SC01d_PendingApprovalStep2",
       "step": "1.0",
       "study_id": "APEC1621",
       "type": "TISSUE",
@@ -30092,16 +30092,16 @@
       "collection_dt": "2016-04-25"
     },
     "event_message": "Specimen of type TISSUE received at NCH.",
-    "entity_id": "PT_SC01c_PendingApprovalStep2",
+    "entity_id": "PT_SC01d_PendingApprovalStep2",
     "event_date": "2017-01-04T01:03:07.095"
   },
   {
     "event_type": "specimen",
     "event_data": {
       "carrier": "Federal Express",
-      "surgical_event_id": "PT_SC01c_PendingApprovalStep2_SEI1",
+      "surgical_event_id": "PT_SC01d_PendingApprovalStep2_SEI1",
       "molecular_cdna_id": null,
-      "molecular_id": "PT_SC01c_PendingApprovalStep2_MOI1",
+      "molecular_id": "PT_SC01d_PendingApprovalStep2_MOI1",
       "destination": "MDA",
       "tracking_number": "7956 4568 1235",
       "step": "1.0",
@@ -30109,22 +30109,22 @@
       "type": "TISSUE_DNA_AND_CDNA"
     },
     "event_message": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH.",
-    "entity_id": "PT_SC01c_PendingApprovalStep2",
+    "entity_id": "PT_SC01d_PendingApprovalStep2",
     "event_date": "2017-01-04T01:03:09.333"
   },
   {
     "event_type": "specimen",
     "event_data": {
       "carrier": "Federal Express",
-      "surgical_event_id": "PT_SC01c_PendingApprovalStep2_SEI1",
+      "surgical_event_id": "PT_SC01d_PendingApprovalStep2_SEI1",
       "destination": "MDA",
       "tracking_number": "7956 4568 1235",
       "step": "1.0",
-      "slide_barcode": "PT_SC01c_PendingApprovalStep2_BC1",
+      "slide_barcode": "PT_SC01d_PendingApprovalStep2_BC1",
       "type": "SLIDE"
     },
     "event_message": "Specimen Shipment of type SLIDE shipped from NCH.",
-    "entity_id": "PT_SC01c_PendingApprovalStep2",
+    "entity_id": "PT_SC01d_PendingApprovalStep2",
     "event_date": "2017-01-04T01:03:09.732"
   },
   {
@@ -30136,7 +30136,7 @@
       "biomarker": "ICCPTENs"
     },
     "event_message": "Assay result for ICCPTENs received from MDA.",
-    "entity_id": "PT_SC01c_PendingApprovalStep2",
+    "entity_id": "PT_SC01d_PendingApprovalStep2",
     "event_date": "2017-01-04T01:03:11.845"
   },
   {
@@ -30148,7 +30148,7 @@
       "biomarker": "ICCBAF47s"
     },
     "event_message": "Assay result for ICCBAF47s received from MDA.",
-    "entity_id": "PT_SC01c_PendingApprovalStep2",
+    "entity_id": "PT_SC01d_PendingApprovalStep2",
     "event_date": "2017-01-04T01:03:13.933"
   },
   {
@@ -30160,7 +30160,7 @@
       "biomarker": "ICCBRG1s"
     },
     "event_message": "Assay result for ICCBRG1s received from MDA.",
-    "entity_id": "PT_SC01c_PendingApprovalStep2",
+    "entity_id": "PT_SC01d_PendingApprovalStep2",
     "event_date": "2017-01-04T01:03:16.084"
   },
   {
@@ -30168,30 +30168,30 @@
     "event_data": {
       "variant_report_status": "PENDING",
       "specimen_received_date": null,
-      "molecular_id": "PT_SC01c_PendingApprovalStep2_MOI1",
+      "molecular_id": "PT_SC01d_PendingApprovalStep2_MOI1",
       "clia_lab": null,
       "variant_report_type": "TISSUE",
       "step": "1.0",
-      "analysis_id": "PT_SC01c_PendingApprovalStep2_ANI1"
+      "analysis_id": "PT_SC01d_PendingApprovalStep2_ANI1"
     },
     "event_message": "TISSUE Variant Report received.",
-    "entity_id": "PT_SC01c_PendingApprovalStep2",
+    "entity_id": "PT_SC01d_PendingApprovalStep2",
     "event_date": "2017-01-04T01:03:28.383"
   },
   {
     "event_type": "variant_report",
     "event_data": {
       "variant_report_status": "CONFIRMED",
-      "surgical_event_id": "PT_SC01c_PendingApprovalStep2_SEI1",
-      "patient_id": "PT_SC01c_PendingApprovalStep2",
+      "surgical_event_id": "PT_SC01d_PendingApprovalStep2_SEI1",
+      "patient_id": "PT_SC01d_PendingApprovalStep2",
       "comment_user": "Rick",
       "comment": "The committee approves this variant report",
       "step": "1.0",
-      "analysis_id": "PT_SC01c_PendingApprovalStep2_ANI1",
+      "analysis_id": "PT_SC01d_PendingApprovalStep2_ANI1",
       "status": "CONFIRMED"
     },
     "event_message": "TISSUE Variant Report updated to CONFIRMED.",
-    "entity_id": "PT_SC01c_PendingApprovalStep2",
+    "entity_id": "PT_SC01d_PendingApprovalStep2",
     "event_date": "2017-01-04T01:03:30.682"
   },
   {
@@ -30199,13 +30199,13 @@
     "event_data": {
       "step": "1.0",
       "assignment_report_status": "AWAITING_PATIENT_DATA",
-      "surgical_event_id": "PT_SC01c_PendingApprovalStep2_SEI1",
-      "analysis_id": "PT_SC01c_PendingApprovalStep2_ANI1",
+      "surgical_event_id": "PT_SC01d_PendingApprovalStep2_SEI1",
+      "analysis_id": "PT_SC01d_PendingApprovalStep2_ANI1",
       "status": "AWAITING_PATIENT_DATA",
-      "molecular_id": "PT_SC01c_PendingApprovalStep2_MOI1"
+      "molecular_id": "PT_SC01d_PendingApprovalStep2_MOI1"
     },
     "event_message": "Patient is ready for assignment, awaiting patient data from COG.",
-    "entity_id": "PT_SC01c_PendingApprovalStep2",
+    "entity_id": "PT_SC01d_PendingApprovalStep2",
     "event_date": "2017-01-04T01:03:32.332"
   },
   {
@@ -30213,13 +30213,13 @@
     "event_data": {
       "step": "1.0",
       "assignment_report_status": "AWAITING_TREATMENT_ARM_STATUS",
-      "surgical_event_id": "PT_SC01c_PendingApprovalStep2_SEI1",
-      "analysis_id": "PT_SC01c_PendingApprovalStep2_ANI1",
+      "surgical_event_id": "PT_SC01d_PendingApprovalStep2_SEI1",
+      "analysis_id": "PT_SC01d_PendingApprovalStep2_ANI1",
       "status": "AWAITING_TREATMENT_ARM_STATUS",
-      "molecular_id": "PT_SC01c_PendingApprovalStep2_MOI1"
+      "molecular_id": "PT_SC01d_PendingApprovalStep2_MOI1"
     },
     "event_message": "Patient is ready for assignment, awaiting treatment arm statuses from COG.",
-    "entity_id": "PT_SC01c_PendingApprovalStep2",
+    "entity_id": "PT_SC01d_PendingApprovalStep2",
     "event_date": "2017-01-04T01:03:32.982"
   },
   {
@@ -30231,16 +30231,16 @@
         "version": "2015-08-06",
         "stratum_id": "100"
       },
-      "surgical_event_id": "PT_SC01c_PendingApprovalStep2_SEI1",
+      "surgical_event_id": "PT_SC01d_PendingApprovalStep2_SEI1",
       "assignment_report_status": "TREATMENT_FOUND",
-      "molecular_id": "PT_SC01c_PendingApprovalStep2_MOI1",
+      "molecular_id": "PT_SC01d_PendingApprovalStep2_MOI1",
       "step": "1.0",
       "patient_status": "PENDING_CONFIRMATION",
-      "analysis_id": "PT_SC01c_PendingApprovalStep2_ANI1",
+      "analysis_id": "PT_SC01d_PendingApprovalStep2_ANI1",
       "status": "PENDING_CONFIRMATION"
     },
     "event_message": "Patient assignment is pending confirmation",
-    "entity_id": "PT_SC01c_PendingApprovalStep2",
+    "entity_id": "PT_SC01d_PendingApprovalStep2",
     "event_date": "2017-01-04T01:03:41.733"
   },
   {
@@ -30252,18 +30252,18 @@
         "version": "2015-08-06",
         "stratum_id": "100"
       },
-      "surgical_event_id": "PT_SC01c_PendingApprovalStep2_SEI1",
+      "surgical_event_id": "PT_SC01d_PendingApprovalStep2_SEI1",
       "assignment_report_status": "CONFIRMED",
       "comment_user": "Rick",
-      "molecular_id": "PT_SC01c_PendingApprovalStep2_MOI1",
+      "molecular_id": "PT_SC01d_PendingApprovalStep2_MOI1",
       "comment": "The committee approves this Assignment report",
       "step": "1.0",
       "patient_status": "PENDING_APPROVAL",
-      "analysis_id": "PT_SC01c_PendingApprovalStep2_ANI1",
+      "analysis_id": "PT_SC01d_PendingApprovalStep2_ANI1",
       "status": "PENDING_APPROVAL"
     },
     "event_message": "Patient assignment is pending approval by COG",
-    "entity_id": "PT_SC01c_PendingApprovalStep2",
+    "entity_id": "PT_SC01d_PendingApprovalStep2",
     "event_date": "2017-01-04T01:03:43.234"
   },
   {
@@ -30278,8 +30278,8 @@
       "patient_status": "ON_TREATMENT_ARM",
       "step": "1.1"
     },
-    "event_message": "ON_TREATMENT_ARM message received from COG for patient PT_SC01c_PendingApprovalStep2.",
-    "entity_id": "PT_SC01c_PendingApprovalStep2",
+    "event_message": "ON_TREATMENT_ARM message received from COG for patient PT_SC01d_PendingApprovalStep2.",
+    "entity_id": "PT_SC01d_PendingApprovalStep2",
     "event_date": "2017-01-04T01:04:13.083"
   },
   {
@@ -30289,15 +30289,15 @@
       "step": "2.0",
       "rebiopsy": "Y"
     },
-    "event_message": " message received from COG for patient PT_SC01c_PendingApprovalStep2.",
-    "entity_id": "PT_SC01c_PendingApprovalStep2",
+    "event_message": " message received from COG for patient PT_SC01d_PendingApprovalStep2.",
+    "entity_id": "PT_SC01d_PendingApprovalStep2",
     "event_date": "2017-01-04T01:04:15.280"
   },
   {
     "event_type": "specimen",
     "event_data": {
-      "surgical_event_id": "PT_SC01c_PendingApprovalStep2_SEI2",
-      "patient_id": "PT_SC01c_PendingApprovalStep2",
+      "surgical_event_id": "PT_SC01d_PendingApprovalStep2_SEI2",
+      "patient_id": "PT_SC01d_PendingApprovalStep2",
       "step": "2.0",
       "study_id": "APEC1621",
       "type": "TISSUE",
@@ -30305,16 +30305,16 @@
       "collection_dt": "2016-04-25"
     },
     "event_message": "Specimen of type TISSUE received at NCH.",
-    "entity_id": "PT_SC01c_PendingApprovalStep2",
+    "entity_id": "PT_SC01d_PendingApprovalStep2",
     "event_date": "2017-01-04T01:04:17.395"
   },
   {
     "event_type": "specimen",
     "event_data": {
       "carrier": "Federal Express",
-      "surgical_event_id": "PT_SC01c_PendingApprovalStep2_SEI2",
+      "surgical_event_id": "PT_SC01d_PendingApprovalStep2_SEI2",
       "molecular_cdna_id": null,
-      "molecular_id": "PT_SC01c_PendingApprovalStep2_MOI2",
+      "molecular_id": "PT_SC01d_PendingApprovalStep2_MOI2",
       "destination": "MDA",
       "tracking_number": "7956 4568 1235",
       "step": "2.0",
@@ -30322,22 +30322,22 @@
       "type": "TISSUE_DNA_AND_CDNA"
     },
     "event_message": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH.",
-    "entity_id": "PT_SC01c_PendingApprovalStep2",
+    "entity_id": "PT_SC01d_PendingApprovalStep2",
     "event_date": "2017-01-04T01:04:19.580"
   },
   {
     "event_type": "specimen",
     "event_data": {
       "carrier": "Federal Express",
-      "surgical_event_id": "PT_SC01c_PendingApprovalStep2_SEI2",
+      "surgical_event_id": "PT_SC01d_PendingApprovalStep2_SEI2",
       "destination": "MDA",
       "tracking_number": "7956 4568 1235",
       "step": "2.0",
-      "slide_barcode": "PT_SC01c_PendingApprovalStep2_BC2",
+      "slide_barcode": "PT_SC01d_PendingApprovalStep2_BC2",
       "type": "SLIDE"
     },
     "event_message": "Specimen Shipment of type SLIDE shipped from NCH.",
-    "entity_id": "PT_SC01c_PendingApprovalStep2",
+    "entity_id": "PT_SC01d_PendingApprovalStep2",
     "event_date": "2017-01-04T01:04:21.632"
   },
   {
@@ -30349,7 +30349,7 @@
       "biomarker": "ICCPTENs"
     },
     "event_message": "Assay result for ICCPTENs received from MDA.",
-    "entity_id": "PT_SC01c_PendingApprovalStep2",
+    "entity_id": "PT_SC01d_PendingApprovalStep2",
     "event_date": "2017-01-04T01:04:26.182"
   },
   {
@@ -30361,7 +30361,7 @@
       "biomarker": "ICCBAF47s"
     },
     "event_message": "Assay result for ICCBAF47s received from MDA.",
-    "entity_id": "PT_SC01c_PendingApprovalStep2",
+    "entity_id": "PT_SC01d_PendingApprovalStep2",
     "event_date": "2017-01-04T01:04:28.245"
   },
   {
@@ -30373,7 +30373,7 @@
       "biomarker": "ICCBRG1s"
     },
     "event_message": "Assay result for ICCBRG1s received from MDA.",
-    "entity_id": "PT_SC01c_PendingApprovalStep2",
+    "entity_id": "PT_SC01d_PendingApprovalStep2",
     "event_date": "2017-01-04T01:04:30.031"
   },
   {
@@ -30381,30 +30381,30 @@
     "event_data": {
       "variant_report_status": "PENDING",
       "specimen_received_date": null,
-      "molecular_id": "PT_SC01c_PendingApprovalStep2_MOI2",
+      "molecular_id": "PT_SC01d_PendingApprovalStep2_MOI2",
       "clia_lab": null,
       "variant_report_type": "TISSUE",
       "step": "2.0",
-      "analysis_id": "PT_SC01c_PendingApprovalStep2_ANI2"
+      "analysis_id": "PT_SC01d_PendingApprovalStep2_ANI2"
     },
     "event_message": "TISSUE Variant Report received.",
-    "entity_id": "PT_SC01c_PendingApprovalStep2",
+    "entity_id": "PT_SC01d_PendingApprovalStep2",
     "event_date": "2017-01-04T01:04:38.543"
   },
   {
     "event_type": "variant_report",
     "event_data": {
       "variant_report_status": "CONFIRMED",
-      "surgical_event_id": "PT_SC01c_PendingApprovalStep2_SEI2",
-      "patient_id": "PT_SC01c_PendingApprovalStep2",
+      "surgical_event_id": "PT_SC01d_PendingApprovalStep2_SEI2",
+      "patient_id": "PT_SC01d_PendingApprovalStep2",
       "comment_user": "Rick",
       "comment": "The committee approves this variant report",
       "step": "2.0",
-      "analysis_id": "PT_SC01c_PendingApprovalStep2_ANI2",
+      "analysis_id": "PT_SC01d_PendingApprovalStep2_ANI2",
       "status": "CONFIRMED"
     },
     "event_message": "TISSUE Variant Report updated to CONFIRMED.",
-    "entity_id": "PT_SC01c_PendingApprovalStep2",
+    "entity_id": "PT_SC01d_PendingApprovalStep2",
     "event_date": "2017-01-04T01:04:39.981"
   },
   {
@@ -30412,13 +30412,13 @@
     "event_data": {
       "step": "2.0",
       "assignment_report_status": "AWAITING_PATIENT_DATA",
-      "surgical_event_id": "PT_SC01c_PendingApprovalStep2_SEI2",
-      "analysis_id": "PT_SC01c_PendingApprovalStep2_ANI2",
+      "surgical_event_id": "PT_SC01d_PendingApprovalStep2_SEI2",
+      "analysis_id": "PT_SC01d_PendingApprovalStep2_ANI2",
       "status": "AWAITING_PATIENT_DATA",
-      "molecular_id": "PT_SC01c_PendingApprovalStep2_MOI2"
+      "molecular_id": "PT_SC01d_PendingApprovalStep2_MOI2"
     },
     "event_message": "Patient is ready for assignment, awaiting patient data from COG.",
-    "entity_id": "PT_SC01c_PendingApprovalStep2",
+    "entity_id": "PT_SC01d_PendingApprovalStep2",
     "event_date": "2017-01-04T01:04:41.231"
   },
   {
@@ -30426,13 +30426,13 @@
     "event_data": {
       "step": "2.0",
       "assignment_report_status": "AWAITING_TREATMENT_ARM_STATUS",
-      "surgical_event_id": "PT_SC01c_PendingApprovalStep2_SEI2",
-      "analysis_id": "PT_SC01c_PendingApprovalStep2_ANI2",
+      "surgical_event_id": "PT_SC01d_PendingApprovalStep2_SEI2",
+      "analysis_id": "PT_SC01d_PendingApprovalStep2_ANI2",
       "status": "AWAITING_TREATMENT_ARM_STATUS",
-      "molecular_id": "PT_SC01c_PendingApprovalStep2_MOI2"
+      "molecular_id": "PT_SC01d_PendingApprovalStep2_MOI2"
     },
     "event_message": "Patient is ready for assignment, awaiting treatment arm statuses from COG.",
-    "entity_id": "PT_SC01c_PendingApprovalStep2",
+    "entity_id": "PT_SC01d_PendingApprovalStep2",
     "event_date": "2017-01-04T01:04:43.295"
   },
   {
@@ -30444,16 +30444,16 @@
         "version": "2015-08-06",
         "stratum_id": "100"
       },
-      "surgical_event_id": "PT_SC01c_PendingApprovalStep2_SEI2",
+      "surgical_event_id": "PT_SC01d_PendingApprovalStep2_SEI2",
       "assignment_report_status": "TREATMENT_FOUND",
-      "molecular_id": "PT_SC01c_PendingApprovalStep2_MOI2",
+      "molecular_id": "PT_SC01d_PendingApprovalStep2_MOI2",
       "step": "2.0",
       "patient_status": "PENDING_CONFIRMATION",
-      "analysis_id": "PT_SC01c_PendingApprovalStep2_ANI2",
+      "analysis_id": "PT_SC01d_PendingApprovalStep2_ANI2",
       "status": "PENDING_CONFIRMATION"
     },
     "event_message": "Patient assignment is pending confirmation",
-    "entity_id": "PT_SC01c_PendingApprovalStep2",
+    "entity_id": "PT_SC01d_PendingApprovalStep2",
     "event_date": "2017-01-04T01:04:52.931"
   },
   {
@@ -30465,18 +30465,18 @@
         "version": "2015-08-06",
         "stratum_id": "100"
       },
-      "surgical_event_id": "PT_SC01c_PendingApprovalStep2_SEI2",
+      "surgical_event_id": "PT_SC01d_PendingApprovalStep2_SEI2",
       "assignment_report_status": "CONFIRMED",
       "comment_user": "Rick",
-      "molecular_id": "PT_SC01c_PendingApprovalStep2_MOI2",
+      "molecular_id": "PT_SC01d_PendingApprovalStep2_MOI2",
       "comment": "The committee approves this Assignment report",
       "step": "2.0",
       "patient_status": "PENDING_APPROVAL",
-      "analysis_id": "PT_SC01c_PendingApprovalStep2_ANI2",
+      "analysis_id": "PT_SC01d_PendingApprovalStep2_ANI2",
       "status": "PENDING_APPROVAL"
     },
     "event_message": "Patient assignment is pending approval by COG",
-    "entity_id": "PT_SC01c_PendingApprovalStep2",
+    "entity_id": "PT_SC01d_PendingApprovalStep2",
     "event_date": "2017-01-04T01:04:53.781"
   },
   {

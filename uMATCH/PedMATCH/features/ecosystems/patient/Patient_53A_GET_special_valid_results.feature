@@ -47,8 +47,8 @@ Feature: Patient GET service valid special case tests
     Then patient statistics field "treatment_arm_accrual" should have correct value
     Examples:
       | patient_id                    | ta_id          | stratum | step |
-      | PT_SC01c_PendingApproval      | APEC1621-A     | 100     | 1.1  |
-      | PT_SC01c_PendingApprovalStep2 | APEC1621-ETE-A | 100     | 2.1  |
+      | PT_SC01d_PendingApproval      | APEC1621-A     | 100     | 1.1  |
+      | PT_SC01d_PendingApprovalStep2 | APEC1621-ETE-A | 100     | 2.1  |
 
   Scenario: PT_SC02a pending_items should have correct result
     Given patient GET service: "pending_items", patient id: "", id: ""

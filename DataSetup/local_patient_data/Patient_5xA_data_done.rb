@@ -165,7 +165,7 @@ class Patient5xA
   end
 
   def self.pt_sc01c_pending_approval
-    pt = PatientDataSet.new('PT_SC01c_PendingApproval')
+    pt = PatientDataSet.new('PT_SC01d_PendingApproval')
     PatientMessageLoader.reset_cog_patient(pt.id)
     PatientMessageLoader.register_patient(pt.id)
     PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
@@ -182,7 +182,7 @@ class Patient5xA
   end
 
   def self.pt_sc01c_pending_approval_step2
-    pt = PatientDataSet.new('PT_SC01c_PendingApprovalStep2')
+    pt = PatientDataSet.new('PT_SC01d_PendingApprovalStep2')
     PatientMessageLoader.reset_cog_patient(pt.id)
     PatientMessageLoader.register_patient(pt.id)
     PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)

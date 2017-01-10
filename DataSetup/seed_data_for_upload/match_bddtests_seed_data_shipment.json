@@ -48,8 +48,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VC01_VRUploaded_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -58,13 +58,13 @@
     "surgical_event_id": "PT_VC01_VRUploaded_SEI1",
     "patient_id": "PT_VC01_VRUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "ION_SC22_TsShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -73,7 +73,7 @@
     "surgical_event_id": "ION_SC22_TsShipped_SEI1",
     "patient_id": "ION_SC22_TsShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -90,8 +90,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA04a_OnTreatmentArm_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -100,7 +100,7 @@
     "surgical_event_id": "PT_RA04a_OnTreatmentArm_SEI1",
     "patient_id": "PT_RA04a_OnTreatmentArm",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -117,8 +117,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01a_TsShipped_MOI2",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -127,7 +127,7 @@
     "surgical_event_id": "PT_OS01a_TsShipped_SEI2",
     "patient_id": "PT_OS01a_TsShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -168,8 +168,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01a_TsVrConfirmed_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -178,13 +178,13 @@
     "surgical_event_id": "PT_OS01a_TsVrConfirmed_SEI1",
     "patient_id": "PT_OS01a_TsVrConfirmed",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VU11_VariantReportRejected_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -193,7 +193,7 @@
     "surgical_event_id": "PT_VU11_VariantReportRejected_SEI1",
     "patient_id": "PT_VU11_VariantReportRejected",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -210,8 +210,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA08_RequestNoAssignment_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -220,7 +220,7 @@
     "surgical_event_id": "PT_RA08_RequestNoAssignment_SEI1",
     "patient_id": "PT_RA08_RequestNoAssignment",
     "shipped_date": "2016-12-07T18:25:51+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -261,8 +261,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01_ReqAssignment_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -271,13 +271,13 @@
     "surgical_event_id": "PT_OS01_ReqAssignment_SEI1",
     "patient_id": "PT_OS01_ReqAssignment",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC06a_PendingApprovalStep2_MOI2",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -286,13 +286,13 @@
     "surgical_event_id": "PT_SC06a_PendingApprovalStep2_SEI2",
     "patient_id": "PT_SC06a_PendingApprovalStep2",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA04a_AssayReceived_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -301,7 +301,7 @@
     "surgical_event_id": "PT_RA04a_AssayReceived_SEI1",
     "patient_id": "PT_RA04a_AssayReceived",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -318,8 +318,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VC02_VRUploaded_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -328,7 +328,7 @@
     "surgical_event_id": "PT_VC02_VRUploaded_SEI1",
     "patient_id": "PT_VC02_VRUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -345,29 +345,29 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
-    "molecular_id": "PT_SC01c_PendingApprovalStep2_MOI2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
+    "molecular_id": "PT_SC01d_PendingApprovalStep2_MOI2",
     "destination": "MDA",
     "study_id": "APEC1621",
     "uuid": "22d845d6-15ec-45f7-8e39-4bd9c24e16f7",
     "carrier": "Federal Express",
-    "surgical_event_id": "PT_SC01c_PendingApprovalStep2_SEI2",
-    "patient_id": "PT_SC01c_PendingApprovalStep2",
+    "surgical_event_id": "PT_SC01d_PendingApprovalStep2_SEI2",
+    "patient_id": "PT_SC01d_PendingApprovalStep2",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
     "carrier": "Federal Express",
-    "dna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
     "patient_id": "PT_SS20_Blood1Shipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "cdna_volume_ul": "0.1E2",
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SS20_Blood1Shipped_BD_MOI1",
     "destination": "MDA",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "study_id": "APEC1621",
     "uuid": "33c1e7d0-acc1-4436-9f8b-5c219e09ffb7",
     "tracking_id": "7956 4568 1235",
@@ -386,8 +386,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC05g_PendingConfirmation_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -396,7 +396,7 @@
     "surgical_event_id": "PT_SC05g_PendingConfirmation_SEI1",
     "patient_id": "PT_SC05g_PendingConfirmation",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -413,8 +413,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_CR03_VRUploadedPathConfirmed_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -423,13 +423,13 @@
     "surgical_event_id": "PT_CR03_VRUploadedPathConfirmed_SEI1",
     "patient_id": "PT_CR03_VRUploadedPathConfirmed",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC02e_PendingConfirmation_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -438,13 +438,13 @@
     "surgical_event_id": "PT_SC02e_PendingConfirmation_SEI1",
     "patient_id": "PT_SC02e_PendingConfirmation",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "ION_AQ02_TsShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -453,7 +453,7 @@
     "surgical_event_id": "ION_AQ02_TsShipped_SEI1",
     "patient_id": "ION_AQ02_TsShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -470,8 +470,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA03_TsVrReceived_MOI2",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -480,13 +480,13 @@
     "surgical_event_id": "PT_RA03_TsVrReceived_SEI2",
     "patient_id": "PT_RA03_TsVrReceived",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC05c_TsVrUploaded_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -495,17 +495,17 @@
     "surgical_event_id": "PT_SC05c_TsVrUploaded_SEI1",
     "patient_id": "PT_SC05c_TsVrUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
     "carrier": "Federal Express",
-    "surgical_event_id": "PT_SC01c_PendingApproval_SEI1",
-    "patient_id": "PT_SC01c_PendingApproval",
+    "surgical_event_id": "PT_SC01d_PendingApproval_SEI1",
+    "patient_id": "PT_SC01d_PendingApproval",
     "shipped_date": "2016-05-01T19:42:13+00:00",
     "destination": "MDA",
-    "slide_barcode": "PT_SC01c_PendingApproval_BC1",
+    "slide_barcode": "PT_SC01d_PendingApproval_BC1",
     "study_id": "APEC1621",
     "uuid": "5d2cdf57-77c6-408a-9eac-5cfd4c6226fe",
     "tracking_id": "7956 4568 1235",
@@ -525,13 +525,13 @@
   },
   {
     "carrier": "Federal Express",
-    "dna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
     "patient_id": "PT_VU05_BloodShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "cdna_volume_ul": "0.1E2",
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VU05_BloodShipped_BD_MOI1",
     "destination": "MDA",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "study_id": "APEC1621",
     "uuid": "248e2ca9-769e-4421-b0b9-132bdfd1ee2a",
     "tracking_id": "7956 4568 1235",
@@ -586,8 +586,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA03_OnTreatmentArm_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -596,13 +596,13 @@
     "surgical_event_id": "PT_RA03_OnTreatmentArm_SEI1",
     "patient_id": "PT_RA03_OnTreatmentArm",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC05d_VrAssayReady_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -611,7 +611,7 @@
     "surgical_event_id": "PT_SC05d_VrAssayReady_SEI1",
     "patient_id": "PT_SC05d_VrAssayReady",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -665,13 +665,13 @@
   },
   {
     "carrier": "Federal Express",
-    "dna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
     "patient_id": "PT_SR14_BdVrUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "cdna_volume_ul": "0.1E2",
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SR14_BdVrUploaded_BD_MOI1",
     "destination": "MDA",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "study_id": "APEC1621",
     "uuid": "33648b77-cf63-4d37-bdc9-a38cbc399fae",
     "tracking_id": "7956 4568 1235",
@@ -679,13 +679,13 @@
   },
   {
     "carrier": "Federal Express",
-    "dna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
     "patient_id": "PT_VU14_TissueAndBloodShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "cdna_volume_ul": "0.1E2",
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VU14_TissueAndBloodShipped_BD_MOI1",
     "destination": "MDA",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "study_id": "APEC1621",
     "uuid": "71409774-5b27-4b4e-a2d3-e8ab47e06189",
     "tracking_id": "7956 4568 1235",
@@ -752,8 +752,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC04b_TwoAssay_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -762,19 +762,19 @@
     "surgical_event_id": "PT_SC04b_TwoAssay_SEI1",
     "patient_id": "PT_SC04b_TwoAssay",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
     "carrier": "Federal Express",
-    "dna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
     "patient_id": "PT_SR10_BdVRReceived",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "cdna_volume_ul": "0.1E2",
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SR10_BdVRReceived_BD_MOI1",
     "destination": "MDA",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "study_id": "APEC1621",
     "uuid": "fd647f3f-29fe-475a-8a2f-572c30a8bfdd",
     "tracking_id": "7956 4568 1235",
@@ -805,37 +805,37 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
-    "molecular_id": "PT_SC01c_PendingApproval_MOI1",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
+    "molecular_id": "PT_SC01d_PendingApproval_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
     "uuid": "8f230321-1ba6-46bb-83f3-0d9cacb888c9",
     "carrier": "Federal Express",
-    "surgical_event_id": "PT_SC01c_PendingApproval_SEI1",
-    "patient_id": "PT_SC01c_PendingApproval",
+    "surgical_event_id": "PT_SC01d_PendingApproval_SEI1",
+    "patient_id": "PT_SC01d_PendingApproval",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
     "carrier": "Federal Express",
-    "dna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
     "patient_id": "ION_AQ42_BdVrUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "cdna_volume_ul": "0.1E2",
+    "cdna_volume_ul": 10.0,
     "molecular_id": "ION_AQ42_BdVrUploaded_BD_MOI1",
     "destination": "MDA",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "study_id": "APEC1621",
     "uuid": "700fad8e-567a-43a9-8f5e-f8fa278d7bb7",
     "tracking_id": "7956 4568 1235",
     "shipment_type": "BLOOD_DNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VU09_VariantReportUploaded_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -844,27 +844,27 @@
     "surgical_event_id": "PT_VU09_VariantReportUploaded_SEI1",
     "patient_id": "PT_VU09_VariantReportUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
     "carrier": "Federal Express",
-    "dna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
     "patient_id": "PT_VU16_BdVRUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "cdna_volume_ul": "0.1E2",
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VU16_BdVRUploaded_BD_MOI1",
     "destination": "MDA",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "study_id": "APEC1621",
     "uuid": "cff9f240-1525-44d8-8085-764201c18fe3",
     "tracking_id": "7956 4568 1235",
     "shipment_type": "BLOOD_DNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01a_PendingConfirmation_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -873,13 +873,13 @@
     "surgical_event_id": "PT_OS01a_PendingConfirmation_SEI1",
     "patient_id": "PT_OS01a_PendingConfirmation",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC02f_PendingConfirmation_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -888,13 +888,13 @@
     "surgical_event_id": "PT_SC02f_PendingConfirmation_SEI1",
     "patient_id": "PT_SC02f_PendingConfirmation",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VU03_TissueShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -903,13 +903,13 @@
     "surgical_event_id": "PT_VU03_TissueShipped_SEI1",
     "patient_id": "PT_VU03_TissueShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA09_RequestNoAssignment_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -918,13 +918,13 @@
     "surgical_event_id": "PT_RA09_RequestNoAssignment_SEI1",
     "patient_id": "PT_RA09_RequestNoAssignment",
     "shipped_date": "2016-12-07T18:30:15+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_GVF_TsShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -933,13 +933,13 @@
     "surgical_event_id": "PT_GVF_TsShipped_SEI1",
     "patient_id": "PT_GVF_TsShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VU01_TissueShipped2_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -948,7 +948,7 @@
     "surgical_event_id": "PT_VU01_TissueShipped2_SEI1",
     "patient_id": "PT_VU01_TissueShipped2",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -977,8 +977,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SS23_TissueShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -987,7 +987,7 @@
     "surgical_event_id": "PT_SS23_TissueShipped_SEI1",
     "patient_id": "PT_SS23_TissueShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -1004,8 +1004,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA04a_TsShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1014,7 +1014,7 @@
     "surgical_event_id": "PT_RA04a_TsShipped_SEI1",
     "patient_id": "PT_RA04a_TsShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -1043,8 +1043,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_AM04_TsReceived2_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1053,13 +1053,13 @@
     "surgical_event_id": "PT_AM04_TsReceived2_SEI1",
     "patient_id": "PT_AM04_TsReceived2",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VC11b_TsVRConfirmed_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1068,13 +1068,13 @@
     "surgical_event_id": "PT_VC11b_TsVRConfirmed_SEI1",
     "patient_id": "PT_VC11b_TsVRConfirmed",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SS11a_Step2TsReceived1_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1083,13 +1083,13 @@
     "surgical_event_id": "PT_SS11a_Step2TsReceived1_SEI1",
     "patient_id": "PT_SS11a_Step2TsReceived1",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_GVF_VrAssayReady_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1098,13 +1098,13 @@
     "surgical_event_id": "PT_GVF_VrAssayReady_SEI1",
     "patient_id": "PT_GVF_VrAssayReady",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01_PendingApproval_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1113,19 +1113,19 @@
     "surgical_event_id": "PT_OS01_PendingApproval_SEI1",
     "patient_id": "PT_OS01_PendingApproval",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
     "carrier": "Federal Express",
-    "dna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
     "patient_id": "PT_VC14_BdVRUploadedTsVRUploadedOtherReady",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "cdna_volume_ul": "0.1E2",
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VC14_BdVRUploadedTsVRUploadedOtherReady_BD_MOI1",
     "destination": "MDA",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "study_id": "APEC1621",
     "uuid": "a2472a7b-aa47-4b62-88be-8b347def4bd4",
     "tracking_id": "7956 4568 1235",
@@ -1145,19 +1145,19 @@
   },
   {
     "carrier": "Federal Express",
-    "surgical_event_id": "PT_SC01c_PendingApprovalStep2_SEI1",
-    "patient_id": "PT_SC01c_PendingApprovalStep2",
+    "surgical_event_id": "PT_SC01d_PendingApprovalStep2_SEI1",
+    "patient_id": "PT_SC01d_PendingApprovalStep2",
     "shipped_date": "2016-05-01T19:42:13+00:00",
     "destination": "MDA",
-    "slide_barcode": "PT_SC01c_PendingApprovalStep2_BC1",
+    "slide_barcode": "PT_SC01d_PendingApprovalStep2_BC1",
     "study_id": "APEC1621",
     "uuid": "faed01f7-b170-4f46-bcc8-5885ebb27d9c",
     "tracking_id": "7956 4568 1235",
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_CR02_OnTreatmentArm_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1166,7 +1166,7 @@
     "surgical_event_id": "PT_CR02_OnTreatmentArm_SEI1",
     "patient_id": "PT_CR02_OnTreatmentArm",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -1184,13 +1184,13 @@
   },
   {
     "carrier": "Federal Express",
-    "dna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
     "patient_id": "ION_AQ03_BdShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "cdna_volume_ul": "0.1E2",
+    "cdna_volume_ul": 10.0,
     "molecular_id": "ION_AQ03_BdShipped_BD_MOI1",
     "destination": "MDA",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "study_id": "APEC1621",
     "uuid": "bbe200c0-dee3-4cb5-942a-649939045a1c",
     "tracking_id": "7956 4568 1235",
@@ -1209,8 +1209,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VC10_VRUploadedMOIExpired_MOI2",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1219,13 +1219,13 @@
     "surgical_event_id": "PT_VC10_VRUploadedMOIExpired_SEI1",
     "patient_id": "PT_VC10_VRUploadedMOIExpired",
     "shipped_date": "2016-07-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SS26_TsShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1234,13 +1234,13 @@
     "surgical_event_id": "PT_SS26_TsShipped_SEI1",
     "patient_id": "PT_SS26_TsShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS02_OffStudy1_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1249,7 +1249,7 @@
     "surgical_event_id": "PT_OS02_OffStudy1_SEI1",
     "patient_id": "PT_OS02_OffStudy1",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -1266,8 +1266,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_AS12_VrConfirmed_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1276,7 +1276,7 @@
     "surgical_event_id": "PT_AS12_VrConfirmed_SEI1",
     "patient_id": "PT_AS12_VrConfirmed",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -1293,8 +1293,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA02_TsVrReceived_MOI2",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1303,7 +1303,7 @@
     "surgical_event_id": "PT_RA02_TsVrReceived_SEI2",
     "patient_id": "PT_RA02_TsVrReceived",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -1332,8 +1332,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA04a_TsVrRejected_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1342,7 +1342,7 @@
     "surgical_event_id": "PT_RA04a_TsVrRejected_SEI1",
     "patient_id": "PT_RA04a_TsVrRejected",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -1371,8 +1371,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SR10_OnTreatmentArm_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1381,7 +1381,7 @@
     "surgical_event_id": "PT_SR10_OnTreatmentArm_SEI1",
     "patient_id": "PT_SR10_OnTreatmentArm",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -1398,8 +1398,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01_PendingConfirmation_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1408,7 +1408,7 @@
     "surgical_event_id": "PT_OS01_PendingConfirmation_SEI1",
     "patient_id": "PT_OS01_PendingConfirmation",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -1425,8 +1425,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC04d_NoAssay_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1435,13 +1435,13 @@
     "surgical_event_id": "PT_SC04d_NoAssay_SEI1",
     "patient_id": "PT_SC04d_NoAssay",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VU14_TissueAndBloodShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1450,13 +1450,13 @@
     "surgical_event_id": "PT_VU14_TissueAndBloodShipped_SEI1",
     "patient_id": "PT_VU14_TissueAndBloodShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA05_OnTreatmentArm_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1465,13 +1465,13 @@
     "surgical_event_id": "PT_RA05_OnTreatmentArm_SEI1",
     "patient_id": "PT_RA05_OnTreatmentArm",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01a_CompassionateCare_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1480,13 +1480,13 @@
     "surgical_event_id": "PT_OS01a_CompassionateCare_SEI1",
     "patient_id": "PT_OS01a_CompassionateCare",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_CR01_PathAssayDoneVRUploadedToConfirm_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1495,7 +1495,7 @@
     "surgical_event_id": "PT_CR01_PathAssayDoneVRUploadedToConfirm_SEI1",
     "patient_id": "PT_CR01_PathAssayDoneVRUploadedToConfirm",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -1512,8 +1512,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01_ReqNoAssignment_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1522,7 +1522,7 @@
     "surgical_event_id": "PT_OS01_ReqNoAssignment_SEI1",
     "patient_id": "PT_OS01_ReqNoAssignment",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -1563,8 +1563,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS03_OffStudy1_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1573,13 +1573,13 @@
     "surgical_event_id": "PT_OS03_OffStudy1_SEI1",
     "patient_id": "PT_OS03_OffStudy1",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC06d_PendingApproval1_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1588,13 +1588,13 @@
     "surgical_event_id": "PT_SC06d_PendingApproval1_SEI1",
     "patient_id": "PT_SC06d_PendingApproval1",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA02_OnTreatmentArm_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1603,13 +1603,13 @@
     "surgical_event_id": "PT_RA02_OnTreatmentArm_SEI1",
     "patient_id": "PT_RA02_OnTreatmentArm",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_AM04_TsReceived1_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1618,7 +1618,7 @@
     "surgical_event_id": "PT_AM04_TsReceived1_SEI1",
     "patient_id": "PT_AM04_TsReceived1",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -1647,8 +1647,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "ION_AQ23_TsShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1657,13 +1657,13 @@
     "surgical_event_id": "ION_AQ23_TsShipped_SEI1",
     "patient_id": "ION_AQ23_TsShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA01_PendingApproval_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1672,13 +1672,13 @@
     "surgical_event_id": "PT_RA01_PendingApproval_SEI1",
     "patient_id": "PT_RA01_PendingApproval",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC04b_TsShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1687,7 +1687,7 @@
     "surgical_event_id": "PT_SC04b_TsShipped_SEI1",
     "patient_id": "PT_SC04b_TsShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -1704,8 +1704,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "ION_AQ24_TsShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1714,7 +1714,7 @@
     "surgical_event_id": "ION_AQ24_TsShipped_SEI1",
     "patient_id": "ION_AQ24_TsShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -1731,8 +1731,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01_TsVrReceived_MOI2",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1741,7 +1741,7 @@
     "surgical_event_id": "PT_OS01_TsVrReceived_SEI2",
     "patient_id": "PT_OS01_TsVrReceived",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -1818,8 +1818,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA04a_CompassionateCare_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1828,7 +1828,7 @@
     "surgical_event_id": "PT_RA04a_CompassionateCare_SEI1",
     "patient_id": "PT_RA04a_CompassionateCare",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -1846,13 +1846,13 @@
   },
   {
     "carrier": "Federal Express",
-    "dna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
     "patient_id": "PT_CR08_BloodSpecimenUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "cdna_volume_ul": "0.1E2",
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_CR08_BloodSpecimenUploaded_BD_MOI1",
     "destination": "MDA",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "study_id": "APEC1621",
     "uuid": "2bf47b30-d68f-4465-ad47-3d22f825aa3a",
     "tracking_id": "7956 4568 1235",
@@ -1883,8 +1883,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VC14_BdVRUploadedTsVRUploadedOtherReady_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1893,13 +1893,13 @@
     "surgical_event_id": "PT_VC14_BdVRUploadedTsVRUploadedOtherReady_SEI1",
     "patient_id": "PT_VC14_BdVRUploadedTsVRUploadedOtherReady",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VC05a_VRUploaded_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1908,13 +1908,13 @@
     "surgical_event_id": "PT_VC05a_VRUploaded_SEI1",
     "patient_id": "PT_VC05a_VRUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA02_TsVrReceived_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1923,13 +1923,13 @@
     "surgical_event_id": "PT_RA02_TsVrReceived_SEI1",
     "patient_id": "PT_RA02_TsVrReceived",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01a_AssayReceived_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1938,7 +1938,7 @@
     "surgical_event_id": "PT_OS01a_AssayReceived_SEI1",
     "patient_id": "PT_OS01a_AssayReceived",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -1979,8 +1979,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_AM01_TsVrReceived1_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -1989,7 +1989,7 @@
     "surgical_event_id": "PT_AM01_TsVrReceived1_SEI1",
     "patient_id": "PT_AM01_TsVrReceived1",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -2006,8 +2006,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SS31_NoTaAvailable_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2016,7 +2016,7 @@
     "surgical_event_id": "PT_SS31_NoTaAvailable_SEI1",
     "patient_id": "PT_SS31_NoTaAvailable",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -2033,8 +2033,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SR12_VariantReportConfirmed_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2043,13 +2043,13 @@
     "surgical_event_id": "PT_SR12_VariantReportConfirmed_SEI1",
     "patient_id": "PT_SR12_VariantReportConfirmed",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01_AssayReceived_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2058,13 +2058,13 @@
     "surgical_event_id": "PT_OS01_AssayReceived_SEI1",
     "patient_id": "PT_OS01_AssayReceived",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_CR07_RejectVariantReport_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2073,7 +2073,7 @@
     "surgical_event_id": "PT_CR07_RejectVariantReport_SEI1",
     "patient_id": "PT_CR07_RejectVariantReport",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -2090,8 +2090,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VC10_VRUploadedANIExpired_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2100,7 +2100,7 @@
     "surgical_event_id": "PT_VC10_VRUploadedANIExpired_SEI1",
     "patient_id": "PT_VC10_VRUploadedANIExpired",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -2117,8 +2117,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA03_RequestAssignment_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2127,13 +2127,13 @@
     "surgical_event_id": "PT_RA03_RequestAssignment_SEI1",
     "patient_id": "PT_RA03_RequestAssignment",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC02d_VrAssayReady_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2142,13 +2142,13 @@
     "surgical_event_id": "PT_SC02d_VrAssayReady_SEI1",
     "patient_id": "PT_SC02d_VrAssayReady",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01_CompassionateCare_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2157,7 +2157,7 @@
     "surgical_event_id": "PT_OS01_CompassionateCare_SEI1",
     "patient_id": "PT_OS01_CompassionateCare",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -2186,8 +2186,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_AM01_TsVrReceived2_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2196,13 +2196,13 @@
     "surgical_event_id": "PT_AM01_TsVrReceived2_SEI1",
     "patient_id": "PT_AM01_TsVrReceived2",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA10_PendingApproval1_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2211,7 +2211,7 @@
     "surgical_event_id": "PT_RA10_PendingApproval1_SEI1",
     "patient_id": "PT_RA10_PendingApproval1",
     "shipped_date": "2016-12-07T19:23:37+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -2228,8 +2228,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VC03_VRUploadedAfterRejected_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2238,13 +2238,13 @@
     "surgical_event_id": "PT_VC03_VRUploadedAfterRejected_SEI1",
     "patient_id": "PT_VC03_VRUploadedAfterRejected",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SR14_TsVrUploaded1_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2253,13 +2253,13 @@
     "surgical_event_id": "PT_SR14_TsVrUploaded1_SEI1",
     "patient_id": "PT_SR14_TsVrUploaded1",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA04a_TsVrReceived_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2268,7 +2268,7 @@
     "surgical_event_id": "PT_RA04a_TsVrReceived_SEI1",
     "patient_id": "PT_RA04a_TsVrReceived",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -2285,8 +2285,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC06b_PendingApproval_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2295,7 +2295,7 @@
     "surgical_event_id": "PT_SC06b_PendingApproval_SEI1",
     "patient_id": "PT_SC06b_PendingApproval",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -2312,8 +2312,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA01_OnTreatmentArm_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2322,7 +2322,7 @@
     "surgical_event_id": "PT_RA01_OnTreatmentArm_SEI1",
     "patient_id": "PT_RA01_OnTreatmentArm",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -2340,13 +2340,13 @@
   },
   {
     "carrier": "Federal Express",
-    "dna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
     "patient_id": "PT_SS24_BloodShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "cdna_volume_ul": "0.1E2",
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SS24_BloodShipped_BD_MOI1",
     "destination": "MDA",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "study_id": "APEC1621",
     "uuid": "a6cd6cbe-5a47-490a-ab97-9220def65936",
     "tracking_id": "7956 4568 1235",
@@ -2365,8 +2365,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VC05_TissueShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2375,13 +2375,13 @@
     "surgical_event_id": "PT_VC05_TissueShipped_SEI1",
     "patient_id": "PT_VC05_TissueShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VC15_AssayReceivedVrReceivedToConfirm_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2390,7 +2390,7 @@
     "surgical_event_id": "PT_VC15_AssayReceivedVrReceivedToConfirm_SEI1",
     "patient_id": "PT_VC15_AssayReceivedVrReceivedToConfirm",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -2419,8 +2419,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01a_PendingApproval_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2429,13 +2429,13 @@
     "surgical_event_id": "PT_OS01a_PendingApproval_SEI1",
     "patient_id": "PT_OS01a_PendingApproval",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01a_TsVrRejected_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2444,7 +2444,7 @@
     "surgical_event_id": "PT_OS01a_TsVrRejected_SEI1",
     "patient_id": "PT_OS01a_TsVrRejected",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -2461,8 +2461,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA04a_OffStudyBiopsyExpired_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2471,13 +2471,13 @@
     "surgical_event_id": "PT_RA04a_OffStudyBiopsyExpired_SEI1",
     "patient_id": "PT_RA04a_OffStudyBiopsyExpired",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_GVF_TsVrUploaded_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2486,13 +2486,13 @@
     "surgical_event_id": "PT_GVF_TsVrUploaded_SEI1",
     "patient_id": "PT_GVF_TsVrUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SR10_OffStudy_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2501,13 +2501,13 @@
     "surgical_event_id": "PT_SR10_OffStudy_SEI1",
     "patient_id": "PT_SR10_OffStudy",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA10_PendingApproval_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2516,13 +2516,13 @@
     "surgical_event_id": "PT_RA10_PendingApproval_SEI1",
     "patient_id": "PT_RA10_PendingApproval",
     "shipped_date": "2016-12-07T18:32:03+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "ION_AQ43_TsVrUploaded_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2531,13 +2531,13 @@
     "surgical_event_id": "ION_AQ43_TsVrUploaded_SEI1",
     "patient_id": "ION_AQ43_TsVrUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC04b_TsVrUploaed_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2546,7 +2546,7 @@
     "surgical_event_id": "PT_SC04b_TsVrUploaed_SEI1",
     "patient_id": "PT_SC04b_TsVrUploaed",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -2563,8 +2563,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SS27_VariantReportUploaded_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2573,13 +2573,13 @@
     "surgical_event_id": "PT_SS27_VariantReportUploaded_SEI1",
     "patient_id": "PT_SS27_VariantReportUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC01c_TsVrUploaded_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2588,13 +2588,13 @@
     "surgical_event_id": "PT_SC01c_TsVrUploaded_SEI1",
     "patient_id": "PT_SC01c_TsVrUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VC09_VRUploaded_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2603,13 +2603,13 @@
     "surgical_event_id": "PT_VC09_VRUploaded_SEI1",
     "patient_id": "PT_VC09_VRUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA02_NoTaAvailable_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2618,7 +2618,7 @@
     "surgical_event_id": "PT_RA02_NoTaAvailable_SEI1",
     "patient_id": "PT_RA02_NoTaAvailable",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -2635,8 +2635,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "ION_AQ81_TsShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2645,13 +2645,13 @@
     "surgical_event_id": "ION_AQ81_TsShipped_SEI1",
     "patient_id": "ION_AQ81_TsShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SR14_TsVrUploaded_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2660,13 +2660,13 @@
     "surgical_event_id": "PT_SR14_TsVrUploaded_SEI1",
     "patient_id": "PT_SR14_TsVrUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SS11_Tissue1Shipped_MOI2",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2675,13 +2675,13 @@
     "surgical_event_id": "PT_SS11_Tissue1Shipped_SEI1",
     "patient_id": "PT_SS11_Tissue1Shipped",
     "shipped_date": "2016-05-01T22:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC02g_PendingConfirmation_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2690,7 +2690,7 @@
     "surgical_event_id": "PT_SC02g_PendingConfirmation_SEI1",
     "patient_id": "PT_SC02g_PendingConfirmation",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -2719,8 +2719,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA07_VrAndAssayReady_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2729,13 +2729,13 @@
     "surgical_event_id": "PT_RA07_VrAndAssayReady_SEI1",
     "patient_id": "PT_RA07_VrAndAssayReady",
     "shipped_date": "2016-12-23T17:15:48+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC04b_VrConfirmedOneAssay_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2744,7 +2744,7 @@
     "surgical_event_id": "PT_SC04b_VrConfirmedOneAssay_SEI1",
     "patient_id": "PT_SC04b_VrConfirmedOneAssay",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -2761,8 +2761,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VC10_VRUploadedSEIExpired_MOI2",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2771,13 +2771,13 @@
     "surgical_event_id": "PT_VC10_VRUploadedSEIExpired_SEI2",
     "patient_id": "PT_VC10_VRUploadedSEIExpired",
     "shipped_date": "2016-07-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA03_TsVrReceived_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2786,13 +2786,13 @@
     "surgical_event_id": "PT_RA03_TsVrReceived_SEI1",
     "patient_id": "PT_RA03_TsVrReceived",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC04d_OneAssay_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2801,7 +2801,7 @@
     "surgical_event_id": "PT_SC04d_OneAssay_SEI1",
     "patient_id": "PT_SC04d_OneAssay",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -2818,8 +2818,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA02_TsVrConfirmed_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2828,13 +2828,13 @@
     "surgical_event_id": "PT_RA02_TsVrConfirmed_SEI1",
     "patient_id": "PT_RA02_TsVrConfirmed",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC01c_TsVrUploadedStep2_MOI2",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2843,13 +2843,13 @@
     "surgical_event_id": "PT_SC01c_TsVrUploadedStep2_SEI2",
     "patient_id": "PT_SC01c_TsVrUploadedStep2",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VU01_TissueShipped1_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2858,27 +2858,27 @@
     "surgical_event_id": "PT_VU01_TissueShipped1_SEI1",
     "patient_id": "PT_VU01_TissueShipped1",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
     "carrier": "Federal Express",
-    "dna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
     "patient_id": "PT_SC01c_BdVrUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "cdna_volume_ul": "0.1E2",
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC01c_BdVrUploaded_BD_MOI1",
     "destination": "MDA",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "study_id": "APEC1621",
     "uuid": "1239abe3-ae69-4697-ad4a-6f59fc964099",
     "tracking_id": "7956 4568 1235",
     "shipment_type": "BLOOD_DNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01_PendingApproval_MOI2",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2887,13 +2887,13 @@
     "surgical_event_id": "PT_OS01_PendingApproval_SEI2",
     "patient_id": "PT_OS01_PendingApproval",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC04b_TsVrConfirmed_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2902,13 +2902,13 @@
     "surgical_event_id": "PT_SC04b_TsVrConfirmed_SEI1",
     "patient_id": "PT_SC04b_TsVrConfirmed",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC05f_TsVrUploaded_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -2917,7 +2917,7 @@
     "surgical_event_id": "PT_SC05f_TsVrUploaded_SEI1",
     "patient_id": "PT_SC05f_TsVrUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -2971,13 +2971,13 @@
   },
   {
     "carrier": "Federal Express",
-    "dna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
     "patient_id": "PT_SS25_BloodShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "cdna_volume_ul": "0.1E2",
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SS25_BloodShipped_BD_MOI1",
     "destination": "MDA",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "study_id": "APEC1621",
     "uuid": "04775ead-7ef9-41ed-93d2-e9e3a1107785",
     "tracking_id": "7956 4568 1235",
@@ -2996,8 +2996,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01_TsVrReceived_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3006,7 +3006,7 @@
     "surgical_event_id": "PT_OS01_TsVrReceived_SEI1",
     "patient_id": "PT_OS01_TsVrReceived",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -3035,8 +3035,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC02g_TsVrUploaded_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3045,13 +3045,13 @@
     "surgical_event_id": "PT_SC02g_TsVrUploaded_SEI1",
     "patient_id": "PT_SC02g_TsVrUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SS21_TissueVariantConfirmed_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3060,7 +3060,7 @@
     "surgical_event_id": "PT_SS21_TissueVariantConfirmed_SEI1",
     "patient_id": "PT_SS21_TissueVariantConfirmed",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -3077,8 +3077,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC06d_PendingApproval2_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3087,7 +3087,7 @@
     "surgical_event_id": "PT_SC06d_PendingApproval2_SEI1",
     "patient_id": "PT_SC06d_PendingApproval2",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -3116,8 +3116,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VC13_VRUploaded1_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3126,13 +3126,13 @@
     "surgical_event_id": "PT_VC13_VRUploaded1_SEI1",
     "patient_id": "PT_VC13_VRUploaded1",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA02_PendingConfirmation_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3141,7 +3141,7 @@
     "surgical_event_id": "PT_RA02_PendingConfirmation_SEI1",
     "patient_id": "PT_RA02_PendingConfirmation",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -3230,8 +3230,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VC08_VRUploaded_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3240,7 +3240,7 @@
     "surgical_event_id": "PT_VC08_VRUploaded_SEI1",
     "patient_id": "PT_VC08_VRUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -3257,8 +3257,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01_slideShipped_MOI2",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3267,13 +3267,13 @@
     "surgical_event_id": "PT_OS01_slideShipped_SEI2",
     "patient_id": "PT_OS01_slideShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC05g_TsVrUploaded_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3282,7 +3282,7 @@
     "surgical_event_id": "PT_SC05g_TsVrUploaded_SEI1",
     "patient_id": "PT_SC05g_TsVrUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -3299,8 +3299,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA03_TsVrConfirmed_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3309,13 +3309,13 @@
     "surgical_event_id": "PT_RA03_TsVrConfirmed_SEI1",
     "patient_id": "PT_RA03_TsVrConfirmed",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC01c_TsVrUploadedStep2_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3324,27 +3324,27 @@
     "surgical_event_id": "PT_SC01c_TsVrUploadedStep2_SEI1",
     "patient_id": "PT_SC01c_TsVrUploadedStep2",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
     "carrier": "Federal Express",
-    "dna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
     "patient_id": "PT_VU05_BloodShipped",
     "shipped_date": "2016-05-01T23:42:13+00:00",
-    "cdna_volume_ul": "0.1E2",
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VU05_BloodShipped_BD_MOI2",
     "destination": "MDA",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "study_id": "APEC1621",
     "uuid": "71130749-4950-4fa6-98dd-fd6c65591215",
     "tracking_id": "7956 4568 1235",
     "shipment_type": "BLOOD_DNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01_OffStudy_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3353,13 +3353,13 @@
     "surgical_event_id": "PT_OS01_OffStudy_SEI1",
     "patient_id": "PT_OS01_OffStudy",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC04b_PendingApproval_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3368,7 +3368,7 @@
     "surgical_event_id": "PT_SC04b_PendingApproval_SEI1",
     "patient_id": "PT_SC04b_PendingApproval",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -3397,8 +3397,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA03_slideShipped_MOI2",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3407,7 +3407,7 @@
     "surgical_event_id": "PT_RA03_slideShipped_SEI2",
     "patient_id": "PT_RA03_slideShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -3496,8 +3496,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC03b_TsShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3506,13 +3506,13 @@
     "surgical_event_id": "PT_SC03b_TsShipped_SEI1",
     "patient_id": "PT_SC03b_TsShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SR16_PendingApproval_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3521,13 +3521,13 @@
     "surgical_event_id": "PT_SR16_PendingApproval_SEI1",
     "patient_id": "PT_SR16_PendingApproval",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SS02a_TsVrRejected_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3536,7 +3536,7 @@
     "surgical_event_id": "PT_SS02a_TsVrRejected_SEI1",
     "patient_id": "PT_SS02a_TsVrRejected",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -3553,8 +3553,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VC04_VRUploaded_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3563,13 +3563,13 @@
     "surgical_event_id": "PT_VC04_VRUploaded_SEI1",
     "patient_id": "PT_VC04_VRUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01a_PendingApproval_MOI2",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3578,7 +3578,7 @@
     "surgical_event_id": "PT_OS01a_PendingApproval_SEI2",
     "patient_id": "PT_OS01a_PendingApproval",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -3607,8 +3607,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SS11a_Step2TsReceived2_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3617,13 +3617,13 @@
     "surgical_event_id": "PT_SS11a_Step2TsReceived2_SEI1",
     "patient_id": "PT_SS11a_Step2TsReceived2",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA03_PendingApproval_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3632,7 +3632,7 @@
     "surgical_event_id": "PT_RA03_PendingApproval_SEI1",
     "patient_id": "PT_RA03_PendingApproval",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -3649,8 +3649,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01a_OffStudyBiopsyExpired_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3659,7 +3659,7 @@
     "surgical_event_id": "PT_OS01a_OffStudyBiopsyExpired_SEI1",
     "patient_id": "PT_OS01a_OffStudyBiopsyExpired",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -3676,8 +3676,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA04a_TsVrConfirmed_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3686,7 +3686,7 @@
     "surgical_event_id": "PT_RA04a_TsVrConfirmed_SEI1",
     "patient_id": "PT_RA04a_TsVrConfirmed",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -3703,8 +3703,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA03_TsShipped_MOI2",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3713,13 +3713,13 @@
     "surgical_event_id": "PT_RA03_TsShipped_SEI2",
     "patient_id": "PT_RA03_TsShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC06e_PendingApproval_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3728,13 +3728,13 @@
     "surgical_event_id": "PT_SC06e_PendingApproval_SEI1",
     "patient_id": "PT_SC06e_PendingApproval",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_GVF_RARebioY_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3743,13 +3743,13 @@
     "surgical_event_id": "PT_GVF_RARebioY_SEI1",
     "patient_id": "PT_GVF_RARebioY",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "ION_SC43_TsShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3758,13 +3758,13 @@
     "surgical_event_id": "ION_SC43_TsShipped_SEI1",
     "patient_id": "ION_SC43_TsShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VU12_VariantReportRejected_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3773,13 +3773,13 @@
     "surgical_event_id": "PT_VU12_VariantReportRejected_SEI1",
     "patient_id": "PT_VU12_VariantReportRejected",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SR10_ProgressReBioY_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3788,7 +3788,7 @@
     "surgical_event_id": "PT_SR10_ProgressReBioY_SEI1",
     "patient_id": "PT_SR10_ProgressReBioY",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -3805,8 +3805,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_CR06_RejectOneVariant_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3815,13 +3815,13 @@
     "surgical_event_id": "PT_CR06_RejectOneVariant_SEI1",
     "patient_id": "PT_CR06_RejectOneVariant",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01_OnTreatmentArm_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3830,13 +3830,13 @@
     "surgical_event_id": "PT_OS01_OnTreatmentArm_SEI1",
     "patient_id": "PT_OS01_OnTreatmentArm",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC05b_TsShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3845,13 +3845,13 @@
     "surgical_event_id": "PT_SC05b_TsShipped_SEI1",
     "patient_id": "PT_SC05b_TsShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VC15_VrReceived_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3860,7 +3860,7 @@
     "surgical_event_id": "PT_VC15_VrReceived_SEI1",
     "patient_id": "PT_VC15_VrReceived",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -3877,8 +3877,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC05a_TsThenAssayReceived_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3887,7 +3887,7 @@
     "surgical_event_id": "PT_SC05a_TsThenAssayReceived_SEI1",
     "patient_id": "PT_SC05a_TsThenAssayReceived",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -3904,8 +3904,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SR10_NoTaAvailable_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3914,13 +3914,13 @@
     "surgical_event_id": "PT_SR10_NoTaAvailable_SEI1",
     "patient_id": "PT_SR10_NoTaAvailable",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA02_CompassionateCare_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3929,13 +3929,13 @@
     "surgical_event_id": "PT_RA02_CompassionateCare_SEI1",
     "patient_id": "PT_RA02_CompassionateCare",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA04_ReqNoAssignment_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3944,7 +3944,7 @@
     "surgical_event_id": "PT_RA04_ReqNoAssignment_SEI1",
     "patient_id": "PT_RA04_ReqNoAssignment",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -3985,8 +3985,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SR10_ProgressReBioY1_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -3995,13 +3995,13 @@
     "surgical_event_id": "PT_SR10_ProgressReBioY1_SEI1",
     "patient_id": "PT_SR10_ProgressReBioY1",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VU13_VariantReportConfirmed_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4010,13 +4010,13 @@
     "surgical_event_id": "PT_VU13_VariantReportConfirmed_SEI1",
     "patient_id": "PT_VU13_VariantReportConfirmed",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA03_TsVrRejected_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4025,13 +4025,13 @@
     "surgical_event_id": "PT_RA03_TsVrRejected_SEI1",
     "patient_id": "PT_RA03_TsVrRejected",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VU10_VariantReportUploaded_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4040,13 +4040,13 @@
     "surgical_event_id": "PT_VU10_VariantReportUploaded_SEI1",
     "patient_id": "PT_VU10_VariantReportUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA02_TsShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4055,13 +4055,13 @@
     "surgical_event_id": "PT_RA02_TsShipped_SEI1",
     "patient_id": "PT_RA02_TsShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VC00_CnvVrReceived_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4070,7 +4070,7 @@
     "surgical_event_id": "PT_VC00_CnvVrReceived_SEI1",
     "patient_id": "PT_VC00_CnvVrReceived",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -4099,8 +4099,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA02a_RequestAssignment_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4109,7 +4109,7 @@
     "surgical_event_id": "PT_RA02a_RequestAssignment_SEI1",
     "patient_id": "PT_RA02a_RequestAssignment",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -4126,8 +4126,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SR10_CompassionateCare_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4136,22 +4136,22 @@
     "surgical_event_id": "PT_SR10_CompassionateCare_SEI1",
     "patient_id": "PT_SR10_CompassionateCare",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
-    "molecular_id": "PT_SC01c_PendingApprovalStep2_MOI1",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
+    "molecular_id": "PT_SC01d_PendingApprovalStep2_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
     "uuid": "f15be393-379d-4225-9ad3-00ef652da5a7",
     "carrier": "Federal Express",
-    "surgical_event_id": "PT_SC01c_PendingApprovalStep2_SEI1",
-    "patient_id": "PT_SC01c_PendingApprovalStep2",
+    "surgical_event_id": "PT_SC01d_PendingApprovalStep2_SEI1",
+    "patient_id": "PT_SC01d_PendingApprovalStep2",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -4180,8 +4180,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA10_RequestNoAssignment1_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4190,13 +4190,13 @@
     "surgical_event_id": "PT_RA10_RequestNoAssignment1_SEI1",
     "patient_id": "PT_RA10_RequestNoAssignment1",
     "shipped_date": "2016-12-07T19:51:31+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "ION_AQ80_TsShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4205,13 +4205,13 @@
     "surgical_event_id": "ION_AQ80_TsShipped_SEI1",
     "patient_id": "ION_AQ80_TsShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA02_PendingApproval_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4220,13 +4220,13 @@
     "surgical_event_id": "PT_RA02_PendingApproval_SEI1",
     "patient_id": "PT_RA02_PendingApproval",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01a_OnTreatmentArm_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4235,7 +4235,7 @@
     "surgical_event_id": "PT_OS01a_OnTreatmentArm_SEI1",
     "patient_id": "PT_OS01a_OnTreatmentArm",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -4276,8 +4276,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA02_AssayReceived_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4286,7 +4286,7 @@
     "surgical_event_id": "PT_RA02_AssayReceived_SEI1",
     "patient_id": "PT_RA02_AssayReceived",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -4315,8 +4315,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01a_TsShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4325,13 +4325,13 @@
     "surgical_event_id": "PT_OS01a_TsShipped_SEI1",
     "patient_id": "PT_OS01a_TsShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA03_NoTaAvailable_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4340,13 +4340,13 @@
     "surgical_event_id": "PT_RA03_NoTaAvailable_SEI1",
     "patient_id": "PT_RA03_NoTaAvailable",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SR15_TsShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4355,27 +4355,27 @@
     "surgical_event_id": "PT_SR15_TsShipped_SEI1",
     "patient_id": "PT_SR15_TsShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
     "carrier": "Federal Express",
-    "dna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
     "patient_id": "PT_SR14_BdVrUploaded1",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "cdna_volume_ul": "0.1E2",
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SR14_BdVrUploaded1_BD_MOI1",
     "destination": "MDA",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "study_id": "APEC1621",
     "uuid": "5dc19002-28bb-4714-96c3-e3dfac64c6ea",
     "tracking_id": "7956 4568 1235",
     "shipment_type": "BLOOD_DNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "ION_SF03_TsVrUploaded_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4384,13 +4384,13 @@
     "surgical_event_id": "ION_SF03_TsVrUploaded_SEI1",
     "patient_id": "ION_SF03_TsVrUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VC04a_VRUploaded_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4399,7 +4399,7 @@
     "surgical_event_id": "PT_VC04a_VRUploaded_SEI1",
     "patient_id": "PT_VC04a_VRUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -4416,8 +4416,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC07b_TsShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4426,13 +4426,13 @@
     "surgical_event_id": "PT_SC07b_TsShipped_SEI1",
     "patient_id": "PT_SC07b_TsShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01_slideShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4441,13 +4441,13 @@
     "surgical_event_id": "PT_OS01_slideShipped_SEI1",
     "patient_id": "PT_OS01_slideShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SS31_CompassionateCare_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4456,13 +4456,13 @@
     "surgical_event_id": "PT_SS31_CompassionateCare_SEI1",
     "patient_id": "PT_SS31_CompassionateCare",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA04a_PendingConfirmation_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4471,7 +4471,7 @@
     "surgical_event_id": "PT_RA04a_PendingConfirmation_SEI1",
     "patient_id": "PT_RA04a_PendingConfirmation",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -4488,8 +4488,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA03_AssayReceived_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4498,13 +4498,13 @@
     "surgical_event_id": "PT_RA03_AssayReceived_SEI1",
     "patient_id": "PT_RA03_AssayReceived",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SR10_TsVrReceived_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4513,7 +4513,7 @@
     "surgical_event_id": "PT_SR10_TsVrReceived_SEI1",
     "patient_id": "PT_SR10_TsVrReceived",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -4530,8 +4530,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC04j_PendingApproval_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4540,13 +4540,13 @@
     "surgical_event_id": "PT_SC04j_PendingApproval_SEI1",
     "patient_id": "PT_SC04j_PendingApproval",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA09_PendingApproval_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4555,13 +4555,13 @@
     "surgical_event_id": "PT_RA09_PendingApproval_SEI1",
     "patient_id": "PT_RA09_PendingApproval",
     "shipped_date": "2016-12-07T18:27:25+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "ION_FL02_TsVrUploaded_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4570,13 +4570,13 @@
     "surgical_event_id": "ION_FL02_TsVrUploaded_SEI1",
     "patient_id": "ION_FL02_TsVrUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA08_OnTreatmentArm_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4585,27 +4585,27 @@
     "surgical_event_id": "PT_RA08_OnTreatmentArm_SEI1",
     "patient_id": "PT_RA08_OnTreatmentArm",
     "shipped_date": "2016-12-07T18:24:20+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
     "carrier": "Federal Express",
-    "dna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
     "patient_id": "PT_SR14d_BdVrUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "cdna_volume_ul": "0.1E2",
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SR14d_BdVrUploaded_BD_MOI1",
     "destination": "MDA",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "study_id": "APEC1621",
     "uuid": "1d33ecc3-e068-4aab-a058-acac49eaab20",
     "tracking_id": "7956 4568 1235",
     "shipment_type": "BLOOD_DNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SS26_PendingApproval1_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4614,7 +4614,7 @@
     "surgical_event_id": "PT_SS26_PendingApproval1_SEI1",
     "patient_id": "PT_SS26_PendingApproval1",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -4631,8 +4631,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS04_OnTA2_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4641,7 +4641,7 @@
     "surgical_event_id": "PT_OS04_OnTA2_SEI1",
     "patient_id": "PT_OS04_OnTA2",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -4670,8 +4670,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01a_NoTaAvailable_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4680,7 +4680,7 @@
     "surgical_event_id": "PT_OS01a_NoTaAvailable_SEI1",
     "patient_id": "PT_OS01a_NoTaAvailable",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -4697,8 +4697,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SS11_Tissue1Shipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4707,13 +4707,13 @@
     "surgical_event_id": "PT_SS11_Tissue1Shipped_SEI1",
     "patient_id": "PT_SS11_Tissue1Shipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC04f_RequestAssignment_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4722,13 +4722,13 @@
     "surgical_event_id": "PT_SC04f_RequestAssignment_SEI1",
     "patient_id": "PT_SC04f_RequestAssignment",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SS26_TsVRReceived_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4737,13 +4737,13 @@
     "surgical_event_id": "PT_SS26_TsVRReceived_SEI1",
     "patient_id": "PT_SS26_TsVRReceived",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA04a_TsShipped_MOI2",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4752,13 +4752,13 @@
     "surgical_event_id": "PT_RA04a_TsShipped_SEI2",
     "patient_id": "PT_RA04a_TsShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VU04_TissueShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4767,7 +4767,7 @@
     "surgical_event_id": "PT_VU04_TissueShipped_SEI1",
     "patient_id": "PT_VU04_TissueShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -4796,8 +4796,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA10_OnTreatmentArm_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4806,13 +4806,13 @@
     "surgical_event_id": "PT_RA10_OnTreatmentArm_SEI1",
     "patient_id": "PT_RA10_OnTreatmentArm",
     "shipped_date": "2016-12-07T18:33:21+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC02c_TsVrUploaded_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4821,7 +4821,7 @@
     "surgical_event_id": "PT_SC02c_TsVrUploaded_SEI1",
     "patient_id": "PT_SC02c_TsVrUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -4838,8 +4838,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC06c_PendingApprovalStep2_MOI2",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4848,13 +4848,13 @@
     "surgical_event_id": "PT_SC06c_PendingApprovalStep2_SEI2",
     "patient_id": "PT_SC06c_PendingApprovalStep2",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA10_OnTreatmentArm1_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4863,7 +4863,7 @@
     "surgical_event_id": "PT_RA10_OnTreatmentArm1_SEI1",
     "patient_id": "PT_RA10_OnTreatmentArm1",
     "shipped_date": "2016-12-07T19:24:57+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -4881,13 +4881,13 @@
   },
   {
     "carrier": "Federal Express",
-    "dna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
     "patient_id": "PT_SC07b_BdShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "cdna_volume_ul": "0.1E2",
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC07b_BdShipped_BD_MOI1",
     "destination": "MDA",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "study_id": "APEC1621",
     "uuid": "fa69d861-e6c6-4e7a-a471-ca1a8f3e40d4",
     "tracking_id": "7956 4568 1235",
@@ -4918,8 +4918,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SR10_PendingApproval2_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4928,13 +4928,13 @@
     "surgical_event_id": "PT_SR10_PendingApproval2_SEI1",
     "patient_id": "PT_SR10_PendingApproval2",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC04f_TsVrUploaded_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4943,7 +4943,7 @@
     "surgical_event_id": "PT_SC04f_TsVrUploaded_SEI1",
     "patient_id": "PT_SC04f_TsVrUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -4960,8 +4960,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC05e_PendingConfirmation_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4970,13 +4970,13 @@
     "surgical_event_id": "PT_SC05e_PendingConfirmation_SEI1",
     "patient_id": "PT_SC05e_PendingConfirmation",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VC11b_TsVRRejected_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -4985,7 +4985,7 @@
     "surgical_event_id": "PT_VC11b_TsVRRejected_SEI1",
     "patient_id": "PT_VC11b_TsVRRejected",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -5002,8 +5002,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SR14_RequestAssignment_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5012,13 +5012,13 @@
     "surgical_event_id": "PT_SR14_RequestAssignment_SEI1",
     "patient_id": "PT_SR14_RequestAssignment",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA04a_RequestNoAssignment_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5027,7 +5027,7 @@
     "surgical_event_id": "PT_RA04a_RequestNoAssignment_SEI1",
     "patient_id": "PT_RA04a_RequestNoAssignment",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -5056,8 +5056,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA03_PendingConfirmation_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5066,7 +5066,7 @@
     "surgical_event_id": "PT_RA03_PendingConfirmation_SEI1",
     "patient_id": "PT_RA03_PendingConfirmation",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -5083,8 +5083,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VU18_TissueShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5093,13 +5093,13 @@
     "surgical_event_id": "PT_VU18_TissueShipped_SEI1",
     "patient_id": "PT_VU18_TissueShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC04e_TsVrUploaded_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5108,13 +5108,13 @@
     "surgical_event_id": "PT_SC04e_TsVrUploaded_SEI1",
     "patient_id": "PT_SC04e_TsVrUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_AM02_VrReceived_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5123,13 +5123,13 @@
     "surgical_event_id": "PT_AM02_VrReceived_SEI1",
     "patient_id": "PT_AM02_VrReceived",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA04a_OffStudy_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5138,13 +5138,13 @@
     "surgical_event_id": "PT_RA04a_OffStudy_SEI1",
     "patient_id": "PT_RA04a_OffStudy",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VC15_OneAssayAndVrReceived_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5153,7 +5153,7 @@
     "surgical_event_id": "PT_VC15_OneAssayAndVrReceived_SEI1",
     "patient_id": "PT_VC15_OneAssayAndVrReceived",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -5170,8 +5170,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC02f_TsVrUploaded_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5180,13 +5180,13 @@
     "surgical_event_id": "PT_SC02f_TsVrUploaded_SEI1",
     "patient_id": "PT_SC02f_TsVrUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VC12_VRUploaded1_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5195,7 +5195,7 @@
     "surgical_event_id": "PT_VC12_VRUploaded1_SEI1",
     "patient_id": "PT_VC12_VRUploaded1",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -5284,8 +5284,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_GVF_RequestNoAssignment_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5294,7 +5294,7 @@
     "surgical_event_id": "PT_GVF_RequestNoAssignment_SEI1",
     "patient_id": "PT_GVF_RequestNoAssignment",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -5311,8 +5311,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA08_PendingApproval_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5321,13 +5321,13 @@
     "surgical_event_id": "PT_RA08_PendingApproval_SEI1",
     "patient_id": "PT_RA08_PendingApproval",
     "shipped_date": "2016-12-07T18:23:01+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC05f_PendingConfirmation_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5336,7 +5336,7 @@
     "surgical_event_id": "PT_SC05f_PendingConfirmation_SEI1",
     "patient_id": "PT_SC05f_PendingConfirmation",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -5353,8 +5353,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VU02_TissueShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5363,13 +5363,13 @@
     "surgical_event_id": "PT_VU02_TissueShipped_SEI1",
     "patient_id": "PT_VU02_TissueShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SS24_TissueShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5378,13 +5378,13 @@
     "surgical_event_id": "PT_SS24_TissueShipped_SEI1",
     "patient_id": "PT_SS24_TissueShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "ION_AQ41_TsVrUploaded_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5393,13 +5393,13 @@
     "surgical_event_id": "ION_AQ41_TsVrUploaded_SEI1",
     "patient_id": "ION_AQ41_TsVrUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SS11a_Step2BdReceived_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5408,7 +5408,7 @@
     "surgical_event_id": "PT_SS11a_Step2BdReceived_SEI1",
     "patient_id": "PT_SS11a_Step2BdReceived",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -5425,8 +5425,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01_NoTaAvailable_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5435,13 +5435,13 @@
     "surgical_event_id": "PT_OS01_NoTaAvailable_SEI1",
     "patient_id": "PT_OS01_NoTaAvailable",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA03_slideShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5450,7 +5450,7 @@
     "surgical_event_id": "PT_RA03_slideShipped_SEI1",
     "patient_id": "PT_RA03_slideShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -5467,8 +5467,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VU06_TissueShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5477,13 +5477,13 @@
     "surgical_event_id": "PT_VU06_TissueShipped_SEI1",
     "patient_id": "PT_VU06_TissueShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA09_OnTreatmentArm_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5492,13 +5492,13 @@
     "surgical_event_id": "PT_RA09_OnTreatmentArm_SEI1",
     "patient_id": "PT_RA09_OnTreatmentArm",
     "shipped_date": "2016-12-07T18:28:43+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01a_TsVrReceived_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5507,7 +5507,7 @@
     "surgical_event_id": "PT_OS01a_TsVrReceived_SEI1",
     "patient_id": "PT_OS01a_TsVrReceived",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -5548,8 +5548,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS02_OffStudy2_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5558,13 +5558,13 @@
     "surgical_event_id": "PT_OS02_OffStudy2_SEI1",
     "patient_id": "PT_OS02_OffStudy2",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC06a_PendingApprovalStep2_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5573,7 +5573,7 @@
     "surgical_event_id": "PT_SC06a_PendingApprovalStep2_SEI1",
     "patient_id": "PT_SC06a_PendingApprovalStep2",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -5590,8 +5590,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_CR05_SpecimenShippedTwice_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5600,13 +5600,13 @@
     "surgical_event_id": "PT_CR05_SpecimenShippedTwice_SEI1",
     "patient_id": "PT_CR05_SpecimenShippedTwice",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01a_TsVrReceived_MOI2",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5615,13 +5615,13 @@
     "surgical_event_id": "PT_OS01a_TsVrReceived_SEI2",
     "patient_id": "PT_OS01a_TsVrReceived",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA04a_NoTaAvailable_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5630,7 +5630,7 @@
     "surgical_event_id": "PT_RA04a_NoTaAvailable_SEI1",
     "patient_id": "PT_RA04a_NoTaAvailable",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -5659,8 +5659,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA02_RequestNoAssignment_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5669,27 +5669,27 @@
     "surgical_event_id": "PT_RA02_RequestNoAssignment_SEI1",
     "patient_id": "PT_RA02_RequestNoAssignment",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
     "carrier": "Federal Express",
-    "dna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
     "patient_id": "PT_SS11a_Step2BdReceived",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "cdna_volume_ul": "0.1E2",
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SS11a_Step2BdReceived_BD_MOI1",
     "destination": "MDA",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "study_id": "APEC1621",
     "uuid": "3febde95-8362-4636-a6f0-91b2e9868642",
     "tracking_id": "7956 4568 1235",
     "shipment_type": "BLOOD_DNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA04a_slideShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5698,13 +5698,13 @@
     "surgical_event_id": "PT_RA04a_slideShipped_SEI1",
     "patient_id": "PT_RA04a_slideShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC06a_PendingApproval_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5713,13 +5713,13 @@
     "surgical_event_id": "PT_SC06a_PendingApproval_SEI1",
     "patient_id": "PT_SC06a_PendingApproval",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA04a_RequestAssignment_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5728,7 +5728,7 @@
     "surgical_event_id": "PT_RA04a_RequestAssignment_SEI1",
     "patient_id": "PT_RA04a_RequestAssignment",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -5746,13 +5746,13 @@
   },
   {
     "carrier": "Federal Express",
-    "dna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
     "patient_id": "PT_SS25_BloodShipped",
     "shipped_date": "2016-05-01T22:42:13+00:00",
-    "cdna_volume_ul": "0.1E2",
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SS25_BloodShipped_BD_MOI2",
     "destination": "MDA",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "study_id": "APEC1621",
     "uuid": "87c5438f-2866-464e-80e4-262d6454bf25",
     "tracking_id": "7956 4568 1235",
@@ -5771,8 +5771,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_AM03_PendingApproval_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5781,7 +5781,7 @@
     "surgical_event_id": "PT_AM03_PendingApproval_SEI1",
     "patient_id": "PT_AM03_PendingApproval",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -5810,8 +5810,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SS12_Tissue1Shipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5820,13 +5820,13 @@
     "surgical_event_id": "PT_SS12_Tissue1Shipped_SEI1",
     "patient_id": "PT_SS12_Tissue1Shipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_CR04_VRUploadedAssayReceived_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5835,13 +5835,13 @@
     "surgical_event_id": "PT_CR04_VRUploadedAssayReceived_SEI1",
     "patient_id": "PT_CR04_VRUploadedAssayReceived",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01a_slideShipped_MOI2",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5850,13 +5850,13 @@
     "surgical_event_id": "PT_OS01a_slideShipped_SEI2",
     "patient_id": "PT_OS01a_slideShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SS26_RequestAssignment_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5865,13 +5865,13 @@
     "surgical_event_id": "PT_SS26_RequestAssignment_SEI1",
     "patient_id": "PT_SS26_RequestAssignment",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_GVF_OnTreatmentArm_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5880,13 +5880,13 @@
     "surgical_event_id": "PT_GVF_OnTreatmentArm_SEI1",
     "patient_id": "PT_GVF_OnTreatmentArm",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01_OffStudyBiopsyExpired_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5895,13 +5895,13 @@
     "surgical_event_id": "PT_OS01_OffStudyBiopsyExpired_SEI1",
     "patient_id": "PT_OS01_OffStudyBiopsyExpired",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC06c_PendingApprovalStep2_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5910,7 +5910,7 @@
     "surgical_event_id": "PT_SC06c_PendingApprovalStep2_SEI1",
     "patient_id": "PT_SC06c_PendingApprovalStep2",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -5939,8 +5939,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01a_ReqNoAssignment_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5949,7 +5949,7 @@
     "surgical_event_id": "PT_OS01a_ReqNoAssignment_SEI1",
     "patient_id": "PT_OS01a_ReqNoAssignment",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -5966,8 +5966,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_CR05_SpecimenShippedTwice_MOI2",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -5976,7 +5976,7 @@
     "surgical_event_id": "PT_CR05_SpecimenShippedTwice_SEI1",
     "patient_id": "PT_CR05_SpecimenShippedTwice",
     "shipped_date": "2016-05-02T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -5993,8 +5993,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA06_PendingAproval_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6003,7 +6003,7 @@
     "surgical_event_id": "PT_RA06_PendingAproval_SEI1",
     "patient_id": "PT_RA06_PendingAproval",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -6020,8 +6020,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC04i_PendingApproval_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6030,7 +6030,7 @@
     "surgical_event_id": "PT_SC04i_PendingApproval_SEI1",
     "patient_id": "PT_SC04i_PendingApproval",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -6047,8 +6047,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS04_OnTA1_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6057,13 +6057,13 @@
     "surgical_event_id": "PT_OS04_OnTA1_SEI1",
     "patient_id": "PT_OS04_OnTA1",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA04a_slideShipped_MOI2",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6072,13 +6072,13 @@
     "surgical_event_id": "PT_RA04a_slideShipped_SEI2",
     "patient_id": "PT_RA04a_slideShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VC10_VRUploadedSEIExpired_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6087,7 +6087,7 @@
     "surgical_event_id": "PT_VC10_VRUploadedSEIExpired_SEI1",
     "patient_id": "PT_VC10_VRUploadedSEIExpired",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -6140,8 +6140,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VC12_VRUploaded2_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6150,13 +6150,13 @@
     "surgical_event_id": "PT_VC12_VRUploaded2_SEI1",
     "patient_id": "PT_VC12_VRUploaded2",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01_TsVrRejected_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6165,13 +6165,13 @@
     "surgical_event_id": "PT_OS01_TsVrRejected_SEI1",
     "patient_id": "PT_OS01_TsVrRejected",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA04a_PendingApproval_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6180,13 +6180,13 @@
     "surgical_event_id": "PT_RA04a_PendingApproval_SEI1",
     "patient_id": "PT_RA04a_PendingApproval",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VU05_TissueShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6195,7 +6195,7 @@
     "surgical_event_id": "PT_VU05_TissueShipped_SEI1",
     "patient_id": "PT_VU05_TissueShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -6212,8 +6212,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01_TsShipped_MOI2",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6222,7 +6222,7 @@
     "surgical_event_id": "PT_OS01_TsShipped_SEI2",
     "patient_id": "PT_OS01_TsShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -6239,8 +6239,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01a_OffStudy_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6249,7 +6249,7 @@
     "surgical_event_id": "PT_OS01a_OffStudy_SEI1",
     "patient_id": "PT_OS01a_OffStudy",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -6278,8 +6278,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SS06a_TissueShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6288,13 +6288,13 @@
     "surgical_event_id": "PT_SS06a_TissueShipped_SEI1",
     "patient_id": "PT_SS06a_TissueShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA02_TsVrRejected_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6303,13 +6303,13 @@
     "surgical_event_id": "PT_RA02_TsVrRejected_SEI1",
     "patient_id": "PT_RA02_TsVrRejected",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC05a_TsVrUploaded_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6318,13 +6318,13 @@
     "surgical_event_id": "PT_SC05a_TsVrUploaded_SEI1",
     "patient_id": "PT_SC05a_TsVrUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VU05_TissueShipped_MOI2",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6333,13 +6333,13 @@
     "surgical_event_id": "PT_VU05_TissueShipped_SEI1",
     "patient_id": "PT_VU05_TissueShipped",
     "shipped_date": "2016-05-01T23:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC02b_TsShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6348,13 +6348,13 @@
     "surgical_event_id": "PT_SC02b_TsShipped_SEI1",
     "patient_id": "PT_SC02b_TsShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA10_RequestNoAssignment_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6363,13 +6363,13 @@
     "surgical_event_id": "PT_RA10_RequestNoAssignment_SEI1",
     "patient_id": "PT_RA10_RequestNoAssignment",
     "shipped_date": "2016-12-07T18:34:50+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA06_OnTreatmentArm_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6378,17 +6378,17 @@
     "surgical_event_id": "PT_RA06_OnTreatmentArm_SEI1",
     "patient_id": "PT_RA06_OnTreatmentArm",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
     "carrier": "Federal Express",
-    "surgical_event_id": "PT_SC01c_PendingApprovalStep2_SEI2",
-    "patient_id": "PT_SC01c_PendingApprovalStep2",
+    "surgical_event_id": "PT_SC01d_PendingApprovalStep2_SEI2",
+    "patient_id": "PT_SC01d_PendingApprovalStep2",
     "shipped_date": "2016-05-01T19:42:13+00:00",
     "destination": "MDA",
-    "slide_barcode": "PT_SC01c_PendingApprovalStep2_BC2",
+    "slide_barcode": "PT_SC01d_PendingApprovalStep2_BC2",
     "study_id": "APEC1621",
     "uuid": "662f197c-cb3b-4efe-b51f-735e2fe22deb",
     "tracking_id": "7956 4568 1235",
@@ -6407,8 +6407,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA02_slideShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6417,13 +6417,13 @@
     "surgical_event_id": "PT_RA02_slideShipped_SEI1",
     "patient_id": "PT_RA02_slideShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01_TsVrConfirmed_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6432,13 +6432,13 @@
     "surgical_event_id": "PT_OS01_TsVrConfirmed_SEI1",
     "patient_id": "PT_OS01_TsVrConfirmed",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SR10_OffStudy2_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6447,13 +6447,13 @@
     "surgical_event_id": "PT_SR10_OffStudy2_SEI1",
     "patient_id": "PT_SR10_OffStudy2",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA03_TsShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6462,13 +6462,13 @@
     "surgical_event_id": "PT_RA03_TsShipped_SEI1",
     "patient_id": "PT_RA03_TsShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SC05a_PendingConfirmation_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6477,13 +6477,13 @@
     "surgical_event_id": "PT_SC05a_PendingConfirmation_SEI1",
     "patient_id": "PT_SC05a_PendingConfirmation",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS03_OffStudy2_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6492,13 +6492,13 @@
     "surgical_event_id": "PT_OS03_OffStudy2_SEI1",
     "patient_id": "PT_OS03_OffStudy2",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VC11_VRUploaded_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6507,7 +6507,7 @@
     "surgical_event_id": "PT_VC11_VRUploaded_SEI1",
     "patient_id": "PT_VC11_VRUploaded",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -6536,8 +6536,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01a_ReqAssignment_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6546,13 +6546,13 @@
     "surgical_event_id": "PT_OS01a_ReqAssignment_SEI1",
     "patient_id": "PT_OS01a_ReqAssignment",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01a_slideShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6561,13 +6561,13 @@
     "surgical_event_id": "PT_OS01a_slideShipped_SEI1",
     "patient_id": "PT_OS01a_slideShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA03_RequestNoAssignment_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6576,13 +6576,13 @@
     "surgical_event_id": "PT_RA03_RequestNoAssignment_SEI1",
     "patient_id": "PT_RA03_RequestNoAssignment",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VC15_AssayReceivedVrReceivedToReject_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6591,13 +6591,13 @@
     "surgical_event_id": "PT_VC15_AssayReceivedVrReceivedToReject_SEI1",
     "patient_id": "PT_VC15_AssayReceivedVrReceivedToReject",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SS26_TsVRConfirmed_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6606,7 +6606,7 @@
     "surgical_event_id": "PT_SS26_TsVRConfirmed_SEI1",
     "patient_id": "PT_SS26_TsVRConfirmed",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -6623,8 +6623,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA02_TsShipped_MOI2",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6633,13 +6633,13 @@
     "surgical_event_id": "PT_RA02_TsShipped_SEI2",
     "patient_id": "PT_RA02_TsShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_VC10_VRUploadedMOIExpired_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6648,7 +6648,7 @@
     "surgical_event_id": "PT_VC10_VRUploadedMOIExpired_SEI1",
     "patient_id": "PT_VC10_VRUploadedMOIExpired",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -6665,8 +6665,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_OS01_TsShipped_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6675,7 +6675,7 @@
     "surgical_event_id": "PT_OS01_TsShipped_SEI1",
     "patient_id": "PT_OS01_TsShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -6692,8 +6692,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_AS12_VrReceived_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6702,13 +6702,13 @@
     "surgical_event_id": "PT_AS12_VrReceived_SEI1",
     "patient_id": "PT_AS12_VrReceived",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA04a_TsVrReceived_MOI2",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6717,13 +6717,13 @@
     "surgical_event_id": "PT_RA04a_TsVrReceived_SEI2",
     "patient_id": "PT_RA04a_TsVrReceived",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA03_CompassionateCare_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6732,7 +6732,7 @@
     "surgical_event_id": "PT_RA03_CompassionateCare_SEI1",
     "patient_id": "PT_RA03_CompassionateCare",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
@@ -6749,8 +6749,8 @@
     "shipment_type": "SLIDE"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_RA02_slideShipped_MOI2",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6759,13 +6759,13 @@
     "surgical_event_id": "PT_RA02_slideShipped_SEI2",
     "patient_id": "PT_RA02_slideShipped",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   },
   {
-    "dna_volume_ul": "0.1E2",
-    "cdna_volume_ul": "0.1E2",
+    "dna_volume_ul": 10.0,
+    "cdna_volume_ul": 10.0,
     "molecular_id": "PT_SR10_TsVRRejected_MOI1",
     "destination": "MDA",
     "study_id": "APEC1621",
@@ -6774,7 +6774,7 @@
     "surgical_event_id": "PT_SR10_TsVRRejected_SEI1",
     "patient_id": "PT_SR10_TsVRRejected",
     "shipped_date": "2016-05-01T19:42:13+00:00",
-    "dna_concentration_ng_per_ul": "0.25E2",
+    "dna_concentration_ng_per_ul": 25.0,
     "tracking_id": "7956 4568 1235",
     "shipment_type": "TISSUE_DNA_AND_CDNA"
   }
