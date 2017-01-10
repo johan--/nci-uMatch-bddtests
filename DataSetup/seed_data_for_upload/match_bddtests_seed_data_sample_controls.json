@@ -300,7 +300,7 @@
     "analysis_id": "SC_KGPVI_analysis_1",
     "copy_number_variant_genes": null,
     "site": "mocha",
-    "total_variants": "0.0",
+    "total_variants": 0.0,
     "filename": "SC_KGPVI_MoCha_12_notemplate_passed",
     "oncomine_control_panel_summary": null,
     "snv_indels": [
@@ -447,7 +447,7 @@
         "protein": "p.Lys111Asn",
         "read_depth": 1403.0,
         "location": "exonic",
-        "alternative_allele_observation_count": "0.0",
+        "alternative_allele_observation_count": 0.0,
         "position": "178916946",
         "exon": "2",
         "flow_alternative_allele_observation_count": 194.0
@@ -473,7 +473,7 @@
         "protein": "p.Val600Glu",
         "read_depth": 1865.9999999999998,
         "location": "exonic",
-        "alternative_allele_observation_count": "0.0",
+        "alternative_allele_observation_count": 0.0,
         "position": "140453136",
         "exon": "15",
         "flow_alternative_allele_observation_count": 443.0
@@ -519,13 +519,13 @@
         "oncomine_variant_class": "Hotspot",
         "hgvs": "c.726C>G",
         "filter": "PASS",
-        "flow_reference_allele_observations": "0.0",
+        "flow_reference_allele_observations": 0.0,
         "transcript": "NM_000546.5",
         "function": "missense",
         "protein": "p.Cys242Trp",
         "read_depth": 676.0,
         "location": "exonic",
-        "alternative_allele_observation_count": "0.0",
+        "alternative_allele_observation_count": 0.0,
         "position": "7577555",
         "exon": "7",
         "flow_alternative_allele_observation_count": 676.0
@@ -1028,7 +1028,7 @@
     "analysis_id": "SC_LGU30_analysis_1",
     "copy_number_variant_genes": null,
     "site": "mdacc",
-    "total_variants": "0.0",
+    "total_variants": 0.0,
     "filename": "SNV_Germline_filter_proficiency",
     "oncomine_control_panel_summary": null,
     "snv_indels": [
@@ -1185,7 +1185,7 @@
         "protein": null,
         "read_depth": 1975.0,
         "location": "exonic",
-        "alternative_allele_observation_count": "0.0",
+        "alternative_allele_observation_count": 0.0,
         "position": "33593613",
         "exon": "22",
         "flow_alternative_allele_observation_count": 350.0
@@ -1211,7 +1211,7 @@
         "protein": "match769",
         "read_depth": 1975.0,
         "location": "exonic",
-        "alternative_allele_observation_count": "0.0",
+        "alternative_allele_observation_count": 0.0,
         "position": "66593613",
         "exon": "22",
         "flow_alternative_allele_observation_count": 350.0
@@ -1237,7 +1237,7 @@
         "protein": null,
         "read_depth": 1650.0,
         "location": "exonic",
-        "alternative_allele_observation_count": "0.0",
+        "alternative_allele_observation_count": 0.0,
         "position": "88593606",
         "exon": null,
         "flow_alternative_allele_observation_count": 25.0
@@ -1263,7 +1263,7 @@
         "protein": null,
         "read_depth": 1650.0,
         "location": "exonic",
-        "alternative_allele_observation_count": "0.0",
+        "alternative_allele_observation_count": 0.0,
         "position": "99593606",
         "exon": null,
         "flow_alternative_allele_observation_count": 25.0
@@ -1289,7 +1289,7 @@
         "protein": null,
         "read_depth": 1650.0,
         "location": "exonic",
-        "alternative_allele_observation_count": "0.0",
+        "alternative_allele_observation_count": 0.0,
         "position": "10593601",
         "exon": null,
         "flow_alternative_allele_observation_count": 25.0
@@ -1315,7 +1315,7 @@
         "protein": null,
         "read_depth": 1650.0,
         "location": "exonic",
-        "alternative_allele_observation_count": "0.0",
+        "alternative_allele_observation_count": 0.0,
         "position": "11593601",
         "exon": null,
         "flow_alternative_allele_observation_count": 25.0
@@ -1341,7 +1341,7 @@
         "protein": null,
         "read_depth": 1650.0,
         "location": "exonic",
-        "alternative_allele_observation_count": "0.0",
+        "alternative_allele_observation_count": 0.0,
         "position": "12593601",
         "exon": null,
         "flow_alternative_allele_observation_count": 25.0
@@ -1367,7 +1367,7 @@
         "protein": null,
         "read_depth": 1650.0,
         "location": "exonic",
-        "alternative_allele_observation_count": "0.0",
+        "alternative_allele_observation_count": 0.0,
         "position": "13593601",
         "exon": null,
         "flow_alternative_allele_observation_count": 25.0
@@ -1393,7 +1393,7 @@
         "protein": null,
         "read_depth": 1650.0,
         "location": "exonic",
-        "alternative_allele_observation_count": "0.0",
+        "alternative_allele_observation_count": 0.0,
         "position": "14593601",
         "exon": null,
         "flow_alternative_allele_observation_count": 25.0
@@ -1419,7 +1419,7 @@
         "protein": null,
         "read_depth": 1650.0,
         "location": "exonic",
-        "alternative_allele_observation_count": "0.0",
+        "alternative_allele_observation_count": 0.0,
         "position": "15593601",
         "exon": null,
         "flow_alternative_allele_observation_count": 25.0
@@ -1445,7 +1445,7 @@
         "protein": null,
         "read_depth": 1650.0,
         "location": "exonic",
-        "alternative_allele_observation_count": "0.0",
+        "alternative_allele_observation_count": 0.0,
         "position": "16593601",
         "exon": null,
         "flow_alternative_allele_observation_count": 25.0
@@ -1471,7 +1471,7 @@
         "protein": null,
         "read_depth": 1650.0,
         "location": "exonic",
-        "alternative_allele_observation_count": "0.0",
+        "alternative_allele_observation_count": 0.0,
         "position": "17593601",
         "exon": null,
         "flow_alternative_allele_observation_count": 25.0
@@ -1497,7 +1497,7 @@
         "protein": null,
         "read_depth": 1650.0,
         "location": "exonic",
-        "alternative_allele_observation_count": "0.0",
+        "alternative_allele_observation_count": 0.0,
         "position": "18593601",
         "exon": null,
         "flow_alternative_allele_observation_count": 25.0

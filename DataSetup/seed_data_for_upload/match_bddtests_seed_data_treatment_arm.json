@@ -1,6 +1,6 @@
 [
   {
-    "version_not_enrolled_patients": "0.0",
+    "version_not_enrolled_patients": 0.0,
     "target_name": "Crizotinib",
     "copy_number_variants": [
       {
@@ -39,7 +39,7 @@
     ],
     "description": "TEST Treatment Arm used by Cucumber Tests",
     "study_id": "APEC1621",
-    "former_patients": "0.0",
+    "former_patients": 0.0,
     "assay_rules": [
       {
         "assay_result_status": "POSITIVE",
@@ -56,9 +56,9 @@
         "assay_variant": "EMPTY"
       }
     ],
-    "not_enrolled_patients": "0.0",
-    "version_pending_patients": "0.0",
-    "version_current_patients": "0.0",
+    "not_enrolled_patients": 0.0,
+    "version_pending_patients": 0.0,
+    "version_current_patients": 0.0,
     "non_hotspot_rules": [
       {
         "inclusion": true,
@@ -118,7 +118,7 @@
         "disease_name": "Papillary thyroid carcinoma"
       }
     ],
-    "current_patients": "0.0",
+    "current_patients": 0.0,
     "target_id": "113",
     "date_opened": "2016-11-07T10:57:10.234-05:00",
     "version": "2015-08-06",
@@ -129,8 +129,8 @@
         "drug_id": "113"
       }
     ],
-    "pending_patients": "0.0",
-    "version_former_patients": "0.0",
+    "pending_patients": 0.0,
+    "version_former_patients": 0.0,
     "name": "APEC1621-B",
     "status_log": {
       "1478534230": "OPEN"
@@ -298,20 +298,20 @@
     ]
   },
   {
-    "version_not_enrolled_patients": "0.0",
+    "version_not_enrolled_patients": 0.0,
     "target_name": "Crizotinib",
     "copy_number_variants": [
 
     ],
     "description": "Test Treatment Arm with 2 versions for the test",
     "study_id": "APEC1621",
-    "former_patients": "0.0",
+    "former_patients": 0.0,
     "assay_rules": [
 
     ],
-    "not_enrolled_patients": "0.0",
-    "version_pending_patients": "0.0",
-    "version_current_patients": "0.0",
+    "not_enrolled_patients": 0.0,
+    "version_pending_patients": 0.0,
+    "version_current_patients": 0.0,
     "non_hotspot_rules": [
 
     ],
@@ -328,7 +328,7 @@
         "disease_name": "Bronchioloalveolar carcinoma"
       }
     ],
-    "current_patients": "0.0",
+    "current_patients": 0.0,
     "target_id": "113",
     "date_opened": "2016-11-07T10:57:25.743-05:00",
     "version": "version1",
@@ -339,8 +339,8 @@
         "drug_id": "113"
       }
     ],
-    "pending_patients": "0.0",
-    "version_former_patients": "0.0",
+    "pending_patients": 0.0,
+    "version_former_patients": 0.0,
     "name": "APEC1621-2V",
     "status_log": {
       "1478534245": "OPEN"
@@ -377,20 +377,20 @@
     ]
   },
   {
-    "version_not_enrolled_patients": "0.0",
+    "version_not_enrolled_patients": 0.0,
     "target_name": "Crizotinib",
     "copy_number_variants": [
 
     ],
     "description": "Test Treatment Arm with 2 versions",
     "study_id": "APEC1621",
-    "former_patients": "0.0",
+    "former_patients": 0.0,
     "assay_rules": [
 
     ],
-    "not_enrolled_patients": "0.0",
-    "version_pending_patients": "0.0",
-    "version_current_patients": "0.0",
+    "not_enrolled_patients": 0.0,
+    "version_pending_patients": 0.0,
+    "version_current_patients": 0.0,
     "non_hotspot_rules": [
 
     ],
@@ -437,7 +437,7 @@
         "disease_name": "Papillary thyroid carcinoma"
       }
     ],
-    "current_patients": "0.0",
+    "current_patients": 0.0,
     "target_id": "113",
     "date_opened": "2016-11-07T10:57:25.743-05:00",
     "version": "version2",
@@ -448,8 +448,8 @@
         "drug_id": "113"
       }
     ],
-    "pending_patients": "0.0",
-    "version_former_patients": "0.0",
+    "pending_patients": 0.0,
+    "version_former_patients": 0.0,
     "name": "APEC1621-2V",
     "status_log": {
       "1478534245": "OPEN"
@@ -496,20 +496,20 @@
     ]
   },
   {
-    "version_not_enrolled_patients": "0.0",
+    "version_not_enrolled_patients": 0.0,
     "target_name": "Crizotinib",
     "copy_number_variants": [
 
     ],
     "description": "This TA is used by patient end-to-end test",
     "study_id": "APEC1621",
-    "former_patients": "0.0",
+    "former_patients": 0.0,
     "assay_rules": [
 
     ],
-    "not_enrolled_patients": "0.0",
+    "not_enrolled_patients": 0.0,
     "version_pending_patients": 3.0,
-    "version_current_patients": "0.0",
+    "version_current_patients": 0.0,
     "non_hotspot_rules": [
       {
         "inclusion": true,
@@ -560,7 +560,7 @@
         "disease_name": "Squamous cell lung carcinoma"
       }
     ],
-    "current_patients": "0.0",
+    "current_patients": 0.0,
     "target_id": "113",
     "date_opened": "2016-11-07T10:57:15.352-05:00",
     "version": "2015-08-06",
@@ -572,7 +572,7 @@
       }
     ],
     "pending_patients": 3.0,
-    "version_former_patients": "0.0",
+    "version_former_patients": 0.0,
     "name": "APEC1621-ETE-A",
     "status_log": {
       "1478534235": "OPEN"
@@ -625,7 +625,7 @@
     ]
   },
   {
-    "version_not_enrolled_patients": "0.0",
+    "version_not_enrolled_patients": 0.0,
     "target_name": "Crizotinib",
     "copy_number_variants": [
       {
@@ -670,7 +670,7 @@
     ],
     "description": "Treatment Arm for UI tests new version",
     "study_id": "APEC1621",
-    "former_patients": "0.0",
+    "former_patients": 0.0,
     "assay_rules": [
       {
         "assay_result_status": "POSITIVE",
@@ -687,9 +687,9 @@
         "assay_variant": "EMPTY"
       }
     ],
-    "not_enrolled_patients": "0.0",
-    "version_pending_patients": "0.0",
-    "version_current_patients": "0.0",
+    "not_enrolled_patients": 0.0,
+    "version_pending_patients": 0.0,
+    "version_current_patients": 0.0,
     "non_hotspot_rules": [
       {
         "inclusion": true,
@@ -750,7 +750,7 @@
         "disease_name": "Papillary thyroid carcinoma"
       }
     ],
-    "current_patients": "0.0",
+    "current_patients": 0.0,
     "target_id": "113",
     "date_opened": "2016-09-10T00:48:07+00:00",
     "version": "2015-08-06",
@@ -761,8 +761,8 @@
         "drug_id": "113"
       }
     ],
-    "pending_patients": "0.0",
-    "version_former_patients": "0.0",
+    "pending_patients": 0.0,
+    "version_former_patients": 0.0,
     "name": "APEC1621-UI for Testing",
     "status_log": {
       "1478534230": "OPEN"
@@ -950,20 +950,20 @@
     ]
   },
   {
-    "version_not_enrolled_patients": "0.0",
+    "version_not_enrolled_patients": 0.0,
     "target_name": "Crizotinib",
     "copy_number_variants": [
 
     ],
     "description": "This TA is used by patient end-to-end test",
     "study_id": "APEC1621",
-    "former_patients": "0.0",
+    "former_patients": 0.0,
     "assay_rules": [
 
     ],
-    "not_enrolled_patients": "0.0",
-    "version_pending_patients": "0.0",
-    "version_current_patients": "0.0",
+    "not_enrolled_patients": 0.0,
+    "version_pending_patients": 0.0,
+    "version_current_patients": 0.0,
     "non_hotspot_rules": [
 
     ],
@@ -1004,7 +1004,7 @@
         "disease_name": "Squamous cell lung carcinoma"
       }
     ],
-    "current_patients": "0.0",
+    "current_patients": 0.0,
     "target_id": "122",
     "date_opened": "2016-11-07T10:57:20.627-05:00",
     "version": "2015-08-06",
@@ -1015,8 +1015,8 @@
         "drug_id": "122"
       }
     ],
-    "pending_patients": "0.0",
-    "version_former_patients": "0.0",
+    "pending_patients": 0.0,
+    "version_former_patients": 0.0,
     "name": "APEC1621-ETE-C",
     "status_log": {
       "1478534240": "OPEN"
@@ -1093,20 +1093,20 @@
     ]
   },
   {
-    "version_not_enrolled_patients": "0.0",
+    "version_not_enrolled_patients": 0.0,
     "target_name": "Crizotinib",
     "copy_number_variants": [
 
     ],
     "description": "This TA is used by patient end-to-end test",
     "study_id": "APEC1621",
-    "former_patients": "0.0",
+    "former_patients": 0.0,
     "assay_rules": [
 
     ],
-    "not_enrolled_patients": "0.0",
-    "version_pending_patients": "0.0",
-    "version_current_patients": "0.0",
+    "not_enrolled_patients": 0.0,
+    "version_pending_patients": 0.0,
+    "version_current_patients": 0.0,
     "non_hotspot_rules": [
 
     ],
@@ -1147,7 +1147,7 @@
         "disease_name": "Squamous cell lung carcinoma"
       }
     ],
-    "current_patients": "0.0",
+    "current_patients": 0.0,
     "target_id": "122-1",
     "date_opened": "2016-11-07T10:57:25.788-05:00",
     "version": "2015-08-06",
@@ -1158,8 +1158,8 @@
         "drug_id": "122"
       }
     ],
-    "pending_patients": "0.0",
-    "version_former_patients": "0.0",
+    "pending_patients": 0.0,
+    "version_former_patients": 0.0,
     "name": "APEC1621-ETE-D",
     "status_log": {
       "1478534245": "OPEN"
@@ -1211,20 +1211,20 @@
     ]
   },
   {
-    "version_not_enrolled_patients": "0.0",
+    "version_not_enrolled_patients": 0.0,
     "target_name": "Crizotinib",
     "copy_number_variants": [
 
     ],
     "description": "TEST Treatment Arm used by Cucumber Tests",
     "study_id": "APEC1621",
-    "former_patients": "0.0",
+    "former_patients": 0.0,
     "assay_rules": [
 
     ],
-    "not_enrolled_patients": "0.0",
-    "version_pending_patients": "0.0",
-    "version_current_patients": "0.0",
+    "not_enrolled_patients": 0.0,
+    "version_pending_patients": 0.0,
+    "version_current_patients": 0.0,
     "non_hotspot_rules": [
 
     ],
@@ -1271,7 +1271,7 @@
         "disease_name": "Papillary thyroid carcinoma"
       }
     ],
-    "current_patients": "0.0",
+    "current_patients": 0.0,
     "target_id": "122",
     "date_opened": "2016-12-13T14:16:03.074-05:00",
     "version": "2015-08-06",
@@ -1282,8 +1282,8 @@
         "drug_id": "113"
       }
     ],
-    "pending_patients": "0.0",
-    "version_former_patients": "0.0",
+    "pending_patients": 0.0,
+    "version_former_patients": 0.0,
     "name": "CukeTest-122-1-SUSPENDED",
     "status_log": {
       "1481656563": "OPEN",
@@ -1330,7 +1330,7 @@
     ]
   },
   {
-    "version_not_enrolled_patients": "0.0",
+    "version_not_enrolled_patients": 0.0,
     "target_name": "Crizotinib",
     "copy_number_variants": [
       {
@@ -1349,13 +1349,13 @@
     ],
     "description": "This TA is used by patient end-to-end test",
     "study_id": "APEC1621",
-    "former_patients": "0.0",
+    "former_patients": 0.0,
     "assay_rules": [
 
     ],
-    "not_enrolled_patients": "0.0",
-    "version_pending_patients": "0.0",
-    "version_current_patients": "0.0",
+    "not_enrolled_patients": 0.0,
+    "version_pending_patients": 0.0,
+    "version_current_patients": 0.0,
     "non_hotspot_rules": [
 
     ],
@@ -1396,7 +1396,7 @@
         "disease_name": "Squamous cell lung carcinoma"
       }
     ],
-    "current_patients": "0.0",
+    "current_patients": 0.0,
     "target_id": "115",
     "date_opened": "2016-11-07T10:57:20.569-05:00",
     "version": "2015-08-06",
@@ -1407,8 +1407,8 @@
         "drug_id": "115"
       }
     ],
-    "pending_patients": "0.0",
-    "version_former_patients": "0.0",
+    "pending_patients": 0.0,
+    "version_former_patients": 0.0,
     "name": "APEC1621-ETE-B",
     "status_log": {
       "1478534240": "OPEN"
