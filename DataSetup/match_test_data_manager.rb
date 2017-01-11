@@ -143,8 +143,11 @@ class MatchTestDataManager
     items.delete_if { |this_item|
       this_item.keys.include?(target_field) && target_value_list.include?(this_item[target_field][value_type]) }
 
+    deleted = old_count-items.size
+    if deleted > 0
+      File.open(file, 'w') { |f| f.write(JSON.pretty_generate(file_hash)) }
+    end
     LOG.log("There are #{old_count-items.size} items(#{target_field}=#{target_value_list.to_s}) get removed from #{nickname}")
-    File.open(file, 'w') { |f| f.write(JSON.pretty_generate(file_hash)) }
   end
 
   def self.json_node_exist_in_file(file, target_field, target_value, value_type)

@@ -270,19 +270,28 @@ class Patient00A
     PatientMessageLoader.register_patient(pt.id)
   end
 
-  def self.pt_au07_registered4
-    pt = PatientDataSet.new('PT_AU07_Registered4')
+  def self.pt_au07_ts_received0
+    pt = PatientDataSet.new('PT_AU07_TsReceived0')
     PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
   end
 
-  def self.pt_au07_registered5
-    pt = PatientDataSet.new('PT_AU07_Registered5')
+  def self.pt_au07_ts_received1
+    pt = PatientDataSet.new('PT_AU07_TsReceived1')
     PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
   end
 
-  def self.pt_au07_registered6
-    pt = PatientDataSet.new('PT_AU07_Registered6')
+  def self.pt_au07_ts_received2
+    pt = PatientDataSet.new('PT_AU07_TsReceived2')
     PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+  end
+
+  def self.pt_au07_ts_received3
+    pt = PatientDataSet.new('PT_AU07_TsReceived3')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
   end
 
   def self.pt_au08_pending_approval0
