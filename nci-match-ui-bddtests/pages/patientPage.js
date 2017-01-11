@@ -8,7 +8,7 @@ var PatientPage = function () {
     var responseData;
     var variantReportId;
 
-    this.confirmedMoi;
+    // this.confirmedMoi;
 
     this.patientListTable = element(by.css('#patientGrid>table'));
     this.patientListHeaders = element.all(by.css('.sortable'));
