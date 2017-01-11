@@ -326,7 +326,7 @@ Feature: Patient API authorization tests
 | service               | patient_id                 | id                       | auth_role                     | code |
 |                       |                            |                          | NO_TOKEN                      | 401  |
 | statistics            |                            |                          | NCI_MATCH_READONLY            | 200  |
-| patient_limbos        |                            |                          | NO_ROLE                       | 200  |
+| patient_limbos        |                            |                          | NO_ROLE                       | 401  |
 | events                |                            |                          | ADMIN                         | 200  |
 | variant_reports       |                            | PT_GVF_RARebioY_ANI1     | SYSTEM                        | 200  |
 | treatment_arm_history | PT_SC06a_PendingApproval   |                          | ASSIGNMENT_REPORT_REVIEWER    | 200  |

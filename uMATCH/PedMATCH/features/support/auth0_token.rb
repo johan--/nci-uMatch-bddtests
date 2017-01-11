@@ -24,6 +24,11 @@ class Auth0Token
       prefix = "#{role}_"
       scope = 'openid email roles'
     end
+    puts '############'
+    puts ENV["#{prefix}AUTH0_USERNAME"][0..8]
+    puts ENV["#{prefix}AUTH0_PASSWORD"].size
+    puts ENV['AUTH0_CLIENT_ID'][0..8]
+    puts '############'
     {:client_id => ENV['AUTH0_CLIENT_ID'],
      :username => ENV["#{prefix}AUTH0_USERNAME"],
      :password => ENV["#{prefix}AUTH0_PASSWORD"],
