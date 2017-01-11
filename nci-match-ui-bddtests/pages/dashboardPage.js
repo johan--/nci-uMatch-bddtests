@@ -25,7 +25,8 @@ var DashboardPage = function() {
     this.pendingBVRCount    = element(by.binding(' pendingBloodVariantReportGridOptions.data.length '));
     this.pendingAssgnCount  = element(by.binding(' pendingAssignmentReportGridOptions.data.length '));
 
-    this.patientsInLimboList = element.all(by.repeater('item in limboPatients'));
+    this.patientsInLimboList = element(by.exactBinding("limboPatientsGridOptions.data.length"));
+    //this.patientsInLimboList = element.all(by.repeater('item in filtered | startFrom:(paginationOptions.currentPage-1)*paginationOptions.itemsPerPage | limitTo:paginationOptions.itemsPerPage track by $index'));
 
 
     this.logout = function () {
@@ -69,7 +70,7 @@ var DashboardPage = function() {
         'Assignment Date', 'Hours Pending'];
 
     this.expectedLimboTableColumns = [
-        'Patient ID', 'Current Status', 'Variant Report Status', ''
+        'Details', 'Patient ID', 'Current Status', 'Message', 'Days Waiting'
     ]
 
 };

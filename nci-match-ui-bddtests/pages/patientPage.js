@@ -123,9 +123,13 @@ var PatientPage = function () {
     this.confirmVRCHangeCommentField   = element(by.css('input[id="cgPromptInput"]')); // THis is the confirmation modal for the complete VR rejection
     this.gridElement                   = element.all(by.repeater('item in $ctrl.gridOptions.data')); // grid table for all the variants
     this.commentLinkString             = 'a[ng-click="$ctrl.editComment(item, $ctrl.isEditable )"]'; //the string to get to the comments in the grid
-    this.rejectReportButton            = element(by.css('button[ng-click="rejectVariantReport(currentTissueVariantReport)"]'));
-    this.confirmReportButton           = element(by.css('button[ng-click="confirmVariantReport(currentTissueVariantReport)"]'));
+    //this.rejectReportButton            = element(by.css('button[ng-click="rejectVariantReport(currentTissueVariantReport)"]'));
+    //this.confirmReportButton           = element(by.css('button[ng-click="confirmVariantReport(currentTissueVariantReport)"]'));
 
+    this.rejectReportButton            = element(by.css('button[ng-click="rejectVariantReport(variantReport)"]'));
+    this.confirmReportButton           = element(by.css('button[ng-click="confirmVariantReport(variantReport)"]'));
+
+    this.assignmentReportConfirmButton = element(by.css('button[ng-click="confirmAssignmentReport(assignmentReport)"]'));
     // This is the assignment Report Section panel. You can get access to the other elements within this panel by using #all(by.<property>)
     this.assignmentReportSection = element.all(by.css("div[ng-if=\"variantReportMode!=='QC'\"]")).get(0);
 

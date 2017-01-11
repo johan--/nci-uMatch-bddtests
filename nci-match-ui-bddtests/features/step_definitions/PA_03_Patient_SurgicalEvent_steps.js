@@ -78,7 +78,7 @@ module.exports = function () {
         }).then(callback);
     });
 
-    this.When(/^I click on the Surgical Event "(.+?)"$/, function (seid, callback) {
+    this.When(/^I click on the Surgical Event tab "(.+?)"$/, function (seid, callback) {
         browser.ignoreSynchronization = true;
         browser.sleep(5000);
         var cssSelec = 'li[heading="Surgical Event '+seid+'"] > a'

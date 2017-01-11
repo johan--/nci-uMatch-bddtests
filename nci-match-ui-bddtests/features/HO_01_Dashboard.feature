@@ -81,4 +81,4 @@ Feature: Dashboard page.
     When I navigate to the dashboard page
     And I collect information on patients in limbo
     Then I can see table of Patients Awaiting Further Action Or Information
-    And I can see a list of patients and the reasons why there are in limbo.
+    And I can see a list of patients and the reasons why they are in limbo.

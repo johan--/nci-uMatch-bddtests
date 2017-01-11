@@ -178,6 +178,7 @@ var Utilities = function() {
      */
     this.postRequest = function(url, body, fn) {
         var reqBody = body !== undefined ? body : {}
+        console.log(reqBody);
         var args = {
             data: reqBody,
             headers: {"content-type":"application/json"}
@@ -186,6 +187,7 @@ var Utilities = function() {
         client.registerMethod("post", url, "POST");
 
         client.methods.post(args, function (dt, response) {
+            console.log(dt);
             fn(dt);
         });
     };
@@ -356,24 +358,37 @@ var Utilities = function() {
 
     this.return_valid_user_credentials = function (role){
       var user_credentials = [];
-      if (role === 'VR_Reviewer'){
-          var email = process.env.NCI_MATCH_VR_USERID;
-          var password = process.env.NCI_MATCH_VR_PASSWORD;
-           user_credentials.push(email,password);
-      } else if (role === 'read_only'){
-          var email = process.env.NCI_MATCH_RO_USERID;
-          var password = process.env.NCI_MATCH_RO_PASSWORD;
-          user_credentials.push(email,password);
-      } else if (role === 'AR_Reviewer'){
-          var email = process.env.NCI_MATCH_AR_USERID;
-          var password = process.env.NCI_MATCH_AR_PASSWORD;
-          user_credentials.push(email,password);
-      } else if (role === 'admin'){
-          var email = process.env.NCI_MATCH_USERID;
-          var password = process.env.NCI_MATCH_PASSWORD;
-          user_credentials.push(email,password);
-      }
-        return user_credentials;
+      var email;
+      var password;
+      switch (role) {
+          case 'VR_Reviewer_mda':
+              email = process.env.MDA_VARIANT_REPORT_REVIEWER_AUTH0_USERNAME;
+              password = process.env.MDA_VARIANT_REPORT_REVIEWER_AUTH0_PASSWORD;
+              user_credentials.push(email, password);
+              return user_credentials;
+          case 'VR_Reviewer_mocha':
+              email = process.env.MOCHA_VARIANT_REPORT_REVIEWER_AUTH0_USERNAME;
+              password = process.env.MOCHA_VARIANT_REPORT_REVIEWER_AUTH0_PASSWORD;
+              user_credentials.push(email, password);
+              return user_credentials;
+          case 'AR_Reviewer':
+              email = process.env.ASSIGNMENT_REPORT_REVIEWER_AUTH0_USERNAME;
+              password = process.env.ASSIGNMENT_REPORT_REVIEWER_AUTH0_PASSWORD;
+              user_credentials.push(email, password);
+              return user_credentials;
+          case 'admin':
+              email = process.env.ADMIN_AUTH0_USERNAME;
+              password = process.env.ADMIN_AUTH0_PASSWORD;
+              user_credentials.push(email, password);
+              return user_credentials;
+          case 'read_only':
+              email = process.env.NCI_MATCH_USERID;
+              password = process.env.NCI_MATCH_PASSWORD;
+              user_credentials.push(email, password);
+              return user_credentials;
+      };
+        //console.log(email);
+        //return user_credentials;
     };
 };
 

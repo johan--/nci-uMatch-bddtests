@@ -204,8 +204,7 @@ module.exports = function () {
     this.Then(/^I "(should( not)?)" see the "(.+?)" button on the VR page$/, function (seeOrNot, _arg1, buttonText, callback) {
         var elementDesc = buttonText === 'REJECT' ? patientPage.rejectReportButton : patientPage.confirmReportButton;
         var status = seeOrNot === 'should';
-
-        expect(elementDesc.isPresent()).to.eventually.eql(status).then(function () {
+        expect(elementDesc.isDisplayed()).to.eventually.eql(status).then(function () {
             browser.waitForAngular();
         }).then(callback);
     });
@@ -479,9 +478,10 @@ module.exports = function () {
     });
 
     this.Then(/^I "([^"]*)" see the Assignment report "([^"]*)" button$/, function (status, buttonText, callback) {
+        browser.sleep(500);
         var present = status === 'should'
-
-        expect(element(by.buttonText(buttonText)).isPresent()).to.eventually.eql(present).notify(callback);
+        var elementDesc = patientPage.assignmentReportConfirmButton
+        expect(elementDesc.isDisplayed()).to.eventually.eql(present).notify(callback);
     });
 
     this.When(/^I click on the Assignment report "([^"]*)" button$/, function (buttonText, callback) {

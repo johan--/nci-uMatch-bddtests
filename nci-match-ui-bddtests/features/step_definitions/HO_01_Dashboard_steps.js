@@ -27,6 +27,7 @@ module.exports = function() {
 
     this.Then(/^I can see the Dashboard banner$/, function (callback) {
         browser.ignoreSynchronization = true;
+        browser.sleep(1000);
         expect(dash.dashboardPanel.isPresent()).to.eventually.eql(true).notify(callback);
 
     });
@@ -65,6 +66,7 @@ module.exports = function() {
 
     this.Then(/^I can see patients with Pending Tissue Variant Reports$/, function (callback) {
         browser.ignoreSynchronization = true;
+        browser.sleep(1000);
         expect(dash.pendingTVRCount.getText()).to.eventually.eql(dash.responseData.length.toString()).then(function(){
             browser.ignoreSynchronization = false;
         }).then(callback);
@@ -300,23 +302,52 @@ module.exports = function() {
     this.When(/^I collect information on patients in limbo$/, function (callback) {
         var url = '/api/v1/patients/patient_limbos'
         utilities.getRequestWithService('patient', url).then(function (responseBody) {
+            //console.log(responseBody);
             dash.responseData = responseBody;
         }).then(callback);
     });
 
     this.Then(/^I can see table of Patients Awaiting Further Action Or Information$/, function (callback) {
+        browser.ignoreSynchronization = true;
         var heading = element.all(by.css('.panel-container .ibox-title')).get(1);
         var tableHeaders = element.all(by.css('#limboPatients th'))
         // Checking for table headings.
         utilities.checkElementArray(tableHeaders, dash.expectedLimboTableColumns);
         // Checking for the Section heading value
         expect(heading.getText()).to.eventually.eql('Patients Awaiting Further Action Or Information').notify(callback);
+        browser.ignoreSynchronization = false;
     });
 
-    this.Then(/^I can see a list of patients and the reasons why there are in limbo\.$/, function (callback) {
-        var dataListElement = dash.patientsInLimboList
+    this.Then(/^I can see a list of patients and the reasons why they are in limbo\.$/, function (callback) {
+        browser.ignoreSynchronization = true;
+        var dataListElement = dash.patientsInLimboList;
 
-        expect(dataListElement.count()).to.eventually.eql(dash.responseData.length);
+        var limboTableFilter = element(by.xpath('//input[@grid-id="limboPatients"]'));
+        var curr_status = element.all(by.binding('item.current_status')).get(0);
 
+        var message = element.all(by.repeater('id in vm.limboMessageIds'));
+        //var message = element.all(by.xpath(".//*[@id='limboPatients']/table/tbody/tr[1]/td[4]/limbo-messages"));
+        var days_pending = element.all(by.xpath(".//*[@id='limboPatients']/table/tbody/tr[1]/td[5]")).get(0);
+        browser.sleep(5000);
+        expect(dataListElement.getText()).to.eventually.eql(dash.responseData.length);
+
+
+        for (var i = 0; i < dash.responseData.length; i++){
+            limboTableFilter.clear();
+            browser.refresh();
+            browser.sleep(1000);
+            limboTableFilter.sendKeys(dash.responseData[i]['patient_id']);
+            browser.sleep(1000);
+            var current_status = dash.responseData[i]['current_status'];
+            expect(curr_status.getText()).to.eventually.eql(current_status);
+
+            expect(days_pending.getText()).to.eventually.eql((dash.responseData[i]['days_pending']).toString());
+
+            if ( i === 5 ){
+                break;
+            }
+        };
+        browser.ignoreSynchronization = false;
+        browser.sleep(50).then(callback);
     });
 };
