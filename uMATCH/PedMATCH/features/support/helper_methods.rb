@@ -38,7 +38,11 @@ class Helper_Methods
     rescue StandardError => e
       get_response['status'] = 'Failure'
       get_response['http_code'] = e.message.nil? ? '500' : e.message[0, 3]
-      get_response['message'] = e.message
+      if e.respond_to?('response')
+        get_response['message'] = e.response
+      else
+        get_response['message'] = e.message
+      end
 
       unless no_log
         puts get_response['message']
@@ -94,7 +98,11 @@ class Helper_Methods
         http_code = e.message[0, 3]
       end
       @get_response['http_code'] = http_code
-      @get_response['message'] = e.message
+      if e.respond_to?('response')
+        @get_response['message'] = e.response
+      else
+        @get_response['message'] = e.message
+      end
       @get_response['message_json'] = {}
       return @get_response
     end
@@ -269,7 +277,11 @@ class Helper_Methods
         http_code = e.message[0, 3]
       end
       @post_response['http_code'] = http_code
-      @post_response['message'] = e.message
+      if e.respond_to?('response')
+        @post_response['message'] = e.response
+      else
+        @post_response['message'] = e.message
+      end
       return @post_response
     end
 
@@ -311,7 +323,7 @@ class Helper_Methods
       end
       @put_response['http_code'] = http_code
       if e.respond_to?('response')
-        @put_response['message'] = e.message
+        @put_response['message'] = e.response
       else
         @put_response['message'] = e.message
       end
@@ -345,8 +357,12 @@ class Helper_Methods
         http_code = e.message[0, 3]
       end
       @delete_response['http_code'] = http_code
-      @delete_response['message'] = e.message
-      p e.message
+      if e.respond_to?('response')
+        @delete_response['message'] = e.response
+      else
+        @delete_response['message'] = e.message
+      end
+      p @delete_response['message']
       return @delete_response
     end
 

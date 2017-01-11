@@ -122,7 +122,7 @@ Feature: Patient API authorization tests
       | PT_AU04_MdaTsShipped0   | mda        | ASSAY_MESSAGE_SENDER          |         | 401  |
 
   @patients_p1
-  Scenario Outline: PT_AU05 role base authorization works properly for patient variant report confirm
+  Scenario Outline: PT_AU05a role base authorization works properly for patient variant report confirm
     Given patient id is "<patient_id>"
     Then load template variant report confirm message for analysis id: "<patient_id>_ANI1"
     And user authorization role is "<auth_role>"
@@ -143,6 +143,30 @@ Feature: Patient API authorization tests
       | PT_AU05_MdaTsVrUploaded0   | PATIENT_MESSAGE_SENDER        |         | 401  |
       | PT_AU05_MochaTsVrUploaded0 | SPECIMEN_MESSAGE_SENDER       |         | 401  |
       | PT_AU05_MdaTsVrUploaded0   | ASSAY_MESSAGE_SENDER          |         | 401  |
+
+  @patients_p1
+  Scenario Outline: PT_AU05b role base authorization works properly for patient variant confirm
+    Given patient id is "<patient_id>"
+    And a random "fusion" variant for analysis id "<patient_id>_ANI1"
+    And load template variant confirm message for this patient
+    And user authorization role is "<auth_role>"
+    Then PUT to MATCH variant "<check>" service for this uuid, response includes "<message>" with code "<code>"
+    Examples:
+      | patient_id                 | auth_role                     | check     | message    | code |
+      | PT_AU05_MdaTsVrUploaded0   | NO_TOKEN                      | unchecked |            | 401  |
+      | PT_AU05_MdaTsVrUploaded0   | NO_ROLE                       | unchecked |            | 401  |
+      | PT_AU05_MdaTsVrUploaded3   | ADMIN                         | unchecked | changed to | 200  |
+      | PT_AU05_MochaTsVrUploaded3 | SYSTEM                        | checked   | changed to | 200  |
+      | PT_AU05_MdaTsVrUploaded0   | ASSIGNMENT_REPORT_REVIEWER    | unchecked |            | 401  |
+      | PT_AU05_MdaTsVrUploaded0   | MDA_VARIANT_REPORT_SENDER     | unchecked |            | 401  |
+      | PT_AU05_MdaTsVrUploaded3   | MDA_VARIANT_REPORT_REVIEWER   | unchecked | changed to | 200  |
+      | PT_AU05_MochaTsVrUploaded0 | MDA_VARIANT_REPORT_REVIEWER   | unchecked |            | 401  |
+      | PT_AU05_MochaTsVrUploaded0 | MOCHA_VARIANT_REPORT_SENDER   | unchecked |            | 401  |
+      | PT_AU05_MochaTsVrUploaded3 | MOCHA_VARIANT_REPORT_REVIEWER | checked   | changed to | 200  |
+      | PT_AU05_MdaTsVrUploaded0   | MOCHA_VARIANT_REPORT_REVIEWER | unchecked |            | 401  |
+      | PT_AU05_MdaTsVrUploaded0   | PATIENT_MESSAGE_SENDER        | unchecked |            | 401  |
+      | PT_AU05_MochaTsVrUploaded0 | SPECIMEN_MESSAGE_SENDER       | unchecked |            | 401  |
+      | PT_AU05_MdaTsVrUploaded0   | ASSAY_MESSAGE_SENDER          | unchecked |            | 401  |
 
   @patients_p1
   Scenario Outline: PT_AU06 role base authorization works properly for patient assignment confirm
@@ -188,7 +212,7 @@ Feature: Patient API authorization tests
       | PT_AU07_Registered0 | ASSAY_MESSAGE_SENDER          |         | 401  |
 
   @patients_p1
-  Scenario Outline: PT_AU07a role base authorization works properly for patient off study biopsy expired
+  Scenario Outline: PT_AU07b role base authorization works properly for patient off study biopsy expired
     Given patient id is "<patient_id>"
     And load template off study biopsy expired message for this patient
     Then set patient message field: "step_number" to value: "1.0"
@@ -264,6 +288,7 @@ Feature: Patient API authorization tests
     Then set patient message field: "step_number" to value: "1.1"
     And user authorization role is "<auth_role>"
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
+#    Then wait for "1" seconds
     Examples:
       | patient_id               | auth_role                     | message | code |
       | PT_AU09_PendingApproval0 | NO_TOKEN                      |         | 401  |
@@ -283,18 +308,18 @@ Feature: Patient API authorization tests
   Scenario Outline: PT_AU10 role base authorization works properly for patient GET
     Given patient GET service: "<service>", patient id: "<patient_id>", id: "<id>"
     And user authorization role is "<auth_role>"
-    When GET from MATCH patient API, http code "200" should return
+    When GET from MATCH patient API, http code "<code>" should return
     Examples:
-      | service               | patient_id                 | id                       | auth_role                     |
-      |                       |                            |                          | NO_TOKEN                      |
-      | patient_limbos        |                            |                          | NO_ROLE                       |
-      | events                |                            |                          | ADMIN                         |
-      | variant_reports       |                            | PT_GVF_RARebioY_ANI1     | SYSTEM                        |
-      | treatment_arm_history | PT_SC06a_PendingApproval   |                          | ASSIGNMENT_REPORT_REVIEWER    |
-      | specimens             | PT_GVF_RequestNoAssignment |                          | MDA_VARIANT_REPORT_SENDER     |
-      | shipments             |                            |                          | MDA_VARIANT_REPORT_REVIEWER   |
-      | specimen_events       | PT_GVF_VrAssay_Ready       |                          | MOCHA_VARIANT_REPORT_SENDER   |
-      | variants              |                            |                          | MOCHA_VARIANT_REPORT_REVIEWER |
-      | shipments             |                            |                          | PATIENT_MESSAGE_SENDER        |
-      | action_items          | PT_GVF_TsVrUploaded        |                          | SPECIMEN_MESSAGE_SENDER       |
-      | analysis_report       | PT_GVF_VrAssayReady        | PT_GVF_VrAssayReady_ANI1 | ASSAY_MESSAGE_SENDER          |
+      | service               | patient_id                 | id                       | auth_role                     | code |
+      |                       |                            |                          | NO_TOKEN                      | 401  |
+      | patient_limbos        |                            |                          | NO_ROLE                       | 200  |
+      | events                |                            |                          | ADMIN                         | 200  |
+      | variant_reports       |                            | PT_GVF_RARebioY_ANI1     | SYSTEM                        | 200  |
+      | treatment_arm_history | PT_SC06a_PendingApproval   |                          | ASSIGNMENT_REPORT_REVIEWER    | 200  |
+      | specimens             | PT_GVF_RequestNoAssignment |                          | MDA_VARIANT_REPORT_SENDER     | 200  |
+      | shipments             |                            |                          | MDA_VARIANT_REPORT_REVIEWER   | 200  |
+      | specimen_events       | PT_GVF_VrAssay_Ready       |                          | MOCHA_VARIANT_REPORT_SENDER   | 200  |
+      | variants              |                            |                          | MOCHA_VARIANT_REPORT_REVIEWER | 200  |
+      | shipments             |                            |                          | PATIENT_MESSAGE_SENDER        | 200  |
+      | action_items          | PT_GVF_TsVrUploaded        |                          | SPECIMEN_MESSAGE_SENDER       | 200  |
+      | analysis_report       | PT_GVF_VrAssayReady        | PT_GVF_VrAssayReady_ANI1 | ASSAY_MESSAGE_SENDER          | 200  |

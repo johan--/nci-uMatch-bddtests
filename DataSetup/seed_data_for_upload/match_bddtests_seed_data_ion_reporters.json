@@ -1,5 +1,4 @@
 {
-    "Count": 20,
     "Items": [
         {
             "ion_reporter_id": {
@@ -24,29 +23,29 @@
             }
         },
         {
-            "site": {
-                "S": "yale"
-            },
-            "data_files": {
-                "S": "DB Report, Data File"
-            },
-            "last_contact": {
-                "S": "August 29, 2016 2:01 PM GMT"
-            },
             "ion_reporter_id": {
                 "S": "IR_SAO13"
             },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:36.514328"
             },
+            "site": {
+                "S": "yale"
+            },
             "internal_ip_address": {
                 "S": "10.84.20.162"
+            },
+            "ir_status": {
+                "S": "Contacted 4 minutes ago"
             },
             "host_name": {
                 "S": "YSM-MATCH-IR"
             },
-            "ir_status": {
-                "S": "Contacted 4 minutes ago"
+            "last_contact": {
+                "S": "August 29, 2016 2:01 PM GMT"
+            },
+            "data_files": {
+                "S": "DB Report, Data File"
             },
             "ip_address": {
                 "S": "204.60.187.1"
@@ -119,26 +118,26 @@
             }
         },
         {
-            "site": {
-                "S": "mocha"
-            },
-            "data_files": {
-                "S": "DB Report"
-            },
-            "last_contact": {
-                "S": "August 29, 2016 2:01 PM GMT"
-            },
             "ion_reporter_id": {
                 "S": "IR_NX0TL"
             },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:43.815673"
             },
+            "site": {
+                "S": "mocha"
+            },
             "internal_ip_address": {
                 "S": "129.43.39.182"
             },
             "host_name": {
                 "S": "NCI-MATCH-IR"
+            },
+            "last_contact": {
+                "S": "August 29, 2016 2:01 PM GMT"
+            },
+            "data_files": {
+                "S": "DB Report"
             },
             "ip_address": {
                 "S": "129.43.39.182"
@@ -200,116 +199,116 @@
             }
         },
         {
-            "site": {
-                "S": "mocha"
-            },
-            "data_files": {
-                "S": "DB Report"
-            },
-            "last_contact": {
-                "S": "August 29, 2016 2:01 PM GMT"
-            },
             "ion_reporter_id": {
                 "S": "IR_LB123"
             },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:36.514328"
             },
+            "site": {
+                "S": "mocha"
+            },
             "internal_ip_address": {
                 "S": "10.133.226.13"
+            },
+            "ir_status": {
+                "S": "Contacted 4 minutes ago"
             },
             "host_name": {
                 "S": "NCIAS-D1356"
             },
-            "ir_status": {
-                "S": "Contacted 4 minutes ago"
+            "last_contact": {
+                "S": "August 29, 2016 2:01 PM GMT"
+            },
+            "data_files": {
+                "S": "DB Report"
             },
             "ip_address": {
                 "S": "10.133.226.13"
             }
         },
         {
-            "site": {
-                "S": "mocha"
-            },
-            "data_files": {
-                "S": "DB Report"
-            },
-            "last_contact": {
-                "S": "August 29, 2016 2:01 PM GMT"
-            },
             "ion_reporter_id": {
                 "S": "IR_WO3IA"
             },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:36.514328"
             },
+            "site": {
+                "S": "mocha"
+            },
             "internal_ip_address": {
                 "S": "10.133.226.13"
+            },
+            "ir_status": {
+                "S": "Contacted 4 minutes ago"
             },
             "host_name": {
                 "S": "NCIAS-D1356"
             },
-            "ir_status": {
-                "S": "Contacted 4 minutes ago"
+            "last_contact": {
+                "S": "August 29, 2016 2:01 PM GMT"
+            },
+            "data_files": {
+                "S": "DB Report"
             },
             "ip_address": {
                 "S": "10.133.226.13"
             }
         },
         {
-            "site": {
-                "S": "mocha"
-            },
-            "data_files": {
-                "S": "Data File"
-            },
-            "last_contact": {
-                "S": "August 22, 2016 11:10 AM GMT"
-            },
             "ion_reporter_id": {
                 "S": "IR_WAO85"
             },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:36.514328"
             },
+            "site": {
+                "S": "mocha"
+            },
             "internal_ip_address": {
                 "S": "129.43.127.133"
+            },
+            "ir_status": {
+                "S": "Lost contact! Last heartbeat was sent 10255 minutes ago"
             },
             "host_name": {
                 "S": "NCI-MATCH-IR"
             },
-            "ir_status": {
-                "S": "Lost contact! Last heartbeat was sent 10255 minutes ago"
+            "last_contact": {
+                "S": "August 22, 2016 11:10 AM GMT"
+            },
+            "data_files": {
+                "S": "Data File"
             },
             "ip_address": {
                 "S": "129.43.127.133"
             }
         },
         {
-            "site": {
-                "S": "mdacc"
-            },
-            "data_files": {
-                "S": "Log File"
-            },
-            "last_contact": {
-                "S": "August 29, 2016 2:01 PM GMT"
-            },
             "ion_reporter_id": {
                 "S": "IR_AIO78"
             },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:36.514328"
             },
+            "site": {
+                "S": "mdacc"
+            },
             "internal_ip_address": {
                 "S": "172.20.174.24"
+            },
+            "ir_status": {
+                "S": "Contacted 4 minutes ago"
             },
             "host_name": {
                 "S": "MDACC-MATCH-IR"
             },
-            "ir_status": {
-                "S": "Contacted 4 minutes ago"
+            "last_contact": {
+                "S": "August 29, 2016 2:01 PM GMT"
+            },
+            "data_files": {
+                "S": "Log File"
             },
             "ip_address": {
                 "S": "132.183.13.75"
@@ -327,6 +326,7 @@
             }
         }
     ],
+    "Count": 20,
     "ScannedCount": 20,
     "ConsumedCapacity": null
 }

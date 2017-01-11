@@ -15,7 +15,7 @@ end
 When(/^POST to MATCH patients service, response includes "([^"]*)" with code "([^"]*)"$/) do |retMsg, code|
   @current_auth0_role = 'ADMIN' if @current_auth0_role.nil?
   response = Patient_helper_methods.post_to_trigger(@current_auth0_role)
-  puts response.to_json
+  puts response.to_s
   actual_match_expect(response['http_code'], code)
   # actual_include_expect(response['message'], retMsg)
 end
@@ -23,6 +23,7 @@ end
 When(/^PUT to MATCH variant report "([^"]*)" service, response includes "([^"]*)" with code "([^"]*)"$/) do |status, retMsg, code|
   @current_auth0_role = 'ADMIN' if @current_auth0_role.nil?
   response = Patient_helper_methods.put_vr_confirm(@analysis_id, status, @current_auth0_role)
+  puts response.to_s
   actual_match_expect(response['http_code'], code)
   # actual_include_expect(response['message'], retMsg)
 end
@@ -30,6 +31,7 @@ end
 When(/^PUT to MATCH variant "([^"]*)" service for this uuid, response includes "([^"]*)" with code "([^"]*)"$/) do |checked, retMsg, code|
   @current_auth0_role = 'ADMIN' if @current_auth0_role.nil?
   response = Patient_helper_methods.put_variant_confirm(@current_variant_uuid, checked, @current_auth0_role)
+  puts response.to_s
   actual_match_expect(response['http_code'], code)
   # actual_include_expect(response['message'], retMsg)
 end
@@ -37,6 +39,7 @@ end
 When(/^PUT to MATCH assignment report "([^"]*)" service, response includes "([^"]*)" with code "([^"]*)"$/) do |status, retMsg, code|
   @current_auth0_role = 'ADMIN' if @current_auth0_role.nil?
   response = Patient_helper_methods.put_ar_confirm(@analysis_id, status, @current_auth0_role)
+  puts response.to_s
   actual_match_expect(response['http_code'], code)
   # actual_include_expect(response['message'], retMsg)
 end

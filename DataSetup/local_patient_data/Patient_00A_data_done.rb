@@ -136,7 +136,7 @@ class Patient00A
     PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-05-01T19:42:13+00:00', 'MoCha')
   end
 
-  def self.pt_au05_mda_vr_uploaded0
+  def self.pt_au05_mda_ts_vr_uploaded0
     pt = PatientDataSet.new('PT_AU05_MdaTsVrUploaded0')
     PatientMessageLoader.register_patient(pt.id)
     PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
@@ -145,7 +145,7 @@ class Patient00A
     PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
   end
 
-  def self.pt_au05_mda_vr_uploaded1
+  def self.pt_au05_mda_ts_vr_uploaded1
     pt = PatientDataSet.new('PT_AU05_MdaTsVrUploaded1')
     PatientMessageLoader.register_patient(pt.id)
     PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
@@ -154,7 +154,7 @@ class Patient00A
     PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
   end
 
-  def self.pt_au05_mda_vr_uploaded2
+  def self.pt_au05_mda_ts_vr_uploaded2
     pt = PatientDataSet.new('PT_AU05_MdaTsVrUploaded2')
     PatientMessageLoader.register_patient(pt.id)
     PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
@@ -163,7 +163,16 @@ class Patient00A
     PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
   end
 
-  def self.pt_au05_mocha_vr_uploaded0
+  def self.pt_au05_mda_ts_vr_uploaded3
+    pt = PatientDataSet.new('PT_AU05_MdaTsVrUploaded3')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+    PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+    PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
+  end
+
+  def self.pt_au05_mocha_ts_vr_uploaded0
     pt = PatientDataSet.new('PT_AU05_MochaTsVrUploaded0')
     PatientMessageLoader.register_patient(pt.id)
     PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
@@ -172,7 +181,7 @@ class Patient00A
     PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
   end
 
-  def self.pt_au05_mocha_vr_uploaded1
+  def self.pt_au05_mocha_ts_vr_uploaded1
     pt = PatientDataSet.new('PT_AU05_MochaTsVrUploaded1')
     PatientMessageLoader.register_patient(pt.id)
     PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
@@ -181,8 +190,17 @@ class Patient00A
     PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
   end
 
-  def self.pt_au05_mocha_vr_uploaded2
+  def self.pt_au05_mocha_ts_vr_uploaded2
     pt = PatientDataSet.new('PT_AU05_MochaTsVrUploaded2')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-05-01T19:42:13+00:00', 'MoCha')
+    PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+    PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
+  end
+
+  def self.pt_au05_mocha_ts_vr_uploaded3
+    pt = PatientDataSet.new('PT_AU05_MochaTsVrUploaded3')
     PatientMessageLoader.register_patient(pt.id)
     PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
     PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-05-01T19:42:13+00:00', 'MoCha')
@@ -237,14 +255,14 @@ class Patient00A
 
   def self.pt_au06_pending_confirmation3
     pt = PatientDataSet.new('PT_AU06_PendingConfirmation3')
-    PatientMessageLoader.reset_cog_patient(pt.id)
-    PatientMessageLoader.register_patient(pt.id)
-    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
-    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
-    PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
-    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
-    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBAF47s')
-    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBRG1s')
+    # PatientMessageLoader.reset_cog_patient(pt.id)
+    # PatientMessageLoader.register_patient(pt.id)
+    # PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    # PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+    # PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+    # PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
+    # PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBAF47s')
+    # PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBRG1s')
     PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
     PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
     PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.ani)
