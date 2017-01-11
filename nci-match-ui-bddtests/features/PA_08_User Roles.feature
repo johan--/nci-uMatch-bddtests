@@ -38,7 +38,6 @@ Feature: MATCHKB-352 Ped-Match users are given authorization based on their role
     And I "should not" see the "CONFIRM" button on the VR page
     Then I then logout
 
-  @test
   Scenario Outline:  As a variant_report reviewer user, I do not have access to approve an assignment report
     Given I'm logged in as a "<user>" user
     When I go to the patient "PT_OS01_PendingConfirmation" with variant report "PT_OS01_PendingConfirmation_ANI1"
@@ -48,8 +47,8 @@ Feature: MATCHKB-352 Ped-Match users are given authorization based on their role
     Examples:
       | user              |
       | read_only         |
-      # | VR_Reviewer_mocha |
-      # | VR_Reviewer_mda   |
+      | VR_Reviewer_mocha |
+      | VR_Reviewer_mda   |
 
 #  Scenario Outline: As a variant_report reviewer from MoCha lab, I can edit the comments of a variant report of a patient from MoCha lab
 #
@@ -67,6 +66,7 @@ Feature: MATCHKB-352 Ped-Match users are given authorization based on their role
 #
 #  Scenario: As an assignment_report reviewer, I can approve an assignment report
 
+  @test
   Scenario: As an assignment_report reviewer, I do not have access to approve or reject a variant report
     Given I'm logged in as a "AR_Reviewer" user
     When I go to the patient "ION_AQ41_TsVrUploaded" with variant report "ION_AQ41_TsVrUploaded_ANI1"

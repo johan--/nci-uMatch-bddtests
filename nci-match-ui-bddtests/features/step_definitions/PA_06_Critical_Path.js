@@ -73,6 +73,22 @@ module.exports = function () {
         }).then(callback);
     });
 
+    this.When(/^I click on the Assignment Report tab "([^"]*)"$/, function (tab, callback) {
+        browser.ignoreSynchronization = true;
+        browser.sleep(5000);
+        var cssSelec = 'li[heading="'+tab+'"] > a'
+        var assignmentReportTab = element(by.css(cssSelec));
+        assignmentReportTab.isPresent().then(function(isVis){
+            if(isVis){
+                assignmentReportTab.click().then(function () {
+                    browser.sleep(10);
+                }, function(err){
+                    console.log('Unable to click on the Assignment Report tab');
+                });
+            }
+        }).then(callback);
+    });
+
     this.When(/^I click on the assignment report link$/, function (callback) {
         browser.ignoreSynchronization = true;
         browser.executeScript('window.scrollTo(0,5000)').then(function () {
