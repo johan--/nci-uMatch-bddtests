@@ -6,9 +6,11 @@ Feature: Patients assignment tests
 #    patient: PT_AM01_TsVrReceived1 will not have TA available
 #    patient: PT_AM01_TsVrReceived1 will have a closed TA available
     Given patient id is "<patient_id>"
+    And user authorization role is "MDA_VARIANT_REPORT_REVIEWER"
     Then load template variant report confirm message for analysis id: "<ani>"
     When PUT to MATCH variant report "confirm" service, response includes "successfully" with code "200"
     Then patient status should change to "PENDING_CONFIRMATION"
+    Then user authorization role is "ASSIGNMENT_REPORT_REVIEWER"
     Then load template assignment report confirm message for analysis id: "<ani>"
     Then PUT to MATCH assignment report "confirm" service, response includes "successfully" with code "200"
     Then patient status should change to "<patient_status>"
@@ -24,6 +26,7 @@ Feature: Patients assignment tests
     #patient api will retry every 60 seconds
     Given patient id is "PT_AM02_VrReceived"
     And this patient is in mock service lost patient list, service will come back after "1" tries
+    And user authorization role is "MDA_VARIANT_REPORT_REVIEWER"
     Then load template variant report confirm message for analysis id: "PT_AM02_VrReceived_ANI1"
     When PUT to MATCH variant report "confirm" service, response includes "successfully" with code "200"
     Then wait for "180" seconds
@@ -34,6 +37,7 @@ Feature: Patients assignment tests
 #    patient: "PT_AM03_PendingApproval" with status: "PENDING_APPROVAL" on step: "1.0"
 #    patient is currently on treatment arm: "APEC1621-A", stratum: "100"
     Given patient id is "PT_AM03_PendingApproval"
+    And user authorization role is "PATIENT_MESSAGE_SENDER"
     Then load template on treatment arm confirm message for this patient
     Then set patient message field: "treatment_arm_id" to value: "APEC1621-B"
     Then set patient message field: "stratum_id" to value: "100"
@@ -43,12 +47,15 @@ Feature: Patients assignment tests
   @patients_p1
   Scenario Outline: PT_AM04. treatment arm should be able to assign to multiple patients
     Given patient id is "<patient_id>"
+    And user authorization role is "MDA_VARIANT_REPORT_REVIEWER"
     Then load template variant report confirm message for analysis id: "<ani>"
     When PUT to MATCH variant report "confirm" service, response includes "successfully" with code "200"
     Then patient status should change to "PENDING_CONFIRMATION"
     Then load template assignment report confirm message for analysis id: "<ani>"
+    And user authorization role is "ASSIGNMENT_REPORT_REVIEWER"
     Then PUT to MATCH assignment report "confirm" service, response includes "successfully" with code "200"
     Then load template on treatment arm confirm message for this patient
+    And user authorization role is "PATIENT_MESSAGE_SENDER"
     Then set patient message field: "treatment_arm_id" to value: "APEC1621-A"
     Then set patient message field: "stratum_id" to value: "100"
     Then set patient message field: "step_number" to value: "1.1"

@@ -21,3 +21,4 @@ ENV['TAs_ASSIGNMENT_JSON_LOCATION'] = '../../../../public/TAs_for_assignment_rep
 ENV['rules_treatment_arm_location'] = '../../../../public/TAs_for_amoi_tests'
 
 ENV['NEED_AUTH0'] = 'YES'  #'YES' or 'NO'
+ENV['print_log'] = 'NO'  #'YES' or 'NO'

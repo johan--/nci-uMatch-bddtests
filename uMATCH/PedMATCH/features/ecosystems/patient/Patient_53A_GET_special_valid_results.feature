@@ -1,6 +1,7 @@
 @patients_get
 Feature: Patient GET service valid special case tests
-
+###### all tests in this feature will use default ADMIN authorization role, because role base auth test for those
+  #### POST and PUT service has been tested in other tests, those are not the purpose of these tests
   @patients_p2
   Scenario: PT_SC01a statistics service should have correct result
     Given patient GET service: "statistics", patient id: "", id: ""
