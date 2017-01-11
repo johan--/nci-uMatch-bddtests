@@ -60,7 +60,7 @@ module.exports = function () {
 
     this.Then(/^I should see the assignment report link for "(.+?)"$/, function (analysisId, callback) {
         patientPage.variantAnalysisId = analysisId;
-        var assgnRepString = 'a[href^="#/patient/'+patientPage.patientId+'/variant_report?analysis_id='+analysisId+'"][title="Assignment Report"]';
+        var assgnRepString = 'a[href^="#/patient/'+patientPage.patientId+'/variant_report?analysis_id='+analysisId + '&section=assignment"]';
         //var assgnRepString = 'div[ng-if="surgicalEvent"] a[href="#/patient/' + patientPage.patientId + '/variant_report?analysis_id=' + analysisId + '&section=assignment"]';
         console.log(assgnRepString);
         browser.ignoreSynchronization = true;
@@ -204,7 +204,7 @@ module.exports = function () {
     this.Then(/^I "(should( not)?)" see the "(.+?)" button on the VR page$/, function (seeOrNot, _arg1, buttonText, callback) {
         var elementDesc = buttonText === 'REJECT' ? patientPage.rejectReportButton : patientPage.confirmReportButton;
         var status = seeOrNot === 'should';
-        expect(elementDesc.isDisplayed()).to.eventually.eql(status).then(function () {
+        expect(elementDesc.isPresent()).to.eventually.eql(status).then(function () {
             browser.waitForAngular();
         }).then(callback);
     });
@@ -481,7 +481,7 @@ module.exports = function () {
         browser.sleep(500);
         var present = status === 'should'
         var elementDesc = patientPage.assignmentReportConfirmButton
-        expect(elementDesc.isDisplayed()).to.eventually.eql(present).notify(callback);
+        expect(elementDesc.isPresent()).to.eventually.eql(present).notify(callback);
     });
 
     this.When(/^I click on the Assignment report "([^"]*)" button$/, function (buttonText, callback) {

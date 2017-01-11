@@ -31,7 +31,7 @@ var LoginPage = function() {
     };
 
 
-    this.login = function(username, password, callback) {
+    this.login = function(username, password, callback) {        
         browser.isElementPresent(userLoggedin).then(function(logIn){
             if (logIn === true) {
 
@@ -66,7 +66,7 @@ var LoginPage = function() {
                                                 };
                                                 utils.postRequest('https://ncimatch.auth0.com/oauth/ro', data, function(responseData){
                                                     console.log(responseData.id_token);
-                                                    browser.idToken = responseData.id_token
+                                                    browser.idToken = responseData.id_token;
                                                 });
 
                                                 email.sendKeys(username);
@@ -76,13 +76,13 @@ var LoginPage = function() {
                                         });
 
                                     }
-                                })
-                            })
-                        })
+                                });
+                            });
+                        });
                     }
-                })
+                });
             }
-        })
+        });
     };
 
     this.currentLogin = function() {
@@ -92,7 +92,7 @@ var LoginPage = function() {
         browser.isElementPresent(previousAccountUsed).then(function (present){
             if (present === true) {
                 previousAccountUsed.click();
-            };
+            }
         });
     };
 };

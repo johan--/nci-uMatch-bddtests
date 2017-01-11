@@ -382,11 +382,11 @@ var Utilities = function() {
               user_credentials.push(email, password);
               return user_credentials;
           case 'read_only':
-              email = process.env.NCI_MATCH_USERID;
-              password = process.env.NCI_MATCH_PASSWORD;
+              email = process.env.NCI_MATCH_READONLY_AUTH0_USERNAME;
+              password = process.env.NCI_MATCH_READONLY_AUTH0_PASSWORD;
               user_credentials.push(email, password);
               return user_credentials;
-      };
+      }
         //console.log(email);
         //return user_credentials;
     };
