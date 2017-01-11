@@ -3,7 +3,7 @@
 Feature: Variant files confirmed messages
 
   Background:
-    Given user authorization role is "MDA_VARIANT_REPORT_REVIEWER"
+    Given user authorization role is "ADMIN"
 
   #no patient id in variant confirm service anymore
 #  Scenario Outline: PT_VC00. variant confirm message with invalid patient_id should fail
@@ -78,7 +78,7 @@ Feature: Variant files confirmed messages
   Scenario: PT_VC05. confirmed fields should be "true" as default
     #    Test Patient: PT_VC05_TissueShipped, Tissue shipped PT_VC05_TissueShipped(_SEI1, _MOI1)
     Given patient id is "PT_VC05_TissueShipped"
-    And user authorization role is "PATIENT_MESSAGE_SENDER"
+    And user authorization role is "ADMIN"
     And load template variant file uploaded message for this patient
     Then set patient message field: "molecular_id" to value: "PT_VC05_TissueShipped_MOI1"
     Then set patient message field: "analysis_id" to value: "PT_VC05_TissueShipped_ANI1"
@@ -96,7 +96,7 @@ Feature: Variant files confirmed messages
     Then set patient message field: "comment" to value: "TEST"
     Then PUT to MATCH variant "unchecked" service for this uuid, response includes "changed to false" with code "200"
     And load template variant file uploaded message for this patient
-    And user authorization role is "PATIENT_MESSAGE_SENDER"
+    And user authorization role is "ADMIN"
     Then set patient message field: "molecular_id" to value: "PT_VC05a_VRUploaded_MOI1"
     Then set patient message field: "analysis_id" to value: "PT_VC05a_VRUploaded_ANI2"
     Then files for molecular_id "PT_VC05a_VRUploaded_MOI1" and analysis_id "PT_VC05a_VRUploaded_ANI2" are in S3
@@ -168,12 +168,12 @@ Feature: Variant files confirmed messages
   Scenario Outline: PT_VC11. variant report confirm message with invalid status should fail
     Given patient id is "PT_VC11_VRUploaded"
     Then load template variant report confirm message for analysis id: "PT_VC11_VRUploaded_ANI1"
-    When PUT to MATCH variant report "<status>" service, response includes "<message>" with code "500"
+    When PUT to MATCH variant report "<status>" service, response includes "<message>" with code "403"
     Examples:
-      | status | message                                                                |
+      | status | message                           |
 #      |               |can't be blank                                                                  |
 #      |null           |can't be blank                                                                  |
-      | other  | Unrecognized confirm\|reject flag passed in confirm variant report url |
+      | other  | can only be 'confirm' or 'reject' |
 
   @patient_p2
   Scenario Outline: PT_VC11b. variant report cannot be confirmed (rejected) more than one time

@@ -14,6 +14,7 @@ Feature: Patient API authorization tests
     Examples:
       | patient_id   | auth_role                     | message | code |
       | PT_AU01_New0 | NO_TOKEN                      |         | 401  |
+      | PT_AU01_New0 | NCI_MATCH_READONLY            |         | 401  |
       | PT_AU01_New0 | NO_ROLE                       |         | 401  |
       | PT_AU01_New1 | ADMIN                         | success | 202  |
       | PT_AU01_New2 | SYSTEM                        | success | 202  |
@@ -36,6 +37,7 @@ Feature: Patient API authorization tests
     Examples:
       | patient_id          | auth_role                     | message | code |
       | PT_AU02_Registered0 | NO_TOKEN                      |         | 401  |
+      | PT_AU02_Registered0 | NCI_MATCH_READONLY            |         | 401  |
       | PT_AU02_Registered0 | NO_ROLE                       |         | 401  |
       | PT_AU02_Registered1 | ADMIN                         | success | 202  |
       | PT_AU02_Registered2 | SYSTEM                        | success | 202  |
@@ -59,6 +61,7 @@ Feature: Patient API authorization tests
     Examples:
       | patient_id          | auth_role                     | message | code |
       | PT_AU02_TsReceived0 | NO_TOKEN                      |         | 401  |
+      | PT_AU02_TsReceived0 | NCI_MATCH_READONLY            |         | 401  |
       | PT_AU02_TsReceived0 | NO_ROLE                       |         | 401  |
       | PT_AU02_TsReceived1 | ADMIN                         | success | 202  |
       | PT_AU02_TsReceived2 | SYSTEM                        | success | 202  |
@@ -82,6 +85,7 @@ Feature: Patient API authorization tests
     Examples:
       | patient_id            | auth_role                     | message | code |
       | PT_AU03_SlideShipped0 | NO_TOKEN                      |         | 401  |
+      | PT_AU03_SlideShipped0 | NCI_MATCH_READONLY            |         | 401  |
       | PT_AU03_SlideShipped0 | NO_ROLE                       |         | 401  |
       | PT_AU03_SlideShipped1 | ADMIN                         | success | 202  |
       | PT_AU03_SlideShipped2 | SYSTEM                        | success | 202  |
@@ -107,6 +111,7 @@ Feature: Patient API authorization tests
     Examples:
       | patient_id              | site_value | auth_role                     | message | code |
       | PT_AU04_MdaTsShipped0   | mda        | NO_TOKEN                      |         | 401  |
+      | PT_AU04_MdaTsShipped0   | mda        | NCI_MATCH_READONLY            |         | 401  |
       | PT_AU04_MdaTsShipped0   | mda        | NO_ROLE                       |         | 401  |
       | PT_AU04_MdaTsShipped1   | mda        | ADMIN                         | success | 202  |
       | PT_AU04_MochaTsShipped1 | mocha      | SYSTEM                        | success | 202  |
@@ -130,6 +135,7 @@ Feature: Patient API authorization tests
     Examples:
       | patient_id                 | auth_role                     | message | code |
       | PT_AU05_MdaTsVrUploaded0   | NO_TOKEN                      |         | 401  |
+      | PT_AU05_MdaTsVrUploaded0   | NCI_MATCH_READONLY            |         | 401  |
       | PT_AU05_MdaTsVrUploaded0   | NO_ROLE                       |         | 401  |
       | PT_AU05_MdaTsVrUploaded1   | ADMIN                         | success | 200  |
       | PT_AU05_MochaTsVrUploaded1 | SYSTEM                        | success | 200  |
@@ -154,6 +160,7 @@ Feature: Patient API authorization tests
     Examples:
       | patient_id                 | auth_role                     | check     | message    | code |
       | PT_AU05_MdaTsVrUploaded0   | NO_TOKEN                      | unchecked |            | 401  |
+      | PT_AU05_MdaTsVrUploaded0   | NCI_MATCH_READONLY            | unchecked |            | 401  |
       | PT_AU05_MdaTsVrUploaded0   | NO_ROLE                       | unchecked |            | 401  |
       | PT_AU05_MdaTsVrUploaded3   | ADMIN                         | unchecked | changed to | 200  |
       | PT_AU05_MochaTsVrUploaded3 | SYSTEM                        | checked   | changed to | 200  |
@@ -177,6 +184,7 @@ Feature: Patient API authorization tests
     Examples:
       | patient_id                   | auth_role                     | message | code |
       | PT_AU06_PendingConfirmation0 | NO_TOKEN                      |         | 401  |
+      | PT_AU06_PendingConfirmation0 | NCI_MATCH_READONLY            |         | 401  |
       | PT_AU06_PendingConfirmation0 | NO_ROLE                       |         | 401  |
       | PT_AU06_PendingConfirmation1 | ADMIN                         | success | 200  |
       | PT_AU06_PendingConfirmation2 | SYSTEM                        | success | 200  |
@@ -199,6 +207,7 @@ Feature: Patient API authorization tests
     Examples:
       | patient_id          | auth_role                     | message | code |
       | PT_AU07_Registered0 | NO_TOKEN                      |         | 401  |
+      | PT_AU07_Registered0 | NCI_MATCH_READONLY            |         | 401  |
       | PT_AU07_Registered0 | NO_ROLE                       |         | 401  |
       | PT_AU07_Registered1 | ADMIN                         | success | 202  |
       | PT_AU07_Registered2 | SYSTEM                        | success | 202  |
@@ -221,6 +230,7 @@ Feature: Patient API authorization tests
     Examples:
       | patient_id          | auth_role                     | message | code |
       | PT_AU07_TsReceived0 | NO_TOKEN                      |         | 401  |
+      | PT_AU07_TsReceived0 | NCI_MATCH_READONLY            |         | 401  |
       | PT_AU07_TsReceived0 | NO_ROLE                       |         | 401  |
       | PT_AU07_TsReceived1 | ADMIN                         | success | 202  |
       | PT_AU07_TsReceived2 | SYSTEM                        | success | 202  |
@@ -244,6 +254,7 @@ Feature: Patient API authorization tests
     Examples:
       | patient_id               | rebiopsy | auth_role                     | message | code |
       | PT_AU08_PendingApproval0 | Y        | NO_TOKEN                      |         | 401  |
+      | PT_AU08_PendingApproval0 | Y        | NCI_MATCH_READONLY            |         | 401  |
       | PT_AU08_PendingApproval0 | Y        | NO_ROLE                       |         | 401  |
       | PT_AU08_PendingApproval1 | N        | ADMIN                         | success | 202  |
       | PT_AU08_PendingApproval2 | Y        | SYSTEM                        | success | 202  |
@@ -267,6 +278,7 @@ Feature: Patient API authorization tests
     Examples:
       | patient_id               | auth_role                     | message | code |
       | PT_AU08_PendingApproval0 | NO_TOKEN                      |         | 401  |
+      | PT_AU08_PendingApproval0 | NCI_MATCH_READONLY            |         | 401  |
       | PT_AU08_PendingApproval0 | NO_ROLE                       |         | 401  |
       | PT_AU08_PendingApproval5 | ADMIN                         | success | 202  |
       | PT_AU08_PendingApproval6 | SYSTEM                        | success | 202  |
@@ -292,6 +304,7 @@ Feature: Patient API authorization tests
     Examples:
       | patient_id               | auth_role                     | message | code |
       | PT_AU09_PendingApproval0 | NO_TOKEN                      |         | 401  |
+      | PT_AU09_PendingApproval0 | NCI_MATCH_READONLY            |         | 401  |
       | PT_AU09_PendingApproval0 | NO_ROLE                       |         | 401  |
       | PT_AU09_PendingApproval1 | ADMIN                         | success | 202  |
       | PT_AU09_PendingApproval2 | SYSTEM                        | success | 202  |
@@ -310,16 +323,17 @@ Feature: Patient API authorization tests
     And user authorization role is "<auth_role>"
     When GET from MATCH patient API, http code "<code>" should return
     Examples:
-      | service               | patient_id                 | id                       | auth_role                     | code |
-      |                       |                            |                          | NO_TOKEN                      | 401  |
-      | patient_limbos        |                            |                          | NO_ROLE                       | 200  |
-      | events                |                            |                          | ADMIN                         | 200  |
-      | variant_reports       |                            | PT_GVF_RARebioY_ANI1     | SYSTEM                        | 200  |
-      | treatment_arm_history | PT_SC06a_PendingApproval   |                          | ASSIGNMENT_REPORT_REVIEWER    | 200  |
-      | specimens             | PT_GVF_RequestNoAssignment |                          | MDA_VARIANT_REPORT_SENDER     | 200  |
-      | shipments             |                            |                          | MDA_VARIANT_REPORT_REVIEWER   | 200  |
-      | specimen_events       | PT_GVF_VrAssay_Ready       |                          | MOCHA_VARIANT_REPORT_SENDER   | 200  |
-      | variants              |                            |                          | MOCHA_VARIANT_REPORT_REVIEWER | 200  |
-      | shipments             |                            |                          | PATIENT_MESSAGE_SENDER        | 200  |
-      | action_items          | PT_GVF_TsVrUploaded        |                          | SPECIMEN_MESSAGE_SENDER       | 200  |
-      | analysis_report       | PT_GVF_VrAssayReady        | PT_GVF_VrAssayReady_ANI1 | ASSAY_MESSAGE_SENDER          | 200  |
+| service               | patient_id                 | id                       | auth_role                     | code |
+|                       |                            |                          | NO_TOKEN                      | 401  |
+| statistics            |                            |                          | NCI_MATCH_READONLY            | 200  |
+| patient_limbos        |                            |                          | NO_ROLE                       | 200  |
+| events                |                            |                          | ADMIN                         | 200  |
+| variant_reports       |                            | PT_GVF_RARebioY_ANI1     | SYSTEM                        | 200  |
+| treatment_arm_history | PT_SC06a_PendingApproval   |                          | ASSIGNMENT_REPORT_REVIEWER    | 200  |
+| specimens             | PT_GVF_RequestNoAssignment |                          | MDA_VARIANT_REPORT_SENDER     | 200  |
+| shipments             |                            |                          | MDA_VARIANT_REPORT_REVIEWER   | 200  |
+| specimen_events       | PT_GVF_VrAssay_Ready       |                          | MOCHA_VARIANT_REPORT_SENDER   | 200  |
+| variants              |                            |                          | MOCHA_VARIANT_REPORT_REVIEWER | 200  |
+| shipments             |                            |                          | PATIENT_MESSAGE_SENDER        | 200  |
+| action_items          | PT_GVF_TsVrUploaded        |                          | SPECIMEN_MESSAGE_SENDER       | 200  |
+| analysis_report       | PT_GVF_VrAssayReady        | PT_GVF_VrAssayReady_ANI1 | ASSAY_MESSAGE_SENDER          | 200  |
