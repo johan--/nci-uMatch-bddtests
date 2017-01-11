@@ -539,12 +539,26 @@ module.exports = function () {
         callback(null, 'pending');
     });
 
-    this.Then(/^I "([^"]*)" be able to edit the comment$/, function (arg1, callback) {
+    this.Then(/^I "(should( not)?)" be able to edit the comment$/, function (shouldOrNot, callback) {
+        var should = shouldOrNot === 'should';
+
+        var variantElem = patientPage.variant('', '');
+        if (should) {
+        } else {
+        }
+  
         // Write code here that turns the phrase above into concrete actions
         callback(null, 'pending');
     });
 
-    this.Then(/^I "([^"]*)" be able to click OK button$/, function (arg1, callback) {
+    this.Then(/^I "(should( not)?)" be able to click OK button$/, function (shouldOrNot, callback) {
+        var should = shouldOrNot === 'should';
+
+        var button = patientPage.button('OK');
+        if (should) {
+        } else {
+        }
+
         // Write code here that turns the phrase above into concrete actions
         callback(null, 'pending');
     });              
