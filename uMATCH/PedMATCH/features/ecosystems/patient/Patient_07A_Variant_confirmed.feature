@@ -1,7 +1,9 @@
 #encoding: utf-8
 @variant_confirm
 Feature: Variant files confirmed messages
-#  variant_confirmed:
+
+  Background:
+    Given user authorization role is "MDA_VARIANT_REPORT_REVIEWER"
 
   #no patient id in variant confirm service anymore
 #  Scenario Outline: PT_VC00. variant confirm message with invalid patient_id should fail
@@ -32,7 +34,7 @@ Feature: Variant files confirmed messages
     And load template variant confirm message for this patient
     Then PUT to MATCH variant "<checked>" service for this uuid, response includes "<message>" with code "403"
     Examples:
-      | checked                | message                                             |
+      | checked                  | message                                             |
 #      |                                 |not of a minimum string length of 1                      |
 #      |null                             |NilClass did not match the following type: string        |
       | not_checked_or_unchecked | Unregnized checked flag in variant confirmation url |
@@ -76,6 +78,7 @@ Feature: Variant files confirmed messages
   Scenario: PT_VC05. confirmed fields should be "true" as default
     #    Test Patient: PT_VC05_TissueShipped, Tissue shipped PT_VC05_TissueShipped(_SEI1, _MOI1)
     Given patient id is "PT_VC05_TissueShipped"
+    And user authorization role is "PATIENT_MESSAGE_SENDER"
     And load template variant file uploaded message for this patient
     Then set patient message field: "molecular_id" to value: "PT_VC05_TissueShipped_MOI1"
     Then set patient message field: "analysis_id" to value: "PT_VC05_TissueShipped_ANI1"
@@ -93,6 +96,7 @@ Feature: Variant files confirmed messages
     Then set patient message field: "comment" to value: "TEST"
     Then PUT to MATCH variant "unchecked" service for this uuid, response includes "changed to false" with code "200"
     And load template variant file uploaded message for this patient
+    And user authorization role is "PATIENT_MESSAGE_SENDER"
     Then set patient message field: "molecular_id" to value: "PT_VC05a_VRUploaded_MOI1"
     Then set patient message field: "analysis_id" to value: "PT_VC05a_VRUploaded_ANI2"
     Then files for molecular_id "PT_VC05a_VRUploaded_MOI1" and analysis_id "PT_VC05a_VRUploaded_ANI2" are in S3
@@ -181,10 +185,10 @@ Feature: Variant files confirmed messages
     And this variant report field: "status" should be "<previous_status>"
     Examples:
       | patient_id             | status  | previous_status |
-      | PT_VC11b_TsVRConfirmed | confirm | confirmed         |
-      | PT_VC11b_TsVRRejected  | confirm | rejected          |
-      | PT_VC11b_TsVRConfirmed | reject  | confirmed         |
-      | PT_VC11b_TsVRRejected  | reject  | rejected          |
+      | PT_VC11b_TsVRConfirmed | confirm | confirmed       |
+      | PT_VC11b_TsVRRejected  | confirm | rejected        |
+      | PT_VC11b_TsVRConfirmed | reject  | confirmed       |
+      | PT_VC11b_TsVRRejected  | reject  | rejected        |
     #we don't confirm or reject BLOOD variant report anymore
 #      | PT_VC11b_BdVRConfirmed | confirm | confirm         |
 #      | PT_VC11b_BdVRRejected  | confirm | reject          |

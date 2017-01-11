@@ -1,6 +1,8 @@
 #encoding: utf-8
 @patients_reg
 Feature: Register a new patient in PEDMatchbox:
+  Background:
+    Given user authorization role is "PATIENT_MESSAGE_SENDER"
 
   @patients_p1
   Scenario: PT_RG01. New patient can be registered successfully

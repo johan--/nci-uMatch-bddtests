@@ -38,7 +38,7 @@ class Helper_Methods
     rescue StandardError => e
       get_response['status'] = 'Failure'
       get_response['http_code'] = e.message.nil? ? '500' : e.message[0, 3]
-      get_response['message'] = e.response
+      get_response['message'] = e.message
 
       unless no_log
         puts get_response['message']
@@ -65,7 +65,6 @@ class Helper_Methods
         @res = RestClient::Request.execute(:url => @service, :method => :get, :verify_ssl => false, :headers => headers)
       rescue StandardError => e
         puts "Error: #{e.message} occurred"
-        puts "Response:#{e.response}"
         @res = '[]'
         result = JSON.parse(@res)
         return result
@@ -95,17 +94,8 @@ class Helper_Methods
         http_code = e.message[0, 3]
       end
       @get_response['http_code'] = http_code
-      @get_response['message'] = e.response
-      if e.response.nil?
-        @get_response['message_json'] = {}
-      else
-        begin
-          @get_response['message_json'] = JSON.parse(e.response)
-        rescue
-          @get_response['message_json'] = {}
-        end
-      end
-      # p e.response
+      @get_response['message'] = e.message
+      @get_response['message_json'] = {}
       return @get_response
     end
 
@@ -148,7 +138,6 @@ class Helper_Methods
         response_string = RestClient::Request.execute(:url => service, :method => :get, :verify_ssl => false, :headers => headers)
       rescue StandardError => e
         print "Error: #{e.message} occurred\n"
-        print "Response:#{e.response}\n"
         return {}
       end
 
@@ -280,7 +269,7 @@ class Helper_Methods
         http_code = e.message[0, 3]
       end
       @post_response['http_code'] = http_code
-      @post_response['message'] = e.response.body
+      @post_response['message'] = e.message
       return @post_response
     end
 
@@ -322,11 +311,10 @@ class Helper_Methods
       end
       @put_response['http_code'] = http_code
       if e.respond_to?('response')
-        @put_response['message'] = e.response
+        @put_response['message'] = e.message
       else
         @put_response['message'] = e.message
       end
-      # @put_response['message'] = e.response
       p @put_response['message']
       return @put_response
     end
@@ -357,8 +345,8 @@ class Helper_Methods
         http_code = e.message[0, 3]
       end
       @delete_response['http_code'] = http_code
-      @delete_response['message'] = e.response
-      p e.response
+      @delete_response['message'] = e.message
+      p e.message
       return @delete_response
     end
 
@@ -444,15 +432,6 @@ class Helper_Methods
     return reqDate
   end
 
-  def self.is_local_tier
-    begin
-      result = Environment.getTier == 'local'
-    rescue
-      return true
-    end
-    result
-  end
-
   def self.s3_list_files(bucket,
       path,
       endpoint='https://s3.amazonaws.com',
@@ -490,7 +469,7 @@ class Helper_Methods
     files = s3.bucket(bucket).objects(prefix: path)
     files.each { |this_file|
       this_file.delete
-      if is_local_tier
+      if ENV['print_log'] == 'YES'
         puts "Deleted #{this_file.identifiers[:key]} from bucket <#{this_file.identifiers[:bucket_name]}>"
       end
     }
@@ -501,9 +480,7 @@ class Helper_Methods
     template_folder = "#{path_for_named_parent_folder('nci-uMatch-bddtests')}/DataSetup/variant_file_templates"
     exist = s3_file_exists(bucket, "#{ion_folder}/#{moi}/#{ani}/#{tsv_name}")
     if exist
-      if is_local_tier
-        puts "#{moi} exists in S3 bucket #{bucket}, upload is skipped!"
-      end
+      puts "#{moi} exists in S3 bucket #{bucket}, upload is skipped!" if ENV['print_log'] == 'YES'
     else
       output_folder = "#{template_folder}/upload"
       target_ani_path = "#{output_folder}/#{moi}/#{ani}"
@@ -521,18 +498,14 @@ class Helper_Methods
       `#{cmd}`
       cmd = "rm -R #{output_folder}"
       `#{cmd}`
-      if is_local_tier
-        puts "#{target_ani_path} has been uploaded to S3 bucket #{bucket}"
-      end
+      puts "#{target_ani_path} has been uploaded to S3 bucket #{bucket}" if ENV['print_log'] == 'YES'
     end
   end
 
   def self.s3_download_file(bucket, s3_path, download_target)
     cmd = "aws s3 cp s3://#{bucket}/#{s3_path} #{download_target}  --recursive --region us-east-1"
     `#{cmd}`
-    if is_local_tier
-      puts "#{download_target} has been downloaded from S3 #{bucket}/#{s3_path}"
-    end
+    puts "#{download_target} has been downloaded from S3 #{bucket}/#{s3_path}" if ENV['print_log'] == 'YES'
   end
 
   def self.s3_upload_file(file_path, bucket, s3_path)
@@ -542,25 +515,19 @@ class Helper_Methods
     end
     cmd = "aws s3 cp #{file_path}  s3://#{bucket}/#{s3_path} #{recursive} --region us-east-1"
     `#{cmd}`
-    if is_local_tier
-      puts "#{file_path} has been uploaded to S3 #{bucket}/#{s3_path}"
-    end
+    puts "#{file_path} has been uploaded to S3 #{bucket}/#{s3_path}" if ENV['print_log'] == 'YES'
   end
 
   def self.s3_cp_single_file(source_path, target_path)
     cmd = "aws s3 cp #{source_path} #{target_path} --region us-east-1"
     `#{cmd}`
-    if is_local_tier
-      puts "#{source_path} has been uploaded to #{target_path}"
-    end
+    puts "#{source_path} has been uploaded to #{target_path}" if ENV['print_log'] == 'YES'
   end
 
   def self.s3_sync_folder(source_folder, target_folder)
     cmd = "aws s3 sync #{source_folder} #{target_folder} --region us-east-1"
     `#{cmd}`
-    if is_local_tier
-      puts "#{target_folder} has been synced from #{source_folder}"
-    end
+    puts "#{target_folder} has been synced from #{source_folder}" if ENV['print_log'] == 'YES'
   end
 
   def self.dynamodb_create_client()
@@ -587,14 +554,14 @@ class Helper_Methods
   def self.dynamodb_table_distinct_column(table, criteria={}, distinct_column)
     dynamodb_create_client
     all_result = dynamodb_table_items(table, criteria)
-    all_result.map { |hash| hash[distinct_column]}.uniq
+    all_result.map { |hash| hash[distinct_column] }.uniq
   end
 
   def self.dynamodb_table_primary_key(table)
     dynamodb_create_client
     resp = @dynamodb_client.describe_table({table_name: table})
     key = 'no_sorting_key'
-    resp.table.key_schema.each{|this_key|
+    resp.table.key_schema.each { |this_key|
       if this_key.key_type == 'HASH'
         key = this_key.attribute_name
       end
@@ -606,7 +573,7 @@ class Helper_Methods
     dynamodb_create_client
     resp = @dynamodb_client.describe_table({table_name: table})
     key = 'no_sorting_key'
-    resp.table.key_schema.each{|this_key|
+    resp.table.key_schema.each { |this_key|
       if this_key.key_type == 'RANGE'
         key = this_key.attribute_name
       end

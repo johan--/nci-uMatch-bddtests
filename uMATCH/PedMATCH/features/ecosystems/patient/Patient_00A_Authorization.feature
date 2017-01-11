@@ -13,6 +13,7 @@ Feature: Patient API authorization tests
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
       | patient_id   | auth_role                     | message | code |
+      | PT_AU01_New0 | NO_TOKEN                      |         | 401  |
       | PT_AU01_New0 | NO_ROLE                       |         | 401  |
       | PT_AU01_New1 | ADMIN                         | success | 202  |
       | PT_AU01_New2 | SYSTEM                        | success | 202  |
@@ -34,6 +35,7 @@ Feature: Patient API authorization tests
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
       | patient_id          | auth_role                     | message | code |
+      | PT_AU02_Registered0 | NO_TOKEN                      |         | 401  |
       | PT_AU02_Registered0 | NO_ROLE                       |         | 401  |
       | PT_AU02_Registered1 | ADMIN                         | success | 202  |
       | PT_AU02_Registered2 | SYSTEM                        | success | 202  |
@@ -56,6 +58,7 @@ Feature: Patient API authorization tests
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
       | patient_id          | auth_role                     | message | code |
+      | PT_AU02_TsReceived0 | NO_TOKEN                      |         | 401  |
       | PT_AU02_TsReceived0 | NO_ROLE                       |         | 401  |
       | PT_AU02_TsReceived1 | ADMIN                         | success | 202  |
       | PT_AU02_TsReceived2 | SYSTEM                        | success | 202  |
@@ -78,6 +81,7 @@ Feature: Patient API authorization tests
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
       | patient_id            | auth_role                     | message | code |
+      | PT_AU03_SlideShipped0 | NO_TOKEN                      |         | 401  |
       | PT_AU03_SlideShipped0 | NO_ROLE                       |         | 401  |
       | PT_AU03_SlideShipped1 | ADMIN                         | success | 202  |
       | PT_AU03_SlideShipped2 | SYSTEM                        | success | 202  |
@@ -102,6 +106,7 @@ Feature: Patient API authorization tests
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
       | patient_id              | site_value | auth_role                     | message | code |
+      | PT_AU04_MdaTsShipped0   | mda        | NO_TOKEN                      |         | 401  |
       | PT_AU04_MdaTsShipped0   | mda        | NO_ROLE                       |         | 401  |
       | PT_AU04_MdaTsShipped1   | mda        | ADMIN                         | success | 202  |
       | PT_AU04_MochaTsShipped1 | mocha      | SYSTEM                        | success | 202  |
@@ -124,6 +129,7 @@ Feature: Patient API authorization tests
     When PUT to MATCH variant report "confirm" service, response includes "<message>" with code "<code>"
     Examples:
       | patient_id                 | auth_role                     | message | code |
+      | PT_AU05_MdaTsVrUploaded0   | NO_TOKEN                      |         | 401  |
       | PT_AU05_MdaTsVrUploaded0   | NO_ROLE                       |         | 401  |
       | PT_AU05_MdaTsVrUploaded1   | ADMIN                         | success | 200  |
       | PT_AU05_MochaTsVrUploaded1 | SYSTEM                        | success | 200  |
@@ -146,6 +152,7 @@ Feature: Patient API authorization tests
     When PUT to MATCH assignment report "confirm" service, response includes "<message>" with code "<code>"
     Examples:
       | patient_id                   | auth_role                     | message | code |
+      | PT_AU06_PendingConfirmation0 | NO_TOKEN                      |         | 401  |
       | PT_AU06_PendingConfirmation0 | NO_ROLE                       |         | 401  |
       | PT_AU06_PendingConfirmation1 | ADMIN                         | success | 200  |
       | PT_AU06_PendingConfirmation2 | SYSTEM                        | success | 200  |
@@ -167,6 +174,7 @@ Feature: Patient API authorization tests
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
       | patient_id          | auth_role                     | message | code |
+      | PT_AU07_Registered0 | NO_TOKEN                      |         | 401  |
       | PT_AU07_Registered0 | NO_ROLE                       |         | 401  |
       | PT_AU07_Registered1 | ADMIN                         | success | 202  |
       | PT_AU07_Registered2 | SYSTEM                        | success | 202  |
@@ -188,6 +196,7 @@ Feature: Patient API authorization tests
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
       | patient_id          | auth_role                     | message | code |
+      | PT_AU07_TsReceived0 | NO_TOKEN                      |         | 401  |
       | PT_AU07_TsReceived0 | NO_ROLE                       |         | 401  |
       | PT_AU07_TsReceived1 | ADMIN                         | success | 202  |
       | PT_AU07_TsReceived2 | SYSTEM                        | success | 202  |
@@ -210,6 +219,7 @@ Feature: Patient API authorization tests
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
       | patient_id               | rebiopsy | auth_role                     | message | code |
+      | PT_AU08_PendingApproval0 | Y        | NO_TOKEN                      |         | 401  |
       | PT_AU08_PendingApproval0 | Y        | NO_ROLE                       |         | 401  |
       | PT_AU08_PendingApproval1 | N        | ADMIN                         | success | 202  |
       | PT_AU08_PendingApproval2 | Y        | SYSTEM                        | success | 202  |
@@ -232,6 +242,7 @@ Feature: Patient API authorization tests
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
       | patient_id               | auth_role                     | message | code |
+      | PT_AU08_PendingApproval0 | NO_TOKEN                      |         | 401  |
       | PT_AU08_PendingApproval0 | NO_ROLE                       |         | 401  |
       | PT_AU08_PendingApproval5 | ADMIN                         | success | 202  |
       | PT_AU08_PendingApproval6 | SYSTEM                        | success | 202  |
@@ -255,6 +266,7 @@ Feature: Patient API authorization tests
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
       | patient_id               | auth_role                     | message | code |
+      | PT_AU09_PendingApproval0 | NO_TOKEN                      |         | 401  |
       | PT_AU09_PendingApproval0 | NO_ROLE                       |         | 401  |
       | PT_AU09_PendingApproval1 | ADMIN                         | success | 202  |
       | PT_AU09_PendingApproval2 | SYSTEM                        | success | 202  |
@@ -274,6 +286,7 @@ Feature: Patient API authorization tests
     When GET from MATCH patient API, http code "200" should return
     Examples:
       | service               | patient_id                 | id                       | auth_role                     |
+      |                       |                            |                          | NO_TOKEN                      |
       | patient_limbos        |                            |                          | NO_ROLE                       |
       | events                |                            |                          | ADMIN                         |
       | variant_reports       |                            | PT_GVF_RARebioY_ANI1     | SYSTEM                        |

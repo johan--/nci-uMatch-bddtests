@@ -1,6 +1,8 @@
 #encoding: utf-8
 @specimen_shipped
 Feature: NCH Specimen shipped messages
+  Background:
+    Given user authorization role is "SPECIMEN_MESSAGE_SENDER"
 
   @patients_p3
   Scenario: PT_SS01. Received specimen_shipped message for type 'BLOOD' from NCH for a patient who has already received the specimen_received message
