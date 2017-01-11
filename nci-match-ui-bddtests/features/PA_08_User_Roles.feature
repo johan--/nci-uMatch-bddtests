@@ -15,9 +15,16 @@ Feature: MATCHKB-352 Ped-Match users are given authorization based on their role
     And The checkboxes are disabled
     Then I then logout
 
-#  Scenario Outline: Verify as a read-only user I can not edit variant report comments but can only view
-#  Need a patient with variant report comment.
-#    Examples:
+@test
+ Scenario: As a read-only user I can not edit variant report comments but can only view
+    Given I'm logged in as a "read_only" user
+    When I go to the patient "ION_AQ41_TsVrUploaded" with variant report "ION_AQ41_TsVrUploaded_ANI1"
+    And The variant comment buttons are displayed
+    Then I can click on the variant comment button
+    And I should see the variant comment dialog
+    And I "should not" be able to edit the comment
+    And I "should not" be able to click OK button
+    Then I then logout
 
   Scenario: As a variant_report reviewer from MoCha lab, I can only view the variant report of a patient from MDA lab
     Given I'm logged in as a "VR_Reviewer_mocha" user

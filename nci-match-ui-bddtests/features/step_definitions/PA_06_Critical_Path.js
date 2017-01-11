@@ -524,4 +524,28 @@ module.exports = function () {
         }
     });
 
+    this.When(/^The variant comment buttons are displayed$/, function (callback) {
+        // Write code here that turns the phrase above into concrete actions
+        callback(null, 'pending');
+    });
+    
+    this.Then(/^I can click on the variant comment button$/, function (callback) {
+        // Write code here that turns the phrase above into concrete actions
+        callback(null, 'pending');
+    });
+
+    this.Then(/^I should see the variant comment dialog$/, function (callback) {
+        // Write code here that turns the phrase above into concrete actions
+        callback(null, 'pending');
+    });
+
+    this.Then(/^I "([^"]*)" be able to edit the comment$/, function (arg1, callback) {
+        // Write code here that turns the phrase above into concrete actions
+        callback(null, 'pending');
+    });
+
+    this.Then(/^I "([^"]*)" be able to click OK button$/, function (arg1, callback) {
+        // Write code here that turns the phrase above into concrete actions
+        callback(null, 'pending');
+    });              
 };
