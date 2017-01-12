@@ -275,18 +275,6 @@ var PatientPage = function () {
         //check for number of tabs
         expect(element(by.css('li.uib-tab.nav-item')).count()).to.eventually.equal();
     };
-
-    this.variantTable = function(tableTitle) {
-        var selectByBinding;
-        if (tableTitle === 'SNVs/MNVs/Indels') {
-            selectByBinding = 'variantReport.snv_indels';
-        } else if (tableTitle === 'Copy Number Variants') {
-            selectByBinding = 'variantReport.copy_number_variants';
-        } else if (tableTitle === 'Gene Fusions') {
-            selectByBinding = 'variantReport.gene_fusions';
-        }
-        return element(by.binding(selectByBinding));
-    }
 };
 
 module.exports = new PatientPage();

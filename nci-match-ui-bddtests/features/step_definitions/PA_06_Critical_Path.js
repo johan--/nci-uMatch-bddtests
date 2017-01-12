@@ -99,17 +99,11 @@ module.exports = function () {
         }).then(callback);
     });
 
-    this.Then(/^I can see the "([^"]*)" table$/, function (tableTitle, callback) {
-        var variantTable = patientPage.variantTable(tableTitleTitle);
-        expect(variantTable.isPresent()).to.eventually.eql(true);
-        expect(variantTable.isDisplayed()).to.eventually.eql(true);
-    });
-
     this.When(/^I uncheck the variant of ordinal "([^"]*)"$/, function (ordinal, callback) {
         // ordinal begins at 1
         var index = parseInt(ordinal) - 1;
         patientPage.variantConfirmButtonCLickList.get(index).click().then(function () {
-            browser.waitForAngular()
+            browser.waitForAngular();
         }).then(callback);
 
     });
@@ -201,11 +195,14 @@ module.exports = function () {
     });
 
     this.When(/^I click on the comment link at ordinal "([^"]*)"$/, function (ordinal, callback) {
-        var index = ordinal - 1;
-        var expectedCommentLink = patientPage.gridElement.get(index).all(by.css(patientPage.commentLinkString));
-        expectedCommentLink.click().then(function () {
-            browser.waitForAngular();
-        }).then(callback);
+        browser.ignoreSynchronization = false;
+        browser.executeScript('window.scrollTo(0, 5000)').then(function () {
+            var index = ordinal - 1;
+            var expectedCommentLink = patientPage.gridElement.get(index).all(by.css(patientPage.commentLinkString));
+            expectedCommentLink.click().then(function () {
+                browser.waitForAngular();
+            }).then(callback);
+        });
     });
 
     this.Then(/^I can see the "([^"]*)" in the modal text box$/, function (comment, callback) {
@@ -231,11 +228,16 @@ module.exports = function () {
         }).then(callback);
     });
 
-    this.When(/^The "(.+?)" button is "(disabled|enabled)"$/, function (buttonText, abled, callback) {
+    this.When(/^The "(.+?)" button is "(disabled|enabled|visible|invisible)"$/, function (buttonText, buttonState, callback) {
         var button = element(by.buttonText(buttonText));
-        var status = abled === 'enabled' ? true : false;
+        var isVisible = buttonState === 'enabled' || buttonState === 'disabled';
+        var isAvailable = buttonState === 'enabled' || buttonState === 'visible';
 
-        expect(button.isEnabled()).to.eventually.eql(status).notify(callback);
+        if (isVisible){
+            expect(button.isEnabled()).to.eventually.eql(isAvailable).notify(callback);
+        } else {
+            expect(button.isPresent()).to.eventually.eql(isAvailable).notify(callback);
+        }
     });
 
     this.Then(/^I see the status of Report as "([^"]*)"$/, function (arg1, callback) {
@@ -459,7 +461,6 @@ module.exports = function () {
     });
 
     this.Then(/^I can see the selected Treatment arm id "([^"]*)" and stratum "([^"]*)" and version "([^"]*)" in a box with reason$/, function (taId, stratum, version, callback) {
-
         var expectedString = 'Selected Treatment Arm: ' + taId + ' (' + stratum + ', ' + version + ')';
         console.log('Expected String: ' + expectedString);
         expect(patientPage.selectedAssignmentBoxHeader.getText()).to.eventually.eql(expectedString);
@@ -478,7 +479,7 @@ module.exports = function () {
     });
 
     this.Then(/^I can see the selected treatment arm and the reason$/, function (callback) {
-        var selectedTA = patientPage.responseData.patient.current_assignment
+        var selectedTA = patientPage.responseData.patient.current_assignment;
         var taString = selectedTA.treatment_arm_id + ' (' + selectedTA.stratum_id + ', ' + selectedTA.version + ')'
         console.log(taString);
 
@@ -488,21 +489,20 @@ module.exports = function () {
             .eventually
             .eql(taString)
             .notify(callback);
-
     });
 
     this.Then(/^The Types of Logic is the same as the backend$/, function (callback) {
-        var assignmentResults = patientPage.responseData.assignments[0].treatment_assignment_results
+        var assignmentResults = patientPage.responseData.assignments[0].treatment_assignment_results;
         var reasons = Object.keys(assignmentResults);
 
         utilities.checkInclusiveElementArray(patientPage.ruleNameList, reasons);
-        browser.sleep(50).then(callback)
+        browser.sleep(50).then(callback);
     });
 
     this.Then(/^I "([^"]*)" see the Assignment report "([^"]*)" button$/, function (status, buttonText, callback) {
         browser.sleep(500);
-        var present = status === 'should'
-        var elementDesc = patientPage.assignmentReportConfirmButton
+        var present = status === 'should';
+        var elementDesc = patientPage.assignmentReportConfirmButton;
         expect(elementDesc.isPresent()).to.eventually.eql(present).notify(callback);
     });
 
@@ -567,5 +567,5 @@ module.exports = function () {
 
         // Write code here that turns the phrase above into concrete actions
         callback(null, 'pending');
-    });              
+    });
 };
