@@ -84,7 +84,7 @@ module.exports = function () {
         var cssSelec = 'li[heading="Surgical Event '+seid+'"] > a'
         var surgicalEventTab = element(by.css(cssSelec));
         surgicalEventTab.isPresent().then(function(isVis){
-            console.log(isVis);
+            // console.log(isVis);
             if(isVis){
                 surgicalEventTab.click().then(function () {
                     browser.sleep(10);

@@ -31,7 +31,7 @@ var DashboardPage = function() {
 
     this.logout = function () {
         this.logoutLink.click();
-        console.log('Clicked Logout');
+        // console.log('Clicked Logout');
         browser.waitForAngular();
     };
 

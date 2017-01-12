@@ -48,11 +48,11 @@ var LoginPage = function() {
                                     } else {
                                         browser.sleep(1000);
                                         oldUserLink.isPresent().then(function(st){
-                                            console.log(st);
+                                            // console.log(st);
                                             if (st){
                                                 oldUserLink.click();
                                             } else {
-                                                console.log("");
+                                                // console.log("");
                                             }
                                         }).then(function(){
                                             utils.waitForElement(email, 'Email Text box').then(function () {
@@ -65,7 +65,7 @@ var LoginPage = function() {
                                                     "connection":  process.env.AUTH0_DATABASE
                                                 };
                                                 utils.postRequest('https://ncimatch.auth0.com/oauth/ro', data, function(responseData){
-                                                    console.log(responseData.id_token);
+                                                    // console.log(responseData.id_token);
                                                     browser.idToken = responseData.id_token;
                                                 });
 

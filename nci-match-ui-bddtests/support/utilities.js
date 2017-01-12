@@ -136,7 +136,7 @@ var Utilities = function() {
             if (linkText.match(/\w/)){
                 expect(elem.all(by.css('a')).get(0).getAttribute('href')).to.eventually.eql('http://grch37-cancer.sanger.ac.uk/cosmic/gene/overview?ln=' + linkText);
             } else {
-                console.log(linkText);
+                // console.log(linkText);
                 expect(elem.all(by.css('a')).count()).to.eventually.eql(0)
             }
         })
@@ -178,16 +178,16 @@ var Utilities = function() {
      */
     this.postRequest = function(url, body, fn) {
         var reqBody = body !== undefined ? body : {}
-        console.log(reqBody);
+        // console.log(reqBody);
         var args = {
             data: reqBody,
             headers: {"content-type":"application/json"}
         };
-        console.log("Post URL: " + url);
+        // console.log("Post URL: " + url);
         client.registerMethod("post", url, "POST");
 
         client.methods.post(args, function (dt, response) {
-            console.log(dt);
+            // console.log(dt);
             fn(dt);
         });
     };
@@ -233,14 +233,14 @@ var Utilities = function() {
         }
 
         function call(){
-            console.log(callUrl)
+            // console.log(callUrl);
             return rest(callUrl).then(
                 function (response) {
                     self._entity = response.entity;
                 }, function(error) {
                     console.log(error);
                 }
-            )
+            );
         }
     };
 
@@ -255,15 +255,15 @@ var Utilities = function() {
             },
             data: jsonBody
         };
-        console.log(callUrl)
+        // console.log(callUrl);
 
         return client.put(callUrl, args, function (data, response) {
-            console.log(response);
-        })
+            // console.log(response);
+        });
     };
 
     function tierBasedURI(service){
-        var uri
+        var uri;
         var baseUrl = browser.baseUrl;
         var portMap = {
             'patient'   : '10240',

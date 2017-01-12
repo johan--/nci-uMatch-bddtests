@@ -37,7 +37,7 @@ module.exports = function () {
     this.Then(/^I should see and click the variant report link for "(.+?)"$/, function (analysisId, callback) {
         patientPage.variantAnalysisId = analysisId;
         var varRepString = 'div[ng-if="surgicalEvent"] a[href="#/patient/' + patientPage.patientId + '/variant_report?analysis_id=' + analysisId + '"]';
-        console.log(varRepString);
+        // console.log(varRepString);
         variantReportLink = element(by.css(varRepString));
         browser.ignoreSynchronization = true;
         expect(variantReportLink.isPresent()).to.eventually.eql(true).then(function () {
@@ -62,7 +62,7 @@ module.exports = function () {
         patientPage.variantAnalysisId = analysisId;
         var assgnRepString = 'a[href^="#/patient/'+patientPage.patientId+'/variant_report?analysis_id='+analysisId + '&section=assignment"]';
         //var assgnRepString = 'div[ng-if="surgicalEvent"] a[href="#/patient/' + patientPage.patientId + '/variant_report?analysis_id=' + analysisId + '&section=assignment"]';
-        console.log(assgnRepString);
+        // console.log(assgnRepString);
         browser.ignoreSynchronization = true;
         assignmentReportLink = element(by.css(assgnRepString));
         assignmentReportLink.getAttribute('href').then(function (test) {
@@ -248,7 +248,7 @@ module.exports = function () {
 
     this.When(/^I go to the patient "([^"]*)" with variant report "([^"]*)"$/, function (patientId, variantReportId, callback) {
         var uri = '/#/patient/' + patientId + '/variant_report?analysis_id=' + variantReportId;
-        console.log(uri);
+        // console.log(uri);
         patientPage.patientId = patientId;
         patientPage.variantAnalysisId = variantReportId;
         browser.sleep(3000).then(function () {
@@ -462,7 +462,7 @@ module.exports = function () {
 
     this.Then(/^I can see the selected Treatment arm id "([^"]*)" and stratum "([^"]*)" and version "([^"]*)" in a box with reason$/, function (taId, stratum, version, callback) {
         var expectedString = 'Selected Treatment Arm: ' + taId + ' (' + stratum + ', ' + version + ')';
-        console.log('Expected String: ' + expectedString);
+        // console.log('Expected String: ' + expectedString);
         expect(patientPage.selectedAssignmentBoxHeader.getText()).to.eventually.eql(expectedString);
         expect(patientPage.selectedAssignmentBoxText.getText())
             .to.eventually.eql(patientPage.responseData.patient.current_assignment.reason)
@@ -481,7 +481,7 @@ module.exports = function () {
     this.Then(/^I can see the selected treatment arm and the reason$/, function (callback) {
         var selectedTA = patientPage.responseData.patient.current_assignment;
         var taString = selectedTA.treatment_arm_id + ' (' + selectedTA.stratum_id + ', ' + selectedTA.version + ')'
-        console.log(taString);
+        // console.log(taString);
 
         expect(patientPage.ruleNameList.get(0).getText()).to.eventually.include('SELECTED');
         expect(patientPage.ruleDetailsList.get(0).all(by.css('.content-cell')).get(0).getText())
