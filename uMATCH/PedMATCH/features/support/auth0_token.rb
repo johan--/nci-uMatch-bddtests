@@ -24,11 +24,6 @@ class Auth0Token
       prefix = "#{role}_"
       scope = 'openid email roles'
     end
-    puts '############'
-    puts ENV["#{prefix}AUTH0_USERNAME"][0..8]
-    puts ENV["#{prefix}AUTH0_PASSWORD"].size
-    puts ENV['AUTH0_CLIENT_ID'][0..8]
-    puts '############'
     {:client_id => ENV['AUTH0_CLIENT_ID'],
      :username => ENV["#{prefix}AUTH0_USERNAME"],
      :password => ENV["#{prefix}AUTH0_PASSWORD"],
@@ -51,12 +46,14 @@ class Auth0Token
                                                :payload => create_auth0_request_message(role),
                                                :headers => {:content_type => 'application/json',
                                                             :accept => 'application/json'})
-      rescue StandardError
+      rescue StandardError => e
+        puts e.to_s
         return ''
       end
       begin
         response_hash = JSON.parse(response)
-      rescue StandardError
+      rescue StandardError => e
+        puts e.to_s
         return ''
       end
       ENV[token_variable] = response_hash['id_token']
