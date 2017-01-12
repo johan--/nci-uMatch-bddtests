@@ -3,15 +3,12 @@ require_relative 'treatment_arm_message_loader'
 require_relative 'match_test_data_manager'
 
 
-
-# puts Auth0Token.force_generate_auth0_token 'ADMIN'
+# Environment.setTier('local')
+# puts Auth0Token.force_generate_auth0_token 'NCI_MATCH_READONLY'
 
 # ############clear local dynamodb and load all existing seed data
 MatchTestDataManager.clear_all_local_tables
 MatchTestDataManager.upload_all_seed_data_to_local
-
-
-
 
 
 #################backup the just generated local db
