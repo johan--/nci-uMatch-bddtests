@@ -20,7 +20,7 @@ var LoginPage = function() {
     this.navBarHeading = element(by.css('div.sticky-navbar h2'));
 
     this.goToLoginPage = function(){
-        browser.get('/#/auth/login', 6000).then(function () {
+        browser.get('/#/auth/login', 1000).then(function () {
             browser.waitForAngular();
         });
         browser.getCurrentUrl().then(function(url){
@@ -46,10 +46,11 @@ var LoginPage = function() {
                                         console.log(previousAccountUsed);
                                         previousAccountUsed.click().then(callback);
                                     } else {
+                                        // browser.ignoreSynchronization = true;
                                         browser.sleep(1000);
                                         oldUserLink.isPresent().then(function(st){
                                             // console.log(st);
-                                            if (st){
+                                            if (st) {
                                                 oldUserLink.click();
                                             } else {
                                                 // console.log("");

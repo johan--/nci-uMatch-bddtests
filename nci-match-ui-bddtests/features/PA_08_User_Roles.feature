@@ -1,4 +1,4 @@
-@ui_p2
+@ui_p2 @test
 Feature: MATCHKB-352 Ped-Match users are given authorization based on their roles.
 
   Scenario: As a read-only user, I do not have access to confirm or reject a variant report
@@ -60,7 +60,6 @@ Feature: MATCHKB-352 Ped-Match users are given authorization based on their role
       | read_only         |
       | VR_Reviewer_mocha |
       | VR_Reviewer_mda   |
-      | AR_Reviewer       |
 
 #  Scenario Outline: As a variant_report reviewer from MoCha lab, I can confirm the variant report of a patient from MoCha lab
 #

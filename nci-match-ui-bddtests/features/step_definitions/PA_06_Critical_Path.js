@@ -75,7 +75,7 @@ module.exports = function () {
 
     this.When(/^I click on the Assignment Report tab "([^"]*)"$/, function (tab, callback) {
         browser.ignoreSynchronization = true;
-        browser.sleep(5000);
+        browser.sleep(500);
         var cssSelec = 'li[heading="'+tab+'"] > a'
         var assignmentReportTab = element(by.css(cssSelec));
         assignmentReportTab.isPresent().then(function(isVis){
@@ -251,7 +251,7 @@ module.exports = function () {
         // console.log(uri);
         patientPage.patientId = patientId;
         patientPage.variantAnalysisId = variantReportId;
-        browser.sleep(3000).then(function () {
+        browser.sleep(500).then(function () {
             browser.get(uri).then(function () {
                 browser.waitForAngular();
             });
@@ -262,7 +262,7 @@ module.exports = function () {
         var uri = '/#/patient/' + patientId + '/variant_report?analysis_id=' + variantReportId + '&section=assignment';
         patientPage.patientId = patientId;
         patientPage.variantAnalysisId = variantReportId;
-        browser.sleep(3000).then(function () {
+        browser.sleep(500).then(function () {
             browser.get(uri).then(function () {
                 browser.waitForAngular();
             });
@@ -344,7 +344,7 @@ module.exports = function () {
 
     this.Then(/^I get the Total confirmed aMOIs on the page$/, function (callback) {
         confirmedAMoi = 0;
-        var amoiIndex = []
+        var amoiIndex = [];
         element.all(by.repeater('item in $ctrl.gridOptions.data')).count().then(function (cnt) {
             for (var index = 0; index < cnt; index++) {
                 patientPage.isAMoi(index, amoiIndex).then(function () {
