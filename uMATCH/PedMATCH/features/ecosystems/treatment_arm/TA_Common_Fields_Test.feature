@@ -50,8 +50,8 @@ Feature: TA_CF. Treatment Arm API common tests for all fields
 	"target_id":1234,
 	"target_name":"HGFR Pathway",
 	"treatment_arm_drugs":[{"drugClass":"angiokinase inhibitor","description":"Afatinib","name":"Afatinib","drugId":"1"}],
-	"geneFusions":[],
-	"nonHotspotRules":[],
+	"gene_fusions":[],
+	"non_hotspot_rules":[],
 	"snv_indels":[
 	  {
 	  "variant_type": "snp",
