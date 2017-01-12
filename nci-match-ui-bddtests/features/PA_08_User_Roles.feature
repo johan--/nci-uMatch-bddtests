@@ -18,7 +18,7 @@ Feature: MATCHKB-352 Ped-Match users are given authorization based on their role
 @test
  Scenario: As a read-only user I can not edit variant report comments but can only view
     Given I'm logged in as a "read_only" user
-    When I go to the patient "ION_AQ41_TsVrUploaded" with variant report "ION_AQ41_TsVrUploaded_ANI1"
+    When I go to the patient "PT_GVF_TsVrUploaded" with variant report "PT_GVF_TsVrUploaded_ANI1"
     And The variant comment buttons are displayed
     Then I can click on the variant comment button
     And I should see the variant comment dialog
