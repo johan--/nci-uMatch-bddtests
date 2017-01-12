@@ -16,7 +16,6 @@ Feature: MATCHKB-352 Ped-Match users are given authorization based on their role
     And The checkboxes are disabled
     Then I then logout
 
-@test
  Scenario: As a read-only user I can not edit variant report comments but can only view
     Given I'm logged in as a "read_only" user
     When I go to the patient "PT_GVF_TsVrUploaded" with variant report "PT_GVF_TsVrUploaded_ANI1"
@@ -25,11 +24,16 @@ Feature: MATCHKB-352 Ped-Match users are given authorization based on their role
     Then I can see the "Unconfirmed for UI display" in the modal text box
     And The "OK" button is "invisible"
     Then I click on the "Close" button
-    # And The variant comment buttons are displayed
-    # And I can click on the variant comment button
-    # And I should see the variant comment dialog
-    # And I "should not" be able to edit the comment
-    # And I "should not" be able to click OK button
+    Then I then logout
+
+ Scenario: As a variant_report reviewer from MDA lab I can edit variant report comments
+    Given I'm logged in as a "VR_Reviewer_mda" user
+    When I go to the patient "PT_GVF_TsVrUploaded" with variant report "PT_GVF_TsVrUploaded_ANI1"
+    Then I can see the variant report page
+    And I click on the comment link at ordinal "1"
+    Then I can see the "Unconfirmed for UI display" in the modal text box
+    And The "OK" button is "visible"
+    Then I click on the "OK" button
     Then I then logout
 
   Scenario: As a variant_report reviewer from MoCha lab, I can only view the variant report of a patient from MDA lab
