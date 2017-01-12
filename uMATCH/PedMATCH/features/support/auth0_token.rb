@@ -61,8 +61,8 @@ class Auth0Token
       end
       ENV[token_variable] = response_hash['id_token']
       puts "A #{ENV[token_variable].length} digi auth0 #{role} token is generated"
-    # else
-    #   puts "A #{ENV[token_variable].length} digi auth0 #{role} token exists, keep using that one"
+    else
+      puts "A #{ENV[token_variable].length} digi auth0 #{role} token exists, keep using that one"
     end
     return ENV[token_variable]
   end
