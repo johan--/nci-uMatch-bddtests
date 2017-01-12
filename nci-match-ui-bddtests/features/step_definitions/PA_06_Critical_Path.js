@@ -95,8 +95,14 @@ module.exports = function () {
             assignmentReportLink.click().then(function () {
                 browser.ignoreSynchronization = true;
                 browser.waitForAngular();
-            })
+            });
         }).then(callback);
+    });
+
+    this.Then(/^I can see the "([^"]*)" table$/, function (tableTitle, callback) {
+        var variantTable = patientPage.variantTable(tableTitleTitle);
+        expect(variantTable.isPresent()).to.eventually.eql(true);
+        expect(variantTable.isDisplayed()).to.eventually.eql(true);
     });
 
     this.When(/^I uncheck the variant of ordinal "([^"]*)"$/, function (ordinal, callback) {
