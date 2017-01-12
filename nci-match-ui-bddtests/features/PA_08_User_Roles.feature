@@ -16,8 +16,8 @@ Feature: MATCHKB-352 Ped-Match users are given authorization based on their role
     And The checkboxes are disabled
     Then I then logout
 
- Scenario: As a read-only user I can not edit variant report comments but can only view
-    Given I'm logged in as a "read_only" user
+ Scenario Outline: As a non-privileged user I can not edit variant report comments but can only view
+    Given I'm logged in as a "<user>" user
     When I go to the patient "PT_GVF_TsVrUploaded" with variant report "PT_GVF_TsVrUploaded_ANI1"
     Then I can see the variant report page
     And I click on the comment link at ordinal "1"
@@ -25,7 +25,12 @@ Feature: MATCHKB-352 Ped-Match users are given authorization based on their role
     And The "OK" button is "invisible"
     Then I click on the "Close" button
     Then I then logout
-
+    Examples:
+      | user              |
+      | read_only         |
+      | VR_Reviewer_mocha |
+      | AR_Reviewer       |
+      
  Scenario: As a variant_report reviewer from MDA lab I can edit variant report comments
     Given I'm logged in as a "VR_Reviewer_mda" user
     When I go to the patient "PT_GVF_TsVrUploaded" with variant report "PT_GVF_TsVrUploaded_ANI1"
@@ -55,12 +60,8 @@ Feature: MATCHKB-352 Ped-Match users are given authorization based on their role
       | read_only         |
       | VR_Reviewer_mocha |
       | VR_Reviewer_mda   |
+      | AR_Reviewer       |
 
-#  Scenario Outline: As a variant_report reviewer from MoCha lab, I can edit the comments of a variant report of a patient from MoCha lab
-#
-#    Examples:
-#
-#
 #  Scenario Outline: As a variant_report reviewer from MoCha lab, I can confirm the variant report of a patient from MoCha lab
 #
 #    Examples:
@@ -79,8 +80,6 @@ Feature: MATCHKB-352 Ped-Match users are given authorization based on their role
     And I "should not" see the "REJECT" button on the VR page
     And I "should not" see the "CONFIRM" button on the VR page
     Then I then logout
-
-#  Scenario: As an assignment_report reviewer, I do not have access to edit comments in a variant report but can view
 
   Scenario: As an assignment_report reviewer, I do not have access to check / uncheck variants
     Given I'm logged in as a "AR_Reviewer" user
