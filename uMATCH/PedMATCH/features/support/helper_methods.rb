@@ -550,6 +550,7 @@ class Helper_Methods
     if @dynamodb_client.nil?
       @dynamodb_client = Aws::DynamoDB::Client.new(
           endpoint: ENV['dynamodb_endpoint'],
+          region: ENV['dynamodb_region'],
           access_key_id: ENV['AWS_ACCESS_KEY_ID'],
           secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'])
     end

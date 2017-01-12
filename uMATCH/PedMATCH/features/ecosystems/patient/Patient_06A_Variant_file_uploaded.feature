@@ -48,7 +48,7 @@ Feature: Variant files uploaded message
 #    |PT_VU02a_TissueShippedToMDA  |MDA    |
 #    |PT_VU02a_TissueShippedToMoCha|MoCha  |
 
-  @patients_p2
+  @patients_p2_off
   Scenario Outline: PT_VU03. variant files uploaded message with invalid molecular_id should fail
     Given patient id is "PT_VU03_TissueShipped"
     And load template variant file uploaded message for this patient
@@ -105,7 +105,7 @@ Feature: Variant files uploaded message
     Then this variant report field: "status" should be "PENDING"
     Then this variant report field: "tsv_file_name" should be "test1.tsv"
 
-  @patients_p2
+  @patients_p2_off
   Scenario: PT_VU07. variant files uploaded with new analysis_id cannot be accepted when patient has only TISSUE_SLIDE_SPECIMEN_SHIPPED status but has no TISSUE_NUCLEIC_ACID_SHIPPED status
 #  Test patient: PT_VU07_SlideShippedNoTissueShipped: surgical_event_id: SEI_01 slide shipped, tissue not shipped;
     Given patient id is "PT_VU07_SlideShippedNoTissueShipped"

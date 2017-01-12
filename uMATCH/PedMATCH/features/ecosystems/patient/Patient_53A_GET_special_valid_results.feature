@@ -1,8 +1,8 @@
 @patients_get
 Feature: Patient GET service valid special case tests
-###### all tests in this feature will use default ADMIN authorization role, because role base auth test for those
-  #### POST and PUT service has been tested in other tests, those are not the purpose of these tests
-  @patients_p2
+###### all tests in this feature will use default ADMIN authorization role, because role base auth test for those 
+  #### POST and PUT service has been tested in other tests, those are not the purpose of these tes
+  @patients_p2_off
   Scenario: PT_SC01a statistics service should have correct result
     Given patient GET service: "statistics", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return
@@ -11,7 +11,7 @@ Feature: Patient GET service valid special case tests
     Then patient statistics field "number_of_patients_with_confirmed_variant_report" should have correct value
     Then patient statistics field "treatment_arm_accrual" should have correct value
 
-  @patients_p2
+  @patients_p2_off
   Scenario: PT_SC01b statistics service should update number_of_patients properly
     Given patient id is "PT_SC01b_New"
     And load template registration message for this patient
@@ -22,7 +22,7 @@ Feature: Patient GET service valid special case tests
     When GET from MATCH patient API, http code "200" should return
     Then patient statistics field "number_of_patients" should have correct value
 
-  @patients_p2
+  @patients_p2_off
   Scenario Outline: PT_SC01c statistics service should update number_of_patients_with_confirmed_variant_report properly
     Given patient id is "<patient_id>"
     Then load template variant report confirm message for analysis id: "<ani>"
@@ -36,7 +36,7 @@ Feature: Patient GET service valid special case tests
       | PT_SC01c_TsVrUploaded      | PT_SC01c_TsVrUploaded_ANI1      |
       | PT_SC01c_TsVrUploadedStep2 | PT_SC01c_TsVrUploadedStep2_ANI2 |
 
-  @patients_p2
+  @patients_p2_off
   Scenario Outline: PT_SC01d statistics service should update treatment arm values properly
     Given patient id is "<patient_id>"
     Then load template on treatment arm confirm message for this patient
@@ -54,14 +54,14 @@ Feature: Patient GET service valid special case tests
       | PT_SC01d_PendingApproval      | APEC1621-A     | 100     | 1.1  |
       | PT_SC01d_PendingApprovalStep2 | APEC1621-ETE-A | 100     | 2.1  |
 
-  @patients_p1
+  @patients_p1_off
   Scenario: PT_SC02a pending_items should have correct result
     Given patient GET service: "pending_items", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return
     Then patient pending_items field "tissue_variant_reports" should have correct value
     Then patient pending_items field "assignment_reports" should have correct value
 
-  @patients_p1
+  @patients_p1_off
   Scenario Outline: PT_SC02b pending_items should increase tissue_variant_reports value properly
     Given patient id is "<patient_id>"
     And load template variant file uploaded message for this patient
@@ -77,7 +77,7 @@ Feature: Patient GET service valid special case tests
       | patient_id         | moi                     | ani                     | pending_type           |
       | PT_SC02b_TsShipped | PT_SC02b_TsShipped_MOI1 | PT_SC02b_TsShipped_ANI1 | tissue_variant_reports |
 
-  @patients_p1
+  @patients_p1_off
   Scenario Outline: PT_SC02c pending_items should decrease tissue_variant_reports value properly
     Given patient id is "<patient_id>"
     And load template variant report confirm message for analysis id: "<ani>"
@@ -90,7 +90,7 @@ Feature: Patient GET service valid special case tests
       | patient_id            | ani                        | pending_type           |
       | PT_SC02c_TsVrUploaded | PT_SC02c_TsVrUploaded_ANI1 | tissue_variant_reports |
 
-  @patients_p1
+  @patients_p1_off
   Scenario Outline: PT_SC02d pending_items should increase assignment_reports value properly
     Given patient id is "<patient_id>"
     And load template variant report confirm message for analysis id: "<ani>"
@@ -104,7 +104,7 @@ Feature: Patient GET service valid special case tests
       | patient_id            | ani                        |
       | PT_SC02d_VrAssayReady | PT_SC02d_VrAssayReady_ANI1 |
 
-  @patients_p1
+  @patients_p1_off
   Scenario Outline: PT_SC02e pending_items should decrease assignment_reports value properly
     Given patient id is "<patient_id>"
     And load template assignment report confirm message for analysis id: "<ani>"
@@ -117,7 +117,7 @@ Feature: Patient GET service valid special case tests
       | patient_id                   | ani                               | pending_type       |
       | PT_SC02e_PendingConfirmation | PT_SC02e_PendingConfirmation_ANI1 | assignment_reports |
 
-  @patients_p1
+  @patients_p1_off
   Scenario Outline: PT_SC02f pending_items should remove patient once this patient change to OFF_STUDY
     Given patient id is "<patient_id>"
     And load template off study message for this patient
@@ -133,7 +133,7 @@ Feature: Patient GET service valid special case tests
       | PT_SC02f_TsVrUploaded        | PT_SC02f_TsVrUploaded_ANI1        |
       | PT_SC02f_PendingConfirmation | PT_SC02f_PendingConfirmation_ANI1 |
 
-  @patients_p1
+  @patients_p1_off
   Scenario Outline: PT_SC02g pending_items should remove patient once this patient change to OFF_STUDY_BIOPSY_EXPIRED
     Given patient id is "<patient_id>"
     And load template off study biopsy expired message for this patient
@@ -166,7 +166,7 @@ Feature: Patient GET service valid special case tests
     When GET from MATCH patient API, http code "200" should return
     Then patient amois should have correct value
 
-  @patients_p1
+  @patients_p1_off
   Scenario: PT_SC04a patient_limbos should not have record for patients with certain status
     Given patient GET service: "patient_limbos", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return
@@ -180,7 +180,7 @@ Feature: Patient GET service valid special case tests
     Then there are "0" patient_limbos have field: "current_status" value: "COMPASSIONATE_CARE"
     Then there are "0" patient_limbos have field: "current_status" value: "NO_TA_AVAILABLE"
 
-  @patients_p1
+  @patients_p1_off
   Scenario Outline: PT_SC04b patient_limbos should have correct value
     Given patient id is "<patient_id>"
     And patient GET service: "patient_limbos", patient id: "", id: ""
@@ -200,7 +200,7 @@ Feature: Patient GET service valid special case tests
       | PT_SC04b_TwoAssay            | ICCBAF47s-variant                            | shipment-ICCBRG1s-ICCPTENs |
       | PT_SC04b_PendingApproval     | approval                                     |                            |
 
-  @patients_p1
+  @patients_p1_off
   Scenario: PT_SC04c patient_limbos should update properly after tissue is shipped
     Given patient id is "PT_SC04c_TsReceived"
     And load template specimen type: "TISSUE" shipped message for this patient
@@ -216,7 +216,7 @@ Feature: Patient GET service valid special case tests
     Then this patient patient_limbos message should contain "variant-ICCPTENs-ICCBAF47s-ICCBRG1s" not "shipment"
     Then this patient patient_limbos days_pending should be correct
 
-  @patients_p1
+  @patients_p1_off
   Scenario Outline: PT_SC04d patient_limbos should update properly after assay is received
     Given patient id is "<patient_id>"
     And load template assay message for this patient
@@ -237,7 +237,7 @@ Feature: Patient GET service valid special case tests
       | PT_SC04d_OneAssay | ICCBAF47s | variant-ICCBRG1s           | shipment-ICCBAF47s-ICCPTENs          |
       | PT_SC04d_TwoAssay | ICCBRG1s  | variant                    | shipment-ICCBAF47s-ICCPTENs-ICCBRG1s |
 
-  @patients_p1
+  @patients_p1_off
   Scenario: PT_SC04e patient_limbos should update properly after variant report is confirmed
     Given patient id is "PT_SC04e_TsVrUploaded"
     Then load template variant report confirm message for analysis id: "PT_SC04e_TsVrUploaded_ANI1"
@@ -251,7 +251,7 @@ Feature: Patient GET service valid special case tests
     Then this patient patient_limbos message should contain "ICCPTENs-ICCBAF47s-ICCBRG1s" not "shipment-variant"
     Then this patient patient_limbos days_pending should be correct
 
-  @patients_p1
+  @patients_p1_off
   Scenario Outline: PT_SC04f patient_limbos should update properly after new tissue specimen is received
     Given patient id is "<patient_id>"
     Then patient GET service: "patient_limbos", patient id: "", id: ""
@@ -272,7 +272,7 @@ Feature: Patient GET service valid special case tests
       | PT_SC04f_TsVrUploaded      | PT_SC04f_TsVrUploaded_SEI2      | today      | 1         | 0         |
       | PT_SC04f_RequestAssignment | PT_SC04f_RequestAssignment_SEI2 | 2016-12-05 | 0         | 1         |
 
-  @patients_p1
+  @patients_p1_off
   Scenario: PT_SC04g patient_limbos should remove patient once this patient change to OFF_STUDY
     Given patient id is "PT_SC04g_TsReceived"
     And load template off study message for this patient
@@ -283,7 +283,7 @@ Feature: Patient GET service valid special case tests
     When GET from MATCH patient API, http code "200" should return
     Then there are "0" patient_limbos have field: "patient_id" value: "PT_SC04g_TsReceived"
 
-  @patients_p1
+  @patients_p1_off
   Scenario: PT_SC04h patient_limbos should remove patient once this patient change to OFF_STUDY_BIOPSY_EXPIRED
     Given patient id is "PT_SC04h_TsReceived"
     And load template off study biopsy expired message for this patient
@@ -294,7 +294,7 @@ Feature: Patient GET service valid special case tests
     When GET from MATCH patient API, http code "200" should return
     Then there are "0" patient_limbos have field: "patient_id" value: "PT_SC04h_TsReceived"
 
-  @patients_p1
+  @patients_p1_off
   Scenario: PT_SC04i patient_limbos should remove patient once this patient change to REQUEST_NO_ASSIGNMENT
     Given patient id is "PT_SC04i_PendingApproval"
     And load template request no assignment message for this patient
@@ -305,7 +305,7 @@ Feature: Patient GET service valid special case tests
     When GET from MATCH patient API, http code "200" should return
     Then there are "0" patient_limbos have field: "patient_id" value: "PT_SC04i_PendingApproval"
 
-  @patients_p1
+  @patients_p1_off
   Scenario: PT_SC04j patient_limbos should remove patient once this patient get approved on treatment arm
     Given patient id is "PT_SC04j_PendingApproval"
     And load template on treatment arm confirm message for this patient
@@ -318,7 +318,7 @@ Feature: Patient GET service valid special case tests
     When GET from MATCH patient API, http code "200" should return
     Then there are "0" patient_limbos have field: "patient_id" value: "PT_SC04j_PendingApproval"
 
-  @patients_p1
+  @patients_p1_off
   Scenario Outline: PT_SC05a action_items should have correct value
     Given patient GET service: "action_items", patient id: "<patient_id>", id: ""
     When GET from MATCH patient API, http code "200" should return
@@ -330,7 +330,7 @@ Feature: Patient GET service valid special case tests
       | PT_SC05a_TsThenAssayReceived | pending_tissue_variant_report | PT_SC05a_TsThenAssayReceived_ANI1 |
       | PT_SC05a_PendingConfirmation | pending_assignment_report     | PT_SC05a_PendingConfirmation_ANI1 |
 
-  @patients_p1
+  @patients_p1_off
   Scenario Outline: PT_SC05b action_items should add pending_tissue_variant_report item after vr upload
     Given patient id is "<patient_id>"
     And load template variant file uploaded message for this patient
@@ -347,7 +347,7 @@ Feature: Patient GET service valid special case tests
       | patient_id         | moi                     | ani                     |
       | PT_SC05b_TsShipped | PT_SC05b_TsShipped_MOI1 | PT_SC05b_TsShipped_ANI1 |
 
-  @patients_p1
+  @patients_p1_off
   Scenario Outline: PT_SC05c action_items should remove pending_tissue_variant_report item after vr confirmed
     Given patient id is "<patient_id>"
     And load template variant report confirm message for analysis id: "<ani>"
@@ -360,7 +360,7 @@ Feature: Patient GET service valid special case tests
       | patient_id            | ani                        |
       | PT_SC05c_TsVrUploaded | PT_SC05c_TsVrUploaded_ANI1 |
 
-  @patients_p1
+  @patients_p1_off
   Scenario Outline: PT_SC05d action_items should add pending_assignment_report after patient reach PENDING_CONFIRMATION
     Given patient id is "<patient_id>"
     And load template variant report confirm message for analysis id: "<ani>"
@@ -375,7 +375,7 @@ Feature: Patient GET service valid special case tests
       | patient_id            | ani                        |
       | PT_SC05d_VrAssayReady | PT_SC05d_VrAssayReady_ANI1 |
 
-  @patients_p1
+  @patients_p1_off
   Scenario Outline: PT_SC05e action_items should remove pending_assignment_report item after assignment confirmation
     Given patient id is "<patient_id>"
     And load template assignment report confirm message for analysis id: "<ani>"
@@ -388,7 +388,7 @@ Feature: Patient GET service valid special case tests
       | patient_id                   | ani                               |
       | PT_SC05e_PendingConfirmation | PT_SC05e_PendingConfirmation_ANI1 |
 
-  @patients_p1
+  @patients_p1_off
   Scenario Outline: PT_SC05f action_items should be cleared once this patient change to OFF_STUDY
     Given patient id is "<patient_id>"
     And load template off study message for this patient
@@ -403,7 +403,7 @@ Feature: Patient GET service valid special case tests
       | PT_SC02f_TsVrUploaded        |
       | PT_SC02f_PendingConfirmation |
 
-  @patients_p1
+  @patients_p1_off
   Scenario Outline: PT_SC05g action_items should be cleared once this patient change to OFF_STUDY_BIOPSY_EXPIRED
     Given patient id is "<patient_id>"
     And load template off study biopsy expired message for this patient
@@ -418,7 +418,7 @@ Feature: Patient GET service valid special case tests
       | PT_SC05g_TsVrUploaded        |
       | PT_SC05g_PendingConfirmation |
 
-  @patients_p1
+  @patients_p1_off
   Scenario Outline: PT_SC06a treatment_arm_history should add item after patient on treatment arm
     Given patient id is "<patient_id>"
     Then load template on treatment arm confirm message for this patient
@@ -436,7 +436,7 @@ Feature: Patient GET service valid special case tests
       | PT_SC06a_PendingApproval      | APEC1621-A     | 100     | 1.1  | 1     |
       | PT_SC06a_PendingApprovalStep2 | APEC1621-ETE-A | 100     | 2.1  | 2     |
 
-  @patients_p2
+  @patients_p2_off
   Scenario: PT_SC06b treatment_arm_history should not add item after patient transition to OFF_STUDY
     Given patient id is "PT_SC06b_PendingApproval"
     Then load template off study message for this patient
@@ -448,7 +448,7 @@ Feature: Patient GET service valid special case tests
     Then there are "0" patient treatment_arm_history
     Then patient treatment_arm_history should not have treatment_arm: "APEC1621-A", stratum: "100"
 
-  @patients_p2
+  @patients_p2_off
   Scenario: PT_SC06c treatment_arm_history should not add item after patient transition to OFF_STUDY_BIOPSY_EXPIRED
     Given patient id is "PT_SC06c_PendingApprovalStep2"
     Then load template off study biopsy expired message for this patient
@@ -461,7 +461,7 @@ Feature: Patient GET service valid special case tests
     Then patient treatment_arm_history should have treatment_arm: "APEC1621-A", stratum: "100", step: "1.1"
     Then patient treatment_arm_history should not have treatment_arm: "APEC1621-ETE-A", stratum: "100"
 
-  @patients_p1
+  @patients_p1_off
   Scenario Outline: PT_SC06d treatment_arm_history should not add item after patient transition to REQUEST_ASSIGNMENT
     Given patient id is "<patient_id>"
     And load template request assignment message for this patient
@@ -478,7 +478,7 @@ Feature: Patient GET service valid special case tests
       | PT_SC06d_PendingApproval1 | Y        | REQUEST_ASSIGNMENT   |
       | PT_SC06d_PendingApproval2 | N        | PENDING_CONFIRMATION |
 
-  @patients_p2
+  @patients_p2_off
   Scenario: PT_SC06e treatment_arm_history should not add item after patient transition to REQUEST_NO_ASSIGNMENT
     Given patient id is "PT_SC06e_PendingApproval"
     Then load template request no assignment message for this patient
@@ -490,7 +490,7 @@ Feature: Patient GET service valid special case tests
     Then there are "0" patient treatment_arm_history
     Then patient treatment_arm_history should not have treatment_arm: "APEC1621-A", stratum: "100"
 
-  @patients_p1
+  @patients_p1_off
   Scenario Outline: PT_SC07a specimen_events should have correct value
     Given patient GET service: "specimen_events", patient id: "<patient_id>", id: ""
     When GET from MATCH patient API, http code "200" should return
@@ -502,7 +502,7 @@ Feature: Patient GET service valid special case tests
       | PT_SC07a_BdReceived   | 0            | 1           |
       | PT_SC07a_TsBdReceived | 1            | 1           |
 
-  @patients_p1
+  @patients_p1_off
   Scenario Outline: PT_SC07b specimen_events should update properly
     Given patient id is "<patient_id>"
     Given patient GET service: "specimen_events", patient id: "<patient_id>", id: ""

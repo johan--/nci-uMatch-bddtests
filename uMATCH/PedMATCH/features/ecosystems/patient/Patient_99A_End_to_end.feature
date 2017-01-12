@@ -3,7 +3,7 @@
 @patients_end_to_end
 Feature: Patients end to end tests
 
-  @patients_p1
+  @patients_p1_off
   Scenario: PT_ETE01. patient can reach step 4.1 successfully
 #    Given patient id is "PT_ETE01" analysis_id is "PT_ETE01_ANI1"
     Given reset COG patient data: "PT_ETE01"

@@ -126,7 +126,7 @@ Feature: Patient API authorization tests
       | PT_AU04_MochaTsShipped0 | mocha      | SPECIMEN_MESSAGE_SENDER       |         | 401  |
       | PT_AU04_MdaTsShipped0   | mda        | ASSAY_MESSAGE_SENDER          |         | 401  |
 
-  @patients_p1
+  @patients_p3
   Scenario Outline: PT_AU05a role base authorization works properly for patient variant report confirm
     Given patient id is "<patient_id>"
     Then load template variant report confirm message for analysis id: "<patient_id>_ANI1"
@@ -150,7 +150,7 @@ Feature: Patient API authorization tests
       | PT_AU05_MochaTsVrUploaded0 | SPECIMEN_MESSAGE_SENDER       |         | 401  |
       | PT_AU05_MdaTsVrUploaded0   | ASSAY_MESSAGE_SENDER          |         | 401  |
 
-  @patients_p1
+  @patients_p3
   Scenario Outline: PT_AU05b role base authorization works properly for patient variant confirm
     Given patient id is "<patient_id>"
     And a random "fusion" variant for analysis id "<patient_id>_ANI1"
