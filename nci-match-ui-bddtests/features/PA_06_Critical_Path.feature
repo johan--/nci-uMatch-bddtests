@@ -26,7 +26,7 @@ Feature: This is the critical path test cases
   Scenario: Variant rejection is not allowed without a comment
     When I go to the patient "PT_CR04_VRUploadedAssayReceived" with variant report "PT_CR04_VRUploadedAssayReceived_ANI1"
     Then I can see the variant report page
-    Then I uncheck the variant of ordinal "1"
+    And I uncheck the variant of ordinal "1"
     Then I "should" see the confirmation modal pop up
     And The "OK" button is "disabled"
     When I click on the "Cancel" button
@@ -44,11 +44,10 @@ Feature: This is the critical path test cases
     Then The variant at ordinal "1" is "checked"
     Then I then logout
 
-@test
   Scenario: If a variant is rejected the comments are stored and visible on the front end
     When I go to the patient "PT_CR04_VRUploadedAssayReceived" with variant report "PT_CR04_VRUploadedAssayReceived_ANI1"
     Then I can see the variant report page
-    Then I uncheck the variant of ordinal "1"
+    And I uncheck the variant of ordinal "1"
     And I enter the comment "This is a comment" in the modal text box
     And The "OK" button is "enabled"
     When I click on the "OK" button
