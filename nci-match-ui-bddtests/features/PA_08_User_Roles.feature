@@ -1,6 +1,6 @@
+@ui_p2 @test
 Feature: MATCHKB-352 Ped-Match users are given authorization based on their roles.
 
-  @ui_p2
   Scenario: As a read-only user, I do not have access to confirm or reject a variant report
     Given I'm logged in as a "read_only" user
     When I go to the patient "ION_AQ41_TsVrUploaded" with variant report "ION_AQ41_TsVrUploaded_ANI1"
@@ -9,7 +9,6 @@ Feature: MATCHKB-352 Ped-Match users are given authorization based on their role
     And I "should not" see the "CONFIRM" button on the VR page
     Then I then logout
 
-  @ui_p2
   Scenario: The variant report checkboxes are disabled for a read-only user
     Given I'm logged in as a "read_only" user
     When I go to the patient "ION_AQ41_TsVrUploaded" with variant report "ION_AQ41_TsVrUploaded_ANI1"
@@ -17,7 +16,6 @@ Feature: MATCHKB-352 Ped-Match users are given authorization based on their role
     And The checkboxes are disabled
     Then I then logout
 
-  @ui_p2
  Scenario Outline: As a non-privileged user I can not edit variant report comments but can only view
     Given I'm logged in as a "<user>" user
     When I go to the patient "PT_GVF_TsVrUploaded" with variant report "PT_GVF_TsVrUploaded_ANI1"
@@ -33,7 +31,6 @@ Feature: MATCHKB-352 Ped-Match users are given authorization based on their role
       | VR_Reviewer_mocha |
       | AR_Reviewer       |
       
-  @ui_p2
  Scenario: As a variant_report reviewer from MDA lab I can edit variant report comments
     Given I'm logged in as a "VR_Reviewer_mda" user
     When I go to the patient "PT_GVF_TsVrUploaded" with variant report "PT_GVF_TsVrUploaded_ANI1"
@@ -44,7 +41,6 @@ Feature: MATCHKB-352 Ped-Match users are given authorization based on their role
     Then I click on the "OK" button
     Then I then logout
 
-  @ui_p2
   Scenario: As a variant_report reviewer from MoCha lab, I can only view the variant report of a patient from MDA lab
     Given I'm logged in as a "VR_Reviewer_mocha" user
     When I go to the patient "ION_AQ41_TsVrUploaded" with variant report "ION_AQ41_TsVrUploaded_ANI1"
@@ -53,7 +49,6 @@ Feature: MATCHKB-352 Ped-Match users are given authorization based on their role
     And I "should not" see the "CONFIRM" button on the VR page
     Then I then logout
 
-  @ui_p2
   Scenario Outline:  As a variant_report reviewer user, I do not have access to approve an assignment report
     Given I'm logged in as a "<user>" user
     When I go to the patient "PT_OS01_PendingConfirmation" with variant report "PT_OS01_PendingConfirmation_ANI1"
@@ -77,7 +72,6 @@ Feature: MATCHKB-352 Ped-Match users are given authorization based on their role
 #
 #  Scenario: As an assignment_report reviewer, I can approve an assignment report
 
-  @ui_p2
   Scenario: As an assignment_report reviewer, I do not have access to approve or reject a variant report
     Given I'm logged in as a "AR_Reviewer" user
     When I go to the patient "ION_AQ41_TsVrUploaded" with variant report "ION_AQ41_TsVrUploaded_ANI1"
@@ -86,7 +80,6 @@ Feature: MATCHKB-352 Ped-Match users are given authorization based on their role
     And I "should not" see the "CONFIRM" button on the VR page
     Then I then logout
 
-  @ui_p2
   Scenario: As an assignment_report reviewer, I do not have access to check / uncheck variants
     Given I'm logged in as a "AR_Reviewer" user
     When I go to the patient "ION_AQ41_TsVrUploaded" with variant report "ION_AQ41_TsVrUploaded_ANI1"
