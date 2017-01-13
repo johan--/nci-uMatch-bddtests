@@ -100,6 +100,8 @@ Feature: Patient API authorization tests
 
   @patients_p1
   Scenario Outline: PT_AU04 role base authorization works properly for patient variant report upload
+    ######MDA_VARIANT_REPORT_SENDER and MOCHA_VARIANT_REPORT_SENDER are for ui user to upload files,
+    ######variant report file upload message is only sent by ion ecosystem, so that should be SYSTEM role
     Given patient id is "<patient_id>"
     And load template variant file uploaded message for this patient
     Then set patient message field: "molecular_id" to value: "<patient_id>_MOI1"
@@ -117,10 +119,10 @@ Feature: Patient API authorization tests
       | PT_AU04_MochaTsShipped1 | mocha      | SYSTEM                        | success | 202  |
       | PT_AU04_MdaTsShipped0   | mda        | ASSIGNMENT_REPORT_REVIEWER    |         | 401  |
       | PT_AU04_MochaTsShipped0 | mocha      | MDA_VARIANT_REPORT_SENDER     |         | 401  |
-      | PT_AU04_MdaTsShipped2   | mda        | MDA_VARIANT_REPORT_SENDER     | success | 202  |
+      | PT_AU04_MdaTsShipped2   | mda        | MDA_VARIANT_REPORT_SENDER     |         | 401  |
       | PT_AU04_MdaTsShipped0   | mda        | MDA_VARIANT_REPORT_REVIEWER   |         | 401  |
       | PT_AU04_MdaTsShipped0   | mda        | MOCHA_VARIANT_REPORT_SENDER   |         | 401  |
-      | PT_AU04_MochaTsShipped2 | mocha      | MOCHA_VARIANT_REPORT_SENDER   | success | 202  |
+      | PT_AU04_MochaTsShipped2 | mocha      | MOCHA_VARIANT_REPORT_SENDER   |         | 401  |
       | PT_AU04_MochaTsShipped0 | mocha      | MOCHA_VARIANT_REPORT_REVIEWER |         | 401  |
       | PT_AU04_MdaTsShipped0   | mda        | PATIENT_MESSAGE_SENDER        |         | 401  |
       | PT_AU04_MochaTsShipped0 | mocha      | SPECIMEN_MESSAGE_SENDER       |         | 401  |

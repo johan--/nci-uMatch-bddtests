@@ -88,7 +88,6 @@ Feature: Assay Messages
       | value    | message        |
       |          | can't be blank |
       | OTHER    | biomarker      |
-      | null     | can't be blank |
       | ICCMLH1s | biomarker      |
 
   @patients_p2
