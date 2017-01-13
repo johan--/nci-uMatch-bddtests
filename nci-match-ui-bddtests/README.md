@@ -17,7 +17,7 @@ Please make sure that the following are installed before running the project.
    $ npm install -g protractor
    $ npm install -g cucumber
    $ npm install -g grunt-cli
-   $ npm install -g phantomjs
+   $ npm install -g phantomjs-prebuilt
    ```
 
    This should also install `Selenium Webdriver` and thus `webdriver-manager`
