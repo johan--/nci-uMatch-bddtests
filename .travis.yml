@@ -95,9 +95,9 @@ after_success:
   - ls -alt
 
   # tag docker image with date and deploy to UAT
-#  - ./dockerdeploy.sh
+  - ./dockerdeploy.sh
   # Trigger Travis script #3, UAT Tests
-#  - curl -s -X POST -H "Content-Type:application/json" -H "Accept:application/json" -H "Travis-API-Version:3" -H "Authorization:token $UAT_TRAVIS_TOKEN" -d "{\"request\":{\"message\":\"Triggered by $TRIGGER_REPO $TRAVIS_COMMIT\", \"branch\":\"master\", \"config\":{\"env\":{\"matrix\":[\"TRIGGER_REPO=$TRIGGER_REPO;CUC_TAG=$CUC_TAG\"]}}}}" https://api.travis-ci.org/repo/CBIIT%2Fnci-uMatch-uattests/requests
+  - curl -s -X POST -H "Content-Type:application/json" -H "Accept:application/json" -H "Travis-API-Version:3" -H "Authorization:token $UAT_TRAVIS_TOKEN" -d "{\"request\":{\"message\":\"Triggered by $TRIGGER_REPO $TRAVIS_COMMIT\", \"branch\":\"master\", \"config\":{\"env\":{\"matrix\":[\"TRIGGER_REPO=$TRIGGER_REPO;CUC_TAG=$CUC_TAG\"]}}}}" https://api.travis-ci.org/repo/CBIIT%2Fnci-uMatch-uattests/requests
 after_failure:
     #Notify $AUTHOR ------ NOT DONE YET
 #    - cd TestManagement
