@@ -204,6 +204,10 @@ Then(/^patient status should change to "([^"]*)"$/) do |status|
   actual_match_expect(@current_patient_hash[field], status)
 end
 
+Then(/^wait until patient is updated$/) do
+  Patient_helper_methods.wait_until_patient_updated(@patient_id)
+end
+
 Then(/^wait until patient specimen is updated$/) do
   Patient_helper_methods.wait_until_specimen_updated(@patient_id)
 end
