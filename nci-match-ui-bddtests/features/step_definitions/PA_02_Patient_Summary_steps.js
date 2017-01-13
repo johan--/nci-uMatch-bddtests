@@ -3,6 +3,7 @@
  */
 
 'use strict';
+
 var fs          = require ('fs');
 var assert      = require ('assert');
 var patientPage = require ('../../pages/patientPage');
@@ -19,9 +20,6 @@ module.exports = function () {
     var patientApiInfo;
     var currentActiveMainTab = patientPage.currentActiveTab;
 
-    // Given Section
-    // When Section
-
     this.When (/^I click on one of the patients$/, function (callback) {
         //get the patient id of the first element
         var tableElement = patientPage.patientListTable;
@@ -34,7 +32,8 @@ module.exports = function () {
 
     this.When (/^I go to patient "(.+)" details page$/, function (pa_id, callback) {
         patientPage.patientId = pa_id;
-        browser.get ('/#/patient?patient_id=' + pa_id, 6000).then (callback);
+        browser.get ('/#/patient?patient_id=' + pa_id, utilities.delay.afterPatientLoad).then(callback);
+        browser.ignoreSynchronization = false;
     });
 
     this.When (/^I collect the patient Api Information$/, function (callback) {
@@ -54,12 +53,13 @@ module.exports = function () {
     // Then Section
 
     this.Then (/^I should see Patient details breadcrumb$/, function (callback) {
+        browser.ignoreSynchronization = false;
         utilities.checkBreadcrumb ('Dashboard / Patients / Patient ' + patientPage.patientId);
         browser.sleep (500).then (callback);
     });
 
     this.Then (/^I am taken to the patient details page$/, function (callback) {
-        var url = browser.baseUrl + '/#/patient?patient_id=' + patientPage.patientId
+        var url = browser.baseUrl + '/#/patient?patient_id=' + patientPage.patientId;
         expect (browser.getCurrentUrl ()).to.eventually.eql (url).notify (callback);
     });
 

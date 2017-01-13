@@ -95,17 +95,18 @@ module.exports = function () {
             assignmentReportLink.click().then(function () {
                 browser.ignoreSynchronization = true;
                 browser.waitForAngular();
-            });
-        }).then(callback);
+            }).then(callback);
+        });
     });
 
     this.When(/^I uncheck the variant of ordinal "([^"]*)"$/, function (ordinal, callback) {
         // ordinal begins at 1
         var index = parseInt(ordinal) - 1;
-        patientPage.variantConfirmButtonCLickList.get(index).click().then(function () {
-            browser.waitForAngular();
-        }).then(callback);
-
+        browser.executeScript('window.scrollTo(0,5000)').then(function () {
+            patientPage.variantConfirmButtonCLickList.get(index).click().then(function () {
+                browser.waitForAngular();
+            }).then(callback);
+        });
     });
 
     this.When(/^I note the ID of the variant at ordinal "([^"]*)"$/, function (ordinal, callback) {

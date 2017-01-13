@@ -35,7 +35,7 @@ module.exports = function () {
         loginPageObj.login(email, password);
 //        utilities.waitForElement(loginPageObj.navBarHeading, 'sticky top menu');
 
-        browser.sleep(3000).then(callback);
+        browser.sleep(utilities.delay.afterLogin).then(callback);
     });
 
     this.Given(/^I'm logged in as a "(.+?)" user$/, function(user_role,callback) {
@@ -51,13 +51,13 @@ module.exports = function () {
         loginPageObj.login(email, password);
 //        utilities.waitForElement(loginPageObj.navBarHeading, 'sticky top menu');
 
-        browser.sleep(3000).then(callback);
+        browser.sleep(utilities.delay.afterLogin).then(callback);
 
     });
 
     this.Then(/^I should see the login button$/, function (callback) {
         accessbtn.isPresent().then(function (present) {
-            expect(present).to.eql(true)
+            expect(present).to.eql(true);
         }).then(callback);
     });
 
@@ -95,7 +95,7 @@ module.exports = function () {
             email = 'abc_xyz@nih.gov';
         }
         loginPageObj.login(email, password);
-        browser.sleep(2000).then(callback());
+        browser.sleep(utilities.delay.afterLogin).then(callback());
     });
 
     this.When(/^I navigate to the (.+) page$/, function (pageName, callback) {

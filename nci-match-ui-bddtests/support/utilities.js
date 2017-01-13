@@ -6,6 +6,10 @@ var rest = require('rest');
 var Client = require('node-rest-client').Client;
 var req = require ('request-promise');
 
+var delay = {
+    afterLogin: 6000,
+    afterPatientLoad: 3000
+};
 
 var Utilities = function() {
 
@@ -390,6 +394,8 @@ var Utilities = function() {
         //console.log(email);
         //return user_credentials;
     };
+
+    this.delay = delay;
 };
 
 module.exports = new Utilities();

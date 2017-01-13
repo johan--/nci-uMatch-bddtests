@@ -1,4 +1,4 @@
-@ui_p2 @test
+@ui_p2
 Feature: MATCHKB-352 Ped-Match users are given authorization based on their roles.
 
   Scenario: As a read-only user, I do not have access to confirm or reject a variant report

@@ -30,7 +30,6 @@ var LoginPage = function() {
         });
     };
 
-
     this.login = function(username, password, callback) {        
         browser.isElementPresent(userLoggedin).then(function(logIn){
             if (logIn === true) {
