@@ -188,7 +188,7 @@ Feature: Patients request assignment tests
     And set patient message field: "step_number" to value: "1.0"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "PENDING_CONFIRMATION"
-    And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 1 REJECTED 0 CONFIRMED assignment reports
+    And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 0 REJECTED 1 CONFIRMED assignment reports
     And patient pending assignment report selected treatment arm is "APEC1621-ETE-A" with stratum_id "100"
     When PUT to MATCH assignment report "confirm" service, response includes "successfully" with code "200"
     Then patient status should change to "PENDING_APPROVAL"
@@ -197,7 +197,7 @@ Feature: Patients request assignment tests
     And set patient message field: "step_number" to value: "1.0"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "PENDING_CONFIRMATION"
-    And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 2 REJECTED 0 CONFIRMED assignment reports
+    And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 0 REJECTED 2 CONFIRMED assignment reports
     And patient pending assignment report selected treatment arm is "APEC1621-ETE-C" with stratum_id "100"
     When PUT to MATCH assignment report "confirm" service, response includes "successfully" with code "200"
     Then patient status should change to "PENDING_APPROVAL"
@@ -206,7 +206,7 @@ Feature: Patients request assignment tests
     And set patient message field: "step_number" to value: "1.0"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "PENDING_CONFIRMATION"
-    And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 3 REJECTED 0 CONFIRMED assignment reports
+    And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 0 REJECTED 3 CONFIRMED assignment reports
     And patient pending assignment report field "report_status" should be "NO_TREATMENT_FOUND"
     When PUT to MATCH assignment report "confirm" service, response includes "successfully" with code "200"
     Then patient status should change to "NO_TA_AVAILABLE"
@@ -215,7 +215,7 @@ Feature: Patients request assignment tests
     And set patient message field: "step_number" to value: "1.0"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "PENDING_CONFIRMATION"
-    And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 4 REJECTED 0 CONFIRMED assignment reports
+    And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 0 REJECTED 4 CONFIRMED assignment reports
     And patient pending assignment report field "report_status" should be "NO_TREATMENT_FOUND"
 
   @patients_p2
