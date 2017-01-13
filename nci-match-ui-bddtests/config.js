@@ -31,7 +31,7 @@ exports.config = {
         'features/PA_04_Patient_Blood_Specimen.feature',
         'features/PA_05_Patient_Documents.feature',
         'features/SP_01_Specimen_Tracking.feature',
-        'features/PA_08_User Roles.feature',
+        'features/PA_08_User_Roles.feature',
 
         //Treatment Arm details page
         'features/TA_01_Analysis.feature',
