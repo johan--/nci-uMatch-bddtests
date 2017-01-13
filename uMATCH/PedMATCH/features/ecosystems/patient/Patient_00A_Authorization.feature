@@ -1,11 +1,11 @@
-@patients_auth
+@patients_off_auth
 Feature: Patient API authorization tests
 #the reason why all false test can use same patient is response http code is the only thing need to check. If the
   #response code is not 401, it doesn't matter what else the test is failed
   #this is really different with other tests. For other tests, we assign different patient for different negative test
   #because we expect correct error reason not just response code.
 
-  @patients_p1
+  @patients_off_p1
   Scenario Outline: PT_AU01 role base authorization works properly for patient registration
     Given patient id is "<patient_id>"
     And load template registration message for this patient
@@ -27,7 +27,7 @@ Feature: Patient API authorization tests
       | PT_AU01_New0 | SPECIMEN_MESSAGE_SENDER       |         | 401  |
       | PT_AU01_New0 | ASSAY_MESSAGE_SENDER          |         | 401  |
 
-  @patients_p1
+  @patients_off_p1
   Scenario Outline: PT_AU02a role base authorization works properly for patient specimen receive
     Given patient id is "<patient_id>"
     And load template specimen type: "TISSUE" received message for this patient
@@ -50,7 +50,7 @@ Feature: Patient API authorization tests
       | PT_AU02_Registered3 | SPECIMEN_MESSAGE_SENDER       | success | 202  |
       | PT_AU02_Registered0 | ASSAY_MESSAGE_SENDER          |         | 401  |
 
-  @patients_p1
+  @patients_off_p1
   Scenario Outline: PT_AU02b role base authorization works properly for patient specimen ship
     Given patient id is "<patient_id>"
     And load template specimen type: "TISSUE" shipped message for this patient
@@ -74,7 +74,7 @@ Feature: Patient API authorization tests
       | PT_AU02_TsReceived3 | SPECIMEN_MESSAGE_SENDER       | success | 202  |
       | PT_AU02_TsReceived0 | ASSAY_MESSAGE_SENDER          |         | 401  |
 
-  @patients_p1
+  @patients_off_p1
   Scenario Outline: PT_AU03 role base authorization works properly for patient assay messages
     Given patient id is "<patient_id>"
     And load template assay message for this patient
@@ -98,7 +98,7 @@ Feature: Patient API authorization tests
       | PT_AU03_SlideShipped0 | SPECIMEN_MESSAGE_SENDER       |         | 401  |
       | PT_AU03_SlideShipped3 | ASSAY_MESSAGE_SENDER          | success | 202  |
 
-  @patients_p1
+  @patients_off_p1
   Scenario Outline: PT_AU04 role base authorization works properly for patient variant report upload
     ######MDA_VARIANT_REPORT_SENDER and MOCHA_VARIANT_REPORT_SENDER are for ui user to upload files,
     ######variant report file upload message is only sent by ion ecosystem, so that should be SYSTEM role
@@ -128,7 +128,7 @@ Feature: Patient API authorization tests
       | PT_AU04_MochaTsShipped0 | mocha      | SPECIMEN_MESSAGE_SENDER       |         | 401  |
       | PT_AU04_MdaTsShipped0   | mda        | ASSAY_MESSAGE_SENDER          |         | 401  |
 
-  @patients_p3
+  @patients_off_p3
   Scenario Outline: PT_AU05a role base authorization works properly for patient variant report confirm
     Given patient id is "<patient_id>"
     Then load template variant report confirm message for analysis id: "<patient_id>_ANI1"
@@ -152,7 +152,7 @@ Feature: Patient API authorization tests
       | PT_AU05_MochaTsVrUploaded0 | SPECIMEN_MESSAGE_SENDER       |         | 401  |
       | PT_AU05_MdaTsVrUploaded0   | ASSAY_MESSAGE_SENDER          |         | 401  |
 
-  @patients_p3
+  @patients_off_p3
   Scenario Outline: PT_AU05b role base authorization works properly for patient variant confirm
     Given patient id is "<patient_id>"
     And a random "fusion" variant for analysis id "<patient_id>_ANI1"
@@ -177,7 +177,7 @@ Feature: Patient API authorization tests
       | PT_AU05_MochaTsVrUploaded0 | SPECIMEN_MESSAGE_SENDER       | unchecked |            | 401  |
       | PT_AU05_MdaTsVrUploaded0   | ASSAY_MESSAGE_SENDER          | unchecked |            | 401  |
 
-  @patients_p1
+  @patients_off_p1
   Scenario Outline: PT_AU06 role base authorization works properly for patient assignment confirm
     Given patient id is "<patient_id>"
     And load template assignment report confirm message for analysis id: "<patient_id>_ANI1"
@@ -199,7 +199,7 @@ Feature: Patient API authorization tests
       | PT_AU06_PendingConfirmation0 | SPECIMEN_MESSAGE_SENDER       |         | 401  |
       | PT_AU06_PendingConfirmation0 | ASSAY_MESSAGE_SENDER          |         | 401  |
 
-  @patients_p1
+  @patients_off_p1
   Scenario Outline: PT_AU07a role base authorization works properly for patient off study
     Given patient id is "<patient_id>"
     And load template off study message for this patient
@@ -222,7 +222,7 @@ Feature: Patient API authorization tests
       | PT_AU07_Registered0 | SPECIMEN_MESSAGE_SENDER       |         | 401  |
       | PT_AU07_Registered0 | ASSAY_MESSAGE_SENDER          |         | 401  |
 
-  @patients_p1
+  @patients_off_p1
   Scenario Outline: PT_AU07b role base authorization works properly for patient off study biopsy expired
     Given patient id is "<patient_id>"
     And load template off study biopsy expired message for this patient
@@ -245,7 +245,7 @@ Feature: Patient API authorization tests
       | PT_AU07_TsReceived0 | SPECIMEN_MESSAGE_SENDER       |         | 401  |
       | PT_AU07_TsReceived0 | ASSAY_MESSAGE_SENDER          |         | 401  |
 
-  @patients_p1
+  @patients_off_p1
   Scenario Outline: PT_AU08a role base authorization works properly for patient request assignment
     Given patient id is "<patient_id>"
     And load template request assignment message for this patient
@@ -270,7 +270,7 @@ Feature: Patient API authorization tests
       | PT_AU08_PendingApproval0 | Y        | SPECIMEN_MESSAGE_SENDER       |         | 401  |
       | PT_AU08_PendingApproval0 | N        | ASSAY_MESSAGE_SENDER          |         | 401  |
 
-  @patients_p1
+  @patients_off_p1
   Scenario Outline: PT_AU08b role base authorization works properly for patient request no assignment
     Given patient id is "<patient_id>"
     And load template request no assignment message for this patient
@@ -293,7 +293,7 @@ Feature: Patient API authorization tests
       | PT_AU08_PendingApproval0 | SPECIMEN_MESSAGE_SENDER       |         | 401  |
       | PT_AU08_PendingApproval0 | ASSAY_MESSAGE_SENDER          |         | 401  |
 
-  @patients_p1
+  @patients_off_p1
   Scenario Outline: PT_AU09 role base authorization works properly for patient on treatment arm
     Given patient id is "<patient_id>"
     Then load template on treatment arm confirm message for this patient
@@ -319,7 +319,7 @@ Feature: Patient API authorization tests
       | PT_AU09_PendingApproval0 | SPECIMEN_MESSAGE_SENDER       |         | 401  |
       | PT_AU09_PendingApproval0 | ASSAY_MESSAGE_SENDER          |         | 401  |
 
-  @patients_p1
+  @patients_off_p1
   Scenario Outline: PT_AU10 role base authorization works properly for patient GET
     Given patient GET service: "<service>", patient id: "<patient_id>", id: "<id>"
     And user authorization role is "<auth_role>"
