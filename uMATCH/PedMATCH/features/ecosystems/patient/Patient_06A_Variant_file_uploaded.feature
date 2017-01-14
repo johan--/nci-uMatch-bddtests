@@ -2,7 +2,7 @@
 @variant_file_uploaded
 Feature: Variant files uploaded message
   Background: 
-#    Given user authorization role is "PATIENT_MESSAGE_SENDER"
+    Given user authorization role is "SYSTEM"
 
 #  not required
 #  @patients_p2
