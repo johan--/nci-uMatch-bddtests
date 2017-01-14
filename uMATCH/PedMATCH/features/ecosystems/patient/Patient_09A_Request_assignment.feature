@@ -190,29 +190,35 @@ Feature: Patients request assignment tests
     Then patient status should change to "PENDING_CONFIRMATION"
     And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 0 REJECTED 1 CONFIRMED assignment reports
     And patient pending assignment report selected treatment arm is "APEC1621-ETE-A" with stratum_id "100"
+    Then user authorization role is "ADMIN"
     When PUT to MATCH assignment report "confirm" service, response includes "successfully" with code "200"
     Then patient status should change to "PENDING_APPROVAL"
     Then load template request assignment message for this patient
     And set patient message field: "rebiopsy" to value: "N"
     And set patient message field: "step_number" to value: "1.0"
+    Then user authorization role is "PATIENT_MESSAGE_SENDER"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "PENDING_CONFIRMATION"
     And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 0 REJECTED 2 CONFIRMED assignment reports
     And patient pending assignment report selected treatment arm is "APEC1621-ETE-C" with stratum_id "100"
+    Then user authorization role is "ADMIN"
     When PUT to MATCH assignment report "confirm" service, response includes "successfully" with code "200"
     Then patient status should change to "PENDING_APPROVAL"
     Then load template request assignment message for this patient
     And set patient message field: "rebiopsy" to value: "N"
     And set patient message field: "step_number" to value: "1.0"
+    Then user authorization role is "PATIENT_MESSAGE_SENDER"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "PENDING_CONFIRMATION"
     And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 0 REJECTED 3 CONFIRMED assignment reports
     And patient pending assignment report field "report_status" should be "NO_TREATMENT_FOUND"
+    Then user authorization role is "ADMIN"
     When PUT to MATCH assignment report "confirm" service, response includes "successfully" with code "200"
     Then patient status should change to "NO_TA_AVAILABLE"
     Then load template request assignment message for this patient
     And set patient message field: "rebiopsy" to value: "N"
     And set patient message field: "step_number" to value: "1.0"
+    Then user authorization role is "PATIENT_MESSAGE_SENDER"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "PENDING_CONFIRMATION"
     And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 0 REJECTED 4 CONFIRMED assignment reports
