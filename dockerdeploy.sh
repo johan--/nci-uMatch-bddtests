@@ -1,7 +1,6 @@
 #!/bin/bash
 echo TRIGGER_REPO $TRIGGER_REPO
 echo TRIGGER_VER $TRIGGER_VER
-echo CUC_TAG $CUC_TAG
 docker pull matchbox/$TRIGGER_REPO:TRIGGER_VER
   
 if [ "$TRIGGER_REPO" == "nci-match-ir-ecosystem-api" ]; then
