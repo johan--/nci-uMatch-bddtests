@@ -16,7 +16,7 @@ Feature: MATCHKB-352 Ped-Match users are given authorization based on their role
     And The checkboxes are disabled
     Then I then logout
 
- Scenario Outline: As a non-privileged user I can not edit variant report comments but can only view
+ Scenario Outline: As a non-privileged user I can not edit variant comments but can only view
     Given I'm logged in as a "<user>" user
     When I go to the patient "PT_GVF_TsVrUploaded" with variant report "PT_GVF_TsVrUploaded_ANI1"
     Then I can see the variant report page
@@ -31,7 +31,7 @@ Feature: MATCHKB-352 Ped-Match users are given authorization based on their role
       | VR_Reviewer_mocha |
       | AR_Reviewer       |
       
- Scenario: As a variant_report reviewer from MDA lab I can edit variant report comments
+ Scenario: As a variant_report reviewer from MDA lab I can edit variant comments
     Given I'm logged in as a "VR_Reviewer_mda" user
     When I go to the patient "PT_GVF_TsVrUploaded" with variant report "PT_GVF_TsVrUploaded_ANI1"
     Then I can see the variant report page

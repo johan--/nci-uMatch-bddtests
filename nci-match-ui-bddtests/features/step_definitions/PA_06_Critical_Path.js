@@ -140,7 +140,6 @@ module.exports = function () {
 
     this.Then(/^I "(should|should not)" see the confirmation modal pop up$/, function (seen, callback) {
         var status = seen === 'should';
-
         expect(patientPage.modalWindow.isPresent()).to.eventually.eql(status).notify(callback);
     });
 
