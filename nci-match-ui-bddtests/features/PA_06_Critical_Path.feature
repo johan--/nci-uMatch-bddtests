@@ -44,6 +44,7 @@ Feature: This is the critical path test cases
     Then The variant at ordinal "1" is "checked"
     Then I then logout
 
+@broken
   Scenario: If a variant is rejected the comments are stored and visible on the front end
     When I go to the patient "PT_CR04_VRUploadedAssayReceived" with variant report "PT_CR04_VRUploadedAssayReceived_ANI1"
     Then I can see the variant report page
