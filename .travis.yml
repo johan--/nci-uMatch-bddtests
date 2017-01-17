@@ -43,14 +43,14 @@ before_script:
   # - "export DISPLAY=:99.0"
   # - "sh -e /etc/init.d/xvfb start"
   # - sleep 3 # give xvfb some time to start
-  # Purge queues
-  - aws sqs purge-queue --queue-url https://sqs.us-east-1.amazonaws.com/127516845550/ion_reporter_queue
-  - aws sqs purge-queue --queue-url https://sqs.us-east-1.amazonaws.com/127516845550/ion_reporter_queue_dlx
-  - aws sqs purge-queue --queue-url https://sqs.us-east-1.amazonaws.com/127516845550/patient_queue
-  - aws sqs purge-queue --queue-url https://sqs.us-east-1.amazonaws.com/127516845550/patient_queue_deadletter
-  - aws sqs purge-queue --queue-url https://sqs.us-east-1.amazonaws.com/127516845550/treatment_arm_queue
-  # Run Delete Script to empty DynamoDB before tests start
   - cd DataSetup
+  # Purge queues
+  - ruby -r "./sqs_utilities.rb" -e "SQSUtilities.purge_queue 'ion_reporter_queue'"
+  - ruby -r "./sqs_utilities.rb" -e "SQSUtilities.purge_queue 'ion_reporter_queue_dlx'"
+  - ruby -r "./sqs_utilities.rb" -e "SQSUtilities.purge_queue 'patient_queue'"
+  - ruby -r "./sqs_utilities.rb" -e "SQSUtilities.purge_queue 'patient_queue_deadletter'"
+  - ruby -r "./sqs_utilities.rb" -e "SQSUtilities.purge_queue 'treatment_arm_queue'"
+  # Run Delete Script to empty DynamoDB before tests start
   - ruby -r "./match_test_data_manager.rb" -e "MatchTestDataManager.clear_all_int_tables"
   - ruby -r "./match_test_data_manager.rb" -e "MatchTestDataManager.upload_all_seed_data_to_int"
   - cd ..
