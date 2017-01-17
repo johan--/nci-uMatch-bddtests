@@ -217,7 +217,7 @@ Feature: Tests for aliquot service in ion ecosystem
 #  @ion_reporter_p2
 #  Scenario: ION_AQ25. for patient specimen, if the file uploading fails, aliquot service will not send message to patient ecosystem
 
-  @ion_reporter_p2
+  @ion_reporter_p3
   Scenario: ION_AQ26. if the molecular id is neither a sample control nor patient molecular id, aliquot PUT service should fail
     Given molecular id is "NON_EXISTING_MOI"
     Then add field: "analysis_id" value: "NON_EXISTING_MOI_ANI1" to message body
@@ -273,7 +273,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then call aliquot GET service, returns a message that includes "invalid projection key" with status "Failure"
 #    Then all aliquot GET service, returns a message that includes "" with status "Success"
 
-  @ion_reporter_p2
+  @ion_reporter_p3
   Scenario: ION_AQ45. aliquot service should return 404 error if query a non-existing molecular_id
     Given molecular id is "NON_EXISTING_MOI"
     Then call aliquot GET service, returns a message that includes "not found" with status "Failure"

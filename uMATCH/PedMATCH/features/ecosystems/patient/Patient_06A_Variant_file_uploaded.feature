@@ -2,7 +2,7 @@
 @variant_file_uploaded
 Feature: Variant files uploaded message
   Background: 
-#    Given user authorization role is "PATIENT_MESSAGE_SENDER"
+    Given user authorization role is "SYSTEM"
 
 #  not required
 #  @patients_p2
@@ -125,7 +125,7 @@ Feature: Variant files uploaded message
     Then set patient message field: "analysis_id" to value: "PT_VU09_VariantReportUploaded_ANI2"
     Then files for molecular_id "PT_VU09_VariantReportUploaded_MOI1" and analysis_id "PT_VU09_VariantReportUploaded_ANI2" are in S3
     When POST to MATCH patients service, response includes "successfully" with code "202"
-    Then wait until patient variant report is updated
+    Then wait until patient is updated
     Then patient should have variant report (analysis_id: "PT_VU09_VariantReportUploaded_ANI2")
     And this variant report field: "status" should be "PENDING"
     Then patient should have variant report (analysis_id: "PT_VU09_VariantReportUploaded_ANI1")

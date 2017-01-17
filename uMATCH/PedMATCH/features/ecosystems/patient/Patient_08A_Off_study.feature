@@ -73,7 +73,7 @@ Feature: Patients off study tests
 #    patient: "PT_OS02_OffStudy1" assay ready, tissue vr waiting for confirm before OFF_STUDY
 #    patient: "PT_OS02_OffStudy2" assay ready, tissue vr waiting for confirm before OFF_STUDY_BIOPSY_EXPIRED
     Given patient id is "<patient_id>"
-    And user authorization role is "ADMIN"
+    And user authorization role is "MDA_VARIANT_REPORT_REVIEWER"
     And load template variant report confirm message for analysis id: "<ani>"
     When PUT to MATCH variant report "confirm" service, response includes "OFF_STUDY" with code "403"
     Examples:
@@ -86,8 +86,8 @@ Feature: Patients off study tests
 #    patient: "PT_OS03_OffStudy1" assay ready, Assignment report waiting for confirmation before OFF_STUDY
 #    patient: "PT_OS03_OffStudy2" assay ready, Assignment report waiting for confirm before OFF_STUDY_BIOPSY_EXPIRED
     Given patient id is "<patient_id>"
-    And user authorization role is "ADMIN"
-    And load template variant report confirm message for analysis id: "<ani>"
+    And user authorization role is "ASSIGNMENT_REPORT_REVIEWER"
+    And load template assignment report confirm message for analysis id: "<ani>"
     When PUT to MATCH assignment report "confirm" service, response includes "OFF_STUDY" with code "403"
     Examples:
       | patient_id        | ani                    |

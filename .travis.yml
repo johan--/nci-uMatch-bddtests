@@ -72,9 +72,9 @@ script:
   - cd nci-match-ui-bddtests/
 #  - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$PRIORITY --troubleshoot
   # Run protractor only if the tag is UI or demo
-  # - if [ "$CUC_TAG" = "@ui" -o "$CUC_TAG" = "@demo" ]; then protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$P1,$CUC_TAG$P2 --troubleshoot; fi
+  - if [ "$CUC_TAG" = "@ui" -o "$CUC_TAG" = "@demo" ]; then protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$P1,$CUC_TAG$P2 --troubleshoot; fi
   # Temporarily run only p1 and p2 tags
-  - protractor config.js --cucumberOpts.tags="~@broken" --cucumberOpts.tags="@ui_p1,@ui_p2" --troubleshoot
+#  - protractor config.js --cucumberOpts.tags="~@broken" --cucumberOpts.tags="@ui_p1,@ui_p2" --troubleshoot
   # Generate html report
   - for filename in ../results/*.json; do filesize=$(wc -c <"$filename"); if [ $filesize -le 0 ]; then echo $filename is 0 bytes, deleted it; rm $filename; fi; done
   - node support/generate_report.js
@@ -95,9 +95,11 @@ after_success:
   - ls -alt
 
   # tag docker image with date and deploy to UAT
-#  - ./dockerdeploy.sh
+  - echo TRIGGER_REPO $TRIGGER_REPO
+  - echo TRIGGER_VER $TRIGGER_VER
+  - ./dockerdeploy.sh
   # Trigger Travis script #3, UAT Tests
-#  - curl -s -X POST -H "Content-Type:application/json" -H "Accept:application/json" -H "Travis-API-Version:3" -H "Authorization:token $UAT_TRAVIS_TOKEN" -d "{\"request\":{\"message\":\"Triggered by $TRIGGER_REPO $TRAVIS_COMMIT\", \"branch\":\"master\", \"config\":{\"env\":{\"matrix\":[\"TRIGGER_REPO=$TRIGGER_REPO;CUC_TAG=$CUC_TAG\"]}}}}" https://api.travis-ci.org/repo/CBIIT%2Fnci-uMatch-uattests/requests
+  - curl -s -X POST -H "Content-Type:application/json" -H "Accept:application/json" -H "Travis-API-Version:3" -H "Authorization:token $UAT_TRAVIS_TOKEN" -d "{\"request\":{\"message\":\"Triggered by $TRIGGER_REPO $TRAVIS_COMMIT\", \"branch\":\"master\", \"config\":{\"env\":{\"matrix\":[\"TRIGGER_REPO=$TRIGGER_REPO;CUC_TAG=$CUC_TAG\"]}}}}" https://api.travis-ci.org/repo/CBIIT%2Fnci-uMatch-uattests/requests
 after_failure:
     #Notify $AUTHOR ------ NOT DONE YET
 #    - cd TestManagement

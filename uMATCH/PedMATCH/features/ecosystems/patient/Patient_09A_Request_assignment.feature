@@ -91,11 +91,11 @@ Feature: Patients request assignment tests
     #there is no “PATHOLOGY_REVIEWED” status anymore
 #      | PT_RA03_PathoConfirmed      | PATHOLOGY_REVIEWED              | 2.0                 | 2.0              |         | Failure     | PATHOLOGY_REVIEWED              |
 
-  @patients_p2
+  @patients_p3
   Scenario: PT_RA04. any message other than request assignment(Rebiopsy=Y) and off study should be rejected if patient is on "REQUEST_NO_ASSIGNMENT" status
 #    patient: "PT_RA04_ReqNoAssignment" with status: "REQUEST_NO_ASSIGNMENT" on step: "2.0"
     Given patient id is "PT_RA04_ReqNoAssignment"
-    Then user authorization role is "ADMIN"
+    Then user authorization role is "MDA_VARIANT_REPORT_REVIEWER"
     And load template variant report confirm message for analysis id: "PT_RA04_ReqNoAssignment_ANI2"
     When PUT to MATCH variant report "confirm" service, response includes "assignment" with code "403"
     Then user authorization role is "SPECIMEN_MESSAGE_SENDER"
@@ -106,7 +106,7 @@ Feature: Patients request assignment tests
     Then set patient message field: "surgical_event_id" to value: "PT_RA04_ReqNoAssignment_SEI2"
     Then set patient message field: "molecular_id" to value: "PT_RA04_ReqNoAssignment_MOI3"
     When POST to MATCH patients service, response includes "assignment" with code "403"
-    Then user authorization role is "ADMIN"
+    Then user authorization role is "SYSTEM"
     Then load template variant file uploaded message for this patient
     Then set patient message field: "molecular_id" to value: "PT_RA04_ReqNoAssignment_MOI2"
     Then set patient message field: "analysis_id" to value: "PT_RA04_ReqNoAssignment_ANI4"
@@ -172,13 +172,13 @@ Feature: Patients request assignment tests
   @patients_p1
   Scenario: PT_RA07. request assignment with rebiopsy = N should generate assignment report properly
     Given patient id is "PT_RA07_VrAndAssayReady"
-    Then user authorization role is "ADMIN"
+    Then user authorization role is "MDA_VARIANT_REPORT_REVIEWER"
     Then load template variant report confirm message for analysis id: "PT_RA07_VrAndAssayReady_ANI1"
     When PUT to MATCH variant report "confirm" service, response includes "successfully" with code "200"
     Then patient status should change to "PENDING_CONFIRMATION"
     And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 0 REJECTED 0 CONFIRMED assignment reports
     And patient pending assignment report selected treatment arm is "APEC1621-A" with stratum_id "100"
-    Then user authorization role is "ADMIN"
+    Then user authorization role is "ASSIGNMENT_REPORT_REVIEWER"
     Then load template assignment report confirm message for analysis id: "PT_RA07_VrAndAssayReady_ANI1"
     When PUT to MATCH assignment report "confirm" service, response includes "successfully" with code "200"
     Then patient status should change to "PENDING_APPROVAL"
@@ -188,34 +188,40 @@ Feature: Patients request assignment tests
     And set patient message field: "step_number" to value: "1.0"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "PENDING_CONFIRMATION"
-    And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 1 REJECTED 0 CONFIRMED assignment reports
+    And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 0 REJECTED 1 CONFIRMED assignment reports
     And patient pending assignment report selected treatment arm is "APEC1621-ETE-A" with stratum_id "100"
+    Then user authorization role is "ASSIGNMENT_REPORT_REVIEWER"
     When PUT to MATCH assignment report "confirm" service, response includes "successfully" with code "200"
     Then patient status should change to "PENDING_APPROVAL"
     Then load template request assignment message for this patient
     And set patient message field: "rebiopsy" to value: "N"
     And set patient message field: "step_number" to value: "1.0"
+    Then user authorization role is "PATIENT_MESSAGE_SENDER"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "PENDING_CONFIRMATION"
-    And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 2 REJECTED 0 CONFIRMED assignment reports
+    And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 0 REJECTED 2 CONFIRMED assignment reports
     And patient pending assignment report selected treatment arm is "APEC1621-ETE-C" with stratum_id "100"
+    Then user authorization role is "ASSIGNMENT_REPORT_REVIEWER"
     When PUT to MATCH assignment report "confirm" service, response includes "successfully" with code "200"
     Then patient status should change to "PENDING_APPROVAL"
     Then load template request assignment message for this patient
     And set patient message field: "rebiopsy" to value: "N"
     And set patient message field: "step_number" to value: "1.0"
+    Then user authorization role is "PATIENT_MESSAGE_SENDER"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "PENDING_CONFIRMATION"
-    And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 3 REJECTED 0 CONFIRMED assignment reports
+    And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 0 REJECTED 3 CONFIRMED assignment reports
     And patient pending assignment report field "report_status" should be "NO_TREATMENT_FOUND"
+    Then user authorization role is "ASSIGNMENT_REPORT_REVIEWER"
     When PUT to MATCH assignment report "confirm" service, response includes "successfully" with code "200"
     Then patient status should change to "NO_TA_AVAILABLE"
     Then load template request assignment message for this patient
     And set patient message field: "rebiopsy" to value: "N"
     And set patient message field: "step_number" to value: "1.0"
+    Then user authorization role is "PATIENT_MESSAGE_SENDER"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "PENDING_CONFIRMATION"
-    And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 4 REJECTED 0 CONFIRMED assignment reports
+    And analysis_id "PT_RA07_VrAndAssayReady_ANI1" should have 1 PENDING 0 REJECTED 4 CONFIRMED assignment reports
     And patient pending assignment report field "report_status" should be "NO_TREATMENT_FOUND"
 
   @patients_p2
