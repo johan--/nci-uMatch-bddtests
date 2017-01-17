@@ -1,7 +1,9 @@
 #!/bin/bash
 echo TRIGGER_REPO $TRIGGER_REPO
 echo TRIGGER_VER $TRIGGER_VER
-docker pull matchbox/$TRIGGER_REPO:TRIGGER_VER
+
+echo Pulling matchbox/$TRIGGER_REPO:$TRIGGER_VER
+docker pull matchbox/$TRIGGER_REPO:$TRIGGER_VER || echo "Container not found, aborting";exit 1
   
 if [ "$TRIGGER_REPO" == "nci-match-ir-ecosystem-api" ]; then
   echo "Deploying to AWS UAT"
