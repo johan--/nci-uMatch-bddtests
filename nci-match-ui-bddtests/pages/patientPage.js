@@ -243,12 +243,11 @@ var PatientPage = function () {
 
     this.combineVariantData = function(response){
         var filteredList = [];
-        var variantList = [ 'snv_indels', 'copy_number_variants', 'gene_fusions' ]
-        for(variantType of variantList){
-//            console.log(response[variantType])
-            if(response[variantType].length > 0){
-                for (index in response[variantType]){
-                    filteredList.push(response[variantType][index])
+        var variantList = ['snv_indels', 'copy_number_variants', 'gene_fusions']
+        for (var variantType of variantList) {
+            if ((variantType in response) && response[variantType].length > 0) {
+                for (var index in response[variantType]) {
+                    filteredList.push(response[variantType][index]);
                 }
             }
         }
