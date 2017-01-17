@@ -171,7 +171,7 @@ class DynamoUtilities
     resp = @aws_db.describe_table({table_name: table_name})
     resp.table.key_schema.each { |this_key| actual_keys << this_key.attribute_name }
     unless keys == actual_keys
-      Log.log("The keys in the the table #{table_name} have changed.", :warn)
+      LOG.log("The keys in the the table #{table_name} have changed.", :warn)
       exit
     end
   end
