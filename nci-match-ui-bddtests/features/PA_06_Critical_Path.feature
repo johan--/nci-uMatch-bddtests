@@ -2,6 +2,7 @@
 # Created by: Raseel Mohamed
 #  Date: 08/31/2016
 ##
+@test
 @ui_p1 
 Feature: This is the critical path test cases
 
@@ -102,12 +103,11 @@ Feature: This is the critical path test cases
     And I "should not" see the "CONFIRM" button on the VR page
     Then I then logout
 
-@test
   Scenario: Confirmation of variant report will update the status on the patient as well as on the dashboard timeline
     When I go to patient "PT_CR03_VRUploadedPathConfirmed" details page
-    Then I see the confirmation message in the Patient activity feed as "PENDING" for "Analysis ID: PT_CR03_VRUploadedPathConfirmed_ANI1"
+    Then I see the confirmation message in the Patient activity feed as "CONFIRMED" for "Analysis ID: PT_CR03_VRUploadedPathConfirmed_ANI1"
     When I navigate to the dashboard page
-    Then I see the confirmation message in the Dashboard activity feed as "PENDING" for "Analysis ID: PT_CR03_VRUploadedPathConfirmed_ANI1"
+    Then I see the confirmation message in the Dashboard activity feed as "CONFIRMED" for "Analysis ID: PT_CR03_VRUploadedPathConfirmed_ANI1"
     Then I then logout
 
   Scenario: Rejecting a report will update the status of the report
@@ -130,12 +130,11 @@ Feature: This is the critical path test cases
     And I "should not" see the "CONFIRM" button on the VR page
     Then I then logout
 
-@test
   Scenario: Rejecting a report will update the patient and dashboard timeline
     When I go to patient "PT_CR07_RejectVariantReport" details page
-    Then I see the confirmation message in the Patient activity feed as "PENDING" for "Analysis ID: PT_CR07_RejectVariantReport_ANI1"
+    Then I see the confirmation message in the Patient activity feed as "REJECTED" for "Analysis ID: PT_CR07_RejectVariantReport_ANI1"
     When I navigate to the dashboard page
-    Then I see the confirmation message in the Dashboard activity feed as "PENDING" for "Analysis ID: PT_CR07_RejectVariantReport_ANI1"
+    Then I see the confirmation message in the Dashboard activity feed as "REJECTED" for "Analysis ID: PT_CR07_RejectVariantReport_ANI1"
     Then I then logout
 
   Scenario: Confirming a variant report updates the status to Pending Confirmation if Pathology is present
