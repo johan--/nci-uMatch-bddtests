@@ -61,15 +61,29 @@ Feature: MATCHKB-352 Ped-Match users are given authorization based on their role
       | VR_Reviewer_mocha |
       | VR_Reviewer_mda   |
 
-#  Scenario Outline: As a variant_report reviewer from MoCha lab, I can confirm the variant report of a patient from MoCha lab
-#
-#    Examples:
-#
-#  Scenario Outline: As a variant_report reviewer from MoCha lab, I can reject the variant report of a patient from MoCha lab
-#
-#    Examples:
-#
-#
+@test
+ Scenario: As a variant_report reviewer from MoCha lab, I can confirm and reject the variant report of a patient from MoCha lab
+    Given I'm logged in as a "VR_Reviewer_mocha" user
+    When I go to the patient "PT_OS01_PendingConfirmation" with variant report "PT_OS01_PendingConfirmation_ANI1"
+    Then I can see the variant report page
+    And The "REJECT" button is "visible"
+    And The "REJECT" button is "enabled"
+    And The "CONFIRM" button is "visible"
+    And The "CONFIRM" button is "enabled"
+    Then I then logout
+
+
+@test
+ Scenario: As a variant_report reviewer from MoCha lab, I can confirm and reject the variant report of a patient from MoCha lab
+    Given I'm logged in as a "VR_Reviewer_mocha" user
+    When I go to the patient "PT_OS01_PendingConfirmation" with variant report "PT_OS01_PendingConfirmation_ANI1"
+    Then I can see the variant report page
+    And The "REJECT" button is "visible"
+    And The "REJECT" button is "enabled"
+    And The "CONFIRM" button is "visible"
+    And The "CONFIRM" button is "enabled"
+    Then I then logout
+
 #  Scenario: As an assignment_report reviewer, I can approve an assignment report
 
   Scenario: As an assignment_report reviewer, I do not have access to approve or reject a variant report
