@@ -402,7 +402,7 @@ module.exports = function () {
         expect(patientPage.totalconfirmedAMOIs.getText()).to.eventually.eql(arg1.toString()).notify(callback);
     });
 
-    this.Then(/^I see the confirmation message in the Patient activity feed as "(.+?)"$/, function (message, callback) {
+    this.Then(/^I see the confirmation message in the Patient activity feed as "(.+?)" for "(.+?)"$/, function (message, label, callback) {
         var timeline = patientPage.timelineList.get(0);
         var variantReportStatusString = '[ng-if^="timelineEvent.event_data.variant_report_status"]';
         var variantAnalysisIdString = 'span[ng-if^="timelineEvent.event_data.analysis_id"]';
@@ -411,11 +411,11 @@ module.exports = function () {
         browser.ignoreSynchronization = true;
         expect(timeline.all(by.css(variantReportStatusString)).get(0).getText()).to.eventually.include(message);
         expect(timeline.all(by.css(variantAnalysisIdString)).get(0)
-                .getText()).to.eventually.eql('Analysis ID: ' + patientPage.variantAnalysisId)
+                .getText()).to.eventually.eql(label)
             .notify(callback);
     });
 
-    this.Then(/^I see the confirmation message in the Dashboard activity feed as "(.+?)"$/, function (message, callback) {
+    this.Then(/^I see the confirmation message in the Dashboard activity feed as "(.+?)" for "(.+?)"$/, function (message, callback) {
         var timeline = patientPage.timelineList.get(0);
         var patientString = '[patient-id="timelineEvent.entity_id"]';
         var variantReportStatusString = '[ng-if^="timelineEvent.event_data.variant_report_status"]';
@@ -424,7 +424,7 @@ module.exports = function () {
         expect(timeline.all(by.css(patientString)).get(0).getText()).to.eventually.eql(patientPage.patientId);
         expect(timeline.all(by.css(variantReportStatusString)).get(0).getText()).to.eventually.include(message);
         expect(timeline.all(by.css(variantAnalysisIdString)).get(0)
-                .getText()).to.eventually.eql('Analysis ID: ' + patientPage.variantAnalysisId)
+                .getText()).to.eventually.eql(label)
             .notify(callback);
     });
 
