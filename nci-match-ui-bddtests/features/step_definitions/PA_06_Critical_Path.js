@@ -131,7 +131,9 @@ module.exports = function () {
         //checking the property of all the checkboxes to make sure they are selected
         patientPage.variantConfirmButtonList.count().then(function (cnt) {
             for (var i = 0; i < cnt; i++) {
-                expect(patientPage.variantConfirmButtonList.get(i).isEnabled()).to.eventually.eql(true);
+                (function (index) {
+                    expect(patientPage.variantConfirmButtonList.get(index).isSelected()).to.eventually.eql(true);
+                })(i);
             }
         }).then(callback);
     });

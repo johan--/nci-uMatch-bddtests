@@ -18,7 +18,6 @@ Feature: Login
 
   @ui_p1 @demo_p1
   Scenario: Login with proper credentials grants access protected pages.
-    Given I am on the login page
-    When  I login with valid email and password
-    And I navigate to the patients page
+    Given I am a logged in user
+    When I navigate to the patients page
     Then I should be able to the see "Patients" page

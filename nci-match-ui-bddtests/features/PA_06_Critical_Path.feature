@@ -18,7 +18,7 @@ Feature: This is the critical path test cases
     Then I can see the variant report page
     Then I then logout
 
-  Scenario: User can see that all the variants are be default confirmed
+  Scenario: User can see that all the variants are confirmed by default
     When I go to the patient "PT_CR04_VRUploadedAssayReceived" with variant report "PT_CR04_VRUploadedAssayReceived_ANI1"
     Then I can see the variant report page
     Then I see that all the variant check boxes are selected

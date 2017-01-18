@@ -33,9 +33,13 @@ module.exports = function () {
         var password = process.env.NCI_MATCH_PASSWORD;
 
         loginPageObj.login(email, password);
-//        utilities.waitForElement(loginPageObj.navBarHeading, 'sticky top menu');
-
-        browser.sleep(utilities.delay.afterLogin).then(callback);
+        utilities.waitForElement(dashboardPageObj.dashboardPanel, 'sticky top menu').then(function (presence){
+            // Wait for the objects to finish loading IF we find that we are on the right page with the stick navbar
+            // If we cant find it then there is no point and the script will quickly step to the next checkpoint and fail
+            if(presence === true){
+                browser.sleep(utilities.delay.afterLogin)
+            }
+        }).then(callback);
     });
 
     this.Given(/^I'm logged in as a "(.+?)" user$/, function(user_role,callback) {
@@ -49,10 +53,11 @@ module.exports = function () {
         var password = login_credentials[1];
 
         loginPageObj.login(email, password);
-//        utilities.waitForElement(loginPageObj.navBarHeading, 'sticky top menu');
-
-        browser.sleep(utilities.delay.afterLogin).then(callback);
-
+        utilities.waitForElement(dashboardPageObj.dashboardPanel, 'sticky top menu').then(function (presence){
+            if(presence === true){
+                browser.sleep(utilities.delay.afterLogin)
+            }
+        }).then(callback);
     });
 
     this.Then(/^I should see the login button$/, function (callback) {
@@ -109,7 +114,7 @@ module.exports = function () {
     });
 
     this.Then(/^I should be able to the see "(.+?)" page$/, function (pageName, callback){
-        expect(element(by.css('h2')).getText()).to.eventually.eql(pageName).notify(callback);
+        expect(element(by.css('div>h2')).getText()).to.eventually.eql(pageName).notify(callback);
     });
 
     this.Then(/^I then logout$/, function (callback) {

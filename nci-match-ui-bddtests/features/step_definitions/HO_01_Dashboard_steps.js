@@ -26,10 +26,9 @@ module.exports = function() {
     var reportData;
 
     this.Then(/^I can see the Dashboard banner$/, function (callback) {
-        browser.ignoreSynchronization = true;
-        browser.sleep(1000);
-        expect(dash.dashboardPanel.isPresent()).to.eventually.eql(true).notify(callback);
-
+        utilities.waitForElement(dash.dashboardPanel, 'Sticky nav bar').then(function(presence){
+            expect(dash.dashboardPanel.isPresent()).to.eventually.eql(true);
+        }).then(callback);
     });
 
     this.Then(/^I can see all sub headings under the top Banner$/, function (callback) {
