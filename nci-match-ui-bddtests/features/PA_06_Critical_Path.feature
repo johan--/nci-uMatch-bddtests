@@ -2,7 +2,6 @@
 # Created by: Raseel Mohamed
 #  Date: 08/31/2016
 ##
-@test
 @ui_p1 
 Feature: This is the critical path test cases
 
@@ -45,7 +44,6 @@ Feature: This is the critical path test cases
     Then The variant at ordinal "1" is "checked"
     Then I then logout
 
-@broken
   Scenario: If a variant is rejected the comments are stored and visible on the front end
     When I go to the patient "PT_CR04_VRUploadedAssayReceived" with variant report "PT_CR04_VRUploadedAssayReceived_ANI1"
     Then I can see the variant report page
@@ -69,7 +67,6 @@ Feature: This is the critical path test cases
 #      And I see that the Total Confirmed aMOIs match the number of aMOIs on the page
     Then I then logout
 
-@broken
   Scenario: Rejecting a variant will be noted in the backend and will change the number of confirmed mois
     When I go to the patient "PT_CR06_RejectOneVariant" with variant report "PT_CR06_RejectOneVariant_ANI1"
     And I collect information about the patient variant report
