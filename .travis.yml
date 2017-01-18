@@ -16,14 +16,14 @@ before_install:
   # Install chrome & chromium
   - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
   - sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-  - sudo apt-get update && sudo apt-get install -y google-chrome-stable
+  - sudo apt-get update && sudo apt-get install -y google-chrome-stable awscli chromium-bsu
   # Install xvfb
   - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16"
 before_script:
   # Install aws cli
-  - sudo apt-get update && sudo apt-get install -y awscli
+  # - sudo apt-get update && sudo apt-get install -y awscli
   # Install chrome & chromium
-  - sudo apt-get update && sudo apt-get install -y chromium-bsu
+  # - sudo apt-get update && sudo apt-get install -y chromium-bsu
   # Install UI test requirements
   - npm install -g protractor@4.0.14 grunt-cli
   - webdriver-manager update #--versions.chrome 2.24
