@@ -33,7 +33,7 @@ Feature: Dashboard page.
   Scenario: A user can see the Pending Review Section
     When I navigate to the dashboard page
     Then I can see the Dashboard banner
-    An I can see the Pending Review Section Heading
+    And I can see the Pending Review Section Heading
     And I can see the pending "Tissue Variant Reports" subtab
     And I can see the pending "Assignment Reports" subtab
 

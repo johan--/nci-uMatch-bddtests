@@ -297,9 +297,19 @@ module.exports = function () {
         });
     });
 
-    this.Then(/^I can see the assignment report page$/, function (callback) {
-        var uri = 'patient/' + patientPage.patientId + '/variant_report?analysis_id=' + patientPage.variantAnalysisId + '&section=assignment';
-        expect(browser.getCurrentUrl()).to.eventually.eql(browser.baseUrl + '/#/' + uri).notify(callback);
+    this.Then(/^I can see the assignment report page "([^"]*)"$/, function (assignmentTabTitle, callback) {
+        browser.ignoreSynchronization = false;
+
+        // var selectedTabCss = 'uib-tab nav-item ng-scope ng-isolate-scope active';
+        var tabHeadingCss = 'li[heading="' + assignmentTabTitle + '"] > a';
+        var tab = element(by.css(tabHeadingCss));
+        var tabBody = element(by.id('assignment-report'));
+
+        expect(tab.isDisplayed()).to.eventually.eql(true);
+        expect(tabBody.isDisplayed()).to.eventually.eql(true).notify(callback);
+
+        // var uri = 'patient/' + patientPage.patientId + '/variant_report?analysis_id=' + patientPage.variantAnalysisId + '&section=assignment';
+        // expect(browser.getCurrentUrl()).to.eventually.eql(browser.baseUrl + '/#/' + uri).notify(callback);
     });
 
     this.Then(/^I see that Total MOIs match the number of MOIs on the page$/, function (callback) {
@@ -529,4 +539,20 @@ module.exports = function () {
             }).then(callback);
         }
     });
+
+    this.When(/^I click the assignment report tab "(.+?)"$/, function (assignmentTabTitle, callback) {
+        browser.ignoreSynchronization = true;
+        browser.sleep(5000);
+        var cssSelec = 'li[heading="' + assignmentTabTitle + '"] > a';
+        var tab = element(by.css(cssSelec));
+        tab.isPresent().then(function (isVisible) {
+            if (isVisible) {
+                tab.click().then(function () {
+                    browser.sleep(10);
+                }, function (err) {
+                    console.log('Unable to click on the assignment report tab');
+                });
+            }
+        }).then(callback);
+    });    
 };

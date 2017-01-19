@@ -153,7 +153,7 @@ Feature: This is the critical path test cases
     And I click on the Surgical Event Tab at index "0"
     Then I should see the assignment report link for "PT_CR01_PathAssayDoneVRUploadedToConfirm_ANI1"
     When I click on the assignment report link
-    Then I can see the assignment report page
+    Then I can see the assignment report page "Assignment Report - PENDING"
     Then I then logout
 
   Scenario: Assignment report should provide information regarding the assignment

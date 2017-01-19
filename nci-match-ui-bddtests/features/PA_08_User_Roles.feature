@@ -81,7 +81,14 @@ Feature: MATCHKB-352 Ped-Match users are given authorization based on their role
     And The "CONFIRM" button is "enabled"
     Then I then logout
 
-#  Scenario: As an assignment_report reviewer, I can approve an assignment report
+  Scenario: As an assignment_report reviewer, I can approve an assignment report
+    Given I'm logged in as a "AR_Reviewer" user
+    When I go to the patient "PT_AU06_PendingConfirmation0" with variant report "PT_AU06_PendingConfirmation0_ANI1"
+    Then I click the assignment report tab "Assignment Report - PENDING"
+    And I can see the assignment report page "Assignment Report - PENDING"
+    And The "CONFIRM" button is "visible"
+    And The "CONFIRM" button is "enabled"
+    Then I then logout
 
   Scenario: As an assignment_report reviewer, I do not have access to approve or reject a variant report
     Given I'm logged in as a "AR_Reviewer" user
