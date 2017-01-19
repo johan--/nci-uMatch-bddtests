@@ -20,7 +20,7 @@ before_install:
   # Install xvfb
   - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16"
 before_script:
-  - npm install -g protractor@4.0.14 grunt-cli
+  - npm install -g protractor@3.3.0 grunt-cli
   - webdriver-manager update #--versions.chrome 2.24
   # Update Ruby cucumber dependencies
   - gem install bundler
