@@ -16,9 +16,9 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "dna_bam_name" value: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/dna.bam" to message body
     Then add field: "cdna_bam_name" value: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/cdna.bam" to message body
     Then add field: "qc_name" value: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/QA.pdf" to message body
-    Then call aliquot PUT service, returns a message that includes "Item updated" with status "Success"
+    When PUT to aliquot service, response includes "Item updated" with code "200"
     Then wait for "90" seconds
-    Then call aliquot GET service, returns a message that includes "" with status "Success"
+    When GET from aliquot service, response "" with code "200"
     Then field: "tsv_name" for this aliquot should be: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/test1.tsv"
     Then field: "dna_bai_name" for this aliquot should be: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/dna.bai"
     Then field: "cdna_bai_name" for this aliquot should be: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/cdna.bai"
@@ -52,8 +52,8 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "dna_bam_name" value: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/dna.bam" to message body
     Then add field: "cdna_bam_name" value: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/cdna.bam" to message body
     Then add field: "qc_name" value: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/10-10-2016.pdf" to message body
-    Then call aliquot PUT service, returns a message that includes "Item updated" with status "Success"
-    Then wait until patient variant report is updated
+    When PUT to aliquot service, response includes "Item updated" with code "200"
+    Then wait until patient is updated
     Then patient should have variant report (analysis_id: "ION_AQ02_TsShipped_ANI1")
     And this variant report field: "tsv_file_name" should be "test1.tsv"
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/test1.tsv" should be available in S3
@@ -66,8 +66,8 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "dna_bam_name" value: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/dna.bam" to message body
     Then add field: "cdna_bam_name" value: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/cdna.bam" to message body
     Then add field: "qc_name" value: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/10-10-2016.pdf" to message body
-    Then call aliquot PUT service, returns a message that includes "Item updated" with status "Success"
-    Then wait until patient variant report is updated
+    When PUT to aliquot service, response includes "Item updated" with code "200"
+    Then wait until patient is updated
     Then patient should have variant report (analysis_id: "ION_AQ02_TsShipped_ANI2")
     And this variant report field: "tsv_file_name" should be "test1.tsv"
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/test1.tsv" should be available in S3
@@ -94,8 +94,8 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "dna_bam_name" value: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/dna.bam" to message body
     Then add field: "cdna_bam_name" value: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/cdna.bam" to message body
     Then add field: "qc_name" value: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/10-10-2016.pdf" to message body
-    Then call aliquot PUT service, returns a message that includes "Item updated" with status "Success"
-    Then wait until patient variant report is updated
+    When PUT to aliquot service, response includes "Item updated" with code "200"
+    Then wait until patient is updated
     Then patient should have variant report (analysis_id: "ION_AQ03_BdShipped_ANI1")
     And this variant report field: "tsv_file_name" should be "test1.tsv"
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/test1.tsv" should be available in S3
@@ -108,8 +108,8 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "dna_bam_name" value: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/dna.bam" to message body
     Then add field: "cdna_bam_name" value: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/cdna.bam" to message body
     Then add field: "qc_name" value: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/10-10-2016.pdf" to message body
-    Then call aliquot PUT service, returns a message that includes "Item updated" with status "Success"
-    Then wait until patient variant report is updated
+    When PUT to aliquot service, response includes "Item updated" with code "200"
+    Then wait until patient is updated
     Then patient should have variant report (analysis_id: "ION_AQ03_BdShipped_ANI2")
     And this variant report field: "tsv_file_name" should be "test1.tsv"
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/test1.tsv" should be available in S3
@@ -126,7 +126,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
     Then add field: "vcf_name" value: "" to message body
     Then add field: "dna_bam_name" value: "IR_TCWEV/ION_AQ04_TsShipped_MOI1/ION_AQ04_TsShipped_ANI1/dna.bam" to message body
-    Then call aliquot PUT service, returns a message that includes "Item updated" with status "Success"
+    When PUT to aliquot service, response includes "Item updated" with code "200"
     Then wait for "30" seconds
     Then patient status should change to "TISSUE_NUCLEIC_ACID_SHIPPED"
 
@@ -141,7 +141,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "cdna_bam_name" value: "IR_TCWEV/SC_BKWJR/SC_BKWJR_ANI1/cdna.bam" to message body
     Then add field: "qc_name" value: "IR_TCWEV/SC_BKWJR/SC_BKWJR_ANI1/10-10-2016.pdf" to message body
     Then add field: "extra_info" value: "a comment" to message body
-    Then call aliquot PUT service, returns a message that includes "Item updated" with status "Success"
+    When PUT to aliquot service, response includes "Item updated" with code "200"
 
   @ion_reporter_p2
   Scenario: ION_AQ20. for sample control specimen, if the files passed in are not in that path, aliquot service will not update database
@@ -154,9 +154,9 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "dna_bam_name" value: "IR_TCWEV/SC_Q5E0X/SC_Q5E0X_ANI1/dna.bam" to message body
     Then add field: "cdna_bam_name" value: "IR_TCWEV/SC_Q5E0X/SC_Q5E0X_ANI1/cdna.bam" to message body
     Then add field: "qc_name" value: "IR_TCWEV/SC_Q5E0X/SC_Q5E0X_ANI1/10-10-2016.pdf" to message body
-    Then call aliquot PUT service, returns a message that includes "Item updated" with status "Success"
+    When PUT to aliquot service, response includes "Item updated" with code "200"
     Then wait for "30" seconds
-    Then call aliquot GET service, returns a message that includes "" with status "Success"
+    When GET from aliquot service, response "" with code "200"
     Then field: "tsv_name" for this aliquot should be: "null"
     Then field: "dna_bai_name" for this aliquot should be: "null"
     Then field: "cdna_bai_name" for this aliquot should be: "null"
@@ -172,9 +172,9 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "dna_bam_name" value: "IR_TCWEV/SC_M4UAF/SC_M4UAF_ANI1/dna.bam" to message body
     Then add field: "cdna_bam_name" value: "IR_TCWEV/SC_M4UAF/SC_M4UAF_ANI1/cdna.bam" to message body
     Then add field: "qc_name" value: "IR_TCWEV/SC_M4UAF/SC_M4UAF_ANI1/10-10-2016.pdf" to message body
-    Then call aliquot PUT service, returns a message that includes "Item updated" with status "Success"
+    When PUT to aliquot service, response includes "Item updated" with code "200"
     Then wait for "30" seconds
-    Then call aliquot GET service, returns a message that includes "" with status "Success"
+    When GET from aliquot service, response "" with code "200"
     #don't check tsv, because any text file can be converted to tsv file
 #    Then field: "tsv_name" for this sample control should be: "null" within 1 seconds
     Then field: "dna_bai_name" for this aliquot should be: "null"
@@ -195,7 +195,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "dna_bam_name" value: "IR_TCWEV/ION_AQ23_TsShipped_MOI1/ION_AQ23_TsShipped_ANI1/dna.bam" to message body
     Then add field: "cdna_bam_name" value: "IR_TCWEV/ION_AQ23_TsShipped_MOI1/ION_AQ23_TsShipped_ANI1/cdna.bam" to message body
     Then add field: "qc_name" value: "IR_TCWEV/ION_AQ23_TsShipped_MOI1/ION_AQ23_TsShipped_ANI1/10-10-2016.pdf" to message body
-    Then call aliquot PUT service, returns a message that includes "Item updated" with status "Success"
+    When PUT to aliquot service, response includes "Item updated" with code "200"
     Then wait for "30" seconds
     Then patient status should change to "TISSUE_NUCLEIC_ACID_SHIPPED"
 
@@ -227,7 +227,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "dna_bam_name" value: "IR_TCWEV/NON_EXISTING_MOI/NON_EXISTING_MOI_ANI1/dna.bam" to message body
     Then add field: "cdna_bam_name" value: "IR_TCWEV/NON_EXISTING_MOI/NON_EXISTING_MOI_ANI1/cdna.bam" to message body
     Then add field: "qc_name" value: "IR_TCWEV/NON_EXISTING_MOI/NON_EXISTING_MOI_ANI1/10-10-2016.pdf" to message body
-    Then call aliquot PUT service, returns a message that includes "not found" with status "Failure"
+    When PUT to aliquot service, response includes "not found" with code "404"
 
 
   @ion_reporter_p1
@@ -255,7 +255,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add projection: "<field1>" to url
     Then add projection: "<field2>" to url
     Then add projection: "bad_projection" to url
-    Then call aliquot GET service, returns a message that includes "" with status "Success"
+    When GET from aliquot service, response "" with code "200"
     Then each returned aliquot result should have 3 fields
     Then each returned aliquot result should have field "<field1>"
     Then each returned aliquot result should have field "<field2>"
@@ -270,23 +270,22 @@ Feature: Tests for aliquot service in ion ecosystem
   Scenario: ION_AQ44. aliquot service should fail if an invalid key is projected
     Given molecular id is "SC_4CPNX"
     Then add projection: "non_existing_key" to url
-    Then call aliquot GET service, returns a message that includes "invalid projection key" with status "Failure"
-#    Then all aliquot GET service, returns a message that includes "" with status "Success"
+    When GET from aliquot service, response "invalid projection key" with code "404"
 
   @ion_reporter_p3
   Scenario: ION_AQ45. aliquot service should return 404 error if query a non-existing molecular_id
     Given molecular id is "NON_EXISTING_MOI"
-    Then call aliquot GET service, returns a message that includes "not found" with status "Failure"
+    When GET from aliquot service, response "not found" with code "404"
 
   @ion_reporter_p3
   Scenario: ION_AQ46. aliquot service should fail if no molecular_id and parameter is provided
     Given molecular id is ""
-    Then call aliquot GET service, returns a message that includes "not found" with status "Failure"
+    When GET from aliquot service, response "not found" with code "404"
 
   @ion_reporter_p2
   Scenario Outline: ION_AQ80. aliquot service should fail when user want to create new item using POST
     Given molecular id is "<moi>"
-    Then call aliquot POST service, returns a message that includes "The method is not allowed for the requested URL" with status "Failure"
+    When POST to aliquot service, response includes "The method is not allowed" with code "405"
     Examples:
       | moi                     |
       | SC_N44B1                |
@@ -295,7 +294,7 @@ Feature: Tests for aliquot service in ion ecosystem
   @ion_reporter_p2
   Scenario Outline: ION_AQ81. aliquot service should fail when user want to delete item using DELETE
     Given molecular id is "<moi>"
-    Then call aliquot DELETE service, returns a message that includes "The method is not allowed for the requested URL" with status "Failure"
+    When DELETE to aliquot service, response includes "The method is not allowed" with code "405"
     Examples:
       | moi                     |
       | SC_K7IO0                |

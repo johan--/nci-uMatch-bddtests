@@ -42,7 +42,7 @@ module.exports = function() {
 
 
     this.Then(/^I can see the Registered Patients count$/, function(callback){
-        browser.ignoreSynchronization = true;
+        // browser.ignoreSynchronization = true;
         expect(dash.registeredPatients.getText()).to.eventually.eql(dash.responseData.number_of_patients).then(function(){
             browser.ignoreSynchronization = false;
         }).then(callback);

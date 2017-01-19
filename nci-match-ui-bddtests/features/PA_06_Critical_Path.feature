@@ -6,7 +6,7 @@
 Feature: This is the critical path test cases
 
   Background: User goes to a patient with 'TISSUE_VARIANT_REPORT_RECEIVED' status
-    Given I am a logged in user
+    Given I'm logged in as a "VR_Reviewer_mda" user
 
   @demo_p3
   Scenario: User can can see and click on a variant report and should be able to access the variant report page.
@@ -54,6 +54,7 @@ Feature: This is the critical path test cases
     Then The variant at ordinal "1" is "unchecked"
     When I click on the comment link at ordinal "1"
     Then I can see the "This is a comment" in the modal text box
+    And I click on the "Close" button
     Then I then logout
 
   Scenario: User can see all the amois associated with the patient and matches the table

@@ -2,7 +2,7 @@
 @specimen_received
 Feature: NCH specimen received messages
   Background:
-    Given user authorization role is "SPECIMEN_MESSAGE_SENDER"
+    Given patient API user authorization role is "SPECIMEN_MESSAGE_SENDER"
 
   @patients_p3
   Scenario: PT_SR01. Consume a specimen_received message for type "Blood" for a patient already registered in Match
@@ -255,13 +255,13 @@ Feature: NCH specimen received messages
     And load template request assignment message for this patient
     Then set patient message field: "rebiopsy" to value: "Y"
     Then set patient message field: "step_number" to value: "1.0"
-    Then user authorization role is "PATIENT_MESSAGE_SENDER"
+    Then patient API user authorization role is "PATIENT_MESSAGE_SENDER"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "REQUEST_ASSIGNMENT"
     And load template specimen type: "TISSUE" received message for this patient
     Then set patient message field: "surgical_event_id" to value: "PT_SR16_PendingApproval_SEI2"
     Then set patient message field: "collection_dt" to value: "today"
-    Then user authorization role is "SPECIMEN_MESSAGE_SENDER"
+    Then patient API user authorization role is "SPECIMEN_MESSAGE_SENDER"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "TISSUE_SPECIMEN_RECEIVED"
     Then patient should have specimen (field: "surgical_event_id" is "PT_SR16_PendingApproval_SEI2")

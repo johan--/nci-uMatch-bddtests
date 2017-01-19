@@ -1,14 +1,19 @@
 # !/usr/bin/ruby
-# require 'rspec'
-# require 'json'
+require 'rspec'
+require 'json'
 require_relative '../../../support/helper_methods.rb'
 require_relative '../../../support/ion_helper_methods.rb'
+
+
+And(/^ir user authorization role is "([^"]*)"$/) do |role|
+  @current_auth0_role = role
+end
 
 When(/^the ion reporter service \/version is called, the version "([^"]*)" is returned$/) do |version|
   url = "#{ENV['ion_system_endpoint']}/ion_reporters/version"
   response = Helper_Methods.simple_get_request(url)['message_json']
   raise "response is expected to be a Hash, but it is a #{response.class.to_s}" unless response.is_a?(Hash)
-  raise "response is expected to contain field version, but it is #{response.to_json.to_s}" unless response.keys.include?('version')
+  raise "response is expected to contain field version, but it is #{response.to_s}" unless response.keys.include?('version')
   response['version'].should == version
 end
 
@@ -50,63 +55,48 @@ Then(/^add projection: "([^"]*)" to url$/) do |proj|
   #to find why this line is coded like this
 end
 
-When(/^call ion_reporters POST service (\d+) times, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |times, message, status|
+When(/^POST to ion_reporters service (\d+) times, response includes "([^"]*)" with code "([^"]*)"$/) do |times, message, code|
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
   i = 1
   @generated_ion_ids = []
   until i > times.to_i
-    # url = "#{ENV['ion_system_endpoint']}/ion_reporters"
-    # url = add_parameters_to_url(url, @url_params)
-    url = prepare_ion_reporters_url
-    response = Helper_Methods.post_request(url, @payload.to_json.to_s)
-    validate_response(response, status, message)
+    response = Helper_Methods.post_request(prepare_ion_reporters_url, @payload.to_json.to_s, true, @current_auth0_role)
+    expect(response['http_code']).to eq code
+    expect(response['message']).to include message
     @ion_generate_date = Time.now.utc.to_i
     @generated_ion_ids.append(JSON.parse(response['message'])['ion_reporter_id'])
     i += 1
   end
 end
 
-When(/^call ion_reporters PUT service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
-  # slash_ion_id = ''
-  # if @ion_id.length>0
-  #   slash_ion_id = "/#{@ion_id}"
-  # end
-  # url = "#{ENV['ion_system_endpoint']}/ion_reporters#{slash_ion_id}"
-  url = prepare_ion_reporters_url
-  response = Helper_Methods.put_request(url, @payload.to_json.to_s)
-  validate_response(response, status, message)
+When(/^PUT to ion_reporters service, response includes "([^"]*)" with code "([^"]*)"$/) do |message, code|
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
+  response = Helper_Methods.put_request(prepare_ion_reporters_url, @payload.to_json.to_s, true, @current_auth0_role)
+  expect(response['http_code']).to eq code
+  expect(response['message']).to include message
 end
 
-When(/^call ion_reporters DELETE service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
-  # slash_ion_id = ''
-  # if @ion_id.length>0
-  #   slash_ion_id = "/#{@ion_id}"
-  # end
-  # url = "#{ENV['ion_system_endpoint']}/ion_reporters#{slash_ion_id}"
-  # url = add_parameters_to_url(url, @url_params)
-  url = prepare_ion_reporters_url
-  response = Helper_Methods.delete_request(url)
-  validate_response(response, status, message)
+When(/^DELETE to ion_reporters service, response includes "([^"]*)" with code "([^"]*)"$/) do |message, code|
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
+  response = Helper_Methods.delete_request(prepare_ion_reporters_url, true, @current_auth0_role)
+  expect(response['http_code']).to eq code
+  expect(response['message']).to include message
 end
 
-When(/^call ion_reporters GET service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
-  # slash_ion_id = ''
-  # if @ion_id.length>0
-  #   slash_ion_id = "/#{@ion_id}"
-  # end
-  # url = "#{ENV['ion_system_endpoint']}/ion_reporters#{slash_ion_id}"
-  # url = add_parameters_to_url(url, @url_params)
-  url = prepare_ion_reporters_url
-  response = Helper_Methods.simple_get_request(url)
-  puts response.to_json.to_s
-  validate_response(response, status, message)
+When(/^GET from ion_reporters service, response includes "([^"]*)" with code "([^"]*)"$/) do |message, code|
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
+  response = Helper_Methods.simple_get_request(prepare_ion_reporters_url, true, @current_auth0_role)
+  expect(response['http_code']).to eq code
+  expect(response['message']).to include message
   @returned_ions = response['message_json']
 end
 
-When(/^call ion_reporters GET sample_controls service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
+When(/^GET sample_controls from ion_reporters service, response includes "([^"]*)" with code "([^"]*)"$/) do |message, code|
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
   @ion_sub_service = 'sample_controls'
-  url = prepare_ion_reporters_url
-  response = Helper_Methods.simple_get_request(url)
-  validate_response(response, status, message)
+  response = Helper_Methods.simple_get_request(prepare_ion_reporters_url, true, @current_auth0_role)
+  expect(response['http_code']).to eq code
+  expect(response['message']).to include message
   @returned_sample_control = response['message_json']
 end
 
@@ -293,31 +283,35 @@ end
 ##############               ###################
 ################################################
 
-When(/^call sample_controls POST service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
-  url = prepare_sample_controls_url
-  response = Helper_Methods.post_request(url, @payload.to_json.to_s)
-  puts response
-  validate_response(response, status, message)
+When(/^POST to sample_controls service, response includes "([^"]*)" with code "([^"]*)"$/) do |message, code|
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
+  response = Helper_Methods.post_request(prepare_sample_controls_url, @payload.to_json.to_s, true, @current_auth0_role)
+  puts response.to_s
+  expect(response['http_code']).to eq code
+  expect(response['message']).to include message
   @sc_generate_date = Time.now.utc.to_i
   @molecular_id = JSON.parse(response['message'])['molecular_id']
 end
 
-When(/^call sample_controls PUT service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
-  url = prepare_sample_controls_url
-  response = Helper_Methods.put_request(url, @payload.to_json.to_s)
-  validate_response(response, status, message)
+When(/^PUT to sample_controls service, response includes "([^"]*)" with code "([^"]*)"$/) do |message, code|
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
+  response = Helper_Methods.put_request(prepare_sample_controls_url, @payload.to_json.to_s, true, @current_auth0_role)
+  expect(response['http_code']).to eq code
+  expect(response['message']).to include message
 end
 
-When(/^call sample_controls DELETE service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
-  url = prepare_sample_controls_url
-  response = Helper_Methods.delete_request(url)
-  validate_response(response, status, message)
+When(/^DELETE to sample_controls service, response includes "([^"]*)" with code "([^"]*)"$/) do |message, code|
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
+  response = Helper_Methods.delete_request(prepare_sample_controls_url, true, @current_auth0_role)
+  expect(response['http_code']).to eq code
+  expect(response['message']).to include message
 end
 
-When(/^call sample_controls GET service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
-  url = prepare_sample_controls_url
-  response = Helper_Methods.simple_get_request(url)
-  validate_response(response, status, message)
+When(/^GET from sample_controls service, response includes "([^"]*)" with code "([^"]*)"$/) do |message, code|
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
+  response = Helper_Methods.simple_get_request(prepare_sample_controls_url, true, @current_auth0_role)
+  expect(response['http_code']).to eq code
+  expect(response['message']).to include message
   @returned_sample_control = response['message_json']
 end
 
@@ -477,30 +471,33 @@ end
 ##############    aliquot   ###################
 ##############               ###################
 ################################################
-Then(/^call aliquot PUT service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
-  url = prepare_aliquot_url
-  # puts JSON.pretty_generate(@payload)
-  response = Helper_Methods.put_request(url, @payload.to_json.to_s)
-  validate_response(response, status, message)
+Then(/^PUT to aliquot service, response includes "([^"]*)" with code "([^"]*)"$/) do |message, code|
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
+  response = Helper_Methods.put_request(prepare_aliquot_url, @payload.to_json.to_s, true, @current_auth0_role)
+  expect(response['http_code']).to eq code
+  expect(response['message']).to include message
 end
 
-When(/^call aliquot GET service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
-  url = prepare_aliquot_url
-  response = Helper_Methods.simple_get_request(url)
-  validate_response(response, status, message)
+When(/^GET from aliquot service, response "([^"]*)" with code "([^"]*)"$/) do |message, code|
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
+  response = Helper_Methods.simple_get_request(prepare_aliquot_url, true, @current_auth0_role)
+  expect(response['http_code']).to eq code
+  expect(response['message']).to include message
   @returned_aliquot_result = response['message_json']
 end
 
-When(/^call aliquot POST service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
-  url = prepare_aliquot_url
-  response = Helper_Methods.post_request(url, @payload.to_json.to_s)
-  validate_response(response, status, message)
+When(/^POST to aliquot service, response includes "([^"]*)" with code "([^"]*)"$/) do |message, code|
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
+  response = Helper_Methods.post_request(prepare_aliquot_url, @payload.to_json.to_s, true, @current_auth0_role)
+  expect(response['http_code']).to eq code
+  expect(response['message']).to include message
 end
 
-When(/^call aliquot DELETE service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
-  url = prepare_aliquot_url
-  response = Helper_Methods.delete_request(url)
-  validate_response(response, status, message)
+When(/^DELETE to aliquot service, response includes "([^"]*)" with code "([^"]*)"$/) do |message, code|
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
+  response = Helper_Methods.delete_request(prepare_aliquot_url, true, @current_auth0_role)
+  expect(response['http_code']).to eq code
+  expect(response['message']).to include message
 end
 
 Then(/^field: "([^"]*)" for this aliquot should be: "([^"]*)"$/) do |field, value|
@@ -599,67 +596,72 @@ end
 #   validate_file_url(response['s3_download_file_url'], result)
 # end
 
-Then(/^call sequence_files PUT service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
+Then(/^PUT to sequence_files service, response includes "([^"]*)" with code "([^"]*)"$/) do |message, code|
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
   url = prepare_sequence_file_url(@sequence_file_type, @sequence_file_sub_type)
-  response = Helper_Methods.put_request(url, @payload.to_json.to_s)
-  validate_response(response, status, message)
+  response = Helper_Methods.put_request(url, @payload.to_json.to_s, true, @current_auth0_role)
+  expect(response['http_code']).to eq code
+  expect(response['message']).to include message
 end
 
-When(/^call sequence_files GET service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
+When(/^GET from sequence_files service, response includes "([^"]*)" with code "([^"]*)"$/) do |message, code|
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
   url = prepare_sequence_file_url(@sequence_file_type, @sequence_file_sub_type)
   puts url
-  response = Helper_Methods.simple_get_request(url)
-  validate_response(response, status, message)
+  response = Helper_Methods.simple_get_request(url, true, @current_auth0_role)
+  expect(response['http_code']).to eq code
+  expect(response['message']).to include message
   @returned_sequence_file = response['message_json']
 end
 
-When(/^call sequence_files POST service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
+When(/^POST to sequence_files service, response includes "([^"]*)" with code "([^"]*)"$/) do |message, code|
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
   url = prepare_sequence_file_url(@sequence_file_type, @sequence_file_sub_type)
-  response = Helper_Methods.post_request(url, @payload.to_json.to_s)
-  validate_response(response, status, message)
+  response = Helper_Methods.post_request(url, @payload.to_json.to_s, true, @current_auth0_role)
+  expect(response['http_code']).to eq code
+  expect(response['message']).to include message
 end
 
-When(/^call sequence_files DELETE service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
+When(/^DELETE to sequence_files service, response includes "([^"]*)" with code "([^"]*)"$/) do |message, code|
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
   url = prepare_sequence_file_url(@sequence_file_type, @sequence_file_sub_type)
-  response = Helper_Methods.delete_request(url)
-  validate_response(response, status, message)
+  response = Helper_Methods.delete_request(url, true, @current_auth0_role)
+  expect(response['http_code']).to eq code
+  expect(response['message']).to include message
 end
 
-Then(/^call files PUT service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
+Then(/^PUT to files service, response includes "([^"]*)" with code "([^"]*)"$/) do |message, code|
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
   url = prepare_files_url(@misc_file_name)
-  response = Helper_Methods.put_request(url, @payload.to_json.to_s)
-  validate_response(response, status, message)
+  response = Helper_Methods.put_request(url, @payload.to_json.to_s, true, @current_auth0_role)
+  expect(response['http_code']).to eq code
+  expect(response['message']).to include message
 end
 
-When(/^call files GET service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
+When(/^GET from files service, response includes "([^"]*)" with code "([^"]*)"$/) do |message, code|
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
   url = prepare_files_url(@misc_file_name)
   puts url
-  response = Helper_Methods.simple_get_request(url)
-  validate_response(response, status, message)
+  response = Helper_Methods.simple_get_request(url, true, @current_auth0_role)
+  expect(response['http_code']).to eq code
+  expect(response['message']).to include message
   @returned_sequence_file = response['message_json']
 end
 
-When(/^call files POST service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
+When(/^POST to files service, response includes "([^"]*)" with code "([^"]*)"$/) do |message, code|
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
   url = prepare_files_url(@misc_file_name)
-  response = Helper_Methods.post_request(url, @payload.to_json.to_s)
-  validate_response(response, status, message)
+  response = Helper_Methods.post_request(url, @payload.to_json.to_s, true, @current_auth0_role)
+  expect(response['http_code']).to eq code
+  expect(response['message']).to include message
 end
 
-When(/^call files DELETE service, returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|
+When(/^DELETE to files service, response includes "([^"]*)" with code "([^"]*)"$/) do |message, code|
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
   url = prepare_files_url(@misc_file_name)
-  response = Helper_Methods.delete_request(url)
-  validate_response(response, status, message)
-end
-
-
-def validate_response(response, expected_status, expected_partial_message)
-  response['status'].downcase.should == expected_status.downcase
-  expect_message = "returned message include <#{expected_partial_message}>"
-  actual_message = response['message']
-  if response['message'].downcase.include? expected_partial_message.downcase
-    actual_message = expect_message
-  end
-  actual_message.should == expect_message
+  response = Helper_Methods.delete_request(url, true, @current_auth0_role)
+  expect(response['http_code']).to eq code
+  expect(response['message']).to include message
 end
 
 def prepare_ion_reporters_url
