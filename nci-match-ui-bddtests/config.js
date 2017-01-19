@@ -10,10 +10,10 @@ exports.config = {
 //    chromeOnly: true,
 //    directConnect: true,
     capabilities: {
-        //browserName: 'firefox',
-        //version: ''
-        'browserName': 'phantomjs',
-        'phantomjs.ghostdriver.cli.args': ['--loglevel=DEBUG']
+        browserName: 'chrome',
+        version: ''
+        // 'browserName': 'phantomjs',
+        // 'phantomjs.ghostdriver.cli.args': ['--loglevel=DEBUG']
     },
     restartBrowserBetweenTests: false,
 

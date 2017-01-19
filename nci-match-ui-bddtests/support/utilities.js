@@ -131,6 +131,15 @@ var Utilities = function() {
         })
     };
 
+    /**
+     * Check whether the check box under scrutiny is selected or not.  
+     * @param {element} [elem] [Checkbox element whose status is being checked]
+     * @param {boolean} [selectionStatus] [boolean that shows the status of the checkbox under scrutiny] 
+     */  
+    this.checkCheckBoxStatus = function(elem, selectionStatus) {
+      expect(elem.isEnabled()).to.eventually.eql(selectionStatus);
+    };
+
     /** Verify that the link exists and is a valid one to the gene
      * @param elem = element under test. This element ideally should be the direct parent of <a> tag.
      * http://grch37-cancer.sanger.ac.uk/cosmic/gene/overview?ln=PIK3CA
