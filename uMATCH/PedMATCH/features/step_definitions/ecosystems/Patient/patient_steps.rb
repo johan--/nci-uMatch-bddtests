@@ -552,8 +552,8 @@ And(/^the count of array elements should match database table "([^"]*)"$/) do |t
   else
     query = @get_service_parameters
   end
-  unless @patient_id.nil? || @patient_id.length<1 || query.keys.include?('patient_id')
-    query['patient_id'] = @patient_id
+  if @get_service_patient_id.present? && !query.keys.include?('patient_id')
+    query['patient_id'] = @get_service_patient_id
   end
   if table.length>1
     expect(@get_response.length).to eql Helper_Methods.dynamodb_table_items(table, query).length
@@ -581,6 +581,11 @@ And(/^each element of response should have (\d+) fields$/) do |field_count|
     expect(this_element.length).to eql field_count.to_i
   }
 end
+
+And(/^response should have field "([^"]*)"/) do |field|
+  expect(@get_response.keys).to include field
+end
+
 
 And(/^response should have (\d+) fields$/) do |field_count|
   expect(@get_response.length).to eql field_count.to_i

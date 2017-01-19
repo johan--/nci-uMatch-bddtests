@@ -1,6 +1,6 @@
 @patients_get
 Feature: Patient GET service valid special case tests
-###### all tests in this feature will use default ADMIN authorization role, because role base auth test for those 
+###### all tests in this feature will use default ADMIN authorization role, because role base auth test for those
   #### POST and PUT service has been tested in other tests, those are not the purpose of these tes
   @patients_p2_off
   Scenario: PT_SC01a statistics service should have correct result
@@ -194,7 +194,7 @@ Feature: Patient GET service valid special case tests
       | patient_id                   | contain_message                              | not_contain_message        |
       | PT_SC04b_TsReceived          | shipment-ICCPTENs-ICCBAF47s-ICCBRG1s-variant |                            |
       | PT_SC04b_TsShipped           | variant-ICCPTENs-ICCBAF47s-ICCBRG1s          | shipment                   |
-      | PT_SC04b_TsVrUploaed         | variant-ICCPTENs-ICCBAF47s-ICCBRG1s          | shipment                   |
+      | PT_SC04b_TsVrUploaded        | variant-ICCPTENs-ICCBAF47s-ICCBRG1s          | shipment                   |
       | PT_SC04b_TsVrConfirmed       | ICCPTENs-ICCBAF47s-ICCBRG1s                  | shipment-variant           |
       | PT_SC04b_VrConfirmedOneAssay | ICCBAF47s-ICCBRG1s                           | shipment-variant-ICCPTENs  |
       | PT_SC04b_TwoAssay            | ICCBAF47s-variant                            | shipment-ICCBRG1s-ICCPTENs |
@@ -509,6 +509,7 @@ Feature: Patient GET service valid special case tests
     Then load template specimen type: "<specimen_type>" received message for this patient
     Then set patient message field: "surgical_event_id" to value: "<sei>"
     When POST to MATCH patients service, response includes "successfully" with code "202"
+    Then wait until patient specimen is updated
     When GET from MATCH patient API, http code "200" should return
     Then this patient specimen_events type "tissue_specimens" should have "<tissue_after>" elements
     Then this patient specimen_events type "blood_specimens" should have "<blood_after>" elements

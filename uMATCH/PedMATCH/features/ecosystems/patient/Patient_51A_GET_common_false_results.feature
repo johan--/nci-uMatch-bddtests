@@ -58,12 +58,12 @@ Feature: Patient GET service tests (false results)
       | shipments       |
       |                 |
 
-  Scenario Outline: PT_GF_WI03. Invalid projections should be ignored
+  Scenario Outline: PT_GF_WI03a. Invalid projections should be ignored
     Given patient GET service: "<service>", patient id: "", id: "<id>"
     Then add projection: "bad_pro" to patient GET url
     When GET from MATCH patient API, http code "200" should return
-    Then the response type should be "Array"
-    And each element of response should have 0 fields
+    Then the response type should be "Hash"
+    And response should have 0 fields
     Examples:
       | service         | id                                   |
       | events          | PT_GVF_TsShipped                     |
@@ -71,7 +71,7 @@ Feature: Patient GET service tests (false results)
       | variants        | 5f4be20f-dc2b-4f62-9767-25ad7a320b0c |
       | assignments     | PT_GVF_VrAssayReady_ANI1             |
       | shipments       | PT_GVF_OnTreatmentArm_MOI1           |
-      |                 |                                      |
+      |                 | PT_GVF_VrAssayReady                  |
 #
   Scenario Outline: PT_GF_WI04. Service should return 404 and empty result if no resource match query parameters
     Given patient GET service: "<service>", patient id: "", id: "<id>"
@@ -85,7 +85,7 @@ Feature: Patient GET service tests (false results)
       | variants        | eed59bc3-0ee5-4c3f-8a72-2225440b872d | variant_type        |
       | assignments     | PT_GVF_VrAssayReady_ANI1             | report_status       |
       | shipments       | PT_GVF_OnTreatmentArm_MOI1           | shipment_type       |
-      |                 |                                      | current_step_number |
+      |                 | PT_GVF_VrAssayReady                  | current_step_number |
 #
 ########## PT_GF_WP Services with patient_id /api/v1/patients/:patient_id/service(.:format)
   Scenario Outline: PT_GF_WP01. Service should return 404 and empty result if patient_id has no this type of resource
@@ -149,42 +149,42 @@ Feature: Patient GET service tests (false results)
       | variant_file_download |
 #
   Scenario Outline: PT_GF_PI02. Service should return 404 and empty result if patient_id doesn't exist
-    Given patient GET service: "<service>", patient id: "INVALID_ID", id: "PT_GVF_OnTreatmentArm_ANI1"
+    Given patient GET service: "<service>", patient id: "INVALID_ID", id: "<id>"
     When GET from MATCH patient API, http code "404" should return
     Then the response message should be empty
     Examples:
-      | service               |
-      | specimens             |
-      | analysis_report       |
-      | analysis_report_amois |
-      | qc_variant_reports    |
-      | variant_file_download |
+      | service               | id                         |
+      | specimens             | PT_GVF_OnTreatmentArm_SEI1 |
+      | analysis_report       | PT_GVF_OnTreatmentArm_ANI1 |
+      | analysis_report_amois | PT_GVF_OnTreatmentArm_ANI1 |
+      | qc_variant_reports    | PT_GVF_OnTreatmentArm_ANI1 |
+      | variant_file_download | PT_GVF_OnTreatmentArm_ANI1 |
 #
   Scenario Outline: PT_GF_PI05. Invalid projections should be ignored
-    Given patient GET service: "<service>", patient id: "PT_GVF_OnTreatmentArm", id: "PT_GVF_OnTreatmentArm_ANI1"
+    Given patient GET service: "<service>", patient id: "PT_GVF_OnTreatmentArm", id: "<id>"
     And add projection: "INVALID_PROJECTION" to patient GET url
     When GET from MATCH patient API, http code "200" should return
-    Then the response type should be "Array"
-    And each element of response should have 0 fields
+    Then the response type should be "Hash"
+    And response should have 0 fields
     Examples:
-      | service               |
-      | specimens             |
-      | analysis_report       |
-      | analysis_report_amois |
-      | qc_variant_reports    |
-      | variant_file_download |
+      | service               | id                         |
+      | specimens             | PT_GVF_OnTreatmentArm_SEI1 |
+      | analysis_report       | PT_GVF_OnTreatmentArm_ANI1 |
+      | analysis_report_amois | PT_GVF_OnTreatmentArm_ANI1 |
+      | qc_variant_reports    | PT_GVF_OnTreatmentArm_ANI1 |
+      | variant_file_download | PT_GVF_OnTreatmentArm_ANI1 |
 #
   Scenario Outline: PT_GF_PI06. Service should return 200 and empty array if no resource match query parameters
-    Given patient GET service: "<service>", patient id: "PT_GVF_OnTreatmentArm", id: "PT_GVF_OnTreatmentArm_ANI1"
+    Given patient GET service: "<service>", patient id: "PT_GVF_OnTreatmentArm", id: "<id>"
     And add parameter field: "<field>" and value: "INVALID_VALUE" to patient GET url
     When GET from MATCH patient API, http code "200" should return
-    Then the response type should be "Array"
-    And each element of response should have 0 fields
+    Then the response type should be "Hash"
+    And response should have 0 fields
     Examples:
-      | service               | field             |
-      | specimens             | surgical_event_id |
-      | analysis_report       | variant_report    |
-      | analysis_report_amois | analysis_id       |
-      | qc_variant_reports    | ion_reporter_id   |
-      | variant_file_download | tsv_file_name     |
+      | service               | field             | id                         |
+      | specimens             | surgical_event_id | PT_GVF_OnTreatmentArm_SEI1 |
+      | analysis_report       | variant_report    | PT_GVF_OnTreatmentArm_ANI1 |
+      | analysis_report_amois | total_amois       | PT_GVF_OnTreatmentArm_ANI1 |
+      | qc_variant_reports    | ion_reporter_id   | PT_GVF_OnTreatmentArm_ANI1 |
+      | variant_file_download | tsv_file_name     | PT_GVF_OnTreatmentArm_ANI1 |
 

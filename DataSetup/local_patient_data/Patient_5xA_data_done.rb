@@ -325,7 +325,7 @@ class Patient5xA
   end
 
   def self.pt_sc04b_ts_vr_uploaded
-    pt = PatientDataSet.new('PT_SC04b_TsVrUploaed')
+    pt = PatientDataSet.new('PT_SC04b_TsVrUploaded')
     PatientMessageLoader.register_patient(pt.id)
     PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
     PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
