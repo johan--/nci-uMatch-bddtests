@@ -2,7 +2,7 @@
 @assay
 Feature: Assay Messages
   Background:
-    Given user authorization role is "ASSAY_MESSAGE_SENDER"
+    Given patient API user authorization role is "ASSAY_MESSAGE_SENDER"
 
   @patients_p1
   Scenario Outline: PT_AS00. Assay result message can be consumed successfully

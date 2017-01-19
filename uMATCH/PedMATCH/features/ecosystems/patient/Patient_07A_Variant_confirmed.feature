@@ -3,7 +3,7 @@
 Feature: Variant files confirmed messages
 
   Background:
-    Given user authorization role is "MDA_VARIANT_REPORT_REVIEWER"
+    Given patient API user authorization role is "MDA_VARIANT_REPORT_REVIEWER"
 
   #no patient id in variant confirm service anymore
 #  Scenario Outline: PT_VC00. variant confirm message with invalid patient_id should fail
@@ -78,7 +78,7 @@ Feature: Variant files confirmed messages
   Scenario: PT_VC05. confirmed fields should be "true" as default
     #    Test Patient: PT_VC05_TissueShipped, Tissue shipped PT_VC05_TissueShipped(_SEI1, _MOI1)
     Given patient id is "PT_VC05_TissueShipped"
-    And user authorization role is "SYSTEM"
+    And patient API user authorization role is "SYSTEM"
     And load template variant file uploaded message for this patient
     Then set patient message field: "molecular_id" to value: "PT_VC05_TissueShipped_MOI1"
     Then set patient message field: "analysis_id" to value: "PT_VC05_TissueShipped_ANI1"
@@ -96,7 +96,7 @@ Feature: Variant files confirmed messages
     Then set patient message field: "comment" to value: "TEST"
     Then PUT to MATCH variant "unchecked" service for this uuid, response includes "changed to false" with code "200"
     And load template variant file uploaded message for this patient
-    And user authorization role is "SYSTEM"
+    And patient API user authorization role is "SYSTEM"
     Then set patient message field: "molecular_id" to value: "PT_VC05a_VRUploaded_MOI1"
     Then set patient message field: "analysis_id" to value: "PT_VC05a_VRUploaded_ANI2"
     Then files for molecular_id "PT_VC05a_VRUploaded_MOI1" and analysis_id "PT_VC05a_VRUploaded_ANI2" are in S3
