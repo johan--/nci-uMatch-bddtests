@@ -16,7 +16,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "dna_bam_name" value: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/dna.bam" to message body
     Then add field: "cdna_bam_name" value: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/cdna.bam" to message body
     Then add field: "qc_name" value: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/QA.pdf" to message body
-    When PUT to aliquot service, response includes "Item updated" with code "202"
+    When PUT to aliquot service, response includes "Item updated" with code "200"
     Then wait for "90" seconds
     When GET from aliquot service, response "" with code "200"
     Then field: "tsv_name" for this aliquot should be: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/test1.tsv"
@@ -52,8 +52,8 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "dna_bam_name" value: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/dna.bam" to message body
     Then add field: "cdna_bam_name" value: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/cdna.bam" to message body
     Then add field: "qc_name" value: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/10-10-2016.pdf" to message body
-    When PUT to aliquot service, response includes "Item updated" with code "202"
-    Then wait until patient variant report is updated
+    When PUT to aliquot service, response includes "Item updated" with code "200"
+    Then wait until patient is updated
     Then patient should have variant report (analysis_id: "ION_AQ02_TsShipped_ANI1")
     And this variant report field: "tsv_file_name" should be "test1.tsv"
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/test1.tsv" should be available in S3
@@ -66,8 +66,8 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "dna_bam_name" value: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/dna.bam" to message body
     Then add field: "cdna_bam_name" value: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/cdna.bam" to message body
     Then add field: "qc_name" value: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/10-10-2016.pdf" to message body
-    When PUT to aliquot service, response includes "Item updated" with code "202"
-    Then wait until patient variant report is updated
+    When PUT to aliquot service, response includes "Item updated" with code "200"
+    Then wait until patient is updated
     Then patient should have variant report (analysis_id: "ION_AQ02_TsShipped_ANI2")
     And this variant report field: "tsv_file_name" should be "test1.tsv"
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/test1.tsv" should be available in S3
@@ -94,8 +94,8 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "dna_bam_name" value: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/dna.bam" to message body
     Then add field: "cdna_bam_name" value: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/cdna.bam" to message body
     Then add field: "qc_name" value: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/10-10-2016.pdf" to message body
-    When PUT to aliquot service, response includes "Item updated" with code "202"
-    Then wait until patient variant report is updated
+    When PUT to aliquot service, response includes "Item updated" with code "200"
+    Then wait until patient is updated
     Then patient should have variant report (analysis_id: "ION_AQ03_BdShipped_ANI1")
     And this variant report field: "tsv_file_name" should be "test1.tsv"
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/test1.tsv" should be available in S3
@@ -108,8 +108,8 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "dna_bam_name" value: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/dna.bam" to message body
     Then add field: "cdna_bam_name" value: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/cdna.bam" to message body
     Then add field: "qc_name" value: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/10-10-2016.pdf" to message body
-    When PUT to aliquot service, response includes "Item updated" with code "202"
-    Then wait until patient variant report is updated
+    When PUT to aliquot service, response includes "Item updated" with code "200"
+    Then wait until patient is updated
     Then patient should have variant report (analysis_id: "ION_AQ03_BdShipped_ANI2")
     And this variant report field: "tsv_file_name" should be "test1.tsv"
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/test1.tsv" should be available in S3
@@ -126,7 +126,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
     Then add field: "vcf_name" value: "" to message body
     Then add field: "dna_bam_name" value: "IR_TCWEV/ION_AQ04_TsShipped_MOI1/ION_AQ04_TsShipped_ANI1/dna.bam" to message body
-    When PUT to aliquot service, response includes "Item updated" with code "202"
+    When PUT to aliquot service, response includes "Item updated" with code "200"
     Then wait for "30" seconds
     Then patient status should change to "TISSUE_NUCLEIC_ACID_SHIPPED"
 
@@ -141,7 +141,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "cdna_bam_name" value: "IR_TCWEV/SC_BKWJR/SC_BKWJR_ANI1/cdna.bam" to message body
     Then add field: "qc_name" value: "IR_TCWEV/SC_BKWJR/SC_BKWJR_ANI1/10-10-2016.pdf" to message body
     Then add field: "extra_info" value: "a comment" to message body
-    When PUT to aliquot service, response includes "Item updated" with code "202"
+    When PUT to aliquot service, response includes "Item updated" with code "200"
 
   @ion_reporter_p2
   Scenario: ION_AQ20. for sample control specimen, if the files passed in are not in that path, aliquot service will not update database
@@ -154,7 +154,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "dna_bam_name" value: "IR_TCWEV/SC_Q5E0X/SC_Q5E0X_ANI1/dna.bam" to message body
     Then add field: "cdna_bam_name" value: "IR_TCWEV/SC_Q5E0X/SC_Q5E0X_ANI1/cdna.bam" to message body
     Then add field: "qc_name" value: "IR_TCWEV/SC_Q5E0X/SC_Q5E0X_ANI1/10-10-2016.pdf" to message body
-    When PUT to aliquot service, response includes "Item updated" with code "202"
+    When PUT to aliquot service, response includes "Item updated" with code "200"
     Then wait for "30" seconds
     When GET from aliquot service, response "" with code "200"
     Then field: "tsv_name" for this aliquot should be: "null"
@@ -172,7 +172,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "dna_bam_name" value: "IR_TCWEV/SC_M4UAF/SC_M4UAF_ANI1/dna.bam" to message body
     Then add field: "cdna_bam_name" value: "IR_TCWEV/SC_M4UAF/SC_M4UAF_ANI1/cdna.bam" to message body
     Then add field: "qc_name" value: "IR_TCWEV/SC_M4UAF/SC_M4UAF_ANI1/10-10-2016.pdf" to message body
-    When PUT to aliquot service, response includes "Item updated" with code "202"
+    When PUT to aliquot service, response includes "Item updated" with code "200"
     Then wait for "30" seconds
     When GET from aliquot service, response "" with code "200"
     #don't check tsv, because any text file can be converted to tsv file
@@ -195,7 +195,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "dna_bam_name" value: "IR_TCWEV/ION_AQ23_TsShipped_MOI1/ION_AQ23_TsShipped_ANI1/dna.bam" to message body
     Then add field: "cdna_bam_name" value: "IR_TCWEV/ION_AQ23_TsShipped_MOI1/ION_AQ23_TsShipped_ANI1/cdna.bam" to message body
     Then add field: "qc_name" value: "IR_TCWEV/ION_AQ23_TsShipped_MOI1/ION_AQ23_TsShipped_ANI1/10-10-2016.pdf" to message body
-    When PUT to aliquot service, response includes "Item updated" with code "202"
+    When PUT to aliquot service, response includes "Item updated" with code "200"
     Then wait for "30" seconds
     Then patient status should change to "TISSUE_NUCLEIC_ACID_SHIPPED"
 
