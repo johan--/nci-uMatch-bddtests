@@ -1,7 +1,6 @@
 @ion_auth
 Feature: ir ecosystem authorization tests
 
-  @ion_reporter_p1
   Scenario Outline: ION_AU01 role base authorization works properly to create ion_reporter
     Given site is "mda"
     And ir user authorization role is "<auth_role>"
