@@ -41,6 +41,10 @@ Feature: MATCHKB-542. Users can upload patient sample files.
 
   Scenario Outline: As a non-privileged user I can't upload sample file
     Given I'm logged in as a "<user>" user
+    When I go to patient "<patient_id>" details page
+    And I click on the Surgical Event Tab "<surgical_event_id>"
+    And I can see that all files have been uploaded for the Surgical Event
+    Then The "Upload new sample file" button is "not visible"
     Then I then logout
     Examples:
       | user              | patient_id | surgical_event_id
@@ -50,3 +54,9 @@ Feature: MATCHKB-542. Users can upload patient sample files.
 
   Scenario: As a privileged user I can cancel upload
     Given I'm logged in as a "read_only" user
+    When I go to patient "<patient_id>" details page
+    And I click on the Upload Progress in the toolsbar
+    Then I can see current uploads
+    And I can cancel the first upload in the list
+    Then The the cancelled files is removed from the upload list
+    Then I then logout
