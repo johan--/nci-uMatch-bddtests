@@ -24,6 +24,10 @@ var CliaPage = function () {
     this.sampleDetailMAPD       = element(by.binding('data.mapd'));
     this.sampleDetailCell       = element(by.binding('data.cellularity'));
 
+    this.confirmChangeCommentField     = element(by.css('input[name="comment"]'));  // This is the confirmation modal for individual rejection
+    this.confirmVRStatusCommentField   = element(by.css('input[id="cgPromptInput"]')); // THis is the confirmation modal for the complete VR rejection
+
+
     this.sampleDetailTableHead  = element.all(by.css('.ibox-title.ibox-title-no-line-no-padding'));
     this.samplePositivePanel    = element(by.css('clia-vr-positive'));
     this.sampleFalsePosPanel    = element(by.css('clia-vr-false-positive'));

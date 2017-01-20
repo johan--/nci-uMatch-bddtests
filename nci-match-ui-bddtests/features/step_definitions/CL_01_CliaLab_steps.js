@@ -8,7 +8,8 @@ var moment = require('moment');
 
 var utilities = require ('../../support/utilities');
 var dash      = require ('../../pages/dashboardPage');
-var clia      = require ('../../pages/CLIAPage');
+var cliaPage      = require ('../../pages/CLIAPage');
+
 var nodeCmd   = require ('node-cmd');
 module.exports = function() {
     this.World = require ('../step_definitions/world').World;
@@ -16,33 +17,33 @@ module.exports = function() {
     var tabNameMap = {
         'MoCha' : {
             'Positive Sample Controls': {
-                'element': clia.mochaPositiveGrid,
+                'element': cliaPage.mochaPositiveGrid,
                 'control_type': 'positive',
                 'url_type': 'positive_sample_control'
             },
 
             'No Template Control': {
-                'element': clia.mochaNoTemplateGrid,
+                'element': cliaPage.mochaNoTemplateGrid,
                 'control_type': 'no_template',
                 'url_type' : 'no_template_control'
             },
             'Proficiency And Competency' : {
-                'element': clia.mochaProficiencyGrid,
+                'element': cliaPage.mochaProficiencyGrid,
                 'control_type': 'proficiency_competency',
                 'url_type': 'positive_sample_control'
             }
         },
         'MD Anderson' : {
             'Positive Sample Controls': {
-                'element': clia.mdaPositiveGrid,
+                'element': cliaPage.mdaPositiveGrid,
                 'control_type': 'positive'
             },
             'No Template Control': {
-                'element': clia.mdaNoTemplateGrid,
+                'element': cliaPage.mdaNoTemplateGrid,
                 'control_type': 'no_template'
             },
             'Proficiency And Competency' : {
-                'element': clia.mdaProficiencyGrid,
+                'element': cliaPage.mdaProficiencyGrid,
                 'control_type': 'proficiency_competency'
             }
         }
@@ -52,15 +53,18 @@ module.exports = function() {
 
 
     this.Then(/^I can see the Clia Labs page$/, function (callback) {
-        expect(browser.getTitle()).to.eventually.eql(clia.pageTitle);
+        expect(browser.getTitle()).to.eventually.eql(cliaPage.pageTitle);
         expect(browser.getCurrentUrl()).to.eventually.include('/#/clia-labs');
-        expect(clia.mochaSectionButton.getText()).to.eventually.eql('MoCha');
-        expect(clia.mdaSectionButton.getText()).to.eventually.eql('MoCha').notify(callback);
+        expect(cliaPage.mochaSectionButton.getText()).to.eventually.eql('MoCha');
+        expect(cliaPage.mdaSectionButton.getText()).to.eventually.eql('MoCha').notify(callback);
     });
 
     this.When(/^I click on the "(MoCha|MD Anderson)" section$/, function (sectionName, callback) {
-        var elem = sectionName === 'MoCha' ? clia.mochaSectionButton : clia.mdaSectionButton;
-        clia.site = sectionName;
+
+        console.log(sectionName)
+
+        var elem = sectionName === 'MoCha' ? cliaPage.mochaSectionButton : cliaPage.mdaSectionButton;
+        cliaPage.site = sectionName;
         elem.click().then(function() {
             browser.waitForAngular();
         }).then(callback);
@@ -69,33 +73,36 @@ module.exports = function() {
     this.Then(/^I am on the "(MoCha|MD Anderson)" section$/, function (sectionName, callback) {
         var url = sectionName === 'MoCha' ? 'MoCha' : 'MDACC';
         expect(browser.getCurrentUrl()).to.eventually
-            .include('clia-labs?site=' + url + '&type=positive')
+            .include('cliaPage-labs?site=' + url + '&type=positive')
             .notify(callback);
     });
 
     this.When(/^I click on "([^"]*)" under "(MoCha|MD Anderson)"$/, function (subTabName, sectionName, callback) {
         var elem = element(by.css('li[heading="' + subTabName + '"]'))
+        element (by.css ('li[heading="' + subTabName + '"]')).click ();
+        browser.ignoreSynchronization = false;
+        browser.sleep (4000).then (callback);
 
         // Setting the Control type here in anticipation of future needs.
-        controlType = tabNameMap[sectionName][subTabName]['control_type'];
-        clia.controlType  = controlType;
-        clia.tableElement = tabNameMap[sectionName][subTabName]['element'];
-        clia.urlType      = tabNameMap[sectionName][subTabName]['url_type']
-        browser.executeScript('window.scrollTo(0, 650)').then(function () {
-            browser.sleep(3000).then(function () {
-                elem.click().then(function(){
-                    browser.waitForAngular();
-                })
-            })
-
-        }).then(callback);
+        // controlType = tabNameMap[sectionName][subTabName]['control_type'];
+        // cliaPage.controlType  = controlType;
+        // cliaPage.tableElement = tabNameMap[sectionName][subTabName]['element'];
+        // cliaPage.urlType      = tabNameMap[sectionName][subTabName]['url_type']
+        // browser.executeScript('window.scrollTo(0, 650)').then(function () {
+        //     browser.sleep(4000).then(function () {
+        //         elem.click().then(function(){
+        //             browser.waitForAngular();
+        //         })
+        //     })
+        //
+        // }).then(callback);
     });
 
     this.When(/^I collect information on "([^"]*)" under "(MoCha|MD Anderson)"$/, function (subTabName, sectionName, callback) {
         var site = sectionName === 'MoCha' ? 'mocha' : 'mdacc';
         var url  = '/api/v1/sample_controls?site=' + site + '&control_type=' + controlType;
         utilities.getRequestWithService('ion', url).then(function(response){
-            clia.responseData = response
+            cliaPage.responseData = response
         }).then(callback);
     });
 
@@ -104,7 +111,7 @@ module.exports = function() {
         var url  = '/api/v1/sample_controls?site=' + site + '&control_type=' + controlType;
         var request = utilities.callApi('ion', url);
         request.get().then(function() {
-            clia.newResponseData =JSON.parse(request.entity());
+            cliaPage.newResponseData =JSON.parse(request.entity());
         }).then(callback);
     });
 
@@ -117,24 +124,24 @@ module.exports = function() {
     });
 
     this.When(/^I enter "([^"]*)" in the search field on "([^"]*)" under "(MoCha|MD Anderson)"$/, function (value, subTabName, sectionName, callback) {
-        var parentElement = clia.tableElement;
+        var parentElement = cliaPage.tableElement;
         var searchElement = parentElement.element(by.css('input.input-sm.all-filter'));
-        clia.molecularId = value;
+        cliaPage.molecularId = value;
         searchElement.sendKeys(value).then(function () {
             browser.waitForAngular()
         }).then(callback)
     });
 
     this.When(/^I collect information about the sample variant report$/, function (callback) {
-        var url = '/api/v1/sample_controls/' + clia.molecularId;
+        var url = '/api/v1/sample_controls/' + cliaPage.molecularId;
 
         utilities.getRequestWithService('ion', url).then(function(response){
-            clia.responseData = response
+            cliaPage.responseData = response
         }).then(callback);
     });
 
     this.When(/^I click on the sample control link$/, function (callback) {
-        var parentElement = clia.tableElement;
+        var parentElement = cliaPage.tableElement;
 
         var firstRow = parentElement.all(by.css('[ng-repeat^="item in filtered"]')).get(0);
         firstRow.all(by.css('a')).get(0).click().then(function () {
@@ -143,38 +150,38 @@ module.exports = function() {
     });
 
     this.Then(/^I verify that "([^"]*)" under "(MoCha|MD Anderson)" is active$/, function (subTabName, sectionName, callback) {
-         var elemToCheck = clia.tableElement;
+         var elemToCheck = cliaPage.tableElement;
          expect(elemToCheck.isPresent()).to.eventually.eql(true).notify(callback);
     });
 
     this.Then(/^I verify the headings for "([^"]*)" under "(MoCha|MD Anderson)"$/, function (subTabName, sectionName, callback) {
-        var tableElement = clia.tableElement;
+        var tableElement = cliaPage.tableElement;
         var headings = tableElement.all(by.css('table>thead>tr>th'))
 
-        expect(headings.getText()).to.eventually.eql(clia.expectedMsnTableHeading).notify(callback);
+        expect(headings.getText()).to.eventually.eql(cliaPage.expectedMsnTableHeading).notify(callback);
     });
 
     this.Then(/^a new Molecular Id is created under the "(MoCha|MD Anderson)"$/, function (sectionName, callback) {
-        expect(clia.newResponseData.length).to.eql(clia.responseData.length + 1);
+        expect(cliaPage.newResponseData.length).to.eql(cliaPage.responseData.length + 1);
         browser.sleep(20).then(callback);
     });
 
     this.When(/^I upload variant report to S3 with the generated MSN$/, function (callback) {
-        clia.bucketName = browser.baseUrl.match('localhost') ? 'pedmatch-dev' : 'pedmatch-int';
-        clia.molecularId = clia.newMSNObject['molecular_id'];
-        clia.analysisId = clia.molecularId + '_ANI';
-        clia.S3Path = clia.molecularId + '/' + clia.analysisId;
+        cliaPage.bucketName = browser.baseUrl.match('localhost') ? 'pedmatch-dev' : 'pedmatch-int';
+        cliaPage.molecularId = cliaPage.newMSNObject['molecular_id'];
+        cliaPage.analysisId = cliaPage.molecularId + '_ANI';
+        cliaPage.S3Path = cliaPage.molecularId + '/' + cliaPage.analysisId;
 
         browser.sleep(50).then(function () {
             nodeCmd.get(
                 `cd ../DataSetup/variant_file_templates 
-                mkdir -p ${clia.S3Path} 
-                cp -r ir_template/* ${clia.S3Path}
-                aws s3 cp ${clia.molecularId}  s3://${clia.bucketName}/IR_UITEST/${clia.molecularId} --recursive --region us-east-1 `
+                mkdir -p ${cliaPage.S3Path} 
+                cp -r ir_template/* ${cliaPage.S3Path}
+                aws s3 cp ${cliaPage.molecularId}  s3://${cliaPage.bucketName}/IR_UITEST/${cliaPage.molecularId} --recursive --region us-east-1 `
                 ,
                 function(data){
                     console.log(data);
-                    console.log('Copied data from ' + clia.molecularId + 'to S3 with bucket name' + clia.bucketName);
+                    console.log('Copied data from ' + cliaPage.molecularId + 'to S3 with bucket name' + cliaPage.bucketName);
                 }
             )
         }).then(callback);
@@ -183,7 +190,7 @@ module.exports = function() {
     this.When(/^I delete the variant reports uploaded to S3$/, function(callback){
        browser.sleep(50).then(function () {
            nodeCmd.get(
-               `aws s3 rm ${clia.molecularId}  s3://${clia.bucketName}/IR_UITEST/${clia.molecularId} --recursive --region us-east-1 `
+               `aws s3 rm ${cliaPage.molecularId}  s3://${cliaPage.bucketName}/IR_UITEST/${cliaPage.molecularId} --recursive --region us-east-1 `
                ,
                function (data) {
                    console.log(data);
@@ -193,9 +200,9 @@ module.exports = function() {
     });
 
     this.When(/^I call the aliquot service with the generated MSN$/, function(callback){
-        var path = 'IR_UITEST/' + clia.S3Path;
+        var path = 'IR_UITEST/' + cliaPage.S3Path;
         var data = 	{
-            "analysis_id": clia.analysisId,
+            "analysis_id": cliaPage.analysisId,
             "site": "mocha",
             "ion_reporter_id": "IR_UITEST",
             "vcf_name": path + '/test1.vcf',
@@ -205,111 +212,111 @@ module.exports = function() {
 
         console.log(data);
         browser.sleep(50).then(function () {
-            utilities.putApi('ion', '/api/v1/aliquot/' + clia.molecularId, data)
+            utilities.putApi('ion', '/api/v1/aliquot/' + cliaPage.molecularId, data)
         }).then(callback)
     });
 
     this.Then(/^I see variant report details for the generated MSN$/, function (callback) {
         //Entering the new MSN generated in to the search field
-        clia.tableElement.element(by.css('input')).sendKeys(clia.molecularId);
+        cliaPage.tableElement.element(by.css('input')).sendKeys(cliaPage.molecularId);
         browser.waitForAngular().then(function () {
             var firstRow = element.all(by.css('[ng-repeat^="item in filtered"]')).get(0)
-            expect(firstRow.all(by.binding('item.molecular_id')).get(0).getText()).to.eventually.eql(clia.molecularId);
+            expect(firstRow.all(by.binding('item.molecular_id')).get(0).getText()).to.eventually.eql(cliaPage.molecularId);
             expect(firstRow.all(by.css('a')).get(0).isPresent()).to.eventually.eql(true);
-            expect(firstRow.all(by.css('a')).get(0).getText()).to.eventually.eql(clia.molecularId);
-            expect(firstRow.all(by.css('a')).get(0).getAttribute('href')).to.include('molecular_id=' + clia.molecularId)
+            expect(firstRow.all(by.css('a')).get(0).getText()).to.eventually.eql(cliaPage.molecularId);
+            expect(firstRow.all(by.css('a')).get(0).getAttribute('href')).to.include('molecular_id=' + cliaPage.molecularId)
         }).then(callback)
     });
 
     this.When(/^I capture the new MSN created$/, function (callback) {
         var oldMolecularIds = [];
         var newMolecularIds = [];
-        for (var i = 0; i < clia.responseData.length; i++) {
-            oldMolecularIds.push(clia.responseData[i]["molecular_id"]);
+        for (var i = 0; i < cliaPage.responseData.length; i++) {
+            oldMolecularIds.push(cliaPage.responseData[i]["molecular_id"]);
         }
-        for (var i = 0; i < clia.newResponseData.length; i++) {
-            newMolecularIds.push(clia.newResponseData[i]["molecular_id"]);
+        for (var i = 0; i < cliaPage.newResponseData.length; i++) {
+            newMolecularIds.push(cliaPage.newResponseData[i]["molecular_id"]);
         }
-        clia.newMSNObject = clia.newResponseData.filter(function (item) {
+        cliaPage.newMSNObject = cliaPage.newResponseData.filter(function (item) {
             return oldMolecularIds.indexOf(item["molecular_id"]) < 0;
         })[0];
 
-        console.log(clia.newMSNObject);
+        console.log(cliaPage.newMSNObject);
         browser.sleep(50).then(callback);
     });
 
     this.Then(/^I verify that I am on the sample control page for that molecularId$/, function (callback) {
-        var expectedResult = '/?site=' + clia.site + '&type=' + clia.urlType + '&molecular_id=' + clia.molecularId
+        var expectedResult = '/?site=' + cliaPage.site + '&type=' + cliaPage.urlType + '&molecular_id=' + cliaPage.molecularId
         expect(browser.getCurrentUrl()).to.eventually.include(expectedResult).notify(callback);
     });
 
     this.Then(/^I verify all the headings on the "(left|right)" hand side section under Positive Sample Control$/, function (side, callback) {
-        var expectedHeaders = clia.expPositiveSampleHeaders[side];
+        var expectedHeaders = cliaPage.expPositiveSampleHeaders[side];
         var index = side === 'left' ? 0 : 1;
-        var actualHeadings  = clia.sampleDetailHeaders.get(index).all(by.css('dt'));
+        var actualHeadings  = cliaPage.sampleDetailHeaders.get(index).all(by.css('dt'));
         browser.sleep(30).then(function () {
             utilities.checkElementArray(actualHeadings, expectedHeaders)
         }).then(callback);
     });
 
     this.Then(/^I verify all the headings on the "(left|right)" hand side section under "(No Template Control|Proficiency And Competency)"$/, function (side, header, callback) {
-        var tableType = header === 'No Template Control' ? clia.expNonTempCrtlHeaders : clia.expProfAndCompCrtlHeaders
+        var tableType = header === 'No Template Control' ? cliaPage.expNonTempCrtlHeaders : cliaPage.expProfAndCompCrtlHeaders
         var expectedHeaders = tableType[side];
         var index = side === 'left' ? 0 : 1;
-        var actualHeadings  = clia.sampleDetailHeaders.get(index).all(by.css('dt'));
+        var actualHeadings  = cliaPage.sampleDetailHeaders.get(index).all(by.css('dt'));
         browser.sleep(30).then(function () {
             utilities.checkElementArray(actualHeadings, expectedHeaders)
         }).then(callback);
     });
 
     this.Then(/^I verify all the values on the left hand side section under Positive Sample Control$/, function (callback) {
-        expect(clia.sampleDetailMolecId.getText()).to.eventually.include(clia.responseData['molecular_id']);
-        expect(clia.sampleDetailAnalysisId.getText()).to.eventually.include(clia.responseData['analysis_id']);
-        expect(clia.sampleDetailLoadedDt.getText()).to.eventually.include(moment.utc(clia.responseData['date_molecular_id_created']).utc().format('LLL'));
-        expect(clia.sampleDetailTorrentVer.getText()).to.eventually.include(clia.responseData['torrent_variant_caller_version']);
-        expect(clia.sampleDetailPosCtrlVer.getText()).to.eventually.include(clia.responseData['positive_control_version']);
-        expect(clia.sampleDetailRecvdDate.getText()).to.eventually.include(moment.utc(clia.responseData['date_variant_received']).utc().format('LLL'));
-        expect(clia.sampleDetailStatus.getText()).to.eventually.include(clia.responseData['report_status']).notify(callback);
+        expect(cliaPage.sampleDetailMolecId.getText()).to.eventually.include(cliaPage.responseData['molecular_id']);
+        expect(cliaPage.sampleDetailAnalysisId.getText()).to.eventually.include(cliaPage.responseData['analysis_id']);
+        expect(cliaPage.sampleDetailLoadedDt.getText()).to.eventually.include(moment.utc(cliaPage.responseData['date_molecular_id_created']).utc().format('LLL'));
+        expect(cliaPage.sampleDetailTorrentVer.getText()).to.eventually.include(cliaPage.responseData['torrent_variant_caller_version']);
+        expect(cliaPage.sampleDetailPosCtrlVer.getText()).to.eventually.include(cliaPage.responseData['positive_control_version']);
+        expect(cliaPage.sampleDetailRecvdDate.getText()).to.eventually.include(moment.utc(cliaPage.responseData['date_variant_received']).utc().format('LLL'));
+        expect(cliaPage.sampleDetailStatus.getText()).to.eventually.include(cliaPage.responseData['report_status']).notify(callback);
     });
 
     this.Then(/^I verify all the values on the left hand side section under "(No Template Control|Proficiency And Competency)"$/, function (headerType, callback) {
-        expect(clia.sampleDetailMolecId.getText()).to.eventually.include(clia.responseData['molecular_id']);
-        expect(clia.sampleDetailAnalysisId.getText()).to.eventually.include(clia.responseData['analysis_id']);
-        expect(clia.sampleDetailTorrentVer.getText()).to.eventually.include(clia.responseData['torrent_variant_caller_version']);
-        expect(clia.sampleDetailRecvdDate.getText()).to.eventually.include(moment.utc(clia.responseData['date_variant_received']).utc().format('LLL'));
-        expect(clia.sampleDetailStatus.getText()).to.eventually.include(clia.responseData['report_status']).notify(callback);
+        expect(cliaPage.sampleDetailMolecId.getText()).to.eventually.include(cliaPage.responseData['molecular_id']);
+        expect(cliaPage.sampleDetailAnalysisId.getText()).to.eventually.include(cliaPage.responseData['analysis_id']);
+        expect(cliaPage.sampleDetailTorrentVer.getText()).to.eventually.include(cliaPage.responseData['torrent_variant_caller_version']);
+        expect(cliaPage.sampleDetailRecvdDate.getText()).to.eventually.include(moment.utc(cliaPage.responseData['date_variant_received']).utc().format('LLL'));
+        expect(cliaPage.sampleDetailStatus.getText()).to.eventually.include(cliaPage.responseData['report_status']).notify(callback);
     });
 
     this.Then(/^I verify all the values on the right hand side section under Positive Sample Control$/, function (callback) {
-        expect(clia.sampleDetailCell.getText()).to.eventually.include(clia.responseData['cellularity']);
-        expect(clia.sampleDetailMAPD.getText()).to.eventually.include(clia.responseData['mapd']);
-        expect(clia.sampleDetailTotVariant.getText()).to.eventually.include(clia.responseData['total_variants']).notify(callback);
+        expect(cliaPage.sampleDetailCell.getText()).to.eventually.include(cliaPage.responseData['cellularity']);
+        expect(cliaPage.sampleDetailMAPD.getText()).to.eventually.include(cliaPage.responseData['mapd']);
+        expect(cliaPage.sampleDetailTotVariant.getText()).to.eventually.include(cliaPage.responseData['total_variants']).notify(callback);
     });
 
 
     this.Then(/^I verify all the values on the right hand side section under "(No Template Control|Proficiency And Competency)"$/, function (headerType, callback) {
-        expect(clia.sampleDetailCell.getText()).to.eventually.include(clia.responseData['cellularity']);
-        expect(clia.sampleDetailMAPD.getText()).to.eventually.include(clia.responseData['mapd']);
-        expect(clia.sampleDetailTotVariant.getText()).to.eventually.include(clia.responseData['total_variants']).notify(callback);
+        expect(cliaPage.sampleDetailCell.getText()).to.eventually.include(cliaPage.responseData['cellularity']);
+        expect(cliaPage.sampleDetailMAPD.getText()).to.eventually.include(cliaPage.responseData['mapd']);
+        expect(cliaPage.sampleDetailTotVariant.getText()).to.eventually.include(cliaPage.responseData['total_variants']).notify(callback);
     });
 
     this.Then(/^I verify the presence of Positive controls and False positive variants table$/, function (callback) {
-        expect(clia.sampleDetailTableHead.get(0).getText()).to.eventually.eql('Positive Controls');
-        expect(clia.sampleDetailTableHead.get(1).getText()).to.eventually.eql('False Positive Variants').notify(callback);
+        expect(cliaPage.sampleDetailTableHead.get(0).getText()).to.eventually.eql('Positive Controls');
+        expect(cliaPage.sampleDetailTableHead.get(1).getText()).to.eventually.eql('False Positive Variants').notify(callback);
     });
 
     this.When(/^I verify the presence of SNVs, CNVs and Gene Fusions Table$/, function (callback) {
-        expect(clia.sampleDetailTableHead.get(0).getText()).to.eventually.eql('SNVs/MNVs/Indels');
-        expect(clia.sampleDetailTableHead.get(1).getText()).to.eventually.eql('Copy Number Variants');
-        expect(clia.sampleDetailTableHead.get(2).getText()).to.eventually.eql('Gene Fusions').notify(callback);
+        expect(cliaPage.sampleDetailTableHead.get(0).getText()).to.eventually.eql('SNVs/MNVs/Indels');
+        expect(cliaPage.sampleDetailTableHead.get(1).getText()).to.eventually.eql('Copy Number Variants');
+        expect(cliaPage.sampleDetailTableHead.get(2).getText()).to.eventually.eql('Gene Fusions').notify(callback);
     });
 
     this.Then(/^I verify that valid IDs are links and invalid IDs are not in "(Positive Controls|False Positive Variants)" table$/, function (tableName, callback) {
         var presentIDList;
         if (tableName === 'Positive Controls') {
-            presentIDList = clia.samplePositivePanel.all(by.css('[ng-if$="item.identifier"]'));
+            presentIDList = cliaPage.samplePositivePanel.all(by.css('[ng-if$="item.identifier"]'));
         } else {
-            presentIDList = clia.sampleFalsePosPanel.all(by.css('cosmic-link[link-id="item.identifier"]'))
+            presentIDList = cliaPage.sampleFalsePosPanel.all(by.css('cosmic-link[link-id="item.identifier"]'))
         }
         presentIDList.count().then(function (cnt) {
             for(var i = 0; i < cnt; i ++){
@@ -319,7 +326,7 @@ module.exports = function() {
     });
 
     this.Then(/^I verify the valid Ids are links in the SNVs\/MNVs\/Indels table under "(No Template Control|Proficiency And Competency)"$/, function (sectionName, callback) {
-        var panel        = sectionName === 'No Template Control' ? clia.ntcSNVPanel : clia.proficiencySNVPanel;
+        var panel        = sectionName === 'No Template Control' ? cliaPage.ntcSNVPanel : cliaPage.proficiencySNVPanel;
         var idList       = panel.all(by.css('cosmic-link[link-id="item.identifier"]'));
         var funcGeneList = panel.all(by.css('cosmic-link[link-id="item.func_gene"]'));
         idList.count().then(function(cnt){
@@ -331,7 +338,7 @@ module.exports = function() {
     });
 
     this.Then(/^I verify the valid Ids are links in the Copy Number Variants table under "(No Template Control|Proficiency And Competency)"$/, function (sectionName, callback) {
-        var panel   = sectionName === 'No Template Control' ? clia.ntcCNVPanel : clia.proficiencyCNVPanel;
+        var panel   = sectionName === 'No Template Control' ? cliaPage.ntcCNVPanel : cliaPage.proficiencyCNVPanel;
         var idList  = panel.all(by.css('cosmic-link[link-id="item.identifier"]'));
         idList.count().then(function(cnt){
             for (var i = 0; i < cnt; i++){
@@ -341,7 +348,7 @@ module.exports = function() {
     });
 
     this.Then(/^I verify the valid Ids are links in the Gene Fusions table under "(No Template Control|Proficiency And Competency)"$/, function (sectionName, callback) {
-        var panel   = sectionName === 'No Template Control' ? clia.ntcGeneFusionPanel : clia.proficiencyGFPanel
+        var panel   = sectionName === 'No Template Control' ? cliaPage.ntcGeneFusionPanel : cliaPage.proficiencyGFPanel
         var idList  = panel.all(by.css('cosmic-link[link-id="item.identifier"]'));
         var gene1List = panel.all(by.css('cosmic-link[link-id="item.driver_gene"]'));
         var gene2List = panel.all(by.css('cosmic-link[link-id="item.partner_gene"]'));
@@ -353,4 +360,96 @@ module.exports = function() {
             }
         }).then(callback);
     });
+
+    this.When(/^I go to clia variant report with "(.+)" as the molecular_id$/, function (molecularId, callback) {
+        var location = '/#/clia-lab-report/no-template-sample-control/?site=' + cliaPage.site
+            + '&type=no_template_control' + '&molecular_id=' + molecularId;
+        browser.get(location, 6000).then(function () {browser.waitForAngular();}).then(callback);
+    });
+
+    //Status button
+    this.When(/^The clia report "(.+?)" button is "(disabled|enabled|visible|invisible)"$/, function (buttonText, buttonState, callback) {
+        var button = element(by.buttonText(buttonText));
+        var isVisible = buttonState === 'enabled' || buttonState === 'disabled';
+        var isAvailable = buttonState === 'enabled' || buttonState === 'visible';
+
+        if (isVisible){
+            expect(button.isEnabled()).to.eventually.eql(isAvailable).notify(callback);
+        } else {
+            expect(button.isPresent()).to.eventually.eql(isAvailable).notify(callback);
+        }
+    });
+
+    // function getStatusButton(filtered, reportType){
+        // var buttonString = filtered === 'Filtered' ? 'FILTERED' : 'QC';
+        // var panelString = reportType === 'Tissue Reports' ? patientPage.tissueMasterPanelString : patientPage.bloodMasterPanelString;
+        // var css_locator = panelString + " [ng-class=\"getVariantReportModeClass('" + buttonString + "')\"]";
+        // return element(by.css(css_locator));
+    // };
+
+
+
+    this.Then(/^I click on clia report "([^"]*)" button$/, function (buttonText, callback) {
+        browser.sleep(5000).then(function () {
+            browser.waitForAngular().then(function () {
+
+                element(by.buttonText('PASSED')).click();
+                browser.sleep(2000);
+                element(by.cssContainingText('.btn', 'PASSED')).click();
+            });
+        });
+
+        // element(by.buttonText(buttonText)).click().then(function () {
+        //     browser.waitForAngular();
+        // }).then(callback);
+    });
+
+    this.Then(/^I can see the "([^"]*)" in the modal text box$/, function (comment, callback) {
+        console.log("comment--> " + comment)
+        expect(cliaPage.confirmChangeCommentField.getAttribute('value'))
+            .to
+            .eventually
+            .eql(comment)
+            .and
+            .notify(callback)
+    });
+
+    this.Then(/^I can see the "([^"]*)" in the modal text box$/, function (comment, callback) {
+        expect(cliaPage.confirmChangeCommentField.getAttribute('value'))
+            .to
+            .eventually
+            .eql(comment)
+            .and
+            .notify(callback)
+    });
+
+    this.When(/^I click on the PASSED Button under "(No Template Control|Proficiency And Competency)"$/, function (tabName, callback) {
+        var buttonElement = getStatusButton('PASSED', tabName);
+
+        buttonElement.click().then(function () {
+            browser.wait(EC.visbilityOf(element(by.className('modal fade ng-isolate-scope in'))), 5000);
+
+
+            // return browser.waitForAngular();
+//            var assignmentHeading = element(by.css(patientPage.tissueTableString))
+//            utilities.waitForElement(assignmentHeading, 'Table Element on Tissue/Blood');
+//            return;
+        }).then(callback);
+    });
+
+    this.When(/^I enter the comment "([^"]*)" in the modal text box$/, function (comment, callback) {
+        patientPage.confirmChangeCommentField.sendKeys(comment);
+        browser.sleep(50).then(callback);
+    });
+
+    this.When(/^I clear the text in the modal text box$/, function (callback) {
+        patientPage.confirmChangeCommentField.clear();
+        browser.sleep(50).then(callback);
+    });
+
+    this.When(/^I enter the cliaPage report comment "([^"]*)" in the VR modal text box$/, function (comment, callback) {
+        patientPage.confirmVRStatusCommentField.sendKeys(comment);
+        browser.sleep(50).then(callback);
+    });
+
 };

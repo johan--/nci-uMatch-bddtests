@@ -1,8 +1,8 @@
-Feature: Clia Labs Page
+Feature: CLIA Labs Page
 
   Background:
     Given I am a logged in user
-    When I navigate to the Clia Labs page
+    When I navigate to the CLIA Labs page
 
   @ui_p1
   Scenario Outline: User can generate an MSN under <sectionName> section for <subTabName>
@@ -36,9 +36,16 @@ Feature: Clia Labs Page
     And I wait "5" seconds
     And I call the aliquot service with the generated MSN
     And I wait "30" seconds
-    And I navigate to the Clia Labs page
+    And I navigate to the CLIA Labs page
     Then I see variant report details for the generated MSN
     And I delete the variant reports uploaded to S3
+
+  @ui_p1
+  Scenario: User can access information about the uploaded Positive Sample Control report.
+    When I click on the "MoCha" section
+    And I click on "No Template Control" under "MoCha"
+    And I go to clia variant report with "SC_SA1CB" as the molecular_id
+    And The clia report "PASSED" button is "visible"
 
   @ui_p1
   Scenario: User can access information about the uploaded Positive Sample Control report.
@@ -56,23 +63,23 @@ Feature: Clia Labs Page
     And I verify that valid IDs are links and invalid IDs are not in "Positive Controls" table
     And I verify that valid IDs are links and invalid IDs are not in "False Positive Variants" table
 
-  @ui_p1
+  @ui_p1 @demo_p4
   Scenario Outline: User can access information about the uploaded <tableType> report.
     When I click on the "MoCha" section
     And I click on "<tableType>" under "MoCha"
-    And I enter "<sampleControlId>" in the search field on "<tableType>" under "MoCha"
-    And I collect information about the sample variant report
-    And I click on the sample control link
-    Then I verify that I am on the sample control page for that molecularId
-    And I verify all the values on the left hand side section under "<tableType>"
-    And I verify all the values on the right hand side section under "<tableType>"
-    And I verify all the headings on the "left" hand side section under "<tableType>"
-    And I verify all the headings on the "right" hand side section under "<tableType>"
-    And I verify the presence of SNVs, CNVs and Gene Fusions Table
-    And I verify the valid Ids are links in the SNVs/MNVs/Indels table under "<tableType>"
-    And I verify the valid Ids are links in the Gene Fusions table under "<tableType>"
-    And I verify the valid Ids are links in the Copy Number Variants table under "<tableType>"
+#    And I enter "<sampleControlId>" in the search field on "<tableType>" under "MoCha"
+#    And I collect information about the sample variant report
+#    And I click on the sample control link
+#    Then I verify that I am on the sample control page for that molecularId
+#    And I verify all the values on the left hand side section under "<tableType>"
+#    And I verify all the values on the right hand side section under "<tableType>"
+#    And I verify all the headings on the "left" hand side section under "<tableType>"
+#    And I verify all the headings on the "right" hand side section under "<tableType>"
+#    And I verify the presence of SNVs, CNVs and Gene Fusions Table
+#    And I verify the valid Ids are links in the SNVs/MNVs/Indels table under "<tableType>"
+#    And I verify the valid Ids are links in the Gene Fusions table under "<tableType>"
+#    And I verify the valid Ids are links in the Copy Number Variants table under "<tableType>"
     Examples:
       | tableType                  | sampleControlId |
-      | No Template Control        | SC_YQ111        |
+      | No Template Control        | SC_KGPVI        |
       | Proficiency And Competency | SC_FDK09        |
