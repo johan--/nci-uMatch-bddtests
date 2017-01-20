@@ -437,10 +437,10 @@ module.exports = function() {
         }).then(callback);
     });
 
-    this.When(/^I enter the comment "([^"]*)" in the modal text box$/, function (comment, callback) {
-        patientPage.confirmChangeCommentField.sendKeys(comment);
-        browser.sleep(50).then(callback);
-    });
+    // this.When(/^I enter the comment "([^"]*)" in the modal text box$/, function (comment, callback) {
+    //     patientPage.confirmChangeCommentField.sendKeys(comment);
+    //     browser.sleep(50).then(callback);
+    // });
 
     this.When(/^I clear the text in the modal text box$/, function (callback) {
         patientPage.confirmChangeCommentField.clear();

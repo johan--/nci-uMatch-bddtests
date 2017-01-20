@@ -99,12 +99,14 @@ module.exports = function () {
 
     this.When(/^I uncheck the variant of ordinal "([^"]*)"$/, function (ordinal, callback) {
         // ordinal begins at 1
-        var index = parseInt(ordinal) - 1;
-        browser.executeScript('window.scrollTo(0,5000)').then(function () {
-            patientPage.variantConfirmButtonCLickList.get(index).click().then(function () {
-                browser.waitForAngular();
+       
+            var index = parseInt(ordinal) - 1;
+            browser.executeScript('window.scrollTo(0,5000)').then(function () {
+                patientPage.variantConfirmButtonCLickList.get(index).click().then(function () {
+                    browser.waitForAngular();
+                })
             }).then(callback);
-        });
+        
     });
 
     this.When(/^I note the ID of the variant at ordinal "([^"]*)"$/, function (ordinal, callback) {
@@ -427,7 +429,7 @@ module.exports = function () {
             .notify(callback);
     });
 
-    this.Then(/^I see the confirmation message in the Dashboard activity feed as "(.+?)" for "(.+?)"$/, function (message, callback) {
+    this.Then(/^I see the confirmation message in the Dashboard activity feed as "(.+?)" for "(.+?)"$/, function (message, label, callback) {
         var timeline = patientPage.timelineList.get(0);
         var patientString = '[patient-id="timelineEvent.entity_id"]';
         var variantReportStatusString = '[ng-if^="timelineEvent.event_data.variant_report_status"]';
