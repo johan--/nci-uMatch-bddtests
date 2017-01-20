@@ -79,12 +79,12 @@ Feature: ir ecosystem authorization tests
       | NCI_MATCH_READONLY            | IR_MDA00 |             | 401      | IR_MCA00 |               | 401        |
       | NO_ROLE                       | IR_MDA00 |             | 401      | IR_MCA00 |               | 401        |
       | ADMIN                         | IR_MDA02 | deleted     | 200      | IR_MCA02 | deleted       | 200        |
-      | SYSTEM                        | IR_MDA03 | deleted     | 200      | IR_MCA03 | deleted       | 200        |
+      | SYSTEM                        | IR_MDA00 |             | 401      | IR_MCA00 |               | 401        |
       | ASSIGNMENT_REPORT_REVIEWER    | IR_MDA00 |             | 401      | IR_MCA00 |               | 401        |
-      | MDA_VARIANT_REPORT_SENDER     | IR_MDA04 | deleted     | 200      | IR_MCA00 |               | 401        |
-      | MDA_VARIANT_REPORT_REVIEWER   | IR_MDA05 | deleted     | 200      | IR_MCA00 |               | 401        |
-      | MOCHA_VARIANT_REPORT_SENDER   | IR_MDA00 |             | 401      | IR_MCA04 | deleted       | 200        |
-      | MOCHA_VARIANT_REPORT_REVIEWER | IR_MDA00 |             | 401      | IR_MCA05 | deleted       | 200        |
+      | MDA_VARIANT_REPORT_SENDER     | IR_MDA00 |             | 401      | IR_MCA00 |               | 401        |
+      | MDA_VARIANT_REPORT_REVIEWER   | IR_MDA00 |             | 401      | IR_MCA00 |               | 401        |
+      | MOCHA_VARIANT_REPORT_SENDER   | IR_MDA00 |             | 401      | IR_MCA00 |               | 401        |
+      | MOCHA_VARIANT_REPORT_REVIEWER | IR_MDA00 |             | 401      | IR_MCA00 |               | 401        |
       | PATIENT_MESSAGE_SENDER        | IR_MDA00 |             | 401      | IR_MCA00 |               | 401        |
       | SPECIMEN_MESSAGE_SENDER       | IR_MDA00 |             | 401      | IR_MCA00 |               | 401        |
       | ASSAY_MESSAGE_SENDER          | IR_MDA00 |             | 401      | IR_MCA00 |               | 401        |
@@ -170,12 +170,12 @@ Feature: ir ecosystem authorization tests
       | NCI_MATCH_READONLY            | SC_MDA00 |             | 401      | SC_MCA00  |               | 401        |
       | NO_ROLE                       | SC_MDA00 |             | 401      | SC_MCA00  |               | 401        |
       | ADMIN                         | SC_MDA02 | deleted     | 200      | SC_MCA02  | deleted       | 200        |
-      | SYSTEM                        | SC_MDA03 | deleted     | 200      | SC_MCA03  | deleted       | 200        |
+      | SYSTEM                        | SC_MDA00 |             | 401      | SC_MCA00  |               | 401        |
       | ASSIGNMENT_REPORT_REVIEWER    | SC_MDA00 |             | 401      | SC_MCA00  |               | 401        |
-      | MDA_VARIANT_REPORT_SENDER     | SC_MDA04 | deleted     | 200      | SC_MCA00  |               | 401        |
-      | MDA_VARIANT_REPORT_REVIEWER   | SC_MDA05 | deleted     | 200      | SC_MCA00  |               | 401        |
-      | MOCHA_VARIANT_REPORT_SENDER   | SC_MDA00 |             | 401      | SC_MCA04  | deleted       | 200        |
-      | MOCHA_VARIANT_REPORT_REVIEWER | SC_MDA00 |             | 401      | SC_MCA05  | deleted       | 200        |
+      | MDA_VARIANT_REPORT_SENDER     | SC_MDA00 |             | 401      | SC_MCA00  |               | 401        |
+      | MDA_VARIANT_REPORT_REVIEWER   | SC_MDA00 |             | 401      | SC_MCA00  |               | 401        |
+      | MOCHA_VARIANT_REPORT_SENDER   | SC_MDA00 |             | 401      | SC_MCA00  |               | 401        |
+      | MOCHA_VARIANT_REPORT_REVIEWER | SC_MDA00 |             | 401      | SC_MCA00  |               | 401        |
       | PATIENT_MESSAGE_SENDER        | SC_MDA00 |             | 401      | SC_MCA00  |               | 401        |
       | SPECIMEN_MESSAGE_SENDER       | SC_MDA00 |             | 401      | SC_MCA00  |               | 401        |
       | ASSAY_MESSAGE_SENDER          | SC_MDA00 |             | 401      | SC_MCA00  |               | 401        |

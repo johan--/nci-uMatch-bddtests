@@ -318,14 +318,14 @@ class Patient5xA
   end
 
   def self.pt_sc04b_ts_shipped
-    pt = PatientDataSet.new('PT_SC04b_TsShipped')
+    pt = PatientDataSet.new('PT_SC04b_TsShippedNoSd')
     PatientMessageLoader.register_patient(pt.id)
     PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
     PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
   end
 
   def self.pt_sc04b_ts_vr_uploaded
-    pt = PatientDataSet.new('PT_SC04b_TsVrUploaded')
+    pt = PatientDataSet.new('PT_SC04b_TsVrUploadedNoSd')
     PatientMessageLoader.register_patient(pt.id)
     PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
     PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
@@ -334,7 +334,7 @@ class Patient5xA
   end
 
   def self.pt_sc04b_ts_vr_confirmed
-    pt = PatientDataSet.new('PT_SC04b_TsVrConfirmed')
+    pt = PatientDataSet.new('PT_SC04b_TsVrConfirmedNoSd')
     PatientMessageLoader.register_patient(pt.id)
     PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
     PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
@@ -356,12 +356,59 @@ class Patient5xA
   end
 
   def self.pt_sc04b_two_assay
-    pt = PatientDataSet.new('PT_SC04b_TwoAssay')
+    pt = PatientDataSet.new('PT_SC04b_TsShippedTwoAssay')
     PatientMessageLoader.register_patient(pt.id)
     PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
     PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
     PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
     PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBRG1s')
+  end
+
+  def self.pt_sc04b_sd_shipped_no_ts
+    pt = PatientDataSet.new('PT_SC04b_SdShippedNoTs')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+  end
+
+  def self.pt_sc04b_ts_sd_shipped
+    pt = PatientDataSet.new('PT_SC04b_TsSdShipped')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+    PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+  end
+
+  def self.pt_sc04b_ts_vr_confirmed_and_sd
+    pt = PatientDataSet.new('PT_SC04b_TsVrConfirmedAndSd')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+    PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+    PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+    PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
+    PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.ani)
+  end
+
+  def self.pt_sc04b_three_assay_no_ts
+    pt = PatientDataSet.new('PT_SC04b_ThreeAssayNoTs')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBAF47s')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBRG1s')
+  end
+
+  def self.pt_sc04b_three_assay_and_ts
+    pt = PatientDataSet.new('PT_SC04b_ThreeAssayAndTs')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+    PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBAF47s')
     PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBRG1s')
   end
 
@@ -509,6 +556,12 @@ class Patient5xA
     PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.ani)
     sleep(10.0)
     PatientMessageLoader.assignment_confirmed(pt.id, pt.ani)
+  end
+
+  def self.pt_sc04k_ts_received
+    pt = PatientDataSet.new('PT_SC04k_TsReceived')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
   end
 
   def self.pt_sc05a_ts_vr_uploaded
@@ -831,5 +884,6 @@ class Patient5xA
     PatientMessageLoader.specimen_received_blood(pt.id)
     PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)
   end
+
 
 end
