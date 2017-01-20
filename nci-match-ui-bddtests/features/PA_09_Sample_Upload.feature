@@ -15,13 +15,14 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     And I can see the "Upload BAM files and Variant ZIP files" dialog
     Then I select an Ion Reporter "<ir_reporter>"
     And I enter Analysis ID "<analysis_id>"
+    And I select a file "<file>"
     Then The "Upload" button is "visible"
     And The "Upload" button is "enabled"
     Then I can click on the "Upload" button
     And I can see the Sample File upload process has started
     Then I then logout
     Examples:
-      | user              | patient_id | surgical_event_id | ir_reporter | analysis_id
+      | user              | patient_id | surgical_event_id | ir_reporter | analysis_id | file
       | read_only         |            | 
       | VR_Reviewer_mocha |            | 
       | AR_Reviewer       |            | 
