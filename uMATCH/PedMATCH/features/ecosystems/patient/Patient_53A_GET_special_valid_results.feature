@@ -188,17 +188,22 @@ Feature: Patient GET service valid special case tests
     Then there are "1" patient_limbos have field: "patient_id" value: "<patient_id>"
     Then this patient patient_limbos field "current_status" should be correct
     Then this patient patient_limbos field "active_tissue_specimen" should be correct
-    Then this patient patient_limbos message should contain "<contain_message>" not "<not_contain_message>"
+    Then this patient patient_limbos should have "<count>" messages which contain "<contain_message>"
     Then this patient patient_limbos days_pending should be correct
     Examples:
-      | patient_id                   | contain_message                              | not_contain_message        |
-      | PT_SC04b_TsReceived          | shipment-ICCPTENs-ICCBAF47s-ICCBRG1s-variant |                            |
-      | PT_SC04b_TsShipped           | variant-ICCPTENs-ICCBAF47s-ICCBRG1s          | shipment                   |
-      | PT_SC04b_TsVrUploaded        | variant-ICCPTENs-ICCBAF47s-ICCBRG1s          | shipment                   |
-      | PT_SC04b_TsVrConfirmed       | ICCPTENs-ICCBAF47s-ICCBRG1s                  | shipment-variant           |
-      | PT_SC04b_VrConfirmedOneAssay | ICCBAF47s-ICCBRG1s                           | shipment-variant-ICCPTENs  |
-      | PT_SC04b_TwoAssay            | ICCBAF47s-variant                            | shipment-ICCBRG1s-ICCPTENs |
-      | PT_SC04b_PendingApproval     | approval                                     |                            |
+      | patient_id                   | count | contain_message                     |
+      | PT_SC04b_TsReceived          | 2     | Tissue-Slide                        |
+      | PT_SC04b_TsShippedNoSd       | 2     | Variant-Slide                       |
+      | PT_SC04b_SdShippedNoTs       | 4     | Tissue-ICCBAF47s-ICCBRG1s-ICCPTENs  |
+      | PT_SC04b_TsSdShipped         | 4     | Variant-ICCBAF47s-ICCBRG1s-ICCPTENs |
+      | PT_SC04b_TsVrUploadedNoSd    | 2     | confirmed-Slide                     |
+      | PT_SC04b_TsVrConfirmedAndSd  | 3     | ICCPTENs-ICCBAF47s-ICCBRG1s         |
+      | PT_SC04b_TsVrConfirmedNoSd   | 1     | Slide                               |
+      | PT_SC04b_VrConfirmedOneAssay | 2     | ICCBAF47s-ICCBRG1s                  |
+      | PT_SC04b_TsShippedTwoAssay   | 2     | ICCBAF47s-Variant                   |
+      | PT_SC04b_ThreeAssayNoTs      | 1     | Tissue                              |
+      | PT_SC04b_ThreeAssayAndTs     | 1     | Variant                             |
+      | PT_SC04b_PendingApproval     | 1     | approval                            |
 
   @patients_p1_off
   Scenario: PT_SC04c patient_limbos should update properly after tissue is shipped
@@ -213,7 +218,7 @@ Feature: Patient GET service valid special case tests
     Then there are "1" patient_limbos have field: "patient_id" value: "PT_SC04c_TsReceived"
     Then this patient patient_limbos field "current_status" should be correct
     Then this patient patient_limbos field "active_tissue_specimen" should be correct
-    Then this patient patient_limbos message should contain "variant-ICCPTENs-ICCBAF47s-ICCBRG1s" not "shipment"
+    Then this patient patient_limbos should have "2" messages which contain "Variant-Slide"
     Then this patient patient_limbos days_pending should be correct
 
   @patients_p1_off
@@ -229,13 +234,13 @@ Feature: Patient GET service valid special case tests
     Then there are "1" patient_limbos have field: "patient_id" value: "<patient_id>"
     Then this patient patient_limbos field "current_status" should be correct
     Then this patient patient_limbos field "active_tissue_specimen" should be correct
-    Then this patient patient_limbos message should contain "<contain_message>" not "<not_contain_message>"
+    Then this patient patient_limbos should have "<count>" messages which contain "<contain_message>"
     Then this patient patient_limbos days_pending should be correct
     Examples:
-      | patient_id        | biomarker | contain_message            | not_contain_message                  |
-      | PT_SC04d_NoAssay  | ICCPTENs  | variant-ICCBAF47s-ICCBRG1s | shipment-ICCPTENs                    |
-      | PT_SC04d_OneAssay | ICCBAF47s | variant-ICCBRG1s           | shipment-ICCBAF47s-ICCPTENs          |
-      | PT_SC04d_TwoAssay | ICCBRG1s  | variant                    | shipment-ICCBAF47s-ICCPTENs-ICCBRG1s |
+      | patient_id        | biomarker | count | contain_message            |
+      | PT_SC04d_NoAssay  | ICCPTENs  | 3     | variant-ICCBAF47s-ICCBRG1s |
+      | PT_SC04d_OneAssay | ICCBAF47s | 2     | variant-ICCBRG1s           |
+      | PT_SC04d_TwoAssay | ICCBRG1s  | 1     | variant                    |
 
   @patients_p1_off
   Scenario: PT_SC04e patient_limbos should update properly after variant report is confirmed
@@ -248,7 +253,7 @@ Feature: Patient GET service valid special case tests
     Then there are "1" patient_limbos have field: "patient_id" value: "PT_SC04e_TsVrUploaded"
     Then this patient patient_limbos field "current_status" should be correct
     Then this patient patient_limbos field "active_tissue_specimen" should be correct
-    Then this patient patient_limbos message should contain "ICCPTENs-ICCBAF47s-ICCBRG1s" not "shipment-variant"
+    Then this patient patient_limbos should have "3" messages which contain "ICCPTENs-ICCBAF47s-ICCBRG1s"
     Then this patient patient_limbos days_pending should be correct
 
   @patients_p1_off
@@ -317,6 +322,21 @@ Feature: Patient GET service valid special case tests
     Then patient GET service: "patient_limbos", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return
     Then there are "0" patient_limbos have field: "patient_id" value: "PT_SC04j_PendingApproval"
+
+  Scenario: PT_SC04k patient_limbos should update properly after slide shipped
+    Given patient id is "PT_SC04k_TsReceived"
+    Then load template specimen type: "SLIDE" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "PT_SC04k_TsReceived_SEI1"
+    Then set patient message field: "slide_barcode" to value: "PT_SC04k_TsReceived_BC1"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
+    Then patient status should change to "TISSUE_SLIDE_SPECIMEN_SHIPPED"
+    Then patient GET service: "patient_limbos", patient id: "", id: ""
+    When GET from MATCH patient API, http code "200" should return
+    Then there are "1" patient_limbos have field: "patient_id" value: "PT_SC04k_TsReceived"
+    Then this patient patient_limbos field "current_status" should be correct
+    Then this patient patient_limbos field "active_tissue_specimen" should be correct
+    Then this patient patient_limbos should have "4" messages which contain "Tissue-ICCBAF47s-ICCBRG1s-ICCPTENs"
+    Then this patient patient_limbos days_pending should be correct
 
   @patients_p1_off
   Scenario Outline: PT_SC05a action_items should have correct value
@@ -400,8 +420,8 @@ Feature: Patient GET service valid special case tests
     Then there are "0" patient action_items
     Examples:
       | patient_id                   |
-      | PT_SC02f_TsVrUploaded        |
-      | PT_SC02f_PendingConfirmation |
+      | PT_SC05f_TsVrUploaded        |
+      | PT_SC05f_PendingConfirmation |
 
   @patients_p1_off
   Scenario Outline: PT_SC05g action_items should be cleared once this patient change to OFF_STUDY_BIOPSY_EXPIRED

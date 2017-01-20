@@ -697,24 +697,18 @@ Then(/^this patient patient_limbos field "([^"]*)" should be correct$/) do |fiel
   expect(this_patient_limbos[field]).to eql @current_patient_hash[field]
 end
 
-Then(/^this patient patient_limbos message should contain "([^"]*)" not "([^"]*)"$/) do |contain, not_contain|
+Then(/^this patient patient_limbos should have "([^"]*)" messages which contain "([^"]*)"$/) do |count, contain|
   expect(@get_response.class).to eql Array
   this_patient_limbos = @get_response.find { |this_item| this_item['patient_id'] == @patient_id }
   expect(this_patient_limbos).not_to eql nil
   expect(this_patient_limbos.keys).to include 'message'
   contain_list = contain.split('-')
-  not_contain_list = not_contain.split('-')
   actual_list = this_patient_limbos['message']
 
+  expect(actual_list.size).to eql count.to_i
   contain_list.each { |this_contain|
     unless actual_list.any? { |this_actual| this_actual.include?(this_contain) }
       raise "#{actual_list.to_s} is expected to contain #{this_contain}"
-    end
-  }
-
-  not_contain_list.each { |this_not_contain|
-    if actual_list.any? { |this_actual| this_actual.include?(this_not_contain) }
-      raise "#{actual_list.to_s} is expected NOT to contain #{this_not_contain}"
     end
   }
 end
