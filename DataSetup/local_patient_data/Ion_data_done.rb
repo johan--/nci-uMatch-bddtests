@@ -132,7 +132,26 @@ class Iondata
     PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
   end
 
-
+  def self.pt_ir01_on_treatment_arm
+    pt = PatientDataSet.new('PT_IR01_OnTreatmentArm')
+    PatientMessageLoader.reset_cog_patient(pt.id)
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_blood(pt.id, '2016-05-10')
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei, '2016-09-11')
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-09-12T19:42:13+00:00')
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi_increase, '2016-09-13T19:42:13+00:00')
+    PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc, '2016-09-13T19:42:13+00:00')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs', '2016-09-15T13:12:09.071-05:00')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'POSITIVE', 'ICCBRG1s', '2016-09-16T12:12:09.071-05:00')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'POSITIVE', 'ICCBAF47s', '2016-09-15T13:12:09.071-05:00')
+    PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani, 'default', 'bdd_test_ion_reporter', '3366.tsv')
+    PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
+    PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.ani)
+    sleep(10.0)
+    PatientMessageLoader.assignment_confirmed(pt.id, pt.ani)
+    # sleep(5.0)
+    # PatientMessageLoader.on_treatment_arm(pt.id, 'APEC1621-IR-A')
+  end
 end
 
 

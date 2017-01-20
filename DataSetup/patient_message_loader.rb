@@ -241,7 +241,7 @@ class PatientMessageLoader
 
   def self.specimen_received_blood(
       patient_id,
-      collect_time='2016-04-22T15:17:11+00:00')
+      collect_time='2016-04-22')
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['specimen_received_BLOOD']
     message['specimen_received']['patient_id'] = patient_id
     message['specimen_received']['collection_dt'] = convert_date(collect_time)

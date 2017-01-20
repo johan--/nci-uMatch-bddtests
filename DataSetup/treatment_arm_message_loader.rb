@@ -35,14 +35,12 @@ class TreatmentArmMessageLoader
 
     if ta_hash.length>0
       @all_items += 1
-      curl_cmd ="curl -k -X POST -H \"Content-Type: application/json\""
-      curl_cmd = curl_cmd + " -H \"Accept: application/json\"  -d '" + ta_hash.to_json
-      curl_cmd = curl_cmd + "' #{LOCAL_TREATMENT_ARM_API_URL}/#{ta_id}/#{stratum}/#{version}"
-      output = `#{curl_cmd}`
-      p "Output from running No.#{@all_items} curl: #{output}"
-      unless output.downcase.include?'success'
+      url = "#{LOCAL_TREATMENT_ARM_API_URL}/#{ta_id}/#{stratum}/#{version}"
+      response = Helper_Methods.post_request(url, ta_hash.to_json)
+      p "Output from running No.#{@all_items} curl: #{url}"
+      unless response['http_code'].to_i == 202
         p 'Failed'
-        puts JSON.pretty_generate(message)
+        puts response['message']
         @failure += 1
       end
       sleep(@wait_time)
