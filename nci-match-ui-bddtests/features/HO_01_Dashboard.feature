@@ -7,7 +7,7 @@ Feature: Dashboard page.
   This feature deals with all the front page elements.
 
   Background:
-    Given I am a logged in user
+    Given I'm logged in as a "VR_Reviewer_mda" user
   @demo_p1
   @ui_p1
   Scenario: A User can see the Patients Statistics Section
