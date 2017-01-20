@@ -208,6 +208,7 @@ module.exports = function () {
     });
 
     this.Then(/^I can see the "([^"]*)" in the modal text box$/, function (comment, callback) {
+        console.log("comment--> " + comment)
         expect(patientPage.confirmChangeCommentField.getAttribute('value'))
             .to
             .eventually

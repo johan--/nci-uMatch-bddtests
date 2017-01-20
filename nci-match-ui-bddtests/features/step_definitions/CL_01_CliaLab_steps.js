@@ -73,7 +73,7 @@ module.exports = function() {
     this.Then(/^I am on the "(MoCha|MD Anderson)" section$/, function (sectionName, callback) {
         var url = sectionName === 'MoCha' ? 'MoCha' : 'MDACC';
         expect(browser.getCurrentUrl()).to.eventually
-            .include('cliaPage-labs?site=' + url + '&type=positive')
+            .include('clia-labs?site=' + url + '&type=positive')
             .notify(callback);
     });
 
@@ -402,25 +402,6 @@ module.exports = function() {
         // element(by.buttonText(buttonText)).click().then(function () {
         //     browser.waitForAngular();
         // }).then(callback);
-    });
-
-    this.Then(/^I can see the "([^"]*)" in the modal text box$/, function (comment, callback) {
-        console.log("comment--> " + comment)
-        expect(cliaPage.confirmChangeCommentField.getAttribute('value'))
-            .to
-            .eventually
-            .eql(comment)
-            .and
-            .notify(callback)
-    });
-
-    this.Then(/^I can see the "([^"]*)" in the modal text box$/, function (comment, callback) {
-        expect(cliaPage.confirmChangeCommentField.getAttribute('value'))
-            .to
-            .eventually
-            .eql(comment)
-            .and
-            .notify(callback)
     });
 
     this.When(/^I click on the PASSED Button under "(No Template Control|Proficiency And Competency)"$/, function (tabName, callback) {

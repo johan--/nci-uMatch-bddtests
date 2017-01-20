@@ -45,7 +45,7 @@ module.exports = function () {
         var response;
         var inputDetails = '/api/v1/treatment_arms/' + currentTreatmentId + '/' + currentStratumId;
 
-        utilities.getRequestWithService('treatment', '/api/v1/patients/shipments').then(function (responseBody) {
+        utilities.getRequestWithService('treatment', inputDetails).then(function (responseBody) {
             treatmentArmAPIDetails = responseBody;
             firstTreatmentArm = treatmentArmAPIDetails[0];
         }).then(callback);
