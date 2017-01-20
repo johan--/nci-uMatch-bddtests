@@ -61,13 +61,20 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     And The "Upload new sample file" button is "enabled"
     And I click on the "Upload new sample file" button
     And I can see the "Upload BAM files and Variant ZIP files" dialog
-    # Add validation steps
+
     Then I select an Ion Reporter "<ir_reporter>"
-    And I enter Analysis ID "<analysis_id>"
-    Then The "Upload" button is "visible"
+    And I enter Analysis ID ""
+    Then The "Upload" button is "not enabled"
+
+    Then I enter Analysis ID "EXISTING"
+    And The "Upload" button is "not enabled"
+
+    Then I enter Analysis ID "ABCD12345"
     And The "Upload" button is "enabled"
-    Then I can click on the "Upload" button
-    And I can see the Sample File upload process has started
+    
+    Then I select an Ion Reporter ""
+    And The "Upload" button is "not enabled"
+
     Then I then logout
 
   Scenario: As a privileged user I can cancel upload
