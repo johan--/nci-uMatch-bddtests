@@ -153,18 +153,27 @@ Feature: Patient GET service valid special case tests
     Given patient GET service: "amois", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return
     Then patient amois should have correct value
+    #1. list all patients, pick patients which have active_tissue_specimen=>variant_report_status and the status should not be REJECTED
+    #2. get the active_tissue_specimen=>active_analysis_id into a list
+    #3. list all variants, only look at analysis id exist in list of #2
+    #4. count amois variants by active_analysis_id
+    #5. sort them in to 0,1,2,3,4,5+ categories
 
-  Scenario: PT_SC03b amois values can be updated properly
-    Given patient id is "PT_SC03b_TsShipped"
+  Scenario Outline: PT_SC03b amois values can be updated properly
+    Given patient id is "<patient_id>"
     Then load template variant file uploaded message for this patient
-    Then set patient message field: "molecular_id" to value: "PT_SC03b_TsShipped_MOI1"
-    Then set patient message field: "analysis_id" to value: "PT_SC03b_TsShipped_ANI1"
-    Then files for molecular_id "PT_SC03b_TsShipped_MOI1" and analysis_id "PT_SC03b_TsShipped_ANI1" are in S3
+    Then set patient message field: "molecular_id" to value: "<moi>"
+    Then set patient message field: "analysis_id" to value: "<ani>"
+    Then files for molecular_id "<moi>" and analysis_id "<ani>" are in S3
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
     Then patient GET service: "amois", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return
     Then patient amois should have correct value
+    Examples:
+      | patient_id              | moi                          | ani                          |
+      | PT_SC03b_TsShipped      | PT_SC03b_TsShipped_MOI1      | PT_SC03b_TsShipped_ANI1      |
+      | PT_SC03b_TsShippedStep2 | PT_SC03b_TsShippedStep2_MOI2 | PT_SC03b_TsShippedStep2_ANI2 |
 
   @patients_p1_off
   Scenario: PT_SC04a patient_limbos should not have record for patients with certain status
