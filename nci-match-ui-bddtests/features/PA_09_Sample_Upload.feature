@@ -22,36 +22,17 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     And I can see the Sample File upload process has started
     Then I then logout
     Examples:
-      | user              | patient_id | surgical_event_id | ir_reporter | analysis_id | file
-      | read_only         |            | 
-      | VR_Reviewer_mocha |            | 
-      | AR_Reviewer       |            | 
+      | user              | patient_id              | surgical_event_id            | ir_reporter      | analysis_id                   | file      |
+      | VR_Reviewer_mda   | PT_AU04_MdaTsShipped1   | PT_AU04_MdaTsShipped1_SEI1   | mda - IR_MDA05   | PT_AU04_MdaTsShipped1_An123   | mda.vcf   |
+      | VR_Reviewer_mocha | PT_AU04_MochaTsShipped1 | PT_AU04_MochaTsShipped1_SEI1 | mocha - IR_MCA00 | PT_AU04_MochaTsShipped1_An123 | mocha.vcf |
 
-  Scenario Outline: As a privileged user I can't upload a sample file if all files have been uploaded already
-    Given I'm logged in as a "<user>" user
-    When I go to patient "<patient_id>" details page
-    And I click on the Surgical Event Tab "<surgical_event_id>"
+  Scenario: As a privileged user I can't upload a sample file if all files have been uploaded already
+    Given I'm logged in as a "VR_Reviewer_mda" user
+    When I go to patient "ION_AQ41_TsVrUploaded" details page
+    And I click on the Surgical Event Tab "ION_AQ41_TsVrUploaded_SEI1"
     And I can see that all files have been uploaded for the Surgical Event
     Then The "Upload new sample file" button is "not visible"
     Then I then logout
-    Examples:
-      | user              | patient_id | surgical_event_id
-      | read_only         |            | 
-      | VR_Reviewer_mocha |            | 
-      | AR_Reviewer       |            | 
-
-  Scenario Outline: As a privileged user I can't upload a sample file if all files have been uploaded already
-    Given I'm logged in as a "<user>" user
-    When I go to patient "<patient_id>" details page
-    And I click on the Surgical Event Tab "<surgical_event_id>"
-    And I can see that all files have been uploaded for the Surgical Event
-    Then The "Upload new sample file" button is "not visible"
-    Then I then logout
-    Examples:
-      | user              | patient_id | surgical_event_id
-      | read_only         |            | 
-      | VR_Reviewer_mocha |            | 
-      | AR_Reviewer       |            | 
 
   Scenario: As a privileged user I can't upload sample file until all validations pass
     Given I'm logged in as a "VR_Reviewer_mocha" user
