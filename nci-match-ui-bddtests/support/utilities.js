@@ -6,12 +6,11 @@ var rest = require('rest');
 var Client = require('node-rest-client').Client;
 var req = require ('request-promise');
 
-var delay = {
-    afterLogin: 6000,
-    afterPatientLoad: 3000
-};
-
 var Utilities = function() {
+    var delay = {
+        afterLogin: 6000,
+        afterPatientLoad: 3000
+    };
 
     var client = new Client();
 

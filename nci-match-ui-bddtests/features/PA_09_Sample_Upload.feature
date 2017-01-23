@@ -22,9 +22,9 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     And I can see the Sample File upload process has started
     Then I then logout
     Examples:
-      | user              | patient_id              | surgical_event_id            | ir_reporter      | analysis_id                   | file      |
-      | VR_Reviewer_mda   | PT_AU04_MdaTsShipped1   | PT_AU04_MdaTsShipped1_SEI1   | mda - IR_MDA05   | PT_AU04_MdaTsShipped1_An123   | mda.vcf   |
-      | VR_Reviewer_mocha | PT_AU04_MochaTsShipped1 | PT_AU04_MochaTsShipped1_SEI1 | mocha - IR_MCA00 | PT_AU04_MochaTsShipped1_An123 | mocha.vcf |
+      | user              | patient_id              | surgical_event_id            | ir_reporter      | analysis_id                   | file            |
+      | VR_Reviewer_mda   | PT_AU04_MdaTsShipped1   | PT_AU04_MdaTsShipped1_SEI1   | mda - IR_MDA05   | PT_AU04_MdaTsShipped1_An123   | mda_small.vcf   |
+      | VR_Reviewer_mocha | PT_AU04_MochaTsShipped1 | PT_AU04_MochaTsShipped1_SEI1 | mocha - IR_MCA00 | PT_AU04_MochaTsShipped1_An123 | mocha_small.vcf |
 
   Scenario: As a privileged user I can't upload a sample file if all files have been uploaded already
     Given I'm logged in as a "VR_Reviewer_mda" user
@@ -55,10 +55,21 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     Then I then logout
 
   Scenario: As a privileged user I can cancel upload
-    Given I'm logged in as a "read_only" user
-    When I go to patient "<patient_id>" details page
-    And I click on the Upload Progress in the toolsbar
+    Given I'm logged in as a "VR_Reviewer_mocha" user
+    When I go to patient "ION_AQ02_TsShipped" details page
+    And I click on the Surgical Event Tab "ION_AQ02_TsShipped_SEI1"
+    And I can see that some files have not been uploaded for the Surgical Event
+    Then The "Upload new sample file" button is "visible"
+    And The "Upload new sample file" button is "enabled"
+    And I click on the "Upload new sample file" button
+    And I can see the "Upload BAM files and Variant ZIP files" dialog
+    Then I select an Ion Reporter "mocha - IR_MCA00"
+    And I enter Analysis ID "ION_AQ41_TsVrUploaded_ANI1"
+    And The "Upload" button is "enabled"
+    And I click on the "Upload" button
+    Then I can see the Upload Progress in the toolbar
+    And I click on the Upload Progress in the toolbar
     Then I can see current uploads
     And I can cancel the first upload in the list
-    Then The the cancelled file is removed from the upload list
+    Then The cancelled file is removed from the upload list
     Then I then logout

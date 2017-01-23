@@ -2,7 +2,7 @@
 # Created by: Raseel Mohamed
 #  Date: 08/31/2016
 ##
-@ui_p1 @test
+@ui_p1
 Feature: This is the critical path test cases. 
 
   @demo_p3
