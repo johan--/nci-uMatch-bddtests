@@ -149,16 +149,13 @@ Feature: Patient GET service valid special case tests
       | PT_SC02g_TsVrUploaded        | PT_SC02g_TsVrUploaded_ANI1        |
       | PT_SC02g_PendingConfirmation | PT_SC02g_PendingConfirmation_ANI1 |
 
+  @patients_p2_off
   Scenario: PT_SC03a amois should have correct values
     Given patient GET service: "amois", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return
     Then patient amois should have correct value
-    #1. list all patients, pick patients which have active_tissue_specimen=>variant_report_status and the status should not be REJECTED
-    #2. get the active_tissue_specimen=>active_analysis_id into a list
-    #3. list all variants, only look at analysis id exist in list of #2
-    #4. count amois variants by active_analysis_id
-    #5. sort them in to 0,1,2,3,4,5+ categories
 
+  @patients_p2_off
   Scenario Outline: PT_SC03b amois values can be updated properly
     Given patient id is "<patient_id>"
     Then load template variant file uploaded message for this patient

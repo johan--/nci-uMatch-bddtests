@@ -56,8 +56,6 @@ When(/^GET from MATCH patient API, http code "([^"]*)" should return$/) do |code
     @get_response = response['message_json']
   end
 end
-
-
 #########################################################
 ###############  prepare GET message  ###################
 #########################################################
@@ -779,6 +777,57 @@ Then(/^this patient specimen_events type "([^"]*)" should have "([^"]*)" element
   expect(@get_response.keys).to include type
   expect(@get_response[type].class).to eql Array
   expect(@get_response[type].size).to eql count.to_i
+end
+
+#1. list all patients, pick patients which have active_tissue_specimen=>variant_report_status
+# and the status should be CONFIRMED
+#2. get the active_tissue_specimen=>active_analysis_id into a list
+#3. list all variants, only look at analysis id exist in list of #2
+#4. count amois variants by active_analysis_id
+#5. sort them in to 0,1,2,3,4,5+ categories
+Then(/^patient amois should have correct value$/) do
+  all_patients = Helper_Methods.dynamodb_table_items('patient')
+  qualified_active_ani = {}
+  all_patients.each { |this_patient|
+    next unless this_patient.keys.include?('active_tissue_specimen')
+    active_ts_specimen = this_patient['active_tissue_specimen']
+    next unless active_ts_specimen.keys.include?('active_analysis_id')
+    active_ani = active_ts_specimen['active_analysis_id']
+    next unless active_ts_specimen.keys.include?('variant_report_status')
+    next unless active_ts_specimen['variant_report_status'] == 'CONFIRMED'
+    puts "more than one patient has this active ani:#{active_ani}" if qualified_active_ani.keys.include?(active_ani)
+    qualified_active_ani[active_ani] = 0
+  }
+  all_variants = Helper_Methods.dynamodb_table_items('variant')
+  all_variants.each{|this_variant|
+    next unless qualified_active_ani.keys.include?(this_variant['analysis_id'])
+    if this_variant.keys.include?('amois') && this_variant['amois'].size > 0
+      qualified_active_ani[this_variant['analysis_id']] += 1
+    end
+  }
+
+  # all_vr = Helper_Methods.dynamodb_table_items('variant_report')
+  # all_vr.each { |this_vr|
+  #   next unless qualified_active_ani.keys.include?(this_vr['analysis_id'])
+  #   if this_vr.keys.include?('total_amois')
+  #     qualified_active_ani[this_vr['analysis_id']] = this_vr['total_amois'].to_i
+  #   end
+  # }
+  puts qualified_active_ani.select { |k, v| v.to_i==1 }
+  expect = "#{qualified_active_ani.select { |k, v| v.to_i==0 }.size},"
+  expect += " #{qualified_active_ani.select { |k, v| v.to_i==1 }.size},"
+  expect += " #{qualified_active_ani.select { |k, v| v.to_i==2 }.size},"
+  expect += " #{qualified_active_ani.select { |k, v| v.to_i==3 }.size},"
+  expect += " #{qualified_active_ani.select { |k, v| v.to_i==4 }.size},"
+  expect += " #{qualified_active_ani.select { |k, v| v.to_i>4 }.size}"
+  actual = "#{@get_response['amois'][0]},"
+  actual += " #{@get_response['amois'][1]},"
+  actual += " #{@get_response['amois'][2]},"
+  actual += " #{@get_response['amois'][3]},"
+  actual += " #{@get_response['amois'][4]},"
+  actual += " #{@get_response['amois'][5]}"
+
+  expect(actual).to eql expect
 end
 
 def actual_match_expect(actual, expect)

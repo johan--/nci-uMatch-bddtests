@@ -1399,139 +1399,160 @@
       }
     ]
   },
-
-
-
-
   {
-  "treatment_arm_id": "APEC1621-IR-A",
-  "name": "Treatment arm IR A",
-  "version": "2015-08-06",
-  "stratum_id": "100",
-  "description": "Phase 2 study of Ensartinib (X-396) in patients harboring ALK or ROS1 genomic alterations",
-  "target_id": "113",
-  "target_name": "Ensartinib (X-396)",
-  "gene": "ALK",
-  "treatment_arm_status": "OPEN",
-  "study_id": "APEC1621",
-  "assay_rules": [],
-  "num_patients_assigned": null,
-  "treatment_arm_drugs": [{
-    "name": "Ensartinib (X-396)",
-    "pathway": "ALK",
-    "drug_id": "113"
-  }],
-  "snv_indels": [{
-    "variant_type":"snp",
-    "inclusion": true,
-    "func_gene": "MTOR",
-    "allele_frequency": "0.373333E0",
-    "identifier": "COSM586",
-    "ocp_reference": "A",
-    "ocp_alternative": "[chr1:154142875[A",
-    "public_med_ids": ["20664172"],
-    "level_of_evidence": 2.0,
-    "chromosome": "chr1",
-    "description": "p.Q61H",
-    "protein": "p.Q61H",
-    "position": "115256528"
+    "treatment_arm_id": "APEC1621-IR-A",
+    "name": "Treatment arm IR-A",
+    "version": "2015-08-06",
+    "stratum_id": "100",
+    "description": "Phase 2 study of Ensartinib (X-396) in patients harboring ALK or ROS1 genomic alterations",
+    "target_id": "113",
+    "target_name": "Ensartinib (X-396)",
+    "gene": "ALK",
+    "treatment_arm_status": "OPEN",
+    "study_id": "APEC1621",
+    "assay_rules": [],
+    "num_patients_assigned": null,
+    "treatment_arm_drugs": [
+      {
+        "name": "Ensartinib (X-396)",
+        "pathway": "ALK",
+        "drug_id": "113"
+      }
+    ],
+    "snv_indels": [
+      {
+        "variant_type": "snp",
+        "inclusion": true,
+        "func_gene": "MTOR",
+        "allele_frequency": "0.373333E0",
+        "identifier": "COSM3965698",
+        "ocp_reference": "A",
+        "ocp_alternative": "G",
+        "public_med_ids": [
+          "20664172"
+        ],
+        "level_of_evidence": 2.0,
+        "chromosome": "chr1",
+        "description": "p.Q61H",
+        "protein": "p.Q61H",
+        "position": "11184570"
+      }
+    ],
+    "non_hotspot_rules": [
+      {
+        "inclusion": true,
+        "oncomine_variant_class": "deleterious",
+        "public_med_ids": [],
+        "func_gene": "PTEN",
+        "arm_specific": false,
+        "level_of_evidence": 3.0
+      }
+    ],
+    "copy_number_variants": [
+      {
+        "variant_type": "cnv",
+        "inclusion": true,
+        "func_gene": "MYCL",
+        "identifier": "MYCL",
+        "public_med_ids": [
+          "20664172"
+        ],
+        "level_of_evidence": 2.0,
+        "chromosome": "chr1",
+        "description": "p.Q61C"
+      }
+    ],
+    "gene_fusions": [
+      {
+        "variant_type": "fusion",
+        "ocp_reference": "G",
+        "func_gene": "AGTRAP",
+        "identifier": "AGTRAP-BRAF.A5B8.COSF828.1_1",
+        "inclusion": true,
+        "public_med_ids": [
+          "23724913"
+        ],
+        "arm_specific": false,
+        "level_of_evidence": 2.0,
+        "chromosome": "chr1",
+        "ocp_alternative": "G]chr7:140494267]",
+        "description": "ALK translocation",
+        "position": "11810242"
+      },
+      {
+        "variant_type": "fusion",
+        "ocp_reference": "C",
+        "func_gene": "BRAF",
+        "identifier": "AGTRAP-BRAF.A5B8.COSF828.1_2",
+        "inclusion": true,
+        "public_med_ids": [],
+        "arm_specific": false,
+        "level_of_evidence": 3.0,
+        "chromosome": "chr7",
+        "ocp_alternative": "]chr1:11810242]C",
+        "description": "some description",
+        "position": "140494267"
+      },
+      {
+        "variant_type": "fusion",
+        "ocp_reference": "G",
+        "func_gene": "MAGI3",
+        "identifier": "MAGI3-AKT3.M10A3_1",
+        "inclusion": true,
+        "public_med_ids": [],
+        "arm_specific": false,
+        "level_of_evidence": 3.0,
+        "chromosome": "chr1",
+        "ocp_alternative": "G]chr1:243859018]",
+        "description": "some description",
+        "position": "114165616"
+      }
+    ],
+    "diseases": [
+      {
+        "disease_code_type": "ICD-O",
+        "disease_code": "10058354",
+        "disease_name": "Bronchioloalveolar carcinoma",
+        "exclusion": true
+      },
+      {
+        "disease_code_type": "ICD-O",
+        "disease_code": "10025032",
+        "disease_name": "Lung adenocarcinoma",
+        "exclusion": true
+      },
+      {
+        "disease_code_type": "ICD-O",
+        "disease_code": "90600324",
+        "disease_name": "Lung adenocar. w/ bronch. feat.",
+        "exclusion": true
+      },
+      {
+        "disease_code_type": "ICD-O",
+        "disease_code": "10029514",
+        "disease_name": "Non-small cell lung cancer, NOS",
+        "exclusion": true
+      },
+      {
+        "disease_code_type": "ICD-O",
+        "disease_code": "10025125",
+        "disease_name": "Squamous cell lung carcinoma",
+        "exclusion": true
+      },
+      {
+        "disease_code_type": "ICD-O",
+        "disease_code": "10033701",
+        "disease_name": "Papillary thyroid carcinoma",
+        "exclusion": false
+      }
+    ],
+    "exclusion_drugs": [
+      {
+        "name": "AG1343 (Nelfinavir; Viracept)",
+        "drug_id": "10002",
+        "drug_class": "AKT inhibitor",
+        "target": "AKT"
+      }
+    ]
   }
-  ],
-  "non_hotspot_rules": [{
-    "inclusion": true,
-    "oncomine_variant_class": "deleterious",
-    "public_med_ids": [],
-    "func_gene": "PTEN",
-    "arm_specific": false,
-    "level_of_evidence": 3.0
-  }],
-  "copy_number_variants": [{
-    "variant_type":"cnv",
-    "inclusion": true,
-    "func_gene": "MYCL",
-    "identifier": "COSM587",
-    "public_med_ids": ["20664172"],
-    "level_of_evidence": 2.0,
-    "chromosome": "chr1",
-    "description": "p.Q61C"
-  }
-  ],
-  "gene_fusions": [{
-    "variant_type":"fusion",
-    "ocp_reference": "A",
-    "func_gene": "ALK",
-    "identifier": "COSM478",
-    "inclusion": true,
-    "public_med_ids": ["23724913"],
-    "arm_specific": false,
-    "level_of_evidence": 2.0,
-    "chromosome": "chr2",
-    "ocp_alternative": "[chr1:154142875[A",
-    "description": "ALK translocation",
-    "position": "29446394"
-  }, {
-    "variant_type":"fusion",
-    "ocp_reference": "C",
-    "func_gene": "AGTRAP",
-    "identifier": "COSM477",
-    "inclusion": true,
-    "public_med_ids": [],
-    "arm_specific": false,
-    "level_of_evidence": 3.0,
-    "chromosome": "chr10",
-    "ocp_alternative": "C[chrX:13754596[",
-    "description": "some description",
-    "position": "123243211"
-  }, {
-    "variant_type":"fusion",
-    "ocp_reference": "C",
-    "func_gene": "BRAF",
-    "identifier": "COSM477",
-    "inclusion": true,
-    "public_med_ids": [],
-    "arm_specific": false,
-    "level_of_evidence": 3.0,
-    "chromosome": "chr10",
-    "ocp_alternative": "C[chrX:13754596[",
-    "description": "some description",
-    "position": "123243211"
-  }],
-  "diseases": [{
-    "disease_code_type":"ICD-O",
-    "disease_code": "10058354",
-    "disease_name": "Bronchioloalveolar carcinoma",
-    "exclusion":true
-  }, {
-    "disease_code_type":"ICD-O",
-    "disease_code": "10025032",
-    "disease_name": "Lung adenocarcinoma",
-    "exclusion":true
-  }, {
-    "disease_code_type":"ICD-O",
-    "disease_code": "90600324",
-    "disease_name": "Lung adenocar. w/ bronch. feat.",
-    "exclusion":true
-  }, {
-    "disease_code_type":"ICD-O",
-    "disease_code": "10029514",
-    "disease_name": "Non-small cell lung cancer, NOS",
-    "exclusion":true
-  }, {
-    "disease_code_type":"ICD-O",
-    "disease_code": "10025125",
-    "disease_name": "Squamous cell lung carcinoma",
-    "exclusion":true
-  },{
-    "disease_code_type":"ICD-O",
-    "disease_code": "10033701",
-    "disease_name": "Papillary thyroid carcinoma",
-    "exclusion":false
-  }],
-  "exclusion_drugs": [{
-    "name": "AG1343 (Nelfinavir; Viracept)",
-    "drug_id": "10002",
-    "drug_class": "AKT inhibitor",
-    "target": "AKT"
-  }]
-}
 ]

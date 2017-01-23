@@ -77,6 +77,14 @@ class MatchTestDataManager
     }
   end
 
+  # def self.delete_ta_from_seed(ta_id, stratum, version)
+  #   field_name = table_name=='event' ? 'entity_id' : 'patient_id'
+  #   remove_json_nodes_from_file(seed_file(table_name), field_name, patient_id_list, 'S', table_name)
+  #   TableDetails.treatment_arm_tables.each { |table_name|
+  #     remove_json_nodes_from_file(seed_file('treatment_arm'), 'patient_id', patient_id_list, 'S', table_name)
+  #   }
+  # end
+
   ################clear
   def self.clear_all_local_tables
     LOG.log('Deleting all tables from local dynamodb')
