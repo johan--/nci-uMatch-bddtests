@@ -53,29 +53,24 @@ Feature: MATCHKB-542. Users can upload patient sample files.
       | VR_Reviewer_mocha |            | 
       | AR_Reviewer       |            | 
 
-  Scenario: As a non-privileged user I can't upload sample file until all validations pass
-    Given I'm logged in as a "<user>" user
-    When I go to patient "<patient_id>" details page
-    And I click on the Surgical Event Tab "<surgical_event_id>"
+  Scenario: As a privileged user I can't upload sample file until all validations pass
+    Given I'm logged in as a "VR_Reviewer_mocha" user
+    When I go to patient "ION_AQ02_TsShipped" details page
+    And I click on the Surgical Event Tab "ION_AQ02_TsShipped_SEI1"
     And I can see that some files have not been uploaded for the Surgical Event
     Then The "Upload new sample file" button is "visible"
     And The "Upload new sample file" button is "enabled"
     And I click on the "Upload new sample file" button
     And I can see the "Upload BAM files and Variant ZIP files" dialog
-
-    Then I select an Ion Reporter "<ir_reporter>"
+    Then I select an Ion Reporter "mocha - IR_MCA00"
     And I enter Analysis ID ""
     Then The "Upload" button is "not enabled"
-
-    Then I enter Analysis ID "EXISTING"
+    Then I enter Analysis ID "ION_AQ41_TsVrUploaded_ANI1"
     And The "Upload" button is "not enabled"
-
-    Then I enter Analysis ID "ABCD12345"
+    Then I enter Analysis ID "TOTALLY_NEW_ID"
     And The "Upload" button is "enabled"
-    
-    Then I select an Ion Reporter ""
+    Then I select an Ion Reporter "Select Site and Ion Reporter ID"
     And The "Upload" button is "not enabled"
-
     Then I then logout
 
   Scenario: As a privileged user I can cancel upload
