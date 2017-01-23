@@ -25,7 +25,7 @@ var Utilities = function() {
     this.waitForElement = function(element, message) {
         return browser.wait(function (){
            return browser.isElementPresent(element)
-        }, 15000, message + ' element is not visible.');
+        }, 20000, message + ' element is not visible.');
     };
 
     this.checkPresence = function(css_locator) {

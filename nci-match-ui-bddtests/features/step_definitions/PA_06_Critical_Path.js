@@ -59,10 +59,9 @@ module.exports = function () {
 
     this.Then(/^I should see the assignment report link for "(.+?)"$/, function (analysisId, callback) {
         patientPage.variantAnalysisId = analysisId;
-        var assgnRepString = 'a[href^="#/patient/'+patientPage.patientId+'/variant_report?analysis_id='+analysisId + '&section=assignment"]';
-        //var assgnRepString = 'div[ng-if="surgicalEvent"] a[href="#/patient/' + patientPage.patientId + '/variant_report?analysis_id=' + analysisId + '&section=assignment"]';
+        var assgnRepString = 'a[href^="#/patient/'+patientPage.patientId+'/variant_report?analysis_id='+analysisId + '&assignment_uuid="]';
         browser.ignoreSynchronization = true;
-        assignmentReportLink = element(by.css(assgnRepString));
+        assignmentReportLink = element(by.css('dd>' + assgnRepString));
         assignmentReportLink.getAttribute('href').then(function (test) {
             assignmentReportPageLink = test;
         });
@@ -271,6 +270,18 @@ module.exports = function () {
         }).then(callback);
     });
 
+    this.When(/^I get the link to "(.+?)" assignment report$/, function(assignmentId, callback){
+        patientPage.variantAnalysisId = assignmentId;
+        var partialLinkString = "#/patient/" + patientPage.patientId + "/variant_report?analysis_id=" + assignmentId + "&assignment_uuid="
+        element.all(by.css('[href^="' + partialLinkString + '"]')).get(0).getAttribute('href').then(function(completeAssignmentLink){
+            patientPage.completeAssignmentLink = completeAssignmentLink;
+        }).then(callback);
+    });
+
+    this.When(/^I navigate to the Assignment Report$/, function(callback){
+        browser.get(patientPage.completeAssignmentLink).then(callback)
+    });
+
     this.When(/^I set the Analysis Id to be "(.+)"/, function (AnalysisId, callback) {
         patientPage.variantAnalysisId = AnalysisId;
         browser.sleep(50).then(callback);
@@ -285,10 +296,10 @@ module.exports = function () {
     });
 
     this.When(/^I collect information about the assignment$/, function (callback) {
-        var url = '/api/v1/patients/analysis_report?patient_id=' + patientPage.patientId + '&analysis_id=' + patientPage.variantAnalysisId;
+        var url = '/api/v1/patients/' + patientPage.patientId + '/analysis_report/' + patientPage.variantAnalysisId;
 
         utilities.getRequestWithService('patient', url).then(function(response){
-            patientPage.responseData = response
+            patientPage.responseData = response;
         }).then(callback);
     });
 
@@ -310,9 +321,6 @@ module.exports = function () {
 
         expect(tab.isDisplayed()).to.eventually.eql(true);
         expect(tabBody.isDisplayed()).to.eventually.eql(true).notify(callback);
-
-        // var uri = 'patient/' + patientPage.patientId + '/variant_report?analysis_id=' + patientPage.variantAnalysisId + '&section=assignment';
-        // expect(browser.getCurrentUrl()).to.eventually.eql(browser.baseUrl + '/#/' + uri).notify(callback);
     });
 
     this.Then(/^I see that Total MOIs match the number of MOIs on the page$/, function (callback) {

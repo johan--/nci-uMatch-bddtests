@@ -98,6 +98,15 @@ Feature: This is the critical path test cases.
     Then The variant report status is marked "CONFIRMED"
     Then I then logout
 
+  Scenario: A Mocha user can confirm a MoCha variant report. 
+    Given I'm logged in as a "VR_Reviewer_mocha" user
+    When I got to the patient "APPLE" with variat report "BANANA"
+    Then I can see the variant report page
+    And I click on the "CONFIRM" button
+    Then I "should" see the confirmation modal pop up
+    When I click on the "OK" button
+    Then The variant report status is marked "CONFIRMED"
+
   Scenario: Confirmed variant report will not have check boxes enabled
     Given I'm logged in as a "VR_Reviewer_mda" user
     When I go to the patient "PT_CR03_VRUploadedPathConfirmed" with variant report "PT_CR03_VRUploadedPathConfirmed_ANI1"
@@ -163,6 +172,7 @@ Feature: This is the critical path test cases.
     Given I'm logged in as a "AR_Reviewer" user
     When I go to patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" details page
     And I click on the Surgical Event Tab at index "0"
+    And I wait "10" seconds
     Then I should see the assignment report link for "PT_CR01_PathAssayDoneVRUploadedToConfirm_ANI1"
     When I click on the assignment report link
     Then I can see the assignment report page "Assignment Report - PENDING"
@@ -170,7 +180,9 @@ Feature: This is the critical path test cases.
 
   Scenario: Assignment report should provide information regarding the assignment
     Given I'm logged in as a "AR_Reviewer" user
-    When I go to the patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" with assignment report "PT_CR01_PathAssayDoneVRUploadedToConfirm_ANI1"
+    When I go to patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" details page
+    And I get the link to "PT_CR01_PathAssayDoneVRUploadedToConfirm_ANI1" assignment report
+    And I navigate to the Assignment Report
     And I collect information about the assignment
     And I can see the top level details about assignment report
     And I can see the selected Treatment arm id "APEC1621-A" and stratum "100" and version "2015-08-06" in a box with reason
@@ -182,7 +194,10 @@ Feature: This is the critical path test cases.
   
   Scenario: Confirming the assignment report updates the status and adds information to patient
     Given I'm logged in as a "AR_Reviewer" user
-    When I go to the patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" with assignment report "PT_CR01_PathAssayDoneVRUploadedToConfirm_ANI1"
+    When I go to patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" details page
+    And I get the link to "PT_CR01_PathAssayDoneVRUploadedToConfirm_ANI1" assignment report
+    And I navigate to the Assignment Report
+    And I wait "10" seconds
     And I click on the Assignment report "CONFIRM" button
     Then I "should" see the confirmation modal pop up
     When I click on the "OK" button
