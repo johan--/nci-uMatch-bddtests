@@ -32,6 +32,7 @@ exports.config = {
         'features/PA_05_Patient_Documents.feature',
         'features/SP_01_Specimen_Tracking.feature',
         'features/PA_08_User_Roles.feature',
+        // 'features/PA_09_Sample_Upload.feature',
 
         //Treatment Arm details page
         'features/TA_01_Analysis.feature',
@@ -44,7 +45,7 @@ exports.config = {
         'features/CL_01_CliaLab.feature',
         //Specimen Tracking page
         'features/SP_01_Specimen_Tracking.feature'
-   ],
+    ],
 
     getPageTimeout: 60000,
     allScriptsTimeout: 60000,
@@ -77,9 +78,8 @@ exports.config = {
         require: ['support/env.js',
                   'features/step_definitions/*.js',
                   'support/hooks.js' ],
-        format: 'pretty',
-        format: 'json:../results/output.json'
-
+        format: ['pretty', 
+            'json:../results/output.json']
     }
 
     //resultsJsonOutputFile: <to find out> process.env['HOME'] + '/Desktop/report.json'
