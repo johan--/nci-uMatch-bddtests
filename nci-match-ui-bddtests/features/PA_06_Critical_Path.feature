@@ -2,7 +2,7 @@
 # Created by: Raseel Mohamed
 #  Date: 08/31/2016
 ##
-@ui_p1
+@ui_p1 @critical
 Feature: This is the critical path test cases. 
 
   @demo_p3
@@ -192,7 +192,7 @@ Feature: This is the critical path test cases.
     And I "should" see the Assignment report "CONFIRM" button
     Then I then logout
   
-  Scenario: Confirming the assignment report updates the status and adds information to patient
+  Scenario: Confirming the assignment report updates the status
     Given I'm logged in as a "AR_Reviewer" user
     When I go to patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" details page
     And I get the link to "PT_CR01_PathAssayDoneVRUploadedToConfirm_ANI1" assignment report
@@ -205,10 +205,15 @@ Feature: This is the critical path test cases.
     And I "should not" see the Assignment report "CONFIRM" button
     When I go to patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" details page
     Then I "should" see the patient "Status" as "PENDING_APPROVAL"
-    And I "should" see the patient "Treatment Arm Id" as "APEC1621-A"
-    And I "should" see the patient "Stratum Id" as "100"
-    And I "should" see the patient "Version" as "2015-08-06"
-    When I go to the patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" with assignment report "PT_CR01_PathAssayDoneVRUploadedToConfirm_ANI1"
+    # And I "should" see the patient "Treatment Arm Id" as "APEC1621-A"
+    # And I "should" see the patient "Stratum Id" as "100"
+    # And I "should" see the patient "Version" as "2015-08-06"
+  
+  Scenario: Confirmed Assignment Report updates information on the Assignment report setion of the patient
+    Given I'm logged in as a "AR_Reviewer" user
+    When I go to patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" details page
+    And I get the link to "PT_CR01_PathAssayDoneVRUploadedToConfirm_ANI1" assignment report
+    And I navigate to the Assignment Report
     When I collect information about the assignment
     Then I can see more new top level details about assignment report
     Then I then logout

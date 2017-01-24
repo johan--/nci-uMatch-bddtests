@@ -455,7 +455,7 @@ module.exports = function () {
         var moment = require('moment');
         var assignment = patientPage.responseData.assignments[0];
 
-        var ltSideAssignmentValues = patientPage.assignmentSummaryBoxes.get(0).all(by.css('.ng-binding'));
+        var ltSideAssignmentValues = patientPage.assignmentSummaryBoxes.all(by.css('.ng-binding'));
 
         expect(ltSideAssignmentValues.get(0).getText()).to.eventually.eql(assignment.molecular_id);
         expect(ltSideAssignmentValues.get(1).getText()).to.eventually.eql(assignment.analysis_id);
@@ -469,8 +469,7 @@ module.exports = function () {
         var dateGenerated = utilities.dashifyIfEmpty(moment.utc(assignment.assignment_date).utc().format('LLL'));
         var dateSentToCOG = utilities.dashifyIfEmpty(moment.utc(assignment.sent_to_cog_date).utc().format('LLL'));
 
-        var ltSideAssignmentValues = patientPage.assignmentSummaryBoxes.get(0).all(by.css('.ng-binding'));
-        var rtSideAssignmentValues = patientPage.assignmentSummaryBoxes.get(1).all(by.css('.ng-binding'));
+        var ltSideAssignmentValues = patientPage.assignmentSummaryBoxes.all(by.css('.ng-binding'));        
 
         expect(ltSideAssignmentValues.get(0).getText()).to.eventually.eql(assignment.molecular_id);
         expect(ltSideAssignmentValues.get(1).getText()).to.eventually.eql(assignment.analysis_id);
@@ -478,8 +477,8 @@ module.exports = function () {
 
         expect(ltSideAssignmentValues.get(5).getText()).to.eventually.include(dateConfirmed);
 
-        expect(rtSideAssignmentValues.get(0).getText()).to.eventually.include(dateGenerated);
-        expect(rtSideAssignmentValues.get(1).getText()).to.eventually.include(dateSentToCOG).notify(callback);
+        expect(ltSideAssignmentValues.get(6).getText()).to.eventually.include(dateGenerated);
+        expect(ltSideAssignmentValues.get(7).getText()).to.eventually.include(dateSentToCOG).notify(callback);
 
     });
 
