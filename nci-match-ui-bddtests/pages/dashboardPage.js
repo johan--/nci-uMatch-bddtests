@@ -25,7 +25,7 @@ var DashboardPage = function() {
     this.pendingBVRCount    = element(by.binding(' pendingBloodVariantReportGridOptions.data.length '));
     this.pendingAssgnCount  = element(by.binding(' pendingAssignmentReportGridOptions.data.length '));
 
-    this.patientsInLimboList = element(by.exactBinding("limboPatientsGridOptions.data.length"));
+    this.patientsInLimboList = element(by.exactBinding("limboPatientGridOptions.data.length"));
     //this.patientsInLimboList = element.all(by.repeater('item in filtered | startFrom:(paginationOptions.currentPage-1)*paginationOptions.itemsPerPage | limitTo:paginationOptions.itemsPerPage track by $index'));
 
 
@@ -55,8 +55,8 @@ var DashboardPage = function() {
     };
 
     this.expectedTissueVRColumns = ['Patient ID', 'Molecular ID',
-        'Analysis ID', 'Variant Report',
-        'CLIA Lab', 'Specimen Received Date',
+        'Analysis ID', 'IR ID',
+        'Specimen Received Date',
         'Variant Report Received Date', 'Days Pending'];
 
     this.expectedBloodVRColumns = ['Patient ID', 'Molecular ID',
@@ -65,8 +65,7 @@ var DashboardPage = function() {
         'Variant Report Received Date', 'Days Pending'];
 
     this.expectedAssignmentColumns = ['Patient ID', 'Molecular ID',
-        'Analysis ID', 'Assignment Report',
-        'Disease', 'Assigned Treatment Arm',
+        'Analysis ID', 'Disease', 'Assigned Treatment Arm',
         'Assignment Date', 'Hours Pending'];
 
     this.expectedLimboTableColumns = [

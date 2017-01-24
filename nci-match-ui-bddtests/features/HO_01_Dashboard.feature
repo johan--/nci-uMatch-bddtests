@@ -2,7 +2,6 @@
 # Created by: Raseel Mohamed
 #  Date: 08/17/2016
 ##
-
 Feature: Dashboard page.
   This feature deals with all the front page elements.
 
@@ -19,9 +18,8 @@ Feature: Dashboard page.
     And I can see the Registered Patients count
     And I can see the Patients with Confirmed Variants count
     And I can see the Patients on Treatment Arms count
-    And I collect "pendingTissueVR" data from backend
+    And I collect "pendingItems" data from backend
     And I can see patients with Pending Tissue Variant Reports
-    And I collect "pendingAssignment" data from backend
     And I can see patients with Pending Assignment Reports
     And I collect "pendingReportStats" data from backend
     Then I can see Sequenced and confirmed patients data
@@ -31,7 +29,6 @@ Feature: Dashboard page.
   @demo_p1
   @ui_p1
   Scenario: A user can see the Pending Review Section
-    When I navigate to the dashboard page
     Then I can see the Dashboard banner
     And I can see the Pending Review Section Heading
     And I can see the pending "Tissue Variant Reports" subtab
@@ -39,7 +36,7 @@ Feature: Dashboard page.
 
   @ui_p1
   Scenario Outline: Pending <report_type> reports statistics match pending reports table.
-    When I navigate to the dashboard page
+    When I can see the Dashboard banner
     And I collect information for "<report_type>" Dashboard
     And I click on the "<report_type>" sub-tab
     And I select "100" from the "<report_type>" drop down
@@ -52,24 +49,21 @@ Feature: Dashboard page.
 
   @ui_p2
   Scenario: User can filter results on the page
-    When I navigate to the dashboard page
-    And I click on the "Tissue Variant Reports" sub-tab
+    When I click on the "Tissue Variant Reports" sub-tab
     And I enter "PT_SS27_VariantReportUploaded" in the "Tissue Variant Reports" filter textbox
     Then I see that only "1" row of "Tissue Variant Reports" data is seen
     And The patient id "PT_SS27_VariantReportUploaded" is displayed in "Tissue Variant Reports" table
 
   @ui_p1
   Scenario: User can see the last 10 messages in the Activity feed
-    When I navigate to the dashboard page
-    And I collect information on the timeline
+    When I collect information on the timeline
     Then I can see the Activity Feed section
     And I can see "10" entries in the section
     And They match with the timeline response in order
 
   @ui_p2
   Scenario Outline: Pending <report_type> report table look and feel
-    When I navigate to the dashboard page
-    And I click on the "<report_type>" sub-tab
+    When I click on the "<report_type>" sub-tab
     Then The "<report_type>" sub-tab is active
     And The "<report_type>" data columns are seen
     Examples:
@@ -79,7 +73,6 @@ Feature: Dashboard page.
 
   @ui_p3
   Scenario: User can find a list of all the patients in limbo with their reason
-    When I navigate to the dashboard page
-    And I collect information on patients in limbo
+    When I collect information on patients in limbo
     Then I can see table of Patients Awaiting Further Action Or Information
     And I can see a list of patients and the reasons why they are in limbo.

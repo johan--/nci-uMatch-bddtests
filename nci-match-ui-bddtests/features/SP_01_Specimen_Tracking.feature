@@ -6,7 +6,7 @@ Feature: Specimen Tracking page
     When I navigate to the specimen-tracking page
 
   @ui_p2
-  @demo_p3 @tests
+  @demo_p3
   Scenario: User can see and navigate to Specimens, CLIA Lab and Slide Shipment tabs
     Then I can see Specimens, CLIA Lab and Slide Shipment tabs
     When I click on "Specimens" tab

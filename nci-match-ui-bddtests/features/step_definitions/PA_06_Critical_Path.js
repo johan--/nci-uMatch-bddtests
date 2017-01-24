@@ -534,7 +534,7 @@ module.exports = function () {
 
     this.Then(/^I "(should|should not)" see the patient "([^"]*)" as "([^"]*)"$/, function (presence, field, value, callback) {
         var status = presence == 'should';
-        var patientDetailArray = ['Patient ID', 'Patient', 'Last Rejoin Scan Date', 'Status', 'Current Step', 'Treatment Arm Id', 'Stratum Id', 'Version']
+        var patientDetailArray = ['Patient ID', 'Patient', 'Status', 'Current Step', 'Treatment Arm Id', 'Stratum Id', 'Version']
         var index = patientDetailArray.indexOf(field)
 
         if (status === true) {

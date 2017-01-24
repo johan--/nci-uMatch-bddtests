@@ -98,6 +98,7 @@ Feature: This is the critical path test cases.
     Then The variant report status is marked "CONFIRMED"
     Then I then logout
 
+  @broken
   Scenario: A Mocha user can confirm a MoCha variant report. 
     Given I'm logged in as a "VR_Reviewer_mocha" user
     When I got to the patient "APPLE" with variat report "BANANA"
@@ -193,7 +194,7 @@ Feature: This is the critical path test cases.
     Then I then logout
   
   Scenario: Confirming the assignment report updates the status
-    Given I'm logged in as a "AR_Reviewer" user
+    Given I'm logged in as a "admin" user
     When I go to patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" details page
     And I get the link to "PT_CR01_PathAssayDoneVRUploadedToConfirm_ANI1" assignment report
     And I navigate to the Assignment Report
@@ -210,7 +211,7 @@ Feature: This is the critical path test cases.
     # And I "should" see the patient "Version" as "2015-08-06"
   
   Scenario: Confirmed Assignment Report updates information on the Assignment report setion of the patient
-    Given I'm logged in as a "AR_Reviewer" user
+    Given I'm logged in as a "admin" user
     When I go to patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" details page
     And I get the link to "PT_CR01_PathAssayDoneVRUploadedToConfirm_ANI1" assignment report
     And I navigate to the Assignment Report

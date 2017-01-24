@@ -11,9 +11,7 @@ module.exports = function() {
     var callList = {
         "patientStats"       : '/api/v1/patients/statistics',
         "pendingReportStats" : '/api/v1/patients/amois',
-        "pendingTissueVR"    : '/api/v1/patients/variant_reports?status=PENDING&variant_report_type=TISSUE',
-        "pendingBloodVR"     : '/api/v1/patients/variant_reports?status=PENDING&variant_report_type=BLOOD',
-        "pendingAssignment"  : '/api/v1/patients/assignments?status=PENDING',
+        "pendingItems"       : '/api/v1/patients/pending_items',
         "timeline"           : '/api/v1/patients/events?order=desc&num=10'
     };
 
@@ -65,8 +63,9 @@ module.exports = function() {
 
     this.Then(/^I can see patients with Pending Tissue Variant Reports$/, function (callback) {
         browser.ignoreSynchronization = true;
+        var pendingVRCount = dash.responseData.tissue_variant_reports.length.toString()
         browser.sleep(1000);
-        expect(dash.pendingTVRCount.getText()).to.eventually.eql(dash.responseData.length.toString()).then(function(){
+        expect(dash.pendingTVRCount.getText()).to.eventually.eql(pendingVRCount).then(function(){
             browser.ignoreSynchronization = false;
         }).then(callback);
     });
@@ -76,8 +75,9 @@ module.exports = function() {
     });
 
     this.Then(/^I can see patients with Pending Assignment Reports$/, function (callback) {
+        var pendingAssignmentCount = dash.responseData.assignment_reports.length.toString();
         browser.ignoreSynchronization = true;
-        expect(dash.pendingAssgnCount.getText()).to.eventually.eql(dash.responseData.length.toString()).then(function(){
+        expect(dash.pendingAssgnCount.getText()).to.eventually.eql(pendingAssignmentCount).then(function(){
             browser.ignoreSynchronization = false;
         }).then(callback);
     });
@@ -165,20 +165,16 @@ module.exports = function() {
     });
 
     this.Given(/^I collect information for "(.+?)" Dashboard$/, function (report_type, callback) {
-        var dashboardList = {
-          "Tissue Variant Reports": callList.pendingTissueVR,
-          "Blood Specimens": callList.pendingBloodVR,
-          "Assignment Reports" : callList.pendingAssignment
-        };
-        var request = dashboardList[report_type];
-        request.get().then(function () {
-            dash.responseData = JSON.parse(request.entity());
-        });
-        browser.sleep(10).then(callback);
+        var request = callList.pendingItems
+
+        utilities.getRequestWithService('patient', request).then(function(responseBody){
+            dash.responseData = responseBody;
+        }).then(callback);
     });
 
-    this.Then(/^Count of "(.+)" table match with back end data$/, function (reportType, callback) {
-        var count = dash.responseData.length;
+    this.Then(/^Count of "(.+?)" table match with back end data$/, function (reportType, callback) {
+        var pendingReportSections = reportType === "Assignment Reports" ? "assignment_reports" : "tissue_variant_reports"
+        var count = dash.responseData[pendingReportSections].length;
         var subtabDataList = element.all(by.id(subTabLocator[reportType])).get(0).all(by.repeater('item in filtered'));
         browser.ignoreSynchronization = true;
         expect(subtabDataList.count()).to.eventually.eql(count).then(function () {
@@ -199,15 +195,18 @@ module.exports = function() {
     this.When(/^I click on the "(.+)" sub\-tab$/, function (reportType, callback) {
         var pendingReviewArray = ['Tissue Variant Reports', 'Assignment Reports'];
         var index = pendingReviewArray.indexOf(reportType);
-        var tabHeadingElement = element.all(by.binding('heading')).get(index);
-        browser.ignoreSynchronization = true;
-        tabHeadingElement.click().then(function () {
-            browser.ignoreSynchronization = false;
+        var tabHeadingElement = element.all(by.css('li[heading]')).get(index).all(by.css('a')).get(0);
+
+        browser.executeScript('window.scrollTo(0, 300)').then(function(){
+            tabHeadingElement.click().then(function() {
+                browser.waitForAngular();
+                browser.ignoreSynchronization = false;
+            })
         }).then(callback)
     });
 
     this.Then(/^The "(.+)" sub\-tab is active$/, function (reportType, callback) {
-        var locator = 'li[heading="' + reportType + '"]';
+        var locator = 'li[heading^="' + reportType + '"]';
         browser.ignoreSynchronization = true;
         utilities.checkElementIncludesAttribute(element(by.css(locator)), "class", 'active').then(function(){
             browser.ignoreSynchronization = false;
@@ -327,14 +326,9 @@ module.exports = function() {
         var message = element.all(by.repeater('id in vm.limboMessageIds'));
         //var message = element.all(by.xpath(".//*[@id='limboPatients']/table/tbody/tr[1]/td[4]/limbo-messages"));
         var days_pending = element.all(by.xpath(".//*[@id='limboPatients']/table/tbody/tr[1]/td[5]")).get(0);
-        browser.sleep(5000);
-        expect(dataListElement.getText()).to.eventually.eql(dash.responseData.length);
-
 
         for (var i = 0; i < dash.responseData.length; i++){
             limboTableFilter.clear();
-            browser.refresh();
-            browser.sleep(1000);
             limboTableFilter.sendKeys(dash.responseData[i]['patient_id']);
             browser.sleep(1000);
             var current_status = dash.responseData[i]['current_status'];
