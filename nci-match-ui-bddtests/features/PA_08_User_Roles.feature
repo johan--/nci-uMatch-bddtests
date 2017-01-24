@@ -1,9 +1,15 @@
+UI_PA08_TsVrUploaded ->UI_PA08_MdaTsVrUploaded
+PT_AU05_MochaTsVrUploaded0 -> UI_PA08_MochaTsVrUploaded
+PT_AU06_PendingConfirmation0 -> UI_PA08_PendingConfirmation
+PT_GVF_TsVrUploaded -> UI_PA08_MdaTsVrUploaded
+PT_OS01_PendingConfirmation -> UI_PA08_PendingConfirmation
+
 @ui_p2
 Feature: MATCHKB-352. Users are given authorization based on their roles.
 
   Scenario: As a read-only user, I do not have access to confirm or reject a variant report
     Given I'm logged in as a "read_only" user
-    When I go to the patient "ION_AQ41_TsVrUploaded" with variant report "ION_AQ41_TsVrUploaded_ANI1"
+    When I go to the patient "UI_PA08_MdaTsVrUploaded" with variant report "UI_PA08_TsVrUploaded_ANI1"
     Then I can see the variant report page
     And I "should not" see the "REJECT" button on the VR page
     And I "should not" see the "CONFIRM" button on the VR page
@@ -11,14 +17,15 @@ Feature: MATCHKB-352. Users are given authorization based on their roles.
 
   Scenario: The variant report checkboxes are disabled for a read-only user
     Given I'm logged in as a "read_only" user
-    When I go to the patient "ION_AQ41_TsVrUploaded" with variant report "ION_AQ41_TsVrUploaded_ANI1"
+    When I go to the patient "UI_PA08_MdaTsVrUploaded" with variant report "UI_PA08_TsVrUploaded_ANI1"
     Then I can see the variant report page
     And The checkboxes are disabled
     Then I then logout
-
+    
+@test
  Scenario Outline: As a non-privileged user I can not edit variant comments but can only view
     Given I'm logged in as a "<user>" user
-    When I go to the patient "PT_GVF_TsVrUploaded" with variant report "PT_GVF_TsVrUploaded_ANI1"
+    When I go to the patient "UI_PA08_MdaTsVrUploaded" with variant report "UI_PA08_TsVrUploaded_ANI1"
     Then I can see the variant report page
     And I click on the comment link at ordinal "1"
     Then I can see the "Unconfirmed for UI display" in the modal text box
@@ -33,7 +40,7 @@ Feature: MATCHKB-352. Users are given authorization based on their roles.
       
  Scenario: As a variant_report reviewer from MDA lab I can edit variant comments
     Given I'm logged in as a "VR_Reviewer_mda" user
-    When I go to the patient "PT_GVF_TsVrUploaded" with variant report "PT_GVF_TsVrUploaded_ANI1"
+    When I go to the patient "UI_PA08_MdaTsVrUploaded" with variant report "UI_PA08_TsVrUploaded_ANI1"
     Then I can see the variant report page
     And I click on the comment link at ordinal "1"
     Then I can see the "Unconfirmed for UI display" in the modal text box
@@ -43,7 +50,7 @@ Feature: MATCHKB-352. Users are given authorization based on their roles.
 
   Scenario: As a variant_report reviewer from MoCha lab, I can only view the variant report of a patient from MDA lab
     Given I'm logged in as a "VR_Reviewer_mocha" user
-    When I go to the patient "ION_AQ41_TsVrUploaded" with variant report "ION_AQ41_TsVrUploaded_ANI1"
+    When I go to the patient "UI_PA08_MdaTsVrUploaded" with variant report "UI_PA08_TsVrUploaded_ANI1"
     Then I can see the variant report page
     And I "should not" see the "REJECT" button on the VR page
     And I "should not" see the "CONFIRM" button on the VR page
@@ -51,7 +58,7 @@ Feature: MATCHKB-352. Users are given authorization based on their roles.
 
   Scenario Outline:  As a variant_report reviewer user, I do not have access to approve an assignment report
     Given I'm logged in as a "<user>" user
-    When I go to the patient "PT_OS01_PendingConfirmation" with variant report "PT_OS01_PendingConfirmation_ANI1"
+    When I go to the patient "UI_PA08_PendingConfirmation" with variant report "UI_PA08_PendingConfirmation_ANI1"
     And I click on the Assignment Report tab "Assignment Report - PENDING"
     Then I "should not" see the Assignment report "CONFIRM" button
     Then I then logout
@@ -63,7 +70,7 @@ Feature: MATCHKB-352. Users are given authorization based on their roles.
 
  Scenario: As a variant_report reviewer from MoCha lab, I can confirm and reject the variant report of a patient from MoCha lab
     Given I'm logged in as a "VR_Reviewer_mocha" user
-    When I go to the patient "PT_AU05_MochaTsVrUploaded0" with variant report "PT_AU05_MochaTsVrUploaded0_ANI1"
+    When I go to the patient "UI_PA08_MochaTsVrUploaded" with variant report "UI_PA08_MochaTsVrUploaded0_ANI1"
     Then I can see the variant report page
     And The "REJECT" button is "visible"
     And The "REJECT" button is "enabled"
@@ -73,7 +80,7 @@ Feature: MATCHKB-352. Users are given authorization based on their roles.
 
  Scenario: As a variant_report reviewer from MoCha lab, I can confirm and reject the variant report of a patient from MoCha lab
     Given I'm logged in as a "VR_Reviewer_mda" user
-    When I go to the patient "ION_AQ41_TsVrUploaded" with variant report "ION_AQ41_TsVrUploaded_ANI1"
+    When I go to the patient "UI_PA08_MdaTsVrUploaded" with variant report "UI_PA08_TsVrUploaded_ANI1"
     Then I can see the variant report page
     And The "REJECT" button is "visible"
     And The "REJECT" button is "enabled"
@@ -83,7 +90,7 @@ Feature: MATCHKB-352. Users are given authorization based on their roles.
 
   Scenario: As an assignment_report reviewer, I can approve an assignment report
     Given I'm logged in as a "AR_Reviewer" user
-    When I go to the patient "PT_AU06_PendingConfirmation0" with variant report "PT_AU06_PendingConfirmation0_ANI1"
+    When I go to the patient "UI_PA08_PendingConfirmation" with variant report "UI_PA08_PendingConfirmation0_ANI1"
     Then I click the assignment report tab "Assignment Report - PENDING"
     And I can see the assignment report page "Assignment Report - PENDING"
     And The "CONFIRM" button is "visible"
@@ -92,7 +99,7 @@ Feature: MATCHKB-352. Users are given authorization based on their roles.
 
   Scenario: As an assignment_report reviewer, I do not have access to approve or reject a variant report
     Given I'm logged in as a "AR_Reviewer" user
-    When I go to the patient "ION_AQ41_TsVrUploaded" with variant report "ION_AQ41_TsVrUploaded_ANI1"
+    When I go to the patient "UI_PA08_MdaTsVrUploaded" with variant report "UI_PA08_TsVrUploaded_ANI1"
     Then I can see the variant report page
     And I "should not" see the "REJECT" button on the VR page
     And I "should not" see the "CONFIRM" button on the VR page
@@ -100,7 +107,7 @@ Feature: MATCHKB-352. Users are given authorization based on their roles.
 
   Scenario: As an assignment_report reviewer, I do not have access to check / uncheck variants
     Given I'm logged in as a "AR_Reviewer" user
-    When I go to the patient "ION_AQ41_TsVrUploaded" with variant report "ION_AQ41_TsVrUploaded_ANI1"
+    When I go to the patient "UI_PA08_MdaTsVrUploaded" with variant report "UI_PA08_TsVrUploaded_ANI1"
     Then I can see the variant report page
     And The checkboxes are disabled
     Then I then logout
