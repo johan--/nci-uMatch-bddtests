@@ -1,10 +1,4 @@
-UI_PA08_TsVrUploaded ->UI_PA08_MdaTsVrUploaded
-PT_AU05_MochaTsVrUploaded0 -> UI_PA08_MochaTsVrUploaded
-PT_AU06_PendingConfirmation0 -> UI_PA08_PendingConfirmation
-PT_GVF_TsVrUploaded -> UI_PA08_MdaTsVrUploaded
-PT_OS01_PendingConfirmation -> UI_PA08_PendingConfirmation
-
-@ui_p2
+@ui_p2 @test
 Feature: MATCHKB-352. Users are given authorization based on their roles.
 
   Scenario: As a read-only user, I do not have access to confirm or reject a variant report
@@ -21,8 +15,7 @@ Feature: MATCHKB-352. Users are given authorization based on their roles.
     Then I can see the variant report page
     And The checkboxes are disabled
     Then I then logout
-    
-@test
+
  Scenario Outline: As a non-privileged user I can not edit variant comments but can only view
     Given I'm logged in as a "<user>" user
     When I go to the patient "UI_PA08_MdaTsVrUploaded" with variant report "UI_PA08_TsVrUploaded_ANI1"
