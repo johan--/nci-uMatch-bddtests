@@ -84,7 +84,7 @@ module.exports = function () {
         expect (actualTable.get (1).getText ())
             .to
             .eventually
-            .eql (patientPage.responseData.gender + ',' + patientPage.responseData.ethnicity);
+            .eql (patientPage.responseData.gender + ', ' + patientPage.responseData.ethnicity);
         expect (actualTable.get (2).getText ())
             .to
             .eventually
@@ -140,7 +140,6 @@ module.exports = function () {
         var testElement = element.all (by.css ('li.uib-tab.nav-item')).get (index);
         var testElem    = element.all (by.css ('li.uib-tab.nav-item'))
         utilities.getElementIndex(testElem, tabName).then(function (newIndex){
-            console.log("new INdex = " + newIndex);
             utilities.checkElementIncludesAttribute (testElem.get(newIndex), 'class', 'active');
         }).then(callback);
     });

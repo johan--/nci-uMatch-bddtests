@@ -193,6 +193,24 @@ module.exports = function () {
 
     });
 
+    this.Then(/^I can see Specimens, CLIA Lab and Slide Shipment tabs$/, function (callback) {
+         STPage.topLvlTabElemList.getText().then(function(list){
+            expect(list).to.eql(STPage.topLevelTabsList);
+         }).then(callback);
+    });
+
+    this.When(/^I click on "([^"]*)" tab$/, function (tabName, callback) {
+        var linkIndex = STPage.topLevelTabsList.indexOf(tabName);
+        STPage.topLvlTabElemList.get(linkIndex).click().then(function(){
+            browser.waitForAngular();
+        }).then(callback);
+    });
+
+    this.Then(/^the "([^"]*)" tab becomes active$/, function (tabName, callback) {
+        var linkIndex = STPage.topLevelTabsList.indexOf(tabName)
+        expect(STPage.topLvlTabElemList.get(linkIndex).getAttribute('class')).to.eventually.include('active').notify(callback);
+    });
+
 
     function shipmentDetails () {
         utilities.getRequestWithService('patient', '/api/v1/patients/shipments').then(function (responseBody) {

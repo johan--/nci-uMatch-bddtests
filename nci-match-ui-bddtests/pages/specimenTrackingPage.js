@@ -14,6 +14,9 @@ var STPage = function () {
                                      'Fedex Tracking', 'Pathology Status', 'Pathology Status Date' ]
     this.searchField = element(by.css('input[grid-id="specimenShipments"]'));
     this.tableElementList = element.all(by.css('#specimenShipments [ng-repeat^="item in filtered"]'));
+
+    this.topLevelTabsList  = [ 'Specimens', 'CLIA Lab Shipments', 'Slide Shipments' ];
+    this.topLvlTabElemList = element.all(by.css('ul.nav-tabs>li'));
 };
 
 module.exports = new STPage();
