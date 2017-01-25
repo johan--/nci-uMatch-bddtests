@@ -20296,7 +20296,7 @@
                 "S": "2017-01-24T19:50:29+00:00"
             },
             "confirmed": {
-                "BOOL": true
+                "BOOL": false
             },
             "uuid": {
                 "S": "51d585d2-1982-48ab-9c2c-edb9033b6db8"
@@ -20359,6 +20359,9 @@
             },
             "variant_type": {
                 "S": "fusion"
+            },
+            "comment": {
+                "S": "Unconfirmed for UI display"
             }
         },
         {
