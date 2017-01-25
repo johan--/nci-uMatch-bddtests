@@ -1,5 +1,4 @@
 @ui_p2
-@test
 Feature: MATCHKB-542. Users can upload patient sample files.
   The user is able to upload a large sample file, such as BAM file. 
   A file can be as large as 20 GB or more.
