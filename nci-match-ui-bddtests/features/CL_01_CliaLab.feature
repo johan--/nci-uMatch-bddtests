@@ -45,7 +45,7 @@ Feature: CLIA Labs Page
     When I click on the "MoCha" section
     And I click on "No Template Control" under "MoCha"
     And I go to clia variant report with "SC_SA1CB" as the molecular_id
-    And The clia report "PASSED" button is "visible"
+    And The "PASSED" button is "visible"
 
   @ui_p1
   Scenario: User can access information about the uploaded Positive Sample Control report.

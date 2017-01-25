@@ -230,18 +230,6 @@ module.exports = function () {
         }).then(callback);
     });
 
-    this.When(/^The "(.+?)" button is "(disabled|enabled|visible|invisible)"$/, function (buttonText, buttonState, callback) {
-        var button = element(by.buttonText(buttonText));
-        var isVisible = buttonState === 'enabled' || buttonState === 'disabled';
-        var isAvailable = buttonState === 'enabled' || buttonState === 'visible';
-
-        if (isVisible){
-            expect(button.isEnabled()).to.eventually.eql(isAvailable).notify(callback);
-        } else {
-            expect(button.isPresent()).to.eventually.eql(isAvailable).notify(callback);
-        }
-    });
-
     this.Then(/^I see the status of Report as "([^"]*)"$/, function (arg1, callback) {
         expect(patientPage.tissueReportStatus.getText()).to.eventually.eql("CONFIRMED").then(function () {
             browser.waitForAngular();

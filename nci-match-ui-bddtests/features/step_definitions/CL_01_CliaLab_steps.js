@@ -367,27 +367,12 @@ module.exports = function() {
         browser.get(location, 6000).then(function () {browser.waitForAngular();}).then(callback);
     });
 
-    //Status button
-    this.When(/^The clia report "(.+?)" button is "(disabled|enabled|visible|invisible)"$/, function (buttonText, buttonState, callback) {
-        var button = element(by.buttonText(buttonText));
-        var isVisible = buttonState === 'enabled' || buttonState === 'disabled';
-        var isAvailable = buttonState === 'enabled' || buttonState === 'visible';
-
-        if (isVisible){
-            expect(button.isEnabled()).to.eventually.eql(isAvailable).notify(callback);
-        } else {
-            expect(button.isPresent()).to.eventually.eql(isAvailable).notify(callback);
-        }
-    });
-
     // function getStatusButton(filtered, reportType){
         // var buttonString = filtered === 'Filtered' ? 'FILTERED' : 'QC';
         // var panelString = reportType === 'Tissue Reports' ? patientPage.tissueMasterPanelString : patientPage.bloodMasterPanelString;
         // var css_locator = panelString + " [ng-class=\"getVariantReportModeClass('" + buttonString + "')\"]";
         // return element(by.css(css_locator));
     // };
-
-
 
     this.Then(/^I click on clia report "([^"]*)" button$/, function (buttonText, callback) {
         browser.sleep(5000).then(function () {
