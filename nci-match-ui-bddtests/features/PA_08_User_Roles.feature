@@ -1,4 +1,4 @@
-@ui_p2 
+@ui_p2 @test
 Feature: MATCHKB-352. Users are given authorization based on their roles.
 
   Scenario: As a read-only user, I do not have access to confirm or reject a variant report
@@ -86,6 +86,7 @@ Feature: MATCHKB-352. Users are given authorization based on their roles.
     When I go to the patient "UI_PA08_PendingConfirmation" with variant report "UI_PA08_PendingConfirmation_ANI1"
     Then I click the assignment report tab "Assignment Report - PENDING"
     And I can see the assignment report page "Assignment Report - PENDING"
+    Then I scroll to the bottom of the page
     And The "CONFIRM" button is "visible"
     And The "CONFIRM" button is "enabled"
     Then I then logout
