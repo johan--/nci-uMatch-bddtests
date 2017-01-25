@@ -1,7 +1,6 @@
 @ui_p2 
 Feature: MATCHKB-352. Users are given authorization based on their roles.
 
-@test
   Scenario: As a read-only user, I do not have access to confirm or reject a variant report
     Given I'm logged in as a "read_only" user
     When I go to the patient "UI_PA08_MdaTsVrUploaded" with variant report "UI_PA08_MdaTsVrUploaded_ANI1"
@@ -10,7 +9,6 @@ Feature: MATCHKB-352. Users are given authorization based on their roles.
     And I "should not" see the "CONFIRM" button on the VR page
     Then I then logout
 
-@test
   Scenario: The variant report checkboxes are disabled for a read-only user
     Given I'm logged in as a "read_only" user
     When I go to the patient "UI_PA08_MdaTsVrUploaded" with variant report "UI_PA08_MdaTsVrUploaded_ANI1"
@@ -18,7 +16,6 @@ Feature: MATCHKB-352. Users are given authorization based on their roles.
     And The checkboxes are disabled
     Then I then logout
 
-@test
  Scenario Outline: As a non-privileged user I can not edit variant comments but can only view
     Given I'm logged in as a "<user>" user
     When I go to the patient "UI_PA08_MdaTsVrUploaded" with variant report "UI_PA08_MdaTsVrUploaded_ANI1"
@@ -34,7 +31,6 @@ Feature: MATCHKB-352. Users are given authorization based on their roles.
       | VR_Reviewer_mocha |
       | AR_Reviewer       |
       
-@test
  Scenario: As a variant_report reviewer from MDA lab I can edit variant comments
     Given I'm logged in as a "VR_Reviewer_mda" user
     When I go to the patient "UI_PA08_MdaTsVrUploaded" with variant report "UI_PA08_MdaTsVrUploaded_ANI1"
@@ -45,7 +41,6 @@ Feature: MATCHKB-352. Users are given authorization based on their roles.
     Then I click on the "OK" button
     Then I then logout
 
-@test
   Scenario: As a variant_report reviewer from MoCha lab, I can only view the variant report of a patient from MDA lab
     Given I'm logged in as a "VR_Reviewer_mocha" user
     When I go to the patient "UI_PA08_MdaTsVrUploaded" with variant report "UI_PA08_MdaTsVrUploaded_ANI1"
@@ -54,7 +49,6 @@ Feature: MATCHKB-352. Users are given authorization based on their roles.
     And I "should not" see the "CONFIRM" button on the VR page
     Then I then logout
 
-@test
   Scenario Outline:  As a variant_report reviewer user, I do not have access to approve an assignment report
     Given I'm logged in as a "<user>" user
     When I go to the patient "UI_PA08_PendingConfirmation" with variant report "UI_PA08_PendingConfirmation_ANI1"
@@ -67,7 +61,6 @@ Feature: MATCHKB-352. Users are given authorization based on their roles.
       | VR_Reviewer_mocha |
       | VR_Reviewer_mda   |
 
-@test
  Scenario: As a variant_report reviewer from MoCha lab, I can confirm and reject the variant report of a patient from MoCha lab
     Given I'm logged in as a "VR_Reviewer_mocha" user
     When I go to the patient "UI_PA08_MochaTsVrUploaded" with variant report "UI_PA08_MochaTsVrUploaded_ANI1"
@@ -78,7 +71,6 @@ Feature: MATCHKB-352. Users are given authorization based on their roles.
     And The "CONFIRM" button is "enabled"
     Then I then logout
 
-@test
  Scenario: As a variant_report reviewer from MDA lab, I can confirm and reject the variant report of a patient from MDA lab
     Given I'm logged in as a "VR_Reviewer_mda" user
     When I go to the patient "UI_PA08_MdaTsVrUploaded" with variant report "UI_PA08_MdaTsVrUploaded_ANI1"
