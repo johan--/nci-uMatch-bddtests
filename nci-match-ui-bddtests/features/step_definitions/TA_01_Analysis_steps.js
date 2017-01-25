@@ -182,9 +182,8 @@ module.exports = function () {
     this.When(/^I collect patient information related to treatment arm$/, function (callback) {
         // http://localhost:10235/api/v1/treatment_arms/APEC1621-A/100/assignment_report
         var uri = '/api/v1/treatment_arms/' + currentTreatmentId+ '/' + currentStratumId+ '/assignment_report';
-        var request = utilities.callApi('treatment', uri);
-        request.get().then(function () {
-            allPatientDetails = JSON.parse(request.entity());
+        utilities.getRequestWithService('treatment', uri).then(function(response){
+            allPatientDetails = response;
         }).then(callback);
     });
 

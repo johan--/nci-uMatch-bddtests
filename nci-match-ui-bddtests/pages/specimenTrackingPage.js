@@ -12,7 +12,7 @@ var STPage = function () {
     this.shipmentTableHeaderList = [ 'Molecular ID', 'Slide Barcode', 'Surgical Event ID', 'Patient ID',
                                      'Collected Date', 'Received Date', 'Type', 'Shipped Date', 'Site',
                                      'Fedex Tracking', 'Pathology Status', 'Pathology Status Date' ]
-    this.searchField = element(by.css('input[grid-id="specimenShipments"]'));
+    this.searchField = element(by.css('input[grid-id="specimenData"]'));
     this.tableElementList = element.all(by.css('#specimenShipments [ng-repeat^="item in filtered"]'));
 
     this.topLevelTabsList  = [ 'Specimens', 'CLIA Lab Shipments', 'Slide Shipments' ];

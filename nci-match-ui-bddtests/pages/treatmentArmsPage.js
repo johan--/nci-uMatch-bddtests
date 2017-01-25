@@ -42,7 +42,7 @@ var TreatmentArmsPage = function() {
     // The labels right Left side box on the treatment arm  details page that shows the Gene, Patient Assigned etc.
     this.rightInfoBoxLabels = element.all(by.css('#right-info-box dt'));
     // The values of the labels within the right side box
-    this.rightInfoBoxItems = element.all(by.css('#left-info-box dd'));
+    this.rightInfoBoxItems = element.all(by.css('#right-info-box dd'));
 
     // Three main tabs showing Analysis, Rules and History
     this.middleMainTabs = element.all(by.css('a[uib-tab-heading-transclude=""]'));

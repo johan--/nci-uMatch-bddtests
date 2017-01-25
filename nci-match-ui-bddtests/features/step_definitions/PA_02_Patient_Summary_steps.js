@@ -85,15 +85,11 @@ module.exports = function () {
             .to
             .eventually
             .eql (patientPage.responseData.gender + ', ' + patientPage.responseData.ethnicity);
-        expect (actualTable.get (2).getText ())
-            .to
-            .eventually
-            .eql (utilities.dashifyIfEmpty (patientPage.responseData.last_rejoin_scan_date));
-        expect (actualTable.get (3).getText ()).to.eventually.eql (patientPage.responseData.current_status);
-        expect (actualTable.get (4).getText ()).to.eventually.eql (patientPage.responseData.current_step_number)
-        expect (actualTable.get (5).getText ()).to.eventually.eql (selectedTA.treatment_arm_id);
-        expect (actualTable.get (6).getText ()).to.eventually.eql (selectedTA.stratum_id);
-        expect (actualTable.get (7).getText ()).to.eventually.eql (', ' + selectedTA.version).notify (callback);
+        expect (actualTable.get (2).getText ()).to.eventually.eql (patientPage.responseData.current_status);
+        expect (actualTable.get (3).getText ()).to.eventually.eql (patientPage.responseData.current_step_number)
+        expect (actualTable.get (4).getText ()).to.eventually.eql (selectedTA.treatment_arm_id);
+        expect (actualTable.get (5).getText ()).to.eventually.eql (selectedTA.stratum_id);
+        expect (actualTable.get (6).getText ()).to.eventually.eql (', ' + selectedTA.version).notify (callback);
     });
 
     this.Then (/^I should see the patient's disease information match the database$/, function (callback) {

@@ -61,16 +61,16 @@ var PatientPage = function () {
     // List of Surgical Events from the drop down
     this.surgicalEventIdList = element.all(by.css('a[ng-click="onSurgicalEventSelected(item)"]'));
     // Access to the Summary boxes (Event and Pathology)
-    this.surgicalEventSummaryBoxList = element.all(by.css('.biopsy-header-box'));
+    this.surgicalEventSummaryBoxList = element.all(by.css('.surgical-event-header-box'));
     // Expected Event and Pathology Labels
-    this.biopsyHeaderBoxLabels = {
+    this.surgicalEventHeaderBoxLabels = {
         'Event': {
             'index': 0,
-            'labels': ['Surgical Event ID', 'Type', 'Collection Date', 'Received Date', 'Failure Date']
+            'labels': ['Surgical Event ID', 'Type']
         },
-        'Pathology': {
+        'Details': {
             'index': 1,
-            'labels': ['Status', 'Received Date', 'Comment']
+            'labels': ['Collection Date', 'Received Date', 'Failure Date']
         }
     };
 
@@ -164,7 +164,6 @@ var PatientPage = function () {
     this.expectedPatientSummaryLabels = [
         'Patient ID',
         'Patient',
-        'Last Rejoin Scan Date',
         'Status',
         'Current Step',
         'Treatment Arm'

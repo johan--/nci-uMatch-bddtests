@@ -115,8 +115,8 @@ module.exports = function () {
             .getText()).to.eventually.eql(heading).notify(callback);
     });
 
-    this.Then(/^I should see the "(Event|Pathology)" Section under patient Surgical Events$/, function (section, callback) {
-        var headerBox = patientPage.biopsyHeaderBoxLabels[section];
+    this.Then(/^I should see the "(Event|Details)" Section under patient Surgical Events$/, function (section, callback) {
+        var headerBox = patientPage.surgicalEventHeaderBoxLabels[section];
         var expectedHeaderBoxLabels = headerBox['labels'];
         // Getting access to the specific biopsy box
         var actualHeaderBox = patientPage.surgicalEventSummaryBoxList.get(headerBox['index']);

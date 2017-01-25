@@ -16,7 +16,7 @@ Feature: Patient Surgical Events Tab
     When I click on the Surgical Event Tab at index "0"
     And I should see the "Event" Section under patient Surgical Events
     And The Surgical Event Id match that of the backend
-    And I should see the "Pathology" Section under patient Surgical Events
+    And I should see the "Details" Section under patient Surgical Events
 #    And They match with the patient json for "Event" section
 #    And They match with the patient json for "Pathology" section
     And I should see the "Slide Shipments" under surgical event tab
