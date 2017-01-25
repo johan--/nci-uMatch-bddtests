@@ -17,14 +17,10 @@ Feature: Specimen Tracking page
     Then the "Slide Shipments" tab becomes active
 
   @ui_p2
-  Scenario: All Specimens assigned to a patient shows up on the tracking table
+  Scenario: Specimens assigned to a patient that is not rejected shows up on the tracking table
     When I enter "PT_CR05_SpecimenShippedTwice" in the search field for tracking table
     And I collect information about shipment
-    Then I expect to see "2" rows in the tracking table
-    And I expect to see "2" rows with patient id of "PT_CR05_SpecimenShippedTwice" for the specimens
-    And I expect to see "2" rows with surgical ids of "PT_CR05_SpecimenShippedTwice_SEI1" for both specimens
-    And I expect to see Molecular Ids of "PT_CR05_SpecimenShippedTwice_MOI1,PT_CR05_SpecimenShippedTwice_MOI2" in the table.
-
+    Then I expect to see "1" rows in the tracking table
       
   Scenario: User can track Specimens
     Then I see the Shipping Location section

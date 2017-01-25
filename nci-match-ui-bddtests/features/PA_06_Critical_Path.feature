@@ -173,7 +173,7 @@ Feature: This is the critical path test cases.
     Given I'm logged in as a "AR_Reviewer" user
     When I go to patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" details page
     And I click on the Surgical Event Tab at index "0"
-    And I wait "10" seconds
+    And I wait "30" seconds
     Then I should see the assignment report link for "PT_CR01_PathAssayDoneVRUploadedToConfirm_ANI1"
     When I click on the assignment report link
     Then I can see the assignment report page "Assignment Report - PENDING"

@@ -20,8 +20,8 @@ module.exports = function () {
     var actualSelectedArray;
 
     this.When (/^I collect information about shipment$/, function (callback) {
-        shipmentDetails ().then (function (responseJSON) {
-            shippingJSONResponse = responseJSON;
+        utilities.getRequestWithService('patient', '/api/v1/patients/shipments').then(function (responseBody) {
+            shippingJSONResponse = responseBody;
         }).then (callback);
     });
 
@@ -210,13 +210,6 @@ module.exports = function () {
         var linkIndex = STPage.topLevelTabsList.indexOf(tabName)
         expect(STPage.topLvlTabElemList.get(linkIndex).getAttribute('class')).to.eventually.include('active').notify(callback);
     });
-
-
-    function shipmentDetails () {
-        utilities.getRequestWithService('patient', '/api/v1/patients/shipments').then(function (responseBody) {
-            return responseBody
-        });
-    }
 
     function shipmentBySite () {
         utilities.getRequestWithService('patient', '/api/v1/patients/shipments').then(function (responseBody) {
