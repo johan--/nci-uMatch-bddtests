@@ -7,7 +7,7 @@ class TableDetails
 
   TREATMENT_ARM_ASSIGNMENT_EVENT = {
       name: 'treatment_arm_assignment_event',
-      keys: %w(patient_id treatment_arm_id)
+      keys: %w(patient_id assignment_date)
   }
 
   PATIENT = {

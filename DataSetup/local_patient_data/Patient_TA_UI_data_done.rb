@@ -157,6 +157,15 @@ class PatientTA
     PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.ani)
   end
 
+  def self.ui_em_off_study
+    pt = PatientDataSet.new('UI_EM_OffStudy')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+    PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+    PatientMessageLoader.off_study(pt.id, '1.0')
+  end
+
 
 end
 
