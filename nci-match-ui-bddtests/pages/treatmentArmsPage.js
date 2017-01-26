@@ -19,6 +19,7 @@ var TreatmentArmsPage = function() {
     // Patients Table That contains all the patient list Assigned to the selected treatment arm as seen on the treatment arms detailed page.
     this.allPatientsDataTable = element(by.css('#allPatientsData'));
     this.allPatientDataRows   = this.allPatientsDataTable.all(by.css('[ng-repeat^="item in filtered"]'));
+    this.tableDataRowString   = '[ng-repeat^="item in filtered"]';
     this.expecrtedPatientsDataTableHeaders = [
         'Patient ID', 'TA Version', 'Patient Assignment Status Outcome',
         'Variant Report', 'Assignment Report', 'Date Selected',

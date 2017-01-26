@@ -4,6 +4,7 @@
 
 'use strict';
 var fs = require('fs');
+var moment = require('moment');
 
 var taPage = require('../../pages/treatmentArmsPage');
 // Helper Methods
@@ -188,13 +189,11 @@ module.exports = function () {
     });
 
     this.Then (/^I should see data in the All Patients Data Table$/, function (callback) {
-        utilities.selectFromDropDown (taPage.allPatientsDataTable, '100');
-
         var allRows = taPage.allPatientDataRows;
-        expect (taPage.allPatientDataRows.count ()).to.eventually.eql (allPatientDetails[ 'patients_list' ].length);
-
         var patientDetails = allPatientDetails[ 'patients_list' ][ 0 ];
         var searchField    = taPage.allPatientsDataTable.all (by.model ('filterAll'));
+        
+        var assignmentDate = moment.utc(patientDetails[ 'assignment_date' ]).utc().format('LLL')
 
         searchField.sendKeys (patientDetails[ 'patient_id' ]).then (function () {
             expect (allRows.all (by.binding ('item.patient_id')).get (0).getText ())
@@ -208,7 +207,7 @@ module.exports = function () {
             expect (allRows.all (by.css ('a[title="Assignment Report"]')).get (0).getAttribute ('href'))
                 .to.eventually.include (patientDetails[ 'patient_id' ]);
             expect (allRows.all (by.binding ('item.assignment_date')).get (0).getText ())
-                .to.eventually.eql(patientDetails[ 'assignment_date' ]);
+                .to.eventually.include(assignmentDate);
             expect (allRows.all (by.binding ('item.step_number')).get (0).getText ())
                 .to.eventually.eql(patientDetails[ 'step_number' ]);
         }).then(callback);

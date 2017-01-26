@@ -12,6 +12,8 @@ var Utilities = function() {
         afterPatientLoad: 3000
     };
 
+    var nextButtonString = 'li[ng-if="::directionLinks"][ng-class="{disabled: noNext()||ngDisabled}"]'
+
     var client = new Client();
 
     this.checkTitle = function(browser, title) {
@@ -272,6 +274,50 @@ var Utilities = function() {
         return client.put(callUrl, args, function (data, response) {
             // console.log(response);
         });
+    };
+
+    this.getAllCounts = function(tableElement, rowElement){
+        var counter = 0;
+        var rows = tableElement.all(by.css(rowElement));
+        rows.count().then(function (c){
+          console.log(c);
+        })
+        // do {
+
+        //   getCurrentCount(rows).then(function(c){
+        //     counter = counter + c;
+        //   });
+        //     // counter = counter + getCurrentCount(rows);
+        //     // console.log("counter reads now" + counter);
+        //     // clickNextButton(tableElement);
+        //    }
+        // while (isLastPage(tableElement) !== true)
+    };
+
+    function getCurrentCount(rowElement){
+        var currentCount
+        return rowElement.count().then(function(cnt){
+          console.log(cnt);
+            currentCount = cnt;
+            return currentCount
+        })
+    };
+
+    function clickNextButton(tableElement){
+        tableElement.element(by.css(nextButtonString)).click().then(function(){
+          browser.waitForAngular();
+        })
+    };
+
+    function isLastPage(tableElement) {
+        var nextButton = tableElement.element(by.css(nextButtonString));
+        nextButton.getAttribute('class').then(function(attributes){
+          if(attributeArray.match('disabled')){
+            return true;
+          } else{
+            return false;
+          }
+        })
     };
 
     function tierBasedURI(service){
