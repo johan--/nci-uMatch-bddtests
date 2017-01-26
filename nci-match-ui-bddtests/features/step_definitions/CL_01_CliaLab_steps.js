@@ -193,15 +193,15 @@ module.exports = function() {
     });
 
     this.When(/^I call the aliquot service with the generated MSN$/, function(callback){
-        var path = 'IR_UITEST/' + cliaPage.S3Path;
-        var data = 	{
-            "analysis_id": cliaPage.analysisId,
-            "site": "mocha",
-            "ion_reporter_id": "IR_UITEST",
-            "vcf_name": path + '/test1.vcf',
-            "dna_bam_name": path + '/dna.bam',
-            "cdna_bam_name": path + '/cdna.bam'
-        };
+            var path = 'IR_UITEST/' + cliaPage.S3Path;
+            var data = 	{
+                "analysis_id": cliaPage.analysisId,
+                "site": "mocha",
+                "ion_reporter_id": "IR_UITEST",
+                "vcf_name": 'test1.vcf',
+                "dna_bam_name": 'dna.bam',
+                "cdna_bam_name": 'cdna.bam'
+            };
 
         browser.sleep(50).then(function () {
             utilities.putApi('ion', '/api/v1/aliquot/' + cliaPage.molecularId, data)

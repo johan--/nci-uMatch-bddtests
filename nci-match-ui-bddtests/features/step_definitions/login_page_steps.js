@@ -51,6 +51,7 @@ module.exports = function () {
 
         var email = login_credentials[0];
         var password = login_credentials[1];
+        console.log("email: " + email);
 
         loginPageObj.login(email, password);
         utilities.waitForElement(dashboardPageObj.dashboardPanel, 'sticky top menu').then(function (presence){
