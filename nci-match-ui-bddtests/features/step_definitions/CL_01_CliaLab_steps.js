@@ -176,7 +176,7 @@ module.exports = function() {
                 }
             )
         }).then(function(){
-            browser.sleep(30)
+            browser.sleep(60)
         }).then(callback);
     });
 

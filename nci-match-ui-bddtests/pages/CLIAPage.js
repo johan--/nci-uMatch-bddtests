@@ -42,11 +42,11 @@ var CliaPage = function () {
     this.expectedMsnTableHeading  = ['Molecular ID', 'Date Created', 'Date Received', 'Variant Reports', 'Status']
     this.expPositiveSampleHeaders = {
         'left': [
-            'Molecular ID', 'Analysis ID', 'Positive Control Loaded Date', 'Torrent Variant Caller Version',
-            'Positive Control Version', 'File Received Date', 'Status', 'Files'
+            'Molecular ID', 'Analysis ID', 'Ion Reporter ID', 'Positive Control Loaded Date', 'Torrent Variant Caller Version',
+            'Positive Control Version'
         ],
         'right': [
-            'Total Variants', 'MAPD', 'Cellularity'
+            'Total Variants', 'MAPD', 'Cellularity', 'File Received Date', 'Status', 'Files'
         ]
 
     };
