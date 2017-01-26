@@ -43,7 +43,7 @@ var CliaPage = function () {
     this.expPositiveSampleHeaders = {
         'left': [
             'Molecular ID', 'Analysis ID', 'Positive Control Loaded Date', 'Torrent Variant Caller Version',
-            'Positive Control Version', 'File Received Date', 'Status', 'Comments', 'Files'
+            'Positive Control Version', 'File Received Date', 'Status', 'Files'
         ],
         'right': [
             'Total Variants', 'MAPD', 'Cellularity'

@@ -66,7 +66,7 @@ var LoginPage = function() {
                                                 };
                                                 utils.postRequest('https://ncimatch.auth0.com/oauth/ro', data, function(responseData){
                                                     // console.log(responseData.id_token);
-                                                    browser.idToken = responseData.id_token;
+                                                    browser.idToken = 'Bearer ' + responseData.id_token;
                                                 });
 
                                                 email.sendKeys(username);

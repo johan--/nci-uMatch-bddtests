@@ -70,6 +70,18 @@ module.exports = function() {
         }).then(callback);
     });
 
+    this.When(/^I click on "([^"]*)" under "(MoCha|MD Anderson)"$/, function (subTabName, sectionName, callback) {
+        var elem = element(by.css('li[heading="' + subTabName + '"]'))
+        element (by.css ('li[heading="' + subTabName + '"]')).click ().then(function(){
+            // Setting the Control type here in anticipation of future needs.
+            cliaPage.controlType = tabNameMap[sectionName][subTabName]['control_type'];
+            cliaPage.tableElement = tabNameMap[sectionName][subTabName]['element'];
+            cliaPage.urlType      = tabNameMap[sectionName][subTabName]['url_type']
+            browser.waitForAngular();
+            browser.ignoreSynchronization = false;    
+        }).then(callback);
+    });
+
     this.Then(/^I am on the "(MoCha|MD Anderson)" section$/, function (sectionName, callback) {
         var url = sectionName === 'MoCha' ? 'MoCha' : 'MDACC';
         expect(browser.getCurrentUrl()).to.eventually
@@ -77,46 +89,25 @@ module.exports = function() {
             .notify(callback);
     });
 
-    this.When(/^I click on "([^"]*)" under "(MoCha|MD Anderson)"$/, function (subTabName, sectionName, callback) {
-        var elem = element(by.css('li[heading="' + subTabName + '"]'))
-        element (by.css ('li[heading="' + subTabName + '"]')).click ();
-        browser.ignoreSynchronization = false;
-        browser.sleep (4000).then (callback);
-
-        // Setting the Control type here in anticipation of future needs.
-        // controlType = tabNameMap[sectionName][subTabName]['control_type'];
-        // cliaPage.controlType  = controlType;
-        // cliaPage.tableElement = tabNameMap[sectionName][subTabName]['element'];
-        // cliaPage.urlType      = tabNameMap[sectionName][subTabName]['url_type']
-        // browser.executeScript('window.scrollTo(0, 650)').then(function () {
-        //     browser.sleep(4000).then(function () {
-        //         elem.click().then(function(){
-        //             browser.waitForAngular();
-        //         })
-        //     })
-        //
-        // }).then(callback);
-    });
-
     this.When(/^I collect information on "([^"]*)" under "(MoCha|MD Anderson)"$/, function (subTabName, sectionName, callback) {
         var site = sectionName === 'MoCha' ? 'mocha' : 'mdacc';
-        var url  = '/api/v1/sample_controls?site=' + site + '&control_type=' + controlType;
-        utilities.getRequestWithService('ion', url).then(function(response){
-            cliaPage.responseData = response
+        var url  = '/api/v1/sample_controls?site=' + site + '&control_type=' + cliaPage.controlType;
+        var request = utilities.callApi('ion', '/api/v1/sample_controls');
+        utilities.getRequestWithService('ion', url).then(function(responseBody){
+            cliaPage.responseData = responseBody
         }).then(callback);
     });
 
     this.When(/^I collect new information on "([^"]*)" under "(MoCha|MD Anderson)"$/, function (subTabName, sectionName, callback) {
         var site = sectionName === 'MoCha' ? 'mocha' : 'mdacc';
-        var url  = '/api/v1/sample_controls?site=' + site + '&control_type=' + controlType;
-        var request = utilities.callApi('ion', url);
-        request.get().then(function() {
-            cliaPage.newResponseData =JSON.parse(request.entity());
+        var url  = '/api/v1/sample_controls?site=' + site + '&control_type=' + cliaPage.controlType;
+        utilities.getRequestWithService('ion', url).then(function(responseBody){
+            cliaPage.newResponseData = responseBody
         }).then(callback);
     });
 
     this.When(/^I click on Generate MSN button$/, function (callback) {
-        var generateMSNProperty = element(by.css('form[ng-submit="generateMsn(\'' + controlType + '\')"]>input'));
+        var generateMSNProperty = element(by.css('form[ng-submit="generateMsn(\'' + cliaPage.controlType + '\')"]>input'));
         utilities.waitForElement(generateMSNProperty, 'Generate MSN button');
         generateMSNProperty.click().then(function () {
             browser.waitForAngular();
@@ -135,8 +126,8 @@ module.exports = function() {
     this.When(/^I collect information about the sample variant report$/, function (callback) {
         var url = '/api/v1/sample_controls/' + cliaPage.molecularId;
 
-        utilities.getRequestWithService('ion', url).then(function(response){
-            cliaPage.responseData = response
+        utilities.getRequestWithService('ion', url).then(function(responseBody){
+            cliaPage.responseData = responseBody
         }).then(callback);
     });
 
@@ -163,7 +154,7 @@ module.exports = function() {
 
     this.Then(/^a new Molecular Id is created under the "(MoCha|MD Anderson)"$/, function (sectionName, callback) {
         expect(cliaPage.newResponseData.length).to.eql(cliaPage.responseData.length + 1);
-        browser.sleep(20).then(callback);
+        browser.sleep(50).then(callback);
     });
 
     this.When(/^I upload variant report to S3 with the generated MSN$/, function (callback) {
@@ -184,6 +175,8 @@ module.exports = function() {
                     console.log('Copied data from ' + cliaPage.molecularId + 'to S3 with bucket name' + cliaPage.bucketName);
                 }
             )
+        }).then(function(){
+            browser.sleep(30)
         }).then(callback);
     });
 
@@ -210,7 +203,6 @@ module.exports = function() {
             "cdna_bam_name": path + '/cdna.bam'
         };
 
-        console.log(data);
         browser.sleep(50).then(function () {
             utilities.putApi('ion', '/api/v1/aliquot/' + cliaPage.molecularId, data)
         }).then(callback)
@@ -224,7 +216,7 @@ module.exports = function() {
             expect(firstRow.all(by.binding('item.molecular_id')).get(0).getText()).to.eventually.eql(cliaPage.molecularId);
             expect(firstRow.all(by.css('a')).get(0).isPresent()).to.eventually.eql(true);
             expect(firstRow.all(by.css('a')).get(0).getText()).to.eventually.eql(cliaPage.molecularId);
-            expect(firstRow.all(by.css('a')).get(0).getAttribute('href')).to.include('molecular_id=' + cliaPage.molecularId)
+//            expect(firstRow.all(by.css('a')).get(0).getAttribute('href')).to.include('molecular_id=' + cliaPage.molecularId)
         }).then(callback)
     });
 
@@ -241,7 +233,7 @@ module.exports = function() {
             return oldMolecularIds.indexOf(item["molecular_id"]) < 0;
         })[0];
 
-        console.log(cliaPage.newMSNObject);
+        console.log("molecular_id: " + cliaPage.newMSNObject['molecular_id']);
         browser.sleep(50).then(callback);
     });
 
