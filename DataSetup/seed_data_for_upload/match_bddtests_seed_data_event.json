@@ -86307,7 +86307,7 @@
             "event_data": {
                 "M": {
                     "cog_message": {
-                        "S": "Physician determines it is not in the patient’s best interest."
+                        "S": "Patient is deceased."
                     },
                     "step": {
                         "S": "1.0"
