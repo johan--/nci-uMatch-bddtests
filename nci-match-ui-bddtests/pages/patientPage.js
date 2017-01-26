@@ -140,7 +140,7 @@ var PatientPage = function () {
     this.bloodTotalCellularity  = element(by.binding('currentBloodVariantReport.cellularity'));
 
     // This is the element found on the variant report page for a patient
-    this.totalMois              =  element(by.binding('variantReport.total_mois'));
+    this.totalMois              = element(by.binding('variantReport.total_mois'));
     this.totalAMois             = element(by.binding('variantReport.total_amois'));
     this.totalconfirmedMOIs     = element(by.binding('variantReport.total_confirmed_mois'));
     this.totalconfirmedAMOIs    = element(by.binding('variantReport.total_confirmed_amois'));

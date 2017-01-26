@@ -199,7 +199,7 @@ module.exports = function () {
         browser.ignoreSynchronization = false;
         browser.executeScript('window.scrollTo(0, 5000)').then(function () {
             var index = ordinal - 1;
-            var expectedCommentLink = patientPage.gridElement.get(index).all(by.css(patientPage.commentLinkString));
+            var expectedCommentLink = element.all(by.css(patientPage.commentLinkString)).get(index);
             expectedCommentLink.click().then(function () {
                 browser.waitForAngular();
             }).then(callback);
@@ -313,7 +313,7 @@ module.exports = function () {
 
     this.Then(/^I see that Total MOIs match the number of MOIs on the page$/, function (callback) {
         patientPage.totalMois.getText().then(function (totalMOI) {
-            expect(element.all(by.repeater('item in $ctrl.gridOptions.data')).count())
+            expect(element.all(by.repeater('item in filtered')).count())
                 .to
                 .eventually
                 .eql(parseInt(totalMOI));
@@ -328,7 +328,7 @@ module.exports = function () {
 
     this.Then(/^I get the Total confirmed MOIs on the page$/, function (callback) {
         confirmedMoi = 0;
-        element.all(by.repeater('item in $ctrl.gridOptions.data')).count().then(function (cnt) {
+        element.all(by.repeater('item in filtered')).count().then(function (cnt) {
             for (var index = 0; index < cnt; index++) {
                 patientPage.isConfirmedMoi(index).then(function (status) {
                     if (status) {
