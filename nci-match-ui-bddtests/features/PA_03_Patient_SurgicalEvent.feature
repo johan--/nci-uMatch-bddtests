@@ -7,11 +7,11 @@ Feature: Patient Surgical Events Tab
 
   Background:
     Given I am a logged in user
-    And I go to patient "PT_CR04_VRUploadedAssayReceived" details page
 
   @ui_p2
   Scenario: Logged in user can see the details of the surgical event
-    When I collect specimen information about the patient
+    When I go to patient "PT_CR04_VRUploadedAssayReceived" details page
+    And I collect specimen information about the patient
     Then I should see the same number of surgical event tabs
     When I click on the Surgical Event Tab at index "0"
     And I should see the "Event" Section under patient Surgical Events
@@ -24,3 +24,10 @@ Feature: Patient Surgical Events Tab
     And I should see the "Specimen History" under surgical event tab
 #    And I see the Assay History Match with the database
 #    And The status of each molecularId is displayed
+
+  @ui_p2
+  Scenario: Logged in user can see multiple assignments for single variant report
+    When I go to patient "UI_MA_PendingApproval" details page
+    And I click on the Surgical Event Tab "UI_MA_PendingApproval_SEI1"
+    Then I should see the "Specimen History" under surgical event tab
+    Then I logout

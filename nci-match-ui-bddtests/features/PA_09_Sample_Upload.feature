@@ -19,7 +19,7 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     And The "Upload" button is "enabled"
     Then I can click on the "Upload" button
     And I can see the Sample File upload process has started
-    Then I then logout
+    Then I logout
     Examples:
       | user              | patient_id              | surgical_event_id            | ir_reporter      | analysis_id                   | file            |
       | VR_Reviewer_mda   | PT_AU04_MdaTsShipped1   | PT_AU04_MdaTsShipped1_SEI1   | mda - IR_MDA05   | PT_AU04_MdaTsShipped1_An123   | mda_small.vcf   |
@@ -31,7 +31,7 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     And I click on the Surgical Event Tab "ION_AQ41_TsVrUploaded_SEI1"
     And I can see that all files have been uploaded for the Surgical Event
     Then The "Upload new sample file" button is "not visible"
-    Then I then logout
+    Then I logout
 
   Scenario: As a privileged user I can't upload sample file until all validations pass
     Given I'm logged in as a "VR_Reviewer_mocha" user
@@ -51,7 +51,7 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     And The "Upload" button is "enabled"
     Then I select an Ion Reporter "Select Site and Ion Reporter ID"
     And The "Upload" button is "not enabled"
-    Then I then logout
+    Then I logout
 
   Scenario: As a privileged user I can cancel upload
     Given I'm logged in as a "VR_Reviewer_mocha" user
@@ -71,4 +71,4 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     Then I can see current uploads
     And I can cancel the first upload in the list
     Then The cancelled file is removed from the upload list
-    Then I then logout
+    Then I logout

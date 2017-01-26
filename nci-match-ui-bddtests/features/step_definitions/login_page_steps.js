@@ -118,7 +118,7 @@ module.exports = function () {
         expect(element(by.css('div>h2')).getText()).to.eventually.eql(pageName).notify(callback);
     });
 
-    this.Then(/^I then logout$/, function (callback) {
+    this.Then(/^I logout$/, function (callback) {
         dashboardPageObj.logout();
         browser.sleep(50).then(callback);
     });
