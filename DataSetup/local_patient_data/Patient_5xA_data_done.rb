@@ -907,5 +907,28 @@ class Patient5xA
     PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)
   end
 
+  def self.pt_sc07c_pending_approval
+    pt = PatientDataSet.new('PT_SC07c_PendingApproval')
+    PatientMessageLoader.reset_cog_patient(pt.id)
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+    PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBAF47s')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBRG1s')
+    PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+    PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
+    PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.ani)
+    sleep(10.0)
+    PatientMessageLoader.assignment_confirmed(pt.id, pt.ani,'Assignment 1')
+    PatientMessageLoader.request_assignment(pt.id, 'N', '1.0')
+    sleep(10.0)
+    PatientMessageLoader.assignment_confirmed(pt.id, pt.ani,'Assignment 2')
+    PatientMessageLoader.request_assignment(pt.id, 'N', '1.0', '2016-08-11T22:05:33+00:00')
+    sleep(10.0)
+    PatientMessageLoader.assignment_confirmed(pt.id, pt.ani,'Assignment 3')
+  end
+
 
 end

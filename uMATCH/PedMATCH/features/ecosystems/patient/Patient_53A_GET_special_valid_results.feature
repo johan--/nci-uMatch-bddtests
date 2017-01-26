@@ -545,3 +545,13 @@ Feature: Patient GET service valid special case tests
       | PT_SC07b_TsShipped  | BLOOD         |                          | 1            | 1           |
       | PT_SC07b_BdReceived | TISSUE        | PT_SC07b_BdReceived_SEI1 | 1            | 1           |
       | PT_SC07b_BdShipped  | BLOOD         |                          | 0            | 2           |
+
+  Scenario Outline: PT_SC07c specimen_events should return all assignment reports
+    Given patient GET service: "specimen_events", patient id: "<pt_id>", id: ""
+    When GET from MATCH patient API, http code "200" should return
+    Then this patient specimen_events should have assignment: analysis_id "<pt_id>_ANI1" and comment "<comment>"
+    Examples:
+      | pt_id                    | comment      |
+      | PT_SC07c_PendingApproval | Assignment 1 |
+      | PT_SC07c_PendingApproval | Assignment 2 |
+      | PT_SC07c_PendingApproval | Assignment 3 |

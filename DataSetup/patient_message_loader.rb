@@ -413,8 +413,12 @@ class PatientMessageLoader
 
   def self.assignment_confirmed(
       patient_id,
-      analysis_id)
+      analysis_id,
+      comment='Test',
+      comment_user='QA')
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['assignment_confirmed']
+    message['comment'] = comment
+    message['comment_user'] = comment_user
     service = patient_id + '/assignment_reports/' + analysis_id + '/confirm'
     put_message_to_local(service, message)
     wait_until_updated(patient_id, '')

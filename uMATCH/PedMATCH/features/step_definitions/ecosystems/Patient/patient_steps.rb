@@ -779,6 +779,24 @@ Then(/^this patient specimen_events type "([^"]*)" should have "([^"]*)" element
   expect(@get_response[type].size).to eql count.to_i
 end
 
+Then(/^this patient specimen_events should have assignment: analysis_id "([^"]*)" and comment "([^"]*)"$/) do |ani, cmt|
+  type = 'tissue_specimens'
+  expect(@get_response.class).to eql Hash
+  expect(@get_response.keys).to include type
+  assignments = []
+  @get_response[type]['specimen_shipments'].each { |this_shippment|
+    this_shippment['analyses'].each { |this_analysis|
+      if this_analysis['analysis_id'] == ani
+        assignments = this_analysis['assignments']
+        break
+      end
+    }
+  }
+  expect(assignments.size).to > 0
+  target = assignments.select{|this_as| this_as['comment'] == cmt}
+  expect(target.size).to eql 1
+end
+
 #1. list all patients, pick patients which have active_tissue_specimen=>variant_report_status
 # and the status should be CONFIRMED
 #2. get the active_tissue_specimen=>active_analysis_id into a list
