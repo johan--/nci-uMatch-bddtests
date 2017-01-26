@@ -17,6 +17,7 @@ var LoginPage = function() {
     var loginPopupPanel = element(by.css('.a0-onestep'));
     var previousAccountUsed = element(by.css('div[data-strategy="auth0"]'));
     var userLoggedin = element(by.css('span.welcome')); // This is the span that says 'Welcome <Username>'
+    var logoutLink = element(by.css('a[ng-click="logout()"]>i'))
     this.navBarHeading = element(by.css('div.sticky-navbar h2'));
 
     this.goToLoginPage = function(){
@@ -30,60 +31,61 @@ var LoginPage = function() {
         });
     };
 
-    this.login = function(username, password, callback) {        
-        browser.isElementPresent(userLoggedin).then(function(logIn){
-            if (logIn === true) {
-
-                dashboardLink.click().then(callback);
+    this.login = function(username, password, callback) {
+        browser.isElementPresent(userLoggedin).then(function(loggedIn){
+            if (loggedIn === true) {
+                logoutUser().then(function(){
+                    browser.get('/#/auth/login', 1000).then(function() {
+                        clickAccessAndLogin(username, password)
+                    });
+                }).then(callback);
             } else {
-                browser.isElementPresent(accessBtn).then(function (buttonPresent) {
-                    if (buttonPresent === true) {
-                        accessBtn.click().then(function () {
-                            utils.waitForElement(loginPopupPanel, 'Login Popup panel').then(function () {
-                                browser.isElementPresent(previousAccountUsed).then(function(previousLogin){
-                                    if (previousAccountUsed == true){
-                                        console.log(previousAccountUsed);
-                                        previousAccountUsed.click().then(callback);
-                                    } else {
-                                        // browser.ignoreSynchronization = true;
-                                        browser.sleep(1000);
-                                        oldUserLink.isPresent().then(function(st){
-                                            // console.log(st);
-                                            if (st) {
-                                                oldUserLink.click();
-                                            } else {
-                                                // console.log("");
-                                            }
-                                        }).then(function(){
-                                            utils.waitForElement(email, 'Email Text box').then(function () {
-                                                var data = {
-                                                    "client_id": process.env.AUTH0_CLIENT_ID ,
-                                                    "username": username,
-                                                    "password": password,
-                                                    "grant_type": 'password',
-                                                    "scope": 'openid email roles',
-                                                    "connection":  process.env.AUTH0_DATABASE
-                                                };
-                                                utils.postRequest('https://ncimatch.auth0.com/oauth/ro', data, function(responseData){
-                                                    // console.log(responseData.id_token);
-                                                    browser.idToken = 'Bearer ' + responseData.id_token;
-                                                });
-
-                                                email.sendKeys(username);
-                                                pass.sendKeys(password);
-                                                loginbtn.click().then(callback);
-                                            });
-                                        });
-
-                                    }
-                                });
-                            });
-                        });
-                    }
-                });
+                clickAccessAndLogin(username, password).then(callback);
             }
         });
-    };
+        
+    }
+
+    function logoutUser(){
+        return logoutLink.click().then(function(){
+            browser.waitForAngular();
+        })
+    }
+
+    function clickAccessAndLogin(username, password) {
+        return accessBtn.click().then(function(){
+            browser.isElementPresent(previousAccountUsed).then(function(previousltLoggedIn){   
+                if (previousltLoggedIn === true) {
+                    element(by.linkText('Not your account?')).click().then(function(){
+                        enterDetails(username, password);
+                    });
+                } else {
+                    enterDetails(username, password);
+                }
+            })
+        })
+    }
+
+    function enterDetails(username, password) {
+        var data = {
+            "client_id": process.env.AUTH0_CLIENT_ID ,
+            "username": username,
+            "password": password,
+            "grant_type": 'password',
+            "scope": 'openid email roles',
+            "connection":  process.env.AUTH0_DATABASE
+        };
+        return utils.waitForElement(email, 'Email Text box').then(function () {
+                utils.postRequest('https://ncimatch.auth0.com/oauth/ro', data, function(responseData){
+                // console.log(responseData.id_token);
+                browser.idToken = 'Bearer ' + responseData.id_token;
+            });
+
+            email.sendKeys(username);
+            pass.sendKeys(password);
+            loginbtn.click();
+        });
+    }
 
     this.currentLogin = function() {
         var previousAccountUsed = element(by.css('div[data-strategy="auth0"]'));

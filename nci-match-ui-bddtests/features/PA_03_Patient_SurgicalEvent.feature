@@ -24,3 +24,4 @@ Feature: Patient Surgical Events Tab
     And I should see the "Specimen History" under surgical event tab
 #    And I see the Assay History Match with the database
 #    And The status of each molecularId is displayed
+    And I then logout

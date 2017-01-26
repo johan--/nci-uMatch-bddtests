@@ -7,14 +7,14 @@ Feature: MATCHKB-352. Users are given authorization based on their roles.
     Then I can see the variant report page
     And I "should not" see the "REJECT" button on the VR page
     And I "should not" see the "CONFIRM" button on the VR page
-    Then I then logout
+    And I then logout
 
   Scenario: The variant report checkboxes are disabled for a read-only user
     Given I'm logged in as a "read_only" user
     When I go to the patient "UI_PA08_MdaTsVrUploaded" with variant report "UI_PA08_MdaTsVrUploaded_ANI1"
     Then I can see the variant report page
     And The checkboxes are disabled
-    Then I then logout
+    And I then logout
 
  Scenario Outline: As a non-privileged user, <user>,  I can view variant comments but not edit
     Given I'm logged in as a "<user>" user

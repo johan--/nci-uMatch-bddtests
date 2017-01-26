@@ -13,14 +13,14 @@ Feature: This is the critical path test cases.
     And I click on the "Surgical Event PT_CR04_VRUploadedAssayReceived_SEI1" tab
     Then I should see and click the variant report link for "PT_CR04_VRUploadedAssayReceived_ANI1"
     Then I can see the variant report page
-    Then I then logout
+    And I then logout
 
   Scenario: User can see that all the variants are confirmed by default
     Given I'm logged in as a "VR_Reviewer_mda" user
     When I go to the patient "PT_CR04_VRUploadedAssayReceived" with variant report "PT_CR04_VRUploadedAssayReceived_ANI1"
     Then I can see the variant report page
     Then I see that all the variant check boxes are selected
-    Then I then logout
+    And I then logout
 
   Scenario: Variant rejection is not allowed without a comment
     Given I'm logged in as a "VR_Reviewer_mda" user
@@ -32,7 +32,7 @@ Feature: This is the critical path test cases.
     When I click on the "Cancel" button
     Then I "should not" see the confirmation modal pop up
     Then The variant at ordinal "1" is "checked"
-    Then I then logout
+    And I then logout
 
   Scenario: Variant rejection is allowed if a comment is added and one can still cancel the process.
     Given I'm logged in as a "VR_Reviewer_mda" user
@@ -43,7 +43,7 @@ Feature: This is the critical path test cases.
     And The "OK" button is "enabled"
     When I click on the "Cancel" button
     Then The variant at ordinal "1" is "checked"
-    Then I then logout
+    And I then logout
 
   Scenario: If a variant is rejected the comments are stored and visible on the front end
     Given I'm logged in as a "VR_Reviewer_mda" user
@@ -57,7 +57,7 @@ Feature: This is the critical path test cases.
     When I click on the comment link at ordinal "1"
     Then I can see the "This is a comment" in the modal text box
     And I click on the "OK" button
-    Then I then logout
+    And I then logout
 
   Scenario: User can see all the amois associated with the patient and matches the table
     Given I'm logged in as a "VR_Reviewer_mda" user
@@ -69,7 +69,7 @@ Feature: This is the critical path test cases.
     And I get the Total confirmed aMOIs on the page
     And I see that the Total Confirmed MOIs match the number of MOIs on the page
 #      And I see that the Total Confirmed aMOIs match the number of aMOIs on the page
-    Then I then logout
+    And I then logout
 
   Scenario: Rejecting a variant will be noted in the backend and will change the number of confirmed mois
     Given I'm logged in as a "VR_Reviewer_mda" user
@@ -86,7 +86,7 @@ Feature: This is the critical path test cases.
     Then I verify that the status of confirmation of that ID is "rejected"
     And I go to the patient "PT_CR06_RejectOneVariant" with variant report "PT_CR06_RejectOneVariant_ANI1"
     Then The total number of confirmed MOI has "decreased" by "1"
-    Then I then logout
+    And I then logout
 
   Scenario: Confirming a variant report will update the status of the report and also inform the activity feed on both dashboard and patient page.
     Given I'm logged in as a "VR_Reviewer_mda" user
@@ -96,7 +96,7 @@ Feature: This is the critical path test cases.
     Then I "should" see the confirmation modal pop up
     When I click on the "OK" button
     Then The variant report status is marked "CONFIRMED"
-    Then I then logout
+    And I then logout
 
   @broken
   Scenario: A Mocha user can confirm a MoCha variant report. 
@@ -107,6 +107,7 @@ Feature: This is the critical path test cases.
     Then I "should" see the confirmation modal pop up
     When I click on the "OK" button
     Then The variant report status is marked "CONFIRMED"
+    And I then logout
 
   Scenario: Confirmed variant report will not have check boxes enabled
     Given I'm logged in as a "VR_Reviewer_mda" user
@@ -209,6 +210,7 @@ Feature: This is the critical path test cases.
     # And I "should" see the patient "Treatment Arm Id" as "APEC1621-A"
     # And I "should" see the patient "Stratum Id" as "100"
     # And I "should" see the patient "Version" as "2015-08-06"
+    And I then logout
   
   Scenario: Confirmed Assignment Report updates information on the Assignment report setion of the patient
     Given I'm logged in as a "admin" user
