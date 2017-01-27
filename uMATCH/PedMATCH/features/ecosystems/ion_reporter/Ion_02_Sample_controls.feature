@@ -140,6 +140,11 @@ Feature: Tests for sample_controls service in ion ecosystem
 #  Scenario: ION_SC26. sample_control update request should not remove existing fields that are not in PUT message body
 #    Given molecular id is "SC_ZCCND"
 
+  Scenario: ION_IR27. sample_control update request will fail if no site value passed in
+    Given molecular id is "SC_WF2KR"
+    Then add field: "analysis_id" value: "SC_NON_EXISTING_ANI" to message body
+    When PUT to sample_controls service, response includes "Need to pass in site information" with code "400"
+
   @ion_reporter_p1
   Scenario: ION_SC40. sample_control with specific molecular_id can be deleted successfully
     Given molecular id is "SC_R5H61"

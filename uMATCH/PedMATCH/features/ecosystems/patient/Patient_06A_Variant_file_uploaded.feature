@@ -105,6 +105,22 @@ Feature: Variant files uploaded message
     Then this variant report field: "status" should be "PENDING"
     Then this variant report field: "tsv_file_name" should be "test1.tsv"
 
+  @patients_p2
+  Scenario: PT_SS06a. Leading or ending whitespace in analysis id value should be ignored
+    Given patient id is "PT_VU06a_TsShipped"
+    And load template variant file uploaded message for this patient
+    Then set patient message field: "molecular_id" to value: "PT_VU06a_TsShipped_MOI1"
+    Then set patient message field: "analysis_id" to value: " PT_VU06a_TsShipped_ANI1"
+    Then files for molecular_id "PT_VU06a_TsShipped_MOI1" and analysis_id "PT_VU06a_TsShipped_ANI1" are in S3
+    When POST to MATCH patients service, response includes "successfully" with code "202"
+    Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
+    Then patient should have variant report (analysis_id: "PT_VU06a_TsShipped_ANI1")
+    Then set patient message field: "analysis_id" to value: "PT_VU06a_TsShipped_ANI2 "
+    Then files for molecular_id "PT_VU06a_TsShipped_MOI1" and analysis_id "PT_VU06a_TsShipped_ANI2" are in S3
+    When POST to MATCH patients service, response includes "successfully" with code "202"
+    Then wait until patient is updated
+    Then patient should have variant report (analysis_id: "PT_VU06a_TsShipped_ANI2")
+
   @patients_p2_off
   Scenario: PT_VU07. variant files uploaded with new analysis_id cannot be accepted when patient has only TISSUE_SLIDE_SPECIMEN_SHIPPED status but has no TISSUE_NUCLEIC_ACID_SHIPPED status
 #  Test patient: PT_VU07_SlideShippedNoTissueShipped: surgical_event_id: SEI_01 slide shipped, tissue not shipped;

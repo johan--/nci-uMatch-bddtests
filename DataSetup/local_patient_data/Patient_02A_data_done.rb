@@ -63,6 +63,11 @@ class Patient02A
     PatientMessageLoader.register_patient(pt.id)
   end
 
+  def self.pt_sr17_registered
+    pt = PatientDataSet.new('PT_SR17_Registered')
+    PatientMessageLoader.register_patient(pt.id)
+  end
+
   def self.pt_sr10_pending_approval
     pt = PatientDataSet.new('PT_SR10_PendingApproval')
     PatientMessageLoader.register_patient(pt.id)

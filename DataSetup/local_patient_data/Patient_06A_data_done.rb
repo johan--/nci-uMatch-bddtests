@@ -80,6 +80,13 @@ class Patient06A
     PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
   end
 
+  def self.pt_vu06a_ts_shipped
+    pt = PatientDataSet.new('PT_VU06a_TsShipped')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+  end
+
   def self.pt_vu14_tissue_and_blood_shipped
     pt = PatientDataSet.new('PT_VU14_TissueAndBloodShipped')
     PatientMessageLoader.register_patient(pt.id)

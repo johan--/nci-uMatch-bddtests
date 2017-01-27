@@ -35,6 +35,20 @@ Feature: NCH Specimen shipped messages
     Then patient status should change to "TISSUE_NUCLEIC_ACID_SHIPPED"
     Then patient should have specimen (field: "active_molecular_id" is "PT_SS02a_TsVrRejected_MOI2")
 
+  @patients_p2
+  Scenario: PT_SS02b. Leading or ending whitespace in molecular id value should be ignored
+    Given patient id is "PT_SS02b_TsReceived"
+    And load template specimen type: "TISSUE" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "PT_SS02b_TsReceived_SEI1"
+    Then set patient message field: "molecular_id" to value: " PT_SS02b_TsReceived_MOI1"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
+    Then patient status should change to "TISSUE_NUCLEIC_ACID_SHIPPED"
+    Then patient should have specimen (field: "active_molecular_id" is "PT_SS02b_TsReceived_MOI1")
+    Then set patient message field: "molecular_id" to value: "PT_SS02b_TsReceived_MOI2 "
+    When POST to MATCH patients service, response includes "successfully" with code "202"
+    Then wait until patient is updated
+    Then patient should have specimen (field: "active_molecular_id" is "PT_SS02b_TsReceived_MOI2")
+
   @patients_p1
   Scenario: PT_SS03. Received specimen_shipped message for type 'SLIDE' from NCH for a patient who has already received the specimen_received message
   #  Testing patient:PT_SS03_TissueReceived; surgical_event_id: PT_SS03_TissueReceived_SEI1
