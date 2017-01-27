@@ -87,6 +87,10 @@ module.exports = function () {
         browser.sleep(50).then(callback);
     });
 
+    this.Then(/^All Patients Data displays patients that have been ever assigned to "(.+?)"$/, function(treatmentArm, callback){
+        callback.pending();
+    });
+
 
     this.When(/^I select the "(.+)" Main Tab$/, function (tabName, callback) {
         var selectorString = 'li[heading="' + tabName + '"]';
@@ -190,9 +194,10 @@ module.exports = function () {
 
     this.Then (/^I should see data in the All Patients Data Table$/, function (callback) {
         var allRows = taPage.allPatientDataRows;
-        var patientDetails = allPatientDetails[ 'patients_list' ][ 0 ];
+        var index = Math.floor(Math.random() * allPatientDetails['patients_list'].length) // randomly pick a number
+        var patientDetails = allPatientDetails[ 'patients_list' ][ index ];
         var searchField    = taPage.allPatientsDataTable.all (by.model ('filterAll'));
-        
+
         var assignmentDate = moment.utc(patientDetails[ 'assignment_date' ]).utc().format('LLL')
 
         searchField.sendKeys (patientDetails[ 'patient_id' ]).then (function () {
