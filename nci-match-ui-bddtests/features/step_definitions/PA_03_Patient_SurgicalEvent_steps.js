@@ -149,17 +149,12 @@ module.exports = function () {
         callback.pending();
     });
 
-    this.Then(/^I should see "([^"]*)" Assignments under the Molecular ID "([^"]*)"$/, function (AssignmentCount, molecularIdRow, callback) {
-//         var specimenEvent = patientPage.specimenEventArray.get(0).all(by.binding(molecularIdRow));
+    this.Then(/^I should see "([^"]*)" Assignments under the Molecular ID "([^"]*)"$/, function (assignmentCount, molecularId, callback) {
+        var headingRow = element.all(by.repeater('shipment in specimenEvent.specimen_shipments'));
+        var actualMolecularId = headingRow.get(0).all(by.binding('shipment.molecular_id')).get(0);
+        var siblingRow = headingRow.get(0).all(by.xpath('..')).all(by.repeater('analysisAssignment in shipment.analysisAssignments'));
 
-// patientPage.speciment
-//         .get(0).all(by.binding('')).all(by.repeater('repeater string of element inside the spemciment'))
-//         patientPage.speciment
-//         .get(0).all(by.binding('')).getText().then(function(texts){
-//             console.log(texts);
-//         });
-
-//         expect(specimenEvent.isPresent()).to.eventually.eql(true);
-        callback.pending();
+        expect(actualMolecularId.getText()).to.eventually.eql(molecularId)
+        expect(siblingRow.count()).to.eventually.eql(parseInt(assignmentCount)).notify(callback)
     });
 };
