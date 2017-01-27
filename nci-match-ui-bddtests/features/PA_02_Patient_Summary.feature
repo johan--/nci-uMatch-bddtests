@@ -21,7 +21,7 @@ Feature: Patient Summary Page
     And I should see the patient's information table
     And I should see the patient's disease information table
     And I should see the main tabs associated with the patient
-    And I logout
+    Then I logout
 
   @ui_p2
   Scenario: I can see the details within the Summary tab of the patient
@@ -32,5 +32,5 @@ Feature: Patient Summary Page
     And I should see the patient's information match database
     And I should see the patient's disease information match the database
     And I should see the "Patient Timeline" section heading
-    And I logout
+    Then I logout
     

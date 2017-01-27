@@ -15,14 +15,14 @@ Feature: Specimen Tracking page
     Then the "CLIA Lab Shipments" tab becomes active
     When I click on "Slide Shipments" tab
     Then the "Slide Shipments" tab becomes active
-    And I logout
+    Then I logout
 
   @ui_p2
   Scenario: Specimens assigned to a patient that is not rejected shows up on the tracking table
     When I enter "PT_CR05_SpecimenShippedTwice" in the search field for tracking table
     And I collect information about shipment
     Then I expect to see "1" rows in the tracking table
-    And I logout
+    Then I logout
       
   Scenario: User can track Specimens
     Then I see the Shipping Location section
@@ -36,5 +36,5 @@ Feature: Specimen Tracking page
     When I collect information about shipment
     And I enter the first available "molecular_id" in the search table
     Then I can compare the details about shipment against the API
-    And I logout
+    Then I logout
 

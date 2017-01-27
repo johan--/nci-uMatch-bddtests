@@ -7,5 +7,5 @@ Feature: Patient Document Tab
     When I click on the "Documents" tab
     Then I can patient's document table
     And The number of documents displayed match the ones from the API
-    And I logout
+    Then I logout
 
