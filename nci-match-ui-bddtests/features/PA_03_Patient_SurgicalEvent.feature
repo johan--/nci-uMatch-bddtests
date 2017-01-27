@@ -8,7 +8,7 @@ Feature: Patient Surgical Events Tab
   Background:
     Given I am a logged in user
 
-  @ui_p2
+  @ui_p2 
   Scenario: Logged in user can see the details of the surgical event
     When I go to patient "PT_CR04_VRUploadedAssayReceived" details page
     And I collect specimen information about the patient
@@ -28,6 +28,8 @@ Feature: Patient Surgical Events Tab
   @ui_p2 @test
   Scenario: Logged in user can see multiple assignments for single variant report
     When I go to patient "UI_MA_PendingApproval" details page
+    Then I am taken to the patient details page
     And I click on the "Surgical Event UI_MA_PendingApproval_SEI1" tab
-    Then I should see the "Specimen History" under surgical event tab
+    And I scroll to the bottom of the page
+    Then I should see "3" Assignments under the Molecular ID "UI_MA_PendingApproval_MOI1"
     Then I logout

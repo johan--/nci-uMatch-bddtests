@@ -74,6 +74,8 @@ var PatientPage = function () {
         }
     };
 
+    this.specimenEventArray = element.all(by.repeater('specimenEvent.specimen_shipments'));
+
     // *****************  Surgical Event Tabs ********************//
     this.surgicalEventPanels = element.all(by.css('.specimen-event-panel'));
     this.surgicalEventId  = element(by.binding('surgicalEvent.surgical_event_id'));
@@ -101,7 +103,7 @@ var PatientPage = function () {
     this.variantReportDropDown = element(by.binding('tissueVariantReportOption.text'));
     this.bloodVariantReportDropDown = element(by.binding('bloodVariantReportOption.text'));
 
-    this.expectedSurgicalSectionHeading = ['Slide Shipments', 'Assay History', 'Specimen History']
+    this.expectedSurgicalSectionHeading = ['Slide Shipments', 'Assay History', 'Specimen History'];
 
     //These are the elements present in the summary boxes of tissue reports
     this.tissueSurgicalEventId     = element(by.binding('currentTissueVariantReport.surgical_event_id'));

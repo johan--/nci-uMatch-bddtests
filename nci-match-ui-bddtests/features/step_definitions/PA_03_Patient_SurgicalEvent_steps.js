@@ -148,4 +148,10 @@ module.exports = function () {
         // Write code here that turns the phrase above into concrete actions
         callback.pending();
     });
+
+    this.Then(/^I should see "([^"]*)" Assignments under the Molecular ID "([^"]*)"$/, function (AssignmentCount, molecularIdRow, callback) {
+        var specimenEvent = patientPage.specimenEventArray.get(0).all(by.binding(molecularIdRow));
+
+        callback(null, 'pending');
+    });
 };
