@@ -3,10 +3,10 @@
     "Items": [
         {
             "cdna_bam_name": {
-                "S": "IR_WAO85/SC_SA1CB/SC_SA1CB_SC_SA1CB_a888_v1/SC_SA1CB_SC_SA1CB_analysis888_RNA_v1.bam"
+                "S": "SC_SA1CB_SC_SA1CB_analysis888_RNA_v1.bam"
             },
             "tsv_name": {
-                "S": "IR_WAO85/SC_SA1CB/SC_SA1CB_SC_SA1CB_a888_v1/SC_SA1CB_SC_SA1CB_analysis888_v1.tsv"
+                "S": "SC_SA1CB_SC_SA1CB_analysis888_v1.tsv"
             },
             "date_molecular_id_created": {
                 "S": "2016-08-18 19:56:19.766"
@@ -279,16 +279,16 @@
                 "S": "mocha"
             },
             "vcf_name": {
-                "S": "IR_WAO85/SC_SA1CB/SC_SA1CB_SC_SA1CB_a888_v1/SC_SA1CB_SC_SA1CB_analysis888_v1.vcf"
+                "S": "SC_SA1CB_SC_SA1CB_analysis888_v1.vcf"
             },
             "cdna_bai_name": {
-                "S": "IR_WAO85/SC_SA1CB/SC_SA1CB_SC_SA1CB_a888_v1/SC_SA1CB_SC_SA1CB_analysis888_RNA_v1.bai"
+                "S": "SC_SA1CB_SC_SA1CB_analysis888_RNA_v1.bai"
             },
             "analysis_id": {
                 "S": "SC_SA1CB_SC_SA1CB_a888_v1"
             },
             "dna_bai_name": {
-                "S": "IR_WAO85/SC_SA1CB/SC_SA1CB_SC_SA1CB_a888_v1/SC_SA1CB_SC_SA1CB_analysis888_DNA_v1.bai"
+                "S": "SC_SA1CB_SC_SA1CB_analysis888_DNA_v1.bai"
             },
             "copy_number_variant_genes": {
                 "NULL": true
@@ -721,13 +721,13 @@
                 "N": "13"
             },
             "dna_bam_name": {
-                "S": "IR_WAO85/SC_SA1CB/SC_SA1CB_SC_SA1CB_a888_v1/SC_SA1CB_SC_SA1CB_analysis888_DNA_v1.bam"
+                "S": "SC_SA1CB_SC_SA1CB_analysis888_DNA_v1.bam"
             },
             "filename": {
                 "S": "SC_SA1CB_SC_SA1CB_analysis888_v1"
             },
             "qc_name": {
-                "S": "IR_WAO85/SC_SA1CB/SC_SA1CB_SC_SA1CB_a888_v1/SC_SA1CB_SC_SA1CB_analysis888_v1_QC.pdf"
+                "S": "SC_SA1CB_SC_SA1CB_analysis888_v1_QC.pdf"
             }
         },
         {
@@ -766,7 +766,7 @@
                 "S": "4.4-8"
             },
             "tsv_name": {
-                "S": "IR_WAO85/SC_KGPVI/SC_KGPVI_analysis_1/SC_KGPVI_MoCha_12_notemplate_passed.tsv"
+                "S": "SC_KGPVI_MoCha_12_notemplate_passed.tsv"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-28 12:56:19.566"
@@ -778,7 +778,7 @@
                 "S": "SC_KGPVI_analysis_1"
             },
             "vcf_name": {
-                "S": "IR_WAO85/SC_KGPVI/SC_KGPVI_analysis_1/SC_KGPVI_MoCha_12_notemplate_passed.vcf"
+                "S": "SC_KGPVI_MoCha_12_notemplate_passed.vcf"
             },
             "ion_reporter_id": {
                 "S": "IR_WAO85"
@@ -932,7 +932,7 @@
                 "S": "4.4-8"
             },
             "tsv_name": {
-                "S": "IR_WAO85/SC_YQ111/SC_YQ111_analysis_1/SC_YQ111_negative_FalsePositive.tsv"
+                "S": "SC_YQ111_negative_FalsePositive.tsv"
             },
             "date_molecular_id_created": {
                 "S": "2016-08-18 19:56:19.766"
@@ -944,7 +944,7 @@
                 "S": "SC_YQ111_analysis_1"
             },
             "vcf_name": {
-                "S": "IR_WAO85/SC_YQ111/SC_YQ111_analysis_1/SC_YQ111_negative_FalsePositive.vcf"
+                "S": "SC_YQ111_negative_FalsePositive.vcf"
             },
             "ion_reporter_id": {
                 "S": "IR_WAO85"
@@ -1934,10 +1934,10 @@
         },
         {
             "dna_bai_name": {
-                "S": "IR_WAO85/SC_PALFC/SC_PALFC_analysis_1/SC_PALFC_Mocha_66_v1_falsePositive_DNA.bai"
+                "S": "SC_PALFC_Mocha_66_v1_falsePositive_DNA.bai"
             },
             "tsv_name": {
-                "S": "IR_WAO85/SC_PALFC/SC_PALFC_analysis_1/SC_PALFC_MoCha_66_RNA_v1_falsePositive.tsv"
+                "S": "SC_PALFC_MoCha_66_RNA_v1_falsePositive.tsv"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-30 20:04:45.667"
@@ -1946,7 +1946,7 @@
                 "S": "0.345"
             },
             "vcf_name": {
-                "S": "IR_WAO85/SC_PALFC/SC_PALFC_analysis_1/SC_PALFC_MoCha_66_RNA_v1_falsePositive.vcf"
+                "S": "SC_PALFC_MoCha_66_RNA_v1_falsePositive.vcf"
             },
             "ion_reporter_id": {
                 "S": "IR_WAO85"
@@ -2150,7 +2150,7 @@
                 "S": "positive"
             },
             "cdna_bai_name": {
-                "S": "IR_WAO85/SC_PALFC/SC_PALFC_analysis_1/SC_PALFC_Mocha_66_v1_falsePositive_RNA.bai"
+                "S": "SC_PALFC_Mocha_66_v1_falsePositive_RNA.bai"
             },
             "analysis_id": {
                 "S": "SC_PALFC_analysis_1"
@@ -2607,13 +2607,13 @@
                 "N": "16"
             },
             "dna_bam_name": {
-                "S": "IR_WAO85/SC_PALFC/SC_PALFC_analysis_1/SC_PALFC_Mocha_66_v1_falsePositive_DNA.bam"
+                "S": "SC_PALFC_Mocha_66_v1_falsePositive_DNA.bam"
             },
             "filename": {
                 "S": "SC_PALFC_MoCha_66_RNA_v1_falsePositive"
             },
             "cdna_bam_name": {
-                "S": "IR_WAO85/SC_PALFC/SC_PALFC_analysis_1/SC_PALFC_Mocha_66_v1_falsePositive_RNA.bam"
+                "S": "SC_PALFC_Mocha_66_v1_falsePositive_RNA.bam"
             }
         },
         {
@@ -2807,7 +2807,7 @@
                 "S": "4.4-8"
             },
             "tsv_name": {
-                "S": "IR_WAO85/SC_LGU30/SC_LGU30_analysis_1/SNV_Germline_filter_proficiency.tsv"
+                "S": "SNV_Germline_filter_proficiency.tsv"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-30 21:12:26.123"
@@ -2816,7 +2816,7 @@
                 "S": "0.653"
             },
             "vcf_name": {
-                "S": "IR_WAO85/SC_LGU30/SC_LGU30_analysis_1/SNV_Germline_filter_proficiency.vcf"
+                "S": "SNV_Germline_filter_proficiency.vcf"
             },
             "control_type": {
                 "S": "proficiency_competency"
@@ -2964,13 +2964,13 @@
         },
         {
             "qc_name": {
-                "S": "IR_WAO85/SC_FDK09/SC_FDK09_analysis_1/SC_FDK09_analysis_1_QC.pdf"
+                "S": "SC_FDK09_analysis_1_QC.pdf"
             },
             "cdna_bam_name": {
-                "S": "IR_WAO85/SC_FDK09/SC_FDK09_analysis_1/SC_FDK09_analysis_1_cdna.bam"
+                "S": "SC_FDK09_analysis_1_cdna.bam"
             },
             "tsv_name": {
-                "S": "IR_WAO85/SC_FDK09/SC_FDK09_analysis_1/SC_FDK09_analysis_1.tsv"
+                "S": "SC_FDK09_analysis_1.tsv"
             },
             "date_molecular_id_created": {
                 "S": "2016-09-30 21:12:24.123"
@@ -3012,16 +3012,16 @@
                 "S": "mocha"
             },
             "vcf_name": {
-                "S": "IR_WAO85/SC_FDK09/SC_FDK09_analysis_1/SC_FDK09_analysis_1.vcf"
+                "S": "SC_FDK09_analysis_1.vcf"
             },
             "cdna_bai_name": {
-                "S": "IR_WAO85/SC_FDK09/SC_FDK09_analysis_1/SC_FDK09_analysis_1_cdna.bai"
+                "S": "SC_FDK09_analysis_1_cdna.bai"
             },
             "analysis_id": {
                 "S": "SC_FDK09_analysis_1"
             },
             "dna_bai_name": {
-                "S": "IR_WAO85/SC_FDK09/SC_FDK09_analysis_1/SC_FDK09_analysis1_dna.bai"
+                "S": "SC_FDK09_analysis1_dna.bai"
             },
             "copy_number_variant_genes": {
                 "NULL": true
@@ -3104,7 +3104,7 @@
                 "N": "1"
             },
             "dna_bam_name": {
-                "S": "IR_WAO85/SC_FDK09/SC_FDK09_analysis_1/SC_FDK09_analysis1_dna.bam"
+                "S": "SC_FDK09_analysis1_dna.bam"
             },
             "filename": {
                 "S": "SC_FDK09_analysis_1"
@@ -3155,7 +3155,7 @@
                 "S": "4.2-13"
             },
             "tsv_name": {
-                "S": "IR_WAO85/SC_BAXXY/SC_BAXXY_analysis_1/SNV_NO_PASS_filter_proficiency.tsv"
+                "S": "SNV_NO_PASS_filter_proficiency.tsv"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-20 21:10:26.183"
@@ -3164,7 +3164,7 @@
                 "S": "0.224"
             },
             "vcf_name": {
-                "S": "IR_WAO85/SC_BAXXY/SC_BAXXY_analysis_1/SNV_NO_PASS_filter_proficiency.vcf"
+                "S": "SNV_NO_PASS_filter_proficiency.vcf"
             },
             "control_type": {
                 "S": "proficiency_competency"
@@ -4133,13 +4133,13 @@
         },
         {
             "qc_name": {
-                "S": "IR_TCWEV/SC_NPID3/SC_NPID3_ANI1/10-10-2016.pdf"
+                "S": "10-10-2016.pdf"
             },
             "cdna_bam_name": {
-                "S": "IR_TCWEV/SC_NPID3/SC_NPID3_ANI1/cdna.bam"
+                "S": "cdna.bam"
             },
             "tsv_name": {
-                "S": "IR_TCWEV/SC_NPID3/SC_NPID3_ANI1/test1.tsv"
+                "S": "test1.tsv"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:20:00.672778"
@@ -4148,7 +4148,7 @@
                 "S": "0.439"
             },
             "vcf_name": {
-                "S": "IR_TCWEV/SC_NPID3/SC_NPID3_ANI1/test1.vcf"
+                "S": "test1.vcf"
             },
             "ion_reporter_id": {
                 "S": "IR_TCWEV"
@@ -4178,13 +4178,13 @@
                 "S": "no_template"
             },
             "cdna_bai_name": {
-                "S": "IR_TCWEV/SC_NPID3/SC_NPID3_ANI1/cdna.bai"
+                "S": "cdna.bai"
             },
             "analysis_id": {
                 "S": "SC_NPID3_ANI1"
             },
             "dna_bai_name": {
-                "S": "IR_TCWEV/SC_NPID3/SC_NPID3_ANI1/dna.bai"
+                "S": "dna.bai"
             },
             "copy_number_variant_genes": {
                 "S": "None"
@@ -4196,7 +4196,7 @@
                 "S": "0"
             },
             "dna_bam_name": {
-                "S": "IR_TCWEV/SC_NPID3/SC_NPID3_ANI1/dna.bam"
+                "S": "dna.bam"
             },
             "filename": {
                 "S": "test1"
@@ -4319,13 +4319,13 @@
         },
         {
             "qc_name": {
-                "S": "IR_TCWEV/SC_J6RDR/SC_J6RDR_ANI1/10-10-2016.pdf"
+                "S": "10-10-2016.pdf"
             },
             "cdna_bam_name": {
-                "S": "IR_TCWEV/SC_J6RDR/SC_J6RDR_ANI1/cdna.bam"
+                "S": "cdna.bam"
             },
             "tsv_name": {
-                "S": "IR_TCWEV/SC_J6RDR/SC_J6RDR_ANI1/test1.tsv"
+                "S": "test1.tsv"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-12 21:19:55.049068"
@@ -4334,7 +4334,7 @@
                 "S": "0.439"
             },
             "vcf_name": {
-                "S": "IR_TCWEV/SC_J6RDR/SC_J6RDR_ANI1/test1.vcf"
+                "S": "test1.vcf"
             },
             "ion_reporter_id": {
                 "S": "IR_TCWEV"
@@ -4364,13 +4364,13 @@
                 "S": "no_template"
             },
             "cdna_bai_name": {
-                "S": "IR_TCWEV/SC_J6RDR/SC_J6RDR_ANI1/cdna.bai"
+                "S": "cdna.bai"
             },
             "analysis_id": {
                 "S": "SC_J6RDR_ANI1"
             },
             "dna_bai_name": {
-                "S": "IR_TCWEV/SC_J6RDR/SC_J6RDR_ANI1/dna.bai"
+                "S": "dna.bai"
             },
             "copy_number_variant_genes": {
                 "S": "None"
@@ -4382,7 +4382,7 @@
                 "S": "0"
             },
             "dna_bam_name": {
-                "S": "IR_TCWEV/SC_J6RDR/SC_J6RDR_ANI1/dna.bam"
+                "S": "dna.bam"
             },
             "filename": {
                 "S": "test1"
@@ -4449,10 +4449,10 @@
         },
         {
             "dna_bai_name": {
-                "S": "IR_UITEST/SC_A2PD6/SC_A2PD6_ANI/dna.bai"
+                "S": "dna.bai"
             },
             "tsv_name": {
-                "S": "IR_UITEST/SC_A2PD6/SC_A2PD6_ANI/test1.tsv"
+                "S": "test1.tsv"
             },
             "date_molecular_id_created": {
                 "S": "2016-11-21 17:55:16.604130"
@@ -4461,7 +4461,7 @@
                 "S": "0.439"
             },
             "vcf_name": {
-                "S": "IR_UITEST/SC_A2PD6/SC_A2PD6_ANI/test1.vcf"
+                "S": "test1.vcf"
             },
             "ion_reporter_id": {
                 "S": "IR_UITEST"
@@ -4702,7 +4702,7 @@
                 "BOOL": true
             },
             "cdna_bai_name": {
-                "S": "IR_UITEST/SC_A2PD6/SC_A2PD6_ANI/cdna.bai"
+                "S": "cdna.bai"
             },
             "analysis_id": {
                 "S": "SC_A2PD6_ANI"
@@ -5162,13 +5162,13 @@
                 "N": "7"
             },
             "dna_bam_name": {
-                "S": "IR_UITEST/SC_A2PD6/SC_A2PD6_ANI/dna.bam"
+                "S": "dna.bam"
             },
             "filename": {
                 "S": "test1"
             },
             "cdna_bam_name": {
-                "S": "IR_UITEST/SC_A2PD6/SC_A2PD6_ANI/cdna.bam"
+                "S": "cdna.bam"
             }
         },
         {
@@ -5218,10 +5218,10 @@
         },
         {
             "dna_bai_name": {
-                "S": "IR_WAO85/SC_67VKV/SC_67VKV_analysis_2/SC_67VKV_analysis_2_dna.bai"
+                "S": "SC_67VKV_analysis_2_dna.bai"
             },
             "tsv_name": {
-                "S": "IR_WAO85/SC_67VKV/SC_67VKV_analysis_2/SC_67VKV_analysis_2.tsv"
+                "S": "SC_67VKV_analysis_2.tsv"
             },
             "date_molecular_id_created": {
                 "S": "2016-08-18 20:09:45.667"
@@ -5230,7 +5230,7 @@
                 "S": "0.279"
             },
             "vcf_name": {
-                "S": "IR_WAO85/SC_67VKV/SC_67VKV_analysis_2/SC_67VKV_analysis_2.vcf"
+                "S": "SC_67VKV_analysis_2.vcf"
             },
             "ion_reporter_id": {
                 "S": "IR_WAO85"
@@ -5263,7 +5263,7 @@
                 "S": "positive"
             },
             "cdna_bai_name": {
-                "S": "IR_WAO85/SC_67VKV/SC_67VKV_analysis_2/SC_67VKV_analysis_2_cdna.bai"
+                "S": "SC_67VKV_analysis_2_cdna.bai"
             },
             "analysis_id": {
                 "S": "SC_67VKV_analysis_2"
@@ -5717,19 +5717,19 @@
                 ]
             },
             "qc_name": {
-                "S": "IR_WAO85/SC_67VKV/SC_67VKV_analysis_2/SC_67VKV_analysis_2_QC.pdf"
+                "S": "SC_67VKV_analysis_2_QC.pdf"
             },
             "total_variants": {
                 "N": "11"
             },
             "dna_bam_name": {
-                "S": "IR_WAO85/SC_67VKV/SC_67VKV_analysis_2/SC_67VKV_analysis_2_dna.bam"
+                "S": "SC_67VKV_analysis_2_dna.bam"
             },
             "filename": {
                 "S": "SC_67VKV_analysis_2"
             },
             "cdna_bam_name": {
-                "S": "IR_WAO85/SC_67VKV/SC_67VKV_analysis_2/SC_67VKV_analysis_2_cdna.bam"
+                "S": "SC_67VKV_analysis_2_cdna.bam"
             }
         },
         {
@@ -5779,10 +5779,10 @@
         },
         {
             "dna_bai_name": {
-                "S": "IR_WAO85/SC_5AMCC/SC_5AMCC_analysis_1/SC_5AMCC_Mocha_25_v1_positive_passed_DNA.bai"
+                "S": "SC_5AMCC_Mocha_25_v1_positive_passed_DNA.bai"
             },
             "tsv_name": {
-                "S": "IR_WAO85/SC_5AMCC/SC_5AMCC_analysis_1/SC_5AMCC_MoCha_25_v1_positive_passed.tsv"
+                "S": "SC_5AMCC_MoCha_25_v1_positive_passed.tsv"
             },
             "date_molecular_id_created": {
                 "S": "2016-10-30 20:04:26.668"
@@ -5791,7 +5791,7 @@
                 "S": "0.355"
             },
             "vcf_name": {
-                "S": "IR_WAO85/SC_5AMCC/SC_5AMCC_analysis_1/SC_5AMCC_MoCha_25_v1_positive_passed.vcf"
+                "S": "SC_5AMCC_MoCha_25_v1_positive_passed.vcf"
             },
             "ion_reporter_id": {
                 "S": "IR_WAO85"
@@ -5824,7 +5824,7 @@
                 "S": "positive"
             },
             "cdna_bai_name": {
-                "S": "IR_WAO85/SC_5AMCC/SC_5AMCC_analysis_1/SC_5AMCC_Mocha_25_v1_positive_passed_RNA.bai"
+                "S": "SC_5AMCC_Mocha_25_v1_positive_passed_RNA.bai"
             },
             "analysis_id": {
                 "S": "SC_5AMCC_analysis_1"
@@ -6281,13 +6281,13 @@
                 "N": "13"
             },
             "dna_bam_name": {
-                "S": "IR_WAO85/SC_5AMCC/SC_5AMCC_analysis_1/SC_5AMCC_Mocha_25_v1_positive_passed_DNA.bam"
+                "S": "SC_5AMCC_Mocha_25_v1_positive_passed_DNA.bam"
             },
             "filename": {
                 "S": "SC_5AMCC_MoCha_25_v1_positive_passed"
             },
             "cdna_bam_name": {
-                "S": "IR_WAO85/SC_5AMCC/SC_5AMCC_analysis_1/SC_5AMCC_Mocha_25_v1_positive_passed_RNA.bam"
+                "S": "SC_5AMCC_Mocha_25_v1_positive_passed_RNA.bam"
             }
         },
         {
