@@ -86,6 +86,18 @@ module.exports = function () {
     });
 
     this.Then(/^All Patients Data displays patients that have been ever assigned to "([^"]*)"$/, function (arg1, callback) {
+        var perPage = 10;
+
+        var counter = { page: 0, total: 0 };
+
+        var nextButton = taPage.gridNextPageButtpm;
+        nextButton.getText().then(function(text){
+            console.log('nextButton', text);
+        });
+
+        concole.log('allPatientDetails', allPatientDetails['patients_list'].length);
+
+        // expect(total count ).to.equal(allPatientDetails[ 'patients_list' ]).length
         callback(null, 'pending');
     });
 
