@@ -46,7 +46,7 @@ Feature: Tests for aliquot service in ion ecosystem
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/dna.bai" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/cdna.bai" has been removed from S3 bucket
     Then add field: "analysis_id" value: "ION_AQ02_TsShipped_ANI1" to message body
-    Then add field: "site" value: "mdacc" to message body
+    Then add field: "site" value: "mda" to message body
     Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
     Then add field: "vcf_name" value: "test1.vcf" to message body
     Then add field: "dna_bam_name" value: "dna.bam" to message body
@@ -60,7 +60,7 @@ Feature: Tests for aliquot service in ion ecosystem
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/dna.bai" should be available in S3
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/cdna.bai" should be available in S3
     Then add field: "analysis_id" value: "ION_AQ02_TsShipped_ANI2" to message body
-    Then add field: "site" value: "mdacc" to message body
+    Then add field: "site" value: "mda" to message body
     Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
     Then add field: "vcf_name" value: "test1.vcf" to message body
     Then add field: "dna_bam_name" value: "dna.bam" to message body
@@ -88,7 +88,7 @@ Feature: Tests for aliquot service in ion ecosystem
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/dna.bai" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/cdna.bai" has been removed from S3 bucket
     Then add field: "analysis_id" value: "ION_AQ03_BdShipped_ANI1" to message body
-    Then add field: "site" value: "mdacc" to message body
+    Then add field: "site" value: "mda" to message body
     Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
     Then add field: "vcf_name" value: "test1.vcf" to message body
     Then add field: "dna_bam_name" value: "dna.bam" to message body
@@ -102,7 +102,7 @@ Feature: Tests for aliquot service in ion ecosystem
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/dna.bai" should be available in S3
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/cdna.bai" should be available in S3
     Then add field: "analysis_id" value: "ION_AQ03_BdShipped_ANI2" to message body
-    Then add field: "site" value: "mdacc" to message body
+    Then add field: "site" value: "mda" to message body
     Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
     Then add field: "vcf_name" value: "test1.vcf" to message body
     Then add field: "dna_bam_name" value: "dna.bam" to message body
@@ -122,7 +122,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Given molecular id is "ION_AQ04_TsShipped_MOI1"
     Given patient id is "ION_AQ04_TsShipped"
     Then add field: "analysis_id" value: "ION_AQ04_TsShipped_ANI1" to message body
-    Then add field: "site" value: "mdacc" to message body
+    Then add field: "site" value: "mda" to message body
     Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
     Then add field: "vcf_name" value: "" to message body
     Then add field: "dna_bam_name" value: "IR_TCWEV/ION_AQ04_TsShipped_MOI1/ION_AQ04_TsShipped_ANI1/dna.bam" to message body
@@ -134,7 +134,7 @@ Feature: Tests for aliquot service in ion ecosystem
   Scenario: ION_AQ05. extra key-value pair in the message body should NOT fail
     Given molecular id is "SC_BKWJR"
     Then add field: "analysis_id" value: "SC_BKWJR_ANI1" to message body
-    Then add field: "site" value: "mdacccc" to message body
+    Then add field: "site" value: "mda" to message body
     Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
     Then add field: "vcf_name" value: "test1.vcf" to message body
     Then add field: "dna_bam_name" value: "dna.bam" to message body
@@ -148,7 +148,7 @@ Feature: Tests for aliquot service in ion ecosystem
     #there is no file in S3 for this sample control
     Given molecular id is "SC_Q5E0X"
     Then add field: "analysis_id" value: "SC_Q5E0X_ANI1" to message body
-    Then add field: "site" value: "mdacc" to message body
+    Then add field: "site" value: "mda" to message body
     Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
     Then add field: "vcf_name" value: "test1.vcf" to message body
     Then add field: "dna_bam_name" value: "dna.bam" to message body
@@ -221,7 +221,7 @@ Feature: Tests for aliquot service in ion ecosystem
   Scenario: ION_AQ26. if the molecular id is neither a sample control nor patient molecular id, aliquot PUT service should fail
     Given molecular id is "NON_EXISTING_MOI"
     Then add field: "analysis_id" value: "NON_EXISTING_MOI_ANI1" to message body
-    Then add field: "site" value: "mdacc" to message body
+    Then add field: "site" value: "mda" to message body
     Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
     Then add field: "vcf_name" value: "test1.vcf" to message body
     Then add field: "dna_bam_name" value: "dna.bam" to message body

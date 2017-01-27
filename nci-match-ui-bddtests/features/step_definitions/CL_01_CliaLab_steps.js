@@ -90,7 +90,7 @@ module.exports = function() {
     });
 
     this.When(/^I collect information on "([^"]*)" under "(MoCha|MD Anderson)"$/, function (subTabName, sectionName, callback) {
-        var site = sectionName === 'MoCha' ? 'mocha' : 'mdacc';
+        var site = sectionName === 'MoCha' ? 'mocha' : 'mda';
         var url  = '/api/v1/sample_controls?site=' + site + '&control_type=' + cliaPage.controlType;
         var request = utilities.callApi('ion', '/api/v1/sample_controls');
         utilities.getRequestWithService('ion', url).then(function(responseBody){
@@ -99,7 +99,7 @@ module.exports = function() {
     });
 
     this.When(/^I collect new information on "([^"]*)" under "(MoCha|MD Anderson)"$/, function (subTabName, sectionName, callback) {
-        var site = sectionName === 'MoCha' ? 'mocha' : 'mdacc';
+        var site = sectionName === 'MoCha' ? 'mocha' : 'mda';
         var url  = '/api/v1/sample_controls?site=' + site + '&control_type=' + cliaPage.controlType;
         utilities.getRequestWithService('ion', url).then(function(responseBody){
             cliaPage.newResponseData = responseBody

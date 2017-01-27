@@ -14,13 +14,13 @@ Feature: Tests for sample_controls service in ion ecosystem
     Then sample_control should not have field: "comments"
     Examples:
       | site  | control_type           |
-      | mdacc   | positive               |
+      | mda   | positive               |
       | mocha | no_template            |
-      | mdacc   | proficiency_competency |
+      | mda   | proficiency_competency |
 
   @ion_reporter_p2
   Scenario: ION_SC02. sample control service should generate unique molecular_id
-    Given site is "mdacc"
+    Given site is "mda"
     Given control_type is "positive"
     When POST to sample_controls service, response includes "New sample control created" with code "200"
     Then generated sample_control molecular id should have 1 record
@@ -33,7 +33,7 @@ Feature: Tests for sample_controls service in ion ecosystem
 
   @ion_reporter_not_required
   Scenario: ION_SC04. sample control service should fail if control_type is invalid
-    Given site is "mdacc"
+    Given site is "mda"
     Given control_type is "non_existing_type"
     When POST to sample_controls service, response includes "control type" with code "400"
 
@@ -91,6 +91,7 @@ Feature: Tests for sample_controls service in ion ecosystem
   Scenario: ION_SC20a. sample_control comments and pass_flag can be updated successfully
     Given molecular id is "SC_R2LAX"
     Then add field: "pass_flag" value: "true" to message body
+    Then add field: "site" value: "mda" to message body
     Then add field: "comments" value: "test comments" to message body
     When PUT to sample_controls service, response includes "updated" with code "200"
     Then wait up to 30 seconds until this sample_control get updated
@@ -101,12 +102,14 @@ Feature: Tests for sample_controls service in ion ecosystem
   Scenario: ION_SC21. sample_control update request with non-existing molecular_id should fail
     Given molecular id is "SC_NON_EXISTING"
     Then add field: "analysis_id" value: "SC_NON_EXISTING_ANI" to message body
+    Then add field: "site" value: "mda" to message body
     When PUT to sample_controls service, response includes "exist" with code "404"
 
   @ion_reporter_p3
   Scenario: ION_SC22. sample_control update request with patient molecular_id should fail
     Given molecular id is "ION_SC22_TsShipped_MOI1"
     Then add field: "analysis_id" value: "ION_SC22_TsShipped_ANI1" to message body
+    Then add field: "site" value: "mda" to message body
     When PUT to sample_controls service, response includes "exist" with code "404"
 
   @ion_reporter_not_required
@@ -114,7 +117,7 @@ Feature: Tests for sample_controls service in ion ecosystem
     #ion_reporter IR_TG2DY belongs to site mocha
     Given molecular id is "SC_307VJ"
     Then add field: "ion_reporter_id" value: "IR_TG2DY" to message body
-    Then add field: "site" value: "mdacc" to message body
+    Then add field: "site" value: "mda" to message body
     When PUT to sample_controls service, response includes "site" with code "400"
 
   @ion_reporter_not_required
@@ -128,6 +131,7 @@ Feature: Tests for sample_controls service in ion ecosystem
   Scenario: ION_SC25. sample_control update request should not fail if extra key-value pair in message body, but doesn't store them
     Given molecular id is "SC_WF2KR"
     Then add field: "extra_information" value: "other" to message body
+    Then add field: "site" value: "mocha" to message body
     When PUT to sample_controls service, response includes "updated" with code "200"
     Then wait up to 15 seconds until this sample_control get updated
     Then sample_control should not have field: "extra_information"
@@ -191,13 +195,13 @@ Feature: Tests for sample_controls service in ion ecosystem
   Scenario: ION_SC61. sample_control service can list all sample_controls that meet query parameters
     Given molecular id is ""
     Then add field: "date_molecular_id_created" value: "2016-10-12 21:20:05.158803" to url
-    Then field: "site" for this sample_control should be: "mdacc"
+    Then field: "site" for this sample_control should be: "mda"
     Then field: "control_type" for this sample_control should be: "proficiency_competency"
 
   @ion_reporter_p1
   Scenario: ION_SC62. sample_control service can return single sample_control with specified molecular_id
     Given molecular id is "SC_MFIK1"
-    Then field: "site" for this sample_control should be: "mdacc"
+    Then field: "site" for this sample_control should be: "mda"
     Then field: "control_type" for this sample_control should be: "no_template"
     Then field: "date_molecular_id_created" for this sample_control should be: "2016-10-12 21:20:00.113135"
 

@@ -117,7 +117,7 @@ Feature: Variant files confirmed messages
 #    Then this variant has correct status_date value
 
 #  variant_file_confirmed:
-  @patients_p2
+  @patients_p3
   Scenario Outline: PT_VC06. variant report confirm message with invalid patient_id should fail
     Given patient id is "<value>"
     Then load template variant report confirm message for analysis id: "ANI1"
@@ -138,7 +138,7 @@ Feature: Variant files confirmed messages
 ##      |null           |can't be blank             |
 #      |other          |Molecular id doesn't exist |
 
-  @patients_p2
+  @patients_p3
   Scenario Outline: PT_VC09. variant report confirm message with invalid analysis_id should fail
     Given patient id is "PT_VC09_VRUploaded"
     Then load template variant report confirm message for analysis id: "<ANI>"

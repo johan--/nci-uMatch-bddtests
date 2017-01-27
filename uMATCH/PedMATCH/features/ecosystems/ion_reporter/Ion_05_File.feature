@@ -47,7 +47,7 @@ Feature: Tests for files service in ion ecosystem
   Scenario: ION_FL08. files service should return 404 error if no result for current query
     Given molecular id is "SC_4Y49T"
     Given file name for files service is: "vcf_name"
-    When GET from files service, response includes "Failed to get download url" with code "404"
+    When GET from files service, response includes "Key does not exist" with code "404"
 
 
   @ion_reporter_p2

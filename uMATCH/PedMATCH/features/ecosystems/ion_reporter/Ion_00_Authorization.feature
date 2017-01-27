@@ -1,6 +1,7 @@
 @ion_auth
 Feature: ir ecosystem authorization tests
 
+  @ion_reporter_p1
   Scenario Outline: ION_AU01 role base authorization works properly to create ion_reporter
     Given site is "mda"
     And ir user authorization role is "<auth_role>"
@@ -23,6 +24,7 @@ Feature: ir ecosystem authorization tests
       | SPECIMEN_MESSAGE_SENDER       |             | 401      |               | 401        |
       | ASSAY_MESSAGE_SENDER          |             | 401      |               | 401        |
 
+  @ion_reporter_p2
   Scenario Outline: ION_AU02 role base authorization works properly to list ion_reporter
     Given ion_reporter_id is ""
     And ir user authorization role is "<auth_role>"
@@ -43,12 +45,15 @@ Feature: ir ecosystem authorization tests
       | SPECIMEN_MESSAGE_SENDER       | ion_reporter_id | 200  |
       | ASSAY_MESSAGE_SENDER          | ion_reporter_id | 200  |
 
+  @ion_reporter_p1
   Scenario Outline: ION_AU03 role base authorization works properly to update ion_reporter
     Given ion_reporter_id is "IR_MDA01"
     Then add field: "last_contact" value: "January 03, 2017 10:35 PM" to message body
+    Then add field: "site" value: "mda" to message body
     And ir user authorization role is "<auth_role>"
     When PUT to ion_reporters service, response includes "<mda_message>" with code "<mda_code>"
     Given ion_reporter_id is "IR_MCA01"
+    Then add field: "site" value: "mocha" to message body
     Then add field: "last_contact" value: "January 03, 2017 10:35 PM" to message body
     When PUT to ion_reporters service, response includes "<mocha_message>" with code "<mocha_code>"
     Examples:
@@ -67,6 +72,7 @@ Feature: ir ecosystem authorization tests
       | SPECIMEN_MESSAGE_SENDER       |             | 401      |               | 401        |
       | ASSAY_MESSAGE_SENDER          |             | 401      |               | 401        |
 
+  @ion_reporter_p1
   Scenario Outline: ION_AU04 role base authorization works properly to delete ion_reporter
     Given ion_reporter_id is "<mda_id>"
     And ir user authorization role is "<auth_role>"
@@ -89,6 +95,7 @@ Feature: ir ecosystem authorization tests
       | SPECIMEN_MESSAGE_SENDER       | IR_MDA00 |             | 401      | IR_MCA00 |               | 401        |
       | ASSAY_MESSAGE_SENDER          | IR_MDA00 |             | 401      | IR_MCA00 |               | 401        |
 
+  @ion_reporter_p1
   Scenario Outline: ION_AU05 role base authorization works properly to create sample_control
     Given site is "mda"
     Given control_type is "no_template"
@@ -113,7 +120,7 @@ Feature: ir ecosystem authorization tests
       | SPECIMEN_MESSAGE_SENDER       |                        | 401      |                        | 401        |
       | ASSAY_MESSAGE_SENDER          |                        | 401      |                        | 401        |
 
-
+  @ion_reporter_p2
   Scenario Outline: ION_AU06 role base authorization works properly to list sample_control
     Given molecular id is ""
     And ir user authorization role is "<auth_role>"
@@ -134,13 +141,16 @@ Feature: ir ecosystem authorization tests
       | SPECIMEN_MESSAGE_SENDER       | control_type | 200  |
       | ASSAY_MESSAGE_SENDER          | control_type | 200  |
 
+  @ion_reporter_p1
   Scenario Outline: ION_AU07 role base authorization works properly to update sample_control
     Given molecular id is "SC_MDA01"
     Then add field: "qc_name" value: "IR_1H9XW/SC_MDA01/SC_MDA01_ANI1/test.pdf" to message body
+    Then add field: "site" value: "mda" to message body
     And ir user authorization role is "<auth_role>"
     When PUT to sample_controls service, response includes "<mda_message>" with code "<mda_code>"
     Given molecular id is "SC_MCA01"
     Then add field: "qc_name" value: "IR_1H9XW/SC_MCA01/SC_MCA01_ANI1/test.pdf" to message body
+    Then add field: "site" value: "mocha" to message body
     When PUT to sample_controls service, response includes "<mocha_message>" with code "<mocha_code>"
     Examples:
       | auth_role                     | mda_message | mda_code | mocha_message | mocha_code |
@@ -158,6 +168,7 @@ Feature: ir ecosystem authorization tests
       | SPECIMEN_MESSAGE_SENDER       |             | 401      |               | 401        |
       | ASSAY_MESSAGE_SENDER          |             | 401      |               | 401        |
 
+  @ion_reporter_p1
   Scenario Outline: ION_AU08 role base authorization works properly to delete sample_control
     Given molecular id is "<mda_moi>"
     And ir user authorization role is "<auth_role>"
@@ -180,6 +191,7 @@ Feature: ir ecosystem authorization tests
       | SPECIMEN_MESSAGE_SENDER       | SC_MDA00 |             | 401      | SC_MCA00  |               | 401        |
       | ASSAY_MESSAGE_SENDER          | SC_MDA00 |             | 401      | SC_MCA00  |               | 401        |
 
+  @ion_reporter_p2
   Scenario Outline: ION_AU09 role base authorization works properly to list aliquot
     Given molecular id is "SC_3KSN8"
     And ir user authorization role is "<auth_role>"
@@ -200,6 +212,7 @@ Feature: ir ecosystem authorization tests
       | SPECIMEN_MESSAGE_SENDER       | control_type | 200  |
       | ASSAY_MESSAGE_SENDER          | control_type | 200  |
 
+  @ion_reporter_p1
   Scenario Outline: ION_AU10 role base authorization works properly to update aliquot
     Given molecular id is "<mda_moi>"
     Then add field: "analysis_id" value: "<mda_moi>_ANI1" to message body
@@ -213,7 +226,7 @@ Feature: ir ecosystem authorization tests
     When PUT to aliquot service, response includes "<mda_message>" with code "<mda_code>"
     Given molecular id is "<mocha_moi>"
     Then add field: "analysis_id" value: "<mocha_moi>_ANI1" to message body
-    Then add field: "site" value: "mda" to message body
+    Then add field: "site" value: "mocha" to message body
     Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
     Then add field: "vcf_name" value: "IR_TCWEV/<mocha_moi>/<mocha_moi>_ANI1/test1.vcf" to message body
     Then add field: "dna_bam_name" value: "IR_TCWEV/<mocha_moi>/<mocha_moi>_ANI1/dna.bam" to message body
@@ -237,6 +250,7 @@ Feature: ir ecosystem authorization tests
       | SPECIMEN_MESSAGE_SENDER       | SC_MDA00 |              | 401      | SC_MCA00  |               | 401        |
       | ASSAY_MESSAGE_SENDER          | SC_MDA00 |              | 401      | SC_MCA00  |               | 401        |
 
+  @ion_reporter_p2
   Scenario Outline: ION_AU11 role base authorization works properly to list sequence_files
     Given molecular id is "SC_NPID3"
     Given sequence file type: "<file_type>", nucleic acid type: "<nucleic_acid_type>"
@@ -258,6 +272,7 @@ Feature: ir ecosystem authorization tests
       | vcf       |                   | SPECIMEN_MESSAGE_SENDER       | s3.amazonaws.com | 200  |
       | bam       | dna               | ASSAY_MESSAGE_SENDER          | s3.amazonaws.com | 200  |
 
+  @ion_reporter_p2
   Scenario Outline: ION_AU12 role base authorization works properly to list files
     Given molecular id is "SC_J6RDR"
     Given file name for files service is: "qc_name"

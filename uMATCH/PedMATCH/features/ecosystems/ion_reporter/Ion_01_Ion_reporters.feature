@@ -10,12 +10,12 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Then field: "site" for each generated ion_reporter should be: "<site>"
     Examples:
       | site  |
-      | mdacc |
+      | mda |
       | mocha |
 
   @ion_reporter_p2
   Scenario: ION_IR02. multiple ion_reporters can be generated for same site
-    Given site is "mdacc"
+    Given site is "mda"
     When POST to ion_reporters service 3 times, response includes "New ion reporter created" with code "200"
     Then there are 3 ion_reporter_ids generated
     And each generated ion_reporter_id should have 1 record
@@ -45,7 +45,7 @@ Feature: Tests for ion_reporters service in ion ecosystem
 
   @ion_reporter_p2
   Scenario: ION_IR05. date_ion_reporter_id_created should be generated properly
-    Given site is "mdacc"
+    Given site is "mda"
     When POST to ion_reporters service 1 times, response includes "New ion reporter created" with code "200"
     Then each generated ion_reporter should have correct date_ion_reporter_id_created
 
@@ -58,9 +58,9 @@ Feature: Tests for ion_reporters service in ion ecosystem
   @ion_reporter_p1
   Scenario: ION_IR20. ion_reporter can be updated successfully
     Given ion_reporter_id is "IR_CFUER"
+    Then add field: "site" value: "mda" to message body
     Then add field: "last_contact" value: "October 03, 2016 10:35 PM" to message body
     Then add field: "internal_ip_address" value: "172.20.174.24" to message body
-    Then add field: "ir_status" value: "Contacted 5 days ago" to message body
     Then add field: "host_name" value: "MDACC-MATCH-IR" to message body
     Then add field: "data_files" value: "Log File" to message body
     Then add field: "ip_address" value: "132.183.13.75" to message body
@@ -68,7 +68,6 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Then wait up to 15 seconds until this ion_reporter get updated
     Then field: "last_contact" for this ion_reporter should be: "October 03, 2016 10:35 PM"
     Then field: "internal_ip_address" for this ion_reporter should be: "172.20.174.24"
-    Then field: "ir_status" for this ion_reporter should be: "Contacted 5 days ago"
     Then field: "host_name" for this ion_reporter should be: "MDACC-MATCH-IR"
     Then field: "data_files" for this ion_reporter should be: "Log File"
     Then field: "ip_address" for this ion_reporter should be: "132.183.13.75"
@@ -77,6 +76,7 @@ Feature: Tests for ion_reporters service in ion ecosystem
   Scenario Outline: ION_IR21. ion_reporter update request should not update ion_reporter_id
     Given ion_reporter_id is "IR_GBOPP"
     Then add field: "<field>" value: "<value1>" to message body
+    Then add field: "site" value: "mocha" to message body
     When PUT to ion_reporters service, response includes "updated" with code "200"
     Then wait up to 15 seconds until this ion_reporter get updated
     Then field: "<field>" for this ion_reporter should be: "<value2>"
@@ -84,24 +84,26 @@ Feature: Tests for ion_reporters service in ion ecosystem
       | field                        | value1     | value2     |
       | date_ion_reporter_id_created | 2010-04-25 | 2010-04-25 |
       | ion_reporter_id              | IR_XXJXX   | IR_GBOPP   |
-      | site                         | mocha      | mocha      |
 
   @ion_reporter_p3
   Scenario: ION_IR22. ion_reporter update request should fail if non-existing ion_reporter_id is passed in
     Given ion_reporter_id is "IR_NON_EXISTING"
     Then add field: "last_contact" value: "October 03, 2016 10:35 PM" to message body
+    Then add field: "site" value: "mocha" to message body
     When PUT to ion_reporters service, response includes "exist" with code "404"
 
   @ion_reporter_p3
   Scenario: ION_IR23. ion_reporter update request should fail if no ion_reporter_id is passed in
     Given ion_reporter_id is ""
     Then add field: "last_contact" value: "October 03, 2016 10:35 PM" to message body
+    Then add field: "site" value: "mocha" to message body
     When PUT to ion_reporters service, response includes "is not allowed for the requested URL" with code "405"
 
   @ion_reporter_not_required
   Scenario: ION_IR24. ion_reporter update request should not fail if extra key-value pair in message body, but doesn't store them
     Given ion_reporter_id is "IR_1H9XW"
     Then add field: "extra_information" value: "other" to message body
+    Then add field: "site" value: "mocha" to message body
     When PUT to ion_reporters service, response includes "updated" with code "200"
     Then wait up to 15 seconds until this ion_reporter get updated
     Then updated ion_reporter should not have field: "extra_information"
@@ -109,6 +111,13 @@ Feature: Tests for ion_reporters service in ion ecosystem
   @ion_reporter_p2
   Scenario: ION_IR25. ion_reporter update request should not remove existing fields that are not in PUT message body
     Given ion_reporter_id is "IR_3I4AB"
+    
+    Scenario: ION_IR26. ion_reporter update request will fail if no site value passed in
+      Given ion_reporter_id is "IR_1H9XW"
+      Then add field: "host_name" value: "MDACC-MATCH-IR" to message body
+      Then add field: "data_files" value: "Log File" to message body
+      Then add field: "ip_address" value: "132.183.13.75" to message body
+      When PUT to ion_reporters service, response includes "Need to pass in site information" with code "400"
 
   @ion_reporter_p1
   Scenario: ION_IR40. specific ion_reporter can be deleted successfully

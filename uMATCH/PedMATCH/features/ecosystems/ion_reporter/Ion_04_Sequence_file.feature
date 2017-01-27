@@ -90,7 +90,7 @@ Feature: Tests for sequence files service in ion ecosystem
   Scenario: ION_SF11. sequence files service should return 404 error if no result for current query
     Given molecular id is "SC_XZD70"
     Given sequence file type: "vcf", nucleic acid type: ""
-    When GET from sequence_files service, response includes "Failed to get download url" with code "404"
+    When GET from sequence_files service, response includes "Key does not exist" with code "404"
 
   @ion_reporter_p2
   Scenario: ION_SF80. sequence files service should fail when user want to create new item using POST
