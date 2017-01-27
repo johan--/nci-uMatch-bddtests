@@ -8,7 +8,8 @@ class COG_helper_methods
   def self.setTreatmentArmStatus(treatmentArmID, stratumID, status)
     treatmentArm = { 'treatment_arm_id'=>treatmentArmID, 'stratum_id'=>stratumID, 'status'=>status}
     @jsonString = treatmentArm.to_json.to_s
-    Helper_Methods.post_request(ENV['cog_mock_endpoint']+'/setTreatmentArmStatus', @jsonString)
+    # Helper_Methods.post_request(ENV['cog_mock_endpoint']+'/setTreatmentArmStatus', @jsonString)
+    Helper_Methods.put_request(ENV['treatment_arm_endpoint'] + '/api/v1/treatment_arms/status', @jsonString)
   end
   def COG_helper_methods.getTreatmentArmStatus(treatmentArmID, stratumID)
     query = "/treatmentArm?treatment_arm_id=#{treatmentArmID}&stratum_id=#{stratumID}"
