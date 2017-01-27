@@ -74,7 +74,7 @@ var PatientPage = function () {
         }
     };
 
-    this.specimenEventArray = element.all(by.repeater('specimenEvent.specimen_shipments'));
+    this.specimenEventArray = element.all(by.repeater('shipment specimenEvent.specimen_shipments'));
 
     // *****************  Surgical Event Tabs ********************//
     this.surgicalEventPanels = element.all(by.css('.specimen-event-panel'));

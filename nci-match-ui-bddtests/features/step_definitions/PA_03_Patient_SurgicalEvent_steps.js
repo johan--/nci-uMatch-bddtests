@@ -150,8 +150,16 @@ module.exports = function () {
     });
 
     this.Then(/^I should see "([^"]*)" Assignments under the Molecular ID "([^"]*)"$/, function (AssignmentCount, molecularIdRow, callback) {
-        var specimenEvent = patientPage.specimenEventArray.get(0).all(by.binding(molecularIdRow));
+//         var specimenEvent = patientPage.specimenEventArray.get(0).all(by.binding(molecularIdRow));
 
-        callback(null, 'pending');
+// patientPage.speciment
+//         .get(0).all(by.binding('')).all(by.repeater('repeater string of element inside the spemciment'))
+//         patientPage.speciment
+//         .get(0).all(by.binding('')).getText().then(function(texts){
+//             console.log(texts);
+//         });
+
+//         expect(specimenEvent.isPresent()).to.eventually.eql(true);
+        callback.pending();
     });
 };
