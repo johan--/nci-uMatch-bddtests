@@ -15,4 +15,4 @@ Feature:Patients list page
     And I should see patients table
     And I should see the headings in the patient table
     And I should see data in the patient table
-    And I then logout
+    And I logout

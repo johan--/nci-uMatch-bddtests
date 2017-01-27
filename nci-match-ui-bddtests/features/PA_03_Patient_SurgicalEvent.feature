@@ -25,7 +25,7 @@ Feature: Patient Surgical Events Tab
 #    And I see the Assay History Match with the database
 #    And The status of each molecularId is displayed
 
-  @ui_p2 @test
+  @ui_p2
   Scenario: Logged in user can see multiple assignments for single variant report
     When I go to patient "UI_MA_PendingApproval" details page
     Then I am taken to the patient details page

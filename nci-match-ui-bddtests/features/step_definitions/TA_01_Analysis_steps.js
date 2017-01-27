@@ -78,8 +78,6 @@ module.exports = function () {
         browser.sleep(50).then(callback);
     });
 
-
-
     this.When(/^I click on the download in Excel Format$/, function (callback) {
         expect(browser.isElementPresent(taPage.downloadExcelButton)).to.eventually.eql(true).notify(callback)
         // todo: Insert Logic to download the file. Not working on the site when run locally
@@ -87,10 +85,9 @@ module.exports = function () {
         browser.sleep(50).then(callback);
     });
 
-    this.Then(/^All Patients Data displays patients that have been ever assigned to "(.+?)"$/, function(treatmentArm, callback){
-        callback.pending();
+    this.Then(/^All Patients Data displays patients that have been ever assigned to "([^"]*)"$/, function (arg1, callback) {
+        callback(null, 'pending');
     });
-
 
     this.When(/^I select the "(.+)" Main Tab$/, function (tabName, callback) {
         var selectorString = 'li[heading="' + tabName + '"]';

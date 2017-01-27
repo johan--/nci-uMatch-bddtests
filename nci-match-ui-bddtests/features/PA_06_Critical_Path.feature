@@ -107,7 +107,7 @@ Feature: This is the critical path test cases.
     Then I "should" see the confirmation modal pop up
     When I click on the "OK" button
     Then The variant report status is marked "CONFIRMED"
-    And I then logout
+    And I logout
 
   Scenario: Confirmed variant report will not have check boxes enabled
     Given I'm logged in as a "VR_Reviewer_mda" user
@@ -210,7 +210,7 @@ Feature: This is the critical path test cases.
     # And I "should" see the patient "Treatment Arm Id" as "APEC1621-A"
     # And I "should" see the patient "Stratum Id" as "100"
     # And I "should" see the patient "Version" as "2015-08-06"
-    And I then logout
+    And I logout
   
   Scenario: Confirmed Assignment Report updates information on the Assignment report setion of the patient
     Given I'm logged in as a "admin" user

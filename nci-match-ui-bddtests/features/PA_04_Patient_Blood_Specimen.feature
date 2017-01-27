@@ -13,7 +13,7 @@ Feature: Patient Report Tab
     And I can see "Blood Shipments" sub section under "Blood Specimens" Tab
     And I can see the Blood Specimen details table
     And I can see the Blood Shipment details table
-    And I then logout
+    And I logout
 
   @ui_p3
   Scenario: Navigating to a spcific blood variant report lets user see more details.
@@ -22,4 +22,4 @@ Feature: Patient Report Tab
     Then I am taken to the report details page.
     And I see the Variant Report details about the specimen
     And All the existing checkboxes are checked and disabled
-    And I then logout
+    And I logout
