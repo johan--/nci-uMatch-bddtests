@@ -24,6 +24,7 @@ module.exports = function () {
     var treatmentArmAPIDetails;
     var firstTreatmentArm;
     var allPatientDetails;
+    var currentFilter;
 
     // GIVEN Section
 
@@ -87,8 +88,21 @@ module.exports = function () {
     });
 
     this.Then(/^All Patients Data displays patients that have been ever assigned to "([^"]*)"$/, function (arg1, callback) {
+        var dataList;
+
+        //TODO: something is wrong with the filtered case!
+        currentFilter = null;
+
+        if (currentFilter) {
+            dataList = allPatientDetails['patients_list'].filter(function(x) {
+                return x.patient_id == currentFilter;
+            });
+        } else {
+            dataList = allPatientDetails['patients_list'];
+        }
+
         var perPage = 10; // TODO: Get the currently selected value from dropdown
-        var totalDataCount = allPatientDetails['patients_list'].length;
+        var totalDataCount = dataList.length;
         var pages = Math.ceil(totalDataCount / perPage);
         var remainder = totalDataCount - pages * perPage;
         var count = 0;
@@ -96,22 +110,27 @@ module.exports = function () {
 
         browser.ignoreSynchronization = false;
 
-        taPage.allPatientDataRows.count().then(function(pageCount) {
-            count += pageCount;
+        taPage.allPatientDataRows.count().then(function(pageRowCount) {
+            count += pageRowCount;
+            console.log('count', count);
         });
 
         var endCb = function() {
             console.log('CALLED END', count, totalDataCount);
             return assert.eventually.equal(Promise.resolve(count), totalDataCount, 
                 "Number of rows collected from all pages should be equal total numbber of data rows");
-        };
+       };
 
         var clickNext = function(cbNext, cbEnd) {
             var enabledPromise;
+
+            console.log('currentPage', currentPage);
             
             if (currentPage < pages) {
+                console.log('disabled');
                 enabledPromise = assert.eventually.equal(taPage.gridNextLinkDisabled.isPresent(), false);
             } else {
+                console.log('enabled');
                 enabledPromise = assert.eventually.equal(taPage.gridNextLinkDisabled.isPresent(), true);
             }
 
@@ -126,18 +145,25 @@ module.exports = function () {
             return assert.isFulfilled(clickPromise)
                 .then(function() {
                     if (currentPage < pages) {
-                        taPage.allPatientDataRows.count().then(function(pageCount) {
-                            count += pageCount;
+                        console.log('can go next');
+                        taPage.allPatientDataRows.count().then(function(pageRowCount) {
+                            count += pageRowCount;
                         });
                         currentPage++;
                         return cbNext(cbNext, cbEnd);
                     } else {
+                        console.log('can\'t go next');
                         return cbEnd();
                     }
                 }, cbEnd);
         };
 
-        assert.isFulfilled(clickNext(clickNext, endCb)).then(callback);
+        if (currentPage < pages) {
+            assert.isFulfilled(clickNext(clickNext, endCb)).then(callback);
+        } else {
+            expect(count).to.equal(totalDataCount, 
+                "Number of rows collected from all pages should be equal total numbber of data rows").then(callback);
+        }
     });
 
     this.When(/^I select the "(.+)" Main Tab$/, function (tabName, callback) {
@@ -246,9 +272,11 @@ module.exports = function () {
         var patientDetails = allPatientDetails[ 'patients_list' ][ index ];
         var searchField    = taPage.allPatientsDataTable.all (by.model ('filterAll'));
 
-        var assignmentDate = moment.utc(patientDetails[ 'assignment_date' ]).utc().format('LLL')
+        var assignmentDate = moment.utc(patientDetails[ 'assignment_date' ]).utc().format('LLL');
 
-        searchField.sendKeys (patientDetails[ 'patient_id' ]).then (function () {
+        currentFilter = patientDetails[ 'patient_id' ];
+
+        searchField.sendKeys (currentFilter).then (function () {
             expect (allRows.all (by.binding ('item.patient_id')).get (0).getText ())
                 .to.eventually.eql (patientDetails[ 'patient_id' ]);
             expect (allRows.all (by.binding ('item.version')).get (0).getText ())
