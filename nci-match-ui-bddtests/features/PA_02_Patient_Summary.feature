@@ -23,7 +23,7 @@ Feature: Patient Summary Page
     And I should see the main tabs associated with the patient
     Then I logout
 
-  @ui_p2 @test
+  @ui_p2
   Scenario: I can see the details within the Summary tab of the patient
     When I go to patient "PT_CR02_OnTreatmentArm" details page
     And I collect the patient Api Information
@@ -35,10 +35,10 @@ Feature: Patient Summary Page
     Then I logout
 
   @ui_p2
-  Scenario: I can see COG Message in Activity Feed
+  Scenario: I can see COG Message in Patient Timeline
     When I go to patient "UI_EM_OffStudy" details page
     Then I should see the "Summary" tab is active
     And I scroll to the bottom of the page
     And I should see the "Patient Timeline" section heading
-    And I should see a message "Patient is deceased." in the timeline
+    And I should see a message "COG Message: Patient is deceased." in the timeline
     Then I logout

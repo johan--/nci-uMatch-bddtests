@@ -156,4 +156,12 @@ module.exports = function () {
 
     });
 
+    this.Then(/^I should see a message "([^"]*)" in the timeline$/, function (timeLineMessage, callback) {
+        var events = element.all(by.repeater('timelineEvent in activity.data')).all(by.css('span[ng-if="timelineEvent.event_data.message"]'));
+
+        events.get(0).getText().then(function(text) {
+            expect(text).to.equal(text);
+        }).then(callback);
+    });
+
 };
