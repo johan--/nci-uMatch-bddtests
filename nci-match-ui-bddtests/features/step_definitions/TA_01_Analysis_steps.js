@@ -122,9 +122,14 @@ module.exports = function () {
         //     isEnabled = true;
         // });
 
-        assert.isFulfilled(Promise.all([
-            nextButton.isEnabled().should.to.eventually.eql(true).then(function(){console.log('resolved');})
-        ]));
+        // console.log(nextButton.isEnabled());
+
+        assert.eventually.equal(nextButton.isEnabled(), true, 'RESOLVED');
+        assert.eventually.equal(nextButton.isEnabled(), false, 'FAILED');
+
+        // assert.isFulfilled(Promise.all([
+        //     assert(nextButton.isEnabled()).eventually.equal(true).then(function(){console.log('resolved');})
+        // ]));
 
         console.log('allPatientDetails', allPatientDetails['patients_list'].length);
 
