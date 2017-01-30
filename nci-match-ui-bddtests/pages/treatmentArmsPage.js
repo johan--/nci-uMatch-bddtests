@@ -87,8 +87,6 @@ var TreatmentArmsPage = function() {
     this.inclusionButton = element(by.css(".active>.ng-scope>.btn-group>.btn-group>label[ng-click=\"setInExclusionType('inclusion')\"]"));
     this.exclusionButton = element(by.css(".active>.ng-scope>.btn-group>.btn-group>label[ng-click=\"setInExclusionType('exclusion')\"]"));
 
-    this.gridNextPageButtpm = element(by.css("ng-click=\"selectPage(page + 1, $event)\""));
-
     //Inclusion / Exclusion Active Table
     this.inclusionTable = element.all(
         by.css('.active>.panel-body>.ibox [ng-if="inExclusionType == \'inclusion\'"] .dataTables_wrapper>.row>.col-sm-12>table>tbody>tr.ng-valid'));
@@ -105,6 +103,8 @@ var TreatmentArmsPage = function() {
     this.assayResult = element.all(by.binding('item.assay_result_status'));
     this.assayVariantAssc = element.all(by.binding('item.assay_variant'));
     this.assayLOE = element.all(by.binding('item.level_of_evidence'));
+
+    this.gridNextPageButton = element(by.css("a[ng-click=\"selectPage(page + 1, $event)\"]"));
 
     // Key map for Drugs and Diseases values from the treatment arm api call
     var KeyMapConstant = {

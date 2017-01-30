@@ -7,9 +7,9 @@ chai = require('chai');
 chaiAsPromised = require ('chai-as-promised');
 
 World = function World(callback) {
-
     chai.use(chaiAsPromised);
     global.expect = chai.expect;
+    global.assert = chai.assert;
     callback;
 };
 

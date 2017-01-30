@@ -59,7 +59,7 @@ module.exports = function () {
         currentStratumId   = stratum;
 
         var location = '/#/treatment-arm?treatment_arm_id=' + currentTreatmentId + '&stratum_id=' + currentStratumId;
-        console.log(location)
+        console.log(location);
 
         browser.get(location, 6000).then(function () {
             browser.waitForAngular();
@@ -72,30 +72,61 @@ module.exports = function () {
     });
 
     this.When(/^I click on the download in PDF Format$/, function (callback) {
-        expect(browser.isElementPresent(taPage.downloadPDFButton)).to.eventually.eql(true).notify(callback)
+        expect(browser.isElementPresent(taPage.downloadPDFButton)).to.eventually.eql(true).notify(callback);
         // todo: Insert Logic to download the file. Not working on the site when run locally
         // element(taPage.downloadPDFButton).click()
         browser.sleep(50).then(callback);
     });
 
     this.When(/^I click on the download in Excel Format$/, function (callback) {
-        expect(browser.isElementPresent(taPage.downloadExcelButton)).to.eventually.eql(true).notify(callback)
+        expect(browser.isElementPresent(taPage.downloadExcelButton)).to.eventually.eql(true).notify(callback);
         // todo: Insert Logic to download the file. Not working on the site when run locally
         // element(taPage.downloadExcelButton).click()
         browser.sleep(50).then(callback);
     });
 
     this.Then(/^All Patients Data displays patients that have been ever assigned to "([^"]*)"$/, function (arg1, callback) {
-        var perPage = 10;
+        var perPage = 10; // TODO: Get the currently selected value from dropdown
+        var totalDataCount = allPatientDetails['patients_list'].length;
+        var pages = Math.ceil(totalDataCount / perPage);
+        var remainder = totalDataCount - pages * perPage;
 
         var counter = { page: 0, total: 0 };
 
-        var nextButton = taPage.gridNextPageButtpm;
-        nextButton.getText().then(function(text){
-            console.log('nextButton', text);
-        });
+        var nextButton = taPage.gridNextPageButton;
+        // nextButton.getText().then(function(text){
+        //     console.log('nextButton', text);
+        // });
 
-        concole.log('allPatientDetails', allPatientDetails['patients_list'].length);
+        // nextButton.isEnabled().then(function(v){
+        //     console.log('nextButton.isEnabled', v);
+        // });
+
+        // for (var i = 0; i < pages; i++) {
+        //     (function(i, c) {
+        //         nextButton.click()
+        //             .then(function() {
+        //                 var currentPage = 10;
+        //             });
+
+        //         it('pass in the index to an iife', function() {
+        //             console.log('i is: ' + i);
+        //             expect(data[i]).toBe(true); 
+        //         });
+
+        //     })(i, counter);
+        // }
+
+        // var isEnabled = null;
+        // expect(nextButton.isEnabled()).to.eventually.eql(true).then(function(){
+        //     isEnabled = true;
+        // });
+
+        assert.isFulfilled(Promise.all([
+            nextButton.isEnabled().should.to.eventually.eql(true).then(function(){console.log('resolved');})
+        ]));
+
+        console.log('allPatientDetails', allPatientDetails['patients_list'].length);
 
         // expect(total count ).to.equal(allPatientDetails[ 'patients_list' ]).length
         callback(null, 'pending');
@@ -112,7 +143,7 @@ module.exports = function () {
     this.Then(/^I should see the (.+) Title$/, function (title, callback) {
         var heading = element(by.tagName('h2'));
         utilities.waitForElement(heading).then(function () {
-            expect(element(by.css('h2')).getText()).to.eventually.eql(title)
+            expect(element(by.css('h2')).getText()).to.eventually.eql(title);
         }).then(callback);
     });
 
