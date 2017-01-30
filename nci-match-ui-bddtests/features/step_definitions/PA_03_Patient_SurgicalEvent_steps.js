@@ -16,7 +16,7 @@ module.exports = function () {
     var patientApi;
     var patientId
     var responseData;
-    var surgicalTabs = element.all(by.css('li[ng-repeat="surgicalEvent in specimenEvents"]'));
+    var surgicalTabs = element.all(by.css('li[ng-repeat="specimenEvent in specimenEvents"]'));
 
     this.World = require('../step_definitions/world').World;
 

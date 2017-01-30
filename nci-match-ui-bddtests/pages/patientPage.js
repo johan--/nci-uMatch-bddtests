@@ -53,6 +53,8 @@ var PatientPage = function () {
     this.treatmentArmsHistoryElementArray = element.all(by.repeater('ta in data.ta_history'));
 
     // *****************  Surgical Event Tab  ********************//
+    // Get all the surgical Event Tabs.
+    this.SurgicalEventTabsArray = element.all(by.repeater('specimenEvent in specimenEvents'))
     this.surgicalEventSectionHeading = element.all(by.css('div[ng-if="surgicalEvent"]>.ibox-title'));
     // Get all elements under the Surgical Event Panel
     this.surgicalEventPanel = element.all(by.css('div[ng-if="currentSurgicalEvent"]'));

@@ -36,13 +36,13 @@ module.exports = function () {
 
     this.Then(/^I should see and click the variant report link for "(.+?)"$/, function (analysisId, callback) {
         patientPage.variantAnalysisId = analysisId;
-        var varRepString = 'div[ng-if="surgicalEvent"] a[href="#/patient/' + patientPage.patientId + '/variant_report?analysis_id=' + analysisId + '"]';
+        var varRepString = 'li[ng-repeat="analysisAssignment in shipment.analysisAssignments"] a[href="#/patient/' + patientPage.patientId + '/variant_report?analysis_id=' + analysisId + '"]';
         variantReportLink = element(by.css(varRepString));
         browser.ignoreSynchronization = true;
         expect(variantReportLink.isPresent()).to.eventually.eql(true).then(function () {
             browser.ignoreSynchronization = false;
             browser.executeScript('window.scrollTo(0, 5000)').then(function () {
-                browser.actions().mouseMove(variantReportLink).click().perform().then(function () {
+                variantReportLink.element(by.css('i')).click().then(function(){
                     browser.waitForAngular();
                 });
             });
@@ -457,7 +457,7 @@ module.exports = function () {
         var dateGenerated = utilities.dashifyIfEmpty(moment.utc(assignment.assignment_date).utc().format('LLL'));
         var dateSentToCOG = utilities.dashifyIfEmpty(moment.utc(assignment.sent_to_cog_date).utc().format('LLL'));
 
-        var ltSideAssignmentValues = patientPage.assignmentSummaryBoxes.all(by.css('.ng-binding'));        
+        var ltSideAssignmentValues = patientPage.assignmentSummaryBoxes.all(by.css('.ng-binding'));
 
         expect(ltSideAssignmentValues.get(0).getText()).to.eventually.eql(assignment.molecular_id);
         expect(ltSideAssignmentValues.get(1).getText()).to.eventually.eql(assignment.analysis_id);
@@ -552,5 +552,5 @@ module.exports = function () {
                 });
             }
         }).then(callback);
-    });    
+    });
 };
