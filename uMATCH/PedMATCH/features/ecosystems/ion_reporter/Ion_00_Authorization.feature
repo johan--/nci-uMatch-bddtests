@@ -99,10 +99,12 @@ Feature: ir ecosystem authorization tests
   Scenario Outline: ION_AU05 role base authorization works properly to create sample_control
     Given site is "mda"
     Given control_type is "no_template"
+    And molecular id is ""
     And ir user authorization role is "<auth_role>"
     When POST to sample_controls service, response includes "<mda_message>" with code "<mda_code>"
     Given site is "mocha"
     Given control_type is "positive"
+    And molecular id is ""
     When POST to sample_controls service, response includes "<mocha_message>" with code "<mocha_code>"
     Examples:
       | auth_role                     | mda_message            | mda_code | mocha_message          | mocha_code |
