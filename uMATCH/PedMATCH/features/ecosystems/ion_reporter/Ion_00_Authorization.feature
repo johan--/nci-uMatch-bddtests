@@ -16,10 +16,10 @@ Feature: ir ecosystem authorization tests
       | ADMIN                         | created     | 200      | created       | 200        |
       | SYSTEM                        | created     | 200      | created       | 200        |
       | ASSIGNMENT_REPORT_REVIEWER    |             | 401      |               | 401        |
-      | MDA_VARIANT_REPORT_SENDER     | created     | 200      |               | 401        |
-      | MDA_VARIANT_REPORT_REVIEWER   | created     | 200      |               | 401        |
-      | MOCHA_VARIANT_REPORT_SENDER   |             | 401      | created       | 200        |
-      | MOCHA_VARIANT_REPORT_REVIEWER |             | 401      | created       | 200        |
+      | MDA_VARIANT_REPORT_SENDER     |             | 401      |               | 401        |
+      | MDA_VARIANT_REPORT_REVIEWER   |             | 401      |               | 401        |
+      | MOCHA_VARIANT_REPORT_SENDER   |             | 401      |               | 401        |
+      | MOCHA_VARIANT_REPORT_REVIEWER |             | 401      |               | 401        |
       | PATIENT_MESSAGE_SENDER        |             | 401      |               | 401        |
       | SPECIMEN_MESSAGE_SENDER       |             | 401      |               | 401        |
       | ASSAY_MESSAGE_SENDER          |             | 401      |               | 401        |
@@ -64,10 +64,10 @@ Feature: ir ecosystem authorization tests
       | ADMIN                         | updated     | 200      | updated       | 200        |
       | SYSTEM                        | updated     | 200      | updated       | 200        |
       | ASSIGNMENT_REPORT_REVIEWER    |             | 401      |               | 401        |
-      | MDA_VARIANT_REPORT_SENDER     | updated     | 200      |               | 401        |
-      | MDA_VARIANT_REPORT_REVIEWER   | updated     | 200      |               | 401        |
-      | MOCHA_VARIANT_REPORT_SENDER   |             | 401      | updated       | 200        |
-      | MOCHA_VARIANT_REPORT_REVIEWER |             | 401      | updated       | 200        |
+      | MDA_VARIANT_REPORT_SENDER     |             | 401      |               | 401        |
+      | MDA_VARIANT_REPORT_REVIEWER   |             | 401      |               | 401        |
+      | MOCHA_VARIANT_REPORT_SENDER   |             | 401      |               | 401        |
+      | MOCHA_VARIANT_REPORT_REVIEWER |             | 401      |               | 401        |
       | PATIENT_MESSAGE_SENDER        |             | 401      |               | 401        |
       | SPECIMEN_MESSAGE_SENDER       |             | 401      |               | 401        |
       | ASSAY_MESSAGE_SENDER          |             | 401      |               | 401        |
