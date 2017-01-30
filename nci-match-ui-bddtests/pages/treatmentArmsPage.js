@@ -106,6 +106,7 @@ var TreatmentArmsPage = function() {
     this.assayVariantAssc = element.all(by.binding('item.assay_variant'));
     this.assayLOE = element.all(by.binding('item.level_of_evidence'));
 
+    this.gridNextLinkDisabled = element(by.css(".pagination-next.disabled"));
     this.gridNextPageButton = element(by.css("a[ng-click=\"selectPage(page + 1, $event)\"]"));
 
     // Key map for Drugs and Diseases values from the treatment arm api call

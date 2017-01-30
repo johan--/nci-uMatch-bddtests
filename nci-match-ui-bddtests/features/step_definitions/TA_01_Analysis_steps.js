@@ -91,88 +91,53 @@ module.exports = function () {
         var totalDataCount = allPatientDetails['patients_list'].length;
         var pages = Math.ceil(totalDataCount / perPage);
         var remainder = totalDataCount - pages * perPage;
-
-        var counter = { page: 0, total: 0 };
+        var count = 0;
+        var currentPage = 1;
 
         browser.ignoreSynchronization = false;
 
-        var nextButton = taPage.gridNextPageButton;
-        // nextButton.getText().then(function(text){
-        //     console.log('nextButton', text);
-        // });
+        taPage.allPatientDataRows.count().then(function(pageCount) {
+            count += pageCount;
+        });
 
-        // nextButton.isEnabled().then(function(v){
-        //     console.log('nextButton.isEnabled', v);
-        // });
-
-        // for (var i = 0; i < pages; i++) {
-        //     (function(i, c) {
-        //         nextButton.click()
-        //             .then(function() {
-        //                 var currentPage = 10;
-        //             });
-
-        //         it('pass in the index to an iife', function() {
-        //             console.log('i is: ' + i);
-        //             expect(data[i]).toBe(true); 
-        //         });
-
-        //     })(i, counter);
-        // }
-
-        // var isEnabled = null;
-        // expect(nextButton.isEnabled()).to.eventually.eql(true).then(function(){
-        //     isEnabled = true;
-        // });
-
-        // console.log(nextButton.isEnabled());
-
-        var context = { isEnabled: null };
+        var endCb = function() {
+            console.log('CALLED END', count, totalDataCount);
+            return assert.eventually.equal(Promise.resolve(count), totalDataCount, 
+                "Number of rows collected from all pages should be equal total numbber of data rows");
+        };
 
         var clickNext = function(cbNext, cbEnd) {
-            // context.isEnabled = false;
+            var enabledPromise;
             
-            var p = assert.eventually.equal(taPage.gridNextPageButton.isEnabled(), true, 'RESOLVED');
+            if (currentPage < pages) {
+                enabledPromise = assert.eventually.equal(taPage.gridNextLinkDisabled.isPresent(), false);
+            } else {
+                enabledPromise = assert.eventually.equal(taPage.gridNextLinkDisabled.isPresent(), true);
+            }
 
             var clickPromise = browser.executeScript('window.scrollTo(0,5000)').then(function() {
-                return taPage.gridNextPageButton.click();
+                return enabledPromise.then(function() {
+                    browser.sleep(500);
+                    console.log('count', count);
+                    return taPage.gridNextPageButton.click();
+                });
             });
 
-            return assert.isFulfilled(p)
+            return assert.isFulfilled(clickPromise)
                 .then(function() {
-                    browser.sleep(500);
-                    console.log('ENABLED');
-                    // context.isEnabled = true;
-                    clickPromise.then(function() {
+                    if (currentPage < pages) {
+                        taPage.allPatientDataRows.count().then(function(pageCount) {
+                            count += pageCount;
+                        });
+                        currentPage++;
                         return cbNext(cbNext, cbEnd);
-                    }, cbEnd);
-                }, cbEnd)
-                .then(function() {
-                    return cbNext(cbNext, cbEnd);
+                    } else {
+                        return cbEnd();
+                    }
                 }, cbEnd);
         };
 
-        assert.isFulfilled(clickNext(clickNext, callback));
-
-        // var p1 = assert.eventually.equal(nextButton.isEnabled(), true, 'RESOLVED');
-        // assert.isFulfilled(p1).then(function(){
-        //     console.log('ENABLED');
-        // });
-        
-        // nextButton.click().then(function(){
-        //     console.log('CLICKED');
-        //     var p2 = assert.eventually.equal(nextButton.isEnabled(), true, 'RESOLVED');
-        //     assert.isFulfilled(p2)
-        //         .then(function(){
-        //             browser.sleep(1000);
-        //         })
-        //         .then(callback);
-        // });
-
-        // console.log('allPatientDetails', allPatientDetails['patients_list'].length);
-
-        // expect(total count ).to.equal(allPatientDetails[ 'patients_list' ]).length
-        // callback(null, 'pending');
+        assert.isFulfilled(clickNext(clickNext, endCb)).then(callback);
     });
 
     this.When(/^I select the "(.+)" Main Tab$/, function (tabName, callback) {
