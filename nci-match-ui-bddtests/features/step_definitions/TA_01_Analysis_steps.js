@@ -267,7 +267,7 @@ module.exports = function () {
         for(var i = 0; i < drugDetails.length; i ++){
             expectedDrugList.push(drugDetails[i].name);
         }
-        expect(taPage.taGene.getText()).to.eventually.equal(firstTreatmentArm.gene);
+        // expect(taPage.taGene.getText()).to.eventually.equal(firstTreatmentArm.gene);
         expect(taPage.taPatientsAssigned.getText()).to.eventually.equal(versionCurrentPatients.toString());
         expect(taPage.taTotalPatientsAssigned.getText()).to.eventually.equal(stratumCurrentPatients.toString());
         taPage.taDrug.getText().then(function (actualDrugList) {
