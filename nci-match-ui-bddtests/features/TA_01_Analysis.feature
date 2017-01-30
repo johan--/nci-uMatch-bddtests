@@ -40,7 +40,7 @@ Feature: Treatment Arms Dashboard
     Then I should see the drop down to select different versions of the treatment arm
     Then I logout
 
-  @ui_p2 @test
+  @ui_p2 @broken
   Scenario: Logged in user can access Patients data on the Analysis Tab
     When I go to treatment arm with "APEC1621-A" as the id and "100" as stratum id
     And I select the "Analysis" Main Tab

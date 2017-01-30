@@ -2,6 +2,7 @@
  * Created by raseel.mohamed on 9/4/16
  */
 'use strict';
+
 var fs = require('fs');
 
 var patientPage = require('../../pages/patientPage');
@@ -27,4 +28,10 @@ module.exports = function () {
             expect(button.isPresent()).to.eventually.eql(isAvailable).notify(callback);
         }
     });
+
+    this.When (/^I turn off synchronization$/, function (callback) {
+        browser.ignoreSynchronization = true;
+        browser.sleep (50).then (callback);
+    });
+
 };

@@ -156,9 +156,4 @@ module.exports = function () {
 
     });
 
-    this.When (/^I turn off synchronization$/, function (callback) {
-        browser.ignoreSynchronization = true;
-        browser.sleep (50).then (callback);
-    })
-
 };
