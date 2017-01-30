@@ -127,18 +127,47 @@ module.exports = function () {
 
         // console.log(nextButton.isEnabled());
 
+        var context = { isEnabled: null };
 
-        var p1 = assert.eventually.equal(nextButton.isEnabled(), true, 'RESOLVED');
+        var clickNext = function(cbNext, cbEnd) {
+            // context.isEnabled = false;
+            
+            var p = assert.eventually.equal(taPage.gridNextPageButton.isEnabled(), true, 'RESOLVED');
+
+            var clickPromise = browser.executeScript('window.scrollTo(0,5000)').then(function() {
+                return taPage.gridNextPageButton.click();
+            });
+
+            return assert.isFulfilled(p)
+                .then(function() {
+                    browser.sleep(500);
+                    console.log('ENABLED');
+                    // context.isEnabled = true;
+                    clickPromise.then(function() {
+                        return cbNext(cbNext, cbEnd);
+                    }, cbEnd);
+                }, cbEnd)
+                .then(function() {
+                    return cbNext(cbNext, cbEnd);
+                }, cbEnd);
+        };
+
+        assert.isFulfilled(clickNext(clickNext, callback));
+
+        // var p1 = assert.eventually.equal(nextButton.isEnabled(), true, 'RESOLVED');
+        // assert.isFulfilled(p1).then(function(){
+        //     console.log('ENABLED');
+        // });
         
-        assert.isFulfilled(p1).then(callback);
-
-        // .then(callback);
-
-        // assert.eventually.equal(nextButton.isEnabled(), false, 'FAILED');
-
-        // assert.isFulfilled(Promise.all([
-        //     nextButton.isEnabled().should.eventually.equal(true)
-        // ]), 'ALL RESOLVED').then(callback);
+        // nextButton.click().then(function(){
+        //     console.log('CLICKED');
+        //     var p2 = assert.eventually.equal(nextButton.isEnabled(), true, 'RESOLVED');
+        //     assert.isFulfilled(p2)
+        //         .then(function(){
+        //             browser.sleep(1000);
+        //         })
+        //         .then(callback);
+        // });
 
         // console.log('allPatientDetails', allPatientDetails['patients_list'].length);
 
