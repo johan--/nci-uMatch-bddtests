@@ -124,17 +124,17 @@ module.exports = function () {
 
         // console.log(nextButton.isEnabled());
 
-        assert.eventually.equal(nextButton.isEnabled(), true, 'RESOLVED');
-        assert.eventually.equal(nextButton.isEnabled(), false, 'FAILED');
+        assert.eventually.equal(nextButton.isEnabled(), true, 'RESOLVED').then(callback);
+        // assert.eventually.equal(nextButton.isEnabled(), false, 'FAILED');
 
         // assert.isFulfilled(Promise.all([
         //     assert(nextButton.isEnabled()).eventually.equal(true).then(function(){console.log('resolved');})
         // ]));
 
-        console.log('allPatientDetails', allPatientDetails['patients_list'].length);
+        // console.log('allPatientDetails', allPatientDetails['patients_list'].length);
 
         // expect(total count ).to.equal(allPatientDetails[ 'patients_list' ]).length
-        callback(null, 'pending');
+        // callback(null, 'pending');
     });
 
     this.When(/^I select the "(.+)" Main Tab$/, function (tabName, callback) {
