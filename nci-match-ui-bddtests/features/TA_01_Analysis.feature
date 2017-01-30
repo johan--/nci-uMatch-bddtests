@@ -48,7 +48,7 @@ Feature: Treatment Arms Dashboard
     Then I should see Analysis Details Tab
     And I scroll to the bottom of the page
     And I should see the All Patients Data Table on the Treatment Arm
-    And I should see data in the All Patients Data Table
+    # And I should see a patient's data in the All Patients Data Table
     And All Patients Data displays patients that have been ever assigned to "APEC1621-A"
     Then I logout
 

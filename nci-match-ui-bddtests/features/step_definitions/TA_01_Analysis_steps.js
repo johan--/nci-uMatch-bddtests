@@ -58,9 +58,10 @@ module.exports = function () {
         currentTreatmentId = taId;
         currentStratumId   = stratum;
 
-        var location = '/#/treatment-arm?treatment_arm_id=' + currentTreatmentId + '&stratum_id=' + currentStratumId;
-        console.log(location);
+        // browser.ignoreSynchronization = false;
 
+        var location = '/#/treatment-arm?treatment_arm_id=' + currentTreatmentId + '&stratum_id=' + currentStratumId;
+        // console.log(location);
         browser.get(location, 6000).then(function () {
             browser.waitForAngular();
         }).then(callback);
@@ -93,6 +94,8 @@ module.exports = function () {
 
         var counter = { page: 0, total: 0 };
 
+        browser.ignoreSynchronization = false;
+
         var nextButton = taPage.gridNextPageButton;
         // nextButton.getText().then(function(text){
         //     console.log('nextButton', text);
@@ -124,12 +127,18 @@ module.exports = function () {
 
         // console.log(nextButton.isEnabled());
 
-        assert.eventually.equal(nextButton.isEnabled(), true, 'RESOLVED').then(callback);
+
+        var p1 = assert.eventually.equal(nextButton.isEnabled(), true, 'RESOLVED');
+        
+        assert.isFulfilled(p1).then(callback);
+
+        // .then(callback);
+
         // assert.eventually.equal(nextButton.isEnabled(), false, 'FAILED');
 
         // assert.isFulfilled(Promise.all([
-        //     assert(nextButton.isEnabled()).eventually.equal(true).then(function(){console.log('resolved');})
-        // ]));
+        //     nextButton.isEnabled().should.eventually.equal(true)
+        // ]), 'ALL RESOLVED').then(callback);
 
         // console.log('allPatientDetails', allPatientDetails['patients_list'].length);
 
@@ -237,7 +246,7 @@ module.exports = function () {
         }).then(callback);
     });
 
-    this.Then (/^I should see data in the All Patients Data Table$/, function (callback) {
+    this.Then (/^I should see a patient's data in the All Patients Data Table$/, function (callback) {
         var allRows = taPage.allPatientDataRows;
         var index = Math.floor(Math.random() * allPatientDetails['patients_list'].length) // randomly pick a number
         var patientDetails = allPatientDetails[ 'patients_list' ][ index ];
