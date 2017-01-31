@@ -133,10 +133,10 @@ var Utilities = function() {
     };
 
     /**
-     * Check whether the check box under scrutiny is selected or not.  
+     * Check whether the check box under scrutiny is selected or not.
      * @param {element} [elem] [Checkbox element whose status is being checked]
-     * @param {boolean} [selectionStatus] [boolean that shows the status of the checkbox under scrutiny] 
-     */  
+     * @param {boolean} [selectionStatus] [boolean that shows the status of the checkbox under scrutiny]
+     */
     this.checkCheckBoxStatus = function(elem, selectionStatus) {
       expect(elem.isEnabled()).to.eventually.eql(selectionStatus);
     };
@@ -414,39 +414,51 @@ var Utilities = function() {
         return text.toLocaleLowerCase().replace(/\b./, function(f) {return f.toLocaleUpperCase();})
     };
 
-    this.return_valid_user_credentials = function (role){
+    this.returnValidUserCredentials = function (role){
       var user_credentials = [];
       var email;
       var password;
+
       switch (role) {
+          case 'VR_Sender_mda' :
+              email = process.env.MDA_VARIANT_REPORT_SENDER_AUTH0_USERNAME;
+              password = process.env.MDA_VARIANT_REPORT_SENDER_AUTH0_PASSWORD;
+              break;
+
+          case 'VR_Sender_mocha' :
+              email = process.env.MOCHA_VARIANT_REPORT_SENDER_AUTH0_USERNAME;
+              password = process.env.MOCHA_VARIANT_REPORT_SENDER_AUTH0_PASSWORD;
+              break;
+
           case 'VR_Reviewer_mda':
               email = process.env.MDA_VARIANT_REPORT_REVIEWER_AUTH0_USERNAME;
               password = process.env.MDA_VARIANT_REPORT_REVIEWER_AUTH0_PASSWORD;
-              user_credentials.push(email, password);
-              return user_credentials;
+              break;
+
           case 'VR_Reviewer_mocha':
               email = process.env.MOCHA_VARIANT_REPORT_REVIEWER_AUTH0_USERNAME;
               password = process.env.MOCHA_VARIANT_REPORT_REVIEWER_AUTH0_PASSWORD;
-              user_credentials.push(email, password);
-              return user_credentials;
+              break;
+
           case 'AR_Reviewer':
               email = process.env.ASSIGNMENT_REPORT_REVIEWER_AUTH0_USERNAME;
               password = process.env.ASSIGNMENT_REPORT_REVIEWER_AUTH0_PASSWORD;
-              user_credentials.push(email, password);
-              return user_credentials;
+              break;
+
           case 'admin':
               email = process.env.ADMIN_AUTH0_USERNAME;
               password = process.env.ADMIN_AUTH0_PASSWORD;
-              user_credentials.push(email, password);
-              return user_credentials;
+              break;
+
           case 'read_only':
               email = process.env.NCI_MATCH_READONLY_AUTH0_USERNAME;
               password = process.env.NCI_MATCH_READONLY_AUTH0_PASSWORD;
-              user_credentials.push(email, password);
-              return user_credentials;
+              break;
+
       }
-        //console.log(email);
-        //return user_credentials;
+
+      user_credentials.push(email, password);
+      return user_credentials;
     };
 
     this.delay = delay;

@@ -18,7 +18,7 @@ var CliaPage = function () {
     this.sampleDetailTorrentVer = element(by.binding('data.torrent_variant_caller_version'));
     this.sampleDetailPosCtrlVer = element(by.binding('data.positive_control_version'));
     this.sampleDetailRecvdDate  = element(by.binding('data.date_variant_received'));
-    this.sampleDetailStatus     = element(by.binding('data.report_status'));
+    this.sampleDetailStatus     = element(by.css('dd.text-info'));
     this.sampleDetailComments   = element(by.binding('data.comments'));
     this.sampleDetailTotVariant = element(by.binding('data.total_variants'));
     this.sampleDetailMAPD       = element(by.binding('data.mapd'));
@@ -42,32 +42,32 @@ var CliaPage = function () {
     this.expectedMsnTableHeading  = ['Molecular ID', 'Date Created', 'Date Received', 'Variant Reports', 'Status']
     this.expPositiveSampleHeaders = {
         'left': [
-            'Molecular ID', 'Analysis ID', 'Ion Reporter ID', 'Positive Control Loaded Date', 'Torrent Variant Caller Version',
-            'Positive Control Version'
+            'Molecular ID', 'Analysis ID', 'Ion Reporter ID', 'Positive Control Loaded Date',
+            'Torrent Variant Caller Version', 'Positive Control Version', 'Status'
         ],
         'right': [
-            'Total Variants', 'MAPD', 'Cellularity', 'File Received Date', 'Status', 'Files'
+            'Total Variants', 'MAPD', 'Cellularity', 'File Received Date', 'Files'
         ]
 
     };
 
     this.expNonTempCrtlHeaders    = {
         'left': [
-            'Molecular ID', 'Analysis ID', 'Torrent Variant Caller Version',
-            'File Received Date', 'Status', 'Comments', 'Files'
+            'Molecular ID', 'Analysis ID', 'Ion Reporter ID',
+            'Torrent Variant Caller Version', 'Status'
         ],
         'right': [
-            'Total Variants', 'MAPD', 'Cellularity'
+            'Total Variants', 'MAPD', 'Cellularity', 'File Received Date', 'Files'
         ]
     };
 
     this.expProfAndCompCrtlHeaders = {
         'left': [
-            'Molecular ID', 'Analysis ID', 'Torrent Variant Caller Version',
-            'File Received Date', 'Status', 'Comments', 'Files'
+            'Molecular ID', 'Analysis ID', 'Ion Reporter ID', 'Torrent Variant Caller Version',
+            'Status'
         ],
         'right': [
-            'Total Variants', 'MAPD', 'Cellularity'
+            'Total Variants', 'MAPD', 'Cellularity', 'File Received Date', 'Files'
         ]
     };
 };

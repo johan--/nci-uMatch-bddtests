@@ -47,7 +47,7 @@ module.exports = function () {
         loginPageObj.goToLoginPage();
 
         var login_credentials = [];
-        login_credentials = utilities.return_valid_user_credentials(user_role);
+        login_credentials = utilities.returnValidUserCredentials(user_role);
 
         var email = login_credentials[0];
         var password = login_credentials[1];

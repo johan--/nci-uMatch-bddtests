@@ -61,8 +61,6 @@ module.exports = function() {
 
     this.When(/^I click on the "(MoCha|MD Anderson)" section$/, function (sectionName, callback) {
 
-        console.log(sectionName)
-
         var elem = sectionName === 'MoCha' ? cliaPage.mochaSectionButton : cliaPage.mdaSectionButton;
         cliaPage.site = sectionName;
         elem.click().then(function() {
@@ -123,8 +121,8 @@ module.exports = function() {
         }).then(callback)
     });
 
-    this.When(/^I collect information about the sample variant report$/, function (callback) {
-        var url = '/api/v1/sample_controls/' + cliaPage.molecularId;
+    this.When(/^I collect information about the sample variant report from aliquot$/, function (callback) {
+        var url = '/api/v1/aliquot/' + cliaPage.molecularId;
 
         utilities.getRequestWithService('ion', url).then(function(responseBody){
             cliaPage.responseData = responseBody
@@ -135,8 +133,8 @@ module.exports = function() {
         var parentElement = cliaPage.tableElement;
 
         var firstRow = parentElement.all(by.css('[ng-repeat^="item in filtered"]')).get(0);
-        firstRow.all(by.css('a')).get(0).click().then(function () {
-            browser.waitForAngular()
+        firstRow.all(by.css('a')).get(0).click().then(function(){
+            browser.sleep(10)
         }).then(callback);
     });
 
@@ -165,8 +163,8 @@ module.exports = function() {
 
         browser.sleep(50).then(function () {
             nodeCmd.get(
-                `cd ../DataSetup/variant_file_templates 
-                mkdir -p ${cliaPage.S3Path} 
+                `cd ../DataSetup/variant_file_templates
+                mkdir -p ${cliaPage.S3Path}
                 cp -r ir_template/* ${cliaPage.S3Path}
                 aws s3 cp ${cliaPage.molecularId}  s3://${cliaPage.bucketName}/IR_UITEST/${cliaPage.molecularId} --recursive --region us-east-1 `
                 ,
