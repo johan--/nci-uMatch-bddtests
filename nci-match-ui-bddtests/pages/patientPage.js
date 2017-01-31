@@ -158,11 +158,10 @@ var PatientPage = function () {
     this.ruleDetailsList             = element.all(by.repeater('rule in ruleDetails'));
 
     // Find table by h3.ibox-title element
-    this.tableRowArrayByH3Title = function (tableTitle) {
+    this.tableByH3Title = function (tableTitle) {
         return element(by.cssContainingText('.ibox-title.ibox-title-no-line-no-padding', tableTitle))
             .element(by.xpath('..'))
-            .element(by.tagName('table'))
-            .all(by.repeater('item in filtered'));
+            .element(by.tagName('table'));
     };
 
     // ****************** Expected values *******************//

@@ -13,29 +13,31 @@ module.exports = function () {
     this.World = require('../step_definitions/world').World;
 
     this.Then(/^I can see the "([^"]*)" table$/, function (tableTitle, callback) {
-        var getRows = patientPage.tableRowArrayByH3Title(tableTitle);
+        var table = patientPage.tableByH3Title(tableTitle);
 
-        // console.log('tableTitle', tableTitle);
+        expect(table.isPresent()).to.eventually.equal(true).notify(callback);
+    });
 
-        getRows.get(0).getText().then(function(text){
-            console.log('text',text);
+    this.Then(/^I remember "([^"]*)" column order of the "([^"]*)" table$/, function (column, tableTitle, callback) {
+        var table = patientPage.tableByH3Title(tableTitle);
+        var headers = table.element(by.tagName('thead')).all(by.tagName("th"));
+        var rows = table.element(by.tagName('tbody')).all(by.tagName("tr"));
+
+        headers.first().getText().then(function(text){
+            console.log('hd text',text);
         }).then(callback);
 
-        // callback(null, 'pending');
-    });
-
-    this.Then(/^I remember "([^"]*)" column order$/, function (arg1, callback) {
-        // Write code here that turns the phrase above into concrete actions
         callback(null, 'pending');
     });
 
 
-    this.Then(/^I click on "([^"]*)" column$/, function (arg1, callback) {
-        // Write code here that turns the phrase above into concrete actions
-        callback(null, 'pending');
+    this.Then(/^I click on "([^"]*)" column header of the "([^"]*)" table$/, function (column, tableTitle, callback) {
+        var table = patientPage.tableByH3Title(tableTitle);
+        var headers = table.element(by.tagName('thead')).all(by.tagName("th"));
+        headers.get(column).click().then(callback);
     });
 
-    this.Then(/^I should see the data in the "([^"]*)" column to be re\-arranged$/, function (arg1, callback) {
+    this.Then(/^I should see the data in the "([^"]*)" column to be re\-arranged$/, function (column, callback) {
         // Write code here that turns the phrase above into concrete actions
         callback(null, 'pending');
     });
