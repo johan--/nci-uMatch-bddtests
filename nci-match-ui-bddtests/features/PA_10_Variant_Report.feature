@@ -18,4 +18,3 @@ Feature: MATCHKB-541. Filtered variant report column sort not working.
     Examples:
       | table             | column       |
       | Gene Fusions      | ID           |
-      | Gene Fusions      | Gene 1 Count |
