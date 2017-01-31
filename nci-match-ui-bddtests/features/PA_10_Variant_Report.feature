@@ -10,10 +10,10 @@ Feature: MATCHKB-541. Filtered variant report column sort not working.
     When I go to the patient "ION_AQ41_TsVrUploaded" with variant report "ION_AQ41_TsVrUploaded_ANI1"
     Then I can see the variant report page
     And I scroll to the bottom of the page
-    Then I can see the "TABLE" table
-    And I remember "COLUMN" column order
-    And I click on "COLUMN" column
-    Then I should see the data in the "COLUMN" column to be re-arranged
+    Then I can see the "<table>" table
+    # And I remember "<column>" column order
+    # And I click on "<column>" column
+    # Then I should see the data in the "<column>" column to be re-arranged
     Then I logout
     Examples:
       | table             | column       |

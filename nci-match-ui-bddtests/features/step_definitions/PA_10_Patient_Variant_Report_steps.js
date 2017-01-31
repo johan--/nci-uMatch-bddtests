@@ -13,15 +13,15 @@ module.exports = function () {
     this.World = require('../step_definitions/world').World;
 
     this.Then(/^I can see the "([^"]*)" table$/, function (tableTitle, callback) {
-        var tableTitle = element(by.cssContainingText('ibox-title', tableTitle));
+        var getRows = patientPage.tableRowArrayByH3Title(tableTitle);
 
-        console.log('tableTitle', tableTitle);
+        // console.log('tableTitle', tableTitle);
 
-        tableTitle.getText().then(function(text){
-            console.log(text);
-        });
+        getRows.getText().then(function(text){
+            console.log('text',text);
+        }).then(callback);
 
-        callback(null, 'pending');
+        // callback(null, 'pending');
     });
 
     this.Then(/^I remember "([^"]*)" column order$/, function (arg1, callback) {

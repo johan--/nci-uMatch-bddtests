@@ -157,9 +157,13 @@ var PatientPage = function () {
     this.ruleNameList                = element.all(by.css('[ng-repeat-start="(ruleName, ruleDetails) in assignmentReport.treatment_assignment_results"]'));
     this.ruleDetailsList             = element.all(by.repeater('rule in ruleDetails'));
 
-
-
-
+    // Find table by h3.ibox-title element
+    this.tableRowArrayByH3Title = function (tableTitle) {
+        return telement(by.cssContainingText('.ibox-title.ibox-title-no-line-no-padding', tableTitle))
+            .element(by.xpath('..'))
+            .element(by.tagName('table'))
+            .all(by.repeater('item in filtered'));
+    };
 
     // ****************** Expected values *******************//
     // Patient list table
