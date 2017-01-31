@@ -56,7 +56,7 @@ Feature: CLIA Labs Page
         When I click on the "MoCha" section
         And I click on "Positive Sample Controls" under "MoCha"
         And I enter "SC_A2PD6" in the search field on "Positive Sample Controls" under "MoCha"
-        And I collect information about the sample variant report
+        And I collect information about the sample variant report from aliquot
         And I click on the sample control link
         Then I verify that I am on the sample control page for that molecularId
         And I verify all the values on the left hand side section under Positive Sample Control
