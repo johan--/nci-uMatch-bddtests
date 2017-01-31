@@ -17,7 +17,7 @@ module.exports = function () {
 
         // console.log('tableTitle', tableTitle);
 
-        getRows.getText().then(function(text){
+        getRows.get(0).getText().then(function(text){
             console.log('text',text);
         }).then(callback);
 

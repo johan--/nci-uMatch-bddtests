@@ -94,12 +94,12 @@ var PatientPage = function () {
 
 
     // the hash below gives you access to the repeater locator string for the table based on the type of variant
-    this.tableTypeRepeaterString = {
-        "SNVs/MNVs/Indels": "variant in currentTissueVariantReport.variants.snvs_and_indels",
-        "Copy Number Variant(s)":"variant in currentTissueVariantReport.variants.copy_number_variants",
-        "Gene Fusion(s)":"variant in currentTissueVariantReport.variants.gene_fusions"
+    // this.tableTypeRepeaterString = {
+    //     "SNVs/MNVs/Indels": "variant in currentTissueVariantReport.variants.snvs_and_indels",
+    //     "Copy Number Variant(s)":"variant in currentTissueVariantReport.variants.copy_number_variants",
+    //     "Gene Fusion(s)":"variant in currentTissueVariantReport.variants.gene_fusions"
 
-    };
+    // };
 
     // This the drop down for the surgical event under the Tissue Reports and blood variant.
     this.variantReportDropDown = element(by.binding('tissueVariantReportOption.text'));
@@ -159,7 +159,7 @@ var PatientPage = function () {
 
     // Find table by h3.ibox-title element
     this.tableRowArrayByH3Title = function (tableTitle) {
-        return telement(by.cssContainingText('.ibox-title.ibox-title-no-line-no-padding', tableTitle))
+        return element(by.cssContainingText('.ibox-title.ibox-title-no-line-no-padding', tableTitle))
             .element(by.xpath('..'))
             .element(by.tagName('table'))
             .all(by.repeater('item in filtered'));

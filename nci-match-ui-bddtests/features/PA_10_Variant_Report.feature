@@ -11,10 +11,10 @@ Feature: MATCHKB-541. Filtered variant report column sort not working.
     Then I can see the variant report page
     And I scroll to the bottom of the page
     Then I can see the "<table>" table
-    # And I remember "<column>" column order
-    # And I click on "<column>" column
-    # Then I should see the data in the "<column>" column to be re-arranged
+    # And I remember "<columnNumber>" column order
+    # And I click on "<columnNumber>" column
+    # Then I should see the data in the "<columnNumber>" column to be re-arranged
     Then I logout
     Examples:
-      | table             | column       |
-      | Gene Fusions      | ID           |
+      | table             | columnNumber |
+      | Gene Fusions      | 1            |
