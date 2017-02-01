@@ -8,6 +8,7 @@
   "target_id" : 750691,
   "target_name" : "Afatinib",
   "gene" : "EGFR",
+  "date_created": "2016-11-07 15:57:25 UTC",
   "treatment_arm_drugs" : [
     {
       "drug_id" : "750691",

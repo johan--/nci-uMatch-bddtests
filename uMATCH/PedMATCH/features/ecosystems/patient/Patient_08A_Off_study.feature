@@ -1,5 +1,6 @@
 #encoding: utf-8
 Feature: Patients off study tests
+
   Background:
     Given patient API user authorization role is "PATIENT_MESSAGE_SENDER"
 
@@ -80,6 +81,21 @@ Feature: Patients off study tests
       | patient_id        | ani                    |
       | PT_OS02_OffStudy1 | PT_OS02_OffStudy1_ANI1 |
       | PT_OS02_OffStudy2 | PT_OS02_OffStudy2_ANI1 |
+
+  @patients_p2
+  Scenario Outline: PT_OS02a. variant report upload should fail if patient is on OFF_STUDY status
+#    patient: "PT_OS02a_OffStudy1" tissue shipped before OFF_STUDY
+#    patient: "PT_OS02a_OffStudy2" tissue shipped before OFF_STUDY_BIOPSY_EXPIRED
+    Given patient id is "<patient_id>"
+    And patient API user authorization role is "MDA_VARIANT_REPORT_REVIEWER"
+    Then load template variant file uploaded message for molecular id: "<patient_id>_MOI1"
+    Then set patient message field: "analysis_id" to value: "<patient_id>_ANI1"
+    Then files for molecular_id "<patient_id>_MOI1" and analysis_id "<patient_id>_ANI1" are in S3
+    When POST to MATCH variant report upload service, response includes "OFF_STUDY" with code "403"
+    Examples:
+      | patient_id         |
+      | PT_OS02a_OffStudy1 |
+      | PT_OS02a_OffStudy2 |
 
   @patients_p2
   Scenario Outline: PT_OS03. assignment report confirmation should fail if patient is on OFF_STUDY status

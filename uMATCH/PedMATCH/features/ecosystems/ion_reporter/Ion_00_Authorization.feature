@@ -220,10 +220,9 @@ Feature: ir ecosystem authorization tests
     Then add field: "analysis_id" value: "<mda_moi>_ANI1" to message body
     Then add field: "site" value: "mda" to message body
     Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
-    Then add field: "vcf_name" value: "IR_TCWEV/<mda_moi>/<mda_moi>_ANI1/test1.vcf" to message body
-    Then add field: "dna_bam_name" value: "IR_TCWEV/<mda_moi>/<mda_moi>_ANI1/dna.bam" to message body
-    Then add field: "cdna_bam_name" value: "IR_TCWEV/<mda_moi>/<mda_moi>_ANI1/cdna.bam" to message body
-    Then add field: "qc_name" value: "IR_TCWEV/<mda_moi>/<mda_moi>_ANI1/QA.pdf" to message body
+    Then add field: "vcf_name" value: "test1.vcf" to message body
+    Then add field: "dna_bam_name" value: "dna.bam" to message body
+    Then add field: "cdna_bam_name" value: "cdna.bam" to message body
     And ir user authorization role is "<auth_role>"
     When PUT to aliquot service, response includes "<mda_message>" with code "<mda_code>"
     Given molecular id is "<mocha_moi>"

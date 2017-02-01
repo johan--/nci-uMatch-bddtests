@@ -472,6 +472,12 @@ class Patient_helper_methods
     Helper_Methods.post_request(url, @request_hash.to_json.to_s, true, auth0_role)
   end
 
+  def self.post_vr_upload(moi, auth0_role)
+    puts JSON.pretty_generate(@request_hash) if ENV['print_log'] == 'YES'
+    url = "#{ENV['patients_endpoint']}/variant_report/#{moi}"
+    Helper_Methods.post_request(url, @request_hash.to_json.to_s, true, auth0_role)
+  end
+
   def self.put_variant_confirm(uuid, status, auth0_role)
     puts JSON.pretty_generate(@request_hash) if ENV['print_log'] == 'YES'
     url = "#{ENV['patients_endpoint']}/variant/#{uuid}/#{status}"

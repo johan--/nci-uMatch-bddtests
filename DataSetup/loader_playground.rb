@@ -68,3 +68,29 @@ MatchTestDataManager.upload_all_seed_data_to_local
 # /api/v1/patients/:patient_id/analysis_report_amois/:id(.:format)
 # /api/v1/patients/:patient_id/qc_variant_reports/:id(.:format)
 # /api/v1/patients/:patient_id/variant_file_download/:id(.:format)
+
+
+# file_detail = JSON(IO.read('/Users/wangl17/Downloads/files.2017-01-25T17-37-55.130042.json'))
+# case_detail = JSON(IO.read('/Users/wangl17/Downloads/cases.2017-01-25T17-49-51.499691.json'))
+#
+# output = ''
+#
+# file_detail.each { |this_file|
+#   file_name = this_file['file_name']
+#   this_line = "#{file_name}"
+#   this_file['cases'].each { |this_case|
+#     case_id = this_case['case_id']
+#     related_case = case_detail.select{|o| o['case_id']==case_id}
+#     case_barcode = case_id
+#     if related_case.present?
+#       puts "#{case_id} has #{related_case.size} case details" if related_case.size>1
+#       case_barcode = related_case[0]['submitter_id']
+#     end
+#     this_line += "\t#{case_barcode}"
+#   }
+#   output += "#{this_line}\n"
+# }
+#
+# puts output
+
+

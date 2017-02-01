@@ -79,11 +79,10 @@ Feature: Variant files confirmed messages
     #    Test Patient: PT_VC05_TissueShipped, Tissue shipped PT_VC05_TissueShipped(_SEI1, _MOI1)
     Given patient id is "PT_VC05_TissueShipped"
     And patient API user authorization role is "SYSTEM"
-    And load template variant file uploaded message for this patient
-    Then set patient message field: "molecular_id" to value: "PT_VC05_TissueShipped_MOI1"
+    And load template variant file uploaded message for molecular id: "PT_VC05_TissueShipped_MOI1"
     Then set patient message field: "analysis_id" to value: "PT_VC05_TissueShipped_ANI1"
     Then files for molecular_id "PT_VC05_TissueShipped_MOI1" and analysis_id "PT_VC05_TissueShipped_ANI1" are in S3
-    When POST to MATCH patients service, response includes "successfully" with code "202"
+    When POST to MATCH variant report upload service, response includes "successfully" with code "202"
     Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
     Then variants in variant report (analysis_id: "PT_VC05_TissueShipped_ANI1") have confirmed: "true"
 
@@ -95,12 +94,12 @@ Feature: Variant files confirmed messages
     And load template variant confirm message for this patient
     Then set patient message field: "comment" to value: "TEST"
     Then PUT to MATCH variant "unchecked" service for this uuid, response includes "changed to false" with code "200"
-    And load template variant file uploaded message for this patient
+    And load template variant file uploaded message for molecular id: "PT_VC05a_VRUploaded_MOI1"
     And patient API user authorization role is "SYSTEM"
     Then set patient message field: "molecular_id" to value: "PT_VC05a_VRUploaded_MOI1"
     Then set patient message field: "analysis_id" to value: "PT_VC05a_VRUploaded_ANI2"
     Then files for molecular_id "PT_VC05a_VRUploaded_MOI1" and analysis_id "PT_VC05a_VRUploaded_ANI2" are in S3
-    When POST to MATCH patients service, response includes "successfully" with code "202"
+    When POST to MATCH variant report upload service, response includes "successfully" with code "202"
     Then wait until patient variant report is updated
     Then variants in variant report (analysis_id: "PT_VC05a_VRUploaded_ANI1") have confirmed: "false"
 

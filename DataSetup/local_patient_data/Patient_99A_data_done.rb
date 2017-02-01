@@ -854,6 +854,22 @@ class Patient99A
     PatientMessageLoader.off_study_biopsy_expired(pt.id, '1.0')
   end
 
+  def self.pt_os02a_off_study1
+    pt = PatientDataSet.new('PT_OS02a_OffStudy1')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+    PatientMessageLoader.off_study(pt.id, '1.0')
+  end
+
+  def self.pt_os02a_off_study2
+    pt = PatientDataSet.new('PT_OS02a_OffStudy2')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+    PatientMessageLoader.off_study_biopsy_expired(pt.id, '1.0')
+  end
+
   def self.pt_os03_off_study2
     pt = PatientDataSet.new('PT_OS03_OffStudy2')
     PatientMessageLoader.register_patient(pt.id)

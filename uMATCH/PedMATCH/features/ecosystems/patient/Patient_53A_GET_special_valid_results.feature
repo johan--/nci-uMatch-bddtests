@@ -64,11 +64,10 @@ Feature: Patient GET service valid special case tests
   @patients_p1_off
   Scenario Outline: PT_SC02b pending_items should increase tissue_variant_reports value properly
     Given patient id is "<patient_id>"
-    And load template variant file uploaded message for this patient
-    Then set patient message field: "molecular_id" to value: "<moi>"
+    And load template variant file uploaded message for molecular id: "<moi>"
     Then set patient message field: "analysis_id" to value: "<ani>"
     Then files for molecular_id "<moi>" and analysis_id "<ani>" are in S3
-    When POST to MATCH patients service, response includes "successfully" with code "202"
+    When POST to MATCH variant report upload service, response includes "successfully" with code "202"
     Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
     Then patient GET service: "pending_items", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return
@@ -158,11 +157,10 @@ Feature: Patient GET service valid special case tests
   @patients_p2_off
   Scenario Outline: PT_SC03b amois values can be updated properly
     Given patient id is "<patient_id>"
-    Then load template variant file uploaded message for this patient
-    Then set patient message field: "molecular_id" to value: "<moi>"
+    Then load template variant file uploaded message for molecular id: "<moi>"
     Then set patient message field: "analysis_id" to value: "<ani>"
     Then files for molecular_id "<moi>" and analysis_id "<ani>" are in S3
-    When POST to MATCH patients service, response includes "successfully" with code "202"
+    When POST to MATCH variant report upload service, response includes "successfully" with code "202"
     Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
     Then patient GET service: "amois", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return
@@ -359,11 +357,10 @@ Feature: Patient GET service valid special case tests
   @patients_p1_off
   Scenario Outline: PT_SC05b action_items should add pending_tissue_variant_report item after vr upload
     Given patient id is "<patient_id>"
-    And load template variant file uploaded message for this patient
-    Then set patient message field: "molecular_id" to value: "<moi>"
+    And load template variant file uploaded message for molecular id: "<moi>"
     Then set patient message field: "analysis_id" to value: "<ani>"
     Then files for molecular_id "<moi>" and analysis_id "<ani>" are in S3
-    When POST to MATCH patients service, response includes "successfully" with code "202"
+    When POST to MATCH variant report upload service, response includes "successfully" with code "202"
     Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
     Then patient GET service: "action_items", patient id: "<patient_id>", id: ""
     When GET from MATCH patient API, http code "200" should return

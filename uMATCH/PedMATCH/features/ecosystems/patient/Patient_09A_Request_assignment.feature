@@ -107,11 +107,10 @@ Feature: Patients request assignment tests
     Then set patient message field: "molecular_id" to value: "PT_RA04_ReqNoAssignment_MOI3"
     When POST to MATCH patients service, response includes "assignment" with code "403"
     Then patient API user authorization role is "SYSTEM"
-    Then load template variant file uploaded message for this patient
-    Then set patient message field: "molecular_id" to value: "PT_RA04_ReqNoAssignment_MOI2"
+    Then load template variant file uploaded message for molecular id: "PT_RA04_ReqNoAssignment_MOI2"
     Then set patient message field: "analysis_id" to value: "PT_RA04_ReqNoAssignment_ANI4"
     Then files for molecular_id "PT_RA04_ReqNoAssignment_MOI2" and analysis_id "PT_RA04_ReqNoAssignment_ANI4" are in S3
-    When POST to MATCH patients service, response includes "assignment" with code "403"
+    When POST to MATCH variant report upload service, response includes "assignment" with code "403"
     Then patient API user authorization role is "ASSAY_MESSAGE_SENDER"
     Then load template assay message for this patient
     Then set patient message field: "surgical_event_id" to value: "PT_RA04_ReqNoAssignment_SEI1"

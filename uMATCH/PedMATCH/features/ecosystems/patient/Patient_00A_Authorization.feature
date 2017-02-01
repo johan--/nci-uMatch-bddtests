@@ -103,13 +103,12 @@ Feature: Patient API authorization tests
     ######MDA_VARIANT_REPORT_SENDER and MOCHA_VARIANT_REPORT_SENDER are for ui user to upload files,
     ######variant report file upload message is only sent by ion ecosystem, so that should be SYSTEM role
     Given patient id is "<patient_id>"
-    And load template variant file uploaded message for this patient
-    Then set patient message field: "molecular_id" to value: "<patient_id>_MOI1"
+    And load template variant file uploaded message for molecular id: "<patient_id>_MOI1"
     Then set patient message field: "analysis_id" to value: "<patient_id>_ANI1"
     Then set patient message field: "ion_reporter_id" to value: "<site_value>"
     Then files for molecular_id "<patient_id>_MOI1" and analysis_id "<patient_id>_ANI1" are in S3
     And patient API user authorization role is "<auth_role>"
-    When POST to MATCH patients service, response includes "<message>" with code "<code>"
+    When POST to MATCH variant report upload service, response includes "<message>" with code "<code>"
     Examples:
       | patient_id              | site_value | auth_role                     | message | code |
       | PT_AU04_MdaTsShipped0   | mda        | NO_TOKEN                      |         | 401  |
@@ -119,11 +118,11 @@ Feature: Patient API authorization tests
       | PT_AU04_MochaTsShipped1 | mocha      | SYSTEM                        | success | 202  |
       | PT_AU04_MdaTsShipped0   | mda        | ASSIGNMENT_REPORT_REVIEWER    |         | 401  |
       | PT_AU04_MochaTsShipped0 | mocha      | MDA_VARIANT_REPORT_SENDER     |         | 401  |
-      | PT_AU04_MdaTsShipped2   | mda        | MDA_VARIANT_REPORT_SENDER     |         | 401  |
-      | PT_AU04_MdaTsShipped0   | mda        | MDA_VARIANT_REPORT_REVIEWER   |         | 401  |
+      | PT_AU04_MdaTsShipped2   | mda        | MDA_VARIANT_REPORT_SENDER     | success | 202  |
+      | PT_AU04_MdaTsShipped3   | mda        | MDA_VARIANT_REPORT_REVIEWER   | success | 202  |
       | PT_AU04_MdaTsShipped0   | mda        | MOCHA_VARIANT_REPORT_SENDER   |         | 401  |
-      | PT_AU04_MochaTsShipped2 | mocha      | MOCHA_VARIANT_REPORT_SENDER   |         | 401  |
-      | PT_AU04_MochaTsShipped0 | mocha      | MOCHA_VARIANT_REPORT_REVIEWER |         | 401  |
+      | PT_AU04_MochaTsShipped2 | mocha      | MOCHA_VARIANT_REPORT_SENDER   | success | 202  |
+      | PT_AU04_MochaTsShipped3 | mocha      | MOCHA_VARIANT_REPORT_REVIEWER | success | 202  |
       | PT_AU04_MdaTsShipped0   | mda        | PATIENT_MESSAGE_SENDER        |         | 401  |
       | PT_AU04_MochaTsShipped0 | mocha      | SPECIMEN_MESSAGE_SENDER       |         | 401  |
       | PT_AU04_MdaTsShipped0   | mda        | ASSAY_MESSAGE_SENDER          |         | 401  |
@@ -325,17 +324,17 @@ Feature: Patient API authorization tests
     And patient API user authorization role is "<auth_role>"
     When GET from MATCH patient API, http code "<code>" should return
     Examples:
-| service               | patient_id                 | id                       | auth_role                     | code |
-|                       |                            |                          | NO_TOKEN                      | 401  |
-| statistics            |                            |                          | NCI_MATCH_READONLY            | 200  |
-| patient_limbos        |                            |                          | NO_ROLE                       | 401  |
-| events                |                            |                          | ADMIN                         | 200  |
-| variant_reports       |                            | PT_GVF_RARebioY_ANI1     | SYSTEM                        | 200  |
-| treatment_arm_history | PT_SC06a_PendingApproval   |                          | ASSIGNMENT_REPORT_REVIEWER    | 200  |
-| specimens             | PT_GVF_RequestNoAssignment |                          | MDA_VARIANT_REPORT_SENDER     | 200  |
-| shipments             |                            |                          | MDA_VARIANT_REPORT_REVIEWER   | 200  |
-| specimen_events       | PT_GVF_VrAssay_Ready       |                          | MOCHA_VARIANT_REPORT_SENDER   | 200  |
-| variants              |                            |                          | MOCHA_VARIANT_REPORT_REVIEWER | 200  |
-| shipments             |                            |                          | PATIENT_MESSAGE_SENDER        | 200  |
-| action_items          | PT_GVF_TsVrUploaded        |                          | SPECIMEN_MESSAGE_SENDER       | 200  |
-| analysis_report       | PT_GVF_VrAssayReady        | PT_GVF_VrAssayReady_ANI1 | ASSAY_MESSAGE_SENDER          | 200  |
+      | service               | patient_id                 | id                       | auth_role                     | code |
+      |                       |                            |                          | NO_TOKEN                      | 401  |
+      | statistics            |                            |                          | NCI_MATCH_READONLY            | 200  |
+      | patient_limbos        |                            |                          | NO_ROLE                       | 401  |
+      | events                |                            |                          | ADMIN                         | 200  |
+      | variant_reports       |                            | PT_GVF_RARebioY_ANI1     | SYSTEM                        | 200  |
+      | treatment_arm_history | PT_SC06a_PendingApproval   |                          | ASSIGNMENT_REPORT_REVIEWER    | 200  |
+      | specimens             | PT_GVF_RequestNoAssignment |                          | MDA_VARIANT_REPORT_SENDER     | 200  |
+      | shipments             |                            |                          | MDA_VARIANT_REPORT_REVIEWER   | 200  |
+      | specimen_events       | PT_GVF_VrAssay_Ready       |                          | MOCHA_VARIANT_REPORT_SENDER   | 200  |
+      | variants              |                            |                          | MOCHA_VARIANT_REPORT_REVIEWER | 200  |
+      | shipments             |                            |                          | PATIENT_MESSAGE_SENDER        | 200  |
+      | action_items          | PT_GVF_TsVrUploaded        |                          | SPECIMEN_MESSAGE_SENDER       | 200  |
+      | analysis_report       | PT_GVF_VrAssayReady        | PT_GVF_VrAssayReady_ANI1 | ASSAY_MESSAGE_SENDER          | 200  |

@@ -115,6 +115,13 @@ class Patient00A
     PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
   end
 
+  def self.pt_au04_mda_ts_shipped3
+    pt = PatientDataSet.new('PT_AU04_MdaTsShipped3')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+  end
+
   def self.pt_au04_mocha_ts_shipped0
     pt = PatientDataSet.new('PT_AU04_MochaTsShipped0')
     PatientMessageLoader.register_patient(pt.id)
@@ -131,6 +138,13 @@ class Patient00A
 
   def self.pt_au04_mocha_ts_shipped2
     pt = PatientDataSet.new('PT_AU04_MochaTsShipped2')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-05-01T19:42:13+00:00', 'MoCha')
+  end
+
+  def self.pt_au04_mocha_ts_shipped3
+    pt = PatientDataSet.new('PT_AU04_MochaTsShipped3')
     PatientMessageLoader.register_patient(pt.id)
     PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
     PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-05-01T19:42:13+00:00', 'MoCha')

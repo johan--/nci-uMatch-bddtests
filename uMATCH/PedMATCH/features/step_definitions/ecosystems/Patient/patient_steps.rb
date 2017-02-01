@@ -20,6 +20,14 @@ When(/^POST to MATCH patients service, response includes "([^"]*)" with code "([
   # actual_include_expect(response['message'], retMsg)
 end
 
+When(/^POST to MATCH variant report upload service, response includes "([^"]*)" with code "([^"]*)"$/) do |retMsg, code|
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
+  response = Patient_helper_methods.post_vr_upload(@molecular_id, @current_auth0_role)
+  puts response.to_s
+  actual_match_expect(response['http_code'], code)
+  # actual_include_expect(response['message'], retMsg)
+end
+
 When(/^PUT to MATCH variant report "([^"]*)" service, response includes "([^"]*)" with code "([^"]*)"$/) do |status, retMsg, code|
   @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
   response = Patient_helper_methods.put_vr_confirm(@analysis_id, status, @current_auth0_role)
@@ -128,8 +136,10 @@ Given(/^load template assay message for this patient$/) do
   Patient_helper_methods.load_template(@patient_id, 'assay_result_reported')
 end
 
-Given(/^load template variant file uploaded message for this patient$/) do
+Given(/^load template variant file uploaded message for molecular id: "([^"]*)"$/) do |moi|
+  @molecular_id = moi=='null' ? nil : moi
   Patient_helper_methods.load_template(@patient_id, 'variant_file_uploaded')
+  Patient_helper_methods.update_patient_message('molecular_id', @molecular_id)
 end
 
 Then(/^files for molecular_id "([^"]*)" and analysis_id "([^"]*)" are in S3$/) do |moi, ani|

@@ -5,6 +5,7 @@ Feature: Tests for aliquot service in ion ecosystem
   @ion_reporter_p1
   Scenario: ION_AQ01. for sample control specimen, aliquot service will generate tsv and bai files and upload to S3, then update database
     Given molecular id is "SC_OAFXP"
+    And ir user authorization role is "MDA_VARIANT_REPORT_REVIEWER"
     And file: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/test1.tsv" has been removed from S3 bucket
     And file: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/test1.json" has been removed from S3 bucket
     And file: "IR_TCWEV/SC_OAFXP/SC_OAFXP_ANI1/dna.bai" has been removed from S3 bucket
@@ -37,6 +38,7 @@ Feature: Tests for aliquot service in ion ecosystem
   Scenario: ION_AQ02. for patient tissue specimen, aliquot service will generate tsv and bai files and upload to S3, then send variant files uploaded message to patient ecosystem once process done
     Given molecular id is "ION_AQ02_TsShipped_MOI1"
     Given patient id is "ION_AQ02_TsShipped"
+    And ir user authorization role is "MDA_VARIANT_REPORT_SENDER"
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/test1.tsv" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/test1.json" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/dna.bai" has been removed from S3 bucket
@@ -79,6 +81,7 @@ Feature: Tests for aliquot service in ion ecosystem
   Scenario: ION_AQ03. for patient blood specimen, aliquot service will generate tsv and bai files and upload to S3, then send variant files uploaded message to patient ecosystem once process done
     Given molecular id is "ION_AQ03_BdShipped_BD_MOI1"
     Given patient id is "ION_AQ03_BdShipped"
+    And ir user authorization role is "SYSTEM"
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/test1.tsv" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/test1.json" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/dna.bai" has been removed from S3 bucket
