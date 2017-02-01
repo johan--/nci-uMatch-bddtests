@@ -264,7 +264,36 @@ Feature: Ensure the rules are fired correctly and patients are assigned to the r
     Then a patient assignment json is returned with report_status "NO_TREATMENT_FOUND"
     Then the patient assignment reason is "Rules-Test1 (100) excluded because patient has already taken it or is not eligible."
 
+  Scenario: PA_33: Multiple-assays - one of the assay rules match
+    Given  the patient assignment json "Patient_json_with_multiple_assays_matching_variant"
+    And treatment arm json "multiple-assays_TA"
+    When assignPatient service is called for patient "PID-1234"
+    Then a patient assignment json is returned with report_status "TREATMENT_FOUND"
+    Then a patient assignment json is returned with reason category "SELECTED" for treatment arm "multiple-assays"
+    Then the patient assignment reason is "A match was found for assay rule (GENE: BAF47, RESULT: NEGATIVE, VARIANT: PRESENT). A match was found for inclusion variant FGFR2-OFD1.F17O3."
 
+  Scenario: PA_34: Multiple-assays scenario - one assay rule match but there is no matching variant
+    Given  the patient assignment json "Patient_json_with_multiple_assays_no_matching_variant"
+    And treatment arm json "multiple-assays_TA"
+    When assignPatient service is called for patient "PID-1234"
+    Then a patient assignment json is returned with report_status "NO_TREATMENT_FOUND"
+    Then a patient assignment json is returned with reason category "NO_VARIANT_MATCH_EXCLUSION" for treatment arm "multiple-assays"
+    Then the patient assignment reason is "Assay result match rule (GENE: BAF47, RESULT: NEGATIVE, VARIANT: PRESENT) but no inclusion variant match exist. No inclusion variant match was found."
+
+  Scenario: PA_35: Multiple-assays - more than one assay rule match
+    Given  the patient assignment json "Patient_json_with_multiple_assays_rule_matches"
+    And treatment arm json "multiple-assays_TA"
+    When assignPatient service is called for patient "PID-1234"
+    Then a patient assignment json is returned with report_status "TREATMENT_FOUND"
+    Then a patient assignment json is returned with reason category "SELECTED" for treatment arm "multiple-assays"
+    Then the patient assignment reason is "A match was found for assay rule (GENE: BAF47, RESULT: NEGATIVE, VARIANT: PRESENT). A match was found for assay rule (GENE: PTEN, RESULT: POSITIVE, VARIANT: EMPTY). A match was found for inclusion variant FGFR2-OFD1.F17O3."
+
+#  Scenario: PA_32: Test
+#    Given  the patient assignment json "test"
+#    And treatment arm json "test"
+#    When assignPatient service is called for patient "PID-1234"
+#    Then a patient assignment json is returned with report_status "NO_TREATMENT_FOUND"
+##    Then the patient assignment reason is "Rules-Test1 (100) excluded because patient has already taken it or is not eligible."
 
 
 
