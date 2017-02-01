@@ -76,7 +76,7 @@ module.exports = function() {
             cliaPage.tableElement = tabNameMap[sectionName][subTabName]['element'];
             cliaPage.urlType      = tabNameMap[sectionName][subTabName]['url_type']
             browser.waitForAngular();
-            browser.ignoreSynchronization = false;    
+            browser.ignoreSynchronization = false;
         }).then(callback);
     });
 

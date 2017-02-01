@@ -26,8 +26,6 @@ module.exports = function () {
         headers.first().getText().then(function(text){
             console.log('hd text',text);
         }).then(callback);
-
-        callback(null, 'pending');
     });
 
 

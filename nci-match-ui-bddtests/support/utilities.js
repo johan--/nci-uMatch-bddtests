@@ -8,7 +8,7 @@ var req = require ('request-promise');
 
 var Utilities = function() {
     var delay = {
-        afterLogin: 6000,
+        afterLogin: 2000,
         afterPatientLoad: 3000
     };
 

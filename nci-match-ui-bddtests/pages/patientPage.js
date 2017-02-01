@@ -120,6 +120,11 @@ var PatientPage = function () {
     this.tissueTotalConfirmedMois  = element(by.binding('currentTissueVariantReport.total_confirmed_mois'));
     this.tissueTotalConfirmedAMois = element(by.binding('currentTissueVariantReport.total_confirmed_amois'));
 
+    // This is the panel beneath each shipment detailing about the Variant report
+    // and Assignment report. One can access variant report and
+    // assignment report button from here.
+    //this.variantAndAssignmentPanel = element(by.repeater('analysisAssignment in shipment.analysisAssignments'));
+
     this.variantConfirmButtonList      = element.all(by.css('input[type="checkbox"]')); // This is to check the properties
     this.variantConfirmButtonCLickList = element.all(by.css('button[ng-click="vm.confirm()"]')); // This is to perfom actions on the checkbox
     this.variantIdentifierList         = element.all(by.css('[link-id="item.identifier"]'));
