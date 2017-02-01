@@ -17,22 +17,6 @@ module.exports = function() {
 
     this.World = require('../step_definitions/world');
 
-    this.Then(/^I can see the "([^"]*)" drop down$/, function (arg1, callback) {
-        expect(browser.isElementPresent(patientPage.variantReportDropDown)).to.eventually.be.true;
-        browser.sleep(50).then(callback);
-    });
-
-    this.Then(/^I can see the Surgical event details section$/, function (callback) {
-        // Getting information from the Drop down
-        patientPage.variantReportDropDown.getText().then(function (text) {
-            var detailsHash = splitTissueVariantReportDropDown(text);
-            expect(patientPage.tissueSurgicalEventId.getText()).to.eventually.eql(detailsHash['surgicalEvent']);
-            expect(patientPage.tissueAnalysisId.getText()).to.eventually.eql(detailsHash['analysisId']);
-            expect(patientPage.tissueMolecularId.getText()).to.eventually.eql(detailsHash['molecularId']);
-            expect(patientPage.tissueReportStatus.getText()).to.eventually.eql(detailsHash['status']);
-        }).then(callback);
-    });
-
     this.Then(/^I can see the Analysis ID details section$/, function (callback) {
         patientPage.bloodVariantReportDropDown.getText().then(function (text) {
             var detailsHash = splitBloodVariantReportDropDown(text);
@@ -154,5 +138,5 @@ module.exports = function() {
         var panelString = reportType === 'Tissue Reports' ? patientPage.tissueMasterPanelString : patientPage.bloodMasterPanelString;
         var css_locator = panelString + " [ng-class=\"getVariantReportModeClass('" + buttonString + "')\"]";
         return element(by.css(css_locator));
-    };
+    }
 };

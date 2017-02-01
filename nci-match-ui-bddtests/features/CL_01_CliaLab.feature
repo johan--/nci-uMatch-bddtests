@@ -67,7 +67,7 @@ Feature: CLIA Labs Page
         And I verify that valid IDs are links and invalid IDs are not in "Positive Controls" table
         And I verify that valid IDs are links and invalid IDs are not in "False Positive Variants" table
 
-    @ui_p1 @demo_p4 @tests
+    @ui_p1 @demo_p4
     Scenario Outline: User can access information about the uploaded <tableType> report.
         Given I'm logged in as a "VR_Reviewer_mocha" user
         When I navigate to the CLIA Labs page

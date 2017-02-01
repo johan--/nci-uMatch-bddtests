@@ -34,4 +34,10 @@ module.exports = function () {
         browser.sleep (50).then (callback);
     });
 
+    this.Then(/^I can see the "([^"]*)" table$/, function (tableTitle, callback) {
+        var table = patientPage.tableByH3Title(tableTitle);
+
+        expect(table.isPresent()).to.eventually.equal(true).notify(callback);
+    });
+
 };

@@ -12,12 +12,6 @@ var utilities = require('../../support/utilities');
 module.exports = function () {
     this.World = require('../step_definitions/world').World;
 
-    this.Then(/^I can see the "([^"]*)" table$/, function (tableTitle, callback) {
-        var table = patientPage.tableByH3Title(tableTitle);
-
-        expect(table.isPresent()).to.eventually.equal(true).notify(callback);
-    });
-
     this.Then(/^I remember "([^"]*)" column order of the "([^"]*)" table$/, function (column, tableTitle, callback) {
         var table = patientPage.tableByH3Title(tableTitle);
         var headers = table.element(by.tagName('thead')).all(by.tagName("th"));
