@@ -82,38 +82,6 @@ module.exports = function() {
         browser.sleep(50).then(callback);
     });
 
-
-    this.Then(/^I can see the Variant section$/, function (callback) {
-        // Write code here that turns the phrase above into concrete actions
-        callback.pending();
-    });
-
-    this.Then(/^I see the check box in the "([^"]*)" sub section$/, function (arg1, callback) {
-        // Write code here that turns the phrase above into concrete actions
-        callback.pending();
-    });
-
-    this.Then(/^I can see the Oncomine Control Panel Summary Details$/, function (callback) {
-        // Write code here that turns the phrase above into concrete actions
-        callback.pending();
-    });
-
-    this.Then(/^I do not see the check box in the "SNVs\/MNVs\/Indels sub section$/, function (callback) {
-        // Write code here that turns the phrase above into concrete actions
-        callback.pending();
-    });
-
-    this.Then(/^I do not see the check box in the "([^"]*)" sub section$/, function (arg1, callback) {
-        // Write code here that turns the phrase above into concrete actions
-        callback.pending();
-    });
-
-    this.Then(/^I do not see the check box in the "([^"]*)"n sub section$/, function (arg1, callback) {
-        // Write code here that turns the phrase above into concrete actions
-        callback.pending();
-    });
-
-
     function splitTissueVariantReportDropDown(dropDownText){
         var returnValue = {};
         var textArray = dropDownText.split('|');
@@ -139,4 +107,9 @@ module.exports = function() {
         var css_locator = panelString + " [ng-class=\"getVariantReportModeClass('" + buttonString + "')\"]";
         return element(by.css(css_locator));
     }
+
+    this.Then(/^All the existing checkboxes are checked and disabled$/, function (callback) {
+        // Write code here that turns the phrase above into concrete actions
+        callback(null, 'pending');
+    });    
 };

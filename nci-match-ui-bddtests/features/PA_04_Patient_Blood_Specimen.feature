@@ -1,3 +1,4 @@
+@ui_p3 
 Feature: Patient Report Tab
   A user can access the details about the Tissue and Blood Variant Report for a patient
 
@@ -15,9 +16,10 @@ Feature: Patient Report Tab
     Then I logout
 
   @ui_p3 @test
-  Scenario: Navigating to a sepcific blood variant report lets user see more details.
-    When I click on the Blood Variant report
-    And I collect information on the blood variant report details of patient "PT_CR08_BloodSpecimenUploaded"
+  Scenario: Navigating to a specific blood variant report lets user see more details.
+    When I click on the "Blood Specimens" tab
+    And I scroll to the bottom of the page
+    And I should see and click the variant report link for "PT_CR08_BloodSpecimenUploaded_ANI1"
     Then I can see the variant report page
     And All the existing checkboxes are checked and disabled
     Then I logout
