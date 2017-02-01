@@ -6,9 +6,7 @@
 'use strict';
 
 var fs = require ('fs');
-
-var patientPage = require ('../../pages/patientPage');
-
+var patientPage = require('../../pages/patientPage');
 var utilities = require ('../../support/utilities');
 
 module.exports = function() {
@@ -24,26 +22,6 @@ module.exports = function() {
             expect(patientPage.bloodMolecularId.getText()).to.eventually.eql(detailsHash['molecularId']);
             expect(patientPage.bloodReportStatus.getText()).to.eventually.eql(detailsHash['status']);
         }).then(callback);
-    });
-
-    this.Then(/^I can see the "([^"]*)" table under "(.+)" tab$/, function (subSection, variantType, callback) {
-        // todo: Get the values from the patient json before comparing with backend
-        var index = patientPage.expVarReportTables.indexOf(subSection);
-        var tableHeadings = {
-            'SNVs/MNVs/Indels': patientPage.expSNVTableHeadings,
-            'Copy Number Variant(s)': patientPage.expCNVTableHeadings,
-            'Gene Fusion(s)': patientPage.expGFTableHeadings
-        };
-        var expectedHeadingsArray = tableHeadings[subSection];
-        var variantString = variantType == 'Tissue Reports' ? patientPage.tissueMasterPanelString : patientPage.bloodMasterPanelString;
-        var elementString = variantString + " .table-responsive";
-
-        var tableElement = element.all(by.css(elementString));
-        // This way we can compare the number of columns and their names together
-        tableElement.get(index).all(by.css('th')).getText().then(function (headingArray) {
-            expect(headingArray).to.eql(expectedHeadingsArray);
-        });
-        browser.sleep(50).then(callback);
     });
 
     this.When(/^I click on the Filtered Button under "((Tissue|Blood Variant) Reports)" tab$/, function (tabName, callback) {
@@ -107,6 +85,18 @@ module.exports = function() {
         var css_locator = panelString + " [ng-class=\"getVariantReportModeClass('" + buttonString + "')\"]";
         return element(by.css(css_locator));
     }
+
+    this.Then(/^I click the variant report link for "(.+?)"$/, function (analysisId, callback) {
+        patientPage.variantAnalysisId = analysisId;
+        var link = element.all(by.repeater('analysisAssignment in shipment.analyses'))
+            .first()
+            .element(by.tagName('a'));
+
+        link.click().then(function(){
+            console.log('text = ');
+            browser.sleep(5000);
+        }).then(callback);
+    });  
 
     this.Then(/^All the existing checkboxes are checked and disabled$/, function (callback) {
         // Write code here that turns the phrase above into concrete actions

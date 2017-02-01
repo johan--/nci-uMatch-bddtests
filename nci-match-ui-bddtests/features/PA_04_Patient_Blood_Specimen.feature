@@ -19,7 +19,7 @@ Feature: Patient Report Tab
   Scenario: Navigating to a specific blood variant report lets user see more details.
     When I click on the "Blood Specimens" tab
     And I scroll to the bottom of the page
-    And I should see and click the variant report link for "PT_CR08_BloodSpecimenUploaded_ANI1"
+    And I click the variant report link for "PT_CR08_BloodSpecimenUploaded_ANI1"
     Then I can see the variant report page
-    And All the existing checkboxes are checked and disabled
+    # And All the existing checkboxes are checked and disabled
     Then I logout
