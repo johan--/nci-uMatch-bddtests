@@ -21,5 +21,5 @@ Feature: Patient Report Tab
     And I scroll to the bottom of the page
     And I click the variant report link for "PT_CR08_BloodSpecimenUploaded_ANI1"
     Then I can see the variant report page
-    # And All the existing checkboxes are checked and disabled
+    And All the existing checkboxes are checked and disabled
     Then I logout

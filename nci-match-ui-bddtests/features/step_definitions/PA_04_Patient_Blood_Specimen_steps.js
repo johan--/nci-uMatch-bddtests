@@ -90,16 +90,17 @@ module.exports = function() {
         patientPage.variantAnalysisId = analysisId;
         var link = element.all(by.repeater('analysisAssignment in shipment.analyses'))
             .first()
-            .element(by.tagName('a'));
+            .all(by.tagName('a')).first();
 
-        link.click().then(function(){
-            console.log('text = ');
-            browser.sleep(5000);
-        }).then(callback);
+        link.click().then(callback);
     });  
 
     this.Then(/^All the existing checkboxes are checked and disabled$/, function (callback) {
-        // Write code here that turns the phrase above into concrete actions
-        callback(null, 'pending');
+        var checkboxes = element.all(by.tagName('check-box-with-confirm'))
+            .all(by.tagName('input'));
+
+        checkboxes.each(function(checkBox){
+            expect(checkBox.isEnabled()).to.eventually.equal(false);
+        }).then(callback);
     });    
 };
