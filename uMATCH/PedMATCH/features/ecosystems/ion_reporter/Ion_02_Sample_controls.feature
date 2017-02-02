@@ -167,16 +167,18 @@ Feature: Tests for sample_controls service in ion ecosystem
     Given molecular id is ""
     Then record total sample_controls count
     When DELETE to sample_controls service, response includes "delete all records" with code "400"
-    Then wait for "30" seconds
-    Then new and old total sample_controls counts should have 0 difference
+    #all this kinds of checking difference steps are removed, because in parallel INT run, we cannot guarantee, the
+  #other valid deletion tests do not run during this waiting time.
+#    Then wait for "30" seconds
+#    Then new and old total sample_controls counts should have 0 difference
 
   @ion_reporter_p2
   Scenario Outline: ION_SC43. sample_control service should fail if the specified molecular_id doesn't exist (including existing patient molecular_id), and no sample_control is deleted
     Given molecular id is "<moi>"
     Then record total sample_controls count
     When DELETE to sample_controls service, response includes "exist" with code "404"
-    Then wait for "30" seconds
-    Then new and old total sample_controls counts should have 0 difference
+#    Then wait for "30" seconds
+#    Then new and old total sample_controls counts should have 0 difference
     Examples:
       | moi                     |
       | SC_NON_EXISTING         |
@@ -188,8 +190,8 @@ Feature: Tests for sample_controls service in ion ecosystem
     Then add field: "site" value: "invalid_site" to url
     Then record total sample_controls count
     When DELETE to sample_controls service, response includes "" with code "200"
-    Then wait for "30" seconds
-    Then new and old total sample_controls counts should have 0 difference
+#    Then wait for "30" seconds
+#    Then new and old total sample_controls counts should have 0 difference
 
   @ion_reporter_p1
   Scenario: ION_SC60. sample_control service can list all existing sample_controls

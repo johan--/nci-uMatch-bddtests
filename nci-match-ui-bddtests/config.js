@@ -31,7 +31,7 @@ exports.config = {
         'features/PA_04_Patient_Blood_Specimen.feature',
         'features/PA_05_Patient_Documents.feature',
         'features/PA_08_User_Roles.feature',
-        // 'features/PA_09_Sample_Upload.feature',
+        'features/PA_09_Sample_Upload.feature',
 
         //Treatment Arm details page
         'features/TA_01_Analysis.feature',
@@ -68,7 +68,7 @@ exports.config = {
       // Store the name of the browser that's currently being used.
       browser.getCapabilities().then(function (caps) {
           browser.params.browser = caps.get('browserName');
-      });      
+      });
     },
 
     framework: 'custom',
@@ -77,7 +77,7 @@ exports.config = {
         require: ['support/env.js',
                   'features/step_definitions/*.js',
                   'support/hooks.js' ],
-        format: ['pretty', 
+        format: ['pretty',
             'json:../results/output.json']
     }
 

@@ -92,8 +92,10 @@ module.exports = function() {
             .first()
             .all(by.tagName('a')).first();
 
-        link.click().then(callback);
-    });  
+        link.click().then(function(){
+          browser.waitForAngular();
+        }).then(callback);
+    });
 
     this.Then(/^All the existing checkboxes are checked and disabled$/, function (callback) {
         var checkboxes = element.all(by.tagName('check-box-with-confirm'))
@@ -102,5 +104,5 @@ module.exports = function() {
         checkboxes.each(function(checkBox){
             expect(checkBox.isEnabled()).to.eventually.equal(false);
         }).then(callback);
-    });    
+    });
 };
