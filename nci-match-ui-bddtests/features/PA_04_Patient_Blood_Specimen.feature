@@ -1,5 +1,5 @@
 @ui_p3 
-Feature: Patient Report Tab
+Feature: Patient Blood Variant Report Tab
   A user can access the details about the Tissue and Blood Variant Report for a patient
 
   Background:
@@ -15,7 +15,7 @@ Feature: Patient Report Tab
     And I can see the "Blood Shipments" table 
     Then I logout
 
-  @ui_p3
+  @ui_p3 @test
   Scenario: Navigating to a specific blood variant report lets user see more details.
     When I click on the "Blood Specimens" tab
     And I scroll to the bottom of the page
