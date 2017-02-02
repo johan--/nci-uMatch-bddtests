@@ -119,6 +119,7 @@ Feature: TA_CF. Treatment Arm API common tests for all fields
 	    "target_name" : "ALK",
 	    "version":"2016-05-25",
 	    "gene" : "ALK",
+        "date_created": "2016-11-08 15:57:25 UTC",
 	    "treatment_arm_drugs" : [
 	        {
 	            "drugId" : "1234",
@@ -212,14 +213,15 @@ Feature: TA_CF. Treatment Arm API common tests for all fields
     | gene       | 419    | int   | Fixnum did not match one or more of the required schemas     |
     | target_id  | false  | bool  | FalseClass did not match one or more of the required schemas |
 
-  @treatment_arm_p2
-  Scenario: TA_CF10. "date_created" value is generated properly
-    Given template treatment arm json with an id: "APEC1621-CF6-1"
-    When creating a new treatment arm using post request
-    Then a success message is returned
-    Then wait for processor to complete request in "10" attempts
-    Then retrieve the posted treatment arm from API
-    Then the returned treatment arm has correct date_created value
+    #this is not required anymore, the date_created value now is provided by the spreadsheet
+#  @treatment_arm_p2
+#  Scenario: TA_CF10. "date_created" value is generated properly
+#    Given template treatment arm json with an id: "APEC1621-CF6-1"
+#    When creating a new treatment arm using post request
+#    Then a success message is returned
+#    Then wait for processor to complete request in "10" attempts
+#    Then retrieve the posted treatment arm from API
+#    Then the returned treatment arm has correct date_created value
 
   @treatment_arm_p3
   Scenario Outline: TA_CF11. Treatment arm return correct values for single fields
