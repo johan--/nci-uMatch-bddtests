@@ -1,4 +1,4 @@
-@ui_p2 
+@ui_p2 @broken
 Feature: MATCHKB-542. Users can upload patient sample files.
   The user is able to upload a large sample file, such as BAM file.
   A file can be as large as 20 GB or more.
@@ -16,16 +16,18 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     And I can see the "Upload BAM files and Variant ZIP files" dialog
     Then I select an Ion Reporter "<ir_reporter>"
     And I enter Analysis ID "<analysis_id>"
-    And I select a file "<file>" for "<type>" upload
+    And I press "<upload_button>" file button to upload "<file>" file
+    And I press "Select DNA BAM File" file button to upload "mocha_small.vcf" file
+    And I press "Select cDNA BAM File" file button to upload "mocha_small.vcf" file
     Then The "Upload" button is "visible"
     And The "Upload" button is "enabled"
     Then I can click on the "Upload" button
     And I can see the Sample File upload process has started
     Then I logout
     Examples:
-      | user              | patient_id              | surgical_event_id                           | ir_reporter      | analysis_id                   | type       | file            |
-      | VR_Reviewer_mda   | PT_AU04_MdaTsShipped1   | Surgical Event PT_AU04_MdaTsShipped1_SEI1   | mda - IR_MDA05   | PT_AU04_MdaTsShipped1_An123   | VariantZIP | mda_small.vcf   |
-      # | VR_Reviewer_mocha | PT_AU04_MochaTsShipped1 | Surgical Event PT_AU04_MochaTsShipped1_SEI1 | mocha - IR_MCA00 | PT_AU04_MochaTsShipped1_An123 | VariantZIP |mocha_small.vcf |
+      | user              | patient_id              | surgical_event_id                           | ir_reporter      | analysis_id                   | upload_button  | file            |
+      | VR_Reviewer_mda   | PT_AU04_MdaTsShipped1   | Surgical Event PT_AU04_MdaTsShipped1_SEI1   | mda - IR_MDA05   | PT_AU04_MdaTsShipped1_An123   | Select Variant ZIP File | mda_small.vcf   |
+      # | VR_Reviewer_mocha | PT_AU04_MochaTsShipped1 | Surgical Event PT_AU04_MochaTsShipped1_SEI1 | mocha - IR_MCA00 | PT_AU04_MochaTsShipped1_An123 | Select DNA BAM File |mocha_small.vcf |
 
   Scenario: As a privileged user I can't upload a sample file if all files have been uploaded already
     Given I'm logged in as a "VR_Reviewer_mda" user

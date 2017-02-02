@@ -84,31 +84,12 @@ var PatientPage = function () {
     this.uploadNewSampleFile = element(by.css('a[ng-click="uploadSampleFile(shipment)"]'));
     this.selectSiteAndIRID = element(by.cssContainingText('button#single-button', 'Select Site and Ion Reporter ID'))
     this.upldDialogAnalysisId = element(by.model('analysisId'));
-    this.upldDialogSelectZipButton = element(by.css('label[ng-class="getFileButtonClass(\'vcfFile\')"]'));
-    this.upldZipFileElement = element(by.css('input#vcfFile'));
-    this.upldDialogSelectDNAButton = element(by.css('label[ng-class="getFileButtonClass(\'dnaFile\')"]'));
-    this.upldDNAFileElement = element(by.css('input#dnaFile[type="file"]'));
-    this.upldDialogSelectCDNAButton = element(by.css('label[ng-class="getFileButtonClass(\'rnaFile\')"]'));
-    this.upldCDNAFileElement = element(by.css('input#rnaFile[type="file"]'));
 
-    this.types = {
-        "VariantZIP": {
-            "button": this.upldDialogSelectZipButton,
-            "input": this.upldZipFileElement,
-            "order": 3
-        },
-        "DNA_BAM": {
-            "button": this.upldDialogSelectDNAButton,
-            "input": this.upldDNAFileElement,
-            "order": 2
-        },
-        "CDNA_BAM": {
-            "button": this.upldDialogSelectCDNAButton,
-            "input": this.upldCDNAFileElement,
-            "order": 1
-        }
-    }
-
+    this.uploadButtonsId = {
+        "Select Variant ZIP File": "vcfFile",
+        "Select DNA BAM File": "dnaFile",
+        "Select cDNA BAM File": "rnaFile"
+    };
 
     // *****************  Tissue Reports / Blood Specimens Tab  ********************//
     // This the master panel STRING for Tissue reports
