@@ -48,13 +48,13 @@ Feature: ir ecosystem authorization tests
   @ion_reporter_p1
   Scenario Outline: ION_AU03 role base authorization works properly to update ion_reporter
     Given ion_reporter_id is "IR_MDA01"
-    Then add field: "last_contact" value: "January 03, 2017 10:35 PM" to message body
+    Then add field: "last_contact" value: "2017-02-02 09:08:23.446499" to message body
     Then add field: "site" value: "mda" to message body
     And ir user authorization role is "<auth_role>"
     When PUT to ion_reporters service, response includes "<mda_message>" with code "<mda_code>"
     Given ion_reporter_id is "IR_MCA01"
     Then add field: "site" value: "mocha" to message body
-    Then add field: "last_contact" value: "January 03, 2017 10:35 PM" to message body
+    Then add field: "last_contact" value: "2017-02-02 09:08:23.446499" to message body
     When PUT to ion_reporters service, response includes "<mocha_message>" with code "<mocha_code>"
     Examples:
       | auth_role                     | mda_message | mda_code | mocha_message | mocha_code |

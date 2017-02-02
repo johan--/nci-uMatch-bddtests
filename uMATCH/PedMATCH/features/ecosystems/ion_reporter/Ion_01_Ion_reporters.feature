@@ -59,14 +59,14 @@ Feature: Tests for ion_reporters service in ion ecosystem
   Scenario: ION_IR20. ion_reporter can be updated successfully
     Given ion_reporter_id is "IR_CFUER"
     Then add field: "site" value: "mda" to message body
-    Then add field: "last_contact" value: "October 03, 2016 10:35 PM" to message body
+    Then add field: "last_contact" value: "2017-02-02 09:08:23.446499" to message body
     Then add field: "internal_ip_address" value: "172.20.174.24" to message body
     Then add field: "host_name" value: "MDACC-MATCH-IR" to message body
     Then add field: "data_files" value: "Log File" to message body
     Then add field: "ip_address" value: "132.183.13.75" to message body
     When PUT to ion_reporters service, response includes "updated" with code "200"
     Then wait up to 15 seconds until this ion_reporter get updated
-    Then field: "last_contact" for this ion_reporter should be: "October 03, 2016 10:35 PM"
+    Then field: "last_contact" for this ion_reporter should be: "2017-02-02 09:08:23.446499"
     Then field: "internal_ip_address" for this ion_reporter should be: "172.20.174.24"
     Then field: "host_name" for this ion_reporter should be: "MDACC-MATCH-IR"
     Then field: "data_files" for this ion_reporter should be: "Log File"
@@ -88,14 +88,14 @@ Feature: Tests for ion_reporters service in ion ecosystem
   @ion_reporter_p3
   Scenario: ION_IR22. ion_reporter update request should fail if non-existing ion_reporter_id is passed in
     Given ion_reporter_id is "IR_NON_EXISTING"
-    Then add field: "last_contact" value: "October 03, 2016 10:35 PM" to message body
+    Then add field: "last_contact" value: "2017-02-02 09:08:23.446499" to message body
     Then add field: "site" value: "mocha" to message body
     When PUT to ion_reporters service, response includes "exist" with code "404"
 
   @ion_reporter_p3
   Scenario: ION_IR23. ion_reporter update request should fail if no ion_reporter_id is passed in
     Given ion_reporter_id is ""
-    Then add field: "last_contact" value: "October 03, 2016 10:35 PM" to message body
+    Then add field: "last_contact" value: "2017-02-02 09:08:23.446499" to message body
     Then add field: "site" value: "mocha" to message body
     When PUT to ion_reporters service, response includes "is not allowed for the requested URL" with code "405"
 
@@ -142,16 +142,18 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Given ion_reporter_id is ""
     Then record total ion_reporters count
     When DELETE to ion_reporters service, response includes "delete all records" with code "400"
-    Then wait for "30" seconds
-    Then new and old total ion_reporters counts should have 0 difference
+    #all this kinds of checking difference steps are removed, because in parallel INT run, we cannot guarantee, the
+  #other valid deletion tests do not run during this waiting time.
+#    Then wait for "30" seconds
+#    Then new and old total ion_reporters counts should have 0 difference
 
   @ion_reporter_p2
   Scenario: ION_IR43. ion_reporter service should fail if non-existing ion_reporter_id is passed in, and no ion_reporter is deleted
     Given ion_reporter_id is "IR_NON_EXISTING"
     Then record total ion_reporters count
     When DELETE to ion_reporters service, response includes "exist" with code "404"
-    Then wait for "30" seconds
-    Then new and old total ion_reporters counts should have 0 difference
+#    Then wait for "30" seconds
+#    Then new and old total ion_reporters counts should have 0 difference
 
   @ion_reporter_p2
   Scenario: ION_IR44. no ion_reporter will be deleted if no ion_reporter meet batch delete parameters, and
@@ -159,8 +161,8 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Then add field: "site" value: "invalid_site" to url
     Then record total ion_reporters count
     When DELETE to ion_reporters service, response includes "" with code "200"
-    Then wait for "30" seconds
-    Then new and old total ion_reporters counts should have 0 difference
+#    Then wait for "30" seconds
+#    Then new and old total ion_reporters counts should have 0 difference
 
   @ion_reporter_p1
   Scenario: ION_IR60. ion_reporter service can list all existing ion_reporters
