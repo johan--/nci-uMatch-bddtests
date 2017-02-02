@@ -33,9 +33,9 @@ Feature: CLIA Labs Page
         And I collect new information on "Positive Sample Controls" under "MoCha"
         And I capture the new MSN created
         And I upload variant report to S3 with the generated MSN
-        And I wait "5" seconds
+        And I wait for "5" seconds
         And I call the aliquot service with the generated MSN
-        And I wait "30" seconds
+        And I wait for "30" seconds
         And I navigate to the CLIA Labs page
         Then I see variant report details for the generated MSN
         And I delete the variant reports uploaded to S3

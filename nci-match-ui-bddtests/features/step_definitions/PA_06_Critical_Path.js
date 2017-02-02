@@ -19,10 +19,6 @@ module.exports = function () {
     var confirmedAMoi;
     var currentAnalysisId;
 
-    this.Then(/^I wait "(.\d*?)" seconds$/, function (time, callback) {
-        browser.sleep(time * 1000).then(callback)
-    });
-
     this.Given(/^I enter "([^"]*)" in the patient filter field$/, function (filterValue, callback) {
         patientPage.patientFilterTextBox.sendKeys(filterValue).then(function () {
             var firstPatient = patientPage.patientGridRows.get(0);

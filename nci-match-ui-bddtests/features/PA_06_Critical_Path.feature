@@ -164,7 +164,7 @@ Feature: This is the critical path test cases.
     Then I "should" see the confirmation modal pop up
     When I click on the "OK" button
     Then The variant report status is marked "CONFIRMED"
-    And I wait "59" seconds
+    And I wait for "59" seconds
     When I go to patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" details page
     Then I "should" see the patient "Status" as "PENDING_CONFIRMATION"
     Then I logout
@@ -172,7 +172,7 @@ Feature: This is the critical path test cases.
   @demo_p3
   Scenario: Assignment link is provided on the Surgical Event Tab
     Given I'm logged in as a "AR_Reviewer" user
-    And I wait "30" seconds
+    And I wait for "30" seconds
     When I go to patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" details page
     And I click on the Surgical Event Tab at index "0"
     Then I should see the assignment report link for "PT_CR01_PathAssayDoneVRUploadedToConfirm_ANI1"
@@ -199,7 +199,7 @@ Feature: This is the critical path test cases.
     When I go to patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" details page
     And I get the link to "PT_CR01_PathAssayDoneVRUploadedToConfirm_ANI1" assignment report
     And I navigate to the Assignment Report
-    And I wait "10" seconds
+    And I wait for "10" seconds
     And I click on the Assignment report "CONFIRM" button
     Then I "should" see the confirmation modal pop up
     When I click on the "OK" button

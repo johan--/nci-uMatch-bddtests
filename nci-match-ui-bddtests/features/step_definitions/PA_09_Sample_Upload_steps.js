@@ -16,7 +16,7 @@ module.exports = function() {
     this.When(/^I can see that some files have not been uploaded for the Surgical Event$/, function(callback) {
         // Here we are searching for no files at all attached to the specimen
         var analysisSection = patientPage.variantAndAssignmentPanel;
-        expect(analysisSection.count()).to.eventually.eql(0).notify(callback)
+        expect(analysisSection.count()).to.eventually.eql(0).notify(callback);
     });
 
     this.Then(/^I can see the "([^"]*)" dialog$/, function(heading, callback) {
@@ -25,31 +25,39 @@ module.exports = function() {
     });
 
     this.Then(/^I select an Ion Reporter "([^"]*)"$/, function(ionReporter, callback) {
-        var cssSelector = 'li[ng-repeat="item in ionReporters"] a'
+        var cssSelector = 'li[ng-repeat="item in ionReporters"] a';
         patientPage.selectSiteAndIRID.click().then(function() {
-            utilities.selectFromDropDown(cssSelector, ionReporter)
+            utilities.selectFromDropDown(cssSelector, ionReporter);
         }).then(callback());
     });
 
     this.Then(/^I enter Analysis ID "([^"]*)"$/, function(analysisId, callback) {
         patientPage.upldDialogAnalysisId.sendKeys(analysisId);
-        expect(patientPage.upldDialogAnalysisId.getAttribute('value')).
-        to.eventually.eql(analysisId).notify(callback);
+        expect(patientPage.upldDialogAnalysisId.getAttribute('value')).to.eventually.eql(analysisId).notify(callback);
     });
 
     this.Then(/^I select a file "([^"]*)" for "([^"]*)" upload$/, function(fileName, fileType, callback) {
+        browser.sleep(500);        
         var fileUploadButton = patientPage.types[fileType]['button'];
+
+        browser.sleep(500);        
         var fileElement = patientPage.types[fileType]['input'];
+
+        browser.sleep(500);        
         var position = patientPage.types[fileType]['order'];
+
+        browser.sleep(500);        
         var pathToFile = 'data/' + fileName;
+
+        browser.sleep(500);        
         var absolutePath = path.resolve(pathToFile);
 
+        browser.sleep(500);        
         var callback = function () {
-
           fileElement.sendKeys(absolutePath); //assuming you only have 1 input
-
         };
 
+        browser.sleep(500);        
         browser.executeAsyncScript(function(callback){
             var labelList = element.all(by.css('label'));
             var ngfSelectLabel = labelList.get(2);
@@ -61,16 +69,13 @@ module.exports = function() {
             ngfSelectLabel.style.background = 'white';
             ngfSelectLabel.style.zIndex = '10000'; //to account for any blocking modal / popup screens
 
+        browser.sleep(500);        
           callback();
 
         }).then(function() {
+        browser.sleep(500);        
             callback();
         }).then(callback);
-    });
-
-    this.Then(/^I can click on the "([^"]*)" button$/, function(arg1, callback) {
-        // Write code here that turns the phrase above into concrete actions
-        callback(null, 'pending');
     });
 
     this.Then(/^I can see the Sample File upload process has started$/, function(callback) {
@@ -89,11 +94,11 @@ module.exports = function() {
         to.eventually.eql(isVisible).notify(callback);
     });
 
-    this.Then(/^I click on the Upload new sample file link$/, function(callback){
-        patientPage.uploadNewSampleFile.click().then(function(){
-            browser.sleep(10);
-        }).then(callback);
-    });
+    // this.Then(/^I click on the Upload new sample file link$/, function(callback){
+    //     patientPage.uploadNewSampleFile.click().then(function(){
+    //         browser.sleep(10);
+    //     }).then(callback);
+    // });
 
     this.Then(/^I can see the Upload Progress in the toolbar$/, function(callback) {
         // Write code here that turns the phrase above into concrete actions

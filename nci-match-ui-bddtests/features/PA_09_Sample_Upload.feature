@@ -1,15 +1,18 @@
-@ui_p2 @broken
+@ui_p2 
 Feature: MATCHKB-542. Users can upload patient sample files.
   The user is able to upload a large sample file, such as BAM file.
   A file can be as large as 20 GB or more.
+
 @upload
   Scenario Outline: As a privileged user I can upload a sample file
     Given I'm logged in as a "<user>" user
     When I go to patient "<patient_id>" details page
     And I click on the "<surgical_event_id>" tab
+    And I scroll to the bottom of the page
     And I can see that some files have not been uploaded for the Surgical Event
-    Then The Upload new sample file link is "visible"
-    And I click on the Upload new sample file link
+    Then The "Upload new sample file" link is "visible"
+    And The "Upload new sample file" link is "enabled"
+    And I can click on the "Upload new sample file" link
     And I can see the "Upload BAM files and Variant ZIP files" dialog
     Then I select an Ion Reporter "<ir_reporter>"
     And I enter Analysis ID "<analysis_id>"

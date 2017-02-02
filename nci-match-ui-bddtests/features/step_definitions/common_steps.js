@@ -29,6 +29,18 @@ module.exports = function () {
         }
     });
 
+    this.When(/^The "(.+?)" link is "(disabled|enabled|visible|invisible)"$/, function (linkText, buttonState, callback) {
+        var button = element(by.cssContainingText('.btn', linkText));
+        var isVisible = buttonState === 'enabled' || buttonState === 'disabled';
+        var isAvailable = buttonState === 'enabled' || buttonState === 'visible';
+
+        if (isVisible){
+            expect(button.isEnabled()).to.eventually.eql(isAvailable).notify(callback);
+        } else {
+            expect(button.isPresent()).to.eventually.eql(isAvailable).notify(callback);
+        }
+    });
+
     this.When (/^I turn off synchronization$/, function (callback) {
         browser.ignoreSynchronization = true;
         browser.sleep (50).then (callback);
@@ -40,4 +52,21 @@ module.exports = function () {
         expect(table.isPresent()).to.eventually.equal(true).notify(callback);
     });
 
+    this.Then(/^I can click on the "([^"]*)" link$/, function(linkText, callback) {
+        var button = element(by.cssContainingText('.btn', linkText));
+        button.click()
+            .then(function () { browser.sleep(1); })
+            .then(callback);
+    });
+
+    this.Then(/^I can click on the "([^"]*)" button$/, function(buttonText, callback) {
+        var button = element(by.buttonText(buttonText));
+        button.click()
+            .then(function () { browser.sleep(1); })
+            .then(callback);
+    });
+
+    this.Then(/^I wait for "(.\d*?)" seconds$/, function (time, callback) {
+        browser.sleep(time * 1000).then(callback)
+    });
 };
