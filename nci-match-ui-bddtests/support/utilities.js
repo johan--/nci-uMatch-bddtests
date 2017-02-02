@@ -364,9 +364,11 @@ var Utilities = function() {
         })
     };
 
-    this.selectFromDropDown = function(tablePanel, value){
-        var dropdown = tablePanel.all(by.model('paginationOptions.itemsPerPage')).get(0);
-        dropdown.all(by.cssContainingText('option', value)).get(0).click();
+    this.selectFromDropDown = function(dropDownCSSSelectorString, value){
+        return element(by.cssContainingText(dropDownCSSSelectorString, value)).click()
+            .then(function(){
+                browser.waitForAngular();
+            });
     };
 
     function buildUrl(id, api) {

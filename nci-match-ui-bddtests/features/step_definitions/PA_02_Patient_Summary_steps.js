@@ -44,7 +44,6 @@ module.exports = function () {
     });
 
     this.When (/^I click on the "([^"]*)" tab$/, function (tabName, callback) {
-        browser.ignoreSynchronization = true;
         element (by.css ('li[heading="' + tabName + '"]')).click ();
         browser.ignoreSynchronization = false;
         browser.sleep (50).then (callback);

@@ -81,6 +81,34 @@ var PatientPage = function () {
     // *****************  Surgical Event Tabs ********************//
     this.surgicalEventPanels = element.all(by.css('.specimen-event-panel'));
     this.surgicalEventId  = element(by.binding('surgicalEvent.surgical_event_id'));
+    this.uploadNewSampleFile = element(by.css('a[ng-click="uploadSampleFile(shipment)"]'));
+    this.selectSiteAndIRID = element(by.cssContainingText('button#single-button', 'Select Site and Ion Reporter ID'))
+    this.upldDialogAnalysisId = element(by.model('analysisId'));
+    this.upldDialogSelectZipButton = element(by.css('label[ng-class="getFileButtonClass(\'vcfFile\')"]'));
+    this.upldZipFileElement = element(by.css('input#vcfFile[type="file"]'));
+    this.upldDialogSelectDNAButton = element(by.css('label[ng-class="getFileButtonClass(\'dnaFile\')"]'));
+    this.upldDNAFileElement = element(by.css('input#dnaFile[type="file"]'));
+    this.upldDialogSelectCDNAButton = element(by.css('label[ng-class="getFileButtonClass(\'rnaFile\')"]'));
+    this.upldCDNAFileElement = element(by.css('input#rnaFile[type="file"]'));
+
+    this.types = {
+        "VariantZIP": {
+            "button": this.upldDialogSelectZipButton,
+            "input": this.upldZipFileElement,
+            "order": 3
+        },
+        "DNA_BAM": {
+            "button": this.upldDialogSelectDNAButton,
+            "input": this.upldDNAFileElement,
+            "order": 2
+        },
+        "CDNA_BAM": {
+            "button": this.upldDialogSelectCDNAButton,
+            "input": this.upldCDNAFileElement,
+            "order": 1
+        }
+    }
+
 
     // *****************  Tissue Reports / Blood Specimens Tab  ********************//
     // This the master panel STRING for Tissue reports
@@ -123,7 +151,8 @@ var PatientPage = function () {
     // This is the panel beneath each shipment detailing about the Variant report
     // and Assignment report. One can access variant report and
     // assignment report button from here.
-    //this.variantAndAssignmentPanel = element(by.repeater('analysisAssignment in shipment.analysisAssignments'));
+    this.variantAndAssignmentPanel = element.all(by.repeater('analysisAssignment in shipment.analysisAssignments'));
+    this.variantAndAssignmentPanelString = 'analysisAssignment in shipment.analysisAssignments';
 
     this.variantConfirmButtonList      = element.all(by.css('input[type="checkbox"]')); // This is to check the properties
     this.variantConfirmButtonCLickList = element.all(by.css('button[ng-click="vm.confirm()"]')); // This is to perfom actions on the checkbox

@@ -36,6 +36,7 @@
     "moment": "~2.9.0",
     "node-cmd": "^1.1.1",
     "node-rest-client": "^2.0.1",
+    "path": "^0.12.7",
     "request": "^2.79.0",
     "request-promise": "^4.1.1"
   }

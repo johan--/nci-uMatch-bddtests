@@ -152,7 +152,7 @@ module.exports = function () {
     this.Then(/^I should see "([^"]*)" Assignments under the Molecular ID "([^"]*)"$/, function (assignmentCount, molecularId, callback) {
         var headingRow = element.all(by.repeater('shipment in specimenEvent.specimen_shipments'));
         var actualMolecularId = headingRow.get(0).all(by.binding('shipment.molecular_id')).get(0);
-        var siblingRow = headingRow.get(0).all(by.xpath('..')).all(by.repeater('analysisAssignment in shipment.analysisAssignments'));
+        var siblingRow = headingRow.get(0).all(by.xpath('..')).all(by.repeater(patientPage.variantAndAssignmentPanelString));
 
         expect(actualMolecularId.getText()).to.eventually.eql(molecularId)
         expect(siblingRow.count()).to.eventually.eql(parseInt(assignmentCount)).notify(callback)

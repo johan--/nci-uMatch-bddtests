@@ -36,7 +36,7 @@ module.exports = function () {
 
     this.Then(/^I should see and click the variant report link for "(.+?)"$/, function (analysisId, callback) {
         patientPage.variantAnalysisId = analysisId;
-        var varRepString = 'li[ng-repeat="analysisAssignment in shipment.analysisAssignments"] a[href="#/patient/' + patientPage.patientId + '/variant_report?analysis_id=' + analysisId + '"]';
+        var varRepString = 'li[ng-repeat="'+ patientPage.variantAndAssignmentPanelString + '"] a[href="#/patient/' + patientPage.patientId + '/variant_report?analysis_id=' + analysisId + '"]';
         variantReportLink = element(by.css(varRepString));
         browser.ignoreSynchronization = true;
         expect(variantReportLink.isPresent()).to.eventually.eql(true).then(function () {
@@ -98,14 +98,14 @@ module.exports = function () {
 
     this.When(/^I uncheck the variant of ordinal "([^"]*)"$/, function (ordinal, callback) {
         // ordinal begins at 1
-       
+
             var index = parseInt(ordinal) - 1;
             browser.executeScript('window.scrollTo(0,5000)').then(function () {
                 patientPage.variantConfirmButtonCLickList.get(index).click().then(function () {
                     browser.waitForAngular();
                 })
             }).then(callback);
-        
+
     });
 
     this.When(/^I note the ID of the variant at ordinal "([^"]*)"$/, function (ordinal, callback) {
