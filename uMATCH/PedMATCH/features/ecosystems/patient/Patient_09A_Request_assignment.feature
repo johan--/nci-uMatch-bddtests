@@ -30,20 +30,20 @@ Feature: Patients request assignment tests
     Then patient status should change to "<next_status>"
     Examples:
       | patient_id                  | step_number | next_step_number | message | http_code | next_status                     |
-#      | PT_RA02_PendingConfirmation | 1.0         | 1.0              |         | 403       | PENDING_CONFIRMATION            |
-#      | PT_RA02_PendingApproval     | 1.0         | 1.0              |         | 202       | PENDING_CONFIRMATION            |
-#      | PT_RA02_OnTreatmentArm      | 1.1         | 2.0              |         | 202       | PENDING_CONFIRMATION            |
+      | PT_RA02_PendingConfirmation | 1.0         | 1.0              |         | 403       | PENDING_CONFIRMATION            |
+      | PT_RA02_PendingApproval     | 1.0         | 1.0              |         | 202       | PENDING_CONFIRMATION            |
+      | PT_RA02_OnTreatmentArm      | 1.1         | 2.0              |         | 202       | PENDING_CONFIRMATION            |
       | PT_RA02_RequestNoAssignment | 1.1         | 1.1              |         | 202       | PENDING_CONFIRMATION            |
-#      | PT_RA02_Registered          | 1.0         | 1.0              |         | 403       | REGISTRATION                    |
-#      | PT_RA02_TsReceived          | 1.0         | 1.0              |         | 403       | TISSUE_SPECIMEN_RECEIVED        |
-#      | PT_RA02_TsShipped           | 2.0         | 2.0              |         | 403       | TISSUE_NUCLEIC_ACID_SHIPPED     |
-#      | PT_RA02_slideShipped        | 2.0         | 2.0              |         | 403       | TISSUE_SLIDE_SPECIMEN_SHIPPED   |
-#      | PT_RA02_AssayReceived       | 1.0         | 1.0              |         | 403       | ASSAY_RESULTS_RECEIVED          |
-#      | PT_RA02_TsVrReceived        | 2.0         | 2.0              |         | 403       | TISSUE_VARIANT_REPORT_RECEIVED  |
-#      | PT_RA02_TsVrConfirmed       | 1.0         | 1.0              |         | 403       | TISSUE_VARIANT_REPORT_CONFIRMED |
-#      | PT_RA02_TsVrRejected        | 1.0         | 1.0              |         | 403       | TISSUE_VARIANT_REPORT_REJECTED  |
-#      | PT_RA02_NoTaAvailable       | 1.0         | 1.0              |         | 202       | PENDING_CONFIRMATION            |
-#      | PT_RA02_CompassionateCare   | 1.0         | 1.0              |         | 202       | PENDING_CONFIRMATION            |
+      | PT_RA02_Registered          | 1.0         | 1.0              |         | 403       | REGISTRATION                    |
+      | PT_RA02_TsReceived          | 1.0         | 1.0              |         | 403       | TISSUE_SPECIMEN_RECEIVED        |
+      | PT_RA02_TsShipped           | 2.0         | 2.0              |         | 403       | TISSUE_NUCLEIC_ACID_SHIPPED     |
+      | PT_RA02_slideShipped        | 2.0         | 2.0              |         | 403       | TISSUE_SLIDE_SPECIMEN_SHIPPED   |
+      | PT_RA02_AssayReceived       | 1.0         | 1.0              |         | 403       | ASSAY_RESULTS_RECEIVED          |
+      | PT_RA02_TsVrReceived        | 2.0         | 2.0              |         | 403       | TISSUE_VARIANT_REPORT_RECEIVED  |
+      | PT_RA02_TsVrConfirmed       | 1.0         | 1.0              |         | 403       | TISSUE_VARIANT_REPORT_CONFIRMED |
+      | PT_RA02_TsVrRejected        | 1.0         | 1.0              |         | 403       | TISSUE_VARIANT_REPORT_REJECTED  |
+      | PT_RA02_NoTaAvailable       | 1.0         | 1.0              |         | 202       | PENDING_CONFIRMATION            |
+      | PT_RA02_CompassionateCare   | 1.0         | 1.0              |         | 202       | PENDING_CONFIRMATION            |
 #   for the case: OFF_STUDY and OFF_STUDY_BIOPSY_EXPIRED, please check test PT_OS04
 #    for the case: current status REQUEST_ASSIGNMENT then receive request assignment(rebiopsy=N), please check test PT_RA02a
 #      | PT_RA02_RequestAssignment   | 1.0                 | 1.0              |         | Failure     | REQUEST_ASSIGNMENT              |
