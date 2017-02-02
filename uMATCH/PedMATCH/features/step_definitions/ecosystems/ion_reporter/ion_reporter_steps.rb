@@ -315,6 +315,22 @@ When(/^GET from sample_controls service, response includes "([^"]*)" with code "
   @returned_sample_control = response['message_json']
 end
 
+Then(/^if sample_control list returned, it should have editable: "([^"]*)"$/) do |editable|
+  field = 'editable'
+  if @returned_aliquot_result.is_a?(Hash) && @returned_aliquot_result.keys.include?('molecular_id_type')
+    expect(@returned_aliquot_result.keys).to include field
+    expect(contains[0][field]).to eql editable
+  end
+end
+
+Then(/^if aliquot returned, it should have editable: "([^"]*)"$/) do |editable|
+  if @returned_sample_control.is_a?(Array)
+    contains = @returned_sample_control.select{|h| h.keys.include?('editable')}
+    raise "returned sample control list doesn't have 'editable' field" if contains.size<1
+    expect(contains[0]['editable']).to eql editable
+  end
+end
+
 Then(/^field: "([^"]*)" for generated sample_control should be: "([^"]*)"$/) do |field, value|
   converted_value = value=='null' ? nil : value
   url = prepare_sample_controls_url

@@ -112,12 +112,12 @@ Feature: ir ecosystem authorization tests
       | NCI_MATCH_READONLY            |                        | 401      |                        | 401        |
       | NO_ROLE                       |                        | 401      |                        | 401        |
       | ADMIN                         | sample control created | 200      | sample control created | 200        |
-      | SYSTEM                        | sample control created | 200      | sample control created | 200        |
+      | SYSTEM                        |                        | 401      |                        | 401        |
       | ASSIGNMENT_REPORT_REVIEWER    |                        | 401      |                        | 401        |
       | MDA_VARIANT_REPORT_SENDER     | sample control created | 200      |                        | 401        |
-      | MDA_VARIANT_REPORT_REVIEWER   | sample control created | 200      |                        | 401        |
+      | MDA_VARIANT_REPORT_REVIEWER   |                        | 401      |                        | 401        |
       | MOCHA_VARIANT_REPORT_SENDER   |                        | 401      | sample control created | 200        |
-      | MOCHA_VARIANT_REPORT_REVIEWER |                        | 401      | sample control created | 200        |
+      | MOCHA_VARIANT_REPORT_REVIEWER |                        | 401      |                        | 401        |
       | PATIENT_MESSAGE_SENDER        |                        | 401      |                        | 401        |
       | SPECIMEN_MESSAGE_SENDER       |                        | 401      |                        | 401        |
       | ASSAY_MESSAGE_SENDER          |                        | 401      |                        | 401        |
@@ -125,23 +125,31 @@ Feature: ir ecosystem authorization tests
   @ion_reporter_p2
   Scenario Outline: ION_AU06 role base authorization works properly to list sample_control
     Given molecular id is ""
+    And add field: "site" value: "mda" to url
     And ir user authorization role is "<auth_role>"
     When GET from sample_controls service, response includes "<message>" with code "<code>"
+    Then if sample_control list returned, it should have editable: "<mda_editable>"
+    Then molecular id is ""
+    And add field: "site" value: "mocha" to url
+    And ir user authorization role is "<auth_role>"
+    When GET from sample_controls service, response includes "<message>" with code "<code>"
+    Then if sample_control list returned, it should have editable: "<mocha_editable>"
     Examples:
-      | auth_role                     | message      | code |
-      | NO_TOKEN                      |              | 401  |
-      | NCI_MATCH_READONLY            |              | 200  |
-      | NO_ROLE                       |              | 401  |
-      | ADMIN                         | control_type | 200  |
-      | SYSTEM                        | control_type | 200  |
-      | ASSIGNMENT_REPORT_REVIEWER    | control_type | 200  |
-      | MDA_VARIANT_REPORT_SENDER     | control_type | 200  |
-      | MDA_VARIANT_REPORT_REVIEWER   | control_type | 200  |
-      | MOCHA_VARIANT_REPORT_SENDER   | control_type | 200  |
-      | MOCHA_VARIANT_REPORT_REVIEWER | control_type | 200  |
-      | PATIENT_MESSAGE_SENDER        | control_type | 200  |
-      | SPECIMEN_MESSAGE_SENDER       | control_type | 200  |
-      | ASSAY_MESSAGE_SENDER          | control_type | 200  |
+      | auth_role                     | message      | code | mda_editable | mocha_editable |
+      | NO_TOKEN                      |              | 401  |              |                |
+      | NCI_MATCH_READONLY            | control_type | 200  | false        | false          |
+      | NO_ROLE                       |              | 401  |              |                |
+      | ADMIN                         | control_type | 200  | true         | true           |
+      | SYSTEM                        | control_type | 200  | false        | false          |
+      | ASSIGNMENT_REPORT_REVIEWER    | control_type | 200  | false        | false          |
+      | MDA_VARIANT_REPORT_SENDER     | control_type | 200  | true         | false          |
+      | MDA_VARIANT_REPORT_REVIEWER   | control_type | 200  | false        | false          |
+      | MOCHA_VARIANT_REPORT_SENDER   | control_type | 200  | false        | true           |
+      | MOCHA_VARIANT_REPORT_REVIEWER | control_type | 200  | false        | false          |
+      | PATIENT_MESSAGE_SENDER        | control_type | 200  | false        | false          |
+      | SPECIMEN_MESSAGE_SENDER       | control_type | 200  | false        | false          |
+      | ASSAY_MESSAGE_SENDER          | control_type | 200  | false        | false          |
+
 
   @ion_reporter_p1
   Scenario Outline: ION_AU07 role base authorization works properly to update sample_control
@@ -160,7 +168,7 @@ Feature: ir ecosystem authorization tests
       | NCI_MATCH_READONLY            |             | 401      |               | 401        |
       | NO_ROLE                       |             | 401      |               | 401        |
       | ADMIN                         | updated     | 200      | updated       | 200        |
-      | SYSTEM                        | updated     | 200      | updated       | 200        |
+      | SYSTEM                        |             | 401      |               | 401        |
       | ASSIGNMENT_REPORT_REVIEWER    |             | 401      |               | 401        |
       | MDA_VARIANT_REPORT_SENDER     | updated     | 200      |               | 401        |
       | MDA_VARIANT_REPORT_REVIEWER   | updated     | 200      |               | 401        |
@@ -198,21 +206,27 @@ Feature: ir ecosystem authorization tests
     Given molecular id is "SC_3KSN8"
     And ir user authorization role is "<auth_role>"
     When GET from aliquot service, response "<message>" with code "<code>"
+    Then if aliquot returned, it should have editable: "<mda_editable>"
+    Then molecular id is "SC_SA1CB"
+    And ir user authorization role is "<auth_role>"
+    When GET from aliquot service, response "<message>" with code "<code>"
+    Then if aliquot returned, it should have editable: "<mocha_editable>"
+
     Examples:
-      | auth_role                     | message      | code |
-      | NO_TOKEN                      |              | 401  |
-      | NCI_MATCH_READONLY            |              | 200  |
-      | NO_ROLE                       |              | 401  |
-      | ADMIN                         | control_type | 200  |
-      | SYSTEM                        | control_type | 200  |
-      | ASSIGNMENT_REPORT_REVIEWER    | control_type | 200  |
-      | MDA_VARIANT_REPORT_SENDER     | control_type | 200  |
-      | MDA_VARIANT_REPORT_REVIEWER   | control_type | 200  |
-      | MOCHA_VARIANT_REPORT_SENDER   | control_type | 200  |
-      | MOCHA_VARIANT_REPORT_REVIEWER | control_type | 200  |
-      | PATIENT_MESSAGE_SENDER        | control_type | 200  |
-      | SPECIMEN_MESSAGE_SENDER       | control_type | 200  |
-      | ASSAY_MESSAGE_SENDER          | control_type | 200  |
+      | auth_role                     | message      | code | mda_editable | mocha_editable |
+      | NO_TOKEN                      |              | 401  |              |                |
+      | NCI_MATCH_READONLY            | control_type | 200  | false        | false          |
+      | NO_ROLE                       |              | 401  |              |                |
+      | ADMIN                         | control_type | 200  | true         | true           |
+      | SYSTEM                        | control_type | 200  | false        | false          |
+      | ASSIGNMENT_REPORT_REVIEWER    | control_type | 200  | false        | false          |
+      | MDA_VARIANT_REPORT_SENDER     | control_type | 200  | false        | false          |
+      | MDA_VARIANT_REPORT_REVIEWER   | control_type | 200  | true         | false          |
+      | MOCHA_VARIANT_REPORT_SENDER   | control_type | 200  | false        | false          |
+      | MOCHA_VARIANT_REPORT_REVIEWER | control_type | 200  | false        | true           |
+      | PATIENT_MESSAGE_SENDER        | control_type | 200  | false        | false          |
+      | SPECIMEN_MESSAGE_SENDER       | control_type | 200  | false        | false          |
+      | ASSAY_MESSAGE_SENDER          | control_type | 200  | false        | false          |
 
   @ion_reporter_p1
   Scenario Outline: ION_AU10 role base authorization works properly to update aliquot

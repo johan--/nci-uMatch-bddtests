@@ -119,10 +119,10 @@ Feature: Patient API authorization tests
       | PT_AU04_MdaTsShipped0   | mda        | ASSIGNMENT_REPORT_REVIEWER    |         | 401  |
       | PT_AU04_MochaTsShipped0 | mocha      | MDA_VARIANT_REPORT_SENDER     |         | 401  |
       | PT_AU04_MdaTsShipped2   | mda        | MDA_VARIANT_REPORT_SENDER     | success | 202  |
-      | PT_AU04_MdaTsShipped3   | mda        | MDA_VARIANT_REPORT_REVIEWER   | success | 202  |
+      | PT_AU04_MdaTsShipped3   | mda        | MDA_VARIANT_REPORT_REVIEWER   |         | 401  |
       | PT_AU04_MdaTsShipped0   | mda        | MOCHA_VARIANT_REPORT_SENDER   |         | 401  |
       | PT_AU04_MochaTsShipped2 | mocha      | MOCHA_VARIANT_REPORT_SENDER   | success | 202  |
-      | PT_AU04_MochaTsShipped3 | mocha      | MOCHA_VARIANT_REPORT_REVIEWER | success | 202  |
+      | PT_AU04_MochaTsShipped3 | mocha      | MOCHA_VARIANT_REPORT_REVIEWER |         | 401  |
       | PT_AU04_MdaTsShipped0   | mda        | PATIENT_MESSAGE_SENDER        |         | 401  |
       | PT_AU04_MochaTsShipped0 | mocha      | SPECIMEN_MESSAGE_SENDER       |         | 401  |
       | PT_AU04_MdaTsShipped0   | mda        | ASSAY_MESSAGE_SENDER          |         | 401  |
