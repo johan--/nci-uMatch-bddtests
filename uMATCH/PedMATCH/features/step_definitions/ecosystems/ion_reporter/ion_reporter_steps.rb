@@ -538,6 +538,7 @@ Then(/^call aliquot GET service, field: "([^"]*)" for this sample_control should
   converted_value = value=='null' ? nil : value
   url = prepare_aliquot_url
   sample_control = Helper_Methods.simple_get_request(url)['message_json']
+  puts url
   if sample_control.is_a?(Array)
     sample_control = sample_control[0]
   end

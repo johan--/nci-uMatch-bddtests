@@ -59,14 +59,12 @@ Feature: Tests for ion_reporters service in ion ecosystem
   Scenario: ION_IR20. ion_reporter can be updated successfully
     Given ion_reporter_id is "IR_CFUER"
     Then add field: "site" value: "mda" to message body
-    Then add field: "last_contact" value: "2017-02-02 09:08:23.446499" to message body
     Then add field: "internal_ip_address" value: "172.20.174.24" to message body
     Then add field: "host_name" value: "MDACC-MATCH-IR" to message body
     Then add field: "data_files" value: "Log File" to message body
     Then add field: "ip_address" value: "132.183.13.75" to message body
     When PUT to ion_reporters service, response includes "updated" with code "200"
     Then wait up to 15 seconds until this ion_reporter get updated
-    Then field: "last_contact" for this ion_reporter should be: "2017-02-02 09:08:23.446499"
     Then field: "internal_ip_address" for this ion_reporter should be: "172.20.174.24"
     Then field: "host_name" for this ion_reporter should be: "MDACC-MATCH-IR"
     Then field: "data_files" for this ion_reporter should be: "Log File"
