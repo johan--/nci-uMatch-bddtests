@@ -276,8 +276,8 @@ Feature: NCH specimen received messages
     Then set patient message field: "collection_dt" to value: "today"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "TISSUE_SPECIMEN_RECEIVED"
-    Then patient should have specimen (field: "surgical_event_id" is "PT_SR02_Registered_SEI1")
+    Then patient should have specimen (field: "surgical_event_id" is "PT_SR17_Registered_SEI1")
     Then set patient message field: "surgical_event_id" to value: "PT_SR17_Registered_SEI2 "
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then wait until patient specimen is updated
-    Then patient should have specimen (field: "surgical_event_id" is "PT_SR02_Registered_SEI2")
+    Then patient should have specimen (field: "surgical_event_id" is "PT_SR17_Registered_SEI2")

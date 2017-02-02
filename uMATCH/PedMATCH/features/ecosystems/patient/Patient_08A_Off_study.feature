@@ -87,7 +87,7 @@ Feature: Patients off study tests
 #    patient: "PT_OS02a_OffStudy1" tissue shipped before OFF_STUDY
 #    patient: "PT_OS02a_OffStudy2" tissue shipped before OFF_STUDY_BIOPSY_EXPIRED
     Given patient id is "<patient_id>"
-    And patient API user authorization role is "MDA_VARIANT_REPORT_REVIEWER"
+    And patient API user authorization role is "MDA_VARIANT_REPORT_SENDER"
     Then load template variant file uploaded message for molecular id: "<patient_id>_MOI1"
     Then set patient message field: "analysis_id" to value: "<patient_id>_ANI1"
     Then files for molecular_id "<patient_id>_MOI1" and analysis_id "<patient_id>_ANI1" are in S3

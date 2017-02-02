@@ -19,7 +19,7 @@ Feature: Variant files confirmed messages
     Given patient id is "PT_VC01_VRUploaded"
     And variant uuid is "<uuid>"
     And load template variant confirm message for this patient
-    When PUT to MATCH variant "unchecked" service for this uuid, response includes "<message>" with code "403"
+    When PUT to MATCH variant "unchecked" service for this uuid, response includes "<message>" with code "404"
     Examples:
       | uuid              | message   |
   #    |                                 |can't be blank        |
