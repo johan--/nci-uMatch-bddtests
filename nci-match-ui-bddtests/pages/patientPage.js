@@ -85,7 +85,7 @@ var PatientPage = function () {
     this.selectSiteAndIRID = element(by.cssContainingText('button#single-button', 'Select Site and Ion Reporter ID'))
     this.upldDialogAnalysisId = element(by.model('analysisId'));
     this.upldDialogSelectZipButton = element(by.css('label[ng-class="getFileButtonClass(\'vcfFile\')"]'));
-    this.upldZipFileElement = element(by.css('input#vcfFile[type="file"]'));
+    this.upldZipFileElement = element(by.css('input#vcfFile'));
     this.upldDialogSelectDNAButton = element(by.css('label[ng-class="getFileButtonClass(\'dnaFile\')"]'));
     this.upldDNAFileElement = element(by.css('input#dnaFile[type="file"]'));
     this.upldDialogSelectCDNAButton = element(by.css('label[ng-class="getFileButtonClass(\'rnaFile\')"]'));

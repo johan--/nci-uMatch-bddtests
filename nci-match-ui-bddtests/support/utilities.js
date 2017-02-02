@@ -463,6 +463,20 @@ var Utilities = function() {
       return user_credentials;
     };
 
+    this.setUploadedFile = function (fieldName, fieldValue, getFileNm, errorMessage) {
+       fieldName.sendKeys(fieldValue);
+       if(fieldValue == '[object Object]'){
+           var store = fieldName.getAttribute('value');
+           getFileNm.then(function(value){
+               console.log(errorMessage + ' ' + value + " Value entered");
+               expect(store).to.eventually.equal(value);});
+       }
+       else {
+           console.log(errorMessage + ' ' + fieldValue + " Value entered");
+           expect(fieldName.getAttribute('value')).to.eventually.equal((getFileNm));
+       }
+   };
+
     this.delay = delay;
 };
 

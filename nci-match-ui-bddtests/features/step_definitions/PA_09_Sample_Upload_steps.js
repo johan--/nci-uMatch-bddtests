@@ -43,29 +43,29 @@ module.exports = function() {
         var position = patientPage.types[fileType]['order'];
         var pathToFile = 'data/' + fileName;
         var absolutePath = path.resolve(pathToFile);
-        console.log(absolutePath);
-        // browser.executeScript("arguments[0].style.visibility = 'visible'; arguments[0].style.height = '1px'; arguments[0].style.width = '1px'; arguments[0].style.opacity = 1", fileElement);
 
-        // firefox fix
+        var callback = function () {
 
-            //make ngfSelectLabel visible
+          fileElement.sendKeys(absolutePath); //assuming you only have 1 input
 
-            //ngf label captured, in reverse order
-            element.all(by.css('label')).count().then(function(cnt){
-                console.log(cnt);
-                element.all(by.css('label')).get(cnt - position).then(function(ngfSelectLabel){
-                    ngfSelectLabel.style.visibility = 'visible';
-                    ngfSelectLabel.style.position = 'absolute';
-                    ngfSelectLabel.style.top = '0'; //maybe needs adjustment, depending on where on the page you are
-                    ngfSelectLabel.style.width = '100px';
-                    ngfSelectLabel.style.height = '100px';
-                    ngfSelectLabel.style.background = 'white';
-                    ngfSelectLabel.style.zIndex = '10000';
-                })
-            }).then(function(){
-                fileElement.sendKeys(absolutePath);
-            }).then(callback);
+        };
 
+        browser.executeAsyncScript(function(callback){
+            var labelList = element.all(by.css('label'));
+            var ngfSelectLabel = labelList.get(2);
+            ngfSelectLabel.style.visibility = 'visible';
+            ngfSelectLabel.style.position = 'absolute';
+            ngfSelectLabel.style.top = '0'; //maybe needs adjustment, depending on where on the page you are
+            ngfSelectLabel.style.width = '100px';
+            ngfSelectLabel.style.height = '100px';
+            ngfSelectLabel.style.background = 'white';
+            ngfSelectLabel.style.zIndex = '10000'; //to account for any blocking modal / popup screens
+
+          callback();
+
+        }).then(function() {
+            callback();
+        }).then(callback);
     });
 
     this.Then(/^I can click on the "([^"]*)" button$/, function(arg1, callback) {
