@@ -1554,5 +1554,45 @@
         "target": "AKT"
       }
     ]
+  },
+  {
+    "study_id": "APEC1621",
+    "treatment_arm_id": "TA_CF4",
+    "stratum_id": "1",
+    "version": "2016-05-28",
+    "gene": "ALK",
+    "description": "Afatinib",
+    "name": "Afatinib",
+    "target_id": 1234,
+    "target_name": "HGFR Pathway",
+    "date_created": "2016-11-08 15:57:25 UTC",
+    "treatment_arm_drugs": [
+      {
+        "drugClass": "angiokinase inhibitor",
+        "description": "Afatinib",
+        "name": "Afatinib",
+        "drugId": "1"
+      }
+    ],
+    "gene_fusions": [],
+    "non_hotspot_rules": [],
+    "snv_indels": [
+      {
+        "variant_type": "snp",
+        "gene": "ALK",
+        "identifier": "COSM1686998",
+        "chromosome": "1.0",
+        "position": "11184573",
+        "level_of_evidence": 2.0,
+        "ocp_reference": "G",
+        "ocp_alternative": "A",
+        "inclusion": true,
+        "public_med_ids": [
+          "23724913"
+        ],
+        "protein": "p.L858R"
+      }
+    ],
+    "copy_number_variants": []
   }
 ]

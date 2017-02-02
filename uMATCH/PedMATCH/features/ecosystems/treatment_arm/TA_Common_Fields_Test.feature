@@ -41,14 +41,15 @@ Feature: TA_CF. Treatment Arm API common tests for all fields
     Given that treatment arm is received from COG:
 	"""
 	{"study_id":"APEC1621",
-	"treatment_arm_id":"TA_test1",
+	"treatment_arm_id":"TA_CF4",
 	"stratum_id":"1",
-	"version":"2016-05-28",
+	"version":"2017-01-28",
 	"gene":"ALK",
 	"description":"Afatinib",
 	"name":"Afatinib",
 	"target_id":1234,
 	"target_name":"HGFR Pathway",
+    "date_created": "2017-01-28 15:57:25 UTC",
 	"treatment_arm_drugs":[{"drugClass":"angiokinase inhibitor","description":"Afatinib","name":"Afatinib","drugId":"1"}],
 	"gene_fusions":[],
 	"non_hotspot_rules":[],
@@ -72,8 +73,13 @@ Feature: TA_CF. Treatment Arm API common tests for all fields
 	"""
     When creating a new treatment arm using post request
     Then a message with Status "SUCCESS" and message "Save to datastore." is returned:
+    Then wait for processor to complete request in "10" attempts
+    Then retrieve treatment arms with id: "TA_CF4" and stratum_id: "1" from API
+    Then the first returned treatment arm has value: "TA_CF4" in field: "treatment_arm_id"
+    Then the first returned treatment arm has value: "1" in field: "stratum_id"
+    Then the first returned treatment arm has value: "2017-01-28" in field: "version"
 
-@invalid
+  @invalid
   Scenario: TA_CF5. Return failure message when treatment arm version is missing or empty
     Given that treatment arm is received from COG:
 	"""
@@ -184,10 +190,10 @@ Feature: TA_CF. Treatment Arm API common tests for all fields
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has value: "<returned_value>" in field: "<field>"
     Examples:
-      | treatment_arm_id     | field       | value   | returned_value |
-      | APEC1621-CF1-1       | target_id   |         |                |
-      | APEC1621-CF1-2       | gene        | null    |                |
-      | APEC1621-CF1-3       | target_name | (&^$@HK | (&^$@HK        |
+      | treatment_arm_id | field       | value   | returned_value |
+      | APEC1621-CF1-1   | target_id   |         |                |
+      | APEC1621-CF1-2   | gene        | null    |                |
+      | APEC1621-CF1-3   | target_name | (&^$@HK | (&^$@HK        |
 
   @treatment_arm_p3
   Scenario Outline: TA_CF8. New Treatment Arm without unrequired field should set the value of this field to empty
@@ -199,8 +205,8 @@ Feature: TA_CF. Treatment Arm API common tests for all fields
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has value: "" in field: "<field>"
     Examples:
-      |treatment_arm_id     |field                |
-      |APEC1621-CF2-1       |target_name          |
+      | treatment_arm_id | field       |
+      | APEC1621-CF2-1   | target_name |
 
   @treatment_arm_p3
   Scenario Outline: TA_CF9. New Treatment Arm with unrequired field which has improper data type values should fail
@@ -209,9 +215,9 @@ Feature: TA_CF. Treatment Arm API common tests for all fields
     When creating a new treatment arm using post request
     Then a failure message is returned which contains: "<validation_message>"
     Examples:
-    | field      | value  | type  | validation_message |
-    | gene       | 419    | int   | Fixnum did not match one or more of the required schemas     |
-    | target_id  | false  | bool  | FalseClass did not match one or more of the required schemas |
+      | field     | value | type | validation_message                                           |
+      | gene      | 419   | int  | Fixnum did not match one or more of the required schemas     |
+      | target_id | false | bool | FalseClass did not match one or more of the required schemas |
 
     #this is not required anymore, the date_created value now is provided by the spreadsheet
 #  @treatment_arm_p2
@@ -233,14 +239,14 @@ Feature: TA_CF. Treatment Arm API common tests for all fields
     Then retrieve the posted treatment arm from API
     Then the returned treatment arm has "<dataType>" value: "<fieldValue>" in field: "<field_name>"
     Examples:
-      |treatment_arm_id | field_name            | fieldValue                                | dataType |
-      |APEC1621-CF7-1   | description           | This is a test that verify output values  | string   |
-      |APEC1621-CF7-2   | target_id             | 3453546232                                | string   |
-      |APEC1621-CF7-3   | target_id             | Trametinib in GNAQ or GNA11 mutation      | string   |
-      |APEC1621-CF7-4   | target_name           | Trametinib                                | string   |
-      |APEC1621-CF7-5   | gene                  | GNA                                       | string   |
-      |APEC1621-CF7-7   | study_id              | APEC1621                                  | string   |
-      |APEC1621-CF7-8   | stratum_id            | kjg13gas                                  | string   |
+      | treatment_arm_id | field_name  | fieldValue                               | dataType |
+      | APEC1621-CF7-1   | description | This is a test that verify output values | string   |
+      | APEC1621-CF7-2   | target_id   | 3453546232                               | string   |
+      | APEC1621-CF7-3   | target_id   | Trametinib in GNAQ or GNA11 mutation     | string   |
+      | APEC1621-CF7-4   | target_name | Trametinib                               | string   |
+      | APEC1621-CF7-5   | gene        | GNA                                      | string   |
+      | APEC1621-CF7-7   | study_id    | APEC1621                                 | string   |
+      | APEC1621-CF7-8   | stratum_id  | kjg13gas                                 | string   |
 
 
   @treatment_arm_p2

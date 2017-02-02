@@ -42,6 +42,7 @@ Feature: TA_OS. Treatment Arm API Tests that focus on treatment arm api service 
     Then a success message is returned
     Then wait for processor to complete request in "10" attempts
     Then template treatment arm json with an id: "APEC1621-OS7-1", stratum_id: "STRATUM1" and version: "2016-06-15"
+    Then set template treatment arm json field: "date_created" to string value: "current"
     Then creating a new treatment arm using post request
     Then a success message is returned
     Then wait for processor to complete request in "10" attempts

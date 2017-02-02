@@ -1,5 +1,5 @@
 Feature: CLIA Labs Page
-    @ui_p1
+    @ui_p1 @clia
     Scenario Outline: User can generate an MSN under <sectionName> section for <subTabName>
         Given I'm logged in as a "<userType>" user
         When I navigate to the CLIA Labs page
@@ -15,16 +15,16 @@ Feature: CLIA Labs Page
 
         Examples:
             | userType        | sectionName | subTabName                  |
-            | VR_Reviewer_mocha | MoCha       | Positive Sample Controls    |
-            | VR_Reviewer_mocha | MoCha       | No Template Control         |
-            | VR_Reviewer_mocha | MoCha       | Proficiency And Competency  |
-            | VR_Reviewer_mda   | MD Anderson | Positive Sample Controls    |
-            | VR_Reviewer_mda   | MD Anderson | No Template Control         |
-            | VR_Reviewer_mda   | MD Anderson | Proficiency And Competency  |
+            | VR_Sender_mocha | MoCha       | Positive Sample Controls    |
+            | VR_Sender_mocha | MoCha       | No Template Control         |
+            | VR_Sender_mocha | MoCha       | Proficiency And Competency  |
+            | VR_Sender_mda   | MD Anderson | Positive Sample Controls    |
+            | VR_Sender_mda   | MD Anderson | No Template Control         |
+            | VR_Sender_mda   | MD Anderson | Proficiency And Competency  |
 
     @ui_p1
     Scenario: User can add a variant report to a generated MSN
-        Given I'm logged in as a "VR_Reviewer_mocha" user
+        Given I'm logged in as a "VR_Sender_mocha" user
         When I navigate to the CLIA Labs page
         When I click on the "MoCha" section
         And I click on "Positive Sample Controls" under "MoCha"
@@ -42,7 +42,7 @@ Feature: CLIA Labs Page
 
     @ui_p1
     Scenario: User can access information about the uploaded No Template Control report.
-        Given I'm logged in as a "VR_Reviewer_mocha" user
+        Given I'm logged in as a "VR_Sender_mocha" user
         When I navigate to the CLIA Labs page
         When I click on the "MoCha" section
         And I click on "No Template Control" under "MoCha"
@@ -51,7 +51,7 @@ Feature: CLIA Labs Page
 
     @ui_p1
     Scenario: User can access information about the uploaded Positive Sample Control report.
-        Given I'm logged in as a "VR_Reviewer_mocha" user
+        Given I'm logged in as a "VR_Sender_mocha" user
         When I navigate to the CLIA Labs page
         When I click on the "MoCha" section
         And I click on "Positive Sample Controls" under "MoCha"
@@ -69,7 +69,7 @@ Feature: CLIA Labs Page
 
     @ui_p1 @demo_p4
     Scenario Outline: User can access information about the uploaded <tableType> report.
-        Given I'm logged in as a "VR_Reviewer_mocha" user
+        Given I'm logged in as a "VR_Sender_mocha" user
         When I navigate to the CLIA Labs page
         When I click on the "MoCha" section
         And I click on "<tableType>" under "MoCha"

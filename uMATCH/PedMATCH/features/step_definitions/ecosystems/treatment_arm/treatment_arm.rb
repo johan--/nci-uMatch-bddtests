@@ -496,10 +496,14 @@ end
 
 And(/^set template treatment arm json field: "([^"]*)" to string value: "([^"]*)"$/) do |field, sValue|
   if sValue == 'null'
-    sValue = nil
+    converted_value = nil
+  elsif field.include?('date')
+    converted_value = Helper_Methods.getDateAsRequired(sValue)
+  else
+    converted_value = sValue
   end
   loadTemplateJson()
-  @taReq[field] = sValue
+  @taReq[field] = converted_value
   @jsonString = @taReq.to_json.to_s
 end
 
