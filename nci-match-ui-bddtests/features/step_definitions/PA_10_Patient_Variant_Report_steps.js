@@ -22,7 +22,6 @@ module.exports = function () {
         }).then(callback);
     });
 
-
     this.Then(/^I click on "([^"]*)" column header of the "([^"]*)" table$/, function (column, tableTitle, callback) {
         var table = patientPage.tableByH3Title(tableTitle);
         var headers = table.element(by.tagName('thead')).all(by.tagName("th"));

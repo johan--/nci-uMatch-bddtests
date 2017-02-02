@@ -15,7 +15,7 @@ Feature: Patient Report Tab
     And I can see the "Blood Shipments" table 
     Then I logout
 
-  @ui_p3 @test
+  @ui_p3
   Scenario: Navigating to a specific blood variant report lets user see more details.
     When I click on the "Blood Specimens" tab
     And I scroll to the bottom of the page
