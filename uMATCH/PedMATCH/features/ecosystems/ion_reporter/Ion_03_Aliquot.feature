@@ -259,10 +259,11 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add projection: "<field2>" to url
     Then add projection: "bad_projection" to url
     When GET from aliquot service, response "" with code "200"
-    Then each returned aliquot result should have 3 fields
+    Then each returned aliquot result should have 4 fields
     Then each returned aliquot result should have field "<field1>"
     Then each returned aliquot result should have field "<field2>"
     Then each returned aliquot result should have field "molecular_id_type"
+    Then each returned aliquot result should have field "editable"
     Examples:
       | moi      | field1       | field2       |
       | SC_6Y4FV | control_type | molecular_id |
