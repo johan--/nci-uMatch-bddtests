@@ -55,9 +55,9 @@ var PatientPage = function () {
     // *****************  Surgical Event Tab  ********************//
     // Get all the surgical Event Tabs.
     this.SurgicalEventTabsArray = element.all(by.repeater('specimenEvent in specimenEvents'))
-    this.surgicalEventSectionHeading = element.all(by.css('div[ng-if="surgicalEvent"]>.ibox-title'));
+    this.surgicalEventSectionHeading = element.all(by.css('div[ng-if="specimenEvent"]>.ibox-title'));
     // Get all elements under the Surgical Event Panel
-    this.surgicalEventPanel = element.all(by.css('div[ng-if="currentSurgicalEvent"]'));
+    this.surgicalEventPanel = element.all(by.css('div[ng-if="specimenEvent"]'));
     // This is the drop down button. Clicking this will give you access to the list of options.
     this.surgicalEventDropDownButton = element(by.binding('surgicalEventOption.text'));
     // List of Surgical Events from the drop down
@@ -128,6 +128,8 @@ var PatientPage = function () {
     this.tissueTotalAMoisy         = element(by.binding('currentTissueVariantReport.total_amois'));
     this.tissueTotalConfirmedMois  = element(by.binding('currentTissueVariantReport.total_confirmed_mois'));
     this.tissueTotalConfirmedAMois = element(by.binding('currentTissueVariantReport.total_confirmed_amois'));
+    this.totalAmoiRows             = element.all(by.css('[id="$ctrl.gridId"] tr[ng-repeat="item in filtered"]'));
+
 
     // This is the panel beneath each shipment detailing about the Variant report
     // and Assignment report. One can access variant report and

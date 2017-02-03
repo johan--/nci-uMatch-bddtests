@@ -94,14 +94,12 @@ module.exports = function () {
 
     this.When(/^I uncheck the variant of ordinal "([^"]*)"$/, function (ordinal, callback) {
         // ordinal begins at 1
-
             var index = parseInt(ordinal) - 1;
-            browser.executeScript('window.scrollTo(0,5000)').then(function () {
+            browser.executeScript('window.scrollTo(0,2500)').then(function () {
                 patientPage.variantConfirmButtonCLickList.get(index).click().then(function () {
                     browser.waitForAngular();
                 })
             }).then(callback);
-
     });
 
     this.When(/^I note the ID of the variant at ordinal "([^"]*)"$/, function (ordinal, callback) {
@@ -247,11 +245,11 @@ module.exports = function () {
         var uri = '/#/patient/' + patientId + '/variant_report?analysis_id=' + variantReportId + '&section=assignment';
         patientPage.patientId = patientId;
         patientPage.variantAnalysisId = variantReportId;
-        browser.sleep(500).then(function () {
-            browser.get(uri).then(function () {
-                browser.waitForAngular();
-            });
+
+        browser.get(uri).then(function () {
+            browser.waitForAngular();
         }).then(callback);
+
     });
 
     this.When(/^I get the link to "(.+?)" assignment report$/, function(assignmentId, callback){
@@ -289,10 +287,7 @@ module.exports = function () {
 
     this.Then(/^I can see the variant report page$/, function (callback) {
         var uri = 'patient/' + patientPage.patientId + '/variant_report?analysis_id=' + patientPage.variantAnalysisId;
-
-        browser.executeScript('window.scrollTo(0,5000)').then(function () {
-            expect(browser.getCurrentUrl()).to.eventually.eql(browser.baseUrl + '/#/' + uri).notify(callback);
-        });
+        expect(browser.getCurrentUrl()).to.eventually.eql(browser.baseUrl + '/#/' + uri).notify(callback);
     });
 
     this.Then(/^I can see the assignment report page "([^"]*)"$/, function (assignmentTabTitle, callback) {
@@ -318,7 +313,7 @@ module.exports = function () {
 
     this.Then(/^I see that the Total aMOIs match the number of aMOIs on the page\.$/, function (callback) {
         patientPage.totalAMois.getText().then(function (totalAMOI) {
-            expect(element.all(by.css('div[ng-if="vm.isAmoi"]')).count()).to.eventually.eql(parseInt(totalAMOI));
+            expect(patientPage.totalAmoiRows.count()).to.eventually.eql(parseInt(totalAMOI));
         }).then(callback);
     });
 
@@ -427,7 +422,6 @@ module.exports = function () {
         var patientString = '[patient-id="timelineEvent.entity_id"]';
         var variantReportStatusString = '[ng-if^="timelineEvent.event_data.variant_report_status"]';
         var variantAnalysisIdString = 'span[ng-if^="timelineEvent.event_data.analysis_id"]';
-        browser.ignoreSynchronization = true;
         expect(timeline.all(by.css(patientString)).get(0).getText()).to.eventually.eql(patientPage.patientId);
         expect(timeline.all(by.css(variantReportStatusString)).get(0).getText()).to.eventually.include(message);
         expect(timeline.all(by.css(variantAnalysisIdString)).get(0)

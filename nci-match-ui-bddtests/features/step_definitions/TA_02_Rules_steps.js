@@ -36,7 +36,7 @@ module.exports = function () {
 
         refData = firstTreatmentArm['exclusion_drugs'];
 
-        var testElement = element.all(by.css('#exclusionaryDrugs+table tr[ng-repeat^="item in filtered"]'));
+        var testElement = element.all(by.css('#exclusionaryDrugs>table tr[ng-repeat^="item in filtered"]'));
         expect(testElement.count()).to.eventually.eql(refData.length).then(function () {
             browser.sleep(10);
         }).then(callback);
@@ -93,7 +93,7 @@ module.exports = function () {
         var refData;        // Node to collect data from treatment arm api call.
         var repeaterString; // repeater string used to collect rows from the relevant table
         var expectedArray = [];
-        element.all(by.css('#exclusionaryDiseases+table tr[ng-repeat^="item in filtered"]')).get(0).getText()
+        // element.all(by.css('#exclusionaryDiseases>table tr[ng-repeat^="item in filtered"]')).get(0).getText()
 
         refData = firstTreatmentArm['diseases'];
 
@@ -111,10 +111,8 @@ module.exports = function () {
             }
         }
 
-        expect(element.all(by.css(repeaterString)).count()).to.eventually.eql(exclusion_count).then(function () {
-            browser.sleep(10);
-        }).then(callback);
-
+        expect(element.all(by.css(repeaterString)).count()).
+            to.eventually.eql(exclusion_count).notify(callback);
     });
 
     this.Then(/^I should see that (.+) sub-tab is active$/, function(subTabName, callback){
