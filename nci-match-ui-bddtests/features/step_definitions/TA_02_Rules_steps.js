@@ -98,7 +98,7 @@ module.exports = function () {
         refData = firstTreatmentArm['diseases'];
 
         firstPart = inclusionType === 'Inclusionary' ? 'inclusionary' : 'exclusionary';
-        repeaterString = '#' + firstPart + 'Diseases+table tr[ng-repeat^="item in filtered"]'
+        repeaterString = '#' + firstPart + 'Diseases>table tr[ng-repeat^="item in filtered"]'
 
         exclusion = inclusionType === 'Inclusionary' ? false : true;
 

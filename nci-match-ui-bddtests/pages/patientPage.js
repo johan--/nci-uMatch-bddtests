@@ -80,7 +80,7 @@ var PatientPage = function () {
 
     // *****************  Surgical Event Tabs ********************//
     this.surgicalEventPanels = element.all(by.css('.specimen-event-panel'));
-    this.surgicalEventId  = element(by.binding('surgicalEvent.surgical_event_id'));
+    this.surgicalEventId  = element(by.binding('specimenEvent.surgical_event_id'));
     this.uploadNewSampleFile = element(by.css('a[ng-click="uploadSampleFile(shipment)"]'));
     this.selectSiteAndIRID = element(by.cssContainingText('button#single-button', 'Select Site and Ion Reporter ID'))
     this.upldDialogAnalysisId = element(by.model('analysisId'));
