@@ -18,10 +18,12 @@ module.exports = function () {
     var shippingJSONResponse;
     var expectedResponse;
     var actualSelectedArray;
+    var patientId;
+    var surgicalEventId;
 
     this.When (/^I collect information about shipment$/, function (callback) {
         utilities.getRequestWithService('patient', '/api/v1/patients/shipments').then(function (responseBody) {
-            shippingJSONResponse = responseBody;
+            shippingJSONResponse = responseBody
         }).then (callback);
     });
 
@@ -49,7 +51,8 @@ module.exports = function () {
         }).then (callback);
     });
 
-    this.When(/^I enter "(.+?)" in the search field for tracking table$/, function (searchString, callback) {
+    this.When(/^I enter "(.+?)" as Patient Id in the search field for tracking table$/, function (searchString, callback) {
+        patientId = searchString;
         STPage.searchField.sendKeys(searchString).then(function () {
             browser.sleep(500)
         }).then(callback);
@@ -159,6 +162,25 @@ module.exports = function () {
     this.Then(/^I expect to see "(.+?)" rows in the tracking table$/, function (count, callback) {
         expect(STPage.tableElementList.count()).to.eventually.eql(parseInt(count)).notify(callback);
     });
+
+    this.When(/^I click on the surgical event in the row "([^"]*)"$/, function (rowNum, callback) {
+        STPage.searchResultsSurgicalEventList.get(rowNum - 1).click().then(function(){
+            browser.waitForAngular();
+        }).then(callback)
+    });
+
+    this.Then(/^I verify that I am taken directly to "([^"]*)" page$/, function (arg1, callback) {
+        surgicalEventId = arg1;
+        var expectedString = 'patient_id=' + patientId + '&section=surgical_event&surgical_event_id=' + surgicalEventId;
+        expect(browser.getCurrentUrl()).to.eventually.include(expectedString).notify(callback);
+    });
+
+    this.Then(/^I verify that surgical event tab is active$/, function(callback){
+        var subTabName = "Surgical Event " + surgicalEventId;
+        var subTab = element(by.css('li[heading="' + subTabName + '"]'));
+        utilities.checkElementIncludesAttribute(subTab, 'class', 'active');
+        browser.sleep(50).then(callback);
+    })
 
     this.Then(/^I expect to see "(.+?)" rows with patient id of "(.+?)" for the specimens$/, function (cont, patientId, callback) {
         STPage.tableElementList.all(by.binding('item.patient_id')).filter(function (elem, index) {

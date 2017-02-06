@@ -17,11 +17,13 @@ Feature: Specimen Tracking page
     Then the "Slide Shipments" tab becomes active
     Then I logout
 
-  @ui_p2
-  Scenario: Specimens assigned to a patient that is not rejected shows up on the tracking table
-    When I enter "PT_CR05_SpecimenShippedTwice" in the search field for tracking table
-    And I collect information about shipment
-    Then I expect to see "1" rows in the tracking table
+  @ui_p2 @fling
+  Scenario: Specimens assigned to a patient show up on the tracking table
+    When I enter "PT_CR05_SpecimenShippedTwice" as Patient Id in the search field for tracking table
+    And I click on the surgical event in the row "1"
+    Then I verify that I am taken directly to "PT_CR05_SpecimenShippedTwice_SEI1" page
+    And I verify that surgical event tab is active
+    Then I expect to see "2" rows in the tracking table
     Then I logout
       
   Scenario: User can track Specimens

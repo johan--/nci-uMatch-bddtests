@@ -13,7 +13,8 @@ var STPage = function () {
                                      'Collected Date', 'Received Date', 'Type', 'Shipped Date', 'Site',
                                      'Fedex Tracking', 'Pathology Status', 'Pathology Status Date' ]
     this.searchField = element(by.css('input[grid-id="specimenData"]'));
-    this.tableElementList = element.all(by.css('#specimenShipments [ng-repeat^="item in filtered"]'));
+    this.searchResultsSurgicalEventList = element.all(by.binding('item.surgical_event_id | dashify'));
+    this.tableElementList = element.all(by.css('[ng-repeat-start="shipment in specimenEvent.specimen_shipments"]'));
 
     this.topLevelTabsList  = [ 'Specimens', 'CLIA Lab Shipments', 'Slide Shipments' ];
     this.topLvlTabElemList = element.all(by.css('ul.nav-tabs>li'));

@@ -30,7 +30,7 @@ Feature: MATCHKB-352. Users are given authorization based on their roles.
       | read_only         |
       | VR_Reviewer_mocha |
       | AR_Reviewer       |
-      
+
  Scenario: As a variant_report reviewer from MDA lab I can edit variant comments
     Given I'm logged in as a "VR_Reviewer_mda" user
     When I go to the patient "UI_PA08_MdaTsVrUploaded" with variant report "UI_PA08_MdaTsVrUploaded_ANI1"
