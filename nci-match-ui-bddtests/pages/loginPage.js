@@ -12,6 +12,8 @@ var LoginPage = function() {
     var pass = element(by.id('a0-signin_easy_password'));
     var loginbtn = element(by.buttonText('Access'));
     var accessBtn = element(by.css('div[ng-controller="AuthController"]')).element(by.css('button[ng-click="login()"]'));
+    var previousUser = element(by.css('.a0-zocial.a0-block.a0-guest'));
+    var notYourAccount = element(by.css('.a0-centered.a0-all'))
     var oldUserLink = element(by.xpath(".//*[@id='a0-onestep']/div[2]/div/form/div[1]/a"));
     var dashboardLink = element(by.linkText('Dashboard'));
     var loginPopupPanel = element(by.css('.a0-onestep'));
@@ -54,15 +56,28 @@ var LoginPage = function() {
 
     function clickAccessAndLogin(username, password) {
         return accessBtn.click().then(function(){
-            browser.isElementPresent(previousAccountUsed).then(function(previousltLoggedIn){   
-                if (previousltLoggedIn === true) {
-                    element(by.linkText('Not your account?')).click().then(function(){
+            browser.sleep(1000).then(function(){
+                browser.isElementPresent(previousAccountUsed).then(function(previouslyLoggedIn){   
+                    if (previouslyLoggedIn === true) {
+                        //if the previous user is same as current user click sign in
+                        previousAccountUsed.getText().then(function(previousUserId){
+                            if (previousUserId === username){
+                                previousAccountUsed.click().then(function(){
+                                    return;
+                                });
+                            } else{
+                                browser.sleep(500).then(function(){
+                                    notYourAccount.click().then(function(){
+                                    enterDetails(username, password);
+                                    });
+                                });
+                            }
+                        });
+                    } else {
                         enterDetails(username, password);
-                    });
-                } else {
-                    enterDetails(username, password);
-                }
-            })
+                    }
+                })    
+            }) 
         })
     }
 

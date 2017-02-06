@@ -105,7 +105,7 @@ module.exports = function() {
     });
 
     this.When(/^I click on Generate MSN button$/, function (callback) {
-        var generateMSNProperty = element(by.css('form[ng-submit="generateMsn(\'' + cliaPage.controlType + '\')"]>input'));
+        var generateMSNProperty = element(by.css('button[ng-click="$ctrl.generateMsnRow(\'' + cliaPage.controlType + '\')"]'));
         utilities.waitForElement(generateMSNProperty, 'Generate MSN button');
         generateMSNProperty.click().then(function () {
             browser.waitForAngular();
