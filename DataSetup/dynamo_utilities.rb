@@ -34,7 +34,9 @@ class DynamoUtilities
     table_keys_should_match(table_name, table_keys)
 
     start_stamp = Time.now
-    all_items = @aws_db.scan(table_name: table_name, attributes_to_get: table_keys)['items']
+    # scan_result = @aws_db.scan(table_name: table_name, attributes_to_get: table_keys)
+    # all_items = scan_result.items
+    all_items = scan_all(table_name, table_keys) #scan_result.items
     if all_items.nil? || all_items.size<1
       LOG.log("Table '#{table_name.upcase}' is empty skipping...")
     else
@@ -174,6 +176,20 @@ class DynamoUtilities
       LOG.log("The keys in the the table #{table_name} have changed.", :warn)
       exit
     end
+  end
+
+  def self.scan_all(table_name, attribute_to_get, start_key={})
+    return {} if start_key.nil?
+    if start_key.size > 0
+      scan_result = @aws_db.scan(table_name: table_name,
+                                 attributes_to_get: attribute_to_get,
+                                 exclusive_start_key:start_key)
+    else
+      scan_result = @aws_db.scan(table_name: table_name,
+                                 attributes_to_get: attribute_to_get)
+    end
+    items = scan_result.items
+    items.push(*scan_all(table_name, attribute_to_get, scan_result.last_evaluated_key))
   end
 end
 

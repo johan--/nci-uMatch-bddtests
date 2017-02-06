@@ -55,6 +55,22 @@ class TableDetails
       keys: %w(molecular_id)
   }
 
+  def self.primary_key(table)
+    raise "#{table} is not a valid Ped-Match table" unless all_tables.include?(table)
+    const_get(table.upcase)[:keys][0]
+  end
+
+  def self.sorting_key(table)
+    raise "#{table} is not a valid Ped-Match table" unless all_tables.include?(table)
+    keys = const_get(table.upcase)[:keys]
+    if keys.size>1
+      keys[1]
+    else
+      puts "#{table} doesn't has sorting key, empty string returned"
+      ''
+    end
+  end
+
   def self.treatment_arm_tables
     %w(treatment_arm treatment_arm_assignment_event)
   end

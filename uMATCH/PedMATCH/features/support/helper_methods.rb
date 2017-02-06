@@ -564,8 +564,19 @@ class Helper_Methods
     scan_option['scan_filter'] = filter if filter.length>0
     scan_option['conditional_operator'] = 'AND' if filter.length>1
     scan_option['attributes_to_get'] = columns if columns.length>0
-    table_content = @dynamodb_client.scan(scan_option)
-    table_content.items
+    # table_content = @dynamodb_client.scan(scan_option)
+    # table_content.items
+    dynamodb_scan_all(scan_option)
+  end
+
+  def self.dynamodb_scan_all(opt, start_key={})
+    return {} if start_key.nil?
+    if start_key.size > 0
+      opt['exclusive_start_key'] = start_key
+    end
+    scan_result = @dynamodb_client.scan(opt)
+    items = scan_result.items
+    items.push(*dynamodb_scan_all(opt, scan_result.last_evaluated_key))
   end
 
   def self.dynamodb_table_distinct_column(table, criteria={}, distinct_column)
