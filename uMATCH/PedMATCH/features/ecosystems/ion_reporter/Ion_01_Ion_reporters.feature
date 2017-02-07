@@ -133,7 +133,8 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Then there are|is 1 ion_reporter returned
     When DELETE to ion_reporters service, response includes "Batch deletion request placed" with code "200"
     Then wait for "30" seconds
-    When GET from ion_reporters service, response includes "No records meet the query parameters" with code "404"
+    When GET from ion_reporters service, response includes "" with code "200"
+    Then there are|is 0 ion_reporter returned
 
   @ion_reporter_p2
   Scenario: ION_IR42. ion_reporter service should fail if no ion_reporter_id is passed in, and no ion_reporter is deleted
@@ -197,7 +198,8 @@ Feature: Tests for ion_reporters service in ion ecosystem
   Scenario: ION_IR65. ion_reporter service should return 404 error if query a non-existing ion_reporter_id
     Given ion_reporter_id is ""
     Then add field: "site" value: "non_existing_site" to url
-    When GET from ion_reporters service, response includes "No records meet the query parameters" with code "404"
+    When GET from ion_reporters service, response includes "" with code "200"
+    Then there are|is 0 ion_reporter returned
 
 #  @ion_reporter_p1
 #  Scenario: ION_IR80. ion_reporter service can list all patients on specified ion_reporter

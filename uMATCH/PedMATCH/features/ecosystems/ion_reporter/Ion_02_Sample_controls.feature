@@ -160,7 +160,8 @@ Feature: Tests for sample_controls service in ion ecosystem
     Then there are|is 1 sample_control returned
     When DELETE to sample_controls service, response includes "Batch deletion request placed" with code "200"
     Then wait up to 15 seconds until this sample_control get updated
-    When GET from sample_controls service, response includes "No records meet the query parameters" with code "404"
+    When GET from sample_controls service, response includes "" with code "200"
+    Then there are|is 0 sample_control returned
 
   @ion_reporter_p2
   Scenario: ION_SC42. sample_controls cannot be batch deleted without parameters
@@ -231,7 +232,9 @@ Feature: Tests for sample_controls service in ion ecosystem
   Scenario: ION_SC65. sample_control service should return 404 error if query a non-existing sample_control
     Given molecular id is ""
     Then add field: "site" value: "non_existing_site" to url
-    When GET from sample_controls service, response includes "No records meet the query parameters" with code "404"
+    When GET from sample_controls service, response includes "" with code "200"
+    Then there are|is 1 sample_control returned
+    Then each returned sample_control should have field "editable"
 
 
 
