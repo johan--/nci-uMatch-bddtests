@@ -10,7 +10,7 @@ exports.config = {
 //    chromeOnly: true,
     directConnect: true,
     capabilities: {
-        browserName: 'firefox',
+        browserName: 'chrome',
         version: ''
         // 'browserName': 'phantomjs',
         // 'phantomjs.ghostdriver.cli.args': ['--loglevel=DEBUG']
@@ -42,6 +42,7 @@ exports.config = {
 
         // Clia Lab page
         'features/CL_01_CliaLab.feature',
+        'features/CL_01_CliaLab_Variant_Report.feature',
         //Specimen Tracking page
         'features/SP_01_Specimen_Tracking.feature'
     ],
