@@ -41,15 +41,6 @@ Feature: CLIA Labs Page
         And I delete the variant reports uploaded to S3
 
     @ui_p1
-    Scenario: User can access information about the uploaded No Template Control report.
-        Given I'm logged in as a "VR_Sender_mocha" user
-        When I navigate to the CLIA Labs page
-        When I click on the "MoCha" section
-        And I click on "No Template Control" under "MoCha"
-        And I go to clia variant report with "SC_SA1CB" as the molecular_id
-        And The "PASSED" button is "visible"
-
-    @ui_p1
     Scenario: User can access information about the uploaded Positive Sample Control report.
         Given I'm logged in as a "VR_Sender_mocha" user
         When I navigate to the CLIA Labs page
