@@ -26,7 +26,7 @@ Feature: CLIA Labs Page
     Scenario: User can add a variant report to a generated MSN
         Given I'm logged in as a "VR_Sender_mocha" user
         When I navigate to the CLIA Labs page
-        When I click on the "MoCha" section
+        And I click on the "MoCha" section
         And I click on "Positive Sample Controls" under "MoCha"
         And I collect information on "Positive Sample Controls" under "MoCha"
         And I click on Generate MSN button
@@ -58,7 +58,7 @@ Feature: CLIA Labs Page
         And I verify that valid IDs are links and invalid IDs are not in "Positive Controls" table
         And I verify that valid IDs are links and invalid IDs are not in "False Positive Variants" table
 
-    @ui_p1 @demo_p4
+    @ui_p1
     Scenario Outline: User can access information about the uploaded <tableType> report.
         Given I'm logged in as a "VR_Sender_mocha" user
         When I navigate to the CLIA Labs page

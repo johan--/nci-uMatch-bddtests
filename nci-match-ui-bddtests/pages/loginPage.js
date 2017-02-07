@@ -90,10 +90,23 @@ var LoginPage = function() {
             "scope": 'openid email roles',
             "connection":  process.env.AUTH0_DATABASE
         };
+
+        var sysdata = {
+            "client_id": process.env.AUTH0_CLIENT_ID ,
+            "username": process.env.SYSTEM_AUTH0_USERNAME,
+            "password": process.env.SYSTEM_AUTH0_PASSWORD,
+            "grant_type": 'password',
+            "scope": 'openid email roles',
+            "connection":  process.env.AUTH0_DATABASE
+        }
         return utils.waitForElement(email, 'Email Text box').then(function () {
-                utils.postRequest('https://ncimatch.auth0.com/oauth/ro', data, function(responseData){
+            utils.postRequest('https://ncimatch.auth0.com/oauth/ro', data, function(responseData){
                 // console.log(responseData.id_token);
                 browser.idToken = 'Bearer ' + responseData.id_token;
+            });
+
+            utils.postRequest('https://ncimatch.auth0.com/oauth/ro', sysdata, function(responseData){
+                browser.sysToken = 'Bearer ' + responseData.id_token;
             });
 
             email.sendKeys(username);

@@ -124,7 +124,7 @@ module.exports = function() {
     this.When(/^I collect information about the sample variant report from aliquot$/, function (callback) {
         var url = '/api/v1/aliquot/' + cliaPage.molecularId;
 
-        utilities.getRequestWithService('ion', url).then(function(responseBody){
+        utilities.getRequestWithService('ion', url, { 'Authorization': browser.sysToken }).then(function(responseBody){
             cliaPage.responseData = responseBody
         }).then(callback);
     });
@@ -191,19 +191,22 @@ module.exports = function() {
     });
 
     this.When(/^I call the aliquot service with the generated MSN$/, function(callback){
-            var path = 'IR_UITEST/' + cliaPage.S3Path;
-            var data = 	{
-                "analysis_id": cliaPage.analysisId,
-                "site": "mocha",
-                "ion_reporter_id": "IR_UITEST",
-                "vcf_name": 'test1.vcf',
-                "dna_bam_name": 'dna.bam',
-                "cdna_bam_name": 'cdna.bam'
-            };
+        var path = 'IR_UITEST/' + cliaPage.S3Path;
+        var data = 	{
+            "analysis_id": cliaPage.analysisId,
+            "site": "mocha",
+            "ion_reporter_id": "IR_UITEST",
+            "vcf_name": 'test1.vcf',
+            "dna_bam_name": 'dna.bam',
+            "cdna_bam_name": 'cdna.bam'
+        };
 
-        browser.sleep(50).then(function () {
-            utilities.putApi('ion', '/api/v1/aliquot/' + cliaPage.molecularId, data)
-        }).then(callback)
+        console.log ("browser.sysToken: " + browser.sysToken);
+
+        utilities.putRequestWithService('ion', '/api/v1/aliquot/' + cliaPage.molecularId, data, { Authorization: browser.sysToken }).
+            then(function(responseBody) {
+                console.log(responseBody)
+            }).then(callback);
     });
 
     this.Then(/^I see variant report details for the generated MSN$/, function (callback) {

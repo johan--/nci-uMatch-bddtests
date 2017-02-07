@@ -208,10 +208,11 @@ var Utilities = function() {
 
     /** This is a Get Request that builds the URL based on the baseUrl, service and the url to navigate to.
      *
-     * @param service [String] should be a member of ['patient', 'treatment', 'ion']
-     * @param parameters [string] forms the rest of the URL
+     * @param {string} [service] should be a member of ['patient', 'treatment', 'ion']
+     * @param {string} [parameters] forms the rest of the URL
+     * @param {Object} [headerObject] Authorization headerObject used to send request [Optional]
      */
-    this.getRequestWithService = function(service, parameters) {
+    this.getRequestWithService = function(service, parameters, headerObject) {
         var url = tierBasedURI(service) +  parameters
         var options = {
             uri: url,
@@ -220,7 +221,9 @@ var Utilities = function() {
             json: true
         };
 
-        options['headers'] = browser.params.useAuth0 ? { 'Authorization': browser.idToken } : {}
+        if (browser.params.useAuth0) {
+          options['headers'] = headerObject !== undefined ? headerObject : { 'Authorization': browser.idToken }
+        }
 
         return req(options).then(function (resp) {
             return resp;
@@ -228,6 +231,31 @@ var Utilities = function() {
             console.log(err);
         });
     };
+
+    this.putRequestWithService = function(service, uri, bodyParams, headerParams){
+      var headers  = headerParams === undefined ? {} : headerParams;
+      var url = tierBasedURI(service) + uri;
+      var baseHeader = {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      }
+
+      var reqHeader = Object.assign(baseHeader, headers) 
+
+      var options = { 
+        uri: url,
+        method: 'PUT',
+        headers: reqHeader,
+        body: bodyParams,
+        json: true
+      }
+
+      return req(options).then(function (response){
+        return response;
+      }).catch(function(err){
+        console.log(err);
+      })
+    }
 
     /** This function returns the JSON response for api call. The url has to be provided
         url [String] Required: the url of the api. This call is made against the
@@ -272,7 +300,7 @@ var Utilities = function() {
         // console.log(callUrl);
 
         return client.put(callUrl, args, function (data, response) {
-            // console.log(response);
+            console.log(response);
         });
     };
 
@@ -450,6 +478,11 @@ var Utilities = function() {
           case 'admin':
               email = process.env.ADMIN_AUTH0_USERNAME;
               password = process.env.ADMIN_AUTH0_PASSWORD;
+              break;
+
+          case 'system':
+              email = process.env.SYSTEM_AUTH0_USERNAME;
+              password = process.env.SYSTEM_AUTH0_PASSWORD;
               break;
 
           case 'read_only':
