@@ -42,13 +42,12 @@ exports.config = {
 
         // Clia Lab page
         'features/CL_01_CliaLab.feature',
-        'features/CL_01_CliaLab_Variant_Report.feature',
+        'features/CL_02_CliaLab_Variant_Report.feature',
         //Specimen Tracking page
         'features/SP_01_Specimen_Tracking.feature'
     ],
-
-    getPageTimeout: 60000,
-    allScriptsTimeout: 60000,
+    getPageTimeout: 120000,
+    allScriptsTimeout: 120000,
 
     params: {
         useAuth0 : true
