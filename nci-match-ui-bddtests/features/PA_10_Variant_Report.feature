@@ -5,6 +5,7 @@ Feature: MATCHKB-541. Filtered variant report column sort not working.
   Background:
     Given I am a logged in user
 
+  @test
   Scenario Outline: I can sort Variant Report tables by clicking column headers
     When I go to the patient "ION_AQ41_TsVrUploaded" with variant report "ION_AQ41_TsVrUploaded_ANI1"
     Then I can see the variant report page
@@ -16,4 +17,4 @@ Feature: MATCHKB-541. Filtered variant report column sort not working.
     Then I logout
     Examples:
       | table             | columnNumber |
-      | Gene Fusions      | 1            |
+      | Gene Fusions      | 4            |

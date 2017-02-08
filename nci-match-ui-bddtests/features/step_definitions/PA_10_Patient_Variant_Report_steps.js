@@ -15,11 +15,41 @@ module.exports = function () {
     this.Then(/^I remember "([^"]*)" column order of the "([^"]*)" table$/, function (column, tableTitle, callback) {
         var table = patientPage.tableByH3Title(tableTitle);
         var headers = table.element(by.tagName('thead')).all(by.tagName("th"));
-        var rows = table.element(by.tagName('tbody')).all(by.tagName("tr"));
 
-        headers.first().getText().then(function(text){
-            console.log('hd text',text);
-        }).then(callback);
+        // var rows = element.all(by.repeater('item in filtered'));
+        
+        var getCol = function (arr, col) {
+            return arr.map(function (row) { return row[col]; });
+        };
+        
+        utilities.getDataByRepeater(table, 'item in filtered', function(tableData) {
+            console.log('col', getCol(tableData, column));
+        })
+        .then(callback);
+
+        // var dataArray = [];
+        // var rowData;
+        
+        // var getCol = function (arr, col) {
+        //     return arr.map(function (row) { return row[col]; });
+        // };
+
+        // rows.each(function (row, rowIndex) {
+        //     row.all(by.tagName('td')).each(function(c, colIndex){
+        //         c.getText().then(function (t) {
+        //             rowData = dataArray[rowIndex];
+        //             if (!rowData) {
+        //                 rowData = [];
+        //                 dataArray[rowIndex] = rowData;
+        //             }
+        //             rowData[colIndex] = t;
+        //         });
+        //     });
+        // })
+        // .then(function() {
+        //     patientPage.columnData = getCol(dataArray, column);
+        // })
+        // .then(callback);
     });
 
     this.Then(/^I click on "([^"]*)" column header of the "([^"]*)" table$/, function (column, tableTitle, callback) {
