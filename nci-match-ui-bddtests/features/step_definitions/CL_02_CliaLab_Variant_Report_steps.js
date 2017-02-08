@@ -15,9 +15,23 @@ module.exports = function() {
     this.World = require ('../step_definitions/world').World;
     var controlType;
 
-    this.When(/^I go to clia variant filtered report with "(.+)" as the molecular_id$/, function (molecularId, callback) {
-        var location = '/#/clia-lab-report/no-template-sample-control/?site=' + cliaPage.site
-            + '&type=no_template_control' + '&molecular_id=' + molecularId;
+    this.When(/^I go to clia variant filtered report with "(.+)" as the molecular_id on "(.+)" tab$/, function (molecularId, subTabName, callback) {
+        var location;
+        cliaPage.site = 'MoCha';
+
+        if(subTabName === "Positive Sample Controls") {
+            location = '/#/clia-lab-report/positive-control/?site=' + cliaPage.site
+                + '&type=positive_sample_control' + '&molecular_id=' + molecularId;
+        }
+        else if(subTabName === "No Template Control") {
+            location = '/#/clia-lab-report/no-template-sample-control/?site=' + cliaPage.site
+                + '&type=no_template_control' + '&molecular_id=' + molecularId;
+        }
+        else{
+            location = '/#/clia-lab-report/proficiency-competency-sample-control/?site=' + cliaPage.site
+                + '&type=positive_sample_control' + '&molecular_id=' + molecularId;
+        }
+
         browser.get(location, 6000).then(function () {
             browser.waitForAngular();
         }).then(callback);
@@ -38,11 +52,14 @@ module.exports = function() {
     this.When(/^I click on clia report "(.+?)" button on "(.+?)"$/, function (statusButton, subTabName, callback) {
         var acceptProperty;
 
-        if(subTabName === "No Template Control"){
+        if(subTabName === "Positive Sample Controls"){
+            acceptProperty = cliaPage.rejectPcButton;
+        }
+        else if(subTabName === "No Template Control") {
             acceptProperty = cliaPage.acceptNtcButton;
         }
-        else{
-            acceptProperty = cliaPage.rejectPcButton;
+        else {
+            acceptProperty = cliaPage.confirmPncButton;
         }
 
         browser.executeScript('window.scrollTo(0, 5000)').then(function(){

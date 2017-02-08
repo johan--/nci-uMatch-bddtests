@@ -39,6 +39,7 @@ var CliaPage = function () {
 
     this.acceptNtcButton = element(by.css('button[ng-click="$ctrl.changeNtcStatusWithComment()"]'));
     this.rejectPcButton = element(by.css('button[ng-click="$ctrl.changePcStatusWithComment()"]'));
+    this.confirmPncButton = element(by.css('button[ng-click="$ctrl.changePncStatusWithComment(\'PASSED\')"]'));
     this.confirmVRStatusCommentField = element(by.css('input[id="cgPromptInput"]')); // THis is the confirmation modal for the complete VR rejection
 
     // Expectation values
