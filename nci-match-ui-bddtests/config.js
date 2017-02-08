@@ -32,8 +32,9 @@ exports.config = {
         'features/PA_05_Patient_Documents.feature',
         'features/PA_08_User_Roles.feature',
         'features/PA_09_Sample_Upload.feature',
+        'features/PA_10_Variant_Report.feature',
 
-        //Treatment Arm details page
+        // Treatment Arm details page
         'features/TA_01_Analysis.feature',
         'features/TA_02_Rules.feature',
 
@@ -43,7 +44,8 @@ exports.config = {
         // Clia Lab page
         'features/CL_01_CliaLab.feature',
         'features/CL_02_CliaLab_Variant_Report.feature',
-        //Specimen Tracking page
+
+        // Specimen Tracking page
         'features/SP_01_Specimen_Tracking.feature'
     ],
     getPageTimeout: 120000,
