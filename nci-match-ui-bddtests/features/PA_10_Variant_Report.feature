@@ -10,7 +10,7 @@ Feature: MATCHKB-541. Filtered variant report column sort not working.
     Then I can see the variant report page
     And I scroll to the bottom of the page
     Then I can see the "<table>" table
-    # And I remember "<columnNumber>" column order of the "<table>" table
+    And I remember "<columnNumber>" column order of the "<table>" table
     # And I click on "<columnNumber>" column header of the "<table>" table
     # Then I should see the data in the "<columnNumber>" column to be re-arranged
     Then I logout

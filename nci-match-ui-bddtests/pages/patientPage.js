@@ -34,7 +34,6 @@ var PatientPage = function () {
     // Patients in the grid
     this.patientGridRows      = this.patientGrid.all(by.repeater('item in filtered'));
 
-
     // Disease Summary table information on the patient details page.
     this.diseaseSummaryTable = element.all(by.css('.header-info-box.top-main-header-box')).get(1);
     //Patient details page main tabs
@@ -44,7 +43,6 @@ var PatientPage = function () {
     //This element captures the sub headings under all the Tabs.
     // Though it captures all the headings, only the active tab's headings are populated in the array
     this.mainTabSubHeadingArray = function() {return element.all(by.css('div.ibox-title.ibox-title-no-line-no-padding>h3'))};
-
 
     // *****************  Summary Tab  ********************//
     // Accessing the patient timeline
@@ -152,14 +150,6 @@ var PatientPage = function () {
     // This is the assignment Report Section panel. You can get access to the other elements within this panel by using #all(by.<property>)
     this.assignmentReportSection = element.all(by.css("div[ng-if=\"variantReportMode!=='QC'\"]")).get(0);
 
-    //These are the elements present in the summary boxes of Blood Specimens
-    this.bloodAnalysisId        = element(by.binding('currentBloodVariantReport.analysis_id'));
-    this.bloodMolecularId       = element(by.binding('currentBloodVariantReport.molecular_id'));
-    this.bloodFileReceivedDate  = element(by.binding('currentBloodVariantReport.variant_report_received_date'));
-    this.bloodReportStatus      = element(by.binding('currentBloodVariantReport.status'));
-    this.bloodTotalVariants     = element(by.binding('currentBloodVariantReport.total_variants'));
-    this.bloodTotalCellularity  = element(by.binding('currentBloodVariantReport.cellularity'));
-
     // This is the element found on the variant report page for a patient
     this.totalMois              = element(by.binding('variantReport.total_mois'));
     this.totalAMois             = element(by.binding('variantReport.total_amois'));
@@ -204,14 +194,6 @@ var PatientPage = function () {
         'SNVs/MNVs/Indels(s) ##', 'Copy Number Variant(s)', 'Gene Fusion(s)',
         'Patient Documents'
     ];
-
-    // Expected Values in the Tissue Report Page.
-    this.expVarReportTables = [ 'SNVs/MNVs/Indels', 'Copy Number Variant(s)', 'Gene Fusion(s)' ];
-    this.expSNVTableHeadings = [ 'Confirm', 'Comment', 'ID', 'aMOI', 'Chrom', 'Position', 'CDS Ref', 'CDS Alt', 'OCP Ref',
-        'OCP Alt', 'Strand', 'Allele Freq', 'Func Gene', 'Oncomine Variant Class', 'Exon', 'Function', 'HGVS', 'Read Depth ',
-        'Transcript', 'Protein' ];
-    this.expCNVTableHeadings = [ 'Confirm', 'Comment', 'ID', 'aMOI', 'Chrom', 'Raw CN', 'CN', 'CI 5%', 'CI 95%' ];
-    this.expGFTableHeadings = [ 'Confirm', 'Comment', 'ID', 'aMOI', 'Gene 2', 'Gene 2 Count', 'Gene 1', 'Gene 1 Count', 'Annotation' ];
 
     //**************************** Timeline **********************//
     this.timelineList = element.all(by.repeater('timelineEvent in activity.data'));
@@ -297,6 +279,26 @@ var PatientPage = function () {
         //check for number of tabs
         expect(element(by.css('li.uib-tab.nav-item')).count()).to.eventually.equal();
     };
+
+    // *****************  Variant Report  ******************** //
+
+    // Expected Values in the Tissue Report Page.
+    this.expVarReportTables = [ 'SNVs/MNVs/Indels', 'Copy Number Variant(s)', 'Gene Fusion(s)' ];
+    this.expSNVTableHeadings = [ 'Confirm', 'Comment', 'ID', 'aMOI', 'Chrom', 'Position', 'CDS Ref', 'CDS Alt', 'OCP Ref',
+        'OCP Alt', 'Strand', 'Allele Freq', 'Func Gene', 'Oncomine Variant Class', 'Exon', 'Function', 'HGVS', 'Read Depth ',
+        'Transcript', 'Protein' ];
+    this.expCNVTableHeadings = [ 'Confirm', 'Comment', 'ID', 'aMOI', 'Chrom', 'Raw CN', 'CN', 'CI 5%', 'CI 95%' ];
+    this.expGFTableHeadings = [ 'Confirm', 'Comment', 'ID', 'aMOI', 'Gene 2', 'Gene 2 Count', 'Gene 1', 'Gene 1 Count', 'Annotation' ];
+
+
+    //These are the elements present in the summary boxes of Blood Specimens
+    this.bloodAnalysisId        = element(by.binding('currentBloodVariantReport.analysis_id'));
+    this.bloodMolecularId       = element(by.binding('currentBloodVariantReport.molecular_id'));
+    this.bloodFileReceivedDate  = element(by.binding('currentBloodVariantReport.variant_report_received_date'));
+    this.bloodReportStatus      = element(by.binding('currentBloodVariantReport.status'));
+    this.bloodTotalVariants     = element(by.binding('currentBloodVariantReport.total_variants'));
+    this.bloodTotalCellularity  = element(by.binding('currentBloodVariantReport.cellularity'));
+    
 };
 
 module.exports = new PatientPage();
