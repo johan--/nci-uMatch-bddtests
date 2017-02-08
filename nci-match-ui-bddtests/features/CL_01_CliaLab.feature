@@ -43,12 +43,8 @@ Feature: CLIA Labs Page
     @ui_p1
     Scenario: User can access information about the uploaded Positive Sample Control report.
         Given I'm logged in as a "VR_Sender_mocha" user
-        When I navigate to the CLIA Labs page
-        When I click on the "MoCha" section
-        And I click on "Positive Sample Controls" under "MoCha"
-        And I enter "SC_A2PD6" in the search field on "Positive Sample Controls" under "MoCha"
+        When I navigate to sample control "SC_A2PD6" of type "Positive Sample Controls" under "MoCha"
         And I collect information about the sample variant report from aliquot
-        And I click on the sample control link
         Then I verify that I am on the sample control page for that molecularId
         And I verify all the values on the left hand side section under Positive Sample Control
         And I verify all the values on the right hand side section under Positive Sample Control
@@ -61,12 +57,8 @@ Feature: CLIA Labs Page
     @ui_p1
     Scenario Outline: User can access information about the uploaded <tableType> report.
         Given I'm logged in as a "VR_Sender_mocha" user
-        When I navigate to the CLIA Labs page
-        When I click on the "MoCha" section
-        And I click on "<tableType>" under "MoCha"
-        And I enter "<sampleControlId>" in the search field on "<tableType>" under "MoCha"
+        When I navigate to sample control "<sampleControlId>" of type "<tableType>" under "MoCha"
         And I collect information about the sample variant report from aliquot
-        And I click on the sample control link
         Then I verify that I am on the sample control page for that molecularId
         And I verify all the values on the left hand side section under "<tableType>"
         And I verify all the values on the right hand side section under "<tableType>"
@@ -77,6 +69,6 @@ Feature: CLIA Labs Page
         #    And I verify the valid Ids are links in the Gene Fusions table under "<tableType>"
         #    And I verify the valid Ids are links in the Copy Number Variants table under "<tableType>"
         Examples:
-            | tableType | sampleControlId |
-            | No Template Control | SC_KGPVI |
-            | Proficiency And Competency | SC_FDK09 |
+            | tableType                  | sampleControlId |
+            | No Template Control        | SC_KGPVI        |
+            | Proficiency And Competency | SC_FDK09        |

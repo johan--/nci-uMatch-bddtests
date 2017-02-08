@@ -194,8 +194,10 @@ module.exports = function () {
         browser.executeScript('window.scrollTo(0, 3000)').then(function () {
             var index = ordinal - 1;
             var expectedCommentLink = element.all(by.css(patientPage.commentLinkString)).get(index);
-            expectedCommentLink.click().then(function () {
-                browser.waitForAngular();
+            browser.sleep(2000).then(function(){
+                    expectedCommentLink.click().then(function () {
+                    browser.waitForAngular();
+                }).then(callback);
             }).then(callback);
         });
     });

@@ -2,7 +2,7 @@
  * Created by raseel.mohamed on 11/9/16
  */
 
-'use strict'
+'use strict';
 var fs = require('fs');
 var moment = require('moment');
 
@@ -19,32 +19,41 @@ module.exports = function() {
             'Positive Sample Controls': {
                 'element': cliaPage.mochaPositiveGrid,
                 'control_type': 'positive',
+                'url_control_type': 'positive-control',
                 'url_type': 'positive_sample_control'
             },
 
             'No Template Control': {
                 'element': cliaPage.mochaNoTemplateGrid,
                 'control_type': 'no_template',
+                'url_control_type': 'no-template-sample-control',
                 'url_type' : 'no_template_control'
             },
             'Proficiency And Competency' : {
                 'element': cliaPage.mochaProficiencyGrid,
                 'control_type': 'proficiency_competency',
+                'url_control_type': 'proficiency-competency-sample-control',
                 'url_type': 'positive_sample_control'
             }
         },
         'MD Anderson' : {
             'Positive Sample Controls': {
                 'element': cliaPage.mdaPositiveGrid,
-                'control_type': 'positive'
+                'control_type': 'positive',
+                'url_control_type': 'positive-control',
+                'url_type': 'positive_sample_control'
             },
             'No Template Control': {
                 'element': cliaPage.mdaNoTemplateGrid,
-                'control_type': 'no_template'
+                'control_type': 'no_template',
+                'url_control_type': 'no-template-sample-control',
+                'url_type' : 'no_template_control'
             },
             'Proficiency And Competency' : {
                 'element': cliaPage.mdaProficiencyGrid,
-                'control_type': 'proficiency_competency'
+                'control_type': 'proficiency_competency',
+                'url_control_type': 'proficiency-competency-sample-control',
+                'url_type': 'positive_sample_control'
             }
         }
     };
@@ -69,14 +78,28 @@ module.exports = function() {
     });
 
     this.When(/^I click on "([^"]*)" under "(MoCha|MD Anderson)"$/, function (subTabName, sectionName, callback) {
-        var elem = element(by.css('li[heading="' + subTabName + '"]'))
-        element (by.css ('li[heading="' + subTabName + '"]')).click ().then(function(){
+        var elem = element(by.css('li[heading="' + subTabName + '"]'));
+        elem.click ().then(function(){
             // Setting the Control type here in anticipation of future needs.
-            cliaPage.controlType = tabNameMap[sectionName][subTabName]['control_type'];
+            cliaPage.controlType  = tabNameMap[sectionName][subTabName]['control_type'];
             cliaPage.tableElement = tabNameMap[sectionName][subTabName]['element'];
-            cliaPage.urlType      = tabNameMap[sectionName][subTabName]['url_type']
+            cliaPage.urlType      = tabNameMap[sectionName][subTabName]['url_type'];
             browser.waitForAngular();
             browser.ignoreSynchronization = false;
+        }).then(callback);
+    });
+
+    this.When(/^I navigate to sample control "([^"]*)" of type "([^"]*)" under "(MoCha|MD Anderson)"$/, function (sampleId, subTabName, sectionName, callback) {
+        cliaPage.siteName = sectionName === 'MoCha' ? 'MoCha' : 'MDACC';
+        cliaPage.tableElement   = tabNameMap[sectionName][subTabName]['element'];
+        cliaPage.controlType    = tabNameMap[sectionName][subTabName]['control_type'];
+        cliaPage.urlControlType = tabNameMap[sectionName][subTabName]['url_control_type'];
+        cliaPage.urlType        = tabNameMap[sectionName][subTabName]['url_type'];
+
+        var location = '/#/clia-lab-report/' + cliaPage.urlControlType + '/?site=' + cliaPage.siteName + '&type=' + cliaPage.controlType + '&molecular_id=' + sampleId;
+
+        browser.get(location, 6000).then(function(){
+            browser.waitForAngular();
         }).then(callback);
     });
 
