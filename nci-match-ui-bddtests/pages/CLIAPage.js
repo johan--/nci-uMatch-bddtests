@@ -27,7 +27,6 @@ var CliaPage = function () {
     this.confirmChangeCommentField     = element(by.css('input[name="comment"]'));  // This is the confirmation modal for individual rejection
     this.confirmVRStatusCommentField   = element(by.css('input[id="cgPromptInput"]')); // THis is the confirmation modal for the complete VR rejection
 
-
     this.sampleDetailTableHead  = element.all(by.css('.ibox-title.ibox-title-no-line-no-padding'));
     this.samplePositivePanel    = element(by.css('clia-vr-positive'));
     this.sampleFalsePosPanel    = element(by.css('clia-vr-false-positive'));
@@ -37,6 +36,10 @@ var CliaPage = function () {
     this.proficiencySNVPanel    = element(by.css('clia-vr-table-snv-mnv-indel-with-check'))
     this.proficiencyCNVPanel    = element(by.css('clia-vr-table-cnv-with-check'))
     this.proficiencyGFPanel     = element(by.css('clia-vr-table-gf-with-check'))
+
+    this.acceptNtcButton = element(by.css('button[ng-click="$ctrl.changeNtcStatusWithComment()"]'));
+    this.rejectPcButton = element(by.css('button[ng-click="$ctrl.changePcStatusWithComment()"]'));
+    this.confirmVRStatusCommentField = element(by.css('input[id="cgPromptInput"]')); // THis is the confirmation modal for the complete VR rejection
 
     // Expectation values
     this.expectedMsnTableHeading  = ['Molecular ID', 'Date Created', 'Date Received', 'Variant Reports', 'Status']

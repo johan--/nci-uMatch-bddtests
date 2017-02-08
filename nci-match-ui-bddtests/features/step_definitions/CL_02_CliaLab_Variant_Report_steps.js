@@ -9,7 +9,6 @@ var moment = require('moment');
 var utilities = require ('../../support/utilities');
 var dash      = require ('../../pages/dashboardPage');
 var cliaPage      = require ('../../pages/CLIAPage');
-var cliaVariantReportPage      = require ('../../pages/CLIAVariantReportPage');
 
 var nodeCmd   = require ('node-cmd');
 module.exports = function() {
@@ -19,7 +18,9 @@ module.exports = function() {
     this.When(/^I go to clia variant filtered report with "(.+)" as the molecular_id$/, function (molecularId, callback) {
         var location = '/#/clia-lab-report/no-template-sample-control/?site=' + cliaPage.site
             + '&type=no_template_control' + '&molecular_id=' + molecularId;
-        browser.get(location, 6000).then(function () {browser.waitForAngular();}).then(callback);
+        browser.get(location, 6000).then(function () {
+            browser.waitForAngular();
+        }).then(callback);
     });
 
     this.When(/^The clia report "(.+?)" button is "(disabled|enabled|visible|invisible)"$/, function (buttonText, buttonState, callback) {
@@ -38,10 +39,10 @@ module.exports = function() {
         var acceptProperty;
 
         if(subTabName === "No Template Control"){
-            acceptProperty = cliaVariantReportPage.acceptNtcButton;
+            acceptProperty = cliaPage.acceptNtcButton;
         }
         else{
-            acceptProperty = cliaVariantReportPage.rejectPcButton;
+            acceptProperty = cliaPage.rejectPcButton;
         }
 
         browser.executeScript('window.scrollTo(0, 5000)').then(function(){
@@ -58,7 +59,7 @@ module.exports = function() {
 
     this.When(/^I can see the clia report "([^"]*)" in the modal text box$/, function (comment, callback) {
         var confirmVRStatus;
-        confirmVRStatus = cliaVariantReportPage.confirmVRStatusCommentField.sendKeys(comment);
+        confirmVRStatus = cliaPage.confirmVRStatusCommentField.sendKeys(comment);
         browser.sleep(50).then(callback);
     });
 
