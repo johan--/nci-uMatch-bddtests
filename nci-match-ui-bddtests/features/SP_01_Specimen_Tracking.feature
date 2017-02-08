@@ -17,7 +17,7 @@ Feature: Specimen Tracking page
     Then the "Slide Shipments" tab becomes active
     Then I logout
 
-  @ui_p2 @fling
+  @ui_p2
   Scenario: Specimens assigned to a patient show up on the tracking table
     When I enter "PT_CR05_SpecimenShippedTwice" as Patient Id in the search field for tracking table
     And I click on the surgical event in the row "1"
