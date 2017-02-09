@@ -71,7 +71,7 @@ module.exports = function() {
     this.When(/^I click on the "(MoCha|MD Anderson)" section$/, function (sectionName, callback) {
 
         var elem = sectionName === 'MoCha' ? cliaPage.mochaSectionButton : cliaPage.mdaSectionButton;
-        cliaPage.site = sectionName;
+        cliaPage.siteName= sectionName;
         elem.click().then(function() {
             browser.waitForAngular();
         }).then(callback);
@@ -81,6 +81,7 @@ module.exports = function() {
         var elem = element(by.css('li[heading="' + subTabName + '"]'));
         elem.click ().then(function(){
             // Setting the Control type here in anticipation of future needs.
+            cliaPage.siteName = sectionName === 'MoCha' ? 'MoCha' : 'MDACC';
             cliaPage.controlType  = tabNameMap[sectionName][subTabName].control_type;
             cliaPage.tableElement = tabNameMap[sectionName][subTabName].element;
             cliaPage.urlType      = tabNameMap[sectionName][subTabName].url_type;
@@ -263,7 +264,7 @@ module.exports = function() {
     });
 
     this.Then(/^I verify that I am on the sample control page for that molecularId$/, function (callback) {
-        var expectedResult = '/?site=' + cliaPage.site + '&type=' + cliaPage.urlType + '&molecular_id=' + cliaPage.molecularId
+        var expectedResult = '/?site=' + cliaPage.siteName + '&type=' + cliaPage.urlType + '&molecular_id=' + cliaPage.molecularId
         expect(browser.getCurrentUrl()).to.eventually.include(expectedResult).notify(callback);
     });
 
@@ -379,7 +380,7 @@ module.exports = function() {
     });
 
     this.When(/^I go to clia variant report with "(.+)" as the molecular_id$/, function (molecularId, callback) {
-        var location = '/#/clia-lab-report/no-template-sample-control/?site=' + cliaPage.site
+        var location = '/#/clia-lab-report/no-template-sample-control/?site=' + cliaPage.siteName
             + '&type=no_template_control' + '&molecular_id=' + molecularId;
         browser.get(location, 6000).then(function () {browser.waitForAngular();}).then(callback);
     });
