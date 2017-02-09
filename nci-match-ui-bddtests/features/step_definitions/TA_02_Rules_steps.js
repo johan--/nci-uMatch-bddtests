@@ -57,8 +57,6 @@ module.exports = function () {
             //Getting the index of the columnName
             taPage.columnIndex = headerArray.indexOf (columnName);
 
-            console.log ('This is the index of ' + columnName + ': ' + taPage.columnIndex);
-
             // Getting access to each row
             taPage.dataRows = taPage.testElement.all (by.css ('tr[ng-repeat^="item in filtered |"]'))
 
@@ -71,7 +69,7 @@ module.exports = function () {
 
 
     this.Then(/^I see that the element with css "(.*)" is a "(.+?)" link$/, function(selector, type, callback){
-        console.log(selector).then(callback);
+        var elem = element(by.css(selector));
         browser.sleep(50).then(function () {
             // checking for element at index to be a link
             for (var i = 0; i < taPage.rowCount; i ++){

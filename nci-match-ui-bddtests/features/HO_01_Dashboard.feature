@@ -71,7 +71,7 @@ Feature: Dashboard page.
       |Tissue Variant Reports |
       |Assignment Reports     |
 
-  @ui_p3
+  @ui_p2
   Scenario: User can find a list of all the patients in limbo with their reason
     When I collect information on patients in limbo
     Then I can see table of Patients Awaiting Further Action Or Information

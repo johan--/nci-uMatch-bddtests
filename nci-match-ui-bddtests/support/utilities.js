@@ -124,7 +124,8 @@ var Utilities = function () {
     this.checkCosmicLink = function (elem) {
         elem.getText().then(function (linkText) {
             if (linkText.match(/COSM/)) {
-                var id = linkText.substr('COSM'.length)
+                var endPos = linkText.indexOf(' ');
+                var id = linkText.slice('COSM'.length, endPos)
                 expect(elem.all(by.css('a')).get(0).getAttribute('href')).to.eventually.eql('http://grch37-cancer.sanger.ac.uk/cosmic/mutation/overview?id=' + id)
             } else {
                 expect(elem.all(by.css('a')).count()).to.eventually.eql(0)
@@ -159,7 +160,8 @@ var Utilities = function () {
     this.checkCOSFLink = function (elem) {
         elem.getText().then(function (linkText) {
             if (linkText.match(/COSF/)) {
-                var id = linkText.substr('COSF'.length);
+                var endPos = linkText.indexOf(' ');
+                var id = linkText.slice('COSF'.length, endPos);
                 expect(elem.all(by.css('a')).get(0).getAttribute('href')).to.eventually.eql('http://grch37-cancer.sanger.ac.uk/cosmic/mutation/overview?id=' + id)
             } else {
                 expect(elem.all(by.css('a')).count()).to.eventually.eql(0)

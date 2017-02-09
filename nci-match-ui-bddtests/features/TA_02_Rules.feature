@@ -44,6 +44,7 @@ Feature: Treatment Arm Rules
     And I should see the Non-Sequencing Assays table
     Then I logout
 
+ @ui_p2
   Scenario Outline: Check for links in the <subTabName> table.
     When I select the <subTabName> sub-tab
     And I select the Inclusion button
@@ -56,4 +57,10 @@ Feature: Treatment Arm Rules
       | CNVs                  | Gene       | Inclusion     | cosmic-link[link-id="item.identifier"] | Gene     |
       | Non-Hotspot Rules     | Gene       | Inclusion     | cosmic-link[link-id="item.func_gene"]  | Gene     |
       | Gene Fusions          | ID         | Inclusion     | cosmic-link[link-id="item.identifier"] | Cosf     |
-      | Non-Sequencing Assays | Gene       | None          | cosmic-link[link-id="item.gene"]       | Gene     |
+
+@ui_p2
+Scenario: Check for links in the Non-Sequencing Assays table.
+    When I select the Non-Sequencing Assays sub-tab
+    And I get the index of the "Gene" value in "Non-Sequencing Assays" and "None"
+    Then I see that the element with css "cosmic-link[link-id="item.gene"]" is a "Gene" link
+    Then I logout
