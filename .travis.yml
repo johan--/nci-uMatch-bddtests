@@ -154,6 +154,8 @@ after_script:
 ###################################################
   # - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/uMATCH/PedMATCH/results/output.json s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_COMMIT/ --region us-east-1
   # - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/nci-match-ui-bddtests/results/result.json s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_COMMIT/ --region us-east-1
+  #update test report service
+  - curl -X PUT "http://pedmatch-admin-alb-external-382939701.us-east-1.elb.amazonaws.com:3025/reports/update" -d ''
 notifications:
   slack:
     rooms:
