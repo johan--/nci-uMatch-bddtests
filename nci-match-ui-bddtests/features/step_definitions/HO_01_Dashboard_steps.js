@@ -2,11 +2,11 @@
 var fs = require('fs');
 
 // Utility Methods
-var utilities = require ('../../support/utilities');
-var dash = require ('../../pages/dashboardPage');
+var utilities = require('../../support/utilities');
+var dash = require('../../pages/dashboardPage');
 
 module.exports = function() {
-    this.World = require ('../step_definitions/world').World;
+    this.World = require('../step_definitions/world').World;
 
     var callList = {
         "patientStats"       : '/api/v1/patients/statistics',

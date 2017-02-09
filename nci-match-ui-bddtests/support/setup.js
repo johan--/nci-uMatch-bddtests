@@ -4,8 +4,8 @@
  date: 06/23/2016
  */
 
-var FirefoxProfile = require ('firefox-profile');
-var q = require ('q');
+var FirefoxProfile = require('firefox-profile');
+var q = require('q');
 
 exports.getFireFoxProfile = function() {
     var deferred = q.defer();

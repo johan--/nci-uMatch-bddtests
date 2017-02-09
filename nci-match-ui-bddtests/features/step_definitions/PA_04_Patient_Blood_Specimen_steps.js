@@ -5,9 +5,9 @@
 
 'use strict';
 
-var fs = require ('fs');
+var fs = require('fs');
 var patientPage = require('../../pages/patientPage');
-var utilities = require ('../../support/utilities');
+var utilities = require('../../support/utilities');
 
 module.exports = function() {
     var patientId;

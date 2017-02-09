@@ -7,7 +7,7 @@ var fs = require('fs');
 
 var taPage = require('../../pages/treatmentArmsPage');
 // Helper Methods
-var utilities = require ('../../support/utilities');
+var utilities = require('../../support/utilities');
 
 module.exports = function () {
 

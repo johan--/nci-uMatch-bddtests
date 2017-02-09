@@ -8,11 +8,11 @@ var moment = require('moment');
 
 var taPage = require('../../pages/treatmentArmsPage');
 // Helper Methods
-var utilities = require ('../../support/utilities');
+var utilities = require('../../support/utilities');
 
 module.exports = function () {
 
-    this.World = require ('../step_definitions/world').World;
+    this.World = require('../step_definitions/world').World;
 
     var taTable = taPage.taTable;
     var taTableHeaderArray = taPage.taTableHeaderArray;

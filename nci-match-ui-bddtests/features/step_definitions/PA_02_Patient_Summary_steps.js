@@ -4,15 +4,15 @@
 
 'use strict';
 
-var fs          = require ('fs');
-var assert      = require ('assert');
-var patientPage = require ('../../pages/patientPage');
+var fs          = require('fs');
+var assert      = require('assert');
+var patientPage = require('../../pages/patientPage');
 
 // Utility Methods
-var utilities = require ('../../support/utilities');
+var utilities = require('../../support/utilities');
 
 module.exports = function () {
-    this.World = require ('../step_definitions/world').World;
+    this.World = require('../step_definitions/world').World;
 
     var patientInfoPromise;
     var expectedMainTabs     = patientPage.expectedPatientMainTabs;

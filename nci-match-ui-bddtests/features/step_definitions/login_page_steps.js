@@ -5,17 +5,17 @@
 'use strict';
 var fs = require('fs');
 
-var loginPageObj = require ('../../pages/loginPage');
-var dashboardPageObj = require ('../../pages/dashboardPage');
+var loginPageObj = require('../../pages/loginPage');
+var dashboardPageObj = require('../../pages/dashboardPage');
 // Helper Methods
-var utilities = require ('../../support/utilities.js');
+var utilities = require('../../support/utilities.js');
 
 module.exports = function () {
     var accessbtn = element(by.buttonText('ACCESS NCI-MATCHBox'));
     var userId = process.env.NCI_MATCH_USERID;
     var previousLogin = element(by.css('div[title="' + userId + ' (Auth0)"]'));
 
-    this.World = require ('../step_definitions/world').World;
+    this.World = require('../step_definitions/world').World;
 
     this.Given(/^I am on the login page$/, function(callback){
         browser.ignoreSynchronization = false;
@@ -42,7 +42,7 @@ module.exports = function () {
         }).then(callback);
     });
 
-    this.Given(/^I'm logged in as a "(.+?)" user$/, function(user_role,callback) {
+    this.Given(/^I am logged in as a "(.+?)" user$/, function(user_role,callback) {
         browser.ignoreSynchronization = false;
         loginPageObj.goToLoginPage();
 

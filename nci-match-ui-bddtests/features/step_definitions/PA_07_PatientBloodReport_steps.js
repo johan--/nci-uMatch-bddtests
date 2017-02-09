@@ -10,6 +10,6 @@ var patientPage = require('../../pages/patientPage');
 var utilities = require('../../support/utilities');
 
 module.exports = function () {
-    this.World = require ('../step_definitions/world').World;
+    this.World = require('../step_definitions/world').World;
 
 }

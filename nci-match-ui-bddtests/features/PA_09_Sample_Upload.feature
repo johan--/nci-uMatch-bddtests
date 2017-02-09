@@ -5,7 +5,7 @@ Feature: MATCHKB-542. Users can upload patient sample files.
 
 @upload
   Scenario Outline: As a privileged user I can upload a sample file
-    Given I'm logged in as a "<user>" user
+    Given I am logged in as a "<user>" user
     When I go to patient "<patient_id>" details page
     And I click on the "<surgical_event_id>" tab
     And I scroll to the bottom of the page
@@ -26,11 +26,11 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     Then I logout
     Examples:
       | user              | patient_id              | surgical_event_id                           | ir_reporter      | analysis_id                   | upload_button  | file            |
-      | VR_Reviewer_mda   | PT_AU04_MdaTsShipped1   | Surgical Event PT_AU04_MdaTsShipped1_SEI1   | mda - IR_MDA05   | PT_AU04_MdaTsShipped1_An123   | Select Variant ZIP File | mda_small.vcf   |
+      | VR_Sender_mda   | PT_AU04_MdaTsShipped1   | Surgical Event PT_AU04_MdaTsShipped1_SEI1   | mda - IR_MDA05   | PT_AU04_MdaTsShipped1_An123   | Select Variant ZIP File | mda_small.vcf   |
       # | VR_Reviewer_mocha | PT_AU04_MochaTsShipped1 | Surgical Event PT_AU04_MochaTsShipped1_SEI1 | mocha - IR_MCA00 | PT_AU04_MochaTsShipped1_An123 | Select DNA BAM File |mocha_small.vcf |
 
   Scenario: As a privileged user I can't upload a sample file if all files have been uploaded already
-    Given I'm logged in as a "VR_Reviewer_mda" user
+    Given I am logged in as a "VR_Reviewer_mda" user
     When I go to patient "ION_AQ41_TsVrUploaded" details page
     And I click on the "Surgical Event ION_AQ41_TsVrUploaded_SEI1" tab
     And I can see that all files have been uploaded for the Surgical Event
@@ -38,7 +38,7 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     Then I logout
 
   Scenario: As a privileged user I can't upload sample file until all validations pass
-    Given I'm logged in as a "VR_Reviewer_mocha" user
+    Given I am logged in as a "VR_Reviewer_mocha" user
     When I go to patient "ION_AQ02_TsShipped" details page
     And I click on the "Surgical Event ION_AQ02_TsShipped_SEI1" tab
     And I can see that some files have not been uploaded for the Surgical Event
@@ -58,7 +58,7 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     Then I logout
 
   Scenario: As a privileged user I can cancel upload
-    Given I'm logged in as a "VR_Reviewer_mocha" user
+    Given I am logged in as a "VR_Reviewer_mocha" user
     When I go to patient "ION_AQ02_TsShipped" details page
     And I click on the "Surgical Event ION_AQ02_TsShipped_SEI1" tab
     And I can see that some files have not been uploaded for the Surgical Event

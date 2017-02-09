@@ -2,15 +2,15 @@
  * Created by raseel.mohamed on 9/4/16
  */
 'use strict';
-var fs = require ('fs');
+var fs = require('fs');
 
-var STPage = require ('../../pages/specimenTrackingPage');
+var STPage = require('../../pages/specimenTrackingPage');
 
 // Utility Methods
-var utilities = require ('../../support/utilities');
+var utilities = require('../../support/utilities');
 
 module.exports = function () {
-    this.World          = require ('../step_definitions/world').World;
+    this.World          = require('../step_definitions/world').World;
     var shippingSection = STPage.topHeaderInfoBox.get (0);
     var trendAnalysis   = STPage.topHeaderInfoBox.get (1);
     var shipmentSection = STPage.shipmentsSection;
@@ -137,7 +137,7 @@ module.exports = function () {
     });
 
     this.Then (/^I can compare the details about shipment against the API$/, function (callback) {
-        var moment            = require ('moment');
+        var moment            = require('moment');
         var actualElementList = element.all (by.repeater ('item in filtered')).get (0).all (by.css ('td'));
         var elementList       = [ 'molecular_id', 'slide_barcode', 'surgical_event_id', 'patient_id', 'collected_date',
             'received_date', 'speciment_type', 'shipped_date', 'destination', 'tracking_id',

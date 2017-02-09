@@ -5,13 +5,13 @@
 'use strict';
 var fs = require('fs');
 
-var patientPage = require ('../../pages/patientPage');
+var patientPage = require('../../pages/patientPage');
 
 // Utility Methods
-var utilities = require ('../../support/utilities');
+var utilities = require('../../support/utilities');
 
 module.exports = function () {
-    this.World = require ('../step_definitions/world').World;
+    this.World = require('../step_definitions/world').World;
 
     // Given Section
     // When Section

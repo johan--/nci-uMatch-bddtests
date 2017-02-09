@@ -6,13 +6,13 @@
 var fs = require('fs');
 var moment = require('moment');
 
-var utilities = require ('../../support/utilities');
-var dash      = require ('../../pages/dashboardPage');
-var cliaPage      = require ('../../pages/CLIAPage');
+var utilities = require('../../support/utilities');
+var dash      = require('../../pages/dashboardPage');
+var cliaPage      = require('../../pages/CLIAPage');
 
-var nodeCmd   = require ('node-cmd');
+var nodeCmd   = require('node-cmd');
 module.exports = function() {
-    this.World = require ('../step_definitions/world').World;
+    this.World = require('../step_definitions/world').World;
     var controlType;
 
     this.When(/^I go to clia variant filtered report with "(.+)" as the molecular_id on "(.+)" tab$/, function (molecularId, subTabName, callback) {

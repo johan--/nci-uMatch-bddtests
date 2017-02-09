@@ -6,13 +6,13 @@
 var fs = require('fs');
 var moment = require('moment');
 
-var utilities = require ('../../support/utilities');
-var dash      = require ('../../pages/dashboardPage');
-var cliaPage      = require ('../../pages/CLIAPage');
+var utilities = require('../../support/utilities');
+var dash      = require('../../pages/dashboardPage');
+var cliaPage      = require('../../pages/CLIAPage');
 
-var nodeCmd   = require ('node-cmd');
+var nodeCmd   = require('node-cmd');
 module.exports = function() {
-    this.World = require ('../step_definitions/world').World;
+    this.World = require('../step_definitions/world').World;
 
     var tabNameMap = {
         'MoCha' : {
@@ -81,9 +81,9 @@ module.exports = function() {
         var elem = element(by.css('li[heading="' + subTabName + '"]'));
         elem.click ().then(function(){
             // Setting the Control type here in anticipation of future needs.
-            cliaPage.controlType  = tabNameMap[sectionName][subTabName]['control_type'];
-            cliaPage.tableElement = tabNameMap[sectionName][subTabName]['element'];
-            cliaPage.urlType      = tabNameMap[sectionName][subTabName]['url_type'];
+            cliaPage.controlType  = tabNameMap[sectionName][subTabName].control_type;
+            cliaPage.tableElement = tabNameMap[sectionName][subTabName].element;
+            cliaPage.urlType      = tabNameMap[sectionName][subTabName].url_type;
             browser.waitForAngular();
             browser.ignoreSynchronization = false;
         }).then(callback);
@@ -91,12 +91,13 @@ module.exports = function() {
 
     this.When(/^I navigate to sample control "([^"]*)" of type "([^"]*)" under "(MoCha|MD Anderson)"$/, function (sampleId, subTabName, sectionName, callback) {
         cliaPage.siteName = sectionName === 'MoCha' ? 'MoCha' : 'MDACC';
-        cliaPage.tableElement   = tabNameMap[sectionName][subTabName]['element'];
-        cliaPage.controlType    = tabNameMap[sectionName][subTabName]['control_type'];
-        cliaPage.urlControlType = tabNameMap[sectionName][subTabName]['url_control_type'];
-        cliaPage.urlType        = tabNameMap[sectionName][subTabName]['url_type'];
-
-        var location = '/#/clia-lab-report/' + cliaPage.urlControlType + '/?site=' + cliaPage.siteName + '&type=' + cliaPage.controlType + '&molecular_id=' + sampleId;
+        cliaPage.tableElement   = tabNameMap[sectionName][subTabName].element;
+        cliaPage.controlType    = tabNameMap[sectionName][subTabName].control_type;
+        cliaPage.urlControlType = tabNameMap[sectionName][subTabName].url_control_type;
+        cliaPage.urlType        = tabNameMap[sectionName][subTabName].url_type;
+        cliaPage.molecularId    = sampleId;
+        var location = '/#/clia-lab-report/' + cliaPage.urlControlType + '/?site='
+                        + cliaPage.siteName + '&type=' + cliaPage.controlType + '&molecular_id=' + cliaPage.molecularId;
 
         browser.get(location, 6000).then(function(){
             browser.waitForAngular();
@@ -115,7 +116,7 @@ module.exports = function() {
         var url  = '/api/v1/sample_controls?site=' + site + '&control_type=' + cliaPage.controlType;
         var request = utilities.callApi('ion', '/api/v1/sample_controls');
         utilities.getRequestWithService('ion', url).then(function(responseBody){
-            cliaPage.responseData = responseBody
+            cliaPage.responseData = responseBody;
         }).then(callback);
     });
 
@@ -123,7 +124,7 @@ module.exports = function() {
         var site = sectionName === 'MoCha' ? 'mocha' : 'mda';
         var url  = '/api/v1/sample_controls?site=' + site + '&control_type=' + cliaPage.controlType;
         utilities.getRequestWithService('ion', url).then(function(responseBody){
-            cliaPage.newResponseData = responseBody
+            cliaPage.newResponseData = responseBody;
         }).then(callback);
     });
 
@@ -140,15 +141,15 @@ module.exports = function() {
         var searchElement = parentElement.element(by.css('input.input-sm.all-filter'));
         cliaPage.molecularId = value;
         searchElement.sendKeys(value).then(function () {
-            browser.waitForAngular()
-        }).then(callback)
+            browser.waitForAngular();
+        }).then(callback);
     });
 
     this.When(/^I collect information about the sample variant report from aliquot$/, function (callback) {
         var url = '/api/v1/aliquot/' + cliaPage.molecularId;
 
-        utilities.getRequestWithService('ion', url, { 'Authorization': browser.sysToken }).then(function(responseBody){
-            cliaPage.responseData = responseBody
+        utilities.getRequestWithService('ion', url, { Authorization: browser.sysToken }).then(function(responseBody){
+            cliaPage.responseData = responseBody;
         }).then(callback);
     });
 
@@ -157,7 +158,7 @@ module.exports = function() {
 
         var firstRow = parentElement.all(by.css('[ng-repeat^="item in filtered"]')).get(0);
         firstRow.all(by.css('a')).get(0).click().then(function(){
-            browser.sleep(10)
+            browser.sleep(10);
         }).then(callback);
     });
 
@@ -168,7 +169,7 @@ module.exports = function() {
 
     this.Then(/^I verify the headings for "([^"]*)" under "(MoCha|MD Anderson)"$/, function (subTabName, sectionName, callback) {
         var tableElement = cliaPage.tableElement;
-        var headings = tableElement.all(by.css('table>thead>tr>th'))
+        var headings = tableElement.all(by.css('table>thead>tr>th'));
 
         expect(headings.getText()).to.eventually.eql(cliaPage.expectedMsnTableHeading).notify(callback);
     });
@@ -195,9 +196,9 @@ module.exports = function() {
                     console.log(data);
                     console.log('Copied data from ' + cliaPage.molecularId + 'to S3 with bucket name' + cliaPage.bucketName);
                 }
-            )
+            );
         }).then(function(){
-            browser.sleep(60)
+            browser.sleep(60);
         }).then(callback);
     });
 
@@ -209,8 +210,8 @@ module.exports = function() {
                function (data) {
                    console.log(data);
                }
-           )
-       }).then(callback)
+           );
+       }).then(callback);
     });
 
     this.When(/^I call the aliquot service with the generated MSN$/, function(callback){
@@ -228,7 +229,7 @@ module.exports = function() {
 
         utilities.putRequestWithService('ion', '/api/v1/aliquot/' + cliaPage.molecularId, data, { Authorization: browser.sysToken }).
             then(function(responseBody) {
-                console.log(responseBody)
+                console.log(responseBody);
             }).then(callback);
     });
 
@@ -236,12 +237,12 @@ module.exports = function() {
         //Entering the new MSN generated in to the search field
         cliaPage.tableElement.element(by.css('input')).sendKeys(cliaPage.molecularId);
         browser.waitForAngular().then(function () {
-            var firstRow = element.all(by.css('[ng-repeat^="item in filtered"]')).get(0)
+            var firstRow = element.all(by.css('[ng-repeat^="item in filtered"]')).get(0);
             expect(firstRow.all(by.binding('item.molecular_id')).get(0).getText()).to.eventually.eql(cliaPage.molecularId);
             expect(firstRow.all(by.css('a')).get(0).isPresent()).to.eventually.eql(true);
             expect(firstRow.all(by.css('a')).get(0).getText()).to.eventually.eql(cliaPage.molecularId);
 //            expect(firstRow.all(by.css('a')).get(0).getAttribute('href')).to.include('molecular_id=' + cliaPage.molecularId)
-        }).then(callback)
+        }).then(callback);
     });
 
     this.When(/^I capture the new MSN created$/, function (callback) {
@@ -271,7 +272,7 @@ module.exports = function() {
         var index = side === 'left' ? 0 : 1;
         var actualHeadings  = cliaPage.sampleDetailHeaders.get(index).all(by.css('dt'));
         browser.sleep(30).then(function () {
-            utilities.checkElementArray(actualHeadings, expectedHeaders)
+            utilities.checkElementArray(actualHeadings, expectedHeaders);
         }).then(callback);
     });
 
@@ -281,7 +282,7 @@ module.exports = function() {
         var index = side === 'left' ? 0 : 1;
         var actualHeadings  = cliaPage.sampleDetailHeaders.get(index).all(by.css('dt'));
         browser.sleep(30).then(function () {
-            utilities.checkElementArray(actualHeadings, expectedHeaders)
+            utilities.checkElementArray(actualHeadings, expectedHeaders);
         }).then(callback);
     });
 
