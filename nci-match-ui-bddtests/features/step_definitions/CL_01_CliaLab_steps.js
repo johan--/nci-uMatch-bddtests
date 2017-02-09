@@ -264,7 +264,7 @@ module.exports = function() {
     });
 
     this.Then(/^I verify that I am on the sample control page for that molecularId$/, function (callback) {
-        var expectedResult = '/?site=' + cliaPage.siteName + '&type=' + cliaPage.urlType + '&molecular_id=' + cliaPage.molecularId
+        var expectedResult = cliaPage.urlControlType + '/?site=' + cliaPage.siteName + '&type=' + cliaPage.controlType + '&molecular_id=' + cliaPage.molecularId
         expect(browser.getCurrentUrl()).to.eventually.include(expectedResult).notify(callback);
     });
 
