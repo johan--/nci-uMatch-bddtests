@@ -1,0 +1,70 @@
+{
+    "ConsumedCapacity": null,
+    "Count": 2,
+    "ScannedCount": 2,
+    "Items": [
+        {
+            "event_type": {
+                "S": "patient"
+            },
+            "event_message": {
+                "S": "REGISTRATION message received from COG for patient PT_TMP_TsReceived."
+            },
+            "event_data": {
+                "M": {
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_date": {
+                "S": "2017-01-10T17:09:16.153"
+            },
+            "entity_id": {
+                "S": "PT_TMP_TsReceived"
+            }
+        },
+        {
+            "event_type": {
+                "S": "specimen"
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received at NCH."
+            },
+            "event_data": {
+                "M": {
+                    "received_dttm": {
+                        "S": "2016-04-26T15:17:11+00:00"
+                    },
+                    "collection_dt": {
+                        "S": "2017-01-10T17:09:16Z"
+                    },
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "patient_id": {
+                        "S": "PT_TMP_TsReceived"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "surgical_event_id": {
+                        "S": "PT_TMP_TsReceived_SEI1"
+                    },
+                    "study_id": {
+                        "S": "APEC1621"
+                    }
+                }
+            },
+            "event_date": {
+                "S": "2017-01-10T17:09:33.743"
+            },
+            "entity_id": {
+                "S": "PT_TMP_TsReceived"
+            }
+        }
+    ]
+}

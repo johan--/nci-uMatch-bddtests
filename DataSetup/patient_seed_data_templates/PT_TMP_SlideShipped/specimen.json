@@ -1,0 +1,39 @@
+{
+    "ScannedCount": 1,
+    "Items": [
+        {
+            "specimen_type": {
+                "S": "TISSUE"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "sorting_key": {
+                "S": "2017-01-10T17:10:34.961"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "collected_date": {
+                "S": "2017-01-10T17:10:34+00:00"
+            },
+            "pathology_status": {
+                "S": "Y"
+            },
+            "pathology_status_date": {
+                "S": "2017-01-10T17:10:34+00:00"
+            },
+            "surgical_event_id": {
+                "S": "PT_TMP_SlideShipped_SEI1"
+            },
+            "patient_id": {
+                "S": "PT_TMP_SlideShipped"
+            },
+            "active_molecular_id": {
+                "S": "PT_TMP_SlideShipped_MOI1"
+            }
+        }
+    ],
+    "Count": 1,
+    "ConsumedCapacity": null
+}

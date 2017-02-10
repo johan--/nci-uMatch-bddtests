@@ -1,0 +1,91 @@
+{
+    "ConsumedCapacity": null,
+    "Count": 1,
+    "Items": [
+        {
+            "sorting_key": {
+                "S": "2017-01-10T17:11:59.257"
+            },
+            "collected_date": {
+                "S": "2017-01-10T17:11:58+00:00"
+            },
+            "surgical_event_id": {
+                "S": "PT_TMP_AssayReceived_SEI1"
+            },
+            "patient_id": {
+                "S": "PT_TMP_AssayReceived"
+            },
+            "active_molecular_id": {
+                "S": "PT_TMP_AssayReceived_MOI1"
+            },
+            "pathology_status_date": {
+                "S": "2017-01-10T17:11:59+00:00"
+            },
+            "assays": {
+                "L": [
+                    {
+                        "M": {
+                            "biomarker": {
+                                "S": "ICCPTENs"
+                            },
+                            "result": {
+                                "S": "NEGATIVE"
+                            },
+                            "case_number": {
+                                "S": "case-1234"
+                            },
+                            "result_date": {
+                                "S": "2017-01-10T17:12:01Z"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "biomarker": {
+                                "S": "ICCBAF47s"
+                            },
+                            "result": {
+                                "S": "NEGATIVE"
+                            },
+                            "case_number": {
+                                "S": "case-1234"
+                            },
+                            "result_date": {
+                                "S": "2017-01-10T17:12:02Z"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "biomarker": {
+                                "S": "ICCBRG1s"
+                            },
+                            "result": {
+                                "S": "NEGATIVE"
+                            },
+                            "case_number": {
+                                "S": "case-1234"
+                            },
+                            "result_date": {
+                                "S": "2017-01-10T17:12:04Z"
+                            }
+                        }
+                    }
+                ]
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "specimen_type": {
+                "S": "TISSUE"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
+            },
+            "pathology_status": {
+                "S": "Y"
+            }
+        }
+    ],
+    "ScannedCount": 1
+}

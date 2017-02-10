@@ -1,0 +1,40 @@
+{
+    "Items": [
+        {
+            "current_step_number": {
+                "S": "1.0"
+            },
+            "patient_id": {
+                "S": "PT_TMP_TsReceived"
+            },
+            "current_status": {
+                "S": "TISSUE_SPECIMEN_RECEIVED"
+            },
+            "active_tissue_specimen": {
+                "M": {
+                    "pathology_status": {
+                        "S": "Y"
+                    },
+                    "surgical_event_id": {
+                        "S": "PT_TMP_TsReceived_SEI1"
+                    },
+                    "specimen_collected_date": {
+                        "S": "2017-01-10T17:09:16"
+                    }
+                }
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "registration_date": {
+                "S": "2017-01-10T17:09:15+00:00"
+            },
+            "status_date": {
+                "S": "2017-01-10T17:09:33+00:00"
+            }
+        }
+    ],
+    "ScannedCount": 1,
+    "ConsumedCapacity": null,
+    "Count": 1
+}

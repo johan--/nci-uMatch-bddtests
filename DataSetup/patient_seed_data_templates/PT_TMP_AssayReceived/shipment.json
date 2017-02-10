@@ -1,0 +1,80 @@
+{
+    "Count": 2,
+    "ConsumedCapacity": null,
+    "Items": [
+        {
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "slide_barcode": {
+                "S": "PT_TMP_AssayReceived_BC1"
+            },
+            "patient_id": {
+                "S": "PT_TMP_AssayReceived"
+            },
+            "carrier": {
+                "S": "Federal Express"
+            },
+            "uuid": {
+                "S": "ce2bf5cf-9f33-421e-8559-e70bc756c461"
+            },
+            "shipment_type": {
+                "S": "SLIDE"
+            },
+            "surgical_event_id": {
+                "S": "PT_TMP_AssayReceived_SEI1"
+            },
+            "shipped_date": {
+                "S": "2017-01-10T17:12:00+00:00"
+            },
+            "destination": {
+                "S": "MDA"
+            },
+            "tracking_id": {
+                "S": "7956 4568 1235"
+            }
+        },
+        {
+            "dna_volume_ul": {
+                "N": "10"
+            },
+            "cdna_volume_ul": {
+                "N": "10"
+            },
+            "surgical_event_id": {
+                "S": "PT_TMP_AssayReceived_SEI1"
+            },
+            "molecular_id": {
+                "S": "PT_TMP_AssayReceived_MOI1"
+            },
+            "dna_concentration_ng_per_ul": {
+                "N": "25"
+            },
+            "destination": {
+                "S": "MDA"
+            },
+            "uuid": {
+                "S": "7ef39196-1ac1-44bf-92b9-33ee8ccd929f"
+            },
+            "patient_id": {
+                "S": "PT_TMP_AssayReceived"
+            },
+            "carrier": {
+                "S": "Federal Express"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "shipped_date": {
+                "S": "2017-01-10T17:11:59+00:00"
+            },
+            "shipment_type": {
+                "S": "TISSUE_DNA_AND_CDNA"
+            },
+            "tracking_id": {
+                "S": "7956 4568 1235"
+            }
+        }
+    ],
+    "ScannedCount": 2
+}

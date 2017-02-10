@@ -1,0 +1,36 @@
+{
+    "Count": 1,
+    "Items": [
+        {
+            "pathology_status_date": {
+                "S": "2017-01-10T17:09:33+00:00"
+            },
+            "sorting_key": {
+                "S": "2017-01-10T17:09:33.727"
+            },
+            "collected_date": {
+                "S": "2017-01-10T17:09:16+00:00"
+            },
+            "surgical_event_id": {
+                "S": "PT_TMP_TsReceived_SEI1"
+            },
+            "pathology_status": {
+                "S": "Y"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "specimen_type": {
+                "S": "TISSUE"
+            },
+            "patient_id": {
+                "S": "PT_TMP_TsReceived"
+            },
+            "received_date": {
+                "S": "2016-04-26T15:17:11+00:00"
+            }
+        }
+    ],
+    "ConsumedCapacity": null,
+    "ScannedCount": 1
+}

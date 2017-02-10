@@ -1,0 +1,244 @@
+{
+    "Count": 7,
+    "ScannedCount": 7,
+    "ConsumedCapacity": null,
+    "Items": [
+        {
+            "event_type": {
+                "S": "patient"
+            },
+            "entity_id": {
+                "S": "PT_TMP_AssayReceived"
+            },
+            "event_message": {
+                "S": "REGISTRATION message received from COG for patient PT_TMP_AssayReceived."
+            },
+            "event_data": {
+                "M": {
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_date": {
+                "S": "2017-01-10T17:11:58.247"
+            }
+        },
+        {
+            "event_type": {
+                "S": "specimen"
+            },
+            "entity_id": {
+                "S": "PT_TMP_AssayReceived"
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received at NCH."
+            },
+            "event_data": {
+                "M": {
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "PT_TMP_AssayReceived"
+                    },
+                    "surgical_event_id": {
+                        "S": "PT_TMP_AssayReceived_SEI1"
+                    },
+                    "collection_dt": {
+                        "S": "2017-01-10T17:11:58Z"
+                    },
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "received_dttm": {
+                        "S": "2016-04-26T15:17:11+00:00"
+                    },
+                    "study_id": {
+                        "S": "APEC1621"
+                    }
+                }
+            },
+            "event_date": {
+                "S": "2017-01-10T17:11:59.309"
+            }
+        },
+        {
+            "event_type": {
+                "S": "specimen"
+            },
+            "entity_id": {
+                "S": "PT_TMP_AssayReceived"
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+            },
+            "event_data": {
+                "M": {
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "surgical_event_id": {
+                        "S": "PT_TMP_AssayReceived_SEI1"
+                    },
+                    "type": {
+                        "S": "TISSUE_DNA_AND_CDNA"
+                    },
+                    "molecular_cdna_id": {
+                        "NULL": true
+                    },
+                    "destination": {
+                        "S": "MDA"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "molecular_dna_id": {
+                        "NULL": true
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "molecular_id": {
+                        "S": "PT_TMP_AssayReceived_MOI1"
+                    }
+                }
+            },
+            "event_date": {
+                "S": "2017-01-10T17:12:00.447"
+            }
+        },
+        {
+            "event_type": {
+                "S": "specimen"
+            },
+            "entity_id": {
+                "S": "PT_TMP_AssayReceived"
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type SLIDE shipped from NCH."
+            },
+            "event_data": {
+                "M": {
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "surgical_event_id": {
+                        "S": "PT_TMP_AssayReceived_SEI1"
+                    },
+                    "type": {
+                        "S": "SLIDE"
+                    },
+                    "slide_barcode": {
+                        "S": "PT_TMP_AssayReceived_BC1"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "destination": {
+                        "S": "MDA"
+                    }
+                }
+            },
+            "event_date": {
+                "S": "2017-01-10T17:12:01.446"
+            }
+        },
+        {
+            "event_type": {
+                "S": "assay"
+            },
+            "entity_id": {
+                "S": "PT_TMP_AssayReceived"
+            },
+            "event_message": {
+                "S": "Assay result for ICCPTENs received from MDA."
+            },
+            "event_data": {
+                "M": {
+                    "assay_result": {
+                        "S": "NEGATIVE"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "surgical_event_id": {
+                        "NULL": true
+                    },
+                    "biomarker": {
+                        "S": "ICCPTENs"
+                    }
+                }
+            },
+            "event_date": {
+                "S": "2017-01-10T17:12:02.462"
+            }
+        },
+        {
+            "event_type": {
+                "S": "assay"
+            },
+            "entity_id": {
+                "S": "PT_TMP_AssayReceived"
+            },
+            "event_message": {
+                "S": "Assay result for ICCBAF47s received from MDA."
+            },
+            "event_data": {
+                "M": {
+                    "assay_result": {
+                        "S": "NEGATIVE"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "surgical_event_id": {
+                        "NULL": true
+                    },
+                    "biomarker": {
+                        "S": "ICCBAF47s"
+                    }
+                }
+            },
+            "event_date": {
+                "S": "2017-01-10T17:12:03.597"
+            }
+        },
+        {
+            "event_type": {
+                "S": "assay"
+            },
+            "entity_id": {
+                "S": "PT_TMP_AssayReceived"
+            },
+            "event_message": {
+                "S": "Assay result for ICCBRG1s received from MDA."
+            },
+            "event_data": {
+                "M": {
+                    "assay_result": {
+                        "S": "NEGATIVE"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "surgical_event_id": {
+                        "NULL": true
+                    },
+                    "biomarker": {
+                        "S": "ICCBRG1s"
+                    }
+                }
+            },
+            "event_date": {
+                "S": "2017-01-10T17:12:04.647"
+            }
+        }
+    ]
+}

@@ -1,0 +1,73 @@
+{
+    "Items": [
+        {
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "current_step_number": {
+                "S": "1.0"
+            },
+            "active_tissue_specimen": {
+                "M": {
+                    "surgical_event_id": {
+                        "S": "PT_TMP_AssayReceived_SEI1"
+                    },
+                    "active_destination": {
+                        "S": "MDA"
+                    },
+                    "active_molecular_id_shipped_date": {
+                        "S": "2017-01-10T17:11:59Z"
+                    },
+                    "ICCBAF47s": {
+                        "S": "NEGATIVE"
+                    },
+                    "active_molecular_id": {
+                        "S": "PT_TMP_AssayReceived_MOI1"
+                    },
+                    "slide_shipped_date": {
+                        "S": "2017-01-10T17:12:00Z"
+                    },
+                    "ICCPTENs": {
+                        "S": "NEGATIVE"
+                    },
+                    "specimen_collected_date": {
+                        "S": "2017-01-10T17:11:58"
+                    },
+                    "slide_barcode": {
+                        "S": "PT_TMP_AssayReceived_BC1"
+                    },
+                    "ICCBRG1s": {
+                        "S": "NEGATIVE"
+                    },
+                    "ICCBAF47s_received_date": {
+                        "S": "2017-01-10T17:12:02Z"
+                    },
+                    "pathology_status": {
+                        "S": "Y"
+                    },
+                    "ICCPTENs_received_date": {
+                        "S": "2017-01-10T17:12:01Z"
+                    },
+                    "ICCBRG1s_received_date": {
+                        "S": "2017-01-10T17:12:04Z"
+                    }
+                }
+            },
+            "patient_id": {
+                "S": "PT_TMP_AssayReceived"
+            },
+            "status_date": {
+                "S": "2017-01-10T17:12:04+00:00"
+            },
+            "registration_date": {
+                "S": "2017-01-10T17:11:56+00:00"
+            },
+            "current_status": {
+                "S": "ASSAY_RESULTS_RECEIVED"
+            }
+        }
+    ],
+    "ScannedCount": 1,
+    "ConsumedCapacity": null,
+    "Count": 1
+}

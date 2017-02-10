@@ -1,0 +1,80 @@
+{
+    "Items": [
+        {
+            "shipped_date": {
+                "S": "2017-01-10T17:10:35+00:00"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "shipment_type": {
+                "S": "TISSUE_DNA_AND_CDNA"
+            },
+            "tracking_id": {
+                "S": "7956 4568 1235"
+            },
+            "destination": {
+                "S": "MDA"
+            },
+            "dna_volume_ul": {
+                "N": "10"
+            },
+            "surgical_event_id": {
+                "S": "PT_TMP_SlideShipped_SEI1"
+            },
+            "dna_concentration_ng_per_ul": {
+                "N": "25"
+            },
+            "molecular_id": {
+                "S": "PT_TMP_SlideShipped_MOI1"
+            },
+            "cdna_volume_ul": {
+                "N": "10"
+            },
+            "uuid": {
+                "S": "67d088a8-a929-4723-a415-dd4498a51e89"
+            },
+            "patient_id": {
+                "S": "PT_TMP_SlideShipped"
+            },
+            "carrier": {
+                "S": "Federal Express"
+            }
+        },
+        {
+            "shipped_date": {
+                "S": "2017-01-10T17:10:52+00:00"
+            },
+            "surgical_event_id": {
+                "S": "PT_TMP_SlideShipped_SEI1"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "slide_barcode": {
+                "S": "PT_TMP_SlideShipped_BC1"
+            },
+            "carrier": {
+                "S": "Federal Express"
+            },
+            "uuid": {
+                "S": "c2ed87ce-df1c-42cb-92d1-e0d2e182983e"
+            },
+            "destination": {
+                "S": "MDA"
+            },
+            "tracking_id": {
+                "S": "7956 4568 1235"
+            },
+            "shipment_type": {
+                "S": "SLIDE"
+            },
+            "patient_id": {
+                "S": "PT_TMP_SlideShipped"
+            }
+        }
+    ],
+    "ConsumedCapacity": null,
+    "ScannedCount": 2,
+    "Count": 2
+}

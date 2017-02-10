@@ -1,0 +1,49 @@
+{
+    "ScannedCount": 1,
+    "ConsumedCapacity": null,
+    "Items": [
+        {
+            "status_date": {
+                "S": "2017-01-10T17:10:14+00:00"
+            },
+            "patient_id": {
+                "S": "PT_TMP_TsShipped"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "registration_date": {
+                "S": "2017-01-10T17:09:45+00:00"
+            },
+            "active_tissue_specimen": {
+                "M": {
+                    "active_molecular_id": {
+                        "S": "PT_TMP_TsShipped_MOI1"
+                    },
+                    "surgical_event_id": {
+                        "S": "PT_TMP_TsShipped_SEI1"
+                    },
+                    "active_molecular_id_shipped_date": {
+                        "S": "2017-01-10T17:10:01Z"
+                    },
+                    "specimen_collected_date": {
+                        "S": "2017-01-10T17:09:47"
+                    },
+                    "active_destination": {
+                        "S": "MDA"
+                    },
+                    "pathology_status": {
+                        "S": "Y"
+                    }
+                }
+            },
+            "current_status": {
+                "S": "TISSUE_NUCLEIC_ACID_SHIPPED"
+            },
+            "current_step_number": {
+                "S": "1.0"
+            }
+        }
+    ],
+    "Count": 1
+}

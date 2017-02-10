@@ -1,0 +1,48 @@
+{
+    "ScannedCount": 1,
+    "Items": [
+        {
+            "dna_volume_ul": {
+                "N": "10"
+            },
+            "study_id": {
+                "S": "APEC1621"
+            },
+            "tracking_id": {
+                "S": "7956 4568 1235"
+            },
+            "destination": {
+                "S": "MDA"
+            },
+            "uuid": {
+                "S": "24ba5b92-48c9-4118-bc27-f53fd0f62478"
+            },
+            "shipment_type": {
+                "S": "TISSUE_DNA_AND_CDNA"
+            },
+            "dna_concentration_ng_per_ul": {
+                "N": "25"
+            },
+            "patient_id": {
+                "S": "PT_TMP_TsShipped"
+            },
+            "cdna_volume_ul": {
+                "N": "10"
+            },
+            "carrier": {
+                "S": "Federal Express"
+            },
+            "shipped_date": {
+                "S": "2017-01-10T17:10:01+00:00"
+            },
+            "molecular_id": {
+                "S": "PT_TMP_TsShipped_MOI1"
+            },
+            "surgical_event_id": {
+                "S": "PT_TMP_TsShipped_SEI1"
+            }
+        }
+    ],
+    "ConsumedCapacity": null,
+    "Count": 1
+}
