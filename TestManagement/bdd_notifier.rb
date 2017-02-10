@@ -54,4 +54,4 @@ class BDDNotifier
   end
 end
 
-BDDNotifier.new.notify_bdd_failure('', 'nci-match-patient-api', '01-09-17-1048', '@ui', "190292979")
+# BDDNotifier.new.notify_bdd_failure('', 'nci-match-patient-api', '01-09-17-1048', '@ui', "190292979")
