@@ -52,7 +52,7 @@ class BDDNotifier
     else
       build_number = job_id
     end
-    message = "Build ##{build_number} of #{proj} failed. \nPlease check: "
+    message = "BDD test which triggered by #{proj}(##{build_number}) failed. \nPlease check: "
     travis_link = "https://travis-ci.org/CBIIT/nci-uMatch-bddtests/jobs/#{job_id}"
     travis_link = "<#{travis_link}|Travis Log>"
     today_date = Date.today.strftime('%m-%d-%y')
