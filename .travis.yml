@@ -112,10 +112,10 @@ after_success:
   # - curl -s -X POST -H "Content-Type:application/json" -H "Accept:application/json" -H "Travis-API-Version:3" -H "Authorization:token $UAT_TRAVIS_TOKEN" -d "{\"request\":{\"message\":\"Triggered by $TRIGGER_REPO $TRAVIS_COMMIT\", \"branch\":\"master\", \"config\":{\"env\":{\"matrix\":[\"TRIGGER_REPO=$TRIGGER_REPO;CUC_TAG=$CUC_TAG\"]}}}}" https://api.travis-ci.org/repo/CBIIT%2Fnci-uMatch-uattests/requests
 
 after_failure:
-    #Notify $AUTHOR ------ NOT DONE YET
-#    - cd TestManagement
-#    - ruby -r "./bdd_notifier.rb" -e "BDDNotifier.new.notify_bdd_failure '$AUTHOR', '$TRIGGER_REPO', '$TRIGGER_VER', '$CUC_TAG', '$TRAVIS_JOB_ID'"
-#    - cd ..
+#    Notify $AUTHOR ------ NOT DONE YET
+    - cd TestManagement
+    - ruby -r "./bdd_notifier.rb" -e "BDDNotifier.new.notify_bdd_failure 'LiWang', '$TRIGGER_REPO', '$TRIGGER_VER', '$CUC_TAG', '$TRAVIS_JOB_ID'"
+    - cd ..
 
     #Run P3 cucumber tests
     - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P3 --format json --out ../../results/output-$TEST_ENV_NUMBER.json --expand' -n 2

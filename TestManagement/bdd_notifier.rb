@@ -3,7 +3,7 @@ require 'slack-ruby-bot'
 class BDDNotifier
   def initialize
     Slack.configure do |config|
-      config.token = ENV['SLACK_TOKEN']
+      config.token = ENV['BDD_BOT_SLACK_TOKEN']
     end
 
     @client = Slack::Web::Client.new
@@ -28,12 +28,17 @@ class BDDNotifier
   end
 
   def notify_bdd_failure(git_user, repo, build, cuc_tag, job_id)
-    message = "Build ##{build} of #{repo} failed. Please check report: "
-    message += "https://travis-ci.org/CBIIT/nci-uMatch-bddtests/jobs/#{job_id}"
-    today_date = "#{Date.today.month.to_s}-#{Date.today.day.to_s}-#{Date.today.year.to_s[2..3]}"
-    message += "\nCOMING_SOON/report/#{today_date}/critical/#{cuc_tag.gsub('@', '')}"
+    message = "Build ##{build} of #{repo} failed. Please check: "
+    travis_link = "https://travis-ci.org/CBIIT/nci-uMatch-bddtests/jobs/#{job_id}"
+    travis_link = "<#{travis_link}|Travis Log>"
+    message += "\n#{travis_link} or "
+    today_date = Date.today.strftime('%m-%d-%y')
+    bdd_report_link = 'http://pedmatch-admin-alb-external-382939701.us-east-1.elb.amazonaws.com:3025'
+    bdd_report_link = "#{bdd_report_link}/report/#{today_date}/critical/#{cuc_tag.gsub('@', '')}"
+    bdd_report_link = "<#{bdd_report_link}|BDD Test Report>"
+    message += "#{bdd_report_link}"
     say(message, git_user)
   end
 end
 
-# BDDNotifier.new.notify_bdd_failure('LiWang', 'nci-match-patient-api', '01-09-17-1048', '@patients', "190292979")
+# BDDNotifier.new.notify_bdd_failure('LiWang', 'nci-match-patient-api', '01-09-17-1048', '@ui', "190292979")
