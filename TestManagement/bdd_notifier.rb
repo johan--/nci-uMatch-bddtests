@@ -42,7 +42,17 @@ class BDDNotifier
       cmd = "git --no-pager show -s --format='%an <%ae>'"
       user = `#{cmd}`.split(' ')[0]
     end
-    message = "Build ##{build} of #{repo} failed. \nPlease check: "
+    if repo.present?
+      proj = repo
+    else
+      proj = "nci-uMatch-bddtests"
+    end
+    if build.present?
+      build_number = build
+    else
+      build_number = job_id
+    end
+    message = "Build ##{build_number} of #{proj} failed. \nPlease check: "
     travis_link = "https://travis-ci.org/CBIIT/nci-uMatch-bddtests/jobs/#{job_id}"
     travis_link = "<#{travis_link}|Travis Log>"
     today_date = Date.today.strftime('%m-%d-%y')

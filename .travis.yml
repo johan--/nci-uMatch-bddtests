@@ -114,7 +114,7 @@ after_success:
 after_failure:
 #    Notify $AUTHOR ------ NOT DONE YET
     - cd TestManagement
-    - ruby -r "./bdd_notifier.rb" -e "BDDNotifier.new.notify_bdd_failure 'LiWang', '$TRIGGER_REPO', '$TRIGGER_VER', '$CUC_TAG', '$TRAVIS_JOB_ID'"
+    - ruby -r "./bdd_notifier.rb" -e "BDDNotifier.new.notify_bdd_failure '$AUTHOR', '$TRIGGER_REPO', '$TRIGGER_VER', '$CUC_TAG', '$TRAVIS_JOB_ID'"
     - cd ..
 
     #Run P3 cucumber tests
