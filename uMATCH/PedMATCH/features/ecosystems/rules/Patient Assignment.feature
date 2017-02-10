@@ -288,13 +288,21 @@ Feature: Ensure the rules are fired correctly and patients are assigned to the r
     Then a patient assignment json is returned with reason category "SELECTED" for treatment arm "multiple-assays"
     Then the patient assignment reason is "A match was found for assay rule (GENE: BAF47, RESULT: NEGATIVE, VARIANT: PRESENT). A match was found for assay rule (GENE: PTEN, RESULT: POSITIVE, VARIANT: EMPTY). A match was found for inclusion variant FGFR2-OFD1.F17O3."
 
-#  Scenario: PA_32: Test
-#    Given  the patient assignment json "test"
-#    And treatment arm json "test"
-#    When assignPatient service is called for patient "PID-1234"
-#    Then a patient assignment json is returned with report_status "NO_TREATMENT_FOUND"
-##    Then the patient assignment reason is "Rules-Test1 (100) excluded because patient has already taken it or is not eligible."
+  Scenario: PA_36: Gene fusion variant containg suffix .1 or .2
+    Given  the patient assignment json "genefusion_variant_with_suffix"
+    And treatment arm json "genefusion_rule"
+    When assignPatient service is called for patient "PID-1234"
+    Then a patient assignment json is returned with report_status "TREATMENT_FOUND"
 
+  Scenario: PA_37: Gene fusion variant containg suffix .1 or .2
+    Given  the patient assignment json "genefusion_variant_with_suffix_ex2"
+    And treatment arm json "genefusion_rule"
+    When assignPatient service is called for patient "PID-1234"
+    Then a patient assignment json is returned with report_status "TREATMENT_FOUND"
 
-
+  Scenario: PA_38 Verify that the Matchbox does not match on partial string
+    Given  the patient assignment json "genefusion_variant_with_suffix_ex3"
+    And treatment arm json "genefusion_rule"
+    When assignPatient service is called for patient "PID-1234"
+    Then a patient assignment json is returned with report_status "NO_TREATMENT_FOUND"
 
