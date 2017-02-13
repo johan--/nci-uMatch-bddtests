@@ -80,6 +80,61 @@ module.exports = function() {
         browser.sleep(50).then(callback);
     });
 
+    this.When(/^I click on clia report Comment button$/, function (callback) {
+        var acceptProperty;
+        acceptProperty = cliaPage.statusCancelButton;
+
+            acceptProperty.click().then(function() {
+                browser.waitForAngular();
+                browser.ignoreSynchronization = false;
+                browser.sleep(4000);
+            })
+
+        browser.executeScript('window.scrollTo(0, 100)');
+
+    });
+
+    // this.Then (/^I should see the patient's information table$/, function (callback) {
+    //     //checking for presence of table
+    //     expect (browser.isElementPresent (patientPage.patientSummaryTable)).to.eventually.be.true;
+    //     //checking if the label values match
+    //     var expectedLabelList = patientPage.expectedPatientSummaryLabels;
+    //     var actualLabelList   = patientPage.patientSummaryTable.all (by.css ('dt'));
+    //     expect (actualLabelList.count ()).to.eventually.equal (expectedLabelList.length);
+    //     for (var i = 0; i < expectedLabelList.length; i++) {
+    //         expect (actualLabelList.get (i).getText ()).to.eventually.equal (expectedLabelList[ i ]);
+    //     }
+    //     browser.sleep (50).then (callback);
+    // });
+
+    this.Then(/^I "(should|should not)" see the status$/, function (presence, callback) {
+        var status = presence == 'should';
+        var positiveControlArray = ['Molecular ID',
+            'Analysis ID',
+            'Ion Reporter ID',
+            'Positive Control Loaded Date',
+            'Torrent Variant Caller Version', 
+            'Positive Control Version', 
+            'Status'];
+        var index = positiveControlArray.indexOf(6);
+
+        console.log("--> " + cliaPage.infoPanel.all(by.css('.ng-binding')).get(index).getText())
+
+        // if (status === true) {
+        //     expect(cliaPage.infoPanel.all(by.css('.ng-binding')).get(index).getText())
+        //         .to
+        //         .eventually
+        //         .include(value)
+        //         .notify(callback);
+        // }
+        // else {
+        //     cliaPage.infoPanel.all(by.css('.ng-binding')).get(index).getText().then(function (text) {
+        //         expect(text).to.not.eql(value);
+        //     }).then(callback);
+        // }
+    });
+
+
     // this.When(/^I clear the text in the modal text box$/, function (callback) {
     //     patientPage.confirmChangeCommentField.clear();
     //     browser.sleep(50).then(callback);

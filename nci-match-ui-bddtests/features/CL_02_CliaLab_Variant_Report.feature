@@ -6,10 +6,12 @@ Feature: CLIA Labs Variant Reports Page
 #        And The clia report "ACCEPT" button is "visible"
         When I click on clia report "<statusButton>" button on "<subTabName>"
         Then I can see the clia report "Change of the Status" in the modal text box
+        And I click on clia report Comment button
+        And I "should" see the status
 #        Then I logout
 
         Examples:
             | userType          | subTabName               | statusButton | molecularId |
             | VR_Reviewer_mocha | Positive Sample Controls | REJECT       | SC_5AMCC    |
-            | VR_Reviewer_mocha | No Template Control      | ACCEPT       | SC_SA1CB    |
-            | VR_Reviewer_mocha | Proficiency And Competency | CONFIRM      | SC_FDK09   |
+#            | VR_Reviewer_mocha | No Template Control      | ACCEPT       | SC_SA1CB    |
+#            | VR_Reviewer_mocha | Proficiency And Competency | CONFIRM      | SC_FDK09   |

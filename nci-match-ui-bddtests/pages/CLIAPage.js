@@ -30,16 +30,21 @@ var CliaPage = function () {
     this.sampleDetailTableHead  = element.all(by.css('.ibox-title.ibox-title-no-line-no-padding'));
     this.samplePositivePanel    = element(by.css('clia-vr-positive'));
     this.sampleFalsePosPanel    = element(by.css('clia-vr-false-positive'));
-    this.ntcSNVPanel            = element(by.css('clia-vr-table-snv-mnv-indel'))
-    this.ntcCNVPanel            = element(by.css('clia-vr-table-cnv'))
-    this.ntcGeneFusionPanel     = element(by.css('clia-vr-table-gf'))
-    this.proficiencySNVPanel    = element(by.css('clia-vr-table-snv-mnv-indel-with-check'))
-    this.proficiencyCNVPanel    = element(by.css('clia-vr-table-cnv-with-check'))
-    this.proficiencyGFPanel     = element(by.css('clia-vr-table-gf-with-check'))
+    this.ntcSNVPanel            = element(by.css('clia-vr-table-snv-mnv-indel'));
+    this.ntcCNVPanel            = element(by.css('clia-vr-table-cnv'));
+    this.ntcGeneFusionPanel     = element(by.css('clia-vr-table-gf'));
+    this.proficiencySNVPanel    = element(by.css('clia-vr-table-snv-mnv-indel-with-check'));
+    this.proficiencyCNVPanel    = element(by.css('clia-vr-table-cnv-with-check'));
+    this.proficiencyGFPanel     = element(by.css('clia-vr-table-gf-with-check'));
+
+    // this.infoPanel     = element(by.css('div.header-info-box clia-lab-vr-pc-header-box'))
+    this.infoPanel = element.all(by.css('.header-info-box clia-lab-vr-pc-header-box')).get(6);
+
 
     this.acceptNtcButton = element(by.css('button[ng-click="$ctrl.changeNtcStatusWithComment()"]'));
     this.rejectPcButton = element(by.css('button[ng-click="$ctrl.changePcStatusWithComment()"]'));
     this.confirmPncButton = element(by.css('button[ng-click="$ctrl.changePncStatusWithComment(\'PASSED\')"]'));
+    this.statusCancelButton = element(by.css('button[ng-click="buttonClicked(button)"]'));
     this.confirmVRStatusCommentField = element(by.css('input[id="cgPromptInput"]')); // THis is the confirmation modal for the complete VR rejection
 
     // Expectation values
