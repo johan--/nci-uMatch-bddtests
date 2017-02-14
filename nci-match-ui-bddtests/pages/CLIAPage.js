@@ -54,9 +54,9 @@ var CliaPage = function () {
     this.infoPanel = element.all(by.css('div.clia-lab-vr-pc-header-box'));
 
 
-    this.acceptNtcButton = element(by.css('button[ng-click="$ctrl.changeNtcStatusWithComment()"]'));
-    this.rejectPcButton = element(by.css('button[ng-click="$ctrl.changePcStatusWithComment()"]'));
-    this.confirmPncButton = element(by.css('button[ng-click="$ctrl.changePncStatusWithComment(\'PASSED\')"]'));
+    this.acceptNtcButton = element(by.css('button[ng-click="changeNtcStatusWithComment(\'PASSED\')"]'));
+    this.rejectPcButton = element(by.css('button[ng-click="changePcStatusWithComment(\'FAILED\')"]'));
+    this.confirmPncButton = element(by.css('button[ng-click="changePncStatusWithComment(\'PASSED\')"]'));
     this.statusCancelButton = element(by.css('button[ng-click="buttonClicked(button)"]'));
     this.confirmVRStatusCommentField = element(by.css('input[id="cgPromptInput"]')); // THis is the confirmation modal for the complete VR rejection
 
