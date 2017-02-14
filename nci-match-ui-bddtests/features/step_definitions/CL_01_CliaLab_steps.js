@@ -14,49 +14,7 @@ var nodeCmd   = require('node-cmd');
 module.exports = function() {
     this.World = require('../step_definitions/world').World;
 
-    var tabNameMap = {
-        'MoCha' : {
-            'Positive Sample Controls': {
-                'element': cliaPage.mochaPositiveGrid,
-                'control_type': 'positive',
-                'url_control_type': 'positive-control',
-                'url_type': 'positive_sample_control'
-            },
-
-            'No Template Control': {
-                'element': cliaPage.mochaNoTemplateGrid,
-                'control_type': 'no_template',
-                'url_control_type': 'no-template-sample-control',
-                'url_type' : 'no_template_control'
-            },
-            'Proficiency And Competency' : {
-                'element': cliaPage.mochaProficiencyGrid,
-                'control_type': 'proficiency_competency',
-                'url_control_type': 'proficiency-competency-sample-control',
-                'url_type': 'positive_sample_control'
-            }
-        },
-        'MD Anderson' : {
-            'Positive Sample Controls': {
-                'element': cliaPage.mdaPositiveGrid,
-                'control_type': 'positive',
-                'url_control_type': 'positive-control',
-                'url_type': 'positive_sample_control'
-            },
-            'No Template Control': {
-                'element': cliaPage.mdaNoTemplateGrid,
-                'control_type': 'no_template',
-                'url_control_type': 'no-template-sample-control',
-                'url_type' : 'no_template_control'
-            },
-            'Proficiency And Competency' : {
-                'element': cliaPage.mdaProficiencyGrid,
-                'control_type': 'proficiency_competency',
-                'url_control_type': 'proficiency-competency-sample-control',
-                'url_type': 'positive_sample_control'
-            }
-        }
-    };
+    var tabNameMap = cliaPage.tabNameMapping;
 
     var controlType;
 

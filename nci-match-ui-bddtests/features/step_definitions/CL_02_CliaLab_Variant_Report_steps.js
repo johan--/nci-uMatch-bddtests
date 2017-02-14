@@ -80,9 +80,9 @@ module.exports = function() {
         browser.sleep(50).then(callback);
     });
 
-    this.When(/^I click on clia report Comment button$/, function (callback) {
-        var acceptProperty;
-        acceptProperty = cliaPage.statusCancelButton;
+    this.When(/^I click "(.+?)" on clia report Comment button$/, function (buttonText, callback) {
+        var acceptProperty = element(by.buttonText(buttonText))
+        
 
             acceptProperty.click().then(function() {
                 browser.waitForAngular();
@@ -90,59 +90,28 @@ module.exports = function() {
                 browser.sleep(4000);
             })
 
-        browser.executeScript('window.scrollTo(0, 100)');
+        browser.executeScript('window.scrollTo(0, 100)').then(callback);
 
     });
 
-    // this.Then (/^I should see the patient's information table$/, function (callback) {
-    //     //checking for presence of table
-    //     expect (browser.isElementPresent (patientPage.patientSummaryTable)).to.eventually.be.true;
-    //     //checking if the label values match
-    //     var expectedLabelList = patientPage.expectedPatientSummaryLabels;
-    //     var actualLabelList   = patientPage.patientSummaryTable.all (by.css ('dt'));
-    //     expect (actualLabelList.count ()).to.eventually.equal (expectedLabelList.length);
-    //     for (var i = 0; i < expectedLabelList.length; i++) {
-    //         expect (actualLabelList.get (i).getText ()).to.eventually.equal (expectedLabelList[ i ]);
-    //     }
-    //     browser.sleep (50).then (callback);
-    // });
-
-    this.Then(/^I "(should|should not)" see the status$/, function (presence, callback) {
-        var status = presence == 'should';
-        var positiveControlArray = ['Molecular ID',
-            'Analysis ID',
-            'Ion Reporter ID',
-            'Positive Control Loaded Date',
-            'Torrent Variant Caller Version', 
-            'Positive Control Version', 
-            'Status'];
-        var index = positiveControlArray.indexOf(6);
-
-        console.log("--> " + cliaPage.infoPanel.all(by.css('.ng-binding')).get(index).getText())
-
-        // if (status === true) {
-        //     expect(cliaPage.infoPanel.all(by.css('.ng-binding')).get(index).getText())
-        //         .to
-        //         .eventually
-        //         .include(value)
-        //         .notify(callback);
-        // }
-        // else {
-        //     cliaPage.infoPanel.all(by.css('.ng-binding')).get(index).getText().then(function (text) {
-        //         expect(text).to.not.eql(value);
-        //     }).then(callback);
-        // }
+    this.Then(/^I should see the status as "(.+?)"$/, function (status, callback) {
+        expect(cliaPage.infoPanel.get(0).all(by.css('dt+dd')).get(6).getText()).to.eventually.eql(status).notify(callback);
     });
 
+    this.When(/^I enter "([^"]*)" in the search field of "([^"]*)" under "([^"]*)"$/, function (searchTerm, controlType, siteName, callback) {
+        var parent = cliaPage.tabNameMapping[siteName][controlType].element; 
+        var input = cliaPage.tabNameMapping[siteName][controlType].searchElement;
+        var tableElement = parent.all(by.css('tr[ng-repeat^="item in filtered"]'));
+        input.sendKeys(searchTerm).then(function(){
+            browser.waitForAngular();
 
-    // this.When(/^I clear the text in the modal text box$/, function (callback) {
-    //     patientPage.confirmChangeCommentField.clear();
-    //     browser.sleep(50).then(callback);
-    // });
-    //
-    // this.When(/^I enter the cliaPage report comment "([^"]*)" in the VR modal text box$/, function (comment, callback) {
-    //     patientPage.confirmVRStatusCommentField.sendKeys(comment);
-    //     browser.sleep(50).then(callback);
-    // });
+            expect(tableElement.count()).to.eventually.equal(1)
+        }).then(callback);
+    });
+
+    this.Then(/^I should see the status of variant report in list as "([^"]*)"$/, function (status, callback) {
+        expect(cliaPage.searchList.get(0).all(by.binding('item.report_status | dashify')).get(0).getText())
+            .to.eventually.eql(status).notify(callback);       
+    });
 
 };

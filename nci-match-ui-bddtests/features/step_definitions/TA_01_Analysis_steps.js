@@ -239,7 +239,7 @@ module.exports = function () {
 
     this.Then(/^I should see the treatment\-arms detail dashboard$/, function (callback) {
         var expectedResults = 'treatment-arm?treatment_arm_id=' + currentTreatmentId + '&stratum_id=' + currentStratumId
-
+        expect(taPage.treamtentArmHeading.getText()).to.eventually.eql(currentTreatmentId + '-' + currentStratumId);
         expect(browser.getCurrentUrl()).to.eventually.include(expectedResults)
             .then(function () {
                 browser.waitForAngular();

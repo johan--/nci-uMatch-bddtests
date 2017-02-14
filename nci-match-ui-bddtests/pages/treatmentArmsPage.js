@@ -9,8 +9,10 @@ var TreatmentArmsPage = function() {
     var treatment_id;
     this.currentTreatmentId = '';
     this.currentStratumId = '';
+
     //List of Elements on the Treatment Page
-    //List of all the treatment arms on the treatment arms landing page.
+   //List of all the treatment arms on the treatment arms landing page.
+    this.treamtentArmHeading = element(by.css('span.ta-title'));
     this.taTable = element(by.id('treatmentArmGrid'));
 
     // HEader of the above table

@@ -3,15 +3,20 @@ Feature: CLIA Labs Variant Reports Page
     Scenario Outline: User can access information about the uploaded Positive Sample Control report.
         Given I am logged in as a "<userType>" user
         And I go to clia variant filtered report with "<molecularId>" as the molecular_id on "<subTabName>" tab
+        Then I should see the status as "<oldStatus>"
 #        And The clia report "ACCEPT" button is "visible"
         When I click on clia report "<statusButton>" button on "<subTabName>"
         Then I can see the clia report "Change of the Status" in the modal text box
-        And I click on clia report Comment button
-        And I "should" see the status
-#        Then I logout
+        And I click "OK" on clia report Comment button
+        And I should see the status as "<newStatus>"
+        When I navigate to the CLIA Labs page
+        And I click on the "MoCha" section
+        And I click on "<subTabName>" under "MoCha"
+        And I enter "<molecularId>" in the search field of "<subTabName>" under "MoCha"
+        Then I should see the status of variant report in list as "<newStatus>"
 
         Examples:
-            | userType          | subTabName               | statusButton | molecularId |
-            | VR_Reviewer_mocha | Positive Sample Controls | REJECT       | SC_5AMCC    |
-#            | VR_Reviewer_mocha | No Template Control      | ACCEPT       | SC_SA1CB    |
-#            | VR_Reviewer_mocha | Proficiency And Competency | CONFIRM      | SC_FDK09   |
+            | userType          | subTabName                  | statusButton | molecularId | oldStatus | newStatus |
+            | VR_Reviewer_mocha | Positive Sample Controls    | REJECT       | SC_5AMCC    | PASSED    | FAILED    |
+#            | VR_Reviewer_mocha | No Template Control        | ACCEPT       | SC_SA1CB    |
+#            | VR_Reviewer_mocha | Proficiency And Competency | CONFIRM      | SC_FDK09    |

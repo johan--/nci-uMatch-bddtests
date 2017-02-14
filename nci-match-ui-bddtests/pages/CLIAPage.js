@@ -1,8 +1,17 @@
 var CliaPage = function () {
     this.pageTitle = 'MATCHBox | CLIA Labs'
 
-    this.mochaSectionButton = element(by.css('div.toolbar-row [ng-class="{\'active\' : (sitename==\'MoCha\')}"]'));
-    this.mdaSectionButton   = element(by.css('div.toolbar-row [ng-class="{\'active\' : (sitename==\'MDACC\')}"]'));
+    //This section contains elements related to the tables and the search field 
+    this.searchPositiveSampleControl = element(by.css('clia_positive_samples input.form-control'));
+    this.searchNoTemplateControl     = element(by.css('clia_ntc_samples input.form-control'));
+    this.searchProficiencyCompetency = element(by.css('clia_pc_samples input.form-control'));
+
+    this.searchTableMolecularId   = element.all(by.binding('item.molecular_id | dashify'));
+    this.searchTableDateCreated   = element.all(by.binding('item.date_molecular_id_created | utc'));
+    this.searchTableDateReceived  = element.all(by.binding('item.date_variant_received | utc'));
+    this.searchTableVariantReport = element.all(by.css('a[ng-bind="item.molecular_id | dashify"]'));
+    this.searchTableStatus        = element.all(by.binding('item.report_status | msnstatus'));
+    this.searchList               = element.all(by.css('tr[ng-repeat^="item in filtered"]'))
 
     this.mochaPositiveGrid      = element(by.css('clia_positive_samples[site="MoCha"]'));
     this.mochaNoTemplateGrid    = element(by.css('clia_ntc_samples[site="MoCha"]'));
@@ -10,6 +19,10 @@ var CliaPage = function () {
     this.mdaPositiveGrid        = element(by.css('clia_positive_samples[site="MDACC"]'));
     this.mdaNoTemplateGrid      = element(by.css('clia_ntc_samples[site="MDACC"]'));
     this.mdaProficiencyGrid     = element(by.css('clia_pc_samples[site="MDACC"]'));
+    
+    // These buttons take you to the individual mocha or mda sections.
+    this.mochaSectionButton = element(by.css('div.toolbar-row [ng-class="{\'active\' : (sitename==\'MoCha\')}"]'));
+    this.mdaSectionButton   = element(by.css('div.toolbar-row [ng-class="{\'active\' : (sitename==\'MDACC\')}"]'));
 
     this.sampleDetailHeaders    = element.all(by.css('.header-info-box'));
     this.sampleDetailMolecId    = element(by.binding('data.molecular_id'));
@@ -38,7 +51,7 @@ var CliaPage = function () {
     this.proficiencyGFPanel     = element(by.css('clia-vr-table-gf-with-check'));
 
     // this.infoPanel     = element(by.css('div.header-info-box clia-lab-vr-pc-header-box'))
-    this.infoPanel = element.all(by.css('.header-info-box clia-lab-vr-pc-header-box')).get(6);
+    this.infoPanel = element.all(by.css('div.clia-lab-vr-pc-header-box'));
 
 
     this.acceptNtcButton = element(by.css('button[ng-click="$ctrl.changeNtcStatusWithComment()"]'));
@@ -78,6 +91,56 @@ var CliaPage = function () {
         'right': [
             'Total Variants', 'MAPD', 'Cellularity', 'File Received Date', 'Files'
         ]
+    };
+
+    this.tabNameMapping = {
+        'MoCha' : {
+            'Positive Sample Controls': {
+                'element': this.mochaPositiveGrid,
+                'control_type': 'positive',
+                'url_control_type': 'positive-control',
+                'url_type': 'positive_sample_control',
+                'searchElement': this.searchPositiveSampleControl
+            },
+
+            'No Template Control': {
+                'element': this.mochaNoTemplateGrid,
+                'control_type': 'no_template',
+                'url_control_type': 'no-template-sample-control',
+                'url_type' : 'no_template_control',
+                'searchElement': this.searchNoTemplateControl
+            },
+            'Proficiency And Competency' : {
+                'element': this.mochaProficiencyGrid,
+                'control_type': 'proficiency_competency',
+                'url_control_type': 'proficiency-competency-sample-control',
+                'url_type': 'positive_sample_control',
+                'searchElement': this.searchProficiencyCompetency
+            }
+        },
+        'MD Anderson' : {
+            'Positive Sample Controls': {
+                'element': this.mdaPositiveGrid,
+                'control_type': 'positive',
+                'url_control_type': 'positive-control',
+                'url_type': 'positive_sample_control',
+                'searchElement': this.searchPositiveSampleControl
+            },
+            'No Template Control': {
+                'element': this.mdaNoTemplateGrid,
+                'control_type': 'no_template',
+                'url_control_type': 'no-template-sample-control',
+                'url_type' : 'no_template_control',
+                'searchElement': this.searchNoTemplateControl
+            },
+            'Proficiency And Competency' : {
+                'element': this.mdaProficiencyGrid,
+                'control_type': 'proficiency_competency',
+                'url_control_type': 'proficiency-competency-sample-control',
+                'url_type': 'positive_sample_control',
+                'searchElement': this.searchProficiencyCompetency
+            }
+        }
     };
 };
 
