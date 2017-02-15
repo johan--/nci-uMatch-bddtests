@@ -25,6 +25,10 @@ var DashboardPage = function() {
     this.pendingBVRCount    = element(by.binding(' pendingBloodVariantReportGridOptions.data.length '));
     this.pendingAssgnCount  = element(by.binding(' pendingAssignmentReportGridOptions.data.length '));
 
+    this.pendingTVRTable        = element(by.id('pendingTissueVRs'));
+    this.pendingAssgnmntTable   = element(by.id('pendingAssignReps'));
+    this.limboTable             = element(by.id('limboPatients'));
+
     this.patientsInLimboList = element(by.exactBinding("limboPatientGridOptions.data.length"));
     //this.patientsInLimboList = element.all(by.repeater('item in filtered | startFrom:(paginationOptions.currentPage-1)*paginationOptions.itemsPerPage | limitTo:paginationOptions.itemsPerPage track by $index'));
 

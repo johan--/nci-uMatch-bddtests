@@ -76,3 +76,21 @@ Feature: Dashboard page.
     When I collect information on patients in limbo
     Then I can see table of Patients Awaiting Further Action Or Information
     And I can see a list of patients and the reasons why they are in limbo.
+    When I search for "TISSUE_SPECIMEN_RECEIVED" in the limbo table search field
+    Then I should see "Tissue DNA and RNA shipment missing" in the limbo table message
+    Then I should see "Slide shipment missing" in the limbo table message
+    When I search for "TISSUE_VARIANT_REPORT_RECEIVED" in the limbo table search field
+    Then I should see "Variant report missing" in the limbo table message
+    Then I should see "Slide shipment missing" in the limbo table message
+    When I search for "TISSUE_NUCLEIC_ACID_SHIPPED" in the limbo table search field
+    Then I should see "Variant report missing" in the limbo table message
+    Then I should see "Slide shipment missing" in the limbo table message
+    When I search for "TISSUE_VARIANT_REPORT_CONFIRMED" in the limbo table search field
+    Then I should see "Slide shipment missing" in the limbo table message
+    When I search for "TISSUE_VARIANT_REPORT_RECEIVED" in the limbo table search field
+    Then I should see "Variant report missing" in the limbo table message
+    When I search for "TISSUE_SLIDE_SPECIMEN_SHIPPED" in the limbo table search field
+    Then I should see "Tissue DNA and RNA shipment missing" in the limbo table message
+    Then I should see "PTEN assay result missing" in the limbo table message
+    Then I should see "BAF47 assay result missing" in the limbo table message
+    Then I should see "BRG1 assay result missing" in the limbo table message

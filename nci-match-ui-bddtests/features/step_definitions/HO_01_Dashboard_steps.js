@@ -343,4 +343,20 @@ module.exports = function() {
         browser.ignoreSynchronization = false;
         browser.sleep(50).then(callback);
     });
+
+    this.When(/^I search for "([^"]*)" in the limbo table search field$/, function (searchTerm, callback) {
+        var limboTableSearchField = dash.limboTable.element(by.model('filterAll'));
+        limboTableSearchField.sendKeys(searchTerm).then(function() {
+            browser.waitForAngular();
+        }).then(callback);
+    });
+
+    this.Then(/^I should see "([^"]*)" in the limbo table message$/, function (message, callback) {
+         var firstRowInLimboTable = dash.limboTable.all(by.css('table tr')).get(0);
+         var messageInFirstRow  = firstRowInLimboTable.all(by.repeater('id in vm.limboMessageIds'))
+         var expectedMessageArray = message.split(", ");
+         messageInFirstRow.getText().then(function(actualMessageArray){
+                expect( expectedMessageArray ).to.include(message);
+         }).then(callback);
+    });
 };
