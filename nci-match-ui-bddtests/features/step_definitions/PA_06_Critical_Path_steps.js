@@ -34,16 +34,16 @@ module.exports = function () {
         patientPage.variantAnalysisId = analysisId;
         var varRepString = 'li[ng-repeat="'+ patientPage.variantAndAssignmentPanelString + '"] a[href="#/patient/' + patientPage.patientId + '/variant_report?analysis_id=' + analysisId + '"]';
         variantReportLink = element(by.css(varRepString));
-        browser.ignoreSynchronization = true;
-        expect(variantReportLink.isPresent()).to.eventually.eql(true).then(function () {
+
+        expect(variantReportLink.isPresent()).to.eventually.eql(true).then(function(){
             browser.ignoreSynchronization = false;
-            browser.executeScript('window.scrollTo(0, 5000)').then(function () {
-                variantReportLink.element(by.css('i')).click().then(function(){
-                    browser.waitForAngular();
+            variantReportLink.getLocation().then(function(location) {
+                browser.executeScript('window.scrollTo(' + (location.x - 100) + ', ' + (location.y - 100) + ')').then(function(){
+                    variantReportLink.element(by.css('i')).click().then(function(){
+                        browser.waitForAngular();
+                    });
                 });
             });
-        }, function () {
-            browser.ignoreSynchronization = false
         }).then(callback);
     });
 
@@ -93,13 +93,16 @@ module.exports = function () {
     });
 
     this.When(/^I uncheck the variant of ordinal "([^"]*)"$/, function (ordinal, callback) {
-        // ordinal begins at 1
-            var index = parseInt(ordinal) - 1;
-            browser.executeScript('window.scrollTo(0,2500)').then(function () {
-                patientPage.variantConfirmButtonCLickList.get(index).click().then(function () {
+        // ordinal begins at 1, so we have to make it zero based
+        var index = parseInt(ordinal) - 1;
+        var el = patientPage.variantConfirmButtonCLickList.get(index)
+        el.getLocation().then(function(location){
+            browser.executeScript('window.scrollTo(' + location.x + ', ' + location.y + ')').then(function(){
+                el.click().then(function(){
                     browser.waitForAngular();
-                })
-            }).then(callback);
+                });
+            });
+        }).then(callback);
     });
 
     this.When(/^I note the ID of the variant at ordinal "([^"]*)"$/, function (ordinal, callback) {
