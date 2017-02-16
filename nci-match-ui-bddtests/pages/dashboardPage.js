@@ -31,7 +31,20 @@ var DashboardPage = function() {
 
     this.patientsInLimboList = element(by.exactBinding("limboPatientGridOptions.data.length"));
     //this.patientsInLimboList = element.all(by.repeater('item in filtered | startFrom:(paginationOptions.currentPage-1)*paginationOptions.itemsPerPage | limitTo:paginationOptions.itemsPerPage track by $index'));
+    this.expectedPatientInLimboDetailsLeft = [ 
+        'IHC BAF47',
+        'IHC BRG1',
+        'IHC PTEN',
+        'Disease'
+    ];
 
+    this.expectedPatientInLimboDetailsRight = [
+        'Surgical Event Id',
+        'Specimen Collected Date',
+        'Molecular Id',
+        'Analysis Id',
+        'Molecular Id Shipped Date'
+    ];
 
     this.logout = function () {
         this.logoutLink.click();

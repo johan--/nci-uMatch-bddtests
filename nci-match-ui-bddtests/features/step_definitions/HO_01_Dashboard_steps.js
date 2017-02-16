@@ -4,6 +4,7 @@ var fs = require('fs');
 // Utility Methods
 var utilities = require('../../support/utilities');
 var dash = require('../../pages/dashboardPage');
+var moment = require('moment');
 
 module.exports = function() {
     this.World = require('../step_definitions/world').World;
@@ -346,7 +347,7 @@ module.exports = function() {
 
     this.When(/^I search for "([^"]*)" in the limbo table search field$/, function (searchTerm, callback) {
         var limboTableSearchField = dash.limboTable.element(by.model('filterAll'));
-        limboTableSearchField.sendKeys(searchTerm).then(function() {
+        limboTableSearchField.sendKeys(searchTerm).then(function(){
             browser.waitForAngular();
         }).then(callback);
     });
@@ -359,4 +360,84 @@ module.exports = function() {
                 expect( expectedMessageArray ).to.include(message);
          }).then(callback);
     });
+
+    this.When(/^I click on the chevron link to expand details for patient "([^"]*)"$/, function (patientId, callback) {
+        var chevronXPath = element(by.xpath('//i[@id="i_'+ patientId + '"]'));
+        chevronXPath.getLocation().then(function(loc){
+            browser.executeScript('window.scrollTo(' + loc.x + ', ' + (loc.y - 100) + ')').then(function(){
+                chevronXPath.click();
+            })
+        }).then(callback);
+    }); 
+
+    this.When(/^I collect information about the patient "([^"]*)" under limbo$/, function (patientId, callback) {
+        var url = '/api/v1/patients/patient_limbos'
+        utilities.getRequestWithService('patient', url).then(function(responseBody){
+            dash.responseData = responseBody.filter(function(el){
+                return el.patient_id === patientId;
+            });
+        }).then(callback);
+    }); 
+
+    this.Then(/^I can see a list of assays under the limbo table for patient "([^"]*)"$/, function (patientId, callback) {
+        var detailPanel = element(by.id('lp_' + patientId)).all(by.css('.col-md-6.col-sm-6.text-left')).get(0).all(by.css('dt'));
+        detailPanel.getText().then(function(lefSideDetails){
+            var expectedLength = dash.expectedPatientInLimboDetailsLeft.length
+            expect(lefSideDetails.length).to.eql(expectedLength)
+            for(var i = 0; i < expectedLength; i++){
+                expect(lefSideDetails[i]).to.eql(dash.expectedPatientInLimboDetailsLeft[i]);
+            }
+        }).then(callback);
+    });
+
+    this.Then(/^I can see details that can be provided about the specimen under the limbo table for patient "([^"]*)"$/, function (patientId, callback) {
+        var detailPanel = element(by.id('lp_' + patientId)).all(by.css('.col-md-6.col-sm-6.text-left')).get(1).all(by.css('dt'));
+        detailPanel.getText().then(function(lefSideDetails){
+            var expectedLength = dash.expectedPatientInLimboDetailsRight.length
+            expect(lefSideDetails.length).to.eql(expectedLength)
+            for(var i = 0; i < expectedLength; i++){
+                expect(lefSideDetails[i]).to.eql(dash.expectedPatientInLimboDetailsRight[i]);
+            }
+        }).then(callback);;
+    });
+
+    this.Then(/^I can see the actual details about the specimen under the limbo table for patient "([^"]*)"$/, function (patientId, callback) {
+        var limboSpecimendetails = dash.responseData[0].active_tissue_specimen;
+        var valuesPanel = element(by.id('lp_' + patientId))
+            .all(by.css('.col-md-6.col-sm-6.text-left')).get(1).all(by.css('dd'));
+        valuesPanel.getText().then(function(values){
+            expect(values[0]).to.eql(limboSpecimendetails.surgical_event_id);
+            expect(values[1]).to.include(moment.utc(limboSpecimendetails.specimen_collected_date).utc().format('LLL'));
+            expect(values[2]).to.eql(limboSpecimendetails.active_molecular_id);
+            expect(values[3]).to.eql(limboSpecimendetails.active_analysis_id);
+            expect(values[4]).to.include(moment.utc(limboSpecimendetails.active_molecular_id_shipped_date).utc().format('LLL'));
+        }).then(callback);
+    });
+
+    this.Then(/^I can see that the Surgical Event id is a link for patient "([^"]*)"$/, function(patientId, callback){
+        var valuesPanel = element(by.id('lp_' + patientId))
+            .all(by.css('.col-md-6.col-sm-6.text-left')).get(1).all(by.css('dd'));
+        var actualLink = valuesPanel.get(0).element(by.css('a'));
+        var expectedLink = '#/patient?patient_id=' + patientId + '&section=surgical_event&surgical_event_id=' + patientId + '_SEI1';
+        expect(actualLink.getAttribute('href')).to.eventually.include(expectedLink).notify(callback);
+    });
+
+    this.Then(/^I can see that the Molecular id is a link for patient "([^"]*)"$/, function(patientId, callback){
+        var valuesPanel = element(by.id('lp_' + patientId))
+            .all(by.css('.col-md-6.col-sm-6.text-left')).get(1).all(by.css('dd'));
+        var actualLink = valuesPanel.get(2).element(by.css('a'));
+        var expectedLink = '#/patient?patient_id=' + patientId + '&section=surgical_event&surgical_event_id=' + patientId + '_SEI1';
+
+        expect(actualLink.getAttribute('href')).to.eventually.include(expectedLink).notify(callback); 
+    });
+
+    this.Then(/^I can see that the Analysis id is a link for patient "([^"]*)"$/, function(patientId, callback){
+        var valuesPanel = element(by.id('lp_' + patientId))
+            .all(by.css('.col-md-6.col-sm-6.text-left')).get(1).all(by.css('dd'));
+        var actualLink = valuesPanel.get(3).element(by.css('a'));
+        var expectedLink = '#/patient/' + patientId + '/variant_report?analysis_id=' + patientId + '_ANI1';
+
+        expect(actualLink.getAttribute('href')).to.eventually.include(expectedLink).notify(callback); 
+    });
 };
+

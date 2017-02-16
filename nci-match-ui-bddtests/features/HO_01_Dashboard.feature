@@ -94,3 +94,16 @@ Feature: Dashboard page.
     Then I should see "PTEN assay result missing" in the limbo table message
     Then I should see "BAF47 assay result missing" in the limbo table message
     Then I should see "BRG1 assay result missing" in the limbo table message
+
+    @ui_p2 @fender
+    Scenario: User can see details about the patient in the limbo table
+    When I search for "PT_VU09_VariantReportUploaded" in the limbo table search field
+    And I click on the chevron link to expand details for patient "PT_VU09_VariantReportUploaded"
+    And I collect information about the patient "PT_VU09_VariantReportUploaded" under limbo
+    Then I can see a list of assays under the limbo table for patient "PT_VU09_VariantReportUploaded"
+    And I can see details that can be provided about the specimen under the limbo table for patient "PT_VU09_VariantReportUploaded"
+    And I can see the actual details about the specimen under the limbo table for patient "PT_VU09_VariantReportUploaded"
+    And I can see that the Surgical Event id is a link for patient "PT_VU09_VariantReportUploaded"
+    And I can see that the Molecular id is a link for patient "PT_VU09_VariantReportUploaded"
+    And I can see that the Analysis id is a link for patient "PT_VU09_VariantReportUploaded"
+
