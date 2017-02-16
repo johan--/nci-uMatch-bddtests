@@ -27,7 +27,7 @@ var DashboardPage = function() {
 
     this.pendingTVRTable        = element(by.id('pendingTissueVRs'));
     this.pendingAssgnmntTable   = element(by.id('pendingAssignReps'));
-    this.limboTable             = element(by.id('limboPatients'));
+    this.limboTable             = element(by.id('limboPatientsPanel'));
 
     this.patientsInLimboList = element(by.exactBinding("limboPatientGridOptions.data.length"));
     //this.patientsInLimboList = element.all(by.repeater('item in filtered | startFrom:(paginationOptions.currentPage-1)*paginationOptions.itemsPerPage | limitTo:paginationOptions.itemsPerPage track by $index'));
@@ -71,19 +71,13 @@ var DashboardPage = function() {
         "Assignment Reports" : "pendingAssignReps"
     };
 
-    this.expectedTissueVRColumns = ['Patient ID', 'Molecular ID',
-        'Analysis ID', 'IR ID',
-        'Specimen Received Date',
+    this.expectedTissueVRColumns = ['Patient ID',   'Molecular ID', 
+        'Analysis ID',  'Variant Report',   'CLIA Lab', 'Specimen Received Date',   
         'Variant Report Received Date', 'Days Pending'];
 
-    this.expectedBloodVRColumns = ['Patient ID', 'Molecular ID',
-        'Analysis ID', 'Variant Report',
-        'CLIA Lab', 'Specimen Received Date',
-        'Variant Report Received Date', 'Days Pending'];
-
-    this.expectedAssignmentColumns = ['Patient ID', 'Molecular ID',
-        'Analysis ID', 'Disease', 'Assigned Treatment Arm',
-        'Assignment Date', 'Hours Pending'];
+    this.expectedAssignmentColumns = ['Patient ID', 'Molecular ID', 
+        'Analysis ID', 'Variant Report', 'Assignment Report',    
+        'Disease', 'Assigned Treatment Arm', 'Assignment Date', 'Hours Pending'];
 
     this.expectedLimboTableColumns = [
         'Details', 'Patient ID', 'Current Status', 'Message', 'Days Waiting'

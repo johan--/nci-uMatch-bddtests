@@ -85,7 +85,7 @@ module.exports = function () {
     });
 
 
-    this.Then(/I should see (Inclusionary|Exclusionary) Diseases table/, function (inclusionType, callback) {
+    this.Then(/I should see (Inclusionary|Exclusionary) Disease table/, function (inclusionType, callback) {
         var firstPart;
         var exclusion;
         var refData;        // Node to collect data from treatment arm api call.

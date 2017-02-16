@@ -30,11 +30,11 @@ Feature: Treatment Arm Rules
 
   @ui_p2
   Scenario: Logged in user can access Drugs/Disease details on the Rules Tab
-    When I select the Drugs / Diseases sub-tab
-    Then I should see that Drugs / Diseases sub-tab is active
-    And I should see Exclusionary Diseases table
+    When I select the Drugs / Disease sub-tab
+    Then I should see that Drugs / Disease sub-tab is active
+    And I should see Exclusionary Disease table
     And I should see Exclusionary Drugs table
-    And I should see Inclusionary Diseases table
+    And I should see Inclusionary Disease table
     Then I logout
 
   @ui_p2

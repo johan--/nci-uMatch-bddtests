@@ -38,7 +38,7 @@ module.exports = function () {
         expect(variantReportLink.isPresent()).to.eventually.eql(true).then(function(){
             browser.ignoreSynchronization = false;
             variantReportLink.getLocation().then(function(location) {
-                browser.executeScript('window.scrollTo(' + (location.x - 100) + ', ' + (location.y - 100) + ')').then(function(){
+                browser.executeScript('window.scrollTo(' + (location.x - 50) + ', ' + (location.y - 50) + ')').then(function(){
                     variantReportLink.element(by.css('i')).click().then(function(){
                         browser.waitForAngular();
                     });
@@ -97,7 +97,7 @@ module.exports = function () {
         var index = parseInt(ordinal) - 1;
         var el = patientPage.variantConfirmButtonCLickList.get(index)
         el.getLocation().then(function(location){
-            browser.executeScript('window.scrollTo(' + location.x + ', ' + location.y + ')').then(function(){
+            browser.executeScript('window.scrollTo(' + (location.x - 100) + ', ' + (location.y - 100) + ')').then(function(){
                 el.click().then(function(){
                     browser.waitForAngular();
                 });
@@ -466,7 +466,7 @@ module.exports = function () {
     });
 
     this.Then(/^I can see the selected Treatment arm id "([^"]*)" and stratum "([^"]*)" and version "([^"]*)" in a box with reason$/, function (taId, stratum, version, callback) {
-        var expectedString = 'Selected Treatment Arm: ' + taId + ' (' + stratum + ', ' + version + ')';
+        var expectedString = 'Selected Treatment Arm: ' + taId + '-' + stratum + ' (' + version + ')';
         expect(patientPage.selectedAssignmentBoxHeader.getText()).to.eventually.eql(expectedString);
         expect(patientPage.selectedAssignmentBoxText.getText())
             .to.eventually.eql(patientPage.responseData.patient.current_assignment.reason)

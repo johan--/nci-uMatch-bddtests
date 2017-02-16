@@ -21,8 +21,11 @@ var CliaPage = function () {
     this.mdaProficiencyGrid     = element(by.css('clia_pc_samples[site="MDACC"]'));
     
     // These buttons take you to the individual mocha or mda sections.
-    this.mochaSectionButton = element(by.css('div.toolbar-row [ng-class="{\'active\' : (sitename==\'MoCha\')}"]'));
-    this.mdaSectionButton   = element(by.css('div.toolbar-row [ng-class="{\'active\' : (sitename==\'MDACC\')}"]'));
+    this.mochaSectionButton = element(by.css('label[title="Switch to {"site":"mocha","tab":true} Report"]>input'));
+    this.mdaSectionButton   = element(by.css('label[title="Switch to {"site":"mda","tab":true} Report"]>input'));
+
+    // this.mochaSectionButton = element(by.css('div.toolbar-row [ng-class="{\'active\' : (sitename==\'MoCha\')}"]'));
+    // this.mdaSectionButton   = element(by.css('div.toolbar-row [ng-class="{\'active\' : (sitename==\'MDACC\')}"]'));
 
     this.sampleDetailHeaders    = element.all(by.css('.header-info-box'));
     this.sampleDetailMolecId    = element(by.binding('data.molecular_id'));

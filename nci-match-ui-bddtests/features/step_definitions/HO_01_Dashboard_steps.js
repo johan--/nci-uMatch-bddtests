@@ -86,8 +86,7 @@ module.exports = function() {
     this.Then(/^I can see the Patients Statistics Section$/, function (callback) {
         var expectedStatLabelArray = [
             'Registered Patients:', 'Patients with Confirmed Variant Report:',
-            'Patients on Treatment:', 'Pending Tissue Variant Reports:',
-            'Pending Assignment Reports:'
+            'Pending Tissue Variant Reports:', 'Pending Assignment Reports:', 'Patients on Treatment'
         ];
         // removed 'Pending Blood Specimens:', from the above array
 
@@ -381,22 +380,22 @@ module.exports = function() {
 
     this.Then(/^I can see a list of assays under the limbo table for patient "([^"]*)"$/, function (patientId, callback) {
         var detailPanel = element(by.id('lp_' + patientId)).all(by.css('.col-md-6.col-sm-6.text-left')).get(0).all(by.css('dt'));
-        detailPanel.getText().then(function(lefSideDetails){
+        detailPanel.getText().then(function(leftSideDetails){
             var expectedLength = dash.expectedPatientInLimboDetailsLeft.length
-            expect(lefSideDetails.length).to.eql(expectedLength)
+            expect(leftSideDetails.length).to.eql(expectedLength)
             for(var i = 0; i < expectedLength; i++){
-                expect(lefSideDetails[i]).to.eql(dash.expectedPatientInLimboDetailsLeft[i]);
+                expect(leftSideDetails[i]).to.eql(dash.expectedPatientInLimboDetailsLeft[i]);
             }
         }).then(callback);
     });
 
     this.Then(/^I can see details that can be provided about the specimen under the limbo table for patient "([^"]*)"$/, function (patientId, callback) {
         var detailPanel = element(by.id('lp_' + patientId)).all(by.css('.col-md-6.col-sm-6.text-left')).get(1).all(by.css('dt'));
-        detailPanel.getText().then(function(lefSideDetails){
+        detailPanel.getText().then(function(rightSideDetails){
             var expectedLength = dash.expectedPatientInLimboDetailsRight.length
-            expect(lefSideDetails.length).to.eql(expectedLength)
+            expect(rightSideDetails.length).to.eql(expectedLength)
             for(var i = 0; i < expectedLength; i++){
-                expect(lefSideDetails[i]).to.eql(dash.expectedPatientInLimboDetailsRight[i]);
+                expect(rightSideDetails[i]).to.eql(dash.expectedPatientInLimboDetailsRight[i]);
             }
         }).then(callback);;
     });

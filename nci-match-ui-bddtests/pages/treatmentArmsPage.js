@@ -132,8 +132,8 @@ var TreatmentArmsPage = function() {
         "Name",
         "Current Patients",
         "Former Patients",
-        "Not Enrolled Patients",
         "Pending Arm Approval",
+        "Not Enrolled Patients",
         "Status",
         "Date Opened",
         "Date Suspended/Closed"
@@ -208,15 +208,6 @@ var TreatmentArmsPage = function() {
         var loeLoc = 'td:nth-of-type(8)';
         var litTableLoc = 'td:nth-of-type(9)';
 
-        // var id = element.all(by.binding('item.identifier'));
-        // var gene = element.all(by.binding('item.gene_name'));
-        // var chr = element.all(by.binding('item.chromosome'));
-        // var pos = element.all(by.binding('item.position'));
-        // // var ref = element.all(by.binding('item.reference'));
-        // // var alt = element.all(by.binding('item.alternative'));
-        // var protein = element.all(by.binding('item.description'));
-        // var loe = element.all(by.binding('item.level_of_evidence'));
-        //
         rowList.count().then(function (count){
             if (count > 0){
                 rowList.each(function (row, index) {
