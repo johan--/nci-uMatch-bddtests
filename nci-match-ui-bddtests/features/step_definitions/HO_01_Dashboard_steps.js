@@ -307,8 +307,8 @@ module.exports = function() {
 
     this.Then(/^I can see table of Patients Awaiting Further Action Or Information$/, function (callback) {
         browser.ignoreSynchronization = true;
-        var heading = element.all(by.css('.panel-container .ibox-title')).get(1);
-        var tableHeaders = element.all(by.css('#limboPatients th'))
+        var heading = dash.limboHeading;
+        var tableHeaders = dash.limboTableHeaderList;
         // Checking for table headings.
         utilities.checkElementArray(tableHeaders, dash.expectedLimboTableColumns);
         // Checking for the Section heading value

@@ -226,7 +226,7 @@ module.exports = function () {
         var dateExpected = moment.utc(firstTreatmentArm.date_opened).utc().format('LLL');
 
         expect(element(by.binding('vm.treatmentArmId')).getText()).to.eventually.eql(firstTreatmentArm.treatment_arm_id);
-        expect(element(by.binding('vm.stratumId')).getText()).to.eventually.eql(firstTreatmentArm.stratum_id);
+        expect(element(by.binding('vm.stratumId')).getText()).to.eventually.include(firstTreatmentArm.stratum_id);
         expect(element(by.binding('item.stratum_statistics.current_patients')).getText()).to.eventually.eql(currentPatients.toString());
         expect(element(by.binding('item.stratum_statistics.former_patients')).getText()).to.eventually.eql(formerPatients.toString());
         expect(element(by.binding('item.stratum_statistics.not_enrolled_patients')).getText()).to.eventually.eql(notEnrolledPatients.toString());

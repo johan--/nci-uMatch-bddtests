@@ -29,7 +29,7 @@ module.exports = function() {
     this.When(/^I click on the "(MoCha|MD Anderson)" section$/, function (sectionName, callback) {
 
         var elem = sectionName === 'MoCha' ? cliaPage.mochaSectionButton : cliaPage.mdaSectionButton;
-        cliaPage.siteName= sectionName;
+        cliaPage.siteName = sectionName;
         elem.click().then(function() {
             browser.waitForAngular();
         }).then(callback);
@@ -64,7 +64,7 @@ module.exports = function() {
     });
 
     this.Then(/^I am on the "(MoCha|MD Anderson)" section$/, function (sectionName, callback) {
-        var url = sectionName === 'MoCha' ? 'MoCha' : 'MDACC';
+        var url = sectionName === 'MoCha' ? 'mocha' : 'mda';
         expect(browser.getCurrentUrl()).to.eventually
             .include('clia-labs?site=' + url + '&type=positive')
             .notify(callback);
@@ -122,8 +122,8 @@ module.exports = function() {
     });
 
     this.Then(/^I verify that "([^"]*)" under "(MoCha|MD Anderson)" is active$/, function (subTabName, sectionName, callback) {
-         var elemToCheck = cliaPage.tableElement;
-         expect(elemToCheck.isPresent()).to.eventually.eql(true).notify(callback);
+         var elemToCheck = element(by.css('li[heading="' + subTabName + '"]'));
+         utilities.checkElementIncludesAttribute(elemToCheck, 'class', 'active').then(callback);         
     });
 
     this.Then(/^I verify the headings for "([^"]*)" under "(MoCha|MD Anderson)"$/, function (subTabName, sectionName, callback) {

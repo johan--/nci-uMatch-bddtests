@@ -88,7 +88,7 @@ module.exports = function () {
         expect (actualTable.get (3).getText ()).to.eventually.eql (patientPage.responseData.current_step_number)
         expect (actualTable.get (4).getText ()).to.eventually.eql (selectedTA.treatment_arm_id);
         expect (actualTable.get (5).getText ()).to.eventually.eql ('-' + selectedTA.stratum_id);
-        expect (actualTable.get (6).getText ()).to.eventually.eql (', ' + selectedTA.version).notify (callback);
+        expect (actualTable.get (6).getText ()).to.eventually.eql ('(' + selectedTA.version + ')').notify (callback);
     });
 
     this.Then (/^I should see the patient's disease information match the database$/, function (callback) {

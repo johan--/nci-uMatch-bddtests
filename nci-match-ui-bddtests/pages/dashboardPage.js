@@ -29,7 +29,9 @@ var DashboardPage = function() {
     this.pendingAssgnmntTable   = element(by.id('pendingAssignReps'));
     this.limboTable             = element(by.id('limboPatientsPanel'));
 
-    this.patientsInLimboList = element(by.exactBinding("limboPatientGridOptions.data.length"));
+    this.limboHeading           = element.all(by.css('.panel-container .ibox-title')).get(1);
+    this.limboTableHeaderList   = element.all(by.css('limboPatientsPanel th'));
+    this.patientsInLimboList    = element(by.exactBinding("limboPatientGridOptions.data.length"));
     //this.patientsInLimboList = element.all(by.repeater('item in filtered | startFrom:(paginationOptions.currentPage-1)*paginationOptions.itemsPerPage | limitTo:paginationOptions.itemsPerPage track by $index'));
     this.expectedPatientInLimboDetailsLeft = [ 
         'IHC BAF47',

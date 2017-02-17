@@ -13,19 +13,16 @@ var CliaPage = function () {
     this.searchTableStatus        = element.all(by.binding('item.report_status | msnstatus'));
     this.searchList               = element.all(by.css('tr[ng-repeat^="item in filtered"]'))
 
-    this.mochaPositiveGrid      = element(by.css('clia_positive_samples[site="MoCha"]'));
-    this.mochaNoTemplateGrid    = element(by.css('clia_ntc_samples[site="MoCha"]'));
-    this.mochaProficiencyGrid   = element(by.css('clia_pc_samples[site="MoCha"]'));
-    this.mdaPositiveGrid        = element(by.css('clia_positive_samples[site="MDACC"]'));
-    this.mdaNoTemplateGrid      = element(by.css('clia_ntc_samples[site="MDACC"]'));
-    this.mdaProficiencyGrid     = element(by.css('clia_pc_samples[site="MDACC"]'));
+    this.mochaPositiveGrid      = element(by.css('clia_positive_samples[site="mocha"]'));
+    this.mochaNoTemplateGrid    = element(by.css('clia_ntc_samples[site="mocha"]'));
+    this.mochaProficiencyGrid   = element(by.css('clia_pc_samples[site="mocha"]'));
+    this.mdaPositiveGrid        = element(by.css('clia_positive_samples[site="mda"]'));
+    this.mdaNoTemplateGrid      = element(by.css('clia_ntc_samples[site="mda"]'));
+    this.mdaProficiencyGrid     = element(by.css('clia_pc_samples[site="mda"]'));
     
     // These buttons take you to the individual mocha or mda sections.
-    this.mochaSectionButton = element(by.css('label[title="Switch to {"site":"mocha","tab":true} Report"]>input'));
-    this.mdaSectionButton   = element(by.css('label[title="Switch to {"site":"mda","tab":true} Report"]>input'));
-
-    // this.mochaSectionButton = element(by.css('div.toolbar-row [ng-class="{\'active\' : (sitename==\'MoCha\')}"]'));
-    // this.mdaSectionButton   = element(by.css('div.toolbar-row [ng-class="{\'active\' : (sitename==\'MDACC\')}"]'));
+    this.mochaSectionButton = element(by.cssContainingText('label[ng-click="setActiveTab(key,value)"]', 'MoCha'));
+    this.mdaSectionButton   = element(by.cssContainingText('label[ng-click="setActiveTab(key,value)"]', 'MD Anderson'));
 
     this.sampleDetailHeaders    = element.all(by.css('.header-info-box'));
     this.sampleDetailMolecId    = element(by.binding('data.molecular_id'));
