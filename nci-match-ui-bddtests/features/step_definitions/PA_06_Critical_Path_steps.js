@@ -37,10 +37,12 @@ module.exports = function () {
 
         expect(variantReportLink.isPresent()).to.eventually.eql(true).then(function(){
             browser.ignoreSynchronization = false;
-            variantReportLink.getLocation().then(function(location) {
-                browser.executeScript('window.scrollTo(' + (location.x - 50) + ', ' + (location.y - 50) + ')').then(function(){
-                    variantReportLink.element(by.css('i')).click().then(function(){
-                        browser.waitForAngular();
+            browser.sleep(2000).then(function(){
+                variantReportLink.getLocation().then(function(location) {
+                    browser.executeScript('window.scrollTo(' + (location.x + 50) + ', ' + (location.y + 50) + ')').then(function(){
+                        variantReportLink.element(by.css('i')).click().then(function(){
+                            browser.waitForAngular();
+                        });
                     });
                 });
             });
@@ -96,10 +98,13 @@ module.exports = function () {
         // ordinal begins at 1, so we have to make it zero based
         var index = parseInt(ordinal) - 1;
         var el = patientPage.variantConfirmButtonCLickList.get(index)
-        el.getLocation().then(function(location){
-            browser.executeScript('window.scrollTo(' + (location.x - 100) + ', ' + (location.y - 100) + ')').then(function(){
-                el.click().then(function(){
-                    browser.waitForAngular();
+        browser.sleep(2000).then(function(){
+            el.getLocation().then(function(location){
+                console.log(location);
+                browser.executeScript('window.scrollTo(0, ' + (location.y + 300) + ')').then(function(){
+                    el.click().then(function(){
+                        browser.waitForAngular();
+                    });
                 });
             });
         }).then(callback);

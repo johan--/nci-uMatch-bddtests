@@ -10,6 +10,8 @@ var LoginPage = function() {
     var loginEmail = element(by.css('input[type="email"]'));
     var loginPassword = element(by.css('input[type="password"]'));
 
+    this.signInName = element(by.binding('name'));
+
     this.goToLogin = function(){
         return browser.get('/#/login', 3000);
     }

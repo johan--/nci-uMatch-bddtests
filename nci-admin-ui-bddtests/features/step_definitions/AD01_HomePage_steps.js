@@ -7,19 +7,10 @@ var utilities = require('../../support/utilities');
 module.exports = function() {
 	this.World = require('../step_definitions/world').World;
 	
-	this.Given(/^I am a logged in user$/, function (callback) {
-		var email = process.env.ADMIN_UI_AUTH0_USERNAME;
-		var password = process.env.ADMIN_UI_AUTH0_PASSWORD;
-        browser.sleep(50).then(function() {
-        	login.goToLogin().then(function(){
-        		login.loginProcess(email, password);	
-        	});
-        	
-        }).then(callback);
-    });
-
 	this.Then(/^I can see the dashboard$/, function (callback) {
-		expect(uploader.uploadHeading.isPresent()).to.eventually.eql(true).notify(callback);
+		browser.sleep(5000).then(function(){	
+			expect(browser.isElementPresent(uploader.uploadHeading)).to.eventually.eql(true);
+		}).then(callback);
 	});	
 
 	this.Then(/^I can see that the upload section is active$/, function (callback) {
