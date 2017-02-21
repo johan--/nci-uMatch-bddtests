@@ -109,6 +109,20 @@ module.exports = function () {
         }).then(callback);
     });
 
+    this.When(/^I click on the comment link at ordinal "([^"]*)"$/, function (ordinal, callback) {
+        var index = ordinal - 1;
+        var el  = element.all(by.css(patientPage.commentLinkString)).get(index)
+        el.getLocation().then(function(location){
+            browser.executeScript('window.scrollTo(0, ' + (location.y + 300) + ')').then(function(){
+                browser.sleep(2000).then(function(){
+                    el.click().then(function(){
+                        browser.waitForAngular();
+                    })
+                })
+            })
+        }).then(callback);
+    });
+
     this.When(/^I note the ID of the variant at ordinal "([^"]*)"$/, function (ordinal, callback) {
         var index = parseInt(ordinal) - 1;
         patientPage.variantIdentifierList.get(index).getText().then(function (value) {
@@ -196,21 +210,7 @@ module.exports = function () {
         browser.sleep(50).then(callback);
     });
 
-    this.When(/^I click on the comment link at ordinal "([^"]*)"$/, function (ordinal, callback) {
-        browser.ignoreSynchronization = false;
-        browser.executeScript('window.scrollTo(0, 5000)').then(function () {
-            var index = ordinal - 1;
-            var expectedCommentLink = element.all(by.css(patientPage.commentLinkString)).get(index);
-            browser.sleep(2000).then(function(){
-                    expectedCommentLink.click().then(function () {
-                    browser.waitForAngular();
-                }).then(callback);
-            }).then(callback);
-        });
-    });
-
     this.Then(/^I can see the "([^"]*)" in the modal text box$/, function (comment, callback) {
-        console.log("comment--> " + comment)
         expect(patientPage.confirmChangeCommentField.getAttribute('value'))
             .to
             .eventually
@@ -301,7 +301,7 @@ module.exports = function () {
 
     this.Then(/^I can see the assignment report page "([^"]*)"$/, function (assignmentTabTitle, callback) {
         browser.ignoreSynchronization = false;
-        var tab = element(by.cssContainingText('uib-tab-heading', assignmentTabTitle));
+        var tab = utilities.getSubTabHeadingElement(assignmentTabTitle)
         var tabBody = element(by.id('assignment-report'));
 
         expect(tab.isDisplayed()).to.eventually.eql(true);
@@ -416,7 +416,6 @@ module.exports = function () {
         var variantAnalysisIdString = 'span[ng-if^="timelineEvent.event_data.analysis_id"]';
         browser.sleep(3000);
 
-        browser.ignoreSynchronization = true;
         expect(timeline.all(by.css(variantReportStatusString)).get(0).getText()).to.eventually.include(message);
         expect(timeline.all(by.css(variantAnalysisIdString)).get(0)
                 .getText()).to.eventually.eql(label)
@@ -485,7 +484,7 @@ module.exports = function () {
 
     this.Then(/^I can see the selected treatment arm and the reason$/, function (callback) {
         var selectedTA = patientPage.responseData.patient.current_assignment;
-        var taString = selectedTA.treatment_arm_id + ' (' + selectedTA.stratum_id + ', ' + selectedTA.version + ')'
+        var taString = selectedTA.treatment_arm_id + '-' + selectedTA.stratum_id + ' (' + selectedTA.version + ')'
 
         expect(patientPage.ruleNameList.get(0).getText()).to.eventually.include('SELECTED');
         expect(patientPage.ruleDetailsList.get(0).all(by.css('.content-cell')).get(0).getText())

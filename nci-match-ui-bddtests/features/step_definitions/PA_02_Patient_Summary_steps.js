@@ -25,7 +25,6 @@ module.exports = function () {
         var tableElement = patientPage.patientListTable;
         patientPage.returnPatientId (tableElement, 0).then (function (id) {
             patientPage.patientId = id;
-            console.log ('Patient Selected: ' + patientPage.patientId);
             element (by.linkText (id)).click ();
         }).then (callback);
     });

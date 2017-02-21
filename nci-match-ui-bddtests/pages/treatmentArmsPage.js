@@ -140,7 +140,7 @@ var TreatmentArmsPage = function() {
     ];
     this.expectedMainTabs = ['Analysis', 'Rules', 'History'];
     this.expectedRulesSubTabs =
-        ['Drugs / Diseases', 'SNVs / MNVs / Indels', 'CNVs', 'Gene Fusions', 'Non-Hotspot Rules', 'Non-Sequencing Assays'];
+        ['Drugs / Disease', 'SNVs / MNVs / Indels', 'CNVs', 'Gene Fusions', 'Non-Hotspot Rules', 'Non-Sequencing Assays'];
 
 
     /** This function returns the text that the name of the Treatment Arm in the row.

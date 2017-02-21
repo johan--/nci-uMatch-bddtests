@@ -193,7 +193,7 @@ Feature: This is the critical path test cases.
     Then I logout
   
   Scenario: Confirming the assignment report updates the status
-    Given I am logged in as a "admin" user
+    Given I am logged in as a "AR_Reviewer" user
     When I go to patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" details page
     And I get the link to "PT_CR01_PathAssayDoneVRUploadedToConfirm_ANI1" assignment report
     And I navigate to the Assignment Report
@@ -211,7 +211,7 @@ Feature: This is the critical path test cases.
     Then I logout
   
   Scenario: Confirmed Assignment Report updates information on the Assignment report setion of the patient
-    Given I am logged in as a "admin" user
+    Given I am logged in as a "AR_Reviewer" user
     When I go to patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" details page
     And I get the link to "PT_CR01_PathAssayDoneVRUploadedToConfirm_ANI1" assignment report
     And I navigate to the Assignment Report

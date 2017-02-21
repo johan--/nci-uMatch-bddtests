@@ -133,7 +133,7 @@ var PatientPage = function () {
     // and Assignment report. One can access variant report and
     // assignment report button from here.
     this.variantAndAssignmentPanel = element.all(by.repeater('analysis in shipment.analyses'));
-    this.variantAndAssignmentPanelString = 'analysis in shipment.analyses';
+    this.variantAndAssignmentPanelString = 'assignment in analysis.assignments';
 
     this.variantConfirmButtonList      = element.all(by.css('input[type="checkbox"]')); // This is to check the properties
     this.variantConfirmButtonCLickList = element.all(by.css('button[ng-click="vm.confirm()"]')); // This is to perfom actions on the checkbox
