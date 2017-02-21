@@ -251,11 +251,13 @@ end
 Then(/^patient should have selected treatment arm: "([^"]*)" with stratum id: "([^"]*)"$/) do |ta_id, stratum|
   get_patient_if_needed
   current_assignment = 'current_assignment'
-  selected_ta = 'selected_treatment_arm'
+  # selected_ta = 'selected_treatment_arm'
   expect(@current_patient_hash.keys).to include current_assignment
-  expect(@current_patient_hash[current_assignment].keys).to include selected_ta
-  actual_match_expect(@current_patient_hash[current_assignment][selected_ta]['treatment_arm_id'], ta_id)
-  actual_match_expect(@current_patient_hash[current_assignment][selected_ta]['stratum_id'], stratum)
+  # expect(@current_patient_hash[current_assignment].keys).to include selected_ta
+  # actual_match_expect(@current_patient_hash[current_assignment][selected_ta]['treatment_arm_id'], ta_id)
+  # actual_match_expect(@current_patient_hash[current_assignment][selected_ta]['stratum_id'], stratum)
+  actual_match_expect(@current_patient_hash[current_assignment]['treatment_arm_id'], ta_id)
+  actual_match_expect(@current_patient_hash[current_assignment]['stratum_id'], stratum)
 end
 
 Then(/^patient should have (\d+) blood specimens$/) do |count|
@@ -731,7 +733,7 @@ Then(/^this patient patient_limbos days_pending should be correct$/) do
   expect(this_patient_limbos).not_to eql nil
   expect(this_patient_limbos.keys).to include ats
   expect(this_patient_limbos.keys).to include dp
-  collect_date = Date.parse(this_patient_limbos['active_tissue_specimen']['specimen_collected_date'])
+  collect_date = Date.parse(this_patient_limbos['active_tissue_specimen']['specimen_received_date'])
   today = Date.today
   expect_duration = (today-collect_date).to_i
   actual_duration = this_patient_limbos['days_pending'].to_i

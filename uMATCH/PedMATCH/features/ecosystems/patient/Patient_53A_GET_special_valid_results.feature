@@ -56,9 +56,13 @@ Feature: Patient GET service valid special case tests
 
   @patients_p1
   Scenario: PT_SC02a pending_items should have correct result
+    #the reason that why GET twice is because INT BDD tests run parallelly, after the GET called, probably test which is
+    #running in the other thread changes data base, so cause the second "should have correct value" statement cannot get
+    #correct result. So do GET for every statement
     Given patient GET service: "pending_items", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return
     Then patient pending_items field "tissue_variant_reports" should have correct value
+    When GET from MATCH patient API, http code "200" should return
     Then patient pending_items field "assignment_reports" should have correct value
 
   @patients_p1
@@ -195,19 +199,19 @@ Feature: Patient GET service valid special case tests
     Then this patient patient_limbos should have "<count>" messages which contain "<contain_message>"
     Then this patient patient_limbos days_pending should be correct
     Examples:
-      | patient_id                   | count | contain_message                     |
-      | PT_SC04b_TsReceived          | 2     | Tissue-Slide                        |
-      | PT_SC04b_TsShippedNoSd       | 2     | Variant-Slide                       |
-      | PT_SC04b_SdShippedNoTs       | 4     | Tissue-ICCBAF47s-ICCBRG1s-ICCPTENs  |
-      | PT_SC04b_TsSdShipped         | 4     | Variant-ICCBAF47s-ICCBRG1s-ICCPTENs |
-      | PT_SC04b_TsVrUploadedNoSd    | 2     | confirmed-Slide                     |
-      | PT_SC04b_TsVrConfirmedAndSd  | 3     | ICCPTENs-ICCBAF47s-ICCBRG1s         |
-      | PT_SC04b_TsVrConfirmedNoSd   | 1     | Slide                               |
-      | PT_SC04b_VrConfirmedOneAssay | 2     | ICCBAF47s-ICCBRG1s                  |
-      | PT_SC04b_TsShippedTwoAssay   | 2     | ICCBAF47s-Variant                   |
-      | PT_SC04b_ThreeAssayNoTs      | 1     | Tissue                              |
-      | PT_SC04b_ThreeAssayAndTs     | 1     | Variant                             |
-      | PT_SC04b_PendingApproval     | 1     | approval                            |
+      | patient_id                   | count | contain_message         |
+      | PT_SC04b_TsReceived          | 2     | Tissue-Slide            |
+      | PT_SC04b_TsShippedNoSd       | 2     | Variant-Slide           |
+      | PT_SC04b_SdShippedNoTs       | 4     | Tissue-BAF47-BRG1-PTEN  |
+      | PT_SC04b_TsSdShipped         | 4     | Variant-BAF47-BRG1-PTEN |
+      | PT_SC04b_TsVrUploadedNoSd    | 2     | confirmed-Slide         |
+      | PT_SC04b_TsVrConfirmedAndSd  | 3     | PTEN-BAF47-BRG1         |
+      | PT_SC04b_TsVrConfirmedNoSd   | 1     | Slide                   |
+      | PT_SC04b_VrConfirmedOneAssay | 2     | BAF47-BRG1              |
+      | PT_SC04b_TsShippedTwoAssay   | 2     | BAF47-Variant           |
+      | PT_SC04b_ThreeAssayNoTs      | 1     | Tissue                  |
+      | PT_SC04b_ThreeAssayAndTs     | 1     | Variant                 |
+      | PT_SC04b_PendingApproval     | 1     | approval                |
 
   @patients_p1_off
   Scenario: PT_SC04c patient_limbos should update properly after tissue is shipped
@@ -241,10 +245,10 @@ Feature: Patient GET service valid special case tests
     Then this patient patient_limbos should have "<count>" messages which contain "<contain_message>"
     Then this patient patient_limbos days_pending should be correct
     Examples:
-      | patient_id        | biomarker | count | contain_message            |
-      | PT_SC04d_NoAssay  | ICCPTENs  | 3     | variant-ICCBAF47s-ICCBRG1s |
-      | PT_SC04d_OneAssay | ICCBAF47s | 2     | variant-ICCBRG1s           |
-      | PT_SC04d_TwoAssay | ICCBRG1s  | 1     | variant                    |
+      | patient_id        | biomarker | count | contain_message    |
+      | PT_SC04d_NoAssay  | ICCPTENs  | 3     | variant-BAF47-BRG1 |
+      | PT_SC04d_OneAssay | ICCBAF47s | 2     | variant-BRG1       |
+      | PT_SC04d_TwoAssay | ICCBRG1s  | 1     | variant            |
 
   @patients_p1_off
   Scenario: PT_SC04e patient_limbos should update properly after variant report is confirmed
@@ -257,7 +261,7 @@ Feature: Patient GET service valid special case tests
     Then there are "1" patient_limbos have field: "patient_id" value: "PT_SC04e_TsVrUploaded"
     Then this patient patient_limbos field "current_status" should be correct
     Then this patient patient_limbos field "active_tissue_specimen" should be correct
-    Then this patient patient_limbos should have "3" messages which contain "ICCPTENs-ICCBAF47s-ICCBRG1s"
+    Then this patient patient_limbos should have "3" messages which contain "PTEN-BAF47-BRG1"
     Then this patient patient_limbos days_pending should be correct
 
   @patients_p1_off
@@ -339,7 +343,7 @@ Feature: Patient GET service valid special case tests
     Then there are "1" patient_limbos have field: "patient_id" value: "PT_SC04k_TsReceived"
     Then this patient patient_limbos field "current_status" should be correct
     Then this patient patient_limbos field "active_tissue_specimen" should be correct
-    Then this patient patient_limbos should have "4" messages which contain "Tissue-ICCBAF47s-ICCBRG1s-ICCPTENs"
+    Then this patient patient_limbos should have "4" messages which contain "Tissue-BAF47-BRG1-PTEN"
     Then this patient patient_limbos days_pending should be correct
 
   @patients_p1_off
