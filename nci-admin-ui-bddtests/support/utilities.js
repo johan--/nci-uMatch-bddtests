@@ -10,6 +10,18 @@ var Utilities = function () {
     	return expect(browser.getTitle()).to.eventually.equal(title);
     };
 
+    /**
+     * Gets all the values for the attributes and checks if the value provided is set.
+     * @param element
+     * @param attribute
+     * @param value
+     */
+    this.checkElementIncludesAttribute = function (element, attribute, value) {
+        return element.getAttribute(attribute).then(function (allAttributes) {
+            var attributeArray = allAttributes.split(' ');
+            expect(attributeArray).to.include(value);
+        });
+    };
 }
 
 module.exports = new Utilities();

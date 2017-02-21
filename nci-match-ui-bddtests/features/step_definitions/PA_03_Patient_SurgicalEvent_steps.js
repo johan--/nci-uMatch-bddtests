@@ -105,7 +105,7 @@ module.exports = function () {
             }
         }
 
-        expect(patientPage.surgicalEventId.getText()).to.eventually.eql(surgicalEventId).notify(callback);
+        expect(patientPage.surgicalEventId.getText()).to.eventually.eql('Surgical Event ' + surgicalEventId).notify(callback);
     });
 
     this.Then(/^I should see the "(.+?)" under surgical event tab$/, function (heading, callback) {

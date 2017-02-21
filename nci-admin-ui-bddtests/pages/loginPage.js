@@ -22,7 +22,6 @@ var LoginPage = function() {
             expect(auth0WidgetContaner.isPresent()).to.eventually.eql(true);
         }).then(function(){
             previousAuth0Login.isPresent().then(function(previouslyLoggedIn){
-                console.log("preoviously logged in " + previouslyLoggedIn)
                 if ( previouslyLoggedIn === true ) {
                     notYourLink.click().then(function(){
                         utilities.waitForElement(loginLink, "Login text box").then(function(){
@@ -40,7 +39,7 @@ var LoginPage = function() {
                         utilities.waitForElement(loginLink, "Login text box").then(function(){
                             enterLoginDetails(userId, password)
                             loginLink.click().then(function(){
-                                browser.waitForAngular();
+                                browser.sleep(5000);
                             });
                         }); 
                     })

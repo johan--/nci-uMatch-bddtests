@@ -100,7 +100,6 @@ module.exports = function () {
         var el = patientPage.variantConfirmButtonCLickList.get(index)
         browser.sleep(2000).then(function(){
             el.getLocation().then(function(location){
-                console.log(location);
                 browser.executeScript('window.scrollTo(0, ' + (location.y + 300) + ')').then(function(){
                     el.click().then(function(){
                         browser.waitForAngular();
@@ -302,10 +301,7 @@ module.exports = function () {
 
     this.Then(/^I can see the assignment report page "([^"]*)"$/, function (assignmentTabTitle, callback) {
         browser.ignoreSynchronization = false;
-
-        // var selectedTabCss = 'uib-tab nav-item ng-scope ng-isolate-scope active';
-        var tabHeadingCss = 'li[heading="' + assignmentTabTitle + '"] > a';
-        var tab = element(by.css(tabHeadingCss));
+        var tab = element(by.cssContainingText('uib-tab-heading', assignmentTabTitle));
         var tabBody = element(by.id('assignment-report'));
 
         expect(tab.isDisplayed()).to.eventually.eql(true);

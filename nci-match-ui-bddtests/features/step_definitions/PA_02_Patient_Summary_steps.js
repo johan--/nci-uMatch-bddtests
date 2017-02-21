@@ -44,9 +44,10 @@ module.exports = function () {
     });
 
     this.When (/^I click on the "([^"]*)" tab$/, function (tabName, callback) {
-        element (by.css ('li[heading="' + tabName + '"]')).click ();
-        browser.ignoreSynchronization = false;
-        browser.sleep (50).then (callback);
+        var elementToClick = utilities.getSubTabHeadingElement(tabName)
+        elementToClick.click ().then(function(){
+            browser.ignoreSynchronization = false;
+        }).then(callback);
     });
 
     // Then Section

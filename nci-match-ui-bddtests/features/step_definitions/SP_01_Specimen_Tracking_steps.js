@@ -177,7 +177,7 @@ module.exports = function () {
 
     this.Then(/^I verify that surgical event tab is active$/, function(callback){
         var subTabName = "Surgical Event " + surgicalEventId;
-        var subTab = element(by.css('li[heading="' + subTabName + '"]'));
+        var subTab = utilities.getSubTabHeadingElement(subTabName);
         utilities.checkElementIncludesAttribute(subTab, 'class', 'active');
         browser.sleep(50).then(callback);
     })

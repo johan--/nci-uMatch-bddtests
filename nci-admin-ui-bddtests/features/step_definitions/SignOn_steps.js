@@ -34,6 +34,8 @@ module.exports = function () {
             login.goToLogin().then(function(){
                 login.loginProcess(email, password);    
             }).then(function(){
+                browser.sleep(5000);
+            }).then(function(){
                 utilities.checkTitle(browser, 'MATCHBox | Admin Tool')
             })
         }).then(callback);
