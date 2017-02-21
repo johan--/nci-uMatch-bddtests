@@ -152,13 +152,18 @@ Feature: Assay Messages
 #    When POST to MATCH patients service, response includes "Assay ordered date later than result reported date" with status "Failure"
 
   @patients_p2
-  Scenario: PT_AS10. Assay result received for old surgical_event_id should fail
+  Scenario: PT_AS10. Assay result received for old surgical_event_id should PASS (new requirement)
   #  Test data: Patient=PT_AS10SlideShipped, old surgical_event_id=PT_AS10SlideShipped_SEI1, has slide shipped, new surgical_event_id=PT_AS10SlideShipped_SEI2, has slide shipped
     Given patient id is "PT_AS10SlideShipped"
     And load template assay message for this patient
-    Then set patient message field: "biomarker" to value: "ICCPTENs"
+    Then set patient message field: "biomarker" to value: "ICCBRG1s"
+    Then set patient message field: "result" to value: "NEGATIVE"
     Then set patient message field: "surgical_event_id" to value: "PT_AS10SlideShipped_SEI1"
-    When POST to MATCH patients service, response includes "not the currently active specimen" with code "403"
+    Then set patient message field: "reported_date" to value: "2016-05-18T11:42:13+00:00"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
+    Then wait until patient specimen is updated
+    Then patient should have specimen (field: "surgical_event_id" is "PT_AS10SlideShipped_SEI1")
+    And this specimen has assay (biomarker: "ICCBRG1s", result: "NEGATIVE", reported_date: "2016-05-18T11:42:13+00:00")
 
   @patients_p2
   Scenario: PT_AS10a. Assay result received for active surgical_event_id but doesn't belong to this patient should fail
@@ -228,7 +233,7 @@ Feature: Assay Messages
     Then set patient message field: "extra_info" to value: "This is extra information"
     When POST to MATCH patients service, response includes "successfully" with code "202"
 
-  @patients_p2
+  @patients_p3
   Scenario Outline: PT_AS14. assay use same report date should be accepted
     Given patient id is "PT_AS14_SlideShipped"
     And load template assay message for this patient

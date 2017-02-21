@@ -2,7 +2,7 @@
 Feature: Patient GET service valid special case tests
 ###### all tests in this feature will use default ADMIN authorization role, because role base auth test for those
   #### POST and PUT service has been tested in other tests, those are not the purpose of these tes
-  @patients_p2_off
+  @patients_p2
   Scenario: PT_SC01a statistics service should have correct result
     Given patient GET service: "statistics", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return
@@ -11,7 +11,7 @@ Feature: Patient GET service valid special case tests
     Then patient statistics field "number_of_patients_with_confirmed_variant_report" should have correct value
     Then patient statistics field "treatment_arm_accrual" should have correct value
 
-  @patients_p2_off
+  @patients_p2
   Scenario: PT_SC01b statistics service should update number_of_patients properly
     Given patient id is "PT_SC01b_New"
     And load template registration message for this patient
@@ -22,7 +22,7 @@ Feature: Patient GET service valid special case tests
     When GET from MATCH patient API, http code "200" should return
     Then patient statistics field "number_of_patients" should have correct value
 
-  @patients_p2_off
+  @patients_p2
   Scenario Outline: PT_SC01c statistics service should update number_of_patients_with_confirmed_variant_report properly
     Given patient id is "<patient_id>"
     Then load template variant report confirm message for analysis id: "<ani>"
@@ -36,7 +36,7 @@ Feature: Patient GET service valid special case tests
       | PT_SC01c_TsVrUploaded      | PT_SC01c_TsVrUploaded_ANI1      |
       | PT_SC01c_TsVrUploadedStep2 | PT_SC01c_TsVrUploadedStep2_ANI2 |
 
-  @patients_p2_off
+  @patients_p2
   Scenario Outline: PT_SC01d statistics service should update treatment arm values properly
     Given patient id is "<patient_id>"
     Then load template on treatment arm confirm message for this patient
@@ -54,14 +54,14 @@ Feature: Patient GET service valid special case tests
       | PT_SC01d_PendingApproval      | APEC1621-A     | 100     | 1.1  |
       | PT_SC01d_PendingApprovalStep2 | APEC1621-ETE-A | 100     | 2.1  |
 
-  @patients_p1_off
+  @patients_p1
   Scenario: PT_SC02a pending_items should have correct result
     Given patient GET service: "pending_items", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return
     Then patient pending_items field "tissue_variant_reports" should have correct value
     Then patient pending_items field "assignment_reports" should have correct value
 
-  @patients_p1_off
+  @patients_p1
   Scenario Outline: PT_SC02b pending_items should increase tissue_variant_reports value properly
     Given patient id is "<patient_id>"
     And load template variant file uploaded message for molecular id: "<moi>"
@@ -76,7 +76,7 @@ Feature: Patient GET service valid special case tests
       | patient_id         | moi                     | ani                     | pending_type           |
       | PT_SC02b_TsShipped | PT_SC02b_TsShipped_MOI1 | PT_SC02b_TsShipped_ANI1 | tissue_variant_reports |
 
-  @patients_p1_off
+  @patients_p1
   Scenario Outline: PT_SC02c pending_items should decrease tissue_variant_reports value properly
     Given patient id is "<patient_id>"
     And load template variant report confirm message for analysis id: "<ani>"
@@ -89,7 +89,7 @@ Feature: Patient GET service valid special case tests
       | patient_id            | ani                        | pending_type           |
       | PT_SC02c_TsVrUploaded | PT_SC02c_TsVrUploaded_ANI1 | tissue_variant_reports |
 
-  @patients_p1_off
+  @patients_p1
   Scenario Outline: PT_SC02d pending_items should increase assignment_reports value properly
     Given patient id is "<patient_id>"
     And load template variant report confirm message for analysis id: "<ani>"
@@ -103,7 +103,7 @@ Feature: Patient GET service valid special case tests
       | patient_id            | ani                        |
       | PT_SC02d_VrAssayReady | PT_SC02d_VrAssayReady_ANI1 |
 
-  @patients_p1_off
+  @patients_p1
   Scenario Outline: PT_SC02e pending_items should decrease assignment_reports value properly
     Given patient id is "<patient_id>"
     And load template assignment report confirm message for analysis id: "<ani>"
@@ -116,7 +116,7 @@ Feature: Patient GET service valid special case tests
       | patient_id                   | ani                               | pending_type       |
       | PT_SC02e_PendingConfirmation | PT_SC02e_PendingConfirmation_ANI1 | assignment_reports |
 
-  @patients_p1_off
+  @patients_p1
   Scenario Outline: PT_SC02f pending_items should remove patient once this patient change to OFF_STUDY
     Given patient id is "<patient_id>"
     And load template off study message for this patient
@@ -132,7 +132,7 @@ Feature: Patient GET service valid special case tests
       | PT_SC02f_TsVrUploaded        | PT_SC02f_TsVrUploaded_ANI1        |
       | PT_SC02f_PendingConfirmation | PT_SC02f_PendingConfirmation_ANI1 |
 
-  @patients_p1_off
+  @patients_p1
   Scenario Outline: PT_SC02g pending_items should remove patient once this patient change to OFF_STUDY_BIOPSY_EXPIRED
     Given patient id is "<patient_id>"
     And load template off study biopsy expired message for this patient
@@ -170,7 +170,7 @@ Feature: Patient GET service valid special case tests
       | PT_SC03b_TsShipped      | PT_SC03b_TsShipped_MOI1      | PT_SC03b_TsShipped_ANI1      |
       | PT_SC03b_TsShippedStep2 | PT_SC03b_TsShippedStep2_MOI2 | PT_SC03b_TsShippedStep2_ANI2 |
 
-  @patients_p1_off
+  @patients_p1
   Scenario: PT_SC04a patient_limbos should not have record for patients with certain status
     Given patient GET service: "patient_limbos", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return

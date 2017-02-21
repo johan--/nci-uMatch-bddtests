@@ -10,6 +10,7 @@ Feature: NCH specimen received messages
     And load template specimen type: "BLOOD" received message for this patient
     Then set patient message field: "surgical_event_id" to value: ""
     Then set patient message field: "collection_dt" to value: "today"
+    Then set patient message field: "received_dttm" to value: "current"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then wait until patient specimen is updated
     Then patient should have 1 blood specimens
@@ -22,6 +23,7 @@ Feature: NCH specimen received messages
     And load template specimen type: "TISSUE" received message for this patient
     Then set patient message field: "surgical_event_id" to value: "PT_SR02_Registered_SEI1"
     Then set patient message field: "collection_dt" to value: "today"
+    Then set patient message field: "received_dttm" to value: "current"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "TISSUE_SPECIMEN_RECEIVED"
     Then patient should have specimen (field: "surgical_event_id" is "PT_SR02_Registered_SEI1")
@@ -98,6 +100,7 @@ Feature: NCH specimen received messages
     And load template specimen type: "TISSUE" received message for this patient
     Then set patient message field: "surgical_event_id" to value: "<sei>"
     Then set patient message field: "collection_dt" to value: "<collectTime>"
+    Then set patient message field: "received_dttm" to value: "2016-04-30T15:17:11+00:00"
     When POST to MATCH patients service, response includes "<message>" with code "403"
     Examples:
       | sei                          | collectTime | message                |
@@ -111,6 +114,7 @@ Feature: NCH specimen received messages
     And load template specimen type: "TISSUE" received message for this patient
     Then set patient message field: "surgical_event_id" to value: "<new_sei>"
     Then set patient message field: "collection_dt" to value: "today"
+    Then set patient message field: "received_dttm" to value: "current"
     When POST to MATCH patients service, response includes "<message>" with code "<http_code>"
     Examples:
       | patient_id                | new_sei                         | http_code | message                |
@@ -134,6 +138,7 @@ Feature: NCH specimen received messages
     And load template specimen type: "BLOOD" received message for this patient
     Then set patient message field: "surgical_event_id" to value: ""
     Then set patient message field: "collection_dt" to value: "today"
+    Then set patient message field: "received_dttm" to value: "current"
     When POST to MATCH patients service, response includes "<message>" with code "<http_code>"
     Examples:
       | patient_id              | http_code | message                |
@@ -175,6 +180,7 @@ Feature: NCH specimen received messages
     And load template specimen type: "TISSUE" received message for this patient
     Then set patient message field: "surgical_event_id" to value: "PT_SR14_TsVrUploaded_SEI2"
     Then set patient message field: "collection_dt" to value: "today"
+    Then set patient message field: "received_dttm" to value: "current"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "TISSUE_SPECIMEN_RECEIVED"
     Then patient should have variant report (analysis_id: "PT_SR14_TsVrUploaded_ANI1")
@@ -187,6 +193,7 @@ Feature: NCH specimen received messages
     And load template specimen type: "BLOOD" received message for this patient
     Then set patient message field: "surgical_event_id" to value: ""
     Then set patient message field: "collection_dt" to value: "today"
+    Then set patient message field: "received_dttm" to value: "current"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then wait for "30" seconds
     Then patient should have variant report (analysis_id: "PT_SR14_TsVrUploaded1_ANI1")
@@ -209,6 +216,7 @@ Feature: NCH specimen received messages
     And load template specimen type: "TISSUE" received message for this patient
     Then set patient message field: "surgical_event_id" to value: "PT_SR14d_BdVrUploaded_SEI1"
     Then set patient message field: "collection_dt" to value: "today"
+    Then set patient message field: "received_dttm" to value: "current"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "TISSUE_SPECIMEN_RECEIVED"
     Then patient should have variant report (analysis_id: "PT_SR14d_BdVrUploaded_ANI1")
@@ -221,6 +229,7 @@ Feature: NCH specimen received messages
     Then set patient message field: "surgical_event_id" to value: "<sei>"
     Then set patient message field: "extra_info" to value: "This is extra information"
     Then set patient message field: "collection_dt" to value: "today"
+    Then set patient message field: "received_dttm" to value: "current"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Examples:
       | type   | sei                     |
@@ -242,6 +251,7 @@ Feature: NCH specimen received messages
     And load template specimen type: "TISSUE" received message for this patient
     Then set patient message field: "surgical_event_id" to value: "PT_SR15_TsShipped_SEI2"
     Then set patient message field: "collection_dt" to value: "today"
+    Then set patient message field: "received_dttm" to value: "current"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then wait until patient specimen is updated
     Then patient should have specimen (field: "surgical_event_id" is "PT_SR15_TsShipped_SEI2")
@@ -261,6 +271,7 @@ Feature: NCH specimen received messages
     And load template specimen type: "TISSUE" received message for this patient
     Then set patient message field: "surgical_event_id" to value: "PT_SR16_PendingApproval_SEI2"
     Then set patient message field: "collection_dt" to value: "today"
+    Then set patient message field: "received_dttm" to value: "current"
     Then patient API user authorization role is "SPECIMEN_MESSAGE_SENDER"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "TISSUE_SPECIMEN_RECEIVED"
@@ -274,6 +285,7 @@ Feature: NCH specimen received messages
     And load template specimen type: "TISSUE" received message for this patient
     Then set patient message field: "surgical_event_id" to value: " PT_SR17_Registered_SEI1"
     Then set patient message field: "collection_dt" to value: "today"
+    Then set patient message field: "received_dttm" to value: "current"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "TISSUE_SPECIMEN_RECEIVED"
     Then patient should have specimen (field: "surgical_event_id" is "PT_SR17_Registered_SEI1")
