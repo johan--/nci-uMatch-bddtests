@@ -1,6 +1,6 @@
 Feature: Workflow scenarios that exercises the entire PedMATCH system from registering a patient all the way to patient assignment firing different type of rules based on the patients unique biology and available treatment arm
 
-@e2e
+  @e2e
   Scenario Outline: Load Treatment Arms into Pediatric MATCHbox
     Given a treatment arm json file "<taFileName>" with id "<id>", stratum "<stratum>" and version "<version>" is submitted to treatment_arm service
     Then the treatment_arm "<id>" with stratum "<stratum>" is created in MatchBox with status as "<status>"
@@ -12,7 +12,7 @@ Feature: Workflow scenarios that exercises the entire PedMATCH system from regis
       | SNV_location_intronic_TA.json | SNV_location_intronic    | 100         | 2015-08-06 | OPEN   |
       | CukeTest-122-1-SUSPENDED.json | CukeTest-122-1-SUSPENDED | stratum122a | 2017-08-06 | OPEN   |
 
-
+  @e2e
   Scenario: Patient matches on an inclusion variant and is assigned to the treatment arm
     Given patient: "PT_ETE01" is registered
     Then tissue specimen received with surgical_event_id: "PT_ETE01_SEI1"
@@ -43,7 +43,7 @@ Feature: Workflow scenarios that exercises the entire PedMATCH system from regis
     Then current assignment report_status: "NO_TREATMENT_FOUND"
     Then assignment report is confirmed
     Then patient status should be "NO_TA_AVAILABLE"
-    
+
   Scenario: Patient matches to a treatment arm but COG deems it not eligible
 
   Scenario: Patient is assigned to an arm only when there is a inclusion variant match and inclusion disease match
