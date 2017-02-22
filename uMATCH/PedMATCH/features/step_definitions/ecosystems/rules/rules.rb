@@ -31,7 +31,7 @@ When(/^assignPatient service is called for patient "([^"]*)"$/) do |patient|
   msgHash = Hash.new
   msgHash = { "study_id"=> "APEC1621",'patient'=> @patient, 'treatment_arms'=>@ta}
   @payload = msgHash.to_json
-  puts @payload
+   puts @payload
   @resp = Helper_Methods.post_request("#{ENV['rules_endpoint']}/assignment_report/#{patient}",@payload)
   @res = @resp['http_code'] =='200' ? JSON.parse(@resp['message']) : fail("Error #{@resp['http_code']} is returned by the server")
   puts @res
@@ -308,4 +308,26 @@ When(/^a new treatment arm list "([^"]*)" is received by the rules amoi service 
   @resp = Helper_Methods.put_request("#{ENV['rules_endpoint']}/variant_report/amois",variantReportHash.to_json)
   @res = JSON.parse(@resp['message'])
   puts @res
+end
+
+Then(/^moi report is returned without the cnv gene "([^"]*)"$/) do |arg1|
+  @res['copy_number_variant_genes'].each do |cnv|
+    p cnv['gene']
+    if cnv['gene'] == arg1
+      fail("copy number gene #{arg1} with filter NOCALL is returned as part of the variant report")
+    end
+  end
+end
+
+Then(/^moi report is returned with the cnv gene "([^"]*)"$/) do |arg1|
+  flag = "N"
+  @res['copy_number_variant_genes'].each do |cnv|
+    p cnv['gene']
+    if cnv['gene'] == arg1
+      flag = "Y"
+    end
+  end
+  if flag == "N"
+    fail("copy number gene #{arg1} with filter PASS is not returned as part of the variant report")
+  end
 end

@@ -22,7 +22,7 @@ Feature: Test the functionality that filters the CNV variants based on specified
     """
 
 
-  Scenario: When a new treatment arm list is available, the rules are run and a a new variant report with updated amois is generated.
+  Scenario: FIL-CNV_04When a new treatment arm list is available, the rules are run and a a new variant report with updated amois is generated.
     Given a tsv variant report file "cnv_v5_gene_filter" and treatment arms file "APEC1621-B.json"
     When call the amoi rest service
     Then moi report is returned without the cnv variant "CDK4"
@@ -49,7 +49,14 @@ Feature: Test the functionality that filters the CNV variants based on specified
     }]
     """
 
-
+  Scenario Outline: FIL-CNV_05: CNV without PASS filter not returned in variant report
+    Given a tsv variant report file "<tsvFile>" and treatment arms file "<TAFile>"
+    When call the amoi rest service
+    Then moi report is returned without the cnv gene "AR"
+    Then moi report is returned with the cnv gene "BCL9"
+    Examples:
+      | tsvFile    | TAFile          |
+      | cnv_nocall | APEC1621-A.json |
 
 
 

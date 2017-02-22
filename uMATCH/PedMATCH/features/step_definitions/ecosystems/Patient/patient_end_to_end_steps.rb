@@ -13,69 +13,48 @@ Given(/^patient id is "([^"]*)" analysis_id is "([^"]*)"$/) do |pt_id, ani|
   @patient_id = pt_id
   @active_ts_ani = ani
 end
-# Given(/^patient: "([^"]*)" with status: "([^"]*)" on step: "([^"]*)"$/) do |patient_id, patient_status, step_number|
-#   @patient_id = patient_id
-#   @patient_status = patient_status
-#   @patient_step_number = step_number
-# end
-#
-# Given(/^patient is currently on treatment arm: "([^"]*)", stratum: "([^"]*)"$/) do |ta_id, stratum|
-#   @current_stratum = stratum
-#   @current_ta_id = ta_id
-# end
-#
-# Given(/^other background and comments for this patient: "([^"]*)"$/) do |arg1|
-# #   this is just a description step
-# end
-#
-# Given(/^this patients's active surgical_event_id is "([^"]*)"$/) do |sei|
-#     @active_sei = sei
-# end
-#
-# Given(/^this patients's active "([^"]*)" molecular_id is "([^"]*)"$/) do |type, moi|
-#   update_moi_or_barcode(type, moi)
-# end
-#
-# Given(/^this patients's active "([^"]*)" analysis_id is "([^"]*)"$/) do |type, ani|
-#   update_ani(type, ani)
-# end
+
 
 Given(/^patient: "([^"]*)" is registered$/) do |patient_id|
+  @current_auth0_role = 'PATIENT_MESSAGE_SENDER'
   @patient_id = patient_id
   date = Helper_Methods.getDateAsRequired('current')
   Patient_helper_methods.prepare_register(patient_id, date)
-  @response = Patient_helper_methods.post_to_trigger
+  @response = Patient_helper_methods.post_to_trigger(@current_auth0_role)
   code = '202'
   expect(@response['http_code']).to eq code
   Patient_helper_methods.wait_until_patient_field_is(@patient_id, 'current_status', 'REGISTRATION')
 end
 
 Then(/^tissue specimen received with surgical_event_id: "([^"]*)"$/) do |sei|
+  @current_auth0_role = 'SPECIMEN_MESSAGE_SENDER'
   date = Helper_Methods.getDateAsRequired('today')
   @active_sei = sei
   Patient_helper_methods.prepare_specimen_received(@patient_id, 'TISSUE', sei, date)
-  @response = Patient_helper_methods.post_to_trigger
+  @response = Patient_helper_methods.post_to_trigger(@current_auth0_role)
   code = '202'
   expect(@response['http_code']).to eq code
   Patient_helper_methods.wait_until_patient_field_is(@patient_id, 'current_status', 'TISSUE_SPECIMEN_RECEIVED')
 end
 
 Then(/^blood specimen received$/) do
+  @current_auth0_role = 'SPECIMEN_MESSAGE_SENDER'
   date = Helper_Methods.getDateAsRequired('current')
   Patient_helper_methods.prepare_specimen_received(@patient_id, 'BLOOD', '', date)
-  @response = Patient_helper_methods.post_to_trigger
+  @response = Patient_helper_methods.post_to_trigger(@current_auth0_role)
   code = '202'
   expect(@response['http_code']).to eq code
   Patient_helper_methods.wait_until_patient_updated(@patient_id)
 end
 
 Then(/^"([^"]*)" specimen shipped to "([^"]*)" with molecular_id or slide_barcode: "([^"]*)"$/) do |type, lab, id|
+  @current_auth0_role = 'SPECIMEN_MESSAGE_SENDER'
   date = Helper_Methods.getDateAsRequired('current')
   Patient_helper_methods.prepare_specimen_shipped(@patient_id, type, @active_sei, id, lab, date)
 
   update_moi_or_barcode(type, id)
   update_site(type, lab)
-  @response = Patient_helper_methods.post_to_trigger
+  @response = Patient_helper_methods.post_to_trigger(@current_auth0_role)
   code = '202'
   expect(@response['http_code']).to eq code
   if type == 'TISSUE'
@@ -88,10 +67,11 @@ Then(/^"([^"]*)" specimen shipped to "([^"]*)" with molecular_id or slide_barcod
 end
 
 Then(/^"([^"]*)" assay result received result: "([^"]*)"$/) do |type, result|
+  @current_auth0_role = 'ASSAY_MESSAGE_SENDER'
   order_date = Helper_Methods.getDateAsRequired('one second ago')
   report_date = Helper_Methods.getDateAsRequired('current')
   Patient_helper_methods.prepare_assay(@patient_id, @active_sei, type, result, order_date, report_date)
-  @response = Patient_helper_methods.post_to_trigger
+  @response = Patient_helper_methods.post_to_trigger(@current_auth0_role)
   code = '202'
   expect(@response['http_code']).to eq code
   Patient_helper_methods.wait_until_patient_updated(@patient_id)
@@ -105,11 +85,38 @@ end
 # end
 
 Then(/^"([^"]*)" variant report uploaded with analysis_id: "([^"]*)"$/) do |type, ani|
+  @current_auth0_role = 'MDA_VARIANT_REPORT_SENDER'
   target_moi = get_moi_or_barcode(type)
   target_site = get_site(type).downcase
   update_ani(type, ani)
   Patient_helper_methods.prepare_vr_upload(@patient_id, target_moi, ani, true, target_site)
-  @response = Patient_helper_methods.post_to_trigger
+  @response = Patient_helper_methods.post_to_trigger( @current_auth0_role)
+  code = '202'
+  expect(@response['http_code']).to eq code
+  if type == 'TISSUE'
+    Patient_helper_methods.wait_until_patient_field_is(@patient_id, 'current_status', 'TISSUE_VARIANT_REPORT_RECEIVED')
+  else
+    Patient_helper_methods.wait_until_patient_updated(@patient_id)
+  end
+end
+
+Then(/^"([^"]*)" variant report "([^"]*)" uploaded with analysis id: "([^"]*)"$/) do |type, vcf, ani|
+  @active_ts_ani = ani
+  # @current_auth0_role = 'MDA_VARIANT_REPORT_SENDER'
+  @current_auth0_role = 'ADMIN'
+  target_site = get_site(type).downcase
+  moi = get_moi_or_barcode(type)
+  @payload = {"analysis_id": ani,
+              "site": target_site,
+              "ion_reporter_id": "BDD",
+              "vcf_name": vcf,
+              "dna_bam_name": "dna.bam",
+              "cdna_bam_name": "cdna.bam",
+              "qc_name": "qc.pdf"}
+
+  aliquot_url = "#{ENV['ion_system_endpoint']}/aliquot/#{moi}"
+
+  response = Helper_Methods.put_request(aliquot_url, @payload.to_json.to_s, true, @current_auth0_role)
   code = '202'
   expect(@response['http_code']).to eq code
   if type == 'TISSUE'
@@ -127,19 +134,21 @@ end
 # end
 
 Then(/^"([^"]*)" variant\(type: "([^"]*)", field: "([^"]*)", value: "([^"]*)"\) is "([^"]*)"$/) do |specimen_type, variant_type, field, value, status|
+  @current_auth0_role = 'MDA_VARIANT_REPORT_SENDER'
   uuid = find_variant_uuid(specimen_type, variant_type, field, value)
   Patient_helper_methods.prepare_variant_confirm
-  @response = Patient_helper_methods.put_variant_confirm(uuid, status)
+  @response = Patient_helper_methods.put_variant_confirm(uuid, status, @current_auth0_role)
   code = '200'
   expect(@response['http_code']).to eq code
   Patient_helper_methods.wait_until_patient_updated(@patient_id)
 end
 
 Then(/^"([^"]*)" variant report confirmed with status: "([^"]*)"$/) do |type, status|
+  @current_auth0_role = 'MDA_VARIANT_REPORT_REVIEWER'
   target_ani = get_ani(type)
   target_status = process_status(status)
   Patient_helper_methods.prepare_vr_confirm(@patient_id)
-  @response = Patient_helper_methods.put_vr_confirm(target_ani, target_status)
+  @response = Patient_helper_methods.put_vr_confirm(target_ani, target_status,@current_auth0_role)
   code = '200'
   expect(@response['http_code']).to eq code
   if type == 'TISSUE'
@@ -161,9 +170,10 @@ Then(/^COG requests assignment for this patient with re\-biopsy: "([^"]*)", step
 end
 
 Then(/^set patient off_study on step number: "([^"]*)"$/) do |step_number|
+  @current_auth0_role = 'PATIENT_MESSAGE_SENDER'
   date = Helper_Methods.getDateAsRequired('current')
   Patient_helper_methods.prepare_off_study(@patient_id, step_number, date)
-  @response = Patient_helper_methods.post_to_trigger
+  @response = Patient_helper_methods.post_to_trigger(@current_auth0_role)
   code = '202'
   expect(@response['http_code']).to eq code
   Patient_helper_methods.wait_until_patient_field_is(@patient_id, 'current_status', 'OFF_STUDY')
@@ -179,8 +189,9 @@ Then(/^COG approves patient on treatment arm: "([^"]*)", stratum: "([^"]*)" to s
 end
 
 Then(/^assignment report is confirmed$/) do
+  @current_auth0_role = 'ASSIGNMENT_REPORT_REVIEWER'
   Patient_helper_methods.prepare_assignment_confirm(@patient_id)
-  @response = Patient_helper_methods.put_ar_confirm(@active_ts_ani, 'confirm')
+  @response = Patient_helper_methods.put_ar_confirm(@active_ts_ani, 'confirm',@current_auth0_role)
   code = '200'
   expect(@response['http_code']).to eq code
   Patient_helper_methods.wait_until_patient_field_is(@patient_id, 'current_status', 'PENDING_APPROVAL')
@@ -201,10 +212,18 @@ end
 Then(/^treatment arm: "([^"]*)" with stratum id: "([^"]*)" is selected$/) do |ta_id, stratum|
   url = "#{ENV['patients_endpoint']}/#{@patient_id}"
   patient_result = Patient_helper_methods.get_any_result_from_url(url)
+  p patient_result
   current_assignment = 'current_assignment'
   expect(patient_result.keys).to include current_assignment
   expect(patient_result[current_assignment]['treatment_arm_id']).to eq ta_id
   expect(patient_result[current_assignment]['stratum_id']).to eq stratum
+end
+
+Then(/^current assignment report_status: "([^"]*)"$/) do |report_status|
+  url = "#{ENV['patients_endpoint']}/#{@patient_id}"
+  patient_result = Patient_helper_methods.get_any_result_from_url(url)
+  p patient_result["current_assignment"]
+  expect(patient_result["current_assignment"]['report_status']).to eq report_status
 end
 
 def find_variant_uuid(specimen_type, variant_type, field, value)
@@ -302,4 +321,24 @@ def process_status(status)
     else
       return 'confirm'
   end
+end
+
+Given(/^a treatment arm json file "([^"]*)" with id "([^"]*)", stratum "([^"]*)" and version "([^"]*)" is submitted to treatment_arm service$/) do |fname, ta_id, stratum, version|
+  valid_json_file = File.join(Support::TEMPLATE_FOLDER, "TAs for e2e/#{fname}")
+  @treatmentArm = JSON.parse(File.read(valid_json_file))
+  p @treatmentArm.to_json
+
+  url = "#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{ta_id}/#{stratum}/#{version}"
+  @response = Helper_Methods.post_request(url, @treatmentArm.to_json)
+  p @response
+  code = '202'
+  expect(@response['http_code']).to eq code
+end
+
+Then(/^the treatment_arm "([^"]*)" with stratum "([^"]*)" is created in MatchBox with status as "([^"]*)"$/) do |ta_id, stratum, status|
+  url = "#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{ta_id}/#{stratum}"
+  @response = Helper_Methods.get_request(url)
+  p @response
+  code = 200
+  expect(@response['http_code']).to eq code
 end
