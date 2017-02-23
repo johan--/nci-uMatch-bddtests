@@ -55,6 +55,11 @@ class TableDetails
       keys: %w(molecular_id)
   }
 
+  TREATMENT_ARM_PENDING = {
+    name: 'treatment_arm_pending',
+    keys: %w(treatment_arm_id version)
+  }
+
   def self.primary_key(table)
     raise "#{table} is not a valid Ped-Match table" unless all_tables.include?(table)
     const_get(table.upcase)[:keys][0]
@@ -72,7 +77,7 @@ class TableDetails
   end
 
   def self.treatment_arm_tables
-    %w(treatment_arm treatment_arm_assignment_event)
+    %w(treatment_arm treatment_arm_assignment_event treatment_arm_pending)
   end
 
   def self.patient_tables
