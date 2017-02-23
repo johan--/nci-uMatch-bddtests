@@ -107,3 +107,7 @@ Feature: Dashboard page.
     And I can see that the Molecular id is a link for patient "PT_VU09_VariantReportUploaded"
     And I can see that the Analysis id is a link for patient "PT_VU09_VariantReportUploaded"
 
+    @broken
+    Scenario: Pending review table and limbo table have manual refresh 
+    Then I can see the manual refresh link for "Pending Review" Table
+    And I can see the manual refresh link for "Limbo " Table

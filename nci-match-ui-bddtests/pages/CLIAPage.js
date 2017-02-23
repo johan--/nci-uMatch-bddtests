@@ -9,7 +9,7 @@ var CliaPage = function () {
     this.searchTableMolecularId   = element.all(by.binding('item.molecular_id | dashify'));
     this.searchTableDateCreated   = element.all(by.binding('item.date_molecular_id_created | utc'));
     this.searchTableDateReceived  = element.all(by.binding('item.date_variant_received | utc'));
-    this.searchTableVariantReport = element.all(by.css('a[ng-bind="item.molecular_id | dashify"]'));
+    this.searchTableVariantReport = element.all(by.css('a[ng-show="item.analysis_id && item.report_status"]'));
     this.searchTableStatus        = element.all(by.binding('item.report_status | msnstatus'));
     this.searchList               = element.all(by.css('tr[ng-repeat^="item in filtered"]'))
 
@@ -31,7 +31,11 @@ var CliaPage = function () {
     this.sampleDetailTorrentVer = element(by.binding('data.torrent_variant_caller_version'));
     this.sampleDetailPosCtrlVer = element(by.binding('data.positive_control_version'));
     this.sampleDetailRecvdDate  = element(by.binding('data.date_variant_received'));
-    this.sampleDetailStatus     = element(by.binding('data.report_status | dashify'));
+    this.positiveDetailStatus   = element.all(by.css('header-info-box clia-lab-vr-pc-header-box')).get(0)
+                                    .all(by.css('dd')).get(6);
+    this.noTemplateDetailStatus = element.all(by.css('header-info-box clia-lab-vr-pc-header-box')).get(0)
+                                    .all(by.css('dd')).get(4);
+                                    
     this.sampleDetailComments   = element(by.binding('data.comments'));
     this.sampleDetailTotVariant = element(by.binding('data.total_variants'));
     this.sampleDetailMAPD       = element(by.binding('data.mapd'));
