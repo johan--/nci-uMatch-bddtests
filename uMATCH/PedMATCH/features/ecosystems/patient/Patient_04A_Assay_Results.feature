@@ -1,6 +1,7 @@
 #encoding: utf-8
 @assay
 Feature: Assay Messages
+
   Background:
     Given patient API user authorization role is "ASSAY_MESSAGE_SENDER"
 
@@ -61,7 +62,7 @@ Feature: Assay Messages
     Then set patient message field: "surgical_event_id" to value: "<sei>"
     When POST to MATCH patients service, response includes "<message>" with code "403"
     Examples:
-      | sei   | message           |
+      | sei     | message           |
       |         | can't be blank    |
       | SEI_NON | surgical event_id |
       | null    | can't be blank    |
@@ -136,14 +137,20 @@ Feature: Assay Messages
       | PT_AS08_Registered              | SEI_NON                              | surgical event_id             |
       | PT_AS08_TissueReceived          | PT_AS08_TissueReceived_SEI1          | doesn't have a slide shipment |
       | PT_AS08_SEI1HasSlideSEI2NoSlide | PT_AS08_SEI1HasSlideSEI2NoSlide_SEI2 | doesn't have a slide shipment |
+      | PT_AS08_TsReceivedStep2         | PT_AS08_TsReceivedStep2_SEI2         | doesn't have a slide shipment |
 
-
-  #ordered_date is not required anymore
-#  Scenario: PT_AS09. Assay result ordered_date is older than earlist slide shipped date should fail
-##  Test data: Patient=PT_AS09SlideShipped, surgical_event_id=PT_AS09SlideShipped_SEI1, shipped_dttm=2016-05-01T19:42:13+00:00
-#    Given template assay message with surgical_event_id: "PT_AS09SlideShipped_SEI1" for patient: "PT_AS09SlideShipped"
-#    Then set patient message field: "ordered_date" to value: "2010-01-01T19:42:13+00:00"
-#    When POST to MATCH patients service, response includes "Assay ordered date earlier than slide shipment date" with status "Failure"#
+  @patients_p3
+  Scenario Outline: PT_AS09. Patient on some status shouldn't be able to receive assay result
+    Given patient id is "<patient_id>"
+    And load template assay message for this patient
+    Then set patient message field: "biomarker" to value: "<biomarker>"
+    Then set patient message field: "surgical_event_id" to value: "<sei>"
+    When POST to MATCH patients service, response includes "<message>" with code "403"
+    Examples:
+      | patient_id                    | biomarker | sei                                | message |
+      | PT_AS09_ReqNoAssignment       | ICCPTENs  | PT_AS09_ReqNoAssignment_SEI1       | status  |
+      | PT_AS09_OffStudy              | ICCPTENs  | PT_AS09_OffStudy_SEI1              | status  |
+      | PT_AS09_OffStudyBiopsyExpired | ICCPTENs  | PT_AS09_OffStudyBiopsyExpired_SEI1 | status  |
 #  Scenario: PT_AS09a. Assay result report date is older than order date should fail
 ##  Test data: Patient=PT_AS09aSlideShipped, surgical_event_id=PT_AS09aSlideShipped_SEI1, ordered_date=2016-05-02T12:13:09.071-05:00
 #    Given template assay message with surgical_event_id: "PT_AS09aSlideShipped_SEI1" for patient: "PT_AS09aSlideShipped"
@@ -151,7 +158,7 @@ Feature: Assay Messages
 #    Then set patient message field: "reported_date" to value: "2016-05-03T12:13:09.071-05:00"
 #    When POST to MATCH patients service, response includes "Assay ordered date later than result reported date" with status "Failure"
 
-  @patients_p2
+  @patients_p3
   Scenario: PT_AS10. Assay result received for old surgical_event_id should PASS (new requirement)
   #  Test data: Patient=PT_AS10SlideShipped, old surgical_event_id=PT_AS10SlideShipped_SEI1, has slide shipped, new surgical_event_id=PT_AS10SlideShipped_SEI2, has slide shipped
     Given patient id is "PT_AS10SlideShipped"
@@ -176,7 +183,7 @@ Feature: Assay Messages
     When POST to MATCH patients service, response includes "surgical" with code "403"
 
   @patients_p1
-  Scenario Outline: PT_AS11. Assay result can be received multiple times with same active surgical_event_id and the latest assay should be used
+  Scenario Outline: PT_AS11. Assay result can be received multiple times with same surgical_event_id and the latest assay should be used
   #  Test data: Patient=PT_AS11SlideShipped, surgical_event_id=PT_AS11SlideShipped_SEI1, has slide shipped
     Given patient id is "PT_AS11SlideShipped"
     And load template assay message for this patient
@@ -200,29 +207,58 @@ Feature: Assay Messages
       | ICCBRG1s  | INDETERMINATE | 2016-05-18T15:42:13+00:00 |
 
   @patients_p2
-  Scenario Outline: PT_AS12. assay result received will not trigger patient assignment process unless patient has pathology and VR ready
+  Scenario Outline: PT_AS12. assay result received message can be processed properly
     Given patient id is "<patient_id>"
     And load template assay message for this patient
     Then set patient message field: "surgical_event_id" to value: "<sei>"
     Then set patient message field: "biomarker" to value: "ICCPTENs"
+    Then set patient message field: "reported_date" to value: "current"
     When POST to MATCH patients service, response includes "successfully" with code "202"
-    Then wait for "5" seconds
+    Then wait until patient is updated
     Then set patient message field: "biomarker" to value: "ICCBAF47s"
-    Then set patient message field: "reported_date" to value: "2016-07-18T13:42:13+00:00"
+    Then set patient message field: "reported_date" to value: "current"
     When POST to MATCH patients service, response includes "successfully" with code "202"
+    Then wait until patient is updated
     Then set patient message field: "biomarker" to value: "ICCBRG1s"
-    Then set patient message field: "reported_date" to value: "2016-07-18T13:52:13+00:00"
+    Then set patient message field: "reported_date" to value: "current"
     When POST to MATCH patients service, response includes "successfully" with code "202"
-    Then wait for "60" seconds
+    Then wait until patient is updated
+    Then wait for "5" seconds
     Then patient status should change to "<patient_status>"
     Examples:
       | patient_id          | patient_status         | sei                      |
       | PT_AS12_VrConfirmed | PENDING_CONFIRMATION   | PT_AS12_VrConfirmed_SEI1 |
       | PT_AS12_VrReceived  | ASSAY_RESULTS_RECEIVED | PT_AS12_VrReceived_SEI1  |
-          #there is no “PATHOLOGY_REVIEWED” status anymore
-#      | PT_AS12_VRAndPathoConfirmed | PENDING_CONFIRMATION   | PT_AS12_VRAndPathoConfirmed_SEI1 |
-#      | PT_AS12_VRConfirmedNoPatho  | ASSAY_RESULTS_RECEIVED | PT_AS12_VRConfirmedNoPatho_SEI1  |
-#      | PT_AS12_PathoConfirmedNoVR  | ASSAY_RESULTS_RECEIVED | PT_AS12_PathoConfirmedNoVR_SEI1  |
+
+  @patients_p2
+  Scenario Outline: PT_AS12a. assay result can be received and updated properly after assignment
+    Given patient id is "<patient_id>"
+    And load template assay message for this patient
+    Then set patient message field: "surgical_event_id" to value: "<sei>"
+    Then set patient message field: "biomarker" to value: "ICCPTENs"
+    Then set patient message field: "reported_date" to value: "current"
+    Then set patient message field: "result" to value: "POSITIVE"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
+    Then wait until patient is updated
+    Then set patient message field: "biomarker" to value: "ICCBAF47s"
+    Then set patient message field: "reported_date" to value: "current"
+    Then set patient message field: "result" to value: "POSITIVE"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
+    Then wait until patient is updated
+    Then set patient message field: "biomarker" to value: "ICCBRG1s"
+    Then set patient message field: "reported_date" to value: "current"
+    Then set patient message field: "result" to value: "POSITIVE"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
+    Then wait until patient is updated
+    Then patient status should change to "<status>"
+    And patient active tissue specimen field "ICCPTENs" should be "POSITIVE"
+    And patient active tissue specimen field "ICCBAF47s" should be "POSITIVE"
+    And patient active tissue specimen field "ICCBRG1s" should be "POSITIVE"
+    Examples:
+      | patient_id                  | sei                              | status               |
+      | PT_AS12_PendingConfirmation | PT_AS12_PendingConfirmation_SEI1 | PENDING_CONFIRMATION |
+      | PT_AS12_PendingApproval     | PT_AS12_PendingApproval_SEI1     | PENDING_APPROVAL     |
+      | PT_AS12_OnTreatmentArm      | PT_AS12_OnTreatmentArm_SEI1      | ON_TREATMENT_ARM     |
 
   @patients_p3
   Scenario: PT_AS13. extra key-value pair in the message body should NOT fail
