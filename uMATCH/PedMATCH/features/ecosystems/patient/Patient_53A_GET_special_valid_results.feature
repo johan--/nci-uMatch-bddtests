@@ -523,8 +523,8 @@ Feature: Patient GET service valid special case tests
   Scenario Outline: PT_SC07a specimen_events should have correct value
     Given patient GET service: "specimen_events", patient id: "<patient_id>", id: ""
     When GET from MATCH patient API, http code "200" should return
-    Then this patient specimen_events type "tissue_specimens" should have "<tissue_count>" elements
-    Then this patient specimen_events type "blood_specimens" should have "<blood_count>" elements
+    Then this patient tissue specimen_events should have "<tissue_count>" elements
+    Then this patient blood specimen_events should have "<blood_count>" specimens
     Examples:
       | patient_id            | tissue_count | blood_count |
       | PT_SC07a_TsReceived   | 1            | 0           |
@@ -540,8 +540,8 @@ Feature: Patient GET service valid special case tests
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then wait until patient specimen is updated
     When GET from MATCH patient API, http code "200" should return
-    Then this patient specimen_events type "tissue_specimens" should have "<tissue_after>" elements
-    Then this patient specimen_events type "blood_specimens" should have "<blood_after>" elements
+    Then this patient tissue specimen_events should have "<tissue_after>" elements
+    Then this patient blood specimen_events should have "<blood_after>" specimens
     Examples:
       | patient_id          | specimen_type | sei                      | tissue_after | blood_after |
       | PT_SC07b_TsReceived | TISSUE        | PT_SC07b_TsReceived_SEI2 | 2            | 0           |

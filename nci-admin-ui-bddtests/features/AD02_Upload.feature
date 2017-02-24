@@ -25,4 +25,3 @@ And I collect the treatment arm details on row "1"
 And I hit the "Confirm Upload" button next to treatment arm on row "1"
 And I call the Treatment Arm Api to verify the presence of the treatment arm
 
-

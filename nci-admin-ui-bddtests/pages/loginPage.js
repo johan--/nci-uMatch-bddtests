@@ -19,20 +19,29 @@ var LoginPage = function() {
     this.loginProcess = function(userId, password) {
         accessButton.click().then(function(){          
             browser.waitForAngular();
-            expect(auth0WidgetContaner.isPresent()).to.eventually.eql(true);
+            auth0WidgetContaner.isPresent().then(function(present) {
+                if(present === true){
+                    console.log("I can see the auth0WidgetContaner")                    
+                } else {
+                    console.log("soeme thisn is wrong. the status of prestn is " + present);
+                }
+            })
         }).then(function(){
             previousAuth0Login.isPresent().then(function(previouslyLoggedIn){
                 if ( previouslyLoggedIn === true ) {
+                    console.log("I am in the previouslyLoggedIn section")
                     notYourLink.click().then(function(){
-                        utilities.waitForElement(loginLink, "Login text box").then(function(){
-                            browser.waitForAngular().then(function(){
-                            enterLoginDetails(userId, password)
-                            loginLink.click().then(function(){
-                                browser.waitForAngular();
+                        console.log("I should've clicked the notYourLink by now")
+                        browser.waitForAngular().then(function(){
+                            utilities.waitForElement(loginLink, "Login text box").then(function(){
+                                browser.waitForAngular().then(function(){
+                                enterLoginDetails(userId, password)
+                                loginLink.click().then(function(){
+                                    browser.waitForAngular();
+                                    });    
                                 });    
-                            });    
-                        });
-                        
+                            });
+                        })
                     });
                 } else {
                     browser.sleep(2000).then(function(){
