@@ -1,6 +1,16 @@
 @clia
 Feature: CLIA Labs Page
     @ui_p1
+    Scenario: User can add a variant report to a generated MSN Part 1
+        Given I am logged in as a "VR_Sender_mocha" user
+        When I navigate to the CLIA Labs page
+        And I click on the "MoCha" section
+        And I click on "Positive Sample Controls" under "MoCha"
+        And I enter "SC_6Y4FV" in the search field for "Positive Sample Controls" under "MoCha"
+        Then I "should not" see a variant report for "SC_6Y4FV" for "Positive Sample Controls" under "MoCha"
+        And I call aliquot service with "SC_6Y4FV" as the molecular id
+    
+    @ui_p1
     Scenario: User can access information about the uploaded Positive Sample Control report.
         Given I am logged in as a "VR_Sender_mocha" user
         When I navigate to sample control "SC_A2PD6" of type "Positive Sample Controls" under "MoCha"
@@ -57,19 +67,11 @@ Feature: CLIA Labs Page
             | VR_Sender_mda   | MD Anderson | Proficiency And Competency  |
 
     @ui_p1
-    Scenario: User can add a variant report to a generated MSN
+    Scenario: User can add a variant report to a generated MSN Part 2
         Given I am logged in as a "VR_Sender_mocha" user
         When I navigate to the CLIA Labs page
         And I click on the "MoCha" section
         And I click on "Positive Sample Controls" under "MoCha"
-        And I collect information on "Positive Sample Controls" under "MoCha"
-        And I click on Generate MSN button
-        And I collect new information on "Positive Sample Controls" under "MoCha"
-        And I capture the new MSN created
-        And I upload variant report to S3 with the generated MSN
-        And I wait for "5" seconds
-        And I call the aliquot service with the generated MSN
-        And I wait for "30" seconds
-        And I navigate to the CLIA Labs page
-        Then I see variant report details for the generated MSN
+        And I enter "SC_6Y4FV" in the search field for "Positive Sample Controls" under "MoCha"
+        Then I "should" see a variant report for "SC_6Y4FV" for "Positive Sample Controls" under "MoCha"
         And I delete the variant reports uploaded to S3

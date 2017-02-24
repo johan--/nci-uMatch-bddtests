@@ -30,13 +30,18 @@ module.exports = function () {
         browser.sleep(50).then(callback);
     });
 
-    this.Then(/^I should see and click the variant report link for "(.+?)"$/, function (analysisId, callback) {
+    this.Then(/^I should see the variant report link for "(.+?)"$/, function (analysisId, callback) {
         patientPage.variantAnalysisId = analysisId;
+        var varRepString = 'li[ng-repeat="'+ patientPage.variantAndAssignmentPanelString + '"] a[href="#/patient/' + patientPage.patientId + '/variant_report?analysis_id=' + analysisId + '"]';
+        variantReportLink = element(by.css(varRepString));
+        expect(variantReportLink.isPresent()).to.eventually.eql(true).notify(callback);
+    });
+
+    this.Then(/^I click the variant report link for "(.+?)"$/, function (analysisId, callback) {
         var varRepString = 'li[ng-repeat="'+ patientPage.variantAndAssignmentPanelString + '"] a[href="#/patient/' + patientPage.patientId + '/variant_report?analysis_id=' + analysisId + '"]';
         variantReportLink = element(by.css(varRepString));
 
         expect(variantReportLink.isPresent()).to.eventually.eql(true).then(function(){
-            browser.ignoreSynchronization = false;
             browser.sleep(2000).then(function(){
                 variantReportLink.getLocation().then(function(location) {
                     browser.executeScript('window.scrollTo(' + (location.x + 50) + ', ' + (location.y + 50) + ')').then(function(){

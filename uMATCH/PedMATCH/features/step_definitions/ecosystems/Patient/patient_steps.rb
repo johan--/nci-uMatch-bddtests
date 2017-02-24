@@ -719,7 +719,7 @@ Then(/^this patient patient_limbos should have "([^"]*)" messages which contain 
 
   expect(actual_list.size).to eql count.to_i
   contain_list.each { |this_contain|
-    unless actual_list.any? { |this_actual| this_actual.include?(this_contain) }
+    unless actual_list.any? { |this_actual| this_actual.downcase.include?(this_contain.downcase) }
       raise "#{actual_list.to_s} is expected to contain #{this_contain}"
     end
   }
@@ -798,16 +798,18 @@ Then(/^this patient specimen_events should have assignment: analysis_id "([^"]*)
   expect(@get_response.class).to eql Hash
   expect(@get_response.keys).to include type
   assignments = []
-  @get_response[type]['specimen_shipments'].each { |this_shippment|
-    this_shippment['analyses'].each { |this_analysis|
-      if this_analysis['analysis_id'] == ani
-        assignments = this_analysis['assignments']
-        break
-      end
+  @get_response[type].each { |this_specimen|
+    this_specimen['specimen_shipments'].each { |this_shippment|
+      this_shippment['analyses'].each { |this_analysis|
+        if this_analysis['analysis_id'] == ani
+          assignments = this_analysis['assignments']
+          break
+        end
+      }
     }
   }
-  expect(assignments.size).to > 0
-  target = assignments.select{|this_as| this_as['comment'] == cmt}
+  expect(assignments.size).to be > 0
+  target = assignments.select { |this_as| this_as['comment'] == cmt }
   expect(target.size).to eql 1
 end
 
@@ -831,7 +833,7 @@ Then(/^patient amois should have correct value$/) do
     qualified_active_ani[active_ani] = 0
   }
   all_variants = Helper_Methods.dynamodb_table_items('variant')
-  all_variants.each{|this_variant|
+  all_variants.each { |this_variant|
     next unless qualified_active_ani.keys.include?(this_variant['analysis_id'])
     if this_variant.keys.include?('amois') && this_variant['amois'].size > 0
       qualified_active_ani[this_variant['analysis_id']] += 1

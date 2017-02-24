@@ -8,8 +8,15 @@ require_relative 'match_test_data_manager'
 
 # ############clear local dynamodb and load all existing seed data
 MatchTestDataManager.clear_all_local_tables
-MatchTestDataManager.upload_all_seed_data_to_local
-
+# MatchTestDataManager.upload_all_seed_data_to_local
+# MatchTestDataManager.clear_all_pressure_seed_files
+# MatchTestDataManager.generate_patient_instance('PT_TMP_AssayReceived', 1000)
+# MatchTestDataManager.generate_patient_instance('PT_TMP_Registered', 1000)
+# MatchTestDataManager.generate_patient_instance('PT_TMP_SlideShipped', 1000)
+# MatchTestDataManager.generate_patient_instance('PT_TMP_TsReceived', 1000)
+# MatchTestDataManager.generate_patient_instance('PT_TMP_TsShipped', 1000)
+# MatchTestDataManager.clear_all_local_tables
+# MatchTestDataManager.upload_pressure_data_to_int
 
 #################backup the just generated local db
 # MatchTestDataManager.backup_all_local_db
@@ -93,4 +100,43 @@ MatchTestDataManager.upload_all_seed_data_to_local
 #
 # puts output
 
+# file = "#{File.dirname(__FILE__)}/seed_data_for_upload/match_bddtests_seed_data_specimen.json"
+# file_hash = JSON(IO.read(file))
+# items = file_hash['Items']
+# items.each{|this_item|
+#   collect_dt = DateTime.parse(this_item['collected_date']['S'])
+#   received_dttm = collect_dt + 1.days
+#   received_dttm_hash = {'S'=>received_dttm.iso8601}
+#   this_item['received_date'] = received_dttm_hash
+# }
+# File.open(file, 'w') { |f| f.write(JSON.pretty_generate(file_hash)) }
 
+#
+# file = "#{File.dirname(__FILE__)}/seed_data_for_upload/match_bddtests_seed_data_patient.json"
+# file_hash = JSON(IO.read(file))
+# items = file_hash['Items']
+# items.each{|this_item|
+#   next unless this_item.has_key?('active_tissue_specimen')
+#   active_specimen = this_item['active_tissue_specimen']['M']
+#   next unless active_specimen.has_key?('specimen_collected_date')
+#   collect_dt = DateTime.parse(active_specimen['specimen_collected_date']['S'])
+#   received_dttm = collect_dt + 1.days
+#   received_dttm_hash = {'S'=>received_dttm.iso8601}
+#   this_item['active_tissue_specimen']['M']['specimen_received_date'] = received_dttm_hash
+# }
+# File.open(file, 'w') { |f| f.write(JSON.pretty_generate(file_hash)) }
+
+# false_list = %w(PT_RA04a_NoTaAvailable PT_OS01a_NoTaAvailable PT_RA03_NoTaAvailable PT_RA02_NoTaAvailable PT_SS31_NoTaAvailable_ANI1 PT_OS01_NoTaAvailable_ANI1 PT_SR10_NoTaAvailable_ANI1)
+# file = "#{File.dirname(__FILE__)}/seed_data_for_upload/match_bddtests_seed_data_patient.json"
+# file_hash = JSON(IO.read(file))
+# items = file_hash['Items']
+# items.each{|this_item|
+#   if this_item.has_key?('active_analysis_id')
+#     puts this_item['patient_id']['S']
+#   end
+#   # next unless this_item.has_key?('active_tissue_specimen')
+#   # next unless this_item['active_tissue_specimen']['M'].has_key?('active_analysis_id')
+#   # patient_id = this_item['patient_id']['S']
+#   # this_item['active_tissue_specimen']['M']['has_amoi'] = {'BOOL'=>!false_list.include?(patient_id)}
+# }
+# File.open(file, 'w') { |f| f.write(JSON.pretty_generate(file_hash)) }

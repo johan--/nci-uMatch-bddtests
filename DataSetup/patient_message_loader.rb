@@ -345,7 +345,7 @@ class PatientMessageLoader
     message['tsv_file_name'] = tsv_name
     send_message_to_local(message, patient_id)
     wait_until_updated(patient_id, '')
-    # sleep(5) #variant upload might take more time than other service, so wait internally
+    sleep(5) #variant upload might take more time than other service, so wait internally
   end
 
   def self.copy_CNV_json_to_int_folder(
