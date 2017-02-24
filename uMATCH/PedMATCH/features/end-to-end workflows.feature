@@ -43,10 +43,26 @@ Feature: Workflow scenarios that exercises the entire PedMATCH system from regis
     Then current assignment report_status: "NO_TREATMENT_FOUND"
     Then assignment report is confirmed
     Then patient status should be "NO_TA_AVAILABLE"
+  @e2e
+  Scenario: Patient is assigned to an arm only when there is a inclusion variant match and inclusion disease match
+    Given patient: "PT_ETE03" is registered
+    Then tissue specimen received with surgical_event_id: "PT_ETE03_SEI1"
+    Then "TISSUE" specimen shipped to "MDA" with molecular_id or slide_barcode: "PT_ETE03_MOI1"
+    Then "SLIDE" specimen shipped to "MDA" with molecular_id or slide_barcode: "PT_ETE03_BC1"
+    Then "ICCPTENs" assay result received result: "NEGATIVE"
+    Then "ICCBAF47s" assay result received result: "NEGATIVE"
+    Then "ICCBRG1s" assay result received result: "NEGATIVE"
+    Then "TISSUE" variant report "ETE03.vcf" uploaded with analysis id: "PT_ETE03_ANI1"
+    Then "TISSUE" variant report confirmed with status: "CONFIRMED"
+    Then patient status should be "PENDING_CONFIRMATION"
+    Then treatment arm: "APEC1621-B" with stratum id: "100" is selected
+    Then assignment report is confirmed
+    Then COG approves patient on treatment arm: "APEC1621-B", stratum: "100" to step: "1.1"
+    Then patient status should be "ON_TREATMENT_ARM"
+
 
   Scenario: Patient matches to a treatment arm but COG deems it not eligible
 
-  Scenario: Patient is assigned to an arm only when there is a inclusion variant match and inclusion disease match
 
   Scenario: Patient is excluded fom the arm that has a matching exclusion variant and inclusion variant
 
