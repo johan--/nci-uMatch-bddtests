@@ -28,7 +28,7 @@ module.exports = function() {
         expect(element(by.css('span[href="#/app/wizard"]')).getText()).to.eventually.eql('Wizard');
         expect(element(by.css('span[href="#/app/editor"]')).getText()).to.eventually.eql('Editor');
         expect(element(by.css('span[href="#/app/confirmation"]')).getText()).to.eventually.eql('Confirmation');
-        expect(element(by.css('span[href="#/app/logger"')).getText()).to.eventually.eql('logLink').notify(callback);
+        expect(element(by.css('span[href="#/app/logger"')).getText()).to.eventually.eql('Log').notify(callback);
     });
 
 }
