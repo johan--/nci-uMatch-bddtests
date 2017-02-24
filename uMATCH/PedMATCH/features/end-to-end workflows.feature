@@ -25,6 +25,7 @@ Feature: Workflow scenarios that exercises the entire PedMATCH system from regis
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
     Then patient status should be "PENDING_CONFIRMATION"
     Then treatment arm: "APEC1621-A" with stratum id: "100" is selected
+    Then the current assignment reason is "A match was found for inclusion variant FGFR2-OFD1.F17O3."
     Then assignment report is confirmed
     Then COG approves patient on treatment arm: "APEC1621-A", stratum: "100" to step: "1.1"
     Then patient status should be "ON_TREATMENT_ARM"
@@ -56,6 +57,7 @@ Feature: Workflow scenarios that exercises the entire PedMATCH system from regis
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
     Then patient status should be "PENDING_CONFIRMATION"
     Then treatment arm: "APEC1621-B" with stratum id: "100" is selected
+    Then the current assignment reason is "A match was found for inclusion variant MYCL. A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required."
     Then assignment report is confirmed
     Then COG approves patient on treatment arm: "APEC1621-B", stratum: "100" to step: "1.1"
     Then patient status should be "ON_TREATMENT_ARM"
@@ -63,8 +65,21 @@ Feature: Workflow scenarios that exercises the entire PedMATCH system from regis
 
   Scenario: Patient matches to a treatment arm but COG deems it not eligible
 
-
-  Scenario: Patient is excluded fom the arm that has a matching exclusion variant and inclusion variant
+  @e2e
+  Scenario: Patient is excluded from the arm that has a matching exclusion variant and inclusion variant
+    Given patient: "PT_ETE04" is registered
+    Then tissue specimen received with surgical_event_id: "PT_ETE04_SEI1"
+    Then "TISSUE" specimen shipped to "MDA" with molecular_id or slide_barcode: "PT_ETE04_MOI1"
+    Then "SLIDE" specimen shipped to "MDA" with molecular_id or slide_barcode: "PT_ETE04_BC1"
+    Then "ICCPTENs" assay result received result: "NEGATIVE"
+    Then "ICCBAF47s" assay result received result: "NEGATIVE"
+    Then "ICCBRG1s" assay result received result: "NEGATIVE"
+    Then "TISSUE" variant report "ETE04.vcf" uploaded with analysis id: "PT_ETE04_ANI1"
+    Then "TISSUE" variant report confirmed with status: "CONFIRMED"
+    Then patient status should be "PENDING_CONFIRMATION"
+    Then current assignment report_status: "NO_TREATMENT_FOUND"
+    Then assignment report is confirmed
+    Then patient status should be "NO_TA_AVAILABLE"
 
   Scenario: Patient is assigned to the treatment arm based on non-hotspot variant match
 

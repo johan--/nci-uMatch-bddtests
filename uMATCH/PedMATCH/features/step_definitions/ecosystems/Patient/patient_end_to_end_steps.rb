@@ -211,12 +211,16 @@ end
 
 Then(/^treatment arm: "([^"]*)" with stratum id: "([^"]*)" is selected$/) do |ta_id, stratum|
   url = "#{ENV['patients_endpoint']}/#{@patient_id}"
-  patient_result = Patient_helper_methods.get_any_result_from_url(url)
-  p patient_result
+  @patient_result = Patient_helper_methods.get_any_result_from_url(url)
+  p @patient_result
   current_assignment = 'current_assignment'
-  expect(patient_result.keys).to include current_assignment
-  expect(patient_result[current_assignment]['treatment_arm_id']).to eq ta_id
-  expect(patient_result[current_assignment]['stratum_id']).to eq stratum
+  expect(@patient_result.keys).to include current_assignment
+  expect(@patient_result[current_assignment]['treatment_arm_id']).to eq ta_id
+  expect(@patient_result[current_assignment]['stratum_id']).to eq stratum
+end
+
+Then(/^the current assignment reason is "([^"]*)"$/) do |reason|
+  expect(@patient_result['current_assignment']['reason']).to eq reason
 end
 
 Then(/^current assignment report_status: "([^"]*)"$/) do |report_status|

@@ -164,7 +164,7 @@
     "variant_type": "fusion",
     "ocp_reference": "C",
     "func_gene": "TPM3",
-    "identifier": "TPM3-NTRK1.T7N10.COSF1318_1",
+    "identifier": "TPM3-NTRK1.T7N10.COSF1318",
     "inclusion": true,
     "public_med_ids": [],
     "level_of_evidence": 2.0,
@@ -173,45 +173,19 @@
     "position": "154142875",
     "armSpecific": false
   },
-    {
-      "variant_type": "fusion",
-      "ocp_reference": "G",
-      "func_gene": "NTRK1",
-      "identifier": "TPM3-NTRK1.T7N10.COSF1318_2",
-      "inclusion": true,
-      "public_med_ids": [],
-      "level_of_evidence": 3.0,
-      "chromosome": "chr2",
-      "ocp_alternative": "[chr1:154142875[G",
-      "position": "156844362",
-      "armSpecific": false
-    },
-    {
-      "variant_type": "fusion",
-      "ocp_reference": "T",
-      "func_gene": "TPM3",
-      "identifier": "TPM3-ROS1.T7R35.COSF1273_1",
-      "inclusion": false,
-      "public_med_ids": [],
-      "level_of_evidence": 3.0,
-      "chromosome": "chr1",
-      "ocp_alternative": "T]chr6:117642559]",
-      "position": "154142877",
-      "armSpecific": false
-    },
-    {
-      "variant_type": "fusion",
-      "ocp_reference": "T",
-      "func_gene": "ROS1",
-      "identifier": "TPM3-ROS1.T7R35.COSF1273_2",
-      "inclusion": false,
-      "public_med_ids": [],
-      "level_of_evidence": 3.0,
-      "chromosome": "chr6",
-      "ocp_alternative": "[chr1:154142877[T",
-      "position": "117642559",
-      "armSpecific": false
-    }
+  {
+    "variant_type": "fusion",
+    "ocp_reference": "T",
+    "func_gene": "TPM3",
+    "identifier": "TPM3-ROS1.T7R35.COSF1273",
+    "inclusion": false,
+    "public_med_ids": [],
+    "level_of_evidence": 3.0,
+    "chromosome": "chr1",
+    "ocp_alternative": "T]chr6:117642559]",
+    "position": "154142877",
+    "armSpecific": false
+  }
   ],
   "diseases": [{
     "disease_code_type":"ICD-O",
