@@ -786,11 +786,20 @@ Then(/^patient treatment_arm_history should not have treatment_arm: "([^"]*)", s
   end
 end
 
-Then(/^this patient specimen_events type "([^"]*)" should have "([^"]*)" elements/) do |type, count|
+Then(/^this patient tissue specimen_events should have "([^"]*)" elements/) do |count|
   expect(@get_response.class).to eql Hash
-  expect(@get_response.keys).to include type
-  expect(@get_response[type].class).to eql Array
-  expect(@get_response[type].size).to eql count.to_i
+  expect(@get_response.keys).to include 'tissue_specimens'
+  expect(@get_response['tissue_specimens'].class).to eql Array
+  expect(@get_response['tissue_specimens'].size).to eql count.to_i
+end
+
+Then(/^this patient blood specimen_events should have "([^"]*)" specimens/) do |count|
+  expect(@get_response.class).to eql Hash
+  expect(@get_response.keys).to include 'blood_specimens'
+  expect(@get_response['blood_specimens'].class).to eql Hash
+  expect(@get_response['blood_specimens'].keys).to include 'specimens'
+  expect(@get_response['blood_specimens']['specimens'].class).to eql Array
+  expect(@get_response['blood_specimens']['specimens'].size).to eql count.to_i
 end
 
 Then(/^this patient specimen_events should have assignment: analysis_id "([^"]*)" and comment "([^"]*)"$/) do |ani, cmt|
