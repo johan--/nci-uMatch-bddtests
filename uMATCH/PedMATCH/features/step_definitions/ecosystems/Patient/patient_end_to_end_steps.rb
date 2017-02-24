@@ -226,8 +226,19 @@ end
 Then(/^current assignment report_status: "([^"]*)"$/) do |report_status|
   url = "#{ENV['patients_endpoint']}/#{@patient_id}"
   patient_result = Patient_helper_methods.get_any_result_from_url(url)
-  p patient_result["current_assignment"]
   expect(patient_result["current_assignment"]['report_status']).to eq report_status
+end
+
+Then(/^treatment assignment results for treatment arm is "([^"]*)" is "([^"]*)"$/)do |ta_id, reason|
+  url = "#{ENV['patients_endpoint']}/#{@patient_id}"
+  patient_result = Patient_helper_methods.get_any_result_from_url(url)
+  ta_results = patient_result['current_assignment']['treatment_assignment_results']
+  p ta_results
+  ta_results.each do |child|
+    if child['treatment_arm_id'] === ta_id
+      expect(child['reason']).to include reason
+    end
+  end
 end
 
 def find_variant_uuid(specimen_type, variant_type, field, value)
