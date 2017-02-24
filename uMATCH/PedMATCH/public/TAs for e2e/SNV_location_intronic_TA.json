@@ -28,8 +28,6 @@
       "inclusion": true,
       "func_gene": "KIT",
       "exon":"12",
-      "oncomine_variant_class":"hotspot",
-      "function":"missense",
       "level_of_evidence": 3.0
     },
     {

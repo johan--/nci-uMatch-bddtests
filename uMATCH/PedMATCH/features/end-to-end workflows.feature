@@ -1,6 +1,6 @@
 Feature: Workflow scenarios that exercises the entire PedMATCH system from registering a patient all the way to patient assignment firing different type of rules based on the patients unique biology and available treatment arm
 
-  @e2e @2
+  @e2e
   Scenario Outline: Load Treatment Arms into Pediatric MATCHbox
     Given a treatment arm json file "<taFileName>" with id "<id>", stratum "<stratum>" and version "<version>" is submitted to treatment_arm service
     Then the treatment_arm "<id>" with stratum "<stratum>" is created in MatchBox with status as "<status>"
@@ -65,7 +65,7 @@ Feature: Workflow scenarios that exercises the entire PedMATCH system from regis
 
   Scenario: Patient matches to a treatment arm but COG deems it not eligible
 
-  @e2e @2
+  @e2e
   Scenario: Patient is excluded from the arm that has a matching exclusion variant and inclusion variant
     Given patient: "PT_ETE04" is registered
     Then tissue specimen received with surgical_event_id: "PT_ETE04_SEI1"
@@ -82,8 +82,24 @@ Feature: Workflow scenarios that exercises the entire PedMATCH system from regis
     Then treatment assignment results for treatment arm is "APEC1621-B" is "A match was found for inclusion variant TPM3-NTRK1.T7N10.COSF1318."
     Then assignment report is confirmed
     Then patient status should be "NO_TA_AVAILABLE"
+  @e2e
+  Scenario: Patient is assigned to the treatment arm based on non-hotspot variant match (Gene and exon)
+    Given patient: "PT_ETE05" is registered
+    Then tissue specimen received with surgical_event_id: "PT_ETE05_SEI1"
+    Then "TISSUE" specimen shipped to "MDA" with molecular_id or slide_barcode: "PT_ETE05_MOI1"
+    Then "SLIDE" specimen shipped to "MDA" with molecular_id or slide_barcode: "PT_ETE05_BC1"
+    Then "ICCPTENs" assay result received result: "NEGATIVE"
+    Then "ICCBAF47s" assay result received result: "NEGATIVE"
+    Then "ICCBRG1s" assay result received result: "NEGATIVE"
+    Then "TISSUE" variant report "ETE05.vcf" uploaded with analysis id: "PT_ETE05_ANI1"
+    Then "TISSUE" variant report confirmed with status: "CONFIRMED"
+    Then patient status should be "PENDING_CONFIRMATION"
+    Then treatment arm: "SNV_location_intronic" with stratum id: "100" is selected
+    Then the current assignment reason is "A match was found for inclusion nonhotspot variant (GENE: KIT, FUNC: -, EXON: 12, OVA: -)."
+    Then assignment report is confirmed
+    Then COG approves patient on treatment arm: "SNV_location_intronic", stratum: "100" to step: "1.1"
+    Then patient status should be "ON_TREATMENT_ARM"
 
-  Scenario: Patient is assigned to the treatment arm based on non-hotspot variant match
 
   Scenario: Verify that the inclusion non-hotspot rule FUNC comparison is not case-sensitive
 
