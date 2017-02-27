@@ -110,13 +110,14 @@ Feature: Tests for ion_reporters service in ion ecosystem
   Scenario: ION_IR25. ion_reporter update request should not remove existing fields that are not in PUT message body
     Given ion_reporter_id is "IR_3I4AB"
 
-  @ion_reporter_p2
-  Scenario: ION_IR26. ion_reporter update request will fail if no site value passed in
-    Given ion_reporter_id is "IR_1H9XW"
-    Then add field: "host_name" value: "MDACC-MATCH-IR" to message body
-    Then add field: "data_files" value: "Log File" to message body
-    Then add field: "ip_address" value: "132.183.13.75" to message body
-    When PUT to ion_reporters service, response includes "Need to pass in site information" with code "400"
+#    not requirement anymore
+#  @ion_reporter_p2
+#  Scenario: ION_IR26. ion_reporter update request will fail if no site value passed in
+#    Given ion_reporter_id is "IR_1H9XW"
+#    Then add field: "host_name" value: "MDACC-MATCH-IR" to message body
+#    Then add field: "data_files" value: "Log File" to message body
+#    Then add field: "ip_address" value: "132.183.13.75" to message body
+#    When PUT to ion_reporters service, response includes "Need to pass in site information" with code "400"
 
   @ion_reporter_p1
   Scenario: ION_IR27. ion_reporter last contact can be updated properly

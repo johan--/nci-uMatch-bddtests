@@ -189,6 +189,16 @@ class PatientTA
     PatientMessageLoader.assignment_confirmed(pt.id, pt.ani,'Assignment 3')
   end
 
+  def self.ui_sp01_multi_bd_specimens
+    pt = PatientDataSet.new('UI_SP01_MultiBdSpecimens')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_blood(pt.id)
+    PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)
+    PatientMessageLoader.specimen_received_blood(pt.id, '2016-04-23')
+    PatientMessageLoader.specimen_received_blood(pt.id, '2016-04-24')
+    PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi_increase)
+    PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi_increase)
+  end
 
 end
 
