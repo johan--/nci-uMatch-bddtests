@@ -5,7 +5,7 @@ var UploaderPage = function(){
 	this.uploadHeading = element(by.css('h6.before-themeprimary'));
 	this.checkStatusHeading = element(by.css('h6.before-themesecondary'));
 
-	this.chooseAFileButton = element(by.css('div.qq-upload-button-selector>input[title="file input"]'));
+	this.chooseFileButton   = element(by.css('div.qq-upload-button-selector>input[title="file input"]'));
 
     this.uploaderLink       = element(by.css('span[href="#/app/uploader"]'));
     this.wizardLink         = element(by.css('span[href="#/app/wizard"]'));
@@ -13,10 +13,16 @@ var UploaderPage = function(){
     this.confirmationLink   = element(by.css('span[href="#/app/confirmation"]'));
     this.logLink            = element(by.css('span[href="#/app/logger"'));
 
+    this.chooseFileButton    = element(by.css('input[type="file"]'));
+    this.uploadPanel        = element(by.css('span.qq-upload-file-selector'));
 
     this.uploadSection      = element(by.css('div.bordered-themeprimary+div[class="widget-body"] #uploader'));
+
+    this.selectSpecificTA   = element(by.cssContainingText('label[ng-model="chosen_upload_type"]'), 'Select Specific Treatment Arms');
+    this.selectAllTA        = element(by.cssContainingText('label[ng-model="chosen_upload_type"]'), 'Select All Treatment Arms');
+    this.uploadFileButton   = element(by.css('input[value="Upload File"]'));
     
 
 };
 
-module.exports = UploaderPage;
+module.exports = new UploaderPage();

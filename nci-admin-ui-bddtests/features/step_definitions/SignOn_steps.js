@@ -40,4 +40,10 @@ module.exports = function () {
             })
         }).then(callback);
     });
+
+    this.When(/^I logout$/, function(callback){
+        login.logout().then(function(){
+            browser.waitForAngular();
+        }).then(callback);
+    })
 };
