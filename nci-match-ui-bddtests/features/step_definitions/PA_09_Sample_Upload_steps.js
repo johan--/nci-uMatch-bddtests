@@ -39,12 +39,74 @@ module.exports = function () {
     this.Then(/^I press "([^"]*)" file button to upload "([^"]*)" file$/, function (uploadButton, fileName, callback) {
         var pathToFile = 'data/' + fileName;
         var absolutePath = path.resolve(pathToFile);
-        var fileInput = element(by.id(patientPage.uploadButtonsId[uploadButton]));
+        var id = patientPage.uploadButtonsId[uploadButton];
+        console.log('absolutePath: '  + absolutePath);
+        var fileInput = element(by.css('input[id="' + id + '"][type="file"]'));
+        
+        switch (id){
+            case 'vcfFile':
+                makeVcfLabelVisible().then(function(label){
+                    console.log('after make visible function');
+                    fileInput.sendKeys(absolutePath);
+                });
+                break;
 
-        fileInput.sendKeys(absolutePath).then(function(){
-            console.log('file button text set to ' + absolutePath);
-            browser.sleep(3000);
-        }).then(callback);
+            case 'dnaFile':
+                makeDnaLabelVisible().then(function(){
+                    fileInput.sendKeys(absolutePath);
+                });
+                break;
+
+            case 'rnaFile':
+                makeRnaLabelVisible().then(function(){
+                    fileInput.sendKeys(absolutePath);
+                });
+                break;
+
+        }
+
+        browser.sleep(5000).then(callback);
+
+
+
+
+        
+
+        // makeLabelVisible(id).then(function(){
+        //     fileInput.sendKeys(absolutePath)
+        // }).then(callback);
+        
+        // // browser.executeAsyncScript(function() {
+        // //     var fileInput = element(by.css('input[id="' + id + '"][type="file"]'));
+        // //     var ngfSelectLabel = fileInput.element(by.xpath('..'));
+        // //     ngfSelectLabel.style.visibility = 'visible';
+        // //     ngfSelectLabel.style.position = 'absolute';
+        // //     ngfSelectLabel.style.width = '100px';
+        // //     ngfSelectLabel.style.height = '100px';
+        // //     ngfSelectLabel.style.background = 'white';
+        // //     ngfSelectLabel.style.zIndex = '10000';
+        // // }).then(function(){
+        // //     fileInput.sendKeys(absolutePath);
+        // // }).then(callback);
+
+       
+        // // // browser.executeScript("arguments[0].style.display = 'initial'", fileInput).then(function(){
+        // // //     fileInput.click()
+        // // // }).then(callback);
+
+        // // // var script = "$('input[type=\"file\"][id=\"" + id + "\"]').parent().css('display', 'initial').css('visibility', 'visible').css('height', 1).css('width', 1).css('overflow', 'visible')"
+
+        // // // browser.executeScript(script)
+        // // // fileInput.click().then(callback);
+
+        // // // // browser.sleep(50).then(callback);
+
+        // // // // browser.executeScript("arguments[0].style.visibility = 'visible'; arguments[0].style.height = '1px'; arguments[0].style.width = '1px';  arguments[0].style.opacity = 1"
+        // // // //     , fileInput).then(function(){
+        // // // //         fileInput.sendKeys(absolutePath);                
+        // // // //     }).then(function(){
+        // // // //         browser.sleep(3000)
+        // // // //     }).then(callback);
     });
 
     this.Then(/^I can see the Sample File upload process has started$/, function (callback) {
@@ -76,5 +138,49 @@ module.exports = function () {
         // Write code here that turns the phrase above into concrete actions
         callback(null, 'pending');
     });
+
+
+    function makeVcfLabelVisible(){
+        return browser.executeAsyncScript(function(){
+            console.log('int eh make visible function');
+            var ngfSelectLabel = document.querySelectorAll('label[ng-class="getFileButtonClass(\'vcfFile\')"]')[0];
+            ngfSelectLabel.style.visibility = 'visible';
+            ngfSelectLabel.style.position = 'absolute';
+            ngfSelectLabel.style.top = '0';
+            ngfSelectLabel.style.width = '100px';
+            ngfSelectLabel.style.height = '100px';
+            ngfSelectLabel.style.background = 'white';
+            ngfSelectLabel.style.zIndex = '10000';
+            return ngfSelectLabel;
+        });
+    };
+
+    function makeDnaLabelVisible(){
+        return browser.executeAsyncScript(function(){
+            var ngfSelectLabel = document.querySelectorAll('label[ng-class="getFileButtonClass(\'dnaFile\')"]')[0];
+            ngfSelectLabel.style.visibility = 'visible';
+            ngfSelectLabel.style.position = 'absolute';
+            ngfSelectLabel.style.top = '0';
+            ngfSelectLabel.style.width = '100px';
+            ngfSelectLabel.style.height = '100px';
+            ngfSelectLabel.style.background = 'white';
+            ngfSelectLabel.style.zIndex = '10000';
+            return;
+        });
+    };
+
+    function makeRnaLabelVisible(){
+        return browser.executeAsyncScript(function(){
+            var ngfSelectLabel = document.querySelectorAll('label[ng-class="getFileButtonClass(\'rnaFile\')"]')[0];
+            ngfSelectLabel.style.visibility = 'visible';
+            ngfSelectLabel.style.position = 'absolute';
+            ngfSelectLabel.style.top = '0';
+            ngfSelectLabel.style.width = '100px';
+            ngfSelectLabel.style.height = '100px';
+            ngfSelectLabel.style.background = 'white';
+            ngfSelectLabel.style.zIndex = '10000';
+            return;
+        });
+    };
 
 };

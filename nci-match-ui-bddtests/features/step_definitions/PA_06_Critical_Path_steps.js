@@ -553,4 +553,11 @@ module.exports = function () {
             }
         }).then(callback);
     });
+
+    this.When(/^I go to patient "([^"]*)" with surgical event "([^"]*)"$/, function (patientId, surgicalEventId, callback) {
+        var completeUrl = '/#/patient?patient_id=' + patientId + '&section=surgical_event&surgical_event_id=' + surgicalEventId
+        browser.get(completeUrl,5000).then(function(){
+            browser.waitForAngular();
+        }).then(callback);
+    })
 };
