@@ -5,8 +5,6 @@ var UploaderPage = function(){
 	this.uploadHeading = element(by.css('h6.before-themeprimary'));
 	this.checkStatusHeading = element(by.css('h6.before-themesecondary'));
 
-	this.chooseFileButton   = element(by.css('div.qq-upload-button-selector>input[title="file input"]'));
-
     this.uploaderLink       = element(by.css('span[href="#/app/uploader"]'));
     this.wizardLink         = element(by.css('span[href="#/app/wizard"]'));
     this.editorLink         = element(by.css('span[href="#/app/editor"]'));
@@ -21,6 +19,8 @@ var UploaderPage = function(){
     this.selectSpecificTA   = element(by.cssContainingText('label[ng-model="chosen_upload_type"]'), 'Select Specific Treatment Arms');
     this.selectAllTA        = element(by.cssContainingText('label[ng-model="chosen_upload_type"]'), 'Select All Treatment Arms');
     this.uploadFileButton   = element(by.css('input[value="Upload File"]'));
+
+    this.confirmUploadButton = element(by.linkText('Confirm upload to Treatment Arm'));
     
 
 };

@@ -95,7 +95,7 @@ module.exports = function() {
     });
 
     this.Then(/^I should see the status as "(.+?)"$/, function (status, callback) {
-        expect(cliaPage.infoPanel.get(0).all(by.css('dt+dd')).get(6).getText()).to.eventually.eql(status).notify(callback);
+        expect(cliaPage.infoPanel.get(0).all(by.css('dt+dd')).get(6).getText()).to.eventually.include(status).notify(callback);
     });
 
     this.When(/^I enter "([^"]*)" in the search field of "([^"]*)" under "([^"]*)"$/, function (searchTerm, controlType, siteName, callback) {

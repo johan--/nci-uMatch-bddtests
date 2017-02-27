@@ -1,4 +1,4 @@
-@home
+@admin_ui_p1
 Feature: Home page for the admin tool 
 
 Scenario: A logged in user can access the various sections of the homepage. 
@@ -14,6 +14,6 @@ Given I am a logged in user
 When I navigate to "Uploader" page
 Then I see that the "Choose a file" button is "enabled"
 And I see that the "Upload File" button is "disabled"
-And I see that the "Confirm upload to Treatment Arm" link is "disabled"
+And I see that the "Confirm upload to Treatment Arm" button is "disabled"
 And I logout
 

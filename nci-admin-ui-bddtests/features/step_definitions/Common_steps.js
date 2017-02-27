@@ -14,14 +14,27 @@ module.exports = function() {
         browser.get('/#/app/' + pageName, 3000).then(callback);
     });
 
-    this.Then(/^I see that the "([^"]*)" button is "([^"]*)"$/, function (arg1, arg2, callback) {
-         // Write code here that turns the phrase above into concrete actions
-         callback(null, 'pending');
+    this.Then(/^I see that the "([^"]*)" button is "(disabled|enabled|visible|invisible)"$/, function (button, buttonState, callback) {
+        var buttonElement = returnButtonElement[button]
+        var isVisible = buttonState === 'enabled' || buttonState === 'disabled';
+        var isAvailable = buttonState === 'enabled' || buttonState === 'visible';
+
+        if (isVisible){
+            expect(buttonElement.isEnabled()).to.eventually.eql(isAvailable).notify(callback);
+        } else {
+            expect(buttonElement.isPresent()).to.eventually.eql(isAvailable).notify(callback);
+        }
+         
     });
 
-       this.Then(/^I see that the "([^"]*)" link is "([^"]*)"$/, function (arg1, arg2, callback) {
-         // Write code here that turns the phrase above into concrete actions
-         callback(null, 'pending');
-       });    
+
+
+    // This is a collection of all the buttons in the applcation to be used to check the disabled, enabled feature. 
+    var returnButtonElement = {
+        "Choose a file": upload.chooseFileButton,
+        "Upload File": upload.uploadFileButton,
+        "Confirm upload to Treatment Arm": upload.confirmUploadButton 
+    }
+        
 
 }

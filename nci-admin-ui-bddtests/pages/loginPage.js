@@ -27,19 +27,21 @@ var LoginPage = function() {
                 if ( previouslyLoggedIn === true ) {
                     console.log("I am in the previouslyLoggedIn section")
                     expect(notYourLink.isPresent()).to.eventually.eql(true);
-                    element(by.linkText('Not your account?')).click().then(function(){
-                        console.log("I should've clicked the notYourLink by now")
-                        browser.waitForAngular().then(function(){
-                            utilities.waitForElement(loginLink, "Login text box").then(function(){
-                                browser.waitForAngular().then(function(){
-                                    enterLoginDetails(userId, password);
-                                    loginLink.click().then(function(){
-                                        browser.waitForAngular();
+                    browser.sleep(5000).then(function(){
+                        notYourLink.click().then(function(){
+                            console.log("I should've clicked the notYourLink by now")
+                            browser.waitForAngular().then(function(){
+                                utilities.waitForElement(loginLink, "Login text box").then(function(){
+                                    browser.waitForAngular().then(function(){
+                                        enterLoginDetails(userId, password);
+                                        loginLink.click().then(function(){
+                                            browser.waitForAngular();
+                                        });    
                                     });    
-                                });    
-                            });
-                        })
-                    });
+                                });
+                            })
+                        });    
+                    })
                 } else {
                     browser.sleep(2000).then(function(){
                         utilities.waitForElement(loginLink, "Login text box").then(function(){
