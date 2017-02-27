@@ -72,6 +72,7 @@ end
 When(/^PUT to ion_reporters service, response includes "([^"]*)" with code "([^"]*)"$/) do |message, code|
   @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
   response = Helper_Methods.put_request(prepare_ion_reporters_url, @payload.to_json.to_s, true, @current_auth0_role)
+  @ion_update_date = Time.now.utc.to_i
   expect(response['http_code']).to eq code
   expect(response['message']).to include message
 end
@@ -161,6 +162,35 @@ Then(/^add field: "([^"]*)" value: "([^"]*)" to message body$/) do |field, value
     @payload = {}
   end
   @payload[field]=converted_value
+end
+
+Then(/^last_contact for this ion_reporter should have correct value$/) do
+  url = prepare_ion_reporters_url
+  ion_reporter = Helper_Methods.simple_get_request(url)['message_json']
+  if ion_reporter.is_a?(Array)
+    ion_reporter = ion_reporter[0]
+  end
+  returned_date = DateTime.parse(ion_reporter['last_contact']).to_i
+  validate_date_diff('last_contact', @ion_update_date, returned_date)
+end
+
+Then(/^last_contact for this ion_reporter healthcheck should have correct value$/) do
+  url = prepare_ion_healthcheck_url
+  ion_reporter = Helper_Methods.simple_get_request(url)['message_json']
+  if ion_reporter.is_a?(Array)
+    ion_reporter = ion_reporter[0]
+  end
+  returned_date = DateTime.parse(ion_reporter['last_contact']).to_i
+  validate_date_diff('last_contact', @ion_update_date, returned_date)
+end
+
+Then(/^ir_status for this ion_reporter healthcheck should be "([^"]*)"$/) do |ir_status|
+  url = prepare_ion_healthcheck_url
+  ion_reporter = Helper_Methods.simple_get_request(url)['message_json']
+  if ion_reporter.is_a?(Array)
+    ion_reporter = ion_reporter[0]
+  end
+  ion_reporter['ir_status'].should == ir_status
 end
 
 Then(/^each generated ion_reporter should have (\d+) field\-value pairs$/) do |count|
@@ -276,7 +306,38 @@ Then(/^new and old total ion_reporters counts should have (\d+) difference$/) do
   count_diff.should == diff.to_i
 end
 
+Then(/^record all ion_reporters which has field "([^"]*)"$/) do |field|
+  @recorded_ion_ids = [] unless @recorded_ion_ids.present?
+  @returned_ions.each { |this_ion|
+    if this_ion.has_key?(field)
+      @recorded_ion_ids << this_ion['ion_reporter_id']
+    end
+  }
+end
 
+Then(/^ion_repoters healthcheck service result should match the recorded list$/) do
+  url = prepare_ion_healthcheck_url
+  ion_reporters = Helper_Methods.simple_get_request(url)['message_json']
+  healthcheck_ion_ids = []
+  ion_reporters.each { |this_ion|
+    healthcheck_ion_ids << this_ion['ion_reporter_id'] }
+  extra_actual = healthcheck_ion_ids - @recorded_ion_ids
+  absent_actual = @recorded_ion_ids - healthcheck_ion_ids
+
+  raise "These ion_reporter_id should NOT show up in result: #{extra_actual.to_s}" if extra_actual.size > 0
+  raise "These ion_reporter_id should show up in result: #{absent_actual.to_s}" if absent_actual.size > 0
+
+  @returned_ions.each { |this_ion|
+    healthcheck_ion = ion_reporters.find { |x| x['ion_reporter_id'] == this_ion['ion_reporter_id']}
+    healthcheck_last_contact = Time.parse(healthcheck_ion['last_contact'])
+    this_ion_last_contact = Time.parse(this_ion['last_contact'])
+    unless healthcheck_last_contact == this_ion_last_contact
+      error = "ion_reporter #{this_ion['ion_reporter_id']} last contact is #{this_ion['last_contact']}"
+      error += ", but its healthcheck last contact is #{healthcheck_ion['last_contact']}"
+      raise error
+    end
+  }
+end
 ################################################
 ##############               ###################
 ##############sample controls###################
@@ -325,7 +386,7 @@ end
 
 Then(/^if aliquot returned, it should have editable: "([^"]*)"$/) do |editable|
   if @returned_sample_control.is_a?(Array)
-    contains = @returned_sample_control.select{|h| h.keys.include?('editable')}
+    contains = @returned_sample_control.select { |h| h.keys.include?('editable') }
     raise "returned sample control list doesn't have 'editable' field" if contains.size<1
     expect(contains[0]['editable']).to eql editable
   end
@@ -679,6 +740,15 @@ When(/^DELETE to files service, response includes "([^"]*)" with code "([^"]*)"$
   response = Helper_Methods.delete_request(url, true, @current_auth0_role)
   expect(response['http_code']).to eq code
   expect(response['message']).to include message
+end
+
+def prepare_ion_healthcheck_url
+  params = @url_params.clone
+  if @ion_id.present?
+    params['ion_reporter_id']=@ion_id
+  end
+  url = "#{ENV['ion_system_endpoint']}/ion_reporters/healthcheck"
+  add_parameters_to_url(url, params)
 end
 
 def prepare_ion_reporters_url

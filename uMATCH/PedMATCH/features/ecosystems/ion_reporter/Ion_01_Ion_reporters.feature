@@ -10,7 +10,7 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Then field: "site" for each generated ion_reporter should be: "<site>"
     Examples:
       | site  |
-      | mda |
+      | mda   |
       | mocha |
 
   @ion_reporter_p2
@@ -109,13 +109,26 @@ Feature: Tests for ion_reporters service in ion ecosystem
   @ion_reporter_p2
   Scenario: ION_IR25. ion_reporter update request should not remove existing fields that are not in PUT message body
     Given ion_reporter_id is "IR_3I4AB"
-    
-    Scenario: ION_IR26. ion_reporter update request will fail if no site value passed in
-      Given ion_reporter_id is "IR_1H9XW"
-      Then add field: "host_name" value: "MDACC-MATCH-IR" to message body
-      Then add field: "data_files" value: "Log File" to message body
-      Then add field: "ip_address" value: "132.183.13.75" to message body
-      When PUT to ion_reporters service, response includes "Need to pass in site information" with code "400"
+
+  @ion_reporter_p2
+  Scenario: ION_IR26. ion_reporter update request will fail if no site value passed in
+    Given ion_reporter_id is "IR_1H9XW"
+    Then add field: "host_name" value: "MDACC-MATCH-IR" to message body
+    Then add field: "data_files" value: "Log File" to message body
+    Then add field: "ip_address" value: "132.183.13.75" to message body
+    When PUT to ion_reporters service, response includes "Need to pass in site information" with code "400"
+
+  @ion_reporter_p1
+  Scenario: ION_IR27. ion_reporter last contact can be updated properly
+    Given ion_reporter_id is "IR_MCA03"
+    And site is "mocha"
+    Then add field: "last_contact" value: "now" to message body
+    And ir user authorization role is "SYSTEM"
+    When PUT to ion_reporters service, response includes "updated" with code "200"
+    Then wait up to 15 seconds until this ion_reporter get updated
+    Then last_contact for this ion_reporter should have correct value
+    Then last_contact for this ion_reporter healthcheck should have correct value
+    Then ir_status for this ion_reporter healthcheck should be "Last contact 0 minute(s) ago."
 
   @ion_reporter_p1
   Scenario: ION_IR40. specific ion_reporter can be deleted successfully
@@ -200,6 +213,17 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Then add field: "site" value: "non_existing_site" to url
     When GET from ion_reporters service, response includes "" with code "200"
     Then there are|is 0 ion_reporter returned
+
+  @ion_reporter_p1
+  Scenario Outline: ION_IR66. ion_reporter/healthcheck service can return correct values
+    Given site is "<site>"
+    When GET from ion_reporters service, response includes "" with code "200"
+    Then record all ion_reporters which has field "last_contact"
+    Then ion_repoters healthcheck service result should match the recorded list
+    Examples:
+      | site  |
+      | mocha |
+      | mda   |
 
 #  @ion_reporter_p1
 #  Scenario: ION_IR80. ion_reporter service can list all patients on specified ion_reporter
