@@ -32,7 +32,7 @@ end
 Given(/^GET assignment report service for treatment arm id "([^"]*)" and stratum id "([^"]*)"$/) do |ta_id, stratum_id|
   @ta_id = ta_id
   @stratum_id = stratum_id
-  @request_url = "#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{@ta_id}/#{@stratum_id}/#{@version}/assignment_report"
+  @request_url = "#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{@ta_id}/#{@stratum_id}/assignment_report"
 end
 
 When(/^GET from MATCH treatment arm API as authorization role "([^"]*)"$/) do |role|
@@ -204,6 +204,14 @@ end
 
 Then (/^the returned treatment arm has "(.+?)" as the version$/) do |version|
   expect(JSON.parse(@response['message']).first['version']).to eql(version)
+end
+
+Then(/^returned treatment arm assignment report should have patient "([^"]*)" in patients list$/) do |patient_id|
+  message_hash = JSON.parse(@response['message'])
+  expect(message_hash.keys).to include 'patients_list'
+  expect(message_hash['patients_list'].class).to eq Array
+  all_patient_id = message_hash['patients_list'].collect { |this_patient| this_patient['patient_id'] }
+  expect(all_patient_id).to include patient_id
 end
 
 Then(/^wait for "([^"]*)" seconds$/) do |seconds|

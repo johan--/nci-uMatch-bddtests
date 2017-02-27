@@ -75,8 +75,23 @@ class PatientMessageLoader
     p "#{all_items} messages processed, #{pass} passed and #{failure} failed"
   end
 
+  def self.wait_until_patient_status_is(patient_id,status)
+    timeout = 30.0
+    total_time = 0.0
+    url = "#{LOCAL_PATIENT_API_URL}/#{patient_id}"
+    loop do
+      new_hash = Helper_Methods.simple_get_request(url)['message_json']
+      total_time += 0.5
+      if new_hash['current_status'] == status || total_time > timeout
+        return
+      end
+      sleep(0.5)
+    end
+    sleep (1.0)
+  end
+
   def self.wait_until_updated(patient_id,table)
-    timeout = 15.0
+    timeout = 30.0
     total_time = 0.0
     old_hash = nil
     url = "#{LOCAL_PATIENT_API_URL}/#{patient_id}"
@@ -224,6 +239,7 @@ class PatientMessageLoader
     message['patient_id'] = patient_id
     message['status_date'] = convert_date(date)
     send_message_to_local(message, patient_id, "Patient Registration")
+    # wait_until_patient_status_is('')
     wait_until_updated(patient_id, '')
   end
 

@@ -15,11 +15,11 @@ patient_list = []
 patient_list << 'PT_AM03_PendingApproval'
 
 # MatchTestDataManager.delete_patients_from_seed(patient_list)
-# MatchTestDataManager.clear_all_local_tables
-# MatchTestDataManager.upload_all_seed_data_to_local
+MatchTestDataManager.clear_all_local_tables
+MatchTestDataManager.upload_all_seed_data_to_local
 # #
-# Auth0Token.force_generate_auth0_token('ADMIN')
-# PatientTA.upload_patient('UI_SP01_MultiBdSpecimens')
+Auth0Token.force_generate_auth0_token('ADMIN')
+PatientTA.upload_patient('TA_AS40_TsVrReceived')
 # Iondata.upload_patient('PT_IR01_OnTreatmentArm')
 # PatientTA.upload_patient('UI_PA08_MochaTsVrUploaded')
 # PatientTA.upload_patient('UI_PA08_PendingConfirmation')
@@ -27,7 +27,7 @@ patient_list << 'PT_AM03_PendingApproval'
 # Patient99A.upload_patient('PT_OS02a_OffStudy2')
 #
 #
-# # sleep(10.0)
+# sleep(10.0)
 
 # Patient99A.upload_patient('PT_AM03_PendingApproval')
 
