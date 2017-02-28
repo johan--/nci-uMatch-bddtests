@@ -1989,4 +1989,32 @@ class Patient99A
     PatientMessageLoader.request_no_assignment(pt.id, '1.1')
   end
 
+
+  def self.pt_am05_ts_vr_received1
+    pt = PatientDataSet.new('PT_AM05_TsVrReceived1')
+    PatientMessageLoader.reset_cog_patient(pt.id)
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+    PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBAF47s')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBRG1s')
+    PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani, 'APEC1621-X_100')
+    PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
+  end
+
+  def self.pt_am05_ts_vr_received2
+    pt = PatientDataSet.new('PT_AM05_TsVrReceived2')
+    PatientMessageLoader.reset_cog_patient(pt.id)
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+    PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBAF47s')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBRG1s')
+    PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani, 'APEC1621-X_200')
+    PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
+  end
 end

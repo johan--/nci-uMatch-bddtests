@@ -16,9 +16,15 @@ TreatmentArmMessageLoader.upload_start_with_wait_time(5)
 # TreatmentArmMessageLoader.load_treatment_arm_to_local('APEC1621-2V', '100', 'version1')
 # TreatmentArmMessageLoader.load_treatment_arm_to_local('APEC1621-2V', '100', 'version2')
 # TreatmentArmMessageLoader.load_treatment_arm_to_local('CukeTest-122-1-SUSPENDED', 'stratum122a', '2015-08-06')
-TreatmentArmMessageLoader.load_treatment_arm_to_local('APEC1621-IR-A', '100', '2015-08-06')
+# TreatmentArmMessageLoader.load_treatment_arm_to_local('APEC1621-IR-A', '100', '2015-08-06')
+TreatmentArmMessageLoader.load_treatment_arm_to_local('APEC1621-X', '100', '2015-08-06')
+TreatmentArmMessageLoader.load_treatment_arm_to_local('APEC1621-X', '200', '2015-08-06')
 
 sleep 10.0
 TreatmentArmMessageLoader.update_treatment_arm_status
 
 TreatmentArmMessageLoader.upload_done
+
+sleep 10.0
+
+MatchTestDataManager.backup_all_ta_local_db

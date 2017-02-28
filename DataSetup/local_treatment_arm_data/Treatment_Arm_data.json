@@ -1594,5 +1594,201 @@
       }
     ],
     "copy_number_variants": []
+  },
+  {
+    "treatment_arm_id": "APEC1621-X",
+    "name": "APEC1621-X",
+    "version": "2015-08-06",
+    "stratum_id": "100",
+    "date_created": "2015-08-07 15:57:10 UTC",
+    "description": "TEST Treatment Arm used by Cucumber Tests",
+    "target_id": "113",
+    "target_name": "Crizotinib",
+    "gene": "ALK",
+    "treatment_arm_status": "OPEN",
+    "study_id": "APEC1621",
+    "assay_rules": [],
+    "num_patients_assigned": null,
+    "treatment_arm_drugs": [
+      {
+        "name": "Crizotinib",
+        "pathway": "ALK",
+        "drug_id": "113"
+      }
+    ],
+    "snv_indels": [
+      {
+        "variant_type": "snp",
+        "chromosome": "chr1",
+        "position": "11184573",
+        "identifier": "SNPID001",
+        "ocp_reference": "G",
+        "ocp_alternative": "A,T",
+        "level_of_evidence": 3.0,
+        "inclusion": true,
+        "arm_specific": false
+      },
+      {
+        "variant_type": "del",
+        "chromosome": "chr2",
+        "position": "25463297",
+        "identifier": "DELID001",
+        "ocp_reference": "AAAG",
+        "ocp_alternative": "A",
+        "level_of_evidence": 3.0,
+        "inclusion": true,
+        "arm_specific": false
+      }
+    ],
+    "non_hotspot_rules": [
+      {
+        "inclusion": true,
+        "oncomine_variant_class": "deleterious",
+        "public_med_ids": [],
+        "func_gene": "PTEN",
+        "arm_specific": false,
+        "level_of_evidence": 3.0,
+        "protein_match": null
+      }
+    ],
+    "copy_number_variants": [],
+    "gene_fusions": [],
+    "diseases": [
+      {
+        "disease_code_type": "ICD-O",
+        "disease_code": "10058354",
+        "disease_name": "Bronchioloalveolar carcinoma",
+        "exclusion": true
+      },
+      {
+        "disease_code_type": "ICD-O",
+        "disease_code": "10025032",
+        "disease_name": "Lung adenocarcinoma",
+        "exclusion": true
+      },
+      {
+        "disease_code_type": "ICD-O",
+        "disease_code": "90600324",
+        "disease_name": "Lung adenocar. w/ bronch. feat.",
+        "exclusion": true
+      },
+      {
+        "disease_code_type": "ICD-O",
+        "disease_code": "10029514",
+        "disease_name": "Non-small cell lung cancer, NOS",
+        "exclusion": true
+      },
+      {
+        "disease_code_type": "ICD-O",
+        "disease_code": "10025125",
+        "disease_name": "Squamous cell lung carcinoma",
+        "exclusion": true
+      },
+      {
+        "disease_code_type": "ICD-O",
+        "disease_code": "10033701",
+        "disease_name": "Papillary thyroid carcinoma",
+        "exclusion": false
+      }
+    ],
+    "exclusion_drugs": []
+  },
+  {
+    "treatment_arm_id": "APEC1621-X",
+    "name": "APEC1621-X",
+    "version": "2015-08-06",
+    "stratum_id": "200",
+    "date_created": "2015-08-07 16:57:10 UTC",
+    "description": "TEST Treatment Arm used by Cucumber Tests",
+    "target_id": "113",
+    "target_name": "Crizotinib",
+    "gene": "ALK",
+    "treatment_arm_status": "OPEN",
+    "study_id": "APEC1621",
+    "assay_rules": [],
+    "num_patients_assigned": null,
+    "treatment_arm_drugs": [
+      {
+        "name": "Crizotinib",
+        "pathway": "ALK",
+        "drug_id": "113"
+      }
+    ],
+    "snv_indels": [
+      {
+        "variant_type": "snp",
+        "chromosome": "chr1",
+        "position": "11184573",
+        "identifier": "SNPID002",
+        "ocp_reference": "G",
+        "ocp_alternative": "A,T",
+        "level_of_evidence": 3.0,
+        "inclusion": true,
+        "arm_specific": false
+      },
+      {
+        "variant_type": "del",
+        "chromosome": "chr2",
+        "position": "25463297",
+        "identifier": "DELID002",
+        "ocp_reference": "AAAG",
+        "ocp_alternative": "A",
+        "level_of_evidence": 3.0,
+        "inclusion": true,
+        "arm_specific": false
+      }
+    ],
+    "non_hotspot_rules": [
+      {
+        "inclusion": true,
+        "oncomine_variant_class": "deleterious",
+        "public_med_ids": [],
+        "func_gene": "PTEN",
+        "arm_specific": false,
+        "level_of_evidence": 3.0,
+        "protein_match": null
+      }
+    ],
+    "copy_number_variants": [],
+    "gene_fusions": [],
+    "diseases": [
+      {
+        "disease_code_type": "ICD-O",
+        "disease_code": "10058354",
+        "disease_name": "Bronchioloalveolar carcinoma",
+        "exclusion": true
+      },
+      {
+        "disease_code_type": "ICD-O",
+        "disease_code": "10025032",
+        "disease_name": "Lung adenocarcinoma",
+        "exclusion": true
+      },
+      {
+        "disease_code_type": "ICD-O",
+        "disease_code": "90600324",
+        "disease_name": "Lung adenocar. w/ bronch. feat.",
+        "exclusion": true
+      },
+      {
+        "disease_code_type": "ICD-O",
+        "disease_code": "10029514",
+        "disease_name": "Non-small cell lung cancer, NOS",
+        "exclusion": true
+      },
+      {
+        "disease_code_type": "ICD-O",
+        "disease_code": "10025125",
+        "disease_name": "Squamous cell lung carcinoma",
+        "exclusion": true
+      },
+      {
+        "disease_code_type": "ICD-O",
+        "disease_code": "10033701",
+        "disease_name": "Papillary thyroid carcinoma",
+        "exclusion": false
+      }
+    ],
+    "exclusion_drugs": []
   }
 ]
