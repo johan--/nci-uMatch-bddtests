@@ -213,6 +213,18 @@ class PatientTA
     PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani, 'compassionate_care')
   end
 
+  #this patient is for MatchUploader test use, the molecular id is a special id that required by Shan
+  def self.ul_cm01_ts_shipped
+    pt = PatientDataSet.new('UL_CM01_TsShipped')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, 'SampleControl_MoCha_18')
+    PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBAF47s')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBRG1s')
+  end
+
 end
 
 
