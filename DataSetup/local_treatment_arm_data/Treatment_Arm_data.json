@@ -1624,7 +1624,7 @@
         "identifier": "SNPID001",
         "ocp_reference": "G",
         "ocp_alternative": "A,T",
-        "level_of_evidence": 3.0,
+        "level_of_evidence": 2.0,
         "inclusion": true,
         "arm_specific": false
       },
@@ -1635,7 +1635,7 @@
         "identifier": "DELID001",
         "ocp_reference": "AAAG",
         "ocp_alternative": "A",
-        "level_of_evidence": 3.0,
+        "level_of_evidence": 2.0,
         "inclusion": true,
         "arm_specific": false
       }
@@ -1647,7 +1647,7 @@
         "public_med_ids": [],
         "func_gene": "PTEN",
         "arm_specific": false,
-        "level_of_evidence": 3.0,
+        "level_of_evidence": 2.0,
         "protein_match": null
       }
     ],

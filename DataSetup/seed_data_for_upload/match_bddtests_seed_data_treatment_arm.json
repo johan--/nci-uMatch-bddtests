@@ -3068,7 +3068,7 @@
                                 "BOOL": false
                             },
                             "level_of_evidence": {
-                                "N": "3.0"
+                                "N": "2.0"
                             },
                             "variant_type": {
                                 "S": "snp"
@@ -3099,7 +3099,7 @@
                                 "BOOL": false
                             },
                             "level_of_evidence": {
-                                "N": "3.0"
+                                "N": "2.0"
                             },
                             "variant_type": {
                                 "S": "del"
@@ -3175,7 +3175,7 @@
                                 "S": "deleterious"
                             },
                             "level_of_evidence": {
-                                "N": "3.0"
+                                "N": "2.0"
                             },
                             "inclusion": {
                                 "BOOL": true

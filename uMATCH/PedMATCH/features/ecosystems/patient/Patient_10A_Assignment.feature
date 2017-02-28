@@ -78,6 +78,7 @@ Feature: Patients assignment tests
     Then load template assignment report confirm message for analysis id: "<ani>"
     And patient API user authorization role is "ASSIGNMENT_REPORT_REVIEWER"
     Then PUT to MATCH assignment report "confirm" service, response includes "successfully" with code "200"
+    Then patient status should change to "PENDING_APPROVAL"
     Then load template on treatment arm confirm message for this patient
     And patient API user authorization role is "PATIENT_MESSAGE_SENDER"
     Then set patient message field: "treatment_arm_id" to value: "APEC1621-X"
@@ -90,6 +91,28 @@ Feature: Patients assignment tests
       | patient_id            | ani                        | stratum_id |
       | PT_AM05_TsVrReceived1 | PT_AM05_TsVrReceived1_ANI1 | 100        |
       | PT_AM05_TsVrReceived2 | PT_AM05_TsVrReceived2_ANI1 | 200        |
+
+  @patients_p1
+  Scenario Outline: PT_AM06. patient can be properly re-assigned to treatment arms with same id but different stratum
+    Given patient id is "<patient_id>"
+    And patient API user authorization role is "MDA_VARIANT_REPORT_REVIEWER"
+    Then load template variant report confirm message for analysis id: "<ani>"
+    When PUT to MATCH variant report "confirm" service, response includes "successfully" with code "200"
+    Then patient status should change to "PENDING_CONFIRMATION"
+    Then patient should have selected treatment arm: "APEC1621-X" with stratum id: "100"
+    Then load template assignment report confirm message for analysis id: "<ani>"
+    And patient API user authorization role is "ASSIGNMENT_REPORT_REVIEWER"
+    Then PUT to MATCH assignment report "confirm" service, response includes "successfully" with code "200"
+    Then patient status should change to "PENDING_APPROVAL"
+    Then load template request assignment message for this patient
+    Then set patient message field: "rebiopsy" to value: "N"
+    And patient API user authorization role is "PATIENT_MESSAGE_SENDER"
+    When POST to MATCH patients service, response includes "successfully" with code "200"
+    Then patient status should change to "PENDING_CONFIRMATION"
+    Then patient should have selected treatment arm: "APEC1621-X" with stratum id: "200"
+    Examples:
+      | patient_id            | ani                        |
+      | PT_AM06_TsVrReceived1 | PT_AM06_TsVrReceived1_ANI1 |
 
         #no blood status is used anymore
 #  Scenario: PT_AM05. rejected blood variant report should not prevent api triggering assignment process
