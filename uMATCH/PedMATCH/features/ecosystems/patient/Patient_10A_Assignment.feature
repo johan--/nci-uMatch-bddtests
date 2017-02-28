@@ -107,7 +107,7 @@ Feature: Patients assignment tests
     Then load template request assignment message for this patient
     Then set patient message field: "rebiopsy" to value: "N"
     And patient API user authorization role is "PATIENT_MESSAGE_SENDER"
-    When POST to MATCH patients service, response includes "successfully" with code "200"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "PENDING_CONFIRMATION"
     Then patient should have selected treatment arm: "APEC1621-X" with stratum id: "200"
     Examples:

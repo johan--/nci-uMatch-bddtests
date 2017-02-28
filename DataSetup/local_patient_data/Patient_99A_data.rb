@@ -20,10 +20,10 @@ MatchTestDataManager.upload_all_seed_data_to_local
 Auth0Token.force_generate_auth0_token('ADMIN')
 # PatientTA.upload_patient('TA_AS40_TsVrReceived')
 # Iondata.upload_patient('PT_IR01_OnTreatmentArm')
-PatientTA.upload_patient('UL_CM01_TsShipped')
+# PatientTA.upload_patient('UL_CM01_TsShipped')
 # PatientTA.upload_patient('UI_PA08_PendingConfirmation')
 # Patient99A.upload_patient('PT_AM05_TsVrReceived1')
-# Patient99A.upload_patient('PT_AM05_TsVrReceived2')
+Patient99A.upload_patient('PT_AM06_TsVrReceived1')
 #
 #
 sleep(10.0)
