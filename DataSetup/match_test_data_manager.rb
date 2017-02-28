@@ -43,28 +43,36 @@ class MatchTestDataManager
 
   def self.backup_all_local_db
     TableDetails.all_tables.each { |table_name|
-      DynamoUtilities.backup_local_table_to_file(table_name, seed_file(table_name))
+      if DynamoUtilities.table_exist(table_name, LOCAL_TIER)
+        DynamoUtilities.backup_local_table_to_file(table_name, seed_file(table_name))
+      end
     }
     LOG.log('Done!')
   end
 
   def self.backup_all_patient_local_db
     TableDetails.patient_tables.each { |table_name|
-      DynamoUtilities.backup_local_table_to_file(table_name, seed_file(table_name))
+      if DynamoUtilities.table_exist(table_name, LOCAL_TIER)
+        DynamoUtilities.backup_local_table_to_file(table_name, seed_file(table_name))
+      end
     }
     LOG.log('Done!')
   end
 
   def self.backup_all_ta_local_db
     TableDetails.treatment_arm_tables.each { |table_name|
-      DynamoUtilities.backup_local_table_to_file(table_name, seed_file(table_name))
+      if DynamoUtilities.table_exist(table_name, LOCAL_TIER)
+        DynamoUtilities.backup_local_table_to_file(table_name, seed_file(table_name))
+      end
     }
     LOG.log('Done!')
   end
 
   def self.backup_all_ion_local_db
     TableDetails.ion_tables.each { |table_name|
-      DynamoUtilities.backup_local_table_to_file(table_name, seed_file(table_name))
+      if DynamoUtilities.table_exist(table_name, LOCAL_TIER)
+        DynamoUtilities.backup_local_table_to_file(table_name, seed_file(table_name))
+      end
     }
     LOG.log('Done!')
   end

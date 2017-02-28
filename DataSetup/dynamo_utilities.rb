@@ -27,7 +27,7 @@ class DynamoUtilities
   ################clear
   def self.clear_table(table_name, tier)
     setup_aws(tier)
-    unless table_exist(table_name)
+    unless table_exist(table_name, tier)
       return
     end
     table_keys = TableDetails.const_get(table_name.upcase)[:keys]
@@ -61,7 +61,7 @@ class DynamoUtilities
   #################upload
   def self.upload_seed_data(table_name, seed_file, tier)
     setup_aws(tier)
-    unless table_exist(table_name)
+    unless table_exist(table_name, tier)
       return
     end
     table_keys = TableDetails.const_get(table_name.upcase)[:keys]
@@ -162,7 +162,8 @@ class DynamoUtilities
     @aws_db = Aws::DynamoDB::Client.new
   end
 
-  def self.table_exist(table_name)
+  def self.table_exist(table_name, tier)
+    setup_aws(tier) unless @aws_db.present?
     exist = @aws_db.list_tables.table_names.include?(table_name)
     LOG.log("Table '#{table_name.upcase}' not found.", :warn) unless exist
     exist
