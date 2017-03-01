@@ -11,7 +11,8 @@ Feature: This is the critical path test cases.
     When I go to patient "PT_CR04_VRUploadedAssayReceived" details page
     Then I am taken to the patient details page
     And I click on the "Surgical Event PT_CR04_VRUploadedAssayReceived_SEI1" tab
-    Then I should see and click the variant report link for "PT_CR04_VRUploadedAssayReceived_ANI1"
+    Then I should see the variant report link for "PT_CR04_VRUploadedAssayReceived_ANI1"
+    And I click the variant report link for "PT_CR04_VRUploadedAssayReceived_ANI1"
     Then I can see the variant report page
     Then I logout
 

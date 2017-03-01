@@ -1,4 +1,4 @@
-@ui_p2 
+@ui_p1 
 Feature: MATCHKB-542. Users can upload patient sample files.
   The user is able to upload a large sample file, such as BAM file.
   A file can be as large as 20 GB or more.
@@ -15,9 +15,10 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     And I can see the "Upload BAM files and Variant ZIP files" dialog
     Then I select an Ion Reporter "<ir_reporter>"
     And I enter Analysis ID "<analysis_id>"
-    And I press "Select Variant ZIP File" file button to upload "mda_small.vcf" file
-    And I press "Select DNA BAM File" file button to upload "mocha_small.vcf" file
-    And I press "Select cDNA BAM File" file button to upload "mocha_small.vcf" file
+    And I make all elements visible
+    And I press "Select Variant ZIP File" file button to upload "vcfFile.vcf" file
+    And I press "Select DNA BAM File" file button to upload "dna.bam" file
+    And I press "Select cDNA BAM File" file button to upload "cdna.bam" file
     Then The "Upload" button is "visible"
     And The "Upload" button is "enabled"
     Then I can click on the "Upload" button
