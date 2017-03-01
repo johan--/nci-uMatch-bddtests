@@ -1,3 +1,4 @@
+@admin_ui_p1
 Feature: This feature tests the upload funcctionality of the admin tool 
 @upload
 

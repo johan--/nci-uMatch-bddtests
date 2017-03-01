@@ -1,3 +1,4 @@
+@admin_ui_p2
 Feature: This feature tests the wizard capabilities that can be
  used to create a treatment are from scratch within the Admin tool
 

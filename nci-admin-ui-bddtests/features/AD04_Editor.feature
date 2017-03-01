@@ -1,3 +1,4 @@
+@admin_ui_p2
 Feature: This feature lets the user edit a treatment arm 
 
 Scenario: A user can edit a treatment arm
