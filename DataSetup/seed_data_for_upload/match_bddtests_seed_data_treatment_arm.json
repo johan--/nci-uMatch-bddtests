@@ -4925,7 +4925,7 @@
                 "BOOL": true
             },
             "version_not_enrolled_patients": {
-                "N": "4"
+                "N": "2"
             },
             "version": {
                 "S": "2015-08-06"
