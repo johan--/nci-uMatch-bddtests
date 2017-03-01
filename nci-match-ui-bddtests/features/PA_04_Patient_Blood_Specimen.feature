@@ -1,25 +1,29 @@
-@ui_p3 
-Feature: Patient Blood Variant Report Tab
-  A user can access the details about the Tissue and Blood Variant Report for a patient
+@ui_p2 @blood
+Feature: Patient Blood SpecimenTab
+  A user can access the details about the Blood Specimen for a patient. Note that
+  because blood does not have surgical event id, shipments and specimens are listed separately
+  and there is no way to tie them to each other.
 
   Background:
-    Given I am a logged in user
-    And I go to patient "PT_CR08_BloodSpecimenUploaded" details page
-    Then I am taken to the patient details page
+  Given I am logged in as a "VR_Reviewer_mda" user
+  And I go to patient "UI_SP01_MultiBdSpecimens" details page
+  
 
-  @ui_p3
-  Scenario: Clicking on the Blood Specimens tab lets the user access information about the Patient's Blood variant reports.
-    When I click on the "Blood Specimens" tab
-    Then I should see the "Blood Specimens" tab is active
-    And I can see the "Blood Specimens" table
-    And I can see the "Blood Shipments" table 
-    Then I logout
+  Scenario: A User can see and go to the Blood Specimens page
+  When I click on the "Blood Specimens" tab
+  Then I should see the "Blood Specimens" tab is active
+  And I can see the "Blood Specimens" section
+  And I collect information about blood shipments for the patient "UI_SP01_MultiBdSpecimens"
+  And I can see the Blood Specimes table columns
+  And I can see the "Blood Shipments" section
+  And I can see the Blood Shipments table columns
+    
 
-  @ui_p3
-  Scenario: Navigating to a specific blood variant report lets user see more details.
-    When I click on the "Blood Specimens" tab
-    And I scroll to the bottom of the page
-    And I click the variant report link for "PT_CR08_BloodSpecimenUploaded_ANI1"
-    Then I can see the variant report page
-    And All the existing checkboxes are checked and disabled
-    Then I logout
+  Scenario: A User can see all the shipments and the specimens for blood on the blood specimens page
+  Then I should see "3" messages of "Specimen of type BLOOD received at NCH."
+  And I should see "3" messages of "Specimen Shipment of type BLOOD_DNA shipped from NCH."
+  When I click on the "Blood Specimens" tab
+  And I should see "3" entries under the Blood Specimens table
+  And I verify one entry in the Blood Specimens table with the backend
+  And I should see "3" entries under the Blood Shipments table 
+  And I verify one entry in the Blood Shipments table with the backend
