@@ -28,7 +28,7 @@ before_script:
   - gem install bundler
   - bundle install
   # Update Node UI test dependencies
-  - cd nci-match-ui-bddtests
+  - if ["$CUC_TAG" == "@admin_ui"]; then cd nci-admin-ui-bddtests; else cd nci-match-ui-bddtests; fi
   - npm install
   # - npm ls
   - cd ..
@@ -73,10 +73,11 @@ script:
   - "sh -e /etc/init.d/xvfb start"
   - sleep 3 # give xvfb some time to start
   # Run UI tests
-  - cd nci-match-ui-bddtests/
+  - if ["$CUC_TAG" == "@admin_ui"]; then cd nci-admin-ui-bddtests/; else cd nci-match-ui-bddtests/; fi
 #  - protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$PRIORITY --troubleshoot
   # Run protractor only if the tag is UI or demo
   - if [ "$CUC_TAG" = "@ui" -o "$CUC_TAG" = "@demo" ]; then protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$P1,$CUC_TAG$P2 --troubleshoot; fi
+  - if [ "$CUC_TAG" == "@admin_ui"]; then protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$P1,$CUC_TAG$P2 --troubleshoot; fi
   # Temporarily run only p1 and p2 tags
 #  - protractor config.js --cucumberOpts.tags="~@broken" --cucumberOpts.tags="@ui_p1,@ui_p2" --troubleshoot
   # Generate html report
