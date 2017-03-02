@@ -89,11 +89,19 @@ var PatientPage = function () {
         "Select cDNA BAM File": "rnaFile"
     };
 
-    // *****************  Tissue Reports / Blood Specimens Tab  ********************//
+    // *****************  Blood Specimens Tab  ********************//
     // This the master panel STRING for Tissue reports
     this.tissueMasterPanelString = 'div[ng-if="currentTissueVariantReport"]';
-    // master panel string for Blood Specimens
-    this.bloodMasterPanelString = 'div[ng-if="currentBloodVariantReport"]';
+    this.bloodSpecimenTab = element(by.css('li[heading="Blood Specimens"]'));
+    // master panel for Blood Specimens
+    this.bloodMasterPanel = element(by.css('div[ng-if="hasBloodInfo"]'));
+    // This is the expected Array for Blood Specimens' columns
+    this.expectedBloodSpecimensColumns = ['Collected Date', 'Received Date'];
+    this.expectedBloodShipmentsColumns = ['Molecular ID', 'Type', 'Site', 'Tracking Number', 'DNA Conc', 'DNA Vol', 'Reported Date'];
+    this.bloodSpecimenEntries          = element.all(by.repeater('specimen in blood_specimens'));
+    this.bloodShipmentEntries          = element.all(by.css('tr[ng-repeat-start="shipment in blood_shipments"]'));
+
+
     //The String is the locator to get access to all the tables under the variant Report section namely, SNV, CNV and GeneFusion
     this.tissueTableString = 'div[ng-if="variantReportMode === \'FILTERED\'"]>.table-responsive';
 

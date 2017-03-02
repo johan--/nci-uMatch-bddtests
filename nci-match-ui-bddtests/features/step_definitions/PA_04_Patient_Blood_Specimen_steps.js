@@ -38,9 +38,12 @@ module.exports = function() {
         var buttonElement = getFilteredQCButton('QC', tabName);
         buttonElement.click().then(function () {
             return browser.waitForAngular();
-//            var assignmentHeading = element(by.css(patientPage.tissueTableString))
-//            utilities.waitForElement(assignmentHeading, 'Table Element on Tissue/Blood');
-//            return;
+        }).then(callback);
+    });
+
+    this.When(/^I click on the Blood Specimens tab$/, function (callback) {
+        patientPage.bloodSpecimenTab.click().then(function(){
+            browser.sleep(50);
         }).then(callback);
     });
 
@@ -59,6 +62,94 @@ module.exports = function() {
         expect(section_locators.getText()).to.eventually.eql(patientPage.expVarReportTables);
         browser.sleep(50).then(callback);
     });
+
+    this.Then(/^I click the variant report link for "(.+?)"$/, function (analysisId, callback) {
+        patientPage.variantAnalysisId = analysisId;
+        var link = element.all(by.repeater('analysisAssignment in shipment.analyses'))
+            .first()
+            .all(by.tagName('a')).first();
+
+        link.click().then(function(){
+          browser.waitForAngular();
+        }).then(callback);
+    });
+
+    this.Then(/^All the existing checkboxes are checked and disabled$/, function (callback) {
+        var checkboxes = element.all(by.tagName('check-box-with-confirm'))
+            .all(by.tagName('input'));
+
+        checkboxes.each(function(checkBox){
+            expect(checkBox.isEnabled()).to.eventually.equal(false);
+        }).then(callback);
+    });
+
+    this.Then(/^I can see the "(Blood (Specimens|Shipments))" section$/, function (arg1, callback) {
+        var index = arg1 === 'Blood Specimens' ? 0 : 1 ;
+        var elem = patientPage.bloodMasterPanel.all(by.css('div>h3')).get(index);
+        expect(elem.getText()).to.eventually.eql(arg1).then(function(){
+            browser.sleep(50)
+        }).then(callback);
+    });
+
+    this.Then(/^I can see the Blood Specimens table columns$/, function (callback) {
+        var elem = patientPage.bloodMasterPanel.all(by.css('table')).get(0).all(by.css('th'));
+        var expectedArray = patientPage.expectedBloodSpecimensColumns;
+        elem.getText().then(function(textArray){
+            expect(textArray).to.eql(expectedArray);
+        }).then(callback);
+    });
+
+    this.Then(/^I can see the Blood Shipments table columns$/, function (callback) {
+        var elem = patientPage.bloodMasterPanel.all(by.css('table')).get(1).all(by.css('th'));
+        var expectedArray = patientPage.expectedBloodShipmentsColumns;
+        elem.getText().then(function(textArray){
+            expect(textArray).to.eql(expectedArray);
+        }).then(callback);
+    });
+
+    this.When(/^I collect information about blood shipments for the patient "([^"]*)"$/, function (arg1, callback) {
+        var url = '/api/v1/patients/UI_SP01_MultiBdSpecimens/specimen_events';
+        utilities.getRequestWithService('patient', url).then(function(response){
+            patientPage.specimens = response;
+        }).then(callback);
+    });
+
+    this.Then(/^I should see "(\d*)" messages of "([^"]*)" on the front page$/, function (number, message, callback) {
+        var listOfTitles = element.all(by.css('p.timeline-title'));
+        var count = 0
+        listOfTitles.getText().then(function(titleArray){
+            for(var i = 0; i < titleArray.length ; i++){
+                if (titleArray[i].includes(message)) {
+                    count++;
+                }
+            }
+            expect(count.toString()).to.eql(number);
+        }).then(callback);
+    });
+
+    this.When(/^I should see entries under the Blood Specimens table match with the backend$/, function (callback) {
+        var elem = patientPage.bloodSpecimenEntries
+        expect(elem.count()).to.eventually.eql(patientPage.specimens.blood_specimens.specimens.length).notify(callback)
+    });
+
+
+    this.When(/^I should see entries under the Blood Shipments table match with the backend$/, function (callback) {
+        var elem = patientPage.bloodShipmentEntries
+        expect(elem.count()).to.eventually.eql(patientPage.specimens.blood_specimens.specimen_shipments.length).notify(callback);
+    });
+
+    this.When(/^I verify one entry in the Blood Specimens table with the backend$/, function (callback) {
+         // Write code here that turns the phrase above into concrete actions
+         callback(null, 'pending');
+    });
+
+
+    this.When(/^I verify one entry in the Blood Shipments table with the backend$/, function (callback) {
+          // Write code here that turns the phrase above into concrete actions
+          callback(null, 'pending');
+    });
+    
+
 
     function splitTissueVariantReportDropDown(dropDownText){
         var returnValue = {};
@@ -85,24 +176,4 @@ module.exports = function() {
         var css_locator = panelString + " [ng-class=\"getVariantReportModeClass('" + buttonString + "')\"]";
         return element(by.css(css_locator));
     }
-
-    this.Then(/^I click the variant report link for "(.+?)"$/, function (analysisId, callback) {
-        patientPage.variantAnalysisId = analysisId;
-        var link = element.all(by.repeater('analysisAssignment in shipment.analyses'))
-            .first()
-            .all(by.tagName('a')).first();
-
-        link.click().then(function(){
-          browser.waitForAngular();
-        }).then(callback);
-    });
-
-    this.Then(/^All the existing checkboxes are checked and disabled$/, function (callback) {
-        var checkboxes = element.all(by.tagName('check-box-with-confirm'))
-            .all(by.tagName('input'));
-
-        checkboxes.each(function(checkBox){
-            expect(checkBox.isEnabled()).to.eventually.equal(false);
-        }).then(callback);
-    });
 };
