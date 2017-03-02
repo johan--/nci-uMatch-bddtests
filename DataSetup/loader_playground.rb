@@ -25,17 +25,12 @@ MatchTestDataManager.upload_all_seed_data_to_local
 # MatchTestDataManager.backup_all_ta_local_db
 
 
-
-
 ############clear aws dynamodb and load all seed data
 # MatchTestDataManager.clear_all_int_tables
 # MatchTestDataManager.upload_all_seed_data_to_int
 
 
-
 # MatchTestDataManager.delete_patients_from_seed('patient_id')
-
-
 
 
 # /api/v1/patients/statistics(.:format)
@@ -138,5 +133,34 @@ MatchTestDataManager.upload_all_seed_data_to_local
 #   # next unless this_item['active_tissue_specimen']['M'].has_key?('active_analysis_id')
 #   # patient_id = this_item['patient_id']['S']
 #   # this_item['active_tissue_specimen']['M']['has_amoi'] = {'BOOL'=>!false_list.include?(patient_id)}
+# }
+# File.open(file, 'w') { |f| f.write(JSON.pretty_generate(file_hash)) }
+
+# file = "#{File.dirname(__FILE__)}/seed_data_for_upload/match_bddtests_seed_data_treatment_arm_assignment_event.json"
+# file_hash = JSON(IO.read(file))
+# items = file_hash['Items']
+# items.each{|this_item|
+# this_item['treatment_arm_status'] = {'S' => 'OPEN'}
+#   if this_item['assignment_reason'].nil?
+#     if this_item.keys.include?('assignment_report')
+#       if this_item['assignment_report']['M'].keys.include?('selected_treatment_arm')
+#         this_item['assignment_reason'] = this_item['assignment_report']['M']['selected_treatment_arm']['M']['reason']
+#       end
+#     end
+#   end
+# }
+# File.open(file, 'w') { |f| f.write(JSON.pretty_generate(file_hash)) }
+
+# file = "#{File.dirname(__FILE__)}/seed_data_for_upload/match_bddtests_seed_data_treatment_arm_assignment_event.json"
+# file_hash = JSON(IO.read(file))
+# items = file_hash['Items']
+# items.each { |this_item|
+#   raise "#{this_item['patient_id']} has no patient_status" unless this_item.keys.include?('patient_status')
+#   if this_item['patient_status']['S'] == 'PREVIOUSLY_ON_ARM' || this_item['patient_status']['S'] == 'NOT_ENROLLED_ON_ARM'
+#     this_item['patient_status_reason'] = {'S': 'Physician determines it is not in the patient’s best interest.'}
+#     this_item['assignment_reason'] = {'NULL': true}
+#   else
+#     this_item['patient_status'] == {'NULL': true}
+#   end
 # }
 # File.open(file, 'w') { |f| f.write(JSON.pretty_generate(file_hash)) }
