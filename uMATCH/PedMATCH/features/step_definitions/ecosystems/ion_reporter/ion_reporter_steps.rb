@@ -36,6 +36,14 @@ Given(/^molecular id is "([^"]*)"$/) do |moi|
   @molecular_id = moi
 end
 
+And(/^analysis id is "([^"]*)"$/) do |ani|
+  @analysis_id = ani=='null' ? nil : ani
+end
+
+And(/^aliquot file name is "([^"]*)"$/) do |file|
+  @analysis_file = file=='null' ? nil : file
+end
+
 Given(/^ion_reporter_id is "([^"]*)"$/) do |ion_reporter_id|
   @ion_id = ion_reporter_id
 end
@@ -184,13 +192,36 @@ Then(/^last_contact for this ion_reporter healthcheck should have correct value$
   validate_date_diff('last_contact', @ion_update_date, returned_date)
 end
 
-Then(/^ir_status for this ion_reporter healthcheck should be "([^"]*)"$/) do |ir_status|
+Then(/^ir_status for this ion_reporter healthcheck should be less than (\d+) seconds$/) do |seconds|
   url = prepare_ion_healthcheck_url
   ion_reporter = Helper_Methods.simple_get_request(url)['message_json']
   if ion_reporter.is_a?(Array)
     ion_reporter = ion_reporter[0]
   end
-  ion_reporter['ir_status'].should == ir_status
+  ir_status = ion_reporter['ir_status']
+  parts = ir_status.split(' ')
+  numbers = parts.select { |v| !!(v =~ /\A[-+]?[0-9]+\z/) }
+  actual_seconds = case numbers.size
+                     when 1
+                       numbers[0].to_i
+                     when 2
+                       numbers[0].to_i*60+numbers[1].to_i
+                     when 3
+                       numbers[0].to_i*3600+numbers[1].to_i*60+numbers[2].to_i
+                     else
+                       ir_status
+                   end
+  actual_seconds.should < seconds.to_i
+end
+
+Then(/^this ion_reporter healthcheck field "([^"]*)" should be "([^"]*)"$/) do |field, value|
+  converted_value = value=='null' ? nil : value
+  url = prepare_ion_healthcheck_url
+  ion_reporter = Helper_Methods.simple_get_request(url)['message_json']
+  if ion_reporter.is_a?(Array)
+    ion_reporter = ion_reporter[0]
+  end
+  ion_reporter[field].should == converted_value
 end
 
 Then(/^each generated ion_reporter should have (\d+) field\-value pairs$/) do |count|
@@ -328,7 +359,7 @@ Then(/^ion_repoters healthcheck service result should match the recorded list$/)
   raise "These ion_reporter_id should show up in result: #{absent_actual.to_s}" if absent_actual.size > 0
 
   @returned_ions.each { |this_ion|
-    healthcheck_ion = ion_reporters.find { |x| x['ion_reporter_id'] == this_ion['ion_reporter_id']}
+    healthcheck_ion = ion_reporters.find { |x| x['ion_reporter_id'] == this_ion['ion_reporter_id'] }
     healthcheck_last_contact = Time.parse(healthcheck_ion['last_contact'])
     this_ion_last_contact = Time.parse(this_ion['last_contact'])
     unless healthcheck_last_contact == this_ion_last_contact
@@ -818,6 +849,12 @@ def prepare_aliquot_url
   end
   url = "#{ENV['ion_system_endpoint']}/aliquot#{slash_moi}"
   add_parameters_to_url(url, @url_params)
+end
+
+def prepare_aliquot_file_url
+  url = "#{ENV['ion_system_endpoint']}/aliquot/files/#{@ion_id}/#{@molecular_id}/#{@analysis_id}"
+  add_parameters_to_url(url, @url_params)
+
 end
 
 def add_parameters_to_url(url, params)

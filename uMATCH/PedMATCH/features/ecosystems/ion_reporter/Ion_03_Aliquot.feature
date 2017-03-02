@@ -286,6 +286,59 @@ Feature: Tests for aliquot service in ion ecosystem
     Given molecular id is ""
     When GET from aliquot service, response "not found" with code "404"
 
+  @ion_reporter_p1
+  Scenario Outline: ION_AQ61. aliquot/file service return 409 if file exists or variant report confirmed
+    Given ion_reporter_id is "<ion_id>"
+    And molecular id is "<moi>"
+    And analysis id is "<ani>"
+    And aliquot file name is "<file>"
+    When POST to aliquot file service with request_presigned_url "true", response code is "409"
+    When POST to aliquot file service with request_presigned_url "false", response code is "409"
+    Examples:
+      | ion_id | moi            | ani | file |
+      | mda    | sample control |     |      |
+      | mda    | patient tissue |     |      |
+      | mda    | patient blood  |     |      |
+      | mocha  | sample control |     |      |
+      | mocha  | patient tissue |     |      |
+      | mocha  | patient blood  |     |      |
+
+  @ion_reporter_p2
+  Scenario Outline: ION_AQ62. aliquot/file service return 404 if information in url is not correct
+    Given ion_reporter_id is "<ion_id>"
+    And molecular id is "<moi>"
+    And analysis id is "<ani>"
+    And aliquot file name is "<file>"
+    When POST to aliquot file service with request_presigned_url "true", response code is "404"
+    When POST to aliquot file service with request_presigned_url "false", response "" with code "404"
+    Examples:
+      | ion_id    | moi       | ani                  | file |
+      | non_exist |           |                      |      |
+      |           | non_exist |                      |      |
+      |           |           | exist sample control |      |
+      |           |           | exist patient tissue |      |
+      |           |           | exist patient blood  |      |
+      | mocha     | mda       |                      |      |
+
+  @ion_reporter_p1
+  Scenario Outline: ION_AQ63. aliquot/file service return correct result if file doesn't exist
+    Given ion_reporter_id is "<ion_id>"
+    And molecular id is "<moi>"
+    And analysis id is "<ani>"
+    And aliquot file name is "<file>"
+    When POST to aliquot file service with request_presigned_url "true", response code is "409"
+    Then returned aliquot file message should contain "<rpu_true_message>"
+    When POST to aliquot file service with request_presigned_url "false", response code is "409"
+    Then returned aliquot file message should contain "<rpu_false_message>"
+    Examples:
+      | ion_id | moi            | ani | file | rpu_true_message | rpu_false_message |
+      | mda    | sample control |     |      |                  |                   |
+      | mda    | patient tissue |     |      |                  |                   |
+      | mda    | patient blood  |     |      |                  |                   |
+      | mocha  | sample control |     |      |                  |                   |
+      | mocha  | patient tissue |     |      |                  |                   |
+      | mocha  | patient blood  |     |      |                  |                   |
+
   @ion_reporter_p2
   Scenario Outline: ION_AQ80. aliquot service should fail when user want to create new item using POST
     Given molecular id is "<moi>"

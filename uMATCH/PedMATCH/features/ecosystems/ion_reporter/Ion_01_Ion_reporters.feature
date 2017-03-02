@@ -124,12 +124,20 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Given ion_reporter_id is "IR_MCA03"
     And site is "mocha"
     Then add field: "last_contact" value: "now" to message body
+    Then add field: "internal_ip" value: "10.19.10.10" to message body
+    Then add field: "host_name" value: "MOCHA-MATCH-IR" to message body
+    Then add field: "ion_reporter_version" value: "5.0" to message body
+    Then add field: "site" value: "mocha" to message body
     And ir user authorization role is "SYSTEM"
     When PUT to ion_reporters service, response includes "updated" with code "200"
     Then wait up to 15 seconds until this ion_reporter get updated
     Then last_contact for this ion_reporter should have correct value
     Then last_contact for this ion_reporter healthcheck should have correct value
-    Then ir_status for this ion_reporter healthcheck should be "Last contact 0 minute(s) ago."
+    Then ir_status for this ion_reporter healthcheck should be less than 60 seconds
+    Then this ion_reporter healthcheck field "ion_reporter_version" should be "5.0"
+    Then this ion_reporter healthcheck field "internal_ip" should be "10.19.10.10"
+    Then this ion_reporter healthcheck field "host_name" should be "MOCHA-MATCH-IR"
+    Then this ion_reporter healthcheck field "site" should be "mocha"
 
   @ion_reporter_p1
   Scenario: ION_IR40. specific ion_reporter can be deleted successfully

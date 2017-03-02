@@ -112,10 +112,6 @@ Given(/^patient id is "([^"]*)"$/) do |patient_id|
   @patient_id = patient_id=='null' ? nil : patient_id
 end
 
-And(/^analysis id is "([^"]*)"$/) do |ani|
-  @analysis_id = ani=='null' ? nil : ani
-end
-
 And(/^variant uuid is "([^"]*)"$/) do |uuid|
   @current_variant_uuid = uuid=='null' ? nil : uuid
 end
