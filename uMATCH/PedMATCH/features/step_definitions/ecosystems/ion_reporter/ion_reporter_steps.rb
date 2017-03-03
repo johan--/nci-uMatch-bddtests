@@ -608,6 +608,15 @@ When(/^DELETE to aliquot service, response includes "([^"]*)" with code "([^"]*)
   expect(response['message']).to include message
 end
 
+When(/^POST to aliquot file service with request_presigned_url "([^"]*)", response code is "([^"]*)"$/) do |rpu, code|
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
+  url = prepare_aliquot_file_url
+  @payload = {:request_presigned_url => rpu=='true'}
+  response = Helper_Methods.post_request(url, @payload.to_json.to_s, true, @current_auth0_role)
+  expect(response['http_code']).to eq code
+  @returned_aliquot_file_result = JSON.parse(response['message'])
+end
+
 Then(/^field: "([^"]*)" for this aliquot should be: "([^"]*)"$/) do |field, value|
   converted_value = value=='null' ? nil : value
   @returned_aliquot_result[field].should == converted_value
@@ -670,6 +679,26 @@ Then(/^each returned aliquot result should have field "([^"]*)"$/) do |field|
     actual_result = 'no aliquot result returned'
     actual_result.should == expect_result
   end
+end
+
+Then(/^returned aliquot file message should has field "([^"]*)"$/) do |field|
+  @returned_aliquot_file_result.class.should ==  Hash
+  expect_result = "aliquot file result has field: #{field}"
+  actual_result = expect_result
+  unless @returned_aliquot_file_result.keys.include?(field)
+    actual_result = "aliquot file result fields: #{@returned_aliquot_file_result.keys.to_s} do not include #{field}"
+  end
+  actual_result.should == expect_result
+end
+
+Then(/^returned aliquot file message should has correct presigned information$/) do
+  @returned_aliquot_file_result['fields'].class.should == Hash
+  @returned_aliquot_file_result['fields'].keys.should include 'AWSAccessKeyId'
+  @returned_aliquot_file_result['fields'].keys.should include 'key'
+  @returned_aliquot_file_result['fields'].keys.should include 'policy'
+  @returned_aliquot_file_result['fields'].keys.should include 'signature'
+  @returned_aliquot_file_result['fields']['key'].should include @analysis_file
+  @returned_aliquot_file_result['url'].should include 'amazonaws.com'
 end
 
 
@@ -852,7 +881,7 @@ def prepare_aliquot_url
 end
 
 def prepare_aliquot_file_url
-  url = "#{ENV['ion_system_endpoint']}/aliquot/files/#{@ion_id}/#{@molecular_id}/#{@analysis_id}"
+  url = "#{ENV['ion_system_endpoint']}/aliquot/files/#{@ion_id}/#{@molecular_id}/#{@analysis_id}/#{@analysis_file}"
   add_parameters_to_url(url, @url_params)
 
 end
