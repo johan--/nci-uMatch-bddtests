@@ -3,6 +3,37 @@ Feature: MATCHKB-542. Users can upload patient sample files.
   The user is able to upload a large sample file, such as BAM file.
   A file can be as large as 20 GB or more.
 
+  Scenario Outline: As an MDA or MOCHA user I can select the same kind of IR user
+    Given I am logged in as a "<user>" user
+    When I go to patient "<patient_id>" with surgical event "<surgical_event_id>"
+    And I scroll to the bottom of the page
+    And I can click on the "Upload new sample file" link
+    And I can see the "Upload BAM files and Variant ZIP files" dialog
+    Then I can only see "site" type user
+    Examples:
+      | user              | patient_id               | surgical_event_id            | site  |
+      | VR_Reviewer_mocha | PT_AU04_MochaTsShipped1  | PT_AU04_MochaTsShipped1_SEI1 | mocha |
+      | VR_Reviewer_mda   | PT_AU04_MdaTsShipped1    | PT_AU04_MdaTsShipped1_SEI1   | mda   |
+
+  Scenario Outline: As Sender type user I should see the upload button from Tissue Shipped to Variant Confirmed state
+    Given I am logged in as a "VR_Reviewer_mda" user
+    When I go to patient "<patient_id>" with surgical event "<surgical_event_id>"
+    And The patient has a status of "<status>"
+    Then The "Upload new sample file" link is "<visibility>"
+    | patient_id                    | surgical_event_id                     | status                            | visibility  |
+    | ION_AQ02_TsShipped            | ION_AQ02_TsShipped_SEI1               | TISSUE_NUCLEIC_ACID_SHIPPED       | visible     |
+    | ION_AQ41_TsVrUploaded         | ION_AQ41_TsVrUploaded_SEI1            | TISSUE_VARIANT_REPORT_RECEIVED    | visible     |
+    | PT_AM01_TsVrReceived1         | PT_AM01_TsVrReceived1_SEI1            | ASSAY_RESULTS_RECEIVED            | visible     |
+    | PT_AS09_OffStudyBiopsyExpired | PT_AS09_OffStudyBiopsyExpired_SEI1    | OFF_STUDY_BIOPSY_EXPIRED          | visible     |
+    | PT_AS12_PendingConfirmation   | PT_AS12_PendingConfirmation_SEI1      | PENDING_CONFIRMATION              | visible     |
+    | PT_AM03_PendingApproval       | PT_AM03_PendingApproval_SEI1          | PENDING_APPROVAL                  | invisible   |
+    | PT_SR10_CompassionateCare     | PT_SR10_CompassionateCare_SEI1        | COMPASSIONATE_CARE                | invisible   |
+    | PT_AS00_SlideShipped4         | PT_AS00_SlideShipped4_SEI1            | TISSUE_SLIDE_SPECIMEN_SHIPPED     | invisible   |
+    | PT_AS09_OffStudy              | PT_AS09_OffStudy_SEI1                 | OFF_STUDY                         | invisible   |
+    | PT_AS09_ReqNoAssignment       | PT_AS09_ReqNoAssignment_SEI1          | REQUEST_NO_ASSIGNMENT             | invisible   |
+    | PT_AS12_OnTreatmentArm        | PT_AS12_OnTreatmentArm_SEI1           | ON_TREATMENT_ARM                  | invisible   |
+    | PT_RA03_NoTaAvailable         | PT_RA03_NoTaAvailable_SEI1            | NO_TA_AVAILABLE                   | invisible   |
+
 @upload
   Scenario Outline: As a privileged user I can upload a sample file
     Given I am logged in as a "<user>" user

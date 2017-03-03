@@ -28,9 +28,6 @@ module.exports = function() {
         var buttonElement = getFilteredQCButton('Filtered', tabName);
         buttonElement.click().then(function () {
             return browser.waitForAngular();
-//            var assignmentHeading = element(by.css(patientPage.tissueTableString))
-//            utilities.waitForElement(assignmentHeading, 'Table Element on Tissue/Blood');
-//            return;
         }).then(callback);
     });
 
