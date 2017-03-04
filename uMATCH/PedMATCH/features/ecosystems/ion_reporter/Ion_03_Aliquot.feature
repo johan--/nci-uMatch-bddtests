@@ -286,12 +286,20 @@ Feature: Tests for aliquot service in ion ecosystem
     Given molecular id is ""
     When GET from aliquot service, response "not found" with code "404"
 
-  @ion_reporter_p1_not_done
+
+  ############## aliquot/file tests ###########
+  ########## Note 1: Though aliquot/file doesn't check if analysis id exist, these test will not use existing analysis_id
+  ##########         because both UI uploader and Match uploader forbid upload file for existing analysis id
+  ########## Note 2: Though aliquot/file doesn't check if ion_reporter_id and molecular_id belong to same site
+  ##########         these test will not use ion_reporter_id and molecular_id which belong to different site
+  ##########         because both UI uploader and Match uploader do site check
+  ########## Note 3: Though aliquot/file doesn't check if ion_reporter_id exist, test will not use non existing ion_reporter_id
+  ##########         because neither UI uploader nor Match uploader will use non existing ion_reporter_id
+  ########## Note 4: Though aliquot/file doesn't check if uploader try to send vcf file with new name to ani which have variant report uploaded
+  ##########         it will not be tested, because UI uploader only allow upload file to NEW analysis id,
+  ##########         Match Uploader alway use same file name for same analysis id
+  @ion_reporter_p1
   Scenario Outline: ION_AQ61. aliquot/file service return 409 if file exists or variant report confirmed
-    #explain: example #1~3 are from MDA, ani are new analaysis_id but files are existing files
-#             example #4~6 are from MOCHA, ani are new analaysis_id but files are existing files
-#             example #7~8 are from MDA, ani are current active analaysis_id, files are non-existing files, but vr confirmed
-#             example #7~8 are from MOCHA, ani are current active analaysis_id, files are non-existing files, but vr confirmed
     Given ion_reporter_id is "<ion_id>"
     And molecular id is "<moi>"
     And analysis id is "<ani>"
@@ -299,23 +307,14 @@ Feature: Tests for aliquot service in ion ecosystem
     When POST to aliquot file service with request_presigned_url "true", response code is "409"
     When POST to aliquot file service with request_presigned_url "false", response code is "409"
     Examples:
-      | ion_id   | moi                        | ani                        | file      |
-      | IR_TCWEV | SC_NPID3                   | SC_NPID3_ANI2              | test1.vcf |
-      | IR_CFUER | ION_AQ41_TsVrUploaded_MOI1 | ION_AQ41_TsVrUploaded_ANI2 | test1.vcf |
-      | IR_CFUER | ION_AQ42_BdVrUploaded_MOI1 | ION_AQ42_BdVrUploaded_ANI2 |           |
-#      | mocha    | sample control                    |                            |           |
-#      | mocha    | patient tissue                    |                            |           |
-#      | mocha    | patient blood                     |                            |           |
-#      | mda      | patient confirmed ts vr new vcf   |                            |           |
-#      | mda      | patient confirmed ts vr new other |                            |           |
-#      | mocha      | patient confirmed ts vr new vcf   |                            |           |
-#      | mocha      | patient confirmed ts vr new other |                            |           |
+      | ion_id                | moi                           | ani                        | file      |
+      | IR_TCWEV              | SC_NPID3                      | SC_NPID3_ANI1              | test1.vcf |
+      | bdd_test_ion_reporter | ION_AQ41_TsVrUploaded_MOI1    | ION_AQ41_TsVrUploaded_ANI1 | test1.vcf |
+      | bdd_test_ion_reporter | ION_AQ42_BdVrUploaded_BD_MOI1 | ION_AQ42_BdVrUploaded_ANI1 | test1.vcf |
+      | bdd_test_ion_reporter | ION_AQ61_VrConfirmed_MOI1     | ION_AQ61_VrConfirmed_ANI1  | test1.vcf |
 
   @ion_reporter_p2
   Scenario Outline: ION_AQ62. aliquot/file service return 404 if information in url is not correct
-    #explain: example #3: ani is an exist patient tissue analysis id
-#             example #4: ani is an exist patient blood analysis id
-#             example #5: ion_id is from mocha but moi is from mda
     Given ion_reporter_id is "<ion_id>"
     And molecular id is "<moi>"
     And analysis id is "<ani>"
@@ -323,16 +322,11 @@ Feature: Tests for aliquot service in ion ecosystem
     When POST to aliquot file service with request_presigned_url "true", response code is "404"
     When POST to aliquot file service with request_presigned_url "false", response code is "404"
     Examples:
-      | ion_id    | moi                        | ani                        | file      |
-      | non_exist | ION_AQ41_TsVrUploaded_MOI1 | ION_AQ41_TsVrUploaded_ANI2 | test2.vcf |
-      | IR_CFUER  | non_exist                  | ION_AQ41_TsVrUploaded_ANI2 | test2.vcf |
-      | IR_CFUER  | ION_AQ41_TsVrUploaded_MOI1 | ION_AQ41_TsVrUploaded_ANI1 | test2.vcf |
-      | IR_CFUER  | ION_AQ42_BdVrUploaded_MOI1 | ION_AQ42_BdVrUploaded_ANI1 | test2.vcf |
-      | IR_MCA03  | ION_AQ41_TsVrUploaded_MOI1 | ION_AQ41_TsVrUploaded_ANI2 | test1.vcf |
+      | ion_id                | moi       | ani                        | file      |
+      | bdd_test_ion_reporter | non_exist | ION_AQ41_TsVrUploaded_ANI2 | test2.vcf |
 
-  @ion_reporter_p1_not_done
+  @ion_reporter_p1
   Scenario Outline: ION_AQ63. aliquot/file service return correct result if file doesn't exist
-    #explain: example #1~#5 are from mda, example #6~10 are from mocha
     Given ion_reporter_id is "<ion_id>"
     And molecular id is "<moi>"
     And analysis id is "<ani>"
@@ -342,17 +336,12 @@ Feature: Tests for aliquot service in ion ecosystem
     When POST to aliquot file service with request_presigned_url "false", response code is "200"
     Then returned aliquot file message should has field "<rpu_false_field>"
     Examples:
-      | ion_id   | moi      | ani           | file      | rpu_false_field |
-      | IR_TCWEV | SC_GP6TQ | SC_GP6TQ_ANI1 | test1.vcf | control_type    |
-#      | IR_TCWEV | patient tissue shipped     |               |           |                |                 |testtest|
-#      | IR_TCWEV | patient tissue vr uploaded |               |           |                |                 |testtest|
-#      | IR_TCWEV | patient blood shipped      |               |           |                |                 |testtest|
-#      | IR_TCWEV | patient blood vr uploaded  |               |           |                |                 |testtest|
-      | IR_MCA03 | SC_MCA03 | SC_MCA03_ANI1 | test1.vcf | control_type    |
-#      | IR_MCA03 | patient tissue shipped     |               |           |                |                 |testtest|
-#      | IR_MCA03 | patient tissue vr uploaded |               |           |                |                 |testtest|
-#      | IR_MCA03 | patient blood shipped      |               |           |                |                 |testtest|
-#      | IR_MCA03 | patient blood vr uploaded  |               |           |                |                 |testtest|
+      | ion_id   | moi                           | ani                        | file      | rpu_false_field                 |
+      | IR_TCWEV | SC_GP6TQ                      | SC_GP6TQ_ANI1              | test2.vcf | control_type                    |
+      | IR_TCWEV | ION_AQ63_TsShipped_MOI1       | ION_AQ63_TsShipped_ANI1    | test2.vcf | patient_id                      |
+      | IR_TCWEV | ION_AQ41_TsVrUploaded_MOI1    | ION_AQ41_TsVrUploaded_ANI2 | test2.vcf | eligible_for_new_variant_report |
+      | IR_TCWEV | ION_AQ63_BdShipped_BD_MOI1    | ION_AQ63_BdShipped_ANI2    | test2.vcf | analysis_ids                    |
+      | IR_TCWEV | ION_AQ42_BdVrUploaded_BD_MOI1 | ION_AQ42_BdVrUploaded_ANI2 | test2.vcf | molecular_id                    |
 
   @ion_reporter_p2
   Scenario Outline: ION_AQ80. aliquot service should fail when user want to create new item using POST

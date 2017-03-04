@@ -152,6 +152,29 @@ class Iondata
     # sleep(5.0)
     # PatientMessageLoader.on_treatment_arm(pt.id, 'APEC1621-IR-A')
   end
+
+  def self.ion_aq61_vr_confirmed
+    pt = PatientDataSet.new('ION_AQ61_VrConfirmed')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+    PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+    PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
+  end
+
+  def self.ion_aq63_ts_shipped
+    pt = PatientDataSet.new('ION_AQ63_TsShipped')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+  end
+
+  def self.ion_aq63_bd_shipped
+    pt = PatientDataSet.new('ION_AQ63_BdShipped')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_blood(pt.id)
+    PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)
+  end
 end
 
 
