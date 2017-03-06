@@ -4,7 +4,7 @@ I want to access the pending treamtment arm api endpoint
 So I can get a json response to feed the UI
 
 Background: 
-Given I am a user of type "admin"
+Given I am a user of type "ADMIN"
 
 Scenario: A valid user can get a list of pending treatment arms
 When I issue a get request to pending treatment arms

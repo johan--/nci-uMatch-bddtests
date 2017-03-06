@@ -11,7 +11,7 @@ module Auth0Token
 
 	def create_auth0_message(user)
 		{
-			"client_id": ENV['AUTH0_CLIENT_ID'];
+			"client_id": ENV['AUTH0_CLIENT_ID'],
     	"username": ENV["#{user}_UI_AUTH0_USERNAME"],
     	"password": ENV["#{user}_UI_AUTH0_PASSWORD"],
     	"grant_type": "password",
@@ -24,7 +24,7 @@ module Auth0Token
 		return "Provided user: #{user} is not a valid user" unless user_valid?(user)
 
 		token = "#{user}_AUTH0_TOKEN"
-		if ENV[token].to_s.empty?  # check for nil or empty
+		if ENV["auth0token"].to_s.empty?  # check for nil or empty
 			begin
 				response = RestClient::Request.execute(
 						method: :post,
@@ -43,7 +43,7 @@ module Auth0Token
 
 			begin
 				token_hash = JSON.parse(response)
-				ENV[token] = token_hash['id_token']
+				ENV["auth0token"] = token_hash['id_token']
 			rescue
 
 			end
