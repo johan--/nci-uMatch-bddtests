@@ -164,3 +164,16 @@ MatchTestDataManager.upload_all_seed_data_to_local
 #   end
 # }
 # File.open(file, 'w') { |f| f.write(JSON.pretty_generate(file_hash)) }
+
+
+
+# file = "#{File.dirname(__FILE__)}/seed_data_for_upload/match_bddtests_seed_data_patient.json"
+# file_hash = JSON(IO.read(file))
+# items = file_hash['Items']
+# status = []
+# items.each { |this_item|
+#   unless status.include?(this_item['current_status']['S'])
+#     status << this_item['current_status']['S']
+#   end
+# }
+# puts status

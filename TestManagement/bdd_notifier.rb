@@ -56,7 +56,7 @@ class BDDNotifier
     travis_link = "https://travis-ci.org/CBIIT/nci-uMatch-bddtests/jobs/#{job_id}"
     travis_link = "<#{travis_link}|Travis Log>"
     today_date = Date.today.strftime('%m-%d-%y')
-    bdd_report_link = 'http://pedmatch-admin-alb-external-382939701.us-east-1.elb.amazonaws.com:3025'
+    bdd_report_link = 'http://pedmatch-admin-int-alb-frontend-792655680.us-east-1.elb.amazonaws.com:3025'
     bdd_report_link = "#{bdd_report_link}/report/#{today_date}/critical/#{cuc_tag.gsub('@', '')}"
     bdd_report_link = "<#{bdd_report_link}|BDD Test Report>"
     message += "\n#{bdd_report_link} or #{travis_link}"
