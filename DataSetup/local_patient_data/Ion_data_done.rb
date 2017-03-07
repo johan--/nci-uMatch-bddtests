@@ -175,6 +175,13 @@ class Iondata
     PatientMessageLoader.specimen_received_blood(pt.id)
     PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)
   end
+
+  def self.ion_aq06_ts_shipped
+    pt = PatientDataSet.new('ION_AQ06_TsShipped')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+  end
 end
 
 
