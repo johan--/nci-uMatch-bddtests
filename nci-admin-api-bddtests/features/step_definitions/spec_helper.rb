@@ -1,1 +1,3 @@
-Dir['../../support'].each { |file| require_relative file }
+require_relative '../../support/environment'
+require_relative '../../support/request'
+require_relative '../../support/auth0_client'

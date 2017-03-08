@@ -1,7 +1,7 @@
 require 'rest-client'
 require 'json'
 
-module Auth0Token
+module Auth0Client
 	module_function
 
 	def user_valid?(user)
@@ -21,10 +21,10 @@ module Auth0Token
 	end
 
 	def get_auth0_token(user)
-		return "Provided user: #{user} is not a valid user" unless user_valid?(user)
-
+		raise "Provided user: #{user} is not a valid user" unless user_valid?(user)
 		token = "#{user}_AUTH0_TOKEN"
-		if ENV["auth0token"].to_s.empty?  # check for nil or empty
+		
+		if ENV[token].to_s.empty?  # check for nil or empty
 			begin
 				response = RestClient::Request.execute(
 						method: :post,
@@ -38,22 +38,25 @@ module Auth0Token
 					)
 			rescue => e
 				p e.backtrace
-				raise  #reraising the excpetion to kill the process but print out the proper backtrace. 
+				raise  #reraising the exception to kill the process but print out the proper backtrace. 
 			end
 
 			begin
 				token_hash = JSON.parse(response)
-				ENV["auth0token"] = token_hash['id_token']
-			rescue
-
+				ENV[token] = token_hash['id_token']
+			rescue => e
+				p e.backtrace
+				raise
 			end
-
-			
-
-
 		end
-
+		ENV[token]
 	end
 
+	def add_auth0_header(headers, user)
+		auth0_token = get_auth0_token(user)
 
+		headers['Authorization'] = auth0_token if auth0_token.size > 1
+
+		headers
+	end
 end

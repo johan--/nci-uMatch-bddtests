@@ -1,7 +1,7 @@
-require_relative '../../support/auth0_client'
-require_relative '../../support/request'
+require_relative './spec_helper'
 
 Given(/^I am a user of type "([^"]*)"$/) do |user|
-  Auth0Token.get_auth0_token(user)
-  puts ENV["auth0token"]
+	@user = user
+  Auth0Client.get_auth0_token(@user)
+  puts ENV["#{user}_AUTH0_TOKEN"]#{user}_AUTH0_TOKEN
 end
