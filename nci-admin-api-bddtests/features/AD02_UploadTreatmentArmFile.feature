@@ -11,29 +11,41 @@ Scenario: Uploading an excel sheet and selecting one treatment arm should upload
 When I upload file "select_one_ta_test.xlsx-1.1.2017_100" selecting sheet name "APEC1621-AA" with version "1.1.2017_100"
 Then  I "should" see a "Success" message
 And I should see a status code of "200"
-And I collect a list of entries from pending treatment arm table
-And I "should" see the treatment arm "APEC1621-AA" in the pending treatment arm table
+And I "should" see the treatment arm in the pending treatment arm table
 
 Scenario: Uploading an excel sheet and selecting no treatment arm should upload all the treamtnet arms
 When I upload file "select_all_test.xlsx-1.1.2017_100" selecting all TAs with version "1.1.2017_100"
 Then  I "should" see a "Success" message
-And I collect a list of entries from pending treatment arm table
-And I "should" see the treatment arm "APEC1621-AC" in the pending treatment arm table
-And I "should" see the treatment arm "APEC1621-AD" in the pending treatment arm table
+And I "should" see the treatment arm "APEC1621-AC" and version "1.1.2017_100" in the pending treatment arm table
+And I "should" see the treatment arm "APEC1621-AD" and version "1.1.2017_100" in the pending treatment arm table
 
-Scenario: When calling the upload_to_aws with a non-existing excel sheet in S3 should raise an error
-When I upload file "doesNotExist.xlsx" selecting all TAs with version "version1"
+Scenario: When calling the upload_to_aws with a non-existing excel book in S3 should raise an error
+When I upload file "doesNotExist.xlsx" selecting sheet name "doesNotExistSheet" with version "1.1.2017_100"
 Then I "should" see a "Failure" message
-And I should see a status code of "200"
+And I should see a status code of "500"
 And I "should not" see the treatment arm in the pending treatment arm table
 
-Scenario: When calling the upoad_to_aws with a missing sheet from a valid excel should raise an error
+Scenario: When calling the upoad_to_aws with a missing sheet from a valid excel should fail with message
 When I upload file "select_one_ta_test.xlsx-1.1.2017_100" selecting sheet name "doesNotExistSheet" with version "1.1.2017_100"
-Then I "should" see a "Failure" message
-And I collect a list of entries from pending treatment arm table
-And I "should" see the treatment arm "APEC1621-AC" in the pending treatment arm table
+Then I "should" see a "Success" message
+And I "should not" see the treatment arm "doesNotExistSheet" and version "1.1.2017_100" in the pending treatment arm table
 
-Scenario: Missing a version param should cause the request to fail
-When I upload file "select_all_test.xlsx-1.1.2017_100" selecting sheet name "APEC1621-AA" with version ""
+Scenario Outline: Missing a <parameter> parameter should cause the request to fail
+When I upload file with missing "<parameter>"
 Then I "should" see a "Failure" message
+Examples:
+| parameter 				|
+| excel_book_name 	|
+| excel_sheet_names |
+| version        		|
+
+Scenario Outline: Having a null <parameter> should cause the request to fail
+When I upload file with the "<paramter>" value as nil
+Then I "should" see a "Failure" message
+Examples:
+| parameter 				|
+| excel_book_name 	|
+| excel_sheet_names |
+| version        		|
+
 

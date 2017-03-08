@@ -7,6 +7,10 @@ Given(/^I am a user of type "([^"]*)"$/) do |role|
 	@password = user_details[:password]
 	@host_name = ENV['HOSTNAME']
 	@admin_endpoint = ENV['ADMIN_ENDPOINT']
+	@s3_endpoint = ENV['s3_endpoint']
+	@s3_region = ENV['s3_region']
+	@dynamodb_endpoint = ENV['dynamodb_endpoint']
+	@dynamodb_region = ENV['dynamodb_region']
 end
 
 Then(/^I "(should|should not)" see a "([^"]*)" message$/) do |see_or_not, message|

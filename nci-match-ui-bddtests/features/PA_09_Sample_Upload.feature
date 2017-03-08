@@ -12,8 +12,8 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     Then I can only see "site" type user
     Examples:
       | user              | patient_id               | surgical_event_id            | site  |
-      | VR_Reviewer_mocha | PT_AU04_MochaTsShipped1  | PT_AU04_MochaTsShipped1_SEI1 | mocha |
-      | VR_Reviewer_mda   | PT_AU04_MdaTsShipped1    | PT_AU04_MdaTsShipped1_SEI1   | mda   |
+      | VR_Sender_mocha | PT_AU04_MochaTsShipped1  | PT_AU04_MochaTsShipped1_SEI1 | mocha |
+      | VR_Sender_mda   | PT_AU04_MdaTsShipped1    | PT_AU04_MdaTsShipped1_SEI1   | mda   |
 
   Scenario Outline: As Sender type user I should see the upload button from Tissue Shipped to Variant Confirmed state
     Given I am logged in as a "VR_Reviewer_mda" user
