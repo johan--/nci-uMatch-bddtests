@@ -19,7 +19,8 @@ MatchTestDataManager.clear_all_local_tables
 MatchTestDataManager.upload_all_seed_data_to_local
 Auth0Token.force_generate_auth0_token('ADMIN')
 # PatientTA.upload_patient('TA_AS40_TsVrReceived')
-Iondata.upload_patient('ION_AQ06_TsShipped')
+Iondata.upload_patient('ION_AQ07_TsShipped1')
+Iondata.upload_patient('ION_AQ07_TsShipped2')
 # PatientTA.upload_patient('UL_CM01_TsShipped')
 # PatientTA.upload_patient('UI_PA08_PendingConfirmation')
 # Patient99A.upload_patient('PT_AM05_TsVrReceived1')

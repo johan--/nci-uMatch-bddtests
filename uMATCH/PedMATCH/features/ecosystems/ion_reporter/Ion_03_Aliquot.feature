@@ -151,6 +151,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Given molecular id is "ION_AQ06_TsShipped_MOI1"
     Given patient id is "ION_AQ06_TsShipped"
     And ir user authorization role is "MDA_VARIANT_REPORT_SENDER"
+    And file: "IR_TCWEV/ION_AQ06_TsShipped_MOI1/ION_AQ06_TsShipped_ANI1/test1.vcf" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ06_TsShipped_MOI1/ION_AQ06_TsShipped_ANI1/test1.tsv" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ06_TsShipped_MOI1/ION_AQ06_TsShipped_ANI1/test1.json" has been removed from S3 bucket
     Then add field: "analysis_id" value: "ION_AQ06_TsShipped_ANI1" to message body
@@ -165,6 +166,31 @@ Feature: Tests for aliquot service in ion ecosystem
     And file: "IR_TCWEV/ION_AQ06_TsShipped_MOI1/ION_AQ06_TsShipped_ANI1/test1.vcf" should be available in S3
     And file: "IR_TCWEV/ION_AQ06_TsShipped_MOI1/ION_AQ06_TsShipped_ANI1/test1.tsv" should be available in S3
     And file: "IR_TCWEV/ION_AQ06_TsShipped_MOI1/ION_AQ06_TsShipped_ANI1/test1.json" should be available in S3
+
+  @ion_reporter_p2
+  Scenario Outline: ION_AQ07. aliquot service can handle ":" in file name properly
+    Given patient id is "<patient_id>"
+    Given molecular id is "<patient_id>_MOI1"
+    And ir user authorization role is "MDA_VARIANT_REPORT_SENDER"
+    And file: "IR_TCWEV/<patient_id>_MOI1/<patient_id>_ANI1/<vcf_name_for_deletion>" has been removed from S3 bucket
+    And file: "IR_TCWEV/<patient_id>_MOI1/<patient_id>_ANI1/<file_name>.tsv" has been removed from S3 bucket
+    And file: "IR_TCWEV/<patient_id>_MOI1/<patient_id>_ANI1/<file_name>.json" has been removed from S3 bucket
+    Then add field: "analysis_id" value: "<patient_id>_ANI1" to message body
+    Then add field: "site" value: "mda" to message body
+    Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
+    Then add field: "<vcf_name_field>" value: "<vcf_name>" to message body
+    When PUT to aliquot service, response includes "Item updated" with code "200"
+    Then wait until patient is updated
+    Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
+    Then patient should have variant report (analysis_id: "<patient_id>_ANI1")
+    And this variant report field: "tsv_file_name" should be "<file_name>.tsv"
+    And file: "IR_TCWEV/<patient_id>_MOI1/<patient_id>_ANI1/<file_name>.vcf" should be available in S3
+    And file: "IR_TCWEV/<patient_id>_MOI1/<patient_id>_ANI1/<file_name>.tsv" should be available in S3
+    And file: "IR_TCWEV/<patient_id>_MOI1/<patient_id>_ANI1/<file_name>.json" should be available in S3
+    Examples:
+      | patient_id          | file_name           | vcf_name_field | vcf_name                | vcf_name_for_deletion   |
+      | ION_AQ07_TsShipped1 | 2017-02-07_09:18:25 | vcf_name       | 2017-02-07_09:18:25.vcf | no_need_delete          |
+      | ION_AQ07_TsShipped2 | 2017-02-07_10:18:25 | zip_name       | 2017-02-07_10:18:25.zip | 2017-02-07_10:18:25.vcf |
 
   @ion_reporter_p2
   Scenario: ION_AQ20. for sample control specimen, if the files passed in are not in that path, aliquot service will not update database
