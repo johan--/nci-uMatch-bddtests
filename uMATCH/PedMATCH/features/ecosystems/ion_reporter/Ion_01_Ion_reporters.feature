@@ -237,33 +237,34 @@ Feature: Tests for ion_reporters service in ion ecosystem
 #  @ion_reporter_p1
 #  Scenario: ION_IR80. ion_reporter service can list all patients on specified ion_reporter
 
-  @ion_reporter_p1
-  Scenario: ION_IR81. ion_reporter service can list all sample controls on specified ion_reporter
-    Given ion_reporter_id is "IR_0HV52"
-    When GET sample_controls from ion_reporters service, response includes "" with code "200"
-    Then there are|is 3 sample_control returned
-    Then returned sample_control should contain molecular_id: "SC_JFCEO"
-    Then returned sample_control should contain molecular_id: "SC_CN8ZS"
-    Then returned sample_control should contain molecular_id: "SC_C777Z"
-
-#  Scenario: ION_IR82. ion_reporter service should fail if projection is used when query patients
-
-  @ion_reporter_p2
-  Scenario: ION_IR83. ion_reporter service should only return VALID projected key-value pair when query sample controls
-    Given ion_reporter_id is "IR_0R0WO"
-    Then add projection: "molecular_id" to url
-    Then add projection: "control_type" to url
-    Then add projection: "bad_projection" to url
-    When GET sample_controls from ion_reporters service, response includes "" with code "200"
-    Then each returned sample_control should have 2 fields
-    Then each returned sample_control should have field "molecular_id"
-    Then each returned sample_control should have field "control_type"
-
-  @ion_reporter_p3
-  Scenario: ION_IR84. ion_reporter service should fail(or just not return this field?) if no sample control meet the parameter
-    Given ion_reporter_id is "IR_TCWEV"
-    Then add field: "molecular_id" value: "non_existing_moi" to url
-    When GET sample_controls from ion_reporters service, response includes "No records" with code "404"
+  #this service is removed
+#  @ion_reporter_p1
+#  Scenario: ION_IR81. ion_reporter service can list all sample controls on specified ion_reporter
+#    Given ion_reporter_id is "IR_0HV52"
+#    When GET sample_controls from ion_reporters service, response includes "" with code "200"
+#    Then there are|is 3 sample_control returned
+#    Then returned sample_control should contain molecular_id: "SC_JFCEO"
+#    Then returned sample_control should contain molecular_id: "SC_CN8ZS"
+#    Then returned sample_control should contain molecular_id: "SC_C777Z"
+#
+##  Scenario: ION_IR82. ion_reporter service should fail if projection is used when query patients
+#
+#  @ion_reporter_p2
+#  Scenario: ION_IR83. ion_reporter service should only return VALID projected key-value pair when query sample controls
+#    Given ion_reporter_id is "IR_0R0WO"
+#    Then add projection: "molecular_id" to url
+#    Then add projection: "control_type" to url
+#    Then add projection: "bad_projection" to url
+#    When GET sample_controls from ion_reporters service, response includes "" with code "200"
+#    Then each returned sample_control should have 2 fields
+#    Then each returned sample_control should have field "molecular_id"
+#    Then each returned sample_control should have field "control_type"
+#
+#  @ion_reporter_p3
+#  Scenario: ION_IR84. ion_reporter service should fail(or just not return this field?) if no sample control meet the parameter
+#    Given ion_reporter_id is "IR_TCWEV"
+#    Then add field: "molecular_id" value: "non_existing_moi" to url
+#    When GET sample_controls from ion_reporters service, response includes "No records" with code "404"
 
 
 
