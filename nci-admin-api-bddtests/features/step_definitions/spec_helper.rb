@@ -1,3 +1,5 @@
 require_relative '../../support/environment'
 require_relative '../../support/request'
 require_relative '../../support/auth0_client'
+require_relative '../../support/user_management'
+require_relative '../../support/aws'

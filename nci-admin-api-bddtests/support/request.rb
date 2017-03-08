@@ -1,7 +1,6 @@
 require 'rest-client'
 require 'json'
 require 'aws-sdk'
-require ''
 
 module Request
 	module_function
@@ -22,8 +21,8 @@ module Request
 	def post_request(url, body={}, auth0_on=true, auth0_role='ADMIN')
 		puts "POST_URL: #{url}"
 		headers = {
-			content_type: 'json',
-			accept: 'json'
+			content_type: :json, 
+      accept: :json
 		}
 		Auth0Client.add_auth0_header(headers, auth0_role) if auth0_on
 
@@ -34,17 +33,13 @@ module Request
 				url: url, 
 				method: :post, 
 				verify_ssl: false, 
-				payload: body, 
+				payload: body.to_json, 
 				headers: headers)
 
 		rescue StandardError => e
       post_response['status'] = 'Failure'
-      if e.message.nil?
-        http_code = '500'
-      else
-        http_code = e.message[0, 3]
-      end
-      
+
+      http_code = '500'
       post_response['http_code'] = http_code
       
       if e.respond_to?('response')

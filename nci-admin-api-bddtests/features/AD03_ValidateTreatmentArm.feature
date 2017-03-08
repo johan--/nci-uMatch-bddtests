@@ -4,7 +4,7 @@ I want to make sure that when I post a file
 Validations are performed on that file
 
 Background: 
-Given I am a user of type "admin"
+Given I am a user of type "ADMIN"
 
 Scenario: A valid treatment arm is accepted into pending treatment arm table
 Given I retrieve the template for treatment arm

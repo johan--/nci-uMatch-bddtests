@@ -8,32 +8,32 @@ Background:
 Given I am a user of type "ADMIN"
 
 Scenario: Uploading an excel sheet and selecting one treatment arm should upload only the selected one
-When I upload file "select_one_ta.xlsx" selecting sheet name "APEC1621-AA" with version "version1"
-Then I "should" see a "success" message
+When I upload file "select_one_ta_test.xlsx-1.1.2017_100" selecting sheet name "APEC1621-AA" with version "1.1.2017_100"
+Then  I "should" see a "Success" message
 And I should see a status code of "200"
-And I collect a list of tables from pending treatment arm table
+And I collect a list of entries from pending treatment arm table
 And I "should" see the treatment arm "APEC1621-AA" in the pending treatment arm table
 
 Scenario: Uploading an excel sheet and selecting no treatment arm should upload all the treamtnet arms
-When I upload file "select_all.xlsx" selecting all TAs with version "version1"
-Then I "should" see a "success" message
-And I collect a list of tables from pending treatment arm table
+When I upload file "select_all_test.xlsx-1.1.2017_100" selecting all TAs with version "1.1.2017_100"
+Then  I "should" see a "Success" message
+And I collect a list of entries from pending treatment arm table
 And I "should" see the treatment arm "APEC1621-AC" in the pending treatment arm table
 And I "should" see the treatment arm "APEC1621-AD" in the pending treatment arm table
 
 Scenario: When calling the upload_to_aws with a non-existing excel sheet in S3 should raise an error
 When I upload file "doesNotExist.xlsx" selecting all TAs with version "version1"
-Then I "should not" see a success message
+Then I "should" see a "Failure" message
 And I should see a status code of "200"
 And I "should not" see the treatment arm in the pending treatment arm table
 
 Scenario: When calling the upoad_to_aws with a missing sheet from a valid excel should raise an error
-When I upload file "select_all.xlsx" selecting sheet name "doesNotExistSheet" with version "version1"
-Then I "should not" see a "success" message
-And I collect a list of tables from pending treatment arm table
+When I upload file "select_one_ta_test.xlsx-1.1.2017_100" selecting sheet name "doesNotExistSheet" with version "1.1.2017_100"
+Then I "should" see a "Failure" message
+And I collect a list of entries from pending treatment arm table
 And I "should" see the treatment arm "APEC1621-AC" in the pending treatment arm table
 
-Scenario: Missing a version param shold cause the request to fail
-When I upload file "select_one_ta.xlsx" selecting sheet name "APEC1621-AA" with version "version1"
-Then I "should not" see a "success" message
+Scenario: Missing a version param should cause the request to fail
+When I upload file "select_all_test.xlsx-1.1.2017_100" selecting sheet name "APEC1621-AA" with version ""
+Then I "should" see a "Failure" message
 
