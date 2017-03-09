@@ -1,7 +1,8 @@
 #encoding: utf-8
 @variant_file_uploaded
 Feature: Variant files uploaded message
-  Background: 
+
+  Background:
     Given patient API user authorization role is "SYSTEM"
 
 #  not required
@@ -238,10 +239,20 @@ Feature: Variant files uploaded message
 #      | PT_VU17_BdVRConfirmed_BD_MOI1 | PT_VU17_BdVRConfirmed_ANI2 | PT_VU17_BdVRConfirmed_ANI1 | CONFIRMED | confirmed              | Failure     |
 #      | PT_VU17_BdVRConfirmed_MOI1    | PT_VU17_BdVRConfirmed_ANI3 | PT_VU17_BdVRConfirmed_ANI3 | PENDING   | processed successfully | Success     |
 
-  Scenario: PT_VU17. No Analaysis id => dna bam or cdna bam with new analysis id
-  Scenario: PT_VU17. Has Analysis id but no pending variant report => dna bam or cdna bam with same analysis id
-  Scenario: PT_VU17. Has Analysis id but no pending variant report => dna bam or cdna bam with new analysis id
-  Scenario: PT_VU17. Has Analysis id but no pending variant report => tsv with same analysis id
-  Scenario: PT_VU17. Has Analysis id but no pending variant report => tsv with new analysis id
-  Scenario: PT_VU17. Has pending variant report => dna bam or cdna bam with same analysis id
-  Scenario: PT_VU17. Has pending variant report => dna bam or cdna bam with new analysis id
+  @patients_p1
+  Scenario Outline: PT_VU17. allow_upload should have correct values
+    Given patient GET service: "specimen_events", patient id: "<patient_id>", id: ""
+    And patient API user authorization role is "MDA_VARIANT_REPORT_SENDER"
+    When GET from MATCH patient API, http code "200" should return
+    And this patient tissue specimen_events "<moi>" should have field "allow_upload" value "<allow>"
+    Examples:
+      | patient_id                | moi                            | allow |
+      | PT_VU17_TsShippedTwice    | PT_VU17_TsShipped_MOI1         | false |
+      | PT_VU17_TsShippedTwice    | PT_VU17_TsShipped_MOI2         | true  |
+      | PT_VU17_TsVrUploaded      | PT_VU17_TsVrUploaded_MOI1      | true  |
+      | PT_VU17_TsVrUploadedStep2 | PT_VU17_TsVrUploadedStep2_MOI1 | false |
+      | PT_VU17_TsVrUploadedStep2 | PT_VU17_TsVrUploadedStep2_MOI2 | true  |
+      | PT_VU17_BdShippedTwice    | PT_VU17_BdShipped_MOI1         | false |
+      | PT_VU17_BdShippedTwice    | PT_VU17_BdShipped_MOI2         | true  |
+      | PT_VU17_BdVrUploaded      | PT_VU17_BdVrUploaded_MOI1      | true  |
+

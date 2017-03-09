@@ -333,8 +333,32 @@ Feature: Patient API authorization tests
       | treatment_arm_history | PT_SC06a_PendingApproval   |                          | ASSIGNMENT_REPORT_REVIEWER    | 200  |
       | specimens             | PT_GVF_RequestNoAssignment |                          | MDA_VARIANT_REPORT_SENDER     | 200  |
       | shipments             |                            |                          | MDA_VARIANT_REPORT_REVIEWER   | 200  |
-      | specimen_events       | PT_GVF_VrAssay_Ready       |                          | MOCHA_VARIANT_REPORT_SENDER   | 200  |
+      | specimen_events       | PT_GVF_VrAssayReady        |                          | MOCHA_VARIANT_REPORT_SENDER   | 200  |
       | variants              |                            |                          | MOCHA_VARIANT_REPORT_REVIEWER | 200  |
       | shipments             |                            |                          | PATIENT_MESSAGE_SENDER        | 200  |
       | action_items          | PT_GVF_TsVrUploaded        |                          | SPECIMEN_MESSAGE_SENDER       | 200  |
       | analysis_report       | PT_GVF_VrAssayReady        | PT_GVF_VrAssayReady_ANI1 | ASSAY_MESSAGE_SENDER          | 200  |
+
+  @patients_p1
+  Scenario Outline: PT_AU11 role base authorization works properly for allowing user upload variant file from UI
+    Given patient GET service: "specimen_events", patient id: "PT_AU11_MdaTsShipped", id: ""
+    And patient API user authorization role is "<auth_role>"
+    When GET from MATCH patient API, http code "200" should return
+    And this patient tissue specimen_events "PT_AU11_MdaTsShipped_MOI1" should have field "allow_upload" value "<allow1>"
+    Then patient GET service: "specimen_events", patient id: "PT_AU11_MochaTsShipped", id: ""
+    And patient API user authorization role is "<auth_role>"
+    When GET from MATCH patient API, http code "200" should return
+    And this patient tissue specimen_events "PT_AU11_MochaTsShipped_MOI1" should have field "allow_upload" value "<allow2>"
+    Examples:
+      | auth_role                     | allow1 | allow2 |
+      | NCI_MATCH_READONLY            | false  | false  |
+      | ADMIN                         | true   | true   |
+      | SYSTEM                        | true   | true   |
+      | ASSIGNMENT_REPORT_REVIEWER    | false  | false  |
+      | MDA_VARIANT_REPORT_SENDER     | true   | false  |
+      | MDA_VARIANT_REPORT_REVIEWER   | false  | false  |
+      | MOCHA_VARIANT_REPORT_SENDER   | false  | true   |
+      | MOCHA_VARIANT_REPORT_REVIEWER | false  | false  |
+      | PATIENT_MESSAGE_SENDER        | false  | false  |
+      | SPECIMEN_MESSAGE_SENDER       | false  | false  |
+      | ASSAY_MESSAGE_SENDER          | false  | false  |

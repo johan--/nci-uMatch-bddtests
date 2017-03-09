@@ -818,6 +818,25 @@ Then(/^this patient specimen_events should have assignment: analysis_id "([^"]*)
   expect(target.size).to eql 1
 end
 
+Then(/^this patient tissue specimen_events "([^"]*)" should have field "([^"]*)" value "([^"]*)"$/) do |moi, field, value|
+  type = 'tissue_specimens'
+  converted_value = value == 'null'?nil:value
+  expect(@get_response.class).to eql Hash
+  expect(@get_response.keys).to include type
+  has_result = false
+  @get_response[type].each { |this_specimen|
+    this_specimen['specimen_shipments'].each { |this_shippment|
+      next unless this_shippment['molecular_id'] == moi
+      has_result = true
+      expect(this_shippment.keys).to include field
+      expect(this_shippment[field].to_s).to eq converted_value
+    }
+  }
+  unless has_result
+    raise "Cannot find specimen shippment with molecular id #{moi}"
+  end
+end
+
 #1. list all patients, pick patients which have active_tissue_specimen=>variant_report_status
 # and the status should be CONFIRMED
 #2. get the active_tissue_specimen=>active_analysis_id into a list

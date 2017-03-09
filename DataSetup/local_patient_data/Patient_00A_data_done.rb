@@ -530,4 +530,17 @@ class Patient00A
     PatientMessageLoader.assignment_confirmed(pt.id, pt.ani)
   end
 
+  def self.pt_au11_mda_ts_shipped
+    pt = PatientDataSet.new('PT_AU11_MdaTsShipped')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+  end
+
+  def self.pt_au11_mocha_ts_shipped
+    pt = PatientDataSet.new('PT_AU11_MochaTsShipped')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-05-01T19:42:13+00:00', 'MoCha')
+  end
 end

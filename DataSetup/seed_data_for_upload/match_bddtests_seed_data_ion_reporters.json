@@ -1,5 +1,4 @@
 {
-    "ScannedCount": 34,
     "Items": [
         {
             "last_contact": {
@@ -30,23 +29,23 @@
             }
         },
         {
-            "last_contact": {
-                "S": "2017-02-01 15:08:23.446499"
-            },
-            "internal_ip_address": {
-                "S": "10.84.20.162"
-            },
-            "data_files": {
-                "S": "DB Report, Data File"
-            },
-            "ip_address": {
-                "S": "204.60.187.1"
-            },
             "host_name": {
                 "S": "YSM-MATCH-IR"
             },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:36.514328"
+            },
+            "data_files": {
+                "S": "DB Report, Data File"
+            },
+            "internal_ip_address": {
+                "S": "10.84.20.162"
+            },
+            "ip_address": {
+                "S": "204.60.187.1"
+            },
+            "last_contact": {
+                "S": "2017-02-01 15:08:23.446499"
             },
             "site": {
                 "S": "yale"
@@ -196,23 +195,23 @@
             }
         },
         {
-            "last_contact": {
-                "S": "2017-02-02 12:08:23.446499"
-            },
-            "internal_ip_address": {
-                "S": "129.43.39.182"
-            },
-            "data_files": {
-                "S": "DB Report"
-            },
-            "ip_address": {
-                "S": "129.43.39.182"
-            },
             "host_name": {
                 "S": "NCI-MATCH-IR"
             },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:43.815673"
+            },
+            "data_files": {
+                "S": "DB Report"
+            },
+            "internal_ip_address": {
+                "S": "129.43.39.182"
+            },
+            "ip_address": {
+                "S": "129.43.39.182"
+            },
+            "last_contact": {
+                "S": "2017-02-02 12:08:23.446499"
             },
             "site": {
                 "S": "mocha"
@@ -348,23 +347,23 @@
             }
         },
         {
-            "last_contact": {
-                "S": "2017-02-02 05:08:23.446499"
-            },
-            "internal_ip_address": {
-                "S": "10.133.226.13"
-            },
-            "data_files": {
-                "S": "DB Report"
-            },
-            "ip_address": {
-                "S": "10.133.226.13"
-            },
             "host_name": {
                 "S": "NCIAS-D1356"
             },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:36.514328"
+            },
+            "data_files": {
+                "S": "DB Report"
+            },
+            "internal_ip_address": {
+                "S": "10.133.226.13"
+            },
+            "ip_address": {
+                "S": "10.133.226.13"
+            },
+            "last_contact": {
+                "S": "2017-02-02 05:08:23.446499"
             },
             "site": {
                 "S": "mocha"
@@ -374,23 +373,23 @@
             }
         },
         {
-            "last_contact": {
-                "S": "2017-02-02 07:08:23.446499"
-            },
-            "internal_ip_address": {
-                "S": "10.133.226.13"
-            },
-            "data_files": {
-                "S": "DB Report"
-            },
-            "ip_address": {
-                "S": "10.133.226.13"
-            },
             "host_name": {
                 "S": "NCIAS-D1356"
             },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:36.514328"
+            },
+            "data_files": {
+                "S": "DB Report"
+            },
+            "internal_ip_address": {
+                "S": "10.133.226.13"
+            },
+            "ip_address": {
+                "S": "10.133.226.13"
+            },
+            "last_contact": {
+                "S": "2017-02-02 07:08:23.446499"
             },
             "site": {
                 "S": "mocha"
@@ -428,23 +427,23 @@
             }
         },
         {
-            "last_contact": {
-                "S": "2017-02-02 13:08:23.446499"
-            },
-            "internal_ip_address": {
-                "S": "129.43.127.133"
-            },
-            "data_files": {
-                "S": "Data File"
-            },
-            "ip_address": {
-                "S": "129.43.127.133"
-            },
             "host_name": {
                 "S": "NCI-MATCH-IR"
             },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:36.514328"
+            },
+            "data_files": {
+                "S": "Data File"
+            },
+            "internal_ip_address": {
+                "S": "129.43.127.133"
+            },
+            "ip_address": {
+                "S": "129.43.127.133"
+            },
+            "last_contact": {
+                "S": "2017-02-02 13:08:23.446499"
             },
             "site": {
                 "S": "mocha"
@@ -482,23 +481,23 @@
             }
         },
         {
-            "last_contact": {
-                "S": "2017-02-02 12:18:23.446499"
-            },
-            "internal_ip_address": {
-                "S": "172.20.174.24"
-            },
-            "data_files": {
-                "S": "Log File"
-            },
-            "ip_address": {
-                "S": "132.183.13.75"
-            },
             "host_name": {
                 "S": "MDACC-MATCH-IR"
             },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:36.514328"
+            },
+            "data_files": {
+                "S": "Log File"
+            },
+            "internal_ip_address": {
+                "S": "172.20.174.24"
+            },
+            "ip_address": {
+                "S": "132.183.13.75"
+            },
+            "last_contact": {
+                "S": "2017-02-02 12:18:23.446499"
             },
             "site": {
                 "S": "mda"
@@ -550,6 +549,7 @@
             }
         }
     ],
-    "Count": 34,
-    "ConsumedCapacity": null
+    "ConsumedCapacity": null,
+    "ScannedCount": 34,
+    "Count": 34
 }

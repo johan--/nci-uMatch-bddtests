@@ -408,3 +408,19 @@ Feature: Tests for aliquot service in ion ecosystem
       | ION_AQ81_TsShipped_MOI1 |
 
 
+
+
+
+#  Scenario: PT_VU17. No Analaysis id => dna bam or cdna bam with new analysis id
+#
+#  Scenario: PT_VU17. Has Analysis id but no pending variant report => dna bam or cdna bam with same analysis id
+#
+#  Scenario: PT_VU17. Has Analysis id but no pending variant report => dna bam or cdna bam with new analysis id
+#
+#  Scenario: PT_VU17. Has Analysis id but no pending variant report => tsv with same analysis id
+#
+#  Scenario: PT_VU17. Has Analysis id but no pending variant report => tsv with new analysis id
+#
+#  Scenario: PT_VU17. Has pending variant report => dna bam or cdna bam with same analysis id
+#
+#  Scenario: PT_VU17. Has pending variant report => dna bam or cdna bam with new analysis id
