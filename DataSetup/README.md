@@ -107,4 +107,9 @@ B: From local json files to related aws dynamodb tables:
 
         DynamoDataUploader.delete_all_data_for_patient(:patient_id)
 
+5. Clear all local tables
+
+        ruby -r "./match_test_data_manager.rb" -e  "MatchTestDataManager.clear_all_local_tables"
+
+
 

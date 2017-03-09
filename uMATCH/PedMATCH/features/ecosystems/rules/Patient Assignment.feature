@@ -288,17 +288,17 @@ Feature: Ensure the rules are fired correctly and patients are assigned to the r
     Then a patient assignment json is returned with reason category "SELECTED" for treatment arm "multiple-assays"
     Then the patient assignment reason is "A match was found for assay rule (GENE: BAF47, RESULT: NEGATIVE, VARIANT: PRESENT). A match was found for assay rule (GENE: PTEN, RESULT: POSITIVE, VARIANT: EMPTY). A match was found for inclusion variant FGFR2-OFD1.F17O3."
 
-  Scenario: PA_36: Gene fusion variant containg suffix .1 or .2
-    Given  the patient assignment json "genefusion_variant_with_suffix"
-    And treatment arm json "genefusion_rule"
-    When assignPatient service is called for patient "PID-1234"
-    Then a patient assignment json is returned with report_status "TREATMENT_FOUND"
-
-  Scenario: PA_37: Gene fusion variant containg suffix .1 or .2
-    Given  the patient assignment json "genefusion_variant_with_suffix_ex2"
-    And treatment arm json "genefusion_rule"
-    When assignPatient service is called for patient "PID-1234"
-    Then a patient assignment json is returned with report_status "TREATMENT_FOUND"
+#  Scenario: PA_36: Gene fusion variant containg suffix .1 or .2
+#    Given  the patient assignment json "genefusion_variant_with_suffix"
+#    And treatment arm json "genefusion_rule"
+#    When assignPatient service is called for patient "PID-1234"
+#    Then a patient assignment json is returned with report_status "TREATMENT_FOUND"
+#
+#  Scenario: PA_37: Gene fusion variant containg suffix .1 or .2
+#    Given  the patient assignment json "genefusion_variant_with_suffix_ex2"
+#    And treatment arm json "genefusion_rule"
+#    When assignPatient service is called for patient "PID-1234"
+#    Then a patient assignment json is returned with report_status "TREATMENT_FOUND"
 
   Scenario: PA_38 Verify that the Matchbox does not match on partial string
     Given  the patient assignment json "genefusion_variant_with_suffix_ex3"
@@ -306,3 +306,32 @@ Feature: Ensure the rules are fired correctly and patients are assigned to the r
     When assignPatient service is called for patient "PID-1234"
     Then a patient assignment json is returned with report_status "NO_TREATMENT_FOUND"
 
+  Scenario: PA_39: Matching non-hotspot rule - gene and domain
+    Given  the patient assignment json "patient_json_with_matching_non-hotspot-rules_gene-domain-match"
+    And treatment arm json "Rules-Test13"
+    When assignPatient service is called for patient "PID-1234"
+    Then a patient assignment json is returned with report_status "TREATMENT_FOUND"
+    And a patient assignment json is returned with reason category "SELECTED" for treatment arm "Rules-Test13"
+    And the patient assignment reason is "A match was found for inclusion nonhotspot variant (GENE: KRAS, FUNC: -, EXON: 20, OVA: deleterious, PROTEIN: p.A416BC)."
+
+  Scenario: PA_40: Matching non-hotspot rule - gene and domain out of range
+    Given  the patient assignment json "patient_json_with_matching_non-hotspot-rules_gene-domain-match"
+    And treatment arm json "Rules-Test14"
+    When assignPatient service is called for patient "PID-1234"
+    Then a patient assignment json is returned with report_status "NO_TREATMENT_FOUND"
+    And a patient assignment json is returned with reason category "NO_VARIANT_MATCH_EXCLUSION" for treatment arm "No inclusion variant match was found."
+
+  Scenario: PA_41: Matching non-hotspot rule - gene and domain does not exist
+    Given  the patient assignment json "patient_json_with_matching_non-hotspot-rules_gene-domain-match"
+    And treatment arm json "Rules-Test15"
+    When assignPatient service is called for patient "PID-1234"
+    Then a patient assignment json is returned with report_status "TREATMENT_FOUND"
+    And the patient assignment reason is "A match was found for inclusion nonhotspot variant (GENE: KRAS, FUNC: -, EXON: 20, OVA: deleterious, PROTEIN: p.A416BC)."
+
+
+  Scenario: PA_42: Matching non-hotspot rule - gene and protein does not exist
+    Given  the patient assignment json "patient_json_with_matching_non-hotspot-rules_gene-NoProtein"
+    And treatment arm json "Rules-Test13"
+    When assignPatient service is called for patient "PID-1234"
+    Then a patient assignment json is returned with report_status "NO_TREATMENT_FOUND"
+    And a patient assignment json is returned with reason category "NO_VARIANT_MATCH_EXCLUSION" for treatment arm "No inclusion variant match was found."

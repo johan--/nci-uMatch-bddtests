@@ -1,0 +1,29 @@
+[{
+  "treatment_arm_id": "Rules-Test15",
+  "version": "2015-08-06",
+  "stratum_id": "100",
+  "num_patients_assigned":null,
+  "treatment_arm_status": "OPEN",
+  "assay_rules": [],
+  "snv_indels": [],
+  "non_hotspot_rules": [{
+    "variant_type":"nhr",
+    "inclusion": true,
+    "func_gene": "KRAS",
+    "function":null,
+    "level_of_evidence": 3.0
+  }],
+  "copy_number_variants": [],
+  "gene_fusions":[],
+  "diseases": [{
+    "disease_code_type":"ICD-O",
+    "disease_code": "10058354",
+    "disease_name": "Bronchioloalveolar carcinoma",
+    "exclusion":true
+  },{
+    "disease_code_type":"ICD-O",
+    "disease_code": "10033701",
+    "disease_name": "Papillary thyroid carcinoma",
+    "exclusion":false
+  }]
+}]
