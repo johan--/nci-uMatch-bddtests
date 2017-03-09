@@ -30,14 +30,14 @@ before_script:
   # Update Node UI test dependencies only if it is a UI project
   - |
     if ["$CUC_TAG" == "@admin_ui"]; then
-      cd nci-admin-ui-bddtests;
-      npm install;
-      cd ..;
+      cd nci-admin-ui-bddtests
+      npm install
+      cd ..
     else
       if ["$CUC_TAG" == "@ui"]; then
-        cd nci-match-ui-bddtests;
-        npm install;
-        cd ..;
+        cd nci-match-ui-bddtests
+        npm install
+        cd ..
       fi
     fi
 
@@ -73,17 +73,17 @@ script:
   - ls -alt results
   - rm results/*
   - |
-    if ["$CUC_TAG" == "@treatment_arm" -o "$CUC_TAG" = "@ion_reporter" -o "$CUC_TAG" = "@patients"]; then
-      cd uMATCH/PedMATCH;
-      bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P1,$CUC_TAG$P2 --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --expand' -n 2;
-      cd ../..;
+    if ["$CUC_TAG" == "@treatment_arm" -o "$CUC_TAG" == "@ion_reporter" -o "$CUC_TAG" === "@patients"]; then
+      cd uMATCH/PedMATCH
+      bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P1,$CUC_TAG$P2 --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --expand' -n 2
+      cd ../..
     fi
   
   - |
     if ["$CUC_TAG" == "@admin_api"]; then
-      cd nci-admin-api-bddtests;
-      cucumber --tags $CUC_TAG$P1,$CUC_TAG$P2 --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --expand;
-      cd ..;
+      cd nci-admin-api-bddtests
+      cucumber --tags $CUC_TAG$P1,$CUC_TAG$P2 --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --expand
+      cd ..
     fi
 #  - aws s3 cp results/ s3://bdd-test-data/report_test --region us-east-1 --recursive
   # Run Cucumber end to end tests
@@ -97,11 +97,11 @@ script:
   - |
     if ["$CUC_TAG" == "@admin_ui"]; then
       cd nci-admin-ui-bddtests/;
-      protractor conf.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags='$CUC_TAG$P1,$CUC_TAG$P2' --troubleshoot;
+      protractor conf.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags='$CUC_TAG$P1,$CUC_TAG$P2' --troubleshoot
     else
-      if ["$CUC_TAG" == "@ui" -o "$CUC_TAG" = "@demo"]; then
-        cd nci-match-ui-bddtests/;
-        protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$P1,$CUC_TAG$P2 --troubleshoot;
+      if ["$CUC_TAG" == "@ui" -o "$CUC_TAG" == "@demo"]; then
+        cd nci-match-ui-bddtests/
+        protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$P1,$CUC_TAG$P2 --troubleshoot
       fi
     fi
 
