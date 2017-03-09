@@ -44,6 +44,7 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     And The "Upload new sample file" link is "enabled"
     And I can click on the "Upload new sample file" link
     And I can see the "Upload BAM files and Variant ZIP files" dialog
+    And The "Upload" button is "disabled"
     Then I select an Ion Reporter "<ir_reporter>"
     And I enter Analysis ID "<analysis_id>"
     And I make all elements visible
