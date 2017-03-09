@@ -69,7 +69,7 @@ module.exports = function () {
 
 
     this.Then(/^I see that the element with css "(.*)" is a "(.+?)" link$/, function(selector, type, callback){
-        var elem = element(by.css(selector));
+        var elem = element.all(by.css(selector)).get(0);
         browser.sleep(50).then(function () {
             // checking for element at index to be a link
             for (var i = 0; i < taPage.rowCount; i ++){
@@ -131,8 +131,8 @@ module.exports = function () {
         }
 
         buttonType.click().then(function () {
-            callback();
-        });
+            browser.sleep(100)
+        }).then(callback);
     });
 
     // Then section
@@ -142,27 +142,48 @@ module.exports = function () {
     });
 
 
-    this.Then(/^I should see the (.+) Variants table for (.+)$/, function (inclusionType, variant, callback) {
+    this.Then(/^I should see the (Inclusion|Exclusion) Variants table for (.+?)$/, function (inclusionType, variant, callback) {
         var data = [];
         var tableType;
+        var actualTableHeadings;
+        var expectedHeadings
         // First getting the data for the variant from the treatment arm
         data = taPage.generateArmDetailForVariant(firstTreatmentArm, variant, inclusionType);
 
         switch(variant) {
             case 'SNVs / MNVs / Indels':
-                tableType = inclusionType == 'Inclusion' ? taPage.inclusionsnvTable : taPage.exclusionsnvTable;
+                actualTableHeadings = inclusionType === 'Inclusion' ? taPage.actualHeadingIncludedSNVs : taPage.actualHeadingExcludedSNVs
+                expectedHeadings = inclusionType === 'Inclusion' ? taPage.expectedIncludedSNVs : taPage.expectedExcludedSNVs
+                
+                expect(actualTableHeadings.getText()).to.eventually.eql(expectedHeadings);
+
+                tableType = inclusionType === 'Inclusion' ? taPage.inclusionsnvTable : taPage.exclusionsnvTable;
                 taPage.checkSNVTable(data, tableType, inclusionType);
                 break;
-            case 'CNV':
-                tableType = inclusionType == 'Inclusion' ? taPage.inclusionTable : taPage.exclusionTable;
+            case 'CNVs':
+                actualTableHeadings = inclusionType === 'Inclusion' ? taPage.actualHeadingIncludedCNVs : taPage.actualHeadingExcludedCNVs
+                expectedHeadings = inclusionType === 'Inclusion' ? taPage.expectedIncludedCNVs : taPage.expectedExcludedCNVs
+                
+                expect(actualTableHeadings.getText()).to.eventually.eql(expectedHeadings);
+
+                tableType = inclusionType === 'Inclusion' ? taPage.inclusioncnvTable : taPage.exclusioncnvTable;
                 taPage.checkCNVTable(data, tableType, inclusionType);
                 break;
-            case 'Gene Fusion':
-                tableType = inclusionType == 'Inclusion' ? taPage.inclusionTable : taPage.exclusionTable;
+            case 'Gene Fusions':
+                actualTableHeadings = inclusionType === 'Inclusion' ? taPage.actualHeadingIncludedGene : taPage.actualHeadingExcludedGene
+                expectedHeadings = inclusionType === 'Inclusion' ? taPage.expectedIncludedGene : taPage.expectedExcludedGene
+                
+                expect(actualTableHeadings.getText()).to.eventually.eql(expectedHeadings);
+
+                tableType = inclusionType === 'Inclusion' ? taPage.inclusionGeneTable : taPage.exclusionGeneTable;
                 taPage.checkGeneFusionTable(data, tableType, inclusionType);
                 break;
             case 'Non-Hotspot Rules':
-                tableType = inclusionType == 'Inclusion' ? taPage.inclusionNHRTable : taPage.exclusionNHRTable;
+                actualTableHeadings = inclusionType === 'Inclusion' ? taPage.actualHeadingIncludedNHRs : taPage.actualHeadingExcludedNHRs
+                expectedHeadings = inclusionType === 'Inclusion' ? taPage.expectedIncludedNHRs : taPage.expectedExcludedNHRs
+                expect(actualTableHeadings.getText()).to.eventually.eql(expectedHeadings);
+
+                tableType = inclusionType === 'Inclusion' ? taPage.inclusionNHRTable : taPage.exclusionNHRTable;
                 taPage.checkNonHotspotRulesTable(data, tableType, inclusionType);
                 break;
         }

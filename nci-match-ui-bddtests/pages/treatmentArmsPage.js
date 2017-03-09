@@ -98,8 +98,24 @@ var TreatmentArmsPage = function() {
         by.css('.active>.panel-body>.ibox [ng-if="inExclusionType == \'exclusion\'"] .dataTables_wrapper>.row>.col-sm-12>table>tbody>tr.ng-valid'));
     this.inclusionsnvTable = element.all(by.css('#snvsMnvsIndelsIncl tr[ng-repeat^="item in filtered"]'));
     this.exclusionsnvTable = element.all(by.css('#snvsMnvsIndelsExcl tr[ng-repeat^="item in filtered"]'));
+    this.inclusioncnvTable = element.all(by.css('#cnvsIncl tr[ng-repeat^="item in filtered"]'));
+    this.exclusioncnvTable = element.all(by.css('#cnvsExcl tr[ng-repeat^="item in filtered"]'));
+    this.inclusionGeneTable = element.all(by.css('#geneFusionsIncl tr[ng-repeat^="item in filtered"]'));
+    this.exclusionGeneTable = element.all(by.css('#geneFusionsExcl tr[ng-repeat^="item in filtered"]'));
+    
     this.inclusionNHRTable = element.all(by.css('#nonHotspotRulesIncl tr[ng-repeat^="item in filtered"]'));
     this.exclusionNHRTable = element.all(by.css('#nonHotspotRulesExcl tr[ng-repeat^="item in filtered"]'));
+    
+    this.actualHeadingIncludedSNVs = element.all(by.css('#snvsMnvsIndelsIncl th'));
+    this.actualHeadingExcludedSNVs = element.all(by.css('#snvsMnvsIndelsExcl th'));
+    this.actualHeadingIncludedCNVs = element.all(by.css('#cnvsIncl th'));
+    this.actualHeadingExcludedCNVs = element.all(by.css('#cnvsExcl th'));
+    this.actualHeadingIncludedGene = element.all(by.css('#geneFusionsIncl th'));
+    this.actualHeadingExcludedGene = element.all(by.css('#geneFusionsExcl th'));
+    this.actualHeadingIncludedNHRs = element.all(by.css('#nonHotspotRulesIncl th'));
+    this.actualHeadingExcludedNHRs = element.all(by.css('#nonHotspotRulesExcl th'));
+    this.actualHeadingNonSequenceArray = element.all(by.css('#nonSequencingAssays th'));
+
 
     // Assay table elements
     this.assayTableRepeater = element.all(by.css('#nonSequencingAssays tr[ng-repeat^="item in filtered"]'));
@@ -142,6 +158,15 @@ var TreatmentArmsPage = function() {
     this.expectedRulesSubTabs =
         ['Drugs / Disease', 'SNVs / MNVs / Indels', 'CNVs', 'Gene Fusions', 'Non-Hotspot Rules', 'Non-Sequencing Assays'];
 
+    this.expectedIncludedSNVs = [ 'ID', 'Chrom', 'Position', 'OCP Ref', 'OCP Alt', 'LOE', 'Lit' ];
+    this.expectedExcludedSNVs = [ 'ID', 'Chrom', 'Position', 'OCP Ref', 'OCP Alt', 'Lit' ];
+    this.expectedIncludedCNVs = [ 'Gene', 'Chrom', 'Position', 'LOE', 'Lit' ];
+    this.expectedExcludedCNVs = [ 'Gene', 'Chrom', 'Position', 'Lit' ];
+    this.expectedIncludedGene = [ 'ID', 'LOE', 'Lit' ];
+    this.expectedExcludedGene = [ 'ID', 'Lit' ];
+    this.expectedIncludedNHRs = [ 'Gene', 'Domain', 'Exon', 'Oncomine Variant Class', 'Function', 'LOE', 'Lit' ];
+    this.expectedExcludedNHRs = [ 'Gene', 'Domain', 'Chrom', 'Position', 'Function', 'Lit' ];
+    this.expectedNonSequenceArray = [ 'Gene', 'Result', 'Variant Association', 'LOE' ];
 
     /** This function returns the text that the name of the Treatment Arm in the row.
      * @params = tableElement [WebElement] Represents collection of rows
@@ -193,72 +218,35 @@ var TreatmentArmsPage = function() {
     this.checkSNVTable = function(data, tableType, inclusionType) {
         expect(tableType.count()).to.eventually.equal(data.length);
         var firstData = data[0];
-        var repeaterValue = 'item in currentVersion.snvs' + inclusionType;
-        var rowList = element.all(by.repeater(repeaterValue));
+        // console.log(firstData); //to debug
+        
         var med_id_string = getMedIdString(firstData['public_med_ids']);
 
         // Locator Strings for columns
-        var idLoc = '[ng-click="openId(item.identifier)"]';
+        var idLoc = 'cosmic-link[link-id="item.identifier"]';
         var geneLoc = '[ng-click="openGene(item.gene_name)"]';
-        var chrLoc = 'td:nth-of-type(3)';
-        var posLoc = 'td:nth-of-type(4)';
-        var referenceLoc = 'td:nth-of-type(5)';
-        var alternateLoc = 'td:nth-of-type(6)';
+        var chrLoc = '[ng-bind="item.chromosome | dashify"]';
+        var posLoc = '[ng-bind="item.position | dashify"]';
+        var referenceLoc = 'long-string-handling[long-string="item.ocp_reference"]';
+        var alternateLoc = '[ng-bind="item.ocp_alternative | dashify"]';
         var proteinLoc = 'td:nth-of-type(7)';
-        var loeLoc = 'td:nth-of-type(8)';
-        var litTableLoc = 'td:nth-of-type(9)';
+        var loeLoc = '[ng-bind="item.level_of_evidence | dashify"]';
+        var litTableLoc = 'pubmed-link[public-med-ids="item.public_med_ids"]';
 
-        rowList.count().then(function (count){
+        tableType.count().then(function (count){
             if (count > 0){
-                rowList.each(function (row, index) {
+                tableType.each(function (row, index) {
                     row.all(by.css(idLoc)).get(0).getText().then(function(text){
-                        if (text == firstData.identifier){
-                            utils.checkValueInTable(row.all(by.css(geneLoc)), firstData['gene_name']);
+                        if (text === firstData.identifier){
+                            console.log('Checking values in Table')
                             utils.checkValueInTable(row.all(by.css(chrLoc)), firstData['chromosome']);
                             utils.checkValueInTable(row.all(by.css(posLoc)), firstData['position']);
-                            utils.checkValueInTable(row.all(by.css(referenceLoc)), firstData['reference']);
-                            utils.checkValueInTable(row.all(by.css(alternateLoc)), firstData['alternative']);
-                            utils.checkValueInTable(row.all(by.css(proteinLoc)), firstData['description']);
-                            utils.checkValueInTable(row.all(by.css(loeLoc)), firstData['level_of_evidence']);
+                            utils.checkValueInTable(row.all(by.css(referenceLoc)), firstData['ocp_reference']);
+                            utils.checkValueInTable(row.all(by.css(alternateLoc)), firstData['ocp_alternative']);
                             utils.checkValueInTable(row.all(by.css(litTableLoc)), med_id_string);
-                        }
-                    });
-                });
-            }
-        });
-    };
-
-    this.checkIndelTable = function(data, tableType, inclusionType){
-        expect(tableType.count()).to.eventually.equal(data.length);
-        var firstData = data[0];
-        var repeaterValue = 'item in selectedVersion.indels' + inclusionType;
-        var rowList = element.all(by.repeater(repeaterValue));
-        var med_id_string = getMedIdString(firstData['public_med_ids']);
-
-        // Locator strings for columns
-        var idLoc = '[ng-click="openId(item.identifier)"]';
-        var geneLoc = '[ng-click="openGene(item.gene_name)"]';
-        var chrLoc = 'td:nth-of-type(3)';
-        var posLoc = 'td:nth-of-type(4)';
-        var referenceLoc = 'td:nth-of-type(5)';
-        var alternateLoc = 'td:nth-of-type(6)';
-        var proteinLoc = 'td:nth-of-type(7)';
-        var loeLoc = 'td:nth-of-type(8)';
-        var litTableLoc = 'td:nth-of-type(9)';
-
-        rowList.count().then(function (count) {
-            if (count > 0){
-                rowList.each(function (row, index) {
-                    row.all(by.css(idLoc)).get(0).getText().then(function(text){
-                        if (text == firstData.identifier){
-                            utils.checkValueInTable(row.all(by.css(geneLoc)), firstData['gene_name']);
-                            utils.checkValueInTable(row.all(by.css(chrLoc)), firstData['chromosome']);
-                            utils.checkValueInTable(row.all(by.css(posLoc)), firstData['position']);
-                            utils.checkValueInTable(row.all(by.css(referenceLoc)), firstData['reference']);
-                            utils.checkValueInTable(row.all(by.css(alternateLoc)), firstData['alternative']);
-                            utils.checkValueInTable(row.all(by.css(proteinLoc)), firstData['description']);
-                            utils.checkValueInTable(row.all(by.css(loeLoc)), firstData['level_of_evidence']);
-                            utils.checkValueInTable(row.all(by.css(litTableLoc)), med_id_string);
+                            if (inclusionType === 'Inclusion') {
+                                utils.checkValueInTable(row.all(by.css(loeLoc)), firstData['level_of_evidence']);
+                            }
                         }
                     });
                 });
@@ -267,32 +255,32 @@ var TreatmentArmsPage = function() {
     };
 
     this.checkCNVTable = function(data, tableType, inclusionType){
-
+        expect(tableType.count()).to.eventually.equal(data.length);
         var firstData = data[0];
-        var repeaterValue = 'item in selectedVersion.cnvs' + inclusionType;
-        var rowList = element.all(by.repeater(repeaterValue));
+        // console.log(firstData) //For debugging
+
         var med_id_string = getMedIdString(firstData['public_med_ids']);
 
-        expect(rowList.count()).to.eventually.equal(data.length);
         // Locator strings for columns
-        var geneLoc = '[ng-click="openGene(item.gene_name)"]';
-        var chrLoc = 'td:nth-of-type(2)';
-        var posLoc = 'td:nth-of-type(3)';
-        var proteinLoc = 'td:nth-of-type(4)';
-        var loeLoc = 'td:nth-of-type(5)';
-        var litTableLoc = 'td:nth-of-type(6)';
+        var geneLoc = 'cosmic-link[link-id="item.identifier"]';
+        var chromLoc = '[ng-bind="item.chromosome | dashify"]';
+        var posLoc = '[ng-bind="item.position | dashify"]';
+        var loeLoc = '[ng-bind="item.level_of_evidence | dashify"]';
+        var litTableLoc = 'pubmed-link[public-med-ids="item.public_med_ids"]';
 
-        rowList.count().then(function (count) {
+        tableType.count().then(function (count) {
             if (count > 0){
-                rowList.each(function (row, index) {
+                tableType.each(function (row, index) {
                     row.all(by.css(geneLoc)).get(0).getText().then(function(text){
                         if (text == firstData['gene_name']){
+                            console.log('Checking values in Table')
                             utils.checkValueInTable(row.all(by.css(geneLoc)), firstData['gene_name']);
-                            utils.checkValueInTable(row.all(by.css(chrLoc)), firstData['chromosome']);
+                            utils.checkValueInTable(row.all(by.css(chromLoc)), firstData['chromosome']);
                             utils.checkValueInTable(row.all(by.css(posLoc)), firstData['position']);
-                            utils.checkValueInTable(row.all(by.css(proteinLoc)), firstData['description']);
-                            utils.checkValueInTable(row.all(by.css(loeLoc)), firstData['level_of_evidence']);
                             utils.checkValueInTable(row.all(by.css(litTableLoc)), med_id_string);
+                            if(inclusionType === 'Inclusion') {
+                                utils.checkValueInTable(row.all(by.css(loeLoc)), firstData['level_of_evidence']);
+                            }
                         }
                     });
                 });
@@ -301,28 +289,29 @@ var TreatmentArmsPage = function() {
     };
 
     this.checkGeneFusionTable = function (data, tableType, inclusionType){
-        // expect(tableType.count()).to.eventually.equal(data.length);
+        expect(tableType.count()).to.eventually.equal(data.length);
         var firstData = data[0];
-        var repeaterValue = 'item in selectedVersion.geneFusions' + inclusionType;
-        var rowList = element.all(by.repeater(repeaterValue));
+
+        // console.log(firstData) // for debugging
+        
         var med_id_string = getMedIdString(firstData['public_med_ids']);
 
-        expect(rowList.count()).to.eventually.equal(data.length);
-
         // Locator strings for columns
-        var idLoc = '[ng-click="openId(item.identifier)"]';
-        var geneLoc = '[ng-click="openGene(item.gene_name)"]';
-        var loeLoc = 'td:nth-of-type(3)';
-        var litTableLoc = 'td:nth-of-type(4)';
+        var idLoc = 'cosmic-link[link-type="\'cosmicFusionId\'"]';
+        var loeLoc = '[ng-bind="item.level_of_evidence | dashify"]';
+        var litTableLoc = 'pubmed-link[public-med-ids="item.public_med_ids"]';
 
-        rowList.count().then(function (count) {
+        tableType.count().then(function (count) {
             if (count > 0){
-                rowList.each(function (row, index) {
+                tableType.each(function (row, index) {
                     row.all(by.css(idLoc)).get(0).getText().then(function(text){
                         if (text == firstData.identifier){
-                            utils.checkValueInTable(row.all(by.css(geneLoc)), firstData['gene_name']);
-                            utils.checkValueInTable(row.all(by.css(loeLoc)), firstData['level_of_evidence']);
+                            console.log('Checking values in Table')
+                            utils.checkValueInTable(row.all(by.css(idLoc)), firstData['identifier']);
                             utils.checkValueInTable(row.all(by.css(litTableLoc)), med_id_string);
+                            if (inclusionType === 'Inclusion') {
+                                utils.checkValueInTable(row.all(by.css(loeLoc)), firstData['level_of_evidence']);
+                            }
                         }
                     });
                 });
@@ -331,34 +320,37 @@ var TreatmentArmsPage = function() {
     };
 
     this.checkNonHotspotRulesTable = function(data, tableType, inclusionType){
+        expect(tableType.count()).to.eventually.equal(data.length);
         var firstData = data[0];
-        var repeaterValue = 'item in selectedVersion.nhrs' + inclusionType;
+        
+        // console.log(firstData); // for debugging        
+        
         var med_id_string = getMedIdString(firstData['public_med_ids']);
 
-        expect(tableType.count()).to.eventually.equal(data.length);
-
         // Locator Strings for columns
-        var oncomineLoc= 'td:nth-of-type(1)'; //todo
-        var geneLoc = '[ng-click="openGene(item.gene_name)"]';
-        var functionLoc = 'td:nth-of-type(3)';
-        var proteinLoc = 'td:nth-of-type(4)';
-        var exonLoc = 'td:nth-of-type(5)';
-        var proteinRegexLoc = 'td:nth-of-type(6)'; //todo
-        var loeLoc = 'td:nth-of-type(7)';
-        var litTableLoc = 'td:nth-of-type(8)';
+        var geneLoc = 'cosmic-link[link-type="\'cosmicGene\'"]';
+        var domainLoc = '[ng-bind="item.domain | dashify"'
+        var exonLoc = '[ng-bind="item.exon | dashify"]'
+        var oncomineLoc= '[ng-bind="item.oncomine_variant_class | dashify"]'; //todo
+        var functionLoc = '[ng-bind="item.function | dashify"]';
+        
+        var loeLoc = '[ng-bind="item.level_of_evidence | dashify"]';
+        var litTableLoc = 'pubmed-link[public-med-ids="item.public_med_ids"]';
         tableType.count().then(function (count) {
             if (count > 0){
                 tableType.each(function (row, index) {
-                    row.all(by.css(functionLoc)).get(0).getText().then(function(text){
-                        if (text == firstData.function){
-                            utils.checkValueInTable(row.all(by.css(oncomineLoc)), firstData['oncomine_variant_class'])
-                            utils.checkValueInTable(row.all(by.css(geneLoc)), firstData['gene_name']);
-                            utils.checkValueInTable(row.all(by.css(functionLoc)), firstData['function']);
-                            utils.checkValueInTable(row.all(by.css(proteinLoc)), firstData['description']);
+                    row.all(by.css(geneLoc)).get(0).getText().then(function(text){
+                        if (text == firstData['func_gene']){
+                            console.log('Checking values in Table')
+                            utils.checkValueInTable(row.all(by.css(geneLoc)), firstData['func_gene']);
+                            utils.checkValueInTable(row.all(by.css(domainLoc)), firstData['domain']);
                             utils.checkValueInTable(row.all(by.css(exonLoc)), firstData['exon']);
-                            utils.checkValueInTable(row.all(by.css(proteinRegexLoc)), firstData['proteinMatch']);
-                            utils.checkValueInTable(row.all(by.css(loeLoc)), firstData['level_of_evidence']);
+                            utils.checkValueInTable(row.all(by.css(oncomineLoc)), firstData['oncomine_variant_class'])
+                            utils.checkValueInTable(row.all(by.css(functionLoc)), firstData['function']);
                             utils.checkValueInTable(row.all(by.css(litTableLoc)), med_id_string);
+                            if (inclusionType === 'Inclusion') {
+                                utils.checkValueInTable(row.all(by.css(loeLoc)), firstData['level_of_evidence']);    
+                            }
                         }
                     });
                 });

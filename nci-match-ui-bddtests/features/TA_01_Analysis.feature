@@ -1,7 +1,6 @@
 ##
 # Created by raseel.mohamed on 6/7/16
 ##
-
 Feature: Treatment Arms Dashboard
   A user should be able to access the list of Treatment Arms available and
   be able to drill into them to get further details.
@@ -40,7 +39,7 @@ Feature: Treatment Arms Dashboard
     Then I should see the drop down to select different versions of the treatment arm
     Then I logout
 
-  @ui_p2 @broken
+  @ui_p2
   Scenario: Logged in user can access Patients data on the Analysis Tab
     When I go to treatment arm with "APEC1621-A" as the id and "100" as stratum id
     And I select the "Analysis" Main Tab
