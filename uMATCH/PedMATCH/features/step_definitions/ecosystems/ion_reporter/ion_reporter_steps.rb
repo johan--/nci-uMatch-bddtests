@@ -172,6 +172,10 @@ Then(/^add field: "([^"]*)" value: "([^"]*)" to message body$/) do |field, value
   @payload[field]=converted_value
 end
 
+Then(/^remove field: "([^"]*)" from message body$/) do |field|
+  @payload.delete(field)
+end
+
 Then(/^last_contact for this ion_reporter should have correct value$/) do
   url = prepare_ion_reporters_url
   ion_reporter = Helper_Methods.simple_get_request(url)['message_json']

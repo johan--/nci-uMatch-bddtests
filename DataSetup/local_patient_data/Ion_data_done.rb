@@ -196,6 +196,47 @@ class Iondata
     PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
     PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
   end
+
+  def self.ion_aq08_ts_shipped
+    pt = PatientDataSet.new('ION_AQ08_TsShipped')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+  end
+
+  def self.ion_aq08_cdna_uploaded1
+    pt = PatientDataSet.new('ION_AQ08_CdnaUploaded1')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+    PatientMessageLoader.file_uploaded_cdna(pt.id, pt.moi, pt.ani)
+  end
+
+    def self.ion_aq08_cdna_uploaded2
+      pt = PatientDataSet.new('ION_AQ08_CdnaUploaded2')
+      PatientMessageLoader.register_patient(pt.id)
+      PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+      PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+      PatientMessageLoader.file_uploaded_cdna(pt.id, pt.moi, pt.ani)
+    end
+
+  def self.ion_aq08_ts_vr_uploaded1
+    pt = PatientDataSet.new('ION_AQ08_TsVrUploaded1')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+    PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+    PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
+  end
+
+  def self.ion_aq08_ts_vr_uploaded2
+    pt = PatientDataSet.new('ION_AQ08_TsVrUploaded2')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+    PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+    PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
+  end
 end
 
 

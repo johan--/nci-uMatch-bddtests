@@ -121,18 +121,15 @@ MatchTestDataManager.upload_all_seed_data_to_local
 # }
 # File.open(file, 'w') { |f| f.write(JSON.pretty_generate(file_hash)) }
 
-# false_list = %w(PT_RA04a_NoTaAvailable PT_OS01a_NoTaAvailable PT_RA03_NoTaAvailable PT_RA02_NoTaAvailable PT_SS31_NoTaAvailable_ANI1 PT_OS01_NoTaAvailable_ANI1 PT_SR10_NoTaAvailable_ANI1)
+# false_list = %w(PT_RA04a_NoTaAvailable PT_OS01a_NoTaAvailable PT_RA03_NoTaAvailable PT_RA02_NoTaAvailable PT_SS31_NoTaAvailable PT_OS01_NoTaAvailable PT_SR10_NoTaAvailable)
 # file = "#{File.dirname(__FILE__)}/seed_data_for_upload/match_bddtests_seed_data_patient.json"
 # file_hash = JSON(IO.read(file))
 # items = file_hash['Items']
 # items.each{|this_item|
-#   if this_item.has_key?('active_analysis_id')
-#     puts this_item['patient_id']['S']
-#   end
-#   # next unless this_item.has_key?('active_tissue_specimen')
-#   # next unless this_item['active_tissue_specimen']['M'].has_key?('active_analysis_id')
-#   # patient_id = this_item['patient_id']['S']
-#   # this_item['active_tissue_specimen']['M']['has_amoi'] = {'BOOL'=>!false_list.include?(patient_id)}
+#   next unless this_item.has_key?('active_tissue_specimen')
+#   next unless this_item['active_tissue_specimen']['M'].has_key?('active_analysis_id')
+#   patient_id = this_item['patient_id']['S']
+#   this_item['active_tissue_specimen']['M']['has_amoi'] = {'BOOL'=>!false_list.include?(patient_id)}
 # }
 # File.open(file, 'w') { |f| f.write(JSON.pretty_generate(file_hash)) }
 

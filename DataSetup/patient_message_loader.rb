@@ -61,7 +61,7 @@ class PatientMessageLoader
         curl_cmd = curl_cmd + "' #{LOCAL_PATIENT_API_URL}/#{patient_id}"
         output = `#{curl_cmd}`
         p "Output from running No.#{all_items} curl: #{output}"
-        unless output.downcase.include?'success'
+        unless output.downcase.include? 'success'
           p 'Failed'
           puts JSON.pretty_generate(message)
           failure += 1
@@ -75,7 +75,7 @@ class PatientMessageLoader
     p "#{all_items} messages processed, #{pass} passed and #{failure} failed"
   end
 
-  def self.wait_until_patient_status_is(patient_id,status)
+  def self.wait_until_patient_status_is(patient_id, status)
     timeout = 30.0
     total_time = 0.0
     url = "#{LOCAL_PATIENT_API_URL}/#{patient_id}"
@@ -90,7 +90,7 @@ class PatientMessageLoader
     sleep (1.0)
   end
 
-  def self.wait_until_updated(patient_id,table)
+  def self.wait_until_updated(patient_id, table)
     timeout = 30.0
     total_time = 0.0
     old_hash = nil
@@ -98,6 +98,25 @@ class PatientMessageLoader
     if table.size>1
       url += "/#{table}"
     end
+    loop do
+      new_hash = Helper_Methods.simple_get_request(url)['message_json']
+      if old_hash.nil?
+        old_hash = new_hash
+      end
+      total_time += 0.5
+      if new_hash != old_hash || total_time > timeout
+        return
+      end
+      sleep(0.5)
+    end
+    sleep (1.0)
+  end
+
+  def self.wait_until_patient_event_updated(patient_id)
+    timeout = 30.0
+    total_time = 0.0
+    old_hash = nil
+    url = "#{LOCAL_PATIENT_API_URL}/events?entity_id=#{patient_id}"
     loop do
       new_hash = Helper_Methods.simple_get_request(url)['message_json']
       if old_hash.nil?
@@ -127,7 +146,7 @@ class PatientMessageLoader
     # output = `#{curl_cmd}`
     p "Output from running No.#{@all_items} curl: #{output['message']}"
     p "#{message} completed"
-    unless output['message'].downcase.include?'success'
+    unless output['message'].downcase.include? 'success'
       p 'Failed'
       puts JSON.pretty_generate(message_json)
       @failure += 1
@@ -135,6 +154,27 @@ class PatientMessageLoader
       @failed_patient_list << patient_id unless @failed_patient_list.include?(patient_id)
     end
     # sleep(@wait_time)
+  end
+
+  def self.post_patient_event(message_json, message = nil)
+    if @all_items.nil?
+      @all_items = 0
+    end
+    if @failure.nil?
+      @failure = 0
+    end
+    @all_items += 1
+    output = Helper_Methods.post_request("#{LOCAL_PATIENT_API_URL}/events", message_json.to_json)
+    p "Output from running No.#{@all_items} curl: #{output['message']}"
+    p "#{message} completed"
+    unless output['message'].downcase.include? 'success'
+      p 'Failed'
+      puts JSON.pretty_generate(message_json)
+      @failure += 1
+      @failed_patient_list=[] if @failed_patient_list.nil?
+      @failed_patient_list << patient_id unless @failed_patient_list.include?(patient_id)
+    end
+
   end
 
   def self.put_message_to_local(service, message_json)
@@ -152,7 +192,7 @@ class PatientMessageLoader
     # curl_cmd = curl_cmd + "' #{LOCAL_PATIENT_API_URL}#{service}"
     # output = `#{curl_cmd}`
     p "Output from running No.#{@all_items} curl: #{output['message']}"
-    unless output['message'].downcase.include?'success'
+    unless output['message'].downcase.include? 'success'
       p 'Failed'
       puts JSON.pretty_generate(message_json)
       @failure += 1
@@ -178,7 +218,7 @@ class PatientMessageLoader
     # output = `#{curl_cmd}`
     sleep(1.0)
     p "Output from running No.#{@all_items} curl: #{output['message']}"
-    unless output['message'].downcase.include?'success'
+    unless output['message'].downcase.include? 'success'
       p 'Failed'
       unless message_json==''
         puts JSON.pretty_generate(message_json)
@@ -205,7 +245,7 @@ class PatientMessageLoader
     # curl_cmd = curl_cmd + "' #{LOCAL_PATIENT_API_URL}/#{patient_id}/variant_reports/#{ani}/#{status}"
     # output = `#{curl_cmd}`
     p "Output from running No.#{@all_items} curl: #{output['message']}"
-    unless output['message'].downcase.include?'success'
+    unless output['message'].downcase.include? 'success'
       p 'Failed'
       puts JSON.pretty_generate(message_json)
       @failure += 1
@@ -218,13 +258,20 @@ class PatientMessageLoader
 
   def self.convert_date(date_string)
     case date_string
-      when 'today' then Helper_Methods.dateYYYYMMDD
-      when 'current' then Helper_Methods.dateDDMMYYYYHHMMSS
-      when 'older' then Helper_Methods.backDate
-      when 'future' then Helper_Methods.futureDate
-      when 'older than 6 months' then Helper_Methods.olderThanSixMonthsDate
-      when 'a few days older' then Helper_Methods.aFewDaysOlder
-      else date_string
+      when 'today' then
+        Helper_Methods.dateYYYYMMDD
+      when 'current' then
+        Helper_Methods.dateDDMMYYYYHHMMSS
+      when 'older' then
+        Helper_Methods.backDate
+      when 'future' then
+        Helper_Methods.futureDate
+      when 'older than 6 months' then
+        Helper_Methods.olderThanSixMonthsDate
+      when 'a few days older' then
+        Helper_Methods.aFewDaysOlder
+      else
+        date_string
     end
   end
 
@@ -245,8 +292,8 @@ class PatientMessageLoader
 
   def self.specimen_received_tissue(
       patient_id,
-      surgical_event_id,
-      collect_time='2016-04-25')
+          surgical_event_id,
+          collect_time='2016-04-25')
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['specimen_received_TISSUE']
     message['specimen_received']['patient_id'] = patient_id
     message['specimen_received']['surgical_event_id'] = surgical_event_id
@@ -260,7 +307,7 @@ class PatientMessageLoader
 
   def self.specimen_received_blood(
       patient_id,
-      collect_time='2016-04-22')
+          collect_time='2016-04-22')
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['specimen_received_BLOOD']
     message['specimen_received']['patient_id'] = patient_id
     message['specimen_received']['collection_dt'] = convert_date(collect_time)
@@ -270,10 +317,10 @@ class PatientMessageLoader
 
   def self.specimen_shipped_tissue(
       patient_id,
-      surgical_event_id,
-      molecular_id,
-      shipped_time='2016-05-01T19:42:13+00:00',
-      destination='MDA'
+          surgical_event_id,
+          molecular_id,
+          shipped_time='2016-05-01T19:42:13+00:00',
+          destination='MDA'
   )
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['specimen_shipped_TISSUE']
     message['specimen_shipped']['patient_id'] = patient_id
@@ -287,9 +334,9 @@ class PatientMessageLoader
 
   def self.specimen_shipped_slide(
       patient_id,
-      surgical_event_id,
-      slide_barcode,
-      shipped_time='2016-05-01T19:42:13+00:00')
+          surgical_event_id,
+          slide_barcode,
+          shipped_time='2016-05-01T19:42:13+00:00')
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['specimen_shipped_SLIDE']
     message['specimen_shipped']['patient_id'] = patient_id
     message['specimen_shipped']['surgical_event_id'] = surgical_event_id
@@ -301,9 +348,9 @@ class PatientMessageLoader
 
   def self.specimen_shipped_blood(
       patient_id,
-      molecular_id,
-      shipped_time='2016-05-01T19:42:13+00:00',
-      destination='MDA')
+          molecular_id,
+          shipped_time='2016-05-01T19:42:13+00:00',
+          destination='MDA')
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['specimen_shipped_BLOOD']
     message['specimen_shipped']['patient_id'] = patient_id
     message['specimen_shipped']['molecular_id'] = molecular_id
@@ -315,10 +362,10 @@ class PatientMessageLoader
 
   def self.assay(
       patient_id,
-      surgical_event_id,
-      result='POSITIVE',
-      biomarker='ICCPTENs',
-      reported_date='2016-05-30T12:11:09.071-05:00')
+          surgical_event_id,
+          result='POSITIVE',
+          biomarker='ICCPTENs',
+          reported_date='2016-05-30T12:11:09.071-05:00')
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['assay_result_reported']
     # message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['assay_old']
     message['patient_id'] = patient_id
@@ -332,9 +379,9 @@ class PatientMessageLoader
 
   def self.pathology(
       patient_id,
-      surgical_event_id,
-      status='Y',
-      reported_date='2016-04-27T12:13:09.071-05:00')
+          surgical_event_id,
+          status='Y',
+          reported_date='2016-04-27T12:13:09.071-05:00')
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['pathology_status']
     # message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['pathology_old']
     message['patient_id'] = patient_id
@@ -347,11 +394,11 @@ class PatientMessageLoader
 
   def self.variant_file_uploaded(
       patient_id,
-      molecular_id,
-      analysis_id,
-      vr_type='default',
-      folder='bdd_test_ion_reporter',
-      tsv_name='test1.tsv')
+          molecular_id,
+          analysis_id,
+          vr_type='default',
+          folder='bdd_test_ion_reporter',
+          tsv_name='test1.tsv')
     Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-dev', folder, molecular_id, analysis_id, tsv_name, vr_type)
     Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-int', folder, molecular_id, analysis_id, tsv_name, vr_type)
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['variant_file_uploaded']
@@ -364,12 +411,48 @@ class PatientMessageLoader
     sleep(5) #variant upload might take more time than other service, so wait internally
   end
 
+  def self.file_uploaded_cdna(
+      patient_id,
+          molecular_id,
+          analysis_id,
+          cdna_bam_name='cdna.bam',
+          comment_user='qa'
+  )
+    message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['variant_cdna_file_uploaded']
+    message['patient_id'] = patient_id
+    message['molecular_id'] = molecular_id
+    message['analysis_id'] = analysis_id
+    message['cdna_bam_name'] = cdna_bam_name
+    message['comment_user'] = comment_user
+    post_patient_event(message, 'Upload CDNA file')
+    wait_until_patient_event_updated(patient_id)
+    sleep 5
+  end
+
+  def self.file_uploaded_dna(
+      patient_id,
+          molecular_id,
+          analysis_id,
+          dna_bam_name='dna.bam',
+          comment_user='qa'
+  )
+    message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['variant_dna_file_uploaded']
+    message['patient_id'] = patient_id
+    message['molecular_id'] = molecular_id
+    message['analysis_id'] = analysis_id
+    message['dna_bam_name'] = dna_bam_name
+    message['comment_user'] = comment_user
+    post_patient_event(message, 'Upload DNA file')
+    wait_until_patient_event_updated(patient_id)
+    sleep 5
+  end
+
   def self.copy_CNV_json_to_int_folder(
       patient_id,
-      molecular_id,
-      analysis_id,
-      folder='bdd_test_ion_reporter',
-      json_name='test1.json')
+          molecular_id,
+          analysis_id,
+          folder='bdd_test_ion_reporter',
+          json_name='test1.json')
     # wait_until_updated(patient_id)
     dev_path = "s3://pedmatch-dev/#{folder}/#{molecular_id}/#{analysis_id}/#{json_name}"
     int_path = "s3://pedmatch-int/#{folder}/#{molecular_id}/#{analysis_id}/#{json_name}"
@@ -423,8 +506,8 @@ class PatientMessageLoader
 
   def self.variant_file_confirmed(
       patient_id,
-      status,
-      analysis_id)
+          status,
+          analysis_id)
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['variant_file_confirmed']
     send_variant_report_confirm_message(message, patient_id, analysis_id, status)
     wait_until_updated(patient_id, '')
@@ -432,9 +515,9 @@ class PatientMessageLoader
 
   def self.assignment_confirmed(
       patient_id,
-      analysis_id,
-      comment='Test',
-      comment_user='QA')
+          analysis_id,
+          comment='Test',
+          comment_user='QA')
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['assignment_confirmed']
     message['comment'] = comment
     message['comment_user'] = comment_user
@@ -444,9 +527,9 @@ class PatientMessageLoader
   end
 
   def self.off_study(
-    patient_id,
-    step_number,
-    status_date='2016-08-30T12:11:09.071-05:00'
+      patient_id,
+          step_number,
+          status_date='2016-08-30T12:11:09.071-05:00'
   )
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['off_study']
     message['patient_id'] = patient_id
@@ -472,12 +555,11 @@ class PatientMessageLoader
   end
 
 
-
   def self.request_assignment(
-    patient_id,
-    rebiopsy='Y',
-    step_number='2.0',
-    status_date='2016-08-10T22:05:33+00:00'
+      patient_id,
+          rebiopsy='Y',
+          step_number='2.0',
+          status_date='2016-08-10T22:05:33+00:00'
   )
     @request_assignment_message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['request_assignment']
     @request_assignment_message['patient_id'] = patient_id
@@ -488,7 +570,6 @@ class PatientMessageLoader
     send_message_to_local(@request_assignment_message, patient_id)
     wait_until_updated(patient_id, '')
   end
-
 
 
   def self.request_no_assignment(
@@ -507,10 +588,10 @@ class PatientMessageLoader
   end
 
   def self.on_treatment_arm(
-    patient_id,
-    treatment_arm_id='APEC1621-A',
-    stratum_id='100',
-    step_number='1.1')
+      patient_id,
+          treatment_arm_id='APEC1621-A',
+          stratum_id='100',
+          step_number='1.1')
     service = 'approveOnTreatmentArm/'+patient_id
     service = service + '/' + step_number + '/' + treatment_arm_id + '/' + stratum_id
     send_message_to_local_cog(service, '')

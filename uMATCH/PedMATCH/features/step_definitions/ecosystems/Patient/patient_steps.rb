@@ -224,15 +224,19 @@ Then(/^wait until patient variant is updated$/) do
   Patient_helper_methods.wait_until_variant_updated(@patient_id)
 end
 
-Then(/^wait until patient has (\d+) assignment reports$/) do |ar_count|
+Then(/^wait until patient event is updated$/) do
+  Patient_helper_methods.wait_until_event_updated(@patient_id)
+end
 
-end
-Then(/^patient should have assignment report \(TA id: "([^"]*)", stratum id: "([^"]*)"\) with status "([^"]*)"$/) do |arg1, arg2, arg3|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-Then(/^patient should have assignment report \(report status: "([^"]*)"\) with status "([^"]*)"$/) do |arg1, arg2|
-  pending # Write code here that turns the phrase above into concrete actions
-end
+# Then(/^wait until patient has (\d+) assignment reports$/) do |ar_count|
+#
+# end
+# Then(/^patient should have assignment report \(TA id: "([^"]*)", stratum id: "([^"]*)"\) with status "([^"]*)"$/) do |arg1, arg2, arg3|
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
+# Then(/^patient should have assignment report \(report status: "([^"]*)"\) with status "([^"]*)"$/) do |arg1, arg2|
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
 
 
 #########################################################
@@ -355,6 +359,19 @@ Then(/^patient should have variant report \(analysis_id: "([^"]*)"\)$/) do |ani|
     raise "Expect array returned, actually #{@current_variant_report.class.to_s} returned"
   end
   actual_match_expect(@current_variant_report['analysis_id'], ani)
+end
+
+Then(/^patient should "(have|not have)" variant report \(analysis_id: "([^"]*)"\)$/) do |have, ani|
+  url = "#{ENV['patients_endpoint']}/variant_reports?analysis_id=#{ani}"
+  response = Patient_helper_methods.get_any_result_from_url(url)
+  expect(response.class).to eq Array
+  case have
+    when 'have'
+      expect(response.size).to eq 1
+    when 'not have'
+      expect(response.size).to eq 0
+    else
+  end
 end
 
 And(/^this variant report field: "([^"]*)" should be "([^"]*)"$/) do |field, value|
@@ -508,6 +525,16 @@ And(/^patient pending assignment report field "([^"]*)" should be "([^"]*)"$/) d
   else
     raise "Expect array returned, actually #{@current_assignment.class.to_s} returned"
   end
+end
+And(/^patient should have variant file received event with file_name "([^"]*)" analysis_id "([^"]*)"$/) do |file_name, ani|
+  url = "#{ENV['patients_endpoint']}/events?entity_id=#{@patient_id}"
+  events = Patient_helper_methods.get_any_result_from_url(url)
+  expect(events.class).to eq Array
+  filtered_events = events.select { |event|
+    event['event_message'].include?('Variant Report file received') }
+  filtered_events = filtered_events.select { |event|
+    event['event_data']['file_name']==file_name&&event['event_data']['analysis_id']==ani }
+  expect(filtered_events.size).to eq 1
 end
 
 Given(/^this patient is in mock service lost patient list, service will come back after "([^"]*)" tries$/) do |error_times|
@@ -820,7 +847,7 @@ end
 
 Then(/^this patient tissue specimen_events "([^"]*)" should have field "([^"]*)" value "([^"]*)"$/) do |moi, field, value|
   type = 'tissue_specimens'
-  converted_value = value == 'null'?nil:value
+  converted_value = value == 'null' ? nil : value
   expect(@get_response.class).to eql Hash
   expect(@get_response.keys).to include type
   has_result = false

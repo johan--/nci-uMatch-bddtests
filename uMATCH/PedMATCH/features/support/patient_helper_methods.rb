@@ -514,6 +514,12 @@ class Patient_helper_methods
     Helper_Methods.wait_until_updated(url, timeout)
   end
 
+  def self.wait_until_event_updated(patient_id)
+    timeout = 30.0
+    url = "#{ENV['patients_endpoint']}/events?entity_id=#{patient_id}"
+    Helper_Methods.wait_until_updated(url, timeout)
+  end
+
   def self.wait_until_variant_updated(patient_id)
     timeout = 30.0
     url = "#{ENV['patients_endpoint']}/variants?patient_id=#{patient_id}"

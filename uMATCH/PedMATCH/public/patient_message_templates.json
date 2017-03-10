@@ -151,20 +151,20 @@
 //    "tsv_file_name": "test1.tsv",
 //    "vcf_file_name": "test1.vcf"
 //  },
-//  "variant_dna_file_uploaded": {
-//    "site": "MoCha",
-//    "molecular_id": "3366-bsn-msn-2",
-//    "analysis_id": "job1",
-//    "dna_bam_file_name": "dna.bam",
-//    "dna_bai_file_name": "dna.bam.bai"
-//  },
-//  "variant_cdna_file_uploaded": {
-//    "site": "MoCha",
-//    "molecular_id": "3366-bsn-msn-2",
-//    "analysis_id": "job2",
-//    "cdna_bam_file_name": "cdna.bam",
-//    "cdna_bai_file_name": "cdna.bam.bai"
-//  },
+  "variant_dna_file_uploaded": {
+    "patient_id": "3366",
+    "molecular_id": "3366-bsn-msn-2",
+    "analysis_id": "job2",
+    "dna_bam_name": "dna.bam",
+    "comment_user": "qa"
+  },
+  "variant_cdna_file_uploaded": {
+    "patient_id": "3366",
+    "molecular_id": "3366-bsn-msn-2",
+    "analysis_id": "job2",
+    "cdna_bam_name": "cdna.bam",
+    "comment_user": "qa"
+  },
   "variant_file_uploaded":{
     "ion_reporter_id": "bdd_test_ion_reporter",
     "molecular_id": "3355-bsn-msn-2",

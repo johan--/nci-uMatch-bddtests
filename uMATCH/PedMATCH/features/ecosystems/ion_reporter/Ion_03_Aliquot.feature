@@ -193,6 +193,44 @@ Feature: Tests for aliquot service in ion ecosystem
       | ION_AQ07_TsShipped2 | 2017-02-07_10:18:25 | zip_name       | 2017-02-07_10:18:25.zip | 2017-02-07_10:18:25.vcf |
 
   @ion_reporter_p2
+  Scenario Outline: ION_AQ08. aliquot and patient services can handle patient variant report properly when bam file come before vcf file
+#  Example 1: No ani => bam with new ani | Has ani but no pending vr => vcf with same ani
+#  Example 2: Has ani but no pending vr => bam with same ani | Has ani but no pending vr => vcf with new ani
+#  Example 3: Has ani but no pending vr => bam with new ani
+#  Example 4: Has pending vr => bam with same ani
+#  Example 5: Has pending vr => bam with new ani
+    Given patient id is "<patient_id>"
+    Given molecular id is "<patient_id>_MOI1"
+    And ir user authorization role is "SYSTEM"
+    Then add field: "analysis_id" value: "<ani1>" to message body
+    Then add field: "site" value: "mda" to message body
+    Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
+    Then add field: "dna_bam_name" value: "dna.bam" to message body
+    Then add field: "patient_id" value: "<patient_id>" to message body
+    When PUT to aliquot service, response includes "Item updated" with code "200"
+    Then wait until patient event is updated
+    Then wait for "5" seconds
+    Then patient status should change to "<status1>"
+    And patient should "<have>" variant report (analysis_id: "<ani1>")
+    And patient should have variant file received event with file_name "dna.bam" analysis_id "<ani1>"
+    Then remove field: "dna_bam_name" from message body
+    And add field: "zip_name" value: "test1.zip" to message body
+    Then add field: "analysis_id" value: "<ani2>" to message body
+    When PUT to aliquot service, response includes "Item updated" with code "200"
+    Then wait until patient is updated
+    Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
+    Then patient should have variant report (analysis_id: "<ani2>")
+    And this variant report field: "tsv_file_name" should be "test1.tsv"
+    And this variant report field: "dna_bam_name" should be "<bam_name>"
+    Examples:
+      | patient_id             | ani1                        | status1                        | have     | ani2                        | bam_name |
+      | ION_AQ08_TsShipped     | ION_AQ08_TsShipped_ANI1     | TISSUE_NUCLEIC_ACID_SHIPPED    | not have | ION_AQ08_TsShipped_ANI1     | dna.bam  |
+      | ION_AQ08_CdnaUploaded1 | ION_AQ08_CdnaUploaded1_ANI1 | TISSUE_NUCLEIC_ACID_SHIPPED    | not have | ION_AQ08_CdnaUploaded1_ANI2 | null     |
+      | ION_AQ08_CdnaUploaded2 | ION_AQ08_CdnaUploaded2_ANI2 | TISSUE_NUCLEIC_ACID_SHIPPED    | not have | ION_AQ08_CdnaUploaded2_ANI2 | dna.bam  |
+      | ION_AQ08_TsVrUploaded1 | ION_AQ08_TsVrUploaded1_ANI1 | TISSUE_VARIANT_REPORT_RECEIVED | have     | ION_AQ08_TsVrUploaded1_ANI1 | dna.bam  |
+      | ION_AQ08_TsVrUploaded2 | ION_AQ08_TsVrUploaded2_ANI2 | TISSUE_VARIANT_REPORT_RECEIVED | not have | ION_AQ08_TsVrUploaded2_ANI2 | dna.bam  |
+
+  @ion_reporter_p2
   Scenario: ION_AQ20. for sample control specimen, if the files passed in are not in that path, aliquot service will not update database
     #there is no file in S3 for this sample control
     Given molecular id is "SC_Q5E0X"
@@ -406,21 +444,3 @@ Feature: Tests for aliquot service in ion ecosystem
       | moi                     |
       | SC_K7IO0                |
       | ION_AQ81_TsShipped_MOI1 |
-
-
-
-
-
-#  Scenario: PT_VU17. No Analaysis id => dna bam or cdna bam with new analysis id
-#
-#  Scenario: PT_VU17. Has Analysis id but no pending variant report => dna bam or cdna bam with same analysis id
-#
-#  Scenario: PT_VU17. Has Analysis id but no pending variant report => dna bam or cdna bam with new analysis id
-#
-#  Scenario: PT_VU17. Has Analysis id but no pending variant report => tsv with same analysis id
-#
-#  Scenario: PT_VU17. Has Analysis id but no pending variant report => tsv with new analysis id
-#
-#  Scenario: PT_VU17. Has pending variant report => dna bam or cdna bam with same analysis id
-#
-#  Scenario: PT_VU17. Has pending variant report => dna bam or cdna bam with new analysis id
