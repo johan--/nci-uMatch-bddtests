@@ -3,7 +3,7 @@
  */
 
 exports.config = {
-    baseUrl: 'http://localhost:9001',
+    baseUrl: process.env.ADMIN_UI_HOSTNAME,
     capabilities: {
         browserName: 'firefox'
     },

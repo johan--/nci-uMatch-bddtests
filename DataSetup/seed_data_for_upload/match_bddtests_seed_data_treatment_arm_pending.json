@@ -1,1 +1,955 @@
-{}
+{
+    "Count": 4, 
+    "Items": [
+        {
+            "info": {
+                "M": {
+                    "non_hotspot_rules": {
+                        "L": []
+                    }, 
+                    "description": {
+                        "S": "Phase 2 study of Erdafitinib (JNJ42756493) in patients with tumors harboring FGFR alterations"
+                    }, 
+                    "treatment_arm_id": {
+                        "S": "APEC1621-PEND_B"
+                    }, 
+                    "status_log": {
+                        "M": {}
+                    }, 
+                    "target_name": {
+                        "S": "Erdafitinib (JNJ42756493)"
+                    }, 
+                    "snv_indels": {
+                        "L": [
+                            {
+                                "M": {
+                                    "identifier": {
+                                        "S": "COSM4771556"
+                                    }, 
+                                    "ocp_reference": {
+                                        "S": "T"
+                                    }, 
+                                    "inclusion": {
+                                        "BOOL": true
+                                    }, 
+                                    "public_med_ids": {
+                                        "L": [
+                                            {
+                                                "S": "23817572"
+                                            }
+                                        ]
+                                    }, 
+                                    "variant_type": {
+                                        "S": "snp"
+                                    }, 
+                                    "ocp_alternative": {
+                                        "S": "A"
+                                    }, 
+                                    "gene": {
+                                        "S": "FGFR1"
+                                    }, 
+                                    "position": {
+                                        "S": "38272307"
+                                    }, 
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    }, 
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    }, 
+                                    "chromosome": {
+                                        "S": "chr8"
+                                    }, 
+                                    "description": {
+                                        "S": "Missense"
+                                    }
+                                }
+                            }, 
+                            {
+                                "M": {
+                                    "identifier": {
+                                        "S": "COSM49173"
+                                    }, 
+                                    "ocp_reference": {
+                                        "S": "C"
+                                    }, 
+                                    "inclusion": {
+                                        "BOOL": true
+                                    }, 
+                                    "public_med_ids": {
+                                        "L": []
+                                    }, 
+                                    "variant_type": {
+                                        "S": "snp"
+                                    }, 
+                                    "ocp_alternative": {
+                                        "S": "A"
+                                    }, 
+                                    "gene": {
+                                        "S": "FGFR2"
+                                    }, 
+                                    "position": {
+                                        "S": "123247514"
+                                    }, 
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    }, 
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    }, 
+                                    "chromosome": {
+                                        "S": "chr10"
+                                    }, 
+                                    "description": {
+                                        "S": "Missense"
+                                    }
+                                }
+                            }, 
+                            {
+                                "M": {
+                                    "identifier": {
+                                        "S": "COSM683054"
+                                    }, 
+                                    "ocp_reference": {
+                                        "S": "C"
+                                    }, 
+                                    "inclusion": {
+                                        "BOOL": true
+                                    }, 
+                                    "public_med_ids": {
+                                        "L": []
+                                    }, 
+                                    "variant_type": {
+                                        "S": "snp"
+                                    }, 
+                                    "ocp_alternative": {
+                                        "S": "G"
+                                    }, 
+                                    "gene": {
+                                        "S": "FGFR2"
+                                    }, 
+                                    "position": {
+                                        "S": "123247514"
+                                    }, 
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    }, 
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    }, 
+                                    "chromosome": {
+                                        "S": "chr10"
+                                    }, 
+                                    "description": {
+                                        "S": "Missense"
+                                    }
+                                }
+                            }, 
+                            {
+                                "M": {
+                                    "identifier": {
+                                        "S": "COSM49170"
+                                    }, 
+                                    "ocp_reference": {
+                                        "S": "G"
+                                    }, 
+                                    "inclusion": {
+                                        "BOOL": false
+                                    }, 
+                                    "public_med_ids": {
+                                        "L": [
+                                            {
+                                                "S": "23786770"
+                                            }
+                                        ]
+                                    }, 
+                                    "variant_type": {
+                                        "S": "snp"
+                                    }, 
+                                    "ocp_alternative": {
+                                        "S": "C"
+                                    }, 
+                                    "gene": {
+                                        "S": "FGFR2"
+                                    }, 
+                                    "position": {
+                                        "S": "123279674"
+                                    }, 
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    }, 
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    }, 
+                                    "chromosome": {
+                                        "S": "chr10"
+                                    }, 
+                                    "description": {
+                                        "S": "Missense"
+                                    }
+                                }
+                            }, 
+                            {
+                                "M": {
+                                    "identifier": {
+                                        "S": "COSM537801"
+                                    }, 
+                                    "ocp_reference": {
+                                        "S": "G"
+                                    }, 
+                                    "inclusion": {
+                                        "BOOL": false
+                                    }, 
+                                    "public_med_ids": {
+                                        "L": []
+                                    }, 
+                                    "variant_type": {
+                                        "S": "snp"
+                                    }, 
+                                    "ocp_alternative": {
+                                        "S": "A"
+                                    }, 
+                                    "gene": {
+                                        "S": "FGFR2"
+                                    }, 
+                                    "position": {
+                                        "S": "123279674"
+                                    }, 
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    }, 
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    }, 
+                                    "chromosome": {
+                                        "S": "chr10"
+                                    }, 
+                                    "description": {
+                                        "S": "Missense"
+                                    }
+                                }
+                            }, 
+                            {
+                                "M": {
+                                    "identifier": {
+                                        "S": "COSM6163"
+                                    }, 
+                                    "ocp_reference": {
+                                        "S": "G"
+                                    }, 
+                                    "inclusion": {
+                                        "BOOL": true
+                                    }, 
+                                    "public_med_ids": {
+                                        "L": []
+                                    }, 
+                                    "variant_type": {
+                                        "S": "snp"
+                                    }, 
+                                    "ocp_alternative": {
+                                        "S": "A"
+                                    }, 
+                                    "gene": {
+                                        "S": "FGFR4"
+                                    }, 
+                                    "position": {
+                                        "S": "176522551"
+                                    }, 
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    }, 
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    }, 
+                                    "chromosome": {
+                                        "S": "chr5"
+                                    }, 
+                                    "description": {
+                                        "S": "Missense"
+                                    }
+                                }
+                            }
+                        ]
+                    }, 
+                    "copy_number_variants": {
+                        "L": []
+                    }, 
+                    "diseases": {
+                        "L": []
+                    }, 
+                    "exclusion_drugs": {
+                        "L": [
+                            {
+                                "M": {
+                                    "name": {
+                                        "S": "Erdafitinib (JNJ42756493)"
+                                    }, 
+                                    "drug_id": {
+                                        "S": "781558"
+                                    }
+                                }
+                            }, 
+                            {
+                                "M": {
+                                    "name": {
+                                        "S": "AZD4547"
+                                    }, 
+                                    "drug_id": {
+                                        "S": "1"
+                                    }
+                                }
+                            }, 
+                            {
+                                "M": {
+                                    "name": {
+                                        "S": "BGJ398"
+                                    }, 
+                                    "drug_id": {
+                                        "S": "1"
+                                    }
+                                }
+                            }, 
+                            {
+                                "M": {
+                                    "name": {
+                                        "S": "BAY1163877"
+                                    }, 
+                                    "drug_id": {
+                                        "S": "1"
+                                    }
+                                }
+                            }, 
+                            {
+                                "M": {
+                                    "name": {
+                                        "S": "LY2874455"
+                                    }, 
+                                    "drug_id": {
+                                        "S": "783670"
+                                    }
+                                }
+                            }
+                        ]
+                    }, 
+                    "treatment_arm_drugs": {
+                        "L": [
+                            {
+                                "M": {
+                                    "pathway": {
+                                        "S": "Receptor tyrosine kinase"
+                                    }, 
+                                    "drug_id": {
+                                        "S": "781558"
+                                    }, 
+                                    "name": {
+                                        "S": "Erdafitinib (JNJ42756493)"
+                                    }
+                                }
+                            }
+                        ]
+                    }, 
+                    "study_id": {
+                        "S": "APEC1621"
+                    }, 
+                    "assay_rules": {
+                        "L": []
+                    }, 
+                    "version": {
+                        "S": "2017-03-10T15:27:39+00:00"
+                    }, 
+                    "treatment_arm_status": {
+                        "S": "PENDING_CONFIRMATION"
+                    }, 
+                    "date_created": {
+                        "S": "2017-03-10T15:27:39+00:00"
+                    }, 
+                    "gene": {
+                        "S": "FGFR"
+                    }, 
+                    "num_patients_assigned": {
+                        "N": "0"
+                    }, 
+                    "gene_fusions": {
+                        "L": [
+                            {
+                                "M": {
+                                    "level_of_evidence": {
+                                        "N": "2.0"
+                                    }, 
+                                    "identifier": {
+                                        "S": "ZMYM2-FGFR1.Z17F10"
+                                    }, 
+                                    "description": {
+                                        "S": "FGFR1 Gene Fusion"
+                                    }, 
+                                    "inclusion": {
+                                        "BOOL": true
+                                    }, 
+                                    "public_med_ids": {
+                                        "L": []
+                                    }, 
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    }, 
+                                    "gene": {
+                                        "S": "FGFR1"
+                                    }, 
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    }
+                                }
+                            }, 
+                            {
+                                "M": {
+                                    "level_of_evidence": {
+                                        "N": "2.0"
+                                    }, 
+                                    "identifier": {
+                                        "S": "FGFR1-PLAG1.F1P2.COSF1108"
+                                    }, 
+                                    "description": {
+                                        "S": "FGFR1 Gene Fusion"
+                                    }, 
+                                    "inclusion": {
+                                        "BOOL": false
+                                    }, 
+                                    "public_med_ids": {
+                                        "L": []
+                                    }, 
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    }, 
+                                    "gene": {
+                                        "S": "FGFR1"
+                                    }, 
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    }
+                                }
+                            }, 
+                            {
+                                "M": {
+                                    "level_of_evidence": {
+                                        "N": "2.0"
+                                    }, 
+                                    "identifier": {
+                                        "S": "FGFR1-PLAG1.F1P3.COSF1110"
+                                    }, 
+                                    "description": {
+                                        "S": "FGFR1 Gene Fusion"
+                                    }, 
+                                    "inclusion": {
+                                        "BOOL": true
+                                    }, 
+                                    "public_med_ids": {
+                                        "L": []
+                                    }, 
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    }, 
+                                    "gene": {
+                                        "S": "FGFR1"
+                                    }, 
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    }
+                                }
+                            }, 
+                            {
+                                "M": {
+                                    "level_of_evidence": {
+                                        "N": "2.0"
+                                    }, 
+                                    "identifier": {
+                                        "S": "FGFR1-TACC1.F17T7.COSF1362"
+                                    }, 
+                                    "description": {
+                                        "S": "FGFR1 Gene Fusion"
+                                    }, 
+                                    "inclusion": {
+                                        "BOOL": false
+                                    }, 
+                                    "public_med_ids": {
+                                        "L": [
+                                            {
+                                                "S": "23583981"
+                                            }
+                                        ]
+                                    }, 
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    }, 
+                                    "gene": {
+                                        "S": "FGFR1"
+                                    }, 
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    }
+                                }
+                            }, 
+                            {
+                                "M": {
+                                    "level_of_evidence": {
+                                        "N": "2.0"
+                                    }, 
+                                    "identifier": {
+                                        "S": "FGFR3-TACC3.F17Intron17T9"
+                                    }, 
+                                    "description": {
+                                        "S": "FGFR3 Gene Fusion"
+                                    }, 
+                                    "inclusion": {
+                                        "BOOL": true
+                                    }, 
+                                    "public_med_ids": {
+                                        "L": [
+                                            {
+                                                "S": "22837387"
+                                            }
+                                        ]
+                                    }, 
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    }, 
+                                    "gene": {
+                                        "S": "FGFR3"
+                                    }, 
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    }
+                                }
+                            }, 
+                            {
+                                "M": {
+                                    "level_of_evidence": {
+                                        "N": "2.0"
+                                    }, 
+                                    "identifier": {
+                                        "S": "FGFR3-TACC3.F17T4"
+                                    }, 
+                                    "description": {
+                                        "S": "FGFR3 Gene Fusion"
+                                    }, 
+                                    "inclusion": {
+                                        "BOOL": true
+                                    }, 
+                                    "public_med_ids": {
+                                        "L": []
+                                    }, 
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    }, 
+                                    "gene": {
+                                        "S": "FGFR3"
+                                    }, 
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    }
+                                }
+                            }
+                        ]
+                    }, 
+                    "name": {
+                        "S": "APEC1621-PEND_B"
+                    }
+                }
+            }, 
+            "version": {
+                "S": "5_2_2017-20_57_22"
+            }, 
+            "treatment_arm_id": {
+                "S": "APEC1621-PEND_B"
+            }
+        }, 
+        {
+            "info": {
+                "S": "npm-d-admin@outlook.com"
+            }, 
+            "version": {
+                "S": "5_2_2017-20_57_22"
+            }, 
+            "treatment_arm_id": {
+                "S": "APEC1621-PEND_B_pending"
+            }
+        }, 
+        {
+            "info": {
+                "M": {
+                    "non_hotspot_rules": {
+                        "L": []
+                    }, 
+                    "description": {
+                        "S": "Phase 2 study of LOXO-101 in patients with tumors with NTRK fusions."
+                    }, 
+                    "treatment_arm_id": {
+                        "S": "APEC1621-PEND_A"
+                    }, 
+                    "status_log": {
+                        "M": {}
+                    }, 
+                    "target_name": {
+                        "S": "LOXO-101"
+                    }, 
+                    "snv_indels": {
+                        "L": []
+                    }, 
+                    "copy_number_variants": {
+                        "L": []
+                    }, 
+                    "diseases": {
+                        "L": []
+                    }, 
+                    "exclusion_drugs": {
+                        "L": [
+                            {
+                                "M": {
+                                    "name": {
+                                        "S": "LOXO-101"
+                                    }, 
+                                    "drug_id": {
+                                        "S": "788607"
+                                    }
+                                }
+                            }, 
+                            {
+                                "M": {
+                                    "name": {
+                                        "S": "Entrectinib (RXDX-101)"
+                                    }, 
+                                    "drug_id": {
+                                        "S": "1"
+                                    }
+                                }
+                            }, 
+                            {
+                                "M": {
+                                    "name": {
+                                        "S": "DS6051"
+                                    }, 
+                                    "drug_id": {
+                                        "S": "1"
+                                    }
+                                }
+                            }, 
+                            {
+                                "M": {
+                                    "name": {
+                                        "S": "PLX7486"
+                                    }, 
+                                    "drug_id": {
+                                        "S": "1"
+                                    }
+                                }
+                            }
+                        ]
+                    }, 
+                    "treatment_arm_drugs": {
+                        "L": [
+                            {
+                                "M": {
+                                    "pathway": {
+                                        "S": "Receptor tyrosine kinase"
+                                    }, 
+                                    "drug_id": {
+                                        "S": "788607"
+                                    }, 
+                                    "name": {
+                                        "S": "LOXO-101"
+                                    }
+                                }
+                            }
+                        ]
+                    }, 
+                    "study_id": {
+                        "S": "APEC1621"
+                    }, 
+                    "assay_rules": {
+                        "L": []
+                    }, 
+                    "version": {
+                        "S": "2017-03-10T15:27:39+00:00"
+                    }, 
+                    "treatment_arm_status": {
+                        "S": "PENDING_CONFIRMATION"
+                    }, 
+                    "date_created": {
+                        "S": "2017-03-10T15:27:39+00:00"
+                    }, 
+                    "gene": {
+                        "S": "NTRK"
+                    }, 
+                    "num_patients_assigned": {
+                        "N": "0"
+                    }, 
+                    "gene_fusions": {
+                        "L": [
+                            {
+                                "M": {
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    }, 
+                                    "identifier": {
+                                        "S": "ARHGEF2-NTRK1.A21N10"
+                                    }, 
+                                    "description": {
+                                        "S": "NTRK1 Gene Fusion"
+                                    }, 
+                                    "inclusion": {
+                                        "BOOL": true
+                                    }, 
+                                    "public_med_ids": {
+                                        "L": [
+                                            {
+                                                "S": "25384085"
+                                            }
+                                        ]
+                                    }, 
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    }, 
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    }, 
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    }
+                                }
+                            }, 
+                            {
+                                "M": {
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    }, 
+                                    "identifier": {
+                                        "S": "LMNA-NTRK1.L11N11"
+                                    }, 
+                                    "description": {
+                                        "S": "NTRK1 Gene Fusion"
+                                    }, 
+                                    "inclusion": {
+                                        "BOOL": false
+                                    }, 
+                                    "public_med_ids": {
+                                        "L": []
+                                    }, 
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    }, 
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    }, 
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    }
+                                }
+                            }, 
+                            {
+                                "M": {
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    }, 
+                                    "identifier": {
+                                        "S": "LMNA-NTRK1.L2N11"
+                                    }, 
+                                    "description": {
+                                        "S": "NTRK1 Gene Fusion"
+                                    }, 
+                                    "inclusion": {
+                                        "BOOL": true
+                                    }, 
+                                    "public_med_ids": {
+                                        "L": [
+                                            {
+                                                "S": "24445538"
+                                            }
+                                        ]
+                                    }, 
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    }, 
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    }, 
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    }
+                                }
+                            }, 
+                            {
+                                "M": {
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    }, 
+                                    "identifier": {
+                                        "S": "LMNA-NTRK1.L3N11"
+                                    }, 
+                                    "description": {
+                                        "S": "NTRK1 Gene Fusion"
+                                    }, 
+                                    "inclusion": {
+                                        "BOOL": true
+                                    }, 
+                                    "public_med_ids": {
+                                        "L": []
+                                    }, 
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    }, 
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    }, 
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    }
+                                }
+                            }, 
+                            {
+                                "M": {
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    }, 
+                                    "identifier": {
+                                        "S": "LMNA-NTRK1.L5N10"
+                                    }, 
+                                    "description": {
+                                        "S": "NTRK1 Gene Fusion"
+                                    }, 
+                                    "inclusion": {
+                                        "BOOL": true
+                                    }, 
+                                    "public_med_ids": {
+                                        "L": []
+                                    }, 
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    }, 
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    }, 
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    }
+                                }
+                            }, 
+                            {
+                                "M": {
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    }, 
+                                    "identifier": {
+                                        "S": "LMNA-NTRK1.L6N12"
+                                    }, 
+                                    "description": {
+                                        "S": "NTRK1 Gene Fusion"
+                                    }, 
+                                    "inclusion": {
+                                        "BOOL": true
+                                    }, 
+                                    "public_med_ids": {
+                                        "L": []
+                                    }, 
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    }, 
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    }, 
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    }
+                                }
+                            }, 
+                            {
+                                "M": {
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    }, 
+                                    "identifier": {
+                                        "S": "MPRIP-NTRK1.M14N12"
+                                    }, 
+                                    "description": {
+                                        "S": "NTRK1 Gene Fusion"
+                                    }, 
+                                    "inclusion": {
+                                        "BOOL": false
+                                    }, 
+                                    "public_med_ids": {
+                                        "L": [
+                                            {
+                                                "S": "24162815"
+                                            }
+                                        ]
+                                    }, 
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    }, 
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    }, 
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    }
+                                }
+                            }, 
+ 
+                            {
+                                "M": {
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    }, 
+                                    "identifier": {
+                                        "S": "RBPMS-NTRK3.R5N14"
+                                    }, 
+                                    "description": {
+                                        "S": "NTRK3 Gene Fusions"
+                                    }, 
+                                    "inclusion": {
+                                        "BOOL": false
+                                    }, 
+                                    "public_med_ids": {
+                                        "L": [
+                                            {
+                                                "S": "25384085"
+                                            }
+                                        ]
+                                    }, 
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    }, 
+                                    "gene": {
+                                        "S": "NTRK3"
+                                    }, 
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    }
+                                }
+                            }
+                        ]
+                    }, 
+                    "name": {
+                        "S": "APEC1621-PEND_A"
+                    }
+                }
+            }, 
+            "version": {
+                "S": "5_2_2017-20_57_22"
+            }, 
+            "treatment_arm_id": {
+                "S": "APEC1621-PEND_A"
+            }
+        }, 
+        {
+            "info": {
+                "S": "npm-d-admin@outlook.com"
+            }, 
+            "version": {
+                "S": "5_2_2017-20_57_22"
+            }, 
+            "treatment_arm_id": {
+                "S": "APEC1621-PEND_A_pending"
+            }
+        }
+    ], 
+    "ScannedCount": 4, 
+    "ConsumedCapacity": null
+}`

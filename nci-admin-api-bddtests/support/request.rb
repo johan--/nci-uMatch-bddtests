@@ -90,10 +90,10 @@ module Request
         method: :get,
         headers: headers
         )
-
-      get_response['status']    = response.code.match(/20(\d)/) ? 'Success' : 'Failure'
+      
+      get_response['status']    = response.code.to_s.match(/20(\d)/) ? 'Success' : 'Failure'
       get_response['http_code'] = response.code
-      get_response['message']   = response.message
+      get_response['message']   = response.body
 
       if get_response['status'] == "Failure"
         puts get_response['message']
