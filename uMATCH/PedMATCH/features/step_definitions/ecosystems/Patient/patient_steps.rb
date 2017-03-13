@@ -531,7 +531,7 @@ And(/^patient should have variant file received event with file_name "([^"]*)" a
   events = Patient_helper_methods.get_any_result_from_url(url)
   expect(events.class).to eq Array
   filtered_events = events.select { |event|
-    event['event_message'].include?('Variant Report file received') }
+    event['event_message'].include?('Variant Report file') }
   filtered_events = filtered_events.select { |event|
     event['event_data']['file_name']==file_name&&event['event_data']['analysis_id']==ani }
   expect(filtered_events.size).to eq 1

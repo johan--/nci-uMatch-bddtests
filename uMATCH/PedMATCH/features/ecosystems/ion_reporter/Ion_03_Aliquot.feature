@@ -55,7 +55,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "cdna_bam_name" value: "cdna.bam" to message body
     Then add field: "qc_name" value: "10-10-2016.pdf" to message body
     When PUT to aliquot service, response includes "Item updated" with code "200"
-    Then wait until patient is updated
+    Then wait until patient variant report is updated
     Then patient should have variant report (analysis_id: "ION_AQ02_TsShipped_ANI1")
     And this variant report field: "tsv_file_name" should be "test1.tsv"
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/test1.tsv" should be available in S3
@@ -69,7 +69,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "cdna_bam_name" value: "cdna.bam" to message body
     Then add field: "qc_name" value: "10-10-2016.pdf" to message body
     When PUT to aliquot service, response includes "Item updated" with code "200"
-    Then wait until patient is updated
+    Then wait until patient variant report is updated
     Then patient should have variant report (analysis_id: "ION_AQ02_TsShipped_ANI2")
     And this variant report field: "tsv_file_name" should be "test1.tsv"
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/test1.tsv" should be available in S3
@@ -98,7 +98,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "cdna_bam_name" value: "cdna.bam" to message body
     Then add field: "qc_name" value: "10-10-2016.pdf" to message body
     When PUT to aliquot service, response includes "Item updated" with code "200"
-    Then wait until patient is updated
+    Then wait until patient variant report is updated
     Then patient should have variant report (analysis_id: "ION_AQ03_BdShipped_ANI1")
     And this variant report field: "tsv_file_name" should be "test1.tsv"
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/test1.tsv" should be available in S3
@@ -112,7 +112,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "cdna_bam_name" value: "cdna.bam" to message body
     Then add field: "qc_name" value: "10-10-2016.pdf" to message body
     When PUT to aliquot service, response includes "Item updated" with code "200"
-    Then wait until patient is updated
+    Then wait until patient variant report is updated
     Then patient should have variant report (analysis_id: "ION_AQ03_BdShipped_ANI2")
     And this variant report field: "tsv_file_name" should be "test1.tsv"
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/test1.tsv" should be available in S3
