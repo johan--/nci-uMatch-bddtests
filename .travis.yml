@@ -106,7 +106,7 @@ script:
     fi
 
   # Generate html report
-  - cd nci-admin-ui-bddtests
+  - cd nci-match-ui-bddtests
   - touch ../results/tmp.json
   - for filename in ../results/*.json; do filesize=$(wc -c <"$filename"); if [ $filesize -le 0 ]; then echo $filename is 0 bytes, deleted it; rm $filename; fi; done
   - node support/generate_report.js
