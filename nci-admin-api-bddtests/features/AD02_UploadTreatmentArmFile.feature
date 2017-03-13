@@ -31,7 +31,7 @@ Then I "should" see a "Success" message
 And I "should not" see the treatment arm "doesNotExistSheet" and version "1.1.2017_100" in the pending treatment arm table
 
 Scenario Outline: Missing a <parameter> parameter should cause the request to fail
-When I upload file with missing "<parameter>"
+When I upload file "select_one_ta_test.xlsx-1.1.2017_100" with missing "<parameter>"
 Then I "should" see a "Failure" message
 Examples:
 | parameter 				|
@@ -40,7 +40,7 @@ Examples:
 | version        		|
 
 Scenario Outline: Having a null <parameter> should cause the request to fail
-When I upload file with the "<paramter>" value as nil
+When I upload file "select_one_ta_test.xlsx-1.1.2017_100" with the "<paramter>" value as nil
 Then I "should" see a "Failure" message
 Examples:
 | parameter 				|

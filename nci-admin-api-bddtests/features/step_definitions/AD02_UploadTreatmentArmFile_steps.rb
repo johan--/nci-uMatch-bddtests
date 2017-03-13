@@ -28,7 +28,6 @@ When(/^I upload file "([^"]*)" selecting all TAs with version "([^"]*)"$/) do |f
   	version: version
   }
   @response = Request.post_request(request, body)
-  
 end
 
 Then(/^I collect a list of entries from pending treatment arm table$/) do
@@ -63,6 +62,23 @@ Then(/^I "([^"]*)" see the treatment arm "([^"]*)" and version "([^"]*)" in the 
   @treatment_arm_id = treatment_arm
   @version = version
   step %{I "#{see_or_not}" see the treatment arm in the pending treatment arm table}
+end
+
+When(/^I upload file "([^"]*)" with missing "([^"]*)"$/) do |file_name, field|
+  body = {
+    excel_book_name: file_name,
+    excel_sheet_names: ["default"],
+    version: @version
+  }
+  body.delete(field.to_sym)
+  p "this is the body \n #{body}"
+  request = "#{@admin_endpoint}/api/v1/admintool/upload_to_aws?user=#{@user}"
+  @response = Request.post_request(request, body)
+  p @response
+end
+
+When(/^I upload file with the "([^"]*)" value as nil$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
 end
 
 

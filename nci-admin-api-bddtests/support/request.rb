@@ -100,13 +100,9 @@ module Request
       end
     rescue StandardError => err
       get_response['status'] = 'Failure'
-      get_response['http_code'] = '500'
+      get_response['http_code'] = err.respond_to?(:http_code) ? err.http_code : 500 
+      get_response['message'] = err.respond_to?(:response) ? err.response : err.message
 
-      if err.respond_to? :response
-        get_response['message'] = err.response
-      else
-        get_response['message'] = err.message
-      end
       return get_response
     end
     get_response

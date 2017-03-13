@@ -23,6 +23,6 @@ Then(/^I "(should|should not)" see a "([^"]*)" message$/) do |see_or_not, messag
 end
 
 Then(/^I should see a status code of "([^"]*)"$/) do |status_code|
-  expect(@response['http_code']).to eql(status_code)
+  expect(@response['http_code'].to_s).to eql(status_code)
 end
 

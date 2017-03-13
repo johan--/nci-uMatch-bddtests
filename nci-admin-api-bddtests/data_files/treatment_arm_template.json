@@ -1,0 +1,71 @@
+{
+	"non_hotspot_rules": [ {
+		"function": "Deleterious",
+		"oncomine_variant_class": "Deleterious",
+		"func_gene": "PIK3R1",
+		"inclusion": true,
+		"public_med_ids": [],
+		"exon": "iSH2 domain aa 414-622",
+		"level_of_evidence": 3,
+		"type": "nhr",
+		"arm_specific": false
+	}],
+	"description": "LY3023414 in PI3K/mTOR pathway aberrations",
+	"status_log": {},
+	"target_name": "LY3023414",
+	"snv_indels": [{
+		"gene": "MTOR",
+		"ocp_reference": "G",
+		"identifier": "COSM51889",
+		"inclusion": true,
+		"public_med_ids": ["24631838"],
+		"variant_type": "snp",
+		"ocp_alternative": "A",
+		"position": "11184559",
+		"level_of_evidence": 3,
+		"arm_specific": false,
+		"chromosome": "chr1",
+		"description": "Missense"
+	}],
+	"treatment_arm_drugs": [{
+		"drug_id": "783668",
+		"name": "LY3023414"
+	}],
+	"assay_rules": [{
+		"assay_variant": "PRESENT",
+		"level_of_evidence": 3,
+		"type": "IHC",
+		"assay_result_status": "POSITIVE",
+		"gene": "PTEN"
+	}],
+	"gene_fusions": [{
+		"gene": "BRAF",
+		"identifier": "AGAP3-BRAF.A10B11",
+		"inclusion": false,
+		"public_med_ids": [],
+		"variant_type": "fusion",
+		"level_of_evidence": 2,
+		"arm_specific": false
+	}],
+	"treatment_arm_status": "PENDING_CONFIRMATION",
+	"exclusion_drugs": [{
+		"drug_id": "783668",
+		"drug_class": "PI3K/mTOR",
+		"name": "LY3023414"
+	}],
+	"diseases": [{
+		"disease_code_type": "ICD-O",
+		"disease_code": "9384-1",
+		"disease_name": "Subependymal giant cell astrocytoma (C71._)",
+		"exclusion": true
+	}],
+	"stratum_id": "2",
+	"name": "APEC1621D2",
+	"copy_number_variants": [],
+	"treatment_arm_id": "APEC1621D2",
+	"study_id": "APEC1621",
+	"version": "2017-03-03T19:40:54+00:00",
+	"date_created": "2017-03-03T19:40:54+00:00",
+	"gene": "PI3K",
+	"num_patients_assigned": 0
+}

@@ -1,3 +1,4 @@
+@admin_api_p1
 Feature: Treatment arm validation
 As an admin user
 I want to make sure that when I post a file
@@ -10,38 +11,31 @@ Scenario: A valid treatment arm is accepted into pending treatment arm table
 Given I retrieve the template for treatment arm
 And I substitute "APEC1621-test" for the "treatment_arm_id"
 And I substitute "stratum100" for the "stratum_id"
-When I issue a post request for validation at level "" with the treatment arm
-Then I should receive a success response
-And I should see the treatment arm in the pending treatment arms table. 
-
+And I substitute "2_1_0" for the "version"
+When I issue a post request for validation at level "all" with the treatment arm
+Then I "should" see a "Success" message
+And I "should" see the treatment arm in the pending treatment arm table
 
 Scenario Outline: A treatment arm with any of the important fields missing should fail validation
 Given I retrieve the template for treatment arm
 And I remove the field "<field>" from the template
-When I issue a post request for validation at level "" with the treatment arm
-Then I should receive a failed response of "<error_code>"
-And I should see the reason of rejection as "<reason>"
+When I issue a post request for validation at level "<validation_level>" with the treatment arm
+Then I "should" see a "Success" message
+And I "should" see "false" value under the "passed" field
+And I "should" see "<reason>" value under the "error_message" field
 Examples:
-	| field 								| reason | error_code |
-	| treatment_arm_id 			| fail | 500 | 
-	| name 									| fail | 500 | 
-	| date_created 					| fail | 500 | 
-	| version 							| fail | 500 | 
-	| stratum_id 						| fail | 500 | 
-	| description 					| fail | 500 | 
-	| target_id 						| fail | 500 | 
-	| target_name 					| fail | 500 | 
-	| gene 									| fail | 500 | 
-	| treatment_arm_status 	| fail | 500 | 
-	| study_id 							| fail | 500 | 
-	| assay_rules 					| fail | 500 | 
-	| num_patients_assigned | fail | 500 | 
-	| date_opened 					| fail | 500 | 
-	| status_log 						| fail | 500 | 
-	| treatment_arm_drugs 	| fail | 500 | 
-	| snv_indels 						| fail | 500 | 
-	| non_hotspot_rules 		| fail | 500 | 
-	| copy_number_variants 	| fail | 500 | 
-	| gene_fusions 					| fail | 500 | 
-	| diseases 							| fail | 500 | 
-	| exclusion_drugs				| fail | 500 | 
+	| field 								| validation_level | reason |
+	| treatment_arm_id 			| all |The field treatment_arm_id must exist within the treatment arm. |
+	| name 									| all |The field name must exist within the treatment arm. |
+	| version 							| all |The field version must exist within the treatment arm. |
+	| stratum_id 						| all |The field stratum_id must exist within the treatment arm. |
+	| gene 									| all |The field gene must exist within the treatment arm. |
+	| study_id 							| all |The field study_id must exist within the treatment arm. |
+	| assay_rules 					| all |The field assay_rules must exist within the treatment arm. |
+	| treatment_arm_drugs 	| all |The field treatment_arm_drugs must exist within the treatment arm. |
+	| snv_indels 						| all |The field snv_indels must exist within the treatment arm. |
+	| non_hotspot_rules 		| all |The field non_hotspot_rules must exist within the treatment arm. |
+	| copy_number_variants 	| all |The field copy_number_variants must exist within the treatment arm. |
+	| gene_fusions 					| all |The field gene_fusions must exist within the treatment arm. |
+	| diseases 							| all |The field diseases must exist within the treatment arm. |
+	| exclusion_drugs				| all |The field exclusion_drugs must exist within the treatment arm. |
