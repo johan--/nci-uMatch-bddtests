@@ -175,16 +175,16 @@ class Patient06A
     pt = PatientDataSet.new('PT_VU17_TsShippedTwice')
     PatientMessageLoader.register_patient(pt.id)
     PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
-    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
-    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi_increase)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-05-01T19:42:13+00:00')
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi_increase, '2016-05-01T23:42:13+00:00')
   end
 
   def self.pt_vu17_bd_shipped_twice
     pt = PatientDataSet.new('PT_VU17_BdShippedTwice')
     PatientMessageLoader.register_patient(pt.id)
     PatientMessageLoader.specimen_received_blood(pt.id)
-    PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)
-    PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi_increase)
+    PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi, '2016-05-02T19:42:13+00:00')
+    PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi_increase, '2016-05-02T23:42:13+00:00')
   end
 
   def self.pt_vu17_ts_vr_uploaded

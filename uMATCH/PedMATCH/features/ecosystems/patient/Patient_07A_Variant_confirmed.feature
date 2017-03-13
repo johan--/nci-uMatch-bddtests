@@ -163,7 +163,7 @@ Feature: Variant files confirmed messages
       | PT_VC10_VRUploadedMOIExpired | PT_VC10_VRUploadedMOIExpired_ANI1 |
       | PT_VC10_VRUploadedANIExpired | PT_VC10_VRUploadedANIExpired_ANI1 |
 
-  @patients_p2
+  @patients_p3
   Scenario Outline: PT_VC11. variant report confirm message with invalid status should fail
     Given patient id is "PT_VC11_VRUploaded"
     Then load template variant report confirm message for analysis id: "PT_VC11_VRUploaded_ANI1"
