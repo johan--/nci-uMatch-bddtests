@@ -98,17 +98,18 @@ script:
     if [ "$CUC_TAG" == "@admin_ui" ]; then
       cd nci-admin-ui-bddtests/;
       protractor conf.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags='$CUC_TAG$P1,$CUC_TAG$P2' --troubleshoot
+      cd ..
     else
       if [ "$CUC_TAG" == "@ui" -o "$CUC_TAG" == "@demo" ]; then
         cd nci-match-ui-bddtests/
         protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$P1,$CUC_TAG$P2 --troubleshoot
+        cd ..
       fi
     fi
 
   # Generate html report
-  - ls -alt ../results
+  - cd nci-admin-ui-bddtests
   - for filename in ../results/*.json; do filesize=$(wc -c <"$filename"); if [ $filesize -le 0 ]; then echo $filename is 0 bytes, deleted it; rm $filename; fi; done
-  - pwd
   - node support/generate_report.js
   - cd ..
   - ls -alt
