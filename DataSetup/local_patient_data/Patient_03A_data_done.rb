@@ -255,50 +255,68 @@ class Patient03A
     PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
   end
 
-  def self.pt_ss28_tissue_received1
-    pt = PatientDataSet.new('PT_SS28_TissueReceived1')
+  def self.pt_ss28_ts_received1
+    pt = PatientDataSet.new('PT_SS28_TsReceived1')
     PatientMessageLoader.register_patient(pt.id)
     PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
   end
 
-  def self.pt_ss28_tissue_received2
-    pt = PatientDataSet.new('PT_SS28_TissueReceived2')
+  def self.pt_ss28_ts_received2
+    pt = PatientDataSet.new('PT_SS28_TsReceived2')
     PatientMessageLoader.register_patient(pt.id)
     PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
   end
 
-  def self.pt_ss28_tissue_received3
-    pt = PatientDataSet.new('PT_SS28_TissueReceived3')
+  def self.pt_ss28_ts_received3
+    pt = PatientDataSet.new('PT_SS28_TsReceived3')
     PatientMessageLoader.register_patient(pt.id)
     PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
   end
 
-  def self.pt_ss28_tissue_received4
-    pt = PatientDataSet.new('PT_SS28_TissueReceived4')
+  def self.pt_ss28_ts_received4
+    pt = PatientDataSet.new('PT_SS28_TsReceived4')
     PatientMessageLoader.register_patient(pt.id)
     PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
   end
 
-  def self.pt_ss28_tissue_received5
-    pt = PatientDataSet.new('PT_SS28_TissueReceived5')
+  def self.pt_ss28_ts_received5
+    pt = PatientDataSet.new('PT_SS28_TsReceived5')
     PatientMessageLoader.register_patient(pt.id)
     PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
   end
 
-  def self.pt_ss28_blood_received1
-    pt = PatientDataSet.new('PT_SS28_BloodReceived1')
+  def self.pt_ss28_ts_received6
+    pt = PatientDataSet.new('PT_SS28_TsReceived6')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+  end
+
+  def self.pt_ss28_ts_received7
+    pt = PatientDataSet.new('PT_SS28_TsReceived7')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+  end
+
+  def self.pt_ss28_bd_received1
+    pt = PatientDataSet.new('PT_SS28_BdReceived1')
     PatientMessageLoader.register_patient(pt.id)
     PatientMessageLoader.specimen_received_blood(pt.id)
   end
 
-  def self.pt_ss28_blood_received2
-    pt = PatientDataSet.new('PT_SS28_BloodReceived2')
+  def self.pt_ss28_bd_received2
+    pt = PatientDataSet.new('PT_SS28_BdReceived2')
     PatientMessageLoader.register_patient(pt.id)
     PatientMessageLoader.specimen_received_blood(pt.id)
   end
 
-  def self.pt_ss28_blood_received3
-    pt = PatientDataSet.new('PT_SS28_BloodReceived3')
+  def self.pt_ss28_bd_received3
+    pt = PatientDataSet.new('PT_SS28_BdReceived3')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_blood(pt.id)
+  end
+
+  def self.pt_ss28_bd_received4
+    pt = PatientDataSet.new('PT_SS28_BdReceived4')
     PatientMessageLoader.register_patient(pt.id)
     PatientMessageLoader.specimen_received_blood(pt.id)
   end

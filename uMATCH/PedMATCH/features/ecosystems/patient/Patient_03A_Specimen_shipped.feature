@@ -1,6 +1,7 @@
 #encoding: utf-8
 @specimen_shipped
 Feature: NCH Specimen shipped messages
+
   Background:
     Given patient API user authorization role is "SPECIMEN_MESSAGE_SENDER"
 
@@ -423,19 +424,22 @@ Feature: NCH Specimen shipped messages
     Given patient id is "<patient_id>"
     And load template specimen type: "<type>" shipped message for this patient
     Then set patient message field: "surgical_event_id" to value: "<sei>"
-    Then set patient message field: "<field>" to value: "<patient_id><suffix>"
+    Then set patient message field: "<field>" to value: "<patient_id>_shipmentID"
     Then set patient message field: "destination" to value: "<site>"
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
-      | patient_id              | sei                          | field         | type   | site  | code | message      |
-      | PT_SS28_TissueReceived1 | PT_SS28_TissueReceived1_SEI1 | molecular_id  | TISSUE | MoCha | 202  | successfully |
-      | PT_SS28_TissueReceived2 | PT_SS28_TissueReceived2_SEI1 | molecular_id  | TISSUE | MDA   | 202  | successfully |
-      | PT_SS28_TissueReceived3 | PT_SS28_TissueReceived3_SEI1 | molecular_id  | TISSUE | Other | 403  | destination  |
-      | PT_SS28_TissueReceived4 | PT_SS28_TissueReceived4_SEI1 | slide_barcode | SLIDE  | MDA   | 202  | successfully |
-      | PT_SS28_TissueReceived5 | PT_SS28_TissueReceived5_SEI1 | slide_barcode | SLIDE  | MoCha | 403  | destination  |
-      | PT_SS28_BloodReceived1  |                              | molecular_id  | BLOOD  | MoCha | 202  | successfully |
-      | PT_SS28_BloodReceived2  |                              | molecular_id  | BLOOD  | MDA   | 202  | successfully |
-      | PT_SS28_BloodReceived3  |                              | molecular_id  | BLOOD  | mda   | 403  | destination  |
+      | patient_id          | sei                      | field         | type   | site      | code | message      |
+      | PT_SS28_TsReceived1 | PT_SS28_TsReceived1_SEI1 | molecular_id  | TISSUE | MoCha     | 202  | successfully |
+      | PT_SS28_TsReceived2 | PT_SS28_TsReceived2_SEI1 | molecular_id  | TISSUE | MDA       | 202  | successfully |
+      | PT_SS28_TsReceived3 | PT_SS28_TsReceived3_SEI1 | molecular_id  | TISSUE | Other     | 403  | destination  |
+      | PT_SS28_TsReceived4 | PT_SS28_TsReceived4_SEI1 | slide_barcode | SLIDE  | MDA       | 202  | successfully |
+      | PT_SS28_TsReceived5 | PT_SS28_TsReceived5_SEI1 | slide_barcode | SLIDE  | MoCha     | 403  | destination  |
+#      | PT_SS28_TsReceived6 | PT_SS28_TsReceived6_SEI1 | molecular_id  | TISSUE | Dartmouth | 202  | successfully |
+#      | PT_SS28_TsReceived7 | PT_SS28_TsReceived7_SEI1 | slide_barcode | SLIDE  | Dartmouth | 403  | destination  |
+      | PT_SS28_BdReceived1 |                          | molecular_id  | BLOOD  | MoCha     | 202  | successfully |
+      | PT_SS28_BdReceived2 |                          | molecular_id  | BLOOD  | MDA       | 202  | successfully |
+      | PT_SS28_BdReceived3 |                          | molecular_id  | BLOOD  | mda       | 403  | destination  |
+#      | PT_SS28_BdReceived4 |                          | molecular_id  | BLOOD  | Dartmouth | 202  | successfully |
 
 #  This test case is not required
 #  Scenario Outline: PT_SS29. Blood and tissue shippment should has same destination (?? not sure)
