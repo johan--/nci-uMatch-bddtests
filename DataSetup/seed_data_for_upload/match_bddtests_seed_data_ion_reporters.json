@@ -514,7 +514,7 @@
                 "S": "IR_MCA05"
             },
             "site": {
-                "S": "mocha"
+                "S": "dartmouth"
             },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:37.632102"
