@@ -600,7 +600,7 @@ Feature: Patient GET service valid special case tests
       | PT_SC09_OnTreatmentArm      | c880353f-421d-4bbe-8fa1-6a3cc38f1408 | 2017-03-14T05:11:11+00:00 |
       | PT_SC09_TsReceivedStep2     | 1acf4d9c-b42b-4d7c-82ec-fa4334419767 | 2017-03-14T05:13:15+00:00 |
 
-  @patients_p2
+  @patients_p3
   Scenario Outline: PT_09b invalid assignment report download request should fail
     Given patient id is "<patient_id>"
     And patient GET service: "assignment_report", patient id: "<patient_id>", id: "<uuid>"
