@@ -25,22 +25,27 @@ module Auth0Client
 	def get_auth0_token(role)
 		raise "Provided role: #{role} is not a valid role" unless role_valid?(role)
 		token_name = "#{role}_UI_AUTH0_TOKEN"
+		token_value = create_auth0_message(role)
+		url = "https://#{ENV['AUTH0_DOMAIN']}/oauth/ro"
 ####################################################################################
 		puts "token_name: #{token_name}"
 		puts "AUTH0_DOMAIN = #{ENV['AUTH0_DOMAIN']}"
+		puts "token_value = #{token_value}"
+		puts "url = #{url}"
+		puts "payLod: #{create_auth0_message(role)}"
 ####################################################################################
-		token_value = create_auth0_message(role)
+		
 
 		if ENV[token_name].to_s.empty?  # check for nil or empty
 			begin
 				response = RestClient::Request.execute(
 						method: :post,
-						url: "https://#{ENV['AUTH0_DOMAIN']}/oauth/ro",
+						url: url,
 						verify_ssl: false,
 						payload: create_auth0_message(role),
 						headers: {
-							content_type: 'application/json',
-							accept: 'application/json'
+							content_type: :json,
+							accept: :json
 						}
 					)
 			rescue => e
