@@ -930,5 +930,98 @@ class Patient5xA
     PatientMessageLoader.assignment_confirmed(pt.id, pt.ani,'Assignment 3')
   end
 
+  def self.pt_sc08_ts_vr_uploaded_twice
+    pt = PatientDataSet.new('PT_SC08_TsVrUploadedTwice')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+    PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+    PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
+    PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani_increase)
+    PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
+  end
 
+  def self.pt_sc08_bd_vr_uploaded_twice
+    pt = PatientDataSet.new('PT_SC08_BdVrUploadedTwice')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_blood(pt.id)
+    PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)
+    PatientMessageLoader.variant_file_uploaded(pt.id, pt.bd_moi, pt.ani)
+    PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.bd_moi, pt.ani)
+    PatientMessageLoader.variant_file_uploaded(pt.id, pt.bd_moi, pt.ani_increase)
+    PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.bd_moi, pt.ani)
+  end
+
+
+  def self.pt_sc09_pending_confirmation
+    pt = PatientDataSet.new('PT_SC09_PendingConfirmation')
+    PatientMessageLoader.reset_cog_patient(pt.id)
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+    PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBAF47s')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBRG1s')
+    PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+    PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
+    PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.ani)
+  end
+
+  def self.pt_sc09_pending_approval
+    pt = PatientDataSet.new('PT_SC09_PendingApproval')
+    PatientMessageLoader.reset_cog_patient(pt.id)
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+    PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBAF47s')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBRG1s')
+    PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+    PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
+    PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.ani)
+    sleep(10.0)
+    PatientMessageLoader.assignment_confirmed(pt.id, pt.ani)
+  end
+
+  def self.pt_sc09_on_treatment_arm
+    pt = PatientDataSet.new('PT_SC09_OnTreatmentArm')
+    PatientMessageLoader.reset_cog_patient(pt.id)
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei, '2016-04-15')
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+    PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBAF47s')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBRG1s')
+    PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+    PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
+    PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.ani)
+    sleep(10.0)
+    PatientMessageLoader.assignment_confirmed(pt.id, pt.ani)
+    sleep(10.0)
+    PatientMessageLoader.on_treatment_arm(pt.id, 'APEC1621-A')
+  end
+
+  def self.pt_sc09_ts_received_step2
+    pt = PatientDataSet.new('PT_SC09_TsReceivedStep2')
+    PatientMessageLoader.reset_cog_patient(pt.id)
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+    PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBAF47s')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBRG1s')
+    PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+    PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
+    PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.ani)
+    sleep(10.0)
+    PatientMessageLoader.assignment_confirmed(pt.id, pt.ani)
+    sleep(10.0)
+    PatientMessageLoader.on_treatment_arm(pt.id, 'APEC1621-A')
+    PatientMessageLoader.request_assignment(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei_increase)
+  end
 end

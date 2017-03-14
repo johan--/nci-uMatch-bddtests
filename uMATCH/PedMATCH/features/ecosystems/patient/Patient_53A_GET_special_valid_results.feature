@@ -559,3 +559,53 @@ Feature: Patient GET service valid special case tests
       | PT_SC07c_PendingApproval | Assignment 1 |
       | PT_SC07c_PendingApproval | Assignment 2 |
       | PT_SC07c_PendingApproval | Assignment 3 |
+
+  @patients_p11
+  Scenario Outline: PT_08a variant report can be downloaded properly
+    Given patient id is "<patient_id>"
+    And patient GET service: "variant_report", patient id: "<patient_id>", id: "<ani>"
+    When GET from MATCH patient API, http code "200" should return
+    Then save response from "variant" report download service to temp file
+    Then the saved variant report should have patient id "<patient_id>", analysis id "<ani>"
+    Examples:
+      | patient_id                | ani                            |
+      | PT_SC08_TsVrUploadedTwice | PT_SC08_TsVrUploadedTwice_ANI1 |
+      | PT_SC08_TsVrUploadedTwice | PT_SC08_TsVrUploadedTwice_ANI2 |
+      | PT_SC08_BdVrUploadedTwice | PT_SC08_BdVrUploadedTwice_ANI1 |
+      | PT_SC08_BdVrUploadedTwice | PT_SC08_BdVrUploadedTwice_ANI2 |
+
+  @patients_p2
+  Scenario Outline: PT_08b invalid variant report download request should fail
+    Given patient id is "<patient_id>"
+    And patient GET service: "variant_report", patient id: "<patient_id>", id: "<ani>"
+    When GET from MATCH patient API, http code "404" should return
+    Examples:
+      | patient_id                | ani                            |
+      | PT_SC08_TsVrUploadedTwice | PT_SC08_BdVrUploadedTwice_ANI1 |
+      | PT_SC08_TsVrUploadedTwice | non_existing_ani               |
+      | PT_SC08_BdVrUploadedTwice | PT_SC08_TsVrUploadedTwice_ANI2 |
+      | PT_SC08_BdVrUploadedTwice | non_existing_ani               |
+
+  @patients_p1
+  Scenario Outline: PT_09a assignment report can be downloaded properly
+    Given patient id is "<patient_id>"
+    And patient GET service: "assignment_report", patient id: "<patient_id>", id: "<uuid>"
+    When GET from MATCH patient API, http code "200" should return
+    Then save response from "assignment" report download service to temp file
+    Then the saved assignment report should have patient id "<patient_id>", assignment date "<date>"
+    Examples:
+      | patient_id                  | uuid                                 | date                      |
+      | PT_SC09_PendingConfirmation | 301f05b2-a7b3-4305-8c2b-30bee9f258e1 | 2017-03-14T05:09:13+00:00 |
+      | PT_SC09_PendingApproval     | bdd3b258-d868-4358-90ed-fcbb73230de1 | 2017-03-14T05:10:25+00:00 |
+      | PT_SC09_OnTreatmentArm      | c880353f-421d-4bbe-8fa1-6a3cc38f1408 | 2017-03-14T05:11:11+00:00 |
+      | PT_SC09_TsReceivedStep2     | 1acf4d9c-b42b-4d7c-82ec-fa4334419767 | 2017-03-14T05:13:15+00:00 |
+
+  @patients_p2
+  Scenario Outline: PT_09b invalid assignment report download request should fail
+    Given patient id is "<patient_id>"
+    And patient GET service: "assignment_report", patient id: "<patient_id>", id: "<uuid>"
+    When GET from MATCH patient API, http code "404" should return
+    Examples:
+      | patient_id                  | uuid                                 |
+      | PT_SC09_PendingConfirmation | non_existing_uuid                    |
+      | PT_SC09_PendingApproval     | 301f05b2-a7b3-4305-8c2b-30bee9f258e1 |

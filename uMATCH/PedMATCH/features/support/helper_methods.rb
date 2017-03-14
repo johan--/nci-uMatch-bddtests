@@ -84,6 +84,20 @@ class Helper_Methods
     return result
   end
 
+  def self.simple_get_download(service, output_file, auth0_on = true, auth0_role = 'ADMIN')
+    #do not use RestClient, because cucumber use UTF-8, which will cause encoding problem when writing binary file
+    @get_response={}
+    headers = {}
+    if auth0_on
+      Auth0Token.add_auth0_if_needed(headers, auth0_role)
+      header = "--header 'Authorization:#{headers['Authorization']}'"
+    else
+      header = ''
+    end
+    cmd = "curl -o #{output_file} #{header} #{service} &> /dev/null"
+    `#{cmd}`
+  end
+
   def Helper_Methods.simple_get_request(service, auth0_on = true, auth0_role = 'ADMIN')
     @get_response={}
     headers = {}

@@ -5,6 +5,8 @@ gem "rails"
 
 gem 'rubyXL'
 
+gem 'roo'  #comparing with rubyXL, roo can parse downloaded assignment report and variant report properly
+
 gem 'mongo', '~>2.0'
 
 gem 'rest-client', '~>1.8.0'
