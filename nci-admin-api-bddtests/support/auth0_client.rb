@@ -18,7 +18,7 @@ module Auth0Client
     	"password": user_details[:password],
     	"grant_type": "password",
     	"scope": "openid email roles",
-    	"connection":  "MATCH-Development"
+    	"connection":  ENV['AUTH0_DATABASE']
 		}.to_json
 	end
 
