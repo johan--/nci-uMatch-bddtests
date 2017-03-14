@@ -34,23 +34,26 @@ When(/^I make a get call to treatment_arm_api with those parameters$/) do
   request = "#{@admin_endpoint}/api/v1/admintool/treatment_arm_api?#{@query}"
   
   @response = Request.get_request(request)
-  puts @response
 end
 
 Then(/^I should retrieve one treatment arm$/) do
-	response_message = JSON.parse(@response[:message])
+	response_message = JSON.parse(@response['message'])
 	expect(response_message).to be_a Hash
   expect(response_message.size).to eql(1);
 end
 
 Then(/^I should retrieve an array of treatment arm\(s\)$/) do
-	response_message = JSON.parse(@response[:message])
+	response_message = JSON.parse(@response['message'])
   expect(response_message).to be_a Array
 end
 
 Then(/^All the "([^"]*)" in all the treatment arm is "([^"]*)"$/) do |field, value|
-	response_message = JSON.parse(@response[:message])
-  field_collection = response_message.map { |e| e[field.to_sym] }
+	response_message = JSON.parse(@response['message'])
+  field_collection = response_message.map { |e| e[field] }
+
+  expected_collection = response_message.map { |ta| ta[field] == value }
+
+  expect(expected_collection.size).to eql(response_message.size)
 
   field_collection.each do |f|
   	expect(f).to eql(value)
@@ -58,13 +61,13 @@ Then(/^All the "([^"]*)" in all the treatment arm is "([^"]*)"$/) do |field, val
 end
 
 Then(/^I should receive an empty hash$/) do
-  response_message = JSON.parse(@response[:message])
+  response_message = JSON.parse(@response['message'])
   expect(response_message).to be_a Hash
   expect(response_message.size).to eql(0);
 end
 
 Then(/^I should receive an empty array$/) do
-  response_message = JSON.parse(@response[:message])
+  response_message = JSON.parse(@response['message'])
   expect(response_message).to be_a Array
   expect(response_message.size).to eql(0)
 end

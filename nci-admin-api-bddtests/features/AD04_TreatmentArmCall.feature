@@ -17,16 +17,16 @@ And I should retrieve one treatment arm
 Scenario Outline: API should retrieve all treatment arms that match parameters provided
 Given I build a request param with "<first_field>" "<first_value>" and "<second_field>" "<second_value>"
 When I make a get call to treatment_arm_api with those parameters
-Then  I "should" see a "Success" message
-And I should see a status code of "200"
+Then  I "should" see a "<success>" message
+And I should see a status code of "<status_code>"
 And I should retrieve an array of treatment arm(s)
 And All the "<first_field>" in all the treatment arm is "<first_value>"
 And All the "<second_field>" in all the treatment arm is "<second_value>"
 Examples:
-| first_field 		 	| first_value | second_field 	| second_value 	|
-| treatment_arm_id 	|	APEC1621-A  | stratum_id 		| 100 					|
-| treatment_arm_id 	|	APEC1621-A  | version 			| 2015-08-06 		|
-| stratum_id 				| 100 				| version 			| 2015-08-06 			|
+| first_field 		 	| first_value | second_field 	| second_value 	| success | status_code |
+| treatment_arm_id 	|	APEC1621-A  | stratum_id 		| 100 					| Success | 200					|
+| treatment_arm_id 	|	APEC1621-A  | version 			| 2015-08-06 		| Failure | 400					|
+| stratum_id 				| 100 				| version 			| 2015-08-06 		| Failure | 400					|
 
 Scenario: If calling the API with one field it should retrieve all treatment arms that match the field
 Given I build a request param with id "APEC1621-A"

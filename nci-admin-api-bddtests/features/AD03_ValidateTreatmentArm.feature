@@ -7,22 +7,21 @@ Validations are performed on that file
 Background: 
 Given I am a user of type "ADMIN"
 
-Scenario: A valid treatment arm is accepted into pending treatment arm table
+Scenario: A valid treatment should pass all the validations
 Given I retrieve the template for treatment arm
 And I substitute "APEC1621-test" for the "treatment_arm_id"
 And I substitute "stratum100" for the "stratum_id"
 And I substitute "2_1_0" for the "version"
 When I issue a post request for validation at level "all" with the treatment arm
 Then I "should" see a "Success" message
-And I "should" see the treatment arm in the pending treatment arm table
 
 Scenario Outline: A treatment arm with any of the important fields missing should fail validation
 Given I retrieve the template for treatment arm
 And I remove the field "<field>" from the template
 When I issue a post request for validation at level "<validation_level>" with the treatment arm
 Then I "should" see a "Success" message
-And I "should" see "false" value under the "passed" field
 And I "should" see "<reason>" value under the "error_message" field
+And I "should" see "false" value under the "passed" field
 Examples:
 	| field 								| validation_level | reason |
 	| treatment_arm_id 			| all |The field treatment_arm_id must exist within the treatment arm. |

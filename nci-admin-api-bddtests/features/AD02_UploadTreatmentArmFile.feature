@@ -33,6 +33,7 @@ And I "should not" see the treatment arm "doesNotExistSheet" and version "1.1.20
 Scenario Outline: Missing a <parameter> parameter should cause the request to fail
 When I upload file "select_one_ta_test.xlsx-1.1.2017_100" with missing "<parameter>"
 Then I "should" see a "Failure" message
+And I should see a status code of "500"
 Examples:
 | parameter 				|
 | excel_book_name 	|
@@ -40,12 +41,9 @@ Examples:
 | version        		|
 
 Scenario Outline: Having a null <parameter> should cause the request to fail
-When I upload file "select_one_ta_test.xlsx-1.1.2017_100" with the "<paramter>" value as nil
+When I upload file "select_one_ta_test.xlsx-1.1.2017_100" selecting sheet name "APEC1621-AA" with version "1.1.2017_100" and "<parameter>" value as nil
 Then I "should" see a "Failure" message
 Examples:
 | parameter 				|
 | excel_book_name 	|
-| excel_sheet_names |
-| version        		|
-
 

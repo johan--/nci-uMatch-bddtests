@@ -36,12 +36,11 @@ end
 Then(/^I "(should|should not)" see "([^"]*)" value under the "([^"]*)" field$/) do |see_or_not, expected_value, response_field|
   present = see_or_not == 'should'
   response_message = JSON.parse(@response['message'])
-  puts response_message
   
   if present
-  	expect(response_message['response_field'].to_s).to eql(expected_value)
+  	expect(response_message[response_field].to_s).to eql(expected_value)
   else
-  	expect(response_message['response_field'].to_s).not_to eql(expected_value)
+  	expect(response_message[response_field].to_s).not_to eql(expected_value)
   end
 end
 

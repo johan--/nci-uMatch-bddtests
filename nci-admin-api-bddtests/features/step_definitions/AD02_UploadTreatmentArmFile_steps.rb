@@ -68,28 +68,22 @@ When(/^I upload file "([^"]*)" with missing "([^"]*)"$/) do |file_name, field|
   body = {
     excel_book_name: file_name,
     excel_sheet_names: ["default"],
-    version: @version
+    version: 'default'
   }
   body.delete(field.to_sym)
-  p "this is the body \n #{body}"
   request = "#{@admin_endpoint}/api/v1/admintool/upload_to_aws?user=#{@user}"
   @response = Request.post_request(request, body)
-  p @response
 end
+       
+When(/^I upload file "([^"]*)" selecting sheet name "([^"]*)" with version "([^"]*)" and "([^"]*)" value as nil$/) do |file_name, sheet_name, version, field|
+  body = {
+    excel_book_name: file_name,
+    excel_sheet_names: ["default"],
+    version: 'default'
+  }
 
-When(/^I upload file with the "([^"]*)" value as nil$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+  body[field.to_sym] = nil
+
+  request = "#{@admin_endpoint}/api/v1/admintool/upload_to_aws?user=#{@user}"
+  @response = Request.post_request(request, body)
 end
-
-
-
-#Good response:
-#{"status"=>"Success", "http_code"=>"200", "message"=>"{\n  \"response\": {\n    \"data\": [\n      {\n        \"reason\": \"\", \n        \"status\": true, \n        \"treatment_arm_id\": \"APEC1621-AC\"\n      }, \n      {\n        \"reason\": \"\", \n        \"status\": true, \n        \"treatment_arm_id\": \"APEC1621-AD\"\n      }\n    ], \n    \"message\": null, \n    \"status\": 1\n  }\n}\n"}
-#
-#Failed bad response:
-#{"status"=>"Failure", "http_code"=>"500", "message"=>"{\"message\": \"File failed to download: An error occurred (404) when calling the HeadObject operation: Not Found\"}\n"}
-#
-#Failed good reszponse:
-#{"status"=>"Success", "http_code"=>"200", "message"=>"{\n  \"response\": {\n    \"data\": [\n      {\n        \"message\": \"No sheet named <u'doesNotExistSheet'>\", \n        \"status\": false, \n        \"treatment_arm_id\": \"doesNotExistSheet\"\n      }\n    ], \n    \"message\": null, \n    \"status\": 2\n  }\n}\n"}
-#
-
