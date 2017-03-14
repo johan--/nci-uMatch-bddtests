@@ -896,7 +896,7 @@ end
 
 Then(/^save response from "([^"]*)" report download service to temp file$/) do |report_type|
   url = prepare_get_url
-  file_name = "#{report_type}_report_tmp.xlsx"
+  file_name = "#{report_type}_report_#{@patient_id}.xlsx"
   file_path = "#{File.dirname(__FILE__)}/../../../../public/downloaded_report_files/#{file_name}"
   @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
   Helper_Methods.simple_get_download(url, file_path, true, @current_auth0_role)
@@ -904,17 +904,17 @@ end
 
 
 Then(/^the saved variant report should have patient id "([^"]*)", analysis id "([^"]*)"$/) do |patient_id, ani|
-  file_path = "#{File.dirname(__FILE__)}/../../../../public/downloaded_report_files/variant_report_tmp.xlsx"
+  file_path = "#{File.dirname(__FILE__)}/../../../../public/downloaded_report_files/variant_report_#{@patient_id}.xlsx"
   xlsx = Roo::Spreadsheet.open(file_path)
   sheet = xlsx.sheet(0)
   actual_patient_id = sheet.cell('C', 5)
-  actual_ani = sheet.cell('C', 14)
+  actual_ani = sheet.cell('C', 7)
   actual_match_expect(actual_patient_id, patient_id)
   actual_match_expect(actual_ani, ani)
 end
 
 Then(/^the saved assignment report should have patient id "([^"]*)", assignment date "([^"]*)"$/) do |patient_id, date|
-  file_path = "#{File.dirname(__FILE__)}/../../../../public/downloaded_report_files/assignment_report_tmp.xlsx"
+  file_path = "#{File.dirname(__FILE__)}/../../../../public/downloaded_report_files/assignment_report_#{@patient_id}.xlsx"
   xlsx = Roo::Spreadsheet.open(file_path)
   sheet = xlsx.sheet(0)
   actual_patient_id = sheet.cell('C', 5)

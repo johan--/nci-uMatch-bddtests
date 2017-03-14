@@ -560,7 +560,7 @@ Feature: Patient GET service valid special case tests
       | PT_SC07c_PendingApproval | Assignment 2 |
       | PT_SC07c_PendingApproval | Assignment 3 |
 
-  @patients_p11
+  @patients_p3
   Scenario Outline: PT_08a variant report can be downloaded properly
     Given patient id is "<patient_id>"
     And patient GET service: "variant_report", patient id: "<patient_id>", id: "<ani>"
@@ -574,7 +574,7 @@ Feature: Patient GET service valid special case tests
       | PT_SC08_BdVrUploadedTwice | PT_SC08_BdVrUploadedTwice_ANI1 |
       | PT_SC08_BdVrUploadedTwice | PT_SC08_BdVrUploadedTwice_ANI2 |
 
-  @patients_p2
+  @patients_p3
   Scenario Outline: PT_08b invalid variant report download request should fail
     Given patient id is "<patient_id>"
     And patient GET service: "variant_report", patient id: "<patient_id>", id: "<ani>"
@@ -586,7 +586,7 @@ Feature: Patient GET service valid special case tests
       | PT_SC08_BdVrUploadedTwice | PT_SC08_TsVrUploadedTwice_ANI2 |
       | PT_SC08_BdVrUploadedTwice | non_existing_ani               |
 
-  @patients_p1
+  @patients_p3
   Scenario Outline: PT_09a assignment report can be downloaded properly
     Given patient id is "<patient_id>"
     And patient GET service: "assignment_report", patient id: "<patient_id>", id: "<uuid>"
