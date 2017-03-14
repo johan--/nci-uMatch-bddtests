@@ -350,7 +350,14 @@ end
 #
 Then(/^patient should have variant report \(analysis_id: "([^"]*)"\)$/) do |ani|
   url = "#{ENV['patients_endpoint']}/variant_reports?analysis_id=#{ani}"
-  @current_variant_report = Patient_helper_methods.get_any_result_from_url(url)
+  try_time = 0
+  while try_time < 9
+    @current_variant_report = Patient_helper_methods.get_any_result_from_url(url)
+    break if @current_variant_report.size > 0
+    puts "Retrying to get variant report #{ani}..."
+    try_time += 1
+    sleep 5.0
+  end
   if @current_variant_report.is_a?(Array)
     if @current_variant_report.length==1
       @current_variant_report = @current_variant_report[0]
