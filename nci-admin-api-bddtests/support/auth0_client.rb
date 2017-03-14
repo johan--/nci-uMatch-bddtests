@@ -25,6 +25,10 @@ module Auth0Client
 	def get_auth0_token(role)
 		raise "Provided role: #{role} is not a valid role" unless role_valid?(role)
 		token_name = "#{role}_UI_AUTH0_TOKEN"
+####################################################################################
+		puts "token_name: #{token_name}"
+		puts "AUTH0_DOMAIN = #{ENV['AUTH0_DOMAIN']}"
+####################################################################################
 		token_value = create_auth0_message(role)
 
 		if ENV[token_name].to_s.empty?  # check for nil or empty
@@ -40,6 +44,7 @@ module Auth0Client
 						}
 					)
 			rescue => e
+				puts "Failure to acquire Token"
 				puts e.backtrace
 				raise  #reraising the exception to kill the process but print out the proper backtrace. 
 			end
@@ -48,6 +53,7 @@ module Auth0Client
 				token_hash = JSON.parse(response)
 				ENV[token_name] = token_hash['id_token']
 			rescue => e
+				puts "Failure to retireve id_token from response"
 				puts e.backtrace
 				raise
 			end
@@ -57,6 +63,7 @@ module Auth0Client
 
 	def add_auth0_header(headers, role)
 		auth0_token = get_auth0_token(role)
+		puts auth0_token
 		headers[:Authorization] = "Bearer #{auth0_token}" if auth0_token.size > 1
 
 		headers
