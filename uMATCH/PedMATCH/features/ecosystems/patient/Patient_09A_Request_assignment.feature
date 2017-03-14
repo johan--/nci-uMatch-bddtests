@@ -250,7 +250,7 @@ Feature: Patients request assignment tests
       | PT_RA09_OnTreatmentArm      |
       | PT_RA09_RequestNoAssignment |
 
-  @patients_p3
+  @patients_p2
   Scenario Outline: PT_RA10. request assignment message with rebiopsy is "" or null should works as rebiospy = N
     Given patient id is "<patient_id>"
     Then load template request assignment message for this patient
