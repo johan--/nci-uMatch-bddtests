@@ -27,13 +27,13 @@ module Auth0Client
 		token_name = "#{role}_UI_AUTH0_TOKEN"
 		token_value = create_auth0_message(role)
 		url = "https://#{ENV['AUTH0_DOMAIN']}/oauth/ro"
-####################################################################################
+puts "####################################################################################"
 		puts "token_name: #{token_name}"
 		puts "AUTH0_DOMAIN = #{ENV['AUTH0_DOMAIN']}"
 		puts "token_value = #{token_value}"
 		puts "url = #{url}"
 		puts "payLod: #{create_auth0_message(role)}"
-####################################################################################
+puts "####################################################################################"
 		
 
 		if ENV[token_name].to_s.empty?  # check for nil or empty

@@ -6,7 +6,7 @@ Given(/^I am a user of type "([^"]*)"$/) do |role|
 	@user = user_details[:email]
 	@password = user_details[:password]
 	@host_name = ENV['HOSTNAME']
-	@admin_endpoint = ENV['ADMIN_ENDPOINT']
+	@admin_endpoint = ENV['ADMIN_API_ENDPOINT']
 	@s3_endpoint = ENV['s3_endpoint']
 	@s3_region = ENV['s3_region']
 	@dynamodb_endpoint = ENV['dynamodb_endpoint']
