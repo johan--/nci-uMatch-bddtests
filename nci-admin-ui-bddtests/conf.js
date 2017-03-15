@@ -10,7 +10,9 @@ exports.config = {
     // seleniumAddress: 'http://localhost:4444/wd/hub',
     specs: [
     'features/AD01_HomePage.feature',
-    'features/AD02_Upload.feature'
+    'features/AD02_Upload.feature',
+    'features/AD03_Wizard.feature',
+    'features/AD04_Editor.feature'
     ],
     framework: 'custom',
     frameworkPath: require.resolve('protractor-cucumber-framework'),

@@ -86,4 +86,10 @@ module.exports = function() {
     // Write code here that turns the phrase above into concrete actions
     callback(null, 'pending');
     });
+
+
+    this.Then(/^I expect to see the file "([^"]*)" on S3 bucket$/, function (arg1, callback) {
+             // Write code here that turns the phrase above into concrete actions
+        callback(null, 'pending');
+    });
 }

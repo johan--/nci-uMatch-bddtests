@@ -5,7 +5,7 @@ var LoginPage = function() {
     var accessButton = element(by.css('button[ng-click="vm.authService.login()"]'));
     var auth0WidgetContaner = element(by.css('div.auth0-lock-widget-container'));
     var previousAuth0Login = element(by.css('button.auth0-lock-social-button.auth0-lock-social-big-button'));
-    var notYourLink = element(by.css('p.auth0-lock-alternative>a.auth0-lock-alternative-link'));
+    var notYourLink = element(by.cssContainingText('a.auth0-lock-alternative-link', 'Not your name?'));
     var loginLink = element(by.css('span.auth0-label-submit'));
     var loginEmail = element(by.css('input[type="email"]'));
     var loginPassword = element(by.css('input[type="password"]'));
@@ -15,7 +15,15 @@ var LoginPage = function() {
     this.signInName = element(by.binding('name'));
 
     this.goToLogin = function(){
-        return browser.get('/#/login', 3000);
+        return browser.get('/#/login', 3000).then(function(){
+            logoutLink.isPresent().then(function(present){
+                if (present == true){
+                    logoutLink.click().then(function(){
+                        browser.waitForAngular();
+                    });
+                }
+            });
+        });
     }
 
     this.loginProcess = function(userId, password) {
@@ -64,7 +72,6 @@ var LoginPage = function() {
         loginEmail.sendKeys(userId);
         loginPassword.sendKeys(password);
     }
-
 }
 
 module.exports = new LoginPage();

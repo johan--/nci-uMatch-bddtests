@@ -5,11 +5,11 @@ var UploaderPage = function(){
 	this.uploadHeading = element(by.css('h6.before-themeprimary'));
 	this.checkStatusHeading = element(by.css('h6.before-themesecondary'));
 
-    this.uploaderLink       = element(by.css('span[href="#/app/uploader"]'));
-    this.wizardLink         = element(by.css('span[href="#/app/wizard"]'));
-    this.editorLink         = element(by.css('span[href="#/app/editor"]'));
-    this.confirmationLink   = element(by.css('span[href="#/app/confirmation"]'));
-    this.logLink            = element(by.css('span[href="#/app/logger"'));
+    this.uploaderLink       = element(by.css('span[href="#!/app/uploader"]'));
+    this.wizardLink         = element(by.css('span[href="#!/app/wizard"]'));
+    this.editorLink         = element(by.css('span[href="#!/app/editor"]'));
+    this.confirmationLink   = element(by.css('span[href="#!/app/confirmation"]'));
+    this.logLink            = element(by.css('span[href="#!/app/logger"'));
 
     this.chooseFileButton    = element(by.css('input[type="file"]'));
     this.uploadPanel        = element(by.css('span.qq-upload-file-selector'));
@@ -20,7 +20,7 @@ var UploaderPage = function(){
     this.selectAllTA        = element(by.cssContainingText('label[ng-model="chosen_upload_type"]'), 'Select All Treatment Arms');
     this.uploadFileButton   = element(by.css('input[value="Upload File"]'));
 
-    this.confirmUploadButton = element(by.linkText('Confirm upload to Treatment Arm'));
+    this.confirmUploadButton = element(by.cssContainingText('a.btn-active', 'Confirm upload to Treatment Arm'));
     
 
 };

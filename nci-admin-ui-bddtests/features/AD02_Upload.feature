@@ -2,12 +2,6 @@
 Feature: This feature tests the upload funcctionality of the admin tool 
 @upload
 
-Scenario: An uploaded file should end up on s3
-Given I am a logged in user
-And I select "upload_test.xlsx" file for upload
-Then I expect to see the file "upload_test.xlsx" on S3 bucket
-
-
 Scenario: An admin can choose to upload only one treatment arm from an excel
 Given I am a logged in user
 And I select "select_one_from_list.xlsx" file for upload
@@ -16,6 +10,7 @@ And I click on "Select Specific Treatment Arms" label on Upload section
 And I enter "APEC1621-E" in the input
 And I click on "Upload File" button
 Then The files are uploaded to the temporary table
+Then I expect to see the file "upload_test.xlsx" on S3 bucket
 When I click on the "Confirm upload to Treatment Arm" button on the Status section
 Then I am taken to the "Confirmation" page
 And I verify that there is/are "1" treatment arm(s) in the list
