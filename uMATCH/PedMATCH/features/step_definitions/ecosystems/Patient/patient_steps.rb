@@ -690,6 +690,9 @@ And(/^patient pending_items field "([^"]*)" should have correct value$/) do |fie
           expect_key_list << this_patient['active_tissue_specimen']['active_analysis_id']
         end
       when 'assignment_reports'
+        if this_patient['patient_id'] == 'PT_RA09_OnTreatmentArm'
+          puts "PT_RA09_OnTreatmentArm status is #{this_patient['current_status']}"
+        end
         if this_patient['current_status'] == 'PENDING_CONFIRMATION'
           expect_key_list << this_patient['active_tissue_specimen']['active_analysis_id']
         end

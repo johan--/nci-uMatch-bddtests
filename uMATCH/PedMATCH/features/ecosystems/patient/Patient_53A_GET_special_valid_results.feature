@@ -54,7 +54,7 @@ Feature: Patient GET service valid special case tests
       | PT_SC01d_PendingApproval      | APEC1621-A     | 100     | 1.1  |
       | PT_SC01d_PendingApprovalStep2 | APEC1621-ETE-A | 100     | 2.1  |
 
-  @patients_p3
+  @patients_p1
   Scenario: PT_SC02a pending_items should have correct result
     #the reason that why GET twice is because INT BDD tests run parallelly, after the GET called, probably test which is
     #running in the other thread changes data base, so cause the second "should have correct value" statement cannot get
@@ -561,7 +561,7 @@ Feature: Patient GET service valid special case tests
       | PT_SC07c_PendingApproval | Assignment 3 |
 
   @patients_p3
-  Scenario Outline: PT_08a variant report can be downloaded properly
+  Scenario Outline: PT_SC08a variant report can be downloaded properly
     Given patient id is "<patient_id>"
     And patient GET service: "variant_report", patient id: "<patient_id>", id: "<ani>"
     When GET from MATCH patient API, http code "200" should return
@@ -575,7 +575,7 @@ Feature: Patient GET service valid special case tests
       | PT_SC08_BdVrUploadedTwice | PT_SC08_BdVrUploadedTwice_ANI2 |
 
   @patients_p3
-  Scenario Outline: PT_08b invalid variant report download request should fail
+  Scenario Outline: PT_SC08b invalid variant report download request should fail
     Given patient id is "<patient_id>"
     And patient GET service: "variant_report", patient id: "<patient_id>", id: "<ani>"
     When GET from MATCH patient API, http code "404" should return
@@ -587,7 +587,7 @@ Feature: Patient GET service valid special case tests
       | PT_SC08_BdVrUploadedTwice | non_existing_ani               |
 
   @patients_p3
-  Scenario Outline: PT_09a assignment report can be downloaded properly
+  Scenario Outline: PT_SC09a assignment report can be downloaded properly
     Given patient id is "<patient_id>"
     And patient GET service: "assignment_report", patient id: "<patient_id>", id: "<uuid>"
     When GET from MATCH patient API, http code "200" should return
@@ -601,7 +601,7 @@ Feature: Patient GET service valid special case tests
       | PT_SC09_TsReceivedStep2     | 1acf4d9c-b42b-4d7c-82ec-fa4334419767 | 2017-03-14T05:13:15+00:00 |
 
   @patients_p3
-  Scenario Outline: PT_09b invalid assignment report download request should fail
+  Scenario Outline: PT_SC09b invalid assignment report download request should fail
     Given patient id is "<patient_id>"
     And patient GET service: "assignment_report", patient id: "<patient_id>", id: "<uuid>"
     When GET from MATCH patient API, http code "404" should return
