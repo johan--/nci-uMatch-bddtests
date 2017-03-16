@@ -54,7 +54,7 @@ Feature: Patient GET service valid special case tests
       | PT_SC01d_PendingApproval      | APEC1621-A     | 100     | 1.1  |
       | PT_SC01d_PendingApprovalStep2 | APEC1621-ETE-A | 100     | 2.1  |
 
-  @patients_p1
+  @patients_p3
   Scenario: PT_SC02a pending_items should have correct result
     #the reason that why GET twice is because INT BDD tests run parallelly, after the GET called, probably test which is
     #running in the other thread changes data base, so cause the second "should have correct value" statement cannot get
