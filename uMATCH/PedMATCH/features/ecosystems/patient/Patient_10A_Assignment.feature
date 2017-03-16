@@ -14,6 +14,7 @@ Feature: Patients assignment tests
     Then load template assignment report confirm message for analysis id: "<ani>"
     Then PUT to MATCH assignment report "confirm" service, response includes "successfully" with code "200"
     Then patient status should change to "<patient_status>"
+    Then wait for "15" seconds
     Then COG received assignment status: "<patient_status>" for this patient
     Examples:
       | patient_id            | ani                        | patient_status     |
