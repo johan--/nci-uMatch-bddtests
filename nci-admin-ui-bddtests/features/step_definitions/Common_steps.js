@@ -9,25 +9,48 @@ var utilities = require('../../support/utilities');
 module.exports = function() {
     this.World = require('../step_definitions/world').World;
 
+//Given
+
+    this.Given(/^I click on "([^"]*)"$/, function (arg1, callback) {
+         // Write code here that turns the phrase above into concrete actions
+    callback(null, 'pending');
+    });
+
+//When
+
+    this.When(/^I click on "(.+?)" button$/, function(buttonName, callback){
+        var buttonElement = returnButtonElement[buttonName]
+        buttonElement.click().then(function(){
+            browser.waitForAngular();
+        }).then(callback);
+    });
+
+    this.When(/^I wait for "(\d*)" seconds$/, function (seconds, callback){
+        browser.sleep(seconds *1000).then(callback);
+    })
+
     this.When(/^I navigate to "(.+?)" page$/, function(page, callback){
         var pageName = page === 'Log' ? 'logger' : page.toLowerCase();
         browser.get('/#/app/' + pageName, 3000).then(callback);
     });
+
+
+//Then
 
     this.Then(/^I see that the "([^"]*)" button is "(disabled|enabled|visible|invisible)"$/, function (button, buttonState, callback) {
         var buttonElement = returnButtonElement[button]
         var isVisible = buttonState === 'enabled' || buttonState === 'disabled';
         var isAvailable = buttonState === 'enabled' || buttonState === 'visible';
 
-
         // protractr methods isEnabled() works only on input and a few other elements. 
         // span, anchor tags fail isEnabled and gives the wrong value back
         if (isVisible){
-            buttonElement.getAttribute('disabled').then(function (enabled){
-                if ( enabled === null ) {
+            buttonElement.getAttribute('disabled').then(function (status){
+                var enabled
+                if ( status === null ) {
                     enabled = true
                 } else {
-                    enabled = !enabled
+                    enabled = !status
                 }
                 expect(enabled).to.eql(isAvailable)
             }).then(callback);
@@ -35,11 +58,12 @@ module.exports = function() {
             expect(buttonElement.isPresent()).to.eventually.eql(isAvailable).notify(callback);
         }
     });
-
-    this.Given(/^I click on "([^"]*)"$/, function (arg1, callback) {
-         // Write code here that turns the phrase above into concrete actions
-    callback(null, 'pending');
+    this.Then(/^I am taken to the "([^"]*)" page$/, function (page, callback) {
+        var pageName = page === 'Log' ? 'logger' : page.toLowerCase();
+        expect(browser.getCurrentUrl()).to.eventually.eql(pageName).notify(callback);
     });
+
+
 
 
     // This is a collection of all the buttons in the applcation to be used to check the disabled, enabled feature. 

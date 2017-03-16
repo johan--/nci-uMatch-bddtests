@@ -16,9 +16,10 @@ var UploaderPage = function(){
 
     this.uploadSection      = element(by.css('div.bordered-themeprimary+div[class="widget-body"] #uploader'));
 
-    this.selectSpecificTA   = element(by.cssContainingText('label[ng-model="chosen_upload_type"]'), 'Select Specific Treatment Arms');
-    this.selectAllTA        = element(by.cssContainingText('label[ng-model="chosen_upload_type"]'), 'Select All Treatment Arms');
-    this.uploadFileButton   = element(by.css('input[value="Upload File"]'));
+    this.selectSpecificTA   = element(by.cssContainingText('label[ng-model="chosen_upload_type"]', 'Select Specific Treatment Arms'));
+    this.selectAllTA        = element(by.cssContainingText('label[ng-model="chosen_upload_type"]', 'Select All Treatment Arms'));
+    this.selectSpecificTAInput  = element(by.css('.panel-collapse.in.collapse input[id="form_input"]')); // This is the input window to enter the name of the specific TA
+    this.uploadFileButton       = element(by.css('input[value="Upload File"]'));
 
     this.confirmUploadButton = element(by.cssContainingText('a.btn-active', 'Confirm upload to Treatment Arm'));
     
