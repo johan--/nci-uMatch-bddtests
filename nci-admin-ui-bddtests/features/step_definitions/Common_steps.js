@@ -60,7 +60,8 @@ module.exports = function() {
     });
     this.Then(/^I am taken to the "([^"]*)" page$/, function (page, callback) {
         var pageName = page === 'Log' ? 'logger' : page.toLowerCase();
-        expect(browser.getCurrentUrl()).to.eventually.eql(pageName).notify(callback);
+        expected = process.env.ADMIN_UI_HOSTNAME + '/#!/app/' + pageName
+        expect(browser.getCurrentUrl()).to.eventually.eql(expected).notify(callback);
     });
 
 

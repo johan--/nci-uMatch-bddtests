@@ -51,21 +51,18 @@ module.exports = function() {
 // Then
     this.Then(/^I expect to see the file "([^"]*)" on S3 bucket "([^"]*)"$/, function (fileName, bucketName, callback) {
         s3.isFilePresent(bucketName, fileName).then(function(result){
-            upload.fileNameUploaded = result("Key");
-            console.log(upload.fileNameUploaded)
-
-            console.log("result: " + JSON.stringify(result, null, 4) );
-
-            expect(result("Key")).to.include(upload.fileName).then(callback);
-            
-        })
+            upload.fileNameUploaded = result["Key"];
+            expect(upload.fileNameUploaded).to.include(upload.fileName);    
+        }).then(callback);
     });
 
 
     this.Then(/^The treatment arms are uploaded to the temporary table$/, function (callback) {
         dynamo.checkForRecord(upload.treatmentArmId, 'treatment_arm_pending').then(function(record){
 
-            console.log('record' + JSON.stringify(record, null, 2));
+            console.log('record: ' + record[Items]);
+            expect(record[Items].length).to.be.greaterThan(0)
+            expect(record[Items].first['treatment_arm_id']).to.eql(upload.treatmentArmId)
         }).then(callback);
     });
 
