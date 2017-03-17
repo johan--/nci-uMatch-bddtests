@@ -413,7 +413,7 @@ end
 
 Then(/^if sample_control list returned, it should have editable: "([^"]*)"$/) do |editable|
   field = 'editable'
-  if @returned_aliquot_result.is_a?(Hash) && @returned_aliquot_result.keys.include?('molecular_id_type')
+  if @returned_sample_control_result.is_a?(Hash) && @returned_sample_control_result.keys.include?('molecular_id_type')
     expect(@returned_aliquot_result.keys).to include field
     expect(contains[0][field]).to eql editable
   end

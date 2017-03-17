@@ -12,20 +12,22 @@ Feature: Patient API authorization tests
     And patient API user authorization role is "<auth_role>"
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
-      | patient_id   | auth_role                     | message | code |
-      | PT_AU01_New0 | NO_TOKEN                      |         | 401  |
-      | PT_AU01_New0 | NCI_MATCH_READONLY            |         | 401  |
-      | PT_AU01_New0 | NO_ROLE                       |         | 401  |
-      | PT_AU01_New1 | ADMIN                         | success | 202  |
-      | PT_AU01_New2 | SYSTEM                        | success | 202  |
-      | PT_AU01_New0 | ASSIGNMENT_REPORT_REVIEWER    |         | 401  |
-      | PT_AU01_New0 | MDA_VARIANT_REPORT_SENDER     |         | 401  |
-      | PT_AU01_New0 | MDA_VARIANT_REPORT_REVIEWER   |         | 401  |
-      | PT_AU01_New0 | MOCHA_VARIANT_REPORT_SENDER   |         | 401  |
-      | PT_AU01_New0 | MOCHA_VARIANT_REPORT_REVIEWER |         | 401  |
-      | PT_AU01_New3 | PATIENT_MESSAGE_SENDER        | success | 202  |
-      | PT_AU01_New0 | SPECIMEN_MESSAGE_SENDER       |         | 401  |
-      | PT_AU01_New0 | ASSAY_MESSAGE_SENDER          |         | 401  |
+      | patient_id   | auth_role                         | message | code |
+      | PT_AU01_New0 | NO_TOKEN                          |         | 401  |
+      | PT_AU01_New0 | NCI_MATCH_READONLY                |         | 401  |
+      | PT_AU01_New0 | NO_ROLE                           |         | 401  |
+      | PT_AU01_New1 | ADMIN                             | success | 202  |
+      | PT_AU01_New2 | SYSTEM                            | success | 202  |
+      | PT_AU01_New0 | ASSIGNMENT_REPORT_REVIEWER        |         | 401  |
+      | PT_AU01_New0 | MDA_VARIANT_REPORT_SENDER         |         | 401  |
+      | PT_AU01_New0 | MDA_VARIANT_REPORT_REVIEWER       |         | 401  |
+      | PT_AU01_New0 | MOCHA_VARIANT_REPORT_SENDER       |         | 401  |
+      | PT_AU01_New0 | MOCHA_VARIANT_REPORT_REVIEWER     |         | 401  |
+      | PT_AU01_New0 | DARTMOUTH_VARIANT_REPORT_SENDER   |         | 401  |
+      | PT_AU01_New0 | DARTMOUTH_VARIANT_REPORT_REVIEWER |         | 401  |
+      | PT_AU01_New3 | PATIENT_MESSAGE_SENDER            | success | 202  |
+      | PT_AU01_New0 | SPECIMEN_MESSAGE_SENDER           |         | 401  |
+      | PT_AU01_New0 | ASSAY_MESSAGE_SENDER              |         | 401  |
 
   @patients_p1
   Scenario Outline: PT_AU02a role base authorization works properly for patient specimen receive
@@ -35,20 +37,22 @@ Feature: Patient API authorization tests
     And patient API user authorization role is "<auth_role>"
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
-      | patient_id          | auth_role                     | message | code |
-      | PT_AU02_Registered0 | NO_TOKEN                      |         | 401  |
-      | PT_AU02_Registered0 | NCI_MATCH_READONLY            |         | 401  |
-      | PT_AU02_Registered0 | NO_ROLE                       |         | 401  |
-      | PT_AU02_Registered1 | ADMIN                         | success | 202  |
-      | PT_AU02_Registered2 | SYSTEM                        | success | 202  |
-      | PT_AU02_Registered0 | ASSIGNMENT_REPORT_REVIEWER    |         | 401  |
-      | PT_AU02_Registered0 | MDA_VARIANT_REPORT_SENDER     |         | 401  |
-      | PT_AU02_Registered0 | MDA_VARIANT_REPORT_REVIEWER   |         | 401  |
-      | PT_AU02_Registered0 | MOCHA_VARIANT_REPORT_SENDER   |         | 401  |
-      | PT_AU02_Registered0 | MOCHA_VARIANT_REPORT_REVIEWER |         | 401  |
-      | PT_AU02_Registered0 | PATIENT_MESSAGE_SENDER        |         | 401  |
-      | PT_AU02_Registered3 | SPECIMEN_MESSAGE_SENDER       | success | 202  |
-      | PT_AU02_Registered0 | ASSAY_MESSAGE_SENDER          |         | 401  |
+      | patient_id          | auth_role                         | message | code |
+      | PT_AU02_Registered0 | NO_TOKEN                          |         | 401  |
+      | PT_AU02_Registered0 | NCI_MATCH_READONLY                |         | 401  |
+      | PT_AU02_Registered0 | NO_ROLE                           |         | 401  |
+      | PT_AU02_Registered1 | ADMIN                             | success | 202  |
+      | PT_AU02_Registered2 | SYSTEM                            | success | 202  |
+      | PT_AU02_Registered0 | ASSIGNMENT_REPORT_REVIEWER        |         | 401  |
+      | PT_AU02_Registered0 | MDA_VARIANT_REPORT_SENDER         |         | 401  |
+      | PT_AU02_Registered0 | MDA_VARIANT_REPORT_REVIEWER       |         | 401  |
+      | PT_AU02_Registered0 | MOCHA_VARIANT_REPORT_SENDER       |         | 401  |
+      | PT_AU02_Registered0 | MOCHA_VARIANT_REPORT_REVIEWER     |         | 401  |
+      | PT_AU02_Registered0 | DARTMOUTH_VARIANT_REPORT_SENDER   |         | 401  |
+      | PT_AU02_Registered0 | DARTMOUTH_VARIANT_REPORT_REVIEWER |         | 401  |
+      | PT_AU02_Registered0 | PATIENT_MESSAGE_SENDER            |         | 401  |
+      | PT_AU02_Registered3 | SPECIMEN_MESSAGE_SENDER           | success | 202  |
+      | PT_AU02_Registered0 | ASSAY_MESSAGE_SENDER              |         | 401  |
 
   @patients_p1
   Scenario Outline: PT_AU02b role base authorization works properly for patient specimen ship
@@ -59,20 +63,22 @@ Feature: Patient API authorization tests
     And patient API user authorization role is "<auth_role>"
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
-      | patient_id          | auth_role                     | message | code |
-      | PT_AU02_TsReceived0 | NO_TOKEN                      |         | 401  |
-      | PT_AU02_TsReceived0 | NCI_MATCH_READONLY            |         | 401  |
-      | PT_AU02_TsReceived0 | NO_ROLE                       |         | 401  |
-      | PT_AU02_TsReceived1 | ADMIN                         | success | 202  |
-      | PT_AU02_TsReceived2 | SYSTEM                        | success | 202  |
-      | PT_AU02_TsReceived0 | ASSIGNMENT_REPORT_REVIEWER    |         | 401  |
-      | PT_AU02_TsReceived0 | MDA_VARIANT_REPORT_SENDER     |         | 401  |
-      | PT_AU02_TsReceived0 | MDA_VARIANT_REPORT_REVIEWER   |         | 401  |
-      | PT_AU02_TsReceived0 | MOCHA_VARIANT_REPORT_SENDER   |         | 401  |
-      | PT_AU02_TsReceived0 | MOCHA_VARIANT_REPORT_REVIEWER |         | 401  |
-      | PT_AU02_TsReceived0 | PATIENT_MESSAGE_SENDER        |         | 401  |
-      | PT_AU02_TsReceived3 | SPECIMEN_MESSAGE_SENDER       | success | 202  |
-      | PT_AU02_TsReceived0 | ASSAY_MESSAGE_SENDER          |         | 401  |
+      | patient_id          | auth_role                         | message | code |
+      | PT_AU02_TsReceived0 | NO_TOKEN                          |         | 401  |
+      | PT_AU02_TsReceived0 | NCI_MATCH_READONLY                |         | 401  |
+      | PT_AU02_TsReceived0 | NO_ROLE                           |         | 401  |
+      | PT_AU02_TsReceived1 | ADMIN                             | success | 202  |
+      | PT_AU02_TsReceived2 | SYSTEM                            | success | 202  |
+      | PT_AU02_TsReceived0 | ASSIGNMENT_REPORT_REVIEWER        |         | 401  |
+      | PT_AU02_TsReceived0 | MDA_VARIANT_REPORT_SENDER         |         | 401  |
+      | PT_AU02_TsReceived0 | MDA_VARIANT_REPORT_REVIEWER       |         | 401  |
+      | PT_AU02_TsReceived0 | MOCHA_VARIANT_REPORT_SENDER       |         | 401  |
+      | PT_AU02_TsReceived0 | MOCHA_VARIANT_REPORT_REVIEWER     |         | 401  |
+      | PT_AU02_TsReceived0 | DARTMOUTH_VARIANT_REPORT_SENDER   |         | 401  |
+      | PT_AU02_TsReceived0 | DARTMOUTH_VARIANT_REPORT_REVIEWER |         | 401  |
+      | PT_AU02_TsReceived0 | PATIENT_MESSAGE_SENDER            |         | 401  |
+      | PT_AU02_TsReceived3 | SPECIMEN_MESSAGE_SENDER           | success | 202  |
+      | PT_AU02_TsReceived0 | ASSAY_MESSAGE_SENDER              |         | 401  |
 
   @patients_p1
   Scenario Outline: PT_AU03 role base authorization works properly for patient assay messages
@@ -83,20 +89,22 @@ Feature: Patient API authorization tests
     And patient API user authorization role is "<auth_role>"
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
-      | patient_id            | auth_role                     | message | code |
-      | PT_AU03_SlideShipped0 | NO_TOKEN                      |         | 401  |
-      | PT_AU03_SlideShipped0 | NCI_MATCH_READONLY            |         | 401  |
-      | PT_AU03_SlideShipped0 | NO_ROLE                       |         | 401  |
-      | PT_AU03_SlideShipped1 | ADMIN                         | success | 202  |
-      | PT_AU03_SlideShipped2 | SYSTEM                        | success | 202  |
-      | PT_AU03_SlideShipped0 | ASSIGNMENT_REPORT_REVIEWER    |         | 401  |
-      | PT_AU03_SlideShipped0 | MDA_VARIANT_REPORT_SENDER     |         | 401  |
-      | PT_AU03_SlideShipped0 | MDA_VARIANT_REPORT_REVIEWER   |         | 401  |
-      | PT_AU03_SlideShipped0 | MOCHA_VARIANT_REPORT_SENDER   |         | 401  |
-      | PT_AU03_SlideShipped0 | MOCHA_VARIANT_REPORT_REVIEWER |         | 401  |
-      | PT_AU03_SlideShipped0 | PATIENT_MESSAGE_SENDER        |         | 401  |
-      | PT_AU03_SlideShipped0 | SPECIMEN_MESSAGE_SENDER       |         | 401  |
-      | PT_AU03_SlideShipped3 | ASSAY_MESSAGE_SENDER          | success | 202  |
+      | patient_id            | auth_role                         | message | code |
+      | PT_AU03_SlideShipped0 | NO_TOKEN                          |         | 401  |
+      | PT_AU03_SlideShipped0 | NCI_MATCH_READONLY                |         | 401  |
+      | PT_AU03_SlideShipped0 | NO_ROLE                           |         | 401  |
+      | PT_AU03_SlideShipped1 | ADMIN                             | success | 202  |
+      | PT_AU03_SlideShipped2 | SYSTEM                            | success | 202  |
+      | PT_AU03_SlideShipped0 | ASSIGNMENT_REPORT_REVIEWER        |         | 401  |
+      | PT_AU03_SlideShipped0 | MDA_VARIANT_REPORT_SENDER         |         | 401  |
+      | PT_AU03_SlideShipped0 | MDA_VARIANT_REPORT_REVIEWER       |         | 401  |
+      | PT_AU03_SlideShipped0 | MOCHA_VARIANT_REPORT_SENDER       |         | 401  |
+      | PT_AU03_SlideShipped0 | MOCHA_VARIANT_REPORT_REVIEWER     |         | 401  |
+      | PT_AU03_SlideShipped0 | DARTMOUTH_VARIANT_REPORT_SENDER   |         | 401  |
+      | PT_AU03_SlideShipped0 | DARTMOUTH_VARIANT_REPORT_REVIEWER |         | 401  |
+      | PT_AU03_SlideShipped0 | PATIENT_MESSAGE_SENDER            |         | 401  |
+      | PT_AU03_SlideShipped0 | SPECIMEN_MESSAGE_SENDER           |         | 401  |
+      | PT_AU03_SlideShipped3 | ASSAY_MESSAGE_SENDER              | success | 202  |
 
   @patients_p1
   Scenario Outline: PT_AU04 role base authorization works properly for patient variant report upload
@@ -110,22 +118,28 @@ Feature: Patient API authorization tests
     And patient API user authorization role is "<auth_role>"
     When POST to MATCH variant report upload service, response includes "<message>" with code "<code>"
     Examples:
-      | patient_id              | site_value | auth_role                     | message | code |
-      | PT_AU04_MdaTsShipped0   | mda        | NO_TOKEN                      |         | 401  |
-      | PT_AU04_MdaTsShipped0   | mda        | NCI_MATCH_READONLY            |         | 401  |
-      | PT_AU04_MdaTsShipped0   | mda        | NO_ROLE                       |         | 401  |
-      | PT_AU04_MdaTsShipped1   | mda        | ADMIN                         | success | 202  |
-      | PT_AU04_MochaTsShipped1 | mocha      | SYSTEM                        | success | 202  |
-      | PT_AU04_MdaTsShipped0   | mda        | ASSIGNMENT_REPORT_REVIEWER    |         | 401  |
-      | PT_AU04_MochaTsShipped0 | mocha      | MDA_VARIANT_REPORT_SENDER     |         | 401  |
-      | PT_AU04_MdaTsShipped2   | mda        | MDA_VARIANT_REPORT_SENDER     | success | 202  |
-      | PT_AU04_MdaTsShipped3   | mda        | MDA_VARIANT_REPORT_REVIEWER   |         | 401  |
-      | PT_AU04_MdaTsShipped0   | mda        | MOCHA_VARIANT_REPORT_SENDER   |         | 401  |
-      | PT_AU04_MochaTsShipped2 | mocha      | MOCHA_VARIANT_REPORT_SENDER   | success | 202  |
-      | PT_AU04_MochaTsShipped3 | mocha      | MOCHA_VARIANT_REPORT_REVIEWER |         | 401  |
-      | PT_AU04_MdaTsShipped0   | mda        | PATIENT_MESSAGE_SENDER        |         | 401  |
-      | PT_AU04_MochaTsShipped0 | mocha      | SPECIMEN_MESSAGE_SENDER       |         | 401  |
-      | PT_AU04_MdaTsShipped0   | mda        | ASSAY_MESSAGE_SENDER          |         | 401  |
+      | patient_id              | site_value | auth_role                         | message | code |
+      | PT_AU04_MdaTsShipped0   | mda        | NO_TOKEN                          |         | 401  |
+      | PT_AU04_MdaTsShipped0   | mda        | NCI_MATCH_READONLY                |         | 401  |
+      | PT_AU04_MdaTsShipped0   | mda        | NO_ROLE                           |         | 401  |
+      | PT_AU04_MdaTsShipped1   | mda        | ADMIN                             | success | 202  |
+      | PT_AU04_MochaTsShipped1 | mocha      | SYSTEM                            | success | 202  |
+      | PT_AU04_MdaTsShipped0   | mda        | ASSIGNMENT_REPORT_REVIEWER        |         | 401  |
+      | PT_AU04_MochaTsShipped0 | mocha      | MDA_VARIANT_REPORT_SENDER         |         | 401  |
+      | PT_AU04_MdaTsShipped2   | mda        | MDA_VARIANT_REPORT_SENDER         | success | 202  |
+      | PT_AU04_DtmTsShipped0   | dartmouth  | MDA_VARIANT_REPORT_SENDER         |         | 401  |
+      | PT_AU04_MdaTsShipped3   | mda        | MDA_VARIANT_REPORT_REVIEWER       |         | 401  |
+      | PT_AU04_MdaTsShipped0   | mda        | MOCHA_VARIANT_REPORT_SENDER       |         | 401  |
+      | PT_AU04_MochaTsShipped2 | mocha      | MOCHA_VARIANT_REPORT_SENDER       | success | 202  |
+      | PT_AU04_DtmTsShipped0   | dartmouth  | MOCHA_VARIANT_REPORT_SENDER       |         | 401  |
+      | PT_AU04_MochaTsShipped3 | mocha      | MOCHA_VARIANT_REPORT_REVIEWER     |         | 401  |
+      | PT_AU04_MochaTsShipped0 | mocha      | DARTMOUTH_VARIANT_REPORT_SENDER   |         | 401  |
+      | PT_AU04_MdaTsShipped0   | mda        | DARTMOUTH_VARIANT_REPORT_SENDER   |         | 401  |
+      | PT_AU04_DtmTsShipped1   | dartmouth  | DARTMOUTH_VARIANT_REPORT_SENDER   | success | 202  |
+      | PT_AU04_DtmTsShipped0   | dartmouth  | DARTMOUTH_VARIANT_REPORT_REVIEWER |         | 401  |
+      | PT_AU04_MdaTsShipped0   | mda        | PATIENT_MESSAGE_SENDER            |         | 401  |
+      | PT_AU04_MochaTsShipped0 | mocha      | SPECIMEN_MESSAGE_SENDER           |         | 401  |
+      | PT_AU04_MdaTsShipped0   | dartmouth  | ASSAY_MESSAGE_SENDER              |         | 401  |
 
   @patients_p3
   Scenario Outline: PT_AU05a role base authorization works properly for patient variant report confirm
@@ -134,22 +148,28 @@ Feature: Patient API authorization tests
     And patient API user authorization role is "<auth_role>"
     When PUT to MATCH variant report "confirm" service, response includes "<message>" with code "<code>"
     Examples:
-      | patient_id                 | auth_role                     | message | code |
-      | PT_AU05_MdaTsVrUploaded0   | NO_TOKEN                      |         | 401  |
-      | PT_AU05_MdaTsVrUploaded0   | NCI_MATCH_READONLY            |         | 401  |
-      | PT_AU05_MdaTsVrUploaded0   | NO_ROLE                       |         | 401  |
-      | PT_AU05_MdaTsVrUploaded1   | ADMIN                         | success | 200  |
-      | PT_AU05_MochaTsVrUploaded1 | SYSTEM                        | success | 200  |
-      | PT_AU05_MdaTsVrUploaded0   | ASSIGNMENT_REPORT_REVIEWER    |         | 401  |
-      | PT_AU05_MdaTsVrUploaded0   | MDA_VARIANT_REPORT_SENDER     |         | 401  |
-      | PT_AU05_MdaTsVrUploaded2   | MDA_VARIANT_REPORT_REVIEWER   | success | 200  |
-      | PT_AU05_MochaTsVrUploaded0 | MDA_VARIANT_REPORT_REVIEWER   |         | 401  |
-      | PT_AU05_MochaTsVrUploaded0 | MOCHA_VARIANT_REPORT_SENDER   |         | 401  |
-      | PT_AU05_MochaTsVrUploaded2 | MOCHA_VARIANT_REPORT_REVIEWER | success | 200  |
-      | PT_AU05_MdaTsVrUploaded0   | MOCHA_VARIANT_REPORT_REVIEWER |         | 401  |
-      | PT_AU05_MdaTsVrUploaded0   | PATIENT_MESSAGE_SENDER        |         | 401  |
-      | PT_AU05_MochaTsVrUploaded0 | SPECIMEN_MESSAGE_SENDER       |         | 401  |
-      | PT_AU05_MdaTsVrUploaded0   | ASSAY_MESSAGE_SENDER          |         | 401  |
+      | patient_id                 | auth_role                         | message | code |
+      | PT_AU05_MdaTsVrUploaded0   | NO_TOKEN                          |         | 401  |
+      | PT_AU05_MdaTsVrUploaded0   | NCI_MATCH_READONLY                |         | 401  |
+      | PT_AU05_MdaTsVrUploaded0   | NO_ROLE                           |         | 401  |
+      | PT_AU05_MdaTsVrUploaded1   | ADMIN                             | success | 200  |
+      | PT_AU05_MochaTsVrUploaded1 | SYSTEM                            | success | 200  |
+      | PT_AU05_MdaTsVrUploaded0   | ASSIGNMENT_REPORT_REVIEWER        |         | 401  |
+      | PT_AU05_MdaTsVrUploaded0   | MDA_VARIANT_REPORT_SENDER         |         | 401  |
+      | PT_AU05_MdaTsVrUploaded2   | MDA_VARIANT_REPORT_REVIEWER       | success | 200  |
+      | PT_AU05_MochaTsVrUploaded0 | MDA_VARIANT_REPORT_REVIEWER       |         | 401  |
+      | PT_AU05_DtmTsVrUploaded0   | MDA_VARIANT_REPORT_REVIEWER       |         | 401  |
+      | PT_AU05_MochaTsVrUploaded0 | MOCHA_VARIANT_REPORT_SENDER       |         | 401  |
+      | PT_AU05_MochaTsVrUploaded2 | MOCHA_VARIANT_REPORT_REVIEWER     | success | 200  |
+      | PT_AU05_MdaTsVrUploaded0   | MOCHA_VARIANT_REPORT_REVIEWER     |         | 401  |
+      | PT_AU05_MdaTsVrUploaded0   | MOCHA_VARIANT_REPORT_REVIEWER     |         | 401  |
+      | PT_AU05_DtmTsVrUploaded0   | DARTMOUTH_VARIANT_REPORT_SENDER   |         | 401  |
+      | PT_AU05_DtmTsVrUploaded1   | DARTMOUTH_VARIANT_REPORT_REVIEWER | success | 200  |
+      | PT_AU05_MochaTsVrUploaded0 | DARTMOUTH_VARIANT_REPORT_REVIEWER |         | 401  |
+      | PT_AU05_MdaTsVrUploaded0   | DARTMOUTH_VARIANT_REPORT_REVIEWER |         | 401  |
+      | PT_AU05_DtmTsVrUploaded0   | PATIENT_MESSAGE_SENDER            |         | 401  |
+      | PT_AU05_MochaTsVrUploaded0 | SPECIMEN_MESSAGE_SENDER           |         | 401  |
+      | PT_AU05_MdaTsVrUploaded0   | ASSAY_MESSAGE_SENDER              |         | 401  |
 
   @patients_p3
   Scenario Outline: PT_AU05b role base authorization works properly for patient variant confirm
@@ -159,22 +179,28 @@ Feature: Patient API authorization tests
     And patient API user authorization role is "<auth_role>"
     Then PUT to MATCH variant "<check>" service for this uuid, response includes "<message>" with code "<code>"
     Examples:
-      | patient_id                 | auth_role                     | check     | message    | code |
-      | PT_AU05_MdaTsVrUploaded0   | NO_TOKEN                      | unchecked |            | 401  |
-      | PT_AU05_MdaTsVrUploaded0   | NCI_MATCH_READONLY            | unchecked |            | 401  |
-      | PT_AU05_MdaTsVrUploaded0   | NO_ROLE                       | unchecked |            | 401  |
-      | PT_AU05_MdaTsVrUploaded3   | ADMIN                         | unchecked | changed to | 200  |
-      | PT_AU05_MochaTsVrUploaded3 | SYSTEM                        | checked   | changed to | 200  |
-      | PT_AU05_MdaTsVrUploaded0   | ASSIGNMENT_REPORT_REVIEWER    | unchecked |            | 401  |
-      | PT_AU05_MdaTsVrUploaded0   | MDA_VARIANT_REPORT_SENDER     | unchecked |            | 401  |
-      | PT_AU05_MdaTsVrUploaded3   | MDA_VARIANT_REPORT_REVIEWER   | unchecked | changed to | 200  |
-      | PT_AU05_MochaTsVrUploaded0 | MDA_VARIANT_REPORT_REVIEWER   | unchecked |            | 401  |
-      | PT_AU05_MochaTsVrUploaded0 | MOCHA_VARIANT_REPORT_SENDER   | unchecked |            | 401  |
-      | PT_AU05_MochaTsVrUploaded3 | MOCHA_VARIANT_REPORT_REVIEWER | checked   | changed to | 200  |
-      | PT_AU05_MdaTsVrUploaded0   | MOCHA_VARIANT_REPORT_REVIEWER | unchecked |            | 401  |
-      | PT_AU05_MdaTsVrUploaded0   | PATIENT_MESSAGE_SENDER        | unchecked |            | 401  |
-      | PT_AU05_MochaTsVrUploaded0 | SPECIMEN_MESSAGE_SENDER       | unchecked |            | 401  |
-      | PT_AU05_MdaTsVrUploaded0   | ASSAY_MESSAGE_SENDER          | unchecked |            | 401  |
+      | patient_id                 | auth_role                         | check     | message    | code |
+      | PT_AU05_MdaTsVrUploaded0   | NO_TOKEN                          | unchecked |            | 401  |
+      | PT_AU05_MdaTsVrUploaded0   | NCI_MATCH_READONLY                | unchecked |            | 401  |
+      | PT_AU05_MdaTsVrUploaded0   | NO_ROLE                           | unchecked |            | 401  |
+      | PT_AU05_MdaTsVrUploaded3   | ADMIN                             | unchecked | changed to | 200  |
+      | PT_AU05_MochaTsVrUploaded3 | SYSTEM                            | checked   | changed to | 200  |
+      | PT_AU05_MdaTsVrUploaded0   | ASSIGNMENT_REPORT_REVIEWER        | unchecked |            | 401  |
+      | PT_AU05_MdaTsVrUploaded0   | MDA_VARIANT_REPORT_SENDER         | unchecked |            | 401  |
+      | PT_AU05_MdaTsVrUploaded3   | MDA_VARIANT_REPORT_REVIEWER       | unchecked | changed to | 200  |
+      | PT_AU05_MochaTsVrUploaded0 | MDA_VARIANT_REPORT_REVIEWER       | unchecked |            | 401  |
+      | PT_AU05_DtmTsVrUploaded0   | MDA_VARIANT_REPORT_REVIEWER       | unchecked |            | 401  |
+      | PT_AU05_MochaTsVrUploaded0 | MOCHA_VARIANT_REPORT_SENDER       | unchecked |            | 401  |
+      | PT_AU05_MochaTsVrUploaded3 | MOCHA_VARIANT_REPORT_REVIEWER     | checked   | changed to | 200  |
+      | PT_AU05_MdaTsVrUploaded0   | MOCHA_VARIANT_REPORT_REVIEWER     | unchecked |            | 401  |
+      | PT_AU05_DtmTsVrUploaded0   | MOCHA_VARIANT_REPORT_REVIEWER     | unchecked |            | 401  |
+      | PT_AU05_DtmTsVrUploaded0   | DARTMOUTH_VARIANT_REPORT_SENDER   | unchecked |            | 401  |
+      | PT_AU05_DtmTsVrUploaded2   | DARTMOUTH_VARIANT_REPORT_REVIEWER | unchecked | changed to | 200  |
+      | PT_AU05_MochaTsVrUploaded0 | DARTMOUTH_VARIANT_REPORT_REVIEWER | unchecked |            | 401  |
+      | PT_AU05_MdaTsVrUploaded0   | DARTMOUTH_VARIANT_REPORT_REVIEWER | unchecked |            | 401  |
+      | PT_AU05_MdaTsVrUploaded0   | PATIENT_MESSAGE_SENDER            | unchecked |            | 401  |
+      | PT_AU05_MochaTsVrUploaded0 | SPECIMEN_MESSAGE_SENDER           | unchecked |            | 401  |
+      | PT_AU05_MdaTsVrUploaded0   | ASSAY_MESSAGE_SENDER              | unchecked |            | 401  |
 
   @patients_p1
   Scenario Outline: PT_AU06 role base authorization works properly for patient assignment confirm
@@ -183,20 +209,22 @@ Feature: Patient API authorization tests
     And patient API user authorization role is "<auth_role>"
     When PUT to MATCH assignment report "confirm" service, response includes "<message>" with code "<code>"
     Examples:
-      | patient_id                   | auth_role                     | message | code |
-      | PT_AU06_PendingConfirmation0 | NO_TOKEN                      |         | 401  |
-      | PT_AU06_PendingConfirmation0 | NCI_MATCH_READONLY            |         | 401  |
-      | PT_AU06_PendingConfirmation0 | NO_ROLE                       |         | 401  |
-      | PT_AU06_PendingConfirmation1 | ADMIN                         | success | 200  |
-      | PT_AU06_PendingConfirmation2 | SYSTEM                        | success | 200  |
-      | PT_AU06_PendingConfirmation3 | ASSIGNMENT_REPORT_REVIEWER    | success | 200  |
-      | PT_AU06_PendingConfirmation0 | MDA_VARIANT_REPORT_SENDER     |         | 401  |
-      | PT_AU06_PendingConfirmation0 | MDA_VARIANT_REPORT_REVIEWER   |         | 401  |
-      | PT_AU06_PendingConfirmation0 | MOCHA_VARIANT_REPORT_SENDER   |         | 401  |
-      | PT_AU06_PendingConfirmation0 | MOCHA_VARIANT_REPORT_REVIEWER |         | 401  |
-      | PT_AU06_PendingConfirmation0 | PATIENT_MESSAGE_SENDER        |         | 401  |
-      | PT_AU06_PendingConfirmation0 | SPECIMEN_MESSAGE_SENDER       |         | 401  |
-      | PT_AU06_PendingConfirmation0 | ASSAY_MESSAGE_SENDER          |         | 401  |
+      | patient_id                   | auth_role                         | message | code |
+      | PT_AU06_PendingConfirmation0 | NO_TOKEN                          |         | 401  |
+      | PT_AU06_PendingConfirmation0 | NCI_MATCH_READONLY                |         | 401  |
+      | PT_AU06_PendingConfirmation0 | NO_ROLE                           |         | 401  |
+      | PT_AU06_PendingConfirmation1 | ADMIN                             | success | 200  |
+      | PT_AU06_PendingConfirmation2 | SYSTEM                            | success | 200  |
+      | PT_AU06_PendingConfirmation3 | ASSIGNMENT_REPORT_REVIEWER        | success | 200  |
+      | PT_AU06_PendingConfirmation0 | MDA_VARIANT_REPORT_SENDER         |         | 401  |
+      | PT_AU06_PendingConfirmation0 | MDA_VARIANT_REPORT_REVIEWER       |         | 401  |
+      | PT_AU06_PendingConfirmation0 | MOCHA_VARIANT_REPORT_SENDER       |         | 401  |
+      | PT_AU06_PendingConfirmation0 | MOCHA_VARIANT_REPORT_REVIEWER     |         | 401  |
+      | PT_AU06_PendingConfirmation0 | DARTMOUTH_VARIANT_REPORT_SENDER   |         | 401  |
+      | PT_AU06_PendingConfirmation0 | DARTMOUTH_VARIANT_REPORT_REVIEWER |         | 401  |
+      | PT_AU06_PendingConfirmation0 | PATIENT_MESSAGE_SENDER            |         | 401  |
+      | PT_AU06_PendingConfirmation0 | SPECIMEN_MESSAGE_SENDER           |         | 401  |
+      | PT_AU06_PendingConfirmation0 | ASSAY_MESSAGE_SENDER              |         | 401  |
 
   @patients_p1
   Scenario Outline: PT_AU07a role base authorization works properly for patient off study
@@ -206,20 +234,22 @@ Feature: Patient API authorization tests
     And patient API user authorization role is "<auth_role>"
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
-      | patient_id          | auth_role                     | message | code |
-      | PT_AU07_Registered0 | NO_TOKEN                      |         | 401  |
-      | PT_AU07_Registered0 | NCI_MATCH_READONLY            |         | 401  |
-      | PT_AU07_Registered0 | NO_ROLE                       |         | 401  |
-      | PT_AU07_Registered1 | ADMIN                         | success | 202  |
-      | PT_AU07_Registered2 | SYSTEM                        | success | 202  |
-      | PT_AU07_Registered0 | ASSIGNMENT_REPORT_REVIEWER    |         | 401  |
-      | PT_AU07_Registered0 | MDA_VARIANT_REPORT_SENDER     |         | 401  |
-      | PT_AU07_Registered0 | MDA_VARIANT_REPORT_REVIEWER   |         | 401  |
-      | PT_AU07_Registered0 | MOCHA_VARIANT_REPORT_SENDER   |         | 401  |
-      | PT_AU07_Registered0 | MOCHA_VARIANT_REPORT_REVIEWER |         | 401  |
-      | PT_AU07_Registered3 | PATIENT_MESSAGE_SENDER        | success | 202  |
-      | PT_AU07_Registered0 | SPECIMEN_MESSAGE_SENDER       |         | 401  |
-      | PT_AU07_Registered0 | ASSAY_MESSAGE_SENDER          |         | 401  |
+      | patient_id          | auth_role                         | message | code |
+      | PT_AU07_Registered0 | NO_TOKEN                          |         | 401  |
+      | PT_AU07_Registered0 | NCI_MATCH_READONLY                |         | 401  |
+      | PT_AU07_Registered0 | NO_ROLE                           |         | 401  |
+      | PT_AU07_Registered1 | ADMIN                             | success | 202  |
+      | PT_AU07_Registered2 | SYSTEM                            | success | 202  |
+      | PT_AU07_Registered0 | ASSIGNMENT_REPORT_REVIEWER        |         | 401  |
+      | PT_AU07_Registered0 | MDA_VARIANT_REPORT_SENDER         |         | 401  |
+      | PT_AU07_Registered0 | MDA_VARIANT_REPORT_REVIEWER       |         | 401  |
+      | PT_AU07_Registered0 | MOCHA_VARIANT_REPORT_SENDER       |         | 401  |
+      | PT_AU07_Registered0 | MOCHA_VARIANT_REPORT_REVIEWER     |         | 401  |
+      | PT_AU07_Registered0 | DARTMOUTH_VARIANT_REPORT_SENDER   |         | 401  |
+      | PT_AU07_Registered0 | DARTMOUTH_VARIANT_REPORT_REVIEWER |         | 401  |
+      | PT_AU07_Registered3 | PATIENT_MESSAGE_SENDER            | success | 202  |
+      | PT_AU07_Registered0 | SPECIMEN_MESSAGE_SENDER           |         | 401  |
+      | PT_AU07_Registered0 | ASSAY_MESSAGE_SENDER              |         | 401  |
 
   @patients_p1
   Scenario Outline: PT_AU07b role base authorization works properly for patient off study biopsy expired
@@ -229,20 +259,22 @@ Feature: Patient API authorization tests
     And patient API user authorization role is "<auth_role>"
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
-      | patient_id          | auth_role                     | message | code |
-      | PT_AU07_TsReceived0 | NO_TOKEN                      |         | 401  |
-      | PT_AU07_TsReceived0 | NCI_MATCH_READONLY            |         | 401  |
-      | PT_AU07_TsReceived0 | NO_ROLE                       |         | 401  |
-      | PT_AU07_TsReceived1 | ADMIN                         | success | 202  |
-      | PT_AU07_TsReceived2 | SYSTEM                        | success | 202  |
-      | PT_AU07_TsReceived0 | ASSIGNMENT_REPORT_REVIEWER    |         | 401  |
-      | PT_AU07_TsReceived0 | MDA_VARIANT_REPORT_SENDER     |         | 401  |
-      | PT_AU07_TsReceived0 | MDA_VARIANT_REPORT_REVIEWER   |         | 401  |
-      | PT_AU07_TsReceived0 | MOCHA_VARIANT_REPORT_SENDER   |         | 401  |
-      | PT_AU07_TsReceived0 | MOCHA_VARIANT_REPORT_REVIEWER |         | 401  |
-      | PT_AU07_TsReceived3 | PATIENT_MESSAGE_SENDER        | success | 202  |
-      | PT_AU07_TsReceived0 | SPECIMEN_MESSAGE_SENDER       |         | 401  |
-      | PT_AU07_TsReceived0 | ASSAY_MESSAGE_SENDER          |         | 401  |
+      | patient_id          | auth_role                         | message | code |
+      | PT_AU07_TsReceived0 | NO_TOKEN                          |         | 401  |
+      | PT_AU07_TsReceived0 | NCI_MATCH_READONLY                |         | 401  |
+      | PT_AU07_TsReceived0 | NO_ROLE                           |         | 401  |
+      | PT_AU07_TsReceived1 | ADMIN                             | success | 202  |
+      | PT_AU07_TsReceived2 | SYSTEM                            | success | 202  |
+      | PT_AU07_TsReceived0 | ASSIGNMENT_REPORT_REVIEWER        |         | 401  |
+      | PT_AU07_TsReceived0 | MDA_VARIANT_REPORT_SENDER         |         | 401  |
+      | PT_AU07_TsReceived0 | MDA_VARIANT_REPORT_REVIEWER       |         | 401  |
+      | PT_AU07_TsReceived0 | MOCHA_VARIANT_REPORT_SENDER       |         | 401  |
+      | PT_AU07_TsReceived0 | MOCHA_VARIANT_REPORT_REVIEWER     |         | 401  |
+      | PT_AU07_TsReceived0 | DARTMOUTH_VARIANT_REPORT_SENDER   |         | 401  |
+      | PT_AU07_TsReceived0 | DARTMOUTH_VARIANT_REPORT_REVIEWER |         | 401  |
+      | PT_AU07_TsReceived3 | PATIENT_MESSAGE_SENDER            | success | 202  |
+      | PT_AU07_TsReceived0 | SPECIMEN_MESSAGE_SENDER           |         | 401  |
+      | PT_AU07_TsReceived0 | ASSAY_MESSAGE_SENDER              |         | 401  |
 
   @patients_p1
   Scenario Outline: PT_AU08a role base authorization works properly for patient request assignment
@@ -253,21 +285,23 @@ Feature: Patient API authorization tests
     And patient API user authorization role is "<auth_role>"
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
-      | patient_id               | rebiopsy | auth_role                     | message | code |
-      | PT_AU08_PendingApproval0 | Y        | NO_TOKEN                      |         | 401  |
-      | PT_AU08_PendingApproval0 | Y        | NCI_MATCH_READONLY            |         | 401  |
-      | PT_AU08_PendingApproval0 | Y        | NO_ROLE                       |         | 401  |
-      | PT_AU08_PendingApproval1 | N        | ADMIN                         | success | 202  |
-      | PT_AU08_PendingApproval2 | Y        | SYSTEM                        | success | 202  |
-      | PT_AU08_PendingApproval0 | Y        | ASSIGNMENT_REPORT_REVIEWER    |         | 401  |
-      | PT_AU08_PendingApproval0 | Y        | MDA_VARIANT_REPORT_SENDER     |         | 401  |
-      | PT_AU08_PendingApproval0 | Y        | MDA_VARIANT_REPORT_REVIEWER   |         | 401  |
-      | PT_AU08_PendingApproval0 | N        | MOCHA_VARIANT_REPORT_SENDER   |         | 401  |
-      | PT_AU08_PendingApproval0 | N        | MOCHA_VARIANT_REPORT_REVIEWER |         | 401  |
-      | PT_AU08_PendingApproval3 | Y        | PATIENT_MESSAGE_SENDER        | success | 202  |
-      | PT_AU08_PendingApproval4 | N        | PATIENT_MESSAGE_SENDER        | success | 202  |
-      | PT_AU08_PendingApproval0 | Y        | SPECIMEN_MESSAGE_SENDER       |         | 401  |
-      | PT_AU08_PendingApproval0 | N        | ASSAY_MESSAGE_SENDER          |         | 401  |
+      | patient_id               | rebiopsy | auth_role                         | message | code |
+      | PT_AU08_PendingApproval0 | Y        | NO_TOKEN                          |         | 401  |
+      | PT_AU08_PendingApproval0 | Y        | NCI_MATCH_READONLY                |         | 401  |
+      | PT_AU08_PendingApproval0 | Y        | NO_ROLE                           |         | 401  |
+      | PT_AU08_PendingApproval1 | N        | ADMIN                             | success | 202  |
+      | PT_AU08_PendingApproval2 | Y        | SYSTEM                            | success | 202  |
+      | PT_AU08_PendingApproval0 | Y        | ASSIGNMENT_REPORT_REVIEWER        |         | 401  |
+      | PT_AU08_PendingApproval0 | Y        | MDA_VARIANT_REPORT_SENDER         |         | 401  |
+      | PT_AU08_PendingApproval0 | Y        | MDA_VARIANT_REPORT_REVIEWER       |         | 401  |
+      | PT_AU08_PendingApproval0 | N        | MOCHA_VARIANT_REPORT_SENDER       |         | 401  |
+      | PT_AU08_PendingApproval0 | N        | MOCHA_VARIANT_REPORT_REVIEWER     |         | 401  |
+      | PT_AU08_PendingApproval0 | Y        | DARTMOUTH_VARIANT_REPORT_SENDER   |         | 401  |
+      | PT_AU08_PendingApproval0 | N        | DARTMOUTH_VARIANT_REPORT_REVIEWER |         | 401  |
+      | PT_AU08_PendingApproval3 | Y        | PATIENT_MESSAGE_SENDER            | success | 202  |
+      | PT_AU08_PendingApproval4 | N        | PATIENT_MESSAGE_SENDER            | success | 202  |
+      | PT_AU08_PendingApproval0 | Y        | SPECIMEN_MESSAGE_SENDER           |         | 401  |
+      | PT_AU08_PendingApproval0 | N        | ASSAY_MESSAGE_SENDER              |         | 401  |
 
   @patients_p1
   Scenario Outline: PT_AU08b role base authorization works properly for patient request no assignment
@@ -277,20 +311,22 @@ Feature: Patient API authorization tests
     And patient API user authorization role is "<auth_role>"
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
-      | patient_id               | auth_role                     | message | code |
-      | PT_AU08_PendingApproval0 | NO_TOKEN                      |         | 401  |
-      | PT_AU08_PendingApproval0 | NCI_MATCH_READONLY            |         | 401  |
-      | PT_AU08_PendingApproval0 | NO_ROLE                       |         | 401  |
-      | PT_AU08_PendingApproval5 | ADMIN                         | success | 202  |
-      | PT_AU08_PendingApproval6 | SYSTEM                        | success | 202  |
-      | PT_AU08_PendingApproval0 | ASSIGNMENT_REPORT_REVIEWER    |         | 401  |
-      | PT_AU08_PendingApproval0 | MDA_VARIANT_REPORT_SENDER     |         | 401  |
-      | PT_AU08_PendingApproval0 | MDA_VARIANT_REPORT_REVIEWER   |         | 401  |
-      | PT_AU08_PendingApproval0 | MOCHA_VARIANT_REPORT_SENDER   |         | 401  |
-      | PT_AU08_PendingApproval0 | MOCHA_VARIANT_REPORT_REVIEWER |         | 401  |
-      | PT_AU08_PendingApproval7 | PATIENT_MESSAGE_SENDER        | success | 202  |
-      | PT_AU08_PendingApproval0 | SPECIMEN_MESSAGE_SENDER       |         | 401  |
-      | PT_AU08_PendingApproval0 | ASSAY_MESSAGE_SENDER          |         | 401  |
+      | patient_id               | auth_role                         | message | code |
+      | PT_AU08_PendingApproval0 | NO_TOKEN                          |         | 401  |
+      | PT_AU08_PendingApproval0 | NCI_MATCH_READONLY                |         | 401  |
+      | PT_AU08_PendingApproval0 | NO_ROLE                           |         | 401  |
+      | PT_AU08_PendingApproval5 | ADMIN                             | success | 202  |
+      | PT_AU08_PendingApproval6 | SYSTEM                            | success | 202  |
+      | PT_AU08_PendingApproval0 | ASSIGNMENT_REPORT_REVIEWER        |         | 401  |
+      | PT_AU08_PendingApproval0 | MDA_VARIANT_REPORT_SENDER         |         | 401  |
+      | PT_AU08_PendingApproval0 | MDA_VARIANT_REPORT_REVIEWER       |         | 401  |
+      | PT_AU08_PendingApproval0 | MOCHA_VARIANT_REPORT_SENDER       |         | 401  |
+      | PT_AU08_PendingApproval0 | MOCHA_VARIANT_REPORT_REVIEWER     |         | 401  |
+      | PT_AU08_PendingApproval0 | DARTMOUTH_VARIANT_REPORT_SENDER   |         | 401  |
+      | PT_AU08_PendingApproval0 | DARTMOUTH_VARIANT_REPORT_REVIEWER |         | 401  |
+      | PT_AU08_PendingApproval7 | PATIENT_MESSAGE_SENDER            | success | 202  |
+      | PT_AU08_PendingApproval0 | SPECIMEN_MESSAGE_SENDER           |         | 401  |
+      | PT_AU08_PendingApproval0 | ASSAY_MESSAGE_SENDER              |         | 401  |
 
   @patients_p1
   Scenario Outline: PT_AU09 role base authorization works properly for patient on treatment arm
@@ -303,20 +339,22 @@ Feature: Patient API authorization tests
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
 #    Then wait for "1" seconds
     Examples:
-      | patient_id               | auth_role                     | message | code |
-      | PT_AU09_PendingApproval0 | NO_TOKEN                      |         | 401  |
-      | PT_AU09_PendingApproval0 | NCI_MATCH_READONLY            |         | 401  |
-      | PT_AU09_PendingApproval0 | NO_ROLE                       |         | 401  |
-      | PT_AU09_PendingApproval1 | ADMIN                         | success | 202  |
-      | PT_AU09_PendingApproval2 | SYSTEM                        | success | 202  |
-      | PT_AU09_PendingApproval0 | ASSIGNMENT_REPORT_REVIEWER    |         | 401  |
-      | PT_AU09_PendingApproval0 | MDA_VARIANT_REPORT_SENDER     |         | 401  |
-      | PT_AU09_PendingApproval0 | MDA_VARIANT_REPORT_REVIEWER   |         | 401  |
-      | PT_AU09_PendingApproval0 | MOCHA_VARIANT_REPORT_SENDER   |         | 401  |
-      | PT_AU09_PendingApproval0 | MOCHA_VARIANT_REPORT_REVIEWER |         | 401  |
-      | PT_AU09_PendingApproval3 | PATIENT_MESSAGE_SENDER        | success | 202  |
-      | PT_AU09_PendingApproval0 | SPECIMEN_MESSAGE_SENDER       |         | 401  |
-      | PT_AU09_PendingApproval0 | ASSAY_MESSAGE_SENDER          |         | 401  |
+      | patient_id               | auth_role                         | message | code |
+      | PT_AU09_PendingApproval0 | NO_TOKEN                          |         | 401  |
+      | PT_AU09_PendingApproval0 | NCI_MATCH_READONLY                |         | 401  |
+      | PT_AU09_PendingApproval0 | NO_ROLE                           |         | 401  |
+      | PT_AU09_PendingApproval1 | ADMIN                             | success | 202  |
+      | PT_AU09_PendingApproval2 | SYSTEM                            | success | 202  |
+      | PT_AU09_PendingApproval0 | ASSIGNMENT_REPORT_REVIEWER        |         | 401  |
+      | PT_AU09_PendingApproval0 | MDA_VARIANT_REPORT_SENDER         |         | 401  |
+      | PT_AU09_PendingApproval0 | MDA_VARIANT_REPORT_REVIEWER       |         | 401  |
+      | PT_AU09_PendingApproval0 | MOCHA_VARIANT_REPORT_SENDER       |         | 401  |
+      | PT_AU09_PendingApproval0 | MOCHA_VARIANT_REPORT_REVIEWER     |         | 401  |
+      | PT_AU09_PendingApproval0 | DARTMOUTH_VARIANT_REPORT_SENDER   |         | 401  |
+      | PT_AU09_PendingApproval0 | DARTMOUTH_VARIANT_REPORT_REVIEWER |         | 401  |
+      | PT_AU09_PendingApproval3 | PATIENT_MESSAGE_SENDER            | success | 202  |
+      | PT_AU09_PendingApproval0 | SPECIMEN_MESSAGE_SENDER           |         | 401  |
+      | PT_AU09_PendingApproval0 | ASSAY_MESSAGE_SENDER              |         | 401  |
 
   @patients_p1
   Scenario Outline: PT_AU10 role base authorization works properly for patient GET
@@ -324,20 +362,22 @@ Feature: Patient API authorization tests
     And patient API user authorization role is "<auth_role>"
     When GET from MATCH patient API, http code "<code>" should return
     Examples:
-      | service               | patient_id                 | id                       | auth_role                     | code |
-      |                       |                            |                          | NO_TOKEN                      | 401  |
-      | statistics            |                            |                          | NCI_MATCH_READONLY            | 200  |
-      | patient_limbos        |                            |                          | NO_ROLE                       | 401  |
-      | events                |                            |                          | ADMIN                         | 200  |
-      | variant_reports       |                            | PT_GVF_RARebioY_ANI1     | SYSTEM                        | 200  |
-      | treatment_arm_history | PT_SC06a_PendingApproval   |                          | ASSIGNMENT_REPORT_REVIEWER    | 200  |
-      | specimens             | PT_GVF_RequestNoAssignment |                          | MDA_VARIANT_REPORT_SENDER     | 200  |
-      | shipments             |                            |                          | MDA_VARIANT_REPORT_REVIEWER   | 200  |
-      | specimen_events       | PT_GVF_VrAssayReady        |                          | MOCHA_VARIANT_REPORT_SENDER   | 200  |
-      | variants              |                            |                          | MOCHA_VARIANT_REPORT_REVIEWER | 200  |
-      | shipments             |                            |                          | PATIENT_MESSAGE_SENDER        | 200  |
-      | action_items          | PT_GVF_TsVrUploaded        |                          | SPECIMEN_MESSAGE_SENDER       | 200  |
-      | analysis_report       | PT_GVF_VrAssayReady        | PT_GVF_VrAssayReady_ANI1 | ASSAY_MESSAGE_SENDER          | 200  |
+      | service               | patient_id                 | id                       | auth_role                         | code |
+      |                       |                            |                          | NO_TOKEN                          | 401  |
+      | statistics            |                            |                          | NCI_MATCH_READONLY                | 200  |
+      | patient_limbos        |                            |                          | NO_ROLE                           | 401  |
+      | events                |                            |                          | ADMIN                             | 200  |
+      | variant_reports       |                            | PT_GVF_RARebioY_ANI1     | SYSTEM                            | 200  |
+      | treatment_arm_history | PT_SC06a_PendingApproval   |                          | ASSIGNMENT_REPORT_REVIEWER        | 200  |
+      | specimens             | PT_GVF_RequestNoAssignment |                          | MDA_VARIANT_REPORT_SENDER         | 200  |
+      | shipments             |                            |                          | MDA_VARIANT_REPORT_REVIEWER       | 200  |
+      | specimen_events       | PT_GVF_VrAssayReady        |                          | MOCHA_VARIANT_REPORT_SENDER       | 200  |
+      | variants              |                            |                          | MOCHA_VARIANT_REPORT_REVIEWER     | 200  |
+      | pending_items         |                            |                          | DARTMOUTH_VARIANT_REPORT_SENDER   | 200  |
+      | amois                 |                            |                          | DARTMOUTH_VARIANT_REPORT_REVIEWER | 200  |
+      | shipments             |                            |                          | PATIENT_MESSAGE_SENDER            | 200  |
+      | action_items          | PT_GVF_TsVrUploaded        |                          | SPECIMEN_MESSAGE_SENDER           | 200  |
+      | analysis_report       | PT_GVF_VrAssayReady        | PT_GVF_VrAssayReady_ANI1 | ASSAY_MESSAGE_SENDER              | 200  |
 
   @patients_p1
   Scenario Outline: PT_AU11 role base authorization works properly for allowing user upload variant file from UI
@@ -349,16 +389,22 @@ Feature: Patient API authorization tests
     And patient API user authorization role is "<auth_role>"
     When GET from MATCH patient API, http code "200" should return
     And this patient tissue specimen_events "PT_AU11_MochaTsShipped_MOI1" should have field "allow_upload" value "<allow2>"
+    Then patient GET service: "specimen_events", patient id: "PT_AU11_DtmTsShipped", id: ""
+    And patient API user authorization role is "<auth_role>"
+    When GET from MATCH patient API, http code "200" should return
+    And this patient tissue specimen_events "PT_AU11_DtmTsShipped_MOI1" should have field "allow_upload" value "<allow3>"
     Examples:
-      | auth_role                     | allow1 | allow2 |
-      | NCI_MATCH_READONLY            | false  | false  |
-      | ADMIN                         | true   | true   |
-      | SYSTEM                        | true   | true   |
-      | ASSIGNMENT_REPORT_REVIEWER    | false  | false  |
-      | MDA_VARIANT_REPORT_SENDER     | true   | false  |
-      | MDA_VARIANT_REPORT_REVIEWER   | false  | false  |
-      | MOCHA_VARIANT_REPORT_SENDER   | false  | true   |
-      | MOCHA_VARIANT_REPORT_REVIEWER | false  | false  |
-      | PATIENT_MESSAGE_SENDER        | false  | false  |
-      | SPECIMEN_MESSAGE_SENDER       | false  | false  |
-      | ASSAY_MESSAGE_SENDER          | false  | false  |
+      | auth_role                         | allow1 | allow2 | allow3 |
+      | NCI_MATCH_READONLY                | false  | false  | false  |
+      | ADMIN                             | true   | true   | true   |
+      | SYSTEM                            | true   | true   | true   |
+      | ASSIGNMENT_REPORT_REVIEWER        | false  | false  | false  |
+      | MDA_VARIANT_REPORT_SENDER         | true   | false  | false  |
+      | MDA_VARIANT_REPORT_REVIEWER       | false  | false  | false  |
+      | MOCHA_VARIANT_REPORT_SENDER       | false  | true   | false  |
+      | MOCHA_VARIANT_REPORT_REVIEWER     | false  | false  | false  |
+      | DARTMOUTH_VARIANT_REPORT_SENDER   | false  | false  | true   |
+      | DARTMOUTH_VARIANT_REPORT_REVIEWER | false  | false  | false  |
+      | PATIENT_MESSAGE_SENDER            | false  | false  | false  |
+      | SPECIMEN_MESSAGE_SENDER           | false  | false  | false  |
+      | ASSAY_MESSAGE_SENDER              | false  | false  | false  |

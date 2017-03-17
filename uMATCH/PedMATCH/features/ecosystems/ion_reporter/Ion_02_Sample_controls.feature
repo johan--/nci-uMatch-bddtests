@@ -13,10 +13,10 @@ Feature: Tests for sample_controls service in ion ecosystem
     Then field: "confirmed" for generated sample_control should be: "true"
     Then sample_control should not have field: "comments"
     Examples:
-      | site  | control_type           |
-      | mda   | positive               |
-      | mocha | no_template            |
-      | mda   | proficiency_competency |
+      | site      | control_type           |
+      | mda       | positive               |
+      | mocha     | no_template            |
+      | dartmouth | proficiency_competency |
 
   @ion_reporter_p2
   Scenario: ION_SC02. sample control service should generate unique molecular_id
