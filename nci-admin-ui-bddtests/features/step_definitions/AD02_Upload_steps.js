@@ -59,10 +59,14 @@ module.exports = function() {
 
     this.Then(/^The treatment arms are uploaded to the temporary table$/, function (callback) {
         dynamo.checkForRecord(upload.treatmentArmId, 'treatment_arm_pending').then(function(record){
+            expect(record['Items'].first['treatment_arm_id']).to.eql(upload.treatmentArmId);
+        }).then(callback)
+    });
 
-            console.log('record: ' + record[Items]);
-            expect(record[Items].length).to.be.greaterThan(0)
-            expect(record[Items].first['treatment_arm_id']).to.eql(upload.treatmentArmId)
+    this.Then(/^The treatment arms are not uploaded to the temporary table$/, function (callback) {
+        dynamo.checkForRecord(upload.treatmentArmId, 'treatment_arm_pending').then(function(record){
+            
+            expect(record['Items'].length).to.eql(0)
         }).then(callback);
     });
 
