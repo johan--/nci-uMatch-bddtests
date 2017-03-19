@@ -102,7 +102,7 @@ Feature: This is the critical path test cases.
   @broken
   Scenario: A Mocha user can confirm a MoCha variant report. 
     Given I am logged in as a "VR_Reviewer_mocha" user
-    When I got to the patient "APPLE" with variat report "BANANA"
+    When I go to the patient "mocha_patient" with variant report "mocha_report"
     Then I can see the variant report page
     And I click on the "CONFIRM" button
     Then I "should" see the confirmation modal pop up
@@ -211,7 +211,7 @@ Feature: This is the critical path test cases.
     # And I "should" see the patient "Version" as "2015-08-06"
     Then I logout
   
-  Scenario: Confirmed Assignment Report updates information on the Assignment report setion of the patient
+  Scenario: Confirmed Assignment Report updates information on the Assignment report section of the patient
     Given I am logged in as a "AR_Reviewer" user
     When I go to patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" details page
     And I get the link to "PT_CR01_PathAssayDoneVRUploadedToConfirm_ANI1" assignment report

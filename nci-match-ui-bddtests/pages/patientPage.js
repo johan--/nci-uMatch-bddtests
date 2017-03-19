@@ -34,6 +34,14 @@ var PatientPage = function () {
     // Patients in the grid
     this.patientGridRows      = this.patientGrid.all(by.repeater('item in filtered'));
 
+    // Patient summary details
+    this.patientDetailsPatientId    = element(by.binding('patient_id'));
+    this.patientDetailsStatus       = element(by.binding('current_status'));
+    this.treatmentArmComplete       = element.all(by.css('treatment-arm-title'));
+    this.treatmentArmIDAssigned     = element(by.binding('current_assignment.treatment_arm_id'));
+    this.treatmentArmStratumAssigned = element(by.binding('current_assignment.stratum_id'));
+    this.treatmentArmVersionAssigned = element(by.binding('current_assignment.version'));
+
     // Disease Summary table information on the patient details page.
     this.diseaseSummaryTable = element.all(by.css('.header-info-box.top-main-header-box')).get(1);
     //Patient details page main tabs
@@ -141,7 +149,7 @@ var PatientPage = function () {
     // and Assignment report. One can access variant report and
     // assignment report button from here.
     this.variantAndAssignmentPanel = element.all(by.repeater('analysis in shipment.analyses'));
-    this.variantAndAssignmentPanelString = 'assignment in analysis.assignments';
+    this.variantAndAssignmentPanelString = 'analysis in shipment.analyses';
 
     this.variantConfirmButtonList      = element.all(by.css('input[type="checkbox"]')); // This is to check the properties
     this.variantConfirmButtonCLickList = element.all(by.css('button[ng-click="vm.confirm()"]')); // This is to perfom actions on the checkbox
@@ -244,11 +252,11 @@ var PatientPage = function () {
 
     this.expectEnabled = function(checkBoxList, index, enabled, callback) {
         if(enabled === 'disabled'){
-            expect(checkBoxList.get(index).getAttribute('disabled')).to.eventually.eql('true');
+            expect(checkBoxList.get(index).getAttribute('disabled')).to.eventually.eql('true').notify(callback);
         } else {
-            expect(checkBoxList.get(index).getAttribute('disabled')).to.eventually.eql(null);
+            expect(checkBoxList.get(index).getAttribute('disabled')).to.eventually.eql(null).notify(callback);
         }
-    }
+    };
 
     this.trimSurgicalEventId =  function(completeText){
       return completeText.replace('Surgical Event ', '').replace(/\|.+/, '').trim();
@@ -257,12 +265,13 @@ var PatientPage = function () {
     this.combineVariantData = function(response){
         var filteredList = [];
         var variantList = ['snv_indels', 'copy_number_variants', 'gene_fusions']
-        for (var variantType of variantList) {
-            if ((variantType in response) && response[variantType].length > 0) {
-                for (var index in response[variantType]) {
-                    filteredList.push(response[variantType][index]);
+            for (var i = 0; i < variantList.length; i++ ) {
+                var variantType = variantList[i];
+                if ((variantType in response) && response[variantType].length > 0) {
+                    for (var index in response[variantType]) {
+                        filteredList.push(response[variantType][index]);
+                    }
                 }
-            }
         }
         return filteredList;
     };
