@@ -18,9 +18,10 @@ var TreatmentArmsPage = function() {
     // HEader of the above table
     this.taTableHeaderArray = this.taTable.all(by.css('th'));
 
-    // Patients Table That contains all the patient list Assigned to the selected treatment arm as seen on the treatment arms detailed page.
+    // All Patients Data Table That contains all the patient list Assigned to the selected treatment arm as seen on the treatment arms detailed page.
     this.allPatientsDataTable = element(by.css('#allPatientsData'));
     this.allPatientDataRows   = this.allPatientsDataTable.all(by.css('[ng-repeat^="item in filtered"]'));
+    this.allPatientDataFilter = this.allPatientsDataTable.element(by.css('input[grid-id="allPatientsData"]'));
     this.tableDataRowString   = '[ng-repeat^="item in filtered"]';
     this.expecrtedPatientsDataTableHeaders = [
         'Patient ID', 'TA Version', 'Patient Assignment Status Outcome',

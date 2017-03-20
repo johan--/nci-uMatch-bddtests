@@ -37,6 +37,7 @@ exports.config = {
         // Treatment Arm details page
         'features/TA_01_Analysis.feature',
         'features/TA_02_Rules.feature',
+        'features/TA_03_All_Patient_Details.feature',
 
         // Dashboard page details page
         'features/HO_01_Dashboard.feature',

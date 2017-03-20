@@ -6,7 +6,7 @@ Feature: Patient Surgical Events Tab
   A user can see Surgical Events tab and the details of each surgical event
 
   Background:
-    Given I am a logged in user
+    Given I stay logged in as "read_only" user
 
   @ui_p2 
   Scenario: Logged in user can see the details of the surgical event

@@ -2,7 +2,7 @@ Feature: Specimen Tracking page
   User can access and track the specimens
 
   Background:
-    Given I am a logged in user
+    Given I stay logged in as "read_only" user
     When I navigate to the specimen-tracking page
 
   @ui_p2

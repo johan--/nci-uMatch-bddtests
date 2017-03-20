@@ -25,8 +25,6 @@ When(/^I issue a post request for validation at level "([^"]*)" with the treatme
 		validation_values: [validation_values]
 	}
 	@response = Request.post_request(request, body)
-
-
 end
 
 Given(/^I remove the field "([^"]*)" from the template$/) do |field|
@@ -48,6 +46,7 @@ end
 
 Then(/^I should see the reason of rejection as "([^"]*)"$/) do |reason|
 	message =  JSON.parse(@response['message'])
+	error_message = message['error_messages'].first['all']
 
-	expect(message['error_message']).to eql(reason)
+	expect(error_message).to eql(reason)
 end

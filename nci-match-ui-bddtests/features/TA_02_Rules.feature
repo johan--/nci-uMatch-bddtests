@@ -7,7 +7,7 @@ Feature: Treatment Arm Rules
   the various rules applied
 
   Background:
-    Given I am a logged in user
+    Given I stay logged in as "read_only" user
     And I go to treatment arm with "APEC1621-UI" as the id and "STR100" as stratum id
     And I collect backend information about the treatment arm
     When I select the "Rules" Main Tab

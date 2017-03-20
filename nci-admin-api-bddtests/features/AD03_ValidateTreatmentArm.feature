@@ -20,7 +20,7 @@ Given I retrieve the template for treatment arm
 And I remove the field "<field>" from the template
 When I issue a post request for validation at level "<validation_level>" with the treatment arm
 Then I "should" see a "Success" message
-And I "should" see "<reason>" value under the "error_message" field
+And I should see the reason of rejection as "<reason>"
 And I "should" see "false" value under the "passed" field
 Examples:
 	| field 								| validation_level | reason |

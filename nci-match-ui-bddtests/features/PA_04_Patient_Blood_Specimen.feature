@@ -6,7 +6,7 @@ Feature: Patient Blood SpecimenTab
   and there is no way to tie them to each other.
 
   Background:
-  Given I am logged in as a "VR_Reviewer_mda" user
+  Given I stay logged in as "VR_Reviewer_mda" user
   And I go to patient "UI_SP01_MultiBdSpecimens" details page
   
 
