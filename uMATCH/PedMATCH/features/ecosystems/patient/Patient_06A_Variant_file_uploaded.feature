@@ -252,6 +252,8 @@ Feature: Variant files uploaded message
       | PT_VU17_TsVrUploaded      | PT_VU17_TsVrUploaded_MOI1      | true  |
       | PT_VU17_TsVrUploadedStep2 | PT_VU17_TsVrUploadedStep2_MOI1 | false |
       | PT_VU17_TsVrUploadedStep2 | PT_VU17_TsVrUploadedStep2_MOI2 | true  |
+      | PT_VU17_TsShipDtmThenMda  | PT_VU17_TsShipDtmThenMda_MOI1  | false |
+      | PT_VU17_TsShipDtmThenMda  | PT_VU17_TsShipDtmThenMda_MOI2  | false |
 
   @patients_p2
   Scenario Outline: PT_VU17b. blood specimen allow_upload should have correct values

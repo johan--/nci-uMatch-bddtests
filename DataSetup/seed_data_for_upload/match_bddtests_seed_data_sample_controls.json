@@ -7611,6 +7611,20 @@
         },
         {
             "molecular_id": {
+                "S": "SC_MDA02"
+            },
+            "site": {
+                "S": "mda"
+            },
+            "date_molecular_id_created": {
+                "S": "2016-10-12 22:19:55.608332"
+            },
+            "control_type": {
+                "S": "no_template"
+            }
+        },
+        {
+            "molecular_id": {
                 "S": "SC_LL7IZ"
             },
             "site": {

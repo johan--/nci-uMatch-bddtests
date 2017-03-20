@@ -68,7 +68,7 @@ Feature: Tests for ion_reporters service in ion ecosystem
     When PUT to ion_reporters service, response includes "updated" with code "200"
     Then wait up to 15 seconds until this ion_reporter get updated
     Then field: "internal_ip_address" for this ion_reporter should be: "172.20.174.24"
-    Then field: "host_name" for this ion_reporter should be: "MDACC-MATCH-IR"
+    Then field: "host_name" for this ion_reporter should be: "MDA-MATCH-IR"
     Then field: "data_files" for this ion_reporter should be: "Log File"
     Then field: "ip_address" for this ion_reporter should be: "132.183.13.75"
 

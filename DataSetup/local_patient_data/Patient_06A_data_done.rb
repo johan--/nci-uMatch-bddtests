@@ -179,6 +179,15 @@ class Patient06A
     PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi_increase, '2016-05-01T23:42:13+00:00')
   end
 
+
+  def self.pt_vu17_ts_ship_dtm_then_mda
+    pt = PatientDataSet.new('PT_VU17_TsShipDtmThenMda')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-05-01T19:42:13+00:00', 'Dartmouth')
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi_increase, '2016-05-01T23:42:13+00:00', 'MDA')
+  end
+
   def self.pt_vu17_bd_shipped_twice
     pt = PatientDataSet.new('PT_VU17_BdShippedTwice')
     PatientMessageLoader.register_patient(pt.id)
