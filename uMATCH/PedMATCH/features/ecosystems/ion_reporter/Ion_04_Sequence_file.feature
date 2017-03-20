@@ -8,13 +8,13 @@ Feature: Tests for sequence files service in ion ecosystem
     Given sequence file type: "<file_type>", nucleic acid type: "<nucleic_acid_type>"
     When GET from sequence_files service, response includes "<result>" with code "200"
     Examples:
-      | file_type | nucleic_acid_type | result                                                     |
-      | bam       | dna               | s3.amazonaws.com/IR_TCWEV/SC_NPID3/SC_NPID3_ANI1/dna.bam   |
-      | bam       | cdna              | s3.amazonaws.com/IR_TCWEV/SC_NPID3/SC_NPID3_ANI1/cdna.bam  |
-      | bai       | dna               | s3.amazonaws.com/IR_TCWEV/SC_NPID3/SC_NPID3_ANI1/dna.bai   |
-      | bai       | cdna              | s3.amazonaws.com/IR_TCWEV/SC_NPID3/SC_NPID3_ANI1/cdna.bai  |
-      | tsv       |                   | s3.amazonaws.com/IR_TCWEV/SC_NPID3/SC_NPID3_ANI1/test1.tsv |
-      | vcf       |                   | s3.amazonaws.com/IR_TCWEV/SC_NPID3/SC_NPID3_ANI1/test1.vcf |
+      | file_type | nucleic_acid_type | result                                                          |
+      | bam       | dna               | s3.amazonaws.com/IR_TCWEV/NTC_MDA_NPID3/SC_NPID3_ANI1/dna.bam   |
+      | bam       | cdna              | s3.amazonaws.com/IR_TCWEV/NTC_MDA_NPID3/SC_NPID3_ANI1/cdna.bam  |
+      | bai       | dna               | s3.amazonaws.com/IR_TCWEV/NTC_MDA_NPID3/SC_NPID3_ANI1/dna.bai   |
+      | bai       | cdna              | s3.amazonaws.com/IR_TCWEV/NTC_MDA_NPID3/SC_NPID3_ANI1/cdna.bai  |
+      | tsv       |                   | s3.amazonaws.com/IR_TCWEV/NTC_MDA_NPID3/SC_NPID3_ANI1/test1.tsv |
+      | vcf       |                   | s3.amazonaws.com/IR_TCWEV/NTC_MDA_NPID3/SC_NPID3_ANI1/test1.vcf |
 
 #  @ion_reporter_p2
 #  Scenario: ION_SF02. returned file path should be reachable S3 path
@@ -33,7 +33,7 @@ Feature: Tests for sequence files service in ion ecosystem
 
   @ion_reporter_p2
   Scenario Outline: ION_SF05. sequence files service should fail if an non-existing file_format or nucleic acid type is passed in
-    Given molecular id is "SC_EUPC2"
+    Given molecular id is "NTC_MOCHA_EUPC2"
     Given sequence file type: "<file_type>", nucleic acid type: "<nucleic_acid_type>"
     When GET from sequence_files service, response includes "<message>" with code "400"
     Examples:
@@ -44,7 +44,7 @@ Feature: Tests for sequence files service in ion ecosystem
 
   @ion_reporter_p3
   Scenario Outline: ION_SF06. sequence files service should fail if tsv|vcf and nucleic acid type are passed in
-    Given molecular id is "SC_AWBSY"
+    Given molecular id is "NTC_MOCHA_AWBSY"
     Given sequence file type: "<file_type>", nucleic acid type: "<nucleic_acid_type>"
     When GET from sequence_files service, response includes "Only supports bam|bai and cdna|dna" with code "400"
     Examples:
@@ -66,7 +66,7 @@ Feature: Tests for sequence files service in ion ecosystem
 
   @ion_reporter_p3
   Scenario Outline: ION_SF08. sequence files service should fail if only bam|bai is passed in
-    Given molecular id is "SC_XPCQG"
+    Given molecular id is "SC_MOCHA_XPCQG"
     Given sequence file type: "<file_type>", nucleic acid type: ""
     When GET from sequence_files service, response includes "Only supports vcf and tsv files" with code "400"
     Examples:
@@ -76,7 +76,7 @@ Feature: Tests for sequence files service in ion ecosystem
 
   @ion_reporter_p3
   Scenario: ION_SF09. sequence files service should fail if only molecular_id is passed in
-    Given molecular id is "SC_2A9FY"
+    Given molecular id is "PCC_MDA_2A9FY"
     Given sequence file type: "", nucleic acid type: ""
     When GET from sequence_files service, response includes "Only supports bam|bai and cdna|dna" with code "400"
 
@@ -88,25 +88,25 @@ Feature: Tests for sequence files service in ion ecosystem
 
   @ion_reporter_p2
   Scenario: ION_SF11. sequence files service should return 404 error if no result for current query
-    Given molecular id is "SC_XZD70"
+    Given molecular id is "PCC_MDA_XZD70"
     Given sequence file type: "vcf", nucleic acid type: ""
     When GET from sequence_files service, response includes "Key does not exist" with code "404"
 
   @ion_reporter_p2
   Scenario: ION_SF80. sequence files service should fail when user want to create new item using POST
-    Given molecular id is "SC_73JIO"
+    Given molecular id is "SC_MOCHA_73JIO"
     Given sequence file type: "vcf", nucleic acid type: ""
     When POST to sequence_files service, response includes "The method is not allowed" with code "405"
 
   @ion_reporter_p2
   Scenario: ION_SF81. sequence files service should fail when user want to delete item using DELETE
-    Given molecular id is "SC_43K8V"
+    Given molecular id is "NTC_MDA_43K8V"
     Given sequence file type: "vcf", nucleic acid type: ""
     When DELETE to sequence_files service, response includes "The method is not allowed" with code "405"
 
   @ion_reporter_p2
   Scenario: ION_SF82. sequence files service should fail when user want to update item using PUT
-    Given molecular id is "SC_IEWC6"
+    Given molecular id is "PCC_MDA_IEWC6"
     Given sequence file type: "vcf", nucleic acid type: ""
     When PUT to sequence_files service, response includes "The method is not allowed" with code "405"
 
