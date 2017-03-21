@@ -48,4 +48,38 @@ module.exports = function () {
         
         callback();
     });
+
+    this.When(/^I click on the Surgical Event Id Link$/, function (callback) {
+        patientPage.patientSurgicalEventId.click().then(function () {
+            browser.sleep(40);
+        }).then(callback);
+    });
+
+    this.When(/^I click on the Molecular ID link$/, function (callback) {
+        patientPage.patientMolecularId.click().then(function () {
+            browser.sleep(40);
+        }).then(callback);
+    });
+
+    this.Then(/^I should go to the surgical event page of the patient$/, function (callback) {
+        var patientId = patientPage.patientId;
+        var surgicalEventId = patientId + '_SEI1';
+        var expectedUrl = browser.baseUrl + '/#/patient?patient_id=' + patientId + '&section=surgical_event&surgical_event_id=' + surgicalEventId;
+        browser.ignoreSynchronization = true;
+        expect(browser.getCurrentUrl()).to.eventually.eql(expectedUrl).then(function () {
+            browser.ignoreSynchronization = false;
+        }).then(callback);
+    });
+
+    this.Then(/^I should go to the molecular id section of the surgical event page$/, function (callback) {
+        var patientId = patientPage.patientId;
+        var surgicalEventId = patientId + '_SEI1';
+        var molecularId = patientId + '_MOI1';
+        var expectedUrl = browser.baseUrl + '/#/patient?patient_id=' + patientId + '&section=molecular_id&molecular_id=' + molecularId;
+        browser.ignoreSynchronization = true;
+        expect(browser.getCurrentUrl()).to.eventually.eql(expectedUrl).then(function () {
+            browser.ignoreSynchronization = false;
+        }).then(callback);
+    });
+
 };

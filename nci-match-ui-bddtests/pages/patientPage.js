@@ -131,9 +131,10 @@ var PatientPage = function () {
     this.expectedSurgicalSectionHeading = ['Slide Shipments', 'Assay History', 'Specimen History'];
 
     //These are the elements present in the summary boxes of tissue reports
-    this.tissueSurgicalEventId     = element(by.binding('currentTissueVariantReport.surgical_event_id'));
-    this.tissueAnalysisId          = element(by.binding('currentTissueVariantReport.analysis_id'));
-    this.tissueMolecularId         = element(by.binding('currentTissueVariantReport.molecular_id'));
+    this.patientSurgicalEventId    = element(by.css('span[ng-bind="variantReport.surgical_event_id | dashify"]')).element(by.xpath('..'));
+    this.patientMolecularId        = element(by.css('span[ng-bind="variantReport.molecular_id | dashify"]'));
+    this.patientAnalysisId          = element(by.binding('variantReport.analysis_id'));
+
     this.tissueFileReceivedDate    = element(by.binding('currentTissueVariantReport.variant_report_received_date'));
     this.tissueReportStatus        = element(by.binding('currentTissueVariantReport.status'));
     this.tissueTotalVariants       = element(by.binding('currentTissueVariantReport.total_variants'));

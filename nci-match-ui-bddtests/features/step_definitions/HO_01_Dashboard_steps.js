@@ -320,7 +320,7 @@ module.exports = function() {
         browser.ignoreSynchronization = true;
         var dataListElement = dash.patientsInLimboList;
 
-        var limboTableFilter = element(by.xpath('//input[@grid-id="limboPatients"]'));
+        var limboTableFilter = element(by.css('#limboPatientsPanel input'));
         var curr_status = element.all(by.binding('item.current_status')).get(0);
 
         var message = element.all(by.repeater('id in vm.limboMessageIds'));

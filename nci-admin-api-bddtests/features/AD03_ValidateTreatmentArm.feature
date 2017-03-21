@@ -23,18 +23,29 @@ Then I "should" see a "Success" message
 And I should see the reason of rejection as "<reason>"
 And I "should" see "false" value under the "passed" field
 Examples:
-	| field 								| validation_level | reason |
-	| treatment_arm_id 			| all |The field treatment_arm_id must exist within the treatment arm. |
-	| name 									| all |The field name must exist within the treatment arm. |
-	| version 							| all |The field version must exist within the treatment arm. |
-	| stratum_id 						| all |The field stratum_id must exist within the treatment arm. |
-	| gene 									| all |The field gene must exist within the treatment arm. |
-	| study_id 							| all |The field study_id must exist within the treatment arm. |
-	| assay_rules 					| all |The field assay_rules must exist within the treatment arm. |
-	| treatment_arm_drugs 	| all |The field treatment_arm_drugs must exist within the treatment arm. |
-	| snv_indels 						| all |The field snv_indels must exist within the treatment arm. |
-	| non_hotspot_rules 		| all |The field non_hotspot_rules must exist within the treatment arm. |
-	| copy_number_variants 	| all |The field copy_number_variants must exist within the treatment arm. |
-	| gene_fusions 					| all |The field gene_fusions must exist within the treatment arm. |
-	| diseases 							| all |The field diseases must exist within the treatment arm. |
-	| exclusion_drugs				| all |The field exclusion_drugs must exist within the treatment arm. |
+	| field 								| validation_level | reason 																														|
+	| treatment_arm_id 			| all 						 |The field treatment_arm_id must exist within the treatment arm. 		|
+	| name 									| all 						 |The field name must exist within the treatment arm. 								|
+	| version 							| all 						 |The field version must exist within the treatment arm. 							|
+	| stratum_id 						| all 						 |The field stratum_id must exist within the treatment arm. 					|
+	| gene 									| all 						 |The field gene must exist within the treatment arm. 								|
+	| study_id 							| all 						 |The field study_id must exist within the treatment arm. 						|
+	| assay_rules 					| all 						 |The field assay_rules must exist within the treatment arm. 					|
+	| treatment_arm_drugs 	| all 						 |The field treatment_arm_drugs must exist within the treatment arm. 	|
+	| snv_indels 						| all 						 |The field snv_indels must exist within the treatment arm. 					|
+	| non_hotspot_rules 		| all 						 |The field non_hotspot_rules must exist within the treatment arm. 		|
+	| copy_number_variants 	| all 						 |The field copy_number_variants must exist within the treatment arm. |
+	| gene_fusions 					| all 						 |The field gene_fusions must exist within the treatment arm. 				|
+	| diseases 							| all 						 |The field diseases must exist within the treatment arm. 						|
+	| exclusion_drugs				| all 						 |The field exclusion_drugs must exist within the treatment arm. 			|
+	| treatment_arm_id 			| top_level 			 |The field treatment_arm_id must exist within the treatment arm. 		|
+
+Scenario A treatent arm with multiple errors should see all the errors
+Given I retrieve the template for treatment arm
+And I remove the field "treeatment_arm_id" from the template
+And I remove the field "name" from the template
+When I issue a post request for validation at level "all" with the treatment arm
+Then I "should" see a "Success" message
+And I should see the reason of rejection as "<reason>"
+And I "should" see "false" value under the "passed" field
+

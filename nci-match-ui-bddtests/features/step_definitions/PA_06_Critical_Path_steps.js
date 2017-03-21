@@ -249,9 +249,7 @@ module.exports = function () {
         patientPage.patientId = patientId;
         patientPage.variantAnalysisId = variantReportId;
         browser.sleep(500).then(function () {
-            browser.get(uri).then(function () {
-                browser.waitForAngular();
-            });
+            browser.get(uri, 1000);
         }).then(callback);
     });
 
@@ -302,15 +300,6 @@ module.exports = function () {
     this.Then(/^I can see the variant report page$/, function (callback) {
         var uri = 'patient/' + patientPage.patientId + '/variant_report?analysis_id=' + patientPage.variantAnalysisId;
         expect(browser.getCurrentUrl()).to.eventually.eql(browser.baseUrl + '/#/' + uri).notify(callback);
-    });
-
-    this.Then(/^I can see the assignment report page "([^"]*)"$/, function (assignmentTabTitle, callback) {
-        browser.ignoreSynchronization = false;
-        var tab = utilities.getSubTabHeadingElement(assignmentTabTitle)
-        var tabBody = element(by.id('assignment-report'));
-
-        expect(tab.isDisplayed()).to.eventually.eql(true);
-        expect(tabBody.isDisplayed()).to.eventually.eql(true).notify(callback);
     });
 
     this.Then(/^I see that Total MOIs match the number of MOIs on the page$/, function (callback) {
@@ -539,19 +528,20 @@ module.exports = function () {
     });
 
     this.When(/^I click the assignment report tab "(.+?)"$/, function (assignmentTabTitle, callback) {
-        browser.ignoreSynchronization = true;
         browser.sleep(5000);
-        var cssSelec = 'li[heading="' + assignmentTabTitle + '"] > a';
-        var tab = element(by.css(cssSelec));
-        tab.isPresent().then(function (isVisible) {
-            if (isVisible) {
-                tab.click().then(function () {
-                    browser.sleep(10);
-                }, function (err) {
-                    console.log('Unable to click on the assignment report tab');
-                });
-            }
+        var tab = utilities.getSubTabHeadingElement(assignmentTabTitle).element(by.xpath('../..'))
+        tab.click().then(function(){
+            browser.sleep(1000)
         }).then(callback);
+    });
+
+
+    this.Then(/^I can see the assignment report page "([^"]*)"$/, function (assignmentTabTitle, callback) {
+        browser.ignoreSynchronization = false;
+        var tab = utilities.getSubTabHeadingElement(assignmentTabTitle).element(by.xpath('../..'))
+        var tabBody = element(by.id('assignment-report'));
+
+        utilities.checkElementIncludesAttribute(tab, 'class', 'active').then(callback)
     });
 
     this.When(/^I go to patient "([^"]*)" with surgical event "([^"]*)"$/, function (patientId, surgicalEventId, callback) {

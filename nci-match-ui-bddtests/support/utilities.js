@@ -188,6 +188,7 @@ var Utilities = function () {
     this.checkElementIncludesAttribute = function (element, attribute, value) {
         return element.getAttribute(attribute).then(function (allAttributes) {
             var attributeArray = allAttributes.split(' ');
+            // console.log(attributeArray);
             expect(attributeArray).to.include(value);
         });
     };

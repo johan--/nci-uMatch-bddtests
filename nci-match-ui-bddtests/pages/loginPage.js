@@ -59,10 +59,14 @@ var LoginPage = function() {
                     } else {
                         element(by.css('.user-name')).getText().then(function(nm){
                             if (nm.includes(name)){
+                                // console.log("Same user continuing")
                                 return browser.get('/#/dashboard', 1000);
                             } else {
+                                // console.log("Different User Logging out")
                                 return logoutLink.click().then(function(){
-                                    return clickAccessAndLogin(username, password)
+                                    return browser.get('/#/auth/login', 1000).then(function() {
+                                        return clickAccessAndLogin(username, password)
+                                    });
                                 })
                             }
                         })        

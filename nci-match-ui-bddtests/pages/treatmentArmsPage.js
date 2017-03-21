@@ -165,8 +165,8 @@ var TreatmentArmsPage = function() {
     this.expectedExcludedCNVs = [ 'Gene', 'Chrom', 'Position', 'Lit' ];
     this.expectedIncludedGene = [ 'ID', 'LOE', 'Lit' ];
     this.expectedExcludedGene = [ 'ID', 'Lit' ];
-    this.expectedIncludedNHRs = [ 'Gene', 'Domain', 'Exon', 'Oncomine Variant Class', 'Function', 'LOE', 'Lit' ];
-    this.expectedExcludedNHRs = [ 'Gene', 'Domain', 'Chrom', 'Position', 'Function', 'Lit' ];
+    this.expectedIncludedNHRs = [ 'Gene', 'Domain Range', 'Domain Name', 'Exon', 'Oncomine Variant Class', 'Function', 'LOE', 'Lit' ];
+    this.expectedExcludedNHRs = [ 'Gene', 'Domain Range', 'Domain Name', 'Chrom', 'Position', 'Function', 'Lit' ];
     this.expectedNonSequenceArray = [ 'Gene', 'Result', 'Variant Association', 'LOE' ];
 
     /** This function returns the text that the name of the Treatment Arm in the row.
@@ -330,11 +330,11 @@ var TreatmentArmsPage = function() {
 
         // Locator Strings for columns
         var geneLoc = 'cosmic-link[link-type="\'cosmicGene\'"]';
-        var domainLoc = '[ng-bind="item.domain | dashify"'
+        var domainRangeLoc = '[ng-bind="item.domain_range | dashify"]'
+        var domainNameLoc = '[ng-bind="item.domain_name | dashify"]'
         var exonLoc = '[ng-bind="item.exon | dashify"]'
         var oncomineLoc= '[ng-bind="item.oncomine_variant_class | dashify"]'; //todo
         var functionLoc = '[ng-bind="item.function | dashify"]';
-        
         var loeLoc = '[ng-bind="item.level_of_evidence | dashify"]';
         var litTableLoc = 'pubmed-link[public-med-ids="item.public_med_ids"]';
         tableType.count().then(function (count) {
@@ -344,7 +344,8 @@ var TreatmentArmsPage = function() {
                         if (text == firstData['func_gene']){
                             console.log('Checking values in Table')
                             utils.checkValueInTable(row.all(by.css(geneLoc)), firstData['func_gene']);
-                            utils.checkValueInTable(row.all(by.css(domainLoc)), firstData['domain']);
+                            utils.checkValueInTable(row.all(by.css(domainRangeLoc)), firstData['domain_range']);
+                            utils.checkValueInTable(row.all(by.css(domainNameLoc)), firstData['domain_name']);
                             utils.checkValueInTable(row.all(by.css(exonLoc)), firstData['exon']);
                             utils.checkValueInTable(row.all(by.css(oncomineLoc)), firstData['oncomine_variant_class'])
                             utils.checkValueInTable(row.all(by.css(functionLoc)), firstData['function']);

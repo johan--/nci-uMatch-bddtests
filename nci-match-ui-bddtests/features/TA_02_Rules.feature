@@ -12,7 +12,7 @@ Feature: Treatment Arm Rules
     And I collect backend information about the treatment arm
     When I select the "Rules" Main Tab
 
-  @ui_p1
+  @ui_p1 @fixer
   Scenario Outline: Logged in user can access <subTabName> with Inclusion/Exclusion details under Rules
     When I scroll to the bottom of the page
     And I select the <subTabName> sub-tab
@@ -24,9 +24,9 @@ Feature: Treatment Arm Rules
     Then I logout
     Examples:
       | subTabName           |
-      | SNVs / MNVs / Indels |
-      | CNVs                 |
-      | Gene Fusions         |
+      # | SNVs / MNVs / Indels |
+      # | CNVs                 |
+      # | Gene Fusions         |
       | Non-Hotspot Rules    |
 
   @ui_p2
