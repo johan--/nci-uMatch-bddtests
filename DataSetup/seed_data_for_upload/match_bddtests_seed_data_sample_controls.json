@@ -4782,6 +4782,20 @@
       }
     },
     {
+      "molecular_id": {
+        "S": "NTC_DARTMOUTH_DTM02"
+      },
+      "site": {
+        "S": "dartmouth"
+      },
+      "date_molecular_id_created": {
+        "S": "2016-10-12 21:12:56.608332"
+      },
+      "control_type": {
+        "S": "no_template"
+      }
+    },
+    {
       "snv_indels": {
         "L": [
           {
