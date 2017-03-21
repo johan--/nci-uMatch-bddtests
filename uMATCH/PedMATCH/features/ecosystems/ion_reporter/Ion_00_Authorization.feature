@@ -293,7 +293,7 @@ Feature: ir ecosystem authorization tests
     When PUT to aliquot service, response includes "<mocha_msg>" with code "<mocha_code>"
     Given molecular id is "<dartmouth_moi>"
     Then add field: "analysis_id" value: "<dartmouth_moi>_ANI1" to message body
-    Then add field: "site" value: "mocha" to message body
+    Then add field: "site" value: "dartmouth" to message body
     Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
     Then add field: "vcf_name" value: "test1.vcf" to message body
     Then add field: "dna_bam_name" value: "dna.bam" to message body

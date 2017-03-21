@@ -2023,6 +2023,34 @@
     },
     {
       "molecular_id": {
+        "S": "NTC_DARTMOUTH_DTM08"
+      },
+      "site": {
+        "S": "dartmouth"
+      },
+      "date_molecular_id_created": {
+        "S": "2016-10-1221:20:03.608332"
+      },
+      "control_type": {
+        "S": "no_template"
+      }
+    },
+    {
+      "molecular_id": {
+        "S": "NTC_DARTMOUTH_DTM09"
+      },
+      "site": {
+        "S": "dartmouth"
+      },
+      "date_molecular_id_created": {
+        "S": "2016-10-1221:20:04.608332"
+      },
+      "control_type": {
+        "S": "no_template"
+      }
+    },
+    {
+      "molecular_id": {
         "S": "NTC_MOCHA_MCA07"
       },
       "site": {
@@ -4610,6 +4638,20 @@
     {
       "molecular_id": {
         "S": "NTC_MOCHA_MCA01"
+      },
+      "site": {
+        "S": "mocha"
+      },
+      "date_molecular_id_created": {
+        "S": "2016-10-12 21:19:55.608332"
+      },
+      "control_type": {
+        "S": "no_template"
+      }
+    },
+    {
+      "molecular_id": {
+        "S": "NTC_MOCHA_MCA02"
       },
       "site": {
         "S": "mocha"

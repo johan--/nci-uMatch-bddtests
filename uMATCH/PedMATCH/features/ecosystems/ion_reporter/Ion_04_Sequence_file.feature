@@ -4,7 +4,7 @@ Feature: Tests for sequence files service in ion ecosystem
 
   @ion_reporter_p1
   Scenario Outline: ION_SF01. sequence files service can return correct result for sample control molecular_id
-    Given molecular id is "SC_NPID3"
+    Given molecular id is "NTC_MDA_NPID3"
     Given sequence file type: "<file_type>", nucleic acid type: "<nucleic_acid_type>"
     When GET from sequence_files service, response includes "<result>" with code "200"
     Examples:
