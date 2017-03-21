@@ -30,10 +30,11 @@ module.exports = function () {
         var cssSelector = 'li[ng-repeat="item in ionReporters"] a';
         patientPage.selectSiteAndIRID.click().then(function () {
             utilities.selectFromDropDown(cssSelector, ionReporter);
-        }).then(callback());
+        }).then(callback);
     });
 
     this.Then(/^I enter Analysis ID "([^"]*)"$/, function (analysisId, callback) {
+        patientPage.upldDialogAnalysisId.clear();
         patientPage.upldDialogAnalysisId.sendKeys(analysisId);
         expect(patientPage.upldDialogAnalysisId.getAttribute('value')).to.eventually.eql(analysisId).notify(callback);
     });
@@ -68,20 +69,37 @@ module.exports = function () {
             .then(callback);
     });
 
+    this.Then(/^I can only see "([^"]*)" type user$/, function(siteName, callback){
+        var dropdownList = patientPage.selectSiteDropDownList
+        dropdownList.getText().then(function(arrList){
+            // console.log(arrList);
+            for (var i = 1; i < arrList.length; i++) {  //starting from the second element onwards. The first is the buttonName 
+                expect(arrList[i]).to.include(siteName);
+            }
+        }).then(callback);
+    });
+
+    this.Then(/^The Upload new sample file link is not visible$/, function (callback) {
+        var elem = element(by.cssContainingText('.btn', 'Upload new sample file'));
+        expect(elem.isPresent()).to.eventually.eql(false).notify(callback);
+    });
+
+
     this.Then(/^I can see the Sample File upload process has started$/, function (callback) {
         // Write code here that turns the phrase above into concrete actions
         callback(null, 'pending');
     });
 
-    this.When(/^I can see that all files have been uploaded for the Surgical Event$/, function (callback) {
-        // Write code here that turns the phrase above into concrete actions
-        callback(null, 'pending');
-    });
 
     this.Then(/^I can see the Upload Progress in the toolbar$/, function (callback) {
         // Write code here that turns the phrase above into concrete actions
         callback(null, 'pending');
     });
+
+    this.Then(/^I click on the Upload Progress in the toolbar$/, function (callback) {
+         // Write code here that turns the phrase above into concrete actions
+         callback(null, 'pending');
+       });
 
     this.Then(/^I can see current uploads$/, function (callback) {
         // Write code here that turns the phrase above into concrete actions

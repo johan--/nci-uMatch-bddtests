@@ -88,7 +88,8 @@ var PatientPage = function () {
     this.surgicalEventPanels = element.all(by.css('.specimen-event-panel'));
     this.surgicalEventId  = element(by.binding('specimenEvent.surgical_event_id'));
     this.uploadNewSampleFile = element(by.css('a[ng-click="uploadSampleFile(shipment)"]'));
-    this.selectSiteAndIRID = element(by.cssContainingText('button#single-button', 'Select Site and Ion Reporter ID'))
+    this.selectSiteAndIRID = element(by.css('button#single-button'));
+    this.selectSiteDropDownList = element.all(by.repeater('item in ionReporters'));
     this.upldDialogAnalysisId = element(by.model('analysisId'));
 
     this.uploadButtonsId = {
@@ -96,6 +97,7 @@ var PatientPage = function () {
         "Select DNA BAM File": "dnaFile",
         "Select cDNA BAM File": "rnaFile"
     };
+
 
     // *****************  Blood Specimens Tab  ********************//
     // This the master panel STRING for Tissue reports

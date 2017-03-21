@@ -34,8 +34,16 @@ module.exports = function () {
         patientPage.variantAnalysisId = analysisId;
         var varRepString = 'li[ng-repeat="'+ patientPage.variantAndAssignmentPanelString + '"] a[href="#/patient/' + patientPage.patientId + '/variant_report?analysis_id=' + analysisId + '"]';
         variantReportLink = element(by.css(varRepString));
-        expect(variantReportLink.isPresent()).to.eventually.eql(true).notify(callback);
+        variantReportLink.getLocation().then(function(loc){
+            browser.executeScript('window.scrollTo(' + loc.x + ', ' + (loc.y - 100) + ')').then(function(){
+                expect(variantReportLink.isPresent()).to.eventually.eql(true);        
+            });
+        }).then(callback);
     });
+
+    this.When(/^The patient has a status of "([^"]*)"$/, function (status, callback) {
+         expect(patientPage.patientDetailsStatus.getText()).to.eventually.eql(status).notify(callback);
+       });
 
     this.Then(/^I click the variant report link for "(.+?)"$/, function (analysisId, callback) {
         var varRepString = 'li[ng-repeat="'+ patientPage.variantAndAssignmentPanelString + '"] a[href="#/patient/' + patientPage.patientId + '/variant_report?analysis_id=' + analysisId + '"]';
@@ -545,6 +553,7 @@ module.exports = function () {
     });
 
     this.When(/^I go to patient "([^"]*)" with surgical event "([^"]*)"$/, function (patientId, surgicalEventId, callback) {
+        patientPage.patientId = patientId;
         var completeUrl = '/#/patient?patient_id=' + patientId + '&section=surgical_event&surgical_event_id=' + surgicalEventId
         browser.get(completeUrl,5000).then(function(){
             browser.waitForAngular();
