@@ -675,7 +675,12 @@ end
 
 
 And(/^patient pending_items field "([^"]*)" should have correct value$/) do |field|
-  expect(@get_response.keys).to include field
+  # do a get in this step, do not use @get_response which is generated from previous step, because the BDD is running parallelly
+  #between previous GET step and this step there might have another test running which will change the get result
+  url = prepare_get_url
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
+  response = Patient_helper_methods.get_response_and_code(url, @current_auth0_role)['message_json']
+  expect(response.keys).to include field
   actual_key_list = []
   expect_key_list = []
   patient_list = Patient_helper_methods.get_any_result_from_url(ENV['patients_endpoint'])
@@ -690,16 +695,13 @@ And(/^patient pending_items field "([^"]*)" should have correct value$/) do |fie
           expect_key_list << this_patient['active_tissue_specimen']['active_analysis_id']
         end
       when 'assignment_reports'
-        if this_patient['patient_id'] == 'PT_RA09_OnTreatmentArm'
-          puts "PT_RA09_OnTreatmentArm status is #{this_patient['current_status']}"
-        end
         if this_patient['current_status'] == 'PENDING_CONFIRMATION'
           expect_key_list << this_patient['active_tissue_specimen']['active_analysis_id']
         end
       else
     end
   }
-  @get_response[field].each { |this_item|
+  response[field].each { |this_item|
     actual_key_list << this_item['analysis_id']
   }
   extra_actual = actual_key_list - expect_key_list

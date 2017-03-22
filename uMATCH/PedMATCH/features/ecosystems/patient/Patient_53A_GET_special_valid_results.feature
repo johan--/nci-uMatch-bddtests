@@ -56,13 +56,9 @@ Feature: Patient GET service valid special case tests
 
   @patients_p1
   Scenario: PT_SC02a pending_items should have correct result
-    #the reason that why GET twice is because INT BDD tests run parallelly, after the GET called, probably test which is
-    #running in the other thread changes data base, so cause the second "should have correct value" statement cannot get
-    #correct result. So do GET for every statement
     Given patient GET service: "pending_items", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return
     Then patient pending_items field "tissue_variant_reports" should have correct value
-    When GET from MATCH patient API, http code "200" should return
     Then patient pending_items field "assignment_reports" should have correct value
 
   @patients_p1
