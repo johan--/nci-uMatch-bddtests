@@ -113,33 +113,33 @@ Feature: Patient API authorization tests
     Given patient id is "<patient_id>"
     And load template variant file uploaded message for molecular id: "<patient_id>_MOI1"
     Then set patient message field: "analysis_id" to value: "<patient_id>_ANI1"
-    Then set patient message field: "ion_reporter_id" to value: "<site_value>"
+    Then set patient message field: "ion_reporter_id" to value: "bdd_test_ion_reporter"
     Then files for molecular_id "<patient_id>_MOI1" and analysis_id "<patient_id>_ANI1" are in S3
     And patient API user authorization role is "<auth_role>"
     When POST to MATCH variant report upload service, response includes "<message>" with code "<code>"
     Examples:
-      | patient_id              | site_value | auth_role                         | message | code |
-      | PT_AU04_MdaTsShipped0   | mda        | NO_TOKEN                          |         | 401  |
-      | PT_AU04_MdaTsShipped0   | mda        | NCI_MATCH_READONLY                |         | 401  |
-      | PT_AU04_MdaTsShipped0   | mda        | NO_ROLE                           |         | 401  |
-      | PT_AU04_MdaTsShipped1   | mda        | ADMIN                             | success | 202  |
-      | PT_AU04_MochaTsShipped1 | mocha      | SYSTEM                            | success | 202  |
-      | PT_AU04_MdaTsShipped0   | mda        | ASSIGNMENT_REPORT_REVIEWER        |         | 401  |
-      | PT_AU04_MochaTsShipped0 | mocha      | MDA_VARIANT_REPORT_SENDER         |         | 401  |
-      | PT_AU04_MdaTsShipped2   | mda        | MDA_VARIANT_REPORT_SENDER         | success | 202  |
-      | PT_AU04_DtmTsShipped0   | dartmouth  | MDA_VARIANT_REPORT_SENDER         |         | 401  |
-      | PT_AU04_MdaTsShipped3   | mda        | MDA_VARIANT_REPORT_REVIEWER       |         | 401  |
-      | PT_AU04_MdaTsShipped0   | mda        | MOCHA_VARIANT_REPORT_SENDER       |         | 401  |
-      | PT_AU04_MochaTsShipped2 | mocha      | MOCHA_VARIANT_REPORT_SENDER       | success | 202  |
-      | PT_AU04_DtmTsShipped0   | dartmouth  | MOCHA_VARIANT_REPORT_SENDER       |         | 401  |
-      | PT_AU04_MochaTsShipped3 | mocha      | MOCHA_VARIANT_REPORT_REVIEWER     |         | 401  |
-      | PT_AU04_MochaTsShipped0 | mocha      | DARTMOUTH_VARIANT_REPORT_SENDER   |         | 401  |
-      | PT_AU04_MdaTsShipped0   | mda        | DARTMOUTH_VARIANT_REPORT_SENDER   |         | 401  |
-      | PT_AU04_DtmTsShipped1   | dartmouth  | DARTMOUTH_VARIANT_REPORT_SENDER   | success | 202  |
-      | PT_AU04_DtmTsShipped0   | dartmouth  | DARTMOUTH_VARIANT_REPORT_REVIEWER |         | 401  |
-      | PT_AU04_MdaTsShipped0   | mda        | PATIENT_MESSAGE_SENDER            |         | 401  |
-      | PT_AU04_MochaTsShipped0 | mocha      | SPECIMEN_MESSAGE_SENDER           |         | 401  |
-      | PT_AU04_MdaTsShipped0   | dartmouth  | ASSAY_MESSAGE_SENDER              |         | 401  |
+      | patient_id              | auth_role                         | message | code |
+      | PT_AU04_MdaTsShipped0   | NO_TOKEN                          |         | 401  |
+      | PT_AU04_MdaTsShipped0   | NCI_MATCH_READONLY                |         | 401  |
+      | PT_AU04_MdaTsShipped0   | NO_ROLE                           |         | 401  |
+      | PT_AU04_MdaTsShipped1   | ADMIN                             | success | 202  |
+      | PT_AU04_MochaTsShipped1 | SYSTEM                            | success | 202  |
+      | PT_AU04_MdaTsShipped0   | ASSIGNMENT_REPORT_REVIEWER        |         | 401  |
+      | PT_AU04_MochaTsShipped0 | MDA_VARIANT_REPORT_SENDER         |         | 401  |
+      | PT_AU04_MdaTsShipped2   | MDA_VARIANT_REPORT_SENDER         | success | 202  |
+      | PT_AU04_DtmTsShipped0   | MDA_VARIANT_REPORT_SENDER         |         | 401  |
+      | PT_AU04_MdaTsShipped3   | MDA_VARIANT_REPORT_REVIEWER       |         | 401  |
+      | PT_AU04_MdaTsShipped0   | MOCHA_VARIANT_REPORT_SENDER       |         | 401  |
+      | PT_AU04_MochaTsShipped2 | MOCHA_VARIANT_REPORT_SENDER       | success | 202  |
+      | PT_AU04_DtmTsShipped0   | MOCHA_VARIANT_REPORT_SENDER       |         | 401  |
+      | PT_AU04_MochaTsShipped3 | MOCHA_VARIANT_REPORT_REVIEWER     |         | 401  |
+      | PT_AU04_MochaTsShipped0 | DARTMOUTH_VARIANT_REPORT_SENDER   |         | 401  |
+      | PT_AU04_MdaTsShipped0   | DARTMOUTH_VARIANT_REPORT_SENDER   |         | 401  |
+      | PT_AU04_DtmTsShipped1   | DARTMOUTH_VARIANT_REPORT_SENDER   | success | 202  |
+      | PT_AU04_DtmTsShipped0   | DARTMOUTH_VARIANT_REPORT_REVIEWER |         | 401  |
+      | PT_AU04_MdaTsShipped0   | PATIENT_MESSAGE_SENDER            |         | 401  |
+      | PT_AU04_MochaTsShipped0 | SPECIMEN_MESSAGE_SENDER           |         | 401  |
+      | PT_AU04_MdaTsShipped0   | ASSAY_MESSAGE_SENDER              |         | 401  |
 
   @patients_p3
   Scenario Outline: PT_AU05a role base authorization works properly for patient variant report confirm
