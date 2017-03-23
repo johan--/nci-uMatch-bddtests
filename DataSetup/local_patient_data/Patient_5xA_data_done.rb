@@ -1024,4 +1024,28 @@ class Patient5xA
     PatientMessageLoader.request_assignment(pt.id)
     PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei_increase)
   end
+
+
+  def self.pt_sc07d_ts_vr_uploaded
+    pt = PatientDataSet.new('PT_SC07d_TsVrUploaded')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+    PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+    PatientMessageLoader.file_uploaded_dna(pt.id, pt.moi, pt.ani)
+    PatientMessageLoader.file_uploaded_cdna(pt.id, pt.moi, pt.ani)
+    PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
+  end
+
+
+  def self.pt_sc10a_ts_vr_uploaded
+    pt = PatientDataSet.new('PT_SC10a_TsVrUploaded')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+    PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+    PatientMessageLoader.file_uploaded_dna(pt.id, pt.moi, pt.ani)
+    PatientMessageLoader.file_uploaded_cdna(pt.id, pt.moi, pt.ani)
+    PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
+  end
 end
