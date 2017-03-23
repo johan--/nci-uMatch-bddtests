@@ -407,6 +407,7 @@ Feature: Patient API authorization tests
       | SPECIMEN_MESSAGE_SENDER           | false  | false  | false  |
       | ASSAY_MESSAGE_SENDER              | false  | false  | false  |
 
+  @patients_p1
   Scenario Outline: PT_AU12 role base authorization works properly for creating patient event
     Given patient id is "<patient_id>"
     And patient API user authorization role is "<role>"
