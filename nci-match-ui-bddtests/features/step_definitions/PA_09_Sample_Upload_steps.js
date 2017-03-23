@@ -65,8 +65,9 @@ module.exports = function () {
         var pathToFile = templateFolder + fileName;
         var absolutePath = path.resolve(pathToFile);
    
-        element(by.css('input#' + buttonType + '[type="file"]')).sendKeys(absolutePath)
-            .then(callback);
+        element(by.css('input#' + buttonType + '[type="file"]')).sendKeys(absolutePath).then(function(){
+            browser.sleep(2000);
+        }).then(callback);
     });
 
     this.Then(/^I can only see "([^"]*)" type user$/, function(siteName, callback){
@@ -85,9 +86,12 @@ module.exports = function () {
     });
 
 
-    this.Then(/^I can see the Sample File upload process has started$/, function (callback) {
-        // Write code here that turns the phrase above into concrete actions
-        callback(null, 'pending');
+    this.Then(/^I can see the "(.+?)" Sample File upload process has started$/, function (number, callback) {
+        patientPage.downloadTracker.getLocation().then(function(location){
+            browser.executeScript('window.scrollTo(' + location.x + ', ' + (location.y - 10) + ')').then(function(){
+                expect(patientPage.downloadTracker.getText()).to.eventually.eql(number.toString())        
+            })
+        }).then(callback);
     });
 
 

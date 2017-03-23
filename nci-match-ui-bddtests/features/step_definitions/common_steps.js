@@ -13,14 +13,16 @@ var utilities = require('../../support/utilities');
 module.exports = function () {
     this.World = require('../step_definitions/world').World;
 
-    this.Then(/^I scroll to the bottom of the page$/, function (callback) {
+    this.When(/^I scroll to the bottom of the page$/, function (callback) {
         browser.executeScript('window.scrollTo(0,3000)').then(function(){
             browser.sleep(500)
         }).then(callback);
     });
 
-    this.Then(/^I scroll to the top of the page$/, function (callback) {
-        browser.executeScript('window.scrollTo(0,0)').then(callback);
+    this.When(/^I scroll to the top of the page$/, function (callback) {
+        browser.executeScript('window.scrollTo(60,60)').then(function(){
+            browser.sleep(500)
+        }).then(callback);
     });
     
 

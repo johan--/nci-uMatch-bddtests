@@ -3,6 +3,29 @@ Feature: MATCHKB-542. Users can upload patient sample files.
   The user is able to upload a large sample file, such as BAM file.
   A file can be as large as 20 GB or more.
 
+  Scenario: As a privileged MDA Sender I can upload a sample file
+    Given I am logged in as a "VR_Sender_mda" user
+    When I go to patient "PT_AU04_MdaTsShipped1" with surgical event "PT_AU04_MdaTsShipped1_SEI1"
+    And I scroll to the bottom of the page
+    And I can see that some files have not been uploaded for the Surgical Event
+    Then The "Upload new sample file" link is "visible"
+    And The "Upload new sample file" link is "enabled"
+    And I can click on the "Upload new sample file" link
+    And I can see the "Upload BAM files and Variant ZIP files" dialog
+    And The "Upload" button is "disabled"
+    Then I select an Ion Reporter "mda - IR_MDA05"
+    And I enter Analysis ID "PT_AU04_MdaTsShipped1_An123"
+    And I make all elements visible
+    And I press "Select Variant ZIP File" file button to upload "vcfFile.zip" file
+    And I press "Select DNA BAM File" file button to upload "dna.bam" file
+    And I press "Select cDNA BAM File" file button to upload "cdna.bam" file
+    Then The "Upload" button is "visible"
+    And The "Upload" button is "enabled"
+    Then I can click on the "Upload" button
+    And I scroll to the top of the page
+    And I can see the "3" Sample File upload process has started
+    Then I logout
+   
   Scenario Outline: As a <site> user I can select only the same kind of IR user
     Given I am logged in as a "<user>" user
     When I go to patient "<patient_id>" with surgical event "<surgical_event_id>"
@@ -37,33 +60,7 @@ Feature: MATCHKB-542. Users can upload patient sample files.
         | PT_AS09_ReqNoAssignment       | PT_AS09_ReqNoAssignment_SEI1          | REQUEST_NO_ASSIGNMENT             | invisible   |
         | PT_AS12_OnTreatmentArm        | PT_AS12_OnTreatmentArm_SEI1           | ON_TREATMENT_ARM                  | invisible   |
         | PT_RA03_NoTaAvailable         | PT_RA03_NoTaAvailable_SEI1            | NO_TA_AVAILABLE                   | invisible   |
-
-  Scenario Outline: As a privileged user I can upload a sample file
-    Given I am logged in as a "<user>" user
-    When I go to patient "<patient_id>" with surgical event "<surgical_event_id>"
-    And I scroll to the bottom of the page
-    And I can see that some files have not been uploaded for the Surgical Event
-    Then The "Upload new sample file" link is "visible"
-    And The "Upload new sample file" link is "enabled"
-    And I can click on the "Upload new sample file" link
-    And I can see the "Upload BAM files and Variant ZIP files" dialog
-    And The "Upload" button is "disabled"
-    Then I select an Ion Reporter "<ir_reporter>"
-    And I enter Analysis ID "<analysis_id>"
-    And I make all elements visible
-    And I press "Select Variant ZIP File" file button to upload "vcfFile.vcf" file
-    And I press "Select DNA BAM File" file button to upload "dna.bam" file
-    And I press "Select cDNA BAM File" file button to upload "cdna.bam" file
-    Then The "Upload" button is "visible"
-    And The "Upload" button is "enabled"
-    Then I can click on the "Upload" button
-    # And I can see the Sample File upload process has started
-    And I scroll to the top of the page
-    Then I logout
-    Examples:
-      | user   | patient_id             | surgical_event_id           | ir_reporter    | analysis_id                 | 
-      | system | PT_AU04_MdaTsShipped1  | PT_AU04_MdaTsShipped1_SEI1  | mda - IR_MDA05 | PT_AU04_MdaTsShipped1_An123 | 
-      # | VR_Reviewer_mocha | PT_AU04_MochaTsShipped1 | Surgical Event PT_AU04_MochaTsShipped1_SEI1 | mocha - IR_MCA00 | PT_AU04_MochaTsShipped1_An123 | Select DNA BAM File |mocha_small.vcf |
+    
 
   Scenario: As a privileged user I cannot upload a sample file if all files have been uploaded already
     Given I am logged in as a "system" user
@@ -112,4 +109,27 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     Then I can see current uploads
     And I can cancel the first upload in the list
     Then The cancelled file is removed from the upload list
+    Then I logout
+
+  Scenario: As a privileged Mocha Sender I can upload a sample file
+    Given I am logged in as a "VR_Sender_mocha" user
+    When I go to patient "PT_AU04_MochaTsShipped1" with surgical event "PT_AU04_MochaTsShipped1_SEI1"
+    And I scroll to the bottom of the page
+    And I can see that some files have not been uploaded for the Surgical Event
+    Then The "Upload new sample file" link is "visible"
+    And The "Upload new sample file" link is "enabled"
+    And I can click on the "Upload new sample file" link
+    And I can see the "Upload BAM files and Variant ZIP files" dialog
+    And The "Upload" button is "disabled"
+    Then I select an Ion Reporter "mocha - IR_MCA00"
+    And I enter Analysis ID "PT_AU04_MochaTsShipped1_An123"
+    And I make all elements visible
+    And I press "Select Variant ZIP File" file button to upload "vcfFile.zip" file
+    And I press "Select DNA BAM File" file button to upload "dna.bam" file
+    And I press "Select cDNA BAM File" file button to upload "cdna.bam" file
+    Then The "Upload" button is "visible"
+    And The "Upload" button is "enabled"
+    Then I can click on the "Upload" button
+    And I scroll to the top of the page
+    And I can see the "3" Sample File upload process has started
     Then I logout

@@ -39,8 +39,7 @@ Examples:
 	| diseases 							| all 						 |The field diseases must exist within the treatment arm. 						|
 	| exclusion_drugs				| all 						 |The field exclusion_drugs must exist within the treatment arm. 			|
 	| treatment_arm_id 			| top_level 			 |The field treatment_arm_id must exist within the treatment arm. 		|
-
-Scenario A treatent arm with multiple errors should see all the errors
+Scenario: A treatent arm with multiple errors should see all the errors
 Given I retrieve the template for treatment arm
 And I remove the field "treeatment_arm_id" from the template
 And I remove the field "name" from the template

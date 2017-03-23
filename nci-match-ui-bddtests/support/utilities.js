@@ -476,6 +476,12 @@ var Utilities = function () {
                 name = 'mocha-vr-sdr';
                 break;
 
+            case 'VR_Sender_dartmouth':
+                email = process.env.DARTMOUTH_VARIANT_REPORT_SENDER_AUTH0_USERNAME;
+                password = process.env.DARTMOUTH_VARIANT_REPORT_SENDER_AUTH0_PASSWORD;
+                name = 'dartmouth-vr-sdr';
+                break;                
+
             case 'VR_Reviewer_mda':
                 email = process.env.MDA_VARIANT_REPORT_REVIEWER_AUTH0_USERNAME;
                 password = process.env.MDA_VARIANT_REPORT_REVIEWER_AUTH0_PASSWORD;
@@ -488,6 +494,12 @@ var Utilities = function () {
                 name = 'mocha-vr-rvr';
                 break;
 
+            case 'VR_Reviewer_dartmouth':
+                email = process.env.DARTMOUTH_VARIANT_REPORT_REVIEWER_AUTH0_USERNAME;
+                password = process.env.DARTMOUTH_VARIANT_REPORT_REVIEWER_AUTH0_PASSWORD;
+                name = 'dartmouth-vr-rvr';
+                break;
+            
             case 'AR_Reviewer':
                 email = process.env.ASSIGNMENT_REPORT_REVIEWER_AUTH0_USERNAME;
                 password = process.env.ASSIGNMENT_REPORT_REVIEWER_AUTH0_PASSWORD;

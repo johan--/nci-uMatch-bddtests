@@ -318,6 +318,10 @@ var PatientPage = function () {
     this.bloodReportStatus      = element(by.binding('currentBloodVariantReport.status'));
     this.bloodTotalVariants     = element(by.binding('currentBloodVariantReport.total_variants'));
     this.bloodTotalCellularity  = element(by.binding('currentBloodVariantReport.cellularity'));
+
+
+    // Download related
+    this.downloadTracker        = element(by.css('.download-count>.label.label-primary'));
     
 };
 
