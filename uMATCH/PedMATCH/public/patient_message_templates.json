@@ -15,7 +15,7 @@
       "request": "REGISTRATION for test patient"
     }
   },
-  "specimen_received_TISSUE":{
+  "specimen_received_TISSUE": {
     "header": {
       "msg_guid": "ab6d8d37-caf2-4dbb-a360-0032c7a7a76c",
       "msg_dttm": "2016-04-25T18:42:13+00:00"
@@ -36,7 +36,7 @@
       "qc_datetime": "2016-04-25T16:21:34+00:00"
     }
   },
-  "specimen_received_BLOOD":{
+  "specimen_received_BLOOD": {
     "header": {
       "msg_guid": "ab6d8d37-caf2-4dbb-a360-0032c7a7a76c",
       "msg_dttm": "2016-04-25T18:42:13+00:00"
@@ -125,32 +125,32 @@
       "stars_specimen_id": "ABCXYZ-0BJ64A"
     }
   },
-  "assay_result_reported":{
-    "patient_id":"3344",
+  "assay_result_reported": {
+    "patient_id": "3344",
     "study_id": "APEC1621",
-    "surgical_event_id":"SEI_01",
+    "surgical_event_id": "SEI_01",
     "case_number": "case-1234",
     "type": "RESULT",
-    "biomarker":"ICCPTENs|ICCBRG1s|ICCBAF47s",
-    "reported_date":"2016-05-05T12:13:09.071-05:00",
+    "biomarker": "ICCPTENs|ICCBRG1s|ICCBAF47s",
+    "reported_date": "2016-05-05T12:13:09.071-05:00",
     "result": "POSITIVE"
   },
-//  "pathology_status":{
-//    "patient_id":"894561",
-//    "study_id": "APEC1621",
-//    "surgical_event_id":"SEI_01",
-//    "case_number": "case-1234",
-//    "type":"PATHOLOGY_STATUS",
-//    "reported_date":"2016-04-27T12:13:09.071-05:00",
-//    "status":"Y"
-//  },
-//  "variant_tsv_vcf_uploaded": {
-//    "site": "MoCha",
-//    "molecular_id": "3366-bsn-msn-2",
-//    "analysis_id": "job1",
-//    "tsv_file_name": "test1.tsv",
-//    "vcf_file_name": "test1.vcf"
-//  },
+  //  "pathology_status":{
+  //    "patient_id":"894561",
+  //    "study_id": "APEC1621",
+  //    "surgical_event_id":"SEI_01",
+  //    "case_number": "case-1234",
+  //    "type":"PATHOLOGY_STATUS",
+  //    "reported_date":"2016-04-27T12:13:09.071-05:00",
+  //    "status":"Y"
+  //  },
+  //  "variant_tsv_vcf_uploaded": {
+  //    "site": "MoCha",
+  //    "molecular_id": "3366-bsn-msn-2",
+  //    "analysis_id": "job1",
+  //    "tsv_file_name": "test1.tsv",
+  //    "vcf_file_name": "test1.vcf"
+  //  },
   "variant_dna_file_uploaded": {
     "patient_id": "3366",
     "molecular_id": "3366-bsn-msn-2",
@@ -165,25 +165,43 @@
     "cdna_bam_name": "cdna.bam",
     "comment_user": "qa"
   },
-  "variant_file_uploaded":{
+  "variant_file_uploaded": {
     "ion_reporter_id": "bdd_test_ion_reporter",
     "molecular_id": "3355-bsn-msn-2",
     "analysis_id": "job1",
     "tsv_file_name": "test1.tsv"
   },
-  "variant_confirmed":{
+  "variant_file_uploaded_event": {
+    "ion_reporter_id": "IR_DTM00",
+    "analysis_id": "job100101",
+    "comment_user": "d-dartmouth-vr-sdr",
+    "dna_bam_name": "dna.bam",
+    "site": "dartmouth",
+    "molecular_id": "PT_AU11_DtmTsShipped_MOI1",
+    "patient_id": "PT_AU11_DtmTsShipped",
+    "event": {
+      "ion_reporter_id": "IR_DTM00",
+      "analysis_id": "job100101",
+      "comment_user": "d-dartmouth-vr-sdr",
+      "dna_bam_name": "dna.bam",
+      "site": "dartmouth",
+      "molecular_id": "PT_AU11_DtmTsShipped_MOI1",
+      "patient_id": "PT_AU11_DtmTsShipped"
+    }
+  },
+  "variant_confirmed": {
     "comment": "The committee approves this variant report",
     "comment_user": "Rick"
   },
-  "variant_file_confirmed":{
+  "variant_file_confirmed": {
     "comment": "The committee approves this variant report",
     "comment_user": "Rick"
   },
-  "assignment_confirmed":{
+  "assignment_confirmed": {
     "comment": "The committee approves this Assignment report",
     "comment_user": "Rick"
   },
-  "on_treatment_arm":{
+  "on_treatment_arm": {
     "header": {
       "msg_guid": "0f8fad5b-d9cb-469f-a165-80067728950e",
       "msg_dttm": "2016-05-09T22:06:33+00:00"
@@ -203,7 +221,7 @@
       "treatment_id": "120"
     }
   },
-  "request_assignment":{
+  "request_assignment": {
     "header": {
       "msg_guid": "0f8fad5b-d9cb-469f-a165-80067728950e",
       "msg_dttm": "2016-05-09T22:06:33+00:00"
@@ -222,7 +240,7 @@
       "treatment_id": "120"
     }
   },
-  "off_study":{
+  "off_study": {
     "header": {
       "msg_guid": "0f8fad5b-d9cb-469f-a165-70867728950e",
       "msg_dttm": "2016-05-09T22:06:33+00:00"

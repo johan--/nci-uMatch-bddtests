@@ -406,3 +406,27 @@ Feature: Patient API authorization tests
       | PATIENT_MESSAGE_SENDER            | false  | false  | false  |
       | SPECIMEN_MESSAGE_SENDER           | false  | false  | false  |
       | ASSAY_MESSAGE_SENDER              | false  | false  | false  |
+
+  Scenario Outline: PT_AU12 role base authorization works properly for creating patient event
+    Given patient id is "<patient_id>"
+    And patient API user authorization role is "<role>"
+    And load template variant file uploaded event message for this patient
+    Then set patient variant file uploaded event message field: "analysis_id" to value: "<patient_id>_ANI1"
+    Then set patient variant file uploaded event message field: "site" to value: "<site>"
+    Then set patient variant file uploaded event message field: "molecular_id" to value: "<patient_id>_MOI1"
+    When POST to MATCH patients event service, response includes "<message>" with code "<code>"
+    Examples:
+      | patient_id             | site      | role                              | message | code |
+      | PT_AU12_TsShippedToMda | mocha     | NCI_MATCH_READONLY                |         | 401  |
+      | PT_AU12_TsShippedToMda | mda       | ADMIN                             | success | 200  |
+      | PT_AU12_TsShippedToDtm | dartmouth | SYSTEM                            | success | 200  |
+      | PT_AU12_TsShippedToMca | mocha     | ASSIGNMENT_REPORT_REVIEWER        |         | 401  |
+      | PT_AU12_TsShippedToMda | mda       | MDA_VARIANT_REPORT_SENDER         | success | 200  |
+      | PT_AU12_TsShippedToMda | mda       | MDA_VARIANT_REPORT_REVIEWER       |         | 401  |
+      | PT_AU12_TsShippedToMca | mocha     | MOCHA_VARIANT_REPORT_SENDER       | success | 200  |
+      | PT_AU12_TsShippedToMca | mocha     | MOCHA_VARIANT_REPORT_REVIEWER     |         | 401  |
+      | PT_AU12_TsShippedToDtm | dartmouth | DARTMOUTH_VARIANT_REPORT_SENDER   | success | 200  |
+      | PT_AU12_TsShippedToDtm | dartmouth | DARTMOUTH_VARIANT_REPORT_REVIEWER |         | 401  |
+      | PT_AU12_TsShippedToMda | mda       | PATIENT_MESSAGE_SENDER            |         | 401  |
+      | PT_AU12_TsShippedToMca | mocha     | SPECIMEN_MESSAGE_SENDER           |         | 401  |
+      | PT_AU12_TsShippedToDtm | dartmouth | ASSAY_MESSAGE_SENDER              |         | 401  |

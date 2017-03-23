@@ -21,6 +21,14 @@ When(/^POST to MATCH patients service, response includes "([^"]*)" with code "([
   # actual_include_expect(response['message'], retMsg)
 end
 
+When(/^POST to MATCH patients event service, response includes "([^"]*)" with code "([^"]*)"$/) do |retMsg, code|
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
+  response = Patient_helper_methods.post_vr_upload_event(@current_auth0_role)
+  puts response.to_s
+  actual_match_expect(response['http_code'], code)
+  # actual_include_expect(response['message'], retMsg)
+end
+
 When(/^POST to MATCH variant report upload service, response includes "([^"]*)" with code "([^"]*)"$/) do |retMsg, code|
   @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
   response = Patient_helper_methods.post_vr_upload(@molecular_id, @current_auth0_role)
@@ -140,6 +148,11 @@ Given(/^load template variant file uploaded message for molecular id: "([^"]*)"$
   Patient_helper_methods.update_patient_message('molecular_id', @molecular_id)
 end
 
+Given(/^load template variant file uploaded event message for this patient$/) do
+  Patient_helper_methods.load_template(@patient_id, 'variant_file_uploaded_event')
+end
+
+
 Then(/^files for molecular_id "([^"]*)" and analysis_id "([^"]*)" are in S3$/) do |moi, ani|
   Patient_helper_methods.upload_vr_to_s3(moi, ani)
 end
@@ -194,6 +207,15 @@ Then(/^set patient message field: "([^"]*)" to value: "([^"]*)"$/) do |field, va
     end
     Patient_helper_methods.update_patient_message(field, converted_value)
   end
+end
+
+Then(/^set patient variant file uploaded event message field: "([^"]*)" to value: "([^"]*)"$/) do |field, value|
+  if value == 'null'
+    converted_value = nil
+  else
+    converted_value = value
+  end
+  Patient_helper_methods.update_vr_event_message(field, converted_value)
 end
 
 Then(/^remove field: "([^"]*)" from patient message$/) do |field|

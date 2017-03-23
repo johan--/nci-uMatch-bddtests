@@ -8,16 +8,16 @@ Environment.setTier 'local' #set this value to 'local' if you are running tests 
 
 # MatchTestDataManager.delete_patients_from_seed(['PT_AU11_DtmTsShipped'])
 # MatchTestDataManager.delete_patients_from_seed(['PT_AU04_MochaTsShipped3'])
-# MatchTestDataManager.clear_all_local_tables
-# MatchTestDataManager.upload_all_seed_data_to_local
+MatchTestDataManager.clear_all_local_tables
+MatchTestDataManager.upload_all_seed_data_to_local
 Auth0Token.force_generate_auth0_token('ADMIN')
 #
 # Patient00A.upload_patient('PT_AU04_DtmTsShipped0')
 # Patient00A.upload_patient('PT_AU04_DtmTsShipped1')
 # Patient00A.upload_patient('PT_AU05_DtmTsVrUploaded0')
-# Patient00A.upload_patient('PT_AU05_DtmTsVrUploaded1')
-# Patient00A.upload_patient('PT_AU05_DtmTsVrUploaded2')
-Patient00A.upload_patient('PT_AU11_DtmTsShipped')
+Patient00A.upload_patient('PT_AU12_TsShippedToMca')
+# Patient00A.upload_patient('PT_AU12_TsShippedToDtm')
+# Patient00A.upload_patient('PT_AU12_TsShippedToMda')
 
 sleep(10.0)
 MatchTestDataManager.backup_all_local_db

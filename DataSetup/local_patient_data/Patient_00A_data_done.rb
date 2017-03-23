@@ -587,8 +587,29 @@ class Patient00A
 
   def self.pt_au11_dtm_ts_shipped
     pt = PatientDataSet.new('PT_AU11_DtmTsShipped')
-    # PatientMessageLoader.register_patient(pt.id)
-    # PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
     PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-05-01T19:42:13+00:00', 'Dartmouth')
+  end
+
+  def self.pt_au12_ts_shipped_to_mda
+    pt = PatientDataSet.new('PT_AU12_TsShippedToMda')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+  end
+
+  def self.pt_au12_ts_shipped_to_dtm
+    pt = PatientDataSet.new('PT_AU12_TsShippedToDtm')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-05-01T19:42:33+00:00', 'Dartmouth')
+  end
+
+  def self.pt_au12_ts_shipped_to_mca
+    pt = PatientDataSet.new('PT_AU12_TsShippedToMca')
+    # PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-05-01T19:42:23+00:00', 'MoCha')
   end
 end
