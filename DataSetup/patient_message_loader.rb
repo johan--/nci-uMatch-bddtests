@@ -479,7 +479,7 @@ class PatientMessageLoader
   #         molecular_id,
   #         analysis_id,
   #         bam_name='dna.bam',
-  #         bai_name='dna.bam.bai'
+  #         bai_name='dna.bai'
   # )
   #   message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['variant_dna_file_uploaded']
   #   message['molecular_id'] = molecular_id
@@ -494,7 +494,7 @@ class PatientMessageLoader
   #     molecular_id,
   #     analysis_id,
   #     bam_name='cdna.bam',
-  #     bai_name='cdna.bam.bai'
+  #     bai_name='cdna.bai'
   # )
   #   message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['variant_cdna_file_uploaded']
   #   message['molecular_id'] = molecular_id
