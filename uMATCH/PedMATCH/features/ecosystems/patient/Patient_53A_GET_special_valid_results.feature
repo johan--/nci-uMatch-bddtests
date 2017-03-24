@@ -562,7 +562,7 @@ Feature: Patient GET service valid special case tests
     When GET from MATCH patient API, http code "200" should return
     Then this patient tissue specimen_events analyses "PT_SC07d_TsVrUploaded_ANI1" should have correct "dna" file names: "dna.bam"
     Then this patient tissue specimen_events analyses "PT_SC07d_TsVrUploaded_ANI1" should have correct "cdna" file names: "cdna.bam"
-    Then this patient tissue specimen_events analyses "PT_SC07d_TsVrUploaded_ANI1" should have correct "tsv" file names: "test1.tsv"
+    Then this patient tissue specimen_events analyses "PT_SC07d_TsVrUploaded_ANI1" should have correct "vcf" file names: "test1.vcf"
 
   @patients_p3
   Scenario Outline: PT_SC08a variant report can be downloaded properly
@@ -620,4 +620,4 @@ Feature: Patient GET service valid special case tests
       When GET from MATCH patient API, http code "200" should return
       Then this patient tissue analysis_report should have correct "dna" file names: "dna.bam"
       Then this patient tissue analysis_report should have correct "cdna" file names: "cdna.bam"
-      Then this patient tissue analysis_report should have correct "tsv" file names: "test1.tsv"
+      Then this patient tissue analysis_report should have correct "vcf" file names: "test1.vcf"

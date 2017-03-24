@@ -910,26 +910,22 @@ Then(/^this patient tissue specimen_events analyses "([^"]*)" should have correc
           case file_type
             when 'dna'
               expect(this_analyses.keys).to include 'dna_bam_name'
-              expect(this_analyses.keys).to include 'dna_bai_name'
               expect(this_analyses.keys).to include 'dna_bam_path_name'
               expect(this_analyses.keys).to include 'dna_bai_path_name'
               expect(this_analyses['dna_bam_name']).to eq name
-              expect(this_analyses['dna_bai_name']).to eq "#{name[0..name.size-5]}.bai"
               expect(this_analyses['dna_bam_path_name']).to end_with "/#{ani}/#{name}"
               expect(this_analyses['dna_bai_path_name']).to end_with "/#{ani}/#{name[0..name.size-5]}.bai"
             when 'cdna'
               expect(this_analyses.keys).to include 'cdna_bam_name'
-              expect(this_analyses.keys).to include 'cdna_bai_name'
               expect(this_analyses.keys).to include 'rna_bam_path_name'
               expect(this_analyses.keys).to include 'rna_bai_path_name'
               expect(this_analyses['cdna_bam_name']).to eq name
-              expect(this_analyses['cdna_bai_name']).to eq "#{name[0..name.size-5]}.bai"
               expect(this_analyses['rna_bam_path_name']).to end_with "/#{ani}/#{name}"
               expect(this_analyses['rna_bai_path_name']).to end_with "/#{ani}/#{name[0..name.size-5]}.bai"
-            when 'tsv'
-              expect(this_analyses.keys).to include 'tsv_file_name'
+            when 'vcf'
+              expect(this_analyses.keys).to include 'vcf_file_name'
               expect(this_analyses.keys).to include 'vcf_path_name'
-              expect(this_analyses['tsv_file_name']).to eq name
+              expect(this_analyses['vcf_file_name']).to eq name
               expect(this_analyses['vcf_path_name']).to end_with "/#{ani}/#{name[0..name.size-5]}.vcf"
           end
         end
@@ -946,26 +942,22 @@ Then(/^this patient tissue analysis_report should have correct "([^"]*)" file na
   case file_type
     when 'dna'
       expect(vr.keys).to include 'dna_bam_name'
-      expect(vr.keys).to include 'dna_bai_name'
       expect(vr.keys).to include 'dna_bam_path_name'
       expect(vr.keys).to include 'dna_bai_path_name'
       expect(vr['dna_bam_name']).to eq name
-      expect(vr['dna_bai_name']).to eq "#{name[0..name.size-5]}.bai"
       expect(vr['dna_bam_path_name']).to end_with "/#{name}"
       expect(vr['dna_bai_path_name']).to end_with "/#{name[0..name.size-5]}.bai"
     when 'cdna'
       expect(vr.keys).to include 'cdna_bam_name'
-      expect(vr.keys).to include 'cdna_bai_name'
       expect(vr.keys).to include 'rna_bam_path_name'
       expect(vr.keys).to include 'rna_bai_path_name'
       expect(vr['cdna_bam_name']).to eq name
-      expect(vr['cdna_bai_name']).to eq "#{name[0..name.size-5]}.bai"
       expect(vr['rna_bam_path_name']).to end_with "/#{name}"
       expect(vr['rna_bai_path_name']).to end_with "#{name[0..name.size-5]}.bai"
-    when 'tsv'
-      expect(vr.keys).to include 'tsv_file_name'
+    when 'vcf'
+      expect(vr.keys).to include 'vcf_file_name'
       expect(vr.keys).to include 'vcf_path_name'
-      expect(vr['tsv_file_name']).to eq name
+      expect(vr['vcf_file_name']).to eq name
       expect(vr['vcf_path_name']).to end_with "/#{name[0..name.size-5]}.vcf"
   end
 end
