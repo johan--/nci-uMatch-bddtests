@@ -219,3 +219,29 @@ Feature: This is the critical path test cases.
     When I collect information about the assignment
     Then I can see more new top level details about assignment report
     Then I logout
+
+  Scenario: As a privileged Dartmouth Sender I can upload a sample file
+    Given I clear the file from S3 under reporter "IR_DTM00", mol_id "PT_AU11_DtmTsShipped_MOI1", analysis_id "PT_AU11_DtmTsShipped_An123"  
+    And I am logged in as a "VR_Sender_dartmouth" user
+    When I go to patient "PT_AU11_DtmTsShipped" with surgical event "PT_AU11_DtmTsShipped_SEI1"
+    And I scroll to the bottom of the page
+    And I can see that some files have not been uploaded for the Surgical Event
+    Then The "Upload new sample file" link is "visible"
+    And The "Upload new sample file" link is "enabled"
+    And I can click on the "Upload new sample file" link
+    And I can see the "Upload BAM files and Variant ZIP files" dialog
+    And The "Upload" button is "disabled"
+    Then I select an Ion Reporter "dartmouth - IR_DTM00"
+    And I enter Analysis ID "PT_AU04_MochaTsShipped1_An123"
+    And I make all elements visible
+    And I press "Select Variant ZIP File" file button to upload "vcfFile.zip" file
+    And I press "Select DNA BAM File" file button to upload "dna.bam" file
+    And I press "Select cDNA BAM File" file button to upload "cdna.bam" file
+    Then The "Upload" button is "visible"
+    And The "Upload" button is "enabled"
+    Then I can click on the "Upload" button
+    And I wait for "5" seconds
+    And I scroll to the top of the page
+    And I can see the "3" Sample File upload process has started
+    Then I logout
+

@@ -367,7 +367,7 @@
                         "S": "FGFR"
                     }, 
                     "num_patients_assigned": {
-                        "N": "0"
+                        "N": "0.0"
                     }, 
                     "gene_fusions": {
                         "L": [
@@ -569,6 +569,17 @@
                 "S": "5_2_2017-20_57_22"
             }, 
             "treatment_arm_id": {
+                "S": "APEC1621-PEND_A_pending"
+            }
+        }, 
+        {
+            "info": {
+                "S": "npm-d-admin@outlook.com"
+            }, 
+            "version": {
+                "S": "5_2_2017-20_57_22"
+            }, 
+            "treatment_arm_id": {
                 "S": "APEC1621-PEND_B_pending"
             }
         }, 
@@ -679,7 +690,7 @@
                         "S": "NTRK"
                     }, 
                     "num_patients_assigned": {
-                        "N": "0"
+                        "N": "0.0"
                     }, 
                     "gene_fusions": {
                         "L": [
@@ -891,7 +902,6 @@
                                     }
                                 }
                             }, 
- 
                             {
                                 "M": {
                                     "level_of_evidence": {
@@ -936,17 +946,6 @@
             }, 
             "treatment_arm_id": {
                 "S": "APEC1621-PEND_A"
-            }
-        }, 
-        {
-            "info": {
-                "S": "npm-d-admin@outlook.com"
-            }, 
-            "version": {
-                "S": "5_2_2017-20_57_22"
-            }, 
-            "treatment_arm_id": {
-                "S": "APEC1621-PEND_A_pending"
             }
         }
     ], 

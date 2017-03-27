@@ -20,8 +20,10 @@ module.exports = function () {
     });
 
     this.When(/^I scroll to the top of the page$/, function (callback) {
-        browser.executeScript('window.scrollTo(60,60)').then(function(){
-            browser.sleep(500)
+        var top = element(by.css('.user-name'))
+        top.getLocation().then(function(loc){
+            console.log("loc: " + loc);
+            browser.executeScript('window.scrollTo(' + loc.x + ',' + loc.y + ')')
         }).then(callback);
     });
     

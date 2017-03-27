@@ -5,6 +5,7 @@
 'use strict';
 var fs = require("fs");
 var path = require("path");
+var AWS = require ("aws-sdk");
 
 var patientPage = require("../../pages/patientPage");
 
@@ -119,4 +120,57 @@ module.exports = function () {
         // Write code here that turns the phrase above into concrete actions
         callback(null, 'pending');
     });
+
+    this.Then(/^I clear the file from S3 under reporter "([^"]*)", mol_id "([^"]*)", analysis_id "([^"]*)"$/, function(reporter, molecularId, analysisId, callback){
+        var bucketName = process.env.UI_HOSTNAME.match('localhost') ? 'pedmatch-dev' : 'pedmatch-int'
+        var folderName = `${reporter}/${molecularId}/${analysisId}`
+
+        var S3 = new AWS.S3({
+            region: 'us-east-1',
+            endpoint: 'https://s3.amazonaws.com', 
+            accessKeyId: process.env.AWS_ACCESS_KEY_ID, 
+            secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY, 
+            apiVersion: 'latest'
+        });
+
+        var params = {
+            Bucket: bucketName, /* required */
+            Delete: {
+                Objects: [
+                    {
+                        Key: `${folderName}/vcfFile.zip`,
+                    }, 
+                    {
+                        Key: `${folderName}/dna.bam`,
+                    },
+                    {
+                        Key: `${folderName}/cdna.bam`,
+                    },
+                    {
+                        Key: `${folderName}/vcfFile.vcf`,
+                    },
+                    {
+                        Key: `${folderName}/vcfFile.tsv`,
+                    },
+                    {
+                        Key: `${folderName}/dna.bai`,
+                    },
+                    {
+                        Key: `${folderName}/cdna.bai`,
+                    }
+                ]
+                
+            }
+        };
+
+        var deletePromise = S3.deleteObjects(params).promise();
+
+        deletePromise.then(function(data){
+            console.log("Deleting files in S3");
+            return;
+        }).catch(function(err){
+            console.log(err);
+            return;
+        }).then(callback);
+    })
 };

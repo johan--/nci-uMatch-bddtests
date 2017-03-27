@@ -4,7 +4,8 @@ Feature: MATCHKB-542. Users can upload patient sample files.
   A file can be as large as 20 GB or more.
 
   Scenario: As a privileged MDA Sender I can upload a sample file
-    Given I am logged in as a "VR_Sender_mda" user
+    Given I clear the file from S3 under reporter "IR_MDA05", mol_id "PT_AU04_MdaTsShipped1_MOI1", analysis_id "PT_AU04_MdaTsShipped1_An123"  
+    And I am logged in as a "VR_Sender_mda" user
     When I go to patient "PT_AU04_MdaTsShipped1" with surgical event "PT_AU04_MdaTsShipped1_SEI1"
     And I scroll to the bottom of the page
     And I can see that some files have not been uploaded for the Surgical Event
@@ -22,6 +23,7 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     Then The "Upload" button is "visible"
     And The "Upload" button is "enabled"
     Then I can click on the "Upload" button
+    And I wait for "5" seconds
     And I scroll to the top of the page
     And I can see the "3" Sample File upload process has started
     Then I logout
@@ -112,7 +114,8 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     Then I logout
 
   Scenario: As a privileged Mocha Sender I can upload a sample file
-    Given I am logged in as a "VR_Sender_mocha" user
+    Given I clear the file from S3 under reporter "IR_MCA00", mol_id "PT_AU04_MochaTsShipped1_MOI1", analysis_id "PT_AU04_MochaTsShipped1_An123"  
+    And I am logged in as a "VR_Sender_mocha" user
     When I go to patient "PT_AU04_MochaTsShipped1" with surgical event "PT_AU04_MochaTsShipped1_SEI1"
     And I scroll to the bottom of the page
     And I can see that some files have not been uploaded for the Surgical Event
@@ -130,6 +133,7 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     Then The "Upload" button is "visible"
     And The "Upload" button is "enabled"
     Then I can click on the "Upload" button
+    And I wait for "5" seconds
     And I scroll to the top of the page
     And I can see the "3" Sample File upload process has started
     Then I logout
