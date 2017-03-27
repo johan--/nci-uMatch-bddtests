@@ -1,0 +1,702 @@
+[
+  {
+    "reports": {
+      "qc": {
+        "link": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/download/pdf/ddecfaa5-c8f0-4e23-9dca-fdcade28b10d/ff80818152f111280152f7654a0c0029_QC.pdf"
+      },
+      "final": {}
+    },
+    "data_links": {
+      "unfiltered_variants": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/SampleControl_MoCha_23_v1_SampleControl_MoCha_23_RNA_v1/SampleControl_MoCha_23_v1_20160218213916227/SampleControl_MoCha_23_v1_65a13ddc-901b-44a8-b3f2-4bf468d60d32.zip"
+    },
+    "report_published": "",
+    "workflow": "NCI-MATCH Workflow v3b 012116",
+    "variants_saved": "",
+    "samples": {
+      "RNA": "SampleControl_MoCha_26_RNA_v1",
+      "DNA": "SampleControl_MoCha_26_v1"
+    },
+    "shared_with": [
+    ],
+    "stage": "Send for Report Generation",
+    "flagged": false,
+    "name": "SampleControl_MoCha_26_v1_675e5c28-157b-48c0-8069-25fa0d262eea",
+    "id": "ff80818152f111280152f765639a0038",
+    "ion_reporter_version": "5.0",
+    "started_by": "Dave Sims",
+    "start_date": "February 18, 2016",
+    "status": "SUCCESSFUL"
+  },
+  {
+    "reports": {
+      "qc": {
+        "link": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/download/pdf/ddecfaa5-c8f0-4e23-9dca-fdcade28b10d/ff80818152f111280152f7654a0c0029_QC.pdf"
+      },
+      "final": {}
+    },
+    "data_links": {
+      "unfiltered_variants": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/SampleControl_MoCha_23_v1_SampleControl_MoCha_23_RNA_v1/SampleControl_MoCha_23_v1_20160218213916227/SampleControl_MoCha_23_v1_65a13ddc-901b-44a8-b3f2-4bf468d60d32.zip"
+    },
+    "report_published": "",
+    "workflow": "NCI-MATCH Workflow v3b 012116",
+    "variants_saved": "",
+    "samples": {
+      "RNA": "SampleControl_MoCha_25_RNA_v1",
+      "DNA": "SampleControl_MoCha_25_v1"
+    },
+    "shared_with": [
+    ],
+    "stage": "Send for Report Generation",
+    "flagged": false,
+    "name": "SampleControl_MoCha_25_v1_41c7ef2a-ca7d-4ae1-b275-1aff2edaa1f4",
+    "id": "ff80818152f111280152f7655b290033",
+    "ion_reporter_version": "5.0",
+    "started_by": "Dave Sims",
+    "start_date": "February 18, 2016",
+    "status": "SUCCESSFUL"
+  },
+  {
+    "reports": {
+      "qc": {
+        "link": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/download/pdf/ddecfaa5-c8f0-4e23-9dca-fdcade28b10d/ff80818152f111280152f7654a0c0029_QC.pdf"
+      },
+      "final": {}
+    },
+    "data_links": {
+      "unfiltered_variants": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/SampleControl_MoCha_23_v1_SampleControl_MoCha_23_RNA_v1/SampleControl_MoCha_23_v1_20160218213916227/SampleControl_MoCha_23_v1_65a13ddc-901b-44a8-b3f2-4bf468d60d32.zip"
+    },
+    "report_published": "",
+    "workflow": "NCI-MATCH Workflow v3b 012116",
+    "variants_saved": "",
+    "samples": {
+      "RNA": "SampleControl_MoCha_24_RNA_v1",
+      "DNA": "SampleControl_MoCha_24_v1"
+    },
+    "shared_with": [
+    ],
+    "stage": "Send for Report Generation",
+    "flagged": false,
+    "name": "SampleControl_MoCha_24_v1_8db44502-fd60-4ee4-86e8-4fa856155fa6",
+    "id": "ff80818152f111280152f7655299002e",
+    "ion_reporter_version": "5.0",
+    "started_by": "Dave Sims",
+    "start_date": "February 18, 2016",
+    "status": "SUCCESSFUL"
+  },
+  {
+    "reports": {
+      "qc": {
+        "link": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/download/pdf/ddecfaa5-c8f0-4e23-9dca-fdcade28b10d/ff80818152f111280152f7654a0c0029_QC.pdf"
+      },
+      "final": {}
+    },
+    "data_links": {
+      "unfiltered_variants": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/SampleControl_MoCha_23_v1_SampleControl_MoCha_23_RNA_v1/SampleControl_MoCha_23_v1_20160218213916227/SampleControl_MoCha_23_v1_65a13ddc-901b-44a8-b3f2-4bf468d60d32.zip"
+    },
+    "report_published": "",
+    "workflow": "NCI-MATCH Workflow v3b 012116",
+    "variants_saved": "",
+    "samples": {
+      "RNA": "SampleControl_MoCha_23_RNA_v1",
+      "DNA": "SampleControl_MoCha_23_v1"
+    },
+    "shared_with": [
+    ],
+    "stage": "Review Variants",
+    "flagged": false,
+    "name": "SampleControl_MoCha_23_v1_65a13ddc-901b-44a8-b3f2-4bf468d60d32",
+    "id": "ff80818152f111280152f7654a0c0029",
+    "ion_reporter_version": "5.0",
+    "started_by": "Dave Sims",
+    "start_date": "February 18, 2016",
+    "status": "SUCCESSFUL"
+  },
+  {
+    "reports": {
+      "qc": {
+        "link": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/download/pdf/ddecfaa5-c8f0-4e23-9dca-fdcade28b10d/ff80818152f111280152f7654a0c0029_QC.pdf"
+      },
+      "final": {}
+    },
+    "data_links": {
+      "unfiltered_variants": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/SampleControl_MoCha_23_v1_SampleControl_MoCha_23_RNA_v1/SampleControl_MoCha_23_v1_20160218213916227/SampleControl_MoCha_23_v1_65a13ddc-901b-44a8-b3f2-4bf468d60d32.zip"
+    },
+    "report_published": "",
+    "workflow": "NCI-MATCH Workflow v3b 012116",
+    "variants_saved": "",
+    "samples": {
+      "RNA": "SampleControl_MoCha_22_RNA_v1",
+      "DNA": "SampleControl_MoCha_22_v1"
+    },
+    "shared_with": [
+    ],
+    "stage": "Review Variants",
+    "flagged": false,
+    "name": "SampleControl_MoCha_22_v1_f31ffc42-325b-4a09-aa31-57ec676ae7af",
+    "id": "ff80818152f111280152f76540900024",
+    "ion_reporter_version": "5.0",
+    "started_by": "Dave Sims",
+    "start_date": "February 18, 2016",
+    "status": "SUCCESSFUL"
+  },
+  {
+    "reports": {
+      "qc": {
+        "link": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/download/pdf/ddecfaa5-c8f0-4e23-9dca-fdcade28b10d/ff80818152f111280152f7654a0c0029_QC.pdf"
+      },
+      "final": {}
+    },
+    "data_links": {
+      "unfiltered_variants": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/SampleControl_MoCha_23_v1_SampleControl_MoCha_23_RNA_v1/SampleControl_MoCha_23_v1_20160218213916227/SampleControl_MoCha_23_v1_65a13ddc-901b-44a8-b3f2-4bf468d60d32.zip"
+    },
+    "report_published": "",
+    "workflow": "NCI-MATCH Workflow v3b 012116",
+    "variants_saved": "",
+    "samples": {
+      "RNA": "SampleControl_MoCha_21_RNA_v1",
+      "DNA": "SampleControl_MoCha_21_v1"
+    },
+    "shared_with": [
+    ],
+    "stage": "Review Variants",
+    "flagged": false,
+    "name": "SampleControl_MoCha_21_v1_fc1b3850-8fd2-477b-8b27-ebef905c3993",
+    "id": "ff80818152f111280152f7653b01001f",
+    "ion_reporter_version": "5.0",
+    "started_by": "Dave Sims",
+    "start_date": "February 18, 2016",
+    "status": "SUCCESSFUL"
+  },
+  {
+    "reports": {
+      "qc": {
+        "link": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/download/pdf/ddecfaa5-c8f0-4e23-9dca-fdcade28b10d/ff80818152f111280152f7654a0c0029_QC.pdf"
+      },
+      "final": {}
+    },
+    "data_links": {
+      "unfiltered_variants": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/SampleControl_MoCha_23_v1_SampleControl_MoCha_23_RNA_v1/SampleControl_MoCha_23_v1_20160218213916227/SampleControl_MoCha_23_v1_65a13ddc-901b-44a8-b3f2-4bf468d60d32.zip"
+    },
+    "report_published": "",
+    "workflow": "NCI-MATCH Workflow v3b 012116",
+    "variants_saved": "",
+    "samples": {
+      "RNA": "SampleControl_MoCha_20_RNA_v1",
+      "DNA": "SampleControl_MoCha_20_v1"
+    },
+    "shared_with": [
+    ],
+    "stage": "Review Variants",
+    "flagged": false,
+    "name": "SampleControl_MoCha_20_v1_30c27483-518d-43f2-9b69-7359d226c869",
+    "id": "ff80818152f111280152f76533e4001a",
+    "ion_reporter_version": "5.0",
+    "started_by": "Dave Sims",
+    "start_date": "February 18, 2016",
+    "status": "SUCCESSFUL"
+  },
+  {
+    "reports": {
+      "qc": {
+        "link": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/download/pdf/ddecfaa5-c8f0-4e23-9dca-fdcade28b10d/ff80818152f111280152f7654a0c0029_QC.pdf"
+      },
+      "final": {}
+    },
+    "data_links": {
+      "unfiltered_variants": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/SampleControl_MoCha_23_v1_SampleControl_MoCha_23_RNA_v1/SampleControl_MoCha_23_v1_20160218213916227/SampleControl_MoCha_23_v1_65a13ddc-901b-44a8-b3f2-4bf468d60d32.zip"
+    },
+    "report_published": "",
+    "workflow": "NCI-MATCH Workflow v3b 012116",
+    "variants_saved": "",
+    "samples": {
+      "RNA": "SampleControl_MoCha_19_RNA_v1",
+      "DNA": "SampleControl_MoCha_19_v1"
+    },
+    "shared_with": [
+    ],
+    "stage": "Review Variants",
+    "flagged": false,
+    "name": "SampleControl_MoCha_19_v1_dfd7dbb1-d8f6-4379-b0a7-ed5707b209b0",
+    "id": "ff80818152f111280152f7652a590015",
+    "ion_reporter_version": "5.0",
+    "started_by": "Dave Sims",
+    "start_date": "February 18, 2016",
+    "status": "SUCCESSFUL"
+  },
+  {
+    "reports": {
+      "qc": {
+        "link": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/download/pdf/ddecfaa5-c8f0-4e23-9dca-fdcade28b10d/ff80818152f111280152f7654a0c0029_QC.pdf"
+      },
+      "final": {}
+    },
+    "data_links": {
+      "unfiltered_variants": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/SampleControl_MoCha_23_v1_SampleControl_MoCha_23_RNA_v1/SampleControl_MoCha_23_v1_20160218213916227/SampleControl_MoCha_23_v1_65a13ddc-901b-44a8-b3f2-4bf468d60d32.zip"
+    },
+    "report_published": "",
+    "workflow": "NCI-MATCH Workflow v3b 012116",
+    "variants_saved": "",
+    "samples": {
+      "RNA": "SampleControl_MoCha_18_RNA_v1",
+      "DNA": "SampleControl_MoCha_18_v1"
+    },
+    "shared_with": [
+    ],
+    "stage": "Review Variants",
+    "flagged": false,
+    "name": "SampleControl_MoCha_18_v1_445f3185-3a6f-4329-81e9-cb834045bb59",
+    "id": "ff80818152f111280152f7651e940010",
+    "ion_reporter_version": "5.0",
+    "started_by": "Dave Sims",
+    "start_date": "February 18, 2016",
+    "status": "SUCCESSFUL"
+  },
+  {
+    "reports": {
+      "qc": {
+        "link": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/download/pdf/ddecfaa5-c8f0-4e23-9dca-fdcade28b10d/ff80818152f111280152f7654a0c0029_QC.pdf"
+      },
+      "final": {}
+    },
+    "data_links": {
+      "unfiltered_variants": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/SampleControl_MoCha_23_v1_SampleControl_MoCha_23_RNA_v1/SampleControl_MoCha_23_v1_20160218213916227/SampleControl_MoCha_23_v1_65a13ddc-901b-44a8-b3f2-4bf468d60d32.zip"
+    },
+    "report_published": "",
+    "workflow": "NCI-MATCH Workflow v3b 012116",
+    "variants_saved": "",
+    "samples": {
+      "RNA": "SampleControl_MoCha_17_RNA_v1",
+      "DNA": "SampleControl_MoCha_17_v1"
+    },
+    "shared_with": [
+    ],
+    "stage": "Review Variants",
+    "flagged": false,
+    "name": "SampleControl_MoCha_17_v1_d3048ee8-b938-4eb5-9858-c1dd1adb878b",
+    "id": "ff80818152f111280152f76514d2000b",
+    "ion_reporter_version": "5.0",
+    "started_by": "Dave Sims",
+    "start_date": "February 18, 2016",
+    "status": "SUCCESSFUL"
+  },
+  {
+    "reports": {
+      "qc": {
+        "link": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/download/pdf/ddecfaa5-c8f0-4e23-9dca-fdcade28b10d/ff80818152f111280152f7654a0c0029_QC.pdf"
+      },
+      "final": {}
+    },
+    "data_links": {
+      "unfiltered_variants": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/SampleControl_MoCha_23_v1_SampleControl_MoCha_23_RNA_v1/SampleControl_MoCha_23_v1_20160218213916227/SampleControl_MoCha_23_v1_65a13ddc-901b-44a8-b3f2-4bf468d60d32.zip"
+    },
+    "report_published": "",
+    "workflow": "NCI-MATCH Workflow v3b 012116",
+    "variants_saved": "",
+    "samples": {
+      "RNA": "SampleControl_MoCha_16_RNA_v1",
+      "DNA": "SampleControl_MoCha_16_v1"
+    },
+    "shared_with": [
+    ],
+    "stage": "Review Variants",
+    "flagged": false,
+    "name": "SampleControl_MoCha_16_v1_16433e75-ac68-4ebf-9c14-4b00a1443de8",
+    "id": "ff80818152f111280152f7650b600006",
+    "ion_reporter_version": "5.0",
+    "started_by": "Dave Sims",
+    "start_date": "February 18, 2016",
+    "status": "SUCCESSFUL"
+  },
+  {
+    "reports": {
+      "qc": {
+        "link": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/download/pdf/ddecfaa5-c8f0-4e23-9dca-fdcade28b10d/ff80818152f111280152f7654a0c0029_QC.pdf"
+      },
+      "final": {}
+    },
+    "data_links": {
+      "unfiltered_variants": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/SampleControl_MoCha_23_v1_SampleControl_MoCha_23_RNA_v1/SampleControl_MoCha_23_v1_20160218213916227/SampleControl_MoCha_23_v1_65a13ddc-901b-44a8-b3f2-4bf468d60d32.zip"
+    },
+    "report_published": "",
+    "workflow": "NCI-MATCH Workflow v3b 012116",
+    "variants_saved": "",
+    "samples": {
+      "RNA": "SampleControl_MoCha_15_RNA_v1",
+      "DNA": "SampleControl_MoCha_15_v1"
+    },
+    "shared_with": [
+    ],
+    "stage": "Send for Report Generation",
+    "flagged": false,
+    "name": "SampleControl_MoCha_15_v1_6d8a9f9d-d428-478a-8004-c66e0c905dda",
+    "id": "ff80818152f111280152f764ff330001",
+    "ion_reporter_version": "5.0",
+    "started_by": "Dave Sims",
+    "start_date": "February 18, 2016",
+    "status": "SUCCESSFUL"
+  },
+  {
+    "reports": {
+      "qc": {
+        "link": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/download/pdf/ddecfaa5-c8f0-4e23-9dca-fdcade28b10d/ff80818152f111280152f7654a0c0029_QC.pdf"
+      },
+      "final": {}
+    },
+    "data_links": {
+      "unfiltered_variants": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/SampleControl_MoCha_23_v1_SampleControl_MoCha_23_RNA_v1/SampleControl_MoCha_23_v1_20160218213916227/SampleControl_MoCha_23_v1_65a13ddc-901b-44a8-b3f2-4bf468d60d32.zip"
+    },
+    "report_published": "",
+    "workflow": "Oncomine Comprehensive v2.0 - DNA and Fusions - Single Sample",
+    "variants_saved": "",
+    "samples": {
+      "RNA": "HCT-116-FFPE_RNA",
+      "DNA": "HCT-116-FFPE_DNA"
+    },
+    "shared_with": [
+    ],
+    "stage": "Send for Report Generation",
+    "flagged": false,
+    "name": "HCT-116-FFPE_c549_2016-02-18-09-26-360",
+    "id": "ff80818152f111c30152f4c64aeb001d",
+    "ion_reporter_version": "5.0",
+    "started_by": "Ion User",
+    "start_date": "February 18, 2016",
+    "status": "SUCCESSFUL"
+  },
+  {
+    "reports": {
+      "qc": {
+        "link": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/download/pdf/ddecfaa5-c8f0-4e23-9dca-fdcade28b10d/ff80818152f111280152f7654a0c0029_QC.pdf"
+      },
+      "final": {}
+    },
+    "data_links": {
+      "unfiltered_variants": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/SampleControl_MoCha_23_v1_SampleControl_MoCha_23_RNA_v1/SampleControl_MoCha_23_v1_20160218213916227/SampleControl_MoCha_23_v1_65a13ddc-901b-44a8-b3f2-4bf468d60d32.zip"
+    },
+    "report_published": "",
+    "workflow": "Oncomine Comprehensive v2.0 - DNA and Fusions - Single Sample",
+    "variants_saved": "",
+    "samples": {
+      "RNA": "HCT-116-FFPE_RNA",
+      "DNA": "HCT-116-FFPE_DNA"
+    },
+    "shared_with": [
+    ],
+    "stage": "Send for Report Generation",
+    "flagged": false,
+    "name": "HCH-116_sims_test_c559_2016-02-18-09-11-222",
+    "id": "ff80818152f111c30152f4b8e96b0010",
+    "ion_reporter_version": "5.0",
+    "started_by": "Dave Sims",
+    "start_date": "February 18, 2016",
+    "status": "SUCCESSFUL"
+  },
+  {
+    "reports": {
+      "qc": {
+        "link": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/download/pdf/ddecfaa5-c8f0-4e23-9dca-fdcade28b10d/ff80818152f111280152f7654a0c0029_QC.pdf"
+      },
+      "final": {}
+    },
+    "data_links": {
+      "unfiltered_variants": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/SampleControl_MoCha_23_v1_SampleControl_MoCha_23_RNA_v1/SampleControl_MoCha_23_v1_20160218213916227/SampleControl_MoCha_23_v1_65a13ddc-901b-44a8-b3f2-4bf468d60d32.zip"
+    },
+    "report_published": "",
+    "workflow": "Oncomine Comprehensive v2.0 - DNA and Fusions - Single Sample",
+    "variants_saved": "",
+    "samples": {
+      "RNA": "HCT-116-FFPE_RNA",
+      "DNA": "HCT-116-FFPE_DNA"
+    },
+    "shared_with": [
+    ],
+    "stage": "Analysis",
+    "flagged": false,
+    "name": "HCT-116-FFPE_c549_2016-02-18-07-46-846",
+    "id": "ff80818152f111c30152f46b51c10001",
+    "ion_reporter_version": "5.0",
+    "started_by": "Ion User",
+    "start_date": "February 18, 2016",
+    "status": "FAILED"
+  },
+  {
+    "reports": {
+      "qc": {
+        "link": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/download/pdf/ddecfaa5-c8f0-4e23-9dca-fdcade28b10d/ff80818152f111280152f7654a0c0029_QC.pdf"
+      },
+      "final": {}
+    },
+    "data_links": {
+      "unfiltered_variants": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/SampleControl_MoCha_23_v1_SampleControl_MoCha_23_RNA_v1/SampleControl_MoCha_23_v1_20160218213916227/SampleControl_MoCha_23_v1_65a13ddc-901b-44a8-b3f2-4bf468d60d32.zip"
+    },
+    "report_published": "",
+    "workflow": "MATCH OCP Workflow v1.0_121614",
+    "variants_saved": "",
+    "samples": {
+      "RNA": "UACC-62-FFPE_RNA",
+      "DNA": "UACC-62-FFPE_DNA"
+    },
+    "shared_with": [
+    ],
+    "stage": "Send for Report Generation",
+    "flagged": false,
+    "name": "UACC-62-FFPE_c12818_1422458769362",
+    "id": "ff8081814b310b2f014b3127353d0030",
+    "ion_reporter_version": "4.2",
+    "started_by": "Dave Sims",
+    "start_date": "January 28, 2015",
+    "status": "SUCCESSFUL"
+  },
+  {
+    "reports": {
+      "qc": {
+        "link": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/download/pdf/ddecfaa5-c8f0-4e23-9dca-fdcade28b10d/ff80818152f111280152f7654a0c0029_QC.pdf"
+      },
+      "final": {}
+    },
+    "data_links": {
+      "unfiltered_variants": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/SampleControl_MoCha_23_v1_SampleControl_MoCha_23_RNA_v1/SampleControl_MoCha_23_v1_20160218213916227/SampleControl_MoCha_23_v1_65a13ddc-901b-44a8-b3f2-4bf468d60d32.zip"
+    },
+    "report_published": "",
+    "workflow": "MATCH OCP Workflow v1.0_121614",
+    "variants_saved": "",
+    "samples": {
+      "RNA": "HS-578T-FFPE_RNA",
+      "DNA": "HS-578T-FFPE_DNA"
+    },
+    "shared_with": [
+    ],
+    "stage": "Review Variants",
+    "flagged": false,
+    "name": "HS-578T-FFPE_c12130_1422458769362",
+    "id": "ff8081814b310b2f014b3127317f000d",
+    "ion_reporter_version": "4.2",
+    "started_by": "Dave Sims",
+    "start_date": "January 28, 2015",
+    "status": "SUCCESSFUL"
+  },
+  {
+    "reports": {
+      "qc": {
+        "link": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/download/pdf/ddecfaa5-c8f0-4e23-9dca-fdcade28b10d/ff80818152f111280152f7654a0c0029_QC.pdf"
+      },
+      "final": {}
+    },
+    "data_links": {
+      "unfiltered_variants": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/SampleControl_MoCha_23_v1_SampleControl_MoCha_23_RNA_v1/SampleControl_MoCha_23_v1_20160218213916227/SampleControl_MoCha_23_v1_65a13ddc-901b-44a8-b3f2-4bf468d60d32.zip"
+    },
+    "report_published": "",
+    "workflow": "MATCH OCP Workflow v1.0_121614",
+    "variants_saved": "",
+    "samples": {
+      "RNA": "HT-29-FFPE_RNA",
+      "DNA": "HT-29-FFPE_DNA"
+    },
+    "shared_with": [
+    ],
+    "stage": "Review Variants",
+    "flagged": false,
+    "name": "HT-29-FFPE_c12222_1422458769362",
+    "id": "ff8081814b310b2f014b312732090012",
+    "ion_reporter_version": "4.2",
+    "started_by": "Dave Sims",
+    "start_date": "January 28, 2015",
+    "status": "SUCCESSFUL"
+  },
+  {
+    "reports": {
+      "qc": {
+        "link": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/download/pdf/ddecfaa5-c8f0-4e23-9dca-fdcade28b10d/ff80818152f111280152f7654a0c0029_QC.pdf"
+      },
+      "final": {}
+    },
+    "data_links": {
+      "unfiltered_variants": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/SampleControl_MoCha_23_v1_SampleControl_MoCha_23_RNA_v1/SampleControl_MoCha_23_v1_20160218213916227/SampleControl_MoCha_23_v1_65a13ddc-901b-44a8-b3f2-4bf468d60d32.zip"
+    },
+    "report_published": "",
+    "workflow": "MATCH OCP Workflow v1.0_121614",
+    "variants_saved": "",
+    "samples": {
+      "RNA": "KM12-FFPE_RNA",
+      "DNA": "KM12-FFPE_DNA"
+    },
+    "shared_with": [
+    ],
+    "stage": "Send for Report Generation",
+    "flagged": false,
+    "name": "KM12-FFPE_c12314_1422458769362",
+    "id": "ff8081814b310b2f014b312732850017",
+    "ion_reporter_version": "4.2",
+    "started_by": "Dave Sims",
+    "start_date": "January 28, 2015",
+    "status": "SUCCESSFUL"
+  },
+  {
+    "reports": {
+      "qc": {
+        "link": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/download/pdf/ddecfaa5-c8f0-4e23-9dca-fdcade28b10d/ff80818152f111280152f7654a0c0029_QC.pdf"
+      },
+      "final": {}
+    },
+    "data_links": {
+      "unfiltered_variants": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/SampleControl_MoCha_23_v1_SampleControl_MoCha_23_RNA_v1/SampleControl_MoCha_23_v1_20160218213916227/SampleControl_MoCha_23_v1_65a13ddc-901b-44a8-b3f2-4bf468d60d32.zip"
+    },
+    "report_published": "",
+    "workflow": "MATCH OCP Workflow v1.0_121614",
+    "variants_saved": "",
+    "samples": {
+      "RNA": "MOLT-4-FFPE_RNA",
+      "DNA": "MOLT-4-FFPE_DNA"
+    },
+    "shared_with": [
+    ],
+    "stage": "Review Variants",
+    "flagged": false,
+    "name": "MOLT-4-FFPE_c12406_1422458769362",
+    "id": "ff8081814b310b2f014b31273308001c",
+    "ion_reporter_version": "4.2",
+    "started_by": "Dave Sims",
+    "start_date": "January 28, 2015",
+    "status": "SUCCESSFUL"
+  },
+  {
+    "reports": {
+      "qc": {
+        "link": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/download/pdf/ddecfaa5-c8f0-4e23-9dca-fdcade28b10d/ff80818152f111280152f7654a0c0029_QC.pdf"
+      },
+      "final": {}
+    },
+    "data_links": {
+      "unfiltered_variants": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/SampleControl_MoCha_23_v1_SampleControl_MoCha_23_RNA_v1/SampleControl_MoCha_23_v1_20160218213916227/SampleControl_MoCha_23_v1_65a13ddc-901b-44a8-b3f2-4bf468d60d32.zip"
+    },
+    "report_published": "",
+    "workflow": "MATCH OCP Workflow v1.0_121614",
+    "variants_saved": "",
+    "samples": {
+      "RNA": "OVCAR-8-FFPE_RNA",
+      "DNA": "OVCAR-8-FFPE_DNA"
+    },
+    "shared_with": [
+    ],
+    "stage": "Send for Report Generation",
+    "flagged": false,
+    "name": "OVCAR-8-FFPE_c12498_1422458769362",
+    "id": "ff8081814b310b2f014b312733930021",
+    "ion_reporter_version": "4.2",
+    "started_by": "Dave Sims",
+    "start_date": "January 28, 2015",
+    "status": "SUCCESSFUL"
+  },
+  {
+    "reports": {
+      "qc": {
+        "link": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/download/pdf/ddecfaa5-c8f0-4e23-9dca-fdcade28b10d/ff80818152f111280152f7654a0c0029_QC.pdf"
+      },
+      "final": {}
+    },
+    "data_links": {
+      "unfiltered_variants": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/SampleControl_MoCha_23_v1_SampleControl_MoCha_23_RNA_v1/SampleControl_MoCha_23_v1_20160218213916227/SampleControl_MoCha_23_v1_65a13ddc-901b-44a8-b3f2-4bf468d60d32.zip"
+    },
+    "report_published": "",
+    "workflow": "MATCH OCP Workflow v1.0_121614",
+    "variants_saved": "",
+    "samples": {
+      "RNA": "SK-MEL-28-FFPE_RNA",
+      "DNA": "SK-MEL-28-FFPE_DNA"
+    },
+    "shared_with": [
+    ],
+    "stage": "Send for Report Generation",
+    "flagged": false,
+    "name": "SK-MEL-28-FFPE_c12634_1422458769362",
+    "id": "ff8081814b310b2f014b3127341a0026",
+    "ion_reporter_version": "4.2",
+    "started_by": "Dave Sims",
+    "start_date": "January 28, 2015",
+    "status": "SUCCESSFUL"
+  },
+  {
+    "reports": {
+      "qc": {
+        "link": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/download/pdf/ddecfaa5-c8f0-4e23-9dca-fdcade28b10d/ff80818152f111280152f7654a0c0029_QC.pdf"
+      },
+      "final": {}
+    },
+    "data_links": {
+      "unfiltered_variants": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/SampleControl_MoCha_23_v1_SampleControl_MoCha_23_RNA_v1/SampleControl_MoCha_23_v1_20160218213916227/SampleControl_MoCha_23_v1_65a13ddc-901b-44a8-b3f2-4bf468d60d32.zip"
+    },
+    "report_published": "",
+    "workflow": "MATCH OCP Workflow v1.0_121614",
+    "variants_saved": "",
+    "samples": {
+      "RNA": "U251-FFPE_RNA",
+      "DNA": "U251-FFPE_DNA"
+    },
+    "shared_with": [
+    ],
+    "stage": "Review Variants",
+    "flagged": false,
+    "name": "U251-FFPE_c12726_1422458769362",
+    "id": "ff8081814b310b2f014b312734a6002b",
+    "ion_reporter_version": "4.2",
+    "started_by": "Dave Sims",
+    "start_date": "January 28, 2015",
+    "status": "SUCCESSFUL"
+  },
+  {
+    "reports": {
+      "qc": {
+        "link": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/download/pdf/ddecfaa5-c8f0-4e23-9dca-fdcade28b10d/ff80818152f111280152f7654a0c0029_QC.pdf"
+      },
+      "final": {}
+    },
+    "data_links": {
+      "unfiltered_variants": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/SampleControl_MoCha_23_v1_SampleControl_MoCha_23_RNA_v1/SampleControl_MoCha_23_v1_20160218213916227/SampleControl_MoCha_23_v1_65a13ddc-901b-44a8-b3f2-4bf468d60d32.zip"
+    },
+    "report_published": "",
+    "workflow": "MATCH OCP Workflow v1.0_121614",
+    "variants_saved": "",
+    "samples": {
+      "RNA": "HCT-116-FFPE_RNA",
+      "DNA": "HCT-116-FFPE_DNA"
+    },
+    "shared_with": [
+    ],
+    "stage": "Review Variants",
+    "flagged": false,
+    "name": "HCT-116-FFPE_c1081_1422458769361",
+    "id": "ff8081814b310b2f014b312730500003",
+    "ion_reporter_version": "4.2",
+    "started_by": "Dave Sims",
+    "start_date": "January 28, 2015",
+    "status": "SUCCESSFUL"
+  },
+  {
+    "reports": {
+      "qc": {
+        "link": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/download/pdf/ddecfaa5-c8f0-4e23-9dca-fdcade28b10d/ff80818152f111280152f7654a0c0029_QC.pdf"
+      },
+      "final": {}
+    },
+    "data_links": {
+      "unfiltered_variants": "http://localhost:8080/webservices_42/rest/api/download?filepath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/SampleControl_MoCha_23_v1_SampleControl_MoCha_23_RNA_v1/SampleControl_MoCha_23_v1_20160218213916227/SampleControl_MoCha_23_v1_65a13ddc-901b-44a8-b3f2-4bf468d60d32.zip"
+    },
+    "report_published": "",
+    "workflow": "MATCH OCP Workflow v1.0_121614",
+    "variants_saved": "",
+    "samples": {
+      "RNA": "HCT-15-FFPE_RNA",
+      "DNA": "HCT-15-FFPE_DNA"
+    },
+    "shared_with": [
+    ],
+    "stage": "Review Variants",
+    "flagged": false,
+    "name": "HCT-15-FFPE_c12038_1422458769362",
+    "id": "ff8081814b310b2f014b312730e30008",
+    "ion_reporter_version": "4.2",
+    "started_by": "Dave Sims",
+    "start_date": "January 28, 2015",
+    "status": "SUCCESSFUL"
+  }
+]

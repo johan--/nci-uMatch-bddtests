@@ -23,3 +23,7 @@ ENV['rules_treatment_arm_location'] = '../../../../public/TAs_for_amoi_tests'
 
 ENV['NEED_AUTH0'] = 'YES'  #'YES' or 'NO'
 ENV['print_log'] = 'NO'  #'YES' or 'NO'
+
+ENV['uploader_ir_50_location'] = ''
+ENV['uploader_ir_52_location'] = ''
+ENV['uploader_db_location'] = ''

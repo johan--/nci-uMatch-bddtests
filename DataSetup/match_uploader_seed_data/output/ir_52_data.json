@@ -1,0 +1,209 @@
+[
+  {
+    "report_published":"",
+    "workflow":"Oncomine Comprehensive v2 - 540 - w2.1 - DNA and Fusions - Single Sample",
+    "data_links":{
+      "unfiltered_variants":"https://ncias-d1356.nci.nih.gov:443/api/v1/download?filePath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/NCI-H2228-Rep1_v1_NCI-H2228-Rep1_RNA_v1/NCI-H2228-Rep1_v1_20170320192442826/NCI-H2228-Rep1_v1_ccdd4808-48eb-4f9e-9d44-2203d4226ce1.zip"
+    },
+    "variants_saved":"",
+    "samples":{
+      "RNA":"NCI-H2228-Rep1_RNA_v1",
+      "DNA":"NCI-H2228-Rep1_v1"
+    },
+    "shared_with":[
+
+    ],
+    "stage":"Review Variants",
+    "flagged":false,
+    "name":"NCI-H2228-Rep1_v1_ccdd4808-48eb-4f9e-9d44-2203d4226ce1",
+    "id":"ff8081815ad89c93015aee097a0c00ba",
+    "ion_reporter_version":"5.2",
+    "started_by":"Dave Sims",
+    "start_date":"March 20, 2017",
+    "status":"SUCCESSFUL"
+  },
+  {
+    "report_published":"",
+    "workflow":"Oncomine Comprehensive v2 - 540 - w2.1 - DNA and Fusions - Single Sample",
+    "data_links":{
+      "unfiltered_variants":"https://ncias-d1356.nci.nih.gov:443/api/v1/download?filePath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/NA18526-Rep1_v1_NA18526-Rep1_RNA_v1/NA18526-Rep1_v1_20170320192440766/NA18526-Rep1_v1_12719e45-812d-447d-b20f-45e391cab191.zip"
+    },
+    "variants_saved":"",
+    "samples":{
+      "RNA":"NA18526-Rep1_RNA_v1",
+      "DNA":"NA18526-Rep1_v1"
+    },
+    "shared_with":[
+
+    ],
+    "stage":"Send for Report Generation",
+    "flagged":false,
+    "name":"NA18526-Rep1_v1_12719e45-812d-447d-b20f-45e391cab191",
+    "id":"ff8081815ad89c93015aee09724400b5",
+    "ion_reporter_version":"5.2",
+    "started_by":"Dave Sims",
+    "start_date":"March 20, 2017",
+    "status":"SUCCESSFUL"
+  },
+  {
+    "report_published":"",
+    "workflow":"Oncomine Comprehensive v2 - 540 - w2.1 - DNA and Fusions - Single Sample",
+    "data_links":{
+      "unfiltered_variants":"https://ncias-d1356.nci.nih.gov:443/api/v1/download?filePath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/NA18507-Rep1_v1_NA18507-Rep1_RNA_v1/NA18507-Rep1_v1_20170320192438692/NA18507-Rep1_v1_eed87fda-4e24-4c18-ad5e-7c9b41d60886.zip"
+    },
+    "variants_saved":"",
+    "samples":{
+      "RNA":"NA18507-Rep1_RNA_v1",
+      "DNA":"NA18507-Rep1_v1"
+    },
+    "shared_with":[
+
+    ],
+    "stage":"Review Variants",
+    "flagged":false,
+    "name":"NA18507-Rep1_v1_eed87fda-4e24-4c18-ad5e-7c9b41d60886",
+    "id":"ff8081815ad89c93015aee096a0100b0",
+    "ion_reporter_version":"5.2",
+    "started_by":"Dave Sims",
+    "start_date":"March 20, 2017",
+    "status":"SUCCESSFUL"
+  },
+  {
+    "report_published":"",
+    "workflow":"Oncomine Comprehensive v2 - 540 - w2.1 - DNA and Fusions - Single Sample",
+    "data_links":{
+      "unfiltered_variants":"https://ncias-d1356.nci.nih.gov:443/api/v1/download?filePath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/NA12878-Rep1_v1_NA12878-Rep1_RNA_v1/NA12878-Rep1_v1_20170320192436982/NA12878-Rep1_v1_eb9f4093-8df5-448b-9654-4b8a62132fa2.zip"
+    },
+    "variants_saved":"",
+    "samples":{
+      "RNA":"NA12878-Rep1_RNA_v1",
+      "DNA":"NA12878-Rep1_v1"
+    },
+    "shared_with":[
+
+    ],
+    "stage":"Review Variants",
+    "flagged":false,
+    "name":"NA12878-Rep1_v1_eb9f4093-8df5-448b-9654-4b8a62132fa2",
+    "id":"ff8081815ad89c93015aee09634a00ab",
+    "ion_reporter_version":"5.2",
+    "started_by":"Dave Sims",
+    "start_date":"March 20, 2017",
+    "status":"SUCCESSFUL"
+  },
+  {
+    "report_published":"",
+    "workflow":"Oncomine Comprehensive v2 - 540 - w2.1 - DNA and Fusions - Single Sample",
+    "data_links":{
+      "unfiltered_variants":"https://ncias-d1356.nci.nih.gov:443/api/v1/download?filePath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/MOLT-4-Rep1_v1_MOLT-4-Rep1_RNA_v1/MOLT-4-Rep1_v1_20170320192435297/MOLT-4-Rep1_v1_e94170ce-a86a-4752-8870-f1afbf0a205e.zip"
+    },
+    "variants_saved":"",
+    "samples":{
+      "RNA":"MOLT-4-Rep1_RNA_v1",
+      "DNA":"MOLT-4-Rep1_v1"
+    },
+    "shared_with":[
+
+    ],
+    "stage":"Review Variants",
+    "flagged":false,
+    "name":"MOLT-4-Rep1_v1_e94170ce-a86a-4752-8870-f1afbf0a205e",
+    "id":"ff8081815ad89c93015aee095ca800a6",
+    "ion_reporter_version":"5.2",
+    "started_by":"Dave Sims",
+    "start_date":"March 20, 2017",
+    "status":"SUCCESSFUL"
+  },
+  {
+    "report_published":"",
+    "workflow":"Oncomine Comprehensive v2 - 540 - w2.1 - DNA and Fusions - Single Sample",
+    "data_links":{
+      "unfiltered_variants":"https://ncias-d1356.nci.nih.gov:443/api/v1/download?filePath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/LC-2-ad-Rep1_v1_LC-2-ad-Rep1_RNA_v1/LC-2-ad-Rep1_v1_20170320192433584/LC-2-ad-Rep1_v1_1991cfd0-e033-4019-b92e-d373addec542.zip"
+    },
+    "variants_saved":"",
+    "samples":{
+      "RNA":"LC-2-ad-Rep1_RNA_v1",
+      "DNA":"LC-2-ad-Rep1_v1"
+    },
+    "shared_with":[
+
+    ],
+    "stage":"Review Variants",
+    "flagged":false,
+    "name":"LC-2-ad-Rep1_v1_1991cfd0-e033-4019-b92e-d373addec542",
+    "id":"ff8081815ad89c93015aee09561f00a1",
+    "ion_reporter_version":"5.2",
+    "started_by":"Dave Sims",
+    "start_date":"March 20, 2017",
+    "status":"SUCCESSFUL"
+  },
+  {
+    "report_published":"",
+    "workflow":"Oncomine Comprehensive v2 - 540 - w2.1 - DNA and Fusions - Single Sample",
+    "data_links":{
+      "unfiltered_variants":"https://ncias-d1356.nci.nih.gov:443/api/v1/download?filePath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/KM12-Rep1_v1_KM12-Rep1_RNA_v1/KM12-Rep1_v1_20170320192432033/KM12-Rep1_v1_ffe9975a-a527-44ec-a5c5-098797c056ee.zip"
+    },
+    "variants_saved":"",
+    "samples":{
+      "RNA":"KM12-Rep1_RNA_v1",
+      "DNA":"KM12-Rep1_v1"
+    },
+    "shared_with":[
+
+    ],
+    "stage":"Review Variants",
+    "flagged":false,
+    "name":"KM12-Rep1_v1_ffe9975a-a527-44ec-a5c5-098797c056ee",
+    "id":"ff8081815ad89c93015aee095008009c",
+    "ion_reporter_version":"5.2",
+    "started_by":"Dave Sims",
+    "start_date":"March 20, 2017",
+    "status":"SUCCESSFUL"
+  },
+  {
+    "report_published":"",
+    "workflow":"Oncomine Comprehensive v2 - 540 - w2.1 - DNA and Fusions - Single Sample",
+    "data_links":{
+      "unfiltered_variants":"https://ncias-d1356.nci.nih.gov:443/api/v1/download?filePath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/Hs746T-Rep1_v1_Hs746T-Rep1_RNA_v1/Hs746T-Rep1_v1_20170320192430044/Hs746T-Rep1_v1_4a47bc71-6c31-4eeb-970a-0a772dfce81d.zip"
+    },
+    "variants_saved":"",
+    "samples":{
+      "RNA":"Hs746T-Rep1_RNA_v1",
+      "DNA":"Hs746T-Rep1_v1"
+    },
+    "shared_with":[
+
+    ],
+    "stage":"Review Variants",
+    "flagged":false,
+    "name":"Hs746T-Rep1_v1_4a47bc71-6c31-4eeb-970a-0a772dfce81d",
+    "id":"ff8081815ad89c93015aee0948370097",
+    "ion_reporter_version":"5.2",
+    "started_by":"Dave Sims",
+    "start_date":"March 20, 2017",
+    "status":"SUCCESSFUL"
+  },
+  {
+    "report_published":"",
+    "workflow":"Oncomine Comprehensive v2 - 540 - w2.1 - DNA and Fusions - Single Sample",
+    "data_links":{
+      "unfiltered_variants":"https://ncias-d1356.nci.nih.gov:443/api/v1/download?filePath=/data/IR/data/IR_Org/simsdj@mail.nih.gov/HCC-78-Rep1_v1_HCC-78-Rep1_RNA_v1/HCC-78-Rep1_v1_20170320192427717/HCC-78-Rep1_v1_66c8e4ca-cd5f-40d9-ae07-77afa74889f1.zip"
+    },
+    "variants_saved":"",
+    "samples":{
+      "RNA":"HCC-78-Rep1_RNA_v1",
+      "DNA":"HCC-78-Rep1_v1"
+    },
+    "shared_with":[
+
+    ],
+    "stage":"Review Variants",
+    "flagged":false,
+    "name":"HCC-78-Rep1_v1_66c8e4ca-cd5f-40d9-ae07-77afa74889f1",
+    "id":"ff8081815ad89c93015aee0940b70092",
+    "ion_reporter_version":"5.2",
+    "started_by":"Dave Sims",
+    "start_date":"March 20, 2017",
+    "status":"SUCCESSFUL"
+  }
+]
