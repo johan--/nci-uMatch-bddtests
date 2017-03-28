@@ -7,8 +7,8 @@ require_relative 'match_test_data_manager'
 # puts Auth0Token.force_generate_auth0_token 'NCI_MATCH_READONLY'
 
 # ############clear local dynamodb and load all existing seed data
-MatchTestDataManager.clear_all_local_tables
-MatchTestDataManager.upload_all_seed_data_to_local
+# MatchTestDataManager.clear_all_local_tables
+# MatchTestDataManager.upload_all_seed_data_to_local
 # MatchTestDataManager.clear_all_pressure_seed_files
 # MatchTestDataManager.generate_patient_instance('PT_TMP_AssayReceived', 1000)
 # MatchTestDataManager.generate_patient_instance('PT_TMP_Registered', 1000)
@@ -19,7 +19,7 @@ MatchTestDataManager.upload_all_seed_data_to_local
 # MatchTestDataManager.upload_pressure_data_to_int
 
 #################backup the just generated local db
-# MatchTestDataManager.backup_all_local_db
+MatchTestDataManager.backup_all_local_db
 # MatchTestDataManager.backup_all_patient_local_db
 # MatchTestDataManager.backup_all_ion_local_db
 # MatchTestDataManager.backup_all_ta_local_db

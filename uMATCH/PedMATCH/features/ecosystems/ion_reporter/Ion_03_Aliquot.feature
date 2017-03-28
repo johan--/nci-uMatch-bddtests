@@ -234,6 +234,11 @@ Feature: Tests for aliquot service in ion ecosystem
       | ION_AQ08_TsVrUploaded1 | ION_AQ08_TsVrUploaded1_ANI1 | TISSUE_VARIANT_REPORT_RECEIVED | have     | ION_AQ08_TsVrUploaded1_ANI1 | dna.bam  |
       | ION_AQ08_TsVrUploaded2 | ION_AQ08_TsVrUploaded2_ANI2 | TISSUE_VARIANT_REPORT_RECEIVED | not have | ION_AQ08_TsVrUploaded2_ANI2 | dna.bam  |
 
+    @ion_reporter_p1
+      Scenario: ION_AQ09a aliquot service can handle vcf version 5.2 properly for patient
+      Scenario: ION_AQ09b aliquot service can handle vcf version 5.2 properly for sample control
+
+
   @ion_reporter_p2
   Scenario: ION_AQ20. for sample control specimen, if the files passed in are not in that path, aliquot service will not update database
     #there is no file in S3 for this sample control

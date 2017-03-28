@@ -143,6 +143,18 @@ Feature: ir ecosystem authorization tests
       | ASSAY_MESSAGE_SENDER              |         | 401      |           | 401        |               | 401            |
 
   @ion_reporter_p2
+  Scenario Outline: ION_AU05b MDA_VARIANT_REPORT_SENDER should be able create proficiency_competency sample control for mocha and dartmouth
+    Given site is "<site>"
+    Given control_type is "proficiency_competency"
+    And molecular id is ""
+    And ir user authorization role is "MDA_VARIANT_REPORT_SENDER"
+    When POST to sample_controls service, response includes "created" with code "200"
+    Examples:
+      | site      |
+      | mocha     |
+      | dartmouth |
+
+  @ion_reporter_p2
   Scenario Outline: ION_AU06 role base authorization works properly to list sample_control
     Given molecular id is ""
     And add field: "site" value: "mda" to url
@@ -176,6 +188,19 @@ Feature: ir ecosystem authorization tests
       | PATIENT_MESSAGE_SENDER            | control_type | 200  | false        | false          | false              |
       | SPECIMEN_MESSAGE_SENDER           | control_type | 200  | false        | false          | false              |
       | ASSAY_MESSAGE_SENDER              | control_type | 200  | false        | false          | false              |
+
+  @ion_reporter_p2
+  Scenario Outline: ION_AU06b MDA_VARIANT_REPORT_SENDER should be able edit proficiency_competency sample control for mocha and dartmouth
+    Given molecular id is ""
+    And add field: "site" value: "<site>" to url
+    And add field: "control_type" value: "proficiency_competency" to url
+    And ir user authorization role is "MDA_VARIANT_REPORT_SENDER"
+    When GET from sample_controls service, response includes "control_type" with code "200"
+    Then if sample_control list returned, it should have editable: "true"
+    Examples:
+      | site      |
+      | mocha     |
+      | dartmouth |
 
 
   @ion_reporter_p1
@@ -365,3 +390,4 @@ Feature: ir ecosystem authorization tests
       | PATIENT_MESSAGE_SENDER            | s3.amazonaws.com | 200  |
       | SPECIMEN_MESSAGE_SENDER           | s3.amazonaws.com | 200  |
       | ASSAY_MESSAGE_SENDER              | s3.amazonaws.com | 200  |
+
