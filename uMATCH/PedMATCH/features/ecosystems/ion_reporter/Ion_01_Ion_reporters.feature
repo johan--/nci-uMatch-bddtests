@@ -9,9 +9,10 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Then each generated ion_reporter_id should have 1 record
     Then field: "site" for each generated ion_reporter should be: "<site>"
     Examples:
-      | site  |
-      | mda   |
-      | mocha |
+      | site      |
+      | mda       |
+      | mocha     |
+      | dartmouth |
 
   @ion_reporter_p2
   Scenario: ION_IR02. multiple ion_reporters can be generated for same site
@@ -28,6 +29,7 @@ Feature: Tests for ion_reporters service in ion ecosystem
       | site         |
       | MDA          |
       | MoCha        |
+      | Dartmouth    |
       | invalid_site |
 
   @ion_reporter_p3
@@ -60,13 +62,13 @@ Feature: Tests for ion_reporters service in ion ecosystem
     Given ion_reporter_id is "IR_CFUER"
     Then add field: "site" value: "mda" to message body
     Then add field: "internal_ip_address" value: "172.20.174.24" to message body
-    Then add field: "host_name" value: "MDACC-MATCH-IR" to message body
+    Then add field: "host_name" value: "MDA-MATCH-IR" to message body
     Then add field: "data_files" value: "Log File" to message body
     Then add field: "ip_address" value: "132.183.13.75" to message body
     When PUT to ion_reporters service, response includes "updated" with code "200"
     Then wait up to 15 seconds until this ion_reporter get updated
     Then field: "internal_ip_address" for this ion_reporter should be: "172.20.174.24"
-    Then field: "host_name" for this ion_reporter should be: "MDACC-MATCH-IR"
+    Then field: "host_name" for this ion_reporter should be: "MDA-MATCH-IR"
     Then field: "data_files" for this ion_reporter should be: "Log File"
     Then field: "ip_address" for this ion_reporter should be: "132.183.13.75"
 

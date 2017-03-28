@@ -56,13 +56,9 @@ Feature: Patient GET service valid special case tests
 
   @patients_p1
   Scenario: PT_SC02a pending_items should have correct result
-    #the reason that why GET twice is because INT BDD tests run parallelly, after the GET called, probably test which is
-    #running in the other thread changes data base, so cause the second "should have correct value" statement cannot get
-    #correct result. So do GET for every statement
     Given patient GET service: "pending_items", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return
     Then patient pending_items field "tissue_variant_reports" should have correct value
-    When GET from MATCH patient API, http code "200" should return
     Then patient pending_items field "assignment_reports" should have correct value
 
   @patients_p1
@@ -560,6 +556,14 @@ Feature: Patient GET service valid special case tests
       | PT_SC07c_PendingApproval | Assignment 2 |
       | PT_SC07c_PendingApproval | Assignment 3 |
 
+  @patients_p2
+  Scenario: PT_SC07d specimen_events should return all variant file names
+    Given patient GET service: "specimen_events", patient id: "PT_SC07d_TsVrUploaded", id: ""
+    When GET from MATCH patient API, http code "200" should return
+    Then this patient tissue specimen_events analyses "PT_SC07d_TsVrUploaded_ANI1" should have correct "dna" file names: "dna.bam"
+    Then this patient tissue specimen_events analyses "PT_SC07d_TsVrUploaded_ANI1" should have correct "cdna" file names: "cdna.bam"
+    Then this patient tissue specimen_events analyses "PT_SC07d_TsVrUploaded_ANI1" should have correct "vcf" file names: "test1.vcf"
+
   @patients_p3
   Scenario Outline: PT_SC08a variant report can be downloaded properly
     Given patient id is "<patient_id>"
@@ -609,3 +613,11 @@ Feature: Patient GET service valid special case tests
       | patient_id                  | uuid                                 |
       | PT_SC09_PendingConfirmation | non_existing_uuid                    |
       | PT_SC09_PendingApproval     | 301f05b2-a7b3-4305-8c2b-30bee9f258e1 |
+
+    @patients_p2
+    Scenario: PT_SC10a analysis_report can return all variant file names
+      Given patient GET service: "analysis_report", patient id: "PT_SC10a_TsVrUploaded", id: "PT_SC10a_TsVrUploaded_ANI1"
+      When GET from MATCH patient API, http code "200" should return
+      Then this patient tissue analysis_report should have correct "dna" file names: "dna.bam"
+      Then this patient tissue analysis_report should have correct "cdna" file names: "cdna.bam"
+      Then this patient tissue analysis_report should have correct "vcf" file names: "test1.vcf"

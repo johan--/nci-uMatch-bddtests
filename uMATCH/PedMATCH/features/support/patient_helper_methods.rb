@@ -182,6 +182,11 @@ class Patient_helper_methods
     end
   end
 
+  def self.update_vr_event_message(key,value)
+    @request_hash[key] = value
+    @request_hash['event'][key] = value
+  end
+
   def self.remove_field_patient_message(key)
     if @patient_message_root_key == ''
       @request_hash.delete(key)
@@ -469,6 +474,12 @@ class Patient_helper_methods
   def self.post_to_trigger(auth0_role)
     puts JSON.pretty_generate(@request_hash) if ENV['print_log'] == 'YES'
     url = "#{ENV['patients_endpoint']}/#{@patient_id}"
+    Helper_Methods.post_request(url, @request_hash.to_json.to_s, true, auth0_role)
+  end
+
+  def self.post_vr_upload_event(auth0_role)
+    puts JSON.pretty_generate(@request_hash) if ENV['print_log'] == 'YES'
+    url = "#{ENV['patients_endpoint']}/events"
     Helper_Methods.post_request(url, @request_hash.to_json.to_s, true, auth0_role)
   end
 

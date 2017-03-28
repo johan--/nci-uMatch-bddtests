@@ -61,6 +61,23 @@ module.exports = function () {
         }).then(callback);
     });
 
+    this.Given(/^I stay logged in as "(.+?)" user$/, function(user_role, callback){
+        var login_credentials = [];
+        login_credentials = utilities.returnValidUserCredentials(user_role);
+        var email = login_credentials[0];
+        var password = login_credentials[1];
+        var name = login_credentials[2];
+        console.log("email: " + email);
+
+        loginPageObj.beLoggedIn(email, password, name).then(function(){
+            utilities.waitForElement(dashboardPageObj.dashboardPanel, 'sticky top menu').then(function (presence){
+                if(presence === true){
+                    browser.sleep(utilities.delay.afterLogin)
+                }
+            });
+        }).then(callback);
+    })
+
     this.Then(/^I should see the login button$/, function (callback) {
         accessbtn.isPresent().then(function (present) {
             expect(present).to.eql(true);
@@ -135,5 +152,4 @@ module.exports = function () {
         expect(browser.getCurrentUrl()).to.eventually.have.string('/#/auth/login');
         browser.sleep(50).then(callback);
     });
-
 };

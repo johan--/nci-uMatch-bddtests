@@ -5,6 +5,7 @@
 'use strict';
 var fs = require("fs");
 var path = require("path");
+var AWS = require ("aws-sdk");
 
 var patientPage = require("../../pages/patientPage");
 
@@ -30,10 +31,11 @@ module.exports = function () {
         var cssSelector = 'li[ng-repeat="item in ionReporters"] a';
         patientPage.selectSiteAndIRID.click().then(function () {
             utilities.selectFromDropDown(cssSelector, ionReporter);
-        }).then(callback());
+        }).then(callback);
     });
 
     this.Then(/^I enter Analysis ID "([^"]*)"$/, function (analysisId, callback) {
+        patientPage.upldDialogAnalysisId.clear();
         patientPage.upldDialogAnalysisId.sendKeys(analysisId);
         expect(patientPage.upldDialogAnalysisId.getAttribute('value')).to.eventually.eql(analysisId).notify(callback);
     });
@@ -64,24 +66,45 @@ module.exports = function () {
         var pathToFile = templateFolder + fileName;
         var absolutePath = path.resolve(pathToFile);
    
-        element(by.css('input#' + buttonType + '[type="file"]')).sendKeys(absolutePath)
-            .then(callback);
+        element(by.css('input#' + buttonType + '[type="file"]')).sendKeys(absolutePath).then(function(){
+            browser.sleep(2000);
+        }).then(callback);
     });
 
-    this.Then(/^I can see the Sample File upload process has started$/, function (callback) {
-        // Write code here that turns the phrase above into concrete actions
-        callback(null, 'pending');
+    this.Then(/^I can only see "([^"]*)" type user$/, function(siteName, callback){
+        var dropdownList = patientPage.selectSiteDropDownList
+        dropdownList.getText().then(function(arrList){
+            // console.log(arrList);
+            for (var i = 1; i < arrList.length; i++) {  //starting from the second element onwards. The first is the buttonName 
+                expect(arrList[i]).to.include(siteName);
+            }
+        }).then(callback);
     });
 
-    this.When(/^I can see that all files have been uploaded for the Surgical Event$/, function (callback) {
-        // Write code here that turns the phrase above into concrete actions
-        callback(null, 'pending');
+    this.Then(/^The Upload new sample file link is not visible$/, function (callback) {
+        var elem = element(by.cssContainingText('.btn', 'Upload new sample file'));
+        expect(elem.isPresent()).to.eventually.eql(false).notify(callback);
     });
+
+
+    this.Then(/^I can see the "(.+?)" Sample File upload process has started$/, function (number, callback) {
+        patientPage.downloadTracker.getLocation().then(function(location){
+            browser.executeScript('window.scrollTo(' + location.x + ', ' + (location.y - 10) + ')').then(function(){
+                expect(patientPage.downloadTracker.getText()).to.eventually.eql(number.toString())        
+            })
+        }).then(callback);
+    });
+
 
     this.Then(/^I can see the Upload Progress in the toolbar$/, function (callback) {
         // Write code here that turns the phrase above into concrete actions
         callback(null, 'pending');
     });
+
+    this.Then(/^I click on the Upload Progress in the toolbar$/, function (callback) {
+         // Write code here that turns the phrase above into concrete actions
+         callback(null, 'pending');
+       });
 
     this.Then(/^I can see current uploads$/, function (callback) {
         // Write code here that turns the phrase above into concrete actions
@@ -97,4 +120,57 @@ module.exports = function () {
         // Write code here that turns the phrase above into concrete actions
         callback(null, 'pending');
     });
+
+    this.Then(/^I clear the file from S3 under reporter "([^"]*)", mol_id "([^"]*)", analysis_id "([^"]*)"$/, function(reporter, molecularId, analysisId, callback){
+        var bucketName = process.env.UI_HOSTNAME.match('localhost') ? 'pedmatch-dev' : 'pedmatch-int'
+        var folderName = `${reporter}/${molecularId}/${analysisId}`
+
+        var S3 = new AWS.S3({
+            region: 'us-east-1',
+            endpoint: 'https://s3.amazonaws.com', 
+            accessKeyId: process.env.AWS_ACCESS_KEY_ID, 
+            secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY, 
+            apiVersion: 'latest'
+        });
+
+        var params = {
+            Bucket: bucketName, /* required */
+            Delete: {
+                Objects: [
+                    {
+                        Key: `${folderName}/vcfFile.zip`,
+                    }, 
+                    {
+                        Key: `${folderName}/dna.bam`,
+                    },
+                    {
+                        Key: `${folderName}/cdna.bam`,
+                    },
+                    {
+                        Key: `${folderName}/vcfFile.vcf`,
+                    },
+                    {
+                        Key: `${folderName}/vcfFile.tsv`,
+                    },
+                    {
+                        Key: `${folderName}/dna.bai`,
+                    },
+                    {
+                        Key: `${folderName}/cdna.bai`,
+                    }
+                ]
+                
+            }
+        };
+
+        var deletePromise = S3.deleteObjects(params).promise();
+
+        deletePromise.then(function(data){
+            console.log("Deleting files in S3");
+            return;
+        }).catch(function(err){
+            console.log(err);
+            return;
+        }).then(callback);
+    })
 };

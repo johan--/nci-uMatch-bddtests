@@ -21,6 +21,14 @@ When(/^POST to MATCH patients service, response includes "([^"]*)" with code "([
   # actual_include_expect(response['message'], retMsg)
 end
 
+When(/^POST to MATCH patients event service, response includes "([^"]*)" with code "([^"]*)"$/) do |retMsg, code|
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
+  response = Patient_helper_methods.post_vr_upload_event(@current_auth0_role)
+  puts response.to_s
+  actual_match_expect(response['http_code'], code)
+  # actual_include_expect(response['message'], retMsg)
+end
+
 When(/^POST to MATCH variant report upload service, response includes "([^"]*)" with code "([^"]*)"$/) do |retMsg, code|
   @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
   response = Patient_helper_methods.post_vr_upload(@molecular_id, @current_auth0_role)
@@ -140,6 +148,11 @@ Given(/^load template variant file uploaded message for molecular id: "([^"]*)"$
   Patient_helper_methods.update_patient_message('molecular_id', @molecular_id)
 end
 
+Given(/^load template variant file uploaded event message for this patient$/) do
+  Patient_helper_methods.load_template(@patient_id, 'variant_file_uploaded_event')
+end
+
+
 Then(/^files for molecular_id "([^"]*)" and analysis_id "([^"]*)" are in S3$/) do |moi, ani|
   Patient_helper_methods.upload_vr_to_s3(moi, ani)
 end
@@ -194,6 +207,15 @@ Then(/^set patient message field: "([^"]*)" to value: "([^"]*)"$/) do |field, va
     end
     Patient_helper_methods.update_patient_message(field, converted_value)
   end
+end
+
+Then(/^set patient variant file uploaded event message field: "([^"]*)" to value: "([^"]*)"$/) do |field, value|
+  if value == 'null'
+    converted_value = nil
+  else
+    converted_value = value
+  end
+  Patient_helper_methods.update_vr_event_message(field, converted_value)
 end
 
 Then(/^remove field: "([^"]*)" from patient message$/) do |field|
@@ -392,20 +414,12 @@ And(/^this variant report field: "([^"]*)" should be "([^"]*)"$/) do |field, val
   else
     actual_match_expect(convert_value.to_s.downcase, returned_value.to_s.downcase)
   end
-  # expect_result = "Value of field #{field} contains #{convert_value}"
-  # real_result = "Value of field #{field} is #{@current_variant_report[field]}"
-  # equal = returned_value == convert_value
-  # unless equal
-  #   if returned_value.nil? || convert_value.nil?
-  #     equal = false
-  #   else
-  #     equal = returned_value.downcase.include?(convert_value.downcase)
-  #   end
-  # end
-  # if equal
-  #   real_result = expect_result
-  # end
-  # real_result.should == expect_result
+end
+
+And(/^this variant report oncomine_control pool "(1|2)" sum should be "([^"]*)"$/) do |pool, value|
+  convert_value = value=='null' ? nil : value
+  actual_include_expect(@current_variant_report.keys, 'oncomine_control_panel_summary')
+  actual_match_expect(@current_variant_report['oncomine_control_panel_summary']["pool#{pool}Sum"], value)
 end
 
 And(/^this variant report has correct status_date$/) do
@@ -675,7 +689,12 @@ end
 
 
 And(/^patient pending_items field "([^"]*)" should have correct value$/) do |field|
-  expect(@get_response.keys).to include field
+  # do a get in this step, do not use @get_response which is generated from previous step, because the BDD is running parallelly
+  #between previous GET step and this step there might have another test running which will change the get result
+  url = prepare_get_url
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
+  response = Patient_helper_methods.get_response_and_code(url, @current_auth0_role)['message_json']
+  expect(response.keys).to include field
   actual_key_list = []
   expect_key_list = []
   patient_list = Patient_helper_methods.get_any_result_from_url(ENV['patients_endpoint'])
@@ -690,16 +709,13 @@ And(/^patient pending_items field "([^"]*)" should have correct value$/) do |fie
           expect_key_list << this_patient['active_tissue_specimen']['active_analysis_id']
         end
       when 'assignment_reports'
-        if this_patient['patient_id'] == 'PT_RA09_OnTreatmentArm'
-          puts "PT_RA09_OnTreatmentArm status is #{this_patient['current_status']}"
-        end
         if this_patient['current_status'] == 'PENDING_CONFIRMATION'
           expect_key_list << this_patient['active_tissue_specimen']['active_analysis_id']
         end
       else
     end
   }
-  @get_response[field].each { |this_item|
+  response[field].each { |this_item|
     actual_key_list << this_item['analysis_id']
   }
   extra_actual = actual_key_list - expect_key_list
@@ -873,6 +889,68 @@ Then(/^this patient tissue specimen_events "([^"]*)" should have field "([^"]*)"
   }
   unless has_result
     raise "Cannot find specimen shippment with molecular id #{moi}"
+  end
+end
+
+Then(/^this patient tissue specimen_events analyses "([^"]*)" should have correct "([^"]*)" file names: "([^"]*)"$/) do |ani, file_type, name|
+  has_result = false
+  @get_response['tissue_specimens'].each { |this_specimen|
+    this_specimen['specimen_shipments'].each { |this_shipment|
+      this_shipment['analyses'].each { |this_analyses|
+        if this_analyses['analysis_id'] == ani
+          has_result = true
+          case file_type
+            when 'dna'
+              expect(this_analyses.keys).to include 'dna_bam_name'
+              expect(this_analyses.keys).to include 'dna_bam_path_name'
+              expect(this_analyses.keys).to include 'dna_bai_path_name'
+              expect(this_analyses['dna_bam_name']).to eq name
+              expect(this_analyses['dna_bam_path_name']).to end_with "/#{ani}/#{name}"
+              expect(this_analyses['dna_bai_path_name']).to end_with "/#{ani}/#{name[0..name.size-5]}.bai"
+            when 'cdna'
+              expect(this_analyses.keys).to include 'cdna_bam_name'
+              expect(this_analyses.keys).to include 'rna_bam_path_name'
+              expect(this_analyses.keys).to include 'rna_bai_path_name'
+              expect(this_analyses['cdna_bam_name']).to eq name
+              expect(this_analyses['rna_bam_path_name']).to end_with "/#{ani}/#{name}"
+              expect(this_analyses['rna_bai_path_name']).to end_with "/#{ani}/#{name[0..name.size-5]}.bai"
+            when 'vcf'
+              expect(this_analyses.keys).to include 'vcf_file_name'
+              expect(this_analyses.keys).to include 'vcf_path_name'
+              expect(this_analyses['vcf_file_name']).to eq name
+              expect(this_analyses['vcf_path_name']).to end_with "/#{ani}/#{name[0..name.size-5]}.vcf"
+          end
+        end
+      }
+    }
+  }
+  unless has_result
+    raise "Cannot find analyses with analysis id #{ani}"
+  end
+end
+
+Then(/^this patient tissue analysis_report should have correct "([^"]*)" file names: "([^"]*)"$/) do |file_type, name|
+  vr = @get_response['variant_report']
+  case file_type
+    when 'dna'
+      expect(vr.keys).to include 'dna_bam_name'
+      expect(vr.keys).to include 'dna_bam_path_name'
+      expect(vr.keys).to include 'dna_bai_path_name'
+      expect(vr['dna_bam_name']).to eq name
+      expect(vr['dna_bam_path_name']).to end_with "/#{name}"
+      expect(vr['dna_bai_path_name']).to end_with "/#{name[0..name.size-5]}.bai"
+    when 'cdna'
+      expect(vr.keys).to include 'cdna_bam_name'
+      expect(vr.keys).to include 'rna_bam_path_name'
+      expect(vr.keys).to include 'rna_bai_path_name'
+      expect(vr['cdna_bam_name']).to eq name
+      expect(vr['rna_bam_path_name']).to end_with "/#{name}"
+      expect(vr['rna_bai_path_name']).to end_with "#{name[0..name.size-5]}.bai"
+    when 'vcf'
+      expect(vr.keys).to include 'vcf_file_name'
+      expect(vr.keys).to include 'vcf_path_name'
+      expect(vr['vcf_file_name']).to eq name
+      expect(vr['vcf_path_name']).to end_with "/#{name[0..name.size-5]}.vcf"
   end
 end
 

@@ -13,9 +13,20 @@ var utilities = require('../../support/utilities');
 module.exports = function () {
     this.World = require('../step_definitions/world').World;
 
-    this.Then(/^I scroll to the bottom of the page$/, function (callback) {
-        browser.executeScript('window.scrollTo(0,5000)').then(callback);
-    });    
+    this.When(/^I scroll to the bottom of the page$/, function (callback) {
+        browser.executeScript('window.scrollTo(0,3000)').then(function(){
+            browser.sleep(500)
+        }).then(callback);
+    });
+
+    this.When(/^I scroll to the top of the page$/, function (callback) {
+        var top = element(by.css('.user-name'))
+        top.getLocation().then(function(loc){
+            console.log("loc: " + loc);
+            browser.executeScript('window.scrollTo(' + loc.x + ',' + loc.y + ')')
+        }).then(callback);
+    });
+    
 
     this.When(/^The "(.+?)" button is "(disabled|enabled|visible|invisible)"$/, function (buttonText, buttonState, callback) {
         var button = element(by.buttonText(buttonText));

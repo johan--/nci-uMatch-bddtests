@@ -116,7 +116,7 @@ end
 
 Then(/^wait up to (\d+) seconds until this sample_control get updated$/) do |timeout|
   url = prepare_sample_controls_url
-  @returned_sample_control_result = Helper_Methods.wait_until_updated(url, timeout.to_f)
+  @returned_sample_control = Helper_Methods.wait_until_updated(url, timeout.to_f)
 end
 
 Then(/^wait up to (\d+) seconds until this aliquot get updated$/) do |timeout|
@@ -412,17 +412,17 @@ When(/^GET from sample_controls service, response includes "([^"]*)" with code "
 end
 
 Then(/^if sample_control list returned, it should have editable: "([^"]*)"$/) do |editable|
-  field = 'editable'
-  if @returned_aliquot_result.is_a?(Hash) && @returned_aliquot_result.keys.include?('molecular_id_type')
-    expect(@returned_aliquot_result.keys).to include field
-    expect(contains[0][field]).to eql editable
+  if @returned_sample_control.is_a?(Array)
+    contains = @returned_sample_control.last
+    expect(contains.keys).to include 'editable'
+    expect(contains['editable']).to eql editable
   end
 end
 
 Then(/^if aliquot returned, it should have editable: "([^"]*)"$/) do |editable|
-  if @returned_sample_control.is_a?(Array)
-    contains = @returned_sample_control.select { |h| h.keys.include?('editable') }
-    raise "returned sample control list doesn't have 'editable' field" if contains.size<1
+  if @returned_aliquot_result.is_a?(Array)
+    contains = @returned_aliquot_result.select { |h| h.keys.include?('editable') }
+    raise "returned aliquot list doesn't have 'editable' field" if contains.size<1
     expect(contains[0]['editable']).to eql editable
   end
 end

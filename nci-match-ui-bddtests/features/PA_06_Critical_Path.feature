@@ -102,7 +102,7 @@ Feature: This is the critical path test cases.
   @broken
   Scenario: A Mocha user can confirm a MoCha variant report. 
     Given I am logged in as a "VR_Reviewer_mocha" user
-    When I got to the patient "APPLE" with variat report "BANANA"
+    When I go to the patient "mocha_patient" with variant report "mocha_report"
     Then I can see the variant report page
     And I click on the "CONFIRM" button
     Then I "should" see the confirmation modal pop up
@@ -211,7 +211,7 @@ Feature: This is the critical path test cases.
     # And I "should" see the patient "Version" as "2015-08-06"
     Then I logout
   
-  Scenario: Confirmed Assignment Report updates information on the Assignment report setion of the patient
+  Scenario: Confirmed Assignment Report updates information on the Assignment report section of the patient
     Given I am logged in as a "AR_Reviewer" user
     When I go to patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" details page
     And I get the link to "PT_CR01_PathAssayDoneVRUploadedToConfirm_ANI1" assignment report
@@ -219,3 +219,29 @@ Feature: This is the critical path test cases.
     When I collect information about the assignment
     Then I can see more new top level details about assignment report
     Then I logout
+
+  Scenario: As a privileged Dartmouth Sender I can upload a sample file
+    Given I clear the file from S3 under reporter "IR_DTM00", mol_id "PT_UI04_DtmTsShipped1_MOI1", analysis_id "PT_UI04_DtmTsShipped1_An123"  
+    And I am logged in as a "VR_Sender_dartmouth" user
+    When I go to patient "PT_UI04_DtmTsShipped1" with surgical event "PT_UI04_DtmTsShipped1_SEI1"
+    And I scroll to the bottom of the page
+    And I can see that some files have not been uploaded for the Surgical Event
+    Then The "Upload new sample file" link is "visible"
+    And The "Upload new sample file" link is "enabled"
+    And I can click on the "Upload new sample file" link
+    And I can see the "Upload BAM files and Variant ZIP files" dialog
+    And The "Upload" button is "disabled"
+    Then I select an Ion Reporter "dartmouth - IR_DTM00"
+    And I enter Analysis ID "PT_UI04_DtmTsShipped1_An123"
+    And I make all elements visible
+    And I press "Select Variant ZIP File" file button to upload "vcfFile.zip" file
+    And I press "Select DNA BAM File" file button to upload "dna.bam" file
+    And I press "Select cDNA BAM File" file button to upload "cdna.bam" file
+    Then The "Upload" button is "visible"
+    And The "Upload" button is "enabled"
+    Then I can click on the "Upload" button
+    And I wait for "5" seconds
+    And I scroll to the top of the page
+    And I can see the "3" Sample File upload process has started
+    Then I logout
+

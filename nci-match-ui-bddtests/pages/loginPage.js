@@ -19,7 +19,7 @@ var LoginPage = function() {
     var loginPopupPanel = element(by.css('.a0-onestep'));
     var previousAccountUsed = element(by.css('div[data-strategy="auth0"]'));
     var userLoggedin = element(by.css('span.welcome')); // This is the span that says 'Welcome <Username>'
-    var logoutLink = element(by.css('a[ng-click="logout()"]>i'))
+    var logoutLink = element(by.css('a[ng-click="logout()"]'))
     this.navBarHeading = element(by.css('div.sticky-navbar h2'));
 
     this.goToLoginPage = function(){
@@ -46,6 +46,34 @@ var LoginPage = function() {
             }
         });
         
+    }
+
+    this.beLoggedIn = function(username, password, name) {
+        return browser.get('/#/auth/login', 1000).then(function(){
+            browser.waitForAngular();
+        }).then(function(){
+            return browser.getCurrentUrl().then(function(url){
+                return element(by.css('.user-name')).isPresent().then(function(present){
+                    if (present === false){
+                        return clickAccessAndLogin(username, password); 
+                    } else {
+                        element(by.css('.user-name')).getText().then(function(nm){
+                            if (nm.includes(name)){
+                                // console.log("Same user continuing")
+                                return browser.get('/#/dashboard', 1000);
+                            } else {
+                                // console.log("Different User Logging out")
+                                return logoutLink.click().then(function(){
+                                    return browser.get('/#/auth/login', 1000).then(function() {
+                                        return clickAccessAndLogin(username, password)
+                                    });
+                                })
+                            }
+                        })        
+                    }
+                })
+            });
+        });
     }
 
     function logoutUser(){

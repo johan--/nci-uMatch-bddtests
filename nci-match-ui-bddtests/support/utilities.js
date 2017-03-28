@@ -188,6 +188,7 @@ var Utilities = function () {
     this.checkElementIncludesAttribute = function (element, attribute, value) {
         return element.getAttribute(attribute).then(function (allAttributes) {
             var attributeArray = allAttributes.split(' ');
+            // console.log(attributeArray);
             expect(attributeArray).to.include(value);
         });
     };
@@ -460,51 +461,72 @@ var Utilities = function () {
         var user_credentials = [];
         var email;
         var password;
+        var name;
 
         switch (role) {
             case 'VR_Sender_mda':
                 email = process.env.MDA_VARIANT_REPORT_SENDER_AUTH0_USERNAME;
                 password = process.env.MDA_VARIANT_REPORT_SENDER_AUTH0_PASSWORD;
+                name = 'mda-vr-sdr';
                 break;
 
             case 'VR_Sender_mocha':
                 email = process.env.MOCHA_VARIANT_REPORT_SENDER_AUTH0_USERNAME;
                 password = process.env.MOCHA_VARIANT_REPORT_SENDER_AUTH0_PASSWORD;
+                name = 'mocha-vr-sdr';
                 break;
+
+            case 'VR_Sender_dartmouth':
+                email = process.env.DARTMOUTH_VARIANT_REPORT_SENDER_AUTH0_USERNAME;
+                password = process.env.DARTMOUTH_VARIANT_REPORT_SENDER_AUTH0_PASSWORD;
+                name = 'dartmouth-vr-sdr';
+                break;                
 
             case 'VR_Reviewer_mda':
                 email = process.env.MDA_VARIANT_REPORT_REVIEWER_AUTH0_USERNAME;
                 password = process.env.MDA_VARIANT_REPORT_REVIEWER_AUTH0_PASSWORD;
+                name = 'mda-vr-rvr';
                 break;
 
             case 'VR_Reviewer_mocha':
                 email = process.env.MOCHA_VARIANT_REPORT_REVIEWER_AUTH0_USERNAME;
                 password = process.env.MOCHA_VARIANT_REPORT_REVIEWER_AUTH0_PASSWORD;
+                name = 'mocha-vr-rvr';
                 break;
 
+            case 'VR_Reviewer_dartmouth':
+                email = process.env.DARTMOUTH_VARIANT_REPORT_REVIEWER_AUTH0_USERNAME;
+                password = process.env.DARTMOUTH_VARIANT_REPORT_REVIEWER_AUTH0_PASSWORD;
+                name = 'dartmouth-vr-rvr';
+                break;
+            
             case 'AR_Reviewer':
                 email = process.env.ASSIGNMENT_REPORT_REVIEWER_AUTH0_USERNAME;
                 password = process.env.ASSIGNMENT_REPORT_REVIEWER_AUTH0_PASSWORD;
+                name = 'ar-vr';
                 break;
 
             case 'admin':
                 email = process.env.ADMIN_AUTH0_USERNAME;
                 password = process.env.ADMIN_AUTH0_PASSWORD;
+                name = 'admin';
                 break;
 
             case 'system':
                 email = process.env.SYSTEM_AUTH0_USERNAME;
                 password = process.env.SYSTEM_AUTH0_PASSWORD;
+                name = 'sy';
                 break;
 
             case 'read_only':
                 email = process.env.NCI_MATCH_READONLY_AUTH0_USERNAME;
                 password = process.env.NCI_MATCH_READONLY_AUTH0_PASSWORD;
+                name = 'readonly';
                 break;
 
         }
 
-        user_credentials.push(email, password);
+        user_credentials.push(email, password, name);
         return user_credentials;
     };
 

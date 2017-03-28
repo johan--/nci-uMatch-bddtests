@@ -111,13 +111,13 @@ class PatientTA
 
   def self.pt_cr08_blood_specimen_uploaded
     begin
-    pt = PatientDataSet.new('PT_CR08_BloodSpecimenUploaded')
-    PatientMessageLoader.register_patient(pt.id)
-    PatientMessageLoader.specimen_received_blood(pt.id)
-    PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)
-     PatientMessageLoader.variant_file_uploaded(pt.id, pt.bd_moi, pt.ani)
-    # PatientMessageLoader.variant_file_uploaded(pt.id, pt.bd_moi, pt.ani)
-    PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.bd_moi, pt.ani)
+      pt = PatientDataSet.new('PT_CR08_BloodSpecimenUploaded')
+      PatientMessageLoader.register_patient(pt.id)
+      PatientMessageLoader.specimen_received_blood(pt.id)
+      PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)
+      PatientMessageLoader.variant_file_uploaded(pt.id, pt.bd_moi, pt.ani)
+      # PatientMessageLoader.variant_file_uploaded(pt.id, pt.bd_moi, pt.ani)
+      PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.bd_moi, pt.ani)
     rescue => e
       p e.backtrace
     end
@@ -180,13 +180,13 @@ class PatientTA
     PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
     PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.ani)
     sleep(10.0)
-    PatientMessageLoader.assignment_confirmed(pt.id, pt.ani,'Assignment 1')
+    PatientMessageLoader.assignment_confirmed(pt.id, pt.ani, 'Assignment 1')
     PatientMessageLoader.request_assignment(pt.id, 'N', '1.0')
     sleep(10.0)
-    PatientMessageLoader.assignment_confirmed(pt.id, pt.ani,'Assignment 2')
+    PatientMessageLoader.assignment_confirmed(pt.id, pt.ani, 'Assignment 2')
     PatientMessageLoader.request_assignment(pt.id, 'N', '1.0', '2016-08-11T22:05:33+00:00')
     sleep(10.0)
-    PatientMessageLoader.assignment_confirmed(pt.id, pt.ani,'Assignment 3')
+    PatientMessageLoader.assignment_confirmed(pt.id, pt.ani, 'Assignment 3')
   end
 
   def self.ui_sp01_multi_bd_specimens
@@ -225,10 +225,14 @@ class PatientTA
     PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBRG1s')
   end
 
+  def self.ul_cm02_ts_shipped
+    pt = PatientDataSet.new('UL_CM02_TsShipped')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, 'NA18507-Rep1')
+  end
+
 end
-
-
-
 
 
 # PatientMessageLoader.upload_start_with_wait_time(15)

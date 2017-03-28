@@ -30,7 +30,7 @@ var DashboardPage = function() {
     this.limboTable             = element(by.id('limboPatientsPanel'));
 
     this.limboHeading           = element.all(by.css('.panel-container .ibox-title')).get(1);
-    this.limboTableHeaderList   = element.all(by.css('limboPatientsPanel th'));
+    this.limboTableHeaderList   = element.all(by.css('#limboPatientsPanel th'));
     this.patientsInLimboList    = element(by.exactBinding("limboPatientGridOptions.data.length"));
     //this.patientsInLimboList = element.all(by.repeater('item in filtered | startFrom:(paginationOptions.currentPage-1)*paginationOptions.itemsPerPage | limitTo:paginationOptions.itemsPerPage track by $index'));
     this.expectedPatientInLimboDetailsLeft = [ 
@@ -82,7 +82,7 @@ var DashboardPage = function() {
         'Disease', 'Assigned Treatment Arm', 'Assignment Date', 'Hours Pending'];
 
     this.expectedLimboTableColumns = [
-        'Details', 'Patient ID', 'Current Status', 'Message', 'Days Waiting'
+        'Details', 'Patient ID', 'Current Status', 'Message', 'AMOI', 'Days Waiting'
     ]
 
 };

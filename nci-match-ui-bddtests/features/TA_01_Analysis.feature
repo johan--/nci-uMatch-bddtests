@@ -6,7 +6,7 @@ Feature: Treatment Arms Dashboard
   be able to drill into them to get further details.
 
   Background:
-    Given I am a logged in user
+    Given I stay logged in as "read_only" user
 
 
   @ui_p2

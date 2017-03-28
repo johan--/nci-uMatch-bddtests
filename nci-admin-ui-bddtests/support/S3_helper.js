@@ -38,8 +38,8 @@ var S3_helper = function () {
 
     this.deleteFileFromBucket = function(bucketName, fileName) {
         var params = {
-            Bucket: 'STRING_VALUE', /* required */
-            Key: 'STRING_VALUE', /* required */
+            Bucket: bucketName, 
+            Key: fileName, 
             MFA: 'STRING_VALUE',
             RequestPayer: 'requester',
             VersionId: 'STRING_VALUE'

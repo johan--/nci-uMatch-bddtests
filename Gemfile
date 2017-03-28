@@ -36,6 +36,7 @@ group :test, :development do
   # gem 'spreadsheet', '1.0.6'  #version is consistent with nci-match-report-api/Gemfile
   gem 'spreadsheet'
   gem 'logger'
+  gem 'sqlite3'
 
 
 

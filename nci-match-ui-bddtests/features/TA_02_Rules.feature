@@ -7,12 +7,12 @@ Feature: Treatment Arm Rules
   the various rules applied
 
   Background:
-    Given I am a logged in user
+    Given I stay logged in as "read_only" user
     And I go to treatment arm with "APEC1621-UI" as the id and "STR100" as stratum id
     And I collect backend information about the treatment arm
     When I select the "Rules" Main Tab
 
-  @ui_p1
+  @ui_p1 @fixer
   Scenario Outline: Logged in user can access <subTabName> with Inclusion/Exclusion details under Rules
     When I scroll to the bottom of the page
     And I select the <subTabName> sub-tab
@@ -24,9 +24,9 @@ Feature: Treatment Arm Rules
     Then I logout
     Examples:
       | subTabName           |
-      | SNVs / MNVs / Indels |
-      | CNVs                 |
-      | Gene Fusions         |
+      # | SNVs / MNVs / Indels |
+      # | CNVs                 |
+      # | Gene Fusions         |
       | Non-Hotspot Rules    |
 
   @ui_p2

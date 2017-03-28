@@ -434,12 +434,12 @@ Feature: NCH Specimen shipped messages
       | PT_SS28_TsReceived3 | PT_SS28_TsReceived3_SEI1 | molecular_id  | TISSUE | Other     | 403  | destination  |
       | PT_SS28_TsReceived4 | PT_SS28_TsReceived4_SEI1 | slide_barcode | SLIDE  | MDA       | 202  | successfully |
       | PT_SS28_TsReceived5 | PT_SS28_TsReceived5_SEI1 | slide_barcode | SLIDE  | MoCha     | 403  | destination  |
-#      | PT_SS28_TsReceived6 | PT_SS28_TsReceived6_SEI1 | molecular_id  | TISSUE | Dartmouth | 202  | successfully |
-#      | PT_SS28_TsReceived7 | PT_SS28_TsReceived7_SEI1 | slide_barcode | SLIDE  | Dartmouth | 403  | destination  |
+      | PT_SS28_TsReceived6 | PT_SS28_TsReceived6_SEI1 | molecular_id  | TISSUE | Dartmouth | 202  | successfully |
+      | PT_SS28_TsReceived7 | PT_SS28_TsReceived7_SEI1 | slide_barcode | SLIDE  | Dartmouth | 403  | destination  |
       | PT_SS28_BdReceived1 |                          | molecular_id  | BLOOD  | MoCha     | 202  | successfully |
       | PT_SS28_BdReceived2 |                          | molecular_id  | BLOOD  | MDA       | 202  | successfully |
       | PT_SS28_BdReceived3 |                          | molecular_id  | BLOOD  | mda       | 403  | destination  |
-#      | PT_SS28_BdReceived4 |                          | molecular_id  | BLOOD  | Dartmouth | 202  | successfully |
+      | PT_SS28_BdReceived4 |                          | molecular_id  | BLOOD  | Dartmouth | 202  | successfully |
 
 #  This test case is not required
 #  Scenario Outline: PT_SS29. Blood and tissue shippment should has same destination (?? not sure)
