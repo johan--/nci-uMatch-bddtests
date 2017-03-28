@@ -414,20 +414,12 @@ And(/^this variant report field: "([^"]*)" should be "([^"]*)"$/) do |field, val
   else
     actual_match_expect(convert_value.to_s.downcase, returned_value.to_s.downcase)
   end
-  # expect_result = "Value of field #{field} contains #{convert_value}"
-  # real_result = "Value of field #{field} is #{@current_variant_report[field]}"
-  # equal = returned_value == convert_value
-  # unless equal
-  #   if returned_value.nil? || convert_value.nil?
-  #     equal = false
-  #   else
-  #     equal = returned_value.downcase.include?(convert_value.downcase)
-  #   end
-  # end
-  # if equal
-  #   real_result = expect_result
-  # end
-  # real_result.should == expect_result
+end
+
+And(/^this variant report oncomine_control pool "(1|2)" sum should be "([^"]*)"$/) do |pool, value|
+  convert_value = value=='null' ? nil : value
+  actual_include_expect(@current_variant_report.keys, 'oncomine_control_panel_summary')
+  actual_match_expect(@current_variant_report['oncomine_control_panel_summary']["pool#{pool}Sum"], value)
 end
 
 And(/^this variant report has correct status_date$/) do

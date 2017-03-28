@@ -111,6 +111,7 @@ Feature: ir ecosystem authorization tests
 
   @ion_reporter_p1
   Scenario Outline: ION_AU05 role base authorization works properly to create sample_control
+    #for example MDA_VARIANT_REPORT_SENDER, dartmouth msn get generated, that's special requirement, check test ION_AU05b
     Given site is "mda"
     Given control_type is "no_template"
     And molecular id is ""
@@ -132,7 +133,7 @@ Feature: ir ecosystem authorization tests
       | ADMIN                             | created | 200      | created   | 200        | created       | 200            |
       | SYSTEM                            |         | 401      |           | 401        |               | 401            |
       | ASSIGNMENT_REPORT_REVIEWER        |         | 401      |           | 401        |               | 401            |
-      | MDA_VARIANT_REPORT_SENDER         | created | 200      |           | 401        |               | 401            |
+      | MDA_VARIANT_REPORT_SENDER         | created | 200      |           | 401        | created       | 200            |
       | MDA_VARIANT_REPORT_REVIEWER       |         | 401      |           | 401        |               | 401            |
       | MOCHA_VARIANT_REPORT_SENDER       |         | 401      | created   | 200        |               | 401            |
       | MOCHA_VARIANT_REPORT_REVIEWER     |         | 401      |           | 401        |               | 401            |

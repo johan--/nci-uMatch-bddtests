@@ -234,9 +234,38 @@ Feature: Tests for aliquot service in ion ecosystem
       | ION_AQ08_TsVrUploaded1 | ION_AQ08_TsVrUploaded1_ANI1 | TISSUE_VARIANT_REPORT_RECEIVED | have     | ION_AQ08_TsVrUploaded1_ANI1 | dna.bam  |
       | ION_AQ08_TsVrUploaded2 | ION_AQ08_TsVrUploaded2_ANI2 | TISSUE_VARIANT_REPORT_RECEIVED | not have | ION_AQ08_TsVrUploaded2_ANI2 | dna.bam  |
 
-    @ion_reporter_p1
-      Scenario: ION_AQ09a aliquot service can handle vcf version 5.2 properly for patient
-      Scenario: ION_AQ09b aliquot service can handle vcf version 5.2 properly for sample control
+  @ion_reporter_p1
+  Scenario: ION_AQ09a aliquot service can handle vcf version 5.2 properly for patient
+    Given patient id is "ION_AQ09_TsShipped"
+    Given molecular id is "ION_AQ09_TsShipped_MOI1"
+    And ir user authorization role is "MDA_VARIANT_REPORT_SENDER"
+    Then add field: "analysis_id" value: "ION_AQ09_TsShipped_ANI1" to message body
+    Then add field: "site" value: "mda" to message body
+    Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
+    Then add field: "vcf_name" value: "test1.vcf" to message body
+    When PUT to aliquot service, response includes "Item updated" with code "200"
+    Then wait until patient is updated
+    Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
+    Then patient should have variant report (analysis_id: "ION_AQ09_TsShipped_ANI1")
+    And this variant report field: "torrent_variant_caller_version" should be "5.2-25"
+    And this variant report oncomine_control pool "1" sum should be "449632.5"
+    And this variant report oncomine_control pool "2" sum should be "957045.5"
+
+  Scenario: ION_AQ09b aliquot service can handle vcf version 5.2 properly for sample control
+    Given molecular id is "NTC_MDA_VNTE5"
+    And ir user authorization role is "SYSTEM"
+    Then add field: "analysis_id" value: "NTC_MDA_VNTE5_ANI1" to message body
+    Then add field: "site" value: "mda" to message body
+    Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
+    Then add field: "vcf_name" value: "test1.vcf" to message body
+    When PUT to aliquot service, response includes "Item updated" with code "200"
+    Then wait for "90" seconds
+    When GET from aliquot service, response "" with code "200"
+    Then field: "tsv_name" for this aliquot should be: "IR_TCWEV/NTC_MDA_VNTE5/NTC_MDA_VNTE5_ANI1/test1.tsv"
+    Then field: "torrent_variant_caller_version" for this aliquot should be: "5.2-25"
+    Then field: "pool1Sum" for this aliquot should be: "449632.5"
+    Then field: "pool2Sum" for this aliquot should be: "957045.5"
+
 
 
   @ion_reporter_p2
