@@ -357,3 +357,30 @@ Then(/^the variant report contains geneExpression in oncomine panel summary with
   expect(ecPool['POOL1']).to eql(pool1.to_f)
   expect(ecPool['POOL2']).to eql(pool2.to_f)
 end
+
+Then(/^the parsed vcf genes should match the list "([^"]*)"$/) do |geneList|
+  genes_notfound = []
+  gene_list = File.readlines("#{ENV['GENE_LIST_FILE_LOCATION']}#{geneList}")
+  # res = JSON.parse(@res)
+  parsedCopyNumberGenes = @res["copy_number_variant_genes"]
+  parsedCopyNumberGenes.each do |gl|
+    if !gene_list.include? ("#{gl["gene"]}\n")
+      genes_notfound.insert(-1,gl['gene'])
+    else
+      p "gene #{gl['gene']} found"
+    end
+  end
+  if genes_notfound.count > 0
+    fail "The following gene(s) #{genes_notfound.to_s} are not found"
+  end
+end
+
+Then(/^the variant report contains the following values$/) do |table|
+  tvc_version = table.rows_hash['torrent_variant_caller_version']
+  mapd = table.rows_hash['mapd']
+  # res = JSON.parse(@res)
+  expect(@res['torrent_variant_caller_version']).to eql(tvc_version)
+  expect(@res['mapd']).to eql(mapd)
+end
+
+

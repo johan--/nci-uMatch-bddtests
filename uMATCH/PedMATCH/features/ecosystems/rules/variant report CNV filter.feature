@@ -73,6 +73,11 @@ Feature: Test the functionality that filters the CNV variants based on specified
       | POOL2 | 427.0 |
 
 
-
-
+  Scenario: FIL-CNV_07: Verify the variant report based of the version 5.2 vcf
+    Given a tsv variant report file "Sample-5922-19-DNA_Sample-5922-19-RNA_Non-Filtered_2017-03-16_07-46-49" and treatment arms file "APEC1621-B.json"
+    When call the amoi rest service
+    Then the parsed vcf genes should match the list "v5.2geneList.txt"
+    And the variant report contains the following values
+    |torrent_variant_caller_version|5.2-25|
+    |mapd                          |0.280 |
 
