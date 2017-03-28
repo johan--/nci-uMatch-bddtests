@@ -1,0 +1,48 @@
+{
+  "treatment_arm_id": "APEC1621-F",
+  "name": "APEC1621-F",
+  "version": "2015-08-06",
+  "stratum_id": "100",
+  "date_created":"2017-02-22",
+  "treatment_arm_status": "OPEN",
+  "assay_rules": [{
+    "type":"IHC",
+    "gene" : "PTEN",
+    "assay_result_status" : "NEGATIVE",
+    "assay_variant" : "PRESENT",
+    "level_of_evidence" : 3.0
+  }],
+  "study_id": "APEC1621",
+  "num_patients_assigned": null,
+  "treatment_arm_drugs": [{
+    "name": "Crizotinib",
+    "pathway": "ALK",
+    "drug_id": "113"
+  }],
+  "snv_indels": [{
+    "variant_type": "snp",
+    "chromosome": "chr2",
+    "position": "252419923",
+    "identifier": "pedmatch-2",
+    "ocp_reference": "A",
+    "ocp_alternative": "C",
+    "level_of_evidence": 3.0,
+    "inclusion": true,
+    "armSpecific": false
+  }],
+  "gene_fusions":[],
+  "non_hotspot_rules": [],
+  "copy_number_variants": [],
+  "diseases": [{
+    "disease_code_type":"ICD-O",
+    "disease_code": "10058354",
+    "disease_name": "Bronchioloalveolar carcinoma",
+    "exclusion":true
+  }],
+  "exclusion_drugs": [{
+    "name": "Doxorubicin Hydrochloride",
+    "drug_id": "10001",
+    "drug_class": "ALK inhibitor",
+    "target": "ALK"
+  }]
+}

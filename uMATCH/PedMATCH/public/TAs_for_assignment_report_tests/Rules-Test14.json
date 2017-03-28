@@ -10,7 +10,8 @@
     "variant_type":"nhr",
     "inclusion": true,
     "func_gene": "KRAS",
-    "domain":"417-450",
+    "domain":"domain match",
+    "domain_range":"417-450",
     "function":null,
     "level_of_evidence": 3.0
   }],

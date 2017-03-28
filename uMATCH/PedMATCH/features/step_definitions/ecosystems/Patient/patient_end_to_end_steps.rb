@@ -164,7 +164,12 @@ end
 
 Then(/^COG requests assignment for this patient with re\-biopsy: "([^"]*)", step number: "([^"]*)"$/) do |re_bio, step_number|
   @patient_step_number = step_number
-  @response = COG_helper_methods.request_assignment(@patient_id, @patient_step_number, re_bio)
+  # @response = COG_helper_methods.request_assignment(@patient_id, @patient_step_number, re_bio)
+  Patient_helper_methods.prepare_request_assignment(@patient_id,re_bio,@patient_step_number,'default')
+  @current_auth0_role = 'PATIENT_MESSAGE_SENDER'
+  @response = Patient_helper_methods.post_to_trigger(@current_auth0_role)
+  code = '202'
+  expect(@response['http_code']).to eq code
   Patient_helper_methods.wait_until_patient_field_is(@patient_id, 'current_status', 'REQUEST_ASSIGNMENT')
   # Patient_helper_methods.validate_response(@response, 'Success', 'successfully')
 end
@@ -220,7 +225,7 @@ Then(/^treatment arm: "([^"]*)" with stratum id: "([^"]*)" is selected$/) do |ta
 end
 
 Then(/^the current assignment reason is "([^"]*)"$/) do |reason|
-  expect(@patient_result['current_assignment']['reason']).to eq reason
+  expect(@patient_result['current_assignment']['reason']).to include reason
 end
 
 Then(/^current assignment report_status: "([^"]*)"$/) do |report_status|

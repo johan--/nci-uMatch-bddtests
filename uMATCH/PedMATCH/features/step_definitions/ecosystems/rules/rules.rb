@@ -331,3 +331,29 @@ Then(/^moi report is returned with the cnv gene "([^"]*)"$/) do |arg1|
     fail("copy number gene #{arg1} with filter PASS is not returned as part of the variant report")
   end
 end
+
+Then(/^the variant report contains poolsum in oncomine panel summary with$/) do |table|
+  # table is a Cucumber::Core::Ast::DataTable
+  pool1Sum = table.rows_hash['pool1Sum']
+  pool2Sum = table.rows_hash['pool2Sum']
+  expect(@res['oncomine_control_panel_summary']['pool1Sum']).to eql(pool1Sum.to_f)
+  expect(@res['oncomine_control_panel_summary']['pool2Sum']).to eql(pool2Sum.to_f)
+end
+
+Then(/^the variant report contains exprControl in oncomine panel summary with$/) do |table|
+  # table is a Cucumber::Core::Ast::DataTable
+  pool1 = table.rows_hash['POOL1']
+  pool2 = table.rows_hash['POOL2']
+  ecPool = @res['oncomine_control_panel_summary']['ecPool']
+  expect(ecPool['POOL1']).to eql(pool1.to_f)
+  expect(ecPool['POOL2']).to eql(pool2.to_f)
+end
+
+Then(/^the variant report contains geneExpression in oncomine panel summary with$/) do |table|
+  # table is a Cucumber::Core::Ast::DataTable
+  pool1 = table.rows_hash['POOL1']
+  pool2 = table.rows_hash['POOL2']
+  ecPool = @res['oncomine_control_panel_summary']['gePool']
+  expect(ecPool['POOL1']).to eql(pool1.to_f)
+  expect(ecPool['POOL2']).to eql(pool2.to_f)
+end

@@ -59,6 +59,18 @@ Feature: Test the functionality that filters the CNV variants based on specified
       | cnv_nocall | APEC1621-A.json |
 
 
+  Scenario: FIL-CNV_06: Oncomine pannel summary
+    Given a tsv variant report file "oncomine_panel_test" and treatment arms file "APEC1621-B.json"
+    When call the amoi rest service
+    Then the variant report contains poolsum in oncomine panel summary with
+      | pool1Sum | 181542.0 |
+      | pool2Sum | 558208.0 |
+    Then the variant report contains exprControl in oncomine panel summary with
+      | POOL1 | 181482.0 |
+      | POOL2 | 557781.0 |
+    Then the variant report contains geneExpression in oncomine panel summary with
+      | POOL1 | 60.0  |
+      | POOL2 | 427.0 |
 
 
 
