@@ -232,6 +232,16 @@ class PatientTA
     PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, 'NA18507-Rep1')
   end
 
+
+  def self.ui_pa09_ts_vr52_uploaded
+    pt = PatientDataSet.new('UI_PA09_TsVr52Uploaded')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+    PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani, 'default_vcf52')
+    PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
+  end
+
 end
 
 
