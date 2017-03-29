@@ -104,7 +104,7 @@ script:
   # @ui and @demo should kick off match UI tests and @admin_ui should kick off admin_ui project.
   - |
     if [ "$CUC_TAG" == "@admin_ui" ]; then
-      cd nci-admin-ui-bddtests/;
+      cd nci-admin-ui-bddtests/
       protractor conf.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags='$CUC_TAG$P1,$CUC_TAG$P2' --troubleshoot
       CURRENT_STATUS=$?
       if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi

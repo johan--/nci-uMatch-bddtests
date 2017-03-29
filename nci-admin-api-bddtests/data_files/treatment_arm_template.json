@@ -1,4 +1,11 @@
 {
+	"name": "APEC1621A1",
+	"treatment_arm_id": "APEC1621A1",
+	"stratum_id": "1",
+	"version": "testVersion",
+	"study_id": "APEC1621",
+	"target_name": "LOXO-101",
+	"description": "LOXO-101 in  NTRK fusions",
 	"non_hotspot_rules": [{
 		"oncomine_variant_class": "Deleterious",
 		"func_gene": "PIK3R1",
@@ -16,7 +23,6 @@
 		"disease_name": "Subependymal giant cell astrocytoma (C71._)",
 		"exclusion": true
 	}],
-	"target_name": "LOXO-101",
 	"snv_indels": [{
 		"gene": "MTOR",
 		"ocp_reference": "C",
@@ -37,10 +43,6 @@
 		"name": "LOXO-101"
 	}],
 	"copy_number_variants": [],
-	"description": "LOXO-101 in  NTRK fusions",
-	"stratum_id": "1",
-	"name": "APEC1621A1",
-	"treatment_arm_id": "APEC1621A1",
 	"assay_rules": [{
       "assay_variant": "PRESENT",
       "level_of_evidence": 3,
@@ -61,8 +63,6 @@
 		"drug_id": "1",
 		"name": "PLX7486"
 	}],
-	"study_id": "APEC1621",
-	"version": "2017-03-17T18:33:04+00:00",
 	"date_created": "2017-03-17T18:33:04+00:00",
 	"gene": "NTRK",
 	"gene_fusions": [{
