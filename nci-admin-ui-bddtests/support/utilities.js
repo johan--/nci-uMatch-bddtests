@@ -1,8 +1,10 @@
+var req = require('request-promise');
+
 var Utilities = function () {
     
-    this.waitForElement = function(element, message) {
+    this.waitForElement = function(elem, message) {
         return browser.wait(function(){
-            return browser.isElementPresent(element);
+            return browser.isElementPresent(elem);
         }, 120000, message  + ' is not found or visible.');
     };
 
@@ -22,6 +24,60 @@ var Utilities = function () {
             expect(attributeArray).to.include(value);
         });
     };
+
+    this.getIndexOfElement = function(elementList, text) {
+        return elementList.count().then(function(cnt){
+            for (var i=0; i < cnt; i++) {
+                return elementList.get(i).getText().then(function(elemText){
+                    if (elemText === text) {
+                        return i;
+                    }
+                })
+            }
+        })
+    }
+
+    this.getIdToken = function(){
+        var data = {
+            "client_id": process.env.AUTH0_CLIENT_ID ,
+            "username": process.env.ADMIN_UI_AUTH0_USERNAME,
+            "password": process.env.ADMIN_UI_AUTH0_PASSWORD,
+            "grant_type": 'password',
+            "scope": 'openid email roles',
+            "connection":  process.env.AUTH0_DATABASE
+        };
+
+        var options = {
+            method: 'POST',
+            uri: 'https://ncimatch.auth0.com/oauth/ro',
+            body: data,
+            json: true,
+            headers: { "content-type": "application/json" }
+        }
+
+        return req(options).then(function(body){
+            return body.id_token;
+        }).catch(function(err){
+            console.log(err);
+            return;
+        })
+    }
+
+    this.getTAsFromTreatmentArm = function(idToken, url){
+        console.log('Calling URL: ' + url);
+        var options = {
+            uri: url,
+            method: 'GET',
+            headers: {'Authorization': `Bearer ${idToken}`},
+            json: true
+        };
+
+        return req(options).then(function (resp) {
+            return resp;
+        }).catch(function (err) {
+            console.log(err);
+        });
+    }
 }
 
 module.exports = new Utilities();
