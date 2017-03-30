@@ -1,0 +1,14 @@
+{
+	"gene": "MTOR",
+	"ocp_reference": "C",
+	"identifier": "COSM462592",
+	"inclusion": true,
+	"public_med_ids": ["24631838"],
+	"variant_type": "snp",
+	"ocp_alternative": "G",
+	"position": "11184589",
+	"level_of_evidence": 3.0,
+	"arm_specific": false,
+	"chromosome": "chr1",
+	"description": "Missense"
+}
