@@ -63,21 +63,24 @@ Feature: Test the functionality that filters the CNV variants based on specified
     Given a tsv variant report file "oncomine_panel_test" and treatment arms file "APEC1621-B.json"
     When call the amoi rest service
     Then the variant report contains poolsum in oncomine panel summary with
-      | pool1Sum | 181542.0 |
-      | pool2Sum | 558208.0 |
+      | pool1Sum | 181742.0 |
+      | pool2Sum | 558358.0 |
     Then the variant report contains exprControl in oncomine panel summary with
       | POOL1 | 181482.0 |
       | POOL2 | 557781.0 |
     Then the variant report contains geneExpression in oncomine panel summary with
       | POOL1 | 60.0  |
       | POOL2 | 427.0 |
-
+    Then the variant report contains fusion in oncomine panel summary with
+      | POOL1 | 200.0 |
+      | POOL2 | 150.0 |
 
   Scenario: FIL-CNV_07: Verify the variant report based of the version 5.2 vcf
     Given a tsv variant report file "Sample-5922-19-DNA_Sample-5922-19-RNA_Non-Filtered_2017-03-16_07-46-49" and treatment arms file "APEC1621-B.json"
     When call the amoi rest service
     Then the parsed vcf genes should match the list "v5.2geneList.txt"
     And the variant report contains the following values
-    |torrent_variant_caller_version|5.2-25|
-    |mapd                          |0.280 |
+      | torrent_variant_caller_version | 5.2-25  |
+      | mapd                           | 0.280   |
+      | mappedFusionPanelReads         | 1406678 |
 

@@ -358,6 +358,15 @@ Then(/^the variant report contains geneExpression in oncomine panel summary with
   expect(ecPool['POOL2']).to eql(pool2.to_f)
 end
 
+Then(/^the variant report contains fusion in oncomine panel summary with$/) do |table|
+  # table is a Cucumber::Core::Ast::DataTable
+  pool1 = table.rows_hash['POOL1']
+  pool2 = table.rows_hash['POOL2']
+  ecPool = @res['oncomine_control_panel_summary']['fPool']
+  expect(ecPool['POOL1']).to eql(pool1.to_f)
+  expect(ecPool['POOL2']).to eql(pool2.to_f)
+end
+
 Then(/^the parsed vcf genes should match the list "([^"]*)"$/) do |geneList|
   genes_notfound = []
   gene_list = File.readlines("#{ENV['GENE_LIST_FILE_LOCATION']}#{geneList}")
