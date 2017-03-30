@@ -184,7 +184,7 @@ Feature: ir ecosystem authorization tests
       | MDA_VARIANT_REPORT_REVIEWER       | control_type | 200  | false        | false          | false              |
       | MOCHA_VARIANT_REPORT_SENDER       | control_type | 200  | false        | true           | false              |
       | MOCHA_VARIANT_REPORT_REVIEWER     | control_type | 200  | false        | false          | false              |
-      | DARTMOUTH_VARIANT_REPORT_SENDER   | control_type | 200  | true         | false          | true               |
+      | DARTMOUTH_VARIANT_REPORT_SENDER   | control_type | 200  | false         | false          | true               |
       | DARTMOUTH_VARIANT_REPORT_REVIEWER | control_type | 200  | false        | false          | false              |
       | PATIENT_MESSAGE_SENDER            | control_type | 200  | false        | false          | false              |
       | SPECIMEN_MESSAGE_SENDER           | control_type | 200  | false        | false          | false              |
