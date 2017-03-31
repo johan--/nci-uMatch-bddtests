@@ -74,7 +74,7 @@ script:
   - rm results/*
   # Get status of run into CURRENT_STATUS. Update STATUS only if it is 0. So failures should be preserved across runs till the end
   - |
-    if [ "$CUC_TAG" == "@treatment_arm" -o "$CUC_TAG" == "@ion_reporter" -o "$CUC_TAG" == "@patients" ]; then
+    if [ "$CUC_TAG" == "@treatment_arm" -o "$CUC_TAG" == "@ion_reporter" -o "$CUC_TAG" == "@patients" -o "$CUC_TAG" == "@rules"]; then
       cd uMATCH/PedMATCH
       bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P1,$CUC_TAG$P2 --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --expand' -n 2
       CURRENT_STATUS=$?
