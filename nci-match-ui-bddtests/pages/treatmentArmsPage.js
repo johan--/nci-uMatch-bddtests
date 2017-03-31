@@ -239,7 +239,7 @@ var TreatmentArmsPage = function() {
                 tableType.each(function (row, index) {
                     row.all(by.css(idLoc)).get(0).getText().then(function(text){
                         if (text === firstData.identifier){
-                            console.log('Checking values in Table')
+                            // console.log('Checking values in Table')
                             utils.checkValueInTable(row.all(by.css(chrLoc)), firstData['chromosome']);
                             utils.checkValueInTable(row.all(by.css(posLoc)), firstData['position']);
                             utils.checkValueInTable(row.all(by.css(referenceLoc)), firstData['ocp_reference']);
@@ -274,7 +274,7 @@ var TreatmentArmsPage = function() {
                 tableType.each(function (row, index) {
                     row.all(by.css(geneLoc)).get(0).getText().then(function(text){
                         if (text == firstData['gene_name']){
-                            console.log('Checking values in Table')
+                            // console.log('Checking values in Table')
                             utils.checkValueInTable(row.all(by.css(geneLoc)), firstData['gene_name']);
                             utils.checkValueInTable(row.all(by.css(chromLoc)), firstData['chromosome']);
                             utils.checkValueInTable(row.all(by.css(posLoc)), firstData['position']);
@@ -307,7 +307,7 @@ var TreatmentArmsPage = function() {
                 tableType.each(function (row, index) {
                     row.all(by.css(idLoc)).get(0).getText().then(function(text){
                         if (text == firstData.identifier){
-                            console.log('Checking values in Table')
+                            // console.log('Checking values in Table')
                             utils.checkValueInTable(row.all(by.css(idLoc)), firstData['identifier']);
                             utils.checkValueInTable(row.all(by.css(litTableLoc)), med_id_string);
                             if (inclusionType === 'Inclusion') {
@@ -342,7 +342,7 @@ var TreatmentArmsPage = function() {
                 tableType.each(function (row, index) {
                     row.all(by.css(geneLoc)).get(0).getText().then(function(text){
                         if (text == firstData['func_gene']){
-                            console.log('Checking values in Table')
+                            // console.log('Checking values in Table')
                             utils.checkValueInTable(row.all(by.css(geneLoc)), firstData['func_gene']);
                             utils.checkValueInTable(row.all(by.css(domainRangeLoc)), firstData['domain_range']);
                             utils.checkValueInTable(row.all(by.css(domainNameLoc)), firstData['domain_name']);

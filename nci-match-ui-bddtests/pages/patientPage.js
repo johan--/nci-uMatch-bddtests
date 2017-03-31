@@ -175,6 +175,7 @@ var PatientPage = function () {
     this.totalconfirmedMOIs     = element(by.binding('variantReport.total_confirmed_mois'));
     this.totalconfirmedAMOIs    = element(by.binding('variantReport.total_confirmed_amois'));
     this.variantReportStatus    = element.all(by.binding('variantReport.status'));
+    this.variantsCheckBoxList   = element.all(by.css('check-box-with-confirm input'));
 
     // Elements found on Assignment Report TAB
     this.assignmentSummaryBoxes      = element.all(by.css('.assignment-header-box'));
@@ -254,12 +255,18 @@ var PatientPage = function () {
     };
 
     this.expectEnabled = function(checkBoxList, index, enabled, callback) {
-        if(enabled === 'disabled'){
-            expect(checkBoxList.get(index).getAttribute('disabled')).to.eventually.eql('true').notify(callback);
-        } else {
-            expect(checkBoxList.get(index).getAttribute('disabled')).to.eventually.eql(null).notify(callback);
-        }
+        status = enabled === 'disabled' ? false : true;
+        expect(checkBoxList.get(index).isEnabled()).to.eventually.eql(status);
     };
+
+    this.checkBoxChecked = function(checkBoxList, index, selected, callback) {
+        if(selected === 'checked'){
+            expect(checkBoxList.get(index).isSelected()).to.eventually.eql(true);
+        } else if (selected === 'unchecked'){
+            expect(checkBoxList.get(index).isSelected()).to.eventually.eql(false);
+        }
+
+    }
 
     this.trimSurgicalEventId =  function(completeText){
       return completeText.replace('Surgical Event ', '').replace(/\|.+/, '').trim();
