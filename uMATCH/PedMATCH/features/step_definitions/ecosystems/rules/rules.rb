@@ -70,10 +70,11 @@ end
 
 Given(/^a tsv variant report file "([^"]*)" and treatment arms file "([^"]*)"$/) do |arg1, ta|
   @tsv = arg1
-
+  p @tsv
   treatment_arm = File.join(File.dirname(__FILE__),ENV['rules_treatment_arm_location']+'/'+ta)
   expect(File.exist?(treatment_arm)).to be_truthy
   @treatment_arm = JSON(IO.read(treatment_arm))
+  p @treatment_arm
 end
 
 When(/^call the amoi rest service$/) do
@@ -143,10 +144,17 @@ end
 
 Then(/^moi report is returned with the snv variant "([^"]*)"$/) do |arg1|
   flag = false
+  ctr = 0
   @res['snv_indels'].each do |snv|
     if snv['identifier'] == arg1
       flag = true
+      ctr = ctr+1
     end
+  end
+  if ctr > 1
+    fail ("The SNV #{arg1} is found #{ctr} times. Duplicates exists")
+  else
+    p "The SNV #{arg1} is found #{ctr} times"
   end
   if flag == false
     fail ("The SNV #{arg1} is not found in the moi report")
