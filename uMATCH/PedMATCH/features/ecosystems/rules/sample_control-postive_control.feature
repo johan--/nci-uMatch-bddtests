@@ -46,3 +46,8 @@ Feature: Sample control tests for positive control
     When the positive_control service is called
     And match is false for "ALK-PTPN3" variants in the positive variants
     And match is false for "MET-MET" variants in the positive variants
+
+  Scenario: SC-PC_09: Verify that when the variant report (vcf version 5.2) matches the positive controls (version 5.2), the status returned is PASSED
+    Given a tsv variant report file "MATCH-Ctrlv3-S5-MC6-36-DNA_MATCH-Ctrlv3-S5-MC6-36-RNA" and treatment arms file "MultiTAs.json"
+    When the positive_control service is called
+    Then the report status return is "PASSED"

@@ -1,0 +1,11 @@
+{
+		"oncomine_variant_class": "Deleterious",
+		"func_gene": "PIK3R1",
+		"inclusion": true,
+		"domain_name": "iSH2",
+		"domain_range": "414-622",
+		"public_med_ids": ["26807692"],
+		"level_of_evidence": 3.0,
+		"type": "nhr",
+		"arm_specific": false
+}

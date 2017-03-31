@@ -1,0 +1,10 @@
+{
+		"gene": "NTRK1",
+		"identifier": "ARHGEF2-NTRK1.A21N10",
+		"inclusion": true,
+		"public_med_ids": ["25384085"],
+		"variant_type": "fusion",
+		"level_of_evidence": 3.0,
+		"arm_specific": false,
+		"description": "NTRK1 Gene Fusion"
+}

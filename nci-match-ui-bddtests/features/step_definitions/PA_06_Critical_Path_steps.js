@@ -50,7 +50,7 @@ module.exports = function () {
         variantReportLink = element(by.css(varRepString));
 
         expect(variantReportLink.isPresent()).to.eventually.eql(true).then(function(){
-            browser.sleep(2000).then(function(){
+            browser.sleep(1000).then(function(){
                 variantReportLink.getLocation().then(function(location) {
                     browser.executeScript('window.scrollTo(' + (location.x + 50) + ', ' + (location.y + 50) + ')').then(function(){
                         variantReportLink.element(by.css('i')).click().then(function(){
@@ -126,7 +126,7 @@ module.exports = function () {
         var index = ordinal - 1;
         var el  = element.all(by.css(patientPage.commentLinkString)).get(index)
         el.getLocation().then(function(location){
-            browser.executeScript('window.scrollTo(0, ' + (location.y + 300) + ')').then(function(){
+            browser.executeScript('window.scrollTo(0, ' + (location.y + 200) + ')').then(function(){
                 browser.sleep(2000).then(function(){
                     el.click().then(function(){
                         browser.waitForAngular();

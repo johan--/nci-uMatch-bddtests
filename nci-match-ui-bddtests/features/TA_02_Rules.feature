@@ -12,7 +12,7 @@ Feature: Treatment Arm Rules
     And I collect backend information about the treatment arm
     When I select the "Rules" Main Tab
 
-  @ui_p1 @fixer
+  @ui_p1
   Scenario Outline: Logged in user can access <subTabName> with Inclusion/Exclusion details under Rules
     When I scroll to the bottom of the page
     And I select the <subTabName> sub-tab

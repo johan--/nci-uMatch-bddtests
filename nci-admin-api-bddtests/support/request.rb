@@ -42,18 +42,21 @@ module Request
       post_response['http_code'] = http_code
       post_response['message'] = response.body
       if status.eql?('Failure')
+        p body.to_json
         p post_response['message']
       end
 		rescue StandardError => e
       post_response['status'] = 'Failure'
-
+      p body.to_json
       http_code = '500'
       post_response['http_code'] = http_code
       
       if e.respond_to?('response')
         post_response['message'] = e.response
+        p e.response
       else
         post_response['message'] = e.message
+        p e.message
       end
       return post_response
     end

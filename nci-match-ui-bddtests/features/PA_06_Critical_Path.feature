@@ -112,7 +112,7 @@ Feature: This is the critical path test cases.
 
   Scenario: Confirmed variant report will not have check boxes enabled
     Given I am logged in as a "VR_Reviewer_mda" user
-    When I go to the patient "PT_CR03_VRUploadedPathConfirmed" with variant report "PT_CR03_VRUploadedPathConfirmed_ANI1"
+    When I go to the patient "PT_AS12_PendingConfirmation" with variant report "PT_AS12_PendingConfirmation_ANI1"
     Then I can see the variant report page
     And The checkboxes are disabled
     And I "should not" see the "REJECT" button on the VR page

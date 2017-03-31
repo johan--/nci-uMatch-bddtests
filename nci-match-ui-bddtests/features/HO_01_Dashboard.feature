@@ -75,6 +75,7 @@ Feature: Dashboard page.
   Scenario: User can find a list of all the patients in limbo with their reason
     When I collect information on patients in limbo
     Then I can see table of Patients Awaiting Further Action Or Information
+    And I wait for "2" seconds
     And I can see a list of patients and the reasons why they are in limbo.
     When I search for "TISSUE_SPECIMEN_RECEIVED" in the limbo table search field
     Then I should see "Tissue DNA and RNA shipment missing" in the limbo table message

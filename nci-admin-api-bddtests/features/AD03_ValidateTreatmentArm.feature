@@ -29,7 +29,7 @@ Examples:
 	| name 									| all 						 | The field name must exist within the treatment arm. 									|
 	| version 							| all 						 | The field version must exist within the treatment arm. 							|
 	| stratum_id 						| all 						 | The field stratum_id must exist.													 						|
-	| study_id 							| all 						 | The field study_id must exist within the treatment arm. 							|
+	| study_id 							| all 						 | The field study_id must exist and it must be set to the value APEC1621.|
 	| treatment_arm_drugs 	| all 						 | The field treatment_arm_drugs must exist within the treatment arm. 	|
 
 
@@ -57,46 +57,44 @@ And I substitute "" for the "treatment_arm_id"
 When I issue a post request for validation at level "all" with the treatment arm
 Then I should see the reason of rejection on "treatment_arm_id" as "The treatment arm must have a field treatment_arm_id, and that field must not be empty."
 
-
-Scenario Outline: A treatment arm with non string treatmene arm id should fail
+@broken
+Scenario: A treatment arm with non string treatment arm id should fail
 Given I retrieve the template for treatment arm
 And I enter a hash "{name: 'APEC1621'}" for the treatment_arm_id
 When I issue a post request for validation at level "all" with the treatment arm
-Then I should see the reason of rejection as "<reason>"
-Examples:
-| reason |
-| "{'treatment_arm_id': 'The field treatment_arm_id must be a string. (i.e APEC1621A1)'}" |
+Then I should see the reason of rejection on "treatment_arm_id" as "Treatment arm must be a string"
 
 
 Scenario Outline: Validation should raise and inform the user about the ordinal of snv_indel that has the error
 Given I retrieve the template for treatment arm
-And I add another object of "<top_level>" to "<top_level>"
-And I pick the "<ordinal>" ordinal of "<top_level>"
+And I add a duplicate of the object to "<top_level>"
 And I set "<key>" to "<value>"
 When I issue a post request for validation at level "<top_level>" with the treatment arm
-Then I should see the reason of rejection as "<reason>"
+Then I "should" see a "Success" message
+And I "should" see "false" value under the "passed" field
+Then I should see the reason of rejectionon "<top_level>" as "<reason>"
 Examples:
-| top_level  						| ordinal  	| key 							 	| value 	| reason |
-| snv_indels 						| 0 			 	| variant_type 		 		| 			 	| reason 1 |
-| snv_indels 						| 1  		 	 	| identifier 			 		| 			 	| reason 1 |
-| snv_indels 						| 0 			 	| level_of_evidence 	| 			 	| ease|
-| snv_indels 						| 1 			 	| inclusion 				 	| 			 	| reaseon |
-| assay_rules 					| 0				 	| type 								|	| |
-| assay_rules 					| 0				 	| type 								|	| |
-| assay_rules 					| 0				 	| type 								|	| |
-| assay_rules 					| 0				 	| type 								|	| |
-| copy_number_variants	| 0					| variant_type				| | |
-| copy_number_variants	| 0					| variant_type				| | |
-| copy_number_variants	| 0					| variant_type				| | |
-| gene_fusions					| 0					| variant_type				| | |
-| gene_fusions					| 0					| variant_type				| | |
-| gene_fusions					| 0					| variant_type				| | |
-| non_hotspot_rules			| 0					| inclusion						| | |
-|	non_hotspot_rules			| 0					| inclusion						| | |
-| non_hotspot_rules			| 0					| inclusion						| | |
-| non_hotspot_rules			| 0					| inclusion						| | |
-| non_hotspot_rules			| 0					| inclusion						| | |
-| non_hotspot_rules			| 0					| inclusion						| | |
+| top_level  						| key 							 	| value 	| reason 						 |
+| snv_indels 						| variant_type 		 		| 			 	| reason placeholder |
+| snv_indels 						| identifier 			 		| 			 	| reason placeholder |
+| snv_indels 						| level_of_evidence 	| 			 	| reason placeholder |
+| snv_indels 						| inclusion 				 	| 			 	| reason placeholder |
+| assay_rules 					| type 								|					| reason placeholder |
+| assay_rules 					| type 								|					| reason placeholder |
+| assay_rules 					| type 								|					| reason placeholder |
+| assay_rules 					| type 								|					| reason placeholder |
+| copy_number_variants	| variant_type				| 				| reason placeholder |
+| copy_number_variants	| variant_type				| 				| reason placeholder |
+| copy_number_variants	| variant_type				| 				| reason placeholder |
+| gene_fusions					| variant_type				| 				| reason placeholder |
+| gene_fusions					| variant_type				| 				| reason placeholder |
+| gene_fusions					| variant_type				| 				| reason placeholder |
+| non_hotspot_rules			| inclusion						| 				| reason placeholder |
+|	non_hotspot_rules			| inclusion						| 				| reason placeholder |
+| non_hotspot_rules			| inclusion						| 				| reason placeholder |
+| non_hotspot_rules			| inclusion						| 				| reason placeholder |
+| non_hotspot_rules			| inclusion						| 				| reason placeholder |
+| non_hotspot_rules			| inclusion						| 				| reason placeholder |
 
 
 @broken

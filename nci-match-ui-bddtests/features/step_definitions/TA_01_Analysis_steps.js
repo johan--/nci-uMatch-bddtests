@@ -127,17 +127,17 @@ module.exports = function () {
             console.log('currentPage', currentPage);
             
             if (currentPage < pages) {
-                console.log('disabled');
+                // console.log('disabled');
                 enabledPromise = assert.eventually.equal(taPage.gridNextLinkDisabled.isPresent(), false);
             } else {
-                console.log('enabled');
+                // console.log('enabled');
                 enabledPromise = assert.eventually.equal(taPage.gridNextLinkDisabled.isPresent(), true);
             }
 
             var clickPromise = browser.executeScript('window.scrollTo(0,5000)').then(function() {
                 return enabledPromise.then(function() {
                     browser.sleep(500);
-                    console.log('count', count);
+                    // console.log('count', count);
                     return taPage.gridNextPageButton.click();
                 });
             });
@@ -145,7 +145,7 @@ module.exports = function () {
             return assert.isFulfilled(clickPromise)
                 .then(function() {
                     if (currentPage < pages) {
-                        console.log('can go next');
+                        // console.log('can go next');
                         taPage.allPatientDataRows.count().then(function(pageRowCount) {
                             count += pageRowCount;
                         });
