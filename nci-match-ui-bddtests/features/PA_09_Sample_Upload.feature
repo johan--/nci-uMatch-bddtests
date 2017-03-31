@@ -69,7 +69,7 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     When I go to patient "ION_AQ41_TsVrUploaded" with surgical event "ION_AQ41_TsVrUploaded_SEI1"
     And I scroll to the bottom of the page
     And I should see the variant report link for "ION_AQ41_TsVrUploaded_ANI1"
-    Then The Upload new sample file link is not visible
+    Then The "Upload new sample file" link is "invisible"
     Then I logout
 
   Scenario: As a privileged user I cannot upload sample file until all validations pass

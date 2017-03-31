@@ -81,10 +81,10 @@ module.exports = function () {
         }).then(callback);
     });
 
-    this.Then(/^The Upload new sample file link is not visible$/, function (callback) {
-        var elem = element(by.cssContainingText('.btn', 'Upload new sample file'));
-        expect(elem.isPresent()).to.eventually.eql(false).notify(callback);
-    });
+    // this.Then(/^The Upload new sample file link is not visible$/, function (callback) {
+    //     var elem = element(by.cssContainingText('.btn', 'Upload new sample file'));
+    //     expect(elem.isPresent()).to.eventually.eql(false).notify(callback);
+    // });
 
 
     this.Then(/^I can see the "(.+?)" Sample File upload process has started$/, function (number, callback) {

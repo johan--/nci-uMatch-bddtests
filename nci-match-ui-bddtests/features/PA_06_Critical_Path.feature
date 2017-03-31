@@ -109,7 +109,7 @@ Feature: This is the critical path test cases.
     When I click on the "OK" button
     Then The variant report status is marked "CONFIRMED"
     Then I logout
-@fixer
+
   Scenario: Confirmed variant report will not have check boxes enabled
     Given I am logged in as a "VR_Reviewer_mda" user
     When I go to the patient "PT_AS12_PendingConfirmation" with variant report "PT_AS12_PendingConfirmation_ANI1"

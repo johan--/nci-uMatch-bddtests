@@ -147,6 +147,7 @@ var TreatmentArmsPage = function() {
     this.expectedRightBoxLabels = ['Genes', 'Patients Assigned on Version', 'Total Patients Assigned', 'Drugs', 'Download'];
     this.expectedTableHeaders = [
         "Name",
+        "Description",
         "Current Patients",
         "Former Patients",
         "Pending Arm Approval",

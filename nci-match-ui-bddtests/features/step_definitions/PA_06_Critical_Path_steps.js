@@ -126,7 +126,7 @@ module.exports = function () {
         var index = ordinal - 1;
         var el  = element.all(by.css(patientPage.commentLinkString)).get(index)
         el.getLocation().then(function(location){
-            browser.executeScript('window.scrollTo(0, ' + (location.y + 300) + ')').then(function(){
+            browser.executeScript('window.scrollTo(0, ' + (location.y + 200) + ')').then(function(){
                 browser.sleep(2000).then(function(){
                     el.click().then(function(){
                         browser.waitForAngular();
