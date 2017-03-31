@@ -248,6 +248,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
     Then patient should have variant report (analysis_id: "ION_AQ09_TsShipped_ANI1")
     And this variant report field: "torrent_variant_caller_version" should be "5.2-25"
+    And this variant report field: "mappedFusionPanelReads" should be "1406678.0"
     And this variant report oncomine_control pool "1" sum should be "449632.5"
     And this variant report oncomine_control pool "2" sum should be "957045.5"
 
@@ -263,6 +264,7 @@ Feature: Tests for aliquot service in ion ecosystem
     When GET from aliquot service, response "" with code "200"
     Then field: "tsv_name" for this aliquot should be: "IR_TCWEV/NTC_MDA_VNTE5/NTC_MDA_VNTE5_ANI1/test1.tsv"
     Then field: "torrent_variant_caller_version" for this aliquot should be: "5.2-25"
+    Then field: "mappedFusionPanelReads" for this aliquot should be: "1406678"
     Then field: "pool1Sum" for this aliquot should be: "449632.5"
     Then field: "pool2Sum" for this aliquot should be: "957045.5"
 

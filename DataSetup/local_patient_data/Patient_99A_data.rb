@@ -11,10 +11,10 @@ require_relative 'Patient_00A_data_done'
 
 Environment.setTier 'local' #set this value to 'local' if you are running tests on your local machine.
 
-# patient_list = []
-# patient_list << 'PT_RA01_OnTreatmentArm'
+patient_list = []
+patient_list << 'UI_PA09_TsVr52Uploaded'
 #
-# MatchTestDataManager.delete_patients_from_seed(patient_list)
+MatchTestDataManager.delete_patients_from_seed(patient_list)
 MatchTestDataManager.clear_all_local_tables
 MatchTestDataManager.upload_all_seed_data_to_local
 Auth0Token.force_generate_auth0_token('ADMIN')

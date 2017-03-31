@@ -51,7 +51,7 @@ module.exports = function () {
 
     this.When(/^I click on the Surgical Event Id Link$/, function (callback) {
         patientPage.patientSurgicalEventId.click().then(function () {
-            browser.sleep(40);
+            browser.waitForAngular();
         }).then(callback);
     });
 
