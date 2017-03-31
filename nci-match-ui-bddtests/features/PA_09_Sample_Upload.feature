@@ -43,7 +43,7 @@ Feature: MATCHKB-542. Users can upload patient sample files.
       | VR_Sender_mocha     | PT_AU04_MochaTsShipped1  | PT_AU04_MochaTsShipped1_SEI1 | mocha |
       | VR_Sender_mda       | PT_AU04_MdaTsShipped1    | PT_AU04_MdaTsShipped1_SEI1   | mda   |
 
-  Scenario Outline: As Sender type user I should see the upload button from Tissue Shipped to Variant Confirmed state
+  Scenario Outline: As Sender type user, link to upload is <visibility> to a patient of status <status>
     Given I stay logged in as "VR_Sender_mda" user
     When I go to patient "<patient_id>" with surgical event "<surgical_event_id>"
     And The patient has a status of "<status>"
@@ -63,14 +63,6 @@ Feature: MATCHKB-542. Users can upload patient sample files.
         | PT_AS12_OnTreatmentArm        | PT_AS12_OnTreatmentArm_SEI1           | ON_TREATMENT_ARM                  | invisible   |
         | PT_RA03_NoTaAvailable         | PT_RA03_NoTaAvailable_SEI1            | NO_TA_AVAILABLE                   | invisible   |
     
-
-  Scenario: As a privileged user I cannot upload a sample file if all files have been uploaded already
-    Given I am logged in as a "system" user
-    When I go to patient "ION_AQ41_TsVrUploaded" with surgical event "ION_AQ41_TsVrUploaded_SEI1"
-    And I scroll to the bottom of the page
-    And I should see the variant report link for "ION_AQ41_TsVrUploaded_ANI1"
-    Then The "Upload new sample file" link is "invisible"
-    Then I logout
 
   Scenario: As a privileged user I cannot upload sample file until all validations pass
     Given I am logged in as a "VR_Sender_mda" user
