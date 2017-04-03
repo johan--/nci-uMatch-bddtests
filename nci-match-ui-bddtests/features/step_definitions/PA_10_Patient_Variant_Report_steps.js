@@ -57,7 +57,7 @@ module.exports = function () {
 
     this.When(/^I click on the Molecular ID link$/, function (callback) {
         patientPage.patientMolecularId.click().then(function () {
-            browser.sleep(40);
+            browser.waitForAngular();
         }).then(callback);
     });
 
@@ -75,11 +75,22 @@ module.exports = function () {
         var patientId = patientPage.patientId;
         var surgicalEventId = patientId + '_SEI1';
         var molecularId = patientId + '_MOI1';
-        var expectedUrl = browser.baseUrl + '/#/patient?patient_id=' + patientId + '&section=molecular_id&molecular_id=' + molecularId;
-        browser.ignoreSynchronization = true;
-        expect(browser.getCurrentUrl()).to.eventually.eql(expectedUrl).then(function () {
-            browser.ignoreSynchronization = false;
+        var expectedUrl = browser.baseUrl + '/#/patient?patient_id=' + patientId + '&section=molecular_id&molecular_id=' + molecularId + '#molecular_id_' + molecularId;
+        browser.sleep(1500).then(function (){
+            expect(browser.getCurrentUrl()).to.eventually.eql(expectedUrl);    
         }).then(callback);
+    });
+
+    this.Then(/^I expect to see the Torrent Variant Caller Version as "([^"]*)"$/, function (torrent, callback) {
+        expect(patientPage.torrentVersion.getText()).to.eventually.eql(torrent.toString()).notify(callback)
+    });
+
+    this.Then(/^I expect to see the Pool 1 Total as "([^"]*)"$/, function (total, callback) {
+        expect(patientPage.pool1Total.getText()).to.eventually.eql(total).notify(callback);
+    });
+
+    this.Then(/^I expect to see the Pool 2 Total as "([^"]*)"$/, function (total, callback) {
+        expect(patientPage.pool2Total.getText()).to.eventually.eql(total).notify(callback);
     });
 
 };

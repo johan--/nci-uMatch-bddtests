@@ -176,6 +176,9 @@ var PatientPage = function () {
     this.totalconfirmedAMOIs    = element(by.binding('variantReport.total_confirmed_amois'));
     this.variantReportStatus    = element.all(by.binding('variantReport.status'));
     this.variantsCheckBoxList   = element.all(by.css('check-box-with-confirm input'));
+    this.torrentVersion         = element(by.css('.tissue-variant-report-header-box dd:nth-child(12)'));
+    this.pool1Total             = element.all(by.css('.tissue-variant-report-header-box')).get(1).all(by.css('dd')).get(3)
+    this.pool2Total             = element.all(by.css('.tissue-variant-report-header-box')).get(1).all(by.css('dd')).get(4)
 
     // Elements found on Assignment Report TAB
     this.assignmentSummaryBoxes      = element.all(by.css('.assignment-header-box'));
