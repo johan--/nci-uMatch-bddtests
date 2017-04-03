@@ -43,7 +43,7 @@ Feature: Patient Summary Page
     And I should see a message "COG Message: Patient is deceased." in the timeline
     Then I logout
 
-  @ui_p2 @flingest
+  @ui_p2
   Scenario Outline: Patient with status <status> <see_or_not> show TA 
     When I go to patient "<patient>" details page
     When His status is "<status>"
