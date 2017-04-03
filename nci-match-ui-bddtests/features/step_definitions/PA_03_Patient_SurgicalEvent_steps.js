@@ -153,8 +153,9 @@ module.exports = function () {
         var headingRow = element.all(by.repeater('shipment in specimenEvent.specimen_shipments'));
         var actualMolecularId = headingRow.get(0).all(by.binding('shipment.molecular_id')).get(0);
         var siblingRow = headingRow.get(0).all(by.xpath('..')).all(by.repeater(patientPage.variantAndAssignmentPanelString));
+        var assignmentBox = element.all(by.css('[ng-repeat="assignment in analysis.assignments"]'))
 
         expect(actualMolecularId.getText()).to.eventually.eql(molecularId)
-        expect(siblingRow.count()).to.eventually.eql(parseInt(assignmentCount)).notify(callback)
+        expect(assignmentBox.count()).to.eventually.eql(parseInt(assignmentCount)).notify(callback)
     });
 };

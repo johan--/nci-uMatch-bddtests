@@ -325,7 +325,7 @@ module.exports = function() {
 
         var message = element.all(by.repeater('id in vm.limboMessageIds'));
         //var message = element.all(by.xpath(".//*[@id='limboPatients']/table/tbody/tr[1]/td[4]/limbo-messages"));
-        var days_pending = element.all(by.css('number-color-badge[value="item.days_pending"]')).get(0);
+        var days_pending = element.all(by.css('#limboPatientsPanel number-color-badge[value="item.days_pending"]')).get(0);
 
         for (var i = 0; i < dash.responseData.length; i++){
             limboTableFilter.clear();

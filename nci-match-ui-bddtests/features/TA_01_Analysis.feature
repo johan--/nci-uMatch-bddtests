@@ -20,7 +20,6 @@ Feature: Treatment Arms Dashboard
     When I enter id "APEC1621-UI" and stratum "STR100" in the treatment arm filter textbox
     And I collect backend information about the treatment arm
     And I should see the data maps to the relevant column
-    Then I logout
 
   @ui_p2
   Scenario: Logged in user can access the dashboard of Treatment Arms page
@@ -31,13 +30,11 @@ Feature: Treatment Arms Dashboard
     And I should see the Name Details
     And I should see the Gene Details
     And I should see three tabs related to the treatment arm
-    Then I logout
 
   @ui_p2
   Scenario: Logged in user can access different versions of the treatment arm
     When I go to treatment arm with "APEC1621-UI" as the id and "STR100" as stratum id
     Then I should see the drop down to select different versions of the treatment arm
-    Then I logout
 
   @ui_p2
   Scenario: Logged in user can access Patients data on the Analysis Tab
@@ -49,7 +46,6 @@ Feature: Treatment Arms Dashboard
     And I should see the All Patients Data Table on the Treatment Arm
     # And I should see a patient's data in the All Patients Data Table
     And All Patients Data displays patients that have been ever assigned to "APEC1621-A"
-    Then I logout
 
   @ui_p2
   Scenario: Logged in user can access Patients Assignment Outcome on the Analysis Tab
@@ -58,7 +54,6 @@ Feature: Treatment Arms Dashboard
     And I can see the legend for the charts
     And I should see Patient Assignment Outcome chart
     And I should see Diseases Represented chart
-    Then I logout
 
   @broken
   Scenario: Logged in user can access the different versions of Treatment Arm under the History Tab

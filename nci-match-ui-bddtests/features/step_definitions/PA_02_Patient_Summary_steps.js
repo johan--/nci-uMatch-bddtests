@@ -29,7 +29,7 @@ module.exports = function () {
         }).then (callback);
     });
 
-    this.When (/^I go to patient "(.+)" details page$/, function (pa_id, callback) {
+    this.When (/^I go to patient "([^"]*)" details page$/, function (pa_id, callback) {
         patientPage.patientId = pa_id;
         browser.get ('/#/patient?patient_id=' + pa_id, utilities.delay.afterPatientLoad).then(callback);
         browser.ignoreSynchronization = false;

@@ -32,4 +32,3 @@ Feature: Patient Surgical Events Tab
     And I click on the "Surgical Event UI_MA_PendingApproval_SEI1" tab
     And I scroll to the bottom of the page
     Then I should see "3" Assignments under the Molecular ID "UI_MA_PendingApproval_MOI1"
-    Then I logout

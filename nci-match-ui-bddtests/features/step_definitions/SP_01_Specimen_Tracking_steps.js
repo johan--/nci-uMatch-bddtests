@@ -178,8 +178,8 @@ module.exports = function () {
     this.Then(/^I verify that surgical event tab is active$/, function(callback){
         var subTabName = "Surgical Event " + surgicalEventId;
         var subTabElement = element.all(by.css('li[ng-repeat="specimenEvent in specimenEvents"]')).get(0)
-        expect(subTabElement.getText()).to.eventually.eql(surgicalEventId);
-        utilities.checkElementIncludesAttribute(subTab, 'class', 'active');
+        expect(subTabElement.getText()).to.eventually.include(surgicalEventId);
+        utilities.checkElementIncludesAttribute(subTabElement, 'class', 'active');
         browser.sleep(50).then(callback);
     })
 

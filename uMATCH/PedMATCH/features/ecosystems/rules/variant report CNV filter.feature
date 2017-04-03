@@ -1,7 +1,6 @@
 @rules_p1
 Feature: Test the functionality that filters the CNV variants based on specified filter criteria
 
-
   Scenario: FIL-CNV_01: CNV with gene from the version 4 vcf list is filtered in
     Given a tsv variant report file "cnv_v4_gene_filter" and treatment arms file "APEC1621-B.json"
     When call the amoi rest service
