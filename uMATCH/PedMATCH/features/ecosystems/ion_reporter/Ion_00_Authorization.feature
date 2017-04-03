@@ -111,18 +111,17 @@ Feature: ir ecosystem authorization tests
 
   @ion_reporter_p1
   Scenario Outline: ION_AU05 role base authorization works properly to create sample_control
-    #for example MDA_VARIANT_REPORT_SENDER, dartmouth msn get generated, that's special requirement, check test ION_AU05b
     Given site is "mda"
     Given control_type is "no_template"
     And molecular id is ""
     And ir user authorization role is "<auth_role>"
     When POST to sample_controls service, response includes "<mda_msg>" with code "<mda_code>"
     Given site is "mocha"
-    Given control_type is "positive"
+    Given control_type is "proficiency_competency"
     And molecular id is ""
     When POST to sample_controls service, response includes "<mocha_msg>" with code "<mocha_code>"
     Given site is "dartmouth"
-    Given control_type is "proficiency_competency"
+    Given control_type is "positive"
     And molecular id is ""
     When POST to sample_controls service, response includes "<dartmouth_msg>" with code "<dartmouth_code>"
     Examples:
@@ -133,7 +132,7 @@ Feature: ir ecosystem authorization tests
       | ADMIN                             | created | 200      | created   | 200        | created       | 200            |
       | SYSTEM                            |         | 401      |           | 401        |               | 401            |
       | ASSIGNMENT_REPORT_REVIEWER        |         | 401      |           | 401        |               | 401            |
-      | MDA_VARIANT_REPORT_SENDER         | created | 200      |           | 401        | created       | 200            |
+      | MDA_VARIANT_REPORT_SENDER         | created | 200      |           | 401        |               | 401            |
       | MDA_VARIANT_REPORT_REVIEWER       |         | 401      |           | 401        |               | 401            |
       | MOCHA_VARIANT_REPORT_SENDER       |         | 401      | created   | 200        |               | 401            |
       | MOCHA_VARIANT_REPORT_REVIEWER     |         | 401      |           | 401        |               | 401            |
@@ -146,14 +145,18 @@ Feature: ir ecosystem authorization tests
   @ion_reporter_p2
   Scenario Outline: ION_AU05b MDA_VARIANT_REPORT_SENDER should be able create proficiency_competency sample control for mocha and dartmouth
     Given site is "<site>"
-    Given control_type is "proficiency_competency"
+    Given control_type is "<control_type>"
     And molecular id is ""
     And ir user authorization role is "MDA_VARIANT_REPORT_SENDER"
-    When POST to sample_controls service, response includes "created" with code "200"
+    When POST to sample_controls service, response includes "<message>" with code "<code>"
     Examples:
-      | site      |
-      | mocha     |
-      | dartmouth |
+      | site      | control_type           | message | code |
+      | mocha     | proficiency_competency | created | 200  |
+      | dartmouth | proficiency_competency | created | 200  |
+      | mocha     | no_template            |         | 401  |
+      | dartmouth | no_template            |         | 401  |
+      | mocha     | positive               |         | 401  |
+      | dartmouth | positive               |         | 401  |
 
   @ion_reporter_p2
   Scenario Outline: ION_AU06 role base authorization works properly to list sample_control
@@ -184,7 +187,7 @@ Feature: ir ecosystem authorization tests
       | MDA_VARIANT_REPORT_REVIEWER       | control_type | 200  | false        | false          | false              |
       | MOCHA_VARIANT_REPORT_SENDER       | control_type | 200  | false        | true           | false              |
       | MOCHA_VARIANT_REPORT_REVIEWER     | control_type | 200  | false        | false          | false              |
-      | DARTMOUTH_VARIANT_REPORT_SENDER   | control_type | 200  | false         | false          | true               |
+      | DARTMOUTH_VARIANT_REPORT_SENDER   | control_type | 200  | false        | false          | true               |
       | DARTMOUTH_VARIANT_REPORT_REVIEWER | control_type | 200  | false        | false          | false              |
       | PATIENT_MESSAGE_SENDER            | control_type | 200  | false        | false          | false              |
       | SPECIMEN_MESSAGE_SENDER           | control_type | 200  | false        | false          | false              |
@@ -194,15 +197,18 @@ Feature: ir ecosystem authorization tests
   Scenario Outline: ION_AU06b MDA_VARIANT_REPORT_SENDER should be able edit proficiency_competency sample control for mocha and dartmouth
     Given molecular id is ""
     And add field: "site" value: "<site>" to url
-    And add field: "control_type" value: "proficiency_competency" to url
+    And add field: "control_type" value: "<control_type>" to url
     And ir user authorization role is "MDA_VARIANT_REPORT_SENDER"
     When GET from sample_controls service, response includes "control_type" with code "200"
-    Then if sample_control list returned, it should have editable: "true"
+    Then if sample_control list returned, it should have editable: "<editable>"
     Examples:
-      | site      |
-      | mocha     |
-      | dartmouth |
-
+      | site      | control_type           | editable |
+      | mocha     | proficiency_competency |true      |
+      | dartmouth | proficiency_competency |true      |
+      | mocha     | no_template            |false     |
+      | dartmouth | no_template            |false     |
+      | mocha     | positive               |false     |
+      | dartmouth | positive               |false     |
 
   @ion_reporter_p1
   Scenario Outline: ION_AU07 role base authorization works properly to update sample_control

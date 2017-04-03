@@ -501,9 +501,9 @@ Feature: Tests for aliquot service in ion ecosystem
     And file: "BDD/<moi>/<ani>/dna.bai" should be available in adult match S3
     And file: "BDD/<moi>/<ani>/cdna.bai" should be available in adult match S3
     Examples:
-      | moi                 | ani                     | site  |
-      | Sample-1749-18-DNA  | Sample-1749-18-DNA_ANI1 | mocha |
-      | SampleControl_MoCha_30 | SampleControl_MoCha_30_ANI                     | mocha |
+      | moi                    | ani                        | site      |
+      | Sample-1749-18-DNA     | Sample-1749-18-DNA_ANI1    | dartmouth |
+      | SampleControl_MoCha_30 | SampleControl_MoCha_30_ANI | mocha     |
 
   @ion_reporter_p2_not_done
   Scenario Outline: ION_AQ91. adult match aliquot service should return error if bam file does not exist
