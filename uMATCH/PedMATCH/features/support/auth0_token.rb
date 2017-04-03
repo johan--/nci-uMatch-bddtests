@@ -1,6 +1,40 @@
 require 'rest-client'
 
 class Auth0Token
+  def self.adult_match_token
+    message = {:client_id => ENV['ADULT_MATCH_AUTH0_CLIENT_ID'],
+               :username => ENV['ADULT_MATCH_AUTH0_USERNAME'],
+               :password => ENV['ADULT_MATCH_AUTH0_PASSWORD'],
+               :grant_type => 'password',
+               :scope => 'openid email roles',
+               :connection => ENV['ADULT_MATCH_AUTH0_DATABASE']}.to_json
+    token_variable = 'ADULT_MATCH_AUTH0_TOKEN'
+    if ENV[token_variable].nil? || ENV[token_variable].size < 1
+      begin
+        response = RestClient::Request.execute(:url => "https://#{ENV['AUTH0_DOMAIN']}/oauth/ro",
+                                               :method => :post,
+                                               :verify_ssl => false,
+                                               :payload => message,
+                                               :headers => {:content_type => 'application/json',
+                                                            :accept => 'application/json'})
+      rescue StandardError => e
+        puts e.to_s
+        return ''
+      end
+      begin
+        response_hash = JSON.parse(response)
+      rescue StandardError => e
+        puts e.to_s
+        return ''
+      end
+      ENV[token_variable] = response_hash['id_token']
+      puts "A #{ENV[token_variable].length} digi adult match auth0 token is generated"
+      # else
+      #   puts "A #{ENV[token_variable].length} digi auth0 #{role} token exists, keep using that one"
+    end
+    return ENV[token_variable]
+  end
+
   def self.valid_role?(role)
     valid_roles = %w(ADMIN SYSTEM ASSIGNMENT_REPORT_REVIEWER MDA_VARIANT_REPORT_SENDER
                    MDA_VARIANT_REPORT_REVIEWER MOCHA_VARIANT_REPORT_SENDER MOCHA_VARIANT_REPORT_REVIEWER
@@ -59,8 +93,8 @@ class Auth0Token
       end
       ENV[token_variable] = response_hash['id_token']
       puts "A #{ENV[token_variable].length} digi auth0 #{role} token is generated"
-    # else
-    #   puts "A #{ENV[token_variable].length} digi auth0 #{role} token exists, keep using that one"
+      # else
+      #   puts "A #{ENV[token_variable].length} digi auth0 #{role} token exists, keep using that one"
     end
     return ENV[token_variable]
   end

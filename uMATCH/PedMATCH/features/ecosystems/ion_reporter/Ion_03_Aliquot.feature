@@ -269,7 +269,6 @@ Feature: Tests for aliquot service in ion ecosystem
     Then field: "pool2Sum" for this aliquot should be: "957045.5"
 
 
-
   @ion_reporter_p2
   Scenario: ION_AQ20. for sample control specimen, if the files passed in are not in that path, aliquot service will not update database
     #there is no file in S3 for this sample control
@@ -484,3 +483,39 @@ Feature: Tests for aliquot service in ion ecosystem
       | moi                     |
       | SC_MOCHA_K7IO0          |
       | ION_AQ81_TsShipped_MOI1 |
+
+  @ion_reporter_p1_not_done
+  Scenario Outline: ION_AQ90. adult match aliquot service can gerneate bai file for bam file properly
+    #notice the test data must come from adult match not from ped match, this will make sure this
+    #adult match aliquot service do NOT check ped match database for id existence
+    Given molecular id is "<moi>"
+    And file: "BDD/<moi>/<ani>/dna.bai" has been removed from adult match S3 bucket
+    And file: "BDD/<moi>/<ani>/cdna.bai" has been removed from adult match S3 bucket
+    Then add field: "analysis_id" value: "<ani>" to message body
+    Then add field: "site" value: "<site>" to message body
+    Then add field: "ion_reporter_id" value: "BDD" to message body
+    Then add field: "dna_bam_name" value: "dna.bam" to message body
+    Then add field: "cdna_bam_name" value: "cdna.bam" to message body
+    When PUT to adult match aliquot service, response includes "Item updated" with code "200"
+    Then wait for "30" seconds
+    And file: "BDD/<moi>/<ani>/dna.bai" should be available in adult match S3
+    And file: "BDD/<moi>/<ani>/cdna.bai" should be available in adult match S3
+    Examples:
+      | moi                 | ani                     | site  |
+      | Sample-1749-18-DNA  | Sample-1749-18-DNA_ANI1 | mocha |
+      | SampleControl_MoCha_30 | SampleControl_MoCha_30_ANI                     | mocha |
+
+  @ion_reporter_p2_not_done
+  Scenario Outline: ION_AQ91. adult match aliquot service should return error if bam file does not exist
+    #
+    Given molecular id is "<moi>"
+    Then add field: "analysis_id" value: "<ani>" to message body
+    Then add field: "site" value: "<site>" to message body
+    Then add field: "ion_reporter_id" value: "BDD" to message body
+    Then add field: "dna_bam_name" value: "dna.bam" to message body
+    Then add field: "cdna_bam_name" value: "cdna.bam" to message body
+    When PUT to adult match aliquot service, response includes "Item updated" with code "400"
+    Examples:
+      | moi                  | ani | site |
+      | one_file_doesnt_exis |     |      |
+      | two_files_dont_exist |     |      |

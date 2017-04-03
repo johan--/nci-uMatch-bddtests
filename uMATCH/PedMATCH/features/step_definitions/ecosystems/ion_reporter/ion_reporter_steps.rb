@@ -590,6 +590,14 @@ Then(/^PUT to aliquot service, response includes "([^"]*)" with code "([^"]*)"$/
   expect(response['message']).to include message
 end
 
+Then(/^PUT to adult match aliquot service, response includes "([^"]*)" with code "([^"]*)"$/) do |message, code|
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
+  response = Helper_Methods.put_request(prepare_aliquot_url, @payload.to_json.to_s, true, @current_auth0_role)
+  expect(response['http_code']).to eq code
+  expect(response['message']).to include message
+end
+
+
 When(/^GET from aliquot service, response "([^"]*)" with code "([^"]*)"$/) do |message, code|
   @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
   response = Helper_Methods.simple_get_request(prepare_aliquot_url, true, @current_auth0_role)
@@ -637,6 +645,10 @@ end
 
 And(/^file: "([^"]*)" should be available in S3$/) do |file|
   Helper_Methods.s3_file_exists(ENV['s3_bucket'], file).should == true
+end
+
+And(/^file: "([^"]*)" should be available in adult match S3$/) do |file|
+  Helper_Methods.s3_file_exists(ENV['adult_match_s3_bucket'], file).should == true
 end
 
 Then(/^call aliquot GET service, field: "([^"]*)" for this sample_control should be: "([^"]*)"$/) do |field, value|
@@ -713,6 +725,15 @@ And(/^file: "([^"]*)" has been removed from S3 bucket$/) do |file_name|
     raise wrong_result
   end
 end
+
+And(/^file: "([^"]*)" has been removed from adult match S3 bucket$/) do |file_name|
+  Helper_Methods.s3_delete_path(ENV['adult_match_s3_bucket'], file_name)
+  wrong_result = "#{file_name} is still in bucket <#{ENV['adult_match_s3_bucket']}>"
+  if Helper_Methods.s3_file_exists(ENV['adult_match_s3_bucket'], file_name)
+    raise wrong_result
+  end
+end
+
 
 
 ################################################
@@ -881,6 +902,15 @@ def prepare_aliquot_url
     slash_moi = "/#{@molecular_id}"
   end
   url = "#{ENV['ion_system_endpoint']}/aliquot#{slash_moi}"
+  add_parameters_to_url(url, @url_params)
+end
+
+def prepare_adult_match_aliquot_url
+  slash_moi = ''
+  if @molecular_id!=nil && @molecular_id.length>0
+    slash_moi = "/#{@molecular_id}"
+  end
+  url = "http://adultmatch-inttest-alb-backend-757639567.us-east-1.elb.amazonaws.com:5000/api/v1/aliquot#{slash_moi}"
   add_parameters_to_url(url, @url_params)
 end
 

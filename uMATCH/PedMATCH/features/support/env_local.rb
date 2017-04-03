@@ -14,6 +14,7 @@ ENV['cog_mock_endpoint'] = 'http://127.0.0.1:3000'
 ENV['ion_system_endpoint'] = 'http://127.0.0.1:5000/api/v1'
 
 ENV['s3_bucket'] = 'pedmatch-dev'
+ENV['adult_match_s3_bucket'] = 'adultmatch-int'
 ENV['dynamodb_endpoint'] = 'http://localhost:8000'
 ENV['dynamodb_region'] = 'us-east-1'
 

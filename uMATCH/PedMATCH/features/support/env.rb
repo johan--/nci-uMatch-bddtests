@@ -16,6 +16,7 @@ ENV['cog_mock_endpoint'] = 'http://pedmatch-int.nci.nih.gov:3000'
 ENV['ion_system_endpoint'] = 'https://pedmatch-int.nci.nih.gov/api/v1'
 
 ENV['s3_bucket'] = 'pedmatch-int'
+ENV['adult_match_s3_bucket'] = 'adultmatch-int'
 ENV['dynamodb_endpoint'] = 'https://dynamodb.us-east-1.amazonaws.com'
 ENV['dynamodb_region'] = 'us-east-1'
 
