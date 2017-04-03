@@ -17,9 +17,9 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     Then I select an Ion Reporter "mda - IR_MDA05"
     And I enter Analysis ID "PT_AU04_MdaTsShipped1_An123"
     And I make all elements visible
-    And I press "Select Variant ZIP File" file button to upload "vcfFile.zip" file
-    And I press "Select DNA BAM File" file button to upload "dna.bam" file
-    And I press "Select cDNA BAM File" file button to upload "cdna.bam" file
+    And I press "Select Variant ZIP File" file button to upload "vcf_sample.zip" file
+    And I press "Select DNA BAM File" file button to upload "dna_sample.bam" file
+    And I press "Select cDNA BAM File" file button to upload "rna_sample.bam" file
     Then The "Upload" button is "visible"
     And The "Upload" button is "enabled"
     Then I can click on the "Upload" button

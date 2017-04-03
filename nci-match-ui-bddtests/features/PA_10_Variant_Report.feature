@@ -11,7 +11,6 @@ Feature: As a valid user I can access the variant report for a patient and navig
     And I remember order of elements in column "<columnNumber>" of the "<table>" table
     And I click on "<columnNumber>" column header of the "<table>" table
     Then I should see the data in the column to be sorted properly
-    Then I logout
     Examples:
       | table             | columnNumber |
       | Gene Fusions      | 2            |

@@ -138,25 +138,25 @@ module.exports = function () {
             Delete: {
                 Objects: [
                     {
-                        Key: `${folderName}/vcfFile.zip`,
+                        Key: `${folderName}/vcf_sample.zip`,
                     }, 
                     {
-                        Key: `${folderName}/dna.bam`,
+                        Key: `${folderName}/dna_sample.bam`,
                     },
                     {
-                        Key: `${folderName}/cdna.bam`,
+                        Key: `${folderName}/rna_sample.bam`,
                     },
                     {
-                        Key: `${folderName}/vcfFile.vcf`,
+                        Key: `${folderName}/vcf_sample.vcf`,
                     },
                     {
-                        Key: `${folderName}/vcfFile.tsv`,
+                        Key: `${folderName}/vcf_sample.tsv`,
                     },
                     {
-                        Key: `${folderName}/dna.bai`,
+                        Key: `${folderName}/rna_sample.bai`,
                     },
                     {
-                        Key: `${folderName}/cdna.bai`,
+                        Key: `${folderName}/dna_sample.bai`,
                     }
                 ]
                 

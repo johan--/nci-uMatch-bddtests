@@ -21,7 +21,6 @@ Feature: Patient Summary Page
     And I should see the patient's information table
     And I should see the patient's disease information table
     And I should see the main tabs associated with the patient
-    Then I logout
 
   @ui_p2
   Scenario: I can see the details within the Summary tab of the patient
@@ -32,7 +31,6 @@ Feature: Patient Summary Page
     And I should see the patient's information match database
     And I should see the patient's disease information match the database
     And I should see the "Patient Timeline" section heading
-    Then I logout
 
   @ui_p2
   Scenario: I can see COG Message in Patient Timeline
@@ -41,7 +39,6 @@ Feature: Patient Summary Page
     And I scroll to the bottom of the page
     And I should see the "Patient Timeline" section heading
     And I should see a message "COG Message: Patient is deceased." in the timeline
-    Then I logout
 
   @ui_p2
   Scenario Outline: Patient with status <status> <see_or_not> show TA 

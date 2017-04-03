@@ -21,12 +21,11 @@ Feature: Treatment Arm Rules
     Then I should see the Inclusion Variants table for <subTabName>
     When I select the Exclusion button
     Then I should see the Exclusion Variants table for <subTabName>
-    Then I logout
     Examples:
       | subTabName           |
-      # | SNVs / MNVs / Indels |
-      # | CNVs                 |
-      # | Gene Fusions         |
+      | SNVs / MNVs / Indels |
+      | CNVs                 |
+      | Gene Fusions         |
       | Non-Hotspot Rules    |
 
   @ui_p2
@@ -36,14 +35,12 @@ Feature: Treatment Arm Rules
     And I should see Exclusionary Disease table
     And I should see Exclusionary Drugs table
     And I should see Inclusionary Disease table
-    Then I logout
 
   @ui_p2
   Scenario: Logged in user can access the Non-Sequencing Assays details on the Rules Tab
     When I select the Non-Sequencing Assays sub-tab
     Then I should see that Non-Sequencing Assays sub-tab is active
     And I should see the Non-Sequencing Assays table
-    Then I logout
 
  @ui_p2
   Scenario Outline: Check for links in the <subTabName> table.
@@ -51,7 +48,6 @@ Feature: Treatment Arm Rules
     And I select the Inclusion button
     And I get the index of the "<columnName>" value in "<subTabName>" and "<inclusionType>"
     Then I see that the element with css "<cssSelector>" is a "<linkType>" link
-    Then I logout
     Examples:
       | subTabName            | columnName | inclusionType | cssSelector                            | linkType |
       | SNVs / MNVs / Indels  | ID         | Inclusion     | cosmic-link[link-id="item.identifier"] | Cosmic   |
@@ -64,4 +60,3 @@ Scenario: Check for links in the Non-Sequencing Assays table.
     When I select the Non-Sequencing Assays sub-tab
     And I get the index of the "Gene" value in "Non-Sequencing Assays" and "None"
     Then I see that the element with css "cosmic-link[link-id="item.gene"]" is a "Gene" link
-    Then I logout
