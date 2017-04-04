@@ -5,7 +5,7 @@ Feature: This feature tests the upload funcctionality of the admin tool
 Scenario: An admin can choose to upload only one treatment arm from an excel
 Given I am a logged in user
 And I select "UploadOneTAFromListTest.xlsx" file for upload
-Then I expect to see the file "UploadOneTAFromListTest.xlsx" in the upload section   #"APEC1621-AA"
+Then I expect to see the file "UploadOneTAFromListTest.xlsx" in the upload section
 When I click on "Select Specific Treatment Arms" label on Upload section
 And I enter "APEC1621-AA" in the input
 And I see that the "Upload File" button is "enabled"
