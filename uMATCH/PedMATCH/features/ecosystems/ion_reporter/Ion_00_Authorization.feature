@@ -112,12 +112,12 @@ Feature: ir ecosystem authorization tests
   @ion_reporter_p1
   Scenario Outline: ION_AU05 role base authorization works properly to create sample_control
     Given site is "mda"
-    Given control_type is "no_template"
+    Given control_type is "proficiency_competency"
     And molecular id is ""
     And ir user authorization role is "<auth_role>"
     When POST to sample_controls service, response includes "<mda_msg>" with code "<mda_code>"
     Given site is "mocha"
-    Given control_type is "proficiency_competency"
+    Given control_type is "no_template"
     And molecular id is ""
     When POST to sample_controls service, response includes "<mocha_msg>" with code "<mocha_code>"
     Given site is "dartmouth"
