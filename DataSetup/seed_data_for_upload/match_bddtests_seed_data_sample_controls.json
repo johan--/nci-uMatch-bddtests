@@ -1967,6 +1967,20 @@
         },
         {
             "date_molecular_id_created": {
+                "S": "2016-10-1221:20:02.608332"
+            },
+            "control_type": {
+                "S": "no_template"
+            },
+            "site": {
+                "S": "dartmouth"
+            },
+            "molecular_id": {
+                "S": "NTC_DARTMOUTH_UPL01"
+            }
+        },
+        {
+            "date_molecular_id_created": {
                 "S": "2016-10-12 21:19:58.993651"
             },
             "control_type": {
@@ -2019,6 +2033,20 @@
             },
             "molecular_id": {
                 "S": "SC_MOCHA_EP4AI"
+            }
+        },
+        {
+            "date_molecular_id_created": {
+                "S": "2016-10-12 21:19:20.681454"
+            },
+            "control_type": {
+                "S": "positive"
+            },
+            "site": {
+                "S": "mocha"
+            },
+            "molecular_id": {
+                "S": "SC_MOCHA_UPL01"
             }
         },
         {
