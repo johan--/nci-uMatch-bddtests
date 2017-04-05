@@ -22,6 +22,13 @@ class PatientUploader
     PatientMessageLoader.upload_done
   end
 
+  def self.up_jwp01a_ts_shipped_to_mocha
+    pt = PatientDataSet.new('UP_JWP01a_TsShippedToMocha')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-05-01T19:42:13+00:00', 'MoCha')
+  end
+
   def self.up_jwp01a_ts_shipped_to_mda
     pt = PatientDataSet.new('UP_JWP01a_TsShippedToMda')
     PatientMessageLoader.register_patient(pt.id)
@@ -29,10 +36,115 @@ class PatientUploader
     PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
   end
 
-  def self.up_jwp01a_ts_shipped_to_mocha
-    pt = PatientDataSet.new('UP_JWP01a_TsShippedToMocha')
+  def self.up_jwp01c_ts_shipped_to_mocha
+    pt = PatientDataSet.new('UP_JWP01c_TsShippedToMocha')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-05-01T19:42:14+00:00', 'MoCha')
+  end
+
+  def self.up_jwp01c_ts_shipped_to_dartmouth
+    pt = PatientDataSet.new('UP_JWP01c_TsShippedToDartmouth')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-05-01T19:45:13+00:00', 'Dartmouth')
+  end
+
+  def self.up_jwp02a_ts_shipped_to_mda1
+    pt = PatientDataSet.new('UP_JWP02a_TsShippedToMda1')
     PatientMessageLoader.register_patient(pt.id)
     PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
     PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+  end
+
+  def self.up_jwp02a_ts_shipped_to_mocha1
+    pt = PatientDataSet.new('UP_JWP02a_TsShippedToMocha1')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-05-01T19:42:14+00:00', 'MoCha')
+  end
+
+  def self.up_jwp02a_ts_shipped_to_dartmouth1
+    pt = PatientDataSet.new('UP_JWP02a_TsShippedToDartmouth1')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-05-01T19:45:13+00:00', 'Dartmouth')
+  end
+
+  def self.up_jwp02a_ts_shipped_to_mda2
+    pt = PatientDataSet.new('UP_JWP02a_TsShippedToMda2')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+  end
+
+  def self.up_jwp02a_ts_shipped_to_mocha2
+    pt = PatientDataSet.new('UP_JWP02a_TsShippedToMocha2')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-05-01T19:42:14+00:00', 'MoCha')
+  end
+
+  def self.up_jwp02a_ts_shipped_to_dartmouth2
+    pt = PatientDataSet.new('UP_JWP02a_TsShippedToDartmouth2')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-05-01T19:45:13+00:00', 'Dartmouth')
+  end
+
+  def self.up_jwp03a_ts_shipped_to_mda
+    pt = PatientDataSet.new('UP_JWP03a_TsShippedToMda')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+  end
+
+  def self.up_jwp03a_ts_shipped_to_dartmouth
+    pt = PatientDataSet.new('UP_JWP03a_TsShippedToDartmouth')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-05-01T19:45:13+00:00', 'Dartmouth')
+  end
+
+  def self.up_jwp04_ts_shipped_to_mda
+    pt = PatientDataSet.new('UP_JWP04_TsShippedToMda')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+  end
+
+  def self.up_jwp04_ts_shipped_to_mocha
+    pt = PatientDataSet.new('UP_JWP04_TsShippedToMocha')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-05-01T19:42:14+00:00', 'MoCha')
+  end
+
+  def self.up_jwp04_ts_shipped_to_dartmouth
+    pt = PatientDataSet.new('UP_JWP04_TsShippedToDartmouth')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-05-01T19:45:13+00:00', 'Dartmouth')
+  end
+
+  def self.up_jwp05_ts_shipped_to_mocha
+    pt = PatientDataSet.new('UP_JWP05_TsShippedToMocha')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-05-01T19:42:14+00:00', 'MoCha')
+  end
+
+  def self.up_jwp06_ts_shipped_to_mocha
+    pt = PatientDataSet.new('UP_JWP06_TsShippedToMocha')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-05-01T19:42:14+00:00', 'MoCha')
+  end
+
+  def self.up_jwp06_ts_shipped_to_dartmouth
+    pt = PatientDataSet.new('UP_JWP06_TsShippedToDartmouth')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-05-01T19:45:13+00:00', 'Dartmouth')
   end
 end

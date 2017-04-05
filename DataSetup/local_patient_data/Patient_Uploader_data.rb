@@ -10,14 +10,15 @@ require_relative '../../DataSetup/match_test_data_manager'
 Environment.setTier 'local' #set this value to 'local' if you are running tests on your local machine.
 
 # patient_list = []
-# patient_list << 'UI_PA09_TsVr52Uploaded'
+# patient_list << 'UP_JWP01a_TsShippedToMocha'
 # #
 # MatchTestDataManager.delete_patients_from_seed(patient_list)
 MatchTestDataManager.clear_all_local_tables
 MatchTestDataManager.upload_all_seed_data_to_local
 Auth0Token.force_generate_auth0_token('ADMIN')
-PatientUploader.upload_patient('UP_JWP01a_TsShippedToMda')
-PatientUploader.upload_patient('UP_JWP01a_TsShippedToMocha')
+PatientUploader.upload_patient('UP_JWP05_TsShippedToMocha')
+PatientUploader.upload_patient('UP_JWP06_TsShippedToMocha')
+PatientUploader.upload_patient('UP_JWP06_TsShippedToDartmouth')
 #
 sleep(10.0)
 
