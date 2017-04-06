@@ -19,7 +19,7 @@ Background: wait for process to complete
       "target_name": "Crizotinib",
       "gene": "ALK",
       "treatment_arm_status": "OPEN",
-      "study_id": "APEC1621",
+      "study_id": "APEC1621SC",
       "assay_results": [],
       "num_patients_assigned": null,
       "date_opened": null,
@@ -150,7 +150,7 @@ Background: wait for process to complete
       "target_name": "Crizotinib",
       "gene": "ALK",
       "treatment_arm_status": "OPEN",
-      "study_id": "APEC1621",
+      "study_id": "APEC1621SC",
       "assay_results": [
         {
             "func_gene" : "PTEN",

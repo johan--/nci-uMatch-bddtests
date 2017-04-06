@@ -6,7 +6,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: e6b202f6-ac55-5dca-
       "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
       "msg_dttm": "2016-05-09T22:06:33+00:00"
     },
-    "study_id": "APEC1621",
+    "study_id": "APEC1621SC",
     "patient_id": "00002",
     "step_number": "1.0",
     "status_date": "2016-09-18T02:06:33+00:00",
@@ -27,7 +27,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 4515a4c3-ec59-6a6f-
       "msg_dttm": "2016-04-25T18:42:13+00:00"
     },
     "specimen_received": {
-      "study_id": "APEC1621",
+      "study_id": "APEC1621SC",
       "patient_id": "00002",
       "type": "BLOOD",
       "collection_dttm": "2016-09-18T03:17:11+00:00",
@@ -52,7 +52,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 268ae2b1-7ed4-2420-
     },
     "specimen_received": {
       "patient_id": "00002",
-      "study_id": "APEC1621",
+      "study_id": "APEC1621SC",
       "surgical_event_id": "00002-bsn",
       "type": "TISSUE",
       "collection_dttm": "2016-09-18T04:17:11+00:00",
@@ -77,7 +77,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 7bd2aa12-64de-3a48-
       "msg_dttm": "2016-05-01T19:42:13+00:00"
     },
     "specimen_shipped": {
-      "study_id": "APEC1621",
+      "study_id": "APEC1621SC",
       "patient_id": "00002",
       "type": "TISSUE_DNA_AND_CDNA",
 
@@ -107,7 +107,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 51ace6a1-95eb-d954-
       "msg_dttm": "2016-06-02T19:42:13+00:00"
     },
     "specimen_shipped": {
-      "study_id": "APEC1621",
+      "study_id": "APEC1621SC",
       "patient_id": "00002",
       "type": "SLIDE",
 
@@ -132,7 +132,7 @@ ASSAY_RESULTS - ICCPTENs:
 -------------------------
 curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: dfd55802-ffce-213e-a2af-7a14d89f2b4b" -d '  {
     "patient_id":"00002",
-    "study_id": "APEC1621",
+    "study_id": "APEC1621SC",
     "surgical_event_id":"00002-bsn",
     "case_number": "case-1234",
     "type": "ASSAY_RESULT_REPORTED",
@@ -147,7 +147,7 @@ ASSAY_RESULTS - ICCBAF47s:
 
 curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 71350303-da8c-0be0-b81c-294173248892" -d '  {
     "patient_id":"00002",
-    "study_id": "APEC1621",
+    "study_id": "APEC1621SC",
     "surgical_event_id":"00002-bsn",
     "case_number": "case-1234",
     "type": "ASSAY_RESULT_REPORTED",
@@ -162,7 +162,7 @@ PATHOLOGY_CONFIRMATION:
 curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: a2b91f17-dd93-38c7-9d7c-e00d428cba0a" -d '  {
     "patient_id":"00002",
     "surgical_event_id":"00002-bsn",
-    "study_id":"APEC1621",
+    "study_id":"APEC1621SC",
     "case_number": "case-1234",
     "type":"PATHOLOGY_STATUS",
     "reported_date":"2016-09-18T08:13:09.071-05:00",
@@ -203,7 +203,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H
     "msg_guid": "0f8fad5b-d9cb-469f-a165-80067728950e",
     "msg_dttm": "2016-05-09T22:06:33+00:00"
   },
-  "study_id": "APEC1621",
+  "study_id": "APEC1621SC",
   "patient_id": "00002",
   "step_number": "1.1",
   "treatment_arm_id": "CukeTest-00001-B",
@@ -230,7 +230,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H
     "msg_guid": "0f8fad5b-d9cb-469f-a165-80067728950e",
     "msg_dttm": "2016-05-09T22:06:33+00:00"
   },
-  "study_id": "APEC1621",
+  "study_id": "APEC1621SC",
   "patient_id": "00002",
   "step_number": "2.0",
   "status": "REQUEST_ASSIGNMENT",
@@ -262,7 +262,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H
     "msg_guid": "0f8fad5b-d9cb-469f-a165-80067728950e",
     "msg_dttm": "2016-05-09T22:06:33+00:00"
   },
-  "study_id": "APEC1621",
+  "study_id": "APEC1621SC",
   "patient_id": "00002",
   "step_number": "2.1",
   "treatment_arm_id": "CukeTest-00001-A",
@@ -290,7 +290,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H
     "msg_guid": "0f8fad5b-d9cb-469f-a165-80067728950e",
     "msg_dttm": "2016-05-09T22:06:33+00:00"
   },
-  "study_id": "APEC1621",
+  "study_id": "APEC1621SC",
   "patient_id": "00002",
   "step_number": "3.0",
   "status": "REQUEST_ASSIGNMENT",
@@ -315,7 +315,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: a5682ad9-ff9c-bc20-
     },
     "specimen_received": {
       "patient_id": "00002",
-      "study_id": "APEC1621",
+      "study_id": "APEC1621SC",
       "surgical_event_id": "00002-bsn-2",
       "type": "TISSUE",
       "collection_dttm": "2016-09-18T13:17:11+00:00",
@@ -339,7 +339,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: f1d8a465-87c8-c9cd-
       "msg_dttm": "2016-05-01T19:42:13+00:00"
     },
     "specimen_shipped": {
-      "study_id": "APEC1621",
+      "study_id": "APEC1621SC",
       "patient_id": "00002",
       "type": "TISSUE_DNA_AND_CDNA",
 
@@ -367,7 +367,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: 9676c4be-b097-524e-
       "msg_dttm": "2016-06-02T19:42:13+00:00"
     },
     "specimen_shipped": {
-      "study_id": "APEC1621",
+      "study_id": "APEC1621SC",
       "patient_id": "00002",
       "type": "SLIDE",
 
@@ -391,7 +391,7 @@ ASSAY_RESULTS - ICCPTENs(2):
 ----------------------------
 curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: d4f77d6c-fa4f-af29-d5fa-2f2f7711edb4" -d '  {
     "patient_id":"00002",
-    "study_id": "APEC1621",
+    "study_id": "APEC1621SC",
     "surgical_event_id":"00002-bsn-2",
     "case_number": "case-1234-2",
     "type": "ASSAY_RESULT_REPORTED",
@@ -405,7 +405,7 @@ ASSAY_RESULTS - ICCBAF47s(2):
 ----------------------------
 curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: e4bdee34-e598-8830-ceb8-a75bbc793676" -d '  {
     "patient_id":"00002",
-    "study_id": "APEC1621",
+    "study_id": "APEC1621SC",
     "surgical_event_id":"00002-bsn-2",
     "case_number": "case-1234-2",
     "type": "ASSAY_RESULT_REPORTED",
@@ -420,7 +420,7 @@ PATHOLOGY_CONFIRMATION(2):
 curl -X POST -H "Cache-Control: no-cache" -H "Postman-Token: b889e616-0074-76da-3936-2b837fd935ab" -d '  {
     "patient_id":"00002",
     "surgical_event_id":"00002-bsn-2",
-    "study_id":"APEC1621",
+    "study_id":"APEC1621SC",
     "case_number": "case-1234-2",
     "type":"PATHOLOGY_STATUS",
     "reported_date":"2016-09-18T19:13:09.071-05:00",
@@ -459,7 +459,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H
     "msg_guid": "0f8fad5b-d9cb-469f-a165-80067728950e",
     "msg_dttm": "2016-05-09T22:06:33+00:00"
   },
-  "study_id": "APEC1621",
+  "study_id": "APEC1621SC",
   "patient_id": "00002",
   "step_number": "3.1",
   "treatment_arm_id": "CukeTest-00001-C",
@@ -488,7 +488,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H
     "msg_guid": "0f8fad5b-d9cb-469f-a165-80067728950e",
     "msg_dttm": "2016-05-09T22:06:33+00:00"
   },
-  "study_id": "APEC1621",
+  "study_id": "APEC1621SC",
   "patient_id": "00002",
   "step_number": "4.0",
   "status": "REQUEST_ASSIGNMENT",
@@ -519,7 +519,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H
     "msg_guid": "0f8fad5b-d9cb-469f-a165-80067728950e",
     "msg_dttm": "2016-05-09T22:06:33+00:00"
   },
-  "study_id": "APEC1621",
+  "study_id": "APEC1621SC",
   "patient_id": "00002",
   "step_number": "4.1",
   "treatment_arm_id": "CukeTest-00001-D",

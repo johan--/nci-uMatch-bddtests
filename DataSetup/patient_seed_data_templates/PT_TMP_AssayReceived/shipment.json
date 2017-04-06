@@ -4,7 +4,7 @@
     "Items": [
         {
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "slide_barcode": {
                 "S": "PT_TMP_AssayReceived_BC1"
@@ -63,7 +63,7 @@
                 "S": "Federal Express"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2017-01-10T17:11:59+00:00"

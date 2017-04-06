@@ -4,7 +4,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H
     "stratum":"1",
     "version" : "2015-08-06",
     "description" : "This TA is used by Cuke Test",
-    "study_id":"APEC1621",
+    "study_id":"APEC1621SC",
     "treatment_arm_drugs" : [
         {
             "drug_id" : "115",

@@ -4,7 +4,7 @@
       "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
       "msg_dttm": "2016-05-09T22:06:33+00:00"
     },
-    "study_id": "APEC1621",
+    "study_id": "APEC1621SC",
     "patient_id": "3355",
     "step_number": "1.0",
     "status_date": "2016-05-09T22:06:33+00:00",
@@ -21,7 +21,7 @@
       "msg_dttm": "2016-04-25T18:42:13+00:00"
     },
     "specimen_received": {
-      "study_id": "APEC1621",
+      "study_id": "APEC1621SC",
       "patient_id": "3355",
       "type": "BLOOD",
       "collection_dttm": "2016-05-25T14:17:11+00:00",
@@ -42,7 +42,7 @@
     },
     "specimen_received": {
       "patient_id": "3355",
-      "study_id": "APEC1621",
+      "study_id": "APEC1621SC",
       "surgical_event_id": "3355-bsn",
       "type": "TISSUE",
       "collection_dttm": "2016-05-25T15:17:11+00:00",
@@ -63,7 +63,7 @@
       "msg_dttm": "2016-05-01T19:42:13+00:00"
     },
     "specimen_shipped": {
-      "study_id": "APEC1621",
+      "study_id": "APEC1621SC",
       "patient_id": "3355",
       "type": "TISSUE_DNA_AND_CDNA",
 
@@ -88,7 +88,7 @@
       "msg_dttm": "2016-05-01T19:42:13+00:00"
     },
     "specimen_shipped": {
-      "study_id": "APEC1621",
+      "study_id": "APEC1621SC",
       "patient_id": "3355",
       "type": "SLIDE",
 
@@ -114,7 +114,7 @@
     },
     "specimen_shipped": {
       "patient_id": "3355",
-      "study_id": "APEC1621",
+      "study_id": "APEC1621SC",
       "surgical_event_id": "3355-bsn",
       "molecular_id": "3355-bsn-msn-2",
       "type": "TISSUE_DNA_AND_CDNA",
@@ -132,7 +132,7 @@
   },
   {
     "patient_id":"3355",
-    "study_id": "APEC1621",
+    "study_id": "APEC1621SC",
     "surgical_event_id":"3355-bsn",
     "case_number": "case-3355",
     "type": "ASSAY_RESULT_REPORTED",
@@ -143,7 +143,7 @@
   },
   {
     "patient_id":"3355",
-    "study_id": "APEC1621",
+    "study_id": "APEC1621SC",
     "surgical_event_id":"3355-bsn",
     "case_number": "case-3355",
     "type": "ASSAY_RESULT_REPORTED",
@@ -154,7 +154,7 @@
   },
   {
     "patient_id":"3355",
-    "study_id": "APEC1621",
+    "study_id": "APEC1621SC",
     "surgical_event_id":"3355-bsn",
     "case_number": "case-3355",
     "type": "PATHOLOGY_STATUS",
@@ -216,7 +216,7 @@
       "msg_guid": "0f8fad5b-d9cb-469f-a165-80067728950e",
       "msg_dttm": "2016-05-09T22:06:33+00:00"
     },
-    "study_id": "APEC1621",
+    "study_id": "APEC1621SC",
     "patient_id": "3355",
     "step_number": "1.1",
     "treatment_arm_id": "APEC1621-A",

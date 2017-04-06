@@ -9,7 +9,7 @@
     "target_name": "Crizotinib",
     "gene": "RET",
     "treatment_arm_status": "OPEN",
-    "study_id": "APEC1621",
+    "study_id": "APEC1621SC",
     "assay_rules": [],
     "num_patients_assigned": null,
     "treatment_arm_drugs": [{

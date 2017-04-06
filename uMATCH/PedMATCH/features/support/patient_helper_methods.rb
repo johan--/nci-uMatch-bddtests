@@ -63,7 +63,7 @@ class Patient_helper_methods
                          "qc_ts" => dateCreated
     }
 
-    specimen_hash={"study_id" => 'APEC1621',
+    specimen_hash={"study_id" => 'APEC1621SC',
                    "patient_id" => psn,
                    "type" => type,
                    "surgical_event_id" => "bsn"+"-"+psn,
@@ -123,7 +123,7 @@ class Patient_helper_methods
     }
 
     if type == 'BLOOD_DNA'
-      specimen_hash={"study_id" => 'APEC1621',
+      specimen_hash={"study_id" => 'APEC1621SC',
                      "patient_id" => psn,
                      "type" => type,
                      "surgical_event_id" => surgical_id,
@@ -134,7 +134,7 @@ class Patient_helper_methods
                      "internal_use_only" => internal_use_Hash
       }
     elsif type == 'TISSUE_DNA_AND_CDNA'
-      specimen_hash={"study_id" => 'APEC1621',
+      specimen_hash={"study_id" => 'APEC1621SC',
                      "patient_id" => psn,
                      "type" => type,
                      "surgical_event_id" => surgical_id,
@@ -145,7 +145,7 @@ class Patient_helper_methods
                      "internal_use_only" => internal_use_Hash
       }
     elsif type == 'SLIDE'
-      specimen_hash={"study_id" => 'APEC1621',
+      specimen_hash={"study_id" => 'APEC1621SC',
                      "patient_id" => psn,
                      "type" => type,
                      "surgical_event_id" => surgical_id,

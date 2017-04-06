@@ -12,7 +12,7 @@ Feature: Register a new patient in PEDMatchbox:
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "REGISTRATION"
     And patient field: "registration_date" should have value: "2016-08-16T14:52:58+00:00"
-    And patient field: "study_id" should have value: "APEC1621"
+    And patient field: "study_id" should have value: "APEC1621SC"
     And patient field: "current_step_number" should have value: "1.0"
     And patient field: "patient_id" should have value: "PT_RG01_New"
 

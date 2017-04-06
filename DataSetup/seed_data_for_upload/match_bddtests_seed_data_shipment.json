@@ -22,7 +22,7 @@
                 "S": "54a3384c-b1bc-440d-9eed-c5ba2916cf22"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SR10_ProgressReBioY_SEI1"
@@ -51,7 +51,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T23:42:13+00:00"
@@ -95,7 +95,7 @@
                 "S": "5a7a6f24-e308-4250-a6d6-81db8145e1c8"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA04a_TsShipped_SEI1"
@@ -127,7 +127,7 @@
                 "S": "2d8ffeca-9105-432e-8916-6f6dabbc97e1"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_VC15_AssayReceivedVrReceivedToReject_SEI1"
@@ -159,7 +159,7 @@
                 "S": "b3c86298-f535-4dfb-87ad-e6b221d42bcc"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AM01_TsVrReceived2_SEI1"
@@ -188,7 +188,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -229,7 +229,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -273,7 +273,7 @@
                 "S": "ec3268dd-46fe-4293-8c20-ac61e3dce801"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SS11a_Step2TsReceived2_SEI1"
@@ -302,7 +302,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -346,7 +346,7 @@
                 "S": "5074edb9-cb1d-487a-b945-84ecd5dc3f9f"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SR10_NoTaAvailable_SEI1"
@@ -375,7 +375,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -419,7 +419,7 @@
                 "S": "d47c7ae0-282d-4666-a4e5-1cf2ee4ee9ba"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AS13_SlideShipped_SEI1"
@@ -451,7 +451,7 @@
                 "S": "fa2bb364-cd85-4f65-b398-bbd2f39e07d4"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SS11a_Step2BdReceived_SEI1"
@@ -483,7 +483,7 @@
                 "S": "ed588b1b-151f-40fc-b183-91b9ec7debb5"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA04a_AssayReceived_SEI1"
@@ -512,7 +512,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -553,7 +553,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -597,7 +597,7 @@
                 "S": "dbe99805-6b75-4f0a-b0da-1a1e0ad994db"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AS00_SlideShipped3_SEI1"
@@ -626,7 +626,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-12-07T18:25:51+00:00"
@@ -670,7 +670,7 @@
                 "S": "c830b6a2-31bc-41dc-8559-bd9aa58743ad"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC06e_PendingApproval_SEI1"
@@ -702,7 +702,7 @@
                 "S": "2daf47fc-fa1f-43ff-8152-311ec3389eaf"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC02e_PendingConfirmation_SEI1"
@@ -734,7 +734,7 @@
                 "S": "131b6a09-cccc-4228-9b22-69e0b8b39f8a"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SR10_CompassionateCare_SEI1"
@@ -763,7 +763,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -804,7 +804,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -845,7 +845,7 @@
                 "S": "Dartmouth"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:45:13+00:00"
@@ -886,7 +886,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -927,7 +927,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -968,7 +968,7 @@
                 "S": "Dartmouth"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -1012,7 +1012,7 @@
                 "S": "9e60adc8-bab7-4fd2-baa0-16a013a82655"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC09_TsReceivedStep2_SEI1"
@@ -1041,7 +1041,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -1082,7 +1082,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -1123,7 +1123,7 @@
                 "S": "Dartmouth"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -1164,7 +1164,7 @@
                 "S": "Dartmouth"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:45:13+00:00"
@@ -1205,7 +1205,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -1249,7 +1249,7 @@
                 "S": "88604ff3-a352-44f2-9c70-f5f25640b31d"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AM04_TsReceived1_SEI1"
@@ -1278,7 +1278,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -1322,7 +1322,7 @@
                 "S": "810d245b-a6b2-4099-8b60-b82cd2e8ddf1"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC05a_PendingConfirmation_SEI1"
@@ -1354,7 +1354,7 @@
                 "S": "190f678a-515a-45e8-a8d8-1f6578f6ef89"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC09_OnTreatmentArm_SEI1"
@@ -1383,7 +1383,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2017-03-15T15:50:14+00:00"
@@ -1424,7 +1424,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -1465,7 +1465,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -1503,7 +1503,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -1544,7 +1544,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -1588,7 +1588,7 @@
                 "S": "6ed691d1-5201-4603-9b19-ed8d59718ff1"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC04b_ThreeAssayNoTs_SEI1"
@@ -1617,7 +1617,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -1658,7 +1658,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2017-02-21T22:29:41+00:00"
@@ -1699,7 +1699,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -1743,7 +1743,7 @@
                 "S": "eca3dd05-8523-4f99-9f66-2e3c2de0597a"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC04b_TsShippedTwoAssay_SEI1"
@@ -1772,7 +1772,7 @@
                 "S": "MoCha"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -1813,7 +1813,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -1854,7 +1854,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -1898,7 +1898,7 @@
                 "S": "5d2cdf57-77c6-408a-9eac-5cfd4c6226fe"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC01d_PendingApproval_SEI1"
@@ -1930,7 +1930,7 @@
                 "S": "3547c705-8e3e-4af8-b6dd-7bcefc28503f"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC01c_TsVrUploadedStep2_SEI1"
@@ -1959,7 +1959,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -2000,7 +2000,7 @@
                 "S": "ec4f82da-debe-4a96-85fe-452498697b83"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC04d_OneAssay_SEI1"
@@ -2029,7 +2029,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -2073,7 +2073,7 @@
                 "S": "5359a6eb-2fb3-4e1e-863c-117a18a2a502"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA04a_OffStudy_SEI1"
@@ -2105,7 +2105,7 @@
                 "S": "23cb0f4e-6f5f-42b5-8767-adf6d0d5abb1"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AS12_VrConfirmed_SEI1"
@@ -2137,7 +2137,7 @@
                 "S": "0702992b-e50f-4c45-9186-44ec47a913f9"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS04_OnTA1_SEI1"
@@ -2166,7 +2166,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -2207,7 +2207,7 @@
                 "S": "Dartmouth"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:45:13+00:00"
@@ -2248,7 +2248,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -2292,7 +2292,7 @@
                 "S": "6d930183-2a43-4c55-9d95-315fb148778f"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AS11SlideShipped_SEI1"
@@ -2321,7 +2321,7 @@
                 "S": "Dartmouth"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -2362,7 +2362,7 @@
                 "S": "MoCha"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -2406,7 +2406,7 @@
                 "S": "df6b9b18-c40f-4ec7-a8c1-1f21c84c6817"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA03_RequestAssignment_SEI1"
@@ -2438,7 +2438,7 @@
                 "S": "a943a605-7040-4e9f-849d-8de43f74ba61"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01a_TsShipped_SEI1"
@@ -2467,7 +2467,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -2505,7 +2505,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -2546,7 +2546,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -2587,7 +2587,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -2625,7 +2625,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -2669,7 +2669,7 @@
                 "S": "4121f1bf-ad6e-4ea7-aaa7-4d1528e591ad"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_VC14_BdVRUploadedTsVRUploadedOtherReady_SEI1"
@@ -2698,7 +2698,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -2739,7 +2739,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2017-02-21T21:37:52+00:00"
@@ -2783,7 +2783,7 @@
                 "S": "55cedee7-a9f9-4a6b-ac48-27686158996a"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "UI_EM_OffStudy_SEI1"
@@ -2815,7 +2815,7 @@
                 "S": "130efb3d-4e4c-4e8d-8a69-b93f9db21ebd"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_CR03_VRUploadedPathConfirmed_SEI1"
@@ -2847,7 +2847,7 @@
                 "S": "52e0da8d-623c-48dd-b64d-a4a11090a724"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA03_TsShipped_SEI1"
@@ -2876,7 +2876,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -2920,7 +2920,7 @@
                 "S": "941823cc-1287-4dc9-9c33-724c20218359"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA06_PendingAproval_SEI1"
@@ -2949,7 +2949,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -2990,7 +2990,7 @@
                 "S": "d17a5a9d-053b-4198-ae09-0e9701219a51"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AS00_SlideShipped1_SEI1"
@@ -3022,7 +3022,7 @@
                 "S": "dd61027f-2466-4aa3-99e1-4175bbf26490"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SS16_Slide1Shipped_SEI1"
@@ -3051,7 +3051,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -3092,7 +3092,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -3130,7 +3130,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -3168,7 +3168,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -3212,7 +3212,7 @@
                 "S": "131bc9c3-55d0-4edd-84cd-18808d2d6f85"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AU08_PendingApproval5_SEI1"
@@ -3241,7 +3241,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -3282,7 +3282,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -3320,7 +3320,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -3361,7 +3361,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -3402,7 +3402,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -3443,7 +3443,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -3487,7 +3487,7 @@
                 "S": "e0945a5f-2815-40d0-b531-342086b47088"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA09_PendingApproval_SEI1"
@@ -3516,7 +3516,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -3560,7 +3560,7 @@
                 "S": "5da61782-9ce8-4ef0-a3bd-db64b9325245"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC04b_SdShippedNoTs_SEI1"
@@ -3589,7 +3589,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -3630,7 +3630,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -3671,7 +3671,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -3715,7 +3715,7 @@
                 "S": "a0ef7ca2-f9ed-4c27-a566-278055e3b0b3"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AM02_VrReceived_SEI1"
@@ -3744,7 +3744,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -3785,7 +3785,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -3829,7 +3829,7 @@
                 "S": "b0ce26ff-4e1b-4d5c-b34c-a3711c568dfc"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC04j_PendingApproval_SEI1"
@@ -3861,7 +3861,7 @@
                 "S": "e74052f3-6ad5-4ebe-b5a8-49b575e89a60"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC07c_PendingApproval_SEI1"
@@ -3890,7 +3890,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -3934,7 +3934,7 @@
                 "S": "55f76f3f-e62e-4e45-90d7-6d78669b767c"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_CR02_OnTreatmentArm_SEI1"
@@ -3966,7 +3966,7 @@
                 "S": "c75bbe62-53b7-4ad2-a155-8f9640e69b0e"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC05a_TsThenAssayReceived_SEI1"
@@ -3995,7 +3995,7 @@
                 "S": "Dartmouth"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:33+00:00"
@@ -4036,7 +4036,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -4077,7 +4077,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -4118,7 +4118,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -4159,7 +4159,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -4200,7 +4200,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -4238,7 +4238,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -4282,7 +4282,7 @@
                 "S": "711b2e59-8797-46e9-bcac-9d111f02cbc1"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA10_OnTreatmentArm_SEI1"
@@ -4314,7 +4314,7 @@
                 "S": "1b32da3d-6bfe-479b-b536-e99a9b50b329"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC04d_TwoAssay_SEI1"
@@ -4343,7 +4343,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -4381,7 +4381,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -4425,7 +4425,7 @@
                 "S": "a6cf64f0-e9f0-4fb8-8d03-5885a0e6cdd0"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS02_OffStudy1_SEI1"
@@ -4457,7 +4457,7 @@
                 "S": "faed01f7-b170-4f46-bcc8-5885ebb27d9c"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC01d_PendingApprovalStep2_SEI1"
@@ -4489,7 +4489,7 @@
                 "S": "5a15dbfc-ef18-470a-aa1e-0bb1abe71fe3"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AS02_SlideShipped_SEI1"
@@ -4518,7 +4518,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -4556,7 +4556,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T23:42:13+00:00"
@@ -4600,7 +4600,7 @@
                 "S": "c6b6b934-71e6-44df-aa61-7a1ffeae7124"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01_TsVrRejected_SEI1"
@@ -4629,7 +4629,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-07-01T19:42:13+00:00"
@@ -4670,7 +4670,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -4714,7 +4714,7 @@
                 "S": "1baf6982-6cf2-4021-bc81-2ddc84b7e74a"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA09_RequestNoAssignment_SEI1"
@@ -4743,7 +4743,7 @@
                 "S": "MoCha"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -4784,7 +4784,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -4828,7 +4828,7 @@
                 "S": "7087afd1-bcae-4624-93f1-a64c402ec654"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AS12_PendingApproval_SEI1"
@@ -4857,7 +4857,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -4901,7 +4901,7 @@
                 "S": "d2d01e47-eff0-4492-968f-3fa2071691eb"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01_ReqNoAssignment_SEI1"
@@ -4930,7 +4930,7 @@
                 "S": "Dartmouth"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -4971,7 +4971,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -5015,7 +5015,7 @@
                 "S": "8f4be0e6-93a9-45e9-9c6d-7c91f8b1e007"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_VU07_SlideShippedNoTissueShipped_SEI1"
@@ -5044,7 +5044,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -5088,7 +5088,7 @@
                 "S": "12b45390-0984-4d81-99e8-34b6f98789cd"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AS00_SlideShipped4_SEI1"
@@ -5117,7 +5117,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -5161,7 +5161,7 @@
                 "S": "0acec437-ab6f-44ff-a4a9-73d2ac07d540"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AS04_SlideShipped_SEI1"
@@ -5190,7 +5190,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -5234,7 +5234,7 @@
                 "S": "d89afdf9-9edf-4bdf-870a-dffbd71b4fd8"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AS00_SlideShipped2_SEI1"
@@ -5263,7 +5263,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -5307,7 +5307,7 @@
                 "S": "6fb4d0ff-af3d-4242-8311-bbc2057bc743"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC06a_PendingApprovalStep2_SEI2"
@@ -5336,7 +5336,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -5380,7 +5380,7 @@
                 "S": "4867eaa8-4b2a-4777-9ec2-d9ce7ba81ae5"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA08_PendingApproval_SEI1"
@@ -5412,7 +5412,7 @@
                 "S": "5cf51b0d-1480-4dab-b37a-09bf651dd63b"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA04_ReqNoAssignment_SEI1"
@@ -5441,7 +5441,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -5482,7 +5482,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -5523,7 +5523,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -5564,7 +5564,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2017-03-15T15:55:03+00:00"
@@ -5605,7 +5605,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -5646,7 +5646,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -5687,7 +5687,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -5728,7 +5728,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -5769,7 +5769,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -5810,7 +5810,7 @@
                 "S": "MoCha"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:14+00:00"
@@ -5851,7 +5851,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -5892,7 +5892,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -5936,7 +5936,7 @@
                 "S": "2d5cce28-7fc5-42ff-b007-734e2a496659"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA02_PendingApproval_SEI1"
@@ -5965,7 +5965,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -6006,7 +6006,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -6050,7 +6050,7 @@
                 "S": "67fecb87-f1cb-4705-9700-7cd660c55582"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA02_slideShipped_SEI1"
@@ -6082,7 +6082,7 @@
                 "S": "7c899084-c121-4c7c-94de-814c679523d3"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA03_PendingApproval_SEI1"
@@ -6111,7 +6111,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -6152,7 +6152,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2017-03-15T15:53:10+00:00"
@@ -6196,7 +6196,7 @@
                 "S": "b51f6fa5-4ba4-4857-a048-ff87f6a3307a"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01_OffStudyBiopsyExpired_SEI1"
@@ -6228,7 +6228,7 @@
                 "S": "d5f326e5-7aed-4d83-9bac-589b764e7f2c"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA03_RequestNoAssignment_SEI1"
@@ -6257,7 +6257,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -6298,7 +6298,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -6339,7 +6339,7 @@
                 "S": "MoCha"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -6380,7 +6380,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -6421,7 +6421,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -6465,7 +6465,7 @@
                 "S": "d0efa74d-9669-4545-a14d-acf05256275e"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AU03_SlideShipped2_SEI1"
@@ -6497,7 +6497,7 @@
                 "S": "479ae7a3-07d8-4e30-b63a-e0f1e1d0e53c"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01_slideShipped_SEI1"
@@ -6526,7 +6526,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -6570,7 +6570,7 @@
                 "S": "15125b43-ffdc-4215-9f65-f704bef8a828"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01_PendingApproval_SEI1"
@@ -6602,7 +6602,7 @@
                 "S": "36c9d1ef-d6a1-4980-b79d-06b08dc91157"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA10_RequestNoAssignment_SEI1"
@@ -6631,7 +6631,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -6672,7 +6672,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -6713,7 +6713,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -6757,7 +6757,7 @@
                 "S": "48e7c0b2-821a-4eb9-bf0c-d025682b0790"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS04_OnTA2_SEI1"
@@ -6786,7 +6786,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -6830,7 +6830,7 @@
                 "S": "61eb4359-6e6d-41f5-9c92-30c453a3da4d"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01a_OffStudy_SEI1"
@@ -6859,7 +6859,7 @@
                 "S": "MoCha"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -6903,7 +6903,7 @@
                 "S": "427de480-4710-4bec-bda6-893050f9df65"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS03_OffStudy2_SEI1"
@@ -6932,7 +6932,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -6976,7 +6976,7 @@
                 "S": "e20dc542-bc01-4e99-a3f3-16502b7d4099"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA04a_TsVrConfirmed_SEI1"
@@ -7008,7 +7008,7 @@
                 "S": "e4597c11-fa32-4c0d-baea-9edacba1c1ac"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AU06_PendingConfirmation3_SEI1"
@@ -7040,7 +7040,7 @@
                 "S": "cc67ecbb-be3e-4f7d-8737-f795a32d5f55"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01a_NoTaAvailable_SEI1"
@@ -7072,7 +7072,7 @@
                 "S": "51e66e50-62a1-48a3-8506-f2d3bf9901e3"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AS07_SlideShipped_SEI1"
@@ -7101,7 +7101,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -7145,7 +7145,7 @@
                 "S": "8c952fba-e1b2-4dde-a486-14cee86c4719"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SS23_SlideShipped_SEI1"
@@ -7174,7 +7174,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -7215,7 +7215,7 @@
                 "S": "63cd35b3-a320-4677-89db-51d248446104"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AU06_PendingConfirmation2_SEI1"
@@ -7247,7 +7247,7 @@
                 "S": "b86987bb-bf33-4c3d-b419-cc83e51e5a9f"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01_OnTreatmentArm_SEI1"
@@ -7276,7 +7276,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -7317,7 +7317,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -7358,7 +7358,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -7399,7 +7399,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -7440,7 +7440,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -7484,7 +7484,7 @@
                 "S": "3817e18a-8bb3-4912-848c-d1a7b71475ef"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC05a_TsVrUploaded_SEI1"
@@ -7513,7 +7513,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -7557,7 +7557,7 @@
                 "S": "fbdadcbe-891f-411f-871d-7a466dccf11a"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AU08_PendingApproval7_SEI1"
@@ -7589,7 +7589,7 @@
                 "S": "7c4288bc-fbbd-49b2-9dec-56c12ede6a87"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SS31_NoTaAvailable_SEI1"
@@ -7618,7 +7618,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -7662,7 +7662,7 @@
                 "S": "bfc2c7e3-3cbc-4561-8199-d6bcc0aead08"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_VC15_VrReceived_SEI1"
@@ -7694,7 +7694,7 @@
                 "S": "aef52b70-21c5-45e2-af86-4c39e9ab0d64"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AU03_SlideShipped3_SEI1"
@@ -7723,7 +7723,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -7764,7 +7764,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -7805,7 +7805,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -7849,7 +7849,7 @@
                 "S": "4e016031-91c6-4f6b-a428-cd56c1dd7550"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA04a_OnTreatmentArm_SEI1"
@@ -7881,7 +7881,7 @@
                 "S": "e725a10f-02f5-4aa2-a901-4fcd94bb566e"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "TA_AS40_TsVrReceived_SEI1"
@@ -7910,7 +7910,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -7951,7 +7951,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2017-03-15T15:48:21+00:00"
@@ -7992,7 +7992,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -8036,7 +8036,7 @@
                 "S": "aaab289b-4361-4a30-9c37-071a7e62ff04"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SR16_PendingApproval_SEI1"
@@ -8065,7 +8065,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -8106,7 +8106,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -8147,7 +8147,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -8191,7 +8191,7 @@
                 "S": "88f43851-1a76-4d8c-bbd5-53279cb53ca2"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA03_TsVrReceived_SEI1"
@@ -8223,7 +8223,7 @@
                 "S": "edf68ae2-b171-4b17-8223-8f1855004b4b"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01a_CompassionateCare_SEI1"
@@ -8252,7 +8252,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -8293,7 +8293,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -8337,7 +8337,7 @@
                 "S": "54585482-0932-4a1b-8079-db4288a0d5dc"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SR10_OffStudy2_SEI1"
@@ -8366,7 +8366,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -8407,7 +8407,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -8448,7 +8448,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -8492,7 +8492,7 @@
                 "S": "0240e862-8645-4ec5-8535-05a1e5070a3e"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC04e_TsVrUploaded_SEI1"
@@ -8521,7 +8521,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -8562,7 +8562,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -8606,7 +8606,7 @@
                 "S": "849d8d2c-20e0-4464-99ee-273ddd3e7579"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA02_TsShipped_SEI1"
@@ -8638,7 +8638,7 @@
                 "S": "97cd5174-97f3-4b66-9bd9-f22df2072a5e"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS03_OffStudy1_SEI1"
@@ -8667,7 +8667,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -8708,7 +8708,7 @@
                 "S": "ecb0355e-20ce-423d-ac76-c5ea148a2d77"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01_NoTaAvailable_SEI1"
@@ -8737,7 +8737,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -8781,7 +8781,7 @@
                 "S": "dbd9c72e-6569-4113-be2f-dcd3f8bf82d1"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AM05_TsVrReceived1_SEI1"
@@ -8810,7 +8810,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -8851,7 +8851,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -8895,7 +8895,7 @@
                 "S": "c4821a0a-f8c2-461f-949c-9bb2a8e2167a"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA03_OnTreatmentArm_SEI1"
@@ -8924,7 +8924,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -8968,7 +8968,7 @@
                 "S": "8a0b1959-e958-4a24-89ed-7027919cf19c"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "UI_MA_PendingApproval_SEI1"
@@ -8997,7 +8997,7 @@
                 "S": "MoCha"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -9038,7 +9038,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -9079,7 +9079,7 @@
                 "S": "Dartmouth"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:45:13+00:00"
@@ -9123,7 +9123,7 @@
                 "S": "b1ca217f-abd6-4974-a620-4972609a6131"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AU06_PendingConfirmation1_SEI1"
@@ -9152,7 +9152,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -9196,7 +9196,7 @@
                 "S": "3831d950-5e18-40f9-a7dd-5ac0932c1beb"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA02a_RequestAssignment_SEI1"
@@ -9225,7 +9225,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -9263,7 +9263,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -9304,7 +9304,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -9345,7 +9345,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -9386,7 +9386,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -9427,7 +9427,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -9471,7 +9471,7 @@
                 "S": "d78096a0-057c-4516-b6e0-9ef8c17242a3"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SR10_OnTreatmentArm_SEI1"
@@ -9503,7 +9503,7 @@
                 "S": "e063b73b-ad04-4f2a-9ac0-fbae965405da"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AU08_PendingApproval4_SEI1"
@@ -9532,7 +9532,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -9573,7 +9573,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -9614,7 +9614,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -9655,7 +9655,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -9699,7 +9699,7 @@
                 "S": "852d6ac7-3b78-486c-95bf-449bc0be2b71"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01a_TsVrRejected_SEI1"
@@ -9731,7 +9731,7 @@
                 "S": "0e7ae669-296b-4977-9647-de0c8dba4392"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01_PendingApproval_SEI2"
@@ -9760,7 +9760,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -9801,7 +9801,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -9842,7 +9842,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -9883,7 +9883,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -9924,7 +9924,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -9968,7 +9968,7 @@
                 "S": "4f7006b5-6396-4825-9fb6-84763ebff58c"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AS08_TsReceivedStep2_SEI1"
@@ -9997,7 +9997,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T22:42:13+00:00"
@@ -10038,7 +10038,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -10082,7 +10082,7 @@
                 "S": "b424c863-229e-4766-96ae-f832084e2ba0"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AS10aSlideShipped1_SEI1"
@@ -10114,7 +10114,7 @@
                 "S": "8c28fffe-530f-453f-9004-7d00e637ba67"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA04a_NoTaAvailable_SEI1"
@@ -10143,7 +10143,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-12-23T17:15:48+00:00"
@@ -10184,7 +10184,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -10228,7 +10228,7 @@
                 "S": "0969d506-c4d2-4170-8498-47e8b8ae076f"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_CR07_RejectVariantReport_SEI1"
@@ -10257,7 +10257,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-07-01T19:42:13+00:00"
@@ -10301,7 +10301,7 @@
                 "S": "fdcb45e4-bb6e-4a96-908d-d2f296f4ad2d"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA02_NoTaAvailable_SEI1"
@@ -10330,7 +10330,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -10371,7 +10371,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -10415,7 +10415,7 @@
                 "S": "a3b97a59-765b-4af1-9d4e-873605c7ece8"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_GVF_OnTreatmentArm_SEI1"
@@ -10444,7 +10444,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -10485,7 +10485,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -10526,7 +10526,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -10567,7 +10567,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -10605,7 +10605,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -10646,7 +10646,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -10690,7 +10690,7 @@
                 "S": "d0200a1e-711e-411e-b1ac-7737a0659e56"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA10_PendingApproval1_SEI1"
@@ -10719,7 +10719,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -10763,7 +10763,7 @@
                 "S": "ad7e6faf-a444-4ecc-a4e2-1f59206f47b9"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AS10SlideShipped_SEI1"
@@ -10795,7 +10795,7 @@
                 "S": "e2e63cd1-4dd9-46e6-839c-9fe315216d96"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC06a_PendingApproval_SEI1"
@@ -10827,7 +10827,7 @@
                 "S": "197487dc-91bf-4706-ab99-fc2364b97ecd"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC05g_PendingConfirmation_SEI1"
@@ -10856,7 +10856,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -10897,7 +10897,7 @@
                 "S": "844ae60b-fc7c-4d00-87f4-9c1a3a158f52"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC06a_PendingApprovalStep2_SEI1"
@@ -10926,7 +10926,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -10970,7 +10970,7 @@
                 "S": "384de04a-d077-4fac-bd32-3aec886b0dd0"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC05f_PendingConfirmation_SEI1"
@@ -10999,7 +10999,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -11040,7 +11040,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2017-03-14T15:37:49+00:00"
@@ -11081,7 +11081,7 @@
                 "S": "MoCha"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -11125,7 +11125,7 @@
                 "S": "7fbee654-2423-43c5-b2f4-7761170448d5"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_VC15_AssayReceivedVrReceivedToConfirm_SEI1"
@@ -11154,7 +11154,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -11195,7 +11195,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -11236,7 +11236,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -11280,7 +11280,7 @@
                 "S": "933412f1-409d-4d5e-a507-0ae39fb386f8"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AS10aSlideShipped2_SEI1"
@@ -11309,7 +11309,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -11350,7 +11350,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -11391,7 +11391,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -11435,7 +11435,7 @@
                 "S": "6a86e1e6-f72e-4a2b-bcb5-4003dea2dbee"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA04a_OffStudyBiopsyExpired_SEI1"
@@ -11464,7 +11464,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -11505,7 +11505,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -11546,7 +11546,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -11587,7 +11587,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -11628,7 +11628,7 @@
                 "S": "MoCha"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -11672,7 +11672,7 @@
                 "S": "c94fdd1c-ef62-4a91-af74-7b488475b94f"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01a_PendingConfirmation_SEI1"
@@ -11704,7 +11704,7 @@
                 "S": "4e49a4d2-573b-4ba0-b535-c48f8b5f8f9b"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AM03_PendingApproval_SEI1"
@@ -11736,7 +11736,7 @@
                 "S": "c633f5af-14c5-4c56-8c4d-751992e7434b"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA01_OnTreatmentArm_SEI1"
@@ -11768,7 +11768,7 @@
                 "S": "0d31022a-92bf-48a4-a5f6-cc7136918337"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA02_PendingConfirmation_SEI1"
@@ -11797,7 +11797,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -11841,7 +11841,7 @@
                 "S": "08e96ce5-61a5-4393-8979-de73b9439137"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA03_CompassionateCare_SEI1"
@@ -11870,7 +11870,7 @@
                 "S": "Dartmouth"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -11914,7 +11914,7 @@
                 "S": "d83d8a15-0c70-42c7-b3ce-62f5981d1e97"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01_slideShipped_SEI2"
@@ -11946,7 +11946,7 @@
                 "S": "b519d5c4-cf17-4b4e-8a67-c38e0cf86fab"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_GVF_VrAssayReady_SEI1"
@@ -11978,7 +11978,7 @@
                 "S": "64411585-8fa0-4840-8b6b-c9aa842a5079"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01a_ReqNoAssignment_SEI1"
@@ -12010,7 +12010,7 @@
                 "S": "deb4013e-09d1-446a-90fe-737e3d7ee4bb"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC05f_TsVrUploaded_SEI1"
@@ -12039,7 +12039,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -12083,7 +12083,7 @@
                 "S": "c6e52c7f-d40c-4bb4-b09f-d8f99a432ed7"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SS11a_Step2TsReceived1_SEI1"
@@ -12115,7 +12115,7 @@
                 "S": "0212825e-2e76-4d53-a7d9-62d606d737ea"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA01_PendingApproval_SEI1"
@@ -12144,7 +12144,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -12185,7 +12185,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -12229,7 +12229,7 @@
                 "S": "1a336198-6e50-4ee1-bf72-425aea67b6e4"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA05_OnTreatmentArm_SEI1"
@@ -12261,7 +12261,7 @@
                 "S": "7f55f430-c940-40ec-afa1-da169a4dfe42"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_VU17_TsVrUploadedStep2_SEI1"
@@ -12290,7 +12290,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -12331,7 +12331,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -12372,7 +12372,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T23:42:13+00:00"
@@ -12410,7 +12410,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -12451,7 +12451,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -12492,7 +12492,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -12533,7 +12533,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -12577,7 +12577,7 @@
                 "S": "838ad435-9ac8-4041-a2b2-987b50b8c1ed"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA09_OnTreatmentArm_SEI1"
@@ -12606,7 +12606,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -12647,7 +12647,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -12691,7 +12691,7 @@
                 "S": "1e0ec3f8-f021-4ae5-9492-8f15a435037f"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC02g_PendingConfirmation_SEI1"
@@ -12723,7 +12723,7 @@
                 "S": "4002d97e-6ee8-4322-a4b1-eda36a287665"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA10_PendingApproval_SEI1"
@@ -12752,7 +12752,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -12796,7 +12796,7 @@
                 "S": "be94e681-3010-4545-bd6f-f5ddeef7a6b9"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC05d_VrAssayReady_SEI1"
@@ -12825,7 +12825,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -12869,7 +12869,7 @@
                 "S": "6b4eda4a-96d4-471e-b310-17d237047525"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AM01_TsVrReceived1_SEI1"
@@ -12901,7 +12901,7 @@
                 "S": "e68a97fe-3883-4282-9c2d-d2577c5e7d51"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC05c_TsVrUploaded_SEI1"
@@ -12933,7 +12933,7 @@
                 "S": "95c5f748-7392-454b-a48e-33cf8a93a3a2"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC02f_PendingConfirmation_SEI1"
@@ -12965,7 +12965,7 @@
                 "S": "6ad522c4-0f48-4bff-9f3a-148ce46ef948"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AU09_PendingApproval1_SEI1"
@@ -12997,7 +12997,7 @@
                 "S": "6799bbf3-a12f-44ac-83c5-1465c1eff33c"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01a_ReqAssignment_SEI1"
@@ -13026,7 +13026,7 @@
                 "S": "MoCha"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:14+00:00"
@@ -13070,7 +13070,7 @@
                 "S": "e46a7e51-8151-463f-adc7-76e6cc7e48ef"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_VC00_CnvVrReceived_SEI1"
@@ -13102,7 +13102,7 @@
                 "S": "d4ca3954-88b4-4393-a079-2e8896779837"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AU09_PendingApproval2_SEI1"
@@ -13131,7 +13131,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -13172,7 +13172,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -13216,7 +13216,7 @@
                 "S": "b35ab326-ac2b-4dbd-8c59-7738c8d1e1b8"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC04d_NoAssay_SEI1"
@@ -13245,7 +13245,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -13289,7 +13289,7 @@
                 "S": "b374ef87-619d-401a-ab1d-6ac92f1df59d"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01a_slideShipped_SEI1"
@@ -13321,7 +13321,7 @@
                 "S": "21d26d5d-10b7-49b7-94be-754cd6fbdd47"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC04f_TsVrUploaded_SEI1"
@@ -13350,7 +13350,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -13391,7 +13391,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -13432,7 +13432,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -13473,7 +13473,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2017-03-15T15:57:49+00:00"
@@ -13517,7 +13517,7 @@
                 "S": "e3b3d4c1-93ba-4412-aa9a-2a7f95cadab1"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA02_slideShipped_SEI2"
@@ -13546,7 +13546,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -13590,7 +13590,7 @@
                 "S": "f1c5ae12-8585-4b2c-9440-3a166ae59d0a"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC06b_PendingApproval_SEI1"
@@ -13619,7 +13619,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -13663,7 +13663,7 @@
                 "S": "75a1cac3-7eca-4df9-a469-f22d96fad140"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AS06_SlideShipped_SEI1"
@@ -13692,7 +13692,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -13733,7 +13733,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -13774,7 +13774,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -13815,7 +13815,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -13856,7 +13856,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -13897,7 +13897,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -13938,7 +13938,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -13979,7 +13979,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -14023,7 +14023,7 @@
                 "S": "47a022e7-fc23-4c49-9221-eb9cb9814877"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC06c_PendingApprovalStep2_SEI2"
@@ -14052,7 +14052,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -14093,7 +14093,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -14134,7 +14134,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -14175,7 +14175,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -14216,7 +14216,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -14257,7 +14257,7 @@
                 "S": "Dartmouth"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -14301,7 +14301,7 @@
                 "S": "57e7fa1b-157d-4094-9f93-77f90d66eba2"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SR10_OffStudy_SEI1"
@@ -14330,7 +14330,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -14374,7 +14374,7 @@
                 "S": "3c4792f2-a0cb-4f16-bd89-c6378f90a165"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA04a_TsVrReceived_SEI1"
@@ -14406,7 +14406,7 @@
                 "S": "c06a578f-c6d6-4be1-bead-a1a330ee0e10"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA10_OnTreatmentArm1_SEI1"
@@ -14435,7 +14435,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -14476,7 +14476,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -14517,7 +14517,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -14561,7 +14561,7 @@
                 "S": "648632fc-b071-483a-9945-3d09df3f5408"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA08_RequestNoAssignment_SEI1"
@@ -14593,7 +14593,7 @@
                 "S": "97911c5f-31b5-468e-944f-566f59591a2f"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AS08_SEI1HasSlideSEI2NoSlide_SEI1"
@@ -14622,7 +14622,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -14663,7 +14663,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -14704,7 +14704,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -14745,7 +14745,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -14786,7 +14786,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -14827,7 +14827,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -14868,7 +14868,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -14912,7 +14912,7 @@
                 "S": "9718b20d-da8c-4749-8d58-1e9dda3493b4"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01a_OffStudyBiopsyExpired_SEI1"
@@ -14941,7 +14941,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -14985,7 +14985,7 @@
                 "S": "423f26f4-ffd4-41c2-9445-076de3b6e174"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AS09_OffStudy_SEI1"
@@ -15017,7 +15017,7 @@
                 "S": "4bf264b8-b0cc-424b-8a5e-79022c87af7c"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AU08_PendingApproval6_SEI1"
@@ -15049,7 +15049,7 @@
                 "S": "7c01b857-c0c4-4a24-aa69-09cdd0bacfec"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01a_slideShipped_SEI2"
@@ -15078,7 +15078,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -15119,7 +15119,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -15160,7 +15160,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -15201,7 +15201,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -15242,7 +15242,7 @@
                 "S": "3090f37c-6251-4eed-a1d6-d7c2b42d062f"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA02_TsVrRejected_SEI1"
@@ -15274,7 +15274,7 @@
                 "S": "a77959ad-455c-438b-a0a2-bc895451f065"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA03_PendingConfirmation_SEI1"
@@ -15303,7 +15303,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -15347,7 +15347,7 @@
                 "S": "f19c3c1d-0730-4feb-8068-8ec9ce5d3691"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_CR04_VRUploadedAssayReceived_SEI1"
@@ -15376,7 +15376,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -15417,7 +15417,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -15461,7 +15461,7 @@
                 "S": "fad71418-1431-4936-a0aa-36af7ffddeab"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AS05_SlideShipped_SEI1"
@@ -15493,7 +15493,7 @@
                 "S": "731599ce-ffe1-4605-9f7c-793e6aa9daa4"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SR10_ProgressReBioY1_SEI1"
@@ -15525,7 +15525,7 @@
                 "S": "094f15d3-15f9-49c1-8e8a-18269db6ba23"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA03_slideShipped_SEI1"
@@ -15554,7 +15554,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -15598,7 +15598,7 @@
                 "S": "22a526c7-d97b-4108-8ce0-787bba68ad1f"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS02_OffStudy2_SEI1"
@@ -15627,7 +15627,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -15668,7 +15668,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -15709,7 +15709,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -15750,7 +15750,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -15791,7 +15791,7 @@
                 "S": "5fb04f0c-3d66-459c-b013-a0c5ec67e0f5"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA10_RequestNoAssignment1_SEI1"
@@ -15820,7 +15820,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -15861,7 +15861,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -15902,7 +15902,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -15946,7 +15946,7 @@
                 "S": "725c600e-6232-412d-9677-ef9374eae9a9"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC05g_TsVrUploaded_SEI1"
@@ -15975,7 +15975,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -16016,7 +16016,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -16057,7 +16057,7 @@
                 "S": "MoCha"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:23+00:00"
@@ -16098,7 +16098,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -16139,7 +16139,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -16180,7 +16180,7 @@
                 "S": "MoCha"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:14+00:00"
@@ -16224,7 +16224,7 @@
                 "S": "31e9600c-2c33-4259-b899-d6f0e3e97f1c"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SR10_PendingApproval2_SEI1"
@@ -16253,7 +16253,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -16294,7 +16294,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2017-02-28T15:38:13+00:00"
@@ -16338,7 +16338,7 @@
                 "S": "86e8c472-8235-440a-b0e3-6027aa7f5cbb"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SS26_PendingApproval1_SEI1"
@@ -16367,7 +16367,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -16411,7 +16411,7 @@
                 "S": "43fb1b27-c474-46b9-92fb-040cb96fe37a"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA04a_PendingConfirmation_SEI1"
@@ -16440,7 +16440,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -16481,7 +16481,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -16522,7 +16522,7 @@
                 "S": "Dartmouth"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:45:13+00:00"
@@ -16563,7 +16563,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -16604,7 +16604,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -16645,7 +16645,7 @@
                 "S": "MoCha"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:14+00:00"
@@ -16686,7 +16686,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -16730,7 +16730,7 @@
                 "S": "d59cf9f6-5d39-439e-9411-646a97bf96d9"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01_CompassionateCare_SEI1"
@@ -16759,7 +16759,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -16800,7 +16800,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -16844,7 +16844,7 @@
                 "S": "bad16c39-f395-4c84-bc89-69fb5d23db67"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01a_PendingApproval_SEI1"
@@ -16873,7 +16873,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -16914,7 +16914,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-12-07T18:24:20+00:00"
@@ -16958,7 +16958,7 @@
                 "S": "4c6a90d1-0547-44d3-bc56-b40b19fb6a3a"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AU08_PendingApproval3_SEI1"
@@ -16987,7 +16987,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -17028,7 +17028,7 @@
                 "S": "b8ed53d9-28a6-48c5-acaa-751a22819a3c"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01_TsVrReceived_SEI1"
@@ -17057,7 +17057,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -17101,7 +17101,7 @@
                 "S": "6bcbff09-91b6-4a66-b218-2c11a1807b74"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SS15_Slide1Shipped_SEI1"
@@ -17133,7 +17133,7 @@
                 "S": "abca2074-f665-4fe7-9d14-2f64502fb917"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA04a_RequestAssignment_SEI1"
@@ -17162,7 +17162,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -17203,7 +17203,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -17247,7 +17247,7 @@
                 "S": "da6f588f-dcdb-454b-aa45-0353ac6b220e"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA03_TsVrConfirmed_SEI1"
@@ -17276,7 +17276,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -17317,7 +17317,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -17358,7 +17358,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -17399,7 +17399,7 @@
                 "S": "MoCha"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -17440,7 +17440,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -17481,7 +17481,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -17522,7 +17522,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -17563,7 +17563,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -17604,7 +17604,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -17648,7 +17648,7 @@
                 "S": "8f6b65b7-cb1e-4b10-ab78-330f8fc923ff"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01_OffStudy_SEI1"
@@ -17677,7 +17677,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -17718,7 +17718,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -17762,7 +17762,7 @@
                 "S": "585af47d-78f4-480b-9ea7-1c90d679fb26"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA04a_TsVrRejected_SEI1"
@@ -17791,7 +17791,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -17832,7 +17832,7 @@
                 "S": "dada41c9-a37a-4199-b629-af2c323b4a11"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AS12_VrReceived_SEI1"
@@ -17864,7 +17864,7 @@
                 "S": "65ea8491-600c-466b-a704-1fb01c22b39e"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA02_TsVrConfirmed_SEI1"
@@ -17893,7 +17893,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -17937,7 +17937,7 @@
                 "S": "d8cbb063-6293-4c87-b2ed-063932318b53"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AS10SlideShipped_SEI2"
@@ -17966,7 +17966,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -18007,7 +18007,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -18048,7 +18048,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -18089,7 +18089,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -18130,7 +18130,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -18174,7 +18174,7 @@
                 "S": "9edbed97-7138-459c-87fd-7e91d811045d"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AS03_SlideShipped_SEI1"
@@ -18203,7 +18203,7 @@
                 "S": "Dartmouth"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -18247,7 +18247,7 @@
                 "S": "8d417634-d9b5-41dc-a27e-6fb3901218fc"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA03_slideShipped_SEI2"
@@ -18276,7 +18276,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -18320,7 +18320,7 @@
                 "S": "db5e5061-2c87-48ce-b8ae-79be01fa7b59"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA03_TsVrRejected_SEI1"
@@ -18349,7 +18349,7 @@
                 "S": "Dartmouth"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -18393,7 +18393,7 @@
                 "S": "25b510a3-79f4-430c-a6c1-6b3c16668f1c"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC04b_TsSdShipped_SEI1"
@@ -18422,7 +18422,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -18463,7 +18463,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -18507,7 +18507,7 @@
                 "S": "542354a5-388a-4a7b-b75f-241fca2123dc"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA02_RequestNoAssignment_SEI1"
@@ -18536,7 +18536,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -18577,7 +18577,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -18618,7 +18618,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -18659,7 +18659,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -18700,7 +18700,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -18744,7 +18744,7 @@
                 "S": "8e4c4d31-990f-4c91-97e7-248d82851798"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC04b_VrConfirmedOneAssay_SEI1"
@@ -18776,7 +18776,7 @@
                 "S": "371e351f-d9b8-49f1-a5f2-c8cdaa93305c"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01a_OnTreatmentArm_SEI1"
@@ -18808,7 +18808,7 @@
                 "S": "a57dcf68-9942-46d9-87da-4a035cdd7b91"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AS14_SlideShipped_SEI1"
@@ -18840,7 +18840,7 @@
                 "S": "25d8d761-40e6-4b8f-99a5-8117b1dba7b8"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "UL_CM01_TsShipped_SEI1"
@@ -18869,7 +18869,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2017-02-21T21:34:15+00:00"
@@ -18913,7 +18913,7 @@
                 "S": "f8d516c8-9fac-42f4-bc6c-69dd1ecab3d2"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC06c_PendingApprovalStep2_SEI1"
@@ -18945,7 +18945,7 @@
                 "S": "15cccd36-4bbf-4487-8500-6837d2603557"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA04a_RequestNoAssignment_SEI1"
@@ -18977,7 +18977,7 @@
                 "S": "7c2e1dc1-c954-43c7-8fe3-75eb61d79b91"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA04a_slideShipped_SEI1"
@@ -19006,7 +19006,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -19050,7 +19050,7 @@
                 "S": "027b28ac-aaf9-4a61-a6c9-776a5ce7d28a"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SR14_RequestAssignment_SEI1"
@@ -19079,7 +19079,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -19123,7 +19123,7 @@
                 "S": "b05646a4-cf17-4e8e-bc8f-364aa8da56bd"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AU03_SlideShipped1_SEI1"
@@ -19152,7 +19152,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -19193,7 +19193,7 @@
                 "S": "Dartmouth"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T23:42:13+00:00"
@@ -19237,7 +19237,7 @@
                 "S": "9a849a0e-7f45-4674-8b5b-11432d105d4d"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC04f_RequestAssignment_SEI1"
@@ -19266,7 +19266,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -19307,7 +19307,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -19348,7 +19348,7 @@
                 "S": "Dartmouth"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:45:13+00:00"
@@ -19389,7 +19389,7 @@
                 "S": "MoCha"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -19430,7 +19430,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -19471,7 +19471,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -19512,7 +19512,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -19556,7 +19556,7 @@
                 "S": "80a28627-ee36-4446-8cb6-d642a8ffc8b9"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01a_TsVrReceived_SEI1"
@@ -19588,7 +19588,7 @@
                 "S": "bc74b084-e061-418f-b0fd-343ed4cc1585"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA02_CompassionateCare_SEI1"
@@ -19617,7 +19617,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -19658,7 +19658,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -19702,7 +19702,7 @@
                 "S": "7a69f1bd-c7eb-4853-a854-52d303306a15"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01a_TsVrConfirmed_SEI1"
@@ -19734,7 +19734,7 @@
                 "S": "0a0b376a-4f8d-4409-b6ff-95b6b252c23b"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC04b_ThreeAssayAndTs_SEI1"
@@ -19763,7 +19763,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -19807,7 +19807,7 @@
                 "S": "dbde0d15-f329-4c20-a881-35338b3b916e"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_CR01_PathAssayDoneVRUploadedToConfirm_SEI1"
@@ -19836,7 +19836,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -19877,7 +19877,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -19918,7 +19918,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -19962,7 +19962,7 @@
                 "S": "e61d7e52-a6ea-46e8-8b0b-62be6145c9aa"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_GVF_RequestNoAssignment_SEI1"
@@ -19994,7 +19994,7 @@
                 "S": "7409c2be-22d6-457d-92d4-bb13eee77a2a"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA04a_slideShipped_SEI2"
@@ -20026,7 +20026,7 @@
                 "S": "fee9d456-adb6-4bcb-9add-843d0f6e4677"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01_TsVrConfirmed_SEI1"
@@ -20055,7 +20055,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -20099,7 +20099,7 @@
                 "S": "f9396de7-7dac-4c55-8aea-0a3b1a1f2005"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AS09_OffStudyBiopsyExpired_SEI1"
@@ -20128,7 +20128,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -20172,7 +20172,7 @@
                 "S": "60218f5b-8b95-4e32-8987-1acf9444c258"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AM04_TsReceived2_SEI1"
@@ -20201,7 +20201,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -20242,7 +20242,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -20283,7 +20283,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -20327,7 +20327,7 @@
                 "S": "e3ae4eab-d7fe-42a8-9ef5-13cee5deb573"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SS26_RequestAssignment_SEI1"
@@ -20359,7 +20359,7 @@
                 "S": "1e0f7e5f-6fa0-4253-8804-ffb42421e144"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA03_AssayReceived_SEI1"
@@ -20388,7 +20388,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -20429,7 +20429,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -20470,7 +20470,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -20511,7 +20511,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -20549,7 +20549,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -20590,7 +20590,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -20634,7 +20634,7 @@
                 "S": "15092e5c-b6a9-4fcd-839c-0c085fbae6ea"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AU03_SlideShipped0_SEI1"
@@ -20663,7 +20663,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -20707,7 +20707,7 @@
                 "S": "a40b0005-6b70-4ba3-89f7-bd5451d3d490"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AS12_PendingConfirmation_SEI1"
@@ -20736,7 +20736,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T22:42:13+00:00"
@@ -20777,7 +20777,7 @@
                 "S": "9565fdcc-cc28-409b-9726-bc9b6385c527"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_GVF_RARebioY_SEI1"
@@ -20809,7 +20809,7 @@
                 "S": "40c609ea-4159-4f71-8cf9-6b07188f4893"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SS31_CompassionateCare_SEI1"
@@ -20841,7 +20841,7 @@
                 "S": "bb78ec64-38c0-4e13-b358-1292ad38d0c4"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AM06_TsVrReceived1_SEI1"
@@ -20870,7 +20870,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -20914,7 +20914,7 @@
                 "S": "0524e16d-94d0-43c5-af2d-5bc69e0c8def"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "UI_PA08_PendingConfirmation_SEI1"
@@ -20943,7 +20943,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-02T19:45:13+00:00"
@@ -20984,7 +20984,7 @@
                 "S": "MoCha"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:14+00:00"
@@ -21025,7 +21025,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-02T19:42:13+00:00"
@@ -21066,7 +21066,7 @@
                 "S": "931bca86-f419-417b-819e-acdc1184256f"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA02_AssayReceived_SEI1"
@@ -21095,7 +21095,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -21136,7 +21136,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -21177,7 +21177,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -21221,7 +21221,7 @@
                 "S": "81f646fb-6c1d-43db-a0f9-3cefc5fed3a2"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AU08_PendingApproval1_SEI1"
@@ -21250,7 +21250,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -21288,7 +21288,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -21329,7 +21329,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -21370,7 +21370,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -21411,7 +21411,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -21452,7 +21452,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-02T23:42:13+00:00"
@@ -21493,7 +21493,7 @@
                 "S": "3315b161-2d0b-4a4b-922f-c072b229f9d0"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC09_PendingApproval_SEI1"
@@ -21522,7 +21522,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -21563,7 +21563,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -21604,7 +21604,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -21645,7 +21645,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -21689,7 +21689,7 @@
                 "S": "7e5d4a97-1dcc-4082-a0eb-ac4a16daf846"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AU06_PendingConfirmation0_SEI1"
@@ -21721,7 +21721,7 @@
                 "S": "55723823-a6ae-4fd9-afda-e8ff711f0356"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA03_NoTaAvailable_SEI1"
@@ -21753,7 +21753,7 @@
                 "S": "5881aa77-ce00-47fb-9c6f-c61913df806d"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA07_VrAndAssayReady_SEI1"
@@ -21782,7 +21782,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -21826,7 +21826,7 @@
                 "S": "456f685e-4b44-4f98-9b35-636d3130d0d3"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA06_OnTreatmentArm_SEI1"
@@ -21855,7 +21855,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-02T19:42:13+00:00"
@@ -21899,7 +21899,7 @@
                 "S": "d41709c6-2f16-498b-9186-0186d208ab22"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA08_OnTreatmentArm_SEI1"
@@ -21928,7 +21928,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -21969,7 +21969,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -22013,7 +22013,7 @@
                 "S": "5dd36859-4442-4863-a706-7d778f7473fc"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC04b_PendingApproval_SEI1"
@@ -22042,7 +22042,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -22083,7 +22083,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -22127,7 +22127,7 @@
                 "S": "bafc474f-f7c4-4a82-b792-8f6bfb007f00"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC09_PendingConfirmation_SEI1"
@@ -22156,7 +22156,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -22200,7 +22200,7 @@
                 "S": "00d81f9d-8d45-4cee-b60b-ecc7f1d85fd7"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01_AssayReceived_SEI1"
@@ -22232,7 +22232,7 @@
                 "S": "d18801a5-9b42-4790-815c-04cd255e0614"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01a_AssayReceived_SEI1"
@@ -22264,7 +22264,7 @@
                 "S": "87a34360-6049-4f90-b66a-d000fb008b05"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_CR06_RejectOneVariant_SEI1"
@@ -22296,7 +22296,7 @@
                 "S": "038b16f0-7a53-4a15-b08a-6df10ba2302b"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SS26_AssayConfirmed_SEI1"
@@ -22328,7 +22328,7 @@
                 "S": "be5386c8-81dd-485c-ab25-6193ad525411"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AM05_TsVrReceived2_SEI1"
@@ -22357,7 +22357,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -22398,7 +22398,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -22439,7 +22439,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -22480,7 +22480,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2017-03-15T15:59:43+00:00"
@@ -22521,7 +22521,7 @@
                 "S": "MoCha"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:14+00:00"
@@ -22562,7 +22562,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -22603,7 +22603,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -22647,7 +22647,7 @@
                 "S": "a8ea62ce-e29c-4d68-a6d7-86f1c5776f72"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC04i_PendingApproval_SEI1"
@@ -22676,7 +22676,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -22717,7 +22717,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -22758,7 +22758,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -22799,7 +22799,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -22843,7 +22843,7 @@
                 "S": "70a8f5df-9bf0-4f89-965a-1e49d2587162"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC06d_PendingApproval2_SEI1"
@@ -22872,7 +22872,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -22913,7 +22913,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -22954,7 +22954,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -22995,7 +22995,7 @@
                 "S": "304e1b2a-7c39-44dd-9eef-f6a05f64257d"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AU08_PendingApproval2_SEI1"
@@ -23027,7 +23027,7 @@
                 "S": "dfbb720e-1839-45f5-b08f-c69b1c6c2b80"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC05e_PendingConfirmation_SEI1"
@@ -23059,7 +23059,7 @@
                 "S": "1d3cd0ac-f6d4-4d7f-afd4-b8cafb21753c"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AU08_PendingApproval0_SEI1"
@@ -23091,7 +23091,7 @@
                 "S": "3dee9c80-b045-42ed-b742-7968612f87b0"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01_TsShipped_SEI1"
@@ -23123,7 +23123,7 @@
                 "S": "a6becf87-a5af-455d-b7c7-35b7379ec51a"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC03b_TsShippedStep2_SEI1"
@@ -23155,7 +23155,7 @@
                 "S": "7af2d260-e8c3-4b4e-9b8a-762e9e8fafa7"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC02d_VrAssayReady_SEI1"
@@ -23184,7 +23184,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -23225,7 +23225,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -23266,7 +23266,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -23307,7 +23307,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2017-02-28T15:39:04+00:00"
@@ -23348,7 +23348,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T23:42:13+00:00"
@@ -23392,7 +23392,7 @@
                 "S": "36376f43-71ba-427d-b782-b5cadc3532fa"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AU09_PendingApproval3_SEI1"
@@ -23421,7 +23421,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -23462,7 +23462,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -23503,7 +23503,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -23544,7 +23544,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -23588,7 +23588,7 @@
                 "S": "662f197c-cb3b-4efe-b51f-735e2fe22deb"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC01d_PendingApprovalStep2_SEI2"
@@ -23620,7 +23620,7 @@
                 "S": "d358acd3-8b82-4ec7-9e63-e37a82e2d080"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_VC15_OneAssayAndVrReceived_SEI1"
@@ -23649,7 +23649,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -23690,7 +23690,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -23731,7 +23731,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -23772,7 +23772,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -23813,7 +23813,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -23854,7 +23854,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -23895,7 +23895,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -23939,7 +23939,7 @@
                 "S": "1528ff4f-2899-4c5a-9f71-453b1315a710"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AS12_OnTreatmentArm_SEI1"
@@ -23968,7 +23968,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -24012,7 +24012,7 @@
                 "S": "09896af1-f20c-406f-972f-c8f4f3a14705"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA04a_PendingApproval_SEI1"
@@ -24044,7 +24044,7 @@
                 "S": "f0f700bf-8992-42f4-8d5e-795235dea024"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AU09_PendingApproval0_SEI1"
@@ -24076,7 +24076,7 @@
                 "S": "75f9dbf5-03c2-48ec-8668-bf44299b0d65"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC06d_PendingApproval1_SEI1"
@@ -24105,7 +24105,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -24146,7 +24146,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -24187,7 +24187,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -24228,7 +24228,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -24269,7 +24269,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -24310,7 +24310,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -24354,7 +24354,7 @@
                 "S": "ed8f4613-4f62-480d-b65d-3f87bd090389"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA02_TsVrReceived_SEI1"
@@ -24383,7 +24383,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -24427,7 +24427,7 @@
                 "S": "d386a427-c849-4018-8d77-6c8dd0e6df1d"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA02_OnTreatmentArm_SEI1"
@@ -24456,7 +24456,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -24497,7 +24497,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -24541,7 +24541,7 @@
                 "S": "298109a9-be49-43c7-9967-b6c4713af5f3"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01_PendingConfirmation_SEI1"
@@ -24570,7 +24570,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -24611,7 +24611,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -24652,7 +24652,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -24693,7 +24693,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -24737,7 +24737,7 @@
                 "S": "520c397d-1f83-416d-b237-f13000595a22"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_RA04a_CompassionateCare_SEI1"
@@ -24769,7 +24769,7 @@
                 "S": "95c82e82-0be6-4d80-8473-9afde052e1ef"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_SC04b_TsVrConfirmedAndSd_SEI1"
@@ -24798,7 +24798,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -24839,7 +24839,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -24880,7 +24880,7 @@
                 "S": "MoCha"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -24921,7 +24921,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -24962,7 +24962,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -25003,7 +25003,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -25047,7 +25047,7 @@
                 "S": "3433f643-a948-4a63-8c6f-5707e7e87e4b"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_OS01_ReqAssignment_SEI1"
@@ -25076,7 +25076,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"
@@ -25120,7 +25120,7 @@
                 "S": "e5a41426-de64-4bf3-a2cf-c725fde6e02c"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "surgical_event_id": {
                 "S": "PT_AS09_ReqNoAssignment_SEI1"
@@ -25149,7 +25149,7 @@
                 "S": "MDA"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "shipped_date": {
                 "S": "2016-05-01T19:42:13+00:00"

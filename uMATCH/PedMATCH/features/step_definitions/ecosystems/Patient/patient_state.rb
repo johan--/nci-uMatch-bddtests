@@ -32,7 +32,7 @@ Given(/^patient "([^"]*)" exist in "([^"]*)"$/) do |pt_id,study|
     study_id = "EAY131"
     stepNumber = "0"
   elsif study.eql?("PEDMatch")
-    study_id = "APEC1621"
+    study_id = "APEC1621SC"
     stepNumber = "1.0"
   end
   jsonString = Patient_helper_methods.createPatientTriggerRequestJSON(study_id, pt_id, stepNumber, "REGISTRATION", "Patient trigger", "current");

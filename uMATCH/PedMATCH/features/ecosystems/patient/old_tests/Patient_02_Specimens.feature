@@ -14,7 +14,7 @@ Feature: NCH Specimen received messages:
 			"msg_dttm": "2016-05-09T22:06:33+00:00"
 		},
 		"specimen_received": {
-			"study_id": "APEC1621",
+			"study_id": "APEC1621SC",
 			"patient_id": "SuccessfulSpecimenTest",
 			"type": "BLOOD",
 			"surgical_event_id": "bsn-SuccessfulSpecimenTest",
@@ -43,7 +43,7 @@ Feature: NCH Specimen received messages:
 		},
 		"specimen_received" :
 		{
-			"study_id": "APEC1621",
+			"study_id": "APEC1621SC",
 			"patient_id": "SuccessfulSpecimenTest",
 			"surgical_event_id":"bsn-SuccessfulSpecimenTest",
 			"type": "TISSUE",
@@ -72,7 +72,7 @@ Feature: NCH Specimen received messages:
 		},
 		"specimen_received" :
 		{
-			"study_id": "APEC1621",
+			"study_id": "APEC1621SC",
 			"patient_id": "SpecimenTest",
 			"type": "TISSUE",
 			"received_datetime": "2016-04-25T15:17:11+00:00",
@@ -89,7 +89,7 @@ Feature: NCH Specimen received messages:
 	When posted to MATCH setBiopsySpecimenDetailsMessage, returns a message "specimen(s) collection date is older than patient registration date." with status "Failure"
 
   Scenario: Return error message when received date is older than collection date
-	Given that Patient StudyID "APEC1621" PatientSeqNumber "SpecimenTest1" StepNumber "1.0" PatientStatus "REGISTRATION" Message "Patient REGISTERED" with "older" dateCreated is received from EA layer
+	Given that Patient StudyID "APEC1621SC" PatientSeqNumber "SpecimenTest1" StepNumber "1.0" PatientStatus "REGISTRATION" Message "Patient REGISTERED" with "older" dateCreated is received from EA layer
 	When posted to MATCH patient registration
 	Then a message "Saved to datastore." is returned with a "Success"
 	And that a specimen is received from NCH with received date older than collection date:
@@ -101,7 +101,7 @@ Feature: NCH Specimen received messages:
 		},
 		"specimen_received" :
 		{
-			"study_id": "APEC1621",
+			"study_id": "APEC1621SC",
 			"patient_id": "SpecimenTest1",
 			"type": "TISSUE",
 			"collected_datetime": "2016-04-25T14:17:11+00:00",
@@ -119,7 +119,7 @@ Feature: NCH Specimen received messages:
 
 
   Scenario: Return error message when specimen received message for type "TISSUE" is received without surgical_event_id
-	Given that Patient StudyID "APEC1621" PatientSeqNumber "SpecimenTest2" StepNumber "1.0" PatientStatus "REGISTRATION" Message "Patient REGISTERED" with "current" dateCreated is received from EA layer
+	Given that Patient StudyID "APEC1621SC" PatientSeqNumber "SpecimenTest2" StepNumber "1.0" PatientStatus "REGISTRATION" Message "Patient REGISTERED" with "current" dateCreated is received from EA layer
 	When posted to MATCH patient registration
 	Then a message "Saved to datastore." is returned with a "Success"
 	And that a specimen is received from NCH:
@@ -131,7 +131,7 @@ Feature: NCH Specimen received messages:
 		},
 		"specimen_received" :
 		{
-			"study_id": "APEC1621",
+			"study_id": "APEC1621SC",
 			"patient_id": "SpecimenTest2",
 			"type": "TISSUE",
 			"collected_datetime": "2016-04-25T14:17:11+00:00",
@@ -157,7 +157,7 @@ Feature: NCH Specimen received messages:
 		},
 		"specimen_received" :
 		{
-			"study_id": "APEC1621",
+			"study_id": "APEC1621SC",
 			"patient_id": "SpecimenTest3",
 			"type": "TISSUE",
 			"surgical_event_id":"bsn-SpecimenTest2\3",
@@ -186,7 +186,7 @@ Feature: NCH Specimen received messages:
 		},
 		"specimen_received" :
 		{
-			"study_id": "APEC1621",
+			"study_id": "APEC1621SC",
 			"patient_id": "SpecimenTest3",
 			"type": "Tissue",
 			"surgical_event_id":"bsn-SpecimenTest2\3",

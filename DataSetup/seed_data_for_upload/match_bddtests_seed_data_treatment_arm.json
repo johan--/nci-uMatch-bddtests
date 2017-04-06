@@ -593,7 +593,7 @@
                 ]
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "exclusion_drugs": {
                 "L": [
@@ -886,7 +886,7 @@
                 "L": []
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "exclusion_drugs": {
                 "L": [
@@ -1230,7 +1230,7 @@
                 ]
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "exclusion_drugs": {
                 "L": [
@@ -1464,7 +1464,7 @@
                 "L": []
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "exclusion_drugs": {
                 "L": [
@@ -1603,7 +1603,7 @@
         },
         {
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "treatment_arm_id": {
                 "S": "APEC1621-IR-A"
@@ -2129,7 +2129,7 @@
                 "S": "HGFR Pathway"
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "treatment_arm_drugs": {
                 "L": [
@@ -2814,7 +2814,7 @@
                 ]
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "exclusion_drugs": {
                 "L": [
@@ -3037,7 +3037,7 @@
         },
         {
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "treatment_arm_id": {
                 "S": "APEC1621-X"
@@ -3309,7 +3309,7 @@
         },
         {
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "treatment_arm_id": {
                 "S": "APEC1621-X"
@@ -3735,7 +3735,7 @@
                 "L": []
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "exclusion_drugs": {
                 "L": [
@@ -4129,7 +4129,7 @@
                 ]
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "exclusion_drugs": {
                 "L": [
@@ -4397,7 +4397,7 @@
                 "L": []
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "exclusion_drugs": {
                 "L": [
@@ -4715,7 +4715,7 @@
                 "L": []
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "exclusion_drugs": {
                 "L": [
@@ -5067,7 +5067,7 @@
                 "L": []
             },
             "study_id": {
-                "S": "APEC1621"
+                "S": "APEC1621SC"
             },
             "exclusion_drugs": {
                 "L": [

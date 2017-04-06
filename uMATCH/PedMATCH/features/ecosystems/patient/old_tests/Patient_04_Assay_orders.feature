@@ -116,7 +116,7 @@ Feature: Assay Messages
 
   Scenario Outline: Return a failure message when assay order is received for a patient in status OFF_TRIAL_NOT_CONSENTED
 	Given patient "<patient_id>" exist in "PEDMatch"
-	Given that Patient StudyID "APEC1621" PatientSeqNumber "<patient_id>" StepNumber "0.0" PatientStatus "OFF_TRIAL_NOT_CONSENTED" Message "patient did not consent" AccrualGroupId "123" with "current" dateCreated is received from EA layer
+	Given that Patient StudyID "APEC1621SC" PatientSeqNumber "<patient_id>" StepNumber "0.0" PatientStatus "OFF_TRIAL_NOT_CONSENTED" Message "patient did not consent" AccrualGroupId "123" with "current" dateCreated is received from EA layer
 	When posted to MATCH setPatientTrigger
 	Then a message "Saved to datastore." is returned with a "SUCCESS"
 	And specimen is received for "<patient_id>" for type "TISSUE"
@@ -138,7 +138,7 @@ Feature: Assay Messages
 
   Scenario Outline: Return a failure message if patientStatus is OFF_TRIAL_DECEASED
 	Given patient "<patient_id>" exist in "PEDMatch"
-	Given that Patient StudyID "APEC1621" PatientSeqNumber "<patient_id>" StepNumber "0.0" PatientStatus "OFF_TRIAL_NOT_DECEASED" Message "patient passed on" AccrualGroupId "123" with "current" dateCreated is received from EA layer
+	Given that Patient StudyID "APEC1621SC" PatientSeqNumber "<patient_id>" StepNumber "0.0" PatientStatus "OFF_TRIAL_NOT_DECEASED" Message "patient passed on" AccrualGroupId "123" with "current" dateCreated is received from EA layer
 	When posted to MATCH setPatientTrigger
 	Then a message "Saved to datastore." is returned with a "SUCCESS"
 	And specimen is received for "<patient_id>" for type "TISSUE"
@@ -160,7 +160,7 @@ Feature: Assay Messages
 
 
   Scenario Outline: Return a failure message when assay result date is older than assay order date
-	Given that Patient StudyID "APEC1621" PatientSeqNumber "<patient_id>" StepNumber "0.0" PatientStatus "REGISTRATION" Message "patient passed on" AccrualGroupId "123" with "a few days older" dateCreated is received from EA layer
+	Given that Patient StudyID "APEC1621SC" PatientSeqNumber "<patient_id>" StepNumber "0.0" PatientStatus "REGISTRATION" Message "patient passed on" AccrualGroupId "123" with "a few days older" dateCreated is received from EA layer
 	When posted to MATCH setPatientTrigger
 	Then a message "Saved to datastore." is returned with a "SUCCESS"
 	And specimen is received for "<patient_id>" for type "TISSUE" with older dates

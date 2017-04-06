@@ -14,7 +14,7 @@ Feature: NCH Specimen shipped messages
       "msg_dttm": "2016-05-01T19:42:13+00:00"
       },
       "specimen_shipped": {
-      "study_id": "APEC1621",
+      "study_id": "APEC1621SC",
         "patient_id": "SS01",
         "type": "BLOOD_DNA",
         "molecular_id": "msn-SS01-B",
@@ -40,7 +40,7 @@ Feature: NCH Specimen shipped messages
       "msg_dttm": "2016-05-01T19:42:13+00:00"
       },
       "specimen_shipped": {
-      "study_id": "APEC1621",
+      "study_id": "APEC1621SC",
         "patient_id": "SS01",
         "type": "TISSUE_DNA_AND_CDNA",
         "surgical_event_id": "bsn-SS01",
@@ -66,7 +66,7 @@ Feature: NCH Specimen shipped messages
       "msg_dttm": "2016-05-01T19:42:13+00:00"
       },
       "specimen_shipped": {
-      "study_id": "APEC1621",
+      "study_id": "APEC1621SC",
         "patient_id": "SS01",
         "type": "SLIDE",
         "surgical_event_id": "bsn-SS01",
@@ -93,7 +93,7 @@ Feature: NCH Specimen shipped messages
       "msg_dttm": "2016-05-01T19:42:13+00:00"
       },
       "specimen_shipped": {
-      "study_id": "APEC1621",
+      "study_id": "APEC1621SC",
         "patient_id": "SS02",
         "type": "BLOOD_DNA",
         "molecular_id": "msn-SS02-B",
@@ -118,7 +118,7 @@ Feature: NCH Specimen shipped messages
       "msg_dttm": "2016-05-01T19:42:13+00:00"
       },
       "specimen_shipped": {
-      "study_id": "APEC1621",
+      "study_id": "APEC1621SC",
         "patient_id": "SS03",
         "type": "BLOOD_DNA",
         "molecular_id": "msn-SS03-B",
@@ -145,7 +145,7 @@ Feature: NCH Specimen shipped messages
       "msg_dttm": "2016-05-01T19:42:13+00:00"
       },
       "specimen_shipped": {
-      "study_id": "APEC1621",
+      "study_id": "APEC1621SC",
         "patient_id": "SS04",
         "type": "BLOOD_DNA",
         "molecular_id": "msn-SS01-B",
@@ -217,7 +217,7 @@ Feature: NCH Specimen shipped messages
       "msg_dttm": "2016-05-01T19:42:13+00:00"
       },
       "specimen_shipped": {
-      "study_id": "APEC1621",
+      "study_id": "APEC1621SC",
         "patient_id": "SS05",
         "type": "TISSUE_DNA_AND_CDNA",
         "surgical_event_id": "bsn-SS05",
@@ -261,7 +261,7 @@ Feature: NCH Specimen shipped messages
       "msg_dttm": "2016-05-01T19:42:13+00:00"
       },
       "specimen_shipped": {
-        "study_id": "APEC1621",
+        "study_id": "APEC1621SC",
         "patient_id": "SS08",
         "type": "TISSUE_DNA_AND_CDNA",
         "surgical_event_id": "bsn-SS08",
@@ -287,7 +287,7 @@ Feature: NCH Specimen shipped messages
       "msg_dttm": "2016-05-01T19:42:13+00:00"
       },
       "specimen_shipped": {
-        "study_id": "APEC1621",
+        "study_id": "APEC1621SC",
         "patient_id": "SS08",
         "type": "TISSUE_DNA_AND_CDNA",
         "molecular_id": "msn-SS08",

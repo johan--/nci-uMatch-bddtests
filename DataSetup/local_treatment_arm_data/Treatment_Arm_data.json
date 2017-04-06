@@ -9,7 +9,7 @@
     "target_name": "Crizotinib",
     "gene": "ALK",
     "treatment_arm_status": "OPEN",
-    "study_id": "APEC1621",
+    "study_id": "APEC1621SC",
     "assay_rules": [],
     "num_patients_assigned": null,
     "treatment_arm_drugs": [
@@ -121,7 +121,7 @@
     "target_name": "Crizotinib",
     "gene": "ALK",
     "treatment_arm_status": "OPEN",
-    "study_id": "APEC1621",
+    "study_id": "APEC1621SC",
     "assay_rules": [
       {
         "type": "IHC",
@@ -390,7 +390,7 @@
   },
   {
     "treatment_arm_id": "APEC1621-UI",
-    "study_id": "APEC1621",
+    "study_id": "APEC1621SC",
     "name": "APEC1621-UI for Testing",
     "version": "2015-08-06",
     "stratum_id": "STR100",
@@ -706,7 +706,7 @@
     "target_name": "Crizotinib",
     "gene": "ALK",
     "treatment_arm_status": "OPEN",
-    "study_id": "APEC1621",
+    "study_id": "APEC1621SC",
     "assay_rules": [],
     "num_patients_assigned": null,
     "treatment_arm_drugs": [
@@ -812,7 +812,7 @@
     "target_name": "Crizotinib",
     "gene": "ALK",
     "treatment_arm_status": "OPEN",
-    "study_id": "APEC1621",
+    "study_id": "APEC1621SC",
     "assay_rules": [],
     "num_patients_assigned": null,
     "treatment_arm_drugs": [
@@ -929,7 +929,7 @@
     "target_name": "Crizotinib",
     "gene": "RET",
     "treatment_arm_status": "OPEN",
-    "study_id": "APEC1621",
+    "study_id": "APEC1621SC",
     "assay_rules": [],
     "num_patients_assigned": null,
     "treatment_arm_drugs": [
@@ -1059,7 +1059,7 @@
     "target_name": "Crizotinib",
     "gene": "MTOR",
     "treatment_arm_status": "OPEN",
-    "study_id": "APEC1621",
+    "study_id": "APEC1621SC",
     "assay_rules": [],
     "num_patients_assigned": null,
     "treatment_arm_drugs": [
@@ -1156,7 +1156,7 @@
     "target_name": "Crizotinib",
     "gene": "ALK",
     "treatment_arm_status": "OPEN",
-    "study_id": "APEC1621",
+    "study_id": "APEC1621SC",
     "assay_rules": [],
     "num_patients_assigned": null,
     "treatment_arm_drugs": [
@@ -1214,7 +1214,7 @@
     "target_name": "Crizotinib",
     "gene": "ALK",
     "treatment_arm_status": "OPEN",
-    "study_id": "APEC1621",
+    "study_id": "APEC1621SC",
     "assay_rules": [],
     "num_patients_assigned": null,
     "treatment_arm_drugs": [
@@ -1312,7 +1312,7 @@
     "target_name": "Crizotinib",
     "gene": "RET",
     "treatment_arm_status": "OPEN",
-    "study_id": "APEC1621",
+    "study_id": "APEC1621SC",
     "assay_rules": [],
     "num_patients_assigned": null,
     "treatment_arm_drugs": [
@@ -1409,7 +1409,7 @@
     "target_name": "Ensartinib (X-396)",
     "gene": "ALK",
     "treatment_arm_status": "OPEN",
-    "study_id": "APEC1621",
+    "study_id": "APEC1621SC",
     "assay_rules": [],
     "num_patients_assigned": null,
     "treatment_arm_drugs": [
@@ -1556,7 +1556,7 @@
     ]
   },
   {
-    "study_id": "APEC1621",
+    "study_id": "APEC1621SC",
     "treatment_arm_id": "TA_CF4",
     "stratum_id": "1",
     "version": "2016-05-28",
@@ -1606,7 +1606,7 @@
     "target_name": "Crizotinib",
     "gene": "ALK",
     "treatment_arm_status": "OPEN",
-    "study_id": "APEC1621",
+    "study_id": "APEC1621SC",
     "assay_rules": [],
     "num_patients_assigned": null,
     "treatment_arm_drugs": [
@@ -1704,7 +1704,7 @@
     "target_name": "Crizotinib",
     "gene": "ALK",
     "treatment_arm_status": "OPEN",
-    "study_id": "APEC1621",
+    "study_id": "APEC1621SC",
     "assay_rules": [],
     "num_patients_assigned": null,
     "treatment_arm_drugs": [

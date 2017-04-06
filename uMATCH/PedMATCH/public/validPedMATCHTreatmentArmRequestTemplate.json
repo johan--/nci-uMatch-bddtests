@@ -2,7 +2,7 @@
   "name" : "APEC1621-T for testing",
   "treatment_arm_id" : "APEC1621-T",
   "version" : "2012-05-23",
-  "study_id" : "APEC1621",
+  "study_id" : "APEC1621SC",
   "stratum_id" : "stratum1",
   "description" : "Afatinib in EGFR activating mutation",
   "target_id" : 750691,

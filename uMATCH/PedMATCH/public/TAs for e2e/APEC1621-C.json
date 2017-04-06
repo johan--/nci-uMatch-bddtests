@@ -4,7 +4,7 @@
   "version" : "2015-08-06",
   "stratum_id": "1",
   "date_created":"2017-02-22",
-  "study_id": "APEC1621",
+  "study_id": "APEC1621SC",
   "description" : "This TA is used by Cuke Test. Has only non-hotspot rules and no inclusion variants",
   "target_id" : "Crizotinib",
   "target_name" : "Crizotinib",

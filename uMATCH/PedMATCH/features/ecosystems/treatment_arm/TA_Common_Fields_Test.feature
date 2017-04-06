@@ -40,7 +40,7 @@ Feature: TA_CF. Treatment Arm API common tests for all fields
   Scenario: TA_CF4. Update a treatment arm with a newer version
     Given that treatment arm is received from COG:
 	"""
-	{"study_id":"APEC1621",
+	{"study_id":"APEC1621SC",
 	"treatment_arm_id":"TA_CF4",
 	"stratum_id":"1",
 	"version":"2017-01-28",
@@ -83,7 +83,7 @@ Feature: TA_CF. Treatment Arm API common tests for all fields
   Scenario: TA_CF5. Return failure message when treatment arm version is missing or empty
     Given that treatment arm is received from COG:
 	"""
-	{"study_id":"APEC1621",
+	{"study_id":"APEC1621SC",
 	"treatment_arm_id":"NoVersion",
 	"stratum_id":"1",
 	"gene":"ALK",
@@ -117,7 +117,7 @@ Feature: TA_CF. Treatment Arm API common tests for all fields
     Given that treatment arm is received from COG:
 	"""
 		{
-		"study_id":"APEC1621",
+		"study_id":"APEC1621SC",
 	    "treatment_arm_id" : "TA_test3",
 	    "stratum_id":"1",
 	    "name" : "ta_test3",

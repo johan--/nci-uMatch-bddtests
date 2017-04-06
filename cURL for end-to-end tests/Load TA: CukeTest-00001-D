@@ -3,7 +3,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H
     "name" : "CukeTest-00001-D",
     "version" : "2015-08-06",
     "stratum":"1",
-    "study_id":"APEC1621",
+    "study_id":"APEC1621SC",
     "treatment_arm_drugs" : [
         {
             "drug_id" : "122-1",

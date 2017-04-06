@@ -4,7 +4,7 @@
       "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
       "msg_dttm": "2016-02-09T22:06:33+00:00"
     },
-    "study_id": "APEC1621",
+    "study_id": "APEC1621SC",
     "patient_id": "PT_TEST",
     "step_number": "1.0",
     "status_date": "2016-02-09T22:06:33+00:00",
@@ -21,7 +21,7 @@
       "msg_dttm": "2016-04-25T18:42:13+00:00"
     },
     "specimen_received": {
-      "study_id": "APEC1621",
+      "study_id": "APEC1621SC",
       "patient_id": "894561",
       "type": "TISSUE",
       "surgical_event_id": "SEI_01",
@@ -42,7 +42,7 @@
       "msg_dttm": "2016-04-25T18:42:13+00:00"
     },
     "specimen_received": {
-      "study_id": "APEC1621",
+      "study_id": "APEC1621SC",
       "patient_id": "894561",
       "type": "BLOOD",
       "collection_dt": "2016-04-22",
@@ -62,7 +62,7 @@
       "msg_dttm": "2016-05-01T19:42:13+00:00"
     },
     "specimen_shipped": {
-      "study_id": "APEC1621",
+      "study_id": "APEC1621SC",
       "patient_id": "894561",
       "type": "SLIDE",
       "surgical_event_id": "SEI_01",
@@ -83,7 +83,7 @@
       "msg_dttm": "2016-05-01T19:42:13+00:00"
     },
     "specimen_shipped": {
-      "study_id": "APEC1621",
+      "study_id": "APEC1621SC",
       "patient_id": "894561",
       "type": "TISSUE_DNA_AND_CDNA",
       "surgical_event_id": "SEI_01",
@@ -108,7 +108,7 @@
       "msg_dttm": "2016-05-01T19:42:13+00:00"
     },
     "specimen_shipped": {
-      "study_id": "APEC1621",
+      "study_id": "APEC1621SC",
       "patient_id": "894561",
       "type": "BLOOD_DNA",
       "molecular_id": "MOI_BR_01",
@@ -127,7 +127,7 @@
   },
   "assay_result_reported": {
     "patient_id": "3344",
-    "study_id": "APEC1621",
+    "study_id": "APEC1621SC",
     "surgical_event_id": "SEI_01",
     "case_number": "case-1234",
     "type": "RESULT",
@@ -137,7 +137,7 @@
   },
   //  "pathology_status":{
   //    "patient_id":"894561",
-  //    "study_id": "APEC1621",
+  //    "study_id": "APEC1621SC",
   //    "surgical_event_id":"SEI_01",
   //    "case_number": "case-1234",
   //    "type":"PATHOLOGY_STATUS",
@@ -206,7 +206,7 @@
       "msg_guid": "0f8fad5b-d9cb-469f-a165-80067728950e",
       "msg_dttm": "2016-05-09T22:06:33+00:00"
     },
-    "study_id": "APEC1621",
+    "study_id": "APEC1621SC",
     "patient_id": "1111",
     "step_number": "1.1",
     "treatment_arm_id": "APEC1621B",
@@ -226,7 +226,7 @@
       "msg_guid": "0f8fad5b-d9cb-469f-a165-80067728950e",
       "msg_dttm": "2016-05-09T22:06:33+00:00"
     },
-    "study_id": "APEC1621",
+    "study_id": "APEC1621SC",
     "patient_id": "1111",
     "step_number": "2.0",
     "status": "REQUEST_ASSIGNMENT | REQUEST_NO_ASSIGNMENT",
@@ -245,7 +245,7 @@
       "msg_guid": "0f8fad5b-d9cb-469f-a165-70867728950e",
       "msg_dttm": "2016-05-09T22:06:33+00:00"
     },
-    "study_id": "APEC1621",
+    "study_id": "APEC1621SC",
     "patient_id": "2222",
     "step_number": "1.0",
     "status": "OFF_STUDY | OFF_STUDY_BIOPSY_EXPIRED",

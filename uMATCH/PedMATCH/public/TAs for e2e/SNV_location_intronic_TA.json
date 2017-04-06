@@ -6,7 +6,7 @@
   "date_created":"2017-02-22",
   "treatment_arm_status": "OPEN",
   "assay_rules": [],
-  "study_id": "APEC1621",
+  "study_id": "APEC1621SC",
   "num_patients_assigned": null,
   "treatment_arm_drugs": [{
     "name": "Crizotinib",

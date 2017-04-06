@@ -12,7 +12,7 @@
     "assay_variant" : "PRESENT",
     "level_of_evidence" : 3.0
   }],
-  "study_id": "APEC1621",
+  "study_id": "APEC1621SC",
   "num_patients_assigned": null,
   "treatment_arm_drugs": [{
     "name": "Crizotinib",

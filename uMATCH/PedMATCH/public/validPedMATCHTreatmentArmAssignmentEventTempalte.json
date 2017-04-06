@@ -228,7 +228,7 @@
   "assignment_report":{
     "patient_id":"**pt_id**",
     "assignment_date":"2016-10-03T13:51:54+00:00",
-    "study_id":"APEC1621",
+    "study_id":"APEC1621SC",
     "status":"CONFIRMED",
     "status_date":"2016-10-03T16:01:24+00:00",
     "comment":"The committee approves this assignment report",

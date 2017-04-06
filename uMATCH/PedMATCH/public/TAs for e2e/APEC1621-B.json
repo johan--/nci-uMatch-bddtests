@@ -9,7 +9,7 @@
   "target_name": "Crizotinib",
   "gene": "ALK",
   "treatment_arm_status": "OPEN",
-  "study_id": "APEC1621",
+  "study_id": "APEC1621SC",
   "assay_rules": [
     {
       "type":"IHC",

@@ -116,7 +116,7 @@ Feature: Register a new patient in PEDMatchbox::
 #    Given that Patient StudyID "<studyId>" PatientSeqNumber "<patient_id>" StepNumber "<stepNumber>" PatientStatus "<patientStatus>" Message "<message>" with "current" dateCreated is received from EA layer
 #    When posted to MATCH patient registration
 #    Then a message "Saved to datastore." is returned with a "Success"
-#    Given that Patient StudyID "APEC1621" PatientSeqNumber "PT-Test8" StepNumber "1.0" PatientStatus "OFF_STUDY" Message "Patient with OFF_TRIAL message" with "older" dateCreated is received from EA layer
+#    Given that Patient StudyID "APEC1621SC" PatientSeqNumber "PT-Test8" StepNumber "1.0" PatientStatus "OFF_STUDY" Message "Patient with OFF_TRIAL message" with "older" dateCreated is received from EA layer
 #    When posted to MATCH patient registration
 #    Then a message "Incoming OFF_STUDY patient (PSN:PT-Test8) trigger has older date than the patient's registration date in the system" is returned with a "Failure"
 

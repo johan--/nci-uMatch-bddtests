@@ -87,7 +87,7 @@
                         ]
                     },
                     "study_id": {
-                        "S": "APEC1621"
+                        "S": "APEC1621SC"
                     },
                     "assay_rules": {
                         "L": []
@@ -2590,7 +2590,7 @@
                         ]
                     },
                     "study_id": {
-                        "S": "APEC1621"
+                        "S": "APEC1621SC"
                     },
                     "assay_rules": {
                         "L": []
@@ -5136,7 +5136,7 @@
                         ]
                     },
                     "study_id": {
-                        "S": "APEC1621"
+                        "S": "APEC1621SC"
                     },
                     "assay_rules": {
                         "L": []

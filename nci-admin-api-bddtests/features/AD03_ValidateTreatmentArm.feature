@@ -60,7 +60,7 @@ Then I should see the reason of rejection on "treatment_arm_id" as "The treatmen
 @broken
 Scenario: A treatment arm with non string treatment arm id should fail
 Given I retrieve the template for treatment arm
-And I enter a hash "{name: 'APEC1621'}" for the treatment_arm_id
+And I enter a hash "{name: 'APEC1621SC'}" for the treatment_arm_id
 When I issue a post request for validation at level "all" with the treatment arm
 Then I should see the reason of rejection on "treatment_arm_id" as "Treatment arm must be a string"
 

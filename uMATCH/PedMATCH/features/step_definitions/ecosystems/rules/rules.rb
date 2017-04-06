@@ -29,7 +29,7 @@ end
 
 When(/^assignPatient service is called for patient "([^"]*)"$/) do |patient|
   msgHash = Hash.new
-  msgHash = { "study_id"=> "APEC1621",'patient'=> @patient, 'treatment_arms'=>@ta}
+  msgHash = { "study_id"=> "APEC1621SC",'patient'=> @patient, 'treatment_arms'=>@ta}
   @payload = msgHash.to_json
    puts @payload
   @resp = Helper_Methods.post_request("#{ENV['rules_endpoint']}/assignment_report/#{patient}",@payload)
