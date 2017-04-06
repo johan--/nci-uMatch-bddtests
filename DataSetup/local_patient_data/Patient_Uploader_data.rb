@@ -16,9 +16,9 @@ Environment.setTier 'local' #set this value to 'local' if you are running tests 
 MatchTestDataManager.clear_all_local_tables
 MatchTestDataManager.upload_all_seed_data_to_local
 Auth0Token.force_generate_auth0_token('ADMIN')
-PatientUploader.upload_patient('UP_JWP05_TsShippedToMocha')
-PatientUploader.upload_patient('UP_JWP06_TsShippedToMocha')
-PatientUploader.upload_patient('UP_JWP06_TsShippedToDartmouth')
+PatientUploader.upload_patient('UP_JWN05_TsShippedToMda')
+PatientUploader.upload_patient('UP_JWN06_TsShippedToMdaTwice')
+PatientUploader.upload_patient('PT_JWN07_TsVrUploaded')
 #
 sleep(10.0)
 

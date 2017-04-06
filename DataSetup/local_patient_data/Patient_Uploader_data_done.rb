@@ -147,4 +147,28 @@ class PatientUploader
     PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
     PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi, '2016-05-01T19:45:13+00:00', 'Dartmouth')
   end
+
+  def self.up_jwn05_ts_shipped_to_mda
+    pt = PatientDataSet.new('UP_JWN05_TsShippedToMda')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+  end
+
+  def self.up_jwn06_ts_shipped_to_mda_twice
+    pt = PatientDataSet.new('UP_JWN06_TsShippedToMdaTwice')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi_increase, '2016-05-02T19:45:13+00:00')
+  end
+
+  def self.pt_jwn07_ts_vr_uploaded
+    pt = PatientDataSet.new('PT_JWN07_TsVrUploaded')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+    PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
+    PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
+  end
 end
