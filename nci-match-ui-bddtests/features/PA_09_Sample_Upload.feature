@@ -52,8 +52,8 @@ Feature: MATCHKB-542. Users can upload patient sample files.
         | patient_id                    | surgical_event_id                     | status                            | visibility  |
         | ION_AQ02_TsShipped            | ION_AQ02_TsShipped_SEI1               | TISSUE_NUCLEIC_ACID_SHIPPED       | visible     |
         | ION_AQ41_TsVrUploaded         | ION_AQ41_TsVrUploaded_SEI1            | TISSUE_VARIANT_REPORT_RECEIVED    | visible     |
-        | PT_AM01_TsVrReceived1         | PT_AM01_TsVrReceived1_SEI1            | ASSAY_RESULTS_RECEIVED            | invisible   |
-        | PT_AS09_OffStudyBiopsyExpired | PT_AS09_OffStudyBiopsyExpired_SEI1    | OFF_STUDY_BIOPSY_EXPIRED          | invisible   |
+        | PT_AM01_TsVrReceived1         | PT_AM01_TsVrReceived1_SEI1            | ASSAY_RESULTS_RECEIVED            | visible     |
+        | PT_AS09_OffStudyBiopsyExpired | PT_AS09_OffStudyBiopsyExpired_SEI1    | OFF_STUDY_BIOPSY_EXPIRED          | visible     |
         | PT_AS12_PendingConfirmation   | PT_AS12_PendingConfirmation_SEI1      | PENDING_CONFIRMATION              | invisible   |
         | PT_AM03_PendingApproval       | PT_AM03_PendingApproval_SEI1          | PENDING_APPROVAL                  | invisible   |
         | PT_SR10_CompassionateCare     | PT_SR10_CompassionateCare_SEI1        | COMPASSIONATE_CARE                | invisible   |
@@ -119,9 +119,9 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     Then I select an Ion Reporter "mocha - IR_MCA00"
     And I enter Analysis ID "PT_AU04_MochaTsShipped1_An123"
     And I make all elements visible
-    And I press "Select Variant ZIP File" file button to upload "vcfFile.zip" file
-    And I press "Select DNA BAM File" file button to upload "dna.bam" file
-    And I press "Select cDNA BAM File" file button to upload "cdna.bam" file
+    And I press "Select Variant ZIP File" file button to upload "vcf_sample.zip" file
+    And I press "Select DNA BAM File" file button to upload "dna_sample.bam" file
+    And I press "Select cDNA BAM File" file button to upload "cdna_sample.bam" file
     Then The "Upload" button is "visible"
     And The "Upload" button is "enabled"
     Then I can click on the "Upload" button

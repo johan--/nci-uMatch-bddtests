@@ -162,8 +162,8 @@ var TreatmentArmsPage = function() {
 
     this.expectedIncludedSNVs = [ 'ID', 'Chrom', 'Position', 'OCP Ref', 'OCP Alt', 'LOE', 'Lit' ];
     this.expectedExcludedSNVs = [ 'ID', 'Chrom', 'Position', 'OCP Ref', 'OCP Alt', 'Lit' ];
-    this.expectedIncludedCNVs = [ 'Gene', 'Chrom', 'Position', 'LOE', 'Lit' ];
-    this.expectedExcludedCNVs = [ 'Gene', 'Chrom', 'Position', 'Lit' ];
+    this.expectedIncludedCNVs = [ 'Gene', 'Chrom', 'LOE', 'Lit' ];
+    this.expectedExcludedCNVs = [ 'Gene', 'Chrom', 'Lit' ];
     this.expectedIncludedGene = [ 'ID', 'LOE', 'Lit' ];
     this.expectedExcludedGene = [ 'ID', 'Lit' ];
     this.expectedIncludedNHRs = [ 'Gene', 'Domain Range', 'Domain Name', 'Exon', 'Oncomine Variant Class', 'Function', 'LOE', 'Lit' ];
