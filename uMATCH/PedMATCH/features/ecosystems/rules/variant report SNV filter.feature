@@ -123,7 +123,7 @@ Feature: Test the functionality that filters the SNV variants based on specified
     Examples:
       | tsvFile        | TAFile          |
       | SNV_nhr_filter | APEC1621-B.json |
-@test
+
   Scenario Outline: FIL-SNV_11: Remove duplicate hotspot variants
     Given a tsv variant report file "<tsvFile>" and treatment arms file "<TAFile>"
     When call the amoi rest service

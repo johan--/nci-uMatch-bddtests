@@ -83,3 +83,34 @@ Feature: Test the functionality that filters the CNV variants based on specified
       | mapd                           | 0.280   |
       | mappedFusionPanelReads         | 1406678 |
 
+  Scenario: FIL-CNV_08: Oncomine panel summary when the fusion belongs to pool1 and pool2
+    Given a tsv variant report file "oncomine_panel_test2" and treatment arms file "APEC1621-B.json"
+    When call the amoi rest service
+    Then the variant report contains poolsum in oncomine panel summary with
+      | pool1Sum | 182992.0 |
+      | pool2Sum | 559608.0 |
+    Then the variant report contains exprControl in oncomine panel summary with
+      | POOL1 | 181482.0 |
+      | POOL2 | 557781.0 |
+    Then the variant report contains geneExpression in oncomine panel summary with
+      | POOL1 | 60.0  |
+      | POOL2 | 427.0 |
+    Then the variant report contains fusion in oncomine panel summary with
+      | POOL1 | 1450.0 |
+      | POOL2 | 1400.0 |
+
+  Scenario: FIL-CNV_09: Oncomine panel summary when the gene expression belongs to pool1 and pool2
+    Given a tsv variant report file "oncomine_panel_test3" and treatment arms file "APEC1621-B.json"
+    When call the amoi rest service
+    Then the variant report contains poolsum in oncomine panel summary with
+      | pool1Sum | 182992.0 |
+      | pool2Sum | 559608.0 |
+    Then the variant report contains exprControl in oncomine panel summary with
+      | POOL1 | 181482.0 |
+      | POOL2 | 557781.0 |
+    Then the variant report contains geneExpression in oncomine panel summary with
+      | POOL1 | 60.0  |
+      | POOL2 | 427.0 |
+    Then the variant report contains fusion in oncomine panel summary with
+      | POOL1 | 1450.0 |
+      | POOL2 | 1400.0 |
