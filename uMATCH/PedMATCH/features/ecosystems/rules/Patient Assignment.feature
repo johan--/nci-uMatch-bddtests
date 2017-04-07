@@ -330,7 +330,7 @@ Feature: Ensure the rules are fired correctly and patients are assigned to the r
 
 
   Scenario: PA_42: Matching non-hotspot rule - gene and protein does not exist
-    Given  the patient assignment json "patient_json_with_matching_non-hotspot-rules_gene-NoProtein"
+    Given  the patient assignment json "patient_json_with_matching_non-hotspot-rules_gene-noProtein"
     And treatment arm json "Rules-Test13"
     When assignPatient service is called for patient "PID-1234"
     Then a patient assignment json is returned with report_status "NO_TREATMENT_FOUND"
