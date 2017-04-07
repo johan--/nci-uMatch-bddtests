@@ -18,7 +18,7 @@ Given(/^the patient assignment json "([^"]*)"$/) do |patient_json|
   patientAssignmentJson =  File.join(File.dirname(__FILE__),"#{ENV['PATIENT_ASSIGNMENT_JSON_LOCATION']}/#{patient_json}.json")
   folder = File.join(File.dirname(__FILE__),"#{ENV['PATIENT_ASSIGNMENT_JSON_LOCATION']}")
   puts "#{folder} content:"
-  puts Dir(folder)
+  puts Dir[folder.to_s]
   expect(File.exist?(patientAssignmentJson)).to be_truthy
   @patient = JSON(IO.read(patientAssignmentJson))
 end
