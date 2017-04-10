@@ -34,6 +34,12 @@ class Patient03A
     PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
   end
 
+  def self.pt_ss02b_tissue_received
+    pt = PatientDataSet.new('PT_SS02b_TissueReceived')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+  end
+
   def self.pt_ss02a_ts_vr_rejected
     pt = PatientDataSet.new('PT_SS02a_TsVrRejected')
     PatientMessageLoader.register_patient(pt.id)

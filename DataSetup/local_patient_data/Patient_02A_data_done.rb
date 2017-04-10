@@ -33,6 +33,11 @@ class Patient02A
     PatientMessageLoader.register_patient(pt.id)
   end
 
+  def self.pt_sr02b_registered
+    pt = PatientDataSet.new('PT_SR02b_Registered')
+    PatientMessageLoader.register_patient(pt.id)
+  end
+
   def self.pt_sr03_registered
     pt = PatientDataSet.new('PT_SR03_Registered')
     PatientMessageLoader.register_patient(pt.id)

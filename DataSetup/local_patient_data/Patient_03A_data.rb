@@ -9,9 +9,7 @@ MatchTestDataManager.clear_all_local_tables
 MatchTestDataManager.upload_all_seed_data_to_local
 Auth0Token.force_generate_auth0_token('ADMIN')
 
-Patient03A.upload_patient('PT_SS28_BdReceived4')
-Patient03A.upload_patient('PT_SS28_TsReceived6')
-Patient03A.upload_patient('PT_SS28_TsReceived7')
+Patient03A.upload_patient('PT_SS02b_TissueReceived')
 
 sleep 10.0
 

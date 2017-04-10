@@ -1,6 +1,7 @@
 #encoding: utf-8
 @patients_reg
 Feature: Register a new patient in PEDMatchbox:
+
   Background:
     Given patient API user authorization role is "PATIENT_MESSAGE_SENDER"
 
@@ -15,6 +16,17 @@ Feature: Register a new patient in PEDMatchbox:
     And patient field: "study_id" should have value: "APEC1621SC"
     And patient field: "current_step_number" should have value: "1.0"
     And patient field: "patient_id" should have value: "PT_RG01_New"
+
+  @patients_p2
+  Scenario: PT_RG01b. same message send immediatly after the first time, should not create two same patient
+    Given patient id is "PT_RG01b_New"
+    And load template registration message for this patient
+    Then set patient message field: "status_date" to value: "2017-03-16T14:52:58.000+00:00"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
+    Then patient status should change to "REGISTRATION"
+    Then wait for "15" seconds
+    Then there should have one patient with id "PT_RG01b_New"
 
   @patients_p2
   Scenario: PT_RG02. patient registration with invalid patient_id should fail

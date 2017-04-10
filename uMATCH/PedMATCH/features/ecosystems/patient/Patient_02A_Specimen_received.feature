@@ -29,6 +29,19 @@ Feature: NCH specimen received messages
     Then patient should have specimen (field: "surgical_event_id" is "PT_SR02_Registered_SEI1")
     Then this specimen has pathology status: "Y"
 
+  @patients_p2
+  Scenario: PT_SR02b. specimen_received message should not be processed twice if sent twice quickly
+    Given patient id is "PT_SR02b_Registered"
+    And load template specimen type: "TISSUE" received message for this patient
+    Then set patient message field: "surgical_event_id" to value: "PT_SR02b_Registered_SEI1"
+    Then set patient message field: "collection_dt" to value: "today"
+    Then set patient message field: "received_dttm" to value: "current"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
+    Then patient status should change to "TISSUE_SPECIMEN_RECEIVED"
+    Then wait for "30" seconds
+    Then patient should have one specimen with surgical_event_id "PT_SR02b_Registered_SEI1"
+
   @patients_p3
   Scenario: PT_SR03. "Blood" specimen received message with surgical_event_id should fail
     Given patient id is "PT_SR03_Registered"

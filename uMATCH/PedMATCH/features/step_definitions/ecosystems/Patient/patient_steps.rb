@@ -266,6 +266,13 @@ end
 #########################################################
 ###############  result validation  #####################
 #########################################################
+Then(/^there should have one patient with id "([^"]*)"$/) do |pt_id|
+  patients = Patient_helper_methods.get_any_result_from_url("#{ENV['patients_endpoint']}")
+  filtered = patients.select{ |this_pt| this_pt['patient_id']==pt_id}
+  expect(filtered.size).to eq 1
+end
+
+
 Then(/^patient field: "([^"]*)" should have value: "([^"]*)"$/) do |field, value|
   get_patient_if_needed
   converted_value = value=='null' ? nil : value
@@ -305,6 +312,16 @@ Then(/^patient should have specimen \(field: "([^"]*)" is "([^"]*)"\)$/) do |fie
   actual_match_expect(@current_specimen[field], value)
 end
 
+Then(/^patient should have one shipment with molecular_id "([^"]*)"$/) do |moi|
+  url = "#{ENV['patients_endpoint']}/#{@patient_id}/specimens?molecular_id=#{moi}"
+  @current_specimen = Patient_helper_methods.get_any_result_from_url(url)
+end
+
+Then(/^patient should have one specimen with surgical_event_id "([^"]*)"$/) do |sei|
+  url = "#{ENV['patients_endpoint']}/#{@patient_id}/shipments?molecular_id=#{sei}"
+  shipment = Patient_helper_methods.get_any_result_from_url(url)
+  expect(shipment.size).to eq 1
+end
 
 And(/^this specimen has assay \(biomarker: "([^"]*)", result: "([^"]*)", reported_date: "([^"]*)"\)$/) do |biomarker, result, reported_date|
   converted_biomarker = biomarker=='null' ? nil : biomarker
@@ -390,6 +407,12 @@ Then(/^patient should have variant report \(analysis_id: "([^"]*)"\)$/) do |ani|
     raise "Expect array returned, actually #{@current_variant_report.class.to_s} returned"
   end
   actual_match_expect(@current_variant_report['analysis_id'], ani)
+end
+
+Then(/^patient should have one variant report for analysis_id: "([^"]*)"$/) do |ani|
+  url = "#{ENV['patients_endpoint']}/variant_reports?analysis_id=#{ani}"
+  vrs = Patient_helper_methods.get_any_result_from_url(url)
+  expect(vrs.size).to eq 1
 end
 
 Then(/^patient should "(have|not have)" variant report \(analysis_id: "([^"]*)"\)$/) do |have, ani|

@@ -13,7 +13,7 @@ MatchTestDataManager.clear_all_local_tables
 MatchTestDataManager.upload_all_seed_data_to_local
 Auth0Token.force_generate_auth0_token('ADMIN')
 
-Patient06A.upload_patient('PT_VU17_TsShipMdaThenDtm')
+Patient06A.upload_patient('PT_VU06b_TissueShipped')
 
 sleep 10
 MatchTestDataManager.backup_all_patient_local_db

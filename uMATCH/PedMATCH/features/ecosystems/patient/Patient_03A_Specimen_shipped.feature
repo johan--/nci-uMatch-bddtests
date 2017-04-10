@@ -27,6 +27,18 @@ Feature: NCH Specimen shipped messages
     Then patient should have specimen (field: "active_molecular_id" is "PT_SS02_TissueReceived_MOI1")
 
   @patients_p2
+  Scenario: PT_SS02b. specimen_shipped message shouldn't be processed twice if sent twice quickly
+    Given patient id is "PT_SS02b_TissueReceived"
+    And load template specimen type: "TISSUE" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "PT_SS02b_TissueReceived_SEI1"
+    Then set patient message field: "molecular_id" to value: "PT_SS02b_TissueReceived_MOI1"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
+    Then patient status should change to "TISSUE_NUCLEIC_ACID_SHIPPED"
+    Then wait for "30" seconds
+    Then patient should have one shipment with molecular_id "PT_SS02b_TissueReceived_MOI1"
+
+  @patients_p2
   Scenario: PT_SS02a. Received specimen_shipped message for type 'TISSUE' from NCH for a patient who has TISSUE_VARIANT_REPORT_REJECTED status
     Given patient id is "PT_SS02a_TsVrRejected"
     And load template specimen type: "TISSUE" shipped message for this patient
