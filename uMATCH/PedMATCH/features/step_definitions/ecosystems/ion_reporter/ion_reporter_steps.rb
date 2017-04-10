@@ -592,7 +592,8 @@ end
 
 Then(/^PUT to adult match aliquot service, response includes "([^"]*)" with code "([^"]*)"$/) do |message, code|
   @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
-  response = Helper_Methods.put_request(prepare_aliquot_url, @payload.to_json.to_s, true, @current_auth0_role)
+  url = prepare_adult_match_aliquot_url
+  response = Helper_Methods.put_request(url, @payload.to_json.to_s, true, @current_auth0_role)
   expect(response['http_code']).to eq code
   expect(response['message']).to include message
 end
