@@ -54,8 +54,11 @@ Feature: Patient GET service valid special case tests
       | PT_SC01d_PendingApproval      | APEC1621-A     | 100     | 1.1  |
       | PT_SC01d_PendingApprovalStep2 | APEC1621-ETE-A | 100     | 2.1  |
 
-  @patients_p1_off
+  @patients_p3
   Scenario: PT_SC02a pending_items should have correct result
+    #this test is very difficult to get accurate result when cucumber runs in parallel mode, because during this test running time
+    #the other test is running and the test could be confirming VR AR or uploading VR, that will change the result of pending_items
+    #so as long as the rest of PT_SC02 tests pass, this feature is good enough
     Given patient GET service: "pending_items", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return
     Then patient pending_items field "tissue_variant_reports" should have correct value
