@@ -54,7 +54,7 @@ Feature: Patient GET service valid special case tests
       | PT_SC01d_PendingApproval      | APEC1621-A     | 100     | 1.1  |
       | PT_SC01d_PendingApprovalStep2 | APEC1621-ETE-A | 100     | 2.1  |
 
-  @patients_p1
+  @patients_p1_off
   Scenario: PT_SC02a pending_items should have correct result
     Given patient GET service: "pending_items", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return
