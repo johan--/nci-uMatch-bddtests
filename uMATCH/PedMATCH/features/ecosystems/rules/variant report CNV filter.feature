@@ -103,14 +103,14 @@ Feature: Test the functionality that filters the CNV variants based on specified
     Given a tsv variant report file "oncomine_panel_test3" and treatment arms file "APEC1621-B.json"
     When call the amoi rest service
     Then the variant report contains poolsum in oncomine panel summary with
-      | pool1Sum | 182992.0 |
-      | pool2Sum | 559608.0 |
+      | pool1Sum | 181787.0 |
+      | pool2Sum | 558403.0 |
     Then the variant report contains exprControl in oncomine panel summary with
       | POOL1 | 181482.0 |
       | POOL2 | 557781.0 |
     Then the variant report contains geneExpression in oncomine panel summary with
-      | POOL1 | 60.0  |
-      | POOL2 | 427.0 |
+      | POOL1 | 105.0  |
+      | POOL2 | 472.0 |
     Then the variant report contains fusion in oncomine panel summary with
-      | POOL1 | 1450.0 |
-      | POOL2 | 1400.0 |
+      | POOL1 | 200.0 |
+      | POOL2 | 150.0 |
