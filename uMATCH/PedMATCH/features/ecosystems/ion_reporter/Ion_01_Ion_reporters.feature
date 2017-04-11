@@ -8,6 +8,7 @@ Feature: Tests for ion_reporters service in ion ecosystem
     When POST to ion_reporters service 1 times, response includes "New ion reporter created" with code "200"
     Then each generated ion_reporter_id should have 1 record
     Then field: "site" for each generated ion_reporter should be: "<site>"
+    Then field: "study_id" for each generated ion_reporter should be: "APEC1621SC"
     Examples:
       | site      |
       | mda       |
@@ -51,11 +52,26 @@ Feature: Tests for ion_reporters service in ion ecosystem
     When POST to ion_reporters service 1 times, response includes "New ion reporter created" with code "200"
     Then each generated ion_reporter should have correct date_ion_reporter_id_created
 
+
   @ion_reporter_p2
   Scenario: ION_IR06. ion_reporter service should fail if "ion_reporter_id" is passed in
     Given site is "mocha"
     Then add field: "ion_reporter_id" value: "IR_O2YIA" to url
     When POST to ion_reporters service 1 times, response includes "ion_reporter_id was passed in" with code "400"
+
+#  @ion_reporter_adult_match
+#  Scenario Outline: ION_IR07. new Adult MATCH ion_reporter can be created successfully
+#    Given site is "<site>"
+#    When POST to Adult MATCH ion_reporters service 1 times, response includes "New ion reporter created" with code "200"
+#    Then each generated ion_reporter_id should have 1 record
+#    Then field: "site" for each generated ion_reporter should be: "<site>"
+#    Examples:
+#      | site      |
+#      | mda       |
+#      | mocha     |
+#      | dartmouth |
+#      | yale      |
+#      | mgh       |
 
   @ion_reporter_p1
   Scenario: ION_IR20. ion_reporter can be updated successfully
@@ -188,9 +204,10 @@ Feature: Tests for ion_reporters service in ion ecosystem
 #    Then new and old total ion_reporters counts should have 0 difference
 
   @ion_reporter_p1
-  Scenario: ION_IR60. ion_reporter service can list all existing ion_reporters
+  Scenario: ION_IR60. ion_reporter service can list all existing ped match ion_reporters
     Given ion_reporter_id is ""
     When GET from ion_reporters service, response includes "ion_reporter_id" with code "200"
+    Then each returned ion_reporter field "study_id" should be "APEC1621SC"
 
   @ion_reporter_p1
   Scenario: ION_IR61. ion_reporter service can list all ion_reporters that meet query parameters(special characters?)
@@ -236,16 +253,12 @@ Feature: Tests for ion_reporters service in ion ecosystem
       | mocha |
       | mda   |
 
-  @ion_reporter_p1
-  Scenario Outline: ION_IR60. ion_reporter service can list all existing ion_reporters
-    Given ion_reporter_id is ""
-    And study_id is "<study_id>"
-    When GET from ion_reporters service, response includes "ion_reporter_id" with code "200"
-    Then each returned ion_reporter field "<string>" should be "<study_id>"
-    Examples:
-      | study_id   |
-      | APEC1621SC |
-      | EAY131     |
+#  @ion_reporter_adult_match
+#  Scenario: ION_IR67. ion_reporter service can list all adult match ion_reports
+#    Given ion_reporter_id is ""
+#    And study_id is "EAY131"
+#    When GET from adult MATCH ion_reporters service, response includes "ion_reporter_id" with code "200"
+#    Then each returned ion_reporter field "study_id" should be "EAY131"
 
 #  @ion_reporter_p1
 #  Scenario: ION_IR80. ion_reporter service can list all patients on specified ion_reporter
