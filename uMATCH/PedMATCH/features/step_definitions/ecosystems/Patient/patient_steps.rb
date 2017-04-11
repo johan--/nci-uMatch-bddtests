@@ -74,6 +74,21 @@ When(/^GET from MATCH patient API, http code "([^"]*)" should return$/) do |code
     @get_response = response['message_json']
   end
 end
+
+When(/^PUT to MATCH variant report rollback, response includes "([^"]*)" with code "([^"]*)"$/) do |message, code|
+  response = Patient_helper_methods.put_vr_rollback(@patient_id)
+  puts response.to_s
+  actual_match_expect(response['http_code'], code)
+  # actual_include_expect(response['message'], retMsg)
+end
+
+When(/^PUT to MATCH assignment report rollback, response includes "([^"]*)" with code "([^"]*)"$/) do |message, code|
+  response = Patient_helper_methods.put_assignment_rollback(@patient_id)
+  puts response.to_s
+  actual_match_expect(response['http_code'], code)
+  # actual_include_expect(response['message'], retMsg)
+end
+
 #########################################################
 ###############  prepare GET message  ###################
 #########################################################

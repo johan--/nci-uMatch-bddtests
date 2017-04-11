@@ -507,6 +507,18 @@ class Patient_helper_methods
     Helper_Methods.put_request(url, @request_hash.to_json.to_s, true, auth0_role)
   end
 
+  def self.put_vr_rollback(patient_id)
+    @patient_id = patient_id
+    url = "#{ENV['patients_endpoint']}/#{@patient_id}/variant_report_rollback"
+    Helper_Methods.put_request(url, @request_hash.to_json.to_s, true, auth0_role)
+  end
+
+  def self.put_assignment_rollback(patient_id)
+    @patient_id = patient_id
+    url = "#{ENV['patients_endpoint']}/#{@patient_id}/assignment_report_rollback"
+    Helper_Methods.put_request(url, @request_hash.to_json.to_s, true, auth0_role)
+  end
+
   def self.wait_until_patient_updated(patient_id)
     timeout = 30.0
     url = "#{ENV['patients_endpoint']}/#{patient_id}"

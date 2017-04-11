@@ -236,6 +236,17 @@ Feature: Tests for ion_reporters service in ion ecosystem
       | mocha |
       | mda   |
 
+  @ion_reporter_p1
+  Scenario Outline: ION_IR60. ion_reporter service can list all existing ion_reporters
+    Given ion_reporter_id is ""
+    And study_id is "<study_id>"
+    When GET from ion_reporters service, response includes "ion_reporter_id" with code "200"
+    Then each returned ion_reporter field "<string>" should be "<study_id>"
+    Examples:
+      | study_id   |
+      | APEC1621SC |
+      | EAY131     |
+
 #  @ion_reporter_p1
 #  Scenario: ION_IR80. ion_reporter service can list all patients on specified ion_reporter
 

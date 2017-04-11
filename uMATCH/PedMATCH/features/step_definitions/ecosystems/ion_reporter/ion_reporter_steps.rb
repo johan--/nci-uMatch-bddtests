@@ -25,6 +25,14 @@ Given(/^site is "([^"]*)"$/) do |site|
   @url_params['site'] = site
 end
 
+
+Given(/^study_id is "([^"]*)"$/) do |study_id|
+  if @url_params.nil?
+    @url_params = {}
+  end
+  @url_params['study_id'] = study_id
+end
+
 Given(/^control_type is "([^"]*)"$/) do |control_type|
   if @url_params.nil?
     @url_params = {}
@@ -289,6 +297,22 @@ Then(/^each returned ion_reporter should have field "([^"]*)"$/) do |field|
       actual_result = "ion_reporter fields: #{@returned_ions.keys.to_s} do not include #{field}"
     end
     actual_result.should == expect_result
+  else
+    expect_result = 'ion_reporter should be returned'
+    actual_result = 'no ion_reporter is returned'
+    actual_result.should == expect_result
+  end
+end
+
+Then(/^each returned ion_reporter field "([^"]*)" should be "([^"]*)"$/) do |field, value|
+  if @returned_ions.is_a?(Array)
+    @returned_ions.each { |this_ion|
+      expect(this_ion.keys).to include field
+      expect(this_ion[field]).to eq value
+    }
+  elsif @returned_ions.is_a?(Hash)
+    expect(this_ion.keys).to include field
+    expect(this_ion[field]).to eq value
   else
     expect_result = 'ion_reporter should be returned'
     actual_result = 'no ion_reporter is returned'

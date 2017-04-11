@@ -45,8 +45,13 @@ class TableDetails
       keys: %w(patient_id variant_report_received_date)
   }
 
-  ION_REPORTERS = {
-      name: 'ion_reporters',
+  ION_REPORTERS_APEC1621SC = {
+      name: 'ion_reporters_APEC1621SC',
+      keys: %w(ion_reporter_id)
+  }
+
+  ION_REPORTERS_EAY131 = {
+      name: 'ion_reporters_EAY131',
       keys: %w(ion_reporter_id)
   }
 
@@ -85,7 +90,7 @@ class TableDetails
   end
 
   def self.ion_tables
-    %w(ion_reporters sample_controls)
+    %w(ion_reporters_APEC1621SC ion_reporters_EAY131 sample_controls)
   end
 
   def self.all_tables
