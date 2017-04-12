@@ -257,3 +257,32 @@ Feature: Variant files confirmed messages
 #      | PT_VC15_PathAssayDoneVRUploadedToConfirm | PT_VC15_PathAssayDoneVRUploadedToConfirm_ANI1 | confirm   | PENDING_CONFIRMATION            |
 #      | PT_VC15_PathAssayDoneVRUploadedToReject  | PT_VC15_PathAssayDoneVRUploadedToReject_ANI1  | reject    | TISSUE_VARIANT_REPORT_REJECTED  |
 #      | PT_VC15_PathDoneOneAssayVRUploaded       | PT_VC15_PathDoneOneAssayVRUploaded_ANI1       | confirm   | TISSUE_VARIANT_REPORT_CONFIRMED |
+
+
+  @patients_p1
+  Scenario: PT_VC16. confirmed variant report can be rolled back
+    Given patient id is "PT_VC16_VrConfirmed"
+    And patient API user authorization role is "ADMIN"
+    When PUT to MATCH variant report rollback, response includes "" with code "200"
+    Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
+    Then load template variant report confirm message for analysis id: "PT_VC16_VrConfirmed_ANI1"
+    When PUT to MATCH variant report "confirm" service, response includes "changed successfully to" with code "200"
+    Then patient status should change to "TISSUE_VARIANT_REPORT_CONFIRMED"
+    Then load template assay message for this patient
+    Then set patient message field: "surgical_event_id" to value: "PT_VC16_VrConfirmed_SEI1"
+    Then set patient message field: "biomarker" to value: " ICCPTENs"
+    Then set patient message field: "result" to value: "POSITIVE"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
+    Then wait for "45" seconds
+    Then patient status should change to "PENDING_CONFIRMATION"
+
+  @patients_p2
+  Scenario: PT_VC17. variant report rollback should only rollback the latest confirmed variant report
+    Given patient id is "PT_VC17_VrConfirmedStep2"
+    And patient API user authorization role is "ADMIN"
+    When PUT to MATCH variant report rollback, response includes "" with code "200"
+    Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
+    Then patient should have variant report (analysis_id: "PT_VC17_VrConfirmedStep2_ANI2")
+    And this variant report field: "status" should be "PENDING"
+    Then patient should have variant report (analysis_id: "PT_VC17_VrConfirmedStep2_ANI1")
+    And this variant report field: "status" should be "CONFIRMED"

@@ -125,3 +125,28 @@ Feature: Patients assignment tests
 #    Then COG approves patient on treatment arm: "APEC1621-A", stratum: "100" to step: "1.1"
 #    Then patient status should be "ON_TREATMENT_ARM" within 15 seconds
 #    Then patient step number should be "1.1" within 15 seconds
+
+  @patients_p1
+  Scenario: PT_AM07. assignment_report can be rolled back
+    Given patient id is "PT_AM07_PendingApproval"
+    When PUT to MATCH assignment report rollback, response includes "" with code "200"
+    Then patient status should change to "PENDING_CONFIRMATION"
+    Then load template assignment report confirm message for analysis id: "PT_AM07_PendingApproval_ANI1"
+    When PUT to MATCH assignment report "confirm" service, response includes "successfully" with code "200"
+    Then patient status should change to "PENDING_APPROVAL"
+
+  @patients_p2
+  Scenario: PT_AM08. assignment_report rollback only rollback the latest confirmed assignment report
+    Given patient id is "PT_AM08_PendingApprovalStep2"
+    When PUT to MATCH assignment report rollback, response includes "" with code "200"
+    Then patient status should change to "PENDING_CONFIRMATION"
+    Then this patient should have assignment for analysis id "PT_AM08_PendingApprovalStep2_ANI1"
+    And this assignment status should be "CONFIRMED"
+    Then this patient should have assignment for analysis id "PT_AM08_PendingApprovalStep2_ANI2"
+    And this assignment status should be "PENDING"
+    
+#    to-do:
+#    event get generated
+#    PENDING items should rollback
+#    auth0 should work
+#    status should remove last reviewer's name

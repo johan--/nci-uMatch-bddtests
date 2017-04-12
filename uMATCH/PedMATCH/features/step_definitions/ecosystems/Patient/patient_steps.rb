@@ -76,14 +76,16 @@ When(/^GET from MATCH patient API, http code "([^"]*)" should return$/) do |code
 end
 
 When(/^PUT to MATCH variant report rollback, response includes "([^"]*)" with code "([^"]*)"$/) do |message, code|
-  response = Patient_helper_methods.put_vr_rollback(@patient_id)
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
+  response = Patient_helper_methods.put_vr_rollback(@patient_id, @current_auth0_role)
   puts response.to_s
   actual_match_expect(response['http_code'], code)
   # actual_include_expect(response['message'], retMsg)
 end
 
 When(/^PUT to MATCH assignment report rollback, response includes "([^"]*)" with code "([^"]*)"$/) do |message, code|
-  response = Patient_helper_methods.put_assignment_rollback(@patient_id)
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
+  response = Patient_helper_methods.put_assignment_rollback(@patient_id, @current_auth0_role)
   puts response.to_s
   actual_match_expect(response['http_code'], code)
   # actual_include_expect(response['message'], retMsg)
@@ -422,6 +424,32 @@ Then(/^patient should have variant report \(analysis_id: "([^"]*)"\)$/) do |ani|
     raise "Expect array returned, actually #{@current_variant_report.class.to_s} returned"
   end
   actual_match_expect(@current_variant_report['analysis_id'], ani)
+end
+
+Then(/^this patient should have assignment for analysis id "([^"]*)"$/) do |ani|
+  url = "#{ENV['patients_endpoint']}/assignments?analysis_id=#{ani}"
+  try_time = 0
+  while try_time < 9
+    @current_assignment = Patient_helper_methods.get_any_result_from_url(url)
+    break if @current_assignment.size > 0
+    puts "Retrying to get variant report #{ani}..."
+    try_time += 1
+    sleep 5.0
+  end
+  if @current_assignment.is_a?(Array)
+    if @current_assignment.length==1
+      @current_assignment = @current_assignment[0]
+    else
+      raise "Expect 1 variant report returned, actually #{@current_assignment.length} returned"
+    end
+  else
+    raise "Expect array returned, actually #{@current_assignment.class.to_s} returned"
+  end
+  actual_match_expect(@current_assignment['analysis_id'], ani)
+end
+
+And(/^this assignment status should be "([^"]*)"$/) do |status|
+  actual_match_expect(@current_assignment['status'], status)
 end
 
 Then(/^patient should have one variant report for analysis_id: "([^"]*)"$/) do |ani|
