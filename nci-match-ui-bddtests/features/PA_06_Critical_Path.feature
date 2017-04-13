@@ -3,7 +3,7 @@
 #  Date: 08/31/2016
 ##
 @ui_p1 @critical
-Feature: This is the critical path test cases. 
+Feature: These are the critical path test cases.
 
   @demo_p3
   Scenario: User can can see and click on a variant report and should be able to access the variant report page.
@@ -100,7 +100,7 @@ Feature: This is the critical path test cases.
     Then I logout
 
   @broken
-  Scenario: A Mocha user can confirm a MoCha variant report. 
+  Scenario: A Mocha user can confirm a MoCha variant report.
     Given I am logged in as a "VR_Reviewer_mocha" user
     When I go to the patient "mocha_patient" with variant report "mocha_report"
     Then I can see the variant report page
@@ -192,7 +192,7 @@ Feature: This is the critical path test cases.
     And The Types of Logic is the same as the backend
     And I "should" see the Assignment report "CONFIRM" button
     Then I logout
-  
+
   Scenario: Confirming the assignment report updates the status
     Given I am logged in as a "AR_Reviewer" user
     When I go to patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" details page
@@ -210,7 +210,7 @@ Feature: This is the critical path test cases.
     # And I "should" see the patient "Stratum Id" as "100"
     # And I "should" see the patient "Version" as "2015-08-06"
     Then I logout
-  
+
   Scenario: Confirmed Assignment Report updates information on the Assignment report section of the patient
     Given I am logged in as a "AR_Reviewer" user
     When I go to patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" details page

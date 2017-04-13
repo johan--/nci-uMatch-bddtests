@@ -113,6 +113,7 @@ module.exports = function() {
 
     this.Then(/^I should see "(\d*)" messages of "([^"]*)" on the front page$/, function (number, message, callback) {
         var listOfTitles = element.all(by.css('p.timeline-title'));
+        // listOfTitles.getText().then(function(text){console.log(text)});
         var count = 0
         listOfTitles.getText().then(function(titleArray){
             for(var i = 0; i < titleArray.length ; i++){
@@ -145,8 +146,6 @@ module.exports = function() {
           // Write code here that turns the phrase above into concrete actions
           callback(null, 'pending');
     });
-    
-
 
     function splitTissueVariantReportDropDown(dropDownText){
         var returnValue = {};

@@ -160,14 +160,14 @@ var TreatmentArmsPage = function() {
     this.expectedRulesSubTabs =
         ['Drugs / Disease', 'SNVs / MNVs / Indels', 'CNVs', 'Gene Fusions', 'Non-Hotspot Rules', 'Non-Sequencing Assays'];
 
-    this.expectedIncludedSNVs = [ 'ID', 'Chrom', 'Position', 'OCP Ref', 'OCP Alt', 'LOE', 'Lit' ];
-    this.expectedExcludedSNVs = [ 'ID', 'Chrom', 'Position', 'OCP Ref', 'OCP Alt', 'Lit' ];
+    this.expectedIncludedSNVs = [ 'Gene Name', 'ID', 'Chrom', 'Position', 'OCP Ref', 'OCP Alt', 'LOE', 'Lit', 'Variant Type' ];
+    this.expectedExcludedSNVs = [ 'Gene Name', 'ID', 'Chrom', 'Position', 'OCP Ref', 'OCP Alt', 'Lit', 'Variant Type' ];
     this.expectedIncludedCNVs = [ 'Gene', 'Chrom', 'LOE', 'Lit' ];
     this.expectedExcludedCNVs = [ 'Gene', 'Chrom', 'Lit' ];
     this.expectedIncludedGene = [ 'ID', 'LOE', 'Lit' ];
     this.expectedExcludedGene = [ 'ID', 'Lit' ];
     this.expectedIncludedNHRs = [ 'Gene', 'Domain Range', 'Domain Name', 'Exon', 'Oncomine Variant Class', 'Function', 'LOE', 'Lit' ];
-    this.expectedExcludedNHRs = [ 'Gene', 'Domain Range', 'Domain Name', 'Chrom', 'Position', 'Function', 'Lit' ];
+    this.expectedExcludedNHRs = [ 'Gene', 'Domain Range', 'Domain Name', 'Exon', 'Position', 'Function', 'Lit' ];
     this.expectedNonSequenceArray = [ 'Gene', 'Result', 'Variant Association', 'LOE' ];
 
     /** This function returns the text that the name of the Treatment Arm in the row.

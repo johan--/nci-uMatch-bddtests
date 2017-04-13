@@ -160,7 +160,7 @@ var PatientPage = function () {
     this.confirmChangeCommentField     = element(by.css('input[name="comment"]'));  // This is the confirmation modal for individual rejection
     this.confirmVRCHangeCommentField   = element(by.css('input[id="cgPromptInput"]')); // THis is the confirmation modal for the complete VR rejection
     this.gridElement                   = element.all(by.repeater('item in $ctrl.gridOptions.data')); // grid table for all the variants
-    this.commentLinkString             = 'a[ng-click="$ctrl.editComment(item, $ctrl.isEditable )"]'; //the string to get to the comments in the grid
+    this.commentLinkElement            = element.all(by.css('a[ng-if="item.comment"]')); //the element to get to the comments in the grid
 
     this.rejectReportButton            = element(by.css('button[ng-click="rejectVariantReport(variantReport)"]'));
     this.confirmReportButton           = element(by.css('button[ng-click="confirmVariantReport(variantReport)"]'));

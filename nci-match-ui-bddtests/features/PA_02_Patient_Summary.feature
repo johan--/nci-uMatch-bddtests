@@ -45,7 +45,7 @@ Feature: Patient Summary Page
     When I go to patient "<patient>" details page
     When His status is "<status>"
     Then I "<see_or_not>" see a Treatment Arm selected for the patient
-    
+
     Examples:
       | patient                       | status                          | see_or_not |
       | ION_AQ03_BdShipped            | REGISTRATION                    | should not |

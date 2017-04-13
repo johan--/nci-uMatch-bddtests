@@ -32,7 +32,9 @@ module.exports = function () {
     this.When (/^I go to patient "([^"]*)" details page$/, function (pa_id, callback) {
         patientPage.patientId = pa_id;
         browser.get ('/#/patient?patient_id=' + pa_id, utilities.delay.afterPatientLoad).then(function(){
-            browser.waitForAngular();
+            browser.waitForAngular().then(function(){
+                expect(browser.getCurrentUrl()).to.eventually.include('/#/patient?patient_id=' + pa_id);
+            });
         }).then(callback);
     });
 
@@ -141,9 +143,9 @@ module.exports = function () {
     });
 
     this.Then (/^I should see the "(.+)" section heading$/, function (heading, callback) {
-        var index = patientPage.expectedMainTabSubHeadings.indexOf (heading);
-        patientPage.mainTabSubHeadingArray ().getText ().then (function (array) {
-            expect (array[ index ]).to.eql (heading);
+        // var index = patientPage.expectedMainTabSubHeadings.indexOf (heading);
+        patientPage.mainTabSubHeadingArray().getText().then(function (array) {
+            expect(array).to.include(heading);
         }).then (callback);
     });
 
@@ -170,7 +172,7 @@ module.exports = function () {
 
     this.Then(/^I "(should|should not)" see a Treatment Arm selected for the patient$/, function (see_or_not, callback){
         if (see_or_not === 'should'){
-            expect(patientPage.treatmentArmComplete.get(0).getText()).to.eventually.include('APEC1621SC').notify(callback);
+            expect(patientPage.treatmentArmComplete.get(0).getText()).to.eventually.include('APEC1621').notify(callback);
         } else {
             expect(patientPage.treatmentArmComplete.get(0).getText()).to.eventually.eql('-').notify(callback);
         }

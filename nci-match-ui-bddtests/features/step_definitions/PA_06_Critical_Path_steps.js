@@ -124,7 +124,7 @@ module.exports = function () {
 
     this.When(/^I click on the comment link at ordinal "([^"]*)"$/, function (ordinal, callback) {
         var index = ordinal - 1;
-        var el  = element.all(by.css(patientPage.commentLinkString)).get(index)
+        var el  = patientPage.commentLinkElement.get(index)
         el.getLocation().then(function(location){
             browser.executeScript('window.scrollTo(0, ' + (location.y + 200) + ')').then(function(){
                 browser.sleep(2000).then(function(){
@@ -217,7 +217,7 @@ module.exports = function () {
 
     this.Then(/^I can see the comment column in the variant at ordinal "([^"]*)"$/, function (ordinal, callback) {
         var index = ordinal - 1;
-        var expectedCommentLink = patientPage.gridElement.get(index).all(by.css(patientPage.commentLinkString));
+        var expectedCommentLink = patientPage.gridElement.get(index).all(by.css('a[ng-if="item.comment"]'));
 
         expect(expectedCommentLink.get(0).isPresent()).to.eventually.eql(true);
         browser.sleep(50).then(callback);
