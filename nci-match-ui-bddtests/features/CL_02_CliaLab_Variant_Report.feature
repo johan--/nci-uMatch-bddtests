@@ -1,5 +1,5 @@
 Feature: CLIA Labs Variant Reports Page
-    @ui_p1 @demo_p4 @clia2
+    @ui_p1 @demo_p4 @clia
     Scenario Outline: User can access information about the uploaded Positive Sample Control report.
         Given I am logged in as a "<userType>" user
         And I go to clia variant filtered report with "<molecularId>" as the molecular_id on "<subTabName>" tab
@@ -16,7 +16,5 @@ Feature: CLIA Labs Variant Reports Page
 #        Then I should see the status of variant report in list as "<newStatus>"
 
         Examples:
-            | userType          | subTabName                  | statusButton | molecularId | oldStatus | newStatus |
-            | VR_Reviewer_mocha | Positive Sample Controls    | REJECT       | SC_5AMCC    | PASSED    | FAILED    |
-#            | VR_Reviewer_mocha | No Template Control        | ACCEPT       | SC_SA1CB    |
-#            | VR_Reviewer_mocha | Proficiency And Competency | CONFIRM      | SC_FDK09    |
+            | userType          | subTabName                  | statusButton | molecularId    | oldStatus | newStatus |
+            | VR_Reviewer_mocha | Positive Sample Controls    | REJECT       | SC_MOCHA_5AMCC | PASSED    | FAILED    |

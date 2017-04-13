@@ -134,8 +134,7 @@ var Utilities = function () {
     this.checkCosmicLink = function (elem) {
         elem.getText().then(function (linkText) {
             if (linkText.match(/COSM/)) {
-                var endPos = linkText.indexOf(' ');
-                var id = linkText.slice('COSM'.length, endPos)
+                var id = linkText.slice('COSM'.length)
                 expect(elem.all(by.css('a')).get(0).getAttribute('href')).to.eventually.eql('http://grch37-cancer.sanger.ac.uk/cosmic/mutation/overview?id=' + id)
             } else {
                 expect(elem.all(by.css('a')).count()).to.eventually.eql(0)

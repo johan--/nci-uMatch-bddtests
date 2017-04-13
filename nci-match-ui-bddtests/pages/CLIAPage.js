@@ -19,7 +19,7 @@ var CliaPage = function () {
     this.mdaPositiveGrid        = element(by.css('clia_positive_samples[site="mda"]'));
     this.mdaNoTemplateGrid      = element(by.css('clia_ntc_samples[site="mda"]'));
     this.mdaProficiencyGrid     = element(by.css('clia_pc_samples[site="mda"]'));
-    
+
     // These buttons take you to the individual mocha or mda sections.
     this.mochaSectionButton = element(by.cssContainingText('label[ng-click="setActiveTab(key,value)"]', 'MoCha'));
     this.mdaSectionButton   = element(by.cssContainingText('label[ng-click="setActiveTab(key,value)"]', 'MD Anderson'));
@@ -31,11 +31,10 @@ var CliaPage = function () {
     this.sampleDetailTorrentVer = element(by.binding('data.torrent_variant_caller_version'));
     this.sampleDetailPosCtrlVer = element(by.binding('data.positive_control_version'));
     this.sampleDetailRecvdDate  = element(by.binding('data.date_variant_received'));
-    this.positiveDetailStatus   = element.all(by.css('header-info-box clia-lab-vr-pc-header-box')).get(0)
-                                    .all(by.css('dd')).get(6);
-    this.noTemplateDetailStatus = element.all(by.css('header-info-box clia-lab-vr-pc-header-box')).get(0)
-                                    .all(by.css('dd')).get(4);
-                                    
+    this.positiveDetailStatus   = element.all(by.css('.header-info-box.clia-lab-vr-pc-header-box')).get(0).all(by.css('dd')).get(6);
+    this.noTemplateDetailStatus = element.all(by.css('.header-info-box.clia-lab-vr-ntc-header-box')).get(0).all(by.css('dd')).get(4);
+    this.profAndCompDetailStatus = element.all(by.css('.header-info-box.clia-lab-vr-pc-header-box')).get(0).all(by.css('dd')).get(4);
+
     this.sampleDetailComments   = element(by.binding('data.comments'));
     this.sampleDetailTotVariant = element(by.binding('data.total_variants'));
     this.sampleDetailMAPD       = element(by.binding('data.mapd'));
@@ -45,7 +44,9 @@ var CliaPage = function () {
     this.confirmVRStatusCommentField   = element(by.css('input[id="cgPromptInput"]')); // THis is the confirmation modal for the complete VR rejection
 
     this.sampleDetailTableHead  = element.all(by.css('.ibox-title.ibox-title-no-line-no-padding'));
-    this.samplePositivePanel    = element(by.css('clia-vr-positive'));
+    this.samplePositivePanelTableColumn = element.all(by.css('#cliaVrTablePositive th'));
+    this.sampleFalsePosTableColumn = element.all(by.css('#cliaVrFalsePositive th'));
+    this.samplePositivePanel    = element(by.css('clia-vr-table-positive'));
     this.sampleFalsePosPanel    = element(by.css('clia-vr-false-positive'));
     this.ntcSNVPanel            = element(by.css('clia-vr-table-snv-mnv-indel'));
     this.ntcCNVPanel            = element(by.css('clia-vr-table-cnv'));
@@ -72,7 +73,8 @@ var CliaPage = function () {
             'Torrent Variant Caller Version', 'Positive Control Version', 'Status'
         ],
         'right': [
-            'Total Variants', 'MAPD', 'Cellularity', 'File Received Date', 'Files'
+            'Total Variants', 'MAPD', 'Mapped Read', 'Pool 1 Total', 'Pool 2 Total',
+            'Cellularity', 'File Received Date', 'Files'
         ]
 
     };
@@ -83,7 +85,7 @@ var CliaPage = function () {
             'Torrent Variant Caller Version', 'Status'
         ],
         'right': [
-            'Total Variants', 'MAPD', 'Cellularity', 'File Received Date', 'Files'
+            'Total Variants', 'MAPD', 'Mapped Read', 'Pool 1 Total', 'Pool 2 Total', 'Cellularity', 'File Received Date', 'Files'
         ]
     };
 
@@ -93,9 +95,13 @@ var CliaPage = function () {
             'Status'
         ],
         'right': [
-            'Total Variants', 'MAPD', 'Cellularity', 'File Received Date', 'Files'
+            'Total Variants', 'MAPD', 'Mapped Read', 'Pool 1 Total', 'Pool 2 Total', 'Cellularity', 'File Received Date', 'Files'
         ]
     };
+
+    this.expectedPositiveControlsTableHeaders = ['', 'ID', 'Chrom', 'Position', 'Gene', 'Variant Type', 'Ref', 'Alternative', 'HGVS', 'Protein', 'Function']
+
+    this.expectedFalsePostiveVariantTableHEaders = ['ID', 'Position', 'Gene', 'Variant Type', 'Ref', 'Alternative', 'HGVS', 'Protein']
 
     this.tabNameMapping = {
         'MoCha' : {

@@ -227,7 +227,9 @@ module.exports = function() {
 
     this.Then(/^I verify that I am on the sample control page for that molecularId$/, function (callback) {
         var expectedResult = cliaPage.urlControlType + '/?site=' + cliaPage.siteName + '&type=' + cliaPage.controlType + '&molecular_id=' + cliaPage.molecularId
-        expect(browser.getCurrentUrl()).to.eventually.include(expectedResult).notify(callback);
+        browser.waitForAngular().then(function(){
+            expect(browser.getCurrentUrl()).to.eventually.include(expectedResult);
+        }).then(callback);
     });
 
     this.Then(/^I verify all the headings on the "(left|right)" hand side section under Positive Sample Control$/, function (side, callback) {
@@ -264,7 +266,12 @@ module.exports = function() {
         expect(cliaPage.sampleDetailAnalysisId.getText()).to.eventually.include(cliaPage.responseData['analysis_id']);
         expect(cliaPage.sampleDetailTorrentVer.getText()).to.eventually.include(cliaPage.responseData['torrent_variant_caller_version']);
         expect(cliaPage.sampleDetailRecvdDate.getText()).to.eventually.include(moment.utc(cliaPage.responseData['date_variant_received']).utc().format('LLL'));
-        expect(cliaPage.noTemplateDetailStatus.getText()).to.eventually.include(cliaPage.responseData['report_status']).notify(callback);
+        if (headerType === 'No Template Control'){
+            expect(cliaPage.noTemplateDetailStatus.getText()).to.eventually.include(cliaPage.responseData['report_status']).notify(callback);
+        } else {
+            expect(cliaPage.profAndCompDetailStatus.getText()).to.eventually.include(cliaPage.responseData['report_status']).notify(callback);
+        }
+
     });
 
     this.Then(/^I verify all the values on the right hand side section under Positive Sample Control$/, function (callback) {
@@ -282,7 +289,9 @@ module.exports = function() {
 
     this.Then(/^I verify the presence of Positive controls and False positive variants table$/, function (callback) {
         expect(cliaPage.sampleDetailTableHead.get(0).getText()).to.eventually.eql('Positive Controls');
-        expect(cliaPage.sampleDetailTableHead.get(1).getText()).to.eventually.eql('False Positive Variants').notify(callback);
+        expect(cliaPage.sampleDetailTableHead.get(1).getText()).to.eventually.eql('False Positive Variants')
+        expect(cliaPage.samplePositivePanelTableColumn.getText()).to.eventually.eql(cliaPage.expectedPositiveControlsTableHeaders);
+        expect(cliaPage.sampleFalsePosTableColumn.getText()).to.eventually.eql(cliaPage.expectedFalsePostiveVariantTableHEaders).notify(callback);
     });
 
     this.When(/^I verify the presence of SNVs, CNVs and Gene Fusions Table$/, function (callback) {
@@ -294,7 +303,7 @@ module.exports = function() {
     this.Then(/^I verify that valid IDs are links and invalid IDs are not in "(Positive Controls|False Positive Variants)" table$/, function (tableName, callback) {
         var presentIDList;
         if (tableName === 'Positive Controls') {
-            presentIDList = cliaPage.samplePositivePanel.all(by.css('[ng-if$="item.identifier"]'));
+            presentIDList = cliaPage.samplePositivePanel.all(by.css('[link-id="item.identifier"]'));
         } else {
             presentIDList = cliaPage.sampleFalsePosPanel.all(by.css('cosmic-link[link-id="item.identifier"]'))
         }
@@ -377,8 +386,6 @@ module.exports = function() {
             "dna_bam_name": molecularId + '_dna.bam',
             "cdna_bam_name": molecularId + '_rna.bam'
         };
-
-        console.log ("browser.sysToken: " + browser.sysToken);
 
         utilities.putRequestWithService('ion', '/api/v1/aliquot/' + molecularId, data, { Authorization: browser.sysToken }).
             then(function(responseBody) {
