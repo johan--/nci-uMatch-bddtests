@@ -8,7 +8,7 @@ Feature: Patient Surgical Events Tab
   Background:
     Given I stay logged in as "read_only" user
 
-  @ui_p2 
+  @ui_p2
   Scenario: Logged in user can see the details of the surgical event
     When I go to patient "PT_CR04_VRUploadedAssayReceived" details page
     And I collect specimen information about the patient

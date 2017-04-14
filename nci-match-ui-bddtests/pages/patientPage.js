@@ -102,7 +102,7 @@ var PatientPage = function () {
     // *****************  Blood Specimens Tab  ********************//
     // This the master panel STRING for Tissue reports
     this.tissueMasterPanelString = 'div[ng-if="currentTissueVariantReport"]';
-    this.bloodSpecimenTab = element(by.css('li[heading="Blood Specimens"]'));
+    this.bloodSpecimenTab = element(by.css('li[heading="Blood Specimens"]>a'));
     // master panel for Blood Specimens
     this.bloodMasterPanel = element(by.css('div[ng-if="hasBloodInfo"]'));
     // This is the expected Array for Blood Specimens' columns
@@ -332,7 +332,7 @@ var PatientPage = function () {
 
     // Download related
     this.downloadTracker        = element(by.css('.download-count>.label.label-primary'));
-    
+
 };
 
 module.exports = new PatientPage();

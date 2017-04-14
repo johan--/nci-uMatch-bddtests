@@ -101,7 +101,7 @@ module.exports = function () {
         browser.ignoreSynchronization = true;
         browser.executeScript('window.scrollTo(0,5000)').then(function () {
             assignmentReportLink.click().then(function () {
-                browser.ignoreSynchronization = true;
+                browser.ignoreSynchronization = false;
                 browser.waitForAngular();
             }).then(callback);
         });
@@ -126,8 +126,8 @@ module.exports = function () {
         var index = ordinal - 1;
         var el  = patientPage.commentLinkElement.get(index)
         el.getLocation().then(function(location){
-            browser.executeScript('window.scrollTo(0, ' + (location.y + 200) + ')').then(function(){
-                browser.sleep(2000).then(function(){
+            browser.executeScript('window.scrollTo(0, ' + (location.y + 300) + ')').then(function(){
+                browser.sleep(1000).then(function(){
                     el.click().then(function(){
                         browser.waitForAngular();
                     })

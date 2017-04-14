@@ -68,7 +68,7 @@ script:
   - export P2="_p2"
   - export P3="_p3"
   - export STATUS=0
-  - export CURRENT_STATUS=0 
+  - export CURRENT_STATUS=0
   # Run Cucumber @tag specific tests
   - ls -alt results
   - rm results/*
@@ -81,7 +81,7 @@ script:
       if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
       cd ../..
     fi
-  
+
   - |
     if [ "$CUC_TAG" == "@admin_api" ]; then
       cd nci-admin-api-bddtests
@@ -94,8 +94,7 @@ script:
   - pwd
   - ls -altr results
 #  - aws s3 cp results/ s3://bdd-test-data/report_test --region us-east-1 --recursive
-  # Run Cucumber end to end tests
-  # - bundle exec cucumber --tags @EndtoEnd
+
   # Install xvfb
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
@@ -180,9 +179,11 @@ after_script:
   ######COMMENTING FOR NOW###########################
 #  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_BUILD_NUMBER/ --region us-east-1 --recursive
   ###################################################
+  - ruby DataSetup/html_converter.rb --file=cucumber_report.html--folder=results_critical --date=$DATE_TRIM
   - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results_critical/cucumber_report.html s3://cucumber-test-reports/$DATE_TRIM/critical$CUC_TAG.html --region us-east-1
   - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results_critical/screenshot s3://cucumber-test-reports/$DATE_TRIM/screenshot --region us-east-1 --recursive
 
+  - ruby DataSetup/html_converter.rb --file=cucumber_report.html--folder=results --date=$DATE_TRIM
   - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/cucumber_report.html s3://cucumber-test-reports/$DATE_TRIM/non-critical$CUC_TAG.html --region us-east-1
   - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/screenshot s3://cucumber-test-reports/$DATE_TRIM/screenshot --region us-east-1 --recursive
 

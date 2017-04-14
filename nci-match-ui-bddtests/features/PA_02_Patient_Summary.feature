@@ -50,8 +50,8 @@ Feature: Patient Summary Page
       | patient                       | status                          | see_or_not |
       | ION_AQ03_BdShipped            | REGISTRATION                    | should not |
       | PT_AU03_SlideShipped0         | TISSUE_SLIDE_SPECIMEN_SHIPPED   | should not |
-      | ION_AQ02_TsShipped            | TISSUE_NUCLEIC_ACID_SHIPPED     | should not |
-      | PT_AS08_TsReceivedStep2       | TISSUE_SPECIMEN_RECEIVED        | should not |
+      | PT_RA03_TsShipped             | TISSUE_NUCLEIC_ACID_SHIPPED     | should not |
+      | PT_AS08_TissueReceived        | TISSUE_SPECIMEN_RECEIVED        | should not |
       | ION_AQ08_TsVrUploaded1        | TISSUE_VARIANT_REPORT_RECEIVED  | should not |
       | PT_AS12_VrConfirmed           | TISSUE_VARIANT_REPORT_CONFIRMED | should not |
       | PT_AM01_TsVrReceived1         | ASSAY_RESULTS_RECEIVED          | should not |

@@ -46,9 +46,9 @@ module.exports = function () {
     });
 
     this.When (/^I click on the "([^"]*)" tab$/, function (tabName, callback) {
-        var elementToClick = utilities.getSubTabHeadingElement(tabName)
-        elementToClick.click ().then(function(){
-            browser.ignoreSynchronization = false;
+        var elementToClick = utilities.getSubTabHeadingElement(tabName);
+        browser.waitForAngular().then(function(){
+            elementToClick.click();
         }).then(callback);
     });
 
@@ -167,7 +167,9 @@ module.exports = function () {
     });
 
     this.When(/^His status is "([^"]*)"$/, function (status, callback) {
-        expect(patientPage.patientDetailsStatus.getText()).to.eventually.eql(status).notify(callback)
+        browser.waitForAngular().then(function(){
+            expect(patientPage.patientDetailsStatus.getText()).to.eventually.eql(status);
+        }).then(callback);
     });
 
     this.Then(/^I "(should|should not)" see a Treatment Arm selected for the patient$/, function (see_or_not, callback){
@@ -180,7 +182,7 @@ module.exports = function () {
 
     this.Then(/^I "(should|should not)" see a Off Arm Date generated for the patient$/, function (see_or_not, callback){
         if (see_or_not === 'should'){
-            expect(patientPage.treatmentArmComplete.get(0).getText()).to.eventually.include('APEC1621SC').notify(callback);
+            expect(patientPage.treatmentArmComplete.get(0).getText()).to.eventually.include('APEC1621').notify(callback);
         } else {
             expect(patientPage.treatmentArmComplete.get(0).getText()).to.eventually.eql('-').notify(callback);
         }
