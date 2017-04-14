@@ -60,7 +60,7 @@ Feature: TA_CF. Treatment Arm API common tests for all fields
 	  "identifier":"COSM1686998",
 	  "chromosome":"1.0",
 	  "position":"11184573",
-	  "level_of_evidence":2.0,
+	  "level_of_evidence":5.0,
 	  "ocp_reference":"G",
 	  "ocp_alternative":"A",
 	  "inclusion":true,

@@ -16,6 +16,7 @@ end
 
 
 Given(/^patient: "([^"]*)" is registered$/) do |patient_id|
+  COG_helper_methods.reset_patient_data(patient_id)
   @current_auth0_role = 'PATIENT_MESSAGE_SENDER'
   @patient_id = patient_id
   date = Helper_Methods.getDateAsRequired('current')
@@ -151,11 +152,12 @@ Then(/^"([^"]*)" variant report confirmed with status: "([^"]*)"$/) do |type, st
   @response = Patient_helper_methods.put_vr_confirm(target_ani, target_status,@current_auth0_role)
   code = '200'
   expect(@response['http_code']).to eq code
-  if type == 'TISSUE'
-    Patient_helper_methods.wait_until_patient_field_is(@patient_id, 'current_status', "TISSUE_VARIANT_REPORT_#{status}")
-  else
-    Patient_helper_methods.wait_until_patient_updated(@patient_id)
-  end
+  # variant report confirmation service update database directly, so no need to wait
+  # if type == 'TISSUE'
+  #   Patient_helper_methods.wait_until_patient_field_is(@patient_id, 'current_status', "TISSUE_VARIANT_REPORT_#{status}")
+  # else
+  #   Patient_helper_methods.wait_until_patient_updated(@patient_id)
+  # end
 end
 
 Then(/^API returns a message that includes "([^"]*)" with status "([^"]*)"$/) do |message, status|

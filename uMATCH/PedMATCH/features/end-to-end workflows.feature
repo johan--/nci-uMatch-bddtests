@@ -98,7 +98,7 @@ Feature: Workflow scenarios that exercises the entire PedMATCH system from regis
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
     Then patient status should be "PENDING_CONFIRMATION"
     Then treatment arm: "SNV_location_intronic" with stratum id: "100" is selected
-    Then the current assignment reason is "A match was found for inclusion nonhotspot variant (GENE: KIT, FUNC: -, EXON: 12, OVA: -)."
+    Then the current assignment reason is "A match was found for inclusion nonhotspot variant (GENE: KIT, FUNC: -, EXON: 12, OVA: -"
     Then assignment report is confirmed
     Then COG approves patient on treatment arm: "SNV_location_intronic", stratum: "100" to step: "1.1"
     Then patient status should be "ON_TREATMENT_ARM"
@@ -117,7 +117,7 @@ Feature: Workflow scenarios that exercises the entire PedMATCH system from regis
     Then current assignment report_status: "NO_TREATMENT_FOUND"
     Then assignment report is confirmed
     Then patient status should be "NO_TA_AVAILABLE"
-    Then treatment assignment results for treatment arm is "APEC1621-B" is "A match was found for exclusion nonhotspot variant (GENE: TP53, FUNC: Refallele, EXON: -, OVA: -)"
+    Then treatment assignment results for treatment arm is "APEC1621-B" is "A match was found for exclusion nonhotspot variant (GENE: TP53, FUNC: Refallele, EXON: -, OVA: -"
 
   Scenario: When a Patient does not have any disease(s) then he or she should not be assigned to a TA
     Given patient: "PT_ETE07" is registered
@@ -143,7 +143,7 @@ Feature: Workflow scenarios that exercises the entire PedMATCH system from regis
     Then "TISSUE" variant report confirmed with status: "CONFIRMED"
     Then patient status should be "PENDING_CONFIRMATION"
     Then treatment arm: "APEC1621-D" with stratum id: "100" is selected
-    Then the current assignment reason is "A match was found for inclusion nonhotspot variant (GENE: KRAS, FUNC: -, EXON: -, OVA: -, PROTEIN: p.A416BC)."
+    Then the current assignment reason is "A match was found for inclusion nonhotspot variant (GENE: KRAS, FUNC: -, EXON: -, OVA: -, PROTEIN: p.A416BC"
     Then assignment report is confirmed
     Then COG approves patient on treatment arm: "APEC1621-D", stratum: "100" to step: "1.1"
     Then patient status should be "ON_TREATMENT_ARM"
