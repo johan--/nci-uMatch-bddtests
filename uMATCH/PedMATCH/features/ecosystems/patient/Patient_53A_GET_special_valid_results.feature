@@ -80,6 +80,32 @@ Feature: Patient GET service valid special case tests
       | PT_SC02b_TsShipped | PT_SC02b_TsShipped_MOI1 | PT_SC02b_TsShipped_ANI1 | tissue_variant_reports |
 
   @patients_p1
+  Scenario Outline: PT_SC02h pending_items should increase tissue_variant_reports value properly by rolling back confirmed variant report
+    Given patient id is "<patient_id>"
+    And patient API user authorization role is "ADMIN"
+    When PUT to MATCH variant report rollback, response includes "" with code "200"
+    Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
+    Then patient GET service: "pending_items", patient id: "", id: ""
+    When GET from MATCH patient API, http code "200" should return
+    Then there are "1" patient "<pending_type>" pending_items have field: "analysis_id" value: "<ani>"
+    Examples:
+      | patient_id            | ani                        | pending_type           |
+      | PT_SC02h_TsVrUploaded | PT_SC02h_TsVrUploaded_ANI1 | tissue_variant_reports |
+
+  @patients_p1
+  Scenario Outline: PT_SC02i pending_items should increase assignment_reports value properly by rolling back confirmed variant report
+    Given patient id is "<patient_id>"
+    And patient API user authorization role is "ADMIN"
+    When PUT to MATCH variant report rollback, response includes "" with code "200"
+    Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
+    Then patient GET service: "pending_items", patient id: "", id: ""
+    When GET from MATCH patient API, http code "200" should return
+    Then there are "1" patient "<pending_type>" pending_items have field: "analysis_id" value: "<ani>"
+    Examples:
+      | patient_id               | ani                        | pending_type       |
+      | PT_SC02i_PendingApproval | PT_SC02i_TsVrUploaded_ANI1 | assignment_reports |
+
+  @patients_p1
   Scenario Outline: PT_SC02c pending_items should decrease tissue_variant_reports value properly
     Given patient id is "<patient_id>"
     And load template variant report confirm message for analysis id: "<ani>"
@@ -617,10 +643,10 @@ Feature: Patient GET service valid special case tests
       | PT_SC09_PendingConfirmation | non_existing_uuid                    |
       | PT_SC09_PendingApproval     | 301f05b2-a7b3-4305-8c2b-30bee9f258e1 |
 
-    @patients_p2
-    Scenario: PT_SC10a analysis_report can return all variant file names
-      Given patient GET service: "analysis_report", patient id: "PT_SC10a_TsVrUploaded", id: "PT_SC10a_TsVrUploaded_ANI1"
-      When GET from MATCH patient API, http code "200" should return
-      Then this patient tissue analysis_report should have correct "dna" file names: "dna.bam"
-      Then this patient tissue analysis_report should have correct "cdna" file names: "cdna.bam"
-      Then this patient tissue analysis_report should have correct "vcf" file names: "test1.vcf"
+  @patients_p2
+  Scenario: PT_SC10a analysis_report can return all variant file names
+    Given patient GET service: "analysis_report", patient id: "PT_SC10a_TsVrUploaded", id: "PT_SC10a_TsVrUploaded_ANI1"
+    When GET from MATCH patient API, http code "200" should return
+    Then this patient tissue analysis_report should have correct "dna" file names: "dna.bam"
+    Then this patient tissue analysis_report should have correct "cdna" file names: "cdna.bam"
+    Then this patient tissue analysis_report should have correct "vcf" file names: "test1.vcf"

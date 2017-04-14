@@ -1,92 +1,92 @@
 {
     "Items": [
         {
+            "last_contact": {
+                "S": "2017-02-01 15:08:26.446499"
+            },
             "site": {
                 "S": "mocha"
             },
             "ion_reporter_id": {
                 "S": "IR_IGXAW"
             },
-            "study_id": {
-                "S": "EAY131"
-            },
-            "last_contact": {
-                "S": "2017-02-01 15:08:26.446499"
-            },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:36.514328"
+            },
+            "study_id": {
+                "S": "EAY131"
             }
         },
         {
+            "last_contact": {
+                "S": "2017-02-01 15:08:01.446499"
+            },
             "site": {
                 "S": "mda"
             },
             "ion_reporter_id": {
                 "S": "IR_CFUXR"
             },
-            "study_id": {
-                "S": "EAY131"
-            },
-            "last_contact": {
-                "S": "2017-02-01 15:08:01.446499"
-            },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:37.632102"
+            },
+            "study_id": {
+                "S": "EAY131"
             }
         },
         {
+            "last_contact": {
+                "S": "2017-02-01 15:08:25.446499"
+            },
             "site": {
                 "S": "mgh"
             },
             "ion_reporter_id": {
                 "S": "IR_MGH99"
             },
-            "study_id": {
-                "S": "EAY131"
-            },
-            "last_contact": {
-                "S": "2017-02-01 15:08:25.446499"
-            },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:37.632102"
+            },
+            "study_id": {
+                "S": "EAY131"
             }
         },
         {
+            "last_contact": {
+                "S": "2017-02-01 15:08:27.446499"
+            },
             "site": {
                 "S": "yale"
             },
             "ion_reporter_id": {
                 "S": "IR_YAL02"
             },
-            "study_id": {
-                "S": "EAY131"
-            },
-            "last_contact": {
-                "S": "2017-02-01 15:08:27.446499"
-            },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:37.632102"
+            },
+            "study_id": {
+                "S": "EAY131"
             }
         },
         {
+            "last_contact": {
+                "S": "2017-02-01 15:08:25.446499"
+            },
             "site": {
                 "S": "dartmouth"
             },
             "ion_reporter_id": {
                 "S": "IR_DTM99"
             },
-            "study_id": {
-                "S": "EAY131"
-            },
-            "last_contact": {
-                "S": "2017-02-01 15:08:25.446499"
-            },
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:37.632102"
+            },
+            "study_id": {
+                "S": "EAY131"
             }
         }
     ],
-    "Count": 5,
     "ScannedCount": 5,
-    "ConsumedCapacity": null
+    "ConsumedCapacity": null,
+    "Count": 5
 }
