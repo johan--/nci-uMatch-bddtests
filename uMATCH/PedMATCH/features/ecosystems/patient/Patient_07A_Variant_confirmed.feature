@@ -265,6 +265,9 @@ Feature: Variant files confirmed messages
     And patient API user authorization role is "ADMIN"
     When PUT to MATCH variant report rollback, response includes "" with code "200"
     Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
+    Then patient should have variant report (analysis_id: "PT_VC16_VrConfirmed_ANI1")
+    And this variant report field: "comment_user" should be "null"
+    And patient latest event field "event_message" should be "Variant report has been rolled back to PENDING"
     Then load template variant report confirm message for analysis id: "PT_VC16_VrConfirmed_ANI1"
     When PUT to MATCH variant report "confirm" service, response includes "changed successfully to" with code "200"
     Then patient status should change to "TISSUE_VARIANT_REPORT_CONFIRMED"

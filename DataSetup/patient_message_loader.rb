@@ -156,6 +156,27 @@ class PatientMessageLoader
     # sleep(@wait_time)
   end
 
+  def self.post_variant_report(message_json, patient_id, moi, message = nil)
+    if @all_items.nil?
+      @all_items = 0
+    end
+    if @failure.nil?
+      @failure = 0
+    end
+    @all_items += 1
+    output = Helper_Methods.post_request("#{LOCAL_PATIENT_API_URL}/variant_report/#{moi}", message_json.to_json)
+    p "Output from running No.#{@all_items} curl: #{output['message']}"
+    p "#{message} completed"
+    unless output['message'].downcase.include? 'success'
+      p 'Failed'
+      puts JSON.pretty_generate(message_json)
+      @failure += 1
+      @failed_patient_list=[] if @failed_patient_list.nil?
+      @failed_patient_list << patient_id unless @failed_patient_list.include?(patient_id)
+    end
+    # sleep(@wait_time)
+  end
+
   def self.post_patient_event(message_json, message = nil)
     if @all_items.nil?
       @all_items = 0
@@ -406,7 +427,8 @@ class PatientMessageLoader
     message['molecular_id'] = molecular_id
     message['analysis_id'] = analysis_id
     message['tsv_file_name'] = tsv_name
-    send_message_to_local(message, patient_id)
+    message['patient_id'] = patient_id
+    post_variant_report(message, patient_id, molecular_id, 'variant report upload')
     wait_until_updated(patient_id, '')
     sleep(5) #variant upload might take more time than other service, so wait internally
   end

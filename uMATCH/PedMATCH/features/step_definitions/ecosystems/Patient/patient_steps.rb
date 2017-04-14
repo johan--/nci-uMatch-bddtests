@@ -452,6 +452,11 @@ And(/^this assignment status should be "([^"]*)"$/) do |status|
   actual_match_expect(@current_assignment['status'], status)
 end
 
+And(/^this assignment field "([^"]*)" should be "([^"]*)"$/) do |field, value|
+  convert_value = value=='null' ? nil : value
+  actual_match_expect(@current_assignment[field], convert_value)
+end
+
 Then(/^patient should have one variant report for analysis_id: "([^"]*)"$/) do |ani|
   url = "#{ENV['patients_endpoint']}/variant_reports?analysis_id=#{ani}"
   vrs = Patient_helper_methods.get_any_result_from_url(url)
@@ -624,6 +629,16 @@ And(/^patient should have variant file received event with file_name "([^"]*)" a
   filtered_events = filtered_events.select { |event|
     event['event_data']['file_name']==file_name&&event['event_data']['analysis_id']==ani }
   expect(filtered_events.size).to eq 1
+end
+
+And(/^patient latest event field "([^"]*)" should be "([^"]*)"$/) do |field, value|
+  url = "#{ENV['patients_endpoint']}/events?order=desc&entity_id=#{@patient_id}"
+  events = Patient_helper_methods.get_any_result_from_url(url)
+  expect(events.class).to eq Array
+  expect(events.size).to > 0
+  lastest_event = events[0]
+  expect(lastest_event.keys).to include field
+  expect(lastest_event[field]).to eq value
 end
 
 Given(/^this patient is in mock service lost patient list, service will come back after "([^"]*)" tries$/) do |error_times|

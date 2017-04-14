@@ -134,6 +134,9 @@ Feature: Patients assignment tests
     Then load template assignment report confirm message for analysis id: "PT_AM07_PendingApproval_ANI1"
     When PUT to MATCH assignment report "confirm" service, response includes "successfully" with code "200"
     Then patient status should change to "PENDING_APPROVAL"
+    Then this patient should have assignment for analysis id "PT_AM07_PendingApproval_ANI1"
+    And this assignment field "comment_user" should be "null"
+    And patient latest event field "event_message" should be "Assignment report has been rolled back to PENDING"
 
   @patients_p2
   Scenario: PT_AM08. assignment_report rollback only rollback the latest confirmed assignment report
@@ -146,7 +149,4 @@ Feature: Patients assignment tests
     And this assignment status should be "PENDING"
     
 #    to-do:
-#    event get generated
 #    PENDING items should rollback
-#    auth0 should work
-#    status should remove last reviewer's name

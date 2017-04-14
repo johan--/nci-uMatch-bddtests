@@ -14,10 +14,10 @@ Auth0Token.force_generate_auth0_token('ADMIN')
 #
 # Patient00A.upload_patient('PT_AU04_DtmTsShipped0')
 # Patient00A.upload_patient('PT_AU04_DtmTsShipped1')
-# Patient00A.upload_patient('PT_AU05_DtmTsVrUploaded0')
-Patient00A.upload_patient('PT_AU12_TsShippedToMca')
-# Patient00A.upload_patient('PT_AU12_TsShippedToDtm')
-# Patient00A.upload_patient('PT_AU12_TsShippedToMda')
+Patient00A.upload_patient('PT_AU13_TsVrConfirmed1')
+Patient00A.upload_patient('PT_AU13_TsVrConfirmed2')
+# Patient00A.upload_patient('PT_AU14_PendingApproval1')
+# Patient00A.upload_patient('PT_AU14_PendingApproval2')
 
 sleep(10.0)
 MatchTestDataManager.backup_all_local_db
