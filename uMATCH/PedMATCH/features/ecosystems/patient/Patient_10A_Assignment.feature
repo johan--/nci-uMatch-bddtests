@@ -126,7 +126,7 @@ Feature: Patients assignment tests
 #    Then patient status should be "ON_TREATMENT_ARM" within 15 seconds
 #    Then patient step number should be "1.1" within 15 seconds
 
-  @patients_p1
+  @patients_p1_off
   Scenario: PT_AM07. assignment_report can be rolled back
     Given patient id is "PT_AM07_PendingApproval"
     When PUT to MATCH assignment report rollback, response includes "" with code "200"
@@ -138,7 +138,7 @@ Feature: Patients assignment tests
     And this assignment field "comment_user" should be "null"
     And patient latest event field "event_message" should be "Assignment report has been rolled back to PENDING"
 
-  @patients_p2
+  @patients_p2_off
   Scenario: PT_AM08. assignment_report rollback only rollback the latest confirmed assignment report
     Given patient id is "PT_AM08_PendingApprovalStep2"
     When PUT to MATCH assignment report rollback, response includes "" with code "200"

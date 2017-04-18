@@ -206,7 +206,7 @@ Feature: Assay Messages
       | ICCBAF47s | INDETERMINATE | 2016-05-18T14:42:13+00:00 |
       | ICCBRG1s  | INDETERMINATE | 2016-05-18T15:42:13+00:00 |
 
-  @patients_p2
+  @patients_p2_off
   Scenario Outline: PT_AS12. assay result received message can be processed properly
     Given patient id is "<patient_id>"
     And load template assay message for this patient
@@ -230,7 +230,7 @@ Feature: Assay Messages
       | PT_AS12_VrConfirmed | PENDING_CONFIRMATION   | PT_AS12_VrConfirmed_SEI1 |
       | PT_AS12_VrReceived  | ASSAY_RESULTS_RECEIVED | PT_AS12_VrReceived_SEI1  |
 
-  @patients_p2
+  @patients_p2_off
   Scenario Outline: PT_AS12a. assay result can be received and updated properly after assignment
     Given patient id is "<patient_id>"
     And load template assay message for this patient

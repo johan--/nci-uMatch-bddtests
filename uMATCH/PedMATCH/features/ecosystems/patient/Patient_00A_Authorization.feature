@@ -432,7 +432,7 @@ Feature: Patient API authorization tests
       | PT_AU12_TsShippedToMca | mocha     | SPECIMEN_MESSAGE_SENDER           |         | 401  |
       | PT_AU12_TsShippedToDtm | dartmouth | ASSAY_MESSAGE_SENDER              |         | 401  |
 
-  @patients_p1
+  @patients_p1_off
   Scenario Outline: PT_AU13 role base authorization works properly for variant report rollback
     Given patient id is "<patient_id>"
     And patient API user authorization role is "<role>"
@@ -453,7 +453,7 @@ Feature: Patient API authorization tests
       | PT_AU13_TsVrConfirmed2 | SPECIMEN_MESSAGE_SENDER           |         | 401  |
       | PT_AU13_TsVrConfirmed2 | ASSAY_MESSAGE_SENDER              |         | 401  |
 
-  @patients_p1
+  @patients_p1_off
   Scenario Outline: PT_AU14 role base authorization works properly for assignment rollback
     Given patient id is "<patient_id>"
     And patient API user authorization role is "<role>"
