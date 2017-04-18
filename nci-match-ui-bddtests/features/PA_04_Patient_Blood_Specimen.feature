@@ -8,7 +8,7 @@ Feature: Patient Blood SpecimenTab
   Background:
   Given I stay logged in as "VR_Reviewer_mda" user
   And I go to patient "UI_SP01_MultiBdSpecimens" details page
-  
+
 
   Scenario: A User can see and go to the Blood Specimens page
   When I click on the Blood Specimens tab
@@ -17,7 +17,7 @@ Feature: Patient Blood SpecimenTab
   And I can see the Blood Shipments table columns
   And I can see the "Blood Specimens" section
   And I can see the "Blood Shipments" section
-    
+
 
   Scenario: A User can see all the shipments and the specimens for blood on the blood specimens page
   When I collect information about blood shipments for the patient "UI_SP01_MultiBdSpecimens"

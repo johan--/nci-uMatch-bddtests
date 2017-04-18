@@ -10,8 +10,9 @@ class BDDNotifier
 
     @client.auth_test
     @slack_id_dictionary = {}
-    @client.users_list['members'].each { |this_member|
-      @slack_id_dictionary[this_member['name']] = this_member['id']}
+    @client.users_list['members'].each do |this_member|
+      @slack_id_dictionary[this_member['name']] = this_member['id']
+    end
     @slack_user_dictionary = JSON(IO.read('./bdd_notifier_data.json'))['slack_id_dictionary']
   end
 

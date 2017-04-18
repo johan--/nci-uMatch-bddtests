@@ -39,8 +39,10 @@ module.exports = function() {
     });
 
     this.When(/^I click on the Blood Specimens tab$/, function (callback) {
-        patientPage.bloodSpecimenTab.click().then(function(){
-            browser.sleep(50);
+        browser.waitForAngular().then(function (){
+            patientPage.bloodSpecimenTab.click().then(function(){
+                browser.waitForAngular();
+            });
         }).then(callback);
     });
 
@@ -59,17 +61,6 @@ module.exports = function() {
         expect(section_locators.getText()).to.eventually.eql(patientPage.expVarReportTables);
         browser.sleep(50).then(callback);
     });
-
-    // this.Then(/^I click the variant report link for "(.+?)"$/, function (analysisId, callback) {
-    //     patientPage.variantAnalysisId = analysisId;
-    //     var link = element.all(by.repeater('analysisAssignment in shipment.analyses'))
-    //         .first()
-    //         .all(by.tagName('a')).first();
-
-    //     link.click().then(function(){
-    //       browser.waitForAngular();
-    //     }).then(callback);
-    // });
 
     this.Then(/^All the existing checkboxes are checked and disabled$/, function (callback) {
         var checkboxes = element.all(by.tagName('check-box-with-confirm'))

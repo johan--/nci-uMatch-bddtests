@@ -122,7 +122,7 @@ module.exports = function() {
 
     this.Then(/^I verify that "([^"]*)" under "(MoCha|MD Anderson)" is active$/, function (subTabName, sectionName, callback) {
          var elemToCheck = element(by.css('li[heading="' + subTabName + '"]'));
-         utilities.checkElementIncludesAttribute(elemToCheck, 'class', 'active').then(callback);         
+         utilities.checkElementIncludesAttribute(elemToCheck, 'class', 'active').then(callback);
     });
 
     this.Then(/^I verify the headings for "([^"]*)" under "(MoCha|MD Anderson)"$/, function (subTabName, sectionName, callback) {
@@ -399,7 +399,7 @@ module.exports = function() {
         var input = cliaPage.tabNameMapping[site][tableType].searchElement
         input.sendKeys(molecularId);
         expect(input.getAttribute('value')).to.eventually.eql(molecularId).notify(callback);
-    })
+    });
 
     this.Then(/^I "(should|should not)" see a variant report for "(.+?)" for "(.+?)" under "(.+?)"$/, function(presence, molecularId, tableType, site, callback){
         var tableElement = element.all(by.css('a[ng-show="item.analysis_id && item.report_status"]')).get(0);
@@ -408,7 +408,7 @@ module.exports = function() {
         } else {
             expect(tableElement.element(by.xpath('..')).element(by.css('p')).getText()).to.eventually.eql('-').notify(callback);
         }
-    })
+    });
 
     this.When(/^I clear the text in the modal text box$/, function (callback) {
         patientPage.confirmChangeCommentField.clear();

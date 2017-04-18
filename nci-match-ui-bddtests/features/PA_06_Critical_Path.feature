@@ -34,7 +34,7 @@ Feature: These are the critical path test cases.
     Then I "should not" see the confirmation modal pop up
     Then The variant at ordinal "1" is "checked"
     Then I logout
-
+@fixer
   Scenario: Variant rejection is allowed if a comment is added and one can still cancel the process.
     Given I am logged in as a "VR_Reviewer_mda" user
     When I go to the patient "PT_CR04_VRUploadedAssayReceived" with variant report "PT_CR04_VRUploadedAssayReceived_ANI1"
@@ -45,7 +45,7 @@ Feature: These are the critical path test cases.
     When I click on the "Cancel" button
     Then The variant at ordinal "1" is "checked"
     Then I logout
-
+@fixer
   Scenario: If a variant is rejected the comments are stored and visible on the front end
     Given I am logged in as a "VR_Reviewer_mda" user
     When I go to the patient "PT_CR04_VRUploadedAssayReceived" with variant report "PT_CR04_VRUploadedAssayReceived_ANI1"
@@ -221,7 +221,7 @@ Feature: These are the critical path test cases.
     Then I logout
 
   Scenario: As a privileged Dartmouth Sender I can upload a sample file
-    Given I clear the file from S3 under reporter "IR_DTM00", mol_id "PT_UI04_DtmTsShipped1_MOI1", analysis_id "PT_UI04_DtmTsShipped1_An123"  
+    Given I clear the file from S3 under reporter "IR_DTM00", mol_id "PT_UI04_DtmTsShipped1_MOI1", analysis_id "PT_UI04_DtmTsShipped1_An123"
     And I am logged in as a "VR_Sender_dartmouth" user
     When I go to patient "PT_UI04_DtmTsShipped1" with surgical event "PT_UI04_DtmTsShipped1_SEI1"
     And I scroll to the bottom of the page

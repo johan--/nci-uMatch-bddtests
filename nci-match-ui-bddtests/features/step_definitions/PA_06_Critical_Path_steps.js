@@ -113,9 +113,11 @@ module.exports = function () {
         var el = patientPage.variantConfirmButtonCLickList.get(index)
         browser.sleep(2000).then(function(){
             el.getLocation().then(function(location){
-                browser.executeScript('window.scrollTo(0, ' + (location.y + 300) + ')').then(function(){
-                    el.click().then(function(){
-                        browser.waitForAngular();
+                browser.executeScript('window.scrollTo(0, ' + (location.y + 400) + ')').then(function(){
+                    browser.sleep(3000).then(function(){
+                        el.click().then(function(){
+                            browser.waitForAngular();
+                        });
                     });
                 });
             });
@@ -128,7 +130,7 @@ module.exports = function () {
         el.getLocation().then(function(location){
             browser.executeScript('window.scrollTo(0, ' + (location.y + 400) + ')').then(function(){
                 browser.sleep(3000).then(function(){
-                    expect(el.isVisible()).to.eventually.eql(true);
+                    expect(el.isPresent()).to.eventually.eql(true);
                     el.click().then(function(){
                         browser.waitForAngular();
                     })
