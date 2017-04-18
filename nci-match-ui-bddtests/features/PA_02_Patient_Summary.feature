@@ -41,7 +41,7 @@ Feature: Patient Summary Page
     And I should see a message "COG Message: Patient is deceased." in the timeline
 
   @ui_p2
-  Scenario Outline: Patient with status <status> <see_or_not> show TA 
+  Scenario Outline: Patient with status "<status>"" <see_or_not> show TA
     When I go to patient "<patient>" details page
     When His status is "<status>"
     Then I "<see_or_not>" see a Treatment Arm selected for the patient

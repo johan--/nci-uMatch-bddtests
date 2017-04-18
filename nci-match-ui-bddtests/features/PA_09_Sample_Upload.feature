@@ -125,7 +125,7 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     Then The "Upload" button is "visible"
     And The "Upload" button is "enabled"
     Then I can click on the "Upload" button
-    And I wait for "5" seconds
+    And I wait for "15" seconds
     And I scroll to the top of the page
     And I can see the "3" Sample File upload process has started
     Then I logout

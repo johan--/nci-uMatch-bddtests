@@ -45,7 +45,6 @@ var LoginPage = function() {
                 clickAccessAndLogin(username, password).then(callback);
             }
         });
-        
     }
 
     this.beLoggedIn = function(username, password, name) {
@@ -55,7 +54,7 @@ var LoginPage = function() {
             return browser.getCurrentUrl().then(function(url){
                 return element(by.css('.user-name')).isPresent().then(function(present){
                     if (present === false){
-                        return clickAccessAndLogin(username, password); 
+                        return clickAccessAndLogin(username, password);
                     } else {
                         element(by.css('.user-name')).getText().then(function(nm){
                             if (nm.includes(name)){
@@ -69,7 +68,7 @@ var LoginPage = function() {
                                     });
                                 })
                             }
-                        })        
+                        })
                     }
                 })
             });
@@ -85,7 +84,7 @@ var LoginPage = function() {
     function clickAccessAndLogin(username, password) {
         return accessBtn.click().then(function(){
             browser.sleep(1000).then(function(){
-                browser.isElementPresent(previousAccountUsed).then(function(previouslyLoggedIn){   
+                browser.isElementPresent(previousAccountUsed).then(function(previouslyLoggedIn){
                     if (previouslyLoggedIn === true) {
                         //if the previous user is same as current user click sign in
                         previousAccountUsed.getText().then(function(previousUserId){
@@ -104,8 +103,8 @@ var LoginPage = function() {
                     } else {
                         enterDetails(username, password);
                     }
-                })    
-            }) 
+                })
+            })
         })
     }
 

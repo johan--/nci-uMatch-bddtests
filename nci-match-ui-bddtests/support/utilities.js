@@ -134,8 +134,11 @@ var Utilities = function () {
     this.checkCosmicLink = function (elem) {
         elem.getText().then(function (linkText) {
             if (linkText.match(/COSM/)) {
-                var id = linkText.slice('COSM'.length)
-                expect(elem.all(by.css('a')).get(0).getAttribute('href')).to.eventually.eql('http://grch37-cancer.sanger.ac.uk/cosmic/mutation/overview?id=' + id)
+                var regexp = /\bCOSM(\d{1,})\b/;
+                var catchAll = regexp.exec(linkText);
+                // catchAll[1] is the second element in the matched group that is only the numbers.
+                var expectedString = 'http://grch37-cancer.sanger.ac.uk/cosmic/mutation/overview?id=' + catchAll[1] ;
+                expect(elem.all(by.css('a')).get(0).getAttribute('href')).to.eventually.eql(expectedString);
             } else {
                 expect(elem.all(by.css('a')).count()).to.eventually.eql(0)
             }
@@ -168,15 +171,17 @@ var Utilities = function () {
 
     this.checkCOSFLink = function (elem) {
         elem.getText().then(function (linkText) {
+            console.log(linkText);
             if (linkText.match(/COSF/)) {
-                var endPos = linkText.indexOf(' ');
-                var id = linkText.slice('COSF'.length, endPos);
-                expect(elem.all(by.css('a')).get(0).getAttribute('href')).to.eventually.eql('http://grch37-cancer.sanger.ac.uk/cosmic/mutation/overview?id=' + id)
+                var regexp = /COSF(\d{1,})/;
+                var catchAll = regexp.exec(linkText);
+                var expectedString = 'http://grch37-cancer.sanger.ac.uk/cosmic/fusion/summary?id=' + catchAll[1];
+                expect(elem.all(by.css('a')).get(0).getAttribute('href')).to.eventually.eql(expectedString);
             } else {
                 expect(elem.all(by.css('a')).count()).to.eventually.eql(0)
             }
         })
-    }
+    };
 
     /**
      * Gets all the values for the attributes and checks if the value provided is set.
@@ -479,7 +484,7 @@ var Utilities = function () {
                 email = process.env.DARTMOUTH_VARIANT_REPORT_SENDER_AUTH0_USERNAME;
                 password = process.env.DARTMOUTH_VARIANT_REPORT_SENDER_AUTH0_PASSWORD;
                 name = 'dartmouth-vr-sdr';
-                break;                
+                break;
 
             case 'VR_Reviewer_mda':
                 email = process.env.MDA_VARIANT_REPORT_REVIEWER_AUTH0_USERNAME;
@@ -498,7 +503,7 @@ var Utilities = function () {
                 password = process.env.DARTMOUTH_VARIANT_REPORT_REVIEWER_AUTH0_PASSWORD;
                 name = 'dartmouth-vr-rvr';
                 break;
-            
+
             case 'AR_Reviewer':
                 email = process.env.ASSIGNMENT_REPORT_REVIEWER_AUTH0_USERNAME;
                 password = process.env.ASSIGNMENT_REPORT_REVIEWER_AUTH0_PASSWORD;

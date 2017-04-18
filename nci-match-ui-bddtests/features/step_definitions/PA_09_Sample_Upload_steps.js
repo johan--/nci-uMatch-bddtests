@@ -75,7 +75,7 @@ module.exports = function () {
         var dropdownList = patientPage.selectSiteDropDownList
         dropdownList.getText().then(function(arrList){
             // console.log(arrList);
-            for (var i = 1; i < arrList.length; i++) {  //starting from the second element onwards. The first is the buttonName 
+            for (var i = 1; i < arrList.length; i++) {  //starting from the second element onwards. The first is the buttonName
                 expect(arrList[i]).to.include(siteName);
             }
         }).then(callback);
@@ -90,7 +90,7 @@ module.exports = function () {
     this.Then(/^I can see the "(.+?)" Sample File upload process has started$/, function (number, callback) {
         patientPage.downloadTracker.getLocation().then(function(location){
             browser.executeScript('window.scrollTo(' + location.x + ', ' + (location.y - 10) + ')').then(function(){
-                expect(patientPage.downloadTracker.getText()).to.eventually.eql(number.toString())        
+                expect(patientPage.downloadTracker.getText()).to.eventually.eql(number.toString())
             })
         }).then(callback);
     });
@@ -125,11 +125,14 @@ module.exports = function () {
         var bucketName = process.env.UI_HOSTNAME.match('localhost') ? 'pedmatch-dev' : 'pedmatch-int'
         var folderName = `${reporter}/${molecularId}/${analysisId}`
 
+        console.log('Bucket Name: ' + bucketName );
+        console.log('Folder Name: ' + folderName );
+
         var S3 = new AWS.S3({
             region: 'us-east-1',
-            endpoint: 'https://s3.amazonaws.com', 
-            accessKeyId: process.env.AWS_ACCESS_KEY_ID, 
-            secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY, 
+            endpoint: 'https://s3.amazonaws.com',
+            accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+            secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
             apiVersion: 'latest'
         });
 
@@ -139,7 +142,7 @@ module.exports = function () {
                 Objects: [
                     {
                         Key: `${folderName}/vcf_sample.zip`,
-                    }, 
+                    },
                     {
                         Key: `${folderName}/dna_sample.bam`,
                     },
@@ -159,7 +162,6 @@ module.exports = function () {
                         Key: `${folderName}/dna_sample.bai`,
                     }
                 ]
-                
             }
         };
 

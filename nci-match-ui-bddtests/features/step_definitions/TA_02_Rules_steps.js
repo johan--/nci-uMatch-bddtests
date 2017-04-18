@@ -69,16 +69,16 @@ module.exports = function () {
 
 
     this.Then(/^I see that the element with css "(.*)" is a "(.+?)" link$/, function(selector, type, callback){
-        var elem = element.all(by.css(selector)).get(0);
+        var elem = taPage.testElement.all(by.css(selector));
         browser.sleep(50).then(function () {
             // checking for element at index to be a link
             for (var i = 0; i < taPage.rowCount; i ++){
                 if (type === 'Cosmic'){
-                    utilities.checkCosmicLink(taPage.dataRows.get(i), taPage.columnIndex)
+                    utilities.checkCosmicLink(taPage.dataRows.get(i), taPage.columnIndex);
                 } else if (type === 'Gene') {
-                    utilities.checkGeneLink(elem)
+                    utilities.checkGeneLink(elem.get(i));
                 } else if (type === 'Cosf') {
-                    utilities.checkCOSFLink(elem)
+                    utilities.checkCOSFLink(elem.get(i));
                 }
             }
         }).then(callback);
@@ -98,7 +98,7 @@ module.exports = function () {
         firstPart = inclusionType === 'Inclusionary' ? 'inclusionary' : 'exclusionary';
         repeaterString = '#' + firstPart + 'Diseases>table tr[ng-repeat^="item in filtered"]'
 
-        exclusion = inclusionType === 'Inclusionary' ? false : true;
+        exclusion = inclusionType !== 'Inclusionary';
 
         var exclusion_count = 0;
 
@@ -154,7 +154,7 @@ module.exports = function () {
             case 'SNVs / MNVs / Indels':
                 actualTableHeadings = inclusionType === 'Inclusion' ? taPage.actualHeadingIncludedSNVs : taPage.actualHeadingExcludedSNVs
                 expectedHeadings = inclusionType === 'Inclusion' ? taPage.expectedIncludedSNVs : taPage.expectedExcludedSNVs
-                
+
                 expect(actualTableHeadings.getText()).to.eventually.eql(expectedHeadings);
 
                 tableType = inclusionType === 'Inclusion' ? taPage.inclusionsnvTable : taPage.exclusionsnvTable;
@@ -163,7 +163,7 @@ module.exports = function () {
             case 'CNVs':
                 actualTableHeadings = inclusionType === 'Inclusion' ? taPage.actualHeadingIncludedCNVs : taPage.actualHeadingExcludedCNVs
                 expectedHeadings = inclusionType === 'Inclusion' ? taPage.expectedIncludedCNVs : taPage.expectedExcludedCNVs
-                
+
                 expect(actualTableHeadings.getText()).to.eventually.eql(expectedHeadings);
 
                 tableType = inclusionType === 'Inclusion' ? taPage.inclusioncnvTable : taPage.exclusioncnvTable;
@@ -172,7 +172,7 @@ module.exports = function () {
             case 'Gene Fusions':
                 actualTableHeadings = inclusionType === 'Inclusion' ? taPage.actualHeadingIncludedGene : taPage.actualHeadingExcludedGene
                 expectedHeadings = inclusionType === 'Inclusion' ? taPage.expectedIncludedGene : taPage.expectedExcludedGene
-                
+
                 expect(actualTableHeadings.getText()).to.eventually.eql(expectedHeadings);
 
                 tableType = inclusionType === 'Inclusion' ? taPage.inclusionGeneTable : taPage.exclusionGeneTable;

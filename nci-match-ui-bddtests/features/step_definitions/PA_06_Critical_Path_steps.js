@@ -36,7 +36,7 @@ module.exports = function () {
         variantReportLink = element(by.css(varRepString));
         variantReportLink.getLocation().then(function(loc){
             browser.executeScript('window.scrollTo(' + loc.x + ', ' + (loc.y - 100) + ')').then(function(){
-                expect(variantReportLink.isPresent()).to.eventually.eql(true);        
+                expect(variantReportLink.isPresent()).to.eventually.eql(true);
             });
         }).then(callback);
     });
@@ -126,8 +126,9 @@ module.exports = function () {
         var index = ordinal - 1;
         var el  = patientPage.commentLinkElement.get(index)
         el.getLocation().then(function(location){
-            browser.executeScript('window.scrollTo(0, ' + (location.y + 300) + ')').then(function(){
-                browser.sleep(1000).then(function(){
+            browser.executeScript('window.scrollTo(0, ' + (location.y + 400) + ')').then(function(){
+                browser.sleep(3000).then(function(){
+                    expect(el.isVisible()).to.eventually.eql(true);
                     el.click().then(function(){
                         browser.waitForAngular();
                     })
@@ -505,10 +506,11 @@ module.exports = function () {
     });
 
     this.Then(/^I "([^"]*)" see the Assignment report "([^"]*)" button$/, function (status, buttonText, callback) {
-        browser.sleep(500);
         var present = status === 'should';
         var elementDesc = patientPage.assignmentReportConfirmButton;
-        expect(elementDesc.isPresent()).to.eventually.eql(present).notify(callback);
+        browser.waitForAngular().then(function(){
+            expect(elementDesc.isPresent()).to.eventually.eql(present);
+        }).then(callback);
     });
 
     this.When(/^I click on the Assignment report "([^"]*)" button$/, function (buttonText, callback) {
@@ -545,11 +547,11 @@ module.exports = function () {
 
 
     this.Then(/^I can see the assignment report page "([^"]*)"$/, function (assignmentTabTitle, callback) {
-        browser.ignoreSynchronization = false;
         var tab = utilities.getSubTabHeadingElement(assignmentTabTitle).element(by.xpath('../..'))
         var tabBody = element(by.id('assignment-report'));
-
-        utilities.checkElementIncludesAttribute(tab, 'class', 'active').then(callback)
+        browser.waitForAngular().then(function(){
+            utilities.checkElementIncludesAttribute(tab, 'class', 'active');
+        }).then(callback)
     });
 
     this.When(/^I go to patient "([^"]*)" with surgical event "([^"]*)"$/, function (patientId, surgicalEventId, callback) {
