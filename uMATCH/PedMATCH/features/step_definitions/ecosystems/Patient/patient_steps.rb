@@ -13,6 +13,11 @@ And(/^patient API user authorization role is "([^"]*)"$/) do |role|
   @current_auth0_role = role
 end
 
+When(/^POST to MATCH patients service$/) do
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
+  response = Patient_helper_methods.post_to_trigger(@current_auth0_role)
+end
+
 When(/^POST to MATCH patients service, response includes "([^"]*)" with code "([^"]*)"$/) do |retMsg, code|
   @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
   response = Patient_helper_methods.post_to_trigger(@current_auth0_role)
@@ -335,7 +340,7 @@ Then(/^patient should have one shipment with molecular_id "([^"]*)"$/) do |moi|
 end
 
 Then(/^patient should have one specimen with surgical_event_id "([^"]*)"$/) do |sei|
-  url = "#{ENV['patients_endpoint']}/#{@patient_id}/shipments?molecular_id=#{sei}"
+  url = "#{ENV['patients_endpoint']}/#{@patient_id}/specimens?surgical_event_id=#{sei}"
   shipment = Patient_helper_methods.get_any_result_from_url(url)
   expect(shipment.size).to eq 1
 end

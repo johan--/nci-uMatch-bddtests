@@ -5,12 +5,12 @@ require_relative 'Patient_5xA_data_done'
 Environment.setTier 'local' #set this value to 'local' if you are running tests on your local machine.
 
 
-# MatchTestDataManager.delete_patients_from_seed(%w(UI_EM_OffStudy))
+MatchTestDataManager.delete_patients_from_seed(%w(PT_SC02h_TsVrUploaded))
 MatchTestDataManager.clear_all_local_tables
 MatchTestDataManager.upload_all_seed_data_to_local
 
 Auth0Token.force_generate_auth0_token('ADMIN')
-Patient5xA.upload_patient('PT_SC02h_TsVrUploaded')
-Patient5xA.upload_patient('PT_SC02i_PendingApproval')
+Patient5xA.upload_patient('PT_SC02h_TsVrConfirmed')
+# Patient5xA.upload_patient('PT_SC02i_PendingApproval')
 sleep 10.0
 MatchTestDataManager.backup_all_local_db

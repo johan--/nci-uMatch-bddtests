@@ -89,21 +89,22 @@ Feature: Patient GET service valid special case tests
     When GET from MATCH patient API, http code "200" should return
     Then there are "1" patient "<pending_type>" pending_items have field: "analysis_id" value: "<ani>"
     Examples:
-      | patient_id            | ani                        | pending_type           |
-      | PT_SC02h_TsVrUploaded | PT_SC02h_TsVrUploaded_ANI1 | tissue_variant_reports |
+      | patient_id             | ani                         | pending_type           |
+      | PT_SC02h_TsVrConfirmed | PT_SC02h_TsVrConfirmed_ANI1 | tissue_variant_reports |
 
   @patients_p1
-  Scenario Outline: PT_SC02i pending_items should increase assignment_reports value properly by rolling back confirmed variant report
+  Scenario Outline: PT_SC02i pending_items should increase tissue_variant_reports value properly by rolling back confirmed assignment report
     Given patient id is "<patient_id>"
     And patient API user authorization role is "ADMIN"
     When PUT to MATCH variant report rollback, response includes "" with code "200"
     Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
     Then patient GET service: "pending_items", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return
-    Then there are "1" patient "<pending_type>" pending_items have field: "analysis_id" value: "<ani>"
+    Then there are "1" patient "tissue_variant_reports" pending_items have field: "analysis_id" value: "<ani>"
+    Then there are "0" patient "assignment_reports" pending_items have field: "analysis_id" value: "<ani>"
     Examples:
-      | patient_id               | ani                        | pending_type       |
-      | PT_SC02i_PendingApproval | PT_SC02i_TsVrUploaded_ANI1 | assignment_reports |
+      | patient_id               | ani                           |
+      | PT_SC02i_PendingApproval | PT_SC02i_PendingApproval_ANI1 |
 
   @patients_p1
   Scenario Outline: PT_SC02c pending_items should decrease tissue_variant_reports value properly
