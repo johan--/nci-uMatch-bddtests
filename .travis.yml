@@ -179,11 +179,12 @@ after_script:
   ######COMMENTING FOR NOW###########################
 #  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_BUILD_NUMBER/ --region us-east-1 --recursive
   ###################################################
-  - ruby DataSetup/html_converter.rb --file=cucumber_report.html--folder=results_critical --date=$DATE_TRIM
+  - cd ..
+  - ruby DataSetup/html_converter.rb --file=cucumber_report.html --folder=results_critical --date=$DATE_TRIM
   - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results_critical/cucumber_report.html s3://cucumber-test-reports/$DATE_TRIM/critical$CUC_TAG.html --region us-east-1
   - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results_critical/screenshot s3://cucumber-test-reports/$DATE_TRIM/screenshot --region us-east-1 --recursive
 
-  - ruby DataSetup/html_converter.rb --file=cucumber_report.html--folder=results --date=$DATE_TRIM
+  - ruby DataSetup/html_converter.rb --file=cucumber_report.html --folder=results --date=$DATE_TRIM
   - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/cucumber_report.html s3://cucumber-test-reports/$DATE_TRIM/non-critical$CUC_TAG.html --region us-east-1
   - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/screenshot s3://cucumber-test-reports/$DATE_TRIM/screenshot --region us-east-1 --recursive
 

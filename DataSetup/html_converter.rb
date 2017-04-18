@@ -9,6 +9,7 @@ raise "Provide Date as --date=<date>" if options[:date].nil?
 
 class Converter
   def initialize(options)
+    puts "Starting the conversion"
     @options = options
     @project_root = File.join(File.expand_path(__FILE__), '..', '..', @options[:folder])
     @file_name = File.expand_path(File.join(@project_root, @options[:file]))
@@ -23,6 +24,7 @@ class Converter
   end
 
   def convert_images
+    puts "Converting all images"
     images = @doc.css 'img.screenshot'
     images.each_with_index do | e, i |
       images[i].attributes['src'].content = "https://s3.amazonaws.com/cucumber-test-reports/#{@options[:date]}/#{e.attributes['src']}"
@@ -30,6 +32,7 @@ class Converter
   end
 
   def convert_links
+    puts "Converting all links"
     links = @doc.css 'a.screenshot'
     links.each_with_index do | e, i |
       links[i].attributes['href'].content = "https://s3.amazonaws.com/cucumber-test-reports/#{@options[:date]}/#{e.attributes['href']}"
@@ -37,6 +40,7 @@ class Converter
   end
 
   def build_file
+    puts "Writing back to html file"
     html_string = @doc.to_html
     file_write = File.open(@file_name, 'w')
     file_write.puts(html_string)
@@ -48,3 +52,4 @@ end
 f = Converter.new(options)
 f.convert_all
 f.build_file
+puts "Done"
