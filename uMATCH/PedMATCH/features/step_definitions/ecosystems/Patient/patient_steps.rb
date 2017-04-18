@@ -290,7 +290,7 @@ end
 #########################################################
 Then(/^there should have one patient with id "([^"]*)"$/) do |pt_id|
   patients = Patient_helper_methods.get_any_result_from_url("#{ENV['patients_endpoint']}")
-  filtered = patients.select{ |this_pt| this_pt['patient_id']==pt_id}
+  filtered = patients.select { |this_pt| this_pt['patient_id']==pt_id }
   expect(filtered.size).to eq 1
 end
 
@@ -1038,6 +1038,20 @@ Then(/^this patient tissue analysis_report should have correct "([^"]*)" file na
       expect(vr['vcf_file_name']).to eq name
       expect(vr['vcf_path_name']).to end_with "/#{name[0..name.size-5]}.vcf"
   end
+end
+
+Then(/^this patient analysis_report should have variant report editable: "([^"]*)"$/) do |editable|
+  vr = @get_response['variant_report']
+  expect(vr.keys).to include 'editable'
+  expect(vr['editable'].to_s).to eq editable
+end
+
+Then(/^this patient analysis_report should have assignment report editable: "([^"]*)"$/) do |editable|
+  ars = @get_response['assignments']
+  ars.each { |this_ar|
+    expect(this_ar.keys).to include 'editable'
+    expect(this_ar['editable'].to_s).to eq editable
+  }
 end
 
 Then(/^this patient blood specimen_shipments "([^"]*)" should have field "([^"]*)" value "([^"]*)"$/) do |moi, field, value|

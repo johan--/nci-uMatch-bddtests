@@ -473,3 +473,55 @@ Feature: Patient API authorization tests
       | PT_AU14_PendingApproval2 | PATIENT_MESSAGE_SENDER            |         | 401  |
       | PT_AU14_PendingApproval2 | SPECIMEN_MESSAGE_SENDER           |         | 401  |
       | PT_AU14_PendingApproval2 | ASSAY_MESSAGE_SENDER              |         | 401  |
+
+  @patients_p1_off
+  Scenario Outline: PT_AU15 role base authorization works properly for editable field in assignment reports
+    Given patient GET service: "analysis_report", patient id: "<patient_id>", id: "<patient_id>_ANI1"
+    And patient API user authorization role is "<role>"
+    When GET from MATCH patient API, http code "200" should return
+    Then this patient analysis_report should have assignment report editable: "<editable>"
+    Examples:
+      | patient_id                  | role                              | editable |
+      | PT_AU15_PendingConfirmation | NCI_MATCH_READONLY                | false    |
+      | PT_AU15_PendingConfirmation | ADMIN                             | true     |
+      | PT_AU15_PendingConfirmation | SYSTEM                            | true     |
+      | PT_AU15_PendingConfirmation | ASSIGNMENT_REPORT_REVIEWER        | true     |
+      | PT_AU15_PendingConfirmation | MDA_VARIANT_REPORT_SENDER         | false    |
+      | PT_AU15_PendingConfirmation | MDA_VARIANT_REPORT_REVIEWER       | false    |
+      | PT_AU15_PendingConfirmation | MOCHA_VARIANT_REPORT_SENDER       | false    |
+      | PT_AU15_PendingConfirmation | MOCHA_VARIANT_REPORT_REVIEWER     | false    |
+      | PT_AU15_PendingConfirmation | DARTMOUTH_VARIANT_REPORT_SENDER   | false    |
+      | PT_AU15_PendingConfirmation | DARTMOUTH_VARIANT_REPORT_REVIEWER | false    |
+      | PT_AU15_PendingConfirmation | PATIENT_MESSAGE_SENDER            | false    |
+      | PT_AU15_PendingConfirmation | SPECIMEN_MESSAGE_SENDER           | false    |
+      | PT_AU15_PendingConfirmation | ASSAY_MESSAGE_SENDER              | false    |
+
+  @patients_p1_off
+  Scenario Outline: PT_AU16 role base authorization works properly for editable field in variant reports
+    Given patient GET service: "analysis_report", patient id: "PT_AU16_MdaVrUploaded", id: "PT_AU16_MdaVrUploaded_ANI1"
+    And patient API user authorization role is "<role>"
+    When GET from MATCH patient API, http code "200" should return
+    Then this patient analysis_report should have variant report editable: "<mda_editable>"
+    Given patient GET service: "analysis_report", patient id: "PT_AU16_McaVrUploaded", id: "PT_AU16_McaVrUploaded_ANI1"
+    And patient API user authorization role is "<role>"
+    When GET from MATCH patient API, http code "200" should return
+    Then this patient analysis_report should have variant report editable: "<mca_editable>"
+    Given patient GET service: "analysis_report", patient id: "PT_AU16_DtmVrUploaded", id: "PT_AU16_DtmVrUploaded_ANI1"
+    And patient API user authorization role is "<role>"
+    When GET from MATCH patient API, http code "200" should return
+    Then this patient analysis_report should have variant report editable: "<dtm_editable>"
+    Examples:
+      | role                              | mda_editable | mca_editable | dtm_editable |
+      | NCI_MATCH_READONLY                | false        | false        | false        |
+      | ADMIN                             | true         | true         | true         |
+      | SYSTEM                            | true         | true         | true         |
+      | ASSIGNMENT_REPORT_REVIEWER        | false        | false        | false        |
+      | MDA_VARIANT_REPORT_SENDER         | false        | false        | false        |
+      | MDA_VARIANT_REPORT_REVIEWER       | true         | false        | false        |
+      | MOCHA_VARIANT_REPORT_SENDER       | false        | false        | false        |
+      | MOCHA_VARIANT_REPORT_REVIEWER     | false        | true         | false        |
+      | DARTMOUTH_VARIANT_REPORT_SENDER   | false        | false        | false        |
+      | DARTMOUTH_VARIANT_REPORT_REVIEWER | false        | false        | true         |
+      | PATIENT_MESSAGE_SENDER            | false        | false        | false        |
+      | SPECIMEN_MESSAGE_SENDER           | false        | false        | false        |
+      | ASSAY_MESSAGE_SENDER              | false        | false        | false        |
