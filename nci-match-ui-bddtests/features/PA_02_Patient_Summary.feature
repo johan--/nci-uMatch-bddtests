@@ -43,7 +43,7 @@ Feature: Patient Summary Page
   @ui_p2
   Scenario Outline: Patient with status "<status>"" <see_or_not> show TA
     When I go to patient "<patient>" details page
-    When His status is "<status>"
+#    When His status is "<status>"
     Then I "<see_or_not>" see a Treatment Arm selected for the patient
 
     Examples:
