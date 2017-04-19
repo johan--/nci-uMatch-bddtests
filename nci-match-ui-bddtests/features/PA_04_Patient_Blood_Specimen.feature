@@ -21,8 +21,8 @@ Feature: Patient Blood SpecimenTab
 
   Scenario: A User can see all the shipments and the specimens for blood on the blood specimens page
   When I collect information about blood shipments for the patient "UI_SP01_MultiBdSpecimens"
-  Then I should see "3" messages of "Specimen of type BLOOD received at NCH." on the front page
-  And I should see "3" messages of "Specimen Shipment of type BLOOD_DNA shipped from NCH." on the front page
+  # Then I should see "3" messages of "Specimen of type BLOOD received at NCH." on the front page
+  # And I should see "3" messages of "Specimen Shipment of type BLOOD_DNA shipped from NCH." on the front page
   When I click on the Blood Specimens tab
   And I should see entries under the Blood Specimens table match with the backend
   And I should see entries under the Blood Shipments table match with the backend
