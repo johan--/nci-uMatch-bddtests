@@ -47,8 +47,14 @@ module.exports = function () {
 
     this.When (/^I click on the "([^"]*)" tab$/, function (tabName, callback) {
         var elementToClick = utilities.getSubTabHeadingElement(tabName);
-        browser.waitForAngular().then(function(){
-            elementToClick.click();
+        utilities.waitForElement(elementToClick, tabName).then(function(presence){
+            if(presence === true){
+                browser.waitForAngular().then(function(){
+                    elementToClick.click();
+                });
+            } else {
+                expect("Element \"" + tabName + "\" not found").to.eql("Element \"" + tabName + "\" found")
+            }
         }).then(callback);
     });
 
@@ -173,11 +179,17 @@ module.exports = function () {
     });
 
     this.Then(/^I "(should|should not)" see a Treatment Arm selected for the patient$/, function (see_or_not, callback){
-        if (see_or_not === 'should'){
-            expect(patientPage.treatmentArmComplete.get(0).getText()).to.eventually.include('APEC1621').notify(callback);
-        } else {
-            expect(patientPage.treatmentArmComplete.get(0).getText()).to.eventually.eql('-').notify(callback);
-        }
+        browser.waitForElement(patientPage.treatmentArmComplete, "Treatment Arm Value").then(function(presence){
+            if (presence === true){
+                if (see_or_not === 'should'){
+                    expect(patientPage.treatmentArmComplete.get(0).getText()).to.eventually.include('APEC1621');
+                } else {
+                    expect(patientPage.treatmentArmComplete.get(0).getText()).to.eventually.eql('-');
+                }
+            } else {
+                expect("patientPage.treatmentArmComplete is not found").to.eql("patientPage.treatmentArmComplete is found");
+            }
+        }).then(callback);
     });
 
     this.Then(/^I "(should|should not)" see a Off Arm Date generated for the patient$/, function (see_or_not, callback){

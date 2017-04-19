@@ -65,7 +65,7 @@ module.exports = function () {
         var buttonType = patientPage.uploadButtonsId[buttonName]
         var pathToFile = templateFolder + fileName;
         var absolutePath = path.resolve(pathToFile);
-   
+
         element(by.css('input#' + buttonType + '[type="file"]')).sendKeys(absolutePath).then(function(){
             browser.sleep(2000);
         }).then(callback);
@@ -160,6 +160,12 @@ module.exports = function () {
                     },
                     {
                         Key: `${folderName}/dna_sample.bai`,
+                    },
+                    {
+                        Key: `${folderName}/cdna_sample.bam`,
+                    },
+                    {
+                        Key: `${folderName}/cdna_sample.bai`,
                     }
                 ]
             }

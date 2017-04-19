@@ -1,7 +1,7 @@
 var req = require('request-promise');
 
 var Utilities = function () {
-    
+
     this.waitForElement = function(elem, message) {
         return browser.wait(function(){
             return browser.isElementPresent(elem);

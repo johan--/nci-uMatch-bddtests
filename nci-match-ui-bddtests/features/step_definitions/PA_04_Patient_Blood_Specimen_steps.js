@@ -39,10 +39,14 @@ module.exports = function() {
     });
 
     this.When(/^I click on the Blood Specimens tab$/, function (callback) {
-        browser.waitForAngular().then(function (){
-            patientPage.bloodSpecimenTab.click().then(function(){
-                browser.waitForAngular();
-            });
+        utilities.waitForElement(patientPage.bloodSpecimenTab, 'Blood Specimen Tab').then(function(presence){
+            if(presence === true) {
+                patientPage.bloodSpecimenTab.click().then(function(){
+                    browser.waitForAngular();
+                });
+            } else {
+                expect("Blood Speciment Tab was not found").to.eql("Blood Speciment Tab was found");
+            }
         }).then(callback);
     });
 
