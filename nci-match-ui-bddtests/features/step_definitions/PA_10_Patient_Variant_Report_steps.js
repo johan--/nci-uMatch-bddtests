@@ -19,7 +19,7 @@ module.exports = function () {
     this.Then(/^I remember order of elements in column "([^"]*)" of the "([^"]*)" table$/, function (column, tableTitle, callback) {
         var table = patientPage.tableByH3Title(tableTitle);
         var headers = table.element(by.tagName('thead')).all(by.tagName("th"));
-       
+
         patientPage.unsortedColumnData = [];
 
         utilities.getDataByRepeater(table, 'item in filtered', function(tableData) {
@@ -31,21 +31,23 @@ module.exports = function () {
     this.Then(/^I click on "([^"]*)" column header of the "([^"]*)" table$/, function (column, tableTitle, callback) {
         var table = patientPage.tableByH3Title(tableTitle);
         var headers = table.element(by.tagName('thead')).all(by.tagName("th"));
-        
-        patientPage.sortedColumnData = [];
 
-        headers.get(column).click().then(function() {
-            utilities.getDataByRepeater(table, 'item in filtered', function (tableData) {
-                patientPage.sortedColumnData = getColumn(tableData, column);
-            }).then(callback);
-        });
+        patientPage.sortedColumnData = [];
+        headers.get(column).getLocation().then(function(location){
+            browser.executeScript('window.scrollTo(0, '+ (location.y + 200) + ')').then(function() {
+                headers.get(column).click().then(function() {
+                    utilities.getDataByRepeater(table, 'item in filtered', function (tableData) {
+                        patientPage.sortedColumnData = getColumn(tableData, column);
+                    })
+                });
+            })
+        }).then(callback);
     });
 
     this.Then(/^I should see the data in the column to be sorted properly$/, function (callback) {
         var expectedSortedData = patientPage.unsortedColumnData.sort().reverse();
 
         expect(expectedSortedData).to.deep.equal(patientPage.sortedColumnData);
-        
         callback();
     });
 
@@ -77,7 +79,7 @@ module.exports = function () {
         var molecularId = patientId + '_MOI1';
         var expectedUrl = browser.baseUrl + '/#/patient?patient_id=' + patientId + '&section=molecular_id&molecular_id=' + molecularId + '#molecular_id_' + molecularId;
         browser.sleep(1500).then(function (){
-            expect(browser.getCurrentUrl()).to.eventually.eql(expectedUrl);    
+            expect(browser.getCurrentUrl()).to.eventually.eql(expectedUrl);
         }).then(callback);
     });
 

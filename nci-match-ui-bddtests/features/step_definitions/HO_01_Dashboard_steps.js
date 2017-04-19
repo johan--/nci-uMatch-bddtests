@@ -367,7 +367,7 @@ module.exports = function() {
                 chevronXPath.click();
             })
         }).then(callback);
-    }); 
+    });
 
     this.When(/^I collect information about the patient "([^"]*)" under limbo$/, function (patientId, callback) {
         var url = '/api/v1/patients/patient_limbos'
@@ -376,7 +376,7 @@ module.exports = function() {
                 return el.patient_id === patientId;
             });
         }).then(callback);
-    }); 
+    });
 
     this.Then(/^I can see a list of assays under the limbo table for patient "([^"]*)"$/, function (patientId, callback) {
         var detailPanel = element(by.id('lp_' + patientId)).all(by.css('.col-md-6.col-sm-6.text-left')).get(0).all(by.css('dt'));
@@ -427,7 +427,7 @@ module.exports = function() {
         var actualLink = valuesPanel.get(2).element(by.css('a'));
         var expectedLink = '#/patient?patient_id=' + patientId + '&section=surgical_event&surgical_event_id=' + patientId + '_SEI1';
 
-        expect(actualLink.getAttribute('href')).to.eventually.include(expectedLink).notify(callback); 
+        expect(actualLink.getAttribute('href')).to.eventually.include(expectedLink).notify(callback);
     });
 
     this.Then(/^I can see that the Analysis id is a link for patient "([^"]*)"$/, function(patientId, callback){
@@ -436,7 +436,7 @@ module.exports = function() {
         var actualLink = valuesPanel.get(3).element(by.css('a'));
         var expectedLink = '#/patient/' + patientId + '/variant_report?analysis_id=' + patientId + '_ANI1';
 
-        expect(actualLink.getAttribute('href')).to.eventually.include(expectedLink).notify(callback); 
+        expect(actualLink.getAttribute('href')).to.eventually.include(expectedLink).notify(callback);
     });
 };
 

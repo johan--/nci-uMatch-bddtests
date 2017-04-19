@@ -179,7 +179,7 @@ module.exports = function () {
     });
 
     this.Then(/^I "(should|should not)" see a Treatment Arm selected for the patient$/, function (see_or_not, callback){
-        utilities.waitForElement(patientPage.treatmentArmComplete, "Treatment Arm Value").then(function(presence){
+        utilities.waitForElement(patientPage.treatmentArmComplete.get(0), "Treatment Arm Value").then(function(presence){
             if (presence === true){
                 if (see_or_not === 'should'){
                     expect(patientPage.treatmentArmComplete.get(0).getText()).to.eventually.include('APEC1621');

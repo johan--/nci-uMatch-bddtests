@@ -34,7 +34,7 @@ Feature: These are the critical path test cases.
     Then I "should not" see the confirmation modal pop up
     Then The variant at ordinal "1" is "checked"
     Then I logout
-@fixer
+
   Scenario: Variant rejection is allowed if a comment is added and one can still cancel the process.
     Given I am logged in as a "VR_Reviewer_mda" user
     When I go to the patient "PT_CR04_VRUploadedAssayReceived" with variant report "PT_CR04_VRUploadedAssayReceived_ANI1"
@@ -45,7 +45,7 @@ Feature: These are the critical path test cases.
     When I click on the "Cancel" button
     Then The variant at ordinal "1" is "checked"
     Then I logout
-@fixer
+
   Scenario: If a variant is rejected the comments are stored and visible on the front end
     Given I am logged in as a "VR_Reviewer_mda" user
     When I go to the patient "PT_CR04_VRUploadedAssayReceived" with variant report "PT_CR04_VRUploadedAssayReceived_ANI1"
