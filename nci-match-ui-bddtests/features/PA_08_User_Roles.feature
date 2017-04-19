@@ -16,6 +16,16 @@ Feature: MATCHKB-352. Users are given authorization based on their roles.
     And The checkboxes are disabled
     Then I logout
 
+ Scenario: As a variant_report reviewer from MDA lab I can edit variant comments
+    Given I am logged in as a "VR_Reviewer_mda" user
+    When I go to the patient "UI_PA08_MdaTsVrUploaded" with variant report "UI_PA08_MdaTsVrUploaded_ANI1"
+    Then I can see the variant report page
+    And I click on the comment link at ordinal "1"
+    Then I can see the "Unconfirmed for UI display" in the modal text box
+    And The "OK" button is "visible"
+    Then I click on the "OK" button
+    Then I logout
+
  Scenario Outline: As a non-privileged user, <user>,  I can view variant comments but not edit
     Given I am logged in as a "<user>" user
     When I go to the patient "UI_PA08_MdaTsVrUploaded" with variant report "UI_PA08_MdaTsVrUploaded_ANI1"
@@ -30,16 +40,6 @@ Feature: MATCHKB-352. Users are given authorization based on their roles.
       | read_only         |
       | VR_Reviewer_mocha |
       | AR_Reviewer       |
-
- Scenario: As a variant_report reviewer from MDA lab I can edit variant comments
-    Given I am logged in as a "VR_Reviewer_mda" user
-    When I go to the patient "UI_PA08_MdaTsVrUploaded" with variant report "UI_PA08_MdaTsVrUploaded_ANI1"
-    Then I can see the variant report page
-    And I click on the comment link at ordinal "1"
-    Then I can see the "Unconfirmed for UI display" in the modal text box
-    And The "OK" button is "visible"
-    Then I click on the "OK" button
-    Then I logout
 
   Scenario: As a variant_report reviewer from MoCha lab, I can only view the variant report of a patient from MDA lab
     Given I am logged in as a "VR_Reviewer_mocha" user
