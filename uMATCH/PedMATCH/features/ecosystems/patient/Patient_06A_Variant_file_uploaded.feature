@@ -258,16 +258,30 @@ Feature: Variant files uploaded message
     When GET from MATCH patient API, http code "200" should return
     And this patient tissue specimen_events "<moi>" should have field "allow_upload" value "<allow>"
     Examples:
-      | patient_id                | moi                            | allow |
-      | PT_VU17_TsShippedTwice    | PT_VU17_TsShippedTwice_MOI1    | false |
-      | PT_VU17_TsShippedTwice    | PT_VU17_TsShippedTwice_MOI2    | true  |
-      | PT_VU17_TsVrUploaded      | PT_VU17_TsVrUploaded_MOI1      | true  |
-      | PT_VU17_TsVrUploadedStep2 | PT_VU17_TsVrUploadedStep2_MOI1 | false |
-      | PT_VU17_TsVrUploadedStep2 | PT_VU17_TsVrUploadedStep2_MOI2 | true  |
-      | PT_VU17_TsShipDtmThenMda  | PT_VU17_TsShipDtmThenMda_MOI1  | false |
-      | PT_VU17_TsShipDtmThenMda  | PT_VU17_TsShipDtmThenMda_MOI2  | true  |
-      | PT_VU17_TsShipMdaThenDtm  | PT_VU17_TsShipMdaThenDtm_MOI1  | false |
-      | PT_VU17_TsShipMdaThenDtm  | PT_VU17_TsShipMdaThenDtm_MOI2  | false |
+      | patient_id                      | moi                                  | allow |
+      | PT_VU17_TsShippedTwice          | PT_VU17_TsShippedTwice_MOI1          | false |
+      | PT_VU17_TsShippedTwice          | PT_VU17_TsShippedTwice_MOI2          | true  |
+      | PT_VU17_TsVrUploaded            | PT_VU17_TsVrUploaded_MOI1            | true  |
+      | PT_VU17_TsVrUploadedStep2       | PT_VU17_TsVrUploadedStep2_MOI1       | false |
+      | PT_VU17_TsVrUploadedStep2       | PT_VU17_TsVrUploadedStep2_MOI2       | true  |
+      | PT_VU17_TsShipDtmThenMda        | PT_VU17_TsShipDtmThenMda_MOI1        | false |
+      | PT_VU17_TsShipDtmThenMda        | PT_VU17_TsShipDtmThenMda_MOI2        | true  |
+      | PT_VU17_TsShipMdaThenDtm        | PT_VU17_TsShipMdaThenDtm_MOI1        | false |
+      | PT_VU17_TsShipMdaThenDtm        | PT_VU17_TsShipMdaThenDtm_MOI2        | false |
+      | PT_VU17_PendingConfirmation     | PT_VU17_PendingConfirmation_MOI1     | false |
+      | PT_VU17_PendingApproval         | PT_VU17_PendingApproval_MOI1         | false |
+      | PT_VU17_TsShippedOffStudy       | PT_VU17_TsShippedOffStudy_MOI1       | false |
+      | PT_VU17_TsShippedOffStudyBioExp | PT_VU17_TsShippedOffStudyBioExp_MOI1 | false |
+      | PT_VU17_TsSlideShipped          | PT_VU17_TsSlideShipped_MOI1          | true  |
+      | PT_VU17_TsShippedAssayReceived  | PT_VU17_TsShippedAssayReceived_MOI1  | true  |
+      | PT_VU17_TsVrConfirmed           | PT_VU17_TsVrConfirmed_MOI1           | false |
+      | PT_VU17_TsVrRejected            | PT_VU17_TsVrRejected_MOI1            | true  |
+      | PT_VU17_OnTreatmentArm          | PT_VU17_OnTreatmentArm_MOI1          | false |
+      | PT_VU17_ReqAssignment           | PT_VU17_ReqAssignment_MOI1           | false |
+      | PT_VU17_ReqNoAssignment         | PT_VU17_ReqNoAssignment_MOI1         | false |
+      | PT_VU17_NoTaAvailable           | PT_VU17_NoTaAvailable_MOI1           | false |
+      | PT_VU17_CompassionateCare       | PT_VU17_CompassionateCare_MOI1       | false |
+
 
   @patients_p2
   Scenario Outline: PT_VU17b. blood specimen allow_upload should have correct values

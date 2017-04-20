@@ -13,7 +13,19 @@ MatchTestDataManager.clear_all_local_tables
 MatchTestDataManager.upload_all_seed_data_to_local
 Auth0Token.force_generate_auth0_token('ADMIN')
 
-Patient06A.upload_patient('PT_VU06b_TissueShipped')
+# Patient06A.upload_patient('PT_VU17_PendingConfirmation')
+# Patient06A.upload_patient('PT_VU17_PendingApproval')
+# Patient06A.upload_patient('PT_VU17_TsShippedOffStudy')
+# Patient06A.upload_patient('PT_VU17_TsShippedOffStudyBioExp')
+# Patient06A.upload_patient('PT_VU17_TsSlideShipped')
+# Patient06A.upload_patient('PT_VU17_TsShippedAssayReceived')
+Patient06A.upload_patient('PT_VU17_TsVrConfirmed')
+Patient06A.upload_patient('PT_VU17_TsVrRejected')
+# Patient06A.upload_patient('PT_VU17_OnTreatmentArm')
+# Patient06A.upload_patient('PT_VU17_ReqAssignment')
+# Patient06A.upload_patient('PT_VU17_ReqNoAssignment')
+# Patient06A.upload_patient('PT_VU17_NoTaAvailable')
+# Patient06A.upload_patient('PT_VU17_CompassionateCare')
 
 sleep 10
-MatchTestDataManager.backup_all_patient_local_db
+MatchTestDataManager.backup_all_local_db
