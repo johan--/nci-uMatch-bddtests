@@ -57,7 +57,7 @@ exports.config = {
     },
 
     onPrepare: function () {
-      browser.driver.manage().window().setSize(2500, 1350);
+      browser.driver.manage().window().setSize(3200, 1800);
 
       // Disable animations so e2e tests run more quickly
       var disableNgAnimate = function () {

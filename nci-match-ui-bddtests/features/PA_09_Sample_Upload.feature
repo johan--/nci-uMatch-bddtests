@@ -1,10 +1,10 @@
-@ui_p1 
+@ui_p1
 Feature: MATCHKB-542. Users can upload patient sample files.
   The user is able to upload a large sample file, such as BAM file.
   A file can be as large as 20 GB or more.
 
   Scenario: As a privileged MDA Sender I can upload a sample file
-    Given I clear the file from S3 under reporter "IR_MDA05", mol_id "PT_AU04_MdaTsShipped1_MOI1", analysis_id "PT_AU04_MdaTsShipped1_An123"  
+    Given I clear the file from S3 under reporter "IR_MDA05", mol_id "PT_AU04_MdaTsShipped1_MOI1", analysis_id "PT_AU04_MdaTsShipped1_An123"
     And I am logged in as a "VR_Sender_mda" user
     When I go to patient "PT_AU04_MdaTsShipped1" with surgical event "PT_AU04_MdaTsShipped1_SEI1"
     And I scroll to the bottom of the page
@@ -27,7 +27,7 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     And I scroll to the top of the page
     And I can see the "3" Sample File upload process has started
     Then I logout
-   
+
   Scenario Outline: As a <site> user I can select only the same kind of IR user
     Given I am logged in as a "<user>" user
     When I go to patient "<patient_id>" with surgical event "<surgical_event_id>"
@@ -53,7 +53,7 @@ Feature: MATCHKB-542. Users can upload patient sample files.
         | ION_AQ02_TsShipped            | ION_AQ02_TsShipped_SEI1               | TISSUE_NUCLEIC_ACID_SHIPPED       | visible     |
         | ION_AQ41_TsVrUploaded         | ION_AQ41_TsVrUploaded_SEI1            | TISSUE_VARIANT_REPORT_RECEIVED    | visible     |
         | PT_AM01_TsVrReceived1         | PT_AM01_TsVrReceived1_SEI1            | ASSAY_RESULTS_RECEIVED            | visible     |
-        | PT_AS09_OffStudyBiopsyExpired | PT_AS09_OffStudyBiopsyExpired_SEI1    | OFF_STUDY_BIOPSY_EXPIRED          | visible     |
+        | PT_AS09_OffStudyBiopsyExpired | PT_AS09_OffStudyBiopsyExpired_SEI1    | OFF_STUDY_BIOPSY_EXPIRED          | invisible   |
         | PT_AS12_PendingConfirmation   | PT_AS12_PendingConfirmation_SEI1      | PENDING_CONFIRMATION              | invisible   |
         | PT_AM03_PendingApproval       | PT_AM03_PendingApproval_SEI1          | PENDING_APPROVAL                  | invisible   |
         | PT_SR10_CompassionateCare     | PT_SR10_CompassionateCare_SEI1        | COMPASSIONATE_CARE                | invisible   |
@@ -62,7 +62,7 @@ Feature: MATCHKB-542. Users can upload patient sample files.
         | PT_AS09_ReqNoAssignment       | PT_AS09_ReqNoAssignment_SEI1          | REQUEST_NO_ASSIGNMENT             | invisible   |
         | PT_AS12_OnTreatmentArm        | PT_AS12_OnTreatmentArm_SEI1           | ON_TREATMENT_ARM                  | invisible   |
         | PT_RA03_NoTaAvailable         | PT_RA03_NoTaAvailable_SEI1            | NO_TA_AVAILABLE                   | invisible   |
-    
+
 
   Scenario: As a privileged user I cannot upload sample file until all validations pass
     Given I am logged in as a "VR_Sender_mda" user
@@ -106,7 +106,7 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     Then I logout
 
   Scenario: As a privileged Mocha Sender I can upload a sample file
-    Given I clear the file from S3 under reporter "IR_MCA00", mol_id "PT_AU04_MochaTsShipped1_MOI1", analysis_id "PT_AU04_MochaTsShipped1_An123"  
+    Given I clear the file from S3 under reporter "IR_MCA00", mol_id "PT_AU04_MochaTsShipped1_MOI1", analysis_id "PT_AU04_MochaTsShipped1_An123"
     And I am logged in as a "VR_Sender_mocha" user
     When I go to patient "PT_AU04_MochaTsShipped1" with surgical event "PT_AU04_MochaTsShipped1_SEI1"
     And I scroll to the bottom of the page

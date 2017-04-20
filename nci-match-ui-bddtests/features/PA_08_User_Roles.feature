@@ -1,6 +1,17 @@
 @ui_p2
 Feature: MATCHKB-352. Users are given authorization based on their roles.
 
+ Scenario: As a variant_report reviewer from MDA lab I can edit variant comments
+    Given I am logged in as a "VR_Reviewer_mda" user
+    When I go to the patient "UI_PA08_MdaTsVrUploaded" with variant report "UI_PA08_MdaTsVrUploaded_ANI1"
+    Then I can see the variant report page
+    And I wait for "10" seconds
+    And I click on the comment link at ordinal "1"
+    Then I can see the "Unconfirmed for UI display" in the modal text box
+    And The "OK" button is "visible"
+    Then I click on the "OK" button
+    Then I logout
+
   Scenario: As a read-only user, I do not have access to confirm or reject a variant report
     Given I am logged in as a "read_only" user
     When I go to the patient "UI_PA08_MdaTsVrUploaded" with variant report "UI_PA08_MdaTsVrUploaded_ANI1"
@@ -14,16 +25,6 @@ Feature: MATCHKB-352. Users are given authorization based on their roles.
     When I go to the patient "UI_PA08_MdaTsVrUploaded" with variant report "UI_PA08_MdaTsVrUploaded_ANI1"
     Then I can see the variant report page
     And The checkboxes are disabled
-    Then I logout
-
- Scenario: As a variant_report reviewer from MDA lab I can edit variant comments
-    Given I am logged in as a "VR_Reviewer_mda" user
-    When I go to the patient "UI_PA08_MdaTsVrUploaded" with variant report "UI_PA08_MdaTsVrUploaded_ANI1"
-    Then I can see the variant report page
-    And I click on the comment link at ordinal "1"
-    Then I can see the "Unconfirmed for UI display" in the modal text box
-    And The "OK" button is "visible"
-    Then I click on the "OK" button
     Then I logout
 
  Scenario Outline: As a non-privileged user, <user>,  I can view variant comments but not edit
