@@ -12,7 +12,7 @@ module.exports = function() {
 		browser.waitForAngular().then(function(){
 			expect(browser.isElementPresent(upload.uploadHeading)).to.eventually.eql(true);
 		}).then(callback);
-	});	
+	});
 
 	this.Then(/^I can see that the upload section is active$/, function (callback) {
         var testElement = upload.uploaderLink.element(by.xpath('../..'));

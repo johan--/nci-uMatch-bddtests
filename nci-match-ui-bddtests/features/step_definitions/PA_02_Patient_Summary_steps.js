@@ -150,18 +150,15 @@ module.exports = function () {
 
     this.Then (/^I should see the "(.+)" section heading$/, function (heading, callback) {
         // var index = patientPage.expectedMainTabSubHeadings.indexOf (heading);
-        patientPage.mainTabSubHeadingArray().getText().then(function (array) {
-            expect(array).to.include(heading);
+        utilities.waitForElement(patientPage.mainTabSubHeadingArray().get(0), "Sections under Patient Details").then(function(presence){
+            if (presence === true){
+                patientPage.mainTabSubHeadingArray().getText().then(function (array) {
+                  expect(array).to.include(heading);
+                });
+            } else {
+                expect(heading + " not found").to.eql(heading + " found");
+            }
         }).then (callback);
-    });
-
-    this.Then (/^I should see the  Treatment Arm History about the patient$/, function (callback) {
-        //Getting the treatment arms history from the API call
-        //todo: write coede for getting the ta_history from the patient call
-
-        //var expectedTAHistory = patientApiInfo['ta_history']
-        browser.sleep (50).then (callback);
-
     });
 
     this.Then(/^I should see a message "([^"]*)" in the timeline$/, function (timeLineMessage, callback) {

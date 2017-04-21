@@ -3,14 +3,14 @@ var AWS = require ('aws-sdk');
 var S3_helper = function () {
     var S3 = new AWS.S3({
         region: 'us-east-1',
-        endpoint: 'https://s3.amazonaws.com', 
-        accessKeyId: process.env.AWS_ACCESS_KEY_ID, 
-        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY, 
+        endpoint: 'https://s3.amazonaws.com',
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
         apiVersion: 'latest'
     });
 
     this.isFilePresent = function(bucketName, fileName) {
-        
+
         var params = {
             Bucket: bucketName,
             EncodingType: 'url',
@@ -25,7 +25,7 @@ var S3_helper = function () {
                 if (data.Contents[i].Key.includes(fileName)) {
                         flag = 1;
                         return contents[i];
-                } 
+                }
             }
             if (flag === 0){
                 return false;
@@ -38,11 +38,9 @@ var S3_helper = function () {
 
     this.deleteFileFromBucket = function(bucketName, fileName) {
         var params = {
-            Bucket: bucketName, 
-            Key: fileName, 
-            MFA: 'STRING_VALUE',
-            RequestPayer: 'requester',
-            VersionId: 'STRING_VALUE'
+            Bucket: bucketName,
+            Key: fileName,
+            RequestPayer: 'requester'
         };
         var deletePromise = S3.deleteObject(params).promise();
         return deletePromise.then(function(data){

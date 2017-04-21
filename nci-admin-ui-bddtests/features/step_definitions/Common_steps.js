@@ -31,7 +31,9 @@ module.exports = function() {
 
     this.When(/^I navigate to "(.+?)" page$/, function(page, callback){
         var pageName = page === 'Log' ? 'logger' : page.toLowerCase();
-        browser.get('/#/app/' + pageName, 3000).then(callback);
+        browser.get('/#/app/' + pageName, 3000).then(function(){
+            browser.waitForAngular();
+        }).then(callback);
     });
 
 
@@ -42,7 +44,7 @@ module.exports = function() {
         var isVisible = buttonState === 'enabled' || buttonState === 'disabled';
         var isAvailable = buttonState === 'enabled' || buttonState === 'visible';
 
-        // protractr methods isEnabled() works only on input and a few other elements. 
+        // protractr methods isEnabled() works only on input and a few other elements.
         // span, anchor tags fail isEnabled and gives the wrong value back
         if (isVisible){
             buttonElement.getAttribute('disabled').then(function (status){
@@ -67,12 +69,12 @@ module.exports = function() {
 
 
 
-    // This is a collection of all the buttons in the applcation to be used to check the disabled, enabled feature. 
+    // This is a collection of all the buttons in the applcation to be used to check the disabled, enabled feature.
     var returnButtonElement = {
         "Upload a file": upload.chooseFileButton,
         "Upload File": upload.uploadFileButton,
-        "Confirm upload to Treatment Arm": upload.confirmUploadButton 
+        "Confirm upload to Treatment Arm": upload.confirmUploadButton
     }
-        
+
 
 }

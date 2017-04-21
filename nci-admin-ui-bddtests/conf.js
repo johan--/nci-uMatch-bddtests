@@ -1,13 +1,12 @@
 /**
- * 
+ * Created by raseel.mohamed some time ago in
  */
-
 exports.config = {
     baseUrl: process.env.ADMIN_UI_HOSTNAME,
+    directConnect: true,
     capabilities: {
         browserName: 'firefox'
     },
-    // seleniumAddress: 'http://localhost:4444/wd/hub',
     specs: [
     'features/AD01_HomePage.feature',
     'features/AD02_Upload.feature',
@@ -29,7 +28,7 @@ exports.config = {
     getPageTimeout: 60000,
   	allScriptsTimeout: 100000,
     onPrepare: function (){
-    browser.manage().window().setSize(1600, 1000);
+    browser.manage().window().setSize(3200, 1800);
 
     // Disable animations so e2e tests run more quickly
     var disableNgAnimate = function() {

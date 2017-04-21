@@ -64,7 +64,7 @@ var Utilities = function () {
     }
 
     this.getTAsFromTreatmentArm = function(idToken, url){
-        console.log('Calling URL: ' + url);
+        console.log('Get URL: ' + url);
         var options = {
             uri: url,
             method: 'GET',

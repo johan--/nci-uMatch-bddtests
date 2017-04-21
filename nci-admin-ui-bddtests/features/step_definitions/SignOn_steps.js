@@ -22,7 +22,7 @@ module.exports = function () {
     this.When(/^I login with "((in)?valid)" email and password$/, function (validity, callback) {
         var email = validity === 'valid' ? process.env.ADMIN_UI_AUTH0_USERNAME : 'abc@xyz.com';
         var password = process.env.ADMIN_UI_AUTH0_PASSWORD
-    
+
         loginPage.loginProcess(email, password);
         browser.sleep(50).then(callback);
     });
@@ -32,7 +32,7 @@ module.exports = function () {
         var password = process.env.ADMIN_UI_AUTH0_PASSWORD;
         browser.sleep(50).then(function() {
             login.goToLogin().then(function(){
-                login.loginProcess(email, password);    
+                login.loginProcess(email, password);
             }).then(function(){
                 browser.sleep(5000);
             }).then(function(){

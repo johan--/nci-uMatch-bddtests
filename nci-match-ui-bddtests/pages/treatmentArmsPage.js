@@ -103,10 +103,10 @@ var TreatmentArmsPage = function() {
     this.exclusioncnvTable = element.all(by.css('#cnvsExcl tr[ng-repeat^="item in filtered"]'));
     this.inclusionGeneTable = element.all(by.css('#geneFusionsIncl tr[ng-repeat^="item in filtered"]'));
     this.exclusionGeneTable = element.all(by.css('#geneFusionsExcl tr[ng-repeat^="item in filtered"]'));
-    
+
     this.inclusionNHRTable = element.all(by.css('#nonHotspotRulesIncl tr[ng-repeat^="item in filtered"]'));
     this.exclusionNHRTable = element.all(by.css('#nonHotspotRulesExcl tr[ng-repeat^="item in filtered"]'));
-    
+
     this.actualHeadingIncludedSNVs = element.all(by.css('#snvsMnvsIndelsIncl th'));
     this.actualHeadingExcludedSNVs = element.all(by.css('#snvsMnvsIndelsExcl th'));
     this.actualHeadingIncludedCNVs = element.all(by.css('#cnvsIncl th'));
@@ -221,7 +221,7 @@ var TreatmentArmsPage = function() {
         expect(tableType.count()).to.eventually.equal(data.length);
         var firstData = data[0];
         // console.log(firstData); //to debug
-        
+
         var med_id_string = getMedIdString(firstData['public_med_ids']);
 
         // Locator Strings for columns
@@ -241,13 +241,13 @@ var TreatmentArmsPage = function() {
                     row.all(by.css(idLoc)).get(0).getText().then(function(text){
                         if (text === firstData.identifier){
                             // console.log('Checking values in Table')
-                            utils.checkValueInTable(row.all(by.css(chrLoc)), firstData['chromosome']);
-                            utils.checkValueInTable(row.all(by.css(posLoc)), firstData['position']);
-                            utils.checkValueInTable(row.all(by.css(referenceLoc)), firstData['ocp_reference']);
-                            utils.checkValueInTable(row.all(by.css(alternateLoc)), firstData['ocp_alternative']);
-                            utils.checkValueInTable(row.all(by.css(litTableLoc)), med_id_string);
+                            utils.checkValueInTable(row.all(by.css(chrLoc)), firstData['chromosome'].toString());
+                            utils.checkValueInTable(row.all(by.css(posLoc)), firstData['position'].toString());
+                            utils.checkValueInTable(row.all(by.css(referenceLoc)), firstData['ocp_reference'].toString());
+                            utils.checkValueInTable(row.all(by.css(alternateLoc)), firstData['ocp_alternative'].toString());
+                            utils.checkValueInTable(row.all(by.css(litTableLoc)), med_id_string.toString());
                             if (inclusionType === 'Inclusion') {
-                                utils.checkValueInTable(row.all(by.css(loeLoc)), firstData['level_of_evidence']);
+                                utils.checkValueInTable(row.all(by.css(loeLoc)), firstData['level_of_evidence'].toString());
                             }
                         }
                     });
@@ -276,12 +276,12 @@ var TreatmentArmsPage = function() {
                     row.all(by.css(geneLoc)).get(0).getText().then(function(text){
                         if (text == firstData['gene_name']){
                             // console.log('Checking values in Table')
-                            utils.checkValueInTable(row.all(by.css(geneLoc)), firstData['gene_name']);
-                            utils.checkValueInTable(row.all(by.css(chromLoc)), firstData['chromosome']);
-                            utils.checkValueInTable(row.all(by.css(posLoc)), firstData['position']);
-                            utils.checkValueInTable(row.all(by.css(litTableLoc)), med_id_string);
+                            utils.checkValueInTable(row.all(by.css(geneLoc)), firstData['gene_name'].toString());
+                            utils.checkValueInTable(row.all(by.css(chromLoc)), firstData['chromosome'].toString());
+                            utils.checkValueInTable(row.all(by.css(posLoc)), firstData['position'].toString());
+                            utils.checkValueInTable(row.all(by.css(litTableLoc)), med_id_string.toString());
                             if(inclusionType === 'Inclusion') {
-                                utils.checkValueInTable(row.all(by.css(loeLoc)), firstData['level_of_evidence']);
+                                utils.checkValueInTable(row.all(by.css(loeLoc)), firstData['level_of_evidence'].toString());
                             }
                         }
                     });
@@ -293,9 +293,7 @@ var TreatmentArmsPage = function() {
     this.checkGeneFusionTable = function (data, tableType, inclusionType){
         expect(tableType.count()).to.eventually.equal(data.length);
         var firstData = data[0];
-
         // console.log(firstData) // for debugging
-        
         var med_id_string = getMedIdString(firstData['public_med_ids']);
 
         // Locator strings for columns
@@ -324,9 +322,8 @@ var TreatmentArmsPage = function() {
     this.checkNonHotspotRulesTable = function(data, tableType, inclusionType){
         expect(tableType.count()).to.eventually.equal(data.length);
         var firstData = data[0];
-        
-        // console.log(firstData); // for debugging        
-        
+        // console.log(firstData); // for debugging
+
         var med_id_string = getMedIdString(firstData['public_med_ids']);
 
         // Locator Strings for columns
@@ -344,15 +341,15 @@ var TreatmentArmsPage = function() {
                     row.all(by.css(geneLoc)).get(0).getText().then(function(text){
                         if (text == firstData['func_gene']){
                             // console.log('Checking values in Table')
-                            utils.checkValueInTable(row.all(by.css(geneLoc)), firstData['func_gene']);
-                            utils.checkValueInTable(row.all(by.css(domainRangeLoc)), firstData['domain_range']);
-                            utils.checkValueInTable(row.all(by.css(domainNameLoc)), firstData['domain_name']);
-                            utils.checkValueInTable(row.all(by.css(exonLoc)), firstData['exon']);
-                            utils.checkValueInTable(row.all(by.css(oncomineLoc)), firstData['oncomine_variant_class'])
-                            utils.checkValueInTable(row.all(by.css(functionLoc)), firstData['function']);
-                            utils.checkValueInTable(row.all(by.css(litTableLoc)), med_id_string);
+                            utils.checkValueInTable(row.all(by.css(geneLoc)), firstData['func_gene'].toString());
+                            utils.checkValueInTable(row.all(by.css(domainRangeLoc)), firstData['domain_range'].toString());
+                            utils.checkValueInTable(row.all(by.css(domainNameLoc)), firstData['domain_name'].toString());
+                            utils.checkValueInTable(row.all(by.css(exonLoc)), firstData['exon'].toString());
+                            utils.checkValueInTable(row.all(by.css(oncomineLoc)), firstData['oncomine_variant_class'].toString())
+                            utils.checkValueInTable(row.all(by.css(functionLoc)), firstData['function'].toString());
+                            utils.checkValueInTable(row.all(by.css(litTableLoc)), med_id_string.toString());
                             if (inclusionType === 'Inclusion') {
-                                utils.checkValueInTable(row.all(by.css(loeLoc)), firstData['level_of_evidence']);    
+                                utils.checkValueInTable(row.all(by.css(loeLoc)), firstData['level_of_evidence'].toString());
                             }
                         }
                     });
@@ -384,8 +381,8 @@ var TreatmentArmsPage = function() {
                 rowList.each(function (row, index) {
                     row.all(by.binding('item.name')).get(0).getText().then(function (name) {
                         if (name === drugName) {
-                            utils.checkValueInTable(row.all(by.binding('item.name')), drugName);
-                            utils.checkValueInTable(row.all(by.binding('item.id')), drugId);
+                            utils.checkValueInTable(row.all(by.binding('item.name')), drugName.toString());
+                            utils.checkValueInTable(row.all(by.binding('item.id')), drugId.toString());
                         }
                     })
                 })
@@ -417,9 +414,9 @@ var TreatmentArmsPage = function() {
                 rowList.each(function (row, index){
                     row.all(by.css(ctepTermLoc)).get(0).getText().then(function (text){
                         if (text === ctepTermFromAPI){
-                            utils.checkValueInTable(row.all(by.css(medraCodeLoc)), medraCodeFromApi);
-                            utils.checkValueInTable(row.all(by.css(ctepCategoryLoc)), ctepCategoryFromApi);
-                            utils.checkValueInTable(row.all(by.css(ctepCategoryLoc)), ctepCategoryFromApi);
+                            utils.checkValueInTable(row.all(by.css(medraCodeLoc)), medraCodeFromApi.toString());
+                            utils.checkValueInTable(row.all(by.css(ctepCategoryLoc)), ctepCategoryFromApi.toString());
+                            utils.checkValueInTable(row.all(by.css(ctepCategoryLoc)), ctepCategoryFromApi.toString());
                         };
                     });
                 });
@@ -463,11 +460,11 @@ var TreatmentArmsPage = function() {
                 repeater.each(function (row, index) {
                     row.all(by.css('cosmic-link[link-id="item.gene"]')).get(0).getText().then(function (gName) {
                         if (gName === assayGene){
-                            utils.checkValueInTable(row.all(by.css('cosmic-link[link-id="item.gene"]')), assayGene);
-                            utils.checkValueInTable(row.all(by.binding('item.assay_result_status')), assayResult);
+                            utils.checkValueInTable(row.all(by.css('cosmic-link[link-id="item.gene"]')), assayGene.toString());
+                            utils.checkValueInTable(row.all(by.binding('item.assay_result_status')), assayResult.toString());
                             // utils.checkValueInTable(row.all(by.binding('item.description')), assayDescription);
-                            utils.checkValueInTable(row.all(by.binding('item.level_of_evidence')), assayLOE);
-                            utils.checkValueInTable(row.all(by.binding('item.assay_variant')), assayVariant);
+                            utils.checkValueInTable(row.all(by.binding('item.level_of_evidence')), assayLOE.toString());
+                            utils.checkValueInTable(row.all(by.binding('item.assay_variant')), assayVariant.toString());
                             // utils.checkValueInTable(row.all(by.binding('item.gene_name')), assayColumn);
                         }
                     });

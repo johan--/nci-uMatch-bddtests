@@ -16,16 +16,16 @@ module.exports = function() {
 //Given
     this.Given(/^I select "([^"]*)" file for upload$/, function (fileName, callback) {
         upload.fileName = fileName;
-        var fileToUpload = `${data_folder}/${fileName}`; // Enter the extension in the feature. 
+        var fileToUpload = `${data_folder}/${fileName}`; // Enter the extension in the feature.
         var absolutePath = path.resolve(fileToUpload);
         var inputElement = upload.chooseFileButton
-        
+
         inputElement.sendKeys(absolutePath).then(function(){
             browser.waitForAngular();
         }).then(callback);
     });
 
-    this.Given(/^I click on "([^"]*)" label on Upload section$/, function (uploadButtonName, callback) {  
+    this.Given(/^I click on "([^"]*)" label on Upload section$/, function (uploadButtonName, callback) {
         if (uploadButtonName === 'Select Specific Treatment Arms'){
             upload.selectSpecificTA.click().then(function(){
                 expect(upload.selectSpecificTAInput.isPresent()).to.eventually.eql(true)
@@ -43,19 +43,23 @@ module.exports = function() {
     });
 
 //When
-    
+
     this.When(/^I delete the file from the S3 bucket$/, function (callback) {
-        bucketName = browser.baseUrl.match('localhost') ? 'pedmatch-admintool-dev' : 'pedmatch-admintool-int'
-        var fileName = upload.fileNameUploaded;
-        s3.deleteFileFromBucket(bucketName, fileName).then(callback);     
+        var bucketName = browser.baseUrl.match('localhost') ? 'pedmatch-admintool-dev' : 'pedmatch-admintool-int'
+        s3.deleteFileFromBucket(bucketName, upload.fileNameUploaded).then(callback);
     });
+
+    this.When(/^I confirm the upload of the treatment arm$/, function(callback){
+        // console.log("upload.indexOfElement: " + upload.indexOfElement);
+        callback(null, 'pending');
+    })
 
 // Then
     this.Then(/^I expect to see the file "([^"]*)" on S3 bucket$/, function (fileName, callback) {
-        bucketName = browser.baseUrl.match('localhost') ? 'pedmatch-admintool-dev' : 'pedmatch-admintool-int'
+        var bucketName = browser.baseUrl.match('localhost') ? 'pedmatch-admintool-dev' : 'pedmatch-admintool-int'
         s3.isFilePresent(bucketName, fileName).then(function(result){
             upload.fileNameUploaded = result["Key"];
-            expect(upload.fileNameUploaded).to.include(upload.fileName);    
+            expect(upload.fileNameUploaded).to.include(upload.fileName);
         }).then(callback);
     });
 
@@ -75,7 +79,7 @@ module.exports = function() {
 
     this.Then(/^I expect to see the file "([^"]*)" in the upload section$/, function (fileName, callback) {
         expect(upload.uploadPanel.getAttribute('title')).to.eventually.eql(`${fileName}`).notify(callback);
-    }); 
+    });
 
     this.Then(/^I verify that there is "([^"]*)" treatment arm in the list$/, function (taId, callback) {
         expect(confirmation.treatmentArmsIdList.getText()).to.eventually.include(taId).notify(callback);
@@ -104,7 +108,7 @@ module.exports = function() {
         } else {
             base = process.env.UI_HOSTNAME
         };
-    
+
         utilities.getTAsFromTreatmentArm(browser.idToken, base + `/api/v1/treatment_arms/${taId}/${stratumId}/` ).then(function(response){
             expect(response[0].treatment_arm_id).to.eql(taId);
         }).then(callback);
@@ -113,6 +117,7 @@ module.exports = function() {
     this.Then(/^I get the authorization token$/, function(callback){
         utilities.getIdToken().then(function(response){
             browser.idToken = response;
+            console.log('browser.idToken: ' + browser.idToken);
         }).then(callback)
     });
 

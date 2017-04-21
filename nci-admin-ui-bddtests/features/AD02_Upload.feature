@@ -1,8 +1,8 @@
-@admin_ui_p1 
-Feature: This feature tests the upload funcctionality of the admin tool 
+@admin_ui_p1 @upload
+Feature: This feature tests the upload funcctionality of the admin tool
 
 
-Scenario: An admin can choose to upload only one treatment arm from an excel
+Scenario: Upload01 - An admin can choose to upload only one treatment arm from an excel
 Given I am a logged in user
 And I select "UploadOneTAFromListTest.xlsx" file for upload
 Then I expect to see the file "UploadOneTAFromListTest.xlsx" in the upload section
@@ -16,12 +16,13 @@ When I click on "Confirm upload to Treatment Arm" button
 Then I am taken to the "Confirmation" page
 And I verify that there is "APEC1621-AA" treatment arm in the list
 And I collect the treatment arm details for "APEC1621-AA" on the page
+And I confirm the upload of the treatment arm
 And I delete the file from the S3 bucket
 And I logout
-And I get the authorization token 
+And I get the authorization token
 And I call the Treatment Arm Api to verify the presence of the treatment arm "APEC1621-AA" and stratum "1"
 
-Scenario: An admin can upload an excel sheet with all the treatment arms 
+Scenario: Upload02 - An admin can upload an excel sheet with all the treatment arms
 Given I am a logged in user
 And I select "UploadAllTAFromListTest.xlsx" file for upload
 And I click on "Select All Treatment Arms" label on Upload section
@@ -35,7 +36,7 @@ And I collect the treatment arm details for "APEC1621-CC" on the page
 And I logout
 
 
-Scenario: An Excel sheet with errors will not be uploaded to the pending treatment arms table
+Scenario: Upload03 - An Excel sheet with errors will not be uploaded to the pending treatment arms table
 Given I am a logged in user
 And I select "UploadOneTAFromListTest.xlsx" file for upload
 Then I expect to see the file "UploadOneTAFromListTest.xlsx" in the upload section
