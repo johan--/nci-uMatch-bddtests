@@ -9829,6 +9829,9 @@
                             "identifier": {
                                 "S": "match769.3.10"
                             },
+                            "confirmed": {
+                                "BOOL": true
+                            },
                             "hgvs": {
                                 "NULL": true
                             },
