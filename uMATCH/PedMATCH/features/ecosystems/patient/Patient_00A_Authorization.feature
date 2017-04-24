@@ -432,7 +432,7 @@ Feature: Patient API authorization tests
       | PT_AU12_TsShippedToMca | mocha     | SPECIMEN_MESSAGE_SENDER           |         | 401  |
       | PT_AU12_TsShippedToDtm | dartmouth | ASSAY_MESSAGE_SENDER              |         | 401  |
 
-  @patients_p1_off
+  @patients_p1
   Scenario Outline: PT_AU13 role base authorization works properly for variant report rollback
     Given patient id is "<patient_id>"
     And patient API user authorization role is "<role>"
@@ -453,7 +453,7 @@ Feature: Patient API authorization tests
       | PT_AU13_TsVrConfirmed2 | SPECIMEN_MESSAGE_SENDER           |         | 401  |
       | PT_AU13_TsVrConfirmed2 | ASSAY_MESSAGE_SENDER              |         | 401  |
 
-  @patients_p1_off
+  @patients_p1
   Scenario Outline: PT_AU14 role base authorization works properly for assignment rollback
     Given patient id is "<patient_id>"
     And patient API user authorization role is "<role>"
@@ -474,7 +474,7 @@ Feature: Patient API authorization tests
       | PT_AU14_PendingApproval2 | SPECIMEN_MESSAGE_SENDER           |         | 401  |
       | PT_AU14_PendingApproval2 | ASSAY_MESSAGE_SENDER              |         | 401  |
 
-  @patients_p1_off
+  @patients_p1
   Scenario Outline: PT_AU15 role base authorization works properly for editable field in assignment reports
     Given patient GET service: "analysis_report", patient id: "<patient_id>", id: "<patient_id>_ANI1"
     And patient API user authorization role is "<role>"
@@ -496,7 +496,7 @@ Feature: Patient API authorization tests
       | PT_AU15_PendingConfirmation | SPECIMEN_MESSAGE_SENDER           | false    |
       | PT_AU15_PendingConfirmation | ASSAY_MESSAGE_SENDER              | false    |
 
-  @patients_p1_off
+  @patients_p1
   Scenario Outline: PT_AU16 role base authorization works properly for editable field in variant reports
     Given patient GET service: "analysis_report", patient id: "PT_AU16_MdaVrUploaded", id: "PT_AU16_MdaVrUploaded_ANI1"
     And patient API user authorization role is "<role>"

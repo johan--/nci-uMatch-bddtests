@@ -206,7 +206,7 @@ Feature: Assay Messages
       | ICCBAF47s | INDETERMINATE | 2016-05-18T14:42:13+00:00 |
       | ICCBRG1s  | INDETERMINATE | 2016-05-18T15:42:13+00:00 |
 
-  @patients_p2_off
+  @patients_p2
   Scenario Outline: PT_AS12. assay result received message can be processed properly
     Given patient id is "<patient_id>"
     And load template assay message for this patient

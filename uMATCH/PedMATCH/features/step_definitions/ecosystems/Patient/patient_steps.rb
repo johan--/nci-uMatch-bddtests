@@ -42,6 +42,12 @@ When(/^POST to MATCH variant report upload service, response includes "([^"]*)" 
   # actual_include_expect(response['message'], retMsg)
 end
 
+When(/^POST to MATCH variant report upload service$/) do
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
+  response = Patient_helper_methods.post_vr_upload(@molecular_id, @current_auth0_role)
+  puts response.to_s
+end
+
 When(/^PUT to MATCH variant report "([^"]*)" service, response includes "([^"]*)" with code "([^"]*)"$/) do |status, retMsg, code|
   @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
   response = Patient_helper_methods.put_vr_confirm(@analysis_id, status, @current_auth0_role)

@@ -259,7 +259,7 @@ Feature: Variant files confirmed messages
 #      | PT_VC15_PathDoneOneAssayVRUploaded       | PT_VC15_PathDoneOneAssayVRUploaded_ANI1       | confirm   | TISSUE_VARIANT_REPORT_CONFIRMED |
 
 
-  @patients_p1_off
+  @patients_p1
   Scenario: PT_VC16. confirmed variant report can be rolled back
     Given patient id is "PT_VC16_VrConfirmed"
     And patient API user authorization role is "ADMIN"
