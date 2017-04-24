@@ -15,6 +15,19 @@ var WizardPage = function() {
     this.chooseTreatmentArmButton   = element(by.css('a[ng-click="toggle_treatment_arm_selection()"]'));
     this.createTreatmentArmButton   = element(by.css('a[ng-click="create_new_treatment_arm()"]'));
 
+    // Arm Data
+    this.ArmDataId                  = element(by.model('treatment_arm.treatment_arm_id'));
+    this.ArmDataGene                = element(by.model('treatment_arm.gene'));
+    this.ArmDataDrug                = element(by.model('treatment_arm.target_name'));
+    this.ArmDataDrugId              = element(by.model('treatment_arm.treatment_arm_drugs[0].drug_id'));
+    this.ArmDataPathwayName         = element(by.model('treatment_arm.treatment_arm_drugs[0].pathway'));
+    this.ArmDataDescription         = element(by.model('treatment_arm.description'));
+    this.ArmDataStratumId           = element(by.model('treatment_arm.stratum_id'));
+
+    // Other Data
+    this.diseaseCodeType            = element(by.model('treatment_arm.diseases[0].disease_code_type'));
+    this.diseaseCode                = element(by.model('treatment_arm.diseases[0].disease_code'));
+    this.diseaseName                = element(by.model('treatment_arm.diseases[0].disease_name'))
 }
 
 module.exports = new WizardPage();

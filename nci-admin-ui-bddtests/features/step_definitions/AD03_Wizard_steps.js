@@ -21,13 +21,33 @@ module.exports = function() {
     });
 
     this.Given(/^I fill in the Arm Data form section$/, function (callback) {
-         // Write code here that turns the phrase above into concrete actions
-         callback(null, 'pending');
+        wizard.ArmDataId.sendKeys('APECSC1621-UI_TEST');
+        wizard.ArmDataGene.sendKeys('NTRK');
+        wizard.ArmDataDrug.sendKeys('LOXO-101');
+        wizard.ArmDataDrugId.sendKeys('788620')
+        wizard.ArmDataPathwayName.sendKeys('Receptor tyrosine kinase');
+        wizard.ArmDataDescription.sendKeys('LOXO-101 in  NTRK fusions');
+        wizard.ArmDataStratumId.sendKeys('100');
+        expect(wizard.ArmDataId.getAttribute('value')).to.eventually.eql('APECSC1621-UI_TEST');
+        expect(wizard.ArmDataGene.getAttribute('value')).to.eventually.eql('NTRK');
+        expect(wizard.ArmDataDrug.getAttribute('value')).to.eventually.eql('LOXO-101');
+        expect(wizard.ArmDataDrugId.getAttribute('value')).to.eventually.eql('788620');
+        expect(wizard.ArmDataPathwayName.getAttribute('value')).to.eventually.eql('Receptor tyrosine kinase');
+        expect(wizard.ArmDataDescription.getAttribute('value')).to.eventually.eql('LOXO-101 in  NTRK fusions');
+        expect(wizard.ArmDataStratumId.getAttribute('value')).to.eventually.eql('100').notify(callback);
     });
 
     this.Given(/^I fill in the Other Data form section$/, function (callback) {
-         // Write code here that turns the phrase above into concrete actions
-         callback(null, 'pending');
+        wizard.diseaseCodeType.sendKeys('ICD-O');
+        wizard.diseaseCode.sendKeys('10058354');
+        wizard.diseaseName.sendKeys('Bronchioloalveolar carcinoma');
+
+        expect(wizard.diseaseCodeType.getAttribute('value')).to.eventually
+            .eql('ICD-O');
+        expect(wizard.diseaseCode.getAttribute('value')).to.eventually
+            .eql('10058354');
+        expect(wizard.diseaseName.getAttribute('value')).to.eventually
+            .eql('Bronchioloalveolar carcinoma').notify(callback);
     });
 
     this.Given(/^I fill in the Exclusion\/Inclusion Varients form section$/, function (callback) {
@@ -82,9 +102,20 @@ module.exports = function() {
         callback(null, 'pending');
     });
 
-    this.Then(/^I am on the "([^"]*)" section$/, function (arg1, callback) {
-    // Write code here that turns the phrase above into concrete actions
-        callback(null, 'pending');
+    this.Then(/^I am on the "([^"]*)" section$/, function (paneName, callback) {
+        var paneValue = {
+            "Arm Data" : "arm_data",
+            "Other Data" : "arm_disease_drug",
+            "Exclusion/Inclusion Variants": "arm_inclusion_exclusion",
+            "Confirm Treatment Arm": "arm_confirm"
+        }
+        var selectValue = paneValue[paneName];
+
+        var paneElement = element(by.css('div.step-pane[data-name="'+ selectValue +'"]'));
+        utilities.checkElementIncludesAttribute(paneElement, 'class', 'active').then(function(){
+            expect(paneElement.element(by.css('.wizard-header')).getText())
+                .to.eventually.eql(paneName);
+        }).then(callback);
     });
 
     this.Then(/^I can see then new Treatment arm in the temporary table$/, function (callback) {
@@ -105,7 +136,10 @@ module.exports = function() {
     function returnButtonElement(buttonName){
         var button = {
             "Create New Treatment Arm": wizard.createTreatmentArmButton,
-            "Upload or Choose Treatment Arm": wizard.chooseTreatmentArmButton
+            "Upload or Choose Treatment Arm": wizard.chooseTreatmentArmButton,
+            "Validate Changes": wizard.validateChangesButton,
+            "Next": wizard.nextButton,
+            "Previous": wizard.prevButton
         }
         return button[buttonName];
     }

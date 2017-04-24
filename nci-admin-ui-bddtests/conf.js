@@ -1,9 +1,9 @@
 /**
- * Created by raseel.mohamed some time ago in
+ * Created by raseel.mohamed some time ago in March 2017
  */
 exports.config = {
     baseUrl: process.env.ADMIN_UI_HOSTNAME,
-    directConnect: true,
+    // directConnect: true,
     capabilities: {
         browserName: 'firefox'
     },

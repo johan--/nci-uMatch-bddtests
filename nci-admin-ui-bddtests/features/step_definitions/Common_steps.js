@@ -31,7 +31,7 @@ module.exports = function() {
 
     this.When(/^I navigate to "(.+?)" page$/, function(page, callback){
         var pageName = page === 'Log' ? 'logger' : page.toLowerCase();
-        browser.get('/#/app/' + pageName, 3000).then(function(){
+        browser.get('/#!/app/' + pageName, 3000).then(function(){
             browser.waitForAngular();
         }).then(callback);
     });

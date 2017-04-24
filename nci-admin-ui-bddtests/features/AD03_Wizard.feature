@@ -14,7 +14,7 @@ Scenario: Wizard01 - User can create a new treatment arm using the Wizard tool
 	And I fill in the Other Data form section
 	And I click on "Validate Changes" button in the wizard
 	And I click on "Next" button in the wizard
-	Then I am on the "Other Data" section
+	Then I am on the "Exclusion/Inclusion Variants" section
 	And I fill in the Exclusion/Inclusion Varients form section
 	And I click on "Validate Changes" button in the wizard
 	When I click on "Next" button in the wizard
