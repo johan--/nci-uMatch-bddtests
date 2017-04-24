@@ -33,26 +33,32 @@ class BioMatchPMValidation
   end
 
   def self.verify_result(patient_id, expect_ta_id='', expect_ta_stratum='')
-    Environment.setTier('local')
-    url = "http://localhost:10240/api/v1/patients/#{patient_id}"
-    response = Helper_Methods.simple_get_request(url)['message_json']
-    if response.keys.include?('current_assignment')
-      actual_ta_id = response['current_assignment']['treatment_arm_id']
-      actual_ta_stratum = response['current_assignment']['stratum_id']
-    else
-      actual_ta_id = ''
-      actual_ta_stratum = ''
-    end
-    test_result = 'Passed'
-    test_result = 'Failed' unless actual_ta_id == expect_ta_id
-    test_result = 'Failed' unless actual_ta_stratum == expect_ta_stratum
     result = Hash.new
     result['test_case'] = "#{patient_id}"
-    result['test_result'] = test_result
-    result['expected_treatment_arm_id'] = expect_ta_id
-    result['expected_treatment_arm_stratum'] = expect_ta_stratum
-    result['actual_treatment_arm_id'] = actual_ta_id
-    result['actual_treatment_arm_stratum'] = actual_ta_stratum
+    if PatientMessageLoader.is_upload_failed?
+      result['test_result'] = 'Failed'
+      result['Failed_reason'] = 'Failed generating patient variant report'
+    else
+      Environment.setTier('local')
+      url = "http://localhost:10240/api/v1/patients/#{patient_id}"
+      response = Helper_Methods.simple_get_request(url)['message_json']
+      if response.keys.include?('current_assignment')
+        actual_ta_id = response['current_assignment']['treatment_arm_id']
+        actual_ta_stratum = response['current_assignment']['stratum_id']
+      else
+        actual_ta_id = ''
+        actual_ta_stratum = ''
+      end
+      test_result = 'Passed'
+      test_result = 'Failed' unless actual_ta_id == expect_ta_id
+      test_result = 'Failed' unless actual_ta_stratum == expect_ta_stratum
+      result['test_result'] = test_result
+      result['Failed_reason'] = 'Assignment mismatch' if test_result == 'Failed'
+      result['expected_treatment_arm_id'] = expect_ta_id
+      result['expected_treatment_arm_stratum'] = expect_ta_stratum
+      result['actual_treatment_arm_id'] = actual_ta_id
+      result['actual_treatment_arm_stratum'] = actual_ta_stratum
+    end
     File.open("#{File.dirname(__FILE__)}/results/#{patient_id}.json", 'w') { |f| f.write(JSON.pretty_generate(result)) }
   end
 
@@ -92,4 +98,6 @@ class BioMatchPMValidation
 end
 
 BioMatchPMValidation.reload_database
-BioMatchPMValidation.test('test_case_PM_TA_A_2')
+BioMatchPMValidation.test('test_case_PM_TA_A_2', 'APEC1621A1', '1')
+
+

@@ -34,6 +34,10 @@ class PatientMessageLoader
     @failed_patient_list = []
   end
 
+  def self.is_upload_failed?
+    @failure > 0
+  end
+
   def self.upload_done
     pass = @all_items - @failure
     p "#{@all_items} messages processed, #{pass} passed and #{@failure} failed"
