@@ -15,7 +15,7 @@ var LoginPage = function() {
     this.signInName = element(by.binding('name'));
 
     this.goToLogin = function(){
-        return browser.get('/#/login', 3000).then(function(){
+        return browser.get('/#!/login', 3000).then(function(){
             logoutLink.isPresent().then(function(present){
                 if (present == true){
                     logoutLink.click().then(function(){
@@ -27,7 +27,7 @@ var LoginPage = function() {
     }
 
     this.loginProcess = function(userId, password) {
-        accessButton.click().then(function(){          
+        accessButton.click().then(function(){
             browser.waitForAngular();
             expect(auth0WidgetContaner.isPresent()).to.eventually.eql(true);
         }).then(function(){
@@ -44,11 +44,11 @@ var LoginPage = function() {
                                         enterLoginDetails(userId, password);
                                         loginLink.click().then(function(){
                                             browser.waitForAngular();
-                                        });    
-                                    });    
+                                        });
+                                    });
                                 });
                             })
-                        });    
+                        });
                     })
                 } else {
                     browser.sleep(2000).then(function(){
@@ -57,11 +57,11 @@ var LoginPage = function() {
                             loginLink.click().then(function(){
                                 browser.sleep(5000);
                             });
-                        }); 
+                        });
                     })
                 }
             });
-        });  
+        });
     };
 
     this.logout = function() {
