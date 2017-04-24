@@ -97,7 +97,7 @@ class BioMatchPMValidation
   end
 end
 
-BioMatchPMValidation.reload_database
-BioMatchPMValidation.test('test_case_PM_TA_A_2', 'APEC1621A1', '1')
+# BioMatchPMValidation.reload_database
+# BioMatchPMValidation.test('test_case_PM_TA_A_2', 'APEC1621A1', '1')
 
 
