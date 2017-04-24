@@ -331,9 +331,9 @@ class Patient06A
 
   def self.pt_vu17_ts_vr_rejected
     pt = PatientDataSet.new('PT_VU17_TsVrRejected')
-    # PatientMessageLoader.register_patient(pt.id)
-    # PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
-    # PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
     PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
     PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
     PatientMessageLoader.variant_file_confirmed(pt.id, 'reject', pt.ani)

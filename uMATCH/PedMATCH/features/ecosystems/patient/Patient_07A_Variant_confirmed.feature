@@ -242,7 +242,7 @@ Feature: Variant files confirmed messages
     Given patient id is "<patient_id>"
     Then load template variant report confirm message for analysis id: "<ani>"
     When PUT to MATCH variant report "<vr_status>" service, response includes "changed successfully to" with code "200"
-    Then wait for "45" seconds
+    Then wait for "10" seconds
     Then patient status should change to "<patient_status>"
 
     Examples:
@@ -250,7 +250,12 @@ Feature: Variant files confirmed messages
       | PT_VC15_VrReceived                       | PT_VC15_VrReceived_ANI1                       | confirm   | TISSUE_VARIANT_REPORT_CONFIRMED |
       | PT_VC15_AssayReceivedVrReceivedToConfirm | PT_VC15_AssayReceivedVrReceivedToConfirm_ANI1 | confirm   | PENDING_CONFIRMATION            |
       | PT_VC15_AssayReceivedVrReceivedToReject  | PT_VC15_AssayReceivedVrReceivedToReject_ANI1  | reject    | TISSUE_VARIANT_REPORT_REJECTED  |
-      | PT_VC15_OneAssayAndVrReceived            | PT_VC15_OneAssayAndVrReceived_ANI1            | confirm   | TISSUE_VARIANT_REPORT_CONFIRMED |
+      | PT_VC15_PtenAndVrReceived                | PT_VC15_PtenAndVrReceived_ANI1                | confirm   | TISSUE_VARIANT_REPORT_CONFIRMED |
+      | PT_VC15_Baf47AndVrReceived               | PT_VC15_Baf47AndVrReceived_ANI1               | confirm   | TISSUE_VARIANT_REPORT_CONFIRMED |
+      | PT_VC15_Brg1AndVrReceived                | PT_VC15_Brg1AndVrReceived_ANI1                | confirm   | TISSUE_VARIANT_REPORT_CONFIRMED |
+      | PT_VC15_PtenBaf47AndVrReceived           | PT_VC15_PtenBaf47AndVrReceived_ANI1           | confirm   | TISSUE_VARIANT_REPORT_CONFIRMED |
+      | PT_VC15_PtenBrg1AndVrReceived            | PT_VC15_PtenBrg1AndVrReceived_ANI1            | confirm   | TISSUE_VARIANT_REPORT_CONFIRMED |
+      | PT_VC15_Baf47Brg1AndVrReceived           | PT_VC15_Baf47Brg1AndVrReceived_ANI1           | confirm   | TISSUE_VARIANT_REPORT_CONFIRMED |
           #there is no “PATHOLOGY_REVIEWED” status anymore
 #      | PT_VC15_VRUploadedPathConfirmed          | PT_VC15_VRUploadedPathConfirmed_ANI1          | confirm   | TISSUE_VARIANT_REPORT_CONFIRMED |
 #      | PT_VC15_VRUploadedAssayReceived          | PT_VC15_VRUploadedAssayReceived_ANI1          | confirm   | TISSUE_VARIANT_REPORT_CONFIRMED |

@@ -646,7 +646,7 @@ And(/^patient latest event field "([^"]*)" should be "([^"]*)"$/) do |field, val
   url = "#{ENV['patients_endpoint']}/events?order=desc&entity_id=#{@patient_id}"
   events = Patient_helper_methods.get_any_result_from_url(url)
   expect(events.class).to eq Array
-  expect(events.size).to > 0
+  expect(events.size).to be > 0
   lastest_event = events[0]
   expect(lastest_event.keys).to include field
   expect(lastest_event[field]).to eq value

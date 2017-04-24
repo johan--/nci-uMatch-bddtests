@@ -59,11 +59,12 @@ class BioMatchPMValidation
   def self.upload_vcf_to_s3(patient_id, moi, ani)
     vcf_path = "#{File.dirname(__FILE__)}/vcfs/#{patient_id}.vcf"
     tmp_folder = "#{File.dirname(__FILE__)}/upload_tmp/#{moi}/#{ani}"
+    tmp_root_folder = "#{File.dirname(__FILE__)}/upload_tmp"
     cmd = "mkdir -p #{tmp_folder}"
     puts `#{cmd}`
     cmd = "cp #{vcf_path} #{tmp_folder}"
     puts `#{cmd}`
-    cmd = "aws s3 cp #{tmp_folder} s3://pedmatch-dev/#{ION_REPORTER}/ --recursive --region us-east-1"
+    cmd = "aws s3 cp #{tmp_root_folder} s3://pedmatch-dev/#{ION_REPORTER}/ --recursive --region us-east-1"
     `#{cmd}`
     cmd = "rm -r -f #{File.dirname(__FILE__)}/upload_tmp"
     `#{cmd}`
@@ -91,4 +92,4 @@ class BioMatchPMValidation
 end
 
 BioMatchPMValidation.reload_database
-BioMatchPMValidation.test('test_case_PM_TA_A1_1')
+BioMatchPMValidation.test('test_case_PM_TA_A_2')

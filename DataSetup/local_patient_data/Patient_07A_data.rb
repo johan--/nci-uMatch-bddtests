@@ -7,7 +7,7 @@ require_relative 'Patient_07A_data_done'
 Environment.setTier 'local' #set this value to 'local' if you are running tests on your local machine.
 
 patient_list = []
-patient_list << 'PT_VC16_VrConfirmed'
+patient_list << 'PT_VC15_OneAssayAndVrReceived'
 #
 MatchTestDataManager.delete_patients_from_seed(patient_list)
 MatchTestDataManager.clear_all_local_tables
@@ -17,7 +17,7 @@ Auth0Token.force_generate_auth0_token('ADMIN')
 # Iondata.upload_patient('ION_AQ09_TsShipped')
 # PatientTA.upload_patient('UI_PA09_TsVr52Uploaded')
 # PatientTA.upload_patient('UI_PA08_PendingConfirmation')
-Patient07A.upload_patient('PT_VC16_VrConfirmed')
+Patient07A.upload_patient('PT_VC15_AssayReceivedVrReceivedToReject')
 # Patient07A.upload_patient('PT_VC17_VrConfirmedStep2')
 #
 #
