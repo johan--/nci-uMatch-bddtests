@@ -72,7 +72,7 @@ Feature: Register a new patient in PEDMatchbox:
     Given patient id is "<patient_id>"
     Given load template registration message for this patient
     Then set patient message field: "status_date" to value: "<status_date>"
-    When POST to MATCH patients service, response includes "<message>" with code "403"
+    When POST to MATCH patients service, response includes "<message>" with code "400"
     Examples:
       | patient_id            | status_date | message        |
       | PT_RG05_EmptyDate     |             | can't be blank |
