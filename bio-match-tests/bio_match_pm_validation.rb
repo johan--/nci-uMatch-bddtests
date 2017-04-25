@@ -10,12 +10,6 @@ class BioMatchPMValidation
   TA_URL='http://127.0.0.1:10235/api/v1/treatment_arms'
   NO_TA='No treatment arm selected'
 
-  def self.reload_database
-    Environment.setTier('local')
-    MatchTestDataManager.clear_all_local_tables
-    load_treatment_arms
-  end
-
   def self.test(patient_id, expect_ta_id='', expect_ta_stratum='')
     build_patient(patient_id)
     verify_result(patient_id, expect_ta_id, expect_ta_stratum)
@@ -23,7 +17,9 @@ class BioMatchPMValidation
 
   def self.build_patient(patient_id)
     Environment.setTier('local')
+    load_treatment_arms
     pt = PatientDataSet.new(patient_id)
+    convert_vcf_to_tsv(pt.id)
     upload_files_to_s3(pt.id, pt.moi, pt.ani)
     generate_variant_report(pt.id, pt.moi, pt.ani)
     generate_assignment(pt.id)
@@ -36,34 +32,41 @@ class BioMatchPMValidation
       selected = @generated_ar['treatment_assignment_results'].select { |this_ta|
         this_ta['assignment_status'] == 'SELECTED' }
       if selected.size == 1
-        actual_ta = "#{selected[0]['treatment_arm_id']} (#{selected[0]['stratum_id']})"
+        @actual_ta = "#{selected[0]['treatment_arm_id']} (#{selected[0]['stratum_id']})"
       else
-        actual_ta = ''
+        @actual_ta = ''
         selected.each { |this_selected|
-          actual_ta += "#{this_selected[0]['treatment_arm_id']} (#{this_selected[0]['stratum_id']}) " }
+          @actual_ta += "#{this_selected[0]['treatment_arm_id']} (#{this_selected[0]['stratum_id']}) " }
       end
     else
-      actual_ta = NO_TA
+      @actual_ta = NO_TA
     end
     if expect_ta_id.eql?('')||expect_ta_stratum.eql?('')
       expect_ta = NO_TA
     else
       expect_ta = "#{expect_ta_id} (#{expect_ta_stratum})"
     end
-    test_result = actual_ta.eql?(expect_ta) ? 'Passed' : 'Failed'
+    test_result = @actual_ta.eql?(expect_ta) ? 'Passed' : 'Failed'
     result['test_result'] = test_result
     result['expected_treatment_arm'] = expect_ta
-    result['actual_treatment_arm'] = actual_ta
+    result['actual_treatment_arm'] = @actual_ta
     File.open("#{File.dirname(__FILE__)}/results/#{patient_id}.json", 'w') { |f| f.write(JSON.pretty_generate(result)) }
   end
 
   def self.convert_vcf_to_tsv(patient_id)
-    cmd = "rm -f #{File.dirname(__FILE__)}/tsv/#{patient_id}.tsv"
+    vcf = "#{File.dirname(__FILE__)}/vcfs/#{patient_id}.vcf"
+    tsv = "#{File.dirname(__FILE__)}/tsv/#{patient_id}.tsv"
+    puts "Converting #{vcf} to #{tsv} ..."
+    cmd = "rm -f #{tsv}"
     `#{cmd}`
-    cmd = "python #{File.dirname(__FILE__)}/convert_vcf.py "
-    cmd += "-i #{File.dirname(__FILE__)}/vcfs/#{patient_id}.vcf "
-    cmd += "-o #{File.dirname(__FILE__)}/tsv/#{patient_id}.tsv"
+    cmd = "python #{File.dirname(__FILE__)}/convert_vcf.py -i #{vcf} -o #{tsv}"
     `#{cmd}`
+    sleep 10.0
+    if File.exist?("#{File.dirname(__FILE__)}/tsv/#{patient_id}.tsv")
+      puts "#{tsv} is created successfully!"
+    else
+      @actual_ta = "Cannot convert vcf file: #{File.dirname(__FILE__)}/vcfs/#{patient_id}.vcf"
+    end
   end
 
   def self.upload_files_to_s3(patient_id, moi, ani)
@@ -85,13 +88,13 @@ class BioMatchPMValidation
     sleep 10.0
   end
 
-  def self.list_treatment_arms
-    Helper_Methods.simple_get_request(TA_URL)['message_json']
+  def self.load_treatment_arms
+    @treatment_arms = JSON.parse(File.read("#{File.dirname(__FILE__)}/treatment_arms.json"))
   end
 
   def self.generate_variant_report(patient_id, moi, ani)
     url = "#{RULE_URL}/variant_report/#{patient_id}/#{ION_REPORTER}/#{moi}/#{ani}/#{patient_id}"
-    @generated_vr = JSON.parse(Helper_Methods.post_request(url, list_treatment_arms.to_json)['message'])
+    @generated_vr = JSON.parse(Helper_Methods.post_request(url, @treatment_arms.to_json)['message'])
   end
 
   def self.generate_assignment(patient_id)
@@ -101,19 +104,13 @@ class BioMatchPMValidation
     patient['snv_indels'] = @generated_vr['snv_indels']
     patient['copy_number_variants'] = @generated_vr['copy_number_variants']
     patient['gene_fusions'] = @generated_vr['gene_fusions']
-    payload = {:treatment_arms => list_treatment_arms,
+    payload = {:treatment_arms => @treatment_arms,
                :study_id => 'APEC1621SC',
                :patient => patient}
     @generated_ar = JSON.parse(Helper_Methods.post_request(url, payload.to_json)['message'])
   end
-
-  def self.load_treatment_arms
-    ta_json = "#{File.dirname(__FILE__)}/treatment_arm.json"
-    DynamoUtilities.upload_seed_data('treatment_arm', ta_json, 'local')
-  end
 end
 
-BioMatchPMValidation.reload_database
 BioMatchPMValidation.test('test_case_PM_TA_A1_1')
 
 
