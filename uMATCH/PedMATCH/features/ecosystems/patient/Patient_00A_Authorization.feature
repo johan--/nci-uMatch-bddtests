@@ -17,7 +17,7 @@ Feature: Patient API authorization tests
       | PT_AU01_New0 | NCI_MATCH_READONLY                |         | 401  |
       | PT_AU01_New0 | NO_ROLE                           |         | 401  |
       | PT_AU01_New1 | ADMIN                             | success | 202  |
-      | PT_AU01_New2 | SYSTEM                            | success | 202  |
+      | PT_AU01_New2 | SYSTEM                            |         | 401  |
       | PT_AU01_New0 | ASSIGNMENT_REPORT_REVIEWER        |         | 401  |
       | PT_AU01_New0 | MDA_VARIANT_REPORT_SENDER         |         | 401  |
       | PT_AU01_New0 | MDA_VARIANT_REPORT_REVIEWER       |         | 401  |
@@ -42,7 +42,7 @@ Feature: Patient API authorization tests
       | PT_AU02_Registered0 | NCI_MATCH_READONLY                |         | 401  |
       | PT_AU02_Registered0 | NO_ROLE                           |         | 401  |
       | PT_AU02_Registered1 | ADMIN                             | success | 202  |
-      | PT_AU02_Registered2 | SYSTEM                            | success | 202  |
+      | PT_AU02_Registered2 | SYSTEM                            |         | 401  |
       | PT_AU02_Registered0 | ASSIGNMENT_REPORT_REVIEWER        |         | 401  |
       | PT_AU02_Registered0 | MDA_VARIANT_REPORT_SENDER         |         | 401  |
       | PT_AU02_Registered0 | MDA_VARIANT_REPORT_REVIEWER       |         | 401  |
@@ -68,7 +68,7 @@ Feature: Patient API authorization tests
       | PT_AU02_TsReceived0 | NCI_MATCH_READONLY                |         | 401  |
       | PT_AU02_TsReceived0 | NO_ROLE                           |         | 401  |
       | PT_AU02_TsReceived1 | ADMIN                             | success | 202  |
-      | PT_AU02_TsReceived2 | SYSTEM                            | success | 202  |
+      | PT_AU02_TsReceived2 | SYSTEM                            |         | 401  |
       | PT_AU02_TsReceived0 | ASSIGNMENT_REPORT_REVIEWER        |         | 401  |
       | PT_AU02_TsReceived0 | MDA_VARIANT_REPORT_SENDER         |         | 401  |
       | PT_AU02_TsReceived0 | MDA_VARIANT_REPORT_REVIEWER       |         | 401  |
@@ -94,7 +94,7 @@ Feature: Patient API authorization tests
       | PT_AU03_SlideShipped0 | NCI_MATCH_READONLY                |         | 401  |
       | PT_AU03_SlideShipped0 | NO_ROLE                           |         | 401  |
       | PT_AU03_SlideShipped1 | ADMIN                             | success | 202  |
-      | PT_AU03_SlideShipped2 | SYSTEM                            | success | 202  |
+      | PT_AU03_SlideShipped2 | SYSTEM                            |         | 401  |
       | PT_AU03_SlideShipped0 | ASSIGNMENT_REPORT_REVIEWER        |         | 401  |
       | PT_AU03_SlideShipped0 | MDA_VARIANT_REPORT_SENDER         |         | 401  |
       | PT_AU03_SlideShipped0 | MDA_VARIANT_REPORT_REVIEWER       |         | 401  |
@@ -153,7 +153,7 @@ Feature: Patient API authorization tests
       | PT_AU05_MdaTsVrUploaded0   | NCI_MATCH_READONLY                |         | 401  |
       | PT_AU05_MdaTsVrUploaded0   | NO_ROLE                           |         | 401  |
       | PT_AU05_MdaTsVrUploaded1   | ADMIN                             | success | 200  |
-      | PT_AU05_MochaTsVrUploaded1 | SYSTEM                            | success | 200  |
+      | PT_AU05_MochaTsVrUploaded1 | SYSTEM                            |         | 401  |
       | PT_AU05_MdaTsVrUploaded0   | ASSIGNMENT_REPORT_REVIEWER        |         | 401  |
       | PT_AU05_MdaTsVrUploaded0   | MDA_VARIANT_REPORT_SENDER         |         | 401  |
       | PT_AU05_MdaTsVrUploaded2   | MDA_VARIANT_REPORT_REVIEWER       | success | 200  |
@@ -184,7 +184,7 @@ Feature: Patient API authorization tests
       | PT_AU05_MdaTsVrUploaded0   | NCI_MATCH_READONLY                | unchecked |            | 401  |
       | PT_AU05_MdaTsVrUploaded0   | NO_ROLE                           | unchecked |            | 401  |
       | PT_AU05_MdaTsVrUploaded3   | ADMIN                             | unchecked | changed to | 200  |
-      | PT_AU05_MochaTsVrUploaded3 | SYSTEM                            | checked   | changed to | 200  |
+      | PT_AU05_MochaTsVrUploaded3 | SYSTEM                            | checked   |            | 401  |
       | PT_AU05_MdaTsVrUploaded0   | ASSIGNMENT_REPORT_REVIEWER        | unchecked |            | 401  |
       | PT_AU05_MdaTsVrUploaded0   | MDA_VARIANT_REPORT_SENDER         | unchecked |            | 401  |
       | PT_AU05_MdaTsVrUploaded3   | MDA_VARIANT_REPORT_REVIEWER       | unchecked | changed to | 200  |
@@ -214,7 +214,7 @@ Feature: Patient API authorization tests
       | PT_AU06_PendingConfirmation0 | NCI_MATCH_READONLY                |         | 401  |
       | PT_AU06_PendingConfirmation0 | NO_ROLE                           |         | 401  |
       | PT_AU06_PendingConfirmation1 | ADMIN                             | success | 200  |
-      | PT_AU06_PendingConfirmation2 | SYSTEM                            | success | 200  |
+      | PT_AU06_PendingConfirmation2 | SYSTEM                            |         | 401  |
       | PT_AU06_PendingConfirmation3 | ASSIGNMENT_REPORT_REVIEWER        | success | 200  |
       | PT_AU06_PendingConfirmation0 | MDA_VARIANT_REPORT_SENDER         |         | 401  |
       | PT_AU06_PendingConfirmation0 | MDA_VARIANT_REPORT_REVIEWER       |         | 401  |
@@ -239,7 +239,7 @@ Feature: Patient API authorization tests
       | PT_AU07_Registered0 | NCI_MATCH_READONLY                |         | 401  |
       | PT_AU07_Registered0 | NO_ROLE                           |         | 401  |
       | PT_AU07_Registered1 | ADMIN                             | success | 202  |
-      | PT_AU07_Registered2 | SYSTEM                            | success | 202  |
+      | PT_AU07_Registered2 | SYSTEM                            |         | 401  |
       | PT_AU07_Registered0 | ASSIGNMENT_REPORT_REVIEWER        |         | 401  |
       | PT_AU07_Registered0 | MDA_VARIANT_REPORT_SENDER         |         | 401  |
       | PT_AU07_Registered0 | MDA_VARIANT_REPORT_REVIEWER       |         | 401  |
@@ -264,7 +264,7 @@ Feature: Patient API authorization tests
       | PT_AU07_TsReceived0 | NCI_MATCH_READONLY                |         | 401  |
       | PT_AU07_TsReceived0 | NO_ROLE                           |         | 401  |
       | PT_AU07_TsReceived1 | ADMIN                             | success | 202  |
-      | PT_AU07_TsReceived2 | SYSTEM                            | success | 202  |
+      | PT_AU07_TsReceived2 | SYSTEM                            |         | 401  |
       | PT_AU07_TsReceived0 | ASSIGNMENT_REPORT_REVIEWER        |         | 401  |
       | PT_AU07_TsReceived0 | MDA_VARIANT_REPORT_SENDER         |         | 401  |
       | PT_AU07_TsReceived0 | MDA_VARIANT_REPORT_REVIEWER       |         | 401  |
@@ -290,7 +290,7 @@ Feature: Patient API authorization tests
       | PT_AU08_PendingApproval0 | Y        | NCI_MATCH_READONLY                |         | 401  |
       | PT_AU08_PendingApproval0 | Y        | NO_ROLE                           |         | 401  |
       | PT_AU08_PendingApproval1 | N        | ADMIN                             | success | 202  |
-      | PT_AU08_PendingApproval2 | Y        | SYSTEM                            | success | 202  |
+      | PT_AU08_PendingApproval2 | Y        | SYSTEM                            |         | 401  |
       | PT_AU08_PendingApproval0 | Y        | ASSIGNMENT_REPORT_REVIEWER        |         | 401  |
       | PT_AU08_PendingApproval0 | Y        | MDA_VARIANT_REPORT_SENDER         |         | 401  |
       | PT_AU08_PendingApproval0 | Y        | MDA_VARIANT_REPORT_REVIEWER       |         | 401  |
@@ -303,7 +303,7 @@ Feature: Patient API authorization tests
       | PT_AU08_PendingApproval0 | Y        | SPECIMEN_MESSAGE_SENDER           |         | 401  |
       | PT_AU08_PendingApproval0 | N        | ASSAY_MESSAGE_SENDER              |         | 401  |
 
-  @patients_p1
+  @patients_p3
   Scenario Outline: PT_AU08b role base authorization works properly for patient request no assignment
     Given patient id is "<patient_id>"
     And load template request no assignment message for this patient
@@ -316,7 +316,7 @@ Feature: Patient API authorization tests
       | PT_AU08_PendingApproval0 | NCI_MATCH_READONLY                |         | 401  |
       | PT_AU08_PendingApproval0 | NO_ROLE                           |         | 401  |
       | PT_AU08_PendingApproval5 | ADMIN                             | success | 202  |
-      | PT_AU08_PendingApproval6 | SYSTEM                            | success | 202  |
+      | PT_AU08_PendingApproval6 | SYSTEM                            |         | 401  |
       | PT_AU08_PendingApproval0 | ASSIGNMENT_REPORT_REVIEWER        |         | 401  |
       | PT_AU08_PendingApproval0 | MDA_VARIANT_REPORT_SENDER         |         | 401  |
       | PT_AU08_PendingApproval0 | MDA_VARIANT_REPORT_REVIEWER       |         | 401  |
@@ -344,7 +344,7 @@ Feature: Patient API authorization tests
       | PT_AU09_PendingApproval0 | NCI_MATCH_READONLY                |         | 401  |
       | PT_AU09_PendingApproval0 | NO_ROLE                           |         | 401  |
       | PT_AU09_PendingApproval1 | ADMIN                             | success | 202  |
-      | PT_AU09_PendingApproval2 | SYSTEM                            | success | 202  |
+      | PT_AU09_PendingApproval2 | SYSTEM                            |         | 401  |
       | PT_AU09_PendingApproval0 | ASSIGNMENT_REPORT_REVIEWER        |         | 401  |
       | PT_AU09_PendingApproval0 | MDA_VARIANT_REPORT_SENDER         |         | 401  |
       | PT_AU09_PendingApproval0 | MDA_VARIANT_REPORT_REVIEWER       |         | 401  |
@@ -395,7 +395,7 @@ Feature: Patient API authorization tests
       | auth_role                         | allow1 | allow2 | allow3 |
       | NCI_MATCH_READONLY                | false  | false  | false  |
       | ADMIN                             | true   | true   | true   |
-      | SYSTEM                            | true   | true   | true   |
+      | SYSTEM                            | false  | false  | false  |
       | ASSIGNMENT_REPORT_REVIEWER        | false  | false  | false  |
       | MDA_VARIANT_REPORT_SENDER         | true   | false  | false  |
       | MDA_VARIANT_REPORT_REVIEWER       | false  | false  | false  |
@@ -484,7 +484,7 @@ Feature: Patient API authorization tests
       | patient_id                  | role                              | editable |
       | PT_AU15_PendingConfirmation | NCI_MATCH_READONLY                | false    |
       | PT_AU15_PendingConfirmation | ADMIN                             | true     |
-      | PT_AU15_PendingConfirmation | SYSTEM                            | true     |
+      | PT_AU15_PendingConfirmation | SYSTEM                            | false    |
       | PT_AU15_PendingConfirmation | ASSIGNMENT_REPORT_REVIEWER        | true     |
       | PT_AU15_PendingConfirmation | MDA_VARIANT_REPORT_SENDER         | false    |
       | PT_AU15_PendingConfirmation | MDA_VARIANT_REPORT_REVIEWER       | false    |
@@ -514,7 +514,7 @@ Feature: Patient API authorization tests
       | role                              | mda_editable | mca_editable | dtm_editable |
       | NCI_MATCH_READONLY                | false        | false        | false        |
       | ADMIN                             | true         | true         | true         |
-      | SYSTEM                            | true         | true         | true         |
+      | SYSTEM                            | false        | false        | false        |
       | ASSIGNMENT_REPORT_REVIEWER        | false        | false        | false        |
       | MDA_VARIANT_REPORT_SENDER         | false        | false        | false        |
       | MDA_VARIANT_REPORT_REVIEWER       | true         | false        | false        |

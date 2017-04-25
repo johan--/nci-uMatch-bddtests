@@ -116,7 +116,7 @@ Feature: Patients request assignment tests
     Then set patient message field: "surgical_event_id" to value: "PT_RA04_ReqNoAssignment_SEI1"
     When POST to MATCH patients service, response includes "assignment" with code "403"
 
-  @patients_p2
+  @patients_p3
   Scenario Outline: PT_RA04a patient can be set to request no assignment only on certain status
     Given patient id is "<patient_id>"
     And load template request no assignment message for this patient
