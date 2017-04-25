@@ -341,13 +341,13 @@ var TreatmentArmsPage = function() {
                     row.all(by.css(geneLoc)).get(0).getText().then(function(text){
                         if (text == firstData['func_gene']){
                             // console.log('Checking values in Table')
-                            utils.checkValueInTable(row.all(by.css(geneLoc)), firstData['func_gene'].toString());
-                            utils.checkValueInTable(row.all(by.css(domainRangeLoc)), firstData['domain_range'].toString());
-                            utils.checkValueInTable(row.all(by.css(domainNameLoc)), firstData['domain_name'].toString());
-                            utils.checkValueInTable(row.all(by.css(exonLoc)), firstData['exon'].toString());
-                            utils.checkValueInTable(row.all(by.css(oncomineLoc)), firstData['oncomine_variant_class'].toString())
-                            utils.checkValueInTable(row.all(by.css(functionLoc)), firstData['function'].toString());
-                            utils.checkValueInTable(row.all(by.css(litTableLoc)), med_id_string.toString());
+                            utils.checkValueInTable(row.all(by.css(geneLoc)), utils.dashifyIfEmpty(firstData['func_gene']));
+                            utils.checkValueInTable(row.all(by.css(domainRangeLoc)), utils.dashifyIfEmpty(firstData['domain_range']));
+                            utils.checkValueInTable(row.all(by.css(domainNameLoc)), utils.dashifyIfEmpty(firstData['domain_name']));
+                            utils.checkValueInTable(row.all(by.css(exonLoc)), utils.dashifyIfEmpty(firstData['exon']));
+                            utils.checkValueInTable(row.all(by.css(oncomineLoc)), utils.dashifyIfEmpty(firstData['oncomine_variant_class']));
+                            utils.checkValueInTable(row.all(by.css(functionLoc)), utils.dashifyIfEmpty(firstData['function']));
+                            utils.checkValueInTable(row.all(by.css(litTableLoc)), utils.dashifyIfEmpty(med_id_string));
                             if (inclusionType === 'Inclusion') {
                                 utils.checkValueInTable(row.all(by.css(loeLoc)), firstData['level_of_evidence'].toString());
                             }
@@ -519,7 +519,7 @@ var TreatmentArmsPage = function() {
      */
     function getMedIdString(data){
         if (data === undefined) {
-            return 0;
+            return '-';
         } else {
             return data.join('x').replace(/\s/g, '').replace(/x/g, '\n')
         }

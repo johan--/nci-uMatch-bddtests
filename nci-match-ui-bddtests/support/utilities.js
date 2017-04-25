@@ -442,14 +442,8 @@ var Utilities = function () {
      * @param expected
      */
     this.checkValueInTable = function (elem, expected) {
-        if (expected === undefined) {
-            expected = 0;
-        }
         elem.get(0).getText().then(function (column_value) {
-            if ((column_value === '-') || (column_value === '')) {
-                column_value = 0;
-            }
-            expect(column_value).to.equal(expected);
+            expect(column_value.toString()).to.equal(expected.toString());
         })
     };
 
