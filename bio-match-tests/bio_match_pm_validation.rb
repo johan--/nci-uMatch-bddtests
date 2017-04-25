@@ -1,9 +1,14 @@
 require_relative '../DataSetup/patient_message_loader'
 require_relative '../DataSetup/match_test_data_manager'
 require_relative '../DataSetup/dynamo_utilities'
+require_relative '../DataSetup/sqs_utilities'
 
 class BioMatchPMValidation
   ION_REPORTER='bio-match-test'
+  PATIENT_URL='http://127.0.0.1:10240/api/v1/patients'
+  RULE_URL='http://127.0.0.1:10250/api/v1/rules'
+  TA_URL='http://127.0.0.1:10235/api/v1/treatment_arms'
+  NO_TA='No treatment arm selected'
 
   def self.reload_database
     Environment.setTier('local')
@@ -11,62 +16,64 @@ class BioMatchPMValidation
     load_treatment_arms
   end
 
-  def self.test(patient_id, expect_ta_id='', expect_ta_stratum='', pten='POSITIVE', baf47='POSITIVE', brg1='POSITIVE')
-    build_patient(patient_id, pten, baf47, brg1)
+  def self.test(patient_id, expect_ta_id='', expect_ta_stratum='')
+    build_patient(patient_id)
     verify_result(patient_id, expect_ta_id, expect_ta_stratum)
   end
 
-  def self.build_patient(patient_id, pten='POSITIVE', baf47='POSITIVE', brg1='POSITIVE')
+  def self.build_patient(patient_id)
     Environment.setTier('local')
     pt = PatientDataSet.new(patient_id)
-    PatientMessageLoader.reset_cog_patient(pt.id)
-    PatientMessageLoader.register_patient(pt.id)
-    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
-    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
-    PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
-    PatientMessageLoader.assay(pt.id, pt.sei, pten, 'ICCPTENs')
-    PatientMessageLoader.assay(pt.id, pt.sei, baf47, 'ICCBAF47s')
-    PatientMessageLoader.assay(pt.id, pt.sei, brg1, 'ICCBRG1s')
-    upload_vcf_to_s3(pt.id, pt.moi, pt.ani)
-    send_vcf_message(pt.id, pt.moi, pt.ani)
-    PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.ani)
+    upload_files_to_s3(pt.id, pt.moi, pt.ani)
+    generate_variant_report(pt.id, pt.moi, pt.ani)
+    generate_assignment(pt.id)
   end
 
   def self.verify_result(patient_id, expect_ta_id='', expect_ta_stratum='')
     result = Hash.new
     result['test_case'] = "#{patient_id}"
-    if PatientMessageLoader.is_upload_failed?
-      result['test_result'] = 'Failed'
-      result['Failed_reason'] = 'Failed generating patient variant report'
-    else
-      Environment.setTier('local')
-      url = "http://localhost:10240/api/v1/patients/#{patient_id}"
-      response = Helper_Methods.simple_get_request(url)['message_json']
-      if response.keys.include?('current_assignment')
-        actual_ta_id = response['current_assignment']['treatment_arm_id']
-        actual_ta_stratum = response['current_assignment']['stratum_id']
+    if @generated_ar['report_status'] == 'TREATMENT_FOUND'
+      selected = @generated_ar['treatment_assignment_results'].select { |this_ta|
+        this_ta['assignment_status'] == 'SELECTED' }
+      if selected.size == 1
+        actual_ta = "#{selected[0]['treatment_arm_id']} (#{selected[0]['stratum_id']})"
       else
-        actual_ta_id = ''
-        actual_ta_stratum = ''
+        actual_ta = ''
+        selected.each { |this_selected|
+          actual_ta += "#{this_selected[0]['treatment_arm_id']} (#{this_selected[0]['stratum_id']}) " }
       end
-      test_result = 'Passed'
-      test_result = 'Failed' unless actual_ta_id == expect_ta_id
-      test_result = 'Failed' unless actual_ta_stratum == expect_ta_stratum
-      result['test_result'] = test_result
-      result['Failed_reason'] = 'Assignment mismatch' if test_result == 'Failed'
-      result['expected_treatment_arm_id'] = expect_ta_id
-      result['expected_treatment_arm_stratum'] = expect_ta_stratum
-      result['actual_treatment_arm_id'] = actual_ta_id
-      result['actual_treatment_arm_stratum'] = actual_ta_stratum
+    else
+      actual_ta = NO_TA
     end
+    if expect_ta_id.eql?('')||expect_ta_stratum.eql?('')
+      expect_ta = NO_TA
+    else
+      expect_ta = "#{expect_ta_id} (#{expect_ta_stratum})"
+    end
+    test_result = actual_ta.eql?(expect_ta) ? 'Passed' : 'Failed'
+    result['test_result'] = test_result
+    result['expected_treatment_arm'] = expect_ta
+    result['actual_treatment_arm'] = actual_ta
     File.open("#{File.dirname(__FILE__)}/results/#{patient_id}.json", 'w') { |f| f.write(JSON.pretty_generate(result)) }
   end
 
-  def self.upload_vcf_to_s3(patient_id, moi, ani)
+  def self.convert_vcf_to_tsv(patient_id)
+    cmd = "rm -f #{File.dirname(__FILE__)}/tsv/#{patient_id}.tsv"
+    `#{cmd}`
+    cmd = "python #{File.dirname(__FILE__)}/convert_vcf.py "
+    cmd += "-i #{File.dirname(__FILE__)}/vcfs/#{patient_id}.vcf "
+    cmd += "-o #{File.dirname(__FILE__)}/tsv/#{patient_id}.tsv"
+    `#{cmd}`
+  end
+
+  def self.upload_files_to_s3(patient_id, moi, ani)
+    tsv_path = "#{File.dirname(__FILE__)}/tsv/#{patient_id}.tsv"
     vcf_path = "#{File.dirname(__FILE__)}/vcfs/#{patient_id}.vcf"
     tmp_folder = "#{File.dirname(__FILE__)}/upload_tmp/#{moi}/#{ani}"
     tmp_root_folder = "#{File.dirname(__FILE__)}/upload_tmp"
     cmd = "mkdir -p #{tmp_folder}"
+    puts `#{cmd}`
+    cmd = "cp #{tsv_path} #{tmp_folder}"
     puts `#{cmd}`
     cmd = "cp #{vcf_path} #{tmp_folder}"
     puts `#{cmd}`
@@ -74,21 +81,30 @@ class BioMatchPMValidation
     `#{cmd}`
     cmd = "rm -r -f #{File.dirname(__FILE__)}/upload_tmp"
     `#{cmd}`
-    puts "#{vcf_path} has been uploaded to S3"
+    puts "#{patient_id} vcf and tsv have been uploaded to S3"
     sleep 10.0
   end
 
-  def self.send_vcf_message(patient_id, moi, ani)
-    hash = {}
-    hash['analysis_id'] = ani
-    hash['site'] = 'mda'
-    hash['ion_reporter_id'] = ION_REPORTER
-    hash['vcf_name'] = "#{patient_id}.vcf"
-    url = "http://localhost:5000/api/v1/aliquot/#{moi}"
-    response = Helper_Methods.put_request(url, hash.to_json.to_s)
-    puts "#{response['message']}"
-    PatientMessageLoader.wait_until_patient_status_is(patient_id, 'TISSUE_VARIANT_REPORT_RECEIVED')
-    sleep 5.0
+  def self.list_treatment_arms
+    Helper_Methods.simple_get_request(TA_URL)['message_json']
+  end
+
+  def self.generate_variant_report(patient_id, moi, ani)
+    url = "#{RULE_URL}/variant_report/#{patient_id}/#{ION_REPORTER}/#{moi}/#{ani}/#{patient_id}"
+    @generated_vr = JSON.parse(Helper_Methods.post_request(url, list_treatment_arms.to_json)['message'])
+  end
+
+  def self.generate_assignment(patient_id)
+    url = "#{RULE_URL}/assignment_report/#{patient_id}"
+    patient = JSON.parse(File.read("#{File.dirname(__FILE__)}/patients/#{patient_id}.json"))
+    patient['patient_id'] = patient_id
+    patient['snv_indels'] = @generated_vr['snv_indels']
+    patient['copy_number_variants'] = @generated_vr['copy_number_variants']
+    patient['gene_fusions'] = @generated_vr['gene_fusions']
+    payload = {:treatment_arms => list_treatment_arms,
+               :study_id => 'APEC1621SC',
+               :patient => patient}
+    @generated_ar = JSON.parse(Helper_Methods.post_request(url, payload.to_json)['message'])
   end
 
   def self.load_treatment_arms
@@ -97,7 +113,7 @@ class BioMatchPMValidation
   end
 end
 
-# BioMatchPMValidation.reload_database
-# BioMatchPMValidation.test('test_case_PM_TA_A_2', 'APEC1621A1', '1')
+BioMatchPMValidation.reload_database
+BioMatchPMValidation.test('test_case_PM_TA_A1_1')
 
 

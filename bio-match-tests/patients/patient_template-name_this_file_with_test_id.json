@@ -1,0 +1,31 @@
+{
+  "diseases": [
+    //    {
+    //      "disease_code_type": "",
+    //      "disease_code": "",
+    //      "disease_name": ""
+    //    }
+  ],
+  "prior_drugs": [
+    //    {
+    //      "name": "LOXO-101",
+    //      "drug_id": "788607"
+    //    }
+  ],
+  "assay_results": [
+    {
+      "gene": "ICCPTENs",
+      "status": "POSITIVE"
+    },
+    {
+      "gene": "ICCBAF47s",
+      "status": "POSITIVE"
+    },
+    {
+      "gene": "ICCBRG1s",
+      "status": "POSITIVE"
+    }
+  ],
+  "prior_treatment_arms": [
+  ]
+}

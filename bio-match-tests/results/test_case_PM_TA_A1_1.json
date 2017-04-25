@@ -1,8 +1,6 @@
 {
   "test_case": "test_case_PM_TA_A1_1",
   "test_result": "Passed",
-  "expected_treatment_arm_id": "",
-  "expected_treatment_arm_stratum": "",
-  "actual_treatment_arm_id": "",
-  "actual_treatment_arm_stratum": ""
+  "expected_treatment_arm": "No treatment arm selected",
+  "actual_treatment_arm": "No treatment arm selected"
 }
