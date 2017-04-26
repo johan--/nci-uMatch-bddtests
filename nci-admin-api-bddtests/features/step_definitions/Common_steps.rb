@@ -14,7 +14,7 @@ Given(/^I am a user of type "([^"]*)"$/) do |role|
 end
 
 Then(/^I "(should|should not)" see a "([^"]*)" message$/) do |see_or_not, message|
-  success = see_or_not == 'should' 
+  success = see_or_not == 'should'
   if (success)
   	expect(@response["status"]).to eql(message)
   else

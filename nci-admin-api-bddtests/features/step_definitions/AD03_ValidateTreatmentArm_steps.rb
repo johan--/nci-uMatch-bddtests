@@ -11,14 +11,14 @@ Given(/^I retrieve the template for treatment arm$/) do
 end
 
 Given(/^I substitute "([^"]*)" for the "([^"]*)"$/) do |value, field|
-  @treatment_arm_id[value] = field
+  # @treatment_arm_id[value] = field
 
   @ta_template[field] = value
 end
 
 Given(/^I enter a hash "([^"]*)" for the treatment_arm_id$/) do |dict|
-  object = eval(dict)
-  @ta_template['treatment_arm_id'] = dict
+  hash_object = eval(dict)
+  @ta_template['treatment_arm_id'] = hash_object
 end
 
 Given(/^I add a duplicate of the object to "([^"]*)"$/) do |field|
@@ -64,6 +64,7 @@ end
 
 Then(/^I should see the reason of rejection on "([^"]*)" as "([^"]*)"$/) do |field, reason|
   message = JSON.parse(@response['message'])
+
   error_key = message['error_messages'].select { |e| e.key? field }
   expect(error_key.size).to be > 0
 
@@ -77,5 +78,4 @@ end
 
 Then(/^I should see the reason of rejection as "([^"]*)"$/) do |arg1|
   message = JSON.parse(@response['message'])
-  puts message
 end

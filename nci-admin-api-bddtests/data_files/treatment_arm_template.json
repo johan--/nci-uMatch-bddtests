@@ -3,7 +3,7 @@
   "treatment_arm_id": "APEC1621A1",
   "stratum_id": "1",
   "version": "testVersion",
-  "study_id": "APEC1621",
+  "study_id": "APEC1621SC",
   "target_name": "LOXO-101",
   "description": "LOXO-101 in  NTRK fusions",
   "non_hotspot_rules": [{
