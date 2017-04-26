@@ -72,14 +72,14 @@ Feature: Register a new patient in PEDMatchbox:
     Given patient id is "<patient_id>"
     Given load template registration message for this patient
     Then set patient message field: "status_date" to value: "<status_date>"
-    When POST to MATCH patients service, response includes "<message>" with code "400"
+    When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
-      | patient_id            | status_date | message        |
-      | PT_RG05_EmptyDate     |             | can't be blank |
-      | PT_RG05_NullDate      | null        | can't be blank |
-      | PT_RG05_StringDate    | Other       | invalid date   |
-      | PT_RG05_FutureDate    | future      | current date   |
-      | PT_RG05_TimeStampDate | 1471360795  | invalid date   |
+      | patient_id            | status_date | message        | code |
+      | PT_RG05_EmptyDate     |             | can't be blank | 403  |
+      | PT_RG05_NullDate      | null        | can't be blank | 403  |
+      | PT_RG05_StringDate    | Other       | invalid date   | 400  |
+      | PT_RG05_FutureDate    | future      | current date   | 400  |
+      | PT_RG05_TimeStampDate | 1471360795  | invalid date   | 400  |
 
   @patients_p3
   Scenario: PT_RG06. extra key-value pair in the message body should NOT fail

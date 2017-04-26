@@ -112,12 +112,12 @@ Feature: Assay Messages
     Then set patient message field: "biomarker" to value: "ICCPTENs"
     Then set patient message field: "surgical_event_id" to value: "PT_AS07_SlideShipped_SEI1"
     Then set patient message field: "result" to value: "<value>"
-    When POST to MATCH patients service, response includes "<message>" with code "403"
+    When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
-      | value       | message        |
-      |             | can't be blank |
-      | otherResult | result         |
-      | null        | can't be blank |
+      | value       | message        | code |
+      |             | can't be blank | 403  |
+      | otherResult | result         | 400  |
+      | null        | can't be blank | 403  |
 
 
 #Logic tests:

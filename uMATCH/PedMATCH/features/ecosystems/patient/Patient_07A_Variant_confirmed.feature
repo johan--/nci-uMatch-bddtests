@@ -278,10 +278,9 @@ Feature: Variant files confirmed messages
     Then patient status should change to "TISSUE_VARIANT_REPORT_CONFIRMED"
     Then load template assay message for this patient
     Then set patient message field: "surgical_event_id" to value: "PT_VC16_VrConfirmed_SEI1"
-    Then set patient message field: "biomarker" to value: " ICCPTENs"
+    Then set patient message field: "biomarker" to value: " ICCBRG1s"
     Then set patient message field: "result" to value: "POSITIVE"
     When POST to MATCH patients service, response includes "successfully" with code "202"
-    Then wait for "45" seconds
     Then patient status should change to "PENDING_CONFIRMATION"
 
   @patients_p2

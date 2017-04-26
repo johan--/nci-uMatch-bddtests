@@ -28,18 +28,20 @@ class BioMatchPMValidation
   def self.verify_result(patient_id, expect_ta_id='', expect_ta_stratum='')
     result = Hash.new
     result['test_case'] = "#{patient_id}"
-    if @generated_ar['report_status'] == 'TREATMENT_FOUND'
-      selected = @generated_ar['treatment_assignment_results'].select { |this_ta|
-        this_ta['assignment_status'] == 'SELECTED' }
-      if selected.size == 1
-        @actual_ta = "#{selected[0]['treatment_arm_id']} (#{selected[0]['stratum_id']})"
+    if @generated_ar.keys.include?('report_status')
+      if @generated_ar['report_status'] == 'TREATMENT_FOUND'
+        selected = @generated_ar['treatment_assignment_results'].select { |this_ta|
+          this_ta['assignment_status'] == 'SELECTED' }
+        if selected.size == 1
+          @actual_ta = "#{selected[0]['treatment_arm_id']} (#{selected[0]['stratum_id']})"
+        else
+          @actual_ta = ''
+          selected.each { |this_selected|
+            @actual_ta += "#{this_selected[0]['treatment_arm_id']} (#{this_selected[0]['stratum_id']}) " }
+        end
       else
-        @actual_ta = ''
-        selected.each { |this_selected|
-          @actual_ta += "#{this_selected[0]['treatment_arm_id']} (#{this_selected[0]['stratum_id']}) " }
+        @actual_ta = NO_TA
       end
-    else
-      @actual_ta = NO_TA
     end
     if expect_ta_id.eql?('')||expect_ta_stratum.eql?('')
       expect_ta = NO_TA
@@ -51,6 +53,9 @@ class BioMatchPMValidation
     result['expected_treatment_arm'] = expect_ta
     result['actual_treatment_arm'] = @actual_ta
     File.open("#{File.dirname(__FILE__)}/results/#{patient_id}.json", 'w') { |f| f.write(JSON.pretty_generate(result)) }
+    File.open("#{File.dirname(__FILE__)}/results/#{patient_id}_Assignment_report.json", 'w') { |f| f.write(JSON.pretty_generate(@generated_ar)) }
+    File.open("#{File.dirname(__FILE__)}/results/#{patient_id}_Variant_report.json", 'w') { |f| f.write(JSON.pretty_generate(@generated_vr)) }
+
   end
 
   def self.convert_vcf_to_tsv(patient_id)
@@ -61,7 +66,6 @@ class BioMatchPMValidation
     `#{cmd}`
     cmd = "python #{File.dirname(__FILE__)}/convert_vcf.py -i #{vcf} -o #{tsv}"
     `#{cmd}`
-    sleep 10.0
     if File.exist?("#{File.dirname(__FILE__)}/tsv/#{patient_id}.tsv")
       puts "#{tsv} is created successfully!"
     else
@@ -85,7 +89,6 @@ class BioMatchPMValidation
     cmd = "rm -r -f #{File.dirname(__FILE__)}/upload_tmp"
     `#{cmd}`
     puts "#{patient_id} vcf and tsv have been uploaded to S3"
-    sleep 10.0
   end
 
   def self.load_treatment_arms
@@ -94,10 +97,20 @@ class BioMatchPMValidation
 
   def self.generate_variant_report(patient_id, moi, ani)
     url = "#{RULE_URL}/variant_report/#{patient_id}/#{ION_REPORTER}/#{moi}/#{ani}/#{patient_id}"
-    @generated_vr = JSON.parse(Helper_Methods.post_request(url, @treatment_arms.to_json)['message'])
+    response = Helper_Methods.post_request(url, @treatment_arms.to_json)
+    if response['http_code'] == '200'
+      @generated_vr = JSON.parse(response['message'])
+    else
+      @generated_vr = {}
+      @actual_ta = "Rule engine cannot generate variant report for patient #{patient_id}"
+    end
   end
 
   def self.generate_assignment(patient_id)
+    if @generated_vr.size<1
+      @generated_ar = {}
+      return
+    end
     url = "#{RULE_URL}/assignment_report/#{patient_id}"
     patient = JSON.parse(File.read("#{File.dirname(__FILE__)}/patients/#{patient_id}.json"))
     patient['patient_id'] = patient_id
@@ -107,10 +120,16 @@ class BioMatchPMValidation
     payload = {:treatment_arms => @treatment_arms,
                :study_id => 'APEC1621SC',
                :patient => patient}
-    @generated_ar = JSON.parse(Helper_Methods.post_request(url, payload.to_json)['message'])
+    response = Helper_Methods.post_request(url, payload.to_json)
+    if response['http_code'] == '200'
+      @generated_ar = JSON.parse(response['message'])
+    else
+      @generated_ar = nil
+      @actual_ta = "Rule engine cannot generate assignment report for patient #{patient_id}"
+    end
   end
 end
 
-BioMatchPMValidation.test('test_case_PM_TA_A1_1')
+BioMatchPMValidation.test('test_case_PM_TA_A_2', 'APEC1621D1', '1')
 
 
