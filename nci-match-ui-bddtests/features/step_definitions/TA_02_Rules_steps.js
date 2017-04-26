@@ -30,18 +30,6 @@ module.exports = function () {
         }).then(callback);
     });
 
-    this.Then(/^I should see Exclusionary Drugs table$/, function (callback) {
-        var firstPart;
-        var refData;        // Node to collect data from treatment arm api call.
-
-        refData = firstTreatmentArm['exclusion_drugs'];
-
-        var testElement = element.all(by.css('#exclusionaryDrugs>table tr[ng-repeat^="item in filtered"]'));
-        expect(testElement.count()).to.eventually.eql(refData.length).then(function () {
-            browser.sleep(10);
-        }).then(callback);
-    });
-
     this.When(/^I get the index of the "(.+?)" value in "(.+?)" and "(.+?)"$/, function(columnName, subTabName, exclusionType, callback) {
         if (subTabName === "Non-Sequencing Assays") {
             taPage.testElement = element (by.css ('div#nonSequencingAssays'))
@@ -67,7 +55,45 @@ module.exports = function () {
         }).then(callback);
     });
 
+    this.When(/^I select the (.+) button$/, function(type, callback){
+        var buttonType;
+        if (type == 'Inclusion') {
+            buttonType = taPage.inclusionButton;
+        } else if (type == 'Exclusion') {
+            buttonType = taPage.exclusionButton;
+        } else {
+            console.log("Invalid button type entered");
+            return;
+        }
 
+        buttonType.click().then(function () {
+            browser.sleep(100)
+        }).then(callback);
+    });
+
+    this.When(/^I capture the "([^"]*)" column under "([^"]*)" Table with "(Inclusion|Exclusion)" type$/, function (columnName, variant, variantType, callback) {
+        var idString; // Table id that will be used to get the individual columns
+        var expectedHeadings;
+        var columnIndex;
+        switch(variant) {
+            case 'SNVs / MNVs / Indels':
+                idString = variantType === 'Inclusion' ? 'snvsMnvsIndelsIncl' : 'snvsMnvsIndelsExcl'
+                expectedHeadings = variantType === 'Inclusion' ? taPage.expectedIncludedSNVs : taPage.expectedExcludedSNVs
+                break;
+
+             case 'CNVs':
+                idString = variantType === 'Inclusion' ? 'cnvsIncl' : 'cnvsExcl'
+                expectedHeadings = variantType === 'Inclusion' ? taPage.expectedIncludedCNVs : taPage.expectedExcludedCNVs
+                break;
+        }
+        columnIndex = expectedHeadings.indexOf(columnName) + 1; // Incremeting by one because nth-of-type is not zero based index
+        var columnValueList = element(by.id(idString)).all(by.css('tr[grid-item]>td:nth-of-type(' + columnIndex + ')'));
+        columnValueList.getText().then(function(valueList){
+            taPage.valueList = valueList;
+        }).then(callback);
+    });
+
+//Then Section
     this.Then(/^I see that the element with css "(.*)" is a "(.+?)" link$/, function(selector, type, callback){
         var elem = taPage.testElement.all(by.css(selector));
         browser.sleep(50).then(function () {
@@ -84,6 +110,17 @@ module.exports = function () {
         }).then(callback);
     });
 
+    this.Then(/^I should see Exclusionary Drugs table$/, function (callback) {
+        var firstPart;
+        var refData;        // Node to collect data from treatment arm api call.
+
+        refData = firstTreatmentArm['exclusion_drugs'];
+
+        var testElement = element.all(by.css('#exclusionaryDrugs>table tr[ng-repeat^="item in filtered"]'));
+        expect(testElement.count()).to.eventually.eql(refData.length).then(function () {
+            browser.sleep(10);
+        }).then(callback);
+    });
 
     this.Then(/I should see (Inclusionary|Exclusionary) Disease table/, function (inclusionType, callback) {
         var firstPart;
@@ -119,23 +156,6 @@ module.exports = function () {
         browser.sleep(50).then(callback);
     });
 
-    this.When(/^I select the (.+) button$/, function(type, callback){
-        var buttonType;
-        if (type == 'Inclusion') {
-            buttonType = taPage.inclusionButton;
-        } else if (type == 'Exclusion') {
-            buttonType = taPage.exclusionButton;
-        } else {
-            console.log("Invalid button type entered");
-            return;
-        }
-
-        buttonType.click().then(function () {
-            browser.sleep(100)
-        }).then(callback);
-    });
-
-    // Then section
     this.Then(/^I should see the sub-tabs under Rules$/, function (callback) {
         utilities.checkElementArray(taPage.rulesSubTabLinks, taPage.expectedRulesSubTabs);
         browser.sleep(50).then(callback);
@@ -196,4 +216,39 @@ module.exports = function () {
         taPage.checkAssayResultsTable(data, repeater);
         browser.sleep(50).then(callback);
     });
+
+    this.When(/^I verify that they are sorted numerically$/, function (callback) {
+        var sortedArray = separateAndSort(taPage.valueList);
+        browser.sleep(50).then(function(){
+            for(var i = 0; i < sortedArray.length; i++){
+                expect(i + " row " + taPage.valueList[i]).to.eql(i + " row " + sortedArray[i].toString())
+            }
+        }).then(callback);
+    });
+
+    /**
+     * Function to separate numbers from other alphabets, sort the individual
+     * arrays and concat them together
+     * @param  {Array} arr  - Array containing both numbers and alphabets
+     * @return {Array} returnArray - One Array containing number that are sorted
+     *                             numerically followed by pure string that is
+     *                             sorted by string
+     */
+    function separateAndSort(arr){
+        var numericArray = [];
+        var stringArray = [];
+        for(var i = 0; i < arr.length; i++){
+            if (isNaN(arr[i])){
+                stringArray.push(arr[i]);
+            } else {
+                numericArray.push(parseInt(arr[i]));
+            }
+        }
+
+        numericArray = numericArray.sort(function(a,b) { return a - b });
+        stringArray = stringArray.sort();
+
+        var returnArray = numericArray.concat(stringArray);
+        return returnArray;
+    }
 };

@@ -56,7 +56,21 @@ Feature: Treatment Arm Rules
       | Gene Fusions          | ID         | Inclusion     | cosmic-link[link-id="item.identifier"] | Cosf     |
 
 @ui_p2
-Scenario: Check for links in the Non-Sequencing Assays table.
+  Scenario: Check for links in the Non-Sequencing Assays table.
     When I select the Non-Sequencing Assays sub-tab
     And I get the index of the "Gene" value in "Non-Sequencing Assays" and "None"
     Then I see that the element with css "cosmic-link[link-id="item.gene"]" is a "Gene" link
+
+@ui_p2
+  Scenario Outline: Variants are sorted by defaults in ascending order of Chromosomes on the SNV/MNV/Indels table
+    When I select the <subTabName> sub-tab
+    And I select the Inclusion button
+    And I capture the "Chrom" column under "<subTabName>" Table with "Inclusion" type
+    Then I verify that they are sorted numerically
+    And I select the Exclusion button
+    And I capture the "Chrom" column under "<subTabName>" Table with "Exclusion" type
+    Then I verify that they are sorted numerically
+    Examples:
+      | subTabName           |
+      | SNVs / MNVs / Indels |
+      | CNVs                 |
