@@ -114,11 +114,11 @@ Feature: NCH specimen received messages
     Then set patient message field: "surgical_event_id" to value: "<sei>"
     Then set patient message field: "collection_dt" to value: "<collectTime>"
     Then set patient message field: "received_dttm" to value: "2016-04-30T15:17:11+00:00"
-    When POST to MATCH patients service, response includes "<message>" with code "403"
+    When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
-      | sei                          | collectTime | message                |
-      | PT_SR09_TsReceivedTwice_SEI1 | 2016-04-30  | same surgical event id |
-      | PT_SR09_TsReceivedTwice_SEI2 | 2016-04-30  | same surgical event id |
+      | sei                          | collectTime | message                | code |
+      | PT_SR09_TsReceivedTwice_SEI1 | 2016-04-30  | same surgical event id | 403  |
+      | PT_SR09_TsReceivedTwice_SEI2 | 2016-04-30  |                        | 202  |
 
   @patients_p2
   Scenario Outline: PT_SR10a. tissue specimen_received message can only be accepted when patient is in certain status

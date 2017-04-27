@@ -3,9 +3,10 @@ require_relative '../DataSetup/match_test_data_manager'
 require_relative '../DataSetup/dynamo_utilities'
 require_relative '../DataSetup/sqs_utilities'
 
-class BioMatchPMValidation
+class BioMatchPMQuickValidation
   ION_REPORTER='bio-match-test'
   PATIENT_URL='http://127.0.0.1:10240/api/v1/patients'
+  TREATMENT_ARM_URL='http://127.0.0.1:10235/api/v1/treatment_arms'
   RULE_URL='http://127.0.0.1:10250/api/v1/rules'
   TA_URL='http://127.0.0.1:10235/api/v1/treatment_arms'
   NO_TA='No treatment arm selected'
@@ -128,8 +129,18 @@ class BioMatchPMValidation
       @actual_ta = "Rule engine cannot generate assignment report for patient #{patient_id}"
     end
   end
+  def self.clear_database
+    MatchTestDataManager.clear_all_local_tables
+  end
+  def self.update_treatment_arms
+    Environment.setTier('local')
+    url = "#{TREATMENT_ARM_URL}"
+    tas = Helper_Methods.simple_get_request(url)['message_json']
+    File.open("#{File.dirname(__FILE__)}/results/#{patient_id}.json", 'w') { |f| f.write(JSON.pretty_generate(tas)) }
+    puts "#{File.dirname(__FILE__)}/results/#{patient_id}.json is updated"
+    puts "#{tas.size} treatment arms in this file, they are:"
+    tas.each { |this_ta| puts "#{this_ta['treatment_arm_id']} (#{this_ta[0]['stratum_id']})"}
+  end
 end
 
-BioMatchPMValidation.test('test_case_PM_TA_A_2', 'APEC1621D1', '1')
-
-
+BioMatchPMQuickValidation.update_treatment_arms
