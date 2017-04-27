@@ -16,9 +16,9 @@ module.exports = function() {
 //Given
     this.Given(/^I select "([^"]*)" file for upload$/, function (fileName, callback) {
         upload.fileName = fileName;
-        var fileToUpload = `${data_folder}/${fileName}`; // Enter the extension in the feature.
+        var fileToUpload = data_folder + '/' + fileName; // Enter the extension in the feature.
         var absolutePath = path.resolve(fileToUpload);
-        var inputElement = upload.chooseFileButton
+        var inputElement = upload.chooseFileButton;
 
         inputElement.sendKeys(absolutePath).then(function(){
             browser.waitForAngular();
@@ -26,11 +26,11 @@ module.exports = function() {
     });
 
     this.Given(/^I click on "([^"]*)" label on Upload section$/, function (uploadButtonName, callback) {
-        if (uploadButtonName === 'Select Specific Treatment Arms'){
+        if (uploadButtonName === 'Select Specific Sheet Names'){
             upload.selectSpecificTA.click().then(function(){
                 expect(upload.selectSpecificTAInput.isPresent()).to.eventually.eql(true)
             }).then(callback);
-        } else if (uploadButtonName === 'Select All Treatment Arms'){
+        } else if (uploadButtonName === 'Select All Sheet Names'){
             upload.selectAllTA.click().then(function(){
                 browser.waitForAngular();
             }).then(callback)
@@ -52,7 +52,7 @@ module.exports = function() {
     this.When(/^I confirm the upload of the treatment arm$/, function(callback){
         // console.log("upload.indexOfElement: " + upload.indexOfElement);
         callback(null, 'pending');
-    })
+    });
 
 // Then
     this.Then(/^I expect to see the file "([^"]*)" on S3 bucket$/, function (fileName, callback) {
@@ -78,7 +78,7 @@ module.exports = function() {
 
 
     this.Then(/^I expect to see the file "([^"]*)" in the upload section$/, function (fileName, callback) {
-        expect(upload.uploadPanel.getAttribute('title')).to.eventually.eql(`${fileName}`).notify(callback);
+        expect(upload.uploadPanel.getAttribute('title')).to.eventually.eql(fileName).notify(callback);
     });
 
     this.Then(/^I verify that there is "([^"]*)" treatment arm in the list$/, function (taId, callback) {
@@ -92,9 +92,15 @@ module.exports = function() {
         }).then(callback);
     });
 
-    this.Then(/^I hit the "([^"]*)" button next to treatment arm$/, function (buttonName, callback) {
-        var elem = confirmation.taConfirmButtonList;
-        console.log('upload.indexOfElement: ' + upload.indexOfElement);
+    this.Then(/^I hit the "(Confirm|Remove)" button next to treatment arm$/, function (buttonName, callback) {
+        var elem;
+        if (buttonName === 'Confirm'){
+            elem = confirmation.taConfirmButtonList;
+        } else {
+            elem = confirmation.taRemoveFromList;
+        }
+
+//        console.log('upload.indexOfElement: ' + upload.indexOfElement);
         elem.get(upload.indexOfElement).click().then(function(){
             browser.sleep(50);
         }).then(callback);
@@ -102,14 +108,14 @@ module.exports = function() {
 
     this.Then(/^I call the Treatment Arm Api to verify the presence of the treatment arm "([^"]*)" and stratum "([^"]*)"$/, function (taId, stratumId, callback) {
         var baseUrl = browser.baseUrl;
-        var base
+        var base;
         if (baseUrl.match('localhost')){
             base = baseUrl.substring(0, baseUrl.length - 4) + "10235";
         } else {
             base = process.env.UI_HOSTNAME
         };
 
-        utilities.getTAsFromTreatmentArm(browser.idToken, base + `/api/v1/treatment_arms/${taId}/${stratumId}/` ).then(function(response){
+        utilities.getTAsFromTreatmentArm(browser.idToken, base + '/api/v1/treatment_arms/' + taId + '/' + stratumId).then(function(response){
             expect(response[0].treatment_arm_id).to.eql(taId);
         }).then(callback);
     });
@@ -121,8 +127,16 @@ module.exports = function() {
         }).then(callback)
     });
 
+    this.Then(/^I click on the "(Upload Treatment Arm|Cancel)" button on the modal window$/, function (buttonName, callback) {
+        var buttonElement = buttonName === 'Cancel' ? confirmation.modalCancelButton : confirmation.modalConfirmButton;
+        buttonElement.click().then(function(){
+            browser.sleep(50);
+        }).then(callback);
+    });
+
+
     this.Then(/^the files are uploaded to the temporary table$/, function (callback) {
     // Write code here that turns the phrase above into concrete actions
     callback(null, 'pending');
     });
-}
+};

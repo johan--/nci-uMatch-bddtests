@@ -9,7 +9,7 @@ var WizardPage = function() {
     this.confirmDataStep            = element(by.css('li[data-name="Confirm"]'));
     this.prevButton                 = element(by.css('button.btn-prev'));
     this.nextButton                 = element(by.css('button.btn-next'));
-    this.validateChangesButton      = element(by.css('a.btn-active[data-toggle="tooltip"]'));
+    this.validateChangesButton      = element(by.css('button[ng-click="validate_arm()"]'));
 
     //Right hand section showing preload secrtion
     this.chooseTreatmentArmButton   = element(by.css('a[ng-click="toggle_treatment_arm_selection()"]'));

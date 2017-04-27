@@ -42,8 +42,20 @@ module.exports = function () {
     });
 
     this.When(/^I logout$/, function(callback){
-        login.logout().then(function(){
-            browser.waitForAngular();
+        var toasterElement = element(by.css('[ng-click="click(toaster)"]'));
+        toasterElement.isPresent().then(function (presence) {
+            if (presence === true ) {
+                toasterElement.click().then(function () {
+                    login.logout().then(function () {
+                        browser.waitForAngular();
+                    });
+                }).then(callback);
+            } else {
+                login.logout().then(function () {
+                    browser.waitForAngular();
+                });
+
+            }
         }).then(callback);
-    })
+    });
 };

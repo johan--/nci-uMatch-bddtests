@@ -24,7 +24,7 @@ var LoginPage = function() {
                 }
             });
         });
-    }
+    };
 
     this.loginProcess = function(userId, password) {
         accessButton.click().then(function(){
