@@ -331,7 +331,7 @@ var TreatmentArmsPage = function() {
         var domainRangeLoc = '[ng-bind="item.domain_range | dashify"]'
         var domainNameLoc = '[ng-bind="item.domain_name | dashify"]'
         var exonLoc = '[ng-bind="item.exon | dashify"]'
-        var oncomineLoc= '[ng-bind="item.oncomine_variant_class | dashify"]'; //todo
+        var oncomineLoc= '[ng-bind="item.oncomine_variant_class | dashify"]';
         var functionLoc = '[ng-bind="item.function | dashify"]';
         var loeLoc = '[ng-bind="item.level_of_evidence | dashify"]';
         var litTableLoc = 'pubmed-link[public-med-ids="item.public_med_ids"]';
