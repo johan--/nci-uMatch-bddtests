@@ -62,7 +62,7 @@ Feature: Treatment Arm Rules
     Then I see that the element with css "cosmic-link[link-id="item.gene"]" is a "Gene" link
 
 @ui_p2
-  Scenario Outline: Variants are sorted by defaults in ascending order of Chromosomes on the SNV/MNV/Indels table
+  Scenario Outline: Variants are sorted by defaults in ascending order of Chromosomes on the <subTabName> table
     When I select the <subTabName> sub-tab
     And I select the Inclusion button
     And I capture the "Chrom" column under "<subTabName>" Table with "Inclusion" type
