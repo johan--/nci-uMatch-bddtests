@@ -143,4 +143,4 @@ class BioMatchPMQuickValidation
   end
 end
 
-BioMatchPMQuickValidation.update_treatment_arms
+BioMatchPMQuickValidation.update_treatment_arm
