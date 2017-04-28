@@ -160,15 +160,24 @@ var TreatmentArmsPage = function() {
     this.expectedRulesSubTabs =
         ['Drugs / Disease', 'SNVs / MNVs / Indels', 'CNVs', 'Gene Fusions', 'Non-Hotspot Rules', 'Non-Sequencing Assays'];
 
-    this.expectedIncludedSNVs = [ 'Gene Name', 'ID', 'Chrom', 'Position', 'OCP Ref', 'OCP Alt', 'LOE', 'Lit', 'Variant Type' ];
-    this.expectedExcludedSNVs = [ 'Gene Name', 'ID', 'Chrom', 'Position', 'OCP Ref', 'OCP Alt', 'Lit', 'Variant Type' ];
-    this.expectedIncludedCNVs = [ 'Gene', 'Chrom', 'LOE', 'Lit' ];
-    this.expectedExcludedCNVs = [ 'Gene', 'Chrom', 'Lit' ];
-    this.expectedIncludedGene = [ 'ID', 'LOE', 'Lit' ];
-    this.expectedExcludedGene = [ 'ID', 'Lit' ];
-    this.expectedIncludedNHRs = [ 'Gene', 'Domain Range', 'Domain Name', 'Exon', 'Oncomine Variant Class', 'Function', 'LOE', 'Lit' ];
-    this.expectedExcludedNHRs = [ 'Gene', 'Domain Range', 'Domain Name', 'Exon', 'Position', 'Function', 'Lit' ];
+    this.expectedIncludedSNVs     = [ 'Gene Name', 'ID', 'Chrom', 'Position', 'OCP Ref', 'OCP Alt', 'LOE', 'Lit', 'Variant Type' ];
+    this.expectedInclSNVToolTip   = [ 'Chromosome', 'Reference', 'Alternative', 'Level Of Evidence', 'Lit Ref' ];
+    this.expectedExcludedSNVs     = [ 'Gene Name', 'ID', 'Chrom', 'Position', 'OCP Ref', 'OCP Alt', 'Lit', 'Variant Type' ];
+    this.expectedExclSNVToolTip   = [ 'Chromosome', 'Reference', 'Alternative', 'Lit Ref' ];
+    this.expectedIncludedCNVs     = [ 'Gene', 'Chrom', 'LOE', 'Lit' ];
+    this.expectedInclCNVToolTip   = [ 'Chromosome', 'Level Of Evidence', 'Lit Ref' ];
+    this.expectedExcludedCNVs     = [ 'Gene', 'Chrom', 'Lit' ];
+    this.expectedExclCNVToolTip   = [ 'Chromosome', 'Lit Ref' ];
+    this.expectedIncludedGene     = [ 'ID', 'LOE', 'Lit' ];
+    this.expectedInclGenToolTip   = [ 'Level Of Evidence', 'Lit Ref' ];
+    this.expectedExcludedGene     = [ 'ID', 'Lit' ];
+    this.expectedExclGenToolTip   = [ 'Lit Ref' ];
+    this.expectedIncludedNHRs     = [ 'Gene', 'Domain Range', 'Domain Name', 'Exon', 'Oncomine Variant Class', 'Function', 'LOE', 'Lit' ];
+    this.expectedInclNHRToolTip   = [ 'Level Of Evidence', 'Lit Ref'];
+    this.expectedExcludedNHRs     = [ 'Gene', 'Domain Range', 'Domain Name', 'Exon', 'Position', 'Function', 'Lit' ];
+    this.expectedExclNHRToolTip   = [ 'Lit Ref'];
     this.expectedNonSequenceArray = [ 'Gene', 'Result', 'Variant Association', 'LOE' ];
+    this.expectedNonSeqArrToolTip = [ 'Chromosome', 'Level Of Evidence'];
 
     /** This function returns the text that the name of the Treatment Arm in the row.
      * @params = tableElement [WebElement] Represents collection of rows
@@ -354,6 +363,22 @@ var TreatmentArmsPage = function() {
                         }
                     });
                 });
+            }
+        });
+    };
+
+    /**
+     * This function takes in the list of Heading elements, from which we extract the list of tooltips and compare with
+     * the expected array
+     * @param actualHeading [ElementList], List of elements that corresponds to the heading
+     * @param expectedToolTipArray [Array] Array of Expected values
+     */
+    this.checkToolTips = function(actualHeading, expectedToolTipArray) {
+        var toolTipList = actualHeading.all(by.css('.fa-question-circle'));
+        toolTipList.count().then(function(ct){
+            expect(ct).to.eql(expectedToolTipArray.length);
+            for (var i = 0; i < ct; i++){
+                utils.checkAttribute(toolTipList.get(i), 'title', expectedToolTipArray[i]);
             }
         });
     };

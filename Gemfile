@@ -24,7 +24,6 @@ group :test, :development do
   # gem 'simplecov-rcov'
   # gem "rcov_rails"
   # gem "rcov"
-  gem 'roo'
   gem 'json', '1.8.3'
   gem "xls2json"
   gem "creek"

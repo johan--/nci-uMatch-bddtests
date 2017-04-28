@@ -197,6 +197,12 @@ var Utilities = function () {
         });
     };
 
+    this.checkAttribute = function(element, attribute, value) {
+        return element.getAttribute(attribute).then(function(attribute) {
+            expect(attribute).to.eql(value);
+        });
+    };
+
     /**
      * This function is a generic post request. Header and body of the request should be a hash
      * Usage:

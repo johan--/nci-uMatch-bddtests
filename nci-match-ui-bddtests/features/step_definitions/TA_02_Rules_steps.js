@@ -166,44 +166,54 @@ module.exports = function () {
         var data = [];
         var tableType;
         var actualTableHeadings;
-        var expectedHeadings
+        var expectedHeadings;
+        var expectedToolTips;
         // First getting the data for the variant from the treatment arm
         data = taPage.generateArmDetailForVariant(firstTreatmentArm, variant, inclusionType);
 
         switch(variant) {
             case 'SNVs / MNVs / Indels':
-                actualTableHeadings = inclusionType === 'Inclusion' ? taPage.actualHeadingIncludedSNVs : taPage.actualHeadingExcludedSNVs
-                expectedHeadings = inclusionType === 'Inclusion' ? taPage.expectedIncludedSNVs : taPage.expectedExcludedSNVs
+                actualTableHeadings = inclusionType === 'Inclusion' ? taPage.actualHeadingIncludedSNVs : taPage.actualHeadingExcludedSNVs;
+                expectedHeadings = inclusionType === 'Inclusion' ? taPage.expectedIncludedSNVs : taPage.expectedExcludedSNVs;
+                expectedToolTips = inclusionType === 'Inclusion' ? taPage.expectedInclSNVToolTip : taPage.expectedExclSNVToolTip;
 
                 expect(actualTableHeadings.getText()).to.eventually.eql(expectedHeadings);
 
                 tableType = inclusionType === 'Inclusion' ? taPage.inclusionsnvTable : taPage.exclusionsnvTable;
+                taPage.checkToolTips(actualTableHeadings, expectedToolTips);
                 taPage.checkSNVTable(data, tableType, inclusionType);
                 break;
             case 'CNVs':
-                actualTableHeadings = inclusionType === 'Inclusion' ? taPage.actualHeadingIncludedCNVs : taPage.actualHeadingExcludedCNVs
-                expectedHeadings = inclusionType === 'Inclusion' ? taPage.expectedIncludedCNVs : taPage.expectedExcludedCNVs
+                actualTableHeadings = inclusionType === 'Inclusion' ? taPage.actualHeadingIncludedCNVs : taPage.actualHeadingExcludedCNVs;
+                expectedHeadings = inclusionType === 'Inclusion' ? taPage.expectedIncludedCNVs : taPage.expectedExcludedCNVs;
+                expectedToolTips = inclusionType === 'Inclusion' ? taPage.expectedInclCNVToolTip : taPage.expectedExclCNVToolTip;
 
                 expect(actualTableHeadings.getText()).to.eventually.eql(expectedHeadings);
 
                 tableType = inclusionType === 'Inclusion' ? taPage.inclusioncnvTable : taPage.exclusioncnvTable;
+                taPage.checkToolTips(actualTableHeadings, expectedToolTips);
                 taPage.checkCNVTable(data, tableType, inclusionType);
                 break;
             case 'Gene Fusions':
-                actualTableHeadings = inclusionType === 'Inclusion' ? taPage.actualHeadingIncludedGene : taPage.actualHeadingExcludedGene
-                expectedHeadings = inclusionType === 'Inclusion' ? taPage.expectedIncludedGene : taPage.expectedExcludedGene
+                actualTableHeadings = inclusionType === 'Inclusion' ? taPage.actualHeadingIncludedGene : taPage.actualHeadingExcludedGene;
+                expectedHeadings = inclusionType === 'Inclusion' ? taPage.expectedIncludedGene : taPage.expectedExcludedGene;
+                expectedToolTips = inclusionType === 'Inclusion' ? taPage.expectedInclGenToolTip : taPage.expectedExclGenToolTip;
 
                 expect(actualTableHeadings.getText()).to.eventually.eql(expectedHeadings);
 
                 tableType = inclusionType === 'Inclusion' ? taPage.inclusionGeneTable : taPage.exclusionGeneTable;
+                taPage.checkToolTips(actualTableHeadings, expectedToolTips);
                 taPage.checkGeneFusionTable(data, tableType, inclusionType);
                 break;
             case 'Non-Hotspot Rules':
-                actualTableHeadings = inclusionType === 'Inclusion' ? taPage.actualHeadingIncludedNHRs : taPage.actualHeadingExcludedNHRs
-                expectedHeadings = inclusionType === 'Inclusion' ? taPage.expectedIncludedNHRs : taPage.expectedExcludedNHRs
+                actualTableHeadings = inclusionType === 'Inclusion' ? taPage.actualHeadingIncludedNHRs : taPage.actualHeadingExcludedNHRs;
+                expectedHeadings = inclusionType === 'Inclusion' ? taPage.expectedIncludedNHRs : taPage.expectedExcludedNHRs;
+                expectedToolTips = inclusionType === 'Inclusion' ? taPage.expectedInclNHRToolTip : taPage.expectedExclNHRToolTip;
+
                 expect(actualTableHeadings.getText()).to.eventually.eql(expectedHeadings);
 
                 tableType = inclusionType === 'Inclusion' ? taPage.inclusionNHRTable : taPage.exclusionNHRTable;
+                taPage.checkToolTips(actualTableHeadings, expectedToolTips);
                 taPage.checkNonHotspotRulesTable(data, tableType, inclusionType);
                 break;
         }
@@ -213,6 +223,11 @@ module.exports = function () {
     this.Then(/^I should see the Non\-Sequencing Assays table$/, function (callback) {
         var data = firstTreatmentArm['assay_rules'];
         var repeater = taPage.assayTableRepeater;
+        var actualTableHeadings = taPage.actualHeadingNonSequenceArray;
+        var expectedHeadings = taPage.expectedNonSequenceArray;
+        var expectedToopTips = taPage.expectedNonSeqArrToolTip;
+        taPage.checkToolTips(actualTableHeadings, expectedToopTips);
+        expect(actualTableHeadings.getText()).to.eventually.eql(expectedHeadings);
         taPage.checkAssayResultsTable(data, repeater);
         browser.sleep(50).then(callback);
     });
