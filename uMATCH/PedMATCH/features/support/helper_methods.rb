@@ -2,8 +2,10 @@
 require 'json'
 require 'rest-client'
 # require_relative 'env'
-require 'active_support'
-require 'active_support/core_ext'
+require 'time'
+require 'date'
+# require 'active_support'
+# require 'active_support/core_ext'
 require 'aws-sdk'
 require_relative 'auth0_token'
 
@@ -392,25 +394,25 @@ class Helper_Methods
   end
 
   def Helper_Methods.aFewDaysOlder()
-    time = DateTime.current.utc
-    t = (time - 3.days)
+    time = Time.now.utc
+    t = (time - 3*86400)
     return t.iso8601
   end
 
   def Helper_Methods.olderThanSixMonthsDate()
-    time = DateTime.current.utc
-    t = (time - 6.months)
+    time = Time.now.utc
+    t = (time - 183*86400)
     return t.iso8601
   end
 
   def Helper_Methods.olderThanFiveMonthsDate()
-    time = DateTime.current.utc
-    t = (time - 5.months)
+    time = Time.now.utc
+    t = (time - 153*86400)
     return t.iso8601
   end
 
   def Helper_Methods.dateDDMMYYYYHHMMSS ()
-    time = DateTime.current.utc
+    time = Time.now.utc
     return (time).iso8601
   end
 
@@ -419,25 +421,25 @@ class Helper_Methods
   end
 
   def Helper_Methods.backDate ()
-    time = DateTime.current.utc
-    time = (time - 6.hours).iso8601
+    time = Time.now.utc
+    time = (time - 6*3600).iso8601
     return time
   end
 
   def Helper_Methods.earlierThanBackDate()
-    time = DateTime.current.utc
-    return (time - 10.hours).iso8601
+    time = Time.now.utc
+    return (time - 10*3600).iso8601
   end
 
   def Helper_Methods.futureDate ()
-    time = DateTime.current.utc
-    return (time + 6.hours).iso8601
+    time = Time.now.utc
+    return (time + 6*3600).iso8601
   end
 
   def Helper_Methods.oneSecondOlder ()
-    time = DateTime.current.utc
+    time = Time.now.utc
     t = time - 1.seconds
-    return (time - 4.hours).iso8601
+    return (time - 4*3600).iso8601
   end
 
   def Helper_Methods.getDateAsRequired(dateStr)
@@ -632,3 +634,5 @@ class Helper_Methods
   end
 
 end
+
+puts Helper_Methods.olderThanSixMonthsDate
