@@ -1,4 +1,14 @@
 {
+  "gender": "MALE",
+  "races": [
+    "ASIAN"
+  ],
+  "ethnicity": "NOT HISPANIC OR LATINO",
+  "study_id": "APEC1621SC",
+  "patient_id": "test_case_PM_TA_D2_2",
+  "treating_site_id": "TX100",
+  "expect_treatment_id": "",
+  "expect_stratum_id": "",
   "diseases": [
     //    {
     //      "disease_code_type": "",

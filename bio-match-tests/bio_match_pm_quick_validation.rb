@@ -143,4 +143,4 @@ class BioMatchPMQuickValidation
   end
 end
 
-BioMatchPMQuickValidation.update_treatment_arm
+BioMatchPMQuickValidation.test('Test_D1_2')
