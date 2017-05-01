@@ -98,12 +98,12 @@ Feature: Assay Messages
     Then set patient message field: "biomarker" to value: "ICCPTENs"
     Then set patient message field: "surgical_event_id" to value: "PT_AS06_SlideShipped_SEI1"
     Then set patient message field: "reported_date" to value: "<value>"
-    When POST to MATCH patients service, response includes "<message>" with code "400"
+    When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
-      | value   | message        |
-      |         | can't be blank |
-      | nonDate | date           |
-      | null    | can't be blank |
+      | value   | message        |code|
+      |         | can't be blank |400 |
+      | nonDate | date           |403 |
+      | null    | can't be blank |400 |
 
   @patients_p2
   Scenario Outline: PT_AS07. Assay result with invalid result(other than POSITIVE, NEGATIVE or INDETERMINATE) should fail

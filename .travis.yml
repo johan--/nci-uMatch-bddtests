@@ -53,7 +53,6 @@ before_script:
   - ruby -r "./sqs_utilities.rb" -e "SQSUtilities.purge_queue 'ion_reporter_queue'"
   - ruby -r "./sqs_utilities.rb" -e "SQSUtilities.purge_queue 'ion_reporter_queue_dlx'"
   - ruby -r "./sqs_utilities.rb" -e "SQSUtilities.purge_queue 'patient_queue'"
-  - ruby -r "./sqs_utilities.rb" -e "SQSUtilities.purge_queue 'patient_queue_deadletter'"
   - ruby -r "./sqs_utilities.rb" -e "SQSUtilities.purge_queue 'treatment_arm_queue'"
   # Run Delete Script to empty DynamoDB before tests start
   - bundle exec ruby -r "./match_test_data_manager.rb" -e "MatchTestDataManager.clear_all_int_tables"
