@@ -17,7 +17,7 @@ var UploaderPage = function(){
     this.uploadSection      = element(by.css('div.bordered-themeprimary+div[class="widget-body"] #uploader'));
 
     this.selectSpecificTA   = element(by.cssContainingText('label[ng-model="chosen_upload_type"]', 'Select Specific Sheet Names'));
-    this.selectAllTA        = element(by.cssContainingText('label[ng-model="chosen_upload_type"]', 'Select All Sheet Names  '));
+    this.selectAllTA        = element(by.cssContainingText('label[ng-model="chosen_upload_type"]', 'Select All Sheet Names'));
     this.selectSpecificTAInput  = element(by.css('.panel-collapse.in.collapse input[id="form_input"]')); // This is the input window to enter the name of the specific TA
     this.uploadFileButton       = element(by.css('input[value="Upload File"]'));
 

@@ -15,12 +15,12 @@ var S3_helper = function () {
             Bucket: bucketName,
             EncodingType: 'url',
             MaxKeys: 1000
-        }
+        };
 
         var listPromise = S3.listObjects(params).promise();
         return listPromise.then(function(data){
             var contents = data.Contents;
-            flag = 0
+            var flag = 0;
             for (var i = 0; i < data.Contents.length; i++) {
                 if (data.Contents[i].Key.includes(fileName)) {
                         flag = 1;
@@ -52,6 +52,6 @@ var S3_helper = function () {
         });
     }
 
-}
+};
 
 module.exports = new S3_helper();

@@ -27,7 +27,7 @@ var WizardPage = function() {
     // Other Data
     this.diseaseCodeType            = element(by.model('treatment_arm.diseases[0].disease_code_type'));
     this.diseaseCode                = element(by.model('treatment_arm.diseases[0].disease_code'));
-    this.diseaseName                = element(by.model('treatment_arm.diseases[0].disease_name'))
-}
+    this.diseaseName                = element(by.model('treatment_arm.diseases[0].disease_name'));
+};
 
 module.exports = new WizardPage();

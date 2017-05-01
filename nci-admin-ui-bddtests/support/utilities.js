@@ -28,14 +28,14 @@ var Utilities = function () {
     this.getIndexOfElement = function(elementList, text) {
         return elementList.count().then(function(cnt){
             for (var i=0; i < cnt; i++) {
-                return elementList.get(i).getText().then(function(elemText){
+                elementList.get(i).getText().then(function(elemText){
                     if (elemText === text) {
                         return i;
                     }
                 })
             }
         })
-    }
+    };
 
     this.getIdToken = function(){
         var data = {
@@ -53,7 +53,7 @@ var Utilities = function () {
             body: data,
             json: true,
             headers: { "content-type": "application/json" }
-        }
+        };
 
         return req(options).then(function(body){
             return body.id_token;
@@ -61,14 +61,15 @@ var Utilities = function () {
             console.log(err);
             return;
         })
-    }
+    };
 
     this.getTAsFromTreatmentArm = function(idToken, url){
         console.log('Get URL: ' + url);
+        console.log('idToken: ' + idToken);
         var options = {
             uri: url,
             method: 'GET',
-            headers: {'Authorization': `Bearer ${idToken}`},
+            headers: {'Authorization': 'Bearer ' + idToken },
             json: true
         };
 
@@ -78,6 +79,6 @@ var Utilities = function () {
             console.log(err);
         });
     }
-}
+};
 
 module.exports = new Utilities();

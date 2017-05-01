@@ -1,13 +1,12 @@
-'use strict'
+'use strict';
 var fs = require('fs');
 var path = require('path');
 
-var login = require('../../pages/loginPage');
 var upload = require('../../pages/uploaderPage');
 var confirmation = require('../../pages/confirmationPage');
 var utilities = require('../../support/utilities');
 var s3 = require('../../support/S3_helper');
-var dynamo = require('../../support/dynamo_helper')
+var dynamo = require('../../support/dynamo_helper');
 
 module.exports = function() {
     this.World = require('../step_definitions/world').World;
@@ -86,9 +85,8 @@ module.exports = function() {
     });
 
     this.Then(/^I collect the treatment arm details for "([^"]*)" on the page$/, function (taId, callback) {
-        utilities.getIndexOfElement(confirmation.treatmentArmsIdList, taId).then(function(index){
-            console.log('index of element: ' + index);
-            upload.indexOfElement = index;
+        confirmation.treatmentArmsIdList.getText().then(function(taIdList){
+            upload.indexOfElement =  taIdList.indexOf(taId);
         }).then(callback);
     });
 
@@ -123,7 +121,6 @@ module.exports = function() {
     this.Then(/^I get the authorization token$/, function(callback){
         utilities.getIdToken().then(function(response){
             browser.idToken = response;
-            console.log('browser.idToken: ' + browser.idToken);
         }).then(callback)
     });
 

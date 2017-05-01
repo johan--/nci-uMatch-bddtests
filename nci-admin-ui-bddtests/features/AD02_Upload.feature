@@ -21,6 +21,7 @@ Feature: This feature tests the upload functionality of the admin tool
     And I get the authorization token
     And I call the Treatment Arm Api to verify the presence of the treatment arm "APEC1621-AA" and stratum "1"
 
+
   Scenario: Upload02 - An admin can upload an excel sheet with all the treatment arms
     Given I am a logged in user
     And I select "UploadAllTAFromListTest.xlsx" file for upload
@@ -32,7 +33,8 @@ Feature: This feature tests the upload functionality of the admin tool
     And I verify that there is "APEC1621-CC" treatment arm in the list
     And I verify that there is "APEC1621-DD" treatment arm in the list
     And I collect the treatment arm details for "APEC1621-CC" on the page
-
+    And I get the authorization token
+    And I call the Treatment Arm Api to verify the presence of the treatment arm "APEC1621-CC" and stratum "1"
 
   Scenario: Upload03 - An Excel sheet with errors will not be uploaded to the pending treatment arms table
     Given I am a logged in user

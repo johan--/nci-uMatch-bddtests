@@ -66,12 +66,12 @@ var LoginPage = function() {
 
     this.logout = function() {
         return logoutLink.click();
-    }
+    };
 
     function enterLoginDetails(userId, password) {
         loginEmail.sendKeys(userId);
         loginPassword.sendKeys(password);
     }
-}
+};
 
 module.exports = new LoginPage();
