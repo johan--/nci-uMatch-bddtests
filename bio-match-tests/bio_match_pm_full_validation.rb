@@ -113,6 +113,13 @@ class BioMatchPMFullValidation
     File.open("#{File.dirname(__FILE__)}/results/#{@test_id}_Assignment_report.json", 'w') { |f| f.write(JSON.pretty_generate(response)) }
     cmd = "aws s3 rm s3://#{S3_BUCKET}/#{ION_REPORTER}/ --recursive --region us-east-1"
     `#{cmd}`
+    @patient_hash['treatment_arm_statuses'].each { |this_status|
+      default_ta = {
+          :treatment_arm_id => this_status['treatment_arm_id'],
+          :stratum_id => this_status['stratum_id'],
+          :status => 'OPEN'
+      }
+      set_ta_status_to_cog(default_ta) }
   end
 
   def self.register_patient_to_cog(patient_hash)

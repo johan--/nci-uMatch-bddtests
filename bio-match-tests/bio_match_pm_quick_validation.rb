@@ -11,52 +11,73 @@ class BioMatchPMQuickValidation
   TA_URL='http://127.0.0.1:10235/api/v1/treatment_arms'
   NO_TA='No treatment arm selected'
 
-  def self.test(patient_id, expect_ta_id='', expect_ta_stratum='')
-    build_patient(patient_id)
-    verify_result(patient_id, expect_ta_id, expect_ta_stratum)
+  def self.test(test_id)
+    load_test(test_id)
+    build_patient
+    verify_result
   end
 
-  def self.build_patient(patient_id)
+  def self.load_test(test_id)
+    @patient_hash = JSON.parse(File.read("#{File.dirname(__FILE__)}/patients/#{test_id}.json"))
+    @expect_ta = ta_string(@patient_hash['expected_treatment_arm_id'], @patient_hash['expected_stratum_id'])
+    @pten = @patient_hash['pten_status']
+    @baf47 = @patient_hash['baf47_status']
+    @brg1 = @patient_hash['brg1_status']
+    @patient_id = test_id
+    @patient_hash['patient_id'] = @patient_id
+    @treatment_arms = JSON.parse(File.read("#{File.dirname(__FILE__)}/treatment_arms.json"))
+    @patient_hash['treatment_arm_statuses'].each { |this_status|
+      @treatment_arms.each { |this_ta|
+        if this_ta['treatment_arm_id'] == this_status['treatment_arm_id'] &&
+            this_ta['stratum_id'] == this_status['stratum_id']
+          this_ta['treatment_arm_status'] = this_status['status']
+        end
+      } }
+  end
+
+  def self.build_patient
     Environment.setTier('local')
-    load_treatment_arms
-    pt = PatientDataSet.new(patient_id)
+    pt = PatientDataSet.new(@patient_id)
     convert_vcf_to_tsv(pt.id)
     upload_files_to_s3(pt.id, pt.moi, pt.ani)
     generate_variant_report(pt.id, pt.moi, pt.ani)
     generate_assignment(pt.id)
   end
 
-  def self.verify_result(patient_id, expect_ta_id='', expect_ta_stratum='')
+  def self.verify_result
     result = Hash.new
-    result['test_case'] = "#{patient_id}"
+    result['test_case'] = "#{@patient_id}"
     if @generated_ar.keys.include?('report_status')
       if @generated_ar['report_status'] == 'TREATMENT_FOUND'
         selected = @generated_ar['treatment_assignment_results'].select { |this_ta|
           this_ta['assignment_status'] == 'SELECTED' }
         if selected.size == 1
-          @actual_ta = "#{selected[0]['treatment_arm_id']} (#{selected[0]['stratum_id']})"
+          @actual_ta = ta_string(selected[0]['treatment_arm_id'], selected[0]['stratum_id'])
         else
           @actual_ta = ''
           selected.each { |this_selected|
-            @actual_ta += "#{this_selected[0]['treatment_arm_id']} (#{this_selected[0]['stratum_id']}) " }
+            @actual_ta += ta_string(this_selected[0]['treatment_arm_id'], this_selected[0]['stratum_id']) + ' '}
         end
       else
         @actual_ta = NO_TA
       end
     end
-    if expect_ta_id.eql?('')||expect_ta_stratum.eql?('')
-      expect_ta = NO_TA
-    else
-      expect_ta = "#{expect_ta_id} (#{expect_ta_stratum})"
-    end
-    test_result = @actual_ta.eql?(expect_ta) ? 'Passed' : 'Failed'
+    test_result = @actual_ta.eql?(@expect_ta) ? 'Passed' : 'Failed'
     result['test_result'] = test_result
-    result['expected_treatment_arm'] = expect_ta
+    result['expected_treatment_arm'] = @expect_ta
     result['actual_treatment_arm'] = @actual_ta
-    File.open("#{File.dirname(__FILE__)}/results/#{patient_id}.json", 'w') { |f| f.write(JSON.pretty_generate(result)) }
-    File.open("#{File.dirname(__FILE__)}/results/#{patient_id}_Assignment_report.json", 'w') { |f| f.write(JSON.pretty_generate(@generated_ar)) }
-    File.open("#{File.dirname(__FILE__)}/results/#{patient_id}_Variant_report.json", 'w') { |f| f.write(JSON.pretty_generate(@generated_vr)) }
+    File.open("#{File.dirname(__FILE__)}/results/#{@patient_id}.json", 'w') { |f| f.write(JSON.pretty_generate(result)) }
+    File.open("#{File.dirname(__FILE__)}/results/#{@patient_id}_Assignment_report.json", 'w') { |f| f.write(JSON.pretty_generate(@generated_ar)) }
+    File.open("#{File.dirname(__FILE__)}/results/#{@patient_id}_Variant_report.json", 'w') { |f| f.write(JSON.pretty_generate(@generated_vr)) }
 
+  end
+
+  def self.ta_string(ta_id, stratum)
+    if ta_id.eql?('')||stratum.eql?('')
+      return NO_TA
+    else
+      return "#{ta_id} (#{stratum})"
+    end
   end
 
   def self.convert_vcf_to_tsv(patient_id)
@@ -90,10 +111,6 @@ class BioMatchPMQuickValidation
     cmd = "rm -r -f #{File.dirname(__FILE__)}/upload_tmp"
     `#{cmd}`
     puts "#{patient_id} vcf and tsv have been uploaded to S3"
-  end
-
-  def self.load_treatment_arms
-    @treatment_arms = JSON.parse(File.read("#{File.dirname(__FILE__)}/treatment_arms.json"))
   end
 
   def self.generate_variant_report(patient_id, moi, ani)
