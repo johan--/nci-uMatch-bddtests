@@ -40,12 +40,16 @@ class DynamoUtilities
     if all_items.nil? || all_items.size<1
       LOG.log("Table '#{table_name.upcase}' is empty skipping...")
     else
-      all_items.each_slice(25) { |this_batch|
+      LOG.log("There are #{all_items.size} items need to be cleared from table '#{table_name.upcase}'...")
+      deleted = 0
+      batch_size = 25
+      all_items.each_slice(batch_size) { |this_batch|
         items = []
         this_batch.each { |this_item| items << {delete_request: {key: this_item}} }
         request = {request_items: {table_name => items}}
         begin
           @aws_db.batch_write_item(request)
+          deleted += items.size
         rescue => e
           LOG.log("Could not delete table #{table_name}", :warn)
           puts e.backtrace
@@ -54,7 +58,7 @@ class DynamoUtilities
 
       end_stamp = Time.now
       diff = ((end_stamp - start_stamp) * 1000.0).to_f / 1000.0
-      LOG.log("Deleted #{all_items.size} records from #{tier} \"#{table_name}\" table in #{diff} secs!")
+      LOG.log("Deleted #{deleted} records from #{tier} \"#{table_name}\" table in #{diff} secs!")
     end
   end
 
@@ -73,7 +77,10 @@ class DynamoUtilities
     if all_items.nil? || all_items.size<1
       LOG.log("Seed data for table '#{table_name.upcase}' is empty skipping...")
     else
-      all_items.each_slice(25) { |this_batch|
+      LOG.log("There are #{all_items.size} items need to be uploaded to table '#{table_name.upcase}'...")
+      uploaded = 0
+      batch_size = 25
+      all_items.each_slice(batch_size) { |this_batch|
         items = []
         this_batch.each { |this_item|
           converted_item = {}
@@ -89,6 +96,7 @@ class DynamoUtilities
         request = {request_items: {table_name => items}}
         begin
           @aws_db.batch_write_item(request)
+          uploaded += items.size
         rescue => e
           LOG.log("Could not upload seed to table #{table_name}", :warn)
           puts e.backtrace
@@ -97,7 +105,7 @@ class DynamoUtilities
 
       end_stamp = Time.now
       diff = ((end_stamp - start_stamp) * 1000.0).to_f / 1000.0
-      LOG.log("Uploaded #{all_items.size} records to #{tier} \"#{table_name}\" table in #{diff} secs!")
+      LOG.log("Uploaded #{uploaded} records to #{tier} \"#{table_name}\" table in #{diff} secs!")
     end
   end
 
