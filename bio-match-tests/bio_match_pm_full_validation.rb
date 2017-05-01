@@ -10,37 +10,27 @@ class BioMatchPMFullValidation
   RULE_URL='http://127.0.0.1:10250/api/v1/rules'
   TA_URL='http://127.0.0.1:10235/api/v1/treatment_arms'
   IR_URL='http://localhost:5000/api/v1/aliquot'
-  MOCK_COG_URL='http://127.0.0.1:3000/register_patient'
+  MOCK_COG_URL='http://127.0.0.1:3000'
+  S3_BUCKET='pedmatch-dev'
   NO_TA='No treatment arm selected'
 
-  def self.test(test_id, expect_ta_id='', expect_ta_stratum='')
-    load_test(test_id, expect_ta_id, expect_ta_stratum)
+  def self.test(test_id)
+    load_test(test_id)
     build_patient
     verify_result
   end
 
-  def self.load_test(test_id, expect_ta_id='', expect_ta_stratum='')
+  def self.load_test(test_id)
     @test_id = test_id
     @patient_hash = JSON.parse(File.read("#{File.dirname(__FILE__)}/patients/#{test_id}.json"))
-    @expect_ta = ta_string(expect_ta_id, expect_ta_stratum)
-    if @patient_hash.keys.include?('assay_results')
-      @patient_hash['assay_results'].each { |this_assay|
-        case this_assay['gene']
-          when 'ICCPTENs'
-            @pten = this_assay['status']
-          when 'ICCBAF47s'
-            @baf47 = this_assay['status']
-          when 'ICCBRG1s'
-            @brg1 = this_assay['status']
-          else
-            @pten = this_assay['status']
-        end
-      }
-    else
-      @pten, @baf47, @brg1 = 'POSITIVE', 'POSITIVE', 'POSITIVE'
-    end
+    @expect_ta = ta_string(@patient_hash['expected_treatment_arm_id'], @patient_hash['expected_stratum_id'])
+    @pten = @patient_hash['pten_status']
+    @baf47 = @patient_hash['baf47_status']
+    @brg1 = @patient_hash['brg1_status']
     @patient_id = Time.now.to_i.to_s
     @patient_hash['patient_id'] = @patient_id
+    @patient_hash['treatment_arm_statuses'].each { |this_status|
+      set_ta_status_to_cog(this_status) }
   end
 
   def self.build_patient
@@ -57,6 +47,7 @@ class BioMatchPMFullValidation
     upload_vcf_to_s3(pt.id, pt.moi, pt.ani)
     send_vcf_message(pt.id, pt.moi, pt.ani)
     PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.ani)
+    PatientMessageLoader.wait_until_patient_status_is(pt.id, 'PENDING_CONFIRMATION')
   end
 
   def self.send_vcf_message(patient_id, moi, ani)
@@ -80,7 +71,7 @@ class BioMatchPMFullValidation
     puts `#{cmd}`
     cmd = "cp #{vcf_path} #{tmp_folder}/#{patient_id}.vcf"
     puts `#{cmd}`
-    cmd = "aws s3 cp #{tmp_root_folder} s3://pedmatch-dev/#{ION_REPORTER}/ --recursive --region us-east-1"
+    cmd = "aws s3 cp #{tmp_root_folder} s3://#{S3_BUCKET}/#{ION_REPORTER}/ --recursive --region us-east-1"
     `#{cmd}`
     cmd = "rm -r -f #{File.dirname(__FILE__)}/upload_tmp"
     `#{cmd}`
@@ -97,12 +88,19 @@ class BioMatchPMFullValidation
       response = {}
     else
       Environment.setTier('local')
-      url = "#{PATIENT_URL}/#{@patient_id}"
-      response = Helper_Methods.simple_get_request(url)['message_json']
-      if response.keys.include?('current_assignment')
-        actual_ta_id = response['current_assignment']['treatment_arm_id']
-        actual_ta_stratum = response['current_assignment']['stratum_id']
-        @actual_ta = ta_string(actual_ta_id, actual_ta_stratum)
+      url = "#{PATIENT_URL}/assignments?patient_id=#{@patient_id}"
+      response = Helper_Methods.simple_get_request(url)['message_json'][0]
+      if response['report_status'] == 'TREATMENT_FOUND'
+        selected = response['treatment_assignment_results']['SELECTED']
+        if selected.size == 1
+          @actual_ta = ta_string(selected[0]['treatment_arm']['treatment_arm_id'],
+                                 selected[0]['treatment_arm']['stratum_id'])
+        else
+          @actual_ta = ''
+          selected.each { |this_selected|
+            @actual_ta += ta_string(this_selected[0]['treatment_arm']['treatment_arm_id'],
+                                    this_selected[0]['treatment_arm']['stratum_id']) + ' ' }
+        end
       else
         @actual_ta = ta_string('', '')
       end
@@ -112,12 +110,19 @@ class BioMatchPMFullValidation
     result['expected_treatment_arm'] = @expect_ta
     result['actual_treatment_arm'] = @actual_ta
     File.open("#{File.dirname(__FILE__)}/results/#{@test_id}.json", 'w') { |f| f.write(JSON.pretty_generate(result)) }
-    File.open("#{File.dirname(__FILE__)}/results/#{@test_id}_Assignment_report.json", 'w') { |f| f.write(JSON.pretty_generate(response))}
+    File.open("#{File.dirname(__FILE__)}/results/#{@test_id}_Assignment_report.json", 'w') { |f| f.write(JSON.pretty_generate(response)) }
+    cmd = "aws s3 rm s3://#{S3_BUCKET}/#{ION_REPORTER}/ --recursive --region us-east-1"
+    `#{cmd}`
   end
 
   def self.register_patient_to_cog(patient_hash)
-    url = "#{MOCK_COG_URL}"
+    url = "#{MOCK_COG_URL}/register_patient"
     Helper_Methods.post_request(url, patient_hash.to_json)
+  end
+
+  def self.set_ta_status_to_cog(ta_status)
+    url = "#{MOCK_COG_URL}/setTreatmentArmStatus"
+    Helper_Methods.post_request(url, ta_status.to_json)
   end
 
   def self.ta_string(ta_id, stratum)
@@ -127,6 +132,14 @@ class BioMatchPMFullValidation
       return "#{ta_id} (#{stratum})"
     end
   end
+
+  def self.reload_database_local_only
+    Environment.setTier('local')
+    MatchTestDataManager.clear_all_local_tables
+    ta_json = "#{File.dirname(__FILE__)}/treatment_arm.json"
+    DynamoUtilities.upload_seed_data('treatment_arm', ta_json, 'local')
+  end
 end
 
+BioMatchPMFullValidation.reload_database_local_only
 BioMatchPMFullValidation.test('Test_D1_2')

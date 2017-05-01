@@ -109,6 +109,9 @@ Feature: NCH specimen received messages
   @patients_p2
   Scenario Outline: PT_SR09. existing surgical event id should not be used again
       #test patient: PT_SR09_TsReceivedTwice: (_SEI1, _SEI2) have been received
+    #notice the response code 202 for PT_SR09_TsReceivedTwice_SEI2, it's NCH's requirement, they want to receive
+    #multiple tissues with same surgical event id, but they don't care which one is taken, so that means we just
+    #response 202 but don't process the new ones
     Given patient id is "PT_SR09_TsReceivedTwice"
     And load template specimen type: "TISSUE" received message for this patient
     Then set patient message field: "surgical_event_id" to value: "<sei>"
