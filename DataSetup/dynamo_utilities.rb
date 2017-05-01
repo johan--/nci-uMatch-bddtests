@@ -59,6 +59,9 @@ class DynamoUtilities
       end_stamp = Time.now
       diff = ((end_stamp - start_stamp) * 1000.0).to_f / 1000.0
       LOG.log("Deleted #{deleted} records from #{tier} \"#{table_name}\" table in #{diff} secs!")
+      unless deleted == all_items.size
+        raise "Expected to delete #{all_items.size} items, actually deleted #{deleted} items"
+      end
     end
   end
 
@@ -106,6 +109,9 @@ class DynamoUtilities
       end_stamp = Time.now
       diff = ((end_stamp - start_stamp) * 1000.0).to_f / 1000.0
       LOG.log("Uploaded #{uploaded} records to #{tier} \"#{table_name}\" table in #{diff} secs!")
+      unless uploaded == all_items.size
+        raise "Expected to upload #{all_items.size} items, actually uploaded #{uploaded} items"
+      end
     end
   end
 
