@@ -101,9 +101,9 @@ Feature: Assay Messages
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
       | value   | message        |code|
-      |         | can't be blank |400 |
-      | nonDate | date           |403 |
-      | null    | can't be blank |400 |
+      |         | can't be blank |403 |
+      | nonDate | date           |400 |
+      | null    | can't be blank |403 |
 
   @patients_p2
   Scenario Outline: PT_AS07. Assay result with invalid result(other than POSITIVE, NEGATIVE or INDETERMINATE) should fail
@@ -116,7 +116,7 @@ Feature: Assay Messages
     Examples:
       | value       | message        | code |
       |             | can't be blank | 403  |
-      | otherResult | result         | 400  |
+      | otherResult | result         | 403  |
       | null        | can't be blank | 403  |
 
 

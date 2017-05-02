@@ -203,7 +203,6 @@ after_script:
   - aws sqs purge-queue --queue-url https://sqs.us-east-1.amazonaws.com/127516845550/ion_reporter_queue
   - aws sqs purge-queue --queue-url https://sqs.us-east-1.amazonaws.com/127516845550/ion_reporter_queue_dlx
   - aws sqs purge-queue --queue-url https://sqs.us-east-1.amazonaws.com/127516845550/patient_queue
-  - aws sqs purge-queue --queue-url https://sqs.us-east-1.amazonaws.com/127516845550/patient_queue_deadletter
   - aws sqs purge-queue --queue-url https://sqs.us-east-1.amazonaws.com/127516845550/treatment_arm_queue
 ######COMMENTING FOR NOW###########################
 #  - export DATE=`TZ=America/New_York date "+%m-%d-%y-%H%M"`
