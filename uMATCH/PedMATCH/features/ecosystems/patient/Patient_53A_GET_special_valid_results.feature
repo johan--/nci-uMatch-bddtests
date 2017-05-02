@@ -162,7 +162,8 @@ Feature: Patient GET service valid special case tests
       | PT_SC02f_TsVrUploaded        | PT_SC02f_TsVrUploaded_ANI1        |
       | PT_SC02f_PendingConfirmation | PT_SC02f_PendingConfirmation_ANI1 |
 
-  @patients_p1
+    #no bio expired any more
+  @patients_off
   Scenario Outline: PT_SC02g pending_items should remove patient once this patient change to OFF_STUDY_BIOPSY_EXPIRED
     Given patient id is "<patient_id>"
     And load template off study biopsy expired message for this patient
@@ -207,12 +208,13 @@ Feature: Patient GET service valid special case tests
     Then there are "0" patient_limbos have field: "current_status" value: "REGISTRATION"
     Then there are "0" patient_limbos have field: "current_status" value: "PENDING_CONFIRMATION"
     Then there are "0" patient_limbos have field: "current_status" value: "OFF_STUDY"
-    Then there are "0" patient_limbos have field: "current_status" value: "OFF_STUDY_BIOPSY_EXPIRED"
     Then there are "0" patient_limbos have field: "current_status" value: "REQUEST_ASSIGNMENT"
     Then there are "0" patient_limbos have field: "current_status" value: "REQUEST_NO_ASSIGNMENT"
     Then there are "0" patient_limbos have field: "current_status" value: "ON_TREATMENT_ARM"
     Then there are "0" patient_limbos have field: "current_status" value: "COMPASSIONATE_CARE"
     Then there are "0" patient_limbos have field: "current_status" value: "NO_TA_AVAILABLE"
+    #no bio expired any more
+#    Then there are "0" patient_limbos have field: "current_status" value: "OFF_STUDY_BIOPSY_EXPIRED"
 
   @patients_p1
   Scenario Outline: PT_SC04b patient_limbos should have correct value
@@ -323,7 +325,8 @@ Feature: Patient GET service valid special case tests
     When GET from MATCH patient API, http code "200" should return
     Then there are "0" patient_limbos have field: "patient_id" value: "PT_SC04g_TsReceived"
 
-  @patients_p1
+    #no bio expired any more
+  @patients_off
   Scenario: PT_SC04h patient_limbos should remove patient once this patient change to OFF_STUDY_BIOPSY_EXPIRED
     Given patient id is "PT_SC04h_TsReceived"
     And load template off study biopsy expired message for this patient
@@ -458,7 +461,8 @@ Feature: Patient GET service valid special case tests
       | PT_SC05f_TsVrUploaded        |
       | PT_SC05f_PendingConfirmation |
 
-  @patients_p1
+    #no bio expired any more
+  @patients_off
   Scenario Outline: PT_SC05g action_items should be cleared once this patient change to OFF_STUDY_BIOPSY_EXPIRED
     Given patient id is "<patient_id>"
     And load template off study biopsy expired message for this patient
@@ -503,7 +507,8 @@ Feature: Patient GET service valid special case tests
     Then there are "0" patient treatment_arm_history
     Then patient treatment_arm_history should not have treatment_arm: "APEC1621-A", stratum: "100"
 
-  @patients_p2
+    #no bio expired any more
+  @patients_off
   Scenario: PT_SC06c treatment_arm_history should not add item after patient transition to OFF_STUDY_BIOPSY_EXPIRED
     Given patient id is "PT_SC06c_PendingApprovalStep2"
     Then load template off study biopsy expired message for this patient

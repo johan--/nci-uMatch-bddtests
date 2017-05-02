@@ -150,7 +150,8 @@ Feature: Assay Messages
       | patient_id                    | biomarker | sei                                | message |
       | PT_AS09_ReqNoAssignment       | ICCPTENs  | PT_AS09_ReqNoAssignment_SEI1       | status  |
       | PT_AS09_OffStudy              | ICCPTENs  | PT_AS09_OffStudy_SEI1              | status  |
-      | PT_AS09_OffStudyBiopsyExpired | ICCPTENs  | PT_AS09_OffStudyBiopsyExpired_SEI1 | status  |
+    #no bio expired any more
+#      | PT_AS09_OffStudyBiopsyExpired | ICCPTENs  | PT_AS09_OffStudyBiopsyExpired_SEI1 | status  |
 #  Scenario: PT_AS09a. Assay result report date is older than order date should fail
 ##  Test data: Patient=PT_AS09aSlideShipped, surgical_event_id=PT_AS09aSlideShipped_SEI1, ordered_date=2016-05-02T12:13:09.071-05:00
 #    Given template assay message with surgical_event_id: "PT_AS09aSlideShipped_SEI1" for patient: "PT_AS09aSlideShipped"

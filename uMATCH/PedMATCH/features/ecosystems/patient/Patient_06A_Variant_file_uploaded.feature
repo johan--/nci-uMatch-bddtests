@@ -101,7 +101,10 @@ Feature: Variant files uploaded message
     Then this variant report field: "status" should be "PENDING"
     Then this variant report field: "tsv_file_name" should be "test1.tsv"
 
-  @patients_p2
+    #PT_VU06b: 1. match uploader will not do this
+#              2. UI upload box will disappear immediately after click OK button
+  #            3. if user do curl command in this way, it's invalid operation
+  @patients_p3
   Scenario: PT_VU06b. variant files uploaded message should not be processed twice if sent twice quickly
     Given patient id is "PT_VU06b_TissueShipped"
     And load template variant file uploaded message for molecular id: "PT_VU06b_TissueShipped_MOI1"
@@ -256,7 +259,7 @@ Feature: Variant files uploaded message
     Given patient GET service: "specimen_events", patient id: "<patient_id>", id: ""
     And patient API user authorization role is "MDA_VARIANT_REPORT_SENDER"
     When GET from MATCH patient API, http code "200" should return
-    And this patient tissue specimen_events "<moi>" should have field "allow_upload" value "<allow>"
+    And this patient tissue specimen_events "<moi>" allow_upload field should be "<allow>"
     Examples:
       | patient_id                      | moi                                  | allow |
       | PT_VU17_TsShippedTwice          | PT_VU17_TsShippedTwice_MOI1          | false |
@@ -271,7 +274,6 @@ Feature: Variant files uploaded message
       | PT_VU17_PendingConfirmation     | PT_VU17_PendingConfirmation_MOI1     | false |
       | PT_VU17_PendingApproval         | PT_VU17_PendingApproval_MOI1         | false |
       | PT_VU17_TsShippedOffStudy       | PT_VU17_TsShippedOffStudy_MOI1       | false |
-      | PT_VU17_TsShippedOffStudyBioExp | PT_VU17_TsShippedOffStudyBioExp_MOI1 | false |
       | PT_VU17_TsSlideShipped          | PT_VU17_TsSlideShipped_MOI1          | true  |
       | PT_VU17_TsShippedAssayReceived  | PT_VU17_TsShippedAssayReceived_MOI1  | true  |
       | PT_VU17_TsVrConfirmed           | PT_VU17_TsVrConfirmed_MOI1           | false |
@@ -281,6 +283,7 @@ Feature: Variant files uploaded message
       | PT_VU17_ReqNoAssignment         | PT_VU17_ReqNoAssignment_MOI1         | false |
       | PT_VU17_NoTaAvailable           | PT_VU17_NoTaAvailable_MOI1           | false |
       | PT_VU17_CompassionateCare       | PT_VU17_CompassionateCare_MOI1       | false |
+#      | PT_VU17_TsShippedOffStudyBioExp | PT_VU17_TsShippedOffStudyBioExp_MOI1 | false |
 
 
   @patients_p2
