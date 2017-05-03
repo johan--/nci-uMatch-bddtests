@@ -129,7 +129,7 @@ Feature: Patients assignment tests
   @patients_p1
   Scenario: PT_AM07. assignment_report can be rolled back
     Given patient id is "PT_AM07_PendingApproval"
-#    When PUT to MATCH assignment report rollback, response includes "" with code "200"
+    When PUT to MATCH assignment report rollback, response includes "" with code "200"
     Then this patient should have assignment for analysis id "PT_AM07_PendingApproval_ANI1"
     Then patient status should change to "PENDING_CONFIRMATION"
     And this assignment field "comment_user" should be "null"
@@ -150,6 +150,3 @@ Feature: Patients assignment tests
     And this assignment status should be "CONFIRMED"
     Then this patient should have assignment for analysis id "PT_AM08_PendingApprovalStep2_ANI2"
     And this assignment status should be "PENDING"
-    
-#    to-do:
-#    PENDING items should rollback
