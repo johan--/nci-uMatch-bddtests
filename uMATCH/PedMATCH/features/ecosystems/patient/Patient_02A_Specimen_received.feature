@@ -106,7 +106,7 @@ Feature: NCH specimen received messages
       | TISSUE        |                     | can't be blank        |
       | BLOOD         | SLIDE               | is not a support type |
 
-  @patients_p3
+  @patients_p2
   Scenario Outline: PT_SR09. existing surgical event id should not be used again
       #test patient: PT_SR09_TsReceivedTwice: (_SEI1, _SEI2) have been received
     #notice the response code 202 for PT_SR09_TsReceivedTwice_SEI2, it's NCH's requirement, they want to receive
@@ -252,7 +252,7 @@ Feature: NCH specimen received messages
       | TISSUE | PT_SR13_Registered_SEI1 |
       | BLOOD  |                         |
 
-  @patients_p3
+  @patients_p2
   Scenario: PT_SR14. new tissue specimen with a surgical_event_id that was used in previous step should fail
 #    patient: "PT_SR14_RequestAssignment" with status: "REQUEST_ASSIGNMENT" on step: "2.0"
 #    surgical_event_id PT_SR14_RequestAssignment_SEI1 has been used in step 1.0
