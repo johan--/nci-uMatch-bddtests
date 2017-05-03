@@ -15,8 +15,8 @@ class BioMatchPMFullValidation
   NO_TA='No treatment arm selected'
 
   def self.test(test_id)
-    load_test(test_id)
-    build_patient
+    build_patient(test_id)
+    confirm_patient
     verify_result
   end
 
@@ -31,23 +31,27 @@ class BioMatchPMFullValidation
     @patient_hash['patient_id'] = @patient_id
     @patient_hash['treatment_arm_statuses'].each { |this_status|
       set_ta_status_to_cog(this_status) }
+    @pt = PatientDataSet.new(@patient_id)
   end
 
-  def self.build_patient
+  def self.build_patient(test_id)
+    load_test(test_id)
     Environment.setTier('local')
-    pt = PatientDataSet.new(@patient_id)
     register_patient_to_cog(@patient_hash)
-    PatientMessageLoader.register_patient(pt.id)
-    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
-    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
-    PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
-    PatientMessageLoader.assay(pt.id, pt.sei, @pten, 'ICCPTENs')
-    PatientMessageLoader.assay(pt.id, pt.sei, @baf47, 'ICCBAF47s')
-    PatientMessageLoader.assay(pt.id, pt.sei, @brg1, 'ICCBRG1s')
-    upload_vcf_to_s3(pt.id, pt.moi, pt.ani)
-    send_vcf_message(pt.id, pt.moi, pt.ani)
-    PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.ani)
-    PatientMessageLoader.wait_until_patient_status_is(pt.id, 'PENDING_CONFIRMATION')
+    PatientMessageLoader.register_patient(@pt.id)
+    PatientMessageLoader.specimen_received_tissue(@pt.id, @pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(@pt.id, @pt.sei, @pt.moi)
+    PatientMessageLoader.specimen_shipped_slide(@pt.id, @pt.sei, @pt.bc)
+    PatientMessageLoader.assay(@pt.id, @pt.sei, @pten, 'ICCPTENs')
+    PatientMessageLoader.assay(@pt.id, @pt.sei, @baf47, 'ICCBAF47s')
+    PatientMessageLoader.assay(@pt.id, @pt.sei, @brg1, 'ICCBRG1s')
+    upload_vcf_to_s3(@pt.id, @pt.moi, @pt.ani)
+    send_vcf_message(@pt.id, @pt.moi, @pt.ani)
+  end
+  
+  def self.confirm_patient
+    PatientMessageLoader.variant_file_confirmed(@pt.id, 'confirm', @pt.ani)
+    PatientMessageLoader.wait_until_patient_status_is(@pt.id, 'PENDING_CONFIRMATION')
   end
 
   def self.send_vcf_message(patient_id, moi, ani)
@@ -148,5 +152,4 @@ class BioMatchPMFullValidation
   end
 end
 
-BioMatchPMFullValidation.reload_database_local_only
 BioMatchPMFullValidation.test('Test_D1_2')

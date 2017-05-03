@@ -159,5 +159,3 @@ class BioMatchPMQuickValidation
     tas.each { |this_ta| puts "#{this_ta['treatment_arm_id']} (#{this_ta[0]['stratum_id']})"}
   end
 end
-
-BioMatchPMQuickValidation.test('Test_D1_2')
