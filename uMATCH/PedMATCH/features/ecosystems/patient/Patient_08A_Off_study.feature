@@ -30,9 +30,10 @@ Feature: Patients off study tests
       | PT_OS01_NoTaAvailable         | 1.0                 | successfully | 202       | OFF_STUDY                |
       | PT_OS01_CompassionateCare     | 1.0                 | successfully | 202       | OFF_STUDY                |
       | PT_OS01_OffStudy              | 1.0                 | off          | 403       | OFF_STUDY                |
-      | PT_OS01_OffStudyBiopsyExpired | 1.0                 | expired      | 403       | OFF_STUDY_BIOPSY_EXPIRED |
+    #no bio expired anymore
+#      | PT_OS01_OffStudyBiopsyExpired | 1.0                 | expired      | 403       | OFF_STUDY_BIOPSY_EXPIRED |
     #no blood status is used anymore
-#  |PT_OS01_BdReceived     |BLOOD_SPECIMEN_RECEIVED          |2.0                |
+#  |PT_OS01_BdReceived     |BLOOD_SPECIMEN_RECEIVED          |2.0˙                |
 #  |PT_OS01_BdShipped      |BLOOD_NUCLEIC_ACID_SHIPPED       |2.0                |
 #  |PT_OS01_BdVrReceived   |BLOOD_VARIANT_REPORT_RECEIVED    |1.0                |
 #  |PT_OS01_BdVrConfirmed  |BLOOD_VARIANT_REPORT_CONFIRMED   |1.0                |
@@ -41,7 +42,8 @@ Feature: Patients off study tests
 #      | PT_OS01_PathoConfirmed  | PATHOLOGY_REVIEWED              | 2.0                 |
 
 
-  @patients_p2
+    #no bio expired any more
+  @patients_off
   Scenario Outline: PT_OS01a. patient can be set to OFF_STUDY_BIOPSY_EXPIRED status from certain status
     Given patient id is "<patient_id>"
     And load template off study biopsy expired message for this patient
@@ -95,7 +97,8 @@ Feature: Patients off study tests
     Examples:
       | patient_id         |
       | PT_OS02a_OffStudy1 |
-      | PT_OS02a_OffStudy2 |
+    #no bio expired any more
+#      | PT_OS02a_OffStudy2 |
 
   @patients_p2
   Scenario Outline: PT_OS03. assignment report confirmation should fail if patient is on OFF_STUDY status
@@ -108,7 +111,8 @@ Feature: Patients off study tests
     Examples:
       | patient_id        | ani                    |
       | PT_OS03_OffStudy1 | PT_OS03_OffStudy1_ANI1 |
-      | PT_OS03_OffStudy2 | PT_OS03_OffStudy2_ANI1 |
+    #no bio expired any more
+#      | PT_OS03_OffStudy2 | PT_OS03_OffStudy2_ANI1 |
 
   @patients_p3
   Scenario Outline: PT_OS04. request assignment should fail if patient is on OFF_STUDY status
@@ -123,8 +127,9 @@ Feature: Patients off study tests
       | patient_id    | current_status           | rebiopsy |
       | PT_OS04_OnTA1 | OFF_STUDY                | Y        |
       | PT_OS04_OnTA1 | OFF_STUDY                | N        |
-      | PT_OS04_OnTA2 | OFF_STUDY_BIOPSY_EXPIRED | Y        |
-      | PT_OS04_OnTA2 | OFF_STUDY_BIOPSY_EXPIRED | N        |
+    #no bio expired any more
+#      | PT_OS04_OnTA2 | OFF_STUDY_BIOPSY_EXPIRED | Y        |
+#      | PT_OS04_OnTA2 | OFF_STUDY_BIOPSY_EXPIRED | N        |
 
 #  Scenario Outline: PT_OS05 OFF_STUDY should fail if patient is on OFF_STUDY status
 #    Given patient: "<patient_id>" with status: "<current_status>" on step: "1.1"

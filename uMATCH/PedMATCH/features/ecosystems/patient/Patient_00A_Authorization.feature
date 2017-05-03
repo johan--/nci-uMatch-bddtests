@@ -251,7 +251,8 @@ Feature: Patient API authorization tests
       | PT_AU07_Registered0 | SPECIMEN_MESSAGE_SENDER           |         | 401  |
       | PT_AU07_Registered0 | ASSAY_MESSAGE_SENDER              |         | 401  |
 
-  @patients_p1
+    #no bio expired any more
+  @patients_off
   Scenario Outline: PT_AU07b role base authorization works properly for patient off study biopsy expired
     Given patient id is "<patient_id>"
     And load template off study biopsy expired message for this patient
@@ -384,13 +385,13 @@ Feature: Patient API authorization tests
     Given patient GET service: "specimen_events", patient id: "PT_AU11_MdaTsShipped", id: ""
     And patient API user authorization role is "<auth_role>"
     When GET from MATCH patient API, http code "200" should return
-    And this patient tissue specimen_events "PT_AU11_MdaTsShipped_MOI1" should have field "allow_upload" value "<allow1>"
+    And this patient tissue specimen_events "PT_AU11_MdaTsShipped_MOI1" allow_upload field should be "<allow1>"
     Then patient GET service: "specimen_events", patient id: "PT_AU11_MochaTsShipped", id: ""
     When GET from MATCH patient API, http code "200" should return
-    And this patient tissue specimen_events "PT_AU11_MochaTsShipped_MOI1" should have field "allow_upload" value "<allow2>"
+    And this patient tissue specimen_events "PT_AU11_MochaTsShipped_MOI1" allow_upload field should be "<allow2>"
     Then patient GET service: "specimen_events", patient id: "PT_AU11_DtmTsShipped", id: ""
     When GET from MATCH patient API, http code "200" should return
-    And this patient tissue specimen_events "PT_AU11_DtmTsShipped_MOI1" should have field "allow_upload" value "<allow3>"
+    And this patient tissue specimen_events "PT_AU11_DtmTsShipped_MOI1" allow_upload field should be "<allow3>"
     Examples:
       | auth_role                         | allow1 | allow2 | allow3 |
       | NCI_MATCH_READONLY                | false  | false  | false  |

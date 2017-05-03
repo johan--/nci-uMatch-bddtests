@@ -984,6 +984,29 @@ Then(/^this patient tissue specimen_events "([^"]*)" should have field "([^"]*)"
   end
 end
 
+Then(/^this patient tissue specimen_events "([^"]*)" allow_upload field should be "([^"]*)"$/) do |moi, allow|
+  type = 'tissue_specimens'
+  field = 'allow_upload'
+  expect(@get_response.class).to eql Hash
+  expect(@get_response.keys).to include type
+  has_result = false
+  @get_response[type].each { |this_specimen|
+    this_specimen['specimen_shipments'].each { |this_shipment|
+      next unless this_shipment['molecular_id'] == moi
+      has_result = true
+      if allow == 'true'
+        expect(this_shipment.keys).to include field
+        expect(this_shipment[field].to_s).to eq allow
+      elsif this_shipment.keys.include?(field)
+        expect(this_shipment[field].to_s).to eq allow
+      end
+    }
+  }
+  unless has_result
+    raise "Cannot find specimen shippment with molecular id #{moi}"
+  end
+end
+
 Then(/^this patient tissue specimen_events analyses "([^"]*)" should have correct "([^"]*)" file names: "([^"]*)"$/) do |ani, file_type, name|
   has_result = false
   @get_response['tissue_specimens'].each { |this_specimen|

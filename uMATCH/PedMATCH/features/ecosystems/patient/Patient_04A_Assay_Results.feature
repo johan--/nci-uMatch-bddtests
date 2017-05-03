@@ -101,9 +101,9 @@ Feature: Assay Messages
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
       | value   | message        |code|
-      |         | can't be blank |400 |
-      | nonDate | date           |403 |
-      | null    | can't be blank |400 |
+      |         | can't be blank |403 |
+      | nonDate | date           |400 |
+      | null    | can't be blank |403 |
 
   @patients_p2
   Scenario Outline: PT_AS07. Assay result with invalid result(other than POSITIVE, NEGATIVE or INDETERMINATE) should fail
@@ -116,7 +116,7 @@ Feature: Assay Messages
     Examples:
       | value       | message        | code |
       |             | can't be blank | 403  |
-      | otherResult | result         | 400  |
+      | otherResult | result         | 403  |
       | null        | can't be blank | 403  |
 
 
@@ -150,7 +150,8 @@ Feature: Assay Messages
       | patient_id                    | biomarker | sei                                | message |
       | PT_AS09_ReqNoAssignment       | ICCPTENs  | PT_AS09_ReqNoAssignment_SEI1       | status  |
       | PT_AS09_OffStudy              | ICCPTENs  | PT_AS09_OffStudy_SEI1              | status  |
-      | PT_AS09_OffStudyBiopsyExpired | ICCPTENs  | PT_AS09_OffStudyBiopsyExpired_SEI1 | status  |
+    #no bio expired any more
+#      | PT_AS09_OffStudyBiopsyExpired | ICCPTENs  | PT_AS09_OffStudyBiopsyExpired_SEI1 | status  |
 #  Scenario: PT_AS09a. Assay result report date is older than order date should fail
 ##  Test data: Patient=PT_AS09aSlideShipped, surgical_event_id=PT_AS09aSlideShipped_SEI1, ordered_date=2016-05-02T12:13:09.071-05:00
 #    Given template assay message with surgical_event_id: "PT_AS09aSlideShipped_SEI1" for patient: "PT_AS09aSlideShipped"

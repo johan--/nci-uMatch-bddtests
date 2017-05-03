@@ -141,7 +141,8 @@ Feature: Patients request assignment tests
       | PT_RA04a_NoTaAvailable         | 1.0              |         | 202       | REQUEST_NO_ASSIGNMENT           |
       | PT_RA04a_CompassionateCare     | 1.0              |         | 202       | REQUEST_NO_ASSIGNMENT           |
       | PT_RA04a_OffStudy              | 1.0              |         | 403       | OFF_STUDY                       |
-      | PT_RA04a_OffStudyBiopsyExpired | 1.0              |         | 403       | OFF_STUDY_BIOPSY_EXPIRED        |
+    #no bio expired any more
+#      | PT_RA04a_OffStudyBiopsyExpired | 1.0              |         | 403       | OFF_STUDY_BIOPSY_EXPIRED        |
 
 #  PT_RA04b off study and request assignment message should be accepted when patient is on request no assignment status
 #    please check test PT_OS01 last example and PT_RA02 example 3, PT_RA03 example 4
