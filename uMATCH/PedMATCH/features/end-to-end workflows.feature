@@ -66,7 +66,7 @@ Feature: Workflow scenarios that exercises the entire PedMATCH system from regis
     Then patient status should be "ON_TREATMENT_ARM"
 
 
-  Scenario: Patient matches to a treatment arm but COG deems it not eligible
+#  Scenario: Patient matches to a treatment arm but COG deems it not eligible
 
 
   Scenario: Patient is excluded from the arm that has a matching exclusion variant and inclusion variant
