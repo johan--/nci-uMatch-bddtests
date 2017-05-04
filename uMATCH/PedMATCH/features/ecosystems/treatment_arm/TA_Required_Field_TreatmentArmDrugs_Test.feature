@@ -45,16 +45,27 @@ Feature: TA_DG. Treatment Arm API Tests that focus on "treatment_arm_drugs" and 
     Then a success message is returned
 
   @treatment_arm_p2
-  Scenario Outline: TA_DG6. New Treatment Arm with incomplete drug entity should fail
+  Scenario Outline: TA_DG6a. New Treatment Arm with incomplete drug name should fail
     Given template treatment arm json with a random id
     And clear list field: "treatment_arm_drugs" from template treatment arm json
     And add drug with name: "<drugName>" pathway: "<drugPathway>" and id: "<drugId>" to template treatment arm json
     When creating a new treatment arm using post request
     Then a failure message is returned which contains: "<validation_message>"
     Examples:
-      | drugName | drugPathway | drugId | validation_message        |
-      | AZD9291  | EGFR        | null   | drug_id' of type NilClass |
-      | null     | EGFR        | 781254 | name' of type NilClass    |
+      | drugName | drugPathway | drugId | validation_message         |
+      | null     | EGFR        | 781254 | name' of type NilClass     |
+      |          | EGFR        | 781254 | minimum string length of 1 |
+
+  Scenario Outline: TA_DG6b. New Treatment Arm with incomplete drug id should pass
+    Given template treatment arm json with a random id
+    And clear list field: "treatment_arm_drugs" from template treatment arm json
+    And add drug with name: "<drugName>" pathway: "<drugPathway>" and id: "<drugId>" to template treatment arm json
+    When creating a new treatment arm using post request
+    Then a success message is returned
+    Examples:
+      | drugName | drugPathway | drugId |
+      | AZD9291  | EGFR        | null   |
+      | AZD9291  | EGFR        |        |
 
   @treatment_arm_p2
   Scenario Outline: TA_DG7 New Treatment Arm with null or empty drug pathway should pass

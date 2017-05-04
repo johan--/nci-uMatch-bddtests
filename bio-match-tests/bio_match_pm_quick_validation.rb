@@ -4,20 +4,36 @@ require_relative '../DataSetup/dynamo_utilities'
 require_relative '../DataSetup/sqs_utilities'
 
 class BioMatchPMQuickValidation
-  ION_REPORTER='bio-match-test'
-  PATIENT_URL='http://127.0.0.1:10240/api/v1/patients'
-  TREATMENT_ARM_URL='http://127.0.0.1:10235/api/v1/treatment_arms'
-  RULE_URL='http://127.0.0.1:10250/api/v1/rules'
-  TA_URL='http://127.0.0.1:10235/api/v1/treatment_arms'
   NO_TA='No treatment arm selected'
 
-  def self.test(test_id)
+
+  def initialize(tier)
+    if tier.downcase == 'local'
+      @ion_reporter='bio-match-test'
+      @patient_url='http://127.0.0.1:10240/api/v1/patients'
+      @treatment_arm_url='http://127.0.0.1:10235/api/v1/treatment_arms'
+      @rule_url='http://127.0.0.1:10250/api/v1/rules'
+      @ta_url='http://127.0.0.1:10235/api/v1/treatment_arms'
+      @s3_bucket='pedmatch-dev'
+    elsif tier.downcase == 'uat'
+      @ion_reporter='bio-match-test'
+      @patient_url='https://pedmatch-uat.nci.nih.gov/api/v1/patients'
+      @treatment_arm_url='https://pedmatch-uat.nci.nih.gov/api/v1/treatment_arms'
+      @rule_url='https://pedmatch-uat.nci.nih.gov/api/v1/rules'
+      @ta_url='https://pedmatch-uat.nci.nih.gov/api/v1/treatment_arms'
+      @s3_bucket='pedmatch-uat'
+    else
+      raise 'tier value can only by local or uat'
+    end
+  end
+  
+  def test(test_id)
     load_test(test_id)
     build_patient
     verify_result
   end
 
-  def self.load_test(test_id)
+  def load_test(test_id)
     @patient_hash = JSON.parse(File.read("#{File.dirname(__FILE__)}/patients/#{test_id}.json"))
     @expect_ta = ta_string(@patient_hash['expected_treatment_arm_id'], @patient_hash['expected_stratum_id'])
     @pten = @patient_hash['pten_status']
@@ -35,7 +51,7 @@ class BioMatchPMQuickValidation
       } }
   end
 
-  def self.build_patient
+  def build_patient
     Environment.setTier('local')
     pt = PatientDataSet.new(@patient_id)
     convert_vcf_to_tsv(pt.id)
@@ -44,7 +60,7 @@ class BioMatchPMQuickValidation
     generate_assignment(pt.id)
   end
 
-  def self.verify_result
+  def verify_result
     result = Hash.new
     result['test_case'] = "#{@patient_id}"
     if @generated_ar.keys.include?('report_status')
@@ -72,7 +88,7 @@ class BioMatchPMQuickValidation
 
   end
 
-  def self.ta_string(ta_id, stratum)
+  def ta_string(ta_id, stratum)
     if ta_id.eql?('')||stratum.eql?('')
       return NO_TA
     else
@@ -80,7 +96,7 @@ class BioMatchPMQuickValidation
     end
   end
 
-  def self.convert_vcf_to_tsv(patient_id)
+  def convert_vcf_to_tsv(patient_id)
     vcf = "#{File.dirname(__FILE__)}/vcfs/#{patient_id}.vcf"
     tsv = "#{File.dirname(__FILE__)}/tsv/#{patient_id}.tsv"
     puts "Converting #{vcf} to #{tsv} ..."
@@ -95,7 +111,7 @@ class BioMatchPMQuickValidation
     end
   end
 
-  def self.upload_files_to_s3(patient_id, moi, ani)
+  def upload_files_to_s3(patient_id, moi, ani)
     tsv_path = "#{File.dirname(__FILE__)}/tsv/#{patient_id}.tsv"
     vcf_path = "#{File.dirname(__FILE__)}/vcfs/#{patient_id}.vcf"
     tmp_folder = "#{File.dirname(__FILE__)}/upload_tmp/#{moi}/#{ani}"
@@ -106,15 +122,15 @@ class BioMatchPMQuickValidation
     puts `#{cmd}`
     cmd = "cp #{vcf_path} #{tmp_folder}"
     puts `#{cmd}`
-    cmd = "aws s3 cp #{tmp_root_folder} s3://pedmatch-dev/#{ION_REPORTER}/ --recursive --region us-east-1"
+    cmd = "aws s3 cp #{tmp_root_folder} s3://#{@s3_bucket}/#{@ion_reporter}/ --recursive --region us-east-1"
     `#{cmd}`
     cmd = "rm -r -f #{File.dirname(__FILE__)}/upload_tmp"
     `#{cmd}`
     puts "#{patient_id} vcf and tsv have been uploaded to S3"
   end
 
-  def self.generate_variant_report(patient_id, moi, ani)
-    url = "#{RULE_URL}/variant_report/#{patient_id}/#{ION_REPORTER}/#{moi}/#{ani}/#{patient_id}"
+  def generate_variant_report(patient_id, moi, ani)
+    url = "#{@rule_url}/variant_report/#{patient_id}/#{@ion_reporter}/#{moi}/#{ani}/#{patient_id}"
     response = Helper_Methods.post_request(url, @treatment_arms.to_json)
     if response['http_code'] == '200'
       @generated_vr = JSON.parse(response['message'])
@@ -124,12 +140,12 @@ class BioMatchPMQuickValidation
     end
   end
 
-  def self.generate_assignment(patient_id)
+  def generate_assignment(patient_id)
     if @generated_vr.size<1
       @generated_ar = {}
       return
     end
-    url = "#{RULE_URL}/assignment_report/#{patient_id}"
+    url = "#{@rule_url}/assignment_report/#{patient_id}"
     patient = JSON.parse(File.read("#{File.dirname(__FILE__)}/patients/#{patient_id}.json"))
     patient['patient_id'] = patient_id
     patient['snv_indels'] = @generated_vr['snv_indels']
@@ -146,12 +162,12 @@ class BioMatchPMQuickValidation
       @actual_ta = "Rule engine cannot generate assignment report for patient #{patient_id}"
     end
   end
-  def self.clear_database
+  def clear_database
     MatchTestDataManager.clear_all_local_tables
   end
-  def self.update_treatment_arms
+  def update_treatment_arms
     Environment.setTier('local')
-    url = "#{TREATMENT_ARM_URL}"
+    url = "#{@treatment_arm_url}"
     tas = Helper_Methods.simple_get_request(url)['message_json']
     File.open("#{File.dirname(__FILE__)}/results/#{patient_id}.json", 'w') { |f| f.write(JSON.pretty_generate(tas)) }
     puts "#{File.dirname(__FILE__)}/results/#{patient_id}.json is updated"

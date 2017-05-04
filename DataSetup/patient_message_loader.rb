@@ -5,11 +5,26 @@ require_relative '../uMATCH/PedMATCH/features/support/helper_methods'
 class PatientMessageLoader
 
   LOCAL_PATIENT_DATA_FOLDER = 'local_patient_data'
-  LOCAL_DYNAMODB_URL = 'http://localhost:8000'
   LOCAL_PATIENT_API_URL = 'http://localhost:10240/api/v1/patients'
   LOCAL_COG_URL = 'http://localhost:3000'
   SERVICE_NAME = 'trigger'
   MESSAGE_TEMPLATE_FILE = "#{File.dirname(__FILE__)}/../uMATCH/PedMATCH/public/patient_message_templates.json"
+
+  def self.set_patient_api_url(url='http://localhost:10240/api/v1/patients')
+    @patient_api_url = url
+  end
+
+  def self.set_cog_url(url='http://localhost:3000')
+    @cog_url = url
+  end
+
+  def self.patient_api_url
+    @patient_api_url||=LOCAL_PATIENT_API_URL
+  end
+
+  def self.cog_url
+    @cog_url||=LOCAL_COG_URL
+  end
 
   def self.load_patient_message(file_name, patient_id)
     message_list = JSON(IO.read(file_name))[patient_id]
@@ -62,7 +77,7 @@ class PatientMessageLoader
 
         curl_cmd ="curl -k -X POST -H \"Content-Type: application/json\""
         curl_cmd = curl_cmd + " -H \"Accept: application/json\"  -d '" + message.to_json
-        curl_cmd = curl_cmd + "' #{LOCAL_PATIENT_API_URL}/#{patient_id}"
+        curl_cmd = curl_cmd + "' #{patient_api_url}/#{patient_id}"
         output = `#{curl_cmd}`
         p "Output from running No.#{all_items} curl: #{output}"
         unless output.downcase.include? 'success'
@@ -82,7 +97,7 @@ class PatientMessageLoader
   def self.wait_until_patient_status_is(patient_id, status)
     timeout = 30.0
     total_time = 0.0
-    url = "#{LOCAL_PATIENT_API_URL}/#{patient_id}"
+    url = "#{patient_api_url}/#{patient_id}"
     loop do
       new_hash = Helper_Methods.simple_get_request(url)['message_json']
       total_time += 0.5
@@ -98,7 +113,7 @@ class PatientMessageLoader
     timeout = 30.0
     total_time = 0.0
     old_hash = nil
-    url = "#{LOCAL_PATIENT_API_URL}/#{patient_id}"
+    url = "#{patient_api_url}/#{patient_id}"
     if table.size>1
       url += "/#{table}"
     end
@@ -120,7 +135,7 @@ class PatientMessageLoader
     timeout = 30.0
     total_time = 0.0
     old_hash = nil
-    url = "#{LOCAL_PATIENT_API_URL}/events?entity_id=#{patient_id}"
+    url = "#{patient_api_url}/events?entity_id=#{patient_id}"
     loop do
       new_hash = Helper_Methods.simple_get_request(url)['message_json']
       if old_hash.nil?
@@ -143,10 +158,10 @@ class PatientMessageLoader
       @failure = 0
     end
     @all_items += 1
-    output = Helper_Methods.post_request("#{LOCAL_PATIENT_API_URL}/#{patient_id}", message_json.to_json)
+    output = Helper_Methods.post_request("#{patient_api_url}/#{patient_id}", message_json.to_json)
     # curl_cmd ="curl -k -X POST -H \"Content-Type: application/json\""
     # curl_cmd = curl_cmd + " -H \"Accept: application/json\"  -d '" + message_json.to_json
-    # curl_cmd = curl_cmd + "' #{LOCAL_PATIENT_API_URL}/#{patient_id}"
+    # curl_cmd = curl_cmd + "' #{patient_api_url}/#{patient_id}"
     # output = `#{curl_cmd}`
     p "Output from running No.#{@all_items} curl: #{output['message']}"
     p "#{message} completed"
@@ -168,7 +183,7 @@ class PatientMessageLoader
       @failure = 0
     end
     @all_items += 1
-    output = Helper_Methods.post_request("#{LOCAL_PATIENT_API_URL}/variant_report/#{moi}", message_json.to_json)
+    output = Helper_Methods.post_request("#{patient_api_url}/variant_report/#{moi}", message_json.to_json)
     p "Output from running No.#{@all_items} curl: #{output['message']}"
     p "#{message} completed"
     unless output['message'].downcase.include? 'success'
@@ -189,7 +204,7 @@ class PatientMessageLoader
       @failure = 0
     end
     @all_items += 1
-    output = Helper_Methods.post_request("#{LOCAL_PATIENT_API_URL}/events", message_json.to_json)
+    output = Helper_Methods.post_request("#{patient_api_url}/events", message_json.to_json)
     p "Output from running No.#{@all_items} curl: #{output['message']}"
     p "#{message} completed"
     unless output['message'].downcase.include? 'success'
@@ -210,11 +225,11 @@ class PatientMessageLoader
       @failure = 0
     end
     @all_items += 1
-    url = "#{LOCAL_PATIENT_API_URL}/#{service}"
+    url = "#{patient_api_url}/#{service}"
     output = Helper_Methods.put_request(url, message_json.to_json)
     # curl_cmd ="curl -k -X PUT -H \"Content-Type: application/json\""
     # curl_cmd = curl_cmd + " -H \"Accept: application/json\"  -d '" + message_json.to_json
-    # curl_cmd = curl_cmd + "' #{LOCAL_PATIENT_API_URL}#{service}"
+    # curl_cmd = curl_cmd + "' #{patient_api_url}#{service}"
     # output = `#{curl_cmd}`
     p "Output from running No.#{@all_items} curl: #{output['message']}"
     unless output['message'].downcase.include? 'success'
@@ -235,7 +250,7 @@ class PatientMessageLoader
       @failure = 0
     end
     @all_items += 1
-    url = "#{LOCAL_COG_URL}/#{service}"
+    url = "#{cog_url}/#{service}"
     output = Helper_Methods.post_request(url, message_json.to_json)
     # curl_cmd ="curl -k -X POST -H \"Content-Type: application/json\""
     # curl_cmd = curl_cmd + " -H \"Accept: application/json\"  -d '" + message_json.to_json
@@ -263,11 +278,11 @@ class PatientMessageLoader
       @failure = 0
     end
     @all_items += 1
-    url = "#{LOCAL_PATIENT_API_URL}/#{patient_id}/variant_reports/#{ani}/#{status}"
+    url = "#{patient_api_url}/#{patient_id}/variant_reports/#{ani}/#{status}"
     output = Helper_Methods.put_request(url, message_json.to_json)
     # curl_cmd ="curl -k -X PUT -H \"Content-Type: application/json\""
     # curl_cmd = curl_cmd + " -H \"Accept: application/json\"  -d '" + message_json.to_json
-    # curl_cmd = curl_cmd + "' #{LOCAL_PATIENT_API_URL}/#{patient_id}/variant_reports/#{ani}/#{status}"
+    # curl_cmd = curl_cmd + "' #{patient_api_url}/#{patient_id}/variant_reports/#{ani}/#{status}"
     # output = `#{curl_cmd}`
     p "Output from running No.#{@all_items} curl: #{output['message']}"
     unless output['message'].downcase.include? 'success'
