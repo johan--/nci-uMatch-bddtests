@@ -64,7 +64,7 @@ module.exports = function() {
 
     this.Then(/^I can see patients with Pending Tissue Variant Reports$/, function (callback) {
         browser.ignoreSynchronization = true;
-        var pendingVRCount = dash.responseData.tissue_variant_reports.length.toString()
+        var pendingVRCount = dash.responseData.tissue_variant_reports.length.toString();
         browser.sleep(1000);
         expect(dash.pendingTVRCount.getText()).to.eventually.eql(pendingVRCount).then(function(){
             browser.ignoreSynchronization = false;
@@ -165,7 +165,7 @@ module.exports = function() {
     });
 
     this.Given(/^I collect information for "(.+?)" Dashboard$/, function (report_type, callback) {
-        var request = callList.pendingItems
+        var request = callList.pendingItems;
 
         utilities.getRequestWithService('patient', request).then(function(responseBody){
             dash.responseData = responseBody;
@@ -174,15 +174,66 @@ module.exports = function() {
 
     this.Then(/^Count of "(.+?)" table match with back end data$/, function (reportType, callback) {
         var pendingReportSections = reportType === "Assignment Reports" ? "assignment_reports" : "tissue_variant_reports"
-        var count = dash.responseData[pendingReportSections].length;
+        var totalDataCount = dash.responseData[pendingReportSections].length;
         var subtabDataList = element.all(by.id(subTabLocator[reportType])).get(0).all(by.repeater('item in filtered'));
-        browser.ignoreSynchronization = true;
-        expect(subtabDataList.count()).to.eventually.eql(count).then(function () {
-            browser.ignoreSynchronization = false;
-        }).then(callback);
+        var paginationElement = element.all(by.id(subTabLocator[reportType])).get(0).all(by.css('a[ng-click="selectPage(page.number, $event)"]'));
+        var gridNextPageButton = element(by.id(subTabLocator[reportType])).element(by.css('.pagination-next a[ng-click="selectPage(page + 1, $event)"]'));
+        var gridNextLinkDisabled = element(by.id(subTabLocator[reportType])).element(by.css('.pagination-next.disabled'));
+
+        var perPage = dash.paginationOption;
+        var pages = Math.ceil(totalDataCount / perPage);
+        var count = 0;
+        var currentPage = 1;
+        browser.ignoreSynchronization = false;
+
+        subtabDataList.count().then(function(pageCount){
+            count += pageCount;
+        });
+
+        var endCb = function() {
+            return assert.equal(count, totalDataCount,
+                "Number of rows collected from all pages should be equal total numbber of data rows");
+        };
+
+        var clickNext = function(cbNext, cbEnd){
+            var enabledPromise;
+
+            if (currentPage < pages){
+                enabledPromise = assert.eventually.equal(gridNextLinkDisabled.isPresent(), false);
+            } else {
+                enabledPromise = assert.eventually.equal(gridNextLinkDisabled.isPresent(), true);
+            }
+            var clickNextPromise = paginationElement.get(0).getLocation().then(function(loc){
+                return browser.executeScript('window.scrollTo(0,'+ (loc.y - 200) + ')').then(function(){
+                    return enabledPromise.then(function(){
+                        return browser.sleep(9000).then(function(){
+                            return gridNextPageButton.click();
+                        });
+                    })
+                })
+            });
+            return assert.isFulfilled(clickNextPromise, "this is clickNextPromise promise").then(function() {
+                if (currentPage < pages) {
+                    subtabDataList.count ().then (function (pageRowCount) {
+                        count += pageRowCount;
+                    });
+                    currentPage++;
+                    return cbNext (cbNext, cbEnd);
+                } else {
+                    return cbEnd ();
+                }
+            })
+        };
+
+        if (currentPage < pages) {
+            assert.isFulfilled(clickNext(clickNext, endCb), "this is click next promise").then(callback);
+        } else {
+            expect(subtabDataList.count()).to.eventually.eql(totalDataCount).notify(callback);
+        }
     });
 
     this.Then(/^I select "(.+?)" from the "(.+?)" drop down$/, function (optionValue, reportType, callback) {
+        dash.paginationOption = optionValue;
         element(by.id(subTabLocator[reportType]))
             .element(by.model('paginationOptions.itemsPerPage'))
             .element(by.cssContainingText('option', optionValue))

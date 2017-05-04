@@ -117,7 +117,7 @@ module.exports = function () {
 
         var endCb = function() {
             console.log('CALLED END', count, totalDataCount);
-            return assert.eventually.equal(Promise.resolve(count), totalDataCount, 
+            return assert.eventually.equal(Promise.resolve(count), totalDataCount,
                 "Number of rows collected from all pages should be equal total numbber of data rows");
        };
 
@@ -125,7 +125,7 @@ module.exports = function () {
             var enabledPromise;
 
             console.log('currentPage', currentPage);
-            
+
             if (currentPage < pages) {
                 // console.log('disabled');
                 enabledPromise = assert.eventually.equal(taPage.gridNextLinkDisabled.isPresent(), false);
@@ -137,7 +137,6 @@ module.exports = function () {
             var clickPromise = browser.executeScript('window.scrollTo(0,5000)').then(function() {
                 return enabledPromise.then(function() {
                     browser.sleep(500);
-                    // console.log('count', count);
                     return taPage.gridNextPageButton.click();
                 });
             });
@@ -161,7 +160,7 @@ module.exports = function () {
         if (currentPage < pages) {
             assert.isFulfilled(clickNext(clickNext, endCb)).then(callback);
         } else {
-            expect(count).to.equal(totalDataCount, 
+            expect(count).to.equal(totalDataCount,
                 "Number of rows collected from all pages should be equal total numbber of data rows").then(callback);
         }
     });
@@ -264,7 +263,7 @@ module.exports = function () {
         utilities.getRequestWithService('treatment', uri).then(function(response){
             allPatientDetails = response;
         }).then(callback);
-    });
+});
 
     this.Then (/^I should see a patient's data in the All Patients Data Table$/, function (callback) {
         var allRows = taPage.allPatientDataRows;
