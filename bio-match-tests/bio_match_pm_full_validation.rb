@@ -34,6 +34,7 @@ class BioMatchPMFullValidation
 
   def test(test_id)
     build_patient(test_id)
+    upload_files
     confirm_patient
     verify_result
   end
@@ -64,6 +65,9 @@ class BioMatchPMFullValidation
     PatientMessageLoader.assay(@pt.id, @pt.sei, @pten, 'ICCPTENs')
     PatientMessageLoader.assay(@pt.id, @pt.sei, @baf47, 'ICCBAF47s')
     PatientMessageLoader.assay(@pt.id, @pt.sei, @brg1, 'ICCBRG1s')
+  end
+
+  def upload_files
     upload_vcf_to_s3(@pt.id, @pt.moi, @pt.ani)
     send_vcf_message(@pt.id, @pt.moi, @pt.ani)
   end

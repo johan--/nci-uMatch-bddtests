@@ -150,3 +150,20 @@ Feature: Patients assignment tests
     And this assignment status should be "CONFIRMED"
     Then this patient should have assignment for analysis id "PT_AM08_PendingApprovalStep2_ANI2"
     And this assignment status should be "PENDING"
+
+  @patients_p2
+  Scenario Outline: PT_AM09. even if patient data from COG has empty drug_id, patient should still be assigned
+    #PT_AM09_VrAssayReady1 has drug_id null in mock cog data
+    #PT_AM09_VrAssayReady2 has drug_id '' in mock cog data
+    #PT_AM09_VrAssayReady3 doesn't have drug_id in mock cog data
+    Given patient id is "<patient_id>"
+    And patient API user authorization role is "MDA_VARIANT_REPORT_REVIEWER"
+    Then load template variant report confirm message for analysis id: "<ani>"
+    When PUT to MATCH variant report "confirm" service, response includes "successfully" with code "200"
+    Then patient status should change to "PENDING_CONFIRMATION"
+    Then patient should have selected treatment arm: "APEC1621-A" with stratum id: "100"
+    Examples:
+      | patient_id            | ani                        |
+      | PT_AM09_VrAssayReady1 | PT_AM09_VrAssayReady1_ANI1 |
+      | PT_AM09_VrAssayReady2 | PT_AM09_VrAssayReady2_ANI1 |
+      | PT_AM09_VrAssayReady3 | PT_AM09_VrAssayReady3_ANI1 |
