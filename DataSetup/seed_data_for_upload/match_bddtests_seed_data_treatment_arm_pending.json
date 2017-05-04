@@ -1,6 +1,168 @@
 {
-    "Count": 6,
+    "Count": 8,
     "Items": [
+        {
+            "info": {
+                "M": {
+                    "stratum_id": {
+                        "S": "100"
+                    },
+                    "non_hotspot_rules": {
+                        "L": []
+                    },
+                    "diseases": {
+                        "L": []
+                    },
+                    "target_name": {
+                        "S": "LOXO-101"
+                    },
+                    "description": {
+                        "S": "LOXO-101 in  NTRK fusions"
+                    },
+                    "snv_indels": {
+                        "L": []
+                    },
+                    "copy_number_variants": {
+                        "L": []
+                    },
+                    "exclusion_drugs": {
+                        "L": [
+                            {
+                                "M": {
+                                    "name": {
+                                        "S": "LOXO-101"
+                                    },
+                                    "drug_id": {
+                                        "S": "788607"
+                                    }
+                                }
+                            },
+                            {
+                                "M": {
+                                    "name": {
+                                        "S": "Entrectinib (RXDX-101)"
+                                    },
+                                    "drug_id": {
+                                        "S": "1"
+                                    }
+                                }
+                            },
+                            {
+                                "M": {
+                                    "name": {
+                                        "S": "DS6051"
+                                    },
+                                    "drug_id": {
+                                        "S": "1"
+                                    }
+                                }
+                            },
+                            {
+                                "M": {
+                                    "name": {
+                                        "S": "PLX7486"
+                                    },
+                                    "drug_id": {
+                                        "S": "1"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "treatment_arm_drugs": {
+                        "L": [
+                            {
+                                "M": {
+                                    "pathway": {
+                                        "S": "Receptor tyrosine kinase"
+                                    },
+                                    "drug_id": {
+                                        "S": "788607"
+                                    },
+                                    "name": {
+                                        "S": "LOXO-101"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "study_id": {
+                        "S": "APEC1621SC"
+                    },
+                    "assay_rules": {
+                        "L": []
+                    },
+                    "version": {
+                        "S": "version1"
+                    },
+                    "date_created": {
+                        "S": "2017-05-02T18:34:41+00:00"
+                    },
+                    "gene": {
+                        "S": "NTRK"
+                    },
+                    "treatment_arm_id": {
+                        "S": "APEC1621A_repeat"
+                    },
+                    "gene_fusions": {
+                        "L": [
+                            {
+                                "M": {
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    },
+                                    "identifier": {
+                                        "S": "ARHGEF2-NTRK1.A21N10"
+                                    },
+                                    "description": {
+                                        "S": "NTRK1 Gene Fusion"
+                                    },
+                                    "inclusion": {
+                                        "BOOL": true
+                                    },
+                                    "public_med_ids": {
+                                        "L": [
+                                            {
+                                                "S": "25384085"
+                                            }
+                                        ]
+                                    },
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    },
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "name": {
+                        "S": "Phase 2 study of LOXO-101 in patients with tumors with NTRK fusions."
+                    }
+                }
+            },
+            "version": {
+                "S": "version1"
+            },
+            "treatment_arm_id": {
+                "S": "APEC1621_repeat"
+            }
+        },
+        {
+            "info": {
+                "S": "npm-d-admin@outlook.com"
+            },
+            "version": {
+                "S": "version1"
+            },
+            "treatment_arm_id": {
+                "S": "APEC1621_repeat_pending"
+            }
+        },
         {
             "info": {
                 "M": {
@@ -8072,6 +8234,6 @@
             }
         }
     ],
-    "ScannedCount": 6,
+    "ScannedCount": 8,
     "ConsumedCapacity": null
 }

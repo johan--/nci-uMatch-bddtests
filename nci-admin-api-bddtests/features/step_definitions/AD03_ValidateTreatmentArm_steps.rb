@@ -51,6 +51,14 @@ Given(/^I remove the field "([^"]*)" from the template$/) do |field|
   @ta_template.delete(field)
 end
 
+Given(/^I update "([^"]*)" under "([^"]*)" to "([^"]*)" for index "([^"]*)"$/) do |field, parent, value, index|
+  @ta_template[parent][index.to_i][field] = value
+end
+
+Given(/^I remove "([^"]*)" under "([^"]*)" index "([^"]*)"$/) do |test_field, parent, index|
+  @ta_template[parent][index.to_i].delete(test_field)
+end
+
 Then(/^I "(should|should not)" see "([^"]*)" value under the "([^"]*)" field$/) do |see_or_not, expected_value, response_field|
   present = see_or_not == 'should'
   response_message = JSON.parse(@response['message'])
@@ -68,7 +76,7 @@ Then(/^I should see the reason of rejection on "([^"]*)" as "([^"]*)"$/) do |fie
   error_key = message['error_messages'].select { |e| e.key? field }
   expect(error_key.size).to be > 0
 
-  error_message = error_key.select { |e| e.value? reason }
+  error_message = error_key.select { |e| e.values.each { |a| a.include? reason } }
   expect(error_message.size).to be > 0
 end
 
