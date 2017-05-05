@@ -131,3 +131,19 @@ Feature: Test the functionality that filters the SNV variants based on specified
     Examples:
       | tsvFile                 | TAFile          |
       | vcfWithDuplicateHotspot | APEC1621-B.json |
+
+
+  Scenario Outline: FIL-SNV_12: Rule can map snv(snp) and mnv(mnp) variant types properly
+    #in tsv file, 769.2 is mnp, . is snp
+    #in treatment arm a json, 769.2 is mnv, . is snv
+    #in treatment arm b json, 769.2 is snv, . is mnv
+    #in treatment arm c json, 769.2 is ins, . is fusion
+    Given a tsv variant report file "FIL-SNV_12" and treatment arms file "<TAFile>"
+    When call the amoi rest service
+    Then in moi report the snv variant "match769.2" has "<amoi_count1>" amois
+    Then in moi report the snv variant "." has "<amoi_count2>" amois
+    Examples:
+      | TAFile              | amoi_count1 | amoi_count2 |
+      | FIL_SNV_12a_TA.json | 1           | 1           |
+      | FIL_SNV_12b_TA.json | 1           | 1           |
+      | FIL_SNV_12c_TA.json | 0           | 0           |

@@ -1,0 +1,41 @@
+[{
+  "treatment_arm_id": "SNV_location_intronic",
+  "version": "2015-08-06",
+  "stratum_id": "100",
+  "treatment_arm_status": "OPEN",
+  "assay_rules": [],
+  "num_patients_assigned": null,
+  "snv_indels": [
+    {
+      "variant_type":"mnv",
+      "identifier" : "match769.2",
+      "inclusion" : true,
+      "level_of_evidence":null
+    },
+    {
+      "variant_type":"snv",
+      "identifier" : ".",
+      "inclusion" : true,
+      "level_of_evidence":null
+    }
+  ],
+  "gene_fusions":[],
+  "non_hotspot_rules": [
+  ],
+  "copy_number_variants": [],
+  "diseases": [{
+        "disease_code_type":"ICD-O",
+        "disease_code": "10058354",
+        "disease_name": "Bronchioloalveolar carcinoma",
+        "exclusion":true
+      },{
+        "disease_code_type":"ICD-O",
+        "disease_code": "10033701",
+        "disease_name": "Papillary thyroid carcinoma",
+         "exclusion":false
+      }],
+  "exclusion_drugs": [{
+    "name": "Doxorubicin Hydrochloride",
+    "drug_id": "10001"
+  }]
+}]

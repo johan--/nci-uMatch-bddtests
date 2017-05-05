@@ -1790,5 +1790,6932 @@
       }
     ],
     "exclusion_drugs": []
+  },
+  {
+    "assay_rules": [
+
+    ],
+    "copy_number_variants": [
+
+    ],
+    "date_created": "2017-05-04T20:54:02+00:00",
+    "description": "LY3023414 in TSC1\/TSC2 mutations",
+    "diseases": [
+      {
+        "disease_code": "9384-1",
+        "disease_code_type": "ICD-O",
+        "disease_name": "Subependymal giant cell astrocytoma (C71._)",
+        "exclusion": true
+      }
+    ],
+    "exclusion_drugs": [
+      {
+        "drug_class": "PI3K\/mTOR",
+        "drug_id": "783668",
+        "name": "LY3023414"
+      },
+      {
+        "drug_class": "AKT",
+        "drug_id": "781255",
+        "name": "Afuresertib (GSK2110183)"
+      },
+      {
+        "drug_class": "AKT",
+        "drug_id": "722664",
+        "name": "AG1343 (Nelfinavir; Viracept)"
+      },
+      {
+        "drug_class": "AKT",
+        "drug_id": "782347",
+        "name": "AZD-5363"
+      },
+      {
+        "drug_class": "AKT",
+        "name": "BAY-1125976"
+      },
+      {
+        "drug_class": "AKT",
+        "drug_id": "781451",
+        "name": "GDC-0068 (Ipatasertib)"
+      },
+      {
+        "drug_class": "AKT",
+        "drug_id": "767034",
+        "name": "GSK-2141795 (Uprosertib)"
+      },
+      {
+        "drug_class": "AKT",
+        "name": "GSK-690693"
+      },
+      {
+        "drug_class": "AKT",
+        "drug_id": "639966",
+        "name": "KRX-0401 (Perifosine)"
+      },
+      {
+        "drug_class": "AKT",
+        "name": "LY-2780301"
+      },
+      {
+        "drug_class": "AKT",
+        "drug_id": "749607",
+        "name": "MK-2206"
+      },
+      {
+        "drug_class": "AKT",
+        "name": "MSC-2363318A"
+      },
+      {
+        "drug_class": "AKT",
+        "name": "SR-13668"
+      },
+      {
+        "drug_class": "AKT",
+        "drug_id": "280594",
+        "name": "VD-0002 (Tricirbine)"
+      },
+      {
+        "drug_class": "mTOR",
+        "drug_id": "787289",
+        "name": "AZD2014"
+      },
+      {
+        "drug_class": "mTOR",
+        "drug_id": "751083",
+        "name": "AZD8055"
+      },
+      {
+        "drug_class": "mTOR",
+        "drug_id": "783669",
+        "name": "CC-115"
+      },
+      {
+        "drug_class": "mTOR",
+        "name": "CC-223"
+      },
+      {
+        "drug_class": "mTOR",
+        "name": "DS-3078"
+      },
+      {
+        "drug_class": "mTOR",
+        "drug_id": "733504",
+        "name": "Everolimus"
+      },
+      {
+        "drug_class": "mTOR",
+        "name": "INK128"
+      },
+      {
+        "drug_class": "mTOR",
+        "name": "Ridaforolimus"
+      },
+      {
+        "drug_class": "mTOR",
+        "name": "Salirasib"
+      },
+      {
+        "drug_class": "mTOR",
+        "name": "Sirolimus"
+      },
+      {
+        "drug_class": "mTOR",
+        "drug_id": "683864",
+        "name": "Temsirolimus"
+      },
+      {
+        "drug_class": "mTOR",
+        "name": "XL388"
+      },
+      {
+        "drug_class": "PI3K",
+        "name": "AMG511"
+      },
+      {
+        "drug_class": "PI3K",
+        "name": "AZD8835"
+      },
+      {
+        "drug_class": "PI3K",
+        "name": "BAY-806946"
+      },
+      {
+        "drug_class": "PI3K",
+        "drug_id": "779667",
+        "name": "BKM-120 (buparlisib)"
+      },
+      {
+        "drug_class": "PI3K",
+        "name": "BYL719"
+      },
+      {
+        "drug_class": "PI3K",
+        "name": "GDC 0084"
+      },
+      {
+        "drug_class": "PI3K",
+        "drug_id": "778795",
+        "name": "GDC-0032"
+      },
+      {
+        "drug_class": "PI3K",
+        "name": "GDC-0941 (pictilisib)"
+      },
+      {
+        "drug_class": "PI3K",
+        "name": "GNE-477"
+      },
+      {
+        "drug_class": "PI3K",
+        "name": "GS-9820"
+      },
+      {
+        "drug_class": "PI3K",
+        "name": "KAR4139"
+      },
+      {
+        "drug_class": "PI3K",
+        "name": "MLN1117"
+      },
+      {
+        "drug_class": "PI3K",
+        "name": "PQR308"
+      },
+      {
+        "drug_class": "PI3K",
+        "name": "PQR3XX"
+      },
+      {
+        "drug_class": "PI3K",
+        "drug_id": "722134",
+        "name": "PX-866"
+      },
+      {
+        "drug_class": "PI3K",
+        "name": "SF1126"
+      },
+      {
+        "drug_class": "PI3K",
+        "name": "SRX2523"
+      },
+      {
+        "drug_class": "PI3K",
+        "name": "SRX5000"
+      },
+      {
+        "drug_class": "PI3K",
+        "name": "TG100-115"
+      },
+      {
+        "drug_class": "PI3K",
+        "name": "WX 037"
+      },
+      {
+        "drug_class": "PI3K",
+        "name": "XL-147"
+      },
+      {
+        "drug_class": "PI3K",
+        "name": "ZSTK-474"
+      },
+      {
+        "drug_class": "PI3K\/AKT",
+        "name": "DNE3"
+      },
+      {
+        "drug_class": "PI3K\/AKT",
+        "name": "Miltefosine (Impavido)"
+      },
+      {
+        "drug_class": "PI3K\/mTOR",
+        "drug_id": "753146",
+        "name": "BEZ235"
+      },
+      {
+        "drug_class": "PI3K\/mTOR",
+        "name": "DGC0980 (apitolisib)"
+      },
+      {
+        "drug_class": "PI3K\/mTOR",
+        "name": "DS 7423"
+      },
+      {
+        "drug_class": "PI3K\/mTOR",
+        "name": "GDC 0980"
+      },
+      {
+        "drug_class": "PI3K\/mTOR",
+        "name": "GSK 2126458"
+      },
+      {
+        "drug_class": "PI3K\/mTOR",
+        "name": "PF 05212384"
+      },
+      {
+        "drug_class": "PI3K\/mTOR",
+        "name": "PF-04691502"
+      },
+      {
+        "drug_class": "PI3K\/mTOR",
+        "name": "PKI-587"
+      },
+      {
+        "drug_class": "PI3K\/mTOR",
+        "name": "Quinacrine"
+      },
+      {
+        "drug_class": "PI3K\/mTOR",
+        "drug_id": "762370",
+        "name": "XL-765"
+      },
+      {
+        "drug_class": "TORC1\/2",
+        "drug_id": "768435",
+        "name": "MLN-0128"
+      },
+      {
+        "drug_class": "TORC1\/2",
+        "name": "P-P7170"
+      },
+      {
+        "drug_class": "TORC1\/2",
+        "name": "Palomid-529"
+      }
+    ],
+    "gene": "TSC",
+    "gene_fusions": [
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "AGAP3-BRAF.A10B11",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2140"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "AGAP3-BRAF.A9B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2141"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "AGK-BRAF.A2B8",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2142"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "AGTRAP-BRAF.A5B8.COSF828.1",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2143"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "AKAP9-BRAF.A21B10",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2144"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "AKAP9-BRAF.A22B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2145"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "AKAP9-BRAF.A28B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2146"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "AKAP9-BRAF.A7B11",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2147"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "AKAP9-BRAF.A8B9.COSF1013.1",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2148"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "AP3B1-BRAF.A22B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2149"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "ARMC10-BRAF.A4B11",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2150"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "ATG7-BRAF.A18B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2151"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "BAIAP2L1-BRAF.B12B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2152"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "BBS9-BRAF.B19B4",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2153"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "BCL2L11-BRAF.B3B10",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2154"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "BRAF-AP3B1.B8A23",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2155"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "BRAF-BRAF.B1B11",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2156"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "BRAF-BRAF.B1B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2157"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "BRAF-BRAF.B3B11",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2158"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "BRAF-BRAF.B3B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2159"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "BRAF-CIITA.B9C6",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2160"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "BRAF-MACF1.B8M15",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2161"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "BRAF-MRPS33.B1M2",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2162"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "BRAF-SLC26A4.B3S7",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2163"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "BRAF-SUGCT.B1S13",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2164"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "BTF3L4-BRAF.B3B11",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2165"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "C7orf73-BRAF.C2B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2166"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "CCDC6-BRAF.C1B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2167"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "CCDC91-BRAF.C11B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2168"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "CCNY-BRAF.C1B10",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2169"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "CDC27-BRAF.C16B9.1",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2170"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "CEP89-BRAF.C16B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2171"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "CLCN6-BRAF.C2B11.COSF1440",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2172"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "CLIP2-BRAF.C6B11",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2173"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "CUL1-BRAF.C7B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2174"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "CUX1-BRAF.C10B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2175"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "DYNC1I2-BRAF.D7B10",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2176"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "EML4-BRAF.E6B10",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2177"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "EPS15-BRAF.E22B10",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2178"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "ERC1-BRAF.E12B10",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2179"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "ERC1-BRAF.E17B8",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2180"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "FAM114A2-BRAF.F9B11",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2181"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "FAM131B-BRAF.F1B10.COSF1191",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2182"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "FAM131B-BRAF.F2B9.COSF1189.1",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2183"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "FAM131B-BRAF.F3B9.COSF1193",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2184"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "FCHSD1-BRAF.F13B9.COSF403",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2185"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "FXR1-BRAF.F13B10",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2186"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "GATM-BRAF.G2B11",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2187"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "GHR-BRAF.G1B10",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2188"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "GNAI1-BRAF.G1B10.COSF1442",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2189"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "GTF2I-BRAF.G4B10",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2190"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "HERPUD1-BRAF.H4B7",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2191"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "KCTD7-BRAF.K3B8",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2192"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "KCTD7-BRAF.K4B8",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2193"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "KDM7A-BRAF.K11B11",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2194"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "KIAA1549-BRAF.K12B11",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2195"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "KIAA1549-BRAF.K12B9.COSF1474",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2196"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "KIAA1549-BRAF.K13B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2197"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "KIAA1549-BRAF.K14B11.COSF1226",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2198"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "KIAA1549-BRAF.K14B9.COSF483",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2199"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "KIAA1549-BRAF.K15B10.COSF1283.1",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2200"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "KIAA1549-BRAF.K15B11.COSF485.1",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2201"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "KIAA1549-BRAF.K15B9.COSF481.1",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2202"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "KIAA1549-BRAF.K16B10",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2203"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "KIAA1549-BRAF.K17B10.COSF509",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2204"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "KIAA1549-BRAF.K18B9.COSF511",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2205"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "KIAA1549-BRAF.K9B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2206"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "KLHL7-BRAF.K5B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2207"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "LSM12-BRAF.L3B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2208"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "LSM14A-BRAF.L9B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2209"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "MACF1-BRAF.M60B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2210"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "MAD1L1-BRAF.M16B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2211"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "MAD1L1-BRAF.M17B10",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2212"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "MKRN1-BRAF.M4B11.COSF1444",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2213"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "MKRN1-BRAF.M4B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2214"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "MYRIP-BRAF.M16B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2215"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "MZT1-BRAF.M2B11",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2216"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "NUB1-BRAF.N3B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2217"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "NUDCD3-BRAF.N4B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2218"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "NUP214-BRAF.N21B10",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2219"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "PAPSS1-BRAF.P5B9.1",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2220"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "PLIN3-BRAF.P1B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2221"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "RAD18-BRAF.R7B10",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2222"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "RBMS3-BRAF.R11B11",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2223"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "RNF11-BRAF.R1B11",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2224"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "RNF130-BRAF.R3B9.COSF1483",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2225"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "RP2-BRAF.R3B10",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2226"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "SLC12A7-BRAF.S17B11",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2227"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "SLC45A3-BRAF.S1B8.COSF871",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2228"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "SND1-BRAF.S10B11",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2229"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "SND1-BRAF.S10B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2230"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "SND1-BRAF.S11B11",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2231"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "SND1-BRAF.S14B11",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2232"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "SND1-BRAF.S14B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2233"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "SND1-BRAF.S16B9.1",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2234"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "SND1-BRAF.S18B10",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2235"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "SND1-BRAF.S9B2",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2236"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "SND1-BRAF.S9B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2237"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "SOX6-BRAF.S5B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2238"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "SOX6-BRAF.S6B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2239"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "STRN3-BRAF.S3B10",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2240"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "TANK-BRAF.T4B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2241"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "TAX1BP1-BRAF.T8B11.1",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2242"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "TMEM178B-BRAF.T2B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2243"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "TMPRSS2-BRAF.T3B11",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2244"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "TRIM24-BRAF.T10B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2245"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "TRIM24-BRAF.T11B2",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2246"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "TRIM24-BRAF.T3B10",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2247"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "TRIM24-BRAF.T3B11",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2248"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "TRIM24-BRAF.T5B8",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2249"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "TRIM24-BRAF.T9B9.1",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2250"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "TRIM4-BRAF.T6B10",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2251"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "UBN2-BRAF.U3B11",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2252"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "ZC3HAV1-BRAF.Z3B10",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2253"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "ZC3HAV1-BRAF.Z7B11",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2254"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "ZKSCAN5-BRAF.Z2B9",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2255"
+      },
+      {
+        "arm_specific": false,
+        "description": "BRAF Gene Fusions",
+        "gene": "BRAF",
+        "identifier": "ZSCAN30-BRAF.Z3B10",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "public_med_ids": [
+
+        ],
+        "variant_type": "fusion",
+        "$$hashKey": "object:2256"
+      }
+    ],
+    "name": "Phase 2 study of LY3023414 in TSC1\/TSC2 mutation",
+    "non_hotspot_rules": [
+      {
+        "arm_specific": false,
+        "func_gene": "TSC1",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "oncomine_variant_class": "Deleterious",
+        "public_med_ids": [
+
+        ],
+        "type": "nhr",
+        "$$hashKey": "object:414"
+      },
+      {
+        "arm_specific": false,
+        "func_gene": "TSC2",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "oncomine_variant_class": "Deleterious",
+        "public_med_ids": [
+
+        ],
+        "type": "nhr",
+        "$$hashKey": "object:415"
+      },
+      {
+        "arm_specific": false,
+        "func_gene": "NF1",
+        "inclusion": false,
+        "level_of_evidence": null,
+        "oncomine_variant_class": "Deleterious",
+        "public_med_ids": [
+
+        ],
+        "type": "nhr",
+        "$$hashKey": "object:2136"
+      },
+      {
+        "arm_specific": false,
+        "func_gene": "NF2",
+        "inclusion": false,
+        "level_of_evidence": null,
+        "oncomine_variant_class": "Deleterious",
+        "public_med_ids": [
+
+        ],
+        "type": "nhr",
+        "$$hashKey": "object:2137"
+      }
+    ],
+    "snv_indels": [
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "TSC1",
+        "identifier": "PM_MCH12",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "G",
+        "position": "135781386",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:128"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "TSC1",
+        "identifier": "PM_COSM1636659",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_reference": "CT",
+        "position": "135781060",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "del",
+        "$$hashKey": "object:129"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "TSC1",
+        "identifier": "PM_MCH11",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "G",
+        "position": "135778042",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:130"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "TSC1",
+        "identifier": "PM_D22",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "A",
+        "position": "135798770",
+        "public_med_ids": [
+          "22161988"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:131"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "TSC1",
+        "identifier": "PM_D23",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "A",
+        "position": "135797222",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:132"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "TSC1",
+        "identifier": "PM_D24",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "135798848",
+        "public_med_ids": [
+          "22161988"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:133"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "TSC1",
+        "identifier": "PM_D25",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "135787669",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:134"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "TSC1",
+        "identifier": "PM_D26",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "C",
+        "position": "135787669",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:135"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "TSC1",
+        "identifier": "PM_D27",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "A",
+        "position": "135801110",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:136"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "TSC1",
+        "identifier": "PM_D28",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "T",
+        "position": "135800975",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:137"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "TSC1",
+        "identifier": "PM_D29",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "A",
+        "position": "135800987",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:138"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "TSC1",
+        "identifier": "PM_D30",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "A",
+        "position": "135797330",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:139"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "TSC1",
+        "identifier": "PM_D31",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "A",
+        "position": "135797297",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:140"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "TSC1",
+        "identifier": "PM_D32",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "A",
+        "position": "135797297",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:141"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "TSC1",
+        "identifier": "PM_D33",
+        "inclusion": true,
+        "level_of_evidence": 2,
+        "ocp_alternative": "G",
+        "ocp_reference": "A",
+        "position": "135802649",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:142"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "TSC1",
+        "identifier": "COSM5013848",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "A",
+        "position": "135802616",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:143"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "TSC1",
+        "identifier": "PM_D34",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "A",
+        "position": "135802616",
+        "public_med_ids": [
+          "22161988"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:144"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "TSC1",
+        "identifier": "COSM277850",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "A",
+        "position": "135801122",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:145"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "TSC1",
+        "identifier": "PM_D35",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "A",
+        "position": "135801059",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:146"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "TSC1",
+        "identifier": "PM_D36",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "A",
+        "position": "135787757",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:147"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "TSC1",
+        "identifier": "PM_D1",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_reference": "GAC",
+        "position": "135798861",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "del",
+        "$$hashKey": "object:148"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "TSC1",
+        "identifier": "PM_D2",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_reference": "AGT",
+        "position": "135797270",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "del",
+        "$$hashKey": "object:149"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "TSC1",
+        "identifier": "COSM1314592",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "C",
+        "position": "135797300",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:150"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "TSC1",
+        "identifier": "PM_D37",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "C",
+        "position": "135797258",
+        "public_med_ids": [
+          "22161988"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:151"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "TSC1",
+        "identifier": "PM_D38",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "135796750",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:152"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "TSC1",
+        "identifier": "PM_D39",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "C",
+        "position": "135796750",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:153"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "TSC1",
+        "identifier": "PM_D3",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_reference": "GGA",
+        "position": "135797268",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "del",
+        "$$hashKey": "object:154"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "TSC1",
+        "identifier": "PM_D40",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "C",
+        "position": "135798846",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:155"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_COSM4440414",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "2130300",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:156"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D41",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "G",
+        "position": "2130189",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:157"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D42",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "G",
+        "position": "2110677",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:158"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D43",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "C",
+        "position": "2120560",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:159"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D44",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "C",
+        "position": "2121512",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:160"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D45",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "G",
+        "position": "2126094",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:161"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D46",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "2126095",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:162"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D47",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "T",
+        "position": "2106726",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:163"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D48",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "G",
+        "position": "2121925",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:164"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D49",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "T",
+        "position": "2124255",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:165"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D50",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "G",
+        "position": "2129148",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:166"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D51",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "A",
+        "position": "2135265",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:167"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D4",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_reference": "GAA",
+        "position": "2135317",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "del",
+        "$$hashKey": "object:168"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D52",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "G",
+        "position": "2110704",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:169"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D53",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "A",
+        "position": "2111987",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:170"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D54",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "A",
+        "position": "2100486",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:171"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D55",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "T",
+        "position": "2121515",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:172"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D56",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "T",
+        "position": "2126119",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:173"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D57",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "G",
+        "position": "2131596",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:174"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D58",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "G",
+        "position": "2136231",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:175"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D59",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "G",
+        "position": "2136231",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:176"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D60",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "G",
+        "position": "2136266",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:177"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D61",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "G",
+        "position": "2136318",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:178"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D62",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "G",
+        "position": "2136808",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:179"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D5",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "G",
+        "position": "2108813",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:180"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D63",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "A",
+        "position": "2136742",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:181"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D64",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "2136801",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:182"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D65",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "2120529",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:183"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D66",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "T",
+        "position": "2129327",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:184"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D67",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "T",
+        "position": "2104397",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:185"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D68",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "T",
+        "position": "2135262",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:186"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D69",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "T",
+        "position": "2135304",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:187"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D70",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "T",
+        "position": "2136264",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:188"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D71",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "T",
+        "position": "2136282",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:189"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D6",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "position": "2138314",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "del",
+        "$$hashKey": "object:190"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D72",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "T",
+        "position": "2106652",
+        "public_med_ids": [
+          "22903760"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:191"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D73",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "T",
+        "position": "2110714",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:192"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D74",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "T",
+        "position": "2111981",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:193"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D75",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "T",
+        "position": "2112583",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:194"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D76",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "T",
+        "position": "2113008",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:195"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D77",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "T",
+        "position": "2114307",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:196"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D7",
+        "inclusion": true,
+        "level_of_evidence": 2,
+        "ocp_alternative": "C",
+        "ocp_reference": "T",
+        "position": "2120575",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:197"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D78",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "T",
+        "position": "2121916",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:198"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D8",
+        "inclusion": true,
+        "level_of_evidence": 2,
+        "ocp_alternative": "G",
+        "ocp_reference": "T",
+        "position": "2122282",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:199"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D79",
+        "inclusion": true,
+        "level_of_evidence": 2,
+        "ocp_alternative": "C",
+        "ocp_reference": "T",
+        "position": "2122354",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:200"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D80",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "T",
+        "position": "2124220",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:201"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D81",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "T",
+        "position": "2124322",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:202"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D82",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "T",
+        "position": "2124334",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:203"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D83",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "T",
+        "position": "2124376",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:204"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D84",
+        "inclusion": true,
+        "level_of_evidence": 2,
+        "ocp_alternative": "C",
+        "ocp_reference": "T",
+        "position": "2125803",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:205"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D9",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "T",
+        "position": "2126514",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:206"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D85",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "G",
+        "position": "2098619",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:207"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D86",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "T",
+        "position": "2124208",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:208"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D87",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "A",
+        "position": "2136810",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:209"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D88",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "A",
+        "position": "2136811",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:210"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D89",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "C",
+        "position": "2136812",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:211"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D90",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "A",
+        "position": "2136811",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:212"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D10",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "GCTCTGCTG",
+        "position": "2103424",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "ins",
+        "$$hashKey": "object:213"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D12",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_reference": "CACATCAAGCGGCTCCGC",
+        "position": "2138320",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "del",
+        "$$hashKey": "object:214"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D13",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_reference": "AAC",
+        "position": "2107156",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "del",
+        "$$hashKey": "object:215"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D16",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "2120529",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "ins",
+        "$$hashKey": "object:216"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D17",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "GCA",
+        "position": "2120566",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "ins",
+        "$$hashKey": "object:217"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D18",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_reference": "ATC",
+        "position": "2124305",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "del",
+        "$$hashKey": "object:218"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D91",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "C",
+        "position": "2130373",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:219"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D92",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "C",
+        "position": "2134713",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:220"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D93",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "2134712",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:221"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D94",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "C",
+        "position": "2134712",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:222"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D95",
+        "inclusion": true,
+        "level_of_evidence": 2,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "2137898",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:223"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D96",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "2138106",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:224"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D97",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "2112007",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:225"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D98",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "A",
+        "position": "2134966",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:226"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D99",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "G",
+        "position": "2135323",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:227"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D100",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "A",
+        "position": "2137931",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:228"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D101",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "A",
+        "position": "2110813",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:229"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D102",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "G",
+        "position": "2129161",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:230"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D103",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "2130366",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:231"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D104",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "G",
+        "position": "2138118",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:232"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D105",
+        "inclusion": true,
+        "level_of_evidence": 2,
+        "ocp_alternative": "A",
+        "ocp_reference": "G",
+        "position": "2138295",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:233"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D106",
+        "inclusion": true,
+        "level_of_evidence": 2,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "2138294",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:234"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D107",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "G",
+        "position": "2107113",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:235"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D108",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "2112995",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:236"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D109",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "G",
+        "position": "2112996",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:237"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D19",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "G",
+        "position": "2112996",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:238"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D110",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "G",
+        "position": "2100432",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:239"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D111",
+        "inclusion": true,
+        "level_of_evidence": 2,
+        "ocp_alternative": "A",
+        "ocp_reference": "G",
+        "position": "2120572",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:240"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D112",
+        "inclusion": true,
+        "level_of_evidence": 2,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "2120571",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:241"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D113",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "2121535",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:242"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D114",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "C",
+        "position": "2121553",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:243"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D115",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "C",
+        "position": "2126142",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:244"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D116",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "G",
+        "position": "2126143",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:245"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D117",
+        "inclusion": true,
+        "level_of_evidence": 2,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "2126142",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:246"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D118",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "2103409",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:247"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D119",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "T",
+        "position": "2129172",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:248"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D120",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "2136841",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:249"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D121",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "T",
+        "position": "2136840",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:250"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D20",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "C",
+        "position": "2129348",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:251"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D122",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "C",
+        "position": "2130376",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:252"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D123",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "2136751",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:253"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D124",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "T",
+        "position": "2130364",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:254"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D125",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "T",
+        "position": "2134957",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:255"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D126",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "T",
+        "position": "2136820",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:256"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D127",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "T",
+        "position": "2137892",
+        "public_med_ids": [
+          "25724664"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:257"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D128",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "G",
+        "position": "2137891",
+        "public_med_ids": [
+          "25724664"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:258"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D21",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_reference": "GTT",
+        "position": "2106719",
+        "public_med_ids": [
+          "25782670"
+        ],
+        "variant_type": "del",
+        "$$hashKey": "object:259"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D129",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "T",
+        "position": "2108795",
+        "public_med_ids": [
+          "25782670"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:260"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D130",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "T",
+        "position": "2110696",
+        "public_med_ids": [
+          "25782670"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:261"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D131",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "T",
+        "position": "2110696",
+        "public_med_ids": [
+          "25782670"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:262"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D132",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "G",
+        "position": "2115598",
+        "public_med_ids": [
+          "25782670"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:263"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D133",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "T",
+        "position": "2122258",
+        "public_med_ids": [
+          "25782670"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:264"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D134",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "G",
+        "position": "2122257",
+        "public_med_ids": [
+          "25782670"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:265"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D135",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "T",
+        "position": "2122935",
+        "public_med_ids": [
+          "25782670"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:266"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D136",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "T",
+        "position": "2136359",
+        "public_med_ids": [
+          "25782670"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:267"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D137",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "T",
+        "position": "2136242",
+        "public_med_ids": [
+          "25782670"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:268"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D138",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "A",
+        "position": "2120533",
+        "public_med_ids": [
+          "25782670"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:269"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr16",
+        "description": "Missense",
+        "gene": "TSC2",
+        "identifier": "PM_D139",
+        "inclusion": true,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "T",
+        "position": "2120532",
+        "public_med_ids": [
+          "25782670"
+        ],
+        "variant_type": "snp",
+        "$$hashKey": "object:270"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr1",
+        "description": "Missense",
+        "gene": "NRAS",
+        "identifier": "COSM586",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "G",
+        "ocp_reference": "T",
+        "position": "115256528",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr1",
+        "description": "Missense",
+        "gene": "NRAS",
+        "identifier": "COSM585",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "A",
+        "ocp_reference": "T",
+        "position": "115256528",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr1",
+        "description": "Missense",
+        "gene": "NRAS",
+        "identifier": "COSM583",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "A",
+        "ocp_reference": "T",
+        "position": "115256529",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr1",
+        "description": "Missense",
+        "gene": "NRAS",
+        "identifier": "COSM582",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "G",
+        "ocp_reference": "T",
+        "position": "115256529",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr1",
+        "description": "Missense",
+        "gene": "NRAS",
+        "identifier": "COSM584",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "C",
+        "ocp_reference": "T",
+        "position": "115256529",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr1",
+        "description": "Missense",
+        "gene": "NRAS",
+        "identifier": "COSM30646",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "CA",
+        "ocp_reference": "TT",
+        "position": "115256529",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr1",
+        "description": "Missense",
+        "gene": "NRAS",
+        "identifier": "COSM33693",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "CC",
+        "ocp_reference": "TT",
+        "position": "115256529",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr1",
+        "description": "Missense",
+        "gene": "NRAS",
+        "identifier": "COSM580",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "T",
+        "ocp_reference": "G",
+        "position": "115256530",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr1",
+        "description": "Missense",
+        "gene": "NRAS",
+        "identifier": "COSM581",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "C",
+        "ocp_reference": "G",
+        "position": "115256530",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr1",
+        "description": "Missense",
+        "gene": "NRAS",
+        "identifier": "COSM53223",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "CTT",
+        "ocp_reference": "TTG",
+        "position": "115256530",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr1",
+        "description": "Missense",
+        "gene": "NRAS",
+        "identifier": "COSM12725",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "AA",
+        "ocp_reference": "TG",
+        "position": "115256530",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr1",
+        "description": "Missense",
+        "gene": "NRAS",
+        "identifier": "COSM579",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "CT",
+        "ocp_reference": "TG",
+        "position": "115256530",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr1",
+        "description": "Missense",
+        "gene": "NRAS",
+        "identifier": "COSM12730",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "TA",
+        "ocp_reference": "GT",
+        "position": "115256531",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr1",
+        "description": "Missense",
+        "gene": "NRAS",
+        "identifier": "COSM574",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "A",
+        "ocp_reference": "C",
+        "position": "115258744",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr1",
+        "description": "Missense",
+        "gene": "NRAS",
+        "identifier": "COSM573",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "115258744",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr1",
+        "description": "Missense",
+        "gene": "NRAS",
+        "identifier": "COSM575",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "G",
+        "ocp_reference": "C",
+        "position": "115258744",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr1",
+        "description": "Missense",
+        "gene": "NRAS",
+        "identifier": "COSM572",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "TC",
+        "ocp_reference": "GT",
+        "position": "115258744",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr1",
+        "description": "Missense",
+        "gene": "NRAS",
+        "identifier": "COSM569",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "G",
+        "ocp_reference": "C",
+        "position": "115258745",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr1",
+        "description": "Missense",
+        "gene": "NRAS",
+        "identifier": "COSM570",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "A",
+        "ocp_reference": "C",
+        "position": "115258745",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr1",
+        "description": "Missense",
+        "gene": "NRAS",
+        "identifier": "COSM571",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "115258745",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr1",
+        "description": "Missense",
+        "gene": "NRAS",
+        "identifier": "COSM564",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "115258747",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr1",
+        "description": "Missense",
+        "gene": "NRAS",
+        "identifier": "COSM565",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "G",
+        "ocp_reference": "C",
+        "position": "115258747",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr1",
+        "description": "Missense",
+        "gene": "NRAS",
+        "identifier": "COSM566",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "A",
+        "ocp_reference": "C",
+        "position": "115258747",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr1",
+        "description": "Missense",
+        "gene": "NRAS",
+        "identifier": "COSM561",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "G",
+        "ocp_reference": "C",
+        "position": "115258748",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr1",
+        "description": "Missense",
+        "gene": "NRAS",
+        "identifier": "COSM563",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "115258748",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr1",
+        "description": "Missense",
+        "gene": "NRAS",
+        "identifier": "COSM562",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "A",
+        "ocp_reference": "C",
+        "position": "115258748",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr11",
+        "description": "Missense",
+        "gene": "HRAS",
+        "identifier": "COSM503",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "G",
+        "ocp_reference": "C",
+        "position": "533873",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr11",
+        "description": "Missense",
+        "gene": "HRAS",
+        "identifier": "COSM502",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "A",
+        "ocp_reference": "C",
+        "position": "533873",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr11",
+        "description": "Missense",
+        "gene": "HRAS",
+        "identifier": "COSM499",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "C",
+        "ocp_reference": "T",
+        "position": "533874",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr11",
+        "description": "Missense",
+        "gene": "HRAS",
+        "identifier": "COSM500",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "G",
+        "ocp_reference": "T",
+        "position": "533874",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr11",
+        "description": "Missense",
+        "gene": "HRAS",
+        "identifier": "COSM498",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "A",
+        "ocp_reference": "T",
+        "position": "533874",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr11",
+        "description": "Missense",
+        "gene": "HRAS",
+        "identifier": "COSM33695",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "TC",
+        "ocp_reference": "CT",
+        "position": "533874",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr11",
+        "description": "Missense",
+        "gene": "HRAS",
+        "identifier": "COSM501",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "AC",
+        "ocp_reference": "CT",
+        "position": "533874",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr11",
+        "description": "Missense",
+        "gene": "HRAS",
+        "identifier": "COSM497",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "C",
+        "ocp_reference": "G",
+        "position": "533875",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr11",
+        "description": "Missense",
+        "gene": "HRAS",
+        "identifier": "COSM496",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "T",
+        "ocp_reference": "G",
+        "position": "533875",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr11",
+        "description": "Missense",
+        "gene": "HRAS",
+        "identifier": "COSM52978",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "TA",
+        "ocp_reference": "CT",
+        "position": "533875",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr11",
+        "description": "Missense",
+        "gene": "HRAS",
+        "identifier": "COSM490",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "534285",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr11",
+        "description": "Missense",
+        "gene": "HRAS",
+        "identifier": "COSM489",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "A",
+        "ocp_reference": "C",
+        "position": "534285",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr11",
+        "description": "Missense",
+        "gene": "HRAS",
+        "identifier": "COSM488",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "A",
+        "ocp_reference": "C",
+        "position": "534286",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr11",
+        "description": "Missense",
+        "gene": "HRAS",
+        "identifier": "COSM487",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "534286",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr11",
+        "description": "Missense",
+        "gene": "HRAS",
+        "identifier": "COSM486",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "G",
+        "ocp_reference": "C",
+        "position": "534286",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr11",
+        "description": "Missense",
+        "gene": "HRAS",
+        "identifier": "COSM483",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "A",
+        "ocp_reference": "C",
+        "position": "534288",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr11",
+        "description": "Missense",
+        "gene": "HRAS",
+        "identifier": "COSM484",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "534288",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr11",
+        "description": "Missense",
+        "gene": "HRAS",
+        "identifier": "COSM485",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "G",
+        "ocp_reference": "C",
+        "position": "534288",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr11",
+        "description": "Missense",
+        "gene": "HRAS",
+        "identifier": "COSM482",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "G",
+        "ocp_reference": "C",
+        "position": "534289",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr11",
+        "description": "Missense",
+        "gene": "HRAS",
+        "identifier": "COSM481",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "A",
+        "ocp_reference": "C",
+        "position": "534289",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr11",
+        "description": "Missense",
+        "gene": "HRAS",
+        "identifier": "COSM480",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "534289",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM19900",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "A",
+        "ocp_reference": "G",
+        "position": "25378561",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM19404",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "25378562",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM19940",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "G",
+        "ocp_reference": "T",
+        "position": "25378647",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM28519",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "A",
+        "ocp_reference": "T",
+        "position": "25378647",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM554",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "G",
+        "ocp_reference": "T",
+        "position": "25380275",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM555",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "A",
+        "ocp_reference": "T",
+        "position": "25380275",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM553",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "A",
+        "ocp_reference": "T",
+        "position": "25380276",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM552",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "C",
+        "ocp_reference": "T",
+        "position": "25380276",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM551",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "G",
+        "ocp_reference": "T",
+        "position": "25380276",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM1168052",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "AC",
+        "ocp_reference": "TT",
+        "position": "25380276",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM550",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "C",
+        "ocp_reference": "G",
+        "position": "25380277",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM549",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "T",
+        "ocp_reference": "G",
+        "position": "25380277",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM87298",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "TT",
+        "ocp_reference": "GA",
+        "position": "25380278",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM539",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "25398275",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM538",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "25398276",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM87280",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "TT",
+        "ocp_reference": "GC",
+        "position": "25398279",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM30567",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "CT",
+        "ocp_reference": "GC",
+        "position": "25398279",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM533",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "G",
+        "ocp_reference": "C",
+        "position": "25398281",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM534",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "A",
+        "ocp_reference": "C",
+        "position": "25398281",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM532",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "25398281",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM531",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "AT",
+        "ocp_reference": "GC",
+        "position": "25398281",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM530",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "CA",
+        "ocp_reference": "GC",
+        "position": "25398281",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM12721",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "AA",
+        "ocp_reference": "GC",
+        "position": "25398281",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM528",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "25398282",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM527",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "A",
+        "ocp_reference": "C",
+        "position": "25398282",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM529",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "G",
+        "ocp_reference": "C",
+        "position": "25398282",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM13643",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "TT",
+        "ocp_reference": "CC",
+        "position": "25398283",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM512",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "AA",
+        "ocp_reference": "CC",
+        "position": "25398283",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM514",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "AG",
+        "ocp_reference": "CC",
+        "position": "25398283",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM87281",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "AT",
+        "ocp_reference": "CA",
+        "position": "25398283",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM520",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "A",
+        "ocp_reference": "C",
+        "position": "25398284",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM521",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "25398284",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM522",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "G",
+        "ocp_reference": "C",
+        "position": "25398284",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM14209",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "GT",
+        "ocp_reference": "AC",
+        "position": "25398284",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM515",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "GA",
+        "ocp_reference": "AC",
+        "position": "25398284",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM518",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "G",
+        "ocp_reference": "C",
+        "position": "25398285",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM517",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "25398285",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM516",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "C",
+        "position": "25398285",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM513",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "GCA",
+        "ocp_reference": "ACC",
+        "position": "25398285",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM5413585",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "TG",
+        "ocp_reference": "AC",
+        "position": "25398284",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM1716372",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "CAG",
+        "ocp_reference": "ACC",
+        "position": "25398285",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM249888",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "TCT",
+        "ocp_reference": "ACC",
+        "position": "25398285",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM4387522",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "CA",
+        "ocp_reference": "AC",
+        "position": "25398284",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr12",
+        "description": "Missense",
+        "gene": "KRAS",
+        "identifier": "COSM4745557",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "GT",
+        "ocp_reference": "CA",
+        "position": "25398283",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chrX",
+        "description": "Missense",
+        "gene": "ARAF",
+        "identifier": "COSM5044705",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "C",
+        "position": "47426121",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chrX",
+        "description": "Missense",
+        "gene": "ARAF",
+        "identifier": "COSM1742787",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "T",
+        "position": "47426120",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chrX",
+        "description": "Missense",
+        "gene": "ARAF",
+        "identifier": "COSM612884",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "47426121",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "Missense",
+        "gene": "BRAF",
+        "identifier": "COSM1132",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "T",
+        "position": "140453132",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "Missense",
+        "gene": "BRAF",
+        "identifier": "COSM6265",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "T",
+        "position": "140453132",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "Missense",
+        "gene": "BRAF",
+        "identifier": "COSM308550",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "GT",
+        "ocp_reference": "CA",
+        "position": "140453134",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "Missense",
+        "gene": "BRAF",
+        "identifier": "COSM477",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "AT",
+        "ocp_reference": "CA",
+        "position": "140453134",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "Missense",
+        "gene": "BRAF",
+        "identifier": "COSM475",
+        "inclusion": false,
+        "level_of_evidence": 1,
+        "ocp_alternative": "AT",
+        "ocp_reference": "CA",
+        "position": "140453134",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "Missense",
+        "gene": "BRAF",
+        "identifier": "COSM1127",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "CTC",
+        "ocp_reference": "ACT",
+        "position": "140453135",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "Missense",
+        "gene": "BRAF",
+        "identifier": "COSM1583011",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "CG",
+        "ocp_reference": "AC",
+        "position": "140453135",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "Missense",
+        "gene": "BRAF",
+        "identifier": "COSM473",
+        "inclusion": false,
+        "level_of_evidence": 1,
+        "ocp_alternative": "TT",
+        "ocp_reference": "AC",
+        "position": "140453135",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "Missense",
+        "gene": "BRAF",
+        "identifier": "COSM474",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "CT",
+        "ocp_reference": "AC",
+        "position": "140453135",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "Missense",
+        "gene": "BRAF",
+        "identifier": "COSM6137",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "C",
+        "ocp_reference": "A",
+        "position": "140453135",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "Missense",
+        "gene": "BRAF",
+        "identifier": "COSM18443",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "G",
+        "ocp_reference": "A",
+        "position": "140453135",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "Missense",
+        "gene": "BRAF",
+        "identifier": "COSM249889",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "TG",
+        "ocp_reference": "AC",
+        "position": "140453135",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "Missense",
+        "gene": "BRAF",
+        "identifier": "COSM476",
+        "inclusion": false,
+        "level_of_evidence": 1,
+        "ocp_alternative": "T",
+        "ocp_reference": "A",
+        "position": "140453136",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "Missense",
+        "gene": "BRAF",
+        "identifier": "COSM1130",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "140453136",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "Missense",
+        "gene": "BRAF",
+        "identifier": "COSM219798",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "G",
+        "ocp_reference": "C",
+        "position": "140453136",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "Missense",
+        "gene": "BRAF",
+        "identifier": "COSM33808",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "A",
+        "ocp_reference": "C",
+        "position": "140453136",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "Missense",
+        "gene": "BRAF",
+        "identifier": "COSM1133",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_reference": "TCA",
+        "position": "140453136",
+        "public_med_ids": [
+        ],
+        "variant_type": "del"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "Missense",
+        "gene": "BRAF",
+        "identifier": "PM_COSM30730",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "GTA",
+        "position": "140453139",
+        "public_med_ids": [
+        ],
+        "variant_type": "ins"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "Missense",
+        "gene": "BRAF",
+        "identifier": "PM_COSM26625",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "AAC",
+        "position": "140453141",
+        "public_med_ids": [
+        ],
+        "variant_type": "ins"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "Missense",
+        "gene": "BRAF",
+        "identifier": "COSM457",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "140481403",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "Missense",
+        "gene": "BRAF",
+        "identifier": "COSM455",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "C",
+        "position": "140481403",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "Missense",
+        "gene": "BRAF",
+        "identifier": "COSM1112",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "C",
+        "position": "140481412",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.K601E",
+        "gene": "BRAF",
+        "identifier": "COSM478",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "T",
+        "position": "140453134",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.T599I",
+        "gene": "BRAF",
+        "identifier": "COSM472",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "G",
+        "position": "140453139",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.A598V",
+        "gene": "BRAF",
+        "identifier": "COSM21549",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "G",
+        "position": "140453142",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.L597S",
+        "gene": "BRAF",
+        "identifier": "COSM1126",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "TGA",
+        "ocp_reference": "TAG",
+        "position": "140453144",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.L597Q",
+        "gene": "BRAF",
+        "identifier": "COSM1125",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "A",
+        "position": "140453145",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.L597R",
+        "gene": "BRAF",
+        "identifier": "COSM471",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "A",
+        "position": "140453145",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.L597V",
+        "gene": "BRAF",
+        "identifier": "COSM470",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "G",
+        "position": "140453146",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.G596R",
+        "gene": "BRAF",
+        "identifier": "COSM469",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "C",
+        "position": "140453149",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.F595L",
+        "gene": "BRAF",
+        "identifier": "COSM53198",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "A",
+        "position": "140453150",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.F595L",
+        "gene": "BRAF",
+        "identifier": "COSM468",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "A",
+        "position": "140453150",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.F595L",
+        "gene": "BRAF",
+        "identifier": "COSM21612",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "A",
+        "position": "140453152",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.D594V",
+        "gene": "BRAF",
+        "identifier": "COSM466",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "T",
+        "position": "140453154",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.D594G",
+        "gene": "BRAF",
+        "identifier": "COSM467",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "T",
+        "position": "140453154",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.D594N",
+        "gene": "BRAF",
+        "identifier": "COSM211600",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "TTC",
+        "ocp_reference": "TCA",
+        "position": "140453154",
+        "public_med_ids": [
+        ],
+        "variant_type": "mnp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.D594A",
+        "gene": "BRAF",
+        "identifier": "COSM1583010",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "T",
+        "position": "140453154",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.D594N",
+        "gene": "BRAF",
+        "identifier": "COSM27639",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "140453155",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.E586K",
+        "gene": "BRAF",
+        "identifier": "COSM463",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "140453179",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.N581S",
+        "gene": "BRAF",
+        "identifier": "COSM462",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "T",
+        "position": "140453193",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.Y472C",
+        "gene": "BRAF",
+        "identifier": "COSM1133046",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "T",
+        "position": "140481393",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.G469V",
+        "gene": "BRAF",
+        "identifier": "COSM459",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "C",
+        "position": "140481402",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.G469A",
+        "gene": "BRAF",
+        "identifier": "COSM460",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "C",
+        "position": "140481402",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.G469E",
+        "gene": "BRAF",
+        "identifier": "COSM461",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "140481402",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.G466V",
+        "gene": "BRAF",
+        "identifier": "COSM451",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "C",
+        "position": "140481411",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.G466E",
+        "gene": "BRAF",
+        "identifier": "COSM453",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "140481411",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.G466A",
+        "gene": "BRAF",
+        "identifier": "COSM452",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "C",
+        "position": "140481411",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.G466R",
+        "gene": "BRAF",
+        "identifier": "COSM253328",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "140481412",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.G464E",
+        "gene": "BRAF",
+        "identifier": "COSM449",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "140481417",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.G464V",
+        "gene": "BRAF",
+        "identifier": "COSM450",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "C",
+        "position": "140481417",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.G464R",
+        "gene": "BRAF",
+        "identifier": "COSM1448615",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "140481418",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.G464R",
+        "gene": "BRAF",
+        "identifier": "COSM1111",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "C",
+        "position": "140481418",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.I463S",
+        "gene": "BRAF",
+        "identifier": "COSM448",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "A",
+        "position": "140481420",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr7",
+        "description": "p.R462I",
+        "gene": "BRAF",
+        "identifier": "COSM447",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "C",
+        "position": "140481423",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr15",
+        "description": "Missense",
+        "gene": "MAP2K1",
+        "identifier": "PM_E1",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_reference": "TGCTTCTGGGTAAGA",
+        "position": "66727443",
+        "public_med_ids": [
+        ],
+        "variant_type": "del"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr15",
+        "description": "Missense",
+        "gene": "MAP2K1",
+        "identifier": "PM_E2",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_reference": "CACCTTCTGCTTCTG",
+        "position": "66727450",
+        "public_med_ids": [
+        ],
+        "variant_type": "del"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr15",
+        "description": "Missense",
+        "gene": "MAP2K1",
+        "identifier": "COSM1235481",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "C",
+        "ocp_reference": "A",
+        "position": "66727451",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr15",
+        "description": "Missense",
+        "gene": "MAP2K1",
+        "identifier": "COSM4756761",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "A",
+        "position": "66727454",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr15",
+        "description": "Missense",
+        "gene": "MAP2K1",
+        "identifier": "COSM1235478",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "T",
+        "ocp_reference": "G",
+        "position": "66727455",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr15",
+        "description": "Missense",
+        "gene": "MAP2K1",
+        "identifier": "COSM5520914",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "C",
+        "ocp_reference": "G",
+        "position": "66727455",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr15",
+        "description": "Missense",
+        "gene": "MAP2K1",
+        "identifier": "PM_COSM4166150",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_reference": "TCCCACCTTCTGCTT",
+        "position": "66727466",
+        "public_med_ids": [
+        ],
+        "variant_type": "del"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr15",
+        "description": "Missense",
+        "gene": "MAP2K1",
+        "identifier": "PM_COSM5031101",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_reference": "CTCCCACCTTCTGCT",
+        "position": "66727468",
+        "public_med_ids": [
+        ],
+        "variant_type": "del"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr15",
+        "description": "Missense",
+        "gene": "MAP2K1",
+        "identifier": "PM_COSM5031100",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_reference": "TTCTCCCACCTTCTG",
+        "position": "66727470",
+        "public_med_ids": [
+        ],
+        "variant_type": "del"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr15",
+        "description": "Missense",
+        "gene": "MAP2K1",
+        "identifier": "PM_COSM1235479",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "66727482",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr15",
+        "description": "Missense",
+        "gene": "MAP2K1",
+        "identifier": "COSM1678546",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "G",
+        "position": "66727483",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr15",
+        "description": "Missense",
+        "gene": "MAP2K1",
+        "identifier": "PM_COSM404998",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_reference": "TCTCCA",
+        "position": "66729099",
+        "public_med_ids": [
+        ],
+        "variant_type": "del"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr15",
+        "description": "Missense",
+        "gene": "MAP2K1",
+        "identifier": "PM_COSM4166152",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_reference": "ATCTCC",
+        "position": "66729100",
+        "public_med_ids": [
+        ],
+        "variant_type": "del"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr15",
+        "description": "Missense",
+        "gene": "MAP2K1",
+        "identifier": "PM_COSM4166153",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_reference": "GATCTC",
+        "position": "66729101",
+        "public_med_ids": [
+        ],
+        "variant_type": "del"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr15",
+        "description": "Missense",
+        "gene": "MAP2K1",
+        "identifier": "PM_COSM5730253",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_reference": "TGATCT",
+        "position": "66729102",
+        "public_med_ids": [
+        ],
+        "variant_type": "del"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr15",
+        "description": "Missense",
+        "gene": "MAP2K1",
+        "identifier": "PM_COSM5702512",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_reference": "TTTGAT",
+        "position": "66729104",
+        "public_med_ids": [
+        ],
+        "variant_type": "del"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr15",
+        "description": "Missense",
+        "gene": "MAP2K1",
+        "identifier": "PM_E3",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "G",
+        "ocp_reference": "C",
+        "position": "66729150",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr15",
+        "description": "Missense",
+        "gene": "MAP2K1",
+        "identifier": "COSM555601",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "T",
+        "position": "66729153",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr15",
+        "description": "Missense",
+        "gene": "MAP2K1",
+        "identifier": "COSM1315829",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "C",
+        "ocp_reference": "G",
+        "position": "66729154",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr15",
+        "description": "Missense",
+        "gene": "MAP2K1",
+        "identifier": "PM_E4",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "A",
+        "position": "66729159",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr15",
+        "description": "Missense",
+        "gene": "MAP2K1",
+        "identifier": "COSM1374186",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "G",
+        "position": "66729175",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr15",
+        "description": "Missense",
+        "gene": "MAP2K1",
+        "identifier": "COSM232755",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "A",
+        "ocp_reference": "G",
+        "position": "66774131",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr19",
+        "description": "Missense",
+        "gene": "GNA11",
+        "identifier": "COSM52969",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "A",
+        "ocp_reference": "T",
+        "position": "3118942",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr19",
+        "description": "Missense",
+        "gene": "GNA11",
+        "identifier": "COSM52970",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "A",
+        "ocp_reference": "C",
+        "position": "3118942",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "GNAQ",
+        "identifier": "COSM28757",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "T",
+        "ocp_reference": "A",
+        "position": "80409488",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "GNAQ",
+        "identifier": "COSM28758",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "T",
+        "ocp_reference": "G",
+        "position": "80409488",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "GNAQ",
+        "identifier": "COSM28760",
+        "inclusion": false,
+        "level_of_evidence": 2,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "80409488",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      },
+      {
+        "arm_specific": false,
+        "chromosome": "chr9",
+        "description": "Missense",
+        "gene": "GNAQ",
+        "identifier": "COSM52975",
+        "inclusion": false,
+        "level_of_evidence": 3,
+        "ocp_alternative": "T",
+        "ocp_reference": "C",
+        "position": "80412493",
+        "public_med_ids": [
+        ],
+        "variant_type": "snp"
+      }
+    ],
+    "stratum_id": "1",
+    "study_id": "APEC1621SC",
+    "target_name": "LY3023414",
+    "treatment_arm_drugs": [
+      {
+        "drug_id": "783668",
+        "name": "LY3023414",
+        "pathway": "PI3K\/AKT1\/mTOR"
+      }
+    ],
+    "treatment_arm_id": "APEC1621LOTSNV",
+    "version": "2017-02-02"
   }
 ]

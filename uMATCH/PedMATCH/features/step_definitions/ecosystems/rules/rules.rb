@@ -5,23 +5,23 @@ require_relative '../../../support/helper_methods.rb'
 @@ctr = 1
 
 When(/^the rules service \/version is called$/) do
-  @res=Helper_Methods.get_request("#{ENV['rules_endpoint']}/version",{}, false)
+  @res=Helper_Methods.get_request("#{ENV['rules_endpoint']}/version", {}, false)
 end
 
 Then(/^the version "([^"]*)" is returned as json$/) do |version|
   expect(@res['http_code']).to eql(200)
-  message =  JSON.parse(@res['message'])
+  message = JSON.parse(@res['message'])
   expect(message['version']).to include(version)
 end
 
 Given(/^the patient assignment json "([^"]*)"$/) do |patient_json|
-  patientAssignmentJson =  File.join(File.dirname(__FILE__),"#{ENV['PATIENT_ASSIGNMENT_JSON_LOCATION']}/#{patient_json}.json")
+  patientAssignmentJson = File.join(File.dirname(__FILE__), "#{ENV['PATIENT_ASSIGNMENT_JSON_LOCATION']}/#{patient_json}.json")
   expect(File.exist?(patientAssignmentJson)).to be_truthy
   @patient = JSON(IO.read(patientAssignmentJson))
 end
 
 And(/^treatment arm json "([^"]*)"$/) do |ta|
-  ta = File.join(File.dirname(__FILE__),"#{ENV['TAs_ASSIGNMENT_JSON_LOCATION']}/#{ta}.json")
+  ta = File.join(File.dirname(__FILE__), "#{ENV['TAs_ASSIGNMENT_JSON_LOCATION']}/#{ta}.json")
   expect(File.exist?(ta)).to be_truthy
   @ta = JSON(IO.read(ta))
 end
@@ -29,15 +29,15 @@ end
 
 When(/^assignPatient service is called for patient "([^"]*)"$/) do |patient|
   msgHash = Hash.new
-  msgHash = { "study_id"=> "APEC1621SC",'patient'=> @patient, 'treatment_arms'=>@ta}
+  msgHash = {"study_id" => "APEC1621SC", 'patient' => @patient, 'treatment_arms' => @ta}
   @payload = msgHash.to_json
-   puts @payload
-  @resp = Helper_Methods.post_request("#{ENV['rules_endpoint']}/assignment_report/#{patient}",@payload)
+  puts @payload
+  @resp = Helper_Methods.post_request("#{ENV['rules_endpoint']}/assignment_report/#{patient}", @payload)
   @res = @resp['http_code'] =='200' ? JSON.parse(@resp['message']) : fail("Error #{@resp['http_code']} is returned by the server")
   puts @res
 end
 
-Then(/^a patient assignment json is returned with reason category "([^"]*)" for treatment arm "([^"]*)"$/) do |assignment_reason,ta|
+Then(/^a patient assignment json is returned with reason category "([^"]*)" for treatment arm "([^"]*)"$/) do |assignment_reason, ta|
   assignment_result = @res['treatment_assignment_results']
   assignment_result.each do |tas|
     responseTA = tas['treatment_arm_id']
@@ -57,7 +57,7 @@ Then(/^a patient assignment json is returned with report_status "([^"]*)"$/) do 
   # assignment_result.each do |tas|
   #   File.open('assignment_reason.txt', 'a') { |file| file.puts(tas['reason']+'\n') }
   # end
-#   ends here
+  #   ends here
 end
 
 Then(/^the patient assignment reason is "([^"]*)"$/) do |reason|
@@ -70,35 +70,34 @@ end
 
 Given(/^a tsv variant report file "([^"]*)" and treatment arms file "([^"]*)"$/) do |arg1, ta|
   @tsv = arg1
-  p @tsv
-  treatment_arm = File.join(File.dirname(__FILE__),ENV['rules_treatment_arm_location']+'/'+ta)
+  treatment_arm = File.join(File.dirname(__FILE__), ENV['rules_treatment_arm_location']+'/'+ta)
   expect(File.exist?(treatment_arm)).to be_truthy
   @treatment_arm = JSON(IO.read(treatment_arm))
   p @treatment_arm
 end
 
 When(/^call the amoi rest service$/) do
-  @resp = Helper_Methods.post_request("#{ENV['rules_endpoint']}/variant_report/1111/BDD/msn-1111/job-1111/#{@tsv}?format=tsv",@treatment_arm.to_json)
+  @resp = Helper_Methods.post_request("#{ENV['rules_endpoint']}/variant_report/1111/BDD/msn-1111/job-1111/#{@tsv}?format=tsv", @treatment_arm.to_json)
   @res = JSON.parse(@resp['message'])
-  puts @res
+  puts JSON.pretty_generate(@res)
   @var_report = @res
 end
 
 When(/^the proficiency_competency service is called/) do
-  @resp = Helper_Methods.post_request("#{ENV['rules_endpoint']}/sample_control_report/proficiency_competency/BDD/msn-1111/job-1111/#{@tsv}?format=tsv",@treatment_arm.to_json)
+  @resp = Helper_Methods.post_request("#{ENV['rules_endpoint']}/sample_control_report/proficiency_competency/BDD/msn-1111/job-1111/#{@tsv}?format=tsv", @treatment_arm.to_json)
   @res = JSON.parse(@resp['message'])
   puts @res
 end
 
 When(/^the no_template service is called/) do
   # @res = Helper_Methods.post_request(ENV['rules_endpoint']+'/sample_control_report/no_template/BDD/msn-1111/job-1111/'+@tsv+'?filtered=true',@treatment_arm.to_json)
-  @resp = Helper_Methods.post_request("#{ENV['rules_endpoint']}/sample_control_report/no_template/BDD/msn-1111/job-1111/#{@tsv}?format=tsv",@treatment_arm.to_json)
+  @resp = Helper_Methods.post_request("#{ENV['rules_endpoint']}/sample_control_report/no_template/BDD/msn-1111/job-1111/#{@tsv}?format=tsv", @treatment_arm.to_json)
   @res = JSON.parse(@resp['message'])
   puts @res
 end
 
 When(/^the positive_control service is called/) do
-  @resp = Helper_Methods.post_request("#{ENV['rules_endpoint']}/sample_control_report/positive/BDD/msn-1111/job-1111/#{@tsv}?format=tsv",@treatment_arm.to_json)
+  @resp = Helper_Methods.post_request("#{ENV['rules_endpoint']}/sample_control_report/positive/BDD/msn-1111/job-1111/#{@tsv}?format=tsv", @treatment_arm.to_json)
   @res = JSON.parse(@resp['message'])
   puts @res
 end
@@ -108,11 +107,27 @@ Then(/^the report status return is "([^"]*)"$/) do |status|
 end
 
 Then(/^moi report is returned with the snv variant "([^"]*)" as an amoi$/) do |arg1|
+  found = false
   @res['snv_indels'].each do |snv|
     if snv['identifier'] == arg1
+      found = true
       expect(snv['amois']).not_to be_nil
+      expect(snv['amois'].size).to be > 0
     end
   end
+  raise "Cannot find variant #{arg1}" unless found
+end
+
+Then(/^in moi report the snv variant "([^"]*)" has "([^"]*)" amois$/) do |variant, count|
+  found = false
+  @res['snv_indels'].each do |snv|
+    if snv['identifier'] == variant
+      found = true
+      expect(snv['amois']).not_to be_nil
+      expect(snv['amois'].size).to eq count.to_i
+    end
+  end
+  raise "Cannot find variant #{variant}" unless found
 end
 
 Then(/^amoi treatment arm names for snv variant "([^"]*)" include:$/) do |arg1, string|
@@ -230,7 +245,7 @@ end
 
 Then(/^moi report is returned with the indel variant "([^"]*)" as an amoi$/) do |arg1, string|
   arrTA = JSON.parse(string)
-    @res['snv_indels'].each do |ind|
+  @res['snv_indels'].each do |ind|
     if ind['identifier'] == arg1
       expect(ind['amois']).to eql(arrTA)
     end
@@ -282,7 +297,7 @@ end
 
 
 Then(/^moi report is returned without the ugf variant "([^"]*)"$/) do |arg1|
-    @res['gene_fusions'].each do |gf|
+  @res['gene_fusions'].each do |gf|
     if gf['identifier'] == arg1
       fail ("The gf #{arg1} is found in the moi report")
     end
@@ -307,13 +322,13 @@ Then(/^moi report is returned with (\d+) ugf variants$/) do |arg1|
 end
 
 When(/^a new treatment arm list "([^"]*)" is received by the rules amoi service for the above variant report$/) do |ta|
-  treatment_arm = File.join(File.dirname(__FILE__),ENV['rules_treatment_arm_location']+'/'+ta)
+  treatment_arm = File.join(File.dirname(__FILE__), ENV['rules_treatment_arm_location']+'/'+ta)
   expect(File.exist?(treatment_arm)).to be_truthy, "File not found"
   @treatment_arm_list = JSON(IO.read(treatment_arm))
-  variantReportHash = {"variant_report"=>@var_report,"treatment_arms"=>@treatment_arm_list}
+  variantReportHash = {"variant_report" => @var_report, "treatment_arms" => @treatment_arm_list}
   puts variantReportHash.to_json
 
-  @resp = Helper_Methods.put_request("#{ENV['rules_endpoint']}/variant_report/amois",variantReportHash.to_json)
+  @resp = Helper_Methods.put_request("#{ENV['rules_endpoint']}/variant_report/amois", variantReportHash.to_json)
   @res = JSON.parse(@resp['message'])
   puts @res
 end
@@ -382,7 +397,7 @@ Then(/^the parsed vcf genes should match the list "([^"]*)"$/) do |geneList|
   parsedCopyNumberGenes = @res["copy_number_variant_genes"]
   parsedCopyNumberGenes.each do |gl|
     if !gene_list.include? ("#{gl["gene"]}\n")
-      genes_notfound.insert(-1,gl['gene'])
+      genes_notfound.insert(-1, gl['gene'])
     else
       p "gene #{gl['gene']} found"
     end
