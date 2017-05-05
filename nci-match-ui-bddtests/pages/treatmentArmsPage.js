@@ -160,7 +160,7 @@ var TreatmentArmsPage = function() {
     this.expectedRulesSubTabs =
         ['Drugs / Disease', 'SNVs / MNVs / Indels', 'CNVs', 'Gene Fusions', 'Non-Hotspot Rules', 'Non-Sequencing Assays'];
 
-    this.expectedIncludedSNVs     = [ 'Gene Name', 'ID', 'Chrom', 'Position', 'OCP Ref', 'OCP Alt', 'LOE', 'Lit', 'Variant Type' ];
+    this.expectedIncludedSNVs     = [ 'Gene Name', 'ID', 'Chrom', 'Position', 'OCP Ref', 'OCP Alt', 'LOE', 'Lit', 'Variant Type', 'Protein', 'Description' ];
     this.expectedInclSNVToolTip   = [ 'Chromosome', 'Reference', 'Alternative', 'Level Of Evidence', 'Lit Ref' ];
     this.expectedExcludedSNVs     = [ 'Gene Name', 'ID', 'Chrom', 'Position', 'OCP Ref', 'OCP Alt', 'Lit', 'Variant Type' ];
     this.expectedExclSNVToolTip   = [ 'Chromosome', 'Reference', 'Alternative', 'Lit Ref' ];
