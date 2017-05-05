@@ -110,6 +110,48 @@ module.exports = function () {
         }).then(callback);
     });
 
+    this.Then(/^I see that the elements in the column "(.+?)" for table "(.+?)" and "(Inclusion|Exclusion)" is a gene$/, function (columnName, subTabName, inclusionType, callback) {
+        var table;
+        var elementArray;
+        if (columnName.length > 0){
+             switch (subTabName) {
+                 case 'SNVs / MNVs / Indels':
+                     table = inclusionType === 'Inclusion' ? taPage.inclusionsnvTable : taPage.exclusionsnvTable;
+                     elementArray = table.all(by.css('cosmic-link[link-id="item.gene"]'));
+                     utilities.checkElementArrayisGene(elementArray).then(callback);
+                     break;
+
+                 case 'CNVs':
+                     table = inclusionType === 'Inclusion' ? taPage.inclusioncnvTable : taPage.exclusioncnvTable;
+                     elementArray = table.all(by.css('cosmic-link[link-id="item.identifier"]'));
+                     utilities.checkElementArrayisGene(elementArray).then(callback);
+                     break;
+
+                 case 'Non-Hotspot Rules':
+                     table = inclusionType === 'Inclusion' ? taPage.inclusionNHRTable : taPage.exclusionNHRTable;
+                     elementArray = table.all(by.css('cosmic-link[link-id="item.func_gene"]'));
+                     utilities.checkElementArrayisGene(elementArray).then(callback);
+                     break;
+
+                 case 'Non-Sequencing Assays:' :
+                     table = taPage.assayTableRepeater;
+                     elementArray = table.all(by.css('cosmic-link[link-id="item.gene"]'));
+                     utilities.checkElementArrayisGene(elementArray).then(callback);
+                     break;
+
+                 case 'Gene Fusions':
+                     table = inclusionType === 'Inclusion' ? taPage.inclusionGeneTable : taPage.exclusionGeneTable;
+                     elementArray = table.all(by.css('cosmic-link[link-id="item.identifier"]'));
+                     utilities.checkElementArrayisCosf(elementArray).then(callback);
+                     break;
+             }
+
+         } else {
+             browser.sleep(50).then(callback)
+         }
+
+    });
+
     this.Then(/^I should see Exclusionary Drugs table$/, function (callback) {
         var firstPart;
         var refData;        // Node to collect data from treatment arm api call.

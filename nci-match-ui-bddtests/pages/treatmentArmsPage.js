@@ -146,7 +146,7 @@ var TreatmentArmsPage = function() {
     this.expectedLeftBoxLabels = ['ID', 'Name', 'Stratum ID', 'Description', 'Status', 'Version'];
     this.expectedRightBoxLabels = ['Genes', 'Patients Assigned on Version', 'Total Patients Assigned', 'Drugs', 'Download'];
     this.expectedTableHeaders = [
-        "Name",
+        "ID-Stratum",
         "Description",
         "Current Patients",
         "Former Patients",
@@ -160,9 +160,9 @@ var TreatmentArmsPage = function() {
     this.expectedRulesSubTabs =
         ['Drugs / Disease', 'SNVs / MNVs / Indels', 'CNVs', 'Gene Fusions', 'Non-Hotspot Rules', 'Non-Sequencing Assays'];
 
-    this.expectedIncludedSNVs     = [ 'Gene Name', 'ID', 'Chrom', 'Position', 'OCP Ref', 'OCP Alt', 'LOE', 'Lit', 'Variant Type', 'Protein', 'Description' ];
+    this.expectedIncludedSNVs     = [ 'Gene', 'ID', 'Chrom', 'Position', 'OCP Ref', 'OCP Alt', 'LOE', 'Lit', 'Variant Type', 'Protein', 'Description' ];
     this.expectedInclSNVToolTip   = [ 'Chromosome', 'Reference', 'Alternative', 'Level Of Evidence', 'Lit Ref' ];
-    this.expectedExcludedSNVs     = [ 'Gene Name', 'ID', 'Chrom', 'Position', 'OCP Ref', 'OCP Alt', 'Lit', 'Variant Type' ];
+    this.expectedExcludedSNVs     = [ 'Gene', 'ID', 'Chrom', 'Position', 'OCP Ref', 'OCP Alt', 'Lit', 'Variant Type', 'Protein', 'Description' ];
     this.expectedExclSNVToolTip   = [ 'Chromosome', 'Reference', 'Alternative', 'Lit Ref' ];
     this.expectedIncludedCNVs     = [ 'Gene', 'Chrom', 'LOE', 'Lit' ];
     this.expectedInclCNVToolTip   = [ 'Chromosome', 'Level Of Evidence', 'Lit Ref' ];
@@ -235,14 +235,16 @@ var TreatmentArmsPage = function() {
 
         // Locator Strings for columns
         var idLoc = 'cosmic-link[link-id="item.identifier"]';
-        var geneLoc = '[ng-click="openGene(item.gene_name)"]';
-        var chrLoc = '[ng-bind="item.chromosome | dashify"]';
-        var posLoc = '[ng-bind="item.position | dashify"]';
+        var geneLoc = 'cosmic-link[link-id="item.gene"]';
+        var chrLoc = '[ng-bind="::item.chromosome | dashify"]';
+        var posLoc = '[ng-bind="::item.position | dashify"]';
         var referenceLoc = 'long-string-handling[long-string="item.ocp_reference"]';
-        var alternateLoc = '[ng-bind="item.ocp_alternative | dashify"]';
-        var proteinLoc = 'td:nth-of-type(7)';
-        var loeLoc = '[ng-bind="item.level_of_evidence | dashify"]';
+        var alternateLoc = '[ng-bind="::item.ocp_alternative | dashify"]';
+        var proteinLoc = '[ng-bind="::item.protein | dashify"]';
+        var loeLoc = '[ng-bind="::item.level_of_evidence | dashify"]';
         var litTableLoc = 'pubmed-link[public-med-ids="item.public_med_ids"]';
+        var descriptionLoc = '[ng-bind="::item.description | dashify"]';
+        var variantTypeloc = '[ng-bind="::item.variant_type | dashify"]';
 
         tableType.count().then(function (count){
             if (count > 0){
@@ -250,11 +252,15 @@ var TreatmentArmsPage = function() {
                     row.all(by.css(idLoc)).get(0).getText().then(function(text){
                         if (text === firstData.identifier){
                             // console.log('Checking values in Table')
+                            utils.checkValueInTable(row.all(by.css(geneLoc)), firstData['gene']);
                             utils.checkValueInTable(row.all(by.css(chrLoc)), firstData['chromosome'].toString());
                             utils.checkValueInTable(row.all(by.css(posLoc)), firstData['position'].toString());
                             utils.checkValueInTable(row.all(by.css(referenceLoc)), firstData['ocp_reference'].toString());
                             utils.checkValueInTable(row.all(by.css(alternateLoc)), firstData['ocp_alternative'].toString());
                             utils.checkValueInTable(row.all(by.css(litTableLoc)), med_id_string.toString());
+                            utils.checkValueInTable(row.all(by.css(descriptionLoc)), utils.dashifyIfEmpty(firstData['description']));
+                            utils.checkValueInTable(row.all(by.css(proteinLoc)), utils.dashifyIfEmpty(firstData['protein']));
+                            utils.checkValueInTable(row.all(by.css(variantTypeloc)), firstData['variant_type']);
                             if (inclusionType === 'Inclusion') {
                                 utils.checkValueInTable(row.all(by.css(loeLoc)), firstData['level_of_evidence'].toString());
                             }
@@ -274,9 +280,9 @@ var TreatmentArmsPage = function() {
 
         // Locator strings for columns
         var geneLoc = 'cosmic-link[link-id="item.identifier"]';
-        var chromLoc = '[ng-bind="item.chromosome | dashify"]';
+        var chromLoc = '[ng-bind="::item.chromosome | dashify"]';
         var posLoc = '[ng-bind="item.position | dashify"]';
-        var loeLoc = '[ng-bind="item.level_of_evidence | dashify"]';
+        var loeLoc = '[ng-bind="::item.level_of_evidence | dashify"]';
         var litTableLoc = 'pubmed-link[public-med-ids="item.public_med_ids"]';
 
         tableType.count().then(function (count) {
@@ -307,7 +313,7 @@ var TreatmentArmsPage = function() {
 
         // Locator strings for columns
         var idLoc = 'cosmic-link[link-type="\'cosmicFusionId\'"]';
-        var loeLoc = '[ng-bind="item.level_of_evidence | dashify"]';
+        var loeLoc = '[ng-bind="::item.level_of_evidence | dashify"]';
         var litTableLoc = 'pubmed-link[public-med-ids="item.public_med_ids"]';
 
         tableType.count().then(function (count) {
@@ -337,12 +343,12 @@ var TreatmentArmsPage = function() {
 
         // Locator Strings for columns
         var geneLoc = 'cosmic-link[link-type="\'cosmicGene\'"]';
-        var domainRangeLoc = '[ng-bind="item.domain_range | dashify"]'
-        var domainNameLoc = '[ng-bind="item.domain_name | dashify"]'
-        var exonLoc = '[ng-bind="item.exon | dashify"]'
-        var oncomineLoc= '[ng-bind="item.oncomine_variant_class | dashify"]';
-        var functionLoc = '[ng-bind="item.function | dashify"]';
-        var loeLoc = '[ng-bind="item.level_of_evidence | dashify"]';
+        var domainRangeLoc = '[ng-bind="::item.domain_range | dashify"]';
+        var domainNameLoc = '[ng-bind="::item.domain_name | dashify"]';
+        var exonLoc = '[ng-bind="::item.exon | dashify"]';
+        var oncomineLoc= '[ng-bind="::item.oncomine_variant_class | dashify"]';
+        var functionLoc = '[ng-bind="::item.function | dashify"]';
+        var loeLoc = '[ng-bind="::item.level_of_evidence | dashify"]';
         var litTableLoc = 'pubmed-link[public-med-ids="item.public_med_ids"]';
         tableType.count().then(function (count) {
             if (count > 0){

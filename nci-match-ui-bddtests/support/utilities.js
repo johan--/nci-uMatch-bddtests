@@ -572,6 +572,41 @@ var Utilities = function () {
         });
     };
 
+    this.checkElementArrayisGene = function(elementArray){
+        var compare = function(elem){
+            return elem.getAttribute('href').then(function(href){
+                return elem.getText().then(function(geneName){
+                    expect(href).to.eql('http://grch37-cancer.sanger.ac.uk/cosmic/gene/overview?ln=' + geneName );
+                });
+            })
+        };
+        return elementArray.count().then(function(cnt){
+            for(var i = 0; i < cnt; i++){
+                compare(elementArray.get(i).element(by.css('a')));
+            }
+        })
+    };
+
+    this.checkElementArrayisCosf = function(elementArray){
+        var compare = function(elem){
+            return elem.getAttribute('href').then(function(href){
+                return elem.getText().then(function(geneName){
+                    if (geneName.match(/COSF/)){
+                        var startPos = geneName.indexOf('COSF') + 4;
+                        var stopPos = geneName.indexOf('_') === -1 ? 0 : geneName.indexOf('_');
+                        var slice = geneName.slice(startPos, stopPos);
+                        expect(href).to.eql('http://grch37-cancer.sanger.ac.uk/cosmic/fusion/summary?id=' + slice );
+                    }
+                });
+            })
+        };
+        return elementArray.count().then(function(cnt){
+            for(var i = 0; i < cnt; i++){
+                compare(elementArray.get(i).element(by.css('a')));
+            }
+        })
+    };
+
     this.delay = delay;
 };
 
