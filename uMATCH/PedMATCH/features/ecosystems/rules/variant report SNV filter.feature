@@ -141,7 +141,9 @@ Feature: Test the functionality that filters the SNV variants based on specified
     Given a tsv variant report file "FIL-SNV_12" and treatment arms file "<TAFile>"
     When call the amoi rest service
     Then in moi report the snv variant "match769.2" has "<amoi_count1>" amois
+    And in moi report the snv variant "match769.2" type is "mnp"
     Then in moi report the snv variant "." has "<amoi_count2>" amois
+    And in moi report the snv variant "." type is "snp"
     Examples:
       | TAFile              | amoi_count1 | amoi_count2 |
       | FIL_SNV_12a_TA.json | 1           | 1           |

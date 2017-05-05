@@ -656,3 +656,16 @@ Feature: Patient GET service valid special case tests
     Then this patient tissue analysis_report should have correct "dna" file names: "dna.bam"
     Then this patient tissue analysis_report should have correct "cdna" file names: "cdna.bam"
     Then this patient tissue analysis_report should have correct "vcf" file names: "test1.vcf"
+
+  @patients_p2
+  Scenario: PT_SC10b analysis report can display snp and mnp variant in "snv_indels" field
+    Given patient id is "PT_SC10b_TsShipped"
+    And load template variant file uploaded message for molecular id: "PT_SC10b_TsShipped_MOI1"
+    Then set patient message field: "analysis_id" to value: "PT_SC10b_TsShipped_ANI1"
+    Then upload files for molecular_id "PT_SC10b_TsShipped_MOI1" analysis_id "PT_SC10b_TsShipped_ANI1" using template "default_vcf52"
+    When POST to MATCH variant report upload service, response includes "successfully" with code "202"
+    Then wait until patient variant report is updated
+    Then patient GET service: "analysis_report", patient id: "PT_SC10b_TsShipped", id: "PT_SC10b_TsShipped_ANI1"
+    When GET from MATCH patient API, http code "200" should return
+    Then this patient tissue analysis_report variant field "snv_indels" should include id "COSM893754"
+    Then this patient tissue analysis_report variant field "snv_indels" should include id "COSM26494"

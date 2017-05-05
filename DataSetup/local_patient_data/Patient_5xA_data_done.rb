@@ -1078,4 +1078,12 @@ class Patient5xA
     sleep(10.0)
     PatientMessageLoader.assignment_confirmed(pt.id, pt.ani)
   end
+
+  def self.pt_sc10b_ts_shipped
+    pt = PatientDataSet.new('PT_SC10b_TsShipped')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+  end
+
 end

@@ -185,6 +185,10 @@ Then(/^files for molecular_id "([^"]*)" and analysis_id "([^"]*)" are in S3$/) d
   Patient_helper_methods.upload_vr_to_s3(moi, ani)
 end
 
+Then(/^upload files for molecular_id "([^"]*)" analysis_id "([^"]*)" using template "([^"]*)"$/) do |moi, ani, template|
+  Patient_helper_methods.upload_vr_to_s3(moi, ani, template)
+end
+
 Given(/^load template variant confirm message for this patient$/) do
   Patient_helper_methods.load_template(@patient_id, 'variant_confirmed')
 end
@@ -1067,6 +1071,15 @@ Then(/^this patient tissue analysis_report should have correct "([^"]*)" file na
       expect(vr['vcf_file_name']).to eq name
       expect(vr['vcf_path_name']).to end_with "/#{name[0..name.size-5]}.vcf"
   end
+  end
+
+Then(/^this patient tissue analysis_report variant field "([^"]*)" should include id "([^"]*)"$/) do |field, id|
+  vr = @get_response['variant_report']
+  expect(vr.keys).to include field
+  expect(vr[field].class).to eq Array
+  expect(vr[field].size).to be > 0
+  all_ids = vr[field].collect { |this_variant| this_variant['identifier'] }
+  expect(all_ids).to include id
 end
 
 Then(/^this patient analysis_report should have variant report editable: "([^"]*)"$/) do |editable|

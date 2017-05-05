@@ -130,6 +130,18 @@ Then(/^in moi report the snv variant "([^"]*)" has "([^"]*)" amois$/) do |varian
   raise "Cannot find variant #{variant}" unless found
 end
 
+Then(/^in moi report the snv variant "([^"]*)" type is "([^"]*)"$/)do |variant, type|
+  found = false
+  @res['snv_indels'].each do |snv|
+    if snv['identifier'] == variant
+      found = true
+      expect(snv['variant_type']).not_to be_nil
+      expect(snv['variant_type']).to eq type
+    end
+  end
+  raise "Cannot find variant #{variant}" unless found
+end
+
 Then(/^amoi treatment arm names for snv variant "([^"]*)" include:$/) do |arg1, string|
   arrTA = JSON.parse(string)
   @res['snv_indels'].each do |snv|

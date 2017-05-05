@@ -291,9 +291,9 @@ class Patient_helper_methods
     @patient_message_root_key = ''
   end
 
-  def self.upload_vr_to_s3(moi, ani)
-    Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-dev', 'bdd_test_ion_reporter', moi, ani)
-    Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-int', 'bdd_test_ion_reporter', moi, ani)
+  def self.upload_vr_to_s3(moi, ani, template='default', tsv_name='test1.tsv')
+    Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-dev', 'bdd_test_ion_reporter', moi, ani, tsv_name, template)
+    Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-int', 'bdd_test_ion_reporter', moi, ani, tsv_name, template)
   end
 
   def self.prepare_vr_upload(pt_id, moi, ani, need_upload, site='default')
