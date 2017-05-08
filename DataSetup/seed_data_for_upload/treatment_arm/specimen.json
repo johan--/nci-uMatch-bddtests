@@ -1,0 +1,91 @@
+{
+  "ScannedCount": 1,
+  "Count": 1,
+  "Items": [
+    {
+      "patient_id": {
+        "S": "TA_AS40_TsVrReceived"
+      },
+      "active_molecular_id": {
+        "S": "TA_AS40_TsVrReceived_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T00:00:00+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-25T22:06:33+00:00"
+      },
+      "surgical_event_id": {
+        "S": "TA_AS40_TsVrReceived_SEI1"
+      },
+      "assays": {
+        "L": [
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBRG1s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCPTENs"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBAF47s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          }
+        ]
+      },
+      "pathology_status_date": {
+        "S": "2017-02-27T20:30:10+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2017-02-27T20:30:10.935"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    }
+  ],
+  "ConsumedCapacity": null
+}

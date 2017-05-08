@@ -40,7 +40,7 @@ class MatchTestDataManager
     delete_patients_from_seed(failed_patients)
   end
 
-  def self.backup_local_db(tag='all')
+  def self.backup_local_db(tag='patients')
     TableDetails.all_tables.each { |table_name|
       if DynamoUtilities.table_exist(table_name, LOCAL_TIER)
         DynamoUtilities.backup_local_table_to_file(table_name, seed_file(table_name, tag))
@@ -49,7 +49,7 @@ class MatchTestDataManager
     LOG.log('Done!')
   end
 
-  def self.backup_patient_local_db(tag='all')
+  def self.backup_patient_local_db(tag='patients')
     TableDetails.patient_tables.each { |table_name|
       if DynamoUtilities.table_exist(table_name, LOCAL_TIER)
         DynamoUtilities.backup_local_table_to_file(table_name, seed_file(table_name, tag))
@@ -58,7 +58,7 @@ class MatchTestDataManager
     LOG.log('Done!')
   end
 
-  def self.backup_ta_local_db(tag='all')
+  def self.backup_ta_local_db(tag='patients')
     TableDetails.treatment_arm_tables.each { |table_name|
       if DynamoUtilities.table_exist(table_name, LOCAL_TIER)
         DynamoUtilities.backup_local_table_to_file(table_name, seed_file(table_name, tag))
@@ -67,7 +67,7 @@ class MatchTestDataManager
     LOG.log('Done!')
   end
 
-  def self.backup_ion_local_db(tag='all')
+  def self.backup_ion_local_db(tag='patients')
     TableDetails.ion_tables.each { |table_name|
       if DynamoUtilities.table_exist(table_name, LOCAL_TIER)
         DynamoUtilities.backup_local_table_to_file(table_name, seed_file(table_name, tag))
@@ -76,7 +76,7 @@ class MatchTestDataManager
     LOG.log('Done!')
   end
 
-  def self.delete_patients_from_seed(patient_id_list, tag='all')
+  def self.delete_patients_from_seed(patient_id_list, tag='patients')
     TableDetails.patient_tables.each { |table_name|
       field_name = table_name=='event' ? 'entity_id' : 'patient_id'
       remove_json_nodes_from_file(seed_file(table_name, tag), field_name, patient_id_list, 'S', table_name)
@@ -105,6 +105,23 @@ class MatchTestDataManager
     }
   end
 
+  def self.clear_all_seed_files(tag)
+    TableDetails.all_tables.each { |table_name|
+      clear_seed_file(table_name, tag)
+    }
+  end
+
+  def self.clear_seed_file(table_name, tag)
+    empty_data = {
+        "ScannedCount" => 0,
+        "Count" => 0,
+        "Items" => [],
+        "ConsumedCapacity" => nil
+    }
+    File.open(seed_file(table_name, tag), 'w') { |f| f.write(JSON.pretty_generate(empty_data)) }
+    LOG.log("#{seed_file(table_name, tag)} get cleared")
+  end
+
   # def self.delete_ta_from_seed(ta_id, stratum, version)
   #   field_name = table_name=='event' ? 'entity_id' : 'patient_id'
   #   remove_json_nodes_from_file(seed_file(table_name), field_name, patient_id_list, 'S', table_name)
@@ -114,22 +131,6 @@ class MatchTestDataManager
   # end
 
   ################pressure test patient seed data
-  def self.clear_all_pressure_seed_files
-    TableDetails.patient_tables.each { |table_name|
-      clear_pressure_seed_file(table_name)
-    }
-  end
-
-  def self.clear_pressure_seed_file(table_name)
-    empty_data = {
-        "ScannedCount" => 0,
-        "Count" => 0,
-        "Items" => [],
-        "ConsumedCapacity" => nil
-    }
-    File.open(seed_file(table, PRESSUER_SEED_DATA_FOLDER), 'w') { |f| f.write(JSON.pretty_generate(empty_data)) }
-    LOG.log("#{seed_file(table, PRESSUER_SEED_DATA_FOLDER)} get cleared")
-  end
 
   def self.generate_patient_instance(template_patient_id, count)
     TableDetails.patient_tables.each { |table_name|
@@ -188,7 +189,7 @@ class MatchTestDataManager
   end
 
   ################upload
-  def self.upload_seed_data_to_local(tag='all')
+  def self.upload_seed_data_to_local(tag='patients')
     LOG.log("Uploading seed data for #{tag} tests to local dynamodb")
     TableDetails.all_tables.each do |table|
       name = seed_file(table, tag)
@@ -201,7 +202,7 @@ class MatchTestDataManager
     LOG.log('Done!')
   end
 
-  def self.upload_seed_data_to_int(tag='all')
+  def self.upload_seed_data_to_int(tag='patients')
     LOG.log("Uploading seed data for #{tag} tests to int dynamodb")
     TableDetails.all_tables.each do |table|
       name = seed_file(table, tag)
@@ -251,7 +252,7 @@ class MatchTestDataManager
     "#{File.dirname(__FILE__)}/#{PATIENT_MESSAGE_FOLDER}/#{file_name}.json"
   end
 
-  def self.seed_file(table_name, tag='all')
+  def self.seed_file(table_name, tag='patients')
     "#{File.dirname(__FILE__)}/#{SEED_DATA_FOLDER}/#{tag}/#{table_name}.json"
   end
 
@@ -279,6 +280,8 @@ class MatchTestDataManager
 
     deleted = old_count-items.size
     if deleted > 0
+      file_hash['ScannedCount'] = items.size
+      file_hash['Count'] = items.size
       File.open(file, 'w') { |f| f.write(JSON.pretty_generate(file_hash)) }
     end
     LOG.log("There are #{old_count-items.size} items(#{target_field}=#{target_value_list.to_s}) get removed from #{nickname}")

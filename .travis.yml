@@ -56,9 +56,8 @@ before_script:
   - ruby -r "./sqs_utilities.rb" -e "SQSUtilities.purge_queue 'treatment_arm_queue'"
   # Run Delete Script to empty DynamoDB before tests start
   - bundle exec ruby -r "./match_test_data_manager.rb" -e "MatchTestDataManager.clear_all_int_tables"
-  - bundle exec ruby -r "./match_test_data_manager.rb" -e "MatchTestDataManager.upload_all_seed_data_to_int"
-  #later the above line will be replaced by this line:
-#  - bundle exec ruby -r "./match_test_data_manager.rb" -e "MatchTestDataManager.upload_seed_data_to_int '$CUC_TAG'"
+#  - bundle exec ruby -r "./match_test_data_manager.rb" -e "MatchTestDataManager.upload_all_seed_data_to_int"
+  - bundle exec ruby -r "./match_test_data_manager.rb" -e "MatchTestDataManager.upload_seed_data_to_int '$CUC_TAG'"
   - cd ..
   # Reset ECOG Mock service Data
   - curl -X POST "http://pedmatch-int.nci.nih.gov:3000/restart" -d ''

@@ -1,0 +1,7743 @@
+{
+  "ScannedCount": 15,
+  "Count": 15,
+  "Items": [
+    {
+      "oncomine_control_panel_summary": {
+        "M": {
+          "lrp1": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "myc": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          }
+        }
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "surgical_event_id": {
+        "S": "PT_CR01_PathAssayDoneVRUploadedToConfirm_SEI1"
+      },
+      "status_date": {
+        "S": "2017-01-20T16:09:27+00:00"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_mois": {
+        "N": "2"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "patient_id": {
+        "S": "PT_CR01_PathAssayDoneVRUploadedToConfirm"
+      },
+      "molecular_id": {
+        "S": "PT_CR01_PathAssayDoneVRUploadedToConfirm_MOI1"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "total_mois": {
+        "N": "2"
+      },
+      "variant_report_received_date": {
+        "S": "2017-01-20T16:09:27+00:00"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "analysis_id": {
+        "S": "PT_CR01_PathAssayDoneVRUploadedToConfirm_ANI1"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "status": {
+        "S": "PENDING"
+      }
+    },
+    {
+      "oncomine_control_panel_summary": {
+        "M": {
+          "lrp1": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "myc": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          }
+        }
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "surgical_event_id": {
+        "S": "PT_CR02_OnTreatmentArm_SEI1"
+      },
+      "status_date": {
+        "S": "2017-01-20T16:09:53+00:00"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "molecular_id": {
+        "S": "PT_CR02_OnTreatmentArm_MOI1"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "variant_report_received_date": {
+        "S": "2017-01-20T16:09:52+00:00"
+      },
+      "status": {
+        "S": "CONFIRMED"
+      },
+      "patient_id": {
+        "S": "PT_CR02_OnTreatmentArm"
+      },
+      "total_confirmed_mois": {
+        "N": "2"
+      },
+      "comment": {
+        "S": "The committee approves this variant report"
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "comment_user": {
+        "S": "Rick"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "analysis_id": {
+        "S": "PT_CR02_OnTreatmentArm_ANI1"
+      },
+      "total_mois": {
+        "N": "2"
+      }
+    },
+    {
+      "oncomine_control_panel_summary": {
+        "M": {
+          "lrp1": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "myc": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          }
+        }
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "surgical_event_id": {
+        "S": "PT_CR03_VRUploadedPathConfirmed_SEI1"
+      },
+      "status_date": {
+        "S": "2016-11-07T18:01:40+00:00"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_mois": {
+        "N": "2"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "patient_id": {
+        "S": "PT_CR03_VRUploadedPathConfirmed"
+      },
+      "molecular_id": {
+        "S": "PT_CR03_VRUploadedPathConfirmed_MOI1"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "total_mois": {
+        "N": "2"
+      },
+      "variant_report_received_date": {
+        "S": "2016-11-07T18:01:40+00:00"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "analysis_id": {
+        "S": "PT_CR03_VRUploadedPathConfirmed_ANI1"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "status": {
+        "S": "PENDING"
+      }
+    },
+    {
+      "oncomine_control_panel_summary": {
+        "M": {
+          "lrp1": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "myc": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          }
+        }
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "surgical_event_id": {
+        "S": "PT_CR04_VRUploadedAssayReceived_SEI1"
+      },
+      "status_date": {
+        "S": "2017-01-20T16:11:07+00:00"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_mois": {
+        "N": "2"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "patient_id": {
+        "S": "PT_CR04_VRUploadedAssayReceived"
+      },
+      "molecular_id": {
+        "S": "PT_CR04_VRUploadedAssayReceived_MOI1"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "total_mois": {
+        "N": "2"
+      },
+      "variant_report_received_date": {
+        "S": "2017-01-20T16:11:07+00:00"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "analysis_id": {
+        "S": "PT_CR04_VRUploadedAssayReceived_ANI1"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "status": {
+        "S": "PENDING"
+      }
+    },
+    {
+      "oncomine_control_panel_summary": {
+        "M": {
+          "lrp1": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "myc": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          }
+        }
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "surgical_event_id": {
+        "S": "PT_CR05_SpecimenShippedTwice_SEI1"
+      },
+      "status_date": {
+        "S": "2016-11-07T18:03:21+00:00"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_mois": {
+        "N": "2"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "patient_id": {
+        "S": "PT_CR05_SpecimenShippedTwice"
+      },
+      "molecular_id": {
+        "S": "PT_CR05_SpecimenShippedTwice_MOI1"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "total_mois": {
+        "N": "2"
+      },
+      "variant_report_received_date": {
+        "S": "2016-11-07T18:02:46+00:00"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "analysis_id": {
+        "S": "PT_CR05_SpecimenShippedTwice_ANI1"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "status": {
+        "S": "REJECTED"
+      }
+    },
+    {
+      "oncomine_control_panel_summary": {
+        "M": {
+          "lrp1": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "myc": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          }
+        }
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "surgical_event_id": {
+        "S": "PT_CR05_SpecimenShippedTwice_SEI1"
+      },
+      "status_date": {
+        "S": "2016-11-07T18:03:25+00:00"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_mois": {
+        "N": "2"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "patient_id": {
+        "S": "PT_CR05_SpecimenShippedTwice"
+      },
+      "molecular_id": {
+        "S": "PT_CR05_SpecimenShippedTwice_MOI2"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "total_mois": {
+        "N": "2"
+      },
+      "variant_report_received_date": {
+        "S": "2016-11-07T18:03:25+00:00"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "analysis_id": {
+        "S": "PT_CR05_SpecimenShippedTwice_ANI2"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "status": {
+        "S": "PENDING"
+      }
+    },
+    {
+      "oncomine_control_panel_summary": {
+        "M": {
+          "lrp1": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "myc": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          }
+        }
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "surgical_event_id": {
+        "S": "PT_CR06_RejectOneVariant_SEI1"
+      },
+      "status_date": {
+        "S": "2016-11-07T18:03:55+00:00"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_mois": {
+        "N": "2"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "patient_id": {
+        "S": "PT_CR06_RejectOneVariant"
+      },
+      "molecular_id": {
+        "S": "PT_CR06_RejectOneVariant_MOI1"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "total_mois": {
+        "N": "2"
+      },
+      "variant_report_received_date": {
+        "S": "2016-11-07T18:03:55+00:00"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "analysis_id": {
+        "S": "PT_CR06_RejectOneVariant_ANI1"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "status": {
+        "S": "PENDING"
+      }
+    },
+    {
+      "oncomine_control_panel_summary": {
+        "M": {
+          "lrp1": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "myc": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          }
+        }
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "surgical_event_id": {
+        "S": "PT_CR07_RejectVariantReport_SEI1"
+      },
+      "status_date": {
+        "S": "2016-11-07T18:04:28+00:00"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_mois": {
+        "N": "2"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "patient_id": {
+        "S": "PT_CR07_RejectVariantReport"
+      },
+      "molecular_id": {
+        "S": "PT_CR07_RejectVariantReport_MOI1"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "total_mois": {
+        "N": "2"
+      },
+      "variant_report_received_date": {
+        "S": "2016-11-07T18:04:28+00:00"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "analysis_id": {
+        "S": "PT_CR07_RejectVariantReport_ANI1"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "status": {
+        "S": "PENDING"
+      }
+    },
+    {
+      "oncomine_control_panel_summary": {
+        "M": {
+          "lrp1": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "myc": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          }
+        }
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "status_date": {
+        "S": "2016-11-21T16:09:54+00:00"
+      },
+      "variant_report_type": {
+        "S": "BLOOD"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_mois": {
+        "N": "2"
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "patient_id": {
+        "S": "PT_CR08_BloodSpecimenUploaded"
+      },
+      "molecular_id": {
+        "S": "PT_CR08_BloodSpecimenUploaded_BD_MOI1"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "total_mois": {
+        "N": "2"
+      },
+      "variant_report_received_date": {
+        "S": "2016-11-21T16:09:54+00:00"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "analysis_id": {
+        "S": "PT_CR08_BloodSpecimenUploaded_ANI1"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "status": {
+        "S": "PENDING"
+      }
+    },
+    {
+      "oncomine_control_panel_summary": {
+        "M": {
+          "lrp1": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "myc": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          }
+        }
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "surgical_event_id": {
+        "S": "UI_PA08_MdaTsVrUploaded_SEI1"
+      },
+      "status_date": {
+        "S": "2017-01-24T19:50:29+00:00"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_mois": {
+        "N": "2"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "patient_id": {
+        "S": "UI_PA08_MdaTsVrUploaded"
+      },
+      "molecular_id": {
+        "S": "UI_PA08_MdaTsVrUploaded_MOI1"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "total_mois": {
+        "N": "2"
+      },
+      "variant_report_received_date": {
+        "S": "2017-01-24T19:50:29+00:00"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "analysis_id": {
+        "S": "UI_PA08_MdaTsVrUploaded_ANI1"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "status": {
+        "S": "PENDING"
+      }
+    },
+    {
+      "oncomine_control_panel_summary": {
+        "M": {
+          "lrp1": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "myc": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          }
+        }
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "surgical_event_id": {
+        "S": "UI_PA08_MochaTsVrUploaded_SEI1"
+      },
+      "status_date": {
+        "S": "2017-01-24T19:50:47+00:00"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "clia_lab": {
+        "S": "MoCha"
+      },
+      "total_confirmed_mois": {
+        "N": "2"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "patient_id": {
+        "S": "UI_PA08_MochaTsVrUploaded"
+      },
+      "molecular_id": {
+        "S": "UI_PA08_MochaTsVrUploaded_MOI1"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "total_mois": {
+        "N": "2"
+      },
+      "variant_report_received_date": {
+        "S": "2017-01-24T19:50:47+00:00"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "analysis_id": {
+        "S": "UI_PA08_MochaTsVrUploaded_ANI1"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "status": {
+        "S": "PENDING"
+      }
+    },
+    {
+      "oncomine_control_panel_summary": {
+        "M": {
+          "lrp1": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "myc": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          }
+        }
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "surgical_event_id": {
+        "S": "UI_PA08_PendingConfirmation_SEI1"
+      },
+      "status_date": {
+        "S": "2017-01-24T19:51:12+00:00"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "molecular_id": {
+        "S": "UI_PA08_PendingConfirmation_MOI1"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "variant_report_received_date": {
+        "S": "2017-01-24T19:51:11+00:00"
+      },
+      "status": {
+        "S": "CONFIRMED"
+      },
+      "patient_id": {
+        "S": "UI_PA08_PendingConfirmation"
+      },
+      "total_confirmed_mois": {
+        "N": "2"
+      },
+      "comment": {
+        "S": "The committee approves this variant report"
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "comment_user": {
+        "S": "Rick"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "analysis_id": {
+        "S": "UI_PA08_PendingConfirmation_ANI1"
+      },
+      "total_mois": {
+        "N": "2"
+      }
+    },
+    {
+      "oncomine_control_panel_summary": {
+        "M": {
+          "lrp1": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "myc": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          }
+        }
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "surgical_event_id": {
+        "S": "UI_MA_PendingApproval_SEI1"
+      },
+      "status_date": {
+        "S": "2017-01-26T21:21:04+00:00"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "molecular_id": {
+        "S": "UI_MA_PendingApproval_MOI1"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "variant_report_received_date": {
+        "S": "2017-01-26T21:21:03+00:00"
+      },
+      "status": {
+        "S": "CONFIRMED"
+      },
+      "patient_id": {
+        "S": "UI_MA_PendingApproval"
+      },
+      "total_confirmed_mois": {
+        "N": "2"
+      },
+      "comment": {
+        "S": "The committee approves this variant report"
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "comment_user": {
+        "S": "Rick"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "analysis_id": {
+        "S": "UI_MA_PendingApproval_ANI1"
+      },
+      "total_mois": {
+        "N": "2"
+      }
+    },
+    {
+      "oncomine_control_panel_summary": {
+        "M": {
+          "lrp1": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "myc": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          }
+        }
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "surgical_event_id": {
+        "S": "TA_AS40_TsVrReceived_SEI1"
+      },
+      "status_date": {
+        "S": "2017-02-27T20:30:40+00:00"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_mois": {
+        "N": "1"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_amois": {
+        "N": "1"
+      },
+      "patient_id": {
+        "S": "TA_AS40_TsVrReceived"
+      },
+      "molecular_id": {
+        "S": "TA_AS40_TsVrReceived_MOI1"
+      },
+      "total_confirmed_amois": {
+        "N": "1"
+      },
+      "total_mois": {
+        "N": "1"
+      },
+      "variant_report_received_date": {
+        "S": "2017-02-27T20:30:40+00:00"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "analysis_id": {
+        "S": "TA_AS40_TsVrReceived_ANI1"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "status": {
+        "S": "PENDING"
+      }
+    },
+    {
+      "oncomine_control_panel_summary": {
+        "M": {
+          "fPool": {
+            "M": {
+              "POOL1": {
+                "N": "0.0"
+              },
+              "POOL2": {
+                "N": "0.0"
+              }
+            }
+          },
+          "ecPool": {
+            "M": {
+              "POOL1": {
+                "N": "264234.0"
+              },
+              "POOL2": {
+                "N": "669497.0"
+              }
+            }
+          },
+          "pool1Sum": {
+            "N": "449632.5"
+          },
+          "tbp": {
+            "N": "210063.0"
+          },
+          "pool2Sum": {
+            "N": "957045.5"
+          },
+          "hmbs": {
+            "N": "37550.0"
+          },
+          "sum": {
+            "N": "586013.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "myc": {
+            "N": "181482.0"
+          },
+          "lrp1": {
+            "N": "111716.0"
+          },
+          "gePool": {
+            "M": {
+              "POOL1": {
+                "N": "185398.5"
+              },
+              "POOL2": {
+                "N": "287548.5"
+              }
+            }
+          },
+          "itgb7": {
+            "N": "45202.0"
+          }
+        }
+      },
+      "torrent_variant_caller_version": {
+        "S": "5.2-25"
+      },
+      "surgical_event_id": {
+        "S": "UI_PA09_TsVr52Uploaded_SEI1"
+      },
+      "status_date": {
+        "S": "2017-03-31T13:46:16+00:00"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "vcf_file_name": {
+        "S": "test1.vcf"
+      },
+      "molecular_id": {
+        "S": "UI_PA09_TsVr52Uploaded_MOI1"
+      },
+      "mappedFusionPanelReads": {
+        "N": "1406678"
+      },
+      "total_confirmed_amois": {
+        "N": "0"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr1"
+              },
+              "position": {
+                "S": "27022976"
+              },
+              "raw_copy_number": {
+                "N": "2.02"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "ARID1A"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.91182"
+                  },
+                  {
+                    "S": "0.95:2.1343"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.868715"
+                  },
+                  {
+                    "N": "1.891763"
+                  },
+                  {
+                    "N": "1.911817"
+                  },
+                  {
+                    "N": "1.935208"
+                  },
+                  {
+                    "N": "1.963925"
+                  },
+                  {
+                    "N": "1.974947"
+                  },
+                  {
+                    "N": "2.02"
+                  },
+                  {
+                    "N": "2.066081"
+                  },
+                  {
+                    "N": "2.077676"
+                  },
+                  {
+                    "N": "2.108507"
+                  },
+                  {
+                    "N": "2.134305"
+                  },
+                  {
+                    "N": "2.15693"
+                  },
+                  {
+                    "N": "2.183533"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr1"
+              },
+              "position": {
+                "S": "40362965"
+              },
+              "raw_copy_number": {
+                "N": "2.86"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "MYCL"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.40943"
+                  },
+                  {
+                    "S": "0.95:3.39483"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "2.244246"
+                  },
+                  {
+                    "N": "2.331584"
+                  },
+                  {
+                    "N": "2.409429"
+                  },
+                  {
+                    "N": "2.502437"
+                  },
+                  {
+                    "N": "2.619914"
+                  },
+                  {
+                    "N": "2.665978"
+                  },
+                  {
+                    "N": "2.86"
+                  },
+                  {
+                    "N": "3.068143"
+                  },
+                  {
+                    "N": "3.122087"
+                  },
+                  {
+                    "N": "3.268654"
+                  },
+                  {
+                    "N": "3.394829"
+                  },
+                  {
+                    "N": "3.508174"
+                  },
+                  {
+                    "N": "3.644698"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr1"
+              },
+              "position": {
+                "S": "120457923"
+              },
+              "raw_copy_number": {
+                "N": "3.29"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "NOTCH2"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:3.12426"
+                  },
+                  {
+                    "S": "0.95:3.46453"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "3.058075"
+                  },
+                  {
+                    "N": "3.09348"
+                  },
+                  {
+                    "N": "3.124265"
+                  },
+                  {
+                    "N": "3.160148"
+                  },
+                  {
+                    "N": "3.204163"
+                  },
+                  {
+                    "N": "3.221046"
+                  },
+                  {
+                    "N": "3.29"
+                  },
+                  {
+                    "N": "3.36043"
+                  },
+                  {
+                    "N": "3.378136"
+                  },
+                  {
+                    "N": "3.425188"
+                  },
+                  {
+                    "N": "3.464527"
+                  },
+                  {
+                    "N": "3.499004"
+                  },
+                  {
+                    "N": "3.539515"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr1"
+              },
+              "position": {
+                "S": "156785511"
+              },
+              "raw_copy_number": {
+                "N": "3.17"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "NTRK1"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.69198"
+                  },
+                  {
+                    "S": "0.95:3.7329"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "2.515729"
+                  },
+                  {
+                    "N": "2.608992"
+                  },
+                  {
+                    "N": "2.691982"
+                  },
+                  {
+                    "N": "2.790973"
+                  },
+                  {
+                    "N": "2.915764"
+                  },
+                  {
+                    "N": "2.964624"
+                  },
+                  {
+                    "N": "3.17"
+                  },
+                  {
+                    "N": "3.389604"
+                  },
+                  {
+                    "N": "3.446404"
+                  },
+                  {
+                    "N": "3.600501"
+                  },
+                  {
+                    "N": "3.7329"
+                  },
+                  {
+                    "N": "3.85164"
+                  },
+                  {
+                    "N": "3.994428"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr1"
+              },
+              "position": {
+                "S": "204494575"
+              },
+              "raw_copy_number": {
+                "N": "2.63"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "MDM4"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.21566"
+                  },
+                  {
+                    "S": "0.95:3.12182"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "2.063765"
+                  },
+                  {
+                    "N": "2.144079"
+                  },
+                  {
+                    "N": "2.215664"
+                  },
+                  {
+                    "N": "2.301192"
+                  },
+                  {
+                    "N": "2.409222"
+                  },
+                  {
+                    "N": "2.451581"
+                  },
+                  {
+                    "N": "2.63"
+                  },
+                  {
+                    "N": "2.821404"
+                  },
+                  {
+                    "N": "2.87101"
+                  },
+                  {
+                    "N": "3.00579"
+                  },
+                  {
+                    "N": "3.121818"
+                  },
+                  {
+                    "N": "3.226048"
+                  },
+                  {
+                    "N": "3.351593"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr1"
+              },
+              "position": {
+                "S": "243662991"
+              },
+              "raw_copy_number": {
+                "N": "3.1"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "AKT3"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.63254"
+                  },
+                  {
+                    "S": "0.95:3.65047"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "2.460177"
+                  },
+                  {
+                    "N": "2.55138"
+                  },
+                  {
+                    "N": "2.632538"
+                  },
+                  {
+                    "N": "2.729343"
+                  },
+                  {
+                    "N": "2.851378"
+                  },
+                  {
+                    "N": "2.899159"
+                  },
+                  {
+                    "N": "3.1"
+                  },
+                  {
+                    "N": "3.314755"
+                  },
+                  {
+                    "N": "3.3703"
+                  },
+                  {
+                    "N": "3.520994"
+                  },
+                  {
+                    "N": "3.65047"
+                  },
+                  {
+                    "N": "3.766588"
+                  },
+                  {
+                    "N": "3.906223"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr2"
+              },
+              "position": {
+                "S": "16082140"
+              },
+              "raw_copy_number": {
+                "N": "1.84"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "MYCN"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.55012"
+                  },
+                  {
+                    "S": "0.95:2.18409"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.443851"
+                  },
+                  {
+                    "N": "1.50004"
+                  },
+                  {
+                    "N": "1.550122"
+                  },
+                  {
+                    "N": "1.609959"
+                  },
+                  {
+                    "N": "1.685539"
+                  },
+                  {
+                    "N": "1.715174"
+                  },
+                  {
+                    "N": "1.84"
+                  },
+                  {
+                    "N": "1.97391"
+                  },
+                  {
+                    "N": "2.008616"
+                  },
+                  {
+                    "N": "2.10291"
+                  },
+                  {
+                    "N": "2.184086"
+                  },
+                  {
+                    "N": "2.257007"
+                  },
+                  {
+                    "N": "2.344841"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr2"
+              },
+              "position": {
+                "S": "29419630"
+              },
+              "raw_copy_number": {
+                "N": "1.71"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "ALK"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.48664"
+                  },
+                  {
+                    "S": "0.95:1.96692"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.402887"
+                  },
+                  {
+                    "N": "1.447307"
+                  },
+                  {
+                    "N": "1.486642"
+                  },
+                  {
+                    "N": "1.533335"
+                  },
+                  {
+                    "N": "1.59186"
+                  },
+                  {
+                    "N": "1.614675"
+                  },
+                  {
+                    "N": "1.71"
+                  },
+                  {
+                    "N": "1.810952"
+                  },
+                  {
+                    "N": "1.836908"
+                  },
+                  {
+                    "N": "1.90702"
+                  },
+                  {
+                    "N": "1.966916"
+                  },
+                  {
+                    "N": "2.020373"
+                  },
+                  {
+                    "N": "2.084345"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr2"
+              },
+              "position": {
+                "S": "47630308"
+              },
+              "raw_copy_number": {
+                "N": "2.52"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "MSH2"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.31778"
+                  },
+                  {
+                    "S": "0.95:2.73987"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "2.238832"
+                  },
+                  {
+                    "N": "2.28093"
+                  },
+                  {
+                    "N": "2.317778"
+                  },
+                  {
+                    "N": "2.361011"
+                  },
+                  {
+                    "N": "2.414459"
+                  },
+                  {
+                    "N": "2.435081"
+                  },
+                  {
+                    "N": "2.52"
+                  },
+                  {
+                    "N": "2.60788"
+                  },
+                  {
+                    "N": "2.630154"
+                  },
+                  {
+                    "N": "2.689695"
+                  },
+                  {
+                    "N": "2.739866"
+                  },
+                  {
+                    "N": "2.784127"
+                  },
+                  {
+                    "N": "2.836479"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr2"
+              },
+              "position": {
+                "S": "48010362"
+              },
+              "raw_copy_number": {
+                "N": "2.76"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "MSH6"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.57192"
+                  },
+                  {
+                    "S": "0.95:2.96183"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "2.497811"
+                  },
+                  {
+                    "N": "2.537381"
+                  },
+                  {
+                    "N": "2.571922"
+                  },
+                  {
+                    "N": "2.61234"
+                  },
+                  {
+                    "N": "2.662148"
+                  },
+                  {
+                    "N": "2.681319"
+                  },
+                  {
+                    "N": "2.76"
+                  },
+                  {
+                    "N": "2.84099"
+                  },
+                  {
+                    "N": "2.861449"
+                  },
+                  {
+                    "N": "2.916007"
+                  },
+                  {
+                    "N": "2.961832"
+                  },
+                  {
+                    "N": "3.002151"
+                  },
+                  {
+                    "N": "3.04971"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr3"
+              },
+              "position": {
+                "S": "10070318"
+              },
+              "raw_copy_number": {
+                "N": "1.91"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "FANCD2"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.79485"
+                  },
+                  {
+                    "S": "0.95:2.03254"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.749197"
+                  },
+                  {
+                    "N": "1.773589"
+                  },
+                  {
+                    "N": "1.794845"
+                  },
+                  {
+                    "N": "1.819674"
+                  },
+                  {
+                    "N": "1.850208"
+                  },
+                  {
+                    "N": "1.861943"
+                  },
+                  {
+                    "N": "1.91"
+                  },
+                  {
+                    "N": "1.959297"
+                  },
+                  {
+                    "N": "1.971724"
+                  },
+                  {
+                    "N": "2.00481"
+                  },
+                  {
+                    "N": "2.032544"
+                  },
+                  {
+                    "N": "2.056902"
+                  },
+                  {
+                    "N": "2.085586"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr3"
+              },
+              "position": {
+                "S": "12393076"
+              },
+              "raw_copy_number": {
+                "N": "1.8"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "PPARG"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.51642"
+                  },
+                  {
+                    "S": "0.95:2.13661"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.412463"
+                  },
+                  {
+                    "N": "1.46743"
+                  },
+                  {
+                    "N": "1.516424"
+                  },
+                  {
+                    "N": "1.57496"
+                  },
+                  {
+                    "N": "1.648897"
+                  },
+                  {
+                    "N": "1.677888"
+                  },
+                  {
+                    "N": "1.8"
+                  },
+                  {
+                    "N": "1.930999"
+                  },
+                  {
+                    "N": "1.96495"
+                  },
+                  {
+                    "N": "2.057195"
+                  },
+                  {
+                    "N": "2.136606"
+                  },
+                  {
+                    "N": "2.207941"
+                  },
+                  {
+                    "N": "2.293866"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr3"
+              },
+              "position": {
+                "S": "37035027"
+              },
+              "raw_copy_number": {
+                "N": "1.94"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "MLH1"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.77869"
+                  },
+                  {
+                    "S": "0.95:2.11593"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.715866"
+                  },
+                  {
+                    "N": "1.74936"
+                  },
+                  {
+                    "N": "1.778695"
+                  },
+                  {
+                    "N": "1.813138"
+                  },
+                  {
+                    "N": "1.855751"
+                  },
+                  {
+                    "N": "1.872202"
+                  },
+                  {
+                    "N": "1.94"
+                  },
+                  {
+                    "N": "2.010254"
+                  },
+                  {
+                    "N": "2.028074"
+                  },
+                  {
+                    "N": "2.075739"
+                  },
+                  {
+                    "N": "2.115933"
+                  },
+                  {
+                    "N": "2.151416"
+                  },
+                  {
+                    "N": "2.193412"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr3"
+              },
+              "position": {
+                "S": "47058548"
+              },
+              "raw_copy_number": {
+                "N": "2.0"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "SETD2"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.90013"
+                  },
+                  {
+                    "S": "0.95:2.10512"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.860231"
+                  },
+                  {
+                    "N": "1.881574"
+                  },
+                  {
+                    "N": "1.90013"
+                  },
+                  {
+                    "N": "1.921756"
+                  },
+                  {
+                    "N": "1.948282"
+                  },
+                  {
+                    "N": "1.958455"
+                  },
+                  {
+                    "N": "2.0"
+                  },
+                  {
+                    "N": "2.042427"
+                  },
+                  {
+                    "N": "2.053091"
+                  },
+                  {
+                    "N": "2.081429"
+                  },
+                  {
+                    "N": "2.105119"
+                  },
+                  {
+                    "N": "2.12588"
+                  },
+                  {
+                    "N": "2.15027"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr3"
+              },
+              "position": {
+                "S": "52436208"
+              },
+              "raw_copy_number": {
+                "N": "1.97"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "BAP1"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.7951"
+                  },
+                  {
+                    "S": "0.95:2.16194"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.727276"
+                  },
+                  {
+                    "N": "1.763412"
+                  },
+                  {
+                    "N": "1.795102"
+                  },
+                  {
+                    "N": "1.832355"
+                  },
+                  {
+                    "N": "1.878516"
+                  },
+                  {
+                    "N": "1.896357"
+                  },
+                  {
+                    "N": "1.97"
+                  },
+                  {
+                    "N": "2.046503"
+                  },
+                  {
+                    "N": "2.065939"
+                  },
+                  {
+                    "N": "2.117984"
+                  },
+                  {
+                    "N": "2.161939"
+                  },
+                  {
+                    "N": "2.200791"
+                  },
+                  {
+                    "N": "2.246833"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr3"
+              },
+              "position": {
+                "S": "138374196"
+              },
+              "raw_copy_number": {
+                "N": "1.51"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "PIK3CB"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.2823"
+                  },
+                  {
+                    "S": "0.95:1.77813"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.198344"
+                  },
+                  {
+                    "N": "1.242769"
+                  },
+                  {
+                    "N": "1.282301"
+                  },
+                  {
+                    "N": "1.329454"
+                  },
+                  {
+                    "N": "1.388897"
+                  },
+                  {
+                    "N": "1.412171"
+                  },
+                  {
+                    "N": "1.51"
+                  },
+                  {
+                    "N": "1.614606"
+                  },
+                  {
+                    "N": "1.641662"
+                  },
+                  {
+                    "N": "1.715065"
+                  },
+                  {
+                    "N": "1.778132"
+                  },
+                  {
+                    "N": "1.834693"
+                  },
+                  {
+                    "N": "1.902709"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr3"
+              },
+              "position": {
+                "S": "142168233"
+              },
+              "raw_copy_number": {
+                "N": "1.67"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "ATR"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.59096"
+                  },
+                  {
+                    "S": "0.95:1.75297"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.559317"
+                  },
+                  {
+                    "N": "1.576246"
+                  },
+                  {
+                    "N": "1.590957"
+                  },
+                  {
+                    "N": "1.608092"
+                  },
+                  {
+                    "N": "1.629094"
+                  },
+                  {
+                    "N": "1.637145"
+                  },
+                  {
+                    "N": "1.67"
+                  },
+                  {
+                    "N": "1.703515"
+                  },
+                  {
+                    "N": "1.711933"
+                  },
+                  {
+                    "N": "1.734292"
+                  },
+                  {
+                    "N": "1.752971"
+                  },
+                  {
+                    "N": "1.76933"
+                  },
+                  {
+                    "N": "1.78854"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr3"
+              },
+              "position": {
+                "S": "178916548"
+              },
+              "raw_copy_number": {
+                "N": "3.0"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "PIK3CA"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.54762"
+                  },
+                  {
+                    "S": "0.95:3.53271"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "2.380816"
+                  },
+                  {
+                    "N": "2.469078"
+                  },
+                  {
+                    "N": "2.547617"
+                  },
+                  {
+                    "N": "2.641299"
+                  },
+                  {
+                    "N": "2.759398"
+                  },
+                  {
+                    "N": "2.805637"
+                  },
+                  {
+                    "N": "3.0"
+                  },
+                  {
+                    "N": "3.207827"
+                  },
+                  {
+                    "N": "3.261581"
+                  },
+                  {
+                    "N": "3.407414"
+                  },
+                  {
+                    "N": "3.532713"
+                  },
+                  {
+                    "N": "3.645086"
+                  },
+                  {
+                    "N": "3.780216"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr4"
+              },
+              "position": {
+                "S": "1795640"
+              },
+              "raw_copy_number": {
+                "N": "1.86"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "FGFR3"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.56697"
+                  },
+                  {
+                    "S": "0.95:2.20783"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.459545"
+                  },
+                  {
+                    "N": "1.516345"
+                  },
+                  {
+                    "N": "1.566972"
+                  },
+                  {
+                    "N": "1.627459"
+                  },
+                  {
+                    "N": "1.70386"
+                  },
+                  {
+                    "N": "1.733818"
+                  },
+                  {
+                    "N": "1.86"
+                  },
+                  {
+                    "N": "1.995366"
+                  },
+                  {
+                    "N": "2.030448"
+                  },
+                  {
+                    "N": "2.125768"
+                  },
+                  {
+                    "N": "2.207826"
+                  },
+                  {
+                    "N": "2.28154"
+                  },
+                  {
+                    "N": "2.370328"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr4"
+              },
+              "position": {
+                "S": "55141006"
+              },
+              "raw_copy_number": {
+                "N": "2.74"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "PDGFRA"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.38211"
+                  },
+                  {
+                    "S": "0.95:3.15167"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "2.247901"
+                  },
+                  {
+                    "N": "2.319076"
+                  },
+                  {
+                    "N": "2.382105"
+                  },
+                  {
+                    "N": "2.456922"
+                  },
+                  {
+                    "N": "2.550699"
+                  },
+                  {
+                    "N": "2.587257"
+                  },
+                  {
+                    "N": "2.74"
+                  },
+                  {
+                    "N": "2.90176"
+                  },
+                  {
+                    "N": "2.94335"
+                  },
+                  {
+                    "N": "3.055693"
+                  },
+                  {
+                    "N": "3.151666"
+                  },
+                  {
+                    "N": "3.237323"
+                  },
+                  {
+                    "N": "3.339827"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr4"
+              },
+              "position": {
+                "S": "55589727"
+              },
+              "raw_copy_number": {
+                "N": "3.02"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "KIT"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.66682"
+                  },
+                  {
+                    "S": "0.95:3.41995"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "2.532897"
+                  },
+                  {
+                    "N": "2.604032"
+                  },
+                  {
+                    "N": "2.666821"
+                  },
+                  {
+                    "N": "2.741115"
+                  },
+                  {
+                    "N": "2.833881"
+                  },
+                  {
+                    "N": "2.869941"
+                  },
+                  {
+                    "N": "3.02"
+                  },
+                  {
+                    "N": "3.177905"
+                  },
+                  {
+                    "N": "3.218343"
+                  },
+                  {
+                    "N": "3.32726"
+                  },
+                  {
+                    "N": "3.419952"
+                  },
+                  {
+                    "N": "3.502415"
+                  },
+                  {
+                    "N": "3.600778"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr4"
+              },
+              "position": {
+                "S": "153243998"
+              },
+              "raw_copy_number": {
+                "N": "1.91"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "FBXW7"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.74714"
+                  },
+                  {
+                    "S": "0.95:2.08804"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.683809"
+                  },
+                  {
+                    "N": "1.717563"
+                  },
+                  {
+                    "N": "1.74714"
+                  },
+                  {
+                    "N": "1.781883"
+                  },
+                  {
+                    "N": "1.824891"
+                  },
+                  {
+                    "N": "1.841502"
+                  },
+                  {
+                    "N": "1.91"
+                  },
+                  {
+                    "N": "1.981046"
+                  },
+                  {
+                    "N": "1.999078"
+                  },
+                  {
+                    "N": "2.047329"
+                  },
+                  {
+                    "N": "2.088041"
+                  },
+                  {
+                    "N": "2.123998"
+                  },
+                  {
+                    "N": "2.166576"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr5"
+              },
+              "position": {
+                "S": "1253819"
+              },
+              "raw_copy_number": {
+                "N": "1.77"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "TERT"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.50309"
+                  },
+                  {
+                    "S": "0.95:2.0843"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.404682"
+                  },
+                  {
+                    "N": "1.456756"
+                  },
+                  {
+                    "N": "1.503094"
+                  },
+                  {
+                    "N": "1.558367"
+                  },
+                  {
+                    "N": "1.628045"
+                  },
+                  {
+                    "N": "1.655326"
+                  },
+                  {
+                    "N": "1.77"
+                  },
+                  {
+                    "N": "1.892618"
+                  },
+                  {
+                    "N": "1.924333"
+                  },
+                  {
+                    "N": "2.010374"
+                  },
+                  {
+                    "N": "2.0843"
+                  },
+                  {
+                    "N": "2.150601"
+                  },
+                  {
+                    "N": "2.230328"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr5"
+              },
+              "position": {
+                "S": "38942341"
+              },
+              "raw_copy_number": {
+                "N": "2.1"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "RICTOR"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.75283"
+                  },
+                  {
+                    "S": "0.95:2.51593"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.626402"
+                  },
+                  {
+                    "N": "1.693189"
+                  },
+                  {
+                    "N": "1.752831"
+                  },
+                  {
+                    "N": "1.824227"
+                  },
+                  {
+                    "N": "1.914611"
+                  },
+                  {
+                    "N": "1.950111"
+                  },
+                  {
+                    "N": "2.1"
+                  },
+                  {
+                    "N": "2.261409"
+                  },
+                  {
+                    "N": "2.30334"
+                  },
+                  {
+                    "N": "2.417463"
+                  },
+                  {
+                    "N": "2.515929"
+                  },
+                  {
+                    "N": "2.604553"
+                  },
+                  {
+                    "N": "2.711506"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr5"
+              },
+              "position": {
+                "S": "67522497"
+              },
+              "raw_copy_number": {
+                "N": "1.87"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "PIK3R1"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.71452"
+                  },
+                  {
+                    "S": "0.95:2.03959"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.653953"
+                  },
+                  {
+                    "N": "1.686238"
+                  },
+                  {
+                    "N": "1.714516"
+                  },
+                  {
+                    "N": "1.747715"
+                  },
+                  {
+                    "N": "1.788791"
+                  },
+                  {
+                    "N": "1.804648"
+                  },
+                  {
+                    "N": "1.87"
+                  },
+                  {
+                    "N": "1.937719"
+                  },
+                  {
+                    "N": "1.954896"
+                  },
+                  {
+                    "N": "2.000841"
+                  },
+                  {
+                    "N": "2.039585"
+                  },
+                  {
+                    "N": "2.073787"
+                  },
+                  {
+                    "N": "2.114268"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr5"
+              },
+              "position": {
+                "S": "131893011"
+              },
+              "raw_copy_number": {
+                "N": "1.83"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "RAD50"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.70426"
+                  },
+                  {
+                    "S": "0.95:1.96501"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.654739"
+                  },
+                  {
+                    "N": "1.68118"
+                  },
+                  {
+                    "N": "1.704263"
+                  },
+                  {
+                    "N": "1.731277"
+                  },
+                  {
+                    "N": "1.764573"
+                  },
+                  {
+                    "N": "1.77739"
+                  },
+                  {
+                    "N": "1.83"
+                  },
+                  {
+                    "N": "1.884167"
+                  },
+                  {
+                    "N": "1.897853"
+                  },
+                  {
+                    "N": "1.934352"
+                  },
+                  {
+                    "N": "1.965013"
+                  },
+                  {
+                    "N": "1.991994"
+                  },
+                  {
+                    "N": "2.023824"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr5"
+              },
+              "position": {
+                "S": "149495234"
+              },
+              "raw_copy_number": {
+                "N": "1.71"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "PDGFRB"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.46228"
+                  },
+                  {
+                    "S": "0.95:1.99968"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.370487"
+                  },
+                  {
+                    "N": "1.419093"
+                  },
+                  {
+                    "N": "1.462282"
+                  },
+                  {
+                    "N": "1.513725"
+                  },
+                  {
+                    "N": "1.578465"
+                  },
+                  {
+                    "N": "1.60378"
+                  },
+                  {
+                    "N": "1.71"
+                  },
+                  {
+                    "N": "1.823255"
+                  },
+                  {
+                    "N": "1.852496"
+                  },
+                  {
+                    "N": "1.931725"
+                  },
+                  {
+                    "N": "1.999682"
+                  },
+                  {
+                    "N": "2.060542"
+                  },
+                  {
+                    "N": "2.133621"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr5"
+              },
+              "position": {
+                "S": "176516567"
+              },
+              "raw_copy_number": {
+                "N": "1.74"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "FGFR4"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.45235"
+                  },
+                  {
+                    "S": "0.95:2.08463"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.347591"
+                  },
+                  {
+                    "N": "1.402928"
+                  },
+                  {
+                    "N": "1.452346"
+                  },
+                  {
+                    "N": "1.511502"
+                  },
+                  {
+                    "N": "1.586392"
+                  },
+                  {
+                    "N": "1.615807"
+                  },
+                  {
+                    "N": "1.74"
+                  },
+                  {
+                    "N": "1.873739"
+                  },
+                  {
+                    "N": "1.908482"
+                  },
+                  {
+                    "N": "2.00304"
+                  },
+                  {
+                    "N": "2.084627"
+                  },
+                  {
+                    "N": "2.158058"
+                  },
+                  {
+                    "N": "2.246676"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr6"
+              },
+              "position": {
+                "S": "152129032"
+              },
+              "raw_copy_number": {
+                "N": "1.8"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "ESR1"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.52857"
+                  },
+                  {
+                    "S": "0.95:2.11963"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.42849"
+                  },
+                  {
+                    "N": "1.481447"
+                  },
+                  {
+                    "N": "1.52857"
+                  },
+                  {
+                    "N": "1.58478"
+                  },
+                  {
+                    "N": "1.655639"
+                  },
+                  {
+                    "N": "1.683382"
+                  },
+                  {
+                    "N": "1.8"
+                  },
+                  {
+                    "N": "1.924696"
+                  },
+                  {
+                    "N": "1.956949"
+                  },
+                  {
+                    "N": "2.044448"
+                  },
+                  {
+                    "N": "2.119628"
+                  },
+                  {
+                    "N": "2.187051"
+                  },
+                  {
+                    "N": "2.26813"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr7"
+              },
+              "position": {
+                "S": "6012922"
+              },
+              "raw_copy_number": {
+                "N": "1.41"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "PMS2"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.28115"
+                  },
+                  {
+                    "S": "0.95:1.55181"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.231281"
+                  },
+                  {
+                    "N": "1.257841"
+                  },
+                  {
+                    "N": "1.281148"
+                  },
+                  {
+                    "N": "1.308563"
+                  },
+                  {
+                    "N": "1.342556"
+                  },
+                  {
+                    "N": "1.355701"
+                  },
+                  {
+                    "N": "1.41"
+                  },
+                  {
+                    "N": "1.466474"
+                  },
+                  {
+                    "N": "1.480832"
+                  },
+                  {
+                    "N": "1.519301"
+                  },
+                  {
+                    "N": "1.551811"
+                  },
+                  {
+                    "N": "1.580565"
+                  },
+                  {
+                    "N": "1.61466"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr7"
+              },
+              "position": {
+                "S": "55211009"
+              },
+              "raw_copy_number": {
+                "N": "2.78"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "EGFR"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.43749"
+                  },
+                  {
+                    "S": "0.95:3.17064"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "2.308271"
+                  },
+                  {
+                    "N": "2.376859"
+                  },
+                  {
+                    "N": "2.43749"
+                  },
+                  {
+                    "N": "2.509335"
+                  },
+                  {
+                    "N": "2.599199"
+                  },
+                  {
+                    "N": "2.634178"
+                  },
+                  {
+                    "N": "2.78"
+                  },
+                  {
+                    "N": "2.933895"
+                  },
+                  {
+                    "N": "2.973377"
+                  },
+                  {
+                    "N": "3.07986"
+                  },
+                  {
+                    "N": "3.170639"
+                  },
+                  {
+                    "N": "3.251518"
+                  },
+                  {
+                    "N": "3.348134"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr7"
+              },
+              "position": {
+                "S": "92244371"
+              },
+              "raw_copy_number": {
+                "N": "2.83"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "CDK6"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.38416"
+                  },
+                  {
+                    "S": "0.95:3.35922"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "2.220705"
+                  },
+                  {
+                    "N": "2.307126"
+                  },
+                  {
+                    "N": "2.384156"
+                  },
+                  {
+                    "N": "2.476187"
+                  },
+                  {
+                    "N": "2.592432"
+                  },
+                  {
+                    "N": "2.638013"
+                  },
+                  {
+                    "N": "2.83"
+                  },
+                  {
+                    "N": "3.03596"
+                  },
+                  {
+                    "N": "3.089338"
+                  },
+                  {
+                    "N": "3.234367"
+                  },
+                  {
+                    "N": "3.359219"
+                  },
+                  {
+                    "N": "3.471375"
+                  },
+                  {
+                    "N": "3.606467"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr7"
+              },
+              "position": {
+                "S": "116339591"
+              },
+              "raw_copy_number": {
+                "N": "2.81"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "MET"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.49649"
+                  },
+                  {
+                    "S": "0.95:3.16288"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "2.377089"
+                  },
+                  {
+                    "N": "2.440547"
+                  },
+                  {
+                    "N": "2.496489"
+                  },
+                  {
+                    "N": "2.562598"
+                  },
+                  {
+                    "N": "2.645022"
+                  },
+                  {
+                    "N": "2.677027"
+                  },
+                  {
+                    "N": "2.81"
+                  },
+                  {
+                    "N": "2.949578"
+                  },
+                  {
+                    "N": "2.985268"
+                  },
+                  {
+                    "N": "3.081287"
+                  },
+                  {
+                    "N": "3.162882"
+                  },
+                  {
+                    "N": "3.235382"
+                  },
+                  {
+                    "N": "3.321752"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr7"
+              },
+              "position": {
+                "S": "140434534"
+              },
+              "raw_copy_number": {
+                "N": "2.17"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "BRAF"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.88656"
+                  },
+                  {
+                    "S": "0.95:2.49603"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.780272"
+                  },
+                  {
+                    "N": "1.836641"
+                  },
+                  {
+                    "N": "1.886558"
+                  },
+                  {
+                    "N": "1.94581"
+                  },
+                  {
+                    "N": "2.020079"
+                  },
+                  {
+                    "N": "2.049032"
+                  },
+                  {
+                    "N": "2.17"
+                  },
+                  {
+                    "N": "2.298109"
+                  },
+                  {
+                    "N": "2.331047"
+                  },
+                  {
+                    "N": "2.42002"
+                  },
+                  {
+                    "N": "2.496028"
+                  },
+                  {
+                    "N": "2.563866"
+                  },
+                  {
+                    "N": "2.645046"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr8"
+              },
+              "position": {
+                "S": "38271113"
+              },
+              "raw_copy_number": {
+                "N": "1.69"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "FGFR1"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.43516"
+                  },
+                  {
+                    "S": "0.95:1.99009"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.341193"
+                  },
+                  {
+                    "N": "1.390914"
+                  },
+                  {
+                    "N": "1.435158"
+                  },
+                  {
+                    "N": "1.487932"
+                  },
+                  {
+                    "N": "1.554461"
+                  },
+                  {
+                    "N": "1.580509"
+                  },
+                  {
+                    "N": "1.69"
+                  },
+                  {
+                    "N": "1.807076"
+                  },
+                  {
+                    "N": "1.837357"
+                  },
+                  {
+                    "N": "1.91951"
+                  },
+                  {
+                    "N": "1.990095"
+                  },
+                  {
+                    "N": "2.053398"
+                  },
+                  {
+                    "N": "2.129522"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr8"
+              },
+              "position": {
+                "S": "90947803"
+              },
+              "raw_copy_number": {
+                "N": "2.51"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "NBN"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.29316"
+                  },
+                  {
+                    "S": "0.95:2.74735"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "2.20891"
+                  },
+                  {
+                    "N": "2.253807"
+                  },
+                  {
+                    "N": "2.293159"
+                  },
+                  {
+                    "N": "2.339395"
+                  },
+                  {
+                    "N": "2.396648"
+                  },
+                  {
+                    "N": "2.418766"
+                  },
+                  {
+                    "N": "2.51"
+                  },
+                  {
+                    "N": "2.604676"
+                  },
+                  {
+                    "N": "2.628713"
+                  },
+                  {
+                    "N": "2.693047"
+                  },
+                  {
+                    "N": "2.747346"
+                  },
+                  {
+                    "N": "2.795314"
+                  },
+                  {
+                    "N": "2.85213"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr8"
+              },
+              "position": {
+                "S": "128748723"
+              },
+              "raw_copy_number": {
+                "N": "3.26"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "MYC"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.76841"
+                  },
+                  {
+                    "S": "0.95:3.83888"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "2.587154"
+                  },
+                  {
+                    "N": "2.683065"
+                  },
+                  {
+                    "N": "2.768411"
+                  },
+                  {
+                    "N": "2.870212"
+                  },
+                  {
+                    "N": "2.998546"
+                  },
+                  {
+                    "N": "3.048793"
+                  },
+                  {
+                    "N": "3.26"
+                  },
+                  {
+                    "N": "3.485839"
+                  },
+                  {
+                    "N": "3.544251"
+                  },
+                  {
+                    "N": "3.702723"
+                  },
+                  {
+                    "N": "3.838881"
+                  },
+                  {
+                    "N": "3.960993"
+                  },
+                  {
+                    "N": "4.107835"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr9"
+              },
+              "position": {
+                "S": "21968185"
+              },
+              "raw_copy_number": {
+                "N": "2.88"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "CDKN2A"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.44571"
+                  },
+                  {
+                    "S": "0.95:3.3914"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "2.285584"
+                  },
+                  {
+                    "N": "2.370315"
+                  },
+                  {
+                    "N": "2.445713"
+                  },
+                  {
+                    "N": "2.535647"
+                  },
+                  {
+                    "N": "2.649022"
+                  },
+                  {
+                    "N": "2.693412"
+                  },
+                  {
+                    "N": "2.88"
+                  },
+                  {
+                    "N": "3.079514"
+                  },
+                  {
+                    "N": "3.131118"
+                  },
+                  {
+                    "N": "3.271117"
+                  },
+                  {
+                    "N": "3.391404"
+                  },
+                  {
+                    "N": "3.499282"
+                  },
+                  {
+                    "N": "3.629008"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr9"
+              },
+              "position": {
+                "S": "22005843"
+              },
+              "raw_copy_number": {
+                "N": "3.38"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "CDKN2B"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.84751"
+                  },
+                  {
+                    "S": "0.95:4.01207"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "2.652291"
+                  },
+                  {
+                    "N": "2.755508"
+                  },
+                  {
+                    "N": "2.847507"
+                  },
+                  {
+                    "N": "2.957425"
+                  },
+                  {
+                    "N": "3.096262"
+                  },
+                  {
+                    "N": "3.150701"
+                  },
+                  {
+                    "N": "3.38"
+                  },
+                  {
+                    "N": "3.625987"
+                  },
+                  {
+                    "N": "3.689739"
+                  },
+                  {
+                    "N": "3.862955"
+                  },
+                  {
+                    "N": "4.01207"
+                  },
+                  {
+                    "N": "4.146023"
+                  },
+                  {
+                    "N": "4.307371"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr9"
+              },
+              "position": {
+                "S": "87285661"
+              },
+              "raw_copy_number": {
+                "N": "2.73"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "NTRK2"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.33452"
+                  },
+                  {
+                    "S": "0.95:3.19247"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "2.18797"
+                  },
+                  {
+                    "N": "2.265569"
+                  },
+                  {
+                    "N": "2.334521"
+                  },
+                  {
+                    "N": "2.416648"
+                  },
+                  {
+                    "N": "2.520005"
+                  },
+                  {
+                    "N": "2.560421"
+                  },
+                  {
+                    "N": "2.73"
+                  },
+                  {
+                    "N": "2.91081"
+                  },
+                  {
+                    "N": "2.957494"
+                  },
+                  {
+                    "N": "3.083982"
+                  },
+                  {
+                    "N": "3.192475"
+                  },
+                  {
+                    "N": "3.289637"
+                  },
+                  {
+                    "N": "3.406308"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr9"
+              },
+              "position": {
+                "S": "98209088"
+              },
+              "raw_copy_number": {
+                "N": "2.31"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "PTCH1"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.16088"
+                  },
+                  {
+                    "S": "0.95:2.46941"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "2.101966"
+                  },
+                  {
+                    "N": "2.133436"
+                  },
+                  {
+                    "N": "2.160885"
+                  },
+                  {
+                    "N": "2.192978"
+                  },
+                  {
+                    "N": "2.232491"
+                  },
+                  {
+                    "N": "2.247689"
+                  },
+                  {
+                    "N": "2.31"
+                  },
+                  {
+                    "N": "2.374039"
+                  },
+                  {
+                    "N": "2.3902"
+                  },
+                  {
+                    "N": "2.433266"
+                  },
+                  {
+                    "N": "2.469405"
+                  },
+                  {
+                    "N": "2.501176"
+                  },
+                  {
+                    "N": "2.538623"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr9"
+              },
+              "position": {
+                "S": "135771565"
+              },
+              "raw_copy_number": {
+                "N": "1.77"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "TSC1"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.64631"
+                  },
+                  {
+                    "S": "0.95:1.90298"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.597636"
+                  },
+                  {
+                    "N": "1.62362"
+                  },
+                  {
+                    "N": "1.64631"
+                  },
+                  {
+                    "N": "1.672871"
+                  },
+                  {
+                    "N": "1.705619"
+                  },
+                  {
+                    "N": "1.718227"
+                  },
+                  {
+                    "N": "1.77"
+                  },
+                  {
+                    "N": "1.823333"
+                  },
+                  {
+                    "N": "1.836811"
+                  },
+                  {
+                    "N": "1.872768"
+                  },
+                  {
+                    "N": "1.902983"
+                  },
+                  {
+                    "N": "1.929577"
+                  },
+                  {
+                    "N": "1.96096"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr9"
+              },
+              "position": {
+                "S": "139390440"
+              },
+              "raw_copy_number": {
+                "N": "1.64"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "NOTCH1"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.5547"
+                  },
+                  {
+                    "S": "0.95:1.72998"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.52067"
+                  },
+                  {
+                    "N": "1.538868"
+                  },
+                  {
+                    "N": "1.554696"
+                  },
+                  {
+                    "N": "1.573152"
+                  },
+                  {
+                    "N": "1.595802"
+                  },
+                  {
+                    "N": "1.604492"
+                  },
+                  {
+                    "N": "1.64"
+                  },
+                  {
+                    "N": "1.676294"
+                  },
+                  {
+                    "N": "1.685423"
+                  },
+                  {
+                    "N": "1.709688"
+                  },
+                  {
+                    "N": "1.729984"
+                  },
+                  {
+                    "N": "1.747779"
+                  },
+                  {
+                    "N": "1.768694"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr10"
+              },
+              "position": {
+                "S": "89624207"
+              },
+              "raw_copy_number": {
+                "N": "1.73"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "PTEN"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.51686"
+                  },
+                  {
+                    "S": "0.95:1.9731"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.436442"
+                  },
+                  {
+                    "N": "1.479125"
+                  },
+                  {
+                    "N": "1.516855"
+                  },
+                  {
+                    "N": "1.561564"
+                  },
+                  {
+                    "N": "1.617487"
+                  },
+                  {
+                    "N": "1.639254"
+                  },
+                  {
+                    "N": "1.73"
+                  },
+                  {
+                    "N": "1.825769"
+                  },
+                  {
+                    "N": "1.850339"
+                  },
+                  {
+                    "N": "1.916604"
+                  },
+                  {
+                    "N": "1.973095"
+                  },
+                  {
+                    "N": "2.023427"
+                  },
+                  {
+                    "N": "2.083551"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr10"
+              },
+              "position": {
+                "S": "123239427"
+              },
+              "raw_copy_number": {
+                "N": "2.43"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "FGFR2"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.09078"
+                  },
+                  {
+                    "S": "0.95:2.82426"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.964518"
+                  },
+                  {
+                    "N": "2.031412"
+                  },
+                  {
+                    "N": "2.090777"
+                  },
+                  {
+                    "N": "2.161396"
+                  },
+                  {
+                    "N": "2.250136"
+                  },
+                  {
+                    "N": "2.284797"
+                  },
+                  {
+                    "N": "2.43"
+                  },
+                  {
+                    "N": "2.584431"
+                  },
+                  {
+                    "N": "2.624241"
+                  },
+                  {
+                    "N": "2.731984"
+                  },
+                  {
+                    "N": "2.824261"
+                  },
+                  {
+                    "N": "2.906796"
+                  },
+                  {
+                    "N": "3.005776"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr11"
+              },
+              "position": {
+                "S": "69455971"
+              },
+              "raw_copy_number": {
+                "N": "2.27"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "CCND1"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.9277"
+                  },
+                  {
+                    "S": "0.95:2.67309"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.801484"
+                  },
+                  {
+                    "N": "1.868269"
+                  },
+                  {
+                    "N": "1.927697"
+                  },
+                  {
+                    "N": "1.998583"
+                  },
+                  {
+                    "N": "2.087945"
+                  },
+                  {
+                    "N": "2.122932"
+                  },
+                  {
+                    "N": "2.27"
+                  },
+                  {
+                    "N": "2.427256"
+                  },
+                  {
+                    "N": "2.46793"
+                  },
+                  {
+                    "N": "2.578276"
+                  },
+                  {
+                    "N": "2.673086"
+                  },
+                  {
+                    "N": "2.758115"
+                  },
+                  {
+                    "N": "2.860364"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr11"
+              },
+              "position": {
+                "S": "69513953"
+              },
+              "raw_copy_number": {
+                "N": "2.24"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "FGF19"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.86969"
+                  },
+                  {
+                    "S": "0.95:2.68366"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.734829"
+                  },
+                  {
+                    "N": "1.806068"
+                  },
+                  {
+                    "N": "1.869687"
+                  },
+                  {
+                    "N": "1.945842"
+                  },
+                  {
+                    "N": "2.042252"
+                  },
+                  {
+                    "N": "2.080119"
+                  },
+                  {
+                    "N": "2.24"
+                  },
+                  {
+                    "N": "2.41217"
+                  },
+                  {
+                    "N": "2.456896"
+                  },
+                  {
+                    "N": "2.578627"
+                  },
+                  {
+                    "N": "2.683658"
+                  },
+                  {
+                    "N": "2.77819"
+                  },
+                  {
+                    "N": "2.892273"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr11"
+              },
+              "position": {
+                "S": "69624975"
+              },
+              "raw_copy_number": {
+                "N": "2.18"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "FGF3"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.83656"
+                  },
+                  {
+                    "S": "0.95:2.58767"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.710649"
+                  },
+                  {
+                    "N": "1.777221"
+                  },
+                  {
+                    "N": "1.836558"
+                  },
+                  {
+                    "N": "1.907452"
+                  },
+                  {
+                    "N": "1.996997"
+                  },
+                  {
+                    "N": "2.032109"
+                  },
+                  {
+                    "N": "2.18"
+                  },
+                  {
+                    "N": "2.338654"
+                  },
+                  {
+                    "N": "2.379773"
+                  },
+                  {
+                    "N": "2.491492"
+                  },
+                  {
+                    "N": "2.587667"
+                  },
+                  {
+                    "N": "2.674062"
+                  },
+                  {
+                    "N": "2.778127"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr11"
+              },
+              "position": {
+                "S": "94153276"
+              },
+              "raw_copy_number": {
+                "N": "2.23"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "MRE11A"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.04682"
+                  },
+                  {
+                    "S": "0.95:2.42958"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.975409"
+                  },
+                  {
+                    "N": "2.01348"
+                  },
+                  {
+                    "N": "2.046817"
+                  },
+                  {
+                    "N": "2.085948"
+                  },
+                  {
+                    "N": "2.134349"
+                  },
+                  {
+                    "N": "2.15303"
+                  },
+                  {
+                    "N": "2.23"
+                  },
+                  {
+                    "N": "2.309722"
+                  },
+                  {
+                    "N": "2.329938"
+                  },
+                  {
+                    "N": "2.384"
+                  },
+                  {
+                    "N": "2.429578"
+                  },
+                  {
+                    "N": "2.469803"
+                  },
+                  {
+                    "N": "2.517402"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr11"
+              },
+              "position": {
+                "S": "108098345"
+              },
+              "raw_copy_number": {
+                "N": "2.1"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "ATM"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.00878"
+                  },
+                  {
+                    "S": "0.95:2.19537"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.972155"
+                  },
+                  {
+                    "N": "1.991757"
+                  },
+                  {
+                    "N": "2.008776"
+                  },
+                  {
+                    "N": "2.028583"
+                  },
+                  {
+                    "N": "2.052837"
+                  },
+                  {
+                    "N": "2.062127"
+                  },
+                  {
+                    "N": "2.1"
+                  },
+                  {
+                    "N": "2.138569"
+                  },
+                  {
+                    "N": "2.148247"
+                  },
+                  {
+                    "N": "2.173931"
+                  },
+                  {
+                    "N": "2.195367"
+                  },
+                  {
+                    "N": "2.214125"
+                  },
+                  {
+                    "N": "2.236133"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr11"
+              },
+              "position": {
+                "S": "125496643"
+              },
+              "raw_copy_number": {
+                "N": "2.07"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "CHEK1"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.84406"
+                  },
+                  {
+                    "S": "0.95:2.32362"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.757843"
+                  },
+                  {
+                    "N": "1.803677"
+                  },
+                  {
+                    "N": "1.844059"
+                  },
+                  {
+                    "N": "1.891755"
+                  },
+                  {
+                    "N": "1.951181"
+                  },
+                  {
+                    "N": "1.974244"
+                  },
+                  {
+                    "N": "2.07"
+                  },
+                  {
+                    "N": "2.1704"
+                  },
+                  {
+                    "N": "2.196055"
+                  },
+                  {
+                    "N": "2.26504"
+                  },
+                  {
+                    "N": "2.323624"
+                  },
+                  {
+                    "N": "2.375648"
+                  },
+                  {
+                    "N": "2.43759"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr12"
+              },
+              "position": {
+                "S": "4383095"
+              },
+              "raw_copy_number": {
+                "N": "1.81"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "CCND2"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.52485"
+                  },
+                  {
+                    "S": "0.95:2.14848"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.42031"
+                  },
+                  {
+                    "N": "1.475583"
+                  },
+                  {
+                    "N": "1.524849"
+                  },
+                  {
+                    "N": "1.58371"
+                  },
+                  {
+                    "N": "1.658057"
+                  },
+                  {
+                    "N": "1.68721"
+                  },
+                  {
+                    "N": "1.81"
+                  },
+                  {
+                    "N": "1.941727"
+                  },
+                  {
+                    "N": "1.975866"
+                  },
+                  {
+                    "N": "2.068624"
+                  },
+                  {
+                    "N": "2.148476"
+                  },
+                  {
+                    "N": "2.220208"
+                  },
+                  {
+                    "N": "2.30661"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr12"
+              },
+              "position": {
+                "S": "12870762"
+              },
+              "raw_copy_number": {
+                "N": "1.84"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "CDKN1B"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.51907"
+                  },
+                  {
+                    "S": "0.95:2.22873"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.403117"
+                  },
+                  {
+                    "N": "1.464304"
+                  },
+                  {
+                    "N": "1.519071"
+                  },
+                  {
+                    "N": "1.584779"
+                  },
+                  {
+                    "N": "1.668185"
+                  },
+                  {
+                    "N": "1.701011"
+                  },
+                  {
+                    "N": "1.84"
+                  },
+                  {
+                    "N": "1.990346"
+                  },
+                  {
+                    "N": "2.029511"
+                  },
+                  {
+                    "N": "2.136324"
+                  },
+                  {
+                    "N": "2.22873"
+                  },
+                  {
+                    "N": "2.312087"
+                  },
+                  {
+                    "N": "2.412914"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr12"
+              },
+              "position": {
+                "S": "25362714"
+              },
+              "raw_copy_number": {
+                "N": "1.45"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "KRAS"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.23135"
+                  },
+                  {
+                    "S": "0.95:1.70748"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.150728"
+                  },
+                  {
+                    "N": "1.193388"
+                  },
+                  {
+                    "N": "1.231348"
+                  },
+                  {
+                    "N": "1.276628"
+                  },
+                  {
+                    "N": "1.333709"
+                  },
+                  {
+                    "N": "1.356058"
+                  },
+                  {
+                    "N": "1.45"
+                  },
+                  {
+                    "N": "1.55045"
+                  },
+                  {
+                    "N": "1.576431"
+                  },
+                  {
+                    "N": "1.646917"
+                  },
+                  {
+                    "N": "1.707478"
+                  },
+                  {
+                    "N": "1.761791"
+                  },
+                  {
+                    "N": "1.827104"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr12"
+              },
+              "position": {
+                "S": "56360667"
+              },
+              "raw_copy_number": {
+                "N": "1.85"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "CDK2"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.55855"
+                  },
+                  {
+                    "S": "0.95:2.19596"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.451698"
+                  },
+                  {
+                    "N": "1.508192"
+                  },
+                  {
+                    "N": "1.558547"
+                  },
+                  {
+                    "N": "1.618709"
+                  },
+                  {
+                    "N": "1.6947"
+                  },
+                  {
+                    "N": "1.724496"
+                  },
+                  {
+                    "N": "1.85"
+                  },
+                  {
+                    "N": "1.984638"
+                  },
+                  {
+                    "N": "2.019532"
+                  },
+                  {
+                    "N": "2.114339"
+                  },
+                  {
+                    "N": "2.195956"
+                  },
+                  {
+                    "N": "2.269273"
+                  },
+                  {
+                    "N": "2.357585"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr12"
+              },
+              "position": {
+                "S": "58142244"
+              },
+              "raw_copy_number": {
+                "N": "1.76"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "CDK4"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.48273"
+                  },
+                  {
+                    "S": "0.95:2.08913"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.381074"
+                  },
+                  {
+                    "N": "1.434821"
+                  },
+                  {
+                    "N": "1.482726"
+                  },
+                  {
+                    "N": "1.539961"
+                  },
+                  {
+                    "N": "1.612255"
+                  },
+                  {
+                    "N": "1.640602"
+                  },
+                  {
+                    "N": "1.76"
+                  },
+                  {
+                    "N": "1.888088"
+                  },
+                  {
+                    "N": "1.921284"
+                  },
+                  {
+                    "N": "2.011479"
+                  },
+                  {
+                    "N": "2.089125"
+                  },
+                  {
+                    "N": "2.158876"
+                  },
+                  {
+                    "N": "2.242891"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr12"
+              },
+              "position": {
+                "S": "69202190"
+              },
+              "raw_copy_number": {
+                "N": "1.8"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "MDM2"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.51642"
+                  },
+                  {
+                    "S": "0.95:2.13661"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.412463"
+                  },
+                  {
+                    "N": "1.46743"
+                  },
+                  {
+                    "N": "1.516424"
+                  },
+                  {
+                    "N": "1.57496"
+                  },
+                  {
+                    "N": "1.648897"
+                  },
+                  {
+                    "N": "1.677888"
+                  },
+                  {
+                    "N": "1.8"
+                  },
+                  {
+                    "N": "1.930999"
+                  },
+                  {
+                    "N": "1.96495"
+                  },
+                  {
+                    "N": "2.057195"
+                  },
+                  {
+                    "N": "2.136606"
+                  },
+                  {
+                    "N": "2.207941"
+                  },
+                  {
+                    "N": "2.293866"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr12"
+              },
+              "position": {
+                "S": "133201216"
+              },
+              "raw_copy_number": {
+                "N": "2.17"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "POLE"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.06068"
+                  },
+                  {
+                    "S": "0.95:2.28511"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "2.017028"
+                  },
+                  {
+                    "N": "2.04038"
+                  },
+                  {
+                    "N": "2.060685"
+                  },
+                  {
+                    "N": "2.084353"
+                  },
+                  {
+                    "N": "2.113384"
+                  },
+                  {
+                    "N": "2.12452"
+                  },
+                  {
+                    "N": "2.17"
+                  },
+                  {
+                    "N": "2.216454"
+                  },
+                  {
+                    "N": "2.228132"
+                  },
+                  {
+                    "N": "2.259167"
+                  },
+                  {
+                    "N": "2.285114"
+                  },
+                  {
+                    "N": "2.307854"
+                  },
+                  {
+                    "N": "2.334573"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr13"
+              },
+              "position": {
+                "S": "28578184"
+              },
+              "raw_copy_number": {
+                "N": "1.85"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "FLT3"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.55855"
+                  },
+                  {
+                    "S": "0.95:2.19596"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.451698"
+                  },
+                  {
+                    "N": "1.508192"
+                  },
+                  {
+                    "N": "1.558547"
+                  },
+                  {
+                    "N": "1.618709"
+                  },
+                  {
+                    "N": "1.6947"
+                  },
+                  {
+                    "N": "1.724496"
+                  },
+                  {
+                    "N": "1.85"
+                  },
+                  {
+                    "N": "1.984638"
+                  },
+                  {
+                    "N": "2.019532"
+                  },
+                  {
+                    "N": "2.114339"
+                  },
+                  {
+                    "N": "2.195956"
+                  },
+                  {
+                    "N": "2.269273"
+                  },
+                  {
+                    "N": "2.357585"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr13"
+              },
+              "position": {
+                "S": "32890490"
+              },
+              "raw_copy_number": {
+                "N": "1.51"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "BRCA2"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.44419"
+                  },
+                  {
+                    "S": "0.95:1.57881"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.417773"
+                  },
+                  {
+                    "N": "1.431913"
+                  },
+                  {
+                    "N": "1.444189"
+                  },
+                  {
+                    "N": "1.458478"
+                  },
+                  {
+                    "N": "1.475974"
+                  },
+                  {
+                    "N": "1.482676"
+                  },
+                  {
+                    "N": "1.51"
+                  },
+                  {
+                    "N": "1.537827"
+                  },
+                  {
+                    "N": "1.54481"
+                  },
+                  {
+                    "N": "1.563342"
+                  },
+                  {
+                    "N": "1.57881"
+                  },
+                  {
+                    "N": "1.592346"
+                  },
+                  {
+                    "N": "1.608227"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr13"
+              },
+              "position": {
+                "S": "48877965"
+              },
+              "raw_copy_number": {
+                "N": "1.63"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "RB1"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.51195"
+                  },
+                  {
+                    "S": "0.95:1.75726"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.46559"
+                  },
+                  {
+                    "N": "1.490334"
+                  },
+                  {
+                    "N": "1.511953"
+                  },
+                  {
+                    "N": "1.537275"
+                  },
+                  {
+                    "N": "1.568516"
+                  },
+                  {
+                    "N": "1.58055"
+                  },
+                  {
+                    "N": "1.63"
+                  },
+                  {
+                    "N": "1.680997"
+                  },
+                  {
+                    "N": "1.693894"
+                  },
+                  {
+                    "N": "1.728318"
+                  },
+                  {
+                    "N": "1.757264"
+                  },
+                  {
+                    "N": "1.782755"
+                  },
+                  {
+                    "N": "1.812854"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr14"
+              },
+              "position": {
+                "S": "68290249"
+              },
+              "raw_copy_number": {
+                "N": "1.28"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "RAD51B"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.13719"
+                  },
+                  {
+                    "S": "0.95:1.44074"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.082802"
+                  },
+                  {
+                    "N": "1.111708"
+                  },
+                  {
+                    "N": "1.137191"
+                  },
+                  {
+                    "N": "1.167304"
+                  },
+                  {
+                    "N": "1.20485"
+                  },
+                  {
+                    "N": "1.219429"
+                  },
+                  {
+                    "N": "1.28"
+                  },
+                  {
+                    "N": "1.34358"
+                  },
+                  {
+                    "N": "1.359837"
+                  },
+                  {
+                    "N": "1.403576"
+                  },
+                  {
+                    "N": "1.440743"
+                  },
+                  {
+                    "N": "1.473768"
+                  },
+                  {
+                    "N": "1.513111"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr14"
+              },
+              "position": {
+                "S": "105236623"
+              },
+              "raw_copy_number": {
+                "N": "1.5"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "AKT1"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.2827"
+                  },
+                  {
+                    "S": "0.95:1.75411"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.202181"
+                  },
+                  {
+                    "N": "1.244818"
+                  },
+                  {
+                    "N": "1.282704"
+                  },
+                  {
+                    "N": "1.327829"
+                  },
+                  {
+                    "N": "1.384618"
+                  },
+                  {
+                    "N": "1.406825"
+                  },
+                  {
+                    "N": "1.5"
+                  },
+                  {
+                    "N": "1.599346"
+                  },
+                  {
+                    "N": "1.624997"
+                  },
+                  {
+                    "N": "1.694496"
+                  },
+                  {
+                    "N": "1.754107"
+                  },
+                  {
+                    "N": "1.807493"
+                  },
+                  {
+                    "N": "1.871598"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr15"
+              },
+              "position": {
+                "S": "40990870"
+              },
+              "raw_copy_number": {
+                "N": "1.53"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "RAD51"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.3593"
+                  },
+                  {
+                    "S": "0.95:1.72214"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.294287"
+                  },
+                  {
+                    "N": "1.328839"
+                  },
+                  {
+                    "N": "1.359298"
+                  },
+                  {
+                    "N": "1.395294"
+                  },
+                  {
+                    "N": "1.440172"
+                  },
+                  {
+                    "N": "1.457598"
+                  },
+                  {
+                    "N": "1.53"
+                  },
+                  {
+                    "N": "1.605998"
+                  },
+                  {
+                    "N": "1.625431"
+                  },
+                  {
+                    "N": "1.677711"
+                  },
+                  {
+                    "N": "1.722139"
+                  },
+                  {
+                    "N": "1.761614"
+                  },
+                  {
+                    "N": "1.808641"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr15"
+              },
+              "position": {
+                "S": "88420095"
+              },
+              "raw_copy_number": {
+                "N": "3.04"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "NTRK3"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.56107"
+                  },
+                  {
+                    "S": "0.95:3.60849"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "2.385492"
+                  },
+                  {
+                    "N": "2.478327"
+                  },
+                  {
+                    "N": "2.561072"
+                  },
+                  {
+                    "N": "2.659933"
+                  },
+                  {
+                    "N": "2.784804"
+                  },
+                  {
+                    "N": "2.833766"
+                  },
+                  {
+                    "N": "3.04"
+                  },
+                  {
+                    "N": "3.261243"
+                  },
+                  {
+                    "N": "3.318582"
+                  },
+                  {
+                    "N": "3.474374"
+                  },
+                  {
+                    "N": "3.608489"
+                  },
+                  {
+                    "N": "3.728968"
+                  },
+                  {
+                    "N": "3.874085"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr15"
+              },
+              "position": {
+                "S": "89790841"
+              },
+              "raw_copy_number": {
+                "N": "2.83"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "FANCI"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.66045"
+                  },
+                  {
+                    "S": "0.95:3.01035"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "2.593227"
+                  },
+                  {
+                    "N": "2.629152"
+                  },
+                  {
+                    "N": "2.660455"
+                  },
+                  {
+                    "N": "2.697017"
+                  },
+                  {
+                    "N": "2.741976"
+                  },
+                  {
+                    "N": "2.759253"
+                  },
+                  {
+                    "N": "2.83"
+                  },
+                  {
+                    "N": "2.902561"
+                  },
+                  {
+                    "N": "2.920849"
+                  },
+                  {
+                    "N": "2.96954"
+                  },
+                  {
+                    "N": "3.01035"
+                  },
+                  {
+                    "N": "3.046191"
+                  },
+                  {
+                    "N": "3.088391"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr15"
+              },
+              "position": {
+                "S": "99192813"
+              },
+              "raw_copy_number": {
+                "N": "3.39"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "IGF1R"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.85593"
+                  },
+                  {
+                    "S": "0.95:4.02394"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "2.660138"
+                  },
+                  {
+                    "N": "2.76366"
+                  },
+                  {
+                    "N": "2.855932"
+                  },
+                  {
+                    "N": "2.966175"
+                  },
+                  {
+                    "N": "3.105423"
+                  },
+                  {
+                    "N": "3.160022"
+                  },
+                  {
+                    "N": "3.39"
+                  },
+                  {
+                    "N": "3.636715"
+                  },
+                  {
+                    "N": "3.700656"
+                  },
+                  {
+                    "N": "3.874384"
+                  },
+                  {
+                    "N": "4.02394"
+                  },
+                  {
+                    "N": "4.15829"
+                  },
+                  {
+                    "N": "4.320115"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr16"
+              },
+              "position": {
+                "S": "2098578"
+              },
+              "raw_copy_number": {
+                "N": "2.52"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "TSC2"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.38003"
+                  },
+                  {
+                    "S": "0.95:2.6682"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "2.324353"
+                  },
+                  {
+                    "N": "2.354121"
+                  },
+                  {
+                    "N": "2.380035"
+                  },
+                  {
+                    "N": "2.410273"
+                  },
+                  {
+                    "N": "2.447415"
+                  },
+                  {
+                    "N": "2.461675"
+                  },
+                  {
+                    "N": "2.52"
+                  },
+                  {
+                    "N": "2.579707"
+                  },
+                  {
+                    "N": "2.594738"
+                  },
+                  {
+                    "N": "2.634722"
+                  },
+                  {
+                    "N": "2.668197"
+                  },
+                  {
+                    "N": "2.697567"
+                  },
+                  {
+                    "N": "2.732116"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr16"
+              },
+              "position": {
+                "S": "3632292"
+              },
+              "raw_copy_number": {
+                "N": "2.53"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "SLX4"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.37342"
+                  },
+                  {
+                    "S": "0.95:2.69691"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "2.311422"
+                  },
+                  {
+                    "N": "2.344544"
+                  },
+                  {
+                    "N": "2.373417"
+                  },
+                  {
+                    "N": "2.407155"
+                  },
+                  {
+                    "N": "2.448665"
+                  },
+                  {
+                    "N": "2.464622"
+                  },
+                  {
+                    "N": "2.53"
+                  },
+                  {
+                    "N": "2.597112"
+                  },
+                  {
+                    "N": "2.614037"
+                  },
+                  {
+                    "N": "2.659114"
+                  },
+                  {
+                    "N": "2.696914"
+                  },
+                  {
+                    "N": "2.730126"
+                  },
+                  {
+                    "N": "2.769248"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr16"
+              },
+              "position": {
+                "S": "3777650"
+              },
+              "raw_copy_number": {
+                "N": "2.83"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "CREBBP"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.68484"
+                  },
+                  {
+                    "S": "0.95:2.98301"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "2.62691"
+                  },
+                  {
+                    "N": "2.657895"
+                  },
+                  {
+                    "N": "2.684842"
+                  },
+                  {
+                    "N": "2.716258"
+                  },
+                  {
+                    "N": "2.754803"
+                  },
+                  {
+                    "N": "2.76959"
+                  },
+                  {
+                    "N": "2.83"
+                  },
+                  {
+                    "N": "2.891728"
+                  },
+                  {
+                    "N": "2.907249"
+                  },
+                  {
+                    "N": "2.948505"
+                  },
+                  {
+                    "N": "2.983006"
+                  },
+                  {
+                    "N": "3.013249"
+                  },
+                  {
+                    "N": "3.048791"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr16"
+              },
+              "position": {
+                "S": "23614774"
+              },
+              "raw_copy_number": {
+                "N": "1.73"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "PALB2"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.59424"
+                  },
+                  {
+                    "S": "0.95:1.87733"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.541162"
+                  },
+                  {
+                    "N": "1.569469"
+                  },
+                  {
+                    "N": "1.594236"
+                  },
+                  {
+                    "N": "1.623283"
+                  },
+                  {
+                    "N": "1.659177"
+                  },
+                  {
+                    "N": "1.67302"
+                  },
+                  {
+                    "N": "1.73"
+                  },
+                  {
+                    "N": "1.78892"
+                  },
+                  {
+                    "N": "1.803846"
+                  },
+                  {
+                    "N": "1.843733"
+                  },
+                  {
+                    "N": "1.877326"
+                  },
+                  {
+                    "N": "1.90695"
+                  },
+                  {
+                    "N": "1.941976"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr16"
+              },
+              "position": {
+                "S": "89804983"
+              },
+              "raw_copy_number": {
+                "N": "1.54"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "FANCA"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.45155"
+                  },
+                  {
+                    "S": "0.95:1.63384"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.416414"
+                  },
+                  {
+                    "N": "1.435196"
+                  },
+                  {
+                    "N": "1.451551"
+                  },
+                  {
+                    "N": "1.470645"
+                  },
+                  {
+                    "N": "1.494109"
+                  },
+                  {
+                    "N": "1.503121"
+                  },
+                  {
+                    "N": "1.54"
+                  },
+                  {
+                    "N": "1.577784"
+                  },
+                  {
+                    "N": "1.587301"
+                  },
+                  {
+                    "N": "1.612626"
+                  },
+                  {
+                    "N": "1.633838"
+                  },
+                  {
+                    "N": "1.652458"
+                  },
+                  {
+                    "N": "1.674369"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr17"
+              },
+              "position": {
+                "S": "7572833"
+              },
+              "raw_copy_number": {
+                "N": "1.59"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "TP53"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.40848"
+                  },
+                  {
+                    "S": "0.95:1.79491"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.339498"
+                  },
+                  {
+                    "N": "1.376151"
+                  },
+                  {
+                    "N": "1.408483"
+                  },
+                  {
+                    "N": "1.446715"
+                  },
+                  {
+                    "N": "1.494415"
+                  },
+                  {
+                    "N": "1.512947"
+                  },
+                  {
+                    "N": "1.59"
+                  },
+                  {
+                    "N": "1.670978"
+                  },
+                  {
+                    "N": "1.691699"
+                  },
+                  {
+                    "N": "1.747477"
+                  },
+                  {
+                    "N": "1.794909"
+                  },
+                  {
+                    "N": "1.83708"
+                  },
+                  {
+                    "N": "1.88735"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr17"
+              },
+              "position": {
+                "S": "29422232"
+              },
+              "raw_copy_number": {
+                "N": "1.8"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "NF1"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.71765"
+                  },
+                  {
+                    "S": "0.95:1.8863"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.684643"
+                  },
+                  {
+                    "N": "1.702305"
+                  },
+                  {
+                    "N": "1.717647"
+                  },
+                  {
+                    "N": "1.735511"
+                  },
+                  {
+                    "N": "1.757398"
+                  },
+                  {
+                    "N": "1.765785"
+                  },
+                  {
+                    "N": "1.8"
+                  },
+                  {
+                    "N": "1.834878"
+                  },
+                  {
+                    "N": "1.843635"
+                  },
+                  {
+                    "N": "1.866886"
+                  },
+                  {
+                    "N": "1.886302"
+                  },
+                  {
+                    "N": "1.903302"
+                  },
+                  {
+                    "N": "1.923256"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr17"
+              },
+              "position": {
+                "S": "33427963"
+              },
+              "raw_copy_number": {
+                "N": "1.63"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "RAD51D"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.43938"
+                  },
+                  {
+                    "S": "0.95:1.84587"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.367093"
+                  },
+                  {
+                    "N": "1.405487"
+                  },
+                  {
+                    "N": "1.439377"
+                  },
+                  {
+                    "N": "1.479476"
+                  },
+                  {
+                    "N": "1.529545"
+                  },
+                  {
+                    "N": "1.549008"
+                  },
+                  {
+                    "N": "1.63"
+                  },
+                  {
+                    "N": "1.715227"
+                  },
+                  {
+                    "N": "1.737053"
+                  },
+                  {
+                    "N": "1.795839"
+                  },
+                  {
+                    "N": "1.845868"
+                  },
+                  {
+                    "N": "1.890376"
+                  },
+                  {
+                    "N": "1.943466"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr17"
+              },
+              "position": {
+                "S": "37618286"
+              },
+              "raw_copy_number": {
+                "N": "1.64"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "CDK12"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.53089"
+                  },
+                  {
+                    "S": "0.95:1.75689"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.48784"
+                  },
+                  {
+                    "N": "1.510828"
+                  },
+                  {
+                    "N": "1.530887"
+                  },
+                  {
+                    "N": "1.554352"
+                  },
+                  {
+                    "N": "1.583255"
+                  },
+                  {
+                    "N": "1.594377"
+                  },
+                  {
+                    "N": "1.64"
+                  },
+                  {
+                    "N": "1.686929"
+                  },
+                  {
+                    "N": "1.698778"
+                  },
+                  {
+                    "N": "1.730368"
+                  },
+                  {
+                    "N": "1.756889"
+                  },
+                  {
+                    "N": "1.780216"
+                  },
+                  {
+                    "N": "1.807722"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr17"
+              },
+              "position": {
+                "S": "37868167"
+              },
+              "raw_copy_number": {
+                "N": "1.63"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "ERBB2"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.42918"
+                  },
+                  {
+                    "S": "0.95:1.85904"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.353411"
+                  },
+                  {
+                    "N": "1.393626"
+                  },
+                  {
+                    "N": "1.429176"
+                  },
+                  {
+                    "N": "1.471301"
+                  },
+                  {
+                    "N": "1.523991"
+                  },
+                  {
+                    "N": "1.5445"
+                  },
+                  {
+                    "N": "1.63"
+                  },
+                  {
+                    "N": "1.720233"
+                  },
+                  {
+                    "N": "1.743383"
+                  },
+                  {
+                    "N": "1.805817"
+                  },
+                  {
+                    "N": "1.859044"
+                  },
+                  {
+                    "N": "1.906465"
+                  },
+                  {
+                    "N": "1.963114"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr17"
+              },
+              "position": {
+                "S": "56432288"
+              },
+              "raw_copy_number": {
+                "N": "2.35"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "RNF43"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.13525"
+                  },
+                  {
+                    "S": "0.95:2.58635"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "2.052135"
+                  },
+                  {
+                    "N": "2.096402"
+                  },
+                  {
+                    "N": "2.135247"
+                  },
+                  {
+                    "N": "2.180938"
+                  },
+                  {
+                    "N": "2.237593"
+                  },
+                  {
+                    "N": "2.259501"
+                  },
+                  {
+                    "N": "2.35"
+                  },
+                  {
+                    "N": "2.444124"
+                  },
+                  {
+                    "N": "2.468054"
+                  },
+                  {
+                    "N": "2.532168"
+                  },
+                  {
+                    "N": "2.586352"
+                  },
+                  {
+                    "N": "2.634275"
+                  },
+                  {
+                    "N": "2.6911"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr17"
+              },
+              "position": {
+                "S": "56769941"
+              },
+              "raw_copy_number": {
+                "N": "2.06"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "RAD51C"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.83017"
+                  },
+                  {
+                    "S": "0.95:2.3187"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.742635"
+                  },
+                  {
+                    "N": "1.789155"
+                  },
+                  {
+                    "N": "1.830166"
+                  },
+                  {
+                    "N": "1.878631"
+                  },
+                  {
+                    "N": "1.939055"
+                  },
+                  {
+                    "N": "1.962518"
+                  },
+                  {
+                    "N": "2.06"
+                  },
+                  {
+                    "N": "2.162324"
+                  },
+                  {
+                    "N": "2.188488"
+                  },
+                  {
+                    "N": "2.258879"
+                  },
+                  {
+                    "N": "2.318696"
+                  },
+                  {
+                    "N": "2.371846"
+                  },
+                  {
+                    "N": "2.435163"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr19"
+              },
+              "position": {
+                "S": "1206846"
+              },
+              "raw_copy_number": {
+                "N": "1.83"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "STK11"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.6383"
+                  },
+                  {
+                    "S": "0.95:2.04413"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.564887"
+                  },
+                  {
+                    "N": "1.603931"
+                  },
+                  {
+                    "N": "1.638297"
+                  },
+                  {
+                    "N": "1.678844"
+                  },
+                  {
+                    "N": "1.729303"
+                  },
+                  {
+                    "N": "1.748869"
+                  },
+                  {
+                    "N": "1.83"
+                  },
+                  {
+                    "N": "1.914895"
+                  },
+                  {
+                    "N": "1.93656"
+                  },
+                  {
+                    "N": "1.994765"
+                  },
+                  {
+                    "N": "2.044135"
+                  },
+                  {
+                    "N": "2.087932"
+                  },
+                  {
+                    "N": "2.140026"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr19"
+              },
+              "position": {
+                "S": "11094769"
+              },
+              "raw_copy_number": {
+                "N": "2.07"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "SMARCA4"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.9452"
+                  },
+                  {
+                    "S": "0.95:2.20281"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.895726"
+                  },
+                  {
+                    "N": "1.922162"
+                  },
+                  {
+                    "N": "1.945198"
+                  },
+                  {
+                    "N": "1.972107"
+                  },
+                  {
+                    "N": "2.0052"
+                  },
+                  {
+                    "N": "2.017917"
+                  },
+                  {
+                    "N": "2.07"
+                  },
+                  {
+                    "N": "2.123427"
+                  },
+                  {
+                    "N": "2.136894"
+                  },
+                  {
+                    "N": "2.172752"
+                  },
+                  {
+                    "N": "2.202809"
+                  },
+                  {
+                    "N": "2.229208"
+                  },
+                  {
+                    "N": "2.260295"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr19"
+              },
+              "position": {
+                "S": "15271467"
+              },
+              "raw_copy_number": {
+                "N": "1.61"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "NOTCH3"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.52626"
+                  },
+                  {
+                    "S": "0.95:1.69834"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.492853"
+                  },
+                  {
+                    "N": "1.510718"
+                  },
+                  {
+                    "N": "1.526257"
+                  },
+                  {
+                    "N": "1.544375"
+                  },
+                  {
+                    "N": "1.56661"
+                  },
+                  {
+                    "N": "1.575141"
+                  },
+                  {
+                    "N": "1.61"
+                  },
+                  {
+                    "N": "1.64563"
+                  },
+                  {
+                    "N": "1.654592"
+                  },
+                  {
+                    "N": "1.678413"
+                  },
+                  {
+                    "N": "1.698338"
+                  },
+                  {
+                    "N": "1.715807"
+                  },
+                  {
+                    "N": "1.73634"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr19"
+              },
+              "position": {
+                "S": "30303881"
+              },
+              "raw_copy_number": {
+                "N": "1.89"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "CCNE1"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.59224"
+                  },
+                  {
+                    "S": "0.95:2.24344"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.483086"
+                  },
+                  {
+                    "N": "1.540802"
+                  },
+                  {
+                    "N": "1.592245"
+                  },
+                  {
+                    "N": "1.653708"
+                  },
+                  {
+                    "N": "1.731342"
+                  },
+                  {
+                    "N": "1.761782"
+                  },
+                  {
+                    "N": "1.89"
+                  },
+                  {
+                    "N": "2.027549"
+                  },
+                  {
+                    "N": "2.063197"
+                  },
+                  {
+                    "N": "2.160055"
+                  },
+                  {
+                    "N": "2.243436"
+                  },
+                  {
+                    "N": "2.318339"
+                  },
+                  {
+                    "N": "2.408559"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr19"
+              },
+              "position": {
+                "S": "40739754"
+              },
+              "raw_copy_number": {
+                "N": "2.46"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "AKT2"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.08905"
+                  },
+                  {
+                    "S": "0.95:2.89682"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.952269"
+                  },
+                  {
+                    "N": "2.024644"
+                  },
+                  {
+                    "N": "2.089046"
+                  },
+                  {
+                    "N": "2.165866"
+                  },
+                  {
+                    "N": "2.262706"
+                  },
+                  {
+                    "N": "2.300623"
+                  },
+                  {
+                    "N": "2.46"
+                  },
+                  {
+                    "N": "2.630418"
+                  },
+                  {
+                    "N": "2.674496"
+                  },
+                  {
+                    "N": "2.794079"
+                  },
+                  {
+                    "N": "2.896824"
+                  },
+                  {
+                    "N": "2.98897"
+                  },
+                  {
+                    "N": "3.099777"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr19"
+              },
+              "position": {
+                "S": "41725294"
+              },
+              "raw_copy_number": {
+                "N": "1.28"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "AXL"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.08698"
+                  },
+                  {
+                    "S": "0.95:1.50729"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.015815"
+                  },
+                  {
+                    "N": "1.053473"
+                  },
+                  {
+                    "N": "1.086983"
+                  },
+                  {
+                    "N": "1.126954"
+                  },
+                  {
+                    "N": "1.177343"
+                  },
+                  {
+                    "N": "1.197072"
+                  },
+                  {
+                    "N": "1.28"
+                  },
+                  {
+                    "N": "1.368673"
+                  },
+                  {
+                    "N": "1.391608"
+                  },
+                  {
+                    "N": "1.45383"
+                  },
+                  {
+                    "N": "1.507291"
+                  },
+                  {
+                    "N": "1.555237"
+                  },
+                  {
+                    "N": "1.612892"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr22"
+              },
+              "position": {
+                "S": "24129262"
+              },
+              "raw_copy_number": {
+                "N": "2.24"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "SMARCB1"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:1.98428"
+                  },
+                  {
+                    "S": "0.95:2.52868"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.887091"
+                  },
+                  {
+                    "N": "1.938729"
+                  },
+                  {
+                    "N": "1.984278"
+                  },
+                  {
+                    "N": "2.038139"
+                  },
+                  {
+                    "N": "2.105339"
+                  },
+                  {
+                    "N": "2.131447"
+                  },
+                  {
+                    "N": "2.24"
+                  },
+                  {
+                    "N": "2.354082"
+                  },
+                  {
+                    "N": "2.383274"
+                  },
+                  {
+                    "N": "2.461854"
+                  },
+                  {
+                    "N": "2.528677"
+                  },
+                  {
+                    "N": "2.588088"
+                  },
+                  {
+                    "N": "2.658907"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chr22"
+              },
+              "position": {
+                "S": "29999945"
+              },
+              "raw_copy_number": {
+                "N": "2.25"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "NF2"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.05024"
+                  },
+                  {
+                    "S": "0.95:2.46922"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.972777"
+                  },
+                  {
+                    "N": "2.014049"
+                  },
+                  {
+                    "N": "2.050243"
+                  },
+                  {
+                    "N": "2.092792"
+                  },
+                  {
+                    "N": "2.145514"
+                  },
+                  {
+                    "N": "2.16589"
+                  },
+                  {
+                    "N": "2.25"
+                  },
+                  {
+                    "N": "2.337376"
+                  },
+                  {
+                    "N": "2.359575"
+                  },
+                  {
+                    "N": "2.419018"
+                  },
+                  {
+                    "N": "2.469219"
+                  },
+                  {
+                    "N": "2.513593"
+                  },
+                  {
+                    "N": "2.56618"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chrX"
+              },
+              "position": {
+                "S": "66764988"
+              },
+              "raw_copy_number": {
+                "N": "2.52"
+              },
+              "tsg_gene": {
+                "BOOL": false
+              },
+              "gene": {
+                "S": "AR"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.12299"
+                  },
+                  {
+                    "S": "0.95:2.99125"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "1.977448"
+                  },
+                  {
+                    "N": "2.054402"
+                  },
+                  {
+                    "N": "2.122994"
+                  },
+                  {
+                    "N": "2.204944"
+                  },
+                  {
+                    "N": "2.308456"
+                  },
+                  {
+                    "N": "2.349043"
+                  },
+                  {
+                    "N": "2.52"
+                  },
+                  {
+                    "N": "2.703399"
+                  },
+                  {
+                    "N": "2.75093"
+                  },
+                  {
+                    "N": "2.880073"
+                  },
+                  {
+                    "N": "2.991248"
+                  },
+                  {
+                    "N": "3.091118"
+                  },
+                  {
+                    "N": "3.211413"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "chromosome": {
+                "S": "chrX"
+              },
+              "position": {
+                "S": "76763768"
+              },
+              "raw_copy_number": {
+                "N": "2.34"
+              },
+              "tsg_gene": {
+                "BOOL": true
+              },
+              "gene": {
+                "S": "ATRX"
+              },
+              "confidence_intervals": {
+                "L": [
+                  {
+                    "S": "0.05:2.22747"
+                  },
+                  {
+                    "S": "0.95:2.45821"
+                  }
+                ]
+              },
+              "values": {
+                "L": [
+                  {
+                    "N": "2.182456"
+                  },
+                  {
+                    "N": "2.206541"
+                  },
+                  {
+                    "N": "2.227473"
+                  },
+                  {
+                    "N": "2.251859"
+                  },
+                  {
+                    "N": "2.281755"
+                  },
+                  {
+                    "N": "2.293216"
+                  },
+                  {
+                    "N": "2.34"
+                  },
+                  {
+                    "N": "2.387738"
+                  },
+                  {
+                    "N": "2.399732"
+                  },
+                  {
+                    "N": "2.431591"
+                  },
+                  {
+                    "N": "2.458212"
+                  },
+                  {
+                    "N": "2.481531"
+                  },
+                  {
+                    "N": "2.508916"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "S": "PENDING"
+      },
+      "patient_id": {
+        "S": "UI_PA09_TsVr52Uploaded"
+      },
+      "total_confirmed_mois": {
+        "N": "2"
+      },
+      "mapd": {
+        "N": "0.28"
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_amois": {
+        "N": "0"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "variant_report_received_date": {
+        "S": "2017-03-31T13:46:16+00:00"
+      },
+      "analysis_id": {
+        "S": "UI_PA09_TsVr52Uploaded_ANI1"
+      },
+      "total_mois": {
+        "N": "2"
+      }
+    }
+  ],
+  "ConsumedCapacity": null
+}

@@ -1,0 +1,723 @@
+{
+  "ScannedCount": 10,
+  "Count": 10,
+  "Items": [
+    {
+      "oncomine_control_panel_summary": {
+        "M": {
+          "lrp1": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "myc": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          }
+        }
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "surgical_event_id": {
+        "S": "ION_AQ41_TsVrUploaded_SEI1"
+      },
+      "status_date": {
+        "S": "2016-11-07T15:59:45+00:00"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_mois": {
+        "N": "2"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "patient_id": {
+        "S": "ION_AQ41_TsVrUploaded"
+      },
+      "molecular_id": {
+        "S": "ION_AQ41_TsVrUploaded_MOI1"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "total_mois": {
+        "N": "2"
+      },
+      "variant_report_received_date": {
+        "S": "2016-11-07T15:59:45+00:00"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "analysis_id": {
+        "S": "ION_AQ41_TsVrUploaded_ANI1"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "status": {
+        "S": "PENDING"
+      }
+    },
+    {
+      "oncomine_control_panel_summary": {
+        "M": {
+          "lrp1": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "myc": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          }
+        }
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "status_date": {
+        "S": "2016-11-18T07:08:05+00:00"
+      },
+      "variant_report_type": {
+        "S": "BLOOD"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_mois": {
+        "N": "2"
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "patient_id": {
+        "S": "ION_AQ42_BdVrUploaded"
+      },
+      "molecular_id": {
+        "S": "ION_AQ42_BdVrUploaded_BD_MOI1"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "total_mois": {
+        "N": "2"
+      },
+      "variant_report_received_date": {
+        "S": "2016-11-18T07:08:05+00:00"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "analysis_id": {
+        "S": "ION_AQ42_BdVrUploaded_ANI1"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "status": {
+        "S": "PENDING"
+      }
+    },
+    {
+      "oncomine_control_panel_summary": {
+        "M": {
+          "lrp1": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "myc": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          }
+        }
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "surgical_event_id": {
+        "S": "ION_AQ43_TsVrUploaded_SEI1"
+      },
+      "status_date": {
+        "S": "2016-11-07T16:00:42+00:00"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_mois": {
+        "N": "2"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "patient_id": {
+        "S": "ION_AQ43_TsVrUploaded"
+      },
+      "molecular_id": {
+        "S": "ION_AQ43_TsVrUploaded_MOI1"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "total_mois": {
+        "N": "2"
+      },
+      "variant_report_received_date": {
+        "S": "2016-11-07T16:00:42+00:00"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "analysis_id": {
+        "S": "ION_AQ43_TsVrUploaded_ANI1"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "status": {
+        "S": "PENDING"
+      }
+    },
+    {
+      "oncomine_control_panel_summary": {
+        "M": {
+          "lrp1": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "myc": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          }
+        }
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "surgical_event_id": {
+        "S": "ION_SF03_TsVrUploaded_SEI1"
+      },
+      "status_date": {
+        "S": "2016-11-07T16:01:11+00:00"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_mois": {
+        "N": "2"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "patient_id": {
+        "S": "ION_SF03_TsVrUploaded"
+      },
+      "molecular_id": {
+        "S": "ION_SF03_TsVrUploaded_MOI1"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "total_mois": {
+        "N": "2"
+      },
+      "variant_report_received_date": {
+        "S": "2016-11-07T16:01:11+00:00"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "analysis_id": {
+        "S": "ION_SF03_TsVrUploaded_ANI1"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "status": {
+        "S": "PENDING"
+      }
+    },
+    {
+      "oncomine_control_panel_summary": {
+        "M": {
+          "lrp1": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "myc": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          }
+        }
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "surgical_event_id": {
+        "S": "ION_FL02_TsVrUploaded_SEI1"
+      },
+      "status_date": {
+        "S": "2016-11-07T16:01:40+00:00"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_mois": {
+        "N": "2"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "patient_id": {
+        "S": "ION_FL02_TsVrUploaded"
+      },
+      "molecular_id": {
+        "S": "ION_FL02_TsVrUploaded_MOI1"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "total_mois": {
+        "N": "2"
+      },
+      "variant_report_received_date": {
+        "S": "2016-11-07T16:01:40+00:00"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "analysis_id": {
+        "S": "ION_FL02_TsVrUploaded_ANI1"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "status": {
+        "S": "PENDING"
+      }
+    },
+    {
+      "oncomine_control_panel_summary": {
+        "M": {
+          "lrp1": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "myc": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          }
+        }
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "surgical_event_id": {
+        "S": "ION_AQ61_VrConfirmed_SEI1"
+      },
+      "status_date": {
+        "S": "2017-03-04T16:04:38+00:00"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_mois": {
+        "N": "2"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "patient_id": {
+        "S": "ION_AQ61_VrConfirmed"
+      },
+      "molecular_id": {
+        "S": "ION_AQ61_VrConfirmed_MOI1"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "total_mois": {
+        "N": "2"
+      },
+      "variant_report_received_date": {
+        "S": "2017-03-04T16:04:38+00:00"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "analysis_id": {
+        "S": "ION_AQ61_VrConfirmed_ANI1"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "status": {
+        "S": "PENDING"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "ION_AQ08_CdnaUploaded1"
+      },
+      "molecular_id": {
+        "S": "ION_AQ08_CdnaUploaded1_MOI1"
+      },
+      "cdna_bam_name": {
+        "S": "cdna.bam"
+      },
+      "variant_report_received_date": {
+        "S": "2017-03-10T05:34:01+00:00"
+      },
+      "analysis_id": {
+        "S": "ION_AQ08_CdnaUploaded1_ANI1_UNDETERMINED"
+      },
+      "status": {
+        "S": "UNDETERMINED"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "ION_AQ08_CdnaUploaded2"
+      },
+      "molecular_id": {
+        "S": "ION_AQ08_CdnaUploaded2_MOI1"
+      },
+      "cdna_bam_name": {
+        "S": "cdna.bam"
+      },
+      "variant_report_received_date": {
+        "S": "2017-03-10T05:34:50+00:00"
+      },
+      "analysis_id": {
+        "S": "ION_AQ08_CdnaUploaded2_ANI1_UNDETERMINED"
+      },
+      "status": {
+        "S": "UNDETERMINED"
+      }
+    },
+    {
+      "oncomine_control_panel_summary": {
+        "M": {
+          "lrp1": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "myc": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          }
+        }
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "surgical_event_id": {
+        "S": "ION_AQ08_TsVrUploaded1_SEI1"
+      },
+      "status_date": {
+        "S": "2017-03-10T05:36:08+00:00"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_mois": {
+        "N": "2"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "vcf_file_name": {
+        "S": "test1.vcf"
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "patient_id": {
+        "S": "ION_AQ08_TsVrUploaded1"
+      },
+      "molecular_id": {
+        "S": "ION_AQ08_TsVrUploaded1_MOI1"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "total_mois": {
+        "N": "2"
+      },
+      "variant_report_received_date": {
+        "S": "2017-03-10T05:36:08+00:00"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "analysis_id": {
+        "S": "ION_AQ08_TsVrUploaded1_ANI1"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "status": {
+        "S": "PENDING"
+      }
+    },
+    {
+      "oncomine_control_panel_summary": {
+        "M": {
+          "lrp1": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "myc": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          }
+        }
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "surgical_event_id": {
+        "S": "ION_AQ08_TsVrUploaded2_SEI1"
+      },
+      "status_date": {
+        "S": "2017-03-10T05:36:56+00:00"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_mois": {
+        "N": "2"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "vcf_file_name": {
+        "S": "test1.vcf"
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "patient_id": {
+        "S": "ION_AQ08_TsVrUploaded2"
+      },
+      "molecular_id": {
+        "S": "ION_AQ08_TsVrUploaded2_MOI1"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "total_mois": {
+        "N": "2"
+      },
+      "variant_report_received_date": {
+        "S": "2017-03-10T05:36:56+00:00"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "analysis_id": {
+        "S": "ION_AQ08_TsVrUploaded2_ANI1"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "status": {
+        "S": "PENDING"
+      }
+    }
+  ],
+  "ConsumedCapacity": null
+}

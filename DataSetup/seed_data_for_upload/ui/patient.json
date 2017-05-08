@@ -1,0 +1,3737 @@
+{
+  "ScannedCount": 18,
+  "Count": 18,
+  "Items": [
+    {
+      "study_id": {
+        "S": "APEC1621"
+      },
+      "current_step_number": {
+        "S": "1.0"
+      },
+      "registration_date": {
+        "S": "2016-02-09T22:06:33+00:00"
+      },
+      "active_tissue_specimen": {
+        "M": {
+          "ICCPTENs_received_date": {
+            "S": "2016-05-30T12:11:09.071-05:00"
+          },
+          "ICCPTENs": {
+            "S": "NEGATIVE"
+          },
+          "has_amoi": {
+            "BOOL": true
+          },
+          "active_destination": {
+            "S": "MDA"
+          },
+          "variant_report_status": {
+            "S": "PENDING"
+          },
+          "specimen_received_date": {
+            "S": "2016-04-26T04:00:00+00:00"
+          },
+          "ICCBRG1s_received_date": {
+            "S": "2016-05-30T12:11:09.071-05:00"
+          },
+          "pathology_status": {
+            "S": "Y"
+          },
+          "slide_barcode": {
+            "S": "PT_CR01_PathAssayDoneVRUploadedToConfirm_BC1"
+          },
+          "specimen_collected_date": {
+            "S": "2016-04-25T04:00:00"
+          },
+          "ICCBRG1s": {
+            "S": "NEGATIVE"
+          },
+          "active_molecular_id": {
+            "S": "PT_CR01_PathAssayDoneVRUploadedToConfirm_MOI1"
+          },
+          "active_analysis_id": {
+            "S": "PT_CR01_PathAssayDoneVRUploadedToConfirm_ANI1"
+          },
+          "surgical_event_id": {
+            "S": "PT_CR01_PathAssayDoneVRUploadedToConfirm_SEI1"
+          },
+          "ICCBAF47s": {
+            "S": "NEGATIVE"
+          },
+          "active_molecular_id_shipped_date": {
+            "S": "2016-05-01T19:42:13+00:00"
+          },
+          "slide_shipped_date": {
+            "S": "2016-05-01T19:42:13+00:00"
+          },
+          "ICCBAF47s_received_date": {
+            "S": "2016-05-30T12:11:09.071-05:00"
+          }
+        }
+      },
+      "patient_id": {
+        "S": "PT_CR01_PathAssayDoneVRUploadedToConfirm"
+      },
+      "current_status": {
+        "S": "TISSUE_VARIANT_REPORT_RECEIVED"
+      }
+    },
+    {
+      "study_id": {
+        "S": "APEC1621"
+      },
+      "current_step_number": {
+        "S": "1.1"
+      },
+      "patient_id": {
+        "S": "PT_CR02_OnTreatmentArm"
+      },
+      "active_tissue_specimen": {
+        "M": {
+          "ICCPTENs_received_date": {
+            "S": "2016-05-30T12:11:09.071-05:00"
+          },
+          "ICCPTENs": {
+            "S": "NEGATIVE"
+          },
+          "has_amoi": {
+            "BOOL": true
+          },
+          "active_destination": {
+            "S": "MDA"
+          },
+          "variant_report_status": {
+            "S": "CONFIRMED"
+          },
+          "specimen_received_date": {
+            "S": "2016-04-26T04:00:00+00:00"
+          },
+          "ICCBRG1s_received_date": {
+            "S": "2016-05-30T12:11:09.071-05:00"
+          },
+          "pathology_status": {
+            "S": "Y"
+          },
+          "slide_barcode": {
+            "S": "PT_CR02_OnTreatmentArm_BC1"
+          },
+          "specimen_collected_date": {
+            "S": "2016-04-25T04:00:00"
+          },
+          "ICCBRG1s": {
+            "S": "NEGATIVE"
+          },
+          "active_molecular_id": {
+            "S": "PT_CR02_OnTreatmentArm_MOI1"
+          },
+          "active_analysis_id": {
+            "S": "PT_CR02_OnTreatmentArm_ANI1"
+          },
+          "surgical_event_id": {
+            "S": "PT_CR02_OnTreatmentArm_SEI1"
+          },
+          "ICCBAF47s": {
+            "S": "NEGATIVE"
+          },
+          "active_molecular_id_shipped_date": {
+            "S": "2016-05-01T19:42:13+00:00"
+          },
+          "slide_shipped_date": {
+            "S": "2016-05-01T19:42:13+00:00"
+          },
+          "ICCBAF47s_received_date": {
+            "S": "2016-05-30T12:11:09.071-05:00"
+          }
+        }
+      },
+      "ethnicity": {
+        "S": "NOT HISPANIC OR LATINO"
+      },
+      "treating_site_id": {
+        "S": "TX100"
+      },
+      "current_assignment": {
+        "M": {
+          "study_id": {
+            "S": "APEC1621"
+          },
+          "patient_id": {
+            "S": "PT_CR02_OnTreatmentArm"
+          },
+          "selected_treatment_arm": {
+            "M": {
+              "treatment_arm_id": {
+                "S": "APEC1621-A"
+              },
+              "version": {
+                "S": "2015-08-06"
+              },
+              "stratum_id": {
+                "S": "100"
+              },
+              "reason": {
+                "S": "The level of evidence for the variant on this treatment arm is 2.0. A match was found for inclusion variant TPM3-ALK.T7A20. A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required."
+              }
+            }
+          },
+          "report_status": {
+            "S": "TREATMENT_FOUND"
+          },
+          "comment": {
+            "S": "The committee approves this Assignment report"
+          },
+          "treatment_assignment_results": {
+            "L": [
+              {
+                "M": {
+                  "tiebreaker_results": {
+                    "L": [
+                      {
+                        "M": {
+                          "type": {
+                            "S": "LEVEL_OF_EVIDENCE_TIE_BREAKER"
+                          },
+                          "highest_level_of_evidence": {
+                            "N": "2.0"
+                          },
+                          "level_of_evidence": {
+                            "N": "2.0"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "treatment_arm_id": {
+                    "S": "APEC1621-A"
+                  },
+                  "drug_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "disease_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_inclusions": {
+                    "L": [
+                      {
+                        "M": {
+                          "variant_rule_level_of_evidence": {
+                            "N": "2.0"
+                          },
+                          "identifier": {
+                            "S": "TPM3-ALK.T7A20"
+                          },
+                          "variant_type": {
+                            "S": "fusion"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "num_patients_assigned": {
+                    "NULL": true
+                  },
+                  "version": {
+                    "S": "2015-08-06"
+                  },
+                  "prior_treatment_arms": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_status": {
+                    "S": "OPEN"
+                  },
+                  "assay_rule_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "assignment_status": {
+                    "S": "SELECTED"
+                  },
+                  "stratum_id": {
+                    "S": "100"
+                  },
+                  "disease_inclusions": {
+                    "L": [
+                      {
+                        "M": {
+                          "disease_code_type": {
+                            "S": "Thyroid Cancer"
+                          },
+                          "disease_name": {
+                            "S": "Papillary thyroid carcinoma"
+                          },
+                          "disease_code": {
+                            "S": "10033701"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "reason": {
+                    "S": "The level of evidence for the variant on this treatment arm is 2.0. A match was found for inclusion variant TPM3-ALK.T7A20. A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required."
+                  }
+                }
+              },
+              {
+                "M": {
+                  "tiebreaker_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_id": {
+                    "S": "APEC1621-B"
+                  },
+                  "drug_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "disease_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "num_patients_assigned": {
+                    "NULL": true
+                  },
+                  "version": {
+                    "S": "2015-08-06"
+                  },
+                  "prior_treatment_arms": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_status": {
+                    "S": "OPEN"
+                  },
+                  "assay_rule_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "assignment_status": {
+                    "S": "NO_VARIANT_MATCH_EXCLUSION"
+                  },
+                  "stratum_id": {
+                    "S": "100"
+                  },
+                  "disease_inclusions": {
+                    "L": [
+                      {
+                        "M": {
+                          "disease_code_type": {
+                            "S": "Thyroid Cancer"
+                          },
+                          "disease_name": {
+                            "S": "Papillary thyroid carcinoma"
+                          },
+                          "disease_code": {
+                            "S": "10033701"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "reason": {
+                    "S": "No inclusion variant match was found. A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required."
+                  }
+                }
+              },
+              {
+                "M": {
+                  "tiebreaker_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_id": {
+                    "S": "APEC1621-2V"
+                  },
+                  "drug_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "disease_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "num_patients_assigned": {
+                    "NULL": true
+                  },
+                  "version": {
+                    "S": "version2"
+                  },
+                  "prior_treatment_arms": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_status": {
+                    "S": "OPEN"
+                  },
+                  "assay_rule_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "assignment_status": {
+                    "S": "NO_VARIANT_MATCH_EXCLUSION"
+                  },
+                  "stratum_id": {
+                    "S": "100"
+                  },
+                  "disease_inclusions": {
+                    "L": [
+                      {
+                        "M": {
+                          "disease_code_type": {
+                            "S": "Thyroid Cancer"
+                          },
+                          "disease_name": {
+                            "S": "Papillary thyroid carcinoma"
+                          },
+                          "disease_code": {
+                            "S": "10033701"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "reason": {
+                    "S": "No inclusion variant match was found. A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required."
+                  }
+                }
+              },
+              {
+                "M": {
+                  "tiebreaker_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_id": {
+                    "S": "APEC1621-UI"
+                  },
+                  "drug_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "disease_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "num_patients_assigned": {
+                    "NULL": true
+                  },
+                  "version": {
+                    "S": "2015-08-06"
+                  },
+                  "prior_treatment_arms": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_status": {
+                    "S": "OPEN"
+                  },
+                  "assay_rule_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "assignment_status": {
+                    "S": "NO_VARIANT_MATCH_EXCLUSION"
+                  },
+                  "stratum_id": {
+                    "S": "STR100"
+                  },
+                  "disease_inclusions": {
+                    "L": [
+                      {
+                        "M": {
+                          "disease_code_type": {
+                            "S": "Thyroid Cancer"
+                          },
+                          "disease_name": {
+                            "S": "Papillary thyroid carcinoma"
+                          },
+                          "disease_code": {
+                            "S": "10033701"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "reason": {
+                    "S": "No inclusion variant match was found. A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required."
+                  }
+                }
+              },
+              {
+                "M": {
+                  "tiebreaker_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_id": {
+                    "S": "APEC1621-ETE-D"
+                  },
+                  "drug_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "disease_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "num_patients_assigned": {
+                    "NULL": true
+                  },
+                  "version": {
+                    "S": "2015-08-06"
+                  },
+                  "prior_treatment_arms": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_status": {
+                    "S": "OPEN"
+                  },
+                  "assay_rule_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "assignment_status": {
+                    "S": "NO_VARIANT_MATCH_EXCLUSION"
+                  },
+                  "stratum_id": {
+                    "S": "100"
+                  },
+                  "disease_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "reason": {
+                    "S": "No inclusion variant match was found."
+                  }
+                }
+              },
+              {
+                "M": {
+                  "tiebreaker_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_id": {
+                    "S": "CukeTest-122-1-SUSPENDED"
+                  },
+                  "drug_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "disease_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "num_patients_assigned": {
+                    "NULL": true
+                  },
+                  "version": {
+                    "S": "2015-08-06"
+                  },
+                  "prior_treatment_arms": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_status": {
+                    "S": "SUSPENDED"
+                  },
+                  "assay_rule_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "assignment_status": {
+                    "S": "ARM_SUSPENDED_EXCLUSION"
+                  },
+                  "stratum_id": {
+                    "S": "stratum122a"
+                  },
+                  "disease_inclusions": {
+                    "L": [
+                      {
+                        "M": {
+                          "disease_code_type": {
+                            "S": "Thyroid Cancer"
+                          },
+                          "disease_name": {
+                            "S": "Papillary thyroid carcinoma"
+                          },
+                          "disease_code": {
+                            "S": "10033701"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "reason": {
+                    "S": "A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required."
+                  }
+                }
+              },
+              {
+                "M": {
+                  "tiebreaker_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_id": {
+                    "S": "APEC1621-ETE-B"
+                  },
+                  "drug_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "disease_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "num_patients_assigned": {
+                    "NULL": true
+                  },
+                  "version": {
+                    "S": "2015-08-06"
+                  },
+                  "prior_treatment_arms": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_status": {
+                    "S": "OPEN"
+                  },
+                  "assay_rule_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "assignment_status": {
+                    "S": "NO_VARIANT_MATCH_EXCLUSION"
+                  },
+                  "stratum_id": {
+                    "S": "100"
+                  },
+                  "disease_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "reason": {
+                    "S": "No inclusion variant match was found."
+                  }
+                }
+              },
+              {
+                "M": {
+                  "tiebreaker_results": {
+                    "L": [
+                      {
+                        "M": {
+                          "type": {
+                            "S": "LEVEL_OF_EVIDENCE_TIE_BREAKER"
+                          },
+                          "highest_level_of_evidence": {
+                            "N": "2.0"
+                          },
+                          "level_of_evidence": {
+                            "N": "2.1"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "treatment_arm_id": {
+                    "S": "APEC1621-ETE-A"
+                  },
+                  "drug_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "disease_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_inclusions": {
+                    "L": [
+                      {
+                        "M": {
+                          "variant_rule_level_of_evidence": {
+                            "N": "2.1"
+                          },
+                          "identifier": {
+                            "S": "TPM3-ALK.T7A20"
+                          },
+                          "variant_type": {
+                            "S": "fusion"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "num_patients_assigned": {
+                    "NULL": true
+                  },
+                  "version": {
+                    "S": "2015-08-06"
+                  },
+                  "prior_treatment_arms": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_status": {
+                    "S": "OPEN"
+                  },
+                  "assay_rule_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "assignment_status": {
+                    "S": "LEVEL_OF_EVIDENCE_TIE_BREAKER_BASED_EXCLUSION"
+                  },
+                  "stratum_id": {
+                    "S": "100"
+                  },
+                  "disease_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "reason": {
+                    "S": "The level of evidence for the variant on this treatment arm is 2.1 and is lower than other eligible treatment arm(s). A match was found for inclusion variant TPM3-ALK.T7A20."
+                  }
+                }
+              },
+              {
+                "M": {
+                  "tiebreaker_results": {
+                    "L": [
+                      {
+                        "M": {
+                          "type": {
+                            "S": "LEVEL_OF_EVIDENCE_TIE_BREAKER"
+                          },
+                          "highest_level_of_evidence": {
+                            "N": "2.0"
+                          },
+                          "level_of_evidence": {
+                            "N": "4.0"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "treatment_arm_id": {
+                    "S": "APEC1621-ETE-C"
+                  },
+                  "drug_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "disease_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_inclusions": {
+                    "L": [
+                      {
+                        "M": {
+                          "variant_rule_level_of_evidence": {
+                            "N": "4.0"
+                          },
+                          "identifier": {
+                            "S": "CCDC6-RET.C1R12.COSF1271"
+                          },
+                          "variant_type": {
+                            "S": "fusion"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "num_patients_assigned": {
+                    "NULL": true
+                  },
+                  "version": {
+                    "S": "2015-08-06"
+                  },
+                  "prior_treatment_arms": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_status": {
+                    "S": "OPEN"
+                  },
+                  "assay_rule_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "assignment_status": {
+                    "S": "LEVEL_OF_EVIDENCE_TIE_BREAKER_BASED_EXCLUSION"
+                  },
+                  "stratum_id": {
+                    "S": "100"
+                  },
+                  "disease_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "reason": {
+                    "S": "The level of evidence for the variant on this treatment arm is 4.0 and is lower than other eligible treatment arm(s). A match was found for inclusion variant CCDC6-RET.C1R12.COSF1271."
+                  }
+                }
+              }
+            ]
+          },
+          "assignment_date": {
+            "S": "2017-01-20T16:09:58+00:00"
+          },
+          "analysis_id": {
+            "S": "PT_CR02_OnTreatmentArm_ANI1"
+          },
+          "molecular_id": {
+            "S": "PT_CR02_OnTreatmentArm_MOI1"
+          },
+          "off_arm_date": {
+            "NULL": true
+          },
+          "status_date": {
+            "S": "2017-01-20 16:16:38 UTC"
+          },
+          "sent_to_cog_date": {
+            "S": "2017-01-20T16:10:04+00:00"
+          },
+          "received_from_cog_date": {
+            "S": "2017-01-20 16:16:38 UTC"
+          },
+          "comment_user": {
+            "S": "Rick"
+          },
+          "uuid": {
+            "S": "42ca80da-09a6-4c82-8269-ea2cf5f9edaf"
+          },
+          "status": {
+            "S": "CONFIRMED"
+          },
+          "surgical_event_id": {
+            "S": "PT_CR02_OnTreatmentArm_SEI1"
+          },
+          "step_number": {
+            "S": "1.1"
+          },
+          "cog_assignment_date": {
+            "S": "2016-05-10T22:05:33+00:00"
+          }
+        }
+      },
+      "prior_treatment_arms": {
+        "L": [
+
+        ]
+      },
+      "prior_drugs": {
+        "L": [
+
+        ]
+      },
+      "gender": {
+        "S": "MALE"
+      },
+      "message": {
+        "NULL": true
+      },
+      "diseases": {
+        "L": [
+          {
+            "M": {
+              "disease_code_type": {
+                "S": "Thyroid Cancer"
+              },
+              "disease_name": {
+                "S": "Papillary thyroid carcinoma"
+              },
+              "disease_code": {
+                "S": "10033701"
+              }
+            }
+          }
+        ]
+      },
+      "races": {
+        "L": [
+          {
+            "S": "ASIAN"
+          }
+        ]
+      },
+      "registration_date": {
+        "S": "2016-02-09T22:06:33+00:00"
+      },
+      "current_status": {
+        "S": "ON_TREATMENT_ARM"
+      }
+    },
+    {
+      "study_id": {
+        "S": "APEC1621"
+      },
+      "current_step_number": {
+        "S": "1.0"
+      },
+      "registration_date": {
+        "S": "2016-02-09T22:06:33+00:00"
+      },
+      "active_tissue_specimen": {
+        "M": {
+          "has_amoi": {
+            "BOOL": true
+          },
+          "active_destination": {
+            "S": "MDA"
+          },
+          "active_molecular_id_shipped_date": {
+            "S": "2016-05-01T19:42:13+00:00"
+          },
+          "specimen_received_date": {
+            "S": "2016-04-26T04:00:00+00:00"
+          },
+          "slide_shipped_date": {
+            "S": "2016-05-01T19:42:13+00:00"
+          },
+          "pathology_status": {
+            "S": "Y"
+          },
+          "slide_barcode": {
+            "S": "PT_CR03_VRUploadedPathConfirmed_BC1"
+          },
+          "specimen_collected_date": {
+            "S": "2016-04-25T04:00:00"
+          },
+          "active_molecular_id": {
+            "S": "PT_CR03_VRUploadedPathConfirmed_MOI1"
+          },
+          "active_analysis_id": {
+            "S": "PT_CR03_VRUploadedPathConfirmed_ANI1"
+          },
+          "surgical_event_id": {
+            "S": "PT_CR03_VRUploadedPathConfirmed_SEI1"
+          },
+          "variant_report_status": {
+            "S": "PENDING"
+          }
+        }
+      },
+      "patient_id": {
+        "S": "PT_CR03_VRUploadedPathConfirmed"
+      },
+      "current_status": {
+        "S": "TISSUE_VARIANT_REPORT_RECEIVED"
+      }
+    },
+    {
+      "study_id": {
+        "S": "APEC1621"
+      },
+      "current_step_number": {
+        "S": "1.0"
+      },
+      "registration_date": {
+        "S": "2016-02-09T22:06:33+00:00"
+      },
+      "active_tissue_specimen": {
+        "M": {
+          "ICCPTENs_received_date": {
+            "S": "2016-05-30T12:11:09.071-05:00"
+          },
+          "ICCPTENs": {
+            "S": "NEGATIVE"
+          },
+          "has_amoi": {
+            "BOOL": true
+          },
+          "active_destination": {
+            "S": "MDA"
+          },
+          "variant_report_status": {
+            "S": "PENDING"
+          },
+          "specimen_received_date": {
+            "S": "2016-04-26T04:00:00+00:00"
+          },
+          "ICCBRG1s_received_date": {
+            "S": "2016-05-30T12:11:09.071-05:00"
+          },
+          "pathology_status": {
+            "S": "Y"
+          },
+          "slide_barcode": {
+            "S": "PT_CR04_VRUploadedAssayReceived_BC1"
+          },
+          "specimen_collected_date": {
+            "S": "2016-04-25T04:00:00"
+          },
+          "ICCBRG1s": {
+            "S": "NEGATIVE"
+          },
+          "active_molecular_id": {
+            "S": "PT_CR04_VRUploadedAssayReceived_MOI1"
+          },
+          "active_analysis_id": {
+            "S": "PT_CR04_VRUploadedAssayReceived_ANI1"
+          },
+          "surgical_event_id": {
+            "S": "PT_CR04_VRUploadedAssayReceived_SEI1"
+          },
+          "ICCBAF47s": {
+            "S": "NEGATIVE"
+          },
+          "active_molecular_id_shipped_date": {
+            "S": "2016-05-01T19:42:13+00:00"
+          },
+          "slide_shipped_date": {
+            "S": "2016-05-01T19:42:13+00:00"
+          },
+          "ICCBAF47s_received_date": {
+            "S": "2016-05-30T12:11:09.071-05:00"
+          }
+        }
+      },
+      "patient_id": {
+        "S": "PT_CR04_VRUploadedAssayReceived"
+      },
+      "current_status": {
+        "S": "TISSUE_VARIANT_REPORT_RECEIVED"
+      }
+    },
+    {
+      "study_id": {
+        "S": "APEC1621"
+      },
+      "current_step_number": {
+        "S": "1.0"
+      },
+      "registration_date": {
+        "S": "2016-02-09T22:06:33+00:00"
+      },
+      "active_tissue_specimen": {
+        "M": {
+          "specimen_collected_date": {
+            "S": "2016-04-25T04:00:00"
+          },
+          "specimen_received_date": {
+            "S": "2016-04-26T04:00:00+00:00"
+          },
+          "surgical_event_id": {
+            "S": "PT_CR05_SpecimenShippedTwice_SEI1"
+          },
+          "has_amoi": {
+            "BOOL": true
+          },
+          "active_destination": {
+            "S": "MDA"
+          },
+          "variant_report_status": {
+            "S": "PENDING"
+          },
+          "active_analysis_id": {
+            "S": "PT_CR05_SpecimenShippedTwice_ANI2"
+          },
+          "active_molecular_id": {
+            "S": "PT_CR05_SpecimenShippedTwice_MOI2"
+          },
+          "active_molecular_id_shipped_date": {
+            "S": "2016-05-02T19:42:13+00:00"
+          },
+          "pathology_status": {
+            "S": "Y"
+          }
+        }
+      },
+      "patient_id": {
+        "S": "PT_CR05_SpecimenShippedTwice"
+      },
+      "current_status": {
+        "S": "TISSUE_VARIANT_REPORT_RECEIVED"
+      }
+    },
+    {
+      "study_id": {
+        "S": "APEC1621"
+      },
+      "current_step_number": {
+        "S": "1.0"
+      },
+      "registration_date": {
+        "S": "2016-02-09T22:06:33+00:00"
+      },
+      "active_tissue_specimen": {
+        "M": {
+          "has_amoi": {
+            "BOOL": true
+          },
+          "active_destination": {
+            "S": "MDA"
+          },
+          "active_molecular_id_shipped_date": {
+            "S": "2016-05-01T19:42:13+00:00"
+          },
+          "specimen_received_date": {
+            "S": "2016-04-26T04:00:00+00:00"
+          },
+          "slide_shipped_date": {
+            "S": "2016-05-01T19:42:13+00:00"
+          },
+          "pathology_status": {
+            "S": "Y"
+          },
+          "slide_barcode": {
+            "S": "PT_CR06_RejectOneVariant_BC1"
+          },
+          "specimen_collected_date": {
+            "S": "2016-04-25T04:00:00"
+          },
+          "active_molecular_id": {
+            "S": "PT_CR06_RejectOneVariant_MOI1"
+          },
+          "active_analysis_id": {
+            "S": "PT_CR06_RejectOneVariant_ANI1"
+          },
+          "surgical_event_id": {
+            "S": "PT_CR06_RejectOneVariant_SEI1"
+          },
+          "variant_report_status": {
+            "S": "PENDING"
+          }
+        }
+      },
+      "patient_id": {
+        "S": "PT_CR06_RejectOneVariant"
+      },
+      "current_status": {
+        "S": "TISSUE_VARIANT_REPORT_RECEIVED"
+      }
+    },
+    {
+      "study_id": {
+        "S": "APEC1621"
+      },
+      "current_step_number": {
+        "S": "1.0"
+      },
+      "registration_date": {
+        "S": "2016-02-09T22:06:33+00:00"
+      },
+      "active_tissue_specimen": {
+        "M": {
+          "has_amoi": {
+            "BOOL": true
+          },
+          "active_destination": {
+            "S": "MDA"
+          },
+          "active_molecular_id_shipped_date": {
+            "S": "2016-05-01T19:42:13+00:00"
+          },
+          "specimen_received_date": {
+            "S": "2016-04-26T04:00:00+00:00"
+          },
+          "slide_shipped_date": {
+            "S": "2016-05-01T19:42:13+00:00"
+          },
+          "pathology_status": {
+            "S": "Y"
+          },
+          "slide_barcode": {
+            "S": "PT_CR07_RejectVariantReport_BC1"
+          },
+          "specimen_collected_date": {
+            "S": "2016-04-25T04:00:00"
+          },
+          "active_molecular_id": {
+            "S": "PT_CR07_RejectVariantReport_MOI1"
+          },
+          "active_analysis_id": {
+            "S": "PT_CR07_RejectVariantReport_ANI1"
+          },
+          "surgical_event_id": {
+            "S": "PT_CR07_RejectVariantReport_SEI1"
+          },
+          "variant_report_status": {
+            "S": "PENDING"
+          }
+        }
+      },
+      "patient_id": {
+        "S": "PT_CR07_RejectVariantReport"
+      },
+      "current_status": {
+        "S": "TISSUE_VARIANT_REPORT_RECEIVED"
+      }
+    },
+    {
+      "study_id": {
+        "S": "APEC1621"
+      },
+      "current_step_number": {
+        "S": "1.0"
+      },
+      "active_blood_specimen": {
+        "M": {
+          "specimen_collected_date": {
+            "S": "2016-04-22T15:17:11"
+          },
+          "active_destination": {
+            "S": "MDA"
+          },
+          "active_analysis_id": {
+            "S": "PT_CR08_BloodSpecimenUploaded_ANI1"
+          },
+          "active_molecular_id": {
+            "S": "PT_CR08_BloodSpecimenUploaded_BD_MOI1"
+          },
+          "variant_report_status": {
+            "S": "PENDING"
+          },
+          "active_molecular_id_shipped_date": {
+            "S": "2016-05-01T19:42:13+00:00"
+          }
+        }
+      },
+      "registration_date": {
+        "S": "2016-02-09T22:06:33+00:00"
+      },
+      "patient_id": {
+        "S": "PT_CR08_BloodSpecimenUploaded"
+      },
+      "current_status": {
+        "S": "REGISTRATION"
+      }
+    },
+    {
+      "study_id": {
+        "S": "APEC1621"
+      },
+      "current_step_number": {
+        "S": "1.0"
+      },
+      "registration_date": {
+        "S": "2016-02-09T22:06:33+00:00"
+      },
+      "active_tissue_specimen": {
+        "M": {
+          "specimen_collected_date": {
+            "S": "2016-04-25T04:00:00"
+          },
+          "specimen_received_date": {
+            "S": "2016-04-26T04:00:00+00:00"
+          },
+          "surgical_event_id": {
+            "S": "UI_PA08_MdaTsVrUploaded_SEI1"
+          },
+          "has_amoi": {
+            "BOOL": true
+          },
+          "active_destination": {
+            "S": "MDA"
+          },
+          "variant_report_status": {
+            "S": "PENDING"
+          },
+          "active_analysis_id": {
+            "S": "UI_PA08_MdaTsVrUploaded_ANI1"
+          },
+          "active_molecular_id": {
+            "S": "UI_PA08_MdaTsVrUploaded_MOI1"
+          },
+          "active_molecular_id_shipped_date": {
+            "S": "2016-05-01T19:42:13+00:00"
+          },
+          "pathology_status": {
+            "S": "Y"
+          }
+        }
+      },
+      "patient_id": {
+        "S": "UI_PA08_MdaTsVrUploaded"
+      },
+      "current_status": {
+        "S": "TISSUE_VARIANT_REPORT_RECEIVED"
+      }
+    },
+    {
+      "study_id": {
+        "S": "APEC1621"
+      },
+      "current_step_number": {
+        "S": "1.0"
+      },
+      "registration_date": {
+        "S": "2016-02-09T22:06:33+00:00"
+      },
+      "active_tissue_specimen": {
+        "M": {
+          "specimen_collected_date": {
+            "S": "2016-04-25T04:00:00"
+          },
+          "specimen_received_date": {
+            "S": "2016-04-26T04:00:00+00:00"
+          },
+          "surgical_event_id": {
+            "S": "UI_PA08_MochaTsVrUploaded_SEI1"
+          },
+          "has_amoi": {
+            "BOOL": true
+          },
+          "active_destination": {
+            "S": "MoCha"
+          },
+          "variant_report_status": {
+            "S": "PENDING"
+          },
+          "active_analysis_id": {
+            "S": "UI_PA08_MochaTsVrUploaded_ANI1"
+          },
+          "active_molecular_id": {
+            "S": "UI_PA08_MochaTsVrUploaded_MOI1"
+          },
+          "active_molecular_id_shipped_date": {
+            "S": "2016-05-01T19:42:13+00:00"
+          },
+          "pathology_status": {
+            "S": "Y"
+          }
+        }
+      },
+      "patient_id": {
+        "S": "UI_PA08_MochaTsVrUploaded"
+      },
+      "current_status": {
+        "S": "TISSUE_VARIANT_REPORT_RECEIVED"
+      }
+    },
+    {
+      "study_id": {
+        "S": "APEC1621"
+      },
+      "current_step_number": {
+        "S": "1.0"
+      },
+      "patient_id": {
+        "S": "UI_PA08_PendingConfirmation"
+      },
+      "active_tissue_specimen": {
+        "M": {
+          "ICCPTENs_received_date": {
+            "S": "2016-05-30T12:11:09.071-05:00"
+          },
+          "ICCPTENs": {
+            "S": "NEGATIVE"
+          },
+          "has_amoi": {
+            "BOOL": true
+          },
+          "active_destination": {
+            "S": "MDA"
+          },
+          "variant_report_status": {
+            "S": "CONFIRMED"
+          },
+          "specimen_received_date": {
+            "S": "2016-04-26T04:00:00+00:00"
+          },
+          "ICCBRG1s_received_date": {
+            "S": "2016-05-30T12:11:09.071-05:00"
+          },
+          "pathology_status": {
+            "S": "Y"
+          },
+          "slide_barcode": {
+            "S": "UI_PA08_PendingConfirmation_BC1"
+          },
+          "specimen_collected_date": {
+            "S": "2016-04-25T04:00:00"
+          },
+          "ICCBRG1s": {
+            "S": "NEGATIVE"
+          },
+          "active_molecular_id": {
+            "S": "UI_PA08_PendingConfirmation_MOI1"
+          },
+          "active_analysis_id": {
+            "S": "UI_PA08_PendingConfirmation_ANI1"
+          },
+          "surgical_event_id": {
+            "S": "UI_PA08_PendingConfirmation_SEI1"
+          },
+          "ICCBAF47s": {
+            "S": "NEGATIVE"
+          },
+          "active_molecular_id_shipped_date": {
+            "S": "2016-05-01T19:42:13+00:00"
+          },
+          "slide_shipped_date": {
+            "S": "2016-05-01T19:42:13+00:00"
+          },
+          "ICCBAF47s_received_date": {
+            "S": "2016-05-30T12:11:09.071-05:00"
+          }
+        }
+      },
+      "ethnicity": {
+        "S": "NOT HISPANIC OR LATINO"
+      },
+      "treating_site_id": {
+        "S": "TX100"
+      },
+      "current_assignment": {
+        "M": {
+          "study_id": {
+            "S": "APEC1621"
+          },
+          "patient_id": {
+            "S": "UI_PA08_PendingConfirmation"
+          },
+          "selected_treatment_arm": {
+            "M": {
+              "treatment_arm_id": {
+                "S": "APEC1621-A"
+              },
+              "version": {
+                "S": "2015-08-06"
+              },
+              "stratum_id": {
+                "S": "100"
+              },
+              "reason": {
+                "S": "The level of evidence for the variant on this treatment arm is 2.0. A match was found for inclusion variant TPM3-ALK.T7A20. A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required. And the following text are testing hyperlink for COSM249874 and CCDC6-RET.C1R12.COSF1271"
+              }
+            }
+          },
+          "molecular_id": {
+            "S": "UI_PA08_PendingConfirmation_MOI1"
+          },
+          "treatment_assignment_results": {
+            "L": [
+              {
+                "M": {
+                  "tiebreaker_results": {
+                    "L": [
+                      {
+                        "M": {
+                          "type": {
+                            "S": "LEVEL_OF_EVIDENCE_TIE_BREAKER"
+                          },
+                          "highest_level_of_evidence": {
+                            "N": "2.0"
+                          },
+                          "level_of_evidence": {
+                            "N": "2.0"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "treatment_arm_id": {
+                    "S": "APEC1621-A"
+                  },
+                  "drug_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "disease_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_inclusions": {
+                    "L": [
+                      {
+                        "M": {
+                          "variant_rule_level_of_evidence": {
+                            "N": "2.0"
+                          },
+                          "identifier": {
+                            "S": "TPM3-ALK.T7A20"
+                          },
+                          "variant_type": {
+                            "S": "fusion"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "num_patients_assigned": {
+                    "NULL": true
+                  },
+                  "version": {
+                    "S": "2015-08-06"
+                  },
+                  "prior_treatment_arms": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_status": {
+                    "S": "OPEN"
+                  },
+                  "assay_rule_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "assignment_status": {
+                    "S": "SELECTED"
+                  },
+                  "stratum_id": {
+                    "S": "100"
+                  },
+                  "disease_inclusions": {
+                    "L": [
+                      {
+                        "M": {
+                          "disease_code_type": {
+                            "S": "Thyroid Cancer"
+                          },
+                          "disease_name": {
+                            "S": "Papillary thyroid carcinoma"
+                          },
+                          "disease_code": {
+                            "S": "10033701"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "reason": {
+                    "S": "The level of evidence for the variant on this treatment arm is 2.0. A match was found for inclusion variant TPM3-ALK.T7A20. A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required. And the following text are testing hyperlink for COSM249874 and CCDC6-RET.C1R12.COSF1271"
+                  }
+                }
+              },
+              {
+                "M": {
+                  "tiebreaker_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_id": {
+                    "S": "APEC1621-B"
+                  },
+                  "drug_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "disease_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "num_patients_assigned": {
+                    "NULL": true
+                  },
+                  "version": {
+                    "S": "2015-08-06"
+                  },
+                  "prior_treatment_arms": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_status": {
+                    "S": "OPEN"
+                  },
+                  "assay_rule_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "assignment_status": {
+                    "S": "NO_VARIANT_MATCH_EXCLUSION"
+                  },
+                  "stratum_id": {
+                    "S": "100"
+                  },
+                  "disease_inclusions": {
+                    "L": [
+                      {
+                        "M": {
+                          "disease_code_type": {
+                            "S": "Thyroid Cancer"
+                          },
+                          "disease_name": {
+                            "S": "Papillary thyroid carcinoma"
+                          },
+                          "disease_code": {
+                            "S": "10033701"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "reason": {
+                    "S": "No inclusion variant match was found. A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required. And the following text are testing hyperlink for COSM249874 and CCDC6-RET.C1R12.COSF1271"
+                  }
+                }
+              },
+              {
+                "M": {
+                  "tiebreaker_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_id": {
+                    "S": "APEC1621-2V"
+                  },
+                  "drug_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "disease_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "num_patients_assigned": {
+                    "NULL": true
+                  },
+                  "version": {
+                    "S": "version2"
+                  },
+                  "prior_treatment_arms": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_status": {
+                    "S": "OPEN"
+                  },
+                  "assay_rule_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "assignment_status": {
+                    "S": "NO_VARIANT_MATCH_EXCLUSION"
+                  },
+                  "stratum_id": {
+                    "S": "100"
+                  },
+                  "disease_inclusions": {
+                    "L": [
+                      {
+                        "M": {
+                          "disease_code_type": {
+                            "S": "Thyroid Cancer"
+                          },
+                          "disease_name": {
+                            "S": "Papillary thyroid carcinoma"
+                          },
+                          "disease_code": {
+                            "S": "10033701"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "reason": {
+                    "S": "No inclusion variant match was found. A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required."
+                  }
+                }
+              },
+              {
+                "M": {
+                  "tiebreaker_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_id": {
+                    "S": "APEC1621-IR-A"
+                  },
+                  "drug_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "disease_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "num_patients_assigned": {
+                    "NULL": true
+                  },
+                  "version": {
+                    "S": "2015-08-06"
+                  },
+                  "prior_treatment_arms": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_status": {
+                    "S": "OPEN"
+                  },
+                  "assay_rule_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "assignment_status": {
+                    "S": "NO_VARIANT_MATCH_EXCLUSION"
+                  },
+                  "stratum_id": {
+                    "S": "100"
+                  },
+                  "disease_inclusions": {
+                    "L": [
+                      {
+                        "M": {
+                          "disease_code_type": {
+                            "S": "Thyroid Cancer"
+                          },
+                          "disease_name": {
+                            "S": "Papillary thyroid carcinoma"
+                          },
+                          "disease_code": {
+                            "S": "10033701"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "reason": {
+                    "S": "No inclusion variant match was found. A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required."
+                  }
+                }
+              },
+              {
+                "M": {
+                  "tiebreaker_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_id": {
+                    "S": "APEC1621-UI"
+                  },
+                  "drug_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "disease_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "num_patients_assigned": {
+                    "NULL": true
+                  },
+                  "version": {
+                    "S": "2015-08-06"
+                  },
+                  "prior_treatment_arms": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_status": {
+                    "S": "OPEN"
+                  },
+                  "assay_rule_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "assignment_status": {
+                    "S": "NO_VARIANT_MATCH_EXCLUSION"
+                  },
+                  "stratum_id": {
+                    "S": "STR100"
+                  },
+                  "disease_inclusions": {
+                    "L": [
+                      {
+                        "M": {
+                          "disease_code_type": {
+                            "S": "Thyroid Cancer"
+                          },
+                          "disease_name": {
+                            "S": "Papillary thyroid carcinoma"
+                          },
+                          "disease_code": {
+                            "S": "10033701"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "reason": {
+                    "S": "No inclusion variant match was found. A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required."
+                  }
+                }
+              },
+              {
+                "M": {
+                  "tiebreaker_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_id": {
+                    "S": "APEC1621-ETE-D"
+                  },
+                  "drug_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "disease_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "num_patients_assigned": {
+                    "NULL": true
+                  },
+                  "version": {
+                    "S": "2015-08-06"
+                  },
+                  "prior_treatment_arms": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_status": {
+                    "S": "OPEN"
+                  },
+                  "assay_rule_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "assignment_status": {
+                    "S": "NO_VARIANT_MATCH_EXCLUSION"
+                  },
+                  "stratum_id": {
+                    "S": "100"
+                  },
+                  "disease_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "reason": {
+                    "S": "No inclusion variant match was found."
+                  }
+                }
+              },
+              {
+                "M": {
+                  "tiebreaker_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_id": {
+                    "S": "CukeTest-122-1-SUSPENDED"
+                  },
+                  "drug_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "disease_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "num_patients_assigned": {
+                    "NULL": true
+                  },
+                  "version": {
+                    "S": "2015-08-06"
+                  },
+                  "prior_treatment_arms": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_status": {
+                    "S": "SUSPENDED"
+                  },
+                  "assay_rule_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "assignment_status": {
+                    "S": "ARM_SUSPENDED_EXCLUSION"
+                  },
+                  "stratum_id": {
+                    "S": "stratum122a"
+                  },
+                  "disease_inclusions": {
+                    "L": [
+                      {
+                        "M": {
+                          "disease_code_type": {
+                            "S": "Thyroid Cancer"
+                          },
+                          "disease_name": {
+                            "S": "Papillary thyroid carcinoma"
+                          },
+                          "disease_code": {
+                            "S": "10033701"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "reason": {
+                    "S": "A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required."
+                  }
+                }
+              },
+              {
+                "M": {
+                  "tiebreaker_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_id": {
+                    "S": "APEC1621-ETE-B"
+                  },
+                  "drug_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "disease_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "num_patients_assigned": {
+                    "NULL": true
+                  },
+                  "version": {
+                    "S": "2015-08-06"
+                  },
+                  "prior_treatment_arms": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_status": {
+                    "S": "OPEN"
+                  },
+                  "assay_rule_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "assignment_status": {
+                    "S": "NO_VARIANT_MATCH_EXCLUSION"
+                  },
+                  "stratum_id": {
+                    "S": "100"
+                  },
+                  "disease_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "reason": {
+                    "S": "No inclusion variant match was found."
+                  }
+                }
+              },
+              {
+                "M": {
+                  "tiebreaker_results": {
+                    "L": [
+                      {
+                        "M": {
+                          "type": {
+                            "S": "LEVEL_OF_EVIDENCE_TIE_BREAKER"
+                          },
+                          "highest_level_of_evidence": {
+                            "N": "2.0"
+                          },
+                          "level_of_evidence": {
+                            "N": "2.1"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "treatment_arm_id": {
+                    "S": "APEC1621-ETE-A"
+                  },
+                  "drug_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "disease_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_inclusions": {
+                    "L": [
+                      {
+                        "M": {
+                          "variant_rule_level_of_evidence": {
+                            "N": "2.1"
+                          },
+                          "identifier": {
+                            "S": "TPM3-ALK.T7A20"
+                          },
+                          "variant_type": {
+                            "S": "fusion"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "num_patients_assigned": {
+                    "NULL": true
+                  },
+                  "version": {
+                    "S": "2015-08-06"
+                  },
+                  "prior_treatment_arms": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_status": {
+                    "S": "OPEN"
+                  },
+                  "assay_rule_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "assignment_status": {
+                    "S": "LEVEL_OF_EVIDENCE_TIE_BREAKER_BASED_EXCLUSION"
+                  },
+                  "stratum_id": {
+                    "S": "100"
+                  },
+                  "disease_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "reason": {
+                    "S": "The level of evidence for the variant on this treatment arm is 2.1 and is lower than other eligible treatment arm(s). A match was found for inclusion variant TPM3-ALK.T7A20."
+                  }
+                }
+              },
+              {
+                "M": {
+                  "tiebreaker_results": {
+                    "L": [
+                      {
+                        "M": {
+                          "type": {
+                            "S": "LEVEL_OF_EVIDENCE_TIE_BREAKER"
+                          },
+                          "highest_level_of_evidence": {
+                            "N": "2.0"
+                          },
+                          "level_of_evidence": {
+                            "N": "4.0"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "treatment_arm_id": {
+                    "S": "APEC1621-ETE-C"
+                  },
+                  "drug_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "disease_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_inclusions": {
+                    "L": [
+                      {
+                        "M": {
+                          "variant_rule_level_of_evidence": {
+                            "N": "4.0"
+                          },
+                          "identifier": {
+                            "S": "CCDC6-RET.C1R12.COSF1271"
+                          },
+                          "variant_type": {
+                            "S": "fusion"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "num_patients_assigned": {
+                    "NULL": true
+                  },
+                  "version": {
+                    "S": "2015-08-06"
+                  },
+                  "prior_treatment_arms": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_status": {
+                    "S": "OPEN"
+                  },
+                  "assay_rule_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "assignment_status": {
+                    "S": "LEVEL_OF_EVIDENCE_TIE_BREAKER_BASED_EXCLUSION"
+                  },
+                  "stratum_id": {
+                    "S": "100"
+                  },
+                  "disease_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "reason": {
+                    "S": "The level of evidence for the variant on this treatment arm is 4.0 and is lower than other eligible treatment arm(s). A match was found for inclusion variant CCDC6-RET.C1R12.COSF1271."
+                  }
+                }
+              }
+            ]
+          },
+          "assignment_date": {
+            "S": "2017-01-24T19:51:22+00:00"
+          },
+          "analysis_id": {
+            "S": "UI_PA08_PendingConfirmation_ANI1"
+          },
+          "report_status": {
+            "S": "TREATMENT_FOUND"
+          },
+          "status_date": {
+            "S": "2017-01-24 19:51:22 UTC"
+          },
+          "status": {
+            "S": "PENDING"
+          },
+          "surgical_event_id": {
+            "S": "UI_PA08_PendingConfirmation_SEI1"
+          },
+          "step_number": {
+            "S": "1.0"
+          },
+          "uuid": {
+            "S": "b3a9d17b-ab70-41a1-9f09-f7f9522bedb9"
+          }
+        }
+      },
+      "prior_treatment_arms": {
+        "L": [
+
+        ]
+      },
+      "prior_drugs": {
+        "L": [
+
+        ]
+      },
+      "gender": {
+        "S": "MALE"
+      },
+      "message": {
+        "NULL": true
+      },
+      "diseases": {
+        "L": [
+          {
+            "M": {
+              "disease_code_type": {
+                "S": "Thyroid Cancer"
+              },
+              "disease_name": {
+                "S": "Papillary thyroid carcinoma"
+              },
+              "disease_code": {
+                "S": "10033701"
+              }
+            }
+          }
+        ]
+      },
+      "races": {
+        "L": [
+          {
+            "S": "ASIAN"
+          }
+        ]
+      },
+      "registration_date": {
+        "S": "2016-02-09T22:06:33+00:00"
+      },
+      "current_status": {
+        "S": "PENDING_CONFIRMATION"
+      }
+    },
+    {
+      "current_step_number": {
+        "S": "1.0"
+      },
+      "study_id": {
+        "S": "APEC1621"
+      },
+      "status_date": {
+        "S": "2016-08-30T17:11:09+00:00"
+      },
+      "active_tissue_specimen": {
+        "M": {
+          "slide_barcode": {
+            "S": "UI_EM_OffStudy_BC1"
+          },
+          "specimen_collected_date": {
+            "S": "2016-04-25T04:00:00"
+          },
+          "surgical_event_id": {
+            "S": "UI_EM_OffStudy_SEI1"
+          },
+          "active_destination": {
+            "S": "MDA"
+          },
+          "specimen_received_date": {
+            "S": "2016-04-26T04:00:00+00:00"
+          },
+          "active_molecular_id": {
+            "S": "UI_EM_OffStudy_MOI1"
+          },
+          "active_molecular_id_shipped_date": {
+            "S": "2016-05-01T19:42:13+00:00"
+          },
+          "slide_shipped_date": {
+            "S": "2016-05-01T19:42:13+00:00"
+          },
+          "pathology_status": {
+            "S": "Y"
+          }
+        }
+      },
+      "message": {
+        "S": "death"
+      },
+      "patient_id": {
+        "S": "UI_EM_OffStudy"
+      },
+      "registration_date": {
+        "S": "2016-02-09T22:06:33+00:00"
+      },
+      "current_status": {
+        "S": "OFF_STUDY"
+      }
+    },
+    {
+      "study_id": {
+        "S": "APEC1621"
+      },
+      "current_step_number": {
+        "S": "1.0"
+      },
+      "registration_date": {
+        "S": "2016-02-09T22:06:33+00:00"
+      },
+      "prior_recommended_treatment_arms": {
+        "L": [
+          {
+            "M": {
+              "treatment_arm_id": {
+                "S": "APEC1621-A"
+              },
+              "stratum_id": {
+                "S": "100"
+              }
+            }
+          },
+          {
+            "M": {
+              "treatment_arm_id": {
+                "S": "APEC1621-ETE-A"
+              },
+              "stratum_id": {
+                "S": "100"
+              }
+            }
+          }
+        ]
+      },
+      "ethnicity": {
+        "S": "NOT HISPANIC OR LATINO"
+      },
+      "patient_id": {
+        "S": "UI_MA_PendingApproval"
+      },
+      "treating_site_id": {
+        "S": "TX100"
+      },
+      "current_assignment": {
+        "M": {
+          "study_id": {
+            "S": "APEC1621"
+          },
+          "patient_id": {
+            "S": "UI_MA_PendingApproval"
+          },
+          "selected_treatment_arm": {
+            "M": {
+              "treatment_arm_id": {
+                "S": "APEC1621-ETE-C"
+              },
+              "version": {
+                "S": "2015-08-06"
+              },
+              "stratum_id": {
+                "S": "100"
+              },
+              "treatment_arm_status": {
+                "S": "OPEN"
+              }
+            }
+          },
+          "report_status": {
+            "S": "TREATMENT_FOUND"
+          },
+          "comment": {
+            "S": "Assignment 3"
+          },
+          "treatment_assignment_results": {
+            "L": [
+              {
+                "M": {
+                  "tiebreaker_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_id": {
+                    "S": "APEC1621-ETE-C"
+                  },
+                  "drug_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "disease_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_inclusions": {
+                    "L": [
+                      {
+                        "M": {
+                          "variant_rule_level_of_evidence": {
+                            "N": "4.0"
+                          },
+                          "identifier": {
+                            "S": "CCDC6-RET.C1R12.COSF1271"
+                          },
+                          "variant_type": {
+                            "S": "fusion"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "num_patients_assigned": {
+                    "N": "0.0"
+                  },
+                  "version": {
+                    "S": "2015-08-06"
+                  },
+                  "prior_treatment_arms": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_status": {
+                    "S": "OPEN"
+                  },
+                  "assay_rule_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "assignment_status": {
+                    "S": "SELECTED"
+                  },
+                  "stratum_id": {
+                    "S": "100"
+                  },
+                  "disease_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "reason": {
+                    "S": "A match was found for inclusion variant CCDC6-RET.C1R12.COSF1271."
+                  }
+                }
+              },
+              {
+                "M": {
+                  "tiebreaker_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_id": {
+                    "S": "APEC1621-B"
+                  },
+                  "drug_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "disease_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "num_patients_assigned": {
+                    "N": "0.0"
+                  },
+                  "version": {
+                    "S": "2015-08-06"
+                  },
+                  "prior_treatment_arms": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_status": {
+                    "S": "OPEN"
+                  },
+                  "assay_rule_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "assignment_status": {
+                    "S": "NO_VARIANT_MATCH_EXCLUSION"
+                  },
+                  "stratum_id": {
+                    "S": "100"
+                  },
+                  "disease_inclusions": {
+                    "L": [
+                      {
+                        "M": {
+                          "disease_code_type": {
+                            "S": "Thyroid Cancer"
+                          },
+                          "disease_name": {
+                            "S": "Papillary thyroid carcinoma"
+                          },
+                          "disease_code": {
+                            "S": "10033701"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "reason": {
+                    "S": "No inclusion variant match was found. A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required."
+                  }
+                }
+              },
+              {
+                "M": {
+                  "tiebreaker_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_id": {
+                    "S": "APEC1621-2V"
+                  },
+                  "drug_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "disease_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "num_patients_assigned": {
+                    "N": "0.0"
+                  },
+                  "version": {
+                    "S": "version2"
+                  },
+                  "prior_treatment_arms": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_status": {
+                    "S": "OPEN"
+                  },
+                  "assay_rule_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "assignment_status": {
+                    "S": "NO_VARIANT_MATCH_EXCLUSION"
+                  },
+                  "stratum_id": {
+                    "S": "100"
+                  },
+                  "disease_inclusions": {
+                    "L": [
+                      {
+                        "M": {
+                          "disease_code_type": {
+                            "S": "Thyroid Cancer"
+                          },
+                          "disease_name": {
+                            "S": "Papillary thyroid carcinoma"
+                          },
+                          "disease_code": {
+                            "S": "10033701"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "reason": {
+                    "S": "No inclusion variant match was found. A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required."
+                  }
+                }
+              },
+              {
+                "M": {
+                  "tiebreaker_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_id": {
+                    "S": "APEC1621-ETE-A"
+                  },
+                  "drug_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "disease_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_inclusions": {
+                    "L": [
+                      {
+                        "M": {
+                          "variant_rule_level_of_evidence": {
+                            "N": "2.1"
+                          },
+                          "identifier": {
+                            "S": "TPM3-ALK.T7A20"
+                          },
+                          "variant_type": {
+                            "S": "fusion"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "num_patients_assigned": {
+                    "N": "3.0"
+                  },
+                  "version": {
+                    "S": "2015-08-06"
+                  },
+                  "prior_treatment_arms": {
+                    "L": [
+                      {
+                        "M": {
+                          "treatment_arm_id": {
+                            "S": "APEC1621-ETE-A"
+                          },
+                          "stratum_id": {
+                            "S": "100"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "treatment_arm_status": {
+                    "S": "OPEN"
+                  },
+                  "assay_rule_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "assignment_status": {
+                    "S": "RECORD_BASED_EXCLUSION"
+                  },
+                  "stratum_id": {
+                    "S": "100"
+                  },
+                  "disease_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "reason": {
+                    "S": "A match was found for inclusion variant TPM3-ALK.T7A20. APEC1621-ETE-A (100) excluded because patient has already taken it or is not eligible."
+                  }
+                }
+              },
+              {
+                "M": {
+                  "tiebreaker_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_id": {
+                    "S": "APEC1621-IR-A"
+                  },
+                  "drug_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "disease_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "num_patients_assigned": {
+                    "N": "0.0"
+                  },
+                  "version": {
+                    "S": "2015-08-06"
+                  },
+                  "prior_treatment_arms": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_status": {
+                    "S": "OPEN"
+                  },
+                  "assay_rule_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "assignment_status": {
+                    "S": "NO_VARIANT_MATCH_EXCLUSION"
+                  },
+                  "stratum_id": {
+                    "S": "100"
+                  },
+                  "disease_inclusions": {
+                    "L": [
+                      {
+                        "M": {
+                          "disease_code_type": {
+                            "S": "Thyroid Cancer"
+                          },
+                          "disease_name": {
+                            "S": "Papillary thyroid carcinoma"
+                          },
+                          "disease_code": {
+                            "S": "10033701"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "reason": {
+                    "S": "No inclusion variant match was found. A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required."
+                  }
+                }
+              },
+              {
+                "M": {
+                  "tiebreaker_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_id": {
+                    "S": "APEC1621-UI"
+                  },
+                  "drug_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "disease_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "num_patients_assigned": {
+                    "N": "0.0"
+                  },
+                  "version": {
+                    "S": "2015-08-06"
+                  },
+                  "prior_treatment_arms": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_status": {
+                    "S": "OPEN"
+                  },
+                  "assay_rule_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "assignment_status": {
+                    "S": "NO_VARIANT_MATCH_EXCLUSION"
+                  },
+                  "stratum_id": {
+                    "S": "STR100"
+                  },
+                  "disease_inclusions": {
+                    "L": [
+                      {
+                        "M": {
+                          "disease_code_type": {
+                            "S": "Thyroid Cancer"
+                          },
+                          "disease_name": {
+                            "S": "Papillary thyroid carcinoma"
+                          },
+                          "disease_code": {
+                            "S": "10033701"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "reason": {
+                    "S": "No inclusion variant match was found. A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required."
+                  }
+                }
+              },
+              {
+                "M": {
+                  "tiebreaker_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_id": {
+                    "S": "APEC1621-ETE-D"
+                  },
+                  "drug_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "disease_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "num_patients_assigned": {
+                    "N": "0.0"
+                  },
+                  "version": {
+                    "S": "2015-08-06"
+                  },
+                  "prior_treatment_arms": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_status": {
+                    "S": "OPEN"
+                  },
+                  "assay_rule_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "assignment_status": {
+                    "S": "NO_VARIANT_MATCH_EXCLUSION"
+                  },
+                  "stratum_id": {
+                    "S": "100"
+                  },
+                  "disease_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "reason": {
+                    "S": "No inclusion variant match was found."
+                  }
+                }
+              },
+              {
+                "M": {
+                  "tiebreaker_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_id": {
+                    "S": "CukeTest-122-1-SUSPENDED"
+                  },
+                  "drug_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "disease_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "num_patients_assigned": {
+                    "N": "0.0"
+                  },
+                  "version": {
+                    "S": "2015-08-06"
+                  },
+                  "prior_treatment_arms": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_status": {
+                    "S": "SUSPENDED"
+                  },
+                  "assay_rule_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "assignment_status": {
+                    "S": "ARM_SUSPENDED_EXCLUSION"
+                  },
+                  "stratum_id": {
+                    "S": "stratum122a"
+                  },
+                  "disease_inclusions": {
+                    "L": [
+                      {
+                        "M": {
+                          "disease_code_type": {
+                            "S": "Thyroid Cancer"
+                          },
+                          "disease_name": {
+                            "S": "Papillary thyroid carcinoma"
+                          },
+                          "disease_code": {
+                            "S": "10033701"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "reason": {
+                    "S": "A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required."
+                  }
+                }
+              },
+              {
+                "M": {
+                  "tiebreaker_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_id": {
+                    "S": "APEC1621-ETE-B"
+                  },
+                  "drug_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "disease_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "num_patients_assigned": {
+                    "N": "0.0"
+                  },
+                  "version": {
+                    "S": "2015-08-06"
+                  },
+                  "prior_treatment_arms": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_status": {
+                    "S": "OPEN"
+                  },
+                  "assay_rule_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "assignment_status": {
+                    "S": "NO_VARIANT_MATCH_EXCLUSION"
+                  },
+                  "stratum_id": {
+                    "S": "100"
+                  },
+                  "disease_inclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "reason": {
+                    "S": "No inclusion variant match was found."
+                  }
+                }
+              },
+              {
+                "M": {
+                  "tiebreaker_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "treatment_arm_id": {
+                    "S": "APEC1621-A"
+                  },
+                  "drug_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "disease_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_exclusions": {
+                    "L": [
+
+                    ]
+                  },
+                  "variant_inclusions": {
+                    "L": [
+                      {
+                        "M": {
+                          "variant_rule_level_of_evidence": {
+                            "N": "2.0"
+                          },
+                          "identifier": {
+                            "S": "TPM3-ALK.T7A20"
+                          },
+                          "variant_type": {
+                            "S": "fusion"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "num_patients_assigned": {
+                    "N": "94.0"
+                  },
+                  "version": {
+                    "S": "2015-08-06"
+                  },
+                  "prior_treatment_arms": {
+                    "L": [
+                      {
+                        "M": {
+                          "treatment_arm_id": {
+                            "S": "APEC1621-A"
+                          },
+                          "stratum_id": {
+                            "S": "100"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "treatment_arm_status": {
+                    "S": "OPEN"
+                  },
+                  "assay_rule_results": {
+                    "L": [
+
+                    ]
+                  },
+                  "assignment_status": {
+                    "S": "RECORD_BASED_EXCLUSION"
+                  },
+                  "stratum_id": {
+                    "S": "100"
+                  },
+                  "disease_inclusions": {
+                    "L": [
+                      {
+                        "M": {
+                          "disease_code_type": {
+                            "S": "Thyroid Cancer"
+                          },
+                          "disease_name": {
+                            "S": "Papillary thyroid carcinoma"
+                          },
+                          "disease_code": {
+                            "S": "10033701"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "reason": {
+                    "S": "A match was found for inclusion variant TPM3-ALK.T7A20. A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required. APEC1621-A (100) excluded because patient has already taken it or is not eligible."
+                  }
+                }
+              }
+            ]
+          },
+          "assignment_date": {
+            "S": "2017-01-26T21:22:11+00:00"
+          },
+          "analysis_id": {
+            "S": "UI_MA_PendingApproval_ANI1"
+          },
+          "molecular_id": {
+            "S": "UI_MA_PendingApproval_MOI1"
+          },
+          "off_arm_date": {
+            "NULL": true
+          },
+          "status_date": {
+            "S": "2017-01-26 21:22:12 UTC"
+          },
+          "sent_to_cog_date": {
+            "S": "2017-01-26 21:22:12 UTC"
+          },
+          "received_from_cog_date": {
+            "NULL": true
+          },
+          "comment_user": {
+            "S": "QA"
+          },
+          "uuid": {
+            "S": "bab92439-5b60-4a33-8417-6f7f0f7d50fb"
+          },
+          "status": {
+            "S": "CONFIRMED"
+          },
+          "surgical_event_id": {
+            "S": "UI_MA_PendingApproval_SEI1"
+          },
+          "step_number": {
+            "S": "1.0"
+          },
+          "cog_assignment_date": {
+            "NULL": true
+          }
+        }
+      },
+      "prior_treatment_arms": {
+        "L": [
+
+        ]
+      },
+      "prior_drugs": {
+        "L": [
+
+        ]
+      },
+      "gender": {
+        "S": "MALE"
+      },
+      "status_date": {
+        "S": "2017-01-26T21:22:12+00:00"
+      },
+      "message": {
+        "NULL": true
+      },
+      "active_tissue_specimen": {
+        "M": {
+          "ICCPTENs_received_date": {
+            "S": "2016-05-30T12:11:09.071-05:00"
+          },
+          "ICCPTENs": {
+            "S": "NEGATIVE"
+          },
+          "has_amoi": {
+            "BOOL": true
+          },
+          "active_destination": {
+            "S": "MDA"
+          },
+          "variant_report_status": {
+            "S": "CONFIRMED"
+          },
+          "specimen_received_date": {
+            "S": "2016-04-26T04:00:00+00:00"
+          },
+          "ICCBRG1s_received_date": {
+            "S": "2016-05-30T12:11:09.071-05:00"
+          },
+          "pathology_status": {
+            "S": "Y"
+          },
+          "slide_barcode": {
+            "S": "UI_MA_PendingApproval_BC1"
+          },
+          "specimen_collected_date": {
+            "S": "2016-04-25T04:00:00"
+          },
+          "ICCBRG1s": {
+            "S": "NEGATIVE"
+          },
+          "active_molecular_id": {
+            "S": "UI_MA_PendingApproval_MOI1"
+          },
+          "active_analysis_id": {
+            "S": "UI_MA_PendingApproval_ANI1"
+          },
+          "surgical_event_id": {
+            "S": "UI_MA_PendingApproval_SEI1"
+          },
+          "ICCBAF47s": {
+            "S": "NEGATIVE"
+          },
+          "active_molecular_id_shipped_date": {
+            "S": "2016-05-01T19:42:13+00:00"
+          },
+          "slide_shipped_date": {
+            "S": "2016-05-01T19:42:13+00:00"
+          },
+          "ICCBAF47s_received_date": {
+            "S": "2016-05-30T12:11:09.071-05:00"
+          }
+        }
+      },
+      "diseases": {
+        "L": [
+          {
+            "M": {
+              "disease_code_type": {
+                "S": "Thyroid Cancer"
+              },
+              "disease_name": {
+                "S": "Papillary thyroid carcinoma"
+              },
+              "disease_code": {
+                "S": "10033701"
+              }
+            }
+          }
+        ]
+      },
+      "races": {
+        "L": [
+          {
+            "S": "ASIAN"
+          }
+        ]
+      },
+      "current_status": {
+        "S": "PENDING_APPROVAL"
+      }
+    },
+    {
+      "current_step_number": {
+        "S": "1.0"
+      },
+      "study_id": {
+        "S": "APEC1621"
+      },
+      "active_blood_specimen": {
+        "M": {
+          "active_destination": {
+            "S": "MDA"
+          },
+          "specimen_collected_date": {
+            "S": "2016-04-24T04:00:00"
+          },
+          "active_molecular_id_shipped_date": {
+            "S": "2016-05-01T19:42:13+00:00"
+          },
+          "active_molecular_id": {
+            "S": "UI_SP01_MultiBdSpecimens_BD_MOI3"
+          }
+        }
+      },
+      "status_date": {
+        "S": "2016-02-09T22:06:33+00:00"
+      },
+      "patient_id": {
+        "S": "UI_SP01_MultiBdSpecimens"
+      },
+      "registration_date": {
+        "S": "2016-02-09T22:06:33+00:00"
+      },
+      "current_status": {
+        "S": "REGISTRATION"
+      }
+    },
+    {
+      "current_step_number": {
+        "S": "1.0"
+      },
+      "study_id": {
+        "S": "APEC1621"
+      },
+      "status_date": {
+        "S": "2017-02-27T20:30:40+00:00"
+      },
+      "active_tissue_specimen": {
+        "M": {
+          "ICCPTENs_received_date": {
+            "S": "2016-05-30T12:11:09.071-05:00"
+          },
+          "ICCPTENs": {
+            "S": "NEGATIVE"
+          },
+          "has_amoi": {
+            "BOOL": true
+          },
+          "active_destination": {
+            "S": "MDA"
+          },
+          "variant_report_status": {
+            "S": "PENDING"
+          },
+          "specimen_received_date": {
+            "S": "2016-04-25T22:06:33+00:00"
+          },
+          "ICCBRG1s_received_date": {
+            "S": "2016-05-30T12:11:09.071-05:00"
+          },
+          "pathology_status": {
+            "S": "Y"
+          },
+          "slide_barcode": {
+            "S": "TA_AS40_TsVrReceived_BC1"
+          },
+          "specimen_collected_date": {
+            "S": "2016-04-25T04:00:00"
+          },
+          "ICCBRG1s": {
+            "S": "NEGATIVE"
+          },
+          "active_molecular_id": {
+            "S": "TA_AS40_TsVrReceived_MOI1"
+          },
+          "active_analysis_id": {
+            "S": "TA_AS40_TsVrReceived_ANI1"
+          },
+          "surgical_event_id": {
+            "S": "TA_AS40_TsVrReceived_SEI1"
+          },
+          "ICCBAF47s": {
+            "S": "NEGATIVE"
+          },
+          "active_molecular_id_shipped_date": {
+            "S": "2016-05-01T19:42:13+00:00"
+          },
+          "slide_shipped_date": {
+            "S": "2016-05-01T19:42:13+00:00"
+          },
+          "ICCBAF47s_received_date": {
+            "S": "2016-05-30T12:11:09.071-05:00"
+          }
+        }
+      },
+      "patient_id": {
+        "S": "TA_AS40_TsVrReceived"
+      },
+      "registration_date": {
+        "S": "2016-02-09T22:06:33+00:00"
+      },
+      "current_status": {
+        "S": "TISSUE_VARIANT_REPORT_RECEIVED"
+      }
+    },
+    {
+      "current_step_number": {
+        "S": "1.0"
+      },
+      "study_id": {
+        "S": "APEC1621"
+      },
+      "status_date": {
+        "S": "2017-02-28T17:27:33+00:00"
+      },
+      "active_tissue_specimen": {
+        "M": {
+          "ICCPTENs_received_date": {
+            "S": "2016-05-30T12:11:09.071-05:00"
+          },
+          "ICCPTENs": {
+            "S": "NEGATIVE"
+          },
+          "ICCBAF47s": {
+            "S": "NEGATIVE"
+          },
+          "active_destination": {
+            "S": "MDA"
+          },
+          "specimen_received_date": {
+            "S": "2016-04-25T22:06:33+00:00"
+          },
+          "ICCBRG1s_received_date": {
+            "S": "2016-05-30T12:11:09.071-05:00"
+          },
+          "pathology_status": {
+            "S": "Y"
+          },
+          "slide_barcode": {
+            "S": "UL_CM01_TsShipped_BC1"
+          },
+          "specimen_collected_date": {
+            "S": "2016-04-25T04:00:00"
+          },
+          "ICCBRG1s": {
+            "S": "NEGATIVE"
+          },
+          "active_molecular_id": {
+            "S": "SampleControl_MoCha_18"
+          },
+          "surgical_event_id": {
+            "S": "UL_CM01_TsShipped_SEI1"
+          },
+          "active_molecular_id_shipped_date": {
+            "S": "2016-05-01T19:42:13+00:00"
+          },
+          "slide_shipped_date": {
+            "S": "2016-05-01T19:42:13+00:00"
+          },
+          "ICCBAF47s_received_date": {
+            "S": "2016-05-30T12:11:09.071-05:00"
+          }
+        }
+      },
+      "patient_id": {
+        "S": "UL_CM01_TsShipped"
+      },
+      "registration_date": {
+        "S": "2016-02-09T22:06:33+00:00"
+      },
+      "current_status": {
+        "S": "ASSAY_RESULTS_RECEIVED"
+      }
+    },
+    {
+      "current_step_number": {
+        "S": "1.0"
+      },
+      "study_id": {
+        "S": "APEC1621"
+      },
+      "status_date": {
+        "S": "2017-03-23T20:38:46+00:00"
+      },
+      "active_tissue_specimen": {
+        "M": {
+          "specimen_collected_date": {
+            "S": "2016-04-25T04:00:00"
+          },
+          "active_molecular_id": {
+            "S": "NA18507-Rep1"
+          },
+          "pathology_status": {
+            "S": "Y"
+          },
+          "specimen_received_date": {
+            "S": "2016-04-25T22:06:33+00:00"
+          },
+          "surgical_event_id": {
+            "S": "UL_CM02_TsShipped_SEI1"
+          },
+          "active_destination": {
+            "S": "MDA"
+          },
+          "active_molecular_id_shipped_date": {
+            "S": "2016-05-01T19:42:13+00:00"
+          }
+        }
+      },
+      "patient_id": {
+        "S": "UL_CM02_TsShipped"
+      },
+      "registration_date": {
+        "S": "2016-02-09T22:06:33+00:00"
+      },
+      "current_status": {
+        "S": "TISSUE_NUCLEIC_ACID_SHIPPED"
+      }
+    },
+    {
+      "current_step_number": {
+        "S": "1.0"
+      },
+      "study_id": {
+        "S": "APEC1621"
+      },
+      "status_date": {
+        "S": "2017-03-31T13:46:16+00:00"
+      },
+      "active_tissue_specimen": {
+        "M": {
+          "specimen_collected_date": {
+            "S": "2016-04-25T04:00:00"
+          },
+          "specimen_received_date": {
+            "S": "2016-04-25T22:06:33+00:00"
+          },
+          "surgical_event_id": {
+            "S": "UI_PA09_TsVr52Uploaded_SEI1"
+          },
+          "active_destination": {
+            "S": "MDA"
+          },
+          "variant_report_status": {
+            "S": "PENDING"
+          },
+          "active_analysis_id": {
+            "S": "UI_PA09_TsVr52Uploaded_ANI1"
+          },
+          "active_molecular_id": {
+            "S": "UI_PA09_TsVr52Uploaded_MOI1"
+          },
+          "active_molecular_id_shipped_date": {
+            "S": "2016-05-01T19:42:13+00:00"
+          },
+          "pathology_status": {
+            "S": "Y"
+          }
+        }
+      },
+      "patient_id": {
+        "S": "UI_PA09_TsVr52Uploaded"
+      },
+      "registration_date": {
+        "S": "2016-02-09T22:06:33+00:00"
+      },
+      "current_status": {
+        "S": "TISSUE_VARIANT_REPORT_RECEIVED"
+      }
+    }
+  ],
+  "ConsumedCapacity": null
+}
