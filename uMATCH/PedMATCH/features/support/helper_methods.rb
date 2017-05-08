@@ -498,7 +498,7 @@ class Helper_Methods
     )
     files = s3.bucket(bucket).objects(prefix: path)
     files.each { |this_file|
-      this_file.delete
+      this_file.delete if this_file.key.eql?(path)
       if ENV['print_log'] == 'YES'
         puts "Deleted #{this_file.identifiers[:key]} from bucket <#{this_file.identifiers[:bucket_name]}>"
       end

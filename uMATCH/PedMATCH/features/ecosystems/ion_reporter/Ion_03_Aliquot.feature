@@ -152,6 +152,9 @@ Feature: Tests for aliquot service in ion ecosystem
 
   @ion_reporter_p1
   Scenario: ION_AQ06. aliquot service can process zip vcf properly
+    #notice the base file name (test1.vcf) of zip file is different with
+    #the base name (test1) of the unzipped vcf name. This is on purpose, try to verify if zip name and vcf name are
+    #different the variant report still can be generated
     Given molecular id is "ION_AQ06_TsShipped_MOI1"
     Given patient id is "ION_AQ06_TsShipped"
     And ir user authorization role is "MDA_VARIANT_REPORT_SENDER"
@@ -161,7 +164,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "analysis_id" value: "ION_AQ06_TsShipped_ANI1" to message body
     Then add field: "site" value: "mda" to message body
     Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
-    Then add field: "zip_name" value: "test1.zip" to message body
+    Then add field: "zip_name" value: "test1.vcf.zip" to message body
     When PUT to aliquot service, response includes "Item updated" with code "200"
     Then wait until patient is updated
     Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
