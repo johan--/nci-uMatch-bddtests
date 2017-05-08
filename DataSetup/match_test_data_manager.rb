@@ -10,7 +10,6 @@ class MatchTestDataManager
   SEED_DATA_FOLDER = 'seed_data_for_upload'
   PRESSUER_SEED_DATA_FOLDER = 'pressure_test'
   SEED_TEMPLATE_FOLDER = 'patient_seed_data_templates'
-  SEED_FILE_PREFIX = 'match_bddtests_seed_data'
   PATIENT_MESSAGE_FOLDER = 'local_patient_data'
 
   #############local seed files
