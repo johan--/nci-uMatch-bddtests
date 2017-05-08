@@ -61,7 +61,7 @@ Feature: MATCHKB-542. Users can upload patient sample files.
         | PT_AS09_ReqNoAssignment       | PT_AS09_ReqNoAssignment_SEI1          | REQUEST_NO_ASSIGNMENT             | invisible   |
         | PT_AS12_OnTreatmentArm        | PT_AS12_OnTreatmentArm_SEI1           | ON_TREATMENT_ARM                  | invisible   |
         | PT_RA03_NoTaAvailable         | PT_RA03_NoTaAvailable_SEI1            | NO_TA_AVAILABLE                   | invisible   |
-#        | PT_AS09_OffStudyBiopsyExpired | PT_AS09_OffStudyBiopsyExpired_SEI1    | OFF_STUDY_BIOPSY_EXPIRED          | invisible   |
+
 
 
   Scenario: As a privileged user I cannot upload sample file until all validations pass
