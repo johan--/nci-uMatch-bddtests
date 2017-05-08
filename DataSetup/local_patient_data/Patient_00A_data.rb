@@ -1,6 +1,4 @@
 require_relative '../patient_message_loader'
-require_relative '../../DataSetup/dynamo_delete_script'
-require_relative '../../DataSetup/dynamo_data_upload'
 require_relative '../../DataSetup/match_test_data_manager'
 require_relative 'Patient_00A_data_done'
 
@@ -22,4 +20,4 @@ Patient00A.upload_patient('PT_AU16_McaVrUploaded')
 Patient00A.upload_patient('PT_AU16_DtmVrUploaded')
 
 sleep(10.0)
-MatchTestDataManager.backup_all_local_db
+MatchTestDataManager.backup_local_db

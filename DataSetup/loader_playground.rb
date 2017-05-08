@@ -30,6 +30,24 @@ MatchTestDataManager.upload_all_seed_data_to_local
 # MatchTestDataManager.upload_all_seed_data_to_int
 
 
+# Environment.setTier('local')
+# TableDetails.all_tables.each { |this_table|
+#   next if this_table=='treatment_arm_pending'
+#   puts "\n\n\n#{this_table}:"
+#   local = Helper_Methods.dynamodb_table_items(this_table)
+#   local_id = []
+#   int_id = []
+#   id = TableDetails.primary_key(this_table)
+#   local.each { |this_local| local_id << this_local[id] }
+#   cmd = "aws dynamodb scan --table-name #{this_table} --endpoint-url https://dynamodb.us-east-1.amazonaws.com"
+#   int = JSON.parse(`#{cmd}`)['Items']
+#   int.each { |this_int| int_id << this_int[id]['S'] }
+#   puts local_id-int_id
+#   puts '################'
+#   puts int_id - local_id
+# }
+
+
 # MatchTestDataManager.delete_patients_from_seed('patient_id')
 
 

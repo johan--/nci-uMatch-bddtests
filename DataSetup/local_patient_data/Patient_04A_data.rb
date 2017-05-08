@@ -26,4 +26,4 @@ Patient04A.upload_patient('PT_AS12_OnTreatmentArm')
 # sleep(10.0)
 
 
-MatchTestDataManager.backup_all_local_db
+MatchTestDataManager.backup_local_db

@@ -13,4 +13,4 @@ Auth0Token.force_generate_auth0_token('ADMIN')
 Patient5xA.upload_patient('PT_SC10b_TsShipped')
 # Patient5xA.upload_patient('PT_SC02i_PendingApproval')
 sleep 10.0
-MatchTestDataManager.backup_all_local_db
+MatchTestDataManager.backup_local_db

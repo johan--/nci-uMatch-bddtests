@@ -31,11 +31,11 @@ Navigate to the `DataSetup` folder then
         the second parameter is the waiting time you want the loader wait before it post the next message (to give patient processor time to process), it is recommended to use value that is greater than 15
 
 **DynamoDataUploader** -- this class helps upload backup data from local dynamodb to local json file, and from local json file to related aws dynamodb tables
-    
-A: From local dynamodb to local json files, files will be created under folder: seed_data_for_upload
+
+A: From local dynamodb to local json files, files will be created under folder: seed_data_for_upload/test_tag
 
         require_relative 'dynamo_data_upload'
-        DynamoDataUploader.backup_all_local_db
+        DynamoDataUploader.backup_local_db(test_tag)
 
 B: From local json files to related aws dynamodb tables:
       
@@ -64,9 +64,9 @@ B: From local json files to related aws dynamodb tables:
         DynamoDataUploader.new('local').upload_patient_data_to_aws
         DynamoDataUploader.new('local').upload_ion_to_aws
 3. Generate new seed data
-4. Backup all data from current local dynamodb:
+4. Backup all data for test_tag from current local dynamodb:
 
-        DynamoDataUploader.backup_all_local_db
+        DynamoDataUploader.backup_local_db(test_tag)
 5. Check in `seed_data_for_upload/{patient related table).json` files to git
 
 

@@ -28,4 +28,4 @@ TreatmentArmMessageLoader.upload_done
 
 sleep 10.0
 
-MatchTestDataManager.backup_all_ta_local_db
+MatchTestDataManager.backup_ta_local_db

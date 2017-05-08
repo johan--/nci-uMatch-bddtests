@@ -22,7 +22,7 @@ class MatchTestDataManager
     clear_all_local_tables
     upload_all_seed_data_to_local
     pass = PatientMessageLoader.load_patient_message(file_path, patient_id)
-    # backup_all_local_db if pass
+    # backup_local_db if pass
   end
 
   def self.create_patients_from_file(file_name)
@@ -37,53 +37,53 @@ class MatchTestDataManager
         failed_patients << this_patient
       end
     }
-    backup_all_local_db
+    backup_local_db
     delete_patients_from_seed(failed_patients)
   end
 
-  def self.backup_all_local_db
+  def self.backup_local_db(tag='all')
     TableDetails.all_tables.each { |table_name|
       if DynamoUtilities.table_exist(table_name, LOCAL_TIER)
-        DynamoUtilities.backup_local_table_to_file(table_name, seed_file(table_name))
+        DynamoUtilities.backup_local_table_to_file(table_name, seed_file(table_name, tag))
       end
     }
     LOG.log('Done!')
   end
 
-  def self.backup_all_patient_local_db
+  def self.backup_patient_local_db(tag='all')
     TableDetails.patient_tables.each { |table_name|
       if DynamoUtilities.table_exist(table_name, LOCAL_TIER)
-        DynamoUtilities.backup_local_table_to_file(table_name, seed_file(table_name))
+        DynamoUtilities.backup_local_table_to_file(table_name, seed_file(table_name, tag))
       end
     }
     LOG.log('Done!')
   end
 
-  def self.backup_all_ta_local_db
+  def self.backup_ta_local_db(tag='all')
     TableDetails.treatment_arm_tables.each { |table_name|
       if DynamoUtilities.table_exist(table_name, LOCAL_TIER)
-        DynamoUtilities.backup_local_table_to_file(table_name, seed_file(table_name))
+        DynamoUtilities.backup_local_table_to_file(table_name, seed_file(table_name, tag))
       end
     }
     LOG.log('Done!')
   end
 
-  def self.backup_all_ion_local_db
+  def self.backup_ion_local_db(tag='all')
     TableDetails.ion_tables.each { |table_name|
       if DynamoUtilities.table_exist(table_name, LOCAL_TIER)
-        DynamoUtilities.backup_local_table_to_file(table_name, seed_file(table_name))
+        DynamoUtilities.backup_local_table_to_file(table_name, seed_file(table_name, tag))
       end
     }
     LOG.log('Done!')
   end
 
-  def self.delete_patients_from_seed(patient_id_list)
+  def self.delete_patients_from_seed(patient_id_list, tag='all')
     TableDetails.patient_tables.each { |table_name|
       field_name = table_name=='event' ? 'entity_id' : 'patient_id'
-      remove_json_nodes_from_file(seed_file(table_name), field_name, patient_id_list, 'S', table_name)
+      remove_json_nodes_from_file(seed_file(table_name, tag), field_name, patient_id_list, 'S', table_name)
     }
     TableDetails.treatment_arm_tables.each { |table_name|
-      remove_json_nodes_from_file(seed_file(table_name), 'patient_id', patient_id_list, 'S', table_name)
+      remove_json_nodes_from_file(seed_file(table_name, tag), 'patient_id', patient_id_list, 'S', table_name)
     }
   end
 
@@ -97,20 +97,20 @@ class MatchTestDataManager
 
   ################pressure test patient seed data
   def self.clear_all_pressure_seed_files
-    TableDetails.patient_tables.each{|table_name|
+    TableDetails.patient_tables.each { |table_name|
       clear_pressure_seed_file(table_name)
     }
   end
 
   def self.clear_pressure_seed_file(table_name)
     empty_data = {
-        "ScannedCount"=>0,
-        "Count"=>0,
-        "Items"=>[],
-        "ConsumedCapacity"=>nil
+        "ScannedCount" => 0,
+        "Count" => 0,
+        "Items" => [],
+        "ConsumedCapacity" => nil
     }
-    File.open(pressure_seed_file(table_name), 'w') { |f| f.write(JSON.pretty_generate(empty_data)) }
-    LOG.log("#{pressure_seed_file(table_name)} get cleared")
+    File.open(seed_file(table, PRESSUER_SEED_DATA_FOLDER), 'w') { |f| f.write(JSON.pretty_generate(empty_data)) }
+    LOG.log("#{seed_file(table, PRESSUER_SEED_DATA_FOLDER)} get cleared")
   end
 
   def self.generate_patient_instance(template_patient_id, count)
@@ -127,7 +127,7 @@ class MatchTestDataManager
         time_offset = id_offset.to_i * 300
         output.push(*replace_date_sorting_value(patient_template_items, sorting_key, time_offset))
       end
-      append_items_to_seed_file(pressure_seed_file(table_name), output)
+      append_items_to_seed_file(seed_file(table, PRESSUER_SEED_DATA_FOLDER), output)
     }
   end
 
@@ -170,20 +170,38 @@ class MatchTestDataManager
   end
 
   ################upload
-  def self.upload_all_seed_data_to_local
-    LOG.log('Uploading all seed data to local dynamodb')
+  def self.upload_seed_data_to_local(tag='all')
+    LOG.log("Uploading seed data for #{tag} tests to local dynamodb")
     TableDetails.all_tables.each do |table|
-      DynamoUtilities.upload_seed_data(table, seed_file(table), LOCAL_TIER)
+      name = seed_file(table, tag)
+      if File.exist?(name)
+        DynamoUtilities.upload_seed_data(table, name, LOCAL_TIER)
+      else
+        puts "Seed data #{name} doesn't exist, skipping..."
+      end
     end
     LOG.log('Done!')
   end
 
-  def self.upload_all_seed_data_to_int
-    LOG.log('Uploading all seed data to int dynamodb')
+  def self.upload_seed_data_to_int(tag='all')
+    LOG.log("Uploading seed data for #{tag} tests to int dynamodb")
     TableDetails.all_tables.each do |table|
-      DynamoUtilities.upload_seed_data(table, seed_file(table), INT_TIER)
+      name = seed_file(table, tag)
+      if File.exist?(name)
+        DynamoUtilities.upload_seed_data(table, name, INT_TIER)
+      else
+        puts "Seed data #{name} doesn't exist, skipping..."
+      end
     end
     LOG.log('Done!')
+  end
+
+  def self.upload_all_seed_data_to_local
+    upload_seed_data_to_local
+  end
+
+  def self.upload_all_seed_data_to_int
+    upload_all_seed_data_to_int
   end
 
   def self.upload_all_seed_data_to_uat
@@ -197,7 +215,7 @@ class MatchTestDataManager
   def self.upload_pressure_data_to_local
     LOG.log('Uploading all pressure test seed data to local dynamodb')
     TableDetails.patient_tables.each do |table|
-      DynamoUtilities.upload_seed_data(table, pressure_seed_file(table), LOCAL_TIER)
+      DynamoUtilities.upload_seed_data(table, seed_file(table, PRESSUER_SEED_DATA_FOLDER), LOCAL_TIER)
     end
     LOG.log('Done!')
   end
@@ -205,7 +223,7 @@ class MatchTestDataManager
   def self.upload_pressure_data_to_int
     LOG.log('Uploading all pressure test seed data to int dynamodb')
     TableDetails.patient_tables.each do |table|
-      DynamoUtilities.upload_seed_data(table, pressure_seed_file(table), INT_TIER)
+      DynamoUtilities.upload_seed_data(table, seed_file(table, PRESSUER_SEED_DATA_FOLDER), INT_TIER)
     end
     LOG.log('Done!')
   end
@@ -215,16 +233,12 @@ class MatchTestDataManager
     "#{File.dirname(__FILE__)}/#{PATIENT_MESSAGE_FOLDER}/#{file_name}.json"
   end
 
-  def self.seed_file(table_name)
-    "#{File.dirname(__FILE__)}/#{SEED_DATA_FOLDER}/#{SEED_FILE_PREFIX}_#{table_name}.json"
+  def self.seed_file(table_name, tag='all')
+    "#{File.dirname(__FILE__)}/#{SEED_DATA_FOLDER}/#{tag}/#{table_name}.json"
   end
 
   def self.patient_seed_template_file(template_type, table_name)
     "#{File.dirname(__FILE__)}/#{SEED_TEMPLATE_FOLDER}/#{template_type}/#{table_name}.json"
-  end
-
-  def self.pressure_seed_file(table_name)
-    "#{File.dirname(__FILE__)}/#{SEED_DATA_FOLDER}/#{PRESSUER_SEED_DATA_FOLDER}/#{table_name}.json"
   end
 
   def self.append_items_to_seed_file(file_name, new_items)

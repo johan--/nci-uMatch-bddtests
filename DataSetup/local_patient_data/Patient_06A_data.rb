@@ -28,4 +28,4 @@ Patient06A.upload_patient('PT_VU17_TsVrRejected')
 # Patient06A.upload_patient('PT_VU17_CompassionateCare')
 
 sleep 10
-MatchTestDataManager.backup_all_local_db
+MatchTestDataManager.backup_local_db

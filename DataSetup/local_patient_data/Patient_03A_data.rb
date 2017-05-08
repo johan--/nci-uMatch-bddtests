@@ -13,4 +13,4 @@ Patient03A.upload_patient('PT_SS02b_TissueReceived')
 
 sleep 10.0
 
-MatchTestDataManager.backup_all_patient_local_db
+MatchTestDataManager.backup_patient_local_db

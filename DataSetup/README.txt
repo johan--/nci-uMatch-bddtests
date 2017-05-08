@@ -29,9 +29,10 @@ PatientMessageLoader-- this class helps load message queue to patient api to cre
 
 
 DynamoDataUploader-- this class helps upload backup data from local dynamodb to local json file, and from local json file to related aws dynamodb tables
-    A: From local dynamodb to local json files, files will be created under folder: seed_data_for_upload
+    A: From local dynamodb to local json files, files will be created under folder: seed_data_for_upload/test_tag
+
         require_relative 'dynamo_data_upload'
-        DynamoDataUploader.backup_all_local_db
+        DynamoDataUploader.backup_local_db(test_tag)
 
     B: From local json files to related aws dynamodb tables:
         1. Upload to aws dynamodb tables using command line:
@@ -53,8 +54,8 @@ How to work append seed data to current existing seed data lib:
     DynamoDataUploader.new('local').upload_patient_data_to_aws
     DynamoDataUploader.new('local').upload_ion_to_aws
 3. Generate new seed data
-4. Backup all data from current local dynamodb:
-    DynamoDataUploader.backup_all_local_db
+4. Backup all data for test_tag from current local dynamodb:
+    DynamoDataUploader.backup_local_db(test_tag)
 5. Check in seed_data_for_upload/{patient related table).json files to git
 
 
