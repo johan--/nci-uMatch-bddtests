@@ -86,6 +86,25 @@ class MatchTestDataManager
     }
   end
 
+  def self.copy_patients_from_tag_to_tag(patient_id_list, from_tag, to_tag)
+    patient_id_list.each { |this_patient|
+      tables = (TableDetails.patient_tables << TableDetails.treatment_arm_tables).flatten
+      tables.each { |table_name|
+        field_name = table_name=='event' ? 'entity_id' : 'patient_id'
+        this_patient_data = get_json_node_from_file(seed_file(table_name, from_tag), field_name, this_patient, 'S')
+        if this_patient_data.size > 0
+          to_file = seed_file(table_name, to_tag)
+          to_hash = JSON.parse(File.read(to_file))
+          to_hash['Items'].push(*this_patient_data)
+          to_hash['ScannedCount'] = to_hash['ScannedCount'] + this_patient_data.size
+          to_hash['Count'] = to_hash['Count'] + this_patient_data.size
+          File.open(to_file, 'w') { |f| f.write(JSON.pretty_generate(to_hash)) }
+        end
+        LOG.log("There are #{this_patient_data.size} #{table_name} items(#{field_name}=#{this_patient}) get copied")
+      }
+    }
+  end
+
   # def self.delete_ta_from_seed(ta_id, stratum, version)
   #   field_name = table_name=='event' ? 'entity_id' : 'patient_id'
   #   remove_json_nodes_from_file(seed_file(table_name), field_name, patient_id_list, 'S', table_name)
@@ -200,7 +219,7 @@ class MatchTestDataManager
   end
 
   def self.upload_all_seed_data_to_int
-    upload_all_seed_data_to_int
+    upload_seed_data_to_int
   end
 
   def self.upload_all_seed_data_to_uat
@@ -263,6 +282,13 @@ class MatchTestDataManager
       File.open(file, 'w') { |f| f.write(JSON.pretty_generate(file_hash)) }
     end
     LOG.log("There are #{old_count-items.size} items(#{target_field}=#{target_value_list.to_s}) get removed from #{nickname}")
+  end
+
+  def self.get_json_node_from_file(file, target_field, target_value, value_type)
+    file_hash = JSON.parse(File.read(file))
+    items = file_hash['Items']
+    items.select { |this_item|
+      this_item.keys.include?(target_field) && target_value.eql?(this_item[target_field][value_type]) }
   end
 
   def self.is_date_string(string)
