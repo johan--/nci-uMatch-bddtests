@@ -149,7 +149,14 @@ module.exports = function () {
          } else {
              browser.sleep(50).then(callback)
          }
+    });
 
+    this.Then(/^I see that the elements in the column gene for table Non-Sequencing Assays is a gene$/, function (callback) {
+        var table;
+        var elementArray;
+        table = taPage.assayTableRepeater;
+        elementArray = table.all(by.css('cosmic-link[link-id="item.gene"]'));
+        utilities.checkElementArrayisGene(elementArray).then(callback);
     });
 
     this.Then(/^I should see Exclusionary Drugs table$/, function (callback) {

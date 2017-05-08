@@ -581,6 +581,7 @@ var Utilities = function () {
             })
         };
         return elementArray.count().then(function(cnt){
+            expect(cnt).to.be.above(0, 'No Gene element found');
             for(var i = 0; i < cnt; i++){
                 compare(elementArray.get(i).element(by.css('a')));
             }

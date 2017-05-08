@@ -7,6 +7,7 @@ Feature: Dashboard page.
 
   Background:
     Given I stay logged in as "VR_Reviewer_mda" user
+
   @demo_p1
   @ui_p1
   Scenario: A User can see the Patients Statistics Section
@@ -43,9 +44,9 @@ Feature: Dashboard page.
     And Count of "<report_type>" table match with back end data
     And Appropriate Message is displayed for empty or filled pending "<report_type>" reports
     Examples:
-    |report_type            |
-    |Tissue Variant Reports |
-    |Assignment Reports     |
+      | report_type            |
+      | Tissue Variant Reports |
+      | Assignment Reports     |
 
   @ui_p2
   Scenario: User can filter results on the page
@@ -67,9 +68,9 @@ Feature: Dashboard page.
     Then The "<report_type>" sub-tab is active
     And The "<report_type>" data columns are seen
     Examples:
-      |report_type            |
-      |Tissue Variant Reports |
-      |Assignment Reports     |
+      | report_type            |
+      | Tissue Variant Reports |
+      | Assignment Reports     |
 
   @ui_p2
   Scenario: User can find a list of all the patients in limbo with their reason
@@ -96,8 +97,8 @@ Feature: Dashboard page.
     Then I should see "BAF47 assay result missing" in the limbo table message
     Then I should see "BRG1 assay result missing" in the limbo table message
 
-    @ui_p2
-    Scenario: User can see details about the patient in the limbo table
+  @ui_p2
+  Scenario: User can see details about the patient in the limbo table
     When I search for "PT_VU09_VariantReportUploaded" in the limbo table search field
     And I click on the chevron link to expand details for patient "PT_VU09_VariantReportUploaded"
     And I collect information about the patient "PT_VU09_VariantReportUploaded" under limbo
@@ -107,8 +108,12 @@ Feature: Dashboard page.
     And I can see that the Surgical Event id is a link for patient "PT_VU09_VariantReportUploaded"
     And I can see that the Molecular id is a link for patient "PT_VU09_VariantReportUploaded"
     And I can see that the Analysis id is a link for patient "PT_VU09_VariantReportUploaded"
+    And I "can" see the AMOI green button if "PT_VU09_VariantReportUploaded" patient "does" have amoi
+    When I search for "PT_AU11_MochaTsShipped" in the limbo table search field
+    And I collect information about the patient "PT_AU11_MochaTsShipped" under limbo
+    Then I "cannot" see the AMOI green button if ""PT_AU11_MochaTsShipped" patient "does not" have amoi
 
-    @broken
-    Scenario: Pending review table and limbo table have manual refresh
+  @broken
+  Scenario: Pending review table and limbo table have manual refresh
     Then I can see the manual refresh link for "Pending Review" Table
     And I can see the manual refresh link for "Limbo " Table

@@ -22,6 +22,14 @@ Feature: Treatment Arms Dashboard
     And I should see the data maps to the relevant column
 
   @ui_p2
+  Scenario: Treatment arms are sorted by id first then stratum
+    Given I navigate to the treatment-arms page
+    And I select "100" from the treatment arm drop down
+    And I grab all the treatment arm ids from the page
+    Then I see that "APEC1621-X-100" is before "APEC1621-X-200" in the list
+
+
+  @ui_p2
   Scenario: Logged in user can access the dashboard of Treatment Arms page
     When I go to treatment arm with "APEC1621-2V" as the id and "100" as stratum id
     And I collect backend information about the treatment arm

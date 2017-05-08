@@ -1,7 +1,7 @@
 var CliaPage = function () {
-    this.pageTitle = 'MATCHBox | CLIA Labs'
+    this.pageTitle = 'MATCHBox | CLIA Labs';
 
-    //This section contains elements related to the tables and the search field 
+    //This section contains elements related to the tables and the search field
     this.searchPositiveSampleControl = element(by.css('clia_positive_samples input.form-control'));
     this.searchNoTemplateControl     = element(by.css('clia_ntc_samples input.form-control'));
     this.searchProficiencyCompetency = element(by.css('clia_pc_samples input.form-control'));
@@ -11,7 +11,7 @@ var CliaPage = function () {
     this.searchTableDateReceived  = element.all(by.binding('item.date_variant_received | utc'));
     this.searchTableVariantReport = element.all(by.css('a[ng-show="item.analysis_id && item.report_status"]'));
     this.searchTableStatus        = element.all(by.binding('item.report_status | msnstatus'));
-    this.searchList               = element.all(by.css('tr[ng-repeat^="item in filtered"]'))
+    this.searchList               = element.all(by.css('tr[ng-repeat^="item in filtered"]'));
 
     this.mochaPositiveGrid      = element(by.css('clia_positive_samples[site="mocha"]'));
     this.mochaNoTemplateGrid    = element(by.css('clia_ntc_samples[site="mocha"]'));
@@ -19,10 +19,14 @@ var CliaPage = function () {
     this.mdaPositiveGrid        = element(by.css('clia_positive_samples[site="mda"]'));
     this.mdaNoTemplateGrid      = element(by.css('clia_ntc_samples[site="mda"]'));
     this.mdaProficiencyGrid     = element(by.css('clia_pc_samples[site="mda"]'));
+    this.dtmPositiveGrid        = element(by.css('clia_positive_samples[site="dartmouth"]'));
+    this.dtmNoTemplateGrid      = element(by.css('clia_ntc_samples[site="dartmouth"]'));
+    this.dtmProficiencyGrid     = element(by.css('clia_pc_samples[site="dartmouth"]'));
 
     // These buttons take you to the individual mocha or mda sections.
     this.mochaSectionButton = element(by.cssContainingText('label[ng-click="setActiveTab(key,value)"]', 'MoCha'));
     this.mdaSectionButton   = element(by.cssContainingText('label[ng-click="setActiveTab(key,value)"]', 'MD Anderson'));
+    this.dartmouthSectionButton = element(by.cssContainingText('label[ng-click="setActiveTab(key,value)"]', 'Dartmouth'));
 
     this.sampleDetailHeaders    = element.all(by.css('.header-info-box'));
     this.sampleDetailMolecId    = element(by.binding('data.molecular_id'));
@@ -145,6 +149,29 @@ var CliaPage = function () {
             },
             'Proficiency And Competency' : {
                 'element': this.mdaProficiencyGrid,
+                'control_type': 'proficiency_competency',
+                'url_control_type': 'proficiency-competency-sample-control',
+                'url_type': 'positive_sample_control',
+                'searchElement': this.searchProficiencyCompetency
+            }
+        },
+        'Dartmouth': {
+            'Positive Sample Controls': {
+                'element': this.dtmPositiveGrid,
+                'control_type': 'positive',
+                'url_control_type': 'positive-control',
+                'url_type': 'positive_sample_control',
+                'searchElement': this.searchPositiveSampleControl
+            },
+            'No Template Control': {
+                'element': this.dtmNoTemplateGrid,
+                'control_type': 'no_template',
+                'url_control_type': 'no-template-sample-control',
+                'url_type' : 'no_template_control',
+                'searchElement': this.searchNoTemplateControl
+            },
+            'Proficiency And Competency' : {
+                'element': this.dtmProficiencyGrid,
                 'control_type': 'proficiency_competency',
                 'url_control_type': 'proficiency-competency-sample-control',
                 'url_type': 'positive_sample_control',

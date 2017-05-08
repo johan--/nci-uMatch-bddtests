@@ -14,6 +14,7 @@ var TreatmentArmsPage = function() {
    //List of all the treatment arms on the treatment arms landing page.
     this.treamtentArmHeading = element(by.css('span.ta-title'));
     this.taTable = element(by.id('treatmentArmGrid'));
+    this.displayCountSelector = element(by.id('treatmentArmGrid')).element(by.id('itemsOnPageSelect2'));
 
     // HEader of the above table
     this.taTableHeaderArray = this.taTable.all(by.css('th'));

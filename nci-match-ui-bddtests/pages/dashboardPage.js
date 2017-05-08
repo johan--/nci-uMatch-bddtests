@@ -32,6 +32,7 @@ var DashboardPage = function() {
     this.limboHeading           = element.all(by.css('.panel-container .ibox-title')).get(1);
     this.limboTableHeaderList   = element.all(by.css('#limboPatientsPanel th'));
     this.patientsInLimboList    = element(by.exactBinding("limboPatientGridOptions.data.length"));
+    this.greenAmoi              = element(by.css('span[ng-if="item.active_tissue_specimen.has_amoi"] i.fa-check-circle'));
     //this.patientsInLimboList = element.all(by.repeater('item in filtered | startFrom:(paginationOptions.currentPage-1)*paginationOptions.itemsPerPage | limitTo:paginationOptions.itemsPerPage track by $index'));
     this.expectedPatientInLimboDetailsLeft = [
         'IHC BAF47',

@@ -4,7 +4,7 @@ Feature: CLIA Labs Variant Reports Page
         Given I am logged in as a "<userType>" user
         And I go to clia variant filtered report with "<molecularId>" as the molecular_id on "<subTabName>" tab
         Then I should see the status as "<oldStatus>"
-#        And The clia report "ACCEPT" button is "visible"
+        And The clia report "<statusButton>" button is "visible"
         When I click on clia report "<statusButton>" button on "<subTabName>"
         Then I can see the clia report "Change of the Status" in the modal text box
         And I click "OK" on clia report Comment button
@@ -16,5 +16,5 @@ Feature: CLIA Labs Variant Reports Page
 #        Then I should see the status of variant report in list as "<newStatus>"
 
         Examples:
-            | userType          | subTabName                  | statusButton | molecularId    | oldStatus | newStatus |
-            | VR_Reviewer_mocha | Positive Sample Controls    | REJECT       | SC_MOCHA_5AMCC | PASSED    | FAILED    |
+            | userType          | subTabName               | statusButton | molecularId    | oldStatus | newStatus |
+            | VR_Reviewer_mocha | Positive Sample Controls | FAIL         | SC_MOCHA_5AMCC | PASSED    | FAILED    |

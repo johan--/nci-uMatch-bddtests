@@ -26,16 +26,16 @@ module.exports = function() {
         expect(cliaPage.mdaSectionButton.getText()).to.eventually.eql('MoCha').notify(callback);
     });
 
-    this.When(/^I click on the "(MoCha|MD Anderson)" section$/, function (sectionName, callback) {
+    this.When(/^I click on the "(MoCha|MD Anderson|Dartmouth)" section$/, function (sectionName, callback) {
 
-        var elem = sectionName === 'MoCha' ? cliaPage.mochaSectionButton : cliaPage.mdaSectionButton;
+        var elem = getSectionName(sectionName);
         cliaPage.siteName = sectionName;
         elem.click().then(function() {
             browser.waitForAngular();
         }).then(callback);
     });
 
-    this.When(/^I click on "([^"]*)" under "(MoCha|MD Anderson)"$/, function (subTabName, sectionName, callback) {
+    this.When(/^I click on "([^"]*)" under "(MoCha|MD Anderson|Dartmouth)"$/, function (subTabName, sectionName, callback) {
         var elem = element(by.css('li[heading="' + subTabName + '"]'));
         elem.click ().then(function(){
             // Setting the Control type here in anticipation of future needs.
@@ -63,23 +63,23 @@ module.exports = function() {
         }).then(callback);
     });
 
-    this.Then(/^I am on the "(MoCha|MD Anderson)" section$/, function (sectionName, callback) {
-        var url = sectionName === 'MoCha' ? 'mocha' : 'mda';
+    this.Then(/^I am on the "(MoCha|MD Anderson|Dartmouth)" section$/, function (sectionName, callback) {
+        var url = getSectionUrl(sectionName);
         expect(browser.getCurrentUrl()).to.eventually
             .include('clia-labs?site=' + url + '&type=positive')
             .notify(callback);
     });
 
-    this.When(/^I collect information on "([^"]*)" under "(MoCha|MD Anderson)"$/, function (subTabName, sectionName, callback) {
-        var site = sectionName === 'MoCha' ? 'mocha' : 'mda';
+    this.When(/^I collect information on "([^"]*)" under "(MoCha|MD Anderson|Dartmouth)"$/, function (subTabName, sectionName, callback) {
+        var site = getSectionUrl(sectionName);
         var url  = '/api/v1/sample_controls?site=' + site + '&control_type=' + cliaPage.controlType;
         utilities.getRequestWithService('ion', url).then(function(responseBody){
             cliaPage.responseData = responseBody;
         }).then(callback);
     });
 
-    this.When(/^I collect new information on "([^"]*)" under "(MoCha|MD Anderson)"$/, function (subTabName, sectionName, callback) {
-        var site = sectionName === 'MoCha' ? 'mocha' : 'mda';
+    this.When(/^I collect new information on "([^"]*)" under "(MoCha|MD Anderson|Dartmouth)"$/, function (subTabName, sectionName, callback) {
+        var site = getSectionUrl(sectionName);
         var url  = '/api/v1/sample_controls?site=' + site + '&control_type=' + cliaPage.controlType;
         utilities.getRequestWithService('ion', url).then(function(responseBody){
             cliaPage.newResponseData = responseBody;
@@ -94,7 +94,7 @@ module.exports = function() {
         }).then(callback);
     });
 
-    this.When(/^I enter "([^"]*)" in the search field on "([^"]*)" under "(MoCha|MD Anderson)"$/, function (value, subTabName, sectionName, callback) {
+    this.When(/^I enter "([^"]*)" in the search field on "([^"]*)" under "(MoCha|MD Anderson|Dartmouth)"$/, function (value, subTabName, sectionName, callback) {
         var parentElement = cliaPage.tableElement;
         var searchElement = parentElement.element(by.css('input.input-sm.all-filter'));
         cliaPage.molecularId = value;
@@ -120,19 +120,19 @@ module.exports = function() {
         }).then(callback);
     });
 
-    this.Then(/^I verify that "([^"]*)" under "(MoCha|MD Anderson)" is active$/, function (subTabName, sectionName, callback) {
+    this.Then(/^I verify that "([^"]*)" under "(MoCha|MD Anderson|Dartmouth)" is active$/, function (subTabName, sectionName, callback) {
          var elemToCheck = element(by.css('li[heading="' + subTabName + '"]'));
          utilities.checkElementIncludesAttribute(elemToCheck, 'class', 'active').then(callback);
     });
 
-    this.Then(/^I verify the headings for "([^"]*)" under "(MoCha|MD Anderson)"$/, function (subTabName, sectionName, callback) {
+    this.Then(/^I verify the headings for "([^"]*)" under "(MoCha|MD Anderson|Dartmouth)"$/, function (subTabName, sectionName, callback) {
         var tableElement = cliaPage.tableElement;
         var headings = tableElement.all(by.css('table>thead>tr>th'));
 
         expect(headings.getText()).to.eventually.eql(cliaPage.expectedMsnTableHeading).notify(callback);
     });
 
-    this.Then(/^a new Molecular Id is created under the "(MoCha|MD Anderson)"$/, function (sectionName, callback) {
+    this.Then(/^a new Molecular Id is created under the "(MoCha|MD Anderson|Dartmouth)"$/, function (sectionName, callback) {
         expect(cliaPage.newResponseData.length).to.eql(cliaPage.responseData.length + 1);
         browser.sleep(50).then(callback);
     });
@@ -289,7 +289,7 @@ module.exports = function() {
 
     this.Then(/^I verify the presence of Positive controls and False positive variants table$/, function (callback) {
         expect(cliaPage.sampleDetailTableHead.get(0).getText()).to.eventually.eql('Positive Controls');
-        expect(cliaPage.sampleDetailTableHead.get(1).getText()).to.eventually.eql('False Positive Variants')
+        expect(cliaPage.sampleDetailTableHead.get(1).getText()).to.eventually.eql('False Positive Variants');
         expect(cliaPage.samplePositivePanelTableColumn.getText()).to.eventually.eql(cliaPage.expectedPositiveControlsTableHeaders);
         expect(cliaPage.sampleFalsePosTableColumn.getText()).to.eventually.eql(cliaPage.expectedFalsePostiveVariantTableHEaders).notify(callback);
     });
@@ -303,7 +303,7 @@ module.exports = function() {
     this.Then(/^I verify that valid IDs are links and invalid IDs are not in "(Positive Controls|False Positive Variants)" table$/, function (tableName, callback) {
         var presentIDList;
         if (tableName === 'Positive Controls') {
-            presentIDList = cliaPage.samplePositivePanel.all(by.css('[link-id="item.identifier"]'));
+            presentIDList = cliaPage.samplePositivePanel.all(by.css('cosmic-link[link-id="item.identifier"]'));
         } else {
             presentIDList = cliaPage.sampleFalsePosPanel.all(by.css('cosmic-link[link-id="item.identifier"]'))
         }
@@ -312,6 +312,16 @@ module.exports = function() {
                 utilities.checkCosmicLink(presentIDList.get(i))
             }
         }).then(callback)
+    });
+
+    this.Then(/^I verify that all Genes have a valid link in the "(Positive Controls|False Positive Variants)" table$/, function(tableName, callback){
+        var presentIDList;
+        if (tableName === 'Positive Controls') {
+            presentIDList = cliaPage.samplePositivePanel.all(by.css('cosmic-link[link-id="item.gene"]'));
+        } else {
+            presentIDList = cliaPage.sampleFalsePosPanel.all(by.css('cosmic-link[link-id="item.gene"]'))
+        }
+        utilities.checkElementArrayisGene(presentIDList).then(callback);
     });
 
     this.Then(/^I verify the valid Ids are links in the SNVs\/MNVs\/Indels table under "(No Template Control|Proficiency And Competency)"$/, function (sectionName, callback) {
@@ -420,4 +430,23 @@ module.exports = function() {
         browser.sleep(50).then(callback);
     });
 
+    // CLia related functions
+
+    function getSectionName (sectionName){
+        var section = {
+            "MoCha": cliaPage.mochaSectionButton,
+            "MD Anderson": cliaPage.mdaSectionButton,
+            "Dartmouth": cliaPage.dartmouthSectionButton
+        };
+        return section[sectionName];
+    }
+
+    function getSectionUrl (sectionName) {
+        var section = {
+            "MoCha": 'mocha',
+            "MD Anderson": 'mda',
+            "Dartmouth": 'dartmouth'
+        };
+        return section[sectionName];
+    }
 };

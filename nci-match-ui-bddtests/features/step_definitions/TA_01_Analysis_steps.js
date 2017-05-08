@@ -20,6 +20,7 @@ module.exports = function () {
     var expectedTableHeaders = taPage.expectedTableHeaders;
 
     var currentTreatmentId;
+    var displayedTAList;
     var currentStratumId;
     var treatmentArmAPIDetails;
     var firstTreatmentArm;
@@ -27,6 +28,18 @@ module.exports = function () {
     var currentFilter;
 
     // GIVEN Section
+    this.Given(/^I select "(.+?)" from the treatment arm drop down$/, function (selection, callback){
+        var selection_element = taPage.displayCountSelector.element(by.css('option[value="' + selection + '"]'))
+        selection_element.click().then(function(){
+            browser.waitForAngular();
+        }).then(callback);
+    });
+
+    this.Given(/^I grab all the treatment arm ids from the page$/, function(callback){
+        element.all(by.css('span[ng-if="!vm.hasDisplayText()"]')).getText().then(function (taList) {
+            displayedTAList = taList;
+        }).then(callback);
+    });
 
     // WHEN Section
 
@@ -383,5 +396,14 @@ module.exports = function () {
         expect(taPage.historyTabSubHeading.getText()).to.eventually.equal('Version History');
         expect(taPage.listOfVersions.count()).to.eventually.be.above(0);
         browser.sleep(50).then(callback);
+    });
+
+    this.Then(/^I see that "(.+?)" is before "(.+?)" in the list$/, function (first, second, callback) {
+        var firstIndex = displayedTAList.indexOf(first);
+        var secondIndex = displayedTAList.indexOf(second);
+        browser.sleep(50).then(function () {
+            expect(secondIndex).to.be.above(firstIndex);
+        }).then(callback);
+
     });
 };

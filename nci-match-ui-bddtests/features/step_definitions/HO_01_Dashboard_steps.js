@@ -489,5 +489,13 @@ module.exports = function() {
 
         expect(actualLink.getAttribute('href')).to.eventually.include(expectedLink).notify(callback);
     });
+
+    this.Then(/^I "(can|cannot)" see the AMOI green button if "(.+?)" patient "(does|does not)" have amoi$/,function (see_or_not, patient, presence, callback) {
+        var see = see_or_not === 'can';
+        var actual_present = dash.responseData[0]["active_tissue_specimen"]['has_amoi'] === true;
+        var expected_present = presence === 'does';
+        expect(actual_present).to.eql(expected_present);
+        expect(dash.greenAmoi.isPresent()).to.eventually.eql(see, 'AMOI indicator should be ' + see).notify(callback);
+    });
 };
 

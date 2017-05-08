@@ -70,18 +70,11 @@ Feature: Treatment Arm Rules
       | Non-Hotspot Rules     |
       | Gene Fusions          |
 
-  @ui_p2
-  Scenario: Check for Gene in the Non-Sequencing Assays table.
-    When I select the Non-Sequencing Assays sub-tab
-    Then I see that the elements in the column "Gene" for table "Non-Sequencing Assays" and "Inclusion" is a gene
-
 
   @ui_p2
   Scenario: Check for links in the Non-Sequencing Assays table.
     When I select the Non-Sequencing Assays sub-tab
-    And I get the index of the "Gene" value in "Non-Sequencing Assays" and "None"
-    Then I see that the element with css "cosmic-link[link-id="item.gene"]" is a "Gene" link
-    And I see that the elements in the column "Gene" for table "Non-Sequencing Assays" is a gene
+    And I see that the elements in the column gene for table Non-Sequencing Assays is a gene
 
 @ui_p2
   Scenario Outline: Variants are sorted by defaults in ascending order of Chromosomes on the <subTabName> table
