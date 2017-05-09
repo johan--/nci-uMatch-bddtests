@@ -139,7 +139,7 @@ script:
   - TRAVIS_TEST_RESULT=$STATUS
 after_success:
   #Run P3 cucumber tests
-  - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P3 --format json --out ../../results/output-$CUC_TAG$P3-$TEST_ENV_NUMBER.json --expand' -n 2
+#  - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P3 --format json --out ../../results/output-$CUC_TAG$P3-$TEST_ENV_NUMBER.json --expand' -n 2
 
   #Run protractor tests
   - cd ../../nci-match-ui-bddtests/
