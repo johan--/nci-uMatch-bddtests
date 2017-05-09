@@ -102,6 +102,7 @@ class DynamoUtilities
           uploaded += items.size
         rescue => e
           LOG.log("Could not upload seed to table #{table_name}", :warn)
+          puts e.to_s
           puts e.backtrace
         end
       }

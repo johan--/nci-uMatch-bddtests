@@ -74,21 +74,6 @@ script:
   - ls -alt results
   - rm results/*
   # Get status of run into CURRENT_STATUS. Update STATUS only if it is 0. So failures should be preserved across runs till the end
-  - |
-    if [ "$TRIGGER_REPO" == "nci-match-ir-ecosystem-api" ]; then
-      echo "Deploying both IR services to AWS UAT for Ped & Adult"
-      docker run -it --rm -e AWS_ACCESS_KEY_ID=$UAT_AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$UAT_AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster PedMatch-UAT-Backend --service-name PedMatch-nci-match-ir-ecosystem-api-UAT -i matchbox/nci-match-ir-ecosystem-api:$TRIGGER_VER --timeout 540 --max-definitions 25
-      docker run -it --rm -e AWS_ACCESS_KEY_ID=$UAT_AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$UAT_AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster PedMatch-UAT-Backend --service-name PedMatch-nci-match-ir-ecosystem-processor-UAT -i matchbox/nci-match-ir-ecosystem-processor:$TRIGGER_VER --timeout 540 --max-definitions 25
-      docker run -it --rm -e AWS_ACCESS_KEY_ID=$UAT_AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$UAT_AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster AdultMatch-UAT-Backend --service-name AdultMATCH-nci-match-ir-ecosystem-api-UAT -i matchbox/nci-match-ir-ecosystem-api:$TRIGGER_VER --timeout 540 --max-definitions 25
-      docker run -it --rm -e AWS_ACCESS_KEY_ID=$UAT_AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$UAT_AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster AdultMatch-UAT-Backend --service-name AdultMATCH-nci-match-ir-ecosystem-processor-UAT -i matchbox/nci-match-ir-ecosystem-processor:$TRIGGER_VER --timeout 540 --max-definitions 25
-    fi
-
-  - |
-    if [ "$CUC_TAG" == "@treatment_arm" -o "$CUC_TAG" == "@patients" -o "$CUC_TAG" == "@rules" ]; then
-      echo "Deploying to AWS UAT (place holder, the actual code will not be pushed)"
-      docker run -it --rm -e AWS_ACCESS_KEY_ID=$UAT_AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$UAT_AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster PedMatch-UAT-Backend --service-name PedMatch-$TRIGGER_REPO-UAT -i matchbox/$TRIGGER_REPO:$TRIGGER_VER  --timeout 540 --max-definitions 25
-    fi
-
 #  - |
 #    if [ "$CUC_TAG" == "@treatment_arm" -o "$CUC_TAG" == "@ion_reporter" -o "$CUC_TAG" == "@patients" -o "$CUC_TAG" == "@rules" ]; then
 #      cd uMATCH/PedMATCH

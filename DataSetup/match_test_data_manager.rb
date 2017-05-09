@@ -95,13 +95,69 @@ class MatchTestDataManager
         if this_patient_data.size > 0
           to_file = seed_file(table_name, to_tag)
           to_hash = JSON.parse(File.read(to_file))
-          to_hash['Items'].push(*this_patient_data)
-          to_hash['ScannedCount'] = to_hash['ScannedCount'] + this_patient_data.size
-          to_hash['Count'] = to_hash['Count'] + this_patient_data.size
-          File.open(to_file, 'w') { |f| f.write(JSON.pretty_generate(to_hash)) }
+          to_patients = []
+          to_hash['Items'].each { |this_to| to_patients << this_to[field_name]['S'] }
+          if to_patients.include?(this_patient)
+            LOG.log("patient #{this_patient} has already been in #{to_tag} #{table_name} seed data, skipping...")
+          else
+            to_hash['Items'].push(*this_patient_data)
+            to_hash['ScannedCount'] = to_hash['ScannedCount'] + this_patient_data.size
+            to_hash['Count'] = to_hash['Count'] + this_patient_data.size
+            File.open(to_file, 'w') { |f| f.write(JSON.pretty_generate(to_hash)) }
+            LOG.log("There are #{this_patient_data.size} #{table_name} items(#{field_name}=#{this_patient}) get copied")
+          end
         end
-        LOG.log("There are #{this_patient_data.size} #{table_name} items(#{field_name}=#{this_patient}) get copied")
       }
+    }
+  end
+
+  def self.analysis_seed_file(tag)
+    TableDetails.all_tables.each { |table_name|
+      primary_key = TableDetails.primary_key(table_name)
+      sorting_key = TableDetails.sorting_key(table_name)
+      file_hash = JSON.parse(File.read(seed_file(table_name, tag)))['Items']
+      analysis = {}
+      file_hash.each { |this_item|
+        id = this_item[primary_key]['S']
+        id += "|#{this_item[sorting_key]['S']}" if sorting_key.length > 0
+        if analysis.keys.include?(id)
+          analysis[id] = analysis[id] + 1
+        else
+          analysis[id] = 1
+        end
+      }
+      error = analysis.select { |k, v| v > 1 }
+      puts table_name
+      puts JSON.pretty_generate(error)
+      puts "\n\n"
+    }
+  end
+
+  def self.remove_duplicated_seed(tag)
+    TableDetails.all_tables.each { |table_name|
+      primary_key = TableDetails.primary_key(table_name)
+      sorting_key = TableDetails.sorting_key(table_name)
+      file_hash = JSON.parse(File.read(seed_file(table_name, tag)))
+      items = file_hash['Items']
+      ids = []
+      new_items = []
+      items.each { |this_item|
+        id = this_item[primary_key]['S']
+        id += "|#{this_item[sorting_key]['S']}" if sorting_key.length > 0
+        if ids.include?(id)
+          puts "#{id} is duplicated"
+        else
+          new_items << this_item
+          ids << id
+        end
+      }
+      if new_items.size < items.size
+        file_hash['Items'] = new_items
+        file_hash['ScannedCount'] = new_items.size
+        file_hash['Count'] = new_items.size
+        File.open(seed_file(table_name, tag), 'w') { |f| f.write(JSON.pretty_generate(file_hash)) }
+      end
+      puts "#{items.size-new_items.size} items are deleted from #{tag} #{table_name}"
     }
   end
 
@@ -113,7 +169,7 @@ class MatchTestDataManager
 
   def self.clear_seed_file(table_name, tag)
     empty_data = {
-        "ScannedCount" => 0,
+        # "ScannedCount" => 0,
         "Count" => 0,
         "Items" => [],
         "ConsumedCapacity" => nil
