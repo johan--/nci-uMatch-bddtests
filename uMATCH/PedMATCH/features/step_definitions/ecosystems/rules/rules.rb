@@ -118,6 +118,17 @@ Then(/^moi report is returned with the snv variant "([^"]*)" as an amoi$/) do |a
   raise "Cannot find variant #{arg1}" unless found
 end
 
+Then(/^returned moi report should not have snv variant "([^"]*)"$/) do |id|
+  found = false
+  @res['snv_indels'].each do |snv|
+    if snv['identifier'] == id
+      found = true
+      break
+    end
+  end
+  raise "Variant #{id} is found in returned moi report" if found
+end
+
 Then(/^in moi report the snv variant "([^"]*)" has "([^"]*)" amois$/) do |variant, count|
   found = false
   @res['snv_indels'].each do |snv|
