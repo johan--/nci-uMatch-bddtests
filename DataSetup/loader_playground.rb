@@ -8,7 +8,7 @@ require_relative 'match_test_data_manager'
 
 # ############clear local dynamodb and load all existing seed data
 MatchTestDataManager.clear_all_local_tables
-MatchTestDataManager.upload_all_seed_data_to_local
+MatchTestDataManager.upload_seed_data_to_local('treatment_arm')
 # MatchTestDataManager.clear_all_pressure_seed_files
 # MatchTestDataManager.generate_patient_instance('PT_TMP_AssayReceived', 1000)
 # MatchTestDataManager.generate_patient_instance('PT_TMP_Registered', 1000)
@@ -348,3 +348,55 @@ MatchTestDataManager.upload_all_seed_data_to_local
 #   cmd = "aws s3 mv --recursive s3://pedmatch-int/#{k} s3://pedmatch-int/#{v}"
 #   puts `#{cmd}`
 # }
+
+patients = ["PT_SS27_VariantReportUploaded",
+            "PT_VU09_VariantReportUploaded",
+            "PT_AU11_MochaTsShipped",
+            "PT_CR02_OnTreatmentArm",
+            "PT_AU03_SlideShipped0",
+            "PT_RA03_TsShipped",
+            "PT_AS08_TissueReceived",
+            "PT_AS12_VrConfirmed",
+            "PT_AM01_TsVrReceived1",
+            "PT_AS09_OffStudy",
+            "PT_AS09_OffStudyBiopsyExpired",
+            "PT_AS09_ReqNoAssignment",
+            "PT_SS26_RequestAssignment",
+            "PT_SS31_CompassionateCare",
+            "PT_SS31_NoTaAvailable",
+            "PT_AS12_PendingConfirmation",
+            "PT_AM03_PendingApproval",
+            "PT_AS12_OnTreatmentArm",
+            "PT_CR04_VRUploadedAssayReceived",
+            "PT_CR04_VRUploadedAssayReceived",
+            "PT_CR04_VRUploadedAssayReceived",
+            "PT_CR07_RejectVariantReport",
+            "PT_CR06_RejectOneVariant",
+            "PT_CR03_VRUploadedPathConfirmed",
+            "PT_CR01_PathAssayDoneVRUploadedToConfirm",
+            "PT_CR01_PathAssayDoneVRUploadedToConfirm",
+            "PT_CR01_PathAssayDoneVRUploadedToConfirm",
+            "PT_UI04_DtmTsShipped1",
+            "PT_UI04_DtmTsShipped1",
+            "PT_UI04_DtmTsShipped1",
+            "PT_AU04_MdaTsShipped1",
+            "PT_AU04_MdaTsShipped1",
+            "PT_AU04_MdaTsShipped1",
+            "PT_AU04_MochaTsShipped1",
+            "PT_SR10_CompassionateCare",
+            "PT_AS00_SlideShipped4",
+            "PT_RA03_NoTaAvailable",
+            "PT_AU04_MochaTsShipped1",
+            "PT_AU04_MochaTsShipped1",
+            "PT_AM05_TsVrReceived1",
+            "PT_CR05_SpecimenShippedTwice",
+            "PT_CR05_SpecimenShippedTwice",
+            "PT_SR10_ProgressReBioY",
+            "PT_RA04a_TsShipped",
+            "PT_RA06_OnTreatmentArm",
+            "PT_OS03_OffStudy1",
+            "PT_SC04b_PendingApproval",
+            "PT_GVF_RequestNoAssignment",
+            "PT_SC01c_TsVrUploadedStep2"]
+
+MatchTestDataManager.copy_patients_from_tag_to_tag(patients.uniq, 'patients', 'ui')

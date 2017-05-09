@@ -1,6 +1,6 @@
 {
-  "ScannedCount": 20,
-  "Count": 20,
+  "ScannedCount": 62,
+  "Count": 62,
   "Items": [
     {
       "patient_id": {
@@ -962,6 +962,2329 @@
       },
       "sorting_key": {
         "S": "2017-03-31T13:46:03.778"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_SS27_VariantReportUploaded"
+      },
+      "active_molecular_id": {
+        "S": "PT_SS27_VariantReportUploaded_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T15:17:11+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-26T15:17:11+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_SS27_VariantReportUploaded_SEI1"
+      },
+      "pathology_status_date": {
+        "S": "2016-11-07T16:25:40+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2016-11-07T16:25:40.024"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_VU09_VariantReportUploaded"
+      },
+      "active_molecular_id": {
+        "S": "PT_VU09_VariantReportUploaded_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T15:17:11+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-26T15:17:11+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_VU09_VariantReportUploaded_SEI1"
+      },
+      "pathology_status_date": {
+        "S": "2016-11-07T17:25:09+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2016-11-07T17:25:09.973"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_AU11_MochaTsShipped"
+      },
+      "active_molecular_id": {
+        "S": "PT_AU11_MochaTsShipped_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T00:00:00+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-25T22:06:33+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_AU11_MochaTsShipped_SEI1"
+      },
+      "pathology_status_date": {
+        "S": "2017-03-09T06:01:41+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2017-03-09T06:01:41.486"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_CR02_OnTreatmentArm"
+      },
+      "active_molecular_id": {
+        "S": "PT_CR02_OnTreatmentArm_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T00:00:00+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-26T00:00:00+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_CR02_OnTreatmentArm_SEI1"
+      },
+      "assays": {
+        "L": [
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCPTENs"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBAF47s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBRG1s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          }
+        ]
+      },
+      "pathology_status_date": {
+        "S": "2017-01-20T16:09:32+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2017-01-20T16:09:32.294"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_AU03_SlideShipped0"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      },
+      "received_date": {
+        "S": "2016-04-26T00:00:00+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_AU03_SlideShipped0_SEI1"
+      },
+      "pathology_status_date": {
+        "S": "2017-01-10T21:34:24+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2017-01-10T21:34:24.002"
+      },
+      "collected_date": {
+        "S": "2016-04-25T00:00:00+00:00"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_RA03_TsShipped"
+      },
+      "active_molecular_id": {
+        "S": "PT_RA03_TsShipped_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T15:17:11+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-26T15:17:11+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_RA03_TsShipped_SEI1"
+      },
+      "assays": {
+        "L": [
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCPTENs"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBAF47s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          }
+        ]
+      },
+      "pathology_status_date": {
+        "S": "2016-11-07T21:39:45+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2016-11-07T21:39:45.247"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_RA03_TsShipped"
+      },
+      "active_molecular_id": {
+        "S": "PT_RA03_TsShipped_MOI2"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T15:17:11+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-26T15:17:11+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_RA03_TsShipped_SEI2"
+      },
+      "pathology_status_date": {
+        "S": "2016-11-07T21:41:16+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2016-11-07T21:41:16.939"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_AS08_TissueReceived"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      },
+      "received_date": {
+        "S": "2016-04-26T15:17:11+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_AS08_TissueReceived_SEI1"
+      },
+      "pathology_status_date": {
+        "S": "2016-11-07T17:21:51+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2016-11-07T17:21:51.311"
+      },
+      "collected_date": {
+        "S": "2016-04-25T15:17:11+00:00"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_AS12_VrConfirmed"
+      },
+      "active_molecular_id": {
+        "S": "PT_AS12_VrConfirmed_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T15:17:11+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-26T15:17:11+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_AS12_VrConfirmed_SEI1"
+      },
+      "pathology_status_date": {
+        "S": "2016-11-07T17:22:26+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2016-11-07T17:22:26.516"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_AM01_TsVrReceived1"
+      },
+      "active_molecular_id": {
+        "S": "PT_AM01_TsVrReceived1_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T15:17:11+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-26T15:17:11+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_AM01_TsVrReceived1_SEI1"
+      },
+      "assays": {
+        "L": [
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCPTENs"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBAF47s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBRG1s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          }
+        ]
+      },
+      "pathology_status_date": {
+        "S": "2016-11-14T20:40:14+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2016-11-14T20:40:14.982"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_AS09_OffStudy"
+      },
+      "active_molecular_id": {
+        "S": "PT_AS09_OffStudy_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T00:00:00+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-25T22:06:33+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_AS09_OffStudy_SEI1"
+      },
+      "pathology_status_date": {
+        "S": "2017-02-23T05:06:47+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2017-02-23T05:06:47.952"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_AS09_OffStudyBiopsyExpired"
+      },
+      "active_molecular_id": {
+        "S": "PT_AS09_OffStudyBiopsyExpired_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T00:00:00+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-25T22:06:33+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_AS09_OffStudyBiopsyExpired_SEI1"
+      },
+      "pathology_status_date": {
+        "S": "2017-02-23T05:07:01+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2017-02-23T05:07:01.526"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_AS09_ReqNoAssignment"
+      },
+      "active_molecular_id": {
+        "S": "PT_AS09_ReqNoAssignment_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T00:00:00+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-25T22:06:33+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_AS09_ReqNoAssignment_SEI1"
+      },
+      "assays": {
+        "L": [
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBRG1s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCPTENs"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBAF47s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          }
+        ]
+      },
+      "pathology_status_date": {
+        "S": "2017-02-23T05:07:48+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2017-02-23T05:07:48.399"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_SS26_RequestAssignment"
+      },
+      "collected_date": {
+        "S": "2016-04-22T15:17:11+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-23T15:17:11+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2016-11-07T16:27:35.275"
+      },
+      "specimen_type": {
+        "S": "BLOOD"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_SS26_RequestAssignment"
+      },
+      "active_molecular_id": {
+        "S": "PT_SS26_RequestAssignment_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T15:17:11+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-26T15:17:11+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_SS26_RequestAssignment_SEI1"
+      },
+      "assays": {
+        "L": [
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCPTENs"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBAF47s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          }
+        ]
+      },
+      "pathology_status_date": {
+        "S": "2016-11-07T16:27:37+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2016-11-07T16:27:37.421"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_SS31_CompassionateCare"
+      },
+      "active_molecular_id": {
+        "S": "PT_SS31_CompassionateCare_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T15:17:11+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-26T15:17:11+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_SS31_CompassionateCare_SEI1"
+      },
+      "assays": {
+        "L": [
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCPTENs"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBAF47s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          }
+        ]
+      },
+      "pathology_status_date": {
+        "S": "2016-11-15T22:51:22+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2016-11-15T22:51:22.136"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_SS31_NoTaAvailable"
+      },
+      "active_molecular_id": {
+        "S": "PT_SS31_NoTaAvailable_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T15:17:11+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-26T15:17:11+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_SS31_NoTaAvailable_SEI1"
+      },
+      "assays": {
+        "L": [
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCPTENs"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBAF47s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          }
+        ]
+      },
+      "pathology_status_date": {
+        "S": "2016-11-15T22:50:03+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2016-11-15T22:50:03.127"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_AS12_PendingConfirmation"
+      },
+      "active_molecular_id": {
+        "S": "PT_AS12_PendingConfirmation_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T00:00:00+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-25T22:06:33+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_AS12_PendingConfirmation_SEI1"
+      },
+      "assays": {
+        "L": [
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBRG1s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCPTENs"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBAF47s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          }
+        ]
+      },
+      "pathology_status_date": {
+        "S": "2017-02-28T15:37:27+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2017-02-28T15:37:27.467"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_AM03_PendingApproval"
+      },
+      "active_molecular_id": {
+        "S": "PT_AM03_PendingApproval_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T00:00:00+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-25T22:06:33+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_AM03_PendingApproval_SEI1"
+      },
+      "assays": {
+        "L": [
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBRG1s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCPTENs"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBAF47s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          }
+        ]
+      },
+      "pathology_status_date": {
+        "S": "2017-02-21T22:43:57+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2017-02-21T22:43:57.168"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_AS12_OnTreatmentArm"
+      },
+      "active_molecular_id": {
+        "S": "PT_AS12_OnTreatmentArm_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2017-02-28T00:00:00+00:00"
+      },
+      "received_date": {
+        "S": "2017-02-28T22:06:33+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_AS12_OnTreatmentArm_SEI1"
+      },
+      "assays": {
+        "L": [
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBRG1s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2017-02-28T15:39:08Z"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBAF47s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2017-02-28T15:39:07Z"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCPTENs"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2017-02-28T15:39:06Z"
+              }
+            }
+          }
+        ]
+      },
+      "pathology_status_date": {
+        "S": "2017-02-28T15:39:03+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2017-02-28T15:39:03.822"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_CR04_VRUploadedAssayReceived"
+      },
+      "active_molecular_id": {
+        "S": "PT_CR04_VRUploadedAssayReceived_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T00:00:00+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-26T00:00:00+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_CR04_VRUploadedAssayReceived_SEI1"
+      },
+      "assays": {
+        "L": [
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCPTENs"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBAF47s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBRG1s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          }
+        ]
+      },
+      "pathology_status_date": {
+        "S": "2017-01-20T16:10:48+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2017-01-20T16:10:48.864"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_CR07_RejectVariantReport"
+      },
+      "active_molecular_id": {
+        "S": "PT_CR07_RejectVariantReport_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T15:17:11+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-26T15:17:11+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_CR07_RejectVariantReport_SEI1"
+      },
+      "pathology_status_date": {
+        "S": "2016-11-07T18:04:19+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2016-11-07T18:04:19.482"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_CR06_RejectOneVariant"
+      },
+      "active_molecular_id": {
+        "S": "PT_CR06_RejectOneVariant_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T15:17:11+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-26T15:17:11+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_CR06_RejectOneVariant_SEI1"
+      },
+      "pathology_status_date": {
+        "S": "2016-11-07T18:03:47+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2016-11-07T18:03:47.645"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_CR03_VRUploadedPathConfirmed"
+      },
+      "active_molecular_id": {
+        "S": "PT_CR03_VRUploadedPathConfirmed_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T15:17:11+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-26T15:17:11+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_CR03_VRUploadedPathConfirmed_SEI1"
+      },
+      "pathology_status_date": {
+        "S": "2016-11-07T18:01:31+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2016-11-07T18:01:31.522"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_CR01_PathAssayDoneVRUploadedToConfirm"
+      },
+      "active_molecular_id": {
+        "S": "PT_CR01_PathAssayDoneVRUploadedToConfirm_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T00:00:00+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-26T00:00:00+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_CR01_PathAssayDoneVRUploadedToConfirm_SEI1"
+      },
+      "assays": {
+        "L": [
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCPTENs"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBAF47s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBRG1s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          }
+        ]
+      },
+      "pathology_status_date": {
+        "S": "2017-01-20T16:09:07+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2017-01-20T16:09:07.293"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_UI04_DtmTsShipped1"
+      },
+      "active_molecular_id": {
+        "S": "PT_UI04_DtmTsShipped1_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T00:00:00+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-25T22:06:33+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_UI04_DtmTsShipped1_SEI1"
+      },
+      "pathology_status_date": {
+        "S": "2017-03-27T12:49:58+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2017-03-27T12:49:58.896"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_AU04_MdaTsShipped1"
+      },
+      "active_molecular_id": {
+        "S": "PT_AU04_MdaTsShipped1_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T00:00:00+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-26T00:00:00+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_AU04_MdaTsShipped1_SEI1"
+      },
+      "pathology_status_date": {
+        "S": "2017-01-10T21:36:05+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2017-01-10T21:36:05.401"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_AU04_MochaTsShipped1"
+      },
+      "active_molecular_id": {
+        "S": "PT_AU04_MochaTsShipped1_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T00:00:00+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-26T00:00:00+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_AU04_MochaTsShipped1_SEI1"
+      },
+      "pathology_status_date": {
+        "S": "2017-01-10T21:47:53+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2017-01-10T21:47:53.570"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_SR10_CompassionateCare"
+      },
+      "active_molecular_id": {
+        "S": "PT_SR10_CompassionateCare_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T15:17:11+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-26T15:17:11+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_SR10_CompassionateCare_SEI1"
+      },
+      "assays": {
+        "L": [
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCPTENs"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBAF47s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          }
+        ]
+      },
+      "pathology_status_date": {
+        "S": "2016-11-15T22:32:36+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2016-11-15T22:32:36.608"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_AS00_SlideShipped4"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      },
+      "received_date": {
+        "S": "2016-04-26T15:17:11+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_AS00_SlideShipped4_SEI1"
+      },
+      "pathology_status_date": {
+        "S": "2016-11-07T17:21:19+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2016-11-07T17:21:19.969"
+      },
+      "collected_date": {
+        "S": "2016-04-25T15:17:11+00:00"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_RA03_NoTaAvailable"
+      },
+      "active_molecular_id": {
+        "S": "PT_RA03_NoTaAvailable_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T15:17:11+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-26T15:17:11+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_RA03_NoTaAvailable_SEI1"
+      },
+      "assays": {
+        "L": [
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCPTENs"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBAF47s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          }
+        ]
+      },
+      "pathology_status_date": {
+        "S": "2016-11-16T01:28:20+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2016-11-16T01:28:20.417"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_AM05_TsVrReceived1"
+      },
+      "active_molecular_id": {
+        "S": "PT_AM05_TsVrReceived1_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T00:00:00+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-25T22:06:33+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_AM05_TsVrReceived1_SEI1"
+      },
+      "assays": {
+        "L": [
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBRG1s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCPTENs"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBAF47s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          }
+        ]
+      },
+      "pathology_status_date": {
+        "S": "2017-02-28T04:41:38+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2017-02-28T04:41:38.243"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_CR05_SpecimenShippedTwice"
+      },
+      "active_molecular_id": {
+        "S": "PT_CR05_SpecimenShippedTwice_MOI2"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T15:17:11+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-26T15:17:11+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_CR05_SpecimenShippedTwice_SEI1"
+      },
+      "pathology_status_date": {
+        "S": "2016-11-07T18:02:39+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2016-11-07T18:02:39.856"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_SR10_ProgressReBioY"
+      },
+      "active_molecular_id": {
+        "S": "PT_SR10_ProgressReBioY_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T15:17:11+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-26T15:17:11+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_SR10_ProgressReBioY_SEI1"
+      },
+      "assays": {
+        "L": [
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCPTENs"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBAF47s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          }
+        ]
+      },
+      "pathology_status_date": {
+        "S": "2016-11-07T16:06:47+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2016-11-07T16:06:47.065"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_RA04a_TsShipped"
+      },
+      "active_molecular_id": {
+        "S": "PT_RA04a_TsShipped_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T15:17:11+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-26T15:17:11+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_RA04a_TsShipped_SEI1"
+      },
+      "assays": {
+        "L": [
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCPTENs"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBAF47s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          }
+        ]
+      },
+      "pathology_status_date": {
+        "S": "2016-11-07T22:05:35+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2016-11-07T22:05:35.859"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_RA04a_TsShipped"
+      },
+      "active_molecular_id": {
+        "S": "PT_RA04a_TsShipped_MOI2"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T15:17:11+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-26T15:17:11+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_RA04a_TsShipped_SEI2"
+      },
+      "pathology_status_date": {
+        "S": "2016-11-07T22:07:15+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2016-11-07T22:07:15.938"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_RA06_OnTreatmentArm"
+      },
+      "active_molecular_id": {
+        "S": "PT_RA06_OnTreatmentArm_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T15:17:11+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-26T15:17:11+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_RA06_OnTreatmentArm_SEI1"
+      },
+      "assays": {
+        "L": [
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCPTENs"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBAF47s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          }
+        ]
+      },
+      "pathology_status_date": {
+        "S": "2016-11-07T20:12:41+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2016-11-07T20:12:41.557"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_OS03_OffStudy1"
+      },
+      "active_molecular_id": {
+        "S": "PT_OS03_OffStudy1_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T00:00:00+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-26T00:00:00+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_OS03_OffStudy1_SEI1"
+      },
+      "assays": {
+        "L": [
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCPTENs"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBAF47s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBRG1s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          }
+        ]
+      },
+      "pathology_status_date": {
+        "S": "2016-12-23T17:12:08+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2016-12-23T17:12:08.080"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_SC04b_PendingApproval"
+      },
+      "active_molecular_id": {
+        "S": "PT_SC04b_PendingApproval_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T00:00:00+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-26T00:00:00+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_SC04b_PendingApproval_SEI1"
+      },
+      "assays": {
+        "L": [
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCPTENs"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBAF47s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBRG1s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          }
+        ]
+      },
+      "pathology_status_date": {
+        "S": "2017-01-04T01:11:10+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2017-01-04T01:11:10.375"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_GVF_RequestNoAssignment"
+      },
+      "active_molecular_id": {
+        "S": "PT_GVF_RequestNoAssignment_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T00:00:00+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-26T00:00:00+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_GVF_RequestNoAssignment_SEI1"
+      },
+      "assays": {
+        "L": [
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCPTENs"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBAF47s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBRG1s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          }
+        ]
+      },
+      "pathology_status_date": {
+        "S": "2017-01-04T00:21:04+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2017-01-04T00:21:04.898"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_SC01c_TsVrUploadedStep2"
+      },
+      "active_molecular_id": {
+        "S": "PT_SC01c_TsVrUploadedStep2_MOI1"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T00:00:00+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-26T00:00:00+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_SC01c_TsVrUploadedStep2_SEI1"
+      },
+      "assays": {
+        "L": [
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCPTENs"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBAF47s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          },
+          {
+            "M": {
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBRG1s"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "result_date": {
+                "S": "2016-05-30T12:11:09.071-05:00"
+              }
+            }
+          }
+        ]
+      },
+      "pathology_status_date": {
+        "S": "2017-01-04T00:22:48+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2017-01-04T00:22:48.187"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_SC01c_TsVrUploadedStep2"
+      },
+      "active_molecular_id": {
+        "S": "PT_SC01c_TsVrUploadedStep2_MOI2"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "collected_date": {
+        "S": "2016-04-25T00:00:00+00:00"
+      },
+      "received_date": {
+        "S": "2016-04-26T00:00:00+00:00"
+      },
+      "surgical_event_id": {
+        "S": "PT_SC01c_TsVrUploadedStep2_SEI2"
+      },
+      "pathology_status_date": {
+        "S": "2017-01-04T00:23:50+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2017-01-04T00:23:50.702"
       },
       "specimen_type": {
         "S": "TISSUE"
