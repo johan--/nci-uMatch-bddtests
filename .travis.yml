@@ -74,14 +74,14 @@ script:
   - ls -alt results
   - rm results/*
   # Get status of run into CURRENT_STATUS. Update STATUS only if it is 0. So failures should be preserved across runs till the end
-#  - |
-#    if [ "$CUC_TAG" == "@treatment_arm" -o "$CUC_TAG" == "@ion_reporter" -o "$CUC_TAG" == "@patients" -o "$CUC_TAG" == "@rules" ]; then
-#      cd uMATCH/PedMATCH
-#      bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P1,$CUC_TAG$P2 --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --expand' -n 2
-#      CURRENT_STATUS=$?
-#      if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
-#      cd ../..
-#    fi
+  - |
+    if [ "$CUC_TAG" == "@treatment_arm" -o "$CUC_TAG" == "@ion_reporter" -o "$CUC_TAG" == "@patients" -o "$CUC_TAG" == "@rules" ]; then
+      cd uMATCH/PedMATCH
+      bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P1,$CUC_TAG$P2 --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --expand' -n 2
+      CURRENT_STATUS=$?
+      if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
+      cd ../..
+    fi
 
   - |
     if [ "$CUC_TAG" == "@ete" ]; then
@@ -139,7 +139,7 @@ script:
   - TRAVIS_TEST_RESULT=$STATUS
 after_success:
   #Run P3 cucumber tests
-#  - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P3 --format json --out ../../results/output-$CUC_TAG$P3-$TEST_ENV_NUMBER.json --expand' -n 2
+  - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P3 --format json --out ../../results/output-$CUC_TAG$P3-$TEST_ENV_NUMBER.json --expand' -n 2
 
   #Run protractor tests
   - cd ../../nci-match-ui-bddtests/
