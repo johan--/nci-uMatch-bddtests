@@ -887,6 +887,20 @@ Then(/^this patient patient_limbos days_pending should be correct$/) do
   expect(actual_duration).to eql expect_duration
 end
 
+Then(/^this patient patient_limbos has_amoi should be "(true|false)"$/) do |has_amoi|
+  expect(@get_response.class).to eql Array
+  this_patient_limbos = @get_response.find { |this_item| this_item['patient_id'] == @patient_id }
+  expect(this_patient_limbos).not_to eql nil
+  expect(this_patient_limbos.keys).to include 'active_tissue_specimen'
+
+  if this_patient_limbos['active_tissue_specimen'].keys.include?('has_amoi')
+    expect(this_patient_limbos['active_tissue_specimen']['has_amoi'].to_s).to eq has_amoi
+  elsif has_amoi == 'true'
+    raise 'Cannot find has_amoi field'
+  end
+
+end
+
 Then(/^there are "([^"]*)" patient action_items have field: "([^"]*)" value: "([^"]*)"$/) do |count, field, value|
   expect(@get_response.class).to eql Array
   expect_result = "There are #{count} matching results"
@@ -1071,7 +1085,7 @@ Then(/^this patient tissue analysis_report should have correct "([^"]*)" file na
       expect(vr['vcf_file_name']).to eq name
       expect(vr['vcf_path_name']).to end_with "/#{name[0..name.size-5]}.vcf"
   end
-  end
+end
 
 Then(/^this patient tissue analysis_report variant field "([^"]*)" should include id "([^"]*)"$/) do |field, id|
   vr = @get_response['variant_report']
@@ -1196,6 +1210,16 @@ Then(/^patient amois should have correct value$/) do
   actual += " #{@get_response['amois'][5]}"
 
   expect(actual).to eql expect
+end
+
+Then(/^returned events should include assay event with biomacker "([^"]*)" result "([^"]*)"$/) do |biomacker, result|
+  expect(@get_response.class).to eq Array
+  assay_events = @get_response.select{|event|
+    event['entity_id'] == @patient_id && event['event_type'] == 'assay'}
+  expect(assay_events.size).to be > 0
+  result = assay_events.select{|event|
+    event['event_data']['assay_result'] == result && event['event_data']['biomarker']==biomacker}
+  expect(result.size).to eq 1
 end
 
 def actual_match_expect(actual, expect)

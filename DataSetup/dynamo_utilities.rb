@@ -21,7 +21,7 @@ class DynamoUtilities
     cmd = cmd + "--endpoint-url #{LOCAL_DB_ENDPOINT} > "
     cmd = cmd + file
     `#{cmd}`
-    LOG.log("Table <#{table_name}> has been exported")
+    LOG.log("Table <#{table_name}> has been exported to #{file}")
   end
 
   ################clear

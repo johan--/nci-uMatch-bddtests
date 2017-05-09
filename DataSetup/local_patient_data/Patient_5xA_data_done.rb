@@ -1086,4 +1086,15 @@ class Patient5xA
     PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
   end
 
+  def self.pt_sc11a_assay_received
+    pt = PatientDataSet.new('PT_SC11a_AssayReceived')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'POSITIVE', 'ICCBRG1s')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'INDETERMINATE', 'ICCBAF47s')
+  end
+
 end
