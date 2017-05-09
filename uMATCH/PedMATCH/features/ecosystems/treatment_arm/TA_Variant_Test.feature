@@ -252,11 +252,11 @@ Feature: TA_VR. Treatment Arm API Tests that focus on Variants
     Then the returned treatment arm has "<variant_type>" variant (id: "<identifier>", field: "variant_type", value: "<variant_type_value>")
     Examples:
       | variant_type | variant_type_value | identifier |
-      | snv          | snv                | id0001     |
-      | snv          | mnv                | id0002     |
+#      | snv          | snv                | id0001     |
+#      | snv          | mnv                | id0002     |
       | id           | ins                | id0003     |
       | id           | del                | id0004     |
-      | id           | indel              | id0005     |
+#      | id           | indel              | id0005     |
       | id           | complex            | id0006     |
       | cnv          | cnv                | id0007     |
       | gf           | fusion             | id0008     |
