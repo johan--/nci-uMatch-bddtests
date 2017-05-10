@@ -491,6 +491,19 @@ Then(/^patient should "(have|not have)" variant report \(analysis_id: "([^"]*)"\
   end
 end
 
+Then(/^patient should "(have|not have)" assignment report \(analysis_id: "([^"]*)"\)$/) do |have, ani|
+  url = "#{ENV['patients_endpoint']}/assignments?analysis_id=#{ani}"
+  response = Patient_helper_methods.get_any_result_from_url(url)
+  expect(response.class).to eq Array
+  case have
+    when 'have'
+      expect(response.size).to eq 1
+    when 'not have'
+      expect(response.size).to eq 0
+    else
+  end
+end
+
 And(/^this variant report field: "([^"]*)" should be "([^"]*)"$/) do |field, value|
   actual_include_expect(@current_variant_report.keys, field)
   convert_value = value=='null' ? nil : value
