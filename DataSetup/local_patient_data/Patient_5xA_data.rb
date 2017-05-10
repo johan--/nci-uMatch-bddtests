@@ -10,7 +10,7 @@ MatchTestDataManager.clear_all_local_tables
 MatchTestDataManager.upload_seed_data_to_local(tag)
 
 Auth0Token.force_generate_auth0_token('ADMIN')
-Patient5xA.upload_patient('PT_SC11a_AssayReceived')
-# Patient5xA.upload_patient('PT_SC02i_PendingApproval')
+# Patient5xA.upload_patient('PT_SC04b_PendingConfirmation')
+Patient5xA.upload_patient('PT_SC04l_PendingConfirmation')
 sleep 10.0
 MatchTestDataManager.backup_local_db(tag)

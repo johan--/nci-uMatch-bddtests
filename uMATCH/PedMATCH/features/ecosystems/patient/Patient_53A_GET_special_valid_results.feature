@@ -206,13 +206,14 @@ Feature: Patient GET service valid special case tests
     Given patient GET service: "patient_limbos", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return
     Then there are "0" patient_limbos have field: "current_status" value: "REGISTRATION"
-    Then there are "0" patient_limbos have field: "current_status" value: "PENDING_CONFIRMATION"
     Then there are "0" patient_limbos have field: "current_status" value: "OFF_STUDY"
     Then there are "0" patient_limbos have field: "current_status" value: "REQUEST_ASSIGNMENT"
     Then there are "0" patient_limbos have field: "current_status" value: "REQUEST_NO_ASSIGNMENT"
     Then there are "0" patient_limbos have field: "current_status" value: "ON_TREATMENT_ARM"
     Then there are "0" patient_limbos have field: "current_status" value: "COMPASSIONATE_CARE"
     Then there are "0" patient_limbos have field: "current_status" value: "NO_TA_AVAILABLE"
+    #new requirement want pending_confirmation shows in limbo as well
+#    Then there are "0" patient_limbos have field: "current_status" value: "PENDING_CONFIRMATION"
     #no bio expired any more
 #    Then there are "0" patient_limbos have field: "current_status" value: "OFF_STUDY_BIOPSY_EXPIRED"
 
@@ -240,6 +241,7 @@ Feature: Patient GET service valid special case tests
       | PT_SC04b_TsShippedTwoAssay   | 2     | BAF47-Variant           | false |
       | PT_SC04b_ThreeAssayNoTs      | 1     | Tissue                  | false |
       | PT_SC04b_ThreeAssayAndTs     | 1     | Variant                 | false |
+      | PT_SC04b_PendingConfirmation | 1     | assignment              | true  |
       | PT_SC04b_PendingApproval     | 1     | approval                | true  |
       | UI_PA09_TsVr52Uploaded       | 2     | confirmed-Slide         | false |
 
@@ -377,6 +379,20 @@ Feature: Patient GET service valid special case tests
     Then this patient patient_limbos field "current_status" should be correct
     Then this patient patient_limbos field "active_tissue_specimen" should be correct
     Then this patient patient_limbos should have "4" messages which contain "Tissue-BAF47-BRG1-PTEN"
+    Then this patient patient_limbos days_pending should be correct
+
+  @patients_p1
+  Scenario: PT_SC04l patient_limbos should update properly after assignment get confirmed
+    Given patient id is "PT_SC04l_PendingConfirmation"
+    And load template assignment report confirm message for analysis id: "PT_SC04l_PendingConfirmation_ANI1"
+    When PUT to MATCH assignment report "confirm" service, response includes "changed successfully to" with code "200"
+    Then patient status should change to "PENDING_APPROVAL"
+    Then patient GET service: "patient_limbos", patient id: "", id: ""
+    When GET from MATCH patient API, http code "200" should return
+    Then there are "1" patient_limbos have field: "patient_id" value: "PT_SC04l_PendingConfirmation"
+    Then this patient patient_limbos field "current_status" should be correct
+    Then this patient patient_limbos field "active_tissue_specimen" should be correct
+    Then this patient patient_limbos should have "1" messages which contain "approval"
     Then this patient patient_limbos days_pending should be correct
 
   @patients_p1
@@ -672,11 +688,11 @@ Feature: Patient GET service valid special case tests
     Then this patient tissue analysis_report variant field "snv_indels" should include id "COSM893754"
     Then this patient tissue analysis_report variant field "snv_indels" should include id "COSM26494"
 
-    @patient_p2
-    Scenario: PT_SC11a assay event should have correct values
-      Given patient id is "PT_SC11a_AssayReceived"
-      And patient GET service: "events", patient id: "", id: ""
-      When GET from MATCH patient API, http code "200" should return
-      Then returned events should include assay event with biomacker "IHC PTEN" result "NEGATIVE"
-      Then returned events should include assay event with biomacker "IHC BRG1" result "POSITIVE"
-      Then returned events should include assay event with biomacker "IHC BAF47" result "INDETERMINATE"
+  @patient_p2
+  Scenario: PT_SC11a assay event should have correct values
+    Given patient id is "PT_SC11a_AssayReceived"
+    And patient GET service: "events", patient id: "", id: ""
+    When GET from MATCH patient API, http code "200" should return
+    Then returned events should include assay event with biomacker "IHC PTEN" result "NEGATIVE"
+    Then returned events should include assay event with biomacker "IHC BRG1" result "POSITIVE"
+    Then returned events should include assay event with biomacker "IHC BAF47" result "INDETERMINATE"
