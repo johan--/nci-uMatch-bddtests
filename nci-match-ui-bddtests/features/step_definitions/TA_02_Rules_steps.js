@@ -34,7 +34,7 @@ module.exports = function () {
         if (subTabName === "Non-Sequencing Assays") {
             taPage.testElement = element (by.css ('div#nonSequencingAssays'))
         } else {
-            var suffix            = exclusionType === 'Inclusion' ? 'Incl' : 'Excl'
+            var suffix            = exclusionType === 'Inclusion' ? 'Incl' : 'Excl';
             var testElementString = taPage.getTablePrefix (subTabName) + suffix;
             console.log (testElementString);
             taPage.testElement = element (by.css ('div#' + testElementString));

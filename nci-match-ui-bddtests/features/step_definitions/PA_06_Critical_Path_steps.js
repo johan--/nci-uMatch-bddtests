@@ -241,6 +241,12 @@ module.exports = function () {
         }).then(callback);
     });
 
+    this.When(/^I click on the "([^"]*)" label/, function (buttonText, callback) {
+        element(by.cssContainingText('label.btn', buttonText)).click().then(function () {
+            browser.waitForAngular();
+        }).then(callback);
+    });
+
     this.Then(/^I "(should( not)?)" see the "(.+?)" button on the VR page$/, function (seeOrNot, _arg1, buttonText, callback) {
         var elementDesc = buttonText === 'REJECT' ? patientPage.rejectReportButton : patientPage.confirmReportButton;
         var status = seeOrNot === 'should';
@@ -303,6 +309,16 @@ module.exports = function () {
     this.When(/^I collect information about the patient amois$/, function (callback) {
         // SAMPLE CALL: /api/v1/patients/UI_PA08_PendingConfirmation/analysis_report_amois/UI_PA08_PendingConfirmation_ANI1
         var url = '/api/v1/patients/' + patientPage.patientId + '/analysis_report_amois/' + patientPage.variantAnalysisId;
+
+        utilities.getRequestWithService('patient', url).then(function (response) {
+            patientPage.responseData = response;
+        }).then(callback);
+    });
+
+
+    this.When(/^I collect information about the patient QC$/, function (callback) {
+        // SAMPLE CALL: /api/v1/patients/UI_PA08_PendingConfirmation/qc_variant_reports/UI_PA08_PendingConfirmation_ANI1
+        var url = '/api/v1/patients/' + patientPage.patientId + '/qc_variant_reports/' + patientPage.variantAnalysisId;
 
         utilities.getRequestWithService('patient', url).then(function (response) {
             patientPage.responseData = response;
@@ -480,6 +496,13 @@ module.exports = function () {
     });
 
     this.Then(/^I can see the selected Treatment arm id "([^"]*)" and stratum "([^"]*)" and version "([^"]*)" in a box with reason$/, function (taId, stratum, version, callback) {
+        if (taId.match(/APEC1621/)) {
+            var start = taId.indexOf('APEC1621') + 'APEC1621'.length
+            taId = taId.slice(start)
+            if (taId.match(/^-/)){
+                taId = taId.slice(1)
+            }
+        }
         var expectedString = 'Selected Treatment Arm: ' + taId + '-' + stratum + ' (' + version + ')';
         expect(patientPage.selectedAssignmentBoxHeader.getText()).to.eventually.eql(expectedString);
         expect(patientPage.selectedAssignmentBoxText.getText())

@@ -108,8 +108,8 @@ var TreatmentArmsPage = function() {
     this.inclusionNHRTable = element.all(by.css('#nonHotspotRulesIncl tr[ng-repeat^="item in filtered"]'));
     this.exclusionNHRTable = element.all(by.css('#nonHotspotRulesExcl tr[ng-repeat^="item in filtered"]'));
 
-    this.actualHeadingIncludedSNVs = element.all(by.css('#snvsMnvsIndelsIncl th'));
-    this.actualHeadingExcludedSNVs = element.all(by.css('#snvsMnvsIndelsExcl th'));
+    this.actualHeadingIncludedSNVs = element.all(by.css('#snvsMnvsIndelsInclGrid th'));
+    this.actualHeadingExcludedSNVs = element.all(by.css('#snvsMnvsIndelsExclGrid th'));
     this.actualHeadingIncludedCNVs = element.all(by.css('#cnvsIncl th'));
     this.actualHeadingExcludedCNVs = element.all(by.css('#cnvsExcl th'));
     this.actualHeadingIncludedGene = element.all(by.css('#geneFusionsIncl th'));
@@ -161,18 +161,18 @@ var TreatmentArmsPage = function() {
     this.expectedRulesSubTabs =
         ['Drugs / Disease', 'SNVs / MNVs / Indels', 'CNVs', 'Gene Fusions', 'Non-Hotspot Rules', 'Non-Sequencing Assays'];
 
-    this.expectedIncludedSNVs     = [ 'Gene', 'ID', 'Chrom', 'Position', 'OCP Ref', 'OCP Alt', 'LOE', 'Lit', 'Variant Type', 'Protein', 'Description' ];
+    this.expectedIncludedSNVs     = [ 'ID', 'Gene', 'Chrom', 'Position', 'OCP Ref', 'OCP Alt', 'LOE', 'Lit', 'Variant Type', 'Protein', 'Description' ];
     this.expectedInclSNVToolTip   = [ 'Chromosome', 'Reference', 'Alternative', 'Level Of Evidence', 'Lit Ref' ];
-    this.expectedExcludedSNVs     = [ 'Gene', 'ID', 'Chrom', 'Position', 'OCP Ref', 'OCP Alt', 'Lit', 'Variant Type', 'Protein', 'Description' ];
+    this.expectedExcludedSNVs     = [ 'ID', 'Gene', 'Chrom', 'Position', 'OCP Ref', 'OCP Alt', 'Lit', 'Variant Type', 'Protein', 'Description' ];
     this.expectedExclSNVToolTip   = [ 'Chromosome', 'Reference', 'Alternative', 'Lit Ref' ];
     this.expectedIncludedCNVs     = [ 'Gene', 'Chrom', 'LOE', 'Lit' ];
     this.expectedInclCNVToolTip   = [ 'Chromosome', 'Level Of Evidence', 'Lit Ref' ];
     this.expectedExcludedCNVs     = [ 'Gene', 'Chrom', 'Lit' ];
     this.expectedExclCNVToolTip   = [ 'Chromosome', 'Lit Ref' ];
-    this.expectedIncludedGene     = [ 'ID', 'LOE', 'Lit' ];
+    this.expectedIncludedGene     = [ 'ID', 'Gene 1', 'Gene 2', 'LOE', 'Lit', 'Description' ];
     this.expectedInclGenToolTip   = [ 'Level Of Evidence', 'Lit Ref' ];
-    this.expectedExcludedGene     = [ 'ID', 'Lit' ];
-    this.expectedExclGenToolTip   = [ 'Lit Ref' ];
+    this.expectedExcludedGene     = [ 'ID', 'Gene 1', 'Gene 2', 'LOE', 'Lit', 'Description' ];
+    this.expectedExclGenToolTip   = [ 'Level Of Evidence', 'Lit Ref' ];
     this.expectedIncludedNHRs     = [ 'Gene', 'Domain Range', 'Domain Name', 'Exon', 'Oncomine Variant Class', 'Function', 'LOE', 'Lit' ];
     this.expectedInclNHRToolTip   = [ 'Level Of Evidence', 'Lit Ref'];
     this.expectedExcludedNHRs     = [ 'Gene', 'Domain Range', 'Domain Name', 'Exon', 'Position', 'Function', 'Lit' ];
@@ -507,7 +507,7 @@ var TreatmentArmsPage = function() {
 
     this.getTablePrefix = function(tabName){
         var prefixMapping = {
-            'SNVs / MNVs / Indels': 'snvsMnvsIndels',
+            'SNVs / MNVs / Indels': 'snvsMnvsIndelsGrid',
             'CNVs': 'cnvs',
             'Gene Fusions': 'geneFusions',
             'Non-Hotspot Rules': 'nonHotspotRules'
