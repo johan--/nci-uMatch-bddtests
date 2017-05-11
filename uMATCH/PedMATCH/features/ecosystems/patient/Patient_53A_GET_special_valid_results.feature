@@ -696,3 +696,14 @@ Feature: Patient GET service valid special case tests
     Then returned events should include assay event with biomacker "IHC PTEN" result "NEGATIVE"
     Then returned events should include assay event with biomacker "IHC BRG1" result "POSITIVE"
     Then returned events should include assay event with biomacker "IHC BAF47" result "INDETERMINATE"
+
+  @patient_p1
+  Scenario: PT_SC11b all events should have required field
+    Given patient GET service: "events", patient id: "", id: ""
+    When GET from MATCH patient API, http code "200" should return
+    Then returned events should have field "entity_id" with "string" value
+    Then returned events should have field "event_date" with "date" value
+    Then returned events should have field "event_type" with "string" value
+    Then returned events should have field "event_message" with "string" value
+    Then returned events should have field "event_data" with "hash" value
+    Then returned event_data should have field "step" with "number" value

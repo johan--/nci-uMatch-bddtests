@@ -100,10 +100,10 @@ Feature: Assay Messages
     Then set patient message field: "reported_date" to value: "<value>"
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
-      | value   | message        |code|
-      |         | can't be blank |403 |
-      | nonDate | date           |400 |
-      | null    | can't be blank |403 |
+      | value   | message        | code |
+      |         | can't be blank | 403  |
+      | nonDate | date           | 400  |
+      | null    | can't be blank | 403  |
 
   @patients_p2
   Scenario Outline: PT_AS07. Assay result with invalid result(other than POSITIVE, NEGATIVE or INDETERMINATE) should fail
@@ -147,9 +147,9 @@ Feature: Assay Messages
     Then set patient message field: "surgical_event_id" to value: "<sei>"
     When POST to MATCH patients service, response includes "<message>" with code "403"
     Examples:
-      | patient_id                    | biomarker | sei                                | message |
-      | PT_AS09_ReqNoAssignment       | ICCPTENs  | PT_AS09_ReqNoAssignment_SEI1       | status  |
-      | PT_AS09_OffStudy              | ICCPTENs  | PT_AS09_OffStudy_SEI1              | status  |
+      | patient_id              | biomarker | sei                          | message |
+      | PT_AS09_ReqNoAssignment | ICCPTENs  | PT_AS09_ReqNoAssignment_SEI1 | status  |
+      | PT_AS09_OffStudy        | ICCPTENs  | PT_AS09_OffStudy_SEI1        | status  |
     #no bio expired any more
 #      | PT_AS09_OffStudyBiopsyExpired | ICCPTENs  | PT_AS09_OffStudyBiopsyExpired_SEI1 | status  |
 #  Scenario: PT_AS09a. Assay result report date is older than order date should fail
@@ -235,7 +235,7 @@ Feature: Assay Messages
   Scenario Outline: PT_AS12a. assay result can be received and updated properly after assignment
     Given patient id is "<patient_id>"
     And load template assay message for this patient
-    Then set patient message field: "surgical_event_id" to value: "<sei>"
+    Then set patient message field: "surgical_event_id" to value: "<patient_id>_SEI1"
     Then set patient message field: "biomarker" to value: "ICCPTENs"
     Then set patient message field: "reported_date" to value: "current"
     Then set patient message field: "result" to value: "POSITIVE"
@@ -255,11 +255,17 @@ Feature: Assay Messages
     And patient active tissue specimen field "ICCPTENs" should be "POSITIVE"
     And patient active tissue specimen field "ICCBAF47s" should be "POSITIVE"
     And patient active tissue specimen field "ICCBRG1s" should be "POSITIVE"
+    Then load template request assignment message for this patient
+    And set patient message field: "rebiopsy" to value: "N"
+    And set patient message field: "step_number" to value: "<step_number>"
+    And patient API user authorization role is "PATIENT_MESSAGE_SENDER"
+    When POST to MATCH patients service, response includes "<message>" with code "<code>"
+    Then patient status should change to "PENDING_CONFIRMATION"
     Examples:
-      | patient_id                  | sei                              | status               |
-      | PT_AS12_PendingConfirmation | PT_AS12_PendingConfirmation_SEI1 | PENDING_CONFIRMATION |
-      | PT_AS12_PendingApproval     | PT_AS12_PendingApproval_SEI1     | PENDING_APPROVAL     |
-      | PT_AS12_OnTreatmentArm      | PT_AS12_OnTreatmentArm_SEI1      | ON_TREATMENT_ARM     |
+      | patient_id                  | status               | step_number | message          | code |
+      | PT_AS12_PendingConfirmation | PENDING_CONFIRMATION | 1.0         | state validation | 403  |
+      | PT_AS12_PendingApproval     | PENDING_APPROVAL     | 1.0         | successful       | 202  |
+      | PT_AS12_OnTreatmentArm      | ON_TREATMENT_ARM     | 2.0         | successful       | 202  |
 
   @patients_p3
   Scenario: PT_AS13. extra key-value pair in the message body should NOT fail

@@ -462,6 +462,14 @@ class Helper_Methods
     return reqDate
   end
 
+  def self.is_date?(string)
+    true if Date.parse(string) rescue false
+  end
+
+  def self.is_number?(string)
+    true if Float(string) rescue false
+  end
+
   def self.s3_list_files(bucket,
       path,
       endpoint='https://s3.amazonaws.com',

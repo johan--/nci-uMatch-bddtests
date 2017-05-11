@@ -1227,12 +1227,55 @@ end
 
 Then(/^returned events should include assay event with biomacker "([^"]*)" result "([^"]*)"$/) do |biomacker, result|
   expect(@get_response.class).to eq Array
-  assay_events = @get_response.select{|event|
-    event['entity_id'] == @patient_id && event['event_type'] == 'assay'}
+  assay_events = @get_response.select { |event|
+    event['entity_id'] == @patient_id && event['event_type'] == 'assay' }
   expect(assay_events.size).to be > 0
-  result = assay_events.select{|event|
-    event['event_data']['assay_result'] == result && event['event_data']['biomarker']==biomacker}
+  result = assay_events.select { |event|
+    event['event_data']['assay_result'] == result && event['event_data']['biomarker']==biomacker }
   expect(result.size).to eq 1
+end
+
+Then(/^returned events should have field "([^"]*)" with "(string|date|number|array|hash)" value$/) do |field, value_type|
+  expect(@get_response.class).to eq Array
+  @get_response.each { |event|
+    expect(event.keys).to include field
+    case value_type
+      when 'string'
+        expect(event[field].class).to eq String
+      when 'date'
+        expect(Helper_Methods.is_date?(event[field])).to be true
+      when 'number'
+        expect(Helper_Methods.is_number?(event[field])).to be true
+      when 'array'
+        expect(event[field].class).to eq Array
+      when 'hash'
+        expect(event[field].class).to eq Hash
+    end
+  }
+end
+
+Then(/^returned event_data should have field "([^"]*)" with "(string|date|number|array|hash)" value$/) do |field, value_type|
+  expect(@get_response.class).to eq Array
+  @get_response.each { |event|
+    expect(event.keys).to include 'event_data'
+    expect(event['event_data'].class).to eq Hash
+    unless event['event_data'].has_key?(field)
+      puts JSON.pretty_generate(event)
+      raise "Expected #{event['event_data'].keys} to include #{field}"
+    end
+    case value_type
+      when 'string'
+        expect(event['event_data'][field].class).to eq String
+      when 'date'
+        expect(Helper_Methods.is_date?(event['event_data'][field])).to be true
+      when 'number'
+        expect(Helper_Methods.is_number?(event['event_data'][field])).to be true
+      when 'array'
+        expect(event['event_data'][field].class).to eq Array
+      when 'hash'
+        expect(event['event_data'][field].class).to eq Hash
+    end
+  }
 end
 
 def actual_match_expect(actual, expect)

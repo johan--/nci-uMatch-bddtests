@@ -10,7 +10,7 @@
                 "L": []
             },
             "gene": {
-                "S": "TSC"
+                "S": "TSC1, TSC2, PIK3R1, PTEN, MTOR, PIK3CA"
             },
             "description": {
                 "S": "LY3023414 in TSC1/TSC2 mutations"

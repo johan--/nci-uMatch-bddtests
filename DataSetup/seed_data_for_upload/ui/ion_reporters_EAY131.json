@@ -1,8 +1,92 @@
 {
-  "ScannedCount": 0,
-  "Count": 0,
+  "Count": 5,
+  "ConsumedCapacity": null,
   "Items": [
-
+    {
+      "ion_reporter_id": {
+        "S": "IR_IGXAW"
+      },
+      "site": {
+        "S": "mocha"
+      },
+      "last_contact": {
+        "S": "2017-02-01 15:08:26.446499"
+      },
+      "study_id": {
+        "S": "EAY131"
+      },
+      "date_ion_reporter_id_created": {
+        "S": "2016-10-12 21:19:36.514328"
+      }
+    },
+    {
+      "ion_reporter_id": {
+        "S": "IR_CFUXR"
+      },
+      "site": {
+        "S": "mda"
+      },
+      "last_contact": {
+        "S": "2017-02-01 15:08:01.446499"
+      },
+      "study_id": {
+        "S": "EAY131"
+      },
+      "date_ion_reporter_id_created": {
+        "S": "2016-10-12 21:19:37.632102"
+      }
+    },
+    {
+      "ion_reporter_id": {
+        "S": "IR_MGH99"
+      },
+      "site": {
+        "S": "mgh"
+      },
+      "last_contact": {
+        "S": "2017-02-01 15:08:25.446499"
+      },
+      "study_id": {
+        "S": "EAY131"
+      },
+      "date_ion_reporter_id_created": {
+        "S": "2016-10-12 21:19:37.632102"
+      }
+    },
+    {
+      "ion_reporter_id": {
+        "S": "IR_YAL02"
+      },
+      "site": {
+        "S": "yale"
+      },
+      "last_contact": {
+        "S": "2017-02-01 15:08:27.446499"
+      },
+      "study_id": {
+        "S": "EAY131"
+      },
+      "date_ion_reporter_id_created": {
+        "S": "2016-10-12 21:19:37.632102"
+      }
+    },
+    {
+      "ion_reporter_id": {
+        "S": "IR_DTM99"
+      },
+      "site": {
+        "S": "dartmouth"
+      },
+      "last_contact": {
+        "S": "2017-02-01 15:08:25.446499"
+      },
+      "study_id": {
+        "S": "EAY131"
+      },
+      "date_ion_reporter_id_created": {
+        "S": "2016-10-12 21:19:37.632102"
+      }
+    }
   ],
-  "ConsumedCapacity": null
+  "ScannedCount": 5
 }
