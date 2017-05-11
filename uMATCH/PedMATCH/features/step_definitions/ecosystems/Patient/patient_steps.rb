@@ -648,25 +648,27 @@ And(/^patient pending assignment report field "([^"]*)" should be "([^"]*)"$/) d
     raise "Expect array returned, actually #{@current_assignment.class.to_s} returned"
   end
 end
-And(/^patient should have variant file received event with file_name "([^"]*)" analysis_id "([^"]*)"$/) do |file_name, ani|
-  url = "#{ENV['patients_endpoint']}/events?entity_id=#{@patient_id}"
-  events = Patient_helper_methods.get_any_result_from_url(url)
-  expect(events.class).to eq Array
-  filtered_events = events.select { |event|
-    event['event_message'].include?('Variant Report file') }
-  filtered_events = filtered_events.select { |event|
-    event['event_data']['file_name']==file_name&&event['event_data']['analysis_id']==ani }
-  expect(filtered_events.size).to eq 1
-end
 
 And(/^patient latest event field "([^"]*)" should be "([^"]*)"$/) do |field, value|
   url = "#{ENV['patients_endpoint']}/events?order=desc&entity_id=#{@patient_id}"
   events = Patient_helper_methods.get_any_result_from_url(url)
   expect(events.class).to eq Array
   expect(events.size).to be > 0
-  lastest_event = events[0]
-  expect(lastest_event.keys).to include field
-  expect(lastest_event[field]).to eq value
+  latest_event = events[0]
+  expect(latest_event.keys).to include field
+  expect(latest_event[field]).to eq value
+end
+
+And(/^patient latest event_data field "([^"]*)" should be "([^"]*)"$/) do |field, value|
+  url = "#{ENV['patients_endpoint']}/events?order=desc&entity_id=#{@patient_id}"
+  events = Patient_helper_methods.get_any_result_from_url(url)
+  expect(events.class).to eq Array
+  expect(events.size).to be > 0
+  latest_event = events[0]
+  expect(latest_event.keys).to include 'event_data'
+  expect(latest_event['event_data'].class).to eq Hash
+  expect(latest_event['event_data'].keys).to include field
+  expect(latest_event['event_data'][field]).to eq value
 end
 
 Given(/^this patient is in mock service lost patient list, service will come back after "([^"]*)" tries$/) do |error_times|
@@ -1257,6 +1259,7 @@ end
 Then(/^returned event_data should have field "([^"]*)" with "(string|date|number|array|hash)" value$/) do |field, value_type|
   expect(@get_response.class).to eq Array
   @get_response.each { |event|
+    puts event['entity_id']
     expect(event.keys).to include 'event_data'
     expect(event['event_data'].class).to eq Hash
     unless event['event_data'].has_key?(field)

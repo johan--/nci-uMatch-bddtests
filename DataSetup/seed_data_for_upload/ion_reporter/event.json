@@ -2545,6 +2545,9 @@
           },
           "molecular_id": {
             "S": "ION_AQ08_CdnaUploaded1_MOI1"
+          },
+          "step": {
+            "S": "1.0"
           }
         }
       },
@@ -2686,6 +2689,9 @@
           },
           "molecular_id": {
             "S": "ION_AQ08_CdnaUploaded2_MOI1"
+          },
+          "step": {
+            "S": "1.0"
           }
         }
       },
