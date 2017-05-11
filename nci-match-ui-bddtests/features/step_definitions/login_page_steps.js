@@ -62,7 +62,7 @@ module.exports = function () {
     });
 
     this.Given(/^I stay logged in as "(.+?)" user$/, function(user_role, callback){
-        var login_credentials = [];
+        var login_credentials;
         login_credentials = utilities.returnValidUserCredentials(user_role);
         var email = login_credentials[0];
         var password = login_credentials[1];
@@ -76,7 +76,7 @@ module.exports = function () {
                 }
             });
         }).then(callback);
-    })
+    });
 
     this.Then(/^I should see the login button$/, function (callback) {
         accessbtn.isPresent().then(function (present) {

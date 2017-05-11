@@ -245,7 +245,7 @@ var Utilities = function () {
         };
 
         if (browser.params.useAuth0) {
-            options['headers'] = headerObject !== undefined ? headerObject : { 'Authorization': browser.idToken }
+            options['headers'] = headerObject !== undefined ? headerObject : { 'Authorization': browser.sysToken }
         }
 
         return req(options).then(function (resp) {
@@ -574,36 +574,43 @@ var Utilities = function () {
 
     this.checkElementArrayisGene = function(elementArray){
         var compare = function(elem){
-            return elem.getAttribute('href').then(function(href){
-                return elem.getText().then(function(geneName){
-                    expect(href).to.eql('http://grch37-cancer.sanger.ac.uk/cosmic/gene/overview?ln=' + geneName );
-                });
+            return elem.getText().then(function (linkText) {
+                if (linkText !== '-'){
+                    return elem.element(by.css('a')).getAttribute('href').then(function(href){
+                        return elem.getText().then(function(geneName){
+                            expect(href).to.eql('http://grch37-cancer.sanger.ac.uk/cosmic/gene/overview?ln=' + geneName );
+                        });
+                    })
+                }
             })
         };
         return elementArray.count().then(function(cnt){
             expect(cnt).to.be.above(0, 'No Gene element found');
             for(var i = 0; i < cnt; i++){
-                compare(elementArray.get(i).element(by.css('a')));
+                compare(elementArray.get(i));
             }
         })
     };
 
     this.checkElementArrayisCosf = function(elementArray){
         var compare = function(elem){
-            return elem.getAttribute('href').then(function(href){
-                return elem.getText().then(function(geneName){
-                    if (geneName.match(/COSF/)){
-                        var startPos = geneName.indexOf('COSF') + 4;
-                        var stopPos = geneName.indexOf('_') === -1 ? 0 : geneName.indexOf('_');
-                        var slice = geneName.slice(startPos, stopPos);
+            return elem.getText().then(function(geneName){
+                if (geneName.match(/COSF/)) {
+                    var startPos = geneName.indexOf ('COSF') + 4;
+                    var stopPos  = geneName.indexOf ('_') === -1 ? geneName.length : geneName.indexOf ('_');
+                    var slice    = geneName.slice (startPos, stopPos);
+                    return elem.element(by.css('a')).getAttribute('href').then(function(href){
                         expect(href).to.eql('http://grch37-cancer.sanger.ac.uk/cosmic/fusion/summary?id=' + slice );
-                    }
-                });
+                    })
+                } else {
+                    return;
+                }
             })
         };
+
         return elementArray.count().then(function(cnt){
             for(var i = 0; i < cnt; i++){
-                compare(elementArray.get(i).element(by.css('a')));
+                compare(elementArray.get(i));
             }
         })
     };

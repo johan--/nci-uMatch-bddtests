@@ -300,6 +300,15 @@ module.exports = function () {
         }).then(callback);
     });
 
+    this.When(/^I collect information about the patient amois$/, function (callback) {
+        // SAMPLE CALL: /api/v1/patients/UI_PA08_PendingConfirmation/analysis_report_amois/UI_PA08_PendingConfirmation_ANI1
+        var url = '/api/v1/patients/' + patientPage.patientId + '/analysis_report_amois/' + patientPage.variantAnalysisId;
+
+        utilities.getRequestWithService('patient', url).then(function (response) {
+            patientPage.responseData = response;
+        }).then(callback);
+    });
+
     this.When(/^I collect information about the assignment$/, function (callback) {
         var url = '/api/v1/patients/' + patientPage.patientId + '/analysis_report/' + patientPage.variantAnalysisId;
 

@@ -91,7 +91,9 @@ module.exports = function () {
         patientPage.downloadTracker.getLocation().then(function(location){
             browser.executeScript('window.scrollTo(' + location.x + ', ' + (location.y - 10) + ')').then(function(){
                 expect(patientPage.downloadTracker.getText()).to.eventually.eql(number.toString())
-            })
+            }).then(function () {
+                browser.sleep(45000);
+            });
         }).then(callback);
     });
 
@@ -123,7 +125,7 @@ module.exports = function () {
 
     this.Then(/^I clear the file from S3 under reporter "([^"]*)", mol_id "([^"]*)", analysis_id "([^"]*)"$/, function(reporter, molecularId, analysisId, callback){
         var bucketName = process.env.UI_HOSTNAME.match('localhost') ? 'pedmatch-dev' : 'pedmatch-int'
-        var folderName = `${reporter}/${molecularId}/${analysisId}`
+        var folderName = reporter + '/' + molecularId + '/' + analysisId;
 
         console.log('Bucket Name: ' + bucketName );
         console.log('Folder Name: ' + folderName );
@@ -141,31 +143,31 @@ module.exports = function () {
             Delete: {
                 Objects: [
                     {
-                        Key: `${folderName}/vcf_sample.zip`,
+                        Key: folderName + '/vcf_sample.zip'
                     },
                     {
-                        Key: `${folderName}/dna_sample.bam`,
+                        Key: folderName + '/dna_sample.bam'
                     },
                     {
-                        Key: `${folderName}/rna_sample.bam`,
+                        Key: folderName + '/rna_sample.bam'
                     },
                     {
-                        Key: `${folderName}/vcf_sample.vcf`,
+                        Key: folderName + '/vcf_sample.vcf'
                     },
                     {
-                        Key: `${folderName}/vcf_sample.tsv`,
+                        Key: folderName + '/vcf_sample.tsv'
                     },
                     {
-                        Key: `${folderName}/rna_sample.bai`,
+                        Key: folderName + '/rna_sample.bai'
                     },
                     {
-                        Key: `${folderName}/dna_sample.bai`,
+                        Key: folderName + '/dna_sample.bai'
                     },
                     {
-                        Key: `${folderName}/cdna_sample.bam`,
+                        Key: folderName + '/cdna_sample.bam'
                     },
                     {
-                        Key: `${folderName}/cdna_sample.bai`,
+                        Key: folderName + '/cdna_sample.bai'
                     }
                 ]
             }
