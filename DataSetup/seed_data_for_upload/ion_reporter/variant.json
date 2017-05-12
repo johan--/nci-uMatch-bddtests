@@ -1,1255 +1,1255 @@
 {
-  "ScannedCount": 16,
-  "Count": 16,
-  "Items": [
-    {
-      "filter": {
-        "S": "PASS"
-      },
-      "analysis_id": {
-        "S": "ION_AQ41_TsVrUploaded_ANI1"
-      },
-      "surgical_event_id": {
-        "S": "ION_AQ41_TsVrUploaded_SEI1"
-      },
-      "driver_gene": {
-        "S": "RET"
-      },
-      "status_date": {
-        "S": "2016-11-07T15:59:45+00:00"
-      },
-      "confirmed": {
-        "BOOL": true
-      },
-      "partner_gene": {
-        "S": "RET"
-      },
-      "partner_read_count": {
-        "N": "1070"
-      },
-      "driver_read_count": {
-        "N": "1070"
-      },
-      "annotation": {
-        "S": "-"
-      },
-      "amois": {
-        "L": [
-          {
-            "M": {
-              "stratum_id": {
-                "S": "100"
-              },
-              "exclusion": {
-                "BOOL": false
-              },
-              "version": {
-                "S": "2015-08-06"
-              },
-              "amoi_status": {
-                "S": "CURRENT"
-              },
-              "treatment_arm_id": {
-                "S": "APEC1621-ETE-C"
-              }
+    "ScannedCount": 16,
+    "Items": [
+        {
+            "identifier": {
+                "S": "TPM3-ALK.T7A20"
+            },
+            "surgical_event_id": {
+                "S": "ION_AQ08_TsVrUploaded2_SEI1"
+            },
+            "patient_id": {
+                "S": "ION_AQ08_TsVrUploaded2"
+            },
+            "driver_read_count": {
+                "N": "1001"
+            },
+            "analysis_id": {
+                "S": "ION_AQ08_TsVrUploaded2_ANI1"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "partner_read_count": {
+                "N": "1001"
+            },
+            "molecular_id": {
+                "S": "ION_AQ08_TsVrUploaded2_MOI1"
+            },
+            "amois": {
+                "L": [
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": false
+                            },
+                            "treatment_arm_id": {
+                                "S": "APEC1621-ETE-A"
+                            },
+                            "amoi_status": {
+                                "S": "CURRENT"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": false
+                            },
+                            "treatment_arm_id": {
+                                "S": "APEC1621-A"
+                            },
+                            "amoi_status": {
+                                "S": "CURRENT"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            }
+                        }
+                    }
+                ]
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "annotation": {
+                "S": "-"
+            },
+            "variant_type": {
+                "S": "fusion"
+            },
+            "status_date": {
+                "S": "2017-03-10T05:36:56+00:00"
+            },
+            "uuid": {
+                "S": "4ad65e1c-029d-4cc2-a59b-03204901cb56"
             }
-          }
-        ]
-      },
-      "molecular_id": {
-        "S": "ION_AQ41_TsVrUploaded_MOI1"
-      },
-      "identifier": {
-        "S": "CCDC6-RET.C1R12.COSF1271"
-      },
-      "uuid": {
-        "S": "694366b9-1185-4010-8b36-0c58d7cdbd8a"
-      },
-      "patient_id": {
-        "S": "ION_AQ41_TsVrUploaded"
-      },
-      "variant_type": {
-        "S": "fusion"
-      }
-    },
-    {
-      "filter": {
-        "S": "PASS"
-      },
-      "analysis_id": {
-        "S": "ION_AQ41_TsVrUploaded_ANI1"
-      },
-      "surgical_event_id": {
-        "S": "ION_AQ41_TsVrUploaded_SEI1"
-      },
-      "driver_gene": {
-        "NULL": true
-      },
-      "status_date": {
-        "S": "2016-11-07T15:59:45+00:00"
-      },
-      "confirmed": {
-        "BOOL": true
-      },
-      "partner_gene": {
-        "NULL": true
-      },
-      "partner_read_count": {
-        "N": "1001"
-      },
-      "driver_read_count": {
-        "N": "1001"
-      },
-      "annotation": {
-        "S": "-"
-      },
-      "amois": {
-        "L": [
-          {
-            "M": {
-              "stratum_id": {
-                "S": "100"
-              },
-              "exclusion": {
-                "BOOL": false
-              },
-              "version": {
-                "S": "2015-08-06"
-              },
-              "amoi_status": {
-                "S": "CURRENT"
-              },
-              "treatment_arm_id": {
-                "S": "APEC1621-ETE-A"
-              }
+        },
+        {
+            "identifier": {
+                "S": "CCDC6-RET.C1R12.COSF1271"
+            },
+            "surgical_event_id": {
+                "S": "ION_SF03_TsVrUploaded_SEI1"
+            },
+            "annotation": {
+                "S": "-"
+            },
+            "partner_gene": {
+                "S": "RET"
+            },
+            "status_date": {
+                "S": "2016-11-07T16:01:11+00:00"
+            },
+            "analysis_id": {
+                "S": "ION_SF03_TsVrUploaded_ANI1"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "partner_read_count": {
+                "N": "1070"
+            },
+            "driver_gene": {
+                "S": "RET"
+            },
+            "molecular_id": {
+                "S": "ION_SF03_TsVrUploaded_MOI1"
+            },
+            "amois": {
+                "L": [
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": false
+                            },
+                            "treatment_arm_id": {
+                                "S": "APEC1621-ETE-C"
+                            },
+                            "amoi_status": {
+                                "S": "CURRENT"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            }
+                        }
+                    }
+                ]
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "patient_id": {
+                "S": "ION_SF03_TsVrUploaded"
+            },
+            "variant_type": {
+                "S": "fusion"
+            },
+            "driver_read_count": {
+                "N": "1070"
+            },
+            "uuid": {
+                "S": "6b73f5ad-260d-4c61-94f0-4e582e328a49"
             }
-          },
-          {
-            "M": {
-              "stratum_id": {
-                "S": "100"
-              },
-              "exclusion": {
-                "BOOL": false
-              },
-              "version": {
-                "S": "2015-08-06"
-              },
-              "amoi_status": {
-                "S": "CURRENT"
-              },
-              "treatment_arm_id": {
-                "S": "APEC1621-A"
-              }
+        },
+        {
+            "identifier": {
+                "S": "CCDC6-RET.C1R12.COSF1271"
+            },
+            "annotation": {
+                "S": "-"
+            },
+            "partner_gene": {
+                "S": "RET"
+            },
+            "status_date": {
+                "S": "2016-11-18T07:08:05+00:00"
+            },
+            "analysis_id": {
+                "S": "ION_AQ42_BdVrUploaded_ANI1"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "partner_read_count": {
+                "N": "1070"
+            },
+            "driver_gene": {
+                "S": "RET"
+            },
+            "molecular_id": {
+                "S": "ION_AQ42_BdVrUploaded_BD_MOI1"
+            },
+            "amois": {
+                "L": [
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": false
+                            },
+                            "treatment_arm_id": {
+                                "S": "APEC1621-ETE-C"
+                            },
+                            "amoi_status": {
+                                "S": "CURRENT"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            }
+                        }
+                    }
+                ]
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "patient_id": {
+                "S": "ION_AQ42_BdVrUploaded"
+            },
+            "variant_type": {
+                "S": "fusion"
+            },
+            "driver_read_count": {
+                "N": "1070"
+            },
+            "uuid": {
+                "S": "0c7cf868-b48d-4e0f-931a-6dd8da80ba2a"
             }
-          }
-        ]
-      },
-      "molecular_id": {
-        "S": "ION_AQ41_TsVrUploaded_MOI1"
-      },
-      "identifier": {
-        "S": "TPM3-ALK.T7A20"
-      },
-      "uuid": {
-        "S": "d2937430-5656-4fb1-9a9c-4237eee12740"
-      },
-      "patient_id": {
-        "S": "ION_AQ41_TsVrUploaded"
-      },
-      "variant_type": {
-        "S": "fusion"
-      }
-    },
-    {
-      "filter": {
-        "S": "PASS"
-      },
-      "analysis_id": {
-        "S": "ION_AQ42_BdVrUploaded_ANI1"
-      },
-      "annotation": {
-        "S": "-"
-      },
-      "driver_gene": {
-        "S": "RET"
-      },
-      "status_date": {
-        "S": "2016-11-18T07:08:05+00:00"
-      },
-      "confirmed": {
-        "BOOL": true
-      },
-      "partner_gene": {
-        "S": "RET"
-      },
-      "partner_read_count": {
-        "N": "1070"
-      },
-      "driver_read_count": {
-        "N": "1070"
-      },
-      "amois": {
-        "L": [
-          {
-            "M": {
-              "stratum_id": {
-                "S": "100"
-              },
-              "exclusion": {
-                "BOOL": false
-              },
-              "version": {
-                "S": "2015-08-06"
-              },
-              "amoi_status": {
-                "S": "CURRENT"
-              },
-              "treatment_arm_id": {
-                "S": "APEC1621-ETE-C"
-              }
+        },
+        {
+            "identifier": {
+                "S": "TPM3-ALK.T7A20"
+            },
+            "surgical_event_id": {
+                "S": "ION_AQ61_VrConfirmed_SEI1"
+            },
+            "patient_id": {
+                "S": "ION_AQ61_VrConfirmed"
+            },
+            "driver_read_count": {
+                "N": "1001"
+            },
+            "analysis_id": {
+                "S": "ION_AQ61_VrConfirmed_ANI1"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "partner_read_count": {
+                "N": "1001"
+            },
+            "molecular_id": {
+                "S": "ION_AQ61_VrConfirmed_MOI1"
+            },
+            "amois": {
+                "L": [
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": false
+                            },
+                            "treatment_arm_id": {
+                                "S": "APEC1621-ETE-A"
+                            },
+                            "amoi_status": {
+                                "S": "CURRENT"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": false
+                            },
+                            "treatment_arm_id": {
+                                "S": "APEC1621-A"
+                            },
+                            "amoi_status": {
+                                "S": "CURRENT"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            }
+                        }
+                    }
+                ]
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "annotation": {
+                "S": "-"
+            },
+            "variant_type": {
+                "S": "fusion"
+            },
+            "status_date": {
+                "S": "2017-05-12T13:38:21+00:00"
+            },
+            "uuid": {
+                "S": "580159c4-b7c2-463e-8786-810b85a9912d"
             }
-          }
-        ]
-      },
-      "molecular_id": {
-        "S": "ION_AQ42_BdVrUploaded_BD_MOI1"
-      },
-      "identifier": {
-        "S": "CCDC6-RET.C1R12.COSF1271"
-      },
-      "uuid": {
-        "S": "0c7cf868-b48d-4e0f-931a-6dd8da80ba2a"
-      },
-      "patient_id": {
-        "S": "ION_AQ42_BdVrUploaded"
-      },
-      "variant_type": {
-        "S": "fusion"
-      }
-    },
-    {
-      "filter": {
-        "S": "PASS"
-      },
-      "analysis_id": {
-        "S": "ION_AQ42_BdVrUploaded_ANI1"
-      },
-      "annotation": {
-        "S": "-"
-      },
-      "driver_gene": {
-        "NULL": true
-      },
-      "status_date": {
-        "S": "2016-11-18T07:08:05+00:00"
-      },
-      "confirmed": {
-        "BOOL": true
-      },
-      "partner_gene": {
-        "NULL": true
-      },
-      "partner_read_count": {
-        "N": "1001"
-      },
-      "driver_read_count": {
-        "N": "1001"
-      },
-      "amois": {
-        "L": [
-          {
-            "M": {
-              "stratum_id": {
-                "S": "100"
-              },
-              "exclusion": {
-                "BOOL": false
-              },
-              "version": {
-                "S": "2015-08-06"
-              },
-              "amoi_status": {
-                "S": "CURRENT"
-              },
-              "treatment_arm_id": {
-                "S": "APEC1621-ETE-A"
-              }
+        },
+        {
+            "identifier": {
+                "S": "TPM3-ALK.T7A20"
+            },
+            "surgical_event_id": {
+                "S": "ION_SF03_TsVrUploaded_SEI1"
+            },
+            "annotation": {
+                "S": "-"
+            },
+            "partner_gene": {
+                "NULL": true
+            },
+            "status_date": {
+                "S": "2016-11-07T16:01:11+00:00"
+            },
+            "analysis_id": {
+                "S": "ION_SF03_TsVrUploaded_ANI1"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "partner_read_count": {
+                "N": "1001"
+            },
+            "driver_gene": {
+                "NULL": true
+            },
+            "molecular_id": {
+                "S": "ION_SF03_TsVrUploaded_MOI1"
+            },
+            "amois": {
+                "L": [
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": false
+                            },
+                            "treatment_arm_id": {
+                                "S": "APEC1621-ETE-A"
+                            },
+                            "amoi_status": {
+                                "S": "CURRENT"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": false
+                            },
+                            "treatment_arm_id": {
+                                "S": "APEC1621-A"
+                            },
+                            "amoi_status": {
+                                "S": "CURRENT"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            }
+                        }
+                    }
+                ]
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "patient_id": {
+                "S": "ION_SF03_TsVrUploaded"
+            },
+            "variant_type": {
+                "S": "fusion"
+            },
+            "driver_read_count": {
+                "N": "1001"
+            },
+            "uuid": {
+                "S": "7259847f-eb2b-469d-a267-453c1d853001"
             }
-          },
-          {
-            "M": {
-              "stratum_id": {
-                "S": "100"
-              },
-              "exclusion": {
-                "BOOL": false
-              },
-              "version": {
-                "S": "2015-08-06"
-              },
-              "amoi_status": {
-                "S": "CURRENT"
-              },
-              "treatment_arm_id": {
-                "S": "APEC1621-A"
-              }
+        },
+        {
+            "identifier": {
+                "S": "TPM3-ALK.T7A20"
+            },
+            "surgical_event_id": {
+                "S": "ION_AQ08_TsVrUploaded1_SEI1"
+            },
+            "patient_id": {
+                "S": "ION_AQ08_TsVrUploaded1"
+            },
+            "driver_read_count": {
+                "N": "1001"
+            },
+            "analysis_id": {
+                "S": "ION_AQ08_TsVrUploaded1_ANI1"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "partner_read_count": {
+                "N": "1001"
+            },
+            "molecular_id": {
+                "S": "ION_AQ08_TsVrUploaded1_MOI1"
+            },
+            "amois": {
+                "L": [
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": false
+                            },
+                            "treatment_arm_id": {
+                                "S": "APEC1621-ETE-A"
+                            },
+                            "amoi_status": {
+                                "S": "CURRENT"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": false
+                            },
+                            "treatment_arm_id": {
+                                "S": "APEC1621-A"
+                            },
+                            "amoi_status": {
+                                "S": "CURRENT"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            }
+                        }
+                    }
+                ]
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "annotation": {
+                "S": "-"
+            },
+            "variant_type": {
+                "S": "fusion"
+            },
+            "status_date": {
+                "S": "2017-03-10T05:36:08+00:00"
+            },
+            "uuid": {
+                "S": "ef82e388-e360-4e6e-8b0d-95f7fc0b47c3"
             }
-          }
-        ]
-      },
-      "molecular_id": {
-        "S": "ION_AQ42_BdVrUploaded_BD_MOI1"
-      },
-      "identifier": {
-        "S": "TPM3-ALK.T7A20"
-      },
-      "uuid": {
-        "S": "35bedabf-9838-48aa-b782-826177b1d2f4"
-      },
-      "patient_id": {
-        "S": "ION_AQ42_BdVrUploaded"
-      },
-      "variant_type": {
-        "S": "fusion"
-      }
-    },
-    {
-      "filter": {
-        "S": "PASS"
-      },
-      "analysis_id": {
-        "S": "ION_AQ43_TsVrUploaded_ANI1"
-      },
-      "surgical_event_id": {
-        "S": "ION_AQ43_TsVrUploaded_SEI1"
-      },
-      "driver_gene": {
-        "S": "RET"
-      },
-      "status_date": {
-        "S": "2016-11-07T16:00:42+00:00"
-      },
-      "confirmed": {
-        "BOOL": true
-      },
-      "partner_gene": {
-        "S": "RET"
-      },
-      "partner_read_count": {
-        "N": "1070"
-      },
-      "driver_read_count": {
-        "N": "1070"
-      },
-      "annotation": {
-        "S": "-"
-      },
-      "amois": {
-        "L": [
-          {
-            "M": {
-              "stratum_id": {
-                "S": "100"
-              },
-              "exclusion": {
-                "BOOL": false
-              },
-              "version": {
-                "S": "2015-08-06"
-              },
-              "amoi_status": {
-                "S": "CURRENT"
-              },
-              "treatment_arm_id": {
-                "S": "APEC1621-ETE-C"
-              }
+        },
+        {
+            "identifier": {
+                "S": "CCDC6-RET.C1R12.COSF1271"
+            },
+            "surgical_event_id": {
+                "S": "ION_FL02_TsVrUploaded_SEI1"
+            },
+            "annotation": {
+                "S": "-"
+            },
+            "partner_gene": {
+                "S": "RET"
+            },
+            "status_date": {
+                "S": "2016-11-07T16:01:40+00:00"
+            },
+            "analysis_id": {
+                "S": "ION_FL02_TsVrUploaded_ANI1"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "partner_read_count": {
+                "N": "1070"
+            },
+            "driver_gene": {
+                "S": "RET"
+            },
+            "molecular_id": {
+                "S": "ION_FL02_TsVrUploaded_MOI1"
+            },
+            "amois": {
+                "L": [
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": false
+                            },
+                            "treatment_arm_id": {
+                                "S": "APEC1621-ETE-C"
+                            },
+                            "amoi_status": {
+                                "S": "CURRENT"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            }
+                        }
+                    }
+                ]
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "patient_id": {
+                "S": "ION_FL02_TsVrUploaded"
+            },
+            "variant_type": {
+                "S": "fusion"
+            },
+            "driver_read_count": {
+                "N": "1070"
+            },
+            "uuid": {
+                "S": "f776e0f1-d858-43c1-a0e8-a54820526154"
             }
-          }
-        ]
-      },
-      "molecular_id": {
-        "S": "ION_AQ43_TsVrUploaded_MOI1"
-      },
-      "identifier": {
-        "S": "CCDC6-RET.C1R12.COSF1271"
-      },
-      "uuid": {
-        "S": "b384e1c6-554e-4ade-9f88-51128bfb16ac"
-      },
-      "patient_id": {
-        "S": "ION_AQ43_TsVrUploaded"
-      },
-      "variant_type": {
-        "S": "fusion"
-      }
-    },
-    {
-      "filter": {
-        "S": "PASS"
-      },
-      "analysis_id": {
-        "S": "ION_AQ43_TsVrUploaded_ANI1"
-      },
-      "surgical_event_id": {
-        "S": "ION_AQ43_TsVrUploaded_SEI1"
-      },
-      "driver_gene": {
-        "NULL": true
-      },
-      "status_date": {
-        "S": "2016-11-07T16:00:42+00:00"
-      },
-      "confirmed": {
-        "BOOL": true
-      },
-      "partner_gene": {
-        "NULL": true
-      },
-      "partner_read_count": {
-        "N": "1001"
-      },
-      "driver_read_count": {
-        "N": "1001"
-      },
-      "annotation": {
-        "S": "-"
-      },
-      "amois": {
-        "L": [
-          {
-            "M": {
-              "stratum_id": {
-                "S": "100"
-              },
-              "exclusion": {
-                "BOOL": false
-              },
-              "version": {
-                "S": "2015-08-06"
-              },
-              "amoi_status": {
-                "S": "CURRENT"
-              },
-              "treatment_arm_id": {
-                "S": "APEC1621-ETE-A"
-              }
+        },
+        {
+            "identifier": {
+                "S": "TPM3-ALK.T7A20"
+            },
+            "annotation": {
+                "S": "-"
+            },
+            "partner_gene": {
+                "NULL": true
+            },
+            "status_date": {
+                "S": "2016-11-18T07:08:05+00:00"
+            },
+            "analysis_id": {
+                "S": "ION_AQ42_BdVrUploaded_ANI1"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "partner_read_count": {
+                "N": "1001"
+            },
+            "driver_gene": {
+                "NULL": true
+            },
+            "molecular_id": {
+                "S": "ION_AQ42_BdVrUploaded_BD_MOI1"
+            },
+            "amois": {
+                "L": [
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": false
+                            },
+                            "treatment_arm_id": {
+                                "S": "APEC1621-ETE-A"
+                            },
+                            "amoi_status": {
+                                "S": "CURRENT"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": false
+                            },
+                            "treatment_arm_id": {
+                                "S": "APEC1621-A"
+                            },
+                            "amoi_status": {
+                                "S": "CURRENT"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            }
+                        }
+                    }
+                ]
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "patient_id": {
+                "S": "ION_AQ42_BdVrUploaded"
+            },
+            "variant_type": {
+                "S": "fusion"
+            },
+            "driver_read_count": {
+                "N": "1001"
+            },
+            "uuid": {
+                "S": "35bedabf-9838-48aa-b782-826177b1d2f4"
             }
-          },
-          {
-            "M": {
-              "stratum_id": {
-                "S": "100"
-              },
-              "exclusion": {
-                "BOOL": false
-              },
-              "version": {
-                "S": "2015-08-06"
-              },
-              "amoi_status": {
-                "S": "CURRENT"
-              },
-              "treatment_arm_id": {
-                "S": "APEC1621-A"
-              }
+        },
+        {
+            "identifier": {
+                "S": "CCDC6-RET.C1R12.COSF1271"
+            },
+            "surgical_event_id": {
+                "S": "ION_AQ61_VrConfirmed_SEI1"
+            },
+            "annotation": {
+                "S": "-"
+            },
+            "partner_gene": {
+                "S": "RET"
+            },
+            "status_date": {
+                "S": "2017-05-12T13:38:21+00:00"
+            },
+            "analysis_id": {
+                "S": "ION_AQ61_VrConfirmed_ANI1"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "partner_read_count": {
+                "N": "1070"
+            },
+            "driver_gene": {
+                "S": "RET"
+            },
+            "molecular_id": {
+                "S": "ION_AQ61_VrConfirmed_MOI1"
+            },
+            "amois": {
+                "L": [
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": false
+                            },
+                            "treatment_arm_id": {
+                                "S": "APEC1621-ETE-C"
+                            },
+                            "amoi_status": {
+                                "S": "CURRENT"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            }
+                        }
+                    }
+                ]
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "patient_id": {
+                "S": "ION_AQ61_VrConfirmed"
+            },
+            "variant_type": {
+                "S": "fusion"
+            },
+            "driver_read_count": {
+                "N": "1070"
+            },
+            "uuid": {
+                "S": "210e606c-f5b0-489d-9a3c-e92be8a3658a"
             }
-          }
-        ]
-      },
-      "molecular_id": {
-        "S": "ION_AQ43_TsVrUploaded_MOI1"
-      },
-      "identifier": {
-        "S": "TPM3-ALK.T7A20"
-      },
-      "uuid": {
-        "S": "6e3435e0-fe16-4a40-a18d-61783f67fbe5"
-      },
-      "patient_id": {
-        "S": "ION_AQ43_TsVrUploaded"
-      },
-      "variant_type": {
-        "S": "fusion"
-      }
-    },
-    {
-      "filter": {
-        "S": "PASS"
-      },
-      "analysis_id": {
-        "S": "ION_SF03_TsVrUploaded_ANI1"
-      },
-      "surgical_event_id": {
-        "S": "ION_SF03_TsVrUploaded_SEI1"
-      },
-      "driver_gene": {
-        "S": "RET"
-      },
-      "status_date": {
-        "S": "2016-11-07T16:01:11+00:00"
-      },
-      "confirmed": {
-        "BOOL": true
-      },
-      "partner_gene": {
-        "S": "RET"
-      },
-      "partner_read_count": {
-        "N": "1070"
-      },
-      "driver_read_count": {
-        "N": "1070"
-      },
-      "annotation": {
-        "S": "-"
-      },
-      "amois": {
-        "L": [
-          {
-            "M": {
-              "stratum_id": {
-                "S": "100"
-              },
-              "exclusion": {
-                "BOOL": false
-              },
-              "version": {
-                "S": "2015-08-06"
-              },
-              "amoi_status": {
-                "S": "CURRENT"
-              },
-              "treatment_arm_id": {
-                "S": "APEC1621-ETE-C"
-              }
+        },
+        {
+            "identifier": {
+                "S": "CCDC6-RET.C1R12.COSF1271"
+            },
+            "surgical_event_id": {
+                "S": "ION_AQ43_TsVrUploaded_SEI1"
+            },
+            "annotation": {
+                "S": "-"
+            },
+            "partner_gene": {
+                "S": "RET"
+            },
+            "status_date": {
+                "S": "2016-11-07T16:00:42+00:00"
+            },
+            "analysis_id": {
+                "S": "ION_AQ43_TsVrUploaded_ANI1"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "partner_read_count": {
+                "N": "1070"
+            },
+            "driver_gene": {
+                "S": "RET"
+            },
+            "molecular_id": {
+                "S": "ION_AQ43_TsVrUploaded_MOI1"
+            },
+            "amois": {
+                "L": [
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": false
+                            },
+                            "treatment_arm_id": {
+                                "S": "APEC1621-ETE-C"
+                            },
+                            "amoi_status": {
+                                "S": "CURRENT"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            }
+                        }
+                    }
+                ]
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "patient_id": {
+                "S": "ION_AQ43_TsVrUploaded"
+            },
+            "variant_type": {
+                "S": "fusion"
+            },
+            "driver_read_count": {
+                "N": "1070"
+            },
+            "uuid": {
+                "S": "b384e1c6-554e-4ade-9f88-51128bfb16ac"
             }
-          }
-        ]
-      },
-      "molecular_id": {
-        "S": "ION_SF03_TsVrUploaded_MOI1"
-      },
-      "identifier": {
-        "S": "CCDC6-RET.C1R12.COSF1271"
-      },
-      "uuid": {
-        "S": "6b73f5ad-260d-4c61-94f0-4e582e328a49"
-      },
-      "patient_id": {
-        "S": "ION_SF03_TsVrUploaded"
-      },
-      "variant_type": {
-        "S": "fusion"
-      }
-    },
-    {
-      "filter": {
-        "S": "PASS"
-      },
-      "analysis_id": {
-        "S": "ION_SF03_TsVrUploaded_ANI1"
-      },
-      "surgical_event_id": {
-        "S": "ION_SF03_TsVrUploaded_SEI1"
-      },
-      "driver_gene": {
-        "NULL": true
-      },
-      "status_date": {
-        "S": "2016-11-07T16:01:11+00:00"
-      },
-      "confirmed": {
-        "BOOL": true
-      },
-      "partner_gene": {
-        "NULL": true
-      },
-      "partner_read_count": {
-        "N": "1001"
-      },
-      "driver_read_count": {
-        "N": "1001"
-      },
-      "annotation": {
-        "S": "-"
-      },
-      "amois": {
-        "L": [
-          {
-            "M": {
-              "stratum_id": {
-                "S": "100"
-              },
-              "exclusion": {
-                "BOOL": false
-              },
-              "version": {
-                "S": "2015-08-06"
-              },
-              "amoi_status": {
-                "S": "CURRENT"
-              },
-              "treatment_arm_id": {
-                "S": "APEC1621-ETE-A"
-              }
+        },
+        {
+            "identifier": {
+                "S": "TPM3-ALK.T7A20"
+            },
+            "surgical_event_id": {
+                "S": "ION_AQ43_TsVrUploaded_SEI1"
+            },
+            "annotation": {
+                "S": "-"
+            },
+            "partner_gene": {
+                "NULL": true
+            },
+            "status_date": {
+                "S": "2016-11-07T16:00:42+00:00"
+            },
+            "analysis_id": {
+                "S": "ION_AQ43_TsVrUploaded_ANI1"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "partner_read_count": {
+                "N": "1001"
+            },
+            "driver_gene": {
+                "NULL": true
+            },
+            "molecular_id": {
+                "S": "ION_AQ43_TsVrUploaded_MOI1"
+            },
+            "amois": {
+                "L": [
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": false
+                            },
+                            "treatment_arm_id": {
+                                "S": "APEC1621-ETE-A"
+                            },
+                            "amoi_status": {
+                                "S": "CURRENT"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": false
+                            },
+                            "treatment_arm_id": {
+                                "S": "APEC1621-A"
+                            },
+                            "amoi_status": {
+                                "S": "CURRENT"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            }
+                        }
+                    }
+                ]
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "patient_id": {
+                "S": "ION_AQ43_TsVrUploaded"
+            },
+            "variant_type": {
+                "S": "fusion"
+            },
+            "driver_read_count": {
+                "N": "1001"
+            },
+            "uuid": {
+                "S": "6e3435e0-fe16-4a40-a18d-61783f67fbe5"
             }
-          },
-          {
-            "M": {
-              "stratum_id": {
-                "S": "100"
-              },
-              "exclusion": {
-                "BOOL": false
-              },
-              "version": {
-                "S": "2015-08-06"
-              },
-              "amoi_status": {
-                "S": "CURRENT"
-              },
-              "treatment_arm_id": {
-                "S": "APEC1621-A"
-              }
+        },
+        {
+            "identifier": {
+                "S": "CCDC6-RET.C1R12.COSF1271"
+            },
+            "surgical_event_id": {
+                "S": "ION_AQ08_TsVrUploaded1_SEI1"
+            },
+            "annotation": {
+                "S": "-"
+            },
+            "partner_gene": {
+                "S": "RET"
+            },
+            "status_date": {
+                "S": "2017-03-10T05:36:08+00:00"
+            },
+            "analysis_id": {
+                "S": "ION_AQ08_TsVrUploaded1_ANI1"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "partner_read_count": {
+                "N": "1070"
+            },
+            "driver_gene": {
+                "S": "RET"
+            },
+            "molecular_id": {
+                "S": "ION_AQ08_TsVrUploaded1_MOI1"
+            },
+            "amois": {
+                "L": [
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": false
+                            },
+                            "treatment_arm_id": {
+                                "S": "APEC1621-ETE-C"
+                            },
+                            "amoi_status": {
+                                "S": "CURRENT"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            }
+                        }
+                    }
+                ]
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "patient_id": {
+                "S": "ION_AQ08_TsVrUploaded1"
+            },
+            "variant_type": {
+                "S": "fusion"
+            },
+            "driver_read_count": {
+                "N": "1070"
+            },
+            "uuid": {
+                "S": "3e3d7042-3c66-4ddf-96ef-65709b01fc46"
             }
-          }
-        ]
-      },
-      "molecular_id": {
-        "S": "ION_SF03_TsVrUploaded_MOI1"
-      },
-      "identifier": {
-        "S": "TPM3-ALK.T7A20"
-      },
-      "uuid": {
-        "S": "7259847f-eb2b-469d-a267-453c1d853001"
-      },
-      "patient_id": {
-        "S": "ION_SF03_TsVrUploaded"
-      },
-      "variant_type": {
-        "S": "fusion"
-      }
-    },
-    {
-      "filter": {
-        "S": "PASS"
-      },
-      "analysis_id": {
-        "S": "ION_FL02_TsVrUploaded_ANI1"
-      },
-      "surgical_event_id": {
-        "S": "ION_FL02_TsVrUploaded_SEI1"
-      },
-      "driver_gene": {
-        "S": "RET"
-      },
-      "status_date": {
-        "S": "2016-11-07T16:01:40+00:00"
-      },
-      "confirmed": {
-        "BOOL": true
-      },
-      "partner_gene": {
-        "S": "RET"
-      },
-      "partner_read_count": {
-        "N": "1070"
-      },
-      "driver_read_count": {
-        "N": "1070"
-      },
-      "annotation": {
-        "S": "-"
-      },
-      "amois": {
-        "L": [
-          {
-            "M": {
-              "stratum_id": {
-                "S": "100"
-              },
-              "exclusion": {
-                "BOOL": false
-              },
-              "version": {
-                "S": "2015-08-06"
-              },
-              "amoi_status": {
-                "S": "CURRENT"
-              },
-              "treatment_arm_id": {
-                "S": "APEC1621-ETE-C"
-              }
+        },
+        {
+            "identifier": {
+                "S": "CCDC6-RET.C1R12.COSF1271"
+            },
+            "surgical_event_id": {
+                "S": "ION_AQ41_TsVrUploaded_SEI1"
+            },
+            "annotation": {
+                "S": "-"
+            },
+            "partner_gene": {
+                "S": "RET"
+            },
+            "status_date": {
+                "S": "2016-11-07T15:59:45+00:00"
+            },
+            "analysis_id": {
+                "S": "ION_AQ41_TsVrUploaded_ANI1"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "partner_read_count": {
+                "N": "1070"
+            },
+            "driver_gene": {
+                "S": "RET"
+            },
+            "molecular_id": {
+                "S": "ION_AQ41_TsVrUploaded_MOI1"
+            },
+            "amois": {
+                "L": [
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": false
+                            },
+                            "treatment_arm_id": {
+                                "S": "APEC1621-ETE-C"
+                            },
+                            "amoi_status": {
+                                "S": "CURRENT"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            }
+                        }
+                    }
+                ]
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "patient_id": {
+                "S": "ION_AQ41_TsVrUploaded"
+            },
+            "variant_type": {
+                "S": "fusion"
+            },
+            "driver_read_count": {
+                "N": "1070"
+            },
+            "uuid": {
+                "S": "694366b9-1185-4010-8b36-0c58d7cdbd8a"
             }
-          }
-        ]
-      },
-      "molecular_id": {
-        "S": "ION_FL02_TsVrUploaded_MOI1"
-      },
-      "identifier": {
-        "S": "CCDC6-RET.C1R12.COSF1271"
-      },
-      "uuid": {
-        "S": "f776e0f1-d858-43c1-a0e8-a54820526154"
-      },
-      "patient_id": {
-        "S": "ION_FL02_TsVrUploaded"
-      },
-      "variant_type": {
-        "S": "fusion"
-      }
-    },
-    {
-      "filter": {
-        "S": "PASS"
-      },
-      "analysis_id": {
-        "S": "ION_FL02_TsVrUploaded_ANI1"
-      },
-      "surgical_event_id": {
-        "S": "ION_FL02_TsVrUploaded_SEI1"
-      },
-      "driver_gene": {
-        "NULL": true
-      },
-      "status_date": {
-        "S": "2016-11-07T16:01:40+00:00"
-      },
-      "confirmed": {
-        "BOOL": true
-      },
-      "partner_gene": {
-        "NULL": true
-      },
-      "partner_read_count": {
-        "N": "1001"
-      },
-      "driver_read_count": {
-        "N": "1001"
-      },
-      "annotation": {
-        "S": "-"
-      },
-      "amois": {
-        "L": [
-          {
-            "M": {
-              "stratum_id": {
-                "S": "100"
-              },
-              "exclusion": {
-                "BOOL": false
-              },
-              "version": {
-                "S": "2015-08-06"
-              },
-              "amoi_status": {
-                "S": "CURRENT"
-              },
-              "treatment_arm_id": {
-                "S": "APEC1621-ETE-A"
-              }
+        },
+        {
+            "identifier": {
+                "S": "CCDC6-RET.C1R12.COSF1271"
+            },
+            "surgical_event_id": {
+                "S": "ION_AQ08_TsVrUploaded2_SEI1"
+            },
+            "annotation": {
+                "S": "-"
+            },
+            "partner_gene": {
+                "S": "RET"
+            },
+            "status_date": {
+                "S": "2017-03-10T05:36:56+00:00"
+            },
+            "analysis_id": {
+                "S": "ION_AQ08_TsVrUploaded2_ANI1"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "partner_read_count": {
+                "N": "1070"
+            },
+            "driver_gene": {
+                "S": "RET"
+            },
+            "molecular_id": {
+                "S": "ION_AQ08_TsVrUploaded2_MOI1"
+            },
+            "amois": {
+                "L": [
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": false
+                            },
+                            "treatment_arm_id": {
+                                "S": "APEC1621-ETE-C"
+                            },
+                            "amoi_status": {
+                                "S": "CURRENT"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            }
+                        }
+                    }
+                ]
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "patient_id": {
+                "S": "ION_AQ08_TsVrUploaded2"
+            },
+            "variant_type": {
+                "S": "fusion"
+            },
+            "driver_read_count": {
+                "N": "1070"
+            },
+            "uuid": {
+                "S": "69188705-331b-4d27-a4c2-789ed3d67980"
             }
-          },
-          {
-            "M": {
-              "stratum_id": {
-                "S": "100"
-              },
-              "exclusion": {
-                "BOOL": false
-              },
-              "version": {
-                "S": "2015-08-06"
-              },
-              "amoi_status": {
-                "S": "CURRENT"
-              },
-              "treatment_arm_id": {
-                "S": "APEC1621-A"
-              }
+        },
+        {
+            "identifier": {
+                "S": "TPM3-ALK.T7A20"
+            },
+            "surgical_event_id": {
+                "S": "ION_FL02_TsVrUploaded_SEI1"
+            },
+            "annotation": {
+                "S": "-"
+            },
+            "partner_gene": {
+                "NULL": true
+            },
+            "status_date": {
+                "S": "2016-11-07T16:01:40+00:00"
+            },
+            "analysis_id": {
+                "S": "ION_FL02_TsVrUploaded_ANI1"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "partner_read_count": {
+                "N": "1001"
+            },
+            "driver_gene": {
+                "NULL": true
+            },
+            "molecular_id": {
+                "S": "ION_FL02_TsVrUploaded_MOI1"
+            },
+            "amois": {
+                "L": [
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": false
+                            },
+                            "treatment_arm_id": {
+                                "S": "APEC1621-ETE-A"
+                            },
+                            "amoi_status": {
+                                "S": "CURRENT"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": false
+                            },
+                            "treatment_arm_id": {
+                                "S": "APEC1621-A"
+                            },
+                            "amoi_status": {
+                                "S": "CURRENT"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            }
+                        }
+                    }
+                ]
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "patient_id": {
+                "S": "ION_FL02_TsVrUploaded"
+            },
+            "variant_type": {
+                "S": "fusion"
+            },
+            "driver_read_count": {
+                "N": "1001"
+            },
+            "uuid": {
+                "S": "1c9b6530-fa80-4550-ab40-a39175b89ff0"
             }
-          }
-        ]
-      },
-      "molecular_id": {
-        "S": "ION_FL02_TsVrUploaded_MOI1"
-      },
-      "identifier": {
-        "S": "TPM3-ALK.T7A20"
-      },
-      "uuid": {
-        "S": "1c9b6530-fa80-4550-ab40-a39175b89ff0"
-      },
-      "patient_id": {
-        "S": "ION_FL02_TsVrUploaded"
-      },
-      "variant_type": {
-        "S": "fusion"
-      }
-    },
-    {
-      "filter": {
-        "S": "PASS"
-      },
-      "analysis_id": {
-        "S": "ION_AQ61_VrConfirmed_ANI1"
-      },
-      "surgical_event_id": {
-        "S": "ION_AQ61_VrConfirmed_SEI1"
-      },
-      "driver_gene": {
-        "S": "RET"
-      },
-      "status_date": {
-        "S": "2017-03-04T16:04:38+00:00"
-      },
-      "confirmed": {
-        "BOOL": true
-      },
-      "partner_gene": {
-        "S": "RET"
-      },
-      "partner_read_count": {
-        "N": "1070"
-      },
-      "driver_read_count": {
-        "N": "1070"
-      },
-      "annotation": {
-        "S": "-"
-      },
-      "amois": {
-        "L": [
-          {
-            "M": {
-              "stratum_id": {
-                "S": "100"
-              },
-              "exclusion": {
-                "BOOL": false
-              },
-              "version": {
-                "S": "2015-08-06"
-              },
-              "amoi_status": {
-                "S": "CURRENT"
-              },
-              "treatment_arm_id": {
-                "S": "APEC1621-ETE-C"
-              }
+        },
+        {
+            "identifier": {
+                "S": "TPM3-ALK.T7A20"
+            },
+            "surgical_event_id": {
+                "S": "ION_AQ41_TsVrUploaded_SEI1"
+            },
+            "annotation": {
+                "S": "-"
+            },
+            "partner_gene": {
+                "NULL": true
+            },
+            "status_date": {
+                "S": "2016-11-07T15:59:45+00:00"
+            },
+            "analysis_id": {
+                "S": "ION_AQ41_TsVrUploaded_ANI1"
+            },
+            "confirmed": {
+                "BOOL": true
+            },
+            "partner_read_count": {
+                "N": "1001"
+            },
+            "driver_gene": {
+                "NULL": true
+            },
+            "molecular_id": {
+                "S": "ION_AQ41_TsVrUploaded_MOI1"
+            },
+            "amois": {
+                "L": [
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": false
+                            },
+                            "treatment_arm_id": {
+                                "S": "APEC1621-ETE-A"
+                            },
+                            "amoi_status": {
+                                "S": "CURRENT"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            }
+                        }
+                    },
+                    {
+                        "M": {
+                            "exclusion": {
+                                "BOOL": false
+                            },
+                            "treatment_arm_id": {
+                                "S": "APEC1621-A"
+                            },
+                            "amoi_status": {
+                                "S": "CURRENT"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            }
+                        }
+                    }
+                ]
+            },
+            "filter": {
+                "S": "PASS"
+            },
+            "patient_id": {
+                "S": "ION_AQ41_TsVrUploaded"
+            },
+            "variant_type": {
+                "S": "fusion"
+            },
+            "driver_read_count": {
+                "N": "1001"
+            },
+            "uuid": {
+                "S": "d2937430-5656-4fb1-9a9c-4237eee12740"
             }
-          }
-        ]
-      },
-      "molecular_id": {
-        "S": "ION_AQ61_VrConfirmed_MOI1"
-      },
-      "identifier": {
-        "S": "CCDC6-RET.C1R12.COSF1271"
-      },
-      "uuid": {
-        "S": "19de729f-ba84-4b4a-b1d6-f019956c63c5"
-      },
-      "patient_id": {
-        "S": "ION_AQ61_VrConfirmed"
-      },
-      "variant_type": {
-        "S": "fusion"
-      }
-    },
-    {
-      "filter": {
-        "S": "PASS"
-      },
-      "surgical_event_id": {
-        "S": "ION_AQ61_VrConfirmed_SEI1"
-      },
-      "amois": {
-        "L": [
-          {
-            "M": {
-              "stratum_id": {
-                "S": "100"
-              },
-              "exclusion": {
-                "BOOL": false
-              },
-              "version": {
-                "S": "2015-08-06"
-              },
-              "amoi_status": {
-                "S": "CURRENT"
-              },
-              "treatment_arm_id": {
-                "S": "APEC1621-ETE-A"
-              }
-            }
-          },
-          {
-            "M": {
-              "stratum_id": {
-                "S": "100"
-              },
-              "exclusion": {
-                "BOOL": false
-              },
-              "version": {
-                "S": "2015-08-06"
-              },
-              "amoi_status": {
-                "S": "CURRENT"
-              },
-              "treatment_arm_id": {
-                "S": "APEC1621-A"
-              }
-            }
-          }
-        ]
-      },
-      "status_date": {
-        "S": "2017-03-04T16:04:38+00:00"
-      },
-      "confirmed": {
-        "BOOL": true
-      },
-      "annotation": {
-        "S": "-"
-      },
-      "partner_read_count": {
-        "N": "1001"
-      },
-      "driver_read_count": {
-        "N": "1001"
-      },
-      "analysis_id": {
-        "S": "ION_AQ61_VrConfirmed_ANI1"
-      },
-      "molecular_id": {
-        "S": "ION_AQ61_VrConfirmed_MOI1"
-      },
-      "identifier": {
-        "S": "TPM3-ALK.T7A20"
-      },
-      "uuid": {
-        "S": "6431e119-798d-4cd6-8a80-14e5073e5c0c"
-      },
-      "patient_id": {
-        "S": "ION_AQ61_VrConfirmed"
-      },
-      "variant_type": {
-        "S": "fusion"
-      }
-    },
-    {
-      "filter": {
-        "S": "PASS"
-      },
-      "surgical_event_id": {
-        "S": "ION_AQ08_TsVrUploaded1_SEI1"
-      },
-      "amois": {
-        "L": [
-          {
-            "M": {
-              "stratum_id": {
-                "S": "100"
-              },
-              "exclusion": {
-                "BOOL": false
-              },
-              "version": {
-                "S": "2015-08-06"
-              },
-              "amoi_status": {
-                "S": "CURRENT"
-              },
-              "treatment_arm_id": {
-                "S": "APEC1621-ETE-A"
-              }
-            }
-          },
-          {
-            "M": {
-              "stratum_id": {
-                "S": "100"
-              },
-              "exclusion": {
-                "BOOL": false
-              },
-              "version": {
-                "S": "2015-08-06"
-              },
-              "amoi_status": {
-                "S": "CURRENT"
-              },
-              "treatment_arm_id": {
-                "S": "APEC1621-A"
-              }
-            }
-          }
-        ]
-      },
-      "status_date": {
-        "S": "2017-03-10T05:36:08+00:00"
-      },
-      "confirmed": {
-        "BOOL": true
-      },
-      "annotation": {
-        "S": "-"
-      },
-      "partner_read_count": {
-        "N": "1001"
-      },
-      "driver_read_count": {
-        "N": "1001"
-      },
-      "analysis_id": {
-        "S": "ION_AQ08_TsVrUploaded1_ANI1"
-      },
-      "molecular_id": {
-        "S": "ION_AQ08_TsVrUploaded1_MOI1"
-      },
-      "identifier": {
-        "S": "TPM3-ALK.T7A20"
-      },
-      "uuid": {
-        "S": "ef82e388-e360-4e6e-8b0d-95f7fc0b47c3"
-      },
-      "patient_id": {
-        "S": "ION_AQ08_TsVrUploaded1"
-      },
-      "variant_type": {
-        "S": "fusion"
-      }
-    },
-    {
-      "filter": {
-        "S": "PASS"
-      },
-      "analysis_id": {
-        "S": "ION_AQ08_TsVrUploaded1_ANI1"
-      },
-      "surgical_event_id": {
-        "S": "ION_AQ08_TsVrUploaded1_SEI1"
-      },
-      "driver_gene": {
-        "S": "RET"
-      },
-      "status_date": {
-        "S": "2017-03-10T05:36:08+00:00"
-      },
-      "confirmed": {
-        "BOOL": true
-      },
-      "partner_gene": {
-        "S": "RET"
-      },
-      "partner_read_count": {
-        "N": "1070"
-      },
-      "driver_read_count": {
-        "N": "1070"
-      },
-      "annotation": {
-        "S": "-"
-      },
-      "amois": {
-        "L": [
-          {
-            "M": {
-              "stratum_id": {
-                "S": "100"
-              },
-              "exclusion": {
-                "BOOL": false
-              },
-              "version": {
-                "S": "2015-08-06"
-              },
-              "amoi_status": {
-                "S": "CURRENT"
-              },
-              "treatment_arm_id": {
-                "S": "APEC1621-ETE-C"
-              }
-            }
-          }
-        ]
-      },
-      "molecular_id": {
-        "S": "ION_AQ08_TsVrUploaded1_MOI1"
-      },
-      "identifier": {
-        "S": "CCDC6-RET.C1R12.COSF1271"
-      },
-      "uuid": {
-        "S": "3e3d7042-3c66-4ddf-96ef-65709b01fc46"
-      },
-      "patient_id": {
-        "S": "ION_AQ08_TsVrUploaded1"
-      },
-      "variant_type": {
-        "S": "fusion"
-      }
-    },
-    {
-      "filter": {
-        "S": "PASS"
-      },
-      "surgical_event_id": {
-        "S": "ION_AQ08_TsVrUploaded2_SEI1"
-      },
-      "amois": {
-        "L": [
-          {
-            "M": {
-              "stratum_id": {
-                "S": "100"
-              },
-              "exclusion": {
-                "BOOL": false
-              },
-              "version": {
-                "S": "2015-08-06"
-              },
-              "amoi_status": {
-                "S": "CURRENT"
-              },
-              "treatment_arm_id": {
-                "S": "APEC1621-ETE-A"
-              }
-            }
-          },
-          {
-            "M": {
-              "stratum_id": {
-                "S": "100"
-              },
-              "exclusion": {
-                "BOOL": false
-              },
-              "version": {
-                "S": "2015-08-06"
-              },
-              "amoi_status": {
-                "S": "CURRENT"
-              },
-              "treatment_arm_id": {
-                "S": "APEC1621-A"
-              }
-            }
-          }
-        ]
-      },
-      "status_date": {
-        "S": "2017-03-10T05:36:56+00:00"
-      },
-      "confirmed": {
-        "BOOL": true
-      },
-      "annotation": {
-        "S": "-"
-      },
-      "partner_read_count": {
-        "N": "1001"
-      },
-      "driver_read_count": {
-        "N": "1001"
-      },
-      "analysis_id": {
-        "S": "ION_AQ08_TsVrUploaded2_ANI1"
-      },
-      "molecular_id": {
-        "S": "ION_AQ08_TsVrUploaded2_MOI1"
-      },
-      "identifier": {
-        "S": "TPM3-ALK.T7A20"
-      },
-      "uuid": {
-        "S": "4ad65e1c-029d-4cc2-a59b-03204901cb56"
-      },
-      "patient_id": {
-        "S": "ION_AQ08_TsVrUploaded2"
-      },
-      "variant_type": {
-        "S": "fusion"
-      }
-    },
-    {
-      "filter": {
-        "S": "PASS"
-      },
-      "analysis_id": {
-        "S": "ION_AQ08_TsVrUploaded2_ANI1"
-      },
-      "surgical_event_id": {
-        "S": "ION_AQ08_TsVrUploaded2_SEI1"
-      },
-      "driver_gene": {
-        "S": "RET"
-      },
-      "status_date": {
-        "S": "2017-03-10T05:36:56+00:00"
-      },
-      "confirmed": {
-        "BOOL": true
-      },
-      "partner_gene": {
-        "S": "RET"
-      },
-      "partner_read_count": {
-        "N": "1070"
-      },
-      "driver_read_count": {
-        "N": "1070"
-      },
-      "annotation": {
-        "S": "-"
-      },
-      "amois": {
-        "L": [
-          {
-            "M": {
-              "stratum_id": {
-                "S": "100"
-              },
-              "exclusion": {
-                "BOOL": false
-              },
-              "version": {
-                "S": "2015-08-06"
-              },
-              "amoi_status": {
-                "S": "CURRENT"
-              },
-              "treatment_arm_id": {
-                "S": "APEC1621-ETE-C"
-              }
-            }
-          }
-        ]
-      },
-      "molecular_id": {
-        "S": "ION_AQ08_TsVrUploaded2_MOI1"
-      },
-      "identifier": {
-        "S": "CCDC6-RET.C1R12.COSF1271"
-      },
-      "uuid": {
-        "S": "69188705-331b-4d27-a4c2-789ed3d67980"
-      },
-      "patient_id": {
-        "S": "ION_AQ08_TsVrUploaded2"
-      },
-      "variant_type": {
-        "S": "fusion"
-      }
-    }
-  ],
-  "ConsumedCapacity": null
+        }
+    ],
+    "ConsumedCapacity": null,
+    "Count": 16
 }
