@@ -15,8 +15,7 @@ Auth0Token.force_generate_auth0_token('ADMIN')
 # Iondata.upload_patient('ION_AQ09_TsShipped')
 # PatientTA.upload_patient('UI_PA09_TsVr52Uploaded')
 # PatientTA.upload_patient('UI_PA08_PendingConfirmation')
-Patient07A.upload_patient('PT_VC18_PendingConfirmation')
-Patient07A.upload_patient('PT_VC18_PendingApproval')
+Patient07A.upload_patient('PT_VC18_PendAppr3Assigns')
 #
 #
 sleep(10.0)

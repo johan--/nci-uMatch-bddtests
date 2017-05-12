@@ -323,6 +323,18 @@ Then(/^patient should have selected treatment arm: "([^"]*)" with stratum id: "(
   actual_match_expect(@current_patient_hash[current_assignment]['stratum_id'], stratum)
 end
 
+And(/^patient should have prior_recommended_treatment_arms: "([^"]*)" with stratum id: "([^"]*)"$/) do |ta_id, stratum|
+  url = "#{ENV['patients_endpoint']}/#{@patient_id}"
+  @current_patient_hash = Patient_helper_methods.get_any_result_from_url(url)
+  if ta_id.length * stratum.length > 0
+    pra = 'prior_recommended_treatment_arms'
+    expect(@current_patient_hash.keys).to include pra
+    expect(@current_patient_hash[pra].class).to eq Array
+    ta = @current_patient_hash[pra].select{|i| i['treatment_arm_id']==ta_id && i['stratum_id'] == stratum}
+    expect(ta.size).to eq 1
+  end
+end
+
 Then(/^patient should have (\d+) blood specimens$/) do |count|
   url = "#{ENV['patients_endpoint']}/#{@patient_id}/specimens?specimen_type=BLOOD"
   @current_specimen = Patient_helper_methods.get_any_result_from_url(url)
@@ -441,7 +453,7 @@ Then(/^patient should have variant report \(analysis_id: "([^"]*)"\)$/) do |ani|
   actual_match_expect(@current_variant_report['analysis_id'], ani)
 end
 
-Then(/^this patient should have assignment for analysis id "([^"]*)"$/) do |ani|
+Then(/^this patient should have "([^"]*)" assignments for analysis id "([^"]*)"$/) do |count, ani|
   url = "#{ENV['patients_endpoint']}/assignments?analysis_id=#{ani}"
   try_time = 0
   while try_time < 9
@@ -452,10 +464,10 @@ Then(/^this patient should have assignment for analysis id "([^"]*)"$/) do |ani|
     sleep 5.0
   end
   if @current_assignment.is_a?(Array)
-    if @current_assignment.length==1
+    if @current_assignment.length==count.to_i
       @current_assignment = @current_assignment[0]
     else
-      raise "Expect 1 variant report returned, actually #{@current_assignment.length} returned"
+      raise "Expect #{count} assignment reports returned, actually #{@current_assignment.length} returned"
     end
   else
     raise "Expect array returned, actually #{@current_assignment.class.to_s} returned"
@@ -497,9 +509,31 @@ Then(/^patient should "(have|not have)" assignment report \(analysis_id: "([^"]*
   expect(response.class).to eq Array
   case have
     when 'have'
-      expect(response.size).to eq 1
+      expect(response.size).to be > 0
     when 'not have'
       expect(response.size).to eq 0
+    else
+  end
+
+  url = "#{ENV['patients_endpoint']}/#{@patient_id}/specimen_events"
+  response = Patient_helper_methods.get_any_result_from_url(url)
+  expect(response.class).to eq Hash
+  assignments = []
+  response['tissue_specimens'].each { |this_specimen|
+    this_specimen['specimen_shipments'].each { |this_shippment|
+      this_shippment['analyses'].each { |this_analysis|
+        if this_analysis['analysis_id'] == ani
+          assignments = this_analysis['assignments']
+          break
+        end
+      }
+    }
+  }
+  case have
+    when 'have'
+      expect(assignments.size).to be > 0
+    when 'not have'
+      expect(assignments.size).to eq 0
     else
   end
 end
