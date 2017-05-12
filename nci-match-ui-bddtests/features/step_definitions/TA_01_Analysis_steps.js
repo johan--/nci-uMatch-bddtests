@@ -35,8 +35,8 @@ module.exports = function () {
         }).then(callback);
     });
 
-    this.Given(/^I grab all the treatment arm ids from the page$/, function(callback){
-        element.all(by.css('span[ng-if="!vm.hasDisplayText()"]')).getText().then(function (taList) {
+    this.Given(/^I grab all the treatment arm stratum ids from the page$/, function(callback){
+        element.all(by.css('span[ng-bind="item.stratum_id | dashify"]')).getText().then(function (taList) {
             displayedTAList = taList;
         }).then(callback);
     });
@@ -131,7 +131,7 @@ module.exports = function () {
         var endCb = function() {
             console.log('CALLED END', count, totalDataCount);
             return assert.eventually.equal(Promise.resolve(count), totalDataCount,
-                "Number of rows collected from all pages should be equal total numbber of data rows");
+                "Number of rows collected from all pages should be equal total number of data rows");
        };
 
         var clickNext = function(cbNext, cbEnd) {

@@ -63,7 +63,7 @@ Feature: MATCHKB-542. Users can upload patient sample files.
         | PT_RA03_NoTaAvailable         | PT_RA03_NoTaAvailable_SEI1            | NO_TA_AVAILABLE                   | invisible   |
 
 
-  @ui_p1
+  @ui_p3
   Scenario: As a privileged user I cannot upload sample file until all validations pass
     Given I am logged in as a "VR_Sender_mda" user
     When I go to patient "ION_AQ02_TsShipped" with surgical event "ION_AQ02_TsShipped_SEI1"

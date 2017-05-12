@@ -38,7 +38,7 @@ Feature: As a valid user I can access the variant report for a patient and navig
     And I can see the columns in "Copy Number Variants" table
     And I can see the columns in "Gene Fusions" table
 
-  @ui_p2
+  @ui_p3
   Scenario: Checking the amois values in the Gene Fusion table of the variant report
     When I go to the patient "UI_PA08_PendingConfirmation" with variant report "UI_PA08_PendingConfirmation_ANI1"
     And I collect information about the patient amois
