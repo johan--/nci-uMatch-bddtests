@@ -177,7 +177,7 @@ var TreatmentArmsPage = function() {
     this.expectedIncludedGene     = [ 'ID', 'Gene 1', 'Gene 2', 'LOE', 'Lit', 'Description' ];
     this.expectedInclGenToolTip   = [ 'Level Of Evidence', 'Lit Ref' ];
     this.expectedExcludedGene     = [ 'ID', 'Gene 1', 'Gene 2', 'Lit', 'Description' ];
-    this.expectedExclGenToolTip   = [ 'Level Of Evidence', 'Lit Ref' ];
+    this.expectedExclGenToolTip   = [ 'Lit Ref' ];
     this.expectedIncludedNHRs     = [ 'Gene', 'Domain Range', 'Domain Name', 'Exon', 'Oncomine Variant Class', 'Function', 'LOE', 'Lit' ];
     this.expectedInclNHRToolTip   = [ 'Level Of Evidence', 'Lit Ref'];
     this.expectedExcludedNHRs     = [ 'Gene', 'Domain Range', 'Domain Name', 'Exon', 'Position', 'Function', 'Lit' ];
@@ -392,7 +392,7 @@ var TreatmentArmsPage = function() {
     this.checkToolTips = function(actualHeading, expectedToolTipArray) {
         var toolTipList = actualHeading.all(by.css('.fa-question-circle'));
         toolTipList.count().then(function(ct){
-            expect(ct).to.eql(expectedToolTipArray.length);
+            expect(ct).to.eql(expectedToolTipArray.length, 'Actual tool tips: ' + expectedToolTipArray);
             for (var i = 0; i < ct; i++){
                 utils.checkAttribute(toolTipList.get(i), 'title', expectedToolTipArray[i]);
             }

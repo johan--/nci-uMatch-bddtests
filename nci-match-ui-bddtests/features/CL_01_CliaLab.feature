@@ -1,7 +1,7 @@
 @clia
 Feature: CLIA Labs Page
 
-  @ui_p1
+  @ui_p3
   Scenario: User can add a variant report to a generated MSN Part 1
     Given I stay logged in as "VR_Sender_mocha" user
     When I navigate to the CLIA Labs page
@@ -46,7 +46,7 @@ Feature: CLIA Labs Page
       | No Template Control        | NTC_MOCHA_KGPVI |
       | Proficiency And Competency | PCC_MOCHA_FDK09 |
 
-  @ui_p1
+  @ui_p3
   Scenario: User can add a variant report to a generated MSN Part 2
     Given I am logged in as a "VR_Sender_mocha" user
     When I navigate to the CLIA Labs page
