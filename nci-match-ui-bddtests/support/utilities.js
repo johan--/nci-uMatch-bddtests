@@ -615,6 +615,15 @@ var Utilities = function () {
         })
     };
 
+    this.stripStudyId = function(taId){
+        if(taId.match(/APEC1621(-)?/)){
+            var len = taId.match(/APEC1621-/)? 9 : 8;
+            return taId.slice(len);
+        } else {
+            return taId;
+        }
+    };
+
     this.delay = delay;
 };
 

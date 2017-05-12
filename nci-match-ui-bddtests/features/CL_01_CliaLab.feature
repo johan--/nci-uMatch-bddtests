@@ -11,7 +11,7 @@ Feature: CLIA Labs Page
     Then I "should not" see a variant report for "SC_MOCHA_6Y4FV" for "Positive Sample Controls" under "MoCha"
     And I call aliquot service with "SC_MOCHA_6Y4FV" as the molecular id
 
-  @ui_p1
+  @ui_p3
   Scenario: User can access information about the uploaded Positive Sample Control report.
     Given I stay logged in as "VR_Sender_mocha" user
     When I navigate to sample control "SC_MOCHA_A2PD6" of type "Positive Sample Controls" under "MoCha"
