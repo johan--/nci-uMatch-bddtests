@@ -220,12 +220,12 @@ module.exports = function () {
         }).then(callback);
     });
 
-    this.When(/^I enter id "(.+?)" and stratum "(.+?)" in the treatment arm filter textbox$/, function (taId, stratumId, callback) {
+    this.When(/^I enter only id "(.+?)" and note stratum "(.+?)" in the treatment arm filter textbox$/, function (taId, stratumId, callback) {
         var searchField = element(by.model('filterAll'));
         currentTreatmentId = taId;
         currentStratumId = stratumId;
 
-        searchField.sendKeys(taId + ' (' + stratumId + ')');
+        searchField.sendKeys(taId);
         browser.sleep(50).then(callback);
     });
 
@@ -237,8 +237,8 @@ module.exports = function () {
         var pendingPatients     = utilities.dashifyIfEmpty(firstTreatmentArm.stratum_statistics.pending_patients);
         var dateExpected = moment.utc(firstTreatmentArm.date_opened).utc().format('LLL');
 
-        expect(element(by.binding('vm.treatmentArmId')).getText()).to.eventually.eql(firstTreatmentArm.treatment_arm_id);
-        expect(element(by.binding('vm.stratumId')).getText()).to.eventually.include(firstTreatmentArm.stratum_id);
+        expect(taPage.treatmentArmIdColumn.get(0).getText()).to.eventually.eql(firstTreatmentArm.treatment_arm_id);
+        expect(taPage.treatmentArmStratumColumn.get(0).getText()).to.eventually.include(firstTreatmentArm.stratum_id);
         expect(element(by.binding('item.stratum_statistics.current_patients')).getText()).to.eventually.eql(currentPatients.toString());
         expect(element(by.binding('item.stratum_statistics.former_patients')).getText()).to.eventually.eql(formerPatients.toString());
         expect(element(by.binding('item.stratum_statistics.not_enrolled_patients')).getText()).to.eventually.eql(notEnrolledPatients.toString());

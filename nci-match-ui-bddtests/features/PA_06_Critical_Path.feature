@@ -2,10 +2,10 @@
 # Created by: Raseel Mohamed
 #  Date: 08/31/2016
 ##
-@ui_p1 @critical
+@critical
 Feature: These are the critical path test cases.
 
-  @demo_p3
+  @ui_p1  @demo_p3
   Scenario: User can can see and click on a variant report and should be able to access the variant report page.
     Given I am logged in as a "VR_Reviewer_mda" user
     When I go to patient "PT_CR04_VRUploadedAssayReceived" details page
@@ -15,12 +15,14 @@ Feature: These are the critical path test cases.
     And I click the variant report link for "PT_CR04_VRUploadedAssayReceived_ANI1"
     Then I can see the variant report page
 
+  @ui_p1
   Scenario: User can see that all the variants are confirmed by default
     Given I stay logged in as "VR_Reviewer_mda" user
     When I go to the patient "PT_CR04_VRUploadedAssayReceived" with variant report "PT_CR04_VRUploadedAssayReceived_ANI1"
     Then I can see the variant report page
     Then I see that all the variant check boxes are selected
 
+  @ui_p1
   Scenario: Variant rejection is not allowed without a comment
     Given I stay logged in as "VR_Reviewer_mda" user
     When I go to the patient "PT_CR04_VRUploadedAssayReceived" with variant report "PT_CR04_VRUploadedAssayReceived_ANI1"
@@ -32,6 +34,7 @@ Feature: These are the critical path test cases.
     Then I "should not" see the confirmation modal pop up
     Then The variant at ordinal "1" is "checked"
 
+  @ui_p1
   Scenario: Variant rejection is allowed if a comment is added and one can still cancel the process.
     Given I stay logged in as "VR_Reviewer_mda" user
     When I go to the patient "PT_CR04_VRUploadedAssayReceived" with variant report "PT_CR04_VRUploadedAssayReceived_ANI1"
@@ -42,6 +45,7 @@ Feature: These are the critical path test cases.
     When I click on the "Cancel" button
     Then The variant at ordinal "1" is "checked"
 
+  @ui_p1
   Scenario: If a variant is rejected the comments are stored and visible on the front end
     Given I stay logged in as "VR_Reviewer_mda" user
     When I go to the patient "PT_CR04_VRUploadedAssayReceived" with variant report "PT_CR04_VRUploadedAssayReceived_ANI1"
@@ -55,6 +59,7 @@ Feature: These are the critical path test cases.
     Then I can see the "This is a comment" in the modal text box
     And I click on the "OK" button
 
+  @ui_p3
   Scenario: User can see all the amois associated with the patient and matches the table
     Given I stay logged in as "VR_Reviewer_mda" user
     When I go to the patient "PT_CR07_RejectVariantReport" with variant report "PT_CR07_RejectVariantReport_ANI1"
@@ -66,6 +71,7 @@ Feature: These are the critical path test cases.
     And I see that the Total Confirmed MOIs match the number of MOIs on the page
 #      And I see that the Total Confirmed aMOIs match the number of aMOIs on the page
 
+  @ui_p1
   Scenario: Rejecting a variant will be noted in the backend and will change the number of confirmed mois
     Given I stay logged in as "VR_Reviewer_mda" user
     When I go to the patient "PT_CR06_RejectOneVariant" with variant report "PT_CR06_RejectOneVariant_ANI1"
@@ -82,6 +88,7 @@ Feature: These are the critical path test cases.
     And I go to the patient "PT_CR06_RejectOneVariant" with variant report "PT_CR06_RejectOneVariant_ANI1"
     Then The total number of confirmed MOI has "decreased" by "1"
 
+  @ui_p1
   Scenario: Confirming a variant report will update the status of the report and also inform the activity feed on both dashboard and patient page.
     Given I stay logged in as "VR_Reviewer_mda" user
     When I go to the patient "PT_CR03_VRUploadedPathConfirmed" with variant report "PT_CR03_VRUploadedPathConfirmed_ANI1"
@@ -102,6 +109,7 @@ Feature: These are the critical path test cases.
     Then The variant report status is marked "CONFIRMED"
     Then I logout
 
+  @ui_p1
   Scenario: Confirmed variant report will not have check boxes enabled
     Given I stay logged in as "VR_Reviewer_mda" user
     When I go to the patient "PT_AS12_PendingConfirmation" with variant report "PT_AS12_PendingConfirmation_ANI1"
@@ -110,6 +118,7 @@ Feature: These are the critical path test cases.
     And I "should not" see the "REJECT" button on the VR page
     And I "should not" see the "CONFIRM" button on the VR page
 
+  @ui_p1
   Scenario: Confirmation of variant report will update the status on the patient as well as on the dashboard timeline
     Given I stay logged in as "VR_Reviewer_mda" user
     When I go to patient "PT_CR03_VRUploadedPathConfirmed" details page
@@ -117,6 +126,7 @@ Feature: These are the critical path test cases.
     When I navigate to the dashboard page
     Then I see the confirmation message in the Dashboard activity feed as "CONFIRMED" for "Analysis ID: PT_CR03_VRUploadedPathConfirmed_ANI1"
 
+  @ui_p1
   Scenario: Rejecting a report will update the status of the report
     Given I stay logged in as "VR_Reviewer_mda" user
     When I go to the patient "PT_CR07_RejectVariantReport" with variant report "PT_CR07_RejectVariantReport_ANI1"
@@ -128,6 +138,7 @@ Feature: These are the critical path test cases.
     Then I "should not" see the confirmation modal pop up
     Then The variant report status is marked "REJECTED"
 
+  @ui_p1
   Scenario: Rejecting a report will disable checkboxes and other buttons to change the status of the report
     Given I stay logged in as "VR_Reviewer_mda" user
     When I go to the patient "PT_CR07_RejectVariantReport" with variant report "PT_CR07_RejectVariantReport_ANI1"
@@ -137,6 +148,7 @@ Feature: These are the critical path test cases.
     And I "should not" see the "REJECT" button on the VR page
     And I "should not" see the "CONFIRM" button on the VR page
 
+  @ui_p1
   Scenario: Rejecting a report will update the patient and dashboard timeline
     Given I stay logged in as "VR_Reviewer_mda" user
     When I go to patient "PT_CR07_RejectVariantReport" details page
@@ -144,6 +156,7 @@ Feature: These are the critical path test cases.
     When I navigate to the dashboard page
     Then I see the confirmation message in the Dashboard activity feed as "REJECTED" for "Analysis ID: PT_CR07_RejectVariantReport_ANI1"
 
+  @ui_p1
   Scenario: Confirming a variant report updates the status to Pending Confirmation if Pathology is present
     Given I stay logged in as "VR_Reviewer_mda" user
     When I go to the patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" with variant report "PT_CR01_PathAssayDoneVRUploadedToConfirm_ANI1"
@@ -157,6 +170,7 @@ Feature: These are the critical path test cases.
     Then I "should" see the patient "Status" as "PENDING_CONFIRMATION"
     Then I logout
 
+  @ui_p1
   Scenario: Assignment link is provided on the Surgical Event Tab
     Given I am logged in as a "AR_Reviewer" user
     When I go to patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" details page
@@ -165,6 +179,7 @@ Feature: These are the critical path test cases.
     When I click on the assignment report link
     Then I can see the assignment report page "Assignment Report - PENDING"
 
+  @ui_p3
   Scenario: Assignment report should provide information regarding the assignment
     Given I stay logged in as "AR_Reviewer" user
     When I go to patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" details page
@@ -178,6 +193,7 @@ Feature: These are the critical path test cases.
     And The Types of Logic is the same as the backend
     And I "should" see the Assignment report "CONFIRM" button
 
+  @ui_p1
   Scenario: Confirming the assignment report updates the status
     Given I stay logged in as "AR_Reviewer" user
     When I go to patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" details page
@@ -195,6 +211,7 @@ Feature: These are the critical path test cases.
     # And I "should" see the patient "Stratum Id" as "100"
     # And I "should" see the patient "Version" as "2015-08-06"
 
+  @ui_p1
   Scenario: Confirmed Assignment Report updates information on the Assignment report section of the patient
     Given I stay logged in as "AR_Reviewer" user
     When I go to patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" details page
@@ -204,6 +221,7 @@ Feature: These are the critical path test cases.
     Then I can see more new top level details about assignment report
     Then I logout
 
+  @ui_p1
   Scenario: As a privileged Dartmouth Sender I can upload a sample file
     Given I clear the file from S3 under reporter "IR_DTM00", mol_id "PT_UI04_DtmTsShipped1_MOI1", analysis_id "PT_UI04_DtmTsShipped1_An123"
     And I am logged in as a "VR_Sender_dartmouth" user

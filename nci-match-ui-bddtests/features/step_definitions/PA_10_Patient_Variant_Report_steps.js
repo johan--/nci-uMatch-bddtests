@@ -248,84 +248,84 @@ module.exports = function () {
             switch (columnName) {
                 case 'identifier':
                     body.all(by.css('cosmic-link[link-id="item.identifier"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort());
+                        expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
                     }).then(callback);
                     break;
 
                 case 'chromosome':
                     body.all(by.css('[ng-bind="item.chromosome | dashify"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort());
+                        expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
                     }).then(callback);
                     break;
 
                 case 'position':
                     body.all(by.css('[ng-bind="item.position | dashify"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort());
+                        expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
                     }).then(callback);
                     break;
 
                 case 'ocp_reference':
                     body.all(by.css('[ng-bind="item.ocp_reference | dashify"')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort());
+                        expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
                     }).then(callback);
                     break;
 
                 case 'ocp_alternative':
                     body.all(by.css('[ng-bind="item.ocp_alternative | dashify"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort());
+                        expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
                     }).then(callback);
                     break;
 
                 case 'allele_frequency':
                     body.all(by.css('[ng-bind="item.allele_frequency | dashify"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort());
+                        expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
                     }).then(callback);
                     break;
 
                 case 'read_depth':
                     body.all(by.css('[ng-bind="item.read_depth | dashify"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort());
+                        expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
                     }).then(callback);
                     break;
 
                 case 'func_gene':
                     body.all(by.css('cosmic-link[link-id="item.func_gene"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort());
+                        expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
                     }).then(callback);
                     break;
 
                 case 'transcript':
                     body.all(by.css('[ng-bind="item.transcript | dashify"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort());
+                        expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
                     }).then(callback);
                     break;
 
                 case 'hgvs':
                     body.all(by.css('[ng-bind="item.hgvs | dashify"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort());
+                        expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
                     }).then(callback);
                     break;
 
                 case 'protein':
                     body.all(by.css('[ng-bind="item.protein | dashify"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort());
+                        expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
                     }).then(callback);
                     break;
                 case 'exon':
                     body.all(by.css('[ng-bind="item.exon | dashify"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort());
+                        expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
                     }).then(callback);
                     break;
 
                 case 'oncomine_variant_class':
                     body.all(by.css('[ng-bind="item.oncomine_variant_class | dashify"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort());
+                        expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
                     }).then(callback);
                     break;
 
                 case 'function':
                     body.all(by.css('[ng-bind="item.function | dashify"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort());
+                        expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
                     }).then(callback);
                     break;
 

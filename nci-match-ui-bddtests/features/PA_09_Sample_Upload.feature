@@ -1,8 +1,8 @@
-@ui_p1
+
 Feature: MATCHKB-542. Users can upload patient sample files.
   The user is able to upload a large sample file, such as BAM file.
   A file can be as large as 20 GB or more.
-
+  @ui_p1
   Scenario: As a privileged MDA Sender I can upload a sample file
     Given I clear the file from S3 under reporter "IR_MDA05", mol_id "PT_AU04_MdaTsShipped1_MOI1", analysis_id "PT_AU04_MdaTsShipped1_An123"
     And I am logged in as a "VR_Sender_mda" user
@@ -27,7 +27,7 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     And I scroll to the top of the page
     And I can see the "3" Sample File upload process has started
     Then I logout
-
+  @ui_p1
   Scenario Outline: As a <site> user I can select only the same kind of IR user
     Given I am logged in as a "<user>" user
     When I go to patient "<patient_id>" with surgical event "<surgical_event_id>"
@@ -42,7 +42,7 @@ Feature: MATCHKB-542. Users can upload patient sample files.
       | user                | patient_id               | surgical_event_id            | site  |
       | VR_Sender_mocha     | PT_AU04_MochaTsShipped1  | PT_AU04_MochaTsShipped1_SEI1 | mocha |
       | VR_Sender_mda       | PT_AU04_MdaTsShipped1    | PT_AU04_MdaTsShipped1_SEI1   | mda   |
-
+  @ui_p3
   Scenario Outline: As Sender type user, link to upload is <visibility> to a patient of status <status>
     Given I stay logged in as "VR_Sender_mda" user
     When I go to patient "<patient_id>" with surgical event "<surgical_event_id>"
@@ -63,7 +63,7 @@ Feature: MATCHKB-542. Users can upload patient sample files.
         | PT_RA03_NoTaAvailable         | PT_RA03_NoTaAvailable_SEI1            | NO_TA_AVAILABLE                   | invisible   |
 
 
-
+  @ui_p1
   Scenario: As a privileged user I cannot upload sample file until all validations pass
     Given I am logged in as a "VR_Sender_mda" user
     When I go to patient "ION_AQ02_TsShipped" with surgical event "ION_AQ02_TsShipped_SEI1"

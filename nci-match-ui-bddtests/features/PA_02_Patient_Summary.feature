@@ -22,7 +22,7 @@ Feature: Patient Summary Page
     And I should see the patient's disease information table
     And I should see the main tabs associated with the patient
 
-  @ui_p2
+  @ui_p3
   Scenario: I can see the details within the Summary tab of the patient
     When I go to patient "PT_CR02_OnTreatmentArm" details page
     And I collect the patient Api Information
@@ -40,19 +40,19 @@ Feature: Patient Summary Page
     And I should see the "Patient Timeline" section heading
     And I should see a message "COG Message: Patient is deceased." in the timeline
 
-  @ui_p2
-  Scenario Outline: Patient with status "<status>"" <see_or_not> show TA
+  @ui_p3
+  Scenario Outline: Patient with status "<status>" <see_or_not> show TA
     When I go to patient "<patient>" details page
 #    When His status is "<status>"
     Then I "<see_or_not>" see a Treatment Arm selected for the patient
 
     Examples:
       | patient                       | status                          | see_or_not |
-      | ION_AQ03_BdShipped            | REGISTRATION                    | should not |
+      | PT_CR08_BloodSpecimenUploaded | REGISTRATION                    | should not |
       | PT_AU03_SlideShipped0         | TISSUE_SLIDE_SPECIMEN_SHIPPED   | should not |
       | PT_RA03_TsShipped             | TISSUE_NUCLEIC_ACID_SHIPPED     | should not |
       | PT_AS08_TissueReceived        | TISSUE_SPECIMEN_RECEIVED        | should not |
-      | ION_AQ08_TsVrUploaded1        | TISSUE_VARIANT_REPORT_RECEIVED  | should not |
+      | PT_AM05_TsVrReceived1         | TISSUE_VARIANT_REPORT_RECEIVED  | should not |
       | PT_AS12_VrConfirmed           | TISSUE_VARIANT_REPORT_CONFIRMED | should not |
       | PT_AM01_TsVrReceived1         | ASSAY_RESULTS_RECEIVED          | should not |
       | PT_AS09_OffStudy              | OFF_STUDY                       | should not |

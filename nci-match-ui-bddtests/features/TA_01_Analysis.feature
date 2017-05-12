@@ -9,7 +9,7 @@ Feature: Treatment Arms Dashboard
     Given I stay logged in as "read_only" user
 
 
-  @ui_p2
+  @ui_p3
   Scenario: A User can access the Treatment Arms list page
     Given I navigate to the treatment-arms page
     Then I should see the Treatment Arms Title
@@ -17,7 +17,7 @@ Feature: Treatment Arms Dashboard
     And I should see treatment-arms table
     And I should see the headings in the table
     And I should see data in the table
-    When I enter id "APEC1621-UI" and stratum "STR100" in the treatment arm filter textbox
+    When I enter only id "APEC1621-UI" and note stratum "STR100" in the treatment arm filter textbox
     And I collect backend information about the treatment arm
     And I should see the data maps to the relevant column
 

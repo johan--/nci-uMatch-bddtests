@@ -50,7 +50,7 @@ Feature: Treatment Arm Rules
     Then I see that the element with css "<cssSelector>" is a "<linkType>" link
     Examples:
       | subTabName            | columnName | inclusionType | cssSelector                            | linkType |
-      | SNVs / MNVs / Indels  | ID         | Inclusion     | cosmic-link[link-id="item.identifier"] | Cosmic   |
+#      | SNVs / MNVs / Indels  | ID         | Inclusion     | cosmic-link[link-id="item.identifier"] | Cosmic   |
       | CNVs                  | Gene       | Inclusion     | cosmic-link[link-id="item.identifier"] | Gene     |
       | Non-Hotspot Rules     | Gene       | Inclusion     | cosmic-link[link-id="item.func_gene"]  | Gene     |
       | Gene Fusions          | ID         | Inclusion     | cosmic-link[link-id="item.identifier"] | Cosf     |
@@ -65,7 +65,7 @@ Feature: Treatment Arm Rules
     Then I see that the elements in the column "Gene" for table "<subTabName>" and "Exclusion" is a gene
     Examples:
       | subTabName            |
-      | SNVs / MNVs / Indels  |
+#      | SNVs / MNVs / Indels  |
       | CNVs                  |
       | Non-Hotspot Rules     |
       | Gene Fusions          |

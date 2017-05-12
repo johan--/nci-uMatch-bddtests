@@ -77,12 +77,12 @@ module.exports = function () {
         var columnIndex;
         switch(variant) {
             case 'SNVs / MNVs / Indels':
-                idString = variantType === 'Inclusion' ? 'snvsMnvsIndelsIncl' : 'snvsMnvsIndelsExcl'
+                idString = variantType === 'Inclusion' ? 'snvsMnvsIndelsInclGrid' : 'snvsMnvsIndelsExclGrid';
                 expectedHeadings = variantType === 'Inclusion' ? taPage.expectedIncludedSNVs : taPage.expectedExcludedSNVs
                 break;
 
              case 'CNVs':
-                idString = variantType === 'Inclusion' ? 'cnvsIncl' : 'cnvsExcl'
+                idString = variantType === 'Inclusion' ? 'cnvsIncl' : 'cnvsExcl';
                 expectedHeadings = variantType === 'Inclusion' ? taPage.expectedIncludedCNVs : taPage.expectedExcludedCNVs
                 break;
         }
@@ -226,7 +226,9 @@ module.exports = function () {
                 expectedHeadings = inclusionType === 'Inclusion' ? taPage.expectedIncludedSNVs : taPage.expectedExcludedSNVs;
                 expectedToolTips = inclusionType === 'Inclusion' ? taPage.expectedInclSNVToolTip : taPage.expectedExclSNVToolTip;
 
-                expect(actualTableHeadings.getText()).to.eventually.eql(expectedHeadings);
+                actualTableHeadings.getText().then(function(actualArr){
+                    expect(actualArr).to.eql(expectedHeadings, "Expected: " + expectedHeadings + '\nActual: ' + actualArr);
+                });
 
                 tableType = inclusionType === 'Inclusion' ? taPage.inclusionsnvTable : taPage.exclusionsnvTable;
                 taPage.checkToolTips(actualTableHeadings, expectedToolTips);
@@ -237,7 +239,9 @@ module.exports = function () {
                 expectedHeadings = inclusionType === 'Inclusion' ? taPage.expectedIncludedCNVs : taPage.expectedExcludedCNVs;
                 expectedToolTips = inclusionType === 'Inclusion' ? taPage.expectedInclCNVToolTip : taPage.expectedExclCNVToolTip;
 
-                expect(actualTableHeadings.getText()).to.eventually.eql(expectedHeadings);
+                actualTableHeadings.getText().then(function(actualArr){
+                    expect(actualArr).to.eql(expectedHeadings, "Expected: " + expectedHeadings + '\nActual: ' + actualArr);
+                });
 
                 tableType = inclusionType === 'Inclusion' ? taPage.inclusioncnvTable : taPage.exclusioncnvTable;
                 taPage.checkToolTips(actualTableHeadings, expectedToolTips);
@@ -248,7 +252,9 @@ module.exports = function () {
                 expectedHeadings = inclusionType === 'Inclusion' ? taPage.expectedIncludedGene : taPage.expectedExcludedGene;
                 expectedToolTips = inclusionType === 'Inclusion' ? taPage.expectedInclGenToolTip : taPage.expectedExclGenToolTip;
 
-                expect(actualTableHeadings.getText()).to.eventually.eql(expectedHeadings);
+                actualTableHeadings.getText().then(function(actualArr){
+                    expect(actualArr).to.eql(expectedHeadings, "Expected: " + expectedHeadings + '\nActual: ' + actualArr);
+                });
 
                 tableType = inclusionType === 'Inclusion' ? taPage.inclusionGeneTable : taPage.exclusionGeneTable;
                 taPage.checkToolTips(actualTableHeadings, expectedToolTips);
@@ -259,7 +265,9 @@ module.exports = function () {
                 expectedHeadings = inclusionType === 'Inclusion' ? taPage.expectedIncludedNHRs : taPage.expectedExcludedNHRs;
                 expectedToolTips = inclusionType === 'Inclusion' ? taPage.expectedInclNHRToolTip : taPage.expectedExclNHRToolTip;
 
-                expect(actualTableHeadings.getText()).to.eventually.eql(expectedHeadings);
+                actualTableHeadings.getText().then(function(actualArr){
+                    expect(actualArr).to.eql(expectedHeadings, "Expected: " + expectedHeadings + '\nActual: ' + actualArr);
+                });
 
                 tableType = inclusionType === 'Inclusion' ? taPage.inclusionNHRTable : taPage.exclusionNHRTable;
                 taPage.checkToolTips(actualTableHeadings, expectedToolTips);
@@ -276,7 +284,9 @@ module.exports = function () {
         var expectedHeadings = taPage.expectedNonSequenceArray;
         var expectedToopTips = taPage.expectedNonSeqArrToolTip;
         taPage.checkToolTips(actualTableHeadings, expectedToopTips);
-        expect(actualTableHeadings.getText()).to.eventually.eql(expectedHeadings);
+        actualTableHeadings.getText().then(function(actualArr){
+            expect(actualArr).to.eql(expectedHeadings, "Expected: " + expectedHeadings + '\nActual: ' + actualArr);
+        });
         taPage.checkAssayResultsTable(data, repeater);
         browser.sleep(50).then(callback);
     });
