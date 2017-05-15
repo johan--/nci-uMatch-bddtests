@@ -970,6 +970,18 @@ class Patient5xA
     PatientMessageLoader.assignment_confirmed(pt.id, pt.ani,'Assignment 3')
   end
 
+  def self.pt_sc07e_five_assay
+    pt = PatientDataSet.new('PT_SC07e_FiveAssay')
+    PatientMessageLoader.register_patient(pt.id)
+    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
+    PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs', '2017-02-11T22:05:33+00:00')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBAF47s', '2017-02-12T22:05:33+00:00')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'POSITIVE', 'ICCPTENs', '2017-02-13T22:05:33+00:00')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'INDETERMINATE', 'ICCBRG1s', '2017-02-14T22:05:33+00:00')
+    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBRG1s', '2017-02-15T22:05:33+00:00')
+  end
+
   def self.pt_sc08_ts_vr_uploaded_twice
     pt = PatientDataSet.new('PT_SC08_TsVrUploadedTwice')
     PatientMessageLoader.register_patient(pt.id)

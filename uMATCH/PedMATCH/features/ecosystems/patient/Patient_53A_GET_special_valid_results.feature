@@ -295,10 +295,11 @@ Feature: Patient GET service valid special case tests
     Then this patient patient_limbos field "active_tissue_specimen" should be correct
     Then this patient patient_limbos should have "<count>" messages which contain "<messages>"
     Then this patient patient_limbos days_pending should be correct
+    Then this patient patient_limbos has_amoi should be "<amoi>"
     Examples:
-      | patient_id             | confirm | status                          | count | messages        |
-      | PT_SC04e_TsVrUploaded1 | confirm | TISSUE_VARIANT_REPORT_CONFIRMED | 3     | PTEN-BAF47-BRG1 |
-      | PT_SC04e_TsVrUploaded2 | reject  | TISSUE_VARIANT_REPORT_REJECTED  | 4     | variant         |
+      | patient_id             | confirm | status                          | count | messages        | amoi  |
+      | PT_SC04e_TsVrUploaded1 | confirm | TISSUE_VARIANT_REPORT_CONFIRMED | 3     | PTEN-BAF47-BRG1 | true  |
+      | PT_SC04e_TsVrUploaded2 | reject  | TISSUE_VARIANT_REPORT_REJECTED  | 4     | variant         | false |
 
   @patients_p1
   Scenario Outline: PT_SC04f patient_limbos should update properly after new tissue specimen is received
@@ -620,6 +621,25 @@ Feature: Patient GET service valid special case tests
     Then this patient tissue specimen_events analyses "PT_SC07d_TsVrUploaded_ANI1" should have correct "dna" file names: "dna.bam"
     Then this patient tissue specimen_events analyses "PT_SC07d_TsVrUploaded_ANI1" should have correct "cdna" file names: "cdna.bam"
     Then this patient tissue specimen_events analyses "PT_SC07d_TsVrUploaded_ANI1" should have correct "vcf" file names: "test1.vcf"
+
+  Scenario: PT_SC07e specimen_events should display assay history in correct order
+    Given patient GET service: "specimen_events", patient id: "PT_SC07e_FiveAssay", id: ""
+    When GET from MATCH patient API, http code "200" should return
+    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "1" field "result_date" should be "2017-02-15T22:05:33+00:00"
+    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "1" field "result" should be "NEGATIVE"
+    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "1" field "biomarker" should be "ICCBRG1s"
+    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "2" field "result_date" should be "2017-02-14T22:05:33+00:00"
+    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "2" field "result" should be "INDETERMINATE"
+    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "2" field "biomarker" should be "ICCBRG1s"
+    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "3" field "result_date" should be "2017-02-13T22:05:33+00:00"
+    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "3" field "result" should be "POSITIVE"
+    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "3" field "biomarker" should be "ICCPTENs"
+    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "4" field "result_date" should be "2017-02-12T22:05:33+00:00"
+    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "4" field "result" should be "NEGATIVE"
+    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "4" field "biomarker" should be "ICCBAF47s"
+    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "5" field "result_date" should be "2017-02-11T22:05:33+00:00"
+    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "5" field "result" should be "NEGATIVE"
+    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "5" field "biomarker" should be "ICCPTENs"
 
   @patients_p3
   Scenario Outline: PT_SC08a variant report can be downloaded properly

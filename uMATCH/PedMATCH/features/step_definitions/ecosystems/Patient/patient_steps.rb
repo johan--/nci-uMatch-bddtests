@@ -1111,6 +1111,21 @@ Then(/^this patient tissue specimen_events analyses "([^"]*)" should have correc
   end
 end
 
+
+Then(/^this patient tissue specimen_events specimen "([^"]*)" assays number "([^"]*)" field "([^"]*)" should be "([^"]*)"$/) do |sei, order, field, value|
+  has_result = false
+  @get_response['tissue_specimens'].each { |this_specimen|
+     if this_specimen['surgical_event_id'] == sei
+       has_result = true
+       assays = this_specimen['assays']
+       expect(assays[order.to_i-1][field]).to eq value
+     end
+  }
+  unless has_result
+    raise "Cannot find specimen with molecular id #{moi}"
+  end
+end
+
 Then(/^this patient tissue analysis_report should have correct "([^"]*)" file names: "([^"]*)"$/) do |file_type, name|
   vr = @get_response['variant_report']
   case file_type
