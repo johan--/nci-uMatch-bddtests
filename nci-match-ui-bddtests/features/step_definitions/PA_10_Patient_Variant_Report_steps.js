@@ -265,7 +265,7 @@ module.exports = function () {
                     break;
 
                 case 'ocp_reference':
-                    body.all(by.css('[ng-bind="item.ocp_reference | dashify"')).getText().then(function(actualArr){
+                    body.all(by.css('[ng-bind="item.ocp_reference | dashify"]')).getText().then(function(actualArr){
                         expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
                     }).then(callback);
                     break;

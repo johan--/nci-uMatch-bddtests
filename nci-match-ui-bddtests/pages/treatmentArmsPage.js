@@ -27,11 +27,12 @@ var TreatmentArmsPage = function() {
     this.allPatientsDataTable = element(by.css('#allPatientsData'));
     this.allPatientDataRows   = this.allPatientsDataTable.all(by.css('[ng-repeat^="item in filtered"]'));
     this.allPatientDataFilter = this.allPatientsDataTable.element(by.css('input[grid-id="allPatientsData"]'));
+    this.allPatientsTotalCount= element.all(by.css('[ng-if="vm.tableInfo.totalItems === vm.tableGridInfo.data.length"]')).get(0);
     this.tableDataRowString   = '[ng-repeat^="item in filtered"]';
     this.expecrtedPatientsDataTableHeaders = [
         'Patient ID', 'TA Version', 'Patient Assignment Status Outcome',
         'Variant Report', 'Assignment Report', 'Date Selected',
-        'Date On Arm', 'Date Off Arm', 'Time On Arm', 'Step', 'Disease', 'Reason' ]
+        'Date On Arm', 'Date Off Arm', 'Time On Arm', 'Step', 'Disease', 'Reason' ];
 
     // Returns an array of all the rows in the treatment arm table.
     this.taTableData = element.all(by.css('a[href^="#/treatment-arm?"]'));
@@ -78,7 +79,7 @@ var TreatmentArmsPage = function() {
     this.listOfVersions = element.all(by.repeater('version in versionHistory'));
 
     // Left info box
-    this.taName = element(by.binding('currentVersion.name'));
+    this.taName = element(by.css('span[ng-if="isIdPrefixed(currentVersion.treatment_arm_id)"]'));
     this.taStratum = element(by.binding('currentVersion.stratum_id'));
     this.taDescription = element(by.binding('currentVersion.description'));
     this.taStatus = element(by.binding('currentVersion.treatment_arm_status'));
