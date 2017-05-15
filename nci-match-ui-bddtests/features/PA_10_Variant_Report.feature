@@ -52,7 +52,7 @@ Feature: As a valid user I can access the variant report for a patient and navig
     And I verify the "annotation" in the Gene Fusions table
     And I verify the "read_depth" in the Gene Fusions table
 
-  @ui_p3
+  @ui_p2
   Scenario: Checking the amois values in the SNVs/MNVs/Indels table of the variant report
     When I go to the patient "UI_PA08_PendingConfirmation" with variant report "UI_PA08_PendingConfirmation_ANI1"
     And I collect information about the patient amois
@@ -74,7 +74,7 @@ Feature: As a valid user I can access the variant report for a patient and navig
     And I verify the "function" in the SNVs/MNVs/Indels table
     And I verify the "oncomine_variant_class" in the SNVs/MNVs/Indels table
 
-  @ui_p3
+  @ui_p2
   Scenario: Checking the amois values in the Copy Number Variants table of the variant report
     When I go to the patient "UI_PA08_PendingConfirmation" with variant report "UI_PA08_PendingConfirmation_ANI1"
     And I collect information about the patient amois

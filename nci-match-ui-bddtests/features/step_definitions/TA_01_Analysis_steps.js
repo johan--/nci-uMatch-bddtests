@@ -36,7 +36,7 @@ module.exports = function () {
     });
 
     this.Given(/^I grab all the treatment arm stratum ids from the page$/, function(callback){
-        element.all(by.css('span[ng-bind="item.stratum_id | dashify"]')).getText().then(function (taList) {
+        element.all(by.css('[ng-bind="item.stratum_id | dashify"]')).getText().then(function (taList) {
             displayedTAList = taList;
         }).then(callback);
     });
@@ -200,7 +200,8 @@ module.exports = function () {
     });
 
     this.Then(/^I should see detailed (.+) breadcrumb$/, function (breadcrumb, callback) {
-        utilities.checkBreadcrumb("Dashboard / "+ breadcrumb + ' / ' + 'Treatment Arm ' + currentTreatmentId);
+        var strippedTA = utilities.stripStudyId(currentTreatmentId)
+        utilities.checkBreadcrumb("Dashboard / "+ breadcrumb + ' / ' + 'Treatment Arm ' + strippedTA);
         browser.sleep(50).then(callback);
     });
 
@@ -236,8 +237,9 @@ module.exports = function () {
         var notEnrolledPatients = utilities.dashifyIfEmpty(firstTreatmentArm.stratum_statistics.not_enrolled_patients);
         var pendingPatients     = utilities.dashifyIfEmpty(firstTreatmentArm.stratum_statistics.pending_patients);
         var dateExpected = moment.utc(firstTreatmentArm.date_opened).utc().format('LLL');
+        var strippedTA          = utilities.stripStudyId(firstTreatmentArm.treatment_arm_id);
 
-        expect(taPage.treatmentArmIdColumn.get(0).getText()).to.eventually.eql(firstTreatmentArm.treatment_arm_id);
+        expect(taPage.treatmentArmIdColumn.get(0).getText()).to.eventually.eql(strippedTA);
         expect(taPage.treatmentArmStratumColumn.get(0).getText()).to.eventually.include(firstTreatmentArm.stratum_id);
         expect(element(by.binding('item.stratum_statistics.current_patients')).getText()).to.eventually.eql(currentPatients.toString());
         expect(element(by.binding('item.stratum_statistics.former_patients')).getText()).to.eventually.eql(formerPatients.toString());
@@ -250,8 +252,9 @@ module.exports = function () {
     });
 
     this.Then(/^I should see the treatment\-arms detail dashboard$/, function (callback) {
-        var expectedResults = 'treatment-arm?treatment_arm_id=' + currentTreatmentId + '&stratum_id=' + currentStratumId
-        expect(taPage.treamtentArmHeading.getText()).to.eventually.eql(currentTreatmentId + '-' + currentStratumId);
+        var expectedResults = 'treatment-arm?treatment_arm_id=' + currentTreatmentId + '&stratum_id=' + currentStratumId;
+        var strippedTA = utilities.stripStudyId(currentTreatmentId);
+        expect(taPage.treamtentArmHeading.getText()).to.eventually.eql(strippedTA + '-' + currentStratumId);
         expect(browser.getCurrentUrl()).to.eventually.include(expectedResults)
             .then(function () {
                 browser.waitForAngular();
@@ -272,7 +275,7 @@ module.exports = function () {
 
     this.When(/^I collect patient information related to treatment arm$/, function (callback) {
         // http://localhost:10235/api/v1/treatment_arms/APEC1621-A/100/assignment_report
-        var uri = '/api/v1/treatment_arms/' + currentTreatmentId+ '/' + currentStratumId+ '/assignment_report';
+        var uri = '/api/v1/treatment_arms/' + currentTreatmentId+ '/' + currentStratumId+ '/assignment_report?treatment_arm_status=OPEN';
         utilities.getRequestWithService('treatment', uri).then(function(response){
             allPatientDetails = response;
         }).then(callback);
@@ -353,6 +356,11 @@ module.exports = function () {
         expect(browser.isElementPresent(taPage.allPatientsDataTable)).to.eventually.eql(true).then(function () {
             browser.waitForAngular();
         }).then(callback);
+    });
+
+    this.Then(/^I should see message about the total count of the patients$/, function (callback) {
+        var count = allPatientDetails.patients_list.length;
+        expect(taPage.allPatientsTotalCount.getText()).to.eventually.eql('Total ' + count + ' items.').notify(callback);
     });
 
     this.Then(/^I should see the All Patients Data on the Treatment Arm$/, function(callback){
