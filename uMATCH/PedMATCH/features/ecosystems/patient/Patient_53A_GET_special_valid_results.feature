@@ -316,6 +316,7 @@ Feature: Patient GET service valid special case tests
     Then patient GET service: "patient_limbos", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return
     Then there are "<new>" patient_limbos have field: "patient_id" value: "<patient_id>"
+    And this patient patient_limbos has_amoi should be "false"
     Examples:
       | patient_id                 | sei                             | date       | time                      | old | new |
       | PT_SC04f_Registered1       | PT_SC04f_Registered1_SEI1       | today      | current                   | 0   | 0   |
@@ -399,6 +400,23 @@ Feature: Patient GET service valid special case tests
     Then this patient patient_limbos field "active_tissue_specimen" should be correct
     Then this patient patient_limbos should have "1" messages which contain "approval"
     Then this patient patient_limbos days_pending should be correct
+
+  @patients_p1
+  Scenario: PT_SC04m patient_limbos should update properly after request_assignment rebiopsy = N
+    Given patient id is "PT_SC04m_PendingApproval"
+    And load template request assignment message for this patient
+    And set patient message field: "rebiopsy" to value: "N"
+    And set patient message field: "step_number" to value: "1.0"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
+    Then patient status should change to "PENDING_CONFIRMATION"
+    Then patient GET service: "patient_limbos", patient id: "", id: ""
+    When GET from MATCH patient API, http code "200" should return
+    Then there are "1" patient_limbos have field: "patient_id" value: "PT_SC04m_PendingApproval"
+    Then this patient patient_limbos field "current_status" should be correct
+    Then this patient patient_limbos field "active_tissue_specimen" should be correct
+    Then this patient patient_limbos should have "1" messages which contain "assignment"
+    Then this patient patient_limbos days_pending should be correct
+    Then this patient patient_limbos has_amoi should be "true"
 
   @patients_p1
   Scenario Outline: PT_SC05a action_items should have correct value
