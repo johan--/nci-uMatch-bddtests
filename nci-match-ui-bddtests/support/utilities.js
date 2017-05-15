@@ -636,8 +636,12 @@ var Utilities = function () {
     };
 
     this.checkExpectation = function(el, expected, message) {
+        var expectedValue = expected;
+        if (expected === null || expected === undefined) {
+            expectedValue =  '-'
+        }
         el.getText().then(function(actualText){
-            expect(actualText).to.eql(expected, message);
+            expect(actualText).to.eql(expectedValue, message);
         });
     };
 

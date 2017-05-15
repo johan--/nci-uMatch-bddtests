@@ -430,6 +430,65 @@ module.exports = function() {
         browser.sleep(50).then(callback);
     });
 
+    this.Then(/^I verify the data present in False Positive Variants table$/,function(callback){
+        var responseData = cliaPage.responseData.false_positive_variants;
+        var tableRow = cliaPage.sampleFalsePosPanel.all(by.css('tbody>tr'));
+
+        var compareTable = function(row, data){
+            var identifier = row.element(by.css('cosmic-link[link-id="item.identifier"]'));
+            var geneLink = row.element(by.css('cosmic-link[link-id="item.gene"]'));
+            utilities.checkExpectation(identifier, data["identifier"], 'Identifier Mismatch');
+            utilities.checkCosmicLink(identifier);
+            utilities.checkExpectation(row.element(by.binding('item.position')), data["position"], 'Position Mismatch');
+            utilities.checkExpectation(geneLink, data["gene"], 'Gene Mismatch');
+            utilities.checkGeneLink(geneLink);
+            utilities.checkExpectation(row.element(by.binding('item.variant_type')), data["variant_type"], 'Variant type Mismatch');
+            utilities.checkExpectation(row.element(by.binding('item.ocp_reference')), data["ocp_reference"], 'Reference Mismatch');
+            utilities.checkExpectation(row.element(by.binding('item.ocp_alternative')), data["ocp_alternative"], 'Alternative Mismatch');
+            utilities.checkExpectation(row.element(by.binding('item.hgvs')), data["hgvs"], 'HGVS Mismatch');
+            utilities.checkExpectation(row.element(by.binding('item.protein')), data["protein"], 'Protein Mismatch');
+
+
+        }
+
+        tableRow.count().then(function(cnt){
+            for(var i = 0; i < cnt; i ++){
+                compareTable(tableRow.get(i), responseData[i])
+            }
+        }).then(callback);
+
+    });
+
+
+    this.Then(/^I verify the data present in Positive Controls table$/,function(callback){
+        var responseData = cliaPage.responseData.positive_variants;
+        var tableRow = cliaPage.samplePositivePanel.all(by.css('tbody>tr'));
+
+        var compareTable = function(row, data){
+            var identifier = row.element(by.css('cosmic-link[link-id="item.identifier"]'));
+            var geneLink = row.element(by.css('cosmic-link[link-id="item.gene"]'));
+            utilities.checkExpectation(identifier, data["identifier"], 'Identifier Mismatch');
+            utilities.checkCosmicLink(identifier);
+            utilities.checkExpectation(row.element(by.binding('item.chromosome')), data["chromosome"], 'Chromosome Mismatch');
+            utilities.checkExpectation(row.element(by.binding('item.position')), data["position"], 'Position Mismatch');
+            utilities.checkExpectation(geneLink, data["gene"], 'Gene Mismatch');
+            utilities.checkGeneLink(geneLink);
+            utilities.checkExpectation(row.element(by.binding('item.variant_type')), data["variant_type"], 'Variant type Mismatch');
+            utilities.checkExpectation(row.element(by.binding('item.ocp_reference')), data["ocp_reference"], 'Reference Mismatch');
+            utilities.checkExpectation(row.element(by.binding('item.ocp_alternative')), data["ocp_alternative"], 'Alternative Mismatch');
+            utilities.checkExpectation(row.element(by.binding('item.hgvs')), data["hgvs"], 'HGVS Mismatch');
+            utilities.checkExpectation(row.element(by.binding('item.protein')), data["protein"], 'Protein Mismatch');
+            utilities.checkExpectation(row.element(by.binding('item.function')), data["function"], 'Function Mismatch');
+        };
+
+        tableRow.count().then(function(cnt){
+            for(var i = 0; i < cnt; i ++){
+                compareTable(tableRow.get(i), responseData[i])
+            }
+        }).then(callback);
+
+    });
+
     // CLia related functions
 
     function getSectionName (sectionName){

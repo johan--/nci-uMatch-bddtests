@@ -1,12 +1,12 @@
 Feature: CLIA Labs Variant Reports Page
-    @ui_p3 @demo_p4 @clia
+    @ui_p2 @demo_p4 @clia
     Scenario Outline: User can access information about the uploaded Positive Sample Control report.
         Given I am logged in as a "<userType>" user
         And I go to clia variant filtered report with "<molecularId>" as the molecular_id on "<subTabName>" tab
         Then I should see the status as "<oldStatus>"
         And The clia report "<statusButton>" button is "visible"
         When I click on clia report "<statusButton>" button on "<subTabName>"
-        Then I can see the clia report "Change of the Status" in the modal text box
+        Then I can see the clia report "Changing Status from PASSED to FAILED" in the modal text box
         And I click "OK" on clia report Comment button
         And I should see the status as "<newStatus>"
         When I navigate to the CLIA Labs page

@@ -1,7 +1,7 @@
 @clia
 Feature: CLIA Labs Page
 
-  @ui_p3
+  @ui_p2
   Scenario: User can add a variant report to a generated MSN Part 1
     Given I stay logged in as "VR_Sender_mocha" user
     When I navigate to the CLIA Labs page
@@ -11,7 +11,7 @@ Feature: CLIA Labs Page
     Then I "should not" see a variant report for "SC_MOCHA_6Y4FV" for "Positive Sample Controls" under "MoCha"
     And I call aliquot service with "SC_MOCHA_6Y4FV" as the molecular id
 
-  @ui_p3
+  @ui_p1
   Scenario: User can access information about the uploaded Positive Sample Control report.
     Given I stay logged in as "VR_Sender_mocha" user
     When I navigate to sample control "SC_MOCHA_A2PD6" of type "Positive Sample Controls" under "MoCha"
@@ -22,6 +22,8 @@ Feature: CLIA Labs Page
     And I verify all the headings on the "left" hand side section under Positive Sample Control
     And I verify all the headings on the "right" hand side section under Positive Sample Control
     And I verify the presence of Positive controls and False positive variants table
+    And I verify the data present in Positive Controls table
+    And I verify the data present in False Positive Variants table
     And I verify that valid IDs are links and invalid IDs are not in "Positive Controls" table
     And I verify that all Genes have a valid link in the "Positive Controls" table
     And I verify that valid IDs are links and invalid IDs are not in "False Positive Variants" table
@@ -46,7 +48,7 @@ Feature: CLIA Labs Page
       | No Template Control        | NTC_MOCHA_KGPVI |
       | Proficiency And Competency | PCC_MOCHA_FDK09 |
 
-  @ui_p3
+  @ui_p1
   Scenario: User can add a variant report to a generated MSN Part 2
     Given I am logged in as a "VR_Sender_mocha" user
     When I navigate to the CLIA Labs page
