@@ -296,6 +296,7 @@ class Helper_Methods
       else
         @post_response['message'] = e.message
       end
+      puts @post_response['message']
       return @post_response
     end
 

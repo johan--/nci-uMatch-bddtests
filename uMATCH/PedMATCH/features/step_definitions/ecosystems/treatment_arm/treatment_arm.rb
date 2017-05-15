@@ -135,6 +135,7 @@ end
 
 When(/^creating a new treatment arm using post request$/) do
   url = "#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{@ta_id}/#{@stratum_id}/#{@version}"
+  puts JSON.pretty_genereate(@taReq) if ENV['print_log'] == 'YES'
   @response = Helper_Methods.post_request(url, @jsonString)
 end
 
@@ -346,8 +347,7 @@ Then(/^retrieve the posted treatment arm from API$/) do
 end
 
 Then(/^retrieve treatment arm with id: "([^"]*)", stratum_id: "([^"]*)" and version: "([^"]*)" from API$/) do |id, stratum, version|
-  response = find_single_treatment_arm(id, stratum, version)
-  @response = JSON.parse(response)
+  @response = find_single_treatment_arm(id, stratum, version)
 end
 
 Then(/^retrieve treatment arms with id: "([^"]*)" and stratum_id: "([^"]*)" from API$/) do |id, stratum|
@@ -379,6 +379,15 @@ Then(/^the first returned treatment arm has value: "([^"]*)" in field: "([^"]*)"
   data = JSON.parse(@response['message']).first
   expect(data[field].to_s).to eq(value)
 end
+
+Then(/^the first returned treatment arm has "([^"]*)" variant \(id: "([^"]*)", field: "([^"]*)", value: "([^"]*)"\)$/) do |type, id, field, value|
+  data = JSON.parse(@response['message']).first
+  match_variant = Treatment_arm_helper.findVariantFromJson(data, type, id, field, value)
+  match_variant.length.should == 1
+  @current_variant = match_variant[0]
+end
+
+
 
 
 Then(/^the returned treatment arm has "([^"]*)" value: "([^"]*)" in field: "([^"]*)"$/) do |type, value, field|
@@ -458,8 +467,15 @@ end
 
 Then(/^the returned treatment arm has "([^"]*)" variant \(id: "([^"]*)", field: "([^"]*)", value: "([^"]*)"\)$/) do |variantType, variantId, variantField, variantValue|
   response = JSON.parse(@response['message'])
-  matchVariant = Treatment_arm_helper.findVariantFromJson(response, variantType, variantId, variantField, variantValue)
-  matchVariant.length.should == 1
+  match_variant = Treatment_arm_helper.findVariantFromJson(response, variantType, variantId, variantField, variantValue)
+  match_variant.length.should == 1
+  @current_variant = match_variant[0]
+end
+
+And(/^this treatment arm variant has field "([^"]*)" value "([^"]*)"$/) do |field, value|
+  converted_value = value=='null'?nil:value
+  expect(@current_variant.keys).to include field
+  expect(@current_variant[field]).to eq converted_value
 end
 
 Then(/^the returned treatment arm has "([^"]*)" variant \(id: "([^"]*)", public_med_ids: "([^"]*)"\)$/) do |variantType, variantId, pmIdString|
