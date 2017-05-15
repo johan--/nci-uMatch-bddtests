@@ -4,25 +4,28 @@ Feature: Tests for aliquot service in ion ecosystem
 
   @ion_reporter_p1
   Scenario: ION_AQ01. for sample control specimen, aliquot service will generate tsv and bai files and upload to S3, then update database
+#    the vcf file test1.vcf and pdf file qa.pdf are in zip file test1.zip
     Given molecular id is "NTC_MDA_OAFXP"
     And ir user authorization role is "SYSTEM"
+    And file: "IR_TCWEV/NTC_MDA_OAFXP/SC_OAFXP_ANI1/test1.vcf" has been removed from S3 bucket
     And file: "IR_TCWEV/NTC_MDA_OAFXP/SC_OAFXP_ANI1/test1.tsv" has been removed from S3 bucket
     And file: "IR_TCWEV/NTC_MDA_OAFXP/SC_OAFXP_ANI1/test1.json" has been removed from S3 bucket
     And file: "IR_TCWEV/NTC_MDA_OAFXP/SC_OAFXP_ANI1/dna.bai" has been removed from S3 bucket
     And file: "IR_TCWEV/NTC_MDA_OAFXP/SC_OAFXP_ANI1/cdna.bai" has been removed from S3 bucket
+    And file: "IR_TCWEV/NTC_MDA_OAFXP/SC_OAFXP_ANI1/QA.pdf" has been removed from S3 bucket
     Then add field: "analysis_id" value: "SC_OAFXP_ANI1" to message body
     Then add field: "site" value: "mda" to message body
     Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
-    Then add field: "vcf_name" value: "test1.vcf" to message body
+    Then add field: "zip_name" value: "test1.zip" to message body
     Then add field: "dna_bam_name" value: "dna.bam" to message body
     Then add field: "cdna_bam_name" value: "cdna.bam" to message body
-    Then add field: "qc_name" value: "QA.pdf" to message body
     When PUT to aliquot service, response includes "Item updated" with code "200"
     Then wait for "90" seconds
     When GET from aliquot service, response "" with code "200"
     Then field: "tsv_name" for this aliquot should be: "IR_TCWEV/NTC_MDA_OAFXP/SC_OAFXP_ANI1/test1.tsv"
     Then field: "dna_bai_name" for this aliquot should be: "IR_TCWEV/NTC_MDA_OAFXP/SC_OAFXP_ANI1/dna.bai"
     Then field: "cdna_bai_name" for this aliquot should be: "IR_TCWEV/NTC_MDA_OAFXP/SC_OAFXP_ANI1/cdna.bai"
+    Then field: "qc_name" for this aliquot should be: "IR_TCWEV/NTC_MDA_OAFXP/SC_OAFXP_ANI1/QA.pdf"
     Then field: "analysis_id" for this aliquot should be: "SC_OAFXP_ANI1"
     Then field: "ion_reporter_id" for this aliquot should be: "IR_TCWEV"
     Then field: "filename" for this aliquot should be: "test1"
@@ -31,8 +34,10 @@ Feature: Tests for aliquot service in ion ecosystem
     Then sample_control should not have field: "comments"
     And file: "IR_TCWEV/NTC_MDA_OAFXP/SC_OAFXP_ANI1/test1.tsv" should be available in S3
     And file: "IR_TCWEV/NTC_MDA_OAFXP/SC_OAFXP_ANI1/test1.json" should be available in S3
+    And file: "IR_TCWEV/NTC_MDA_OAFXP/SC_OAFXP_ANI1/test1.vcf" should be available in S3
     And file: "IR_TCWEV/NTC_MDA_OAFXP/SC_OAFXP_ANI1/dna.bai" should be available in S3
     And file: "IR_TCWEV/NTC_MDA_OAFXP/SC_OAFXP_ANI1/cdna.bai" should be available in S3
+    And file: "IR_TCWEV/NTC_MDA_OAFXP/SC_OAFXP_ANI1/QA.pdf" should be available in S3
 
   @ion_reporter_p1
   Scenario: ION_AQ02. for patient tissue specimen, aliquot service will generate tsv and bai files and upload to S3, then send variant files uploaded message to patient ecosystem once process done
@@ -41,16 +46,18 @@ Feature: Tests for aliquot service in ion ecosystem
     And ir user authorization role is "MDA_VARIANT_REPORT_SENDER"
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/test1.tsv" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/test1.json" has been removed from S3 bucket
+    And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/test1.vcf" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/dna.bai" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/cdna.bai" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/test1.tsv" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/test1.json" has been removed from S3 bucket
+    And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/test1.vcf" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/dna.bai" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/cdna.bai" has been removed from S3 bucket
     Then add field: "analysis_id" value: "ION_AQ02_TsShipped_ANI1" to message body
     Then add field: "site" value: "mda" to message body
     Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
-    Then add field: "vcf_name" value: "test1.vcf" to message body
+    Then add field: "zip_name" value: "test1.zip" to message body
     Then add field: "dna_bam_name" value: "dna.bam" to message body
     Then add field: "cdna_bam_name" value: "cdna.bam" to message body
     Then add field: "qc_name" value: "10-10-2016.pdf" to message body
@@ -60,6 +67,8 @@ Feature: Tests for aliquot service in ion ecosystem
     Then patient should have variant report (analysis_id: "ION_AQ02_TsShipped_ANI1")
     And this variant report field: "tsv_file_name" should be "test1.tsv"
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/test1.tsv" should be available in S3
+    And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/test1.vcf" should be available in S3
+    And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/test1.json" should be available in S3
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/dna.bai" should be available in S3
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/cdna.bai" should be available in S3
     Then add field: "analysis_id" value: "ION_AQ02_TsShipped_ANI2" to message body
@@ -75,6 +84,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then patient should have variant report (analysis_id: "ION_AQ02_TsShipped_ANI2")
     And this variant report field: "tsv_file_name" should be "test1.tsv"
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/test1.tsv" should be available in S3
+    And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/test1.vcf" should be available in S3
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/test1.json" should be available in S3
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/dna.bai" should be available in S3
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI2/cdna.bai" should be available in S3
@@ -86,10 +96,12 @@ Feature: Tests for aliquot service in ion ecosystem
     And ir user authorization role is "SYSTEM"
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/test1.tsv" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/test1.json" has been removed from S3 bucket
+    And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/test1.vcf" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/dna.bai" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/cdna.bai" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/test1.tsv" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/test1.json" has been removed from S3 bucket
+    And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/test1.vcf" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/dna.bai" has been removed from S3 bucket
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/cdna.bai" has been removed from S3 bucket
     Then add field: "analysis_id" value: "ION_AQ03_BdShipped_ANI1" to message body
@@ -105,6 +117,8 @@ Feature: Tests for aliquot service in ion ecosystem
     Then patient should have variant report (analysis_id: "ION_AQ03_BdShipped_ANI1")
     And this variant report field: "tsv_file_name" should be "test1.tsv"
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/test1.tsv" should be available in S3
+    And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/test1.json" should be available in S3
+    And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/test1.vcf" should be available in S3
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/dna.bai" should be available in S3
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/cdna.bai" should be available in S3
     Then add field: "analysis_id" value: "ION_AQ03_BdShipped_ANI2" to message body
@@ -120,6 +134,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then patient should have variant report (analysis_id: "ION_AQ03_BdShipped_ANI2")
     And this variant report field: "tsv_file_name" should be "test1.tsv"
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/test1.tsv" should be available in S3
+    And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/test1.vcf" should be available in S3
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/test1.json" should be available in S3
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/dna.bai" should be available in S3
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI2/cdna.bai" should be available in S3

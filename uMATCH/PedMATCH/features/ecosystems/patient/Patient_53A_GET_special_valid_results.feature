@@ -283,18 +283,22 @@ Feature: Patient GET service valid special case tests
       | PT_SC04d_TwoAssay | ICCBRG1s  | 1     | variant            |
 
   @patients_p1
-  Scenario: PT_SC04e patient_limbos should update properly after variant report is confirmed
-    Given patient id is "PT_SC04e_TsVrUploaded"
-    Then load template variant report confirm message for analysis id: "PT_SC04e_TsVrUploaded_ANI1"
-    When PUT to MATCH variant report "confirm" service, response includes "changed successfully to" with code "200"
-    Then patient status should change to "TISSUE_VARIANT_REPORT_CONFIRMED"
+  Scenario Outline: PT_SC04e patient_limbos should update properly after variant report is confirmed
+    Given patient id is "<patient_id>"
+    Then load template variant report confirm message for analysis id: "<patient_id>_ANI1"
+    When PUT to MATCH variant report "<confirm>" service, response includes "changed successfully to" with code "200"
+    Then patient status should change to "<status>"
     Then patient GET service: "patient_limbos", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return
-    Then there are "1" patient_limbos have field: "patient_id" value: "PT_SC04e_TsVrUploaded"
+    Then there are "1" patient_limbos have field: "patient_id" value: "<patient_id>"
     Then this patient patient_limbos field "current_status" should be correct
     Then this patient patient_limbos field "active_tissue_specimen" should be correct
-    Then this patient patient_limbos should have "3" messages which contain "PTEN-BAF47-BRG1"
+    Then this patient patient_limbos should have "<count>" messages which contain "<messages>"
     Then this patient patient_limbos days_pending should be correct
+    Examples:
+      | patient_id             | confirm | status                          | count | messages        |
+      | PT_SC04e_TsVrUploaded1 | confirm | TISSUE_VARIANT_REPORT_CONFIRMED | 3     | PTEN-BAF47-BRG1 |
+      | PT_SC04e_TsVrUploaded2 | reject  | TISSUE_VARIANT_REPORT_REJECTED  | 4     | variant         |
 
   @patients_p1
   Scenario Outline: PT_SC04f patient_limbos should update properly after new tissue specimen is received
