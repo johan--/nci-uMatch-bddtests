@@ -149,7 +149,7 @@ Feature: Test the functionality that filters the SNV variants based on specified
       | tsvFile                 | TAFile          |
       | vcfWithDuplicateHotspot | APEC1621-B.json |
 
-
+  @rules_p3
   Scenario Outline: FIL-SNV_12: Rule can map snv(snp) and mnv(mnp) variant types properly
     #in tsv file, 769.2 is mnp, . is snp
     #in treatment arm a json, 769.2 is mnv, . is snv

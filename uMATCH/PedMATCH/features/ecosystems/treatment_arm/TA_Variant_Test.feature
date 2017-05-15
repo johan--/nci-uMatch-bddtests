@@ -237,7 +237,7 @@ Feature: TA_VR. Treatment Arm API Tests that focus on Variants
       | identifier | functionValue |
       | id0001     | synonymous    |
 
-  @treatment_arm_p2
+  @treatment_arm_p3
   Scenario Outline: TA_VR12. Variants can have the approved variant_type and the TA should be created.
     Given template treatment arm json with a random id
     And clear template treatment arm json's variant: "<variant_type>" list
