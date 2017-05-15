@@ -1,6 +1,6 @@
 {
-  "ScannedCount": 87,
-  "Count": 87,
+  "ScannedCount": 89,
+  "Count": 89,
   "Items": [
     {
       "surgical_event_id": {
@@ -3240,6 +3240,88 @@
       },
       "cdna_volume_ul": {
         "N": "10"
+      }
+    },
+    {
+      "shipped_date": {
+        "S": "2016-05-01T19:42:13+00:00"
+      },
+      "patient_id": {
+        "S": "ION_AQ02_TsShipped"
+      },
+      "cdna_volume_ul": {
+        "N": "10"
+      },
+      "molecular_id": {
+        "S": "ION_AQ02_TsShipped_MOI1"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "dna_concentration_ng_per_ul": {
+        "N": "25"
+      },
+      "dna_volume_ul": {
+        "N": "10"
+      },
+      "uuid": {
+        "S": "20422f0a-c095-4910-bb75-80759b8cbda6"
+      },
+      "surgical_event_id": {
+        "S": "ION_AQ02_TsShipped_SEI1"
+      },
+      "carrier": {
+        "S": "Federal Express"
+      },
+      "destination": {
+        "S": "MDA"
+      },
+      "tracking_id": {
+        "S": "7956 4568 1235"
+      },
+      "shipment_type": {
+        "S": "TISSUE_DNA_AND_CDNA"
+      }
+    },
+    {
+      "shipped_date": {
+        "S": "2016-05-01T19:42:13+00:00"
+      },
+      "patient_id": {
+        "S": "ION_AQ41_TsVrUploaded"
+      },
+      "cdna_volume_ul": {
+        "N": "10"
+      },
+      "molecular_id": {
+        "S": "ION_AQ41_TsVrUploaded_MOI1"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "dna_concentration_ng_per_ul": {
+        "N": "25"
+      },
+      "dna_volume_ul": {
+        "N": "10"
+      },
+      "uuid": {
+        "S": "a5f20224-5801-4c1b-bc3f-6e41da4a2784"
+      },
+      "surgical_event_id": {
+        "S": "ION_AQ41_TsVrUploaded_SEI1"
+      },
+      "carrier": {
+        "S": "Federal Express"
+      },
+      "destination": {
+        "S": "MDA"
+      },
+      "tracking_id": {
+        "S": "7956 4568 1235"
+      },
+      "shipment_type": {
+        "S": "TISSUE_DNA_AND_CDNA"
       }
     }
   ],

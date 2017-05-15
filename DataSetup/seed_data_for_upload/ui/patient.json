@@ -1,6 +1,6 @@
 {
-  "ScannedCount": 49,
-  "Count": 49,
+  "ScannedCount": 51,
+  "Count": 51,
   "Items": [
     {
       "study_id": {
@@ -19234,6 +19234,99 @@
       },
       "current_status": {
         "S": "TISSUE_VARIANT_REPORT_RECEIVED"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "ION_AQ02_TsShipped"
+      },
+      "current_step_number": {
+        "S": "1.0"
+      },
+      "current_status": {
+        "S": "TISSUE_NUCLEIC_ACID_SHIPPED"
+      },
+      "registration_date": {
+        "S": "2016-02-09T22:06:33+00:00"
+      },
+      "active_tissue_specimen": {
+        "M": {
+          "pathology_status": {
+            "S": "Y"
+          },
+          "specimen_collected_date": {
+            "S": "2016-04-25T04:00:00"
+          },
+          "specimen_received_date": {
+            "S": "2016-04-26T04:00:00+00:00"
+          },
+          "active_destination": {
+            "S": "MDA"
+          },
+          "surgical_event_id": {
+            "S": "ION_AQ02_TsShipped_SEI1"
+          },
+          "active_molecular_id_shipped_date": {
+            "S": "2016-05-01T19:42:13+00:00"
+          },
+          "active_molecular_id": {
+            "S": "ION_AQ02_TsShipped_MOI1"
+          }
+        }
+      },
+      "study_id": {
+        "S": "APEC1621"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "ION_AQ41_TsVrUploaded"
+      },
+      "current_step_number": {
+        "S": "1.0"
+      },
+      "current_status": {
+        "S": "TISSUE_VARIANT_REPORT_RECEIVED"
+      },
+      "registration_date": {
+        "S": "2016-02-09T22:06:33+00:00"
+      },
+      "active_tissue_specimen": {
+        "M": {
+          "pathology_status": {
+            "S": "Y"
+          },
+          "surgical_event_id": {
+            "S": "ION_AQ41_TsVrUploaded_SEI1"
+          },
+          "has_amoi": {
+            "BOOL": true
+          },
+          "specimen_received_date": {
+            "S": "2016-04-26T04:00:00+00:00"
+          },
+          "variant_report_status": {
+            "S": "PENDING"
+          },
+          "specimen_collected_date": {
+            "S": "2016-04-25T04:00:00"
+          },
+          "active_destination": {
+            "S": "MDA"
+          },
+          "active_analysis_id": {
+            "S": "ION_AQ41_TsVrUploaded_ANI1"
+          },
+          "active_molecular_id_shipped_date": {
+            "S": "2016-05-01T19:42:13+00:00"
+          },
+          "active_molecular_id": {
+            "S": "ION_AQ41_TsVrUploaded_MOI1"
+          }
+        }
+      },
+      "study_id": {
+        "S": "APEC1621"
       }
     }
   ],

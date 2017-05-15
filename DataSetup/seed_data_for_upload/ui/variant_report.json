@@ -1,6 +1,6 @@
 {
-  "ScannedCount": 38,
-  "Count": 38,
+  "ScannedCount": 39,
+  "Count": 39,
   "Items": [
     {
       "oncomine_control_panel_summary": {
@@ -9839,6 +9839,89 @@
       },
       "status": {
         "S": "PENDING"
+      }
+    },
+    {
+      "molecular_id": {
+        "S": "ION_AQ41_TsVrUploaded_MOI1"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "patient_id": {
+        "S": "ION_AQ41_TsVrUploaded"
+      },
+      "total_mois": {
+        "N": "2"
+      },
+      "variant_report_received_date": {
+        "S": "2016-11-07T15:59:45+00:00"
+      },
+      "analysis_id": {
+        "S": "ION_AQ41_TsVrUploaded_ANI1"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "surgical_event_id": {
+        "S": "ION_AQ41_TsVrUploaded_SEI1"
+      },
+      "total_confirmed_mois": {
+        "N": "2"
+      },
+      "oncomine_control_panel_summary": {
+        "M": {
+          "hmbs": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          },
+          "myc": {
+            "N": "0.0"
+          },
+          "lrp1": {
+            "N": "0.0"
+          }
+        }
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "status_date": {
+        "S": "2016-11-07T15:59:45+00:00"
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "status": {
+        "S": "PENDING"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "cellularity": {
+        "N": "1"
       }
     }
   ],

@@ -1,6 +1,6 @@
 {
-  "ScannedCount": 55,
-  "Count": 55,
+  "ScannedCount": 57,
+  "Count": 57,
   "Items": [
     {
       "patient_id": {
@@ -2905,6 +2905,70 @@
       },
       "sorting_key": {
         "S": "2017-01-04T00:23:50.702"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "collected_date": {
+        "S": "2016-04-25T15:17:11+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "sorting_key": {
+        "S": "2016-11-07T15:59:08.686"
+      },
+      "pathology_status_date": {
+        "S": "2016-11-07T15:59:08+00:00"
+      },
+      "surgical_event_id": {
+        "S": "ION_AQ02_TsShipped_SEI1"
+      },
+      "patient_id": {
+        "S": "ION_AQ02_TsShipped"
+      },
+      "active_molecular_id": {
+        "S": "ION_AQ02_TsShipped_MOI1"
+      },
+      "received_date": {
+        "S": "2016-04-26T15:17:11+00:00"
+      },
+      "specimen_type": {
+        "S": "TISSUE"
+      }
+    },
+    {
+      "collected_date": {
+        "S": "2016-04-25T15:17:11+00:00"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "sorting_key": {
+        "S": "2016-11-07T15:59:39.279"
+      },
+      "pathology_status_date": {
+        "S": "2016-11-07T15:59:39+00:00"
+      },
+      "surgical_event_id": {
+        "S": "ION_AQ41_TsVrUploaded_SEI1"
+      },
+      "patient_id": {
+        "S": "ION_AQ41_TsVrUploaded"
+      },
+      "active_molecular_id": {
+        "S": "ION_AQ41_TsVrUploaded_MOI1"
+      },
+      "received_date": {
+        "S": "2016-04-26T15:17:11+00:00"
       },
       "specimen_type": {
         "S": "TISSUE"

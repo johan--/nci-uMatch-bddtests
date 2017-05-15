@@ -1,6 +1,6 @@
 {
-  "ScannedCount": 425,
-  "Count": 425,
+  "ScannedCount": 432,
+  "Count": 432,
   "Items": [
     {
       "event_message": {
@@ -15939,6 +15939,252 @@
       },
       "event_type": {
         "S": "variant_report"
+      }
+    },
+    {
+      "event_message": {
+        "S": "REGISTRATION message received from COG for patient ION_AQ02_TsShipped."
+      },
+      "event_type": {
+        "S": "patient"
+      },
+      "event_date": {
+        "S": "2016-11-07T15:59:06.553"
+      },
+      "event_data": {
+        "M": {
+          "patient_status": {
+            "S": "REGISTRATION"
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "entity_id": {
+        "S": "ION_AQ02_TsShipped"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Specimen of type TISSUE received at NCH."
+      },
+      "event_type": {
+        "S": "specimen"
+      },
+      "event_date": {
+        "S": "2016-11-07T15:59:08.700"
+      },
+      "event_data": {
+        "M": {
+          "collection_dt": {
+            "S": "2016-04-25T15:17:11+00:00"
+          },
+          "received_dttm": {
+            "S": "2016-04-26T15:17:11+00:00"
+          },
+          "type": {
+            "S": "TISSUE"
+          },
+          "surgical_event_id": {
+            "S": "ION_AQ02_TsShipped_SEI1"
+          },
+          "step": {
+            "S": "1.0"
+          },
+          "patient_id": {
+            "S": "ION_AQ02_TsShipped"
+          },
+          "study_id": {
+            "S": "APEC1621SC"
+          }
+        }
+      },
+      "entity_id": {
+        "S": "ION_AQ02_TsShipped"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+      },
+      "event_type": {
+        "S": "specimen"
+      },
+      "event_date": {
+        "S": "2016-11-07T15:59:10.876"
+      },
+      "event_data": {
+        "M": {
+          "tracking_number": {
+            "S": "7956 4568 1235"
+          },
+          "molecular_id": {
+            "S": "ION_AQ02_TsShipped_MOI1"
+          },
+          "step": {
+            "S": "1.0"
+          },
+          "surgical_event_id": {
+            "S": "ION_AQ02_TsShipped_SEI1"
+          },
+          "destination": {
+            "S": "MDA"
+          },
+          "type": {
+            "S": "TISSUE_DNA_AND_CDNA"
+          },
+          "carrier": {
+            "S": "Federal Express"
+          }
+        }
+      },
+      "entity_id": {
+        "S": "ION_AQ02_TsShipped"
+      }
+    },
+    {
+      "event_message": {
+        "S": "REGISTRATION message received from COG for patient ION_AQ41_TsVrUploaded."
+      },
+      "event_type": {
+        "S": "patient"
+      },
+      "event_date": {
+        "S": "2016-11-07T15:59:37.084"
+      },
+      "event_data": {
+        "M": {
+          "patient_status": {
+            "S": "REGISTRATION"
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "entity_id": {
+        "S": "ION_AQ41_TsVrUploaded"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Specimen of type TISSUE received at NCH."
+      },
+      "event_type": {
+        "S": "specimen"
+      },
+      "event_date": {
+        "S": "2016-11-07T15:59:39.293"
+      },
+      "event_data": {
+        "M": {
+          "collection_dt": {
+            "S": "2016-04-25T15:17:11+00:00"
+          },
+          "received_dttm": {
+            "S": "2016-04-26T15:17:11+00:00"
+          },
+          "type": {
+            "S": "TISSUE"
+          },
+          "surgical_event_id": {
+            "S": "ION_AQ41_TsVrUploaded_SEI1"
+          },
+          "step": {
+            "S": "1.0"
+          },
+          "patient_id": {
+            "S": "ION_AQ41_TsVrUploaded"
+          },
+          "study_id": {
+            "S": "APEC1621SC"
+          }
+        }
+      },
+      "entity_id": {
+        "S": "ION_AQ41_TsVrUploaded"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+      },
+      "event_type": {
+        "S": "specimen"
+      },
+      "event_date": {
+        "S": "2016-11-07T15:59:41.471"
+      },
+      "event_data": {
+        "M": {
+          "tracking_number": {
+            "S": "7956 4568 1235"
+          },
+          "molecular_id": {
+            "S": "ION_AQ41_TsVrUploaded_MOI1"
+          },
+          "step": {
+            "S": "1.0"
+          },
+          "surgical_event_id": {
+            "S": "ION_AQ41_TsVrUploaded_SEI1"
+          },
+          "destination": {
+            "S": "MDA"
+          },
+          "type": {
+            "S": "TISSUE_DNA_AND_CDNA"
+          },
+          "carrier": {
+            "S": "Federal Express"
+          }
+        }
+      },
+      "entity_id": {
+        "S": "ION_AQ41_TsVrUploaded"
+      }
+    },
+    {
+      "event_message": {
+        "S": "TISSUE Variant Report received."
+      },
+      "event_type": {
+        "S": "variant_report"
+      },
+      "event_date": {
+        "S": "2016-11-07T15:59:45.064"
+      },
+      "event_data": {
+        "M": {
+          "variant_report_status": {
+            "S": "PENDING"
+          },
+          "molecular_id": {
+            "S": "ION_AQ41_TsVrUploaded_MOI1"
+          },
+          "step": {
+            "S": "1.0"
+          },
+          "surgical_event_id": {
+            "S": "ION_AQ41_TsVrUploaded_SEI1"
+          },
+          "clia_lab": {
+            "S": "MDA"
+          },
+          "variant_report_type": {
+            "S": "TISSUE"
+          },
+          "analysis_id": {
+            "S": "ION_AQ41_TsVrUploaded_ANI1"
+          },
+          "specimen_received_date": {
+            "S": "2016-04-25T04:00:00"
+          }
+        }
+      },
+      "entity_id": {
+        "S": "ION_AQ41_TsVrUploaded"
       }
     }
   ],
