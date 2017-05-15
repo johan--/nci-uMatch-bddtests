@@ -387,7 +387,7 @@ module.exports = function() {
     });
 
     this.When(/^I call aliquot service with "([^"]*)" as the molecular id$/, function (molecularId , callback) {
-        var analysisId = `${molecularId}_ANI` ;
+        var analysisId = molecularId + '_ANI';
         var data =  {
             "analysis_id": analysisId,
             "site": "mocha",
@@ -405,7 +405,7 @@ module.exports = function() {
 
     this.When(/^I enter "(.+?)" in the search field for "(.+?)" under "(.+?)"$/, function(molecularId, tableType, site, callback){
         cliaPage.bucketName = browser.baseUrl.match('localhost') ? 'pedmatch-dev' : 'pedmatch-int';
-        cliaPage.molecularId = molecularId
+        cliaPage.molecularId = molecularId;
         var input = cliaPage.tabNameMapping[site][tableType].searchElement
         input.sendKeys(molecularId);
         expect(input.getAttribute('value')).to.eventually.eql(molecularId).notify(callback);

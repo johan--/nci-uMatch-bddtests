@@ -22,7 +22,7 @@ Feature: Patient Summary Page
     And I should see the patient's disease information table
     And I should see the main tabs associated with the patient
 
-  @ui_p3
+  @ui_p2
   Scenario: I can see the details within the Summary tab of the patient
     When I go to patient "PT_CR02_OnTreatmentArm" details page
     And I collect the patient Api Information
@@ -40,7 +40,7 @@ Feature: Patient Summary Page
     And I should see the "Patient Timeline" section heading
     And I should see a message "COG Message: Patient is deceased." in the timeline
 
-  @ui_p3
+  @ui_p2
   Scenario Outline: Patient with status "<status>" <see_or_not> show TA
     When I go to patient "<patient>" details page
 #    When His status is "<status>"

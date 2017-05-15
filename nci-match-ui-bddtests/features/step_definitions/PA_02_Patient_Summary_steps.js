@@ -87,6 +87,7 @@ module.exports = function () {
     this.Then (/^I should see the patient's information match database$/, function (callback) {
         var actualTable = patientPage.patientSummaryTable.all (by.css ('.ng-binding'));
         var selectedTA  = patientPage.responseData.current_assignment;
+        var fixedTA     = utilities.stripStudyId(selectedTA.treatment_arm_id);
 
         expect (actualTable.get (0).getText ()).to.eventually.eql (patientPage.responseData.patient_id);
         expect (actualTable.get (1).getText ())
@@ -95,7 +96,7 @@ module.exports = function () {
             .eql (patientPage.responseData.gender + ', ' + patientPage.responseData.ethnicity);
         expect (actualTable.get (2).getText ()).to.eventually.eql (patientPage.responseData.current_status);
         expect (actualTable.get (3).getText ()).to.eventually.eql (patientPage.responseData.current_step_number)
-        expect (actualTable.get (4).getText ()).to.eventually.eql (selectedTA.treatment_arm_id);
+        expect (actualTable.get (4).getText ()).to.eventually.eql (fixedTA);
         expect (actualTable.get (5).getText ()).to.eventually.eql ('-' + selectedTA.stratum_id);
         expect (actualTable.get (6).getText ()).to.eventually.eql ('(' + selectedTA.version + ')').notify (callback);
     });
@@ -179,7 +180,7 @@ module.exports = function () {
         utilities.waitForElement(patientPage.treatmentArmComplete.get(0), "Treatment Arm Value").then(function(presence){
             if (presence === true){
                 if (see_or_not === 'should'){
-                    expect(patientPage.treatmentArmComplete.get(0).getText()).to.eventually.include('APEC1621');
+                    expect(patientPage.treatmentArmComplete.get(0).getText()).to.eventually.not.eql('-');
                 } else {
                     expect(patientPage.treatmentArmComplete.get(0).getText()).to.eventually.eql('-');
                 }
