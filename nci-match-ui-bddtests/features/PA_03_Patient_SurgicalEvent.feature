@@ -17,13 +17,11 @@ Feature: Patient Surgical Events Tab
     And I should see the "Event" Section under patient Surgical Events
     And The Surgical Event Id match that of the backend
     And I should see the "Details" Section under patient Surgical Events
-#    And They match with the patient json for "Event" section
-#    And They match with the patient json for "Pathology" section
     And I should see the "Slide Shipments" under surgical event tab
+    And I verify the data within the Slide shipment table
     And I should see the "Assay History" under surgical event tab
+    And I verify the data within the Assay History table
     And I should see the "Specimen History" under surgical event tab
-#    And I see the Assay History Match with the database
-#    And The status of each molecularId is displayed
 
   @ui_p2
   Scenario: Logged in user can see multiple assignments for single variant report

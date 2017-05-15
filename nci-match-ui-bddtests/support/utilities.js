@@ -5,12 +5,15 @@
 var rest = require('rest');
 var Client = require('node-rest-client').Client;
 var req = require('request-promise');
+var moment = require('moment');
 
 var Utilities = function () {
     var delay = {
         afterLogin: 500,
         afterPatientLoad: 3000
     };
+
+    this.delay = delay;
 
     var nextButtonString = 'li[ng-if="::directionLinks"][ng-class="{disabled: noNext()||ngDisabled}"]'
 
@@ -161,7 +164,15 @@ var Utilities = function () {
     this.checkGeneLink = function (elem) {
         elem.getText().then(function (linkText) {
             if (linkText.match(/\w/)) {
-                expect(elem.all(by.css('a')).get(0).getAttribute('href')).to.eventually.eql('http://grch37-cancer.sanger.ac.uk/cosmic/gene/overview?ln=' + linkText);
+                var link
+                if(linkText === 'BAF47') {
+                    link = 'SMARCB1';
+                } else if (linkText === 'BRG1') {
+                    link = 'SMARCA4';
+                } else {
+                    link = linkText
+                }
+                expect(elem.element(by.css('a')).getAttribute('href')).to.eventually.eql('http://grch37-cancer.sanger.ac.uk/cosmic/gene/overview?ln=' + link, "Gene Link Mismatch");
             } else {
                 // console.log(linkText);
                 expect(elem.all(by.css('a')).count()).to.eventually.eql(0)
@@ -624,7 +635,40 @@ var Utilities = function () {
         }
     };
 
-    this.delay = delay;
+    this.checkExpectation = function(el, expected, message) {
+        el.getText().then(function(actualText){
+            expect(actualText).to.eql(expected, message);
+        });
+    };
+
+    this.returnFormattedDate = function(dateString) {
+        return moment(dateString).utc().format('LLL');
+    };
+
+    this.checkColor = function(el, status) {
+        var green = ['POSITIVE', 'CONFIRMED'];
+        var red = ['INDETERMINATE', 'REJECTED'];
+        var orange = ['NEGATIVE', 'PENDING'];
+        var color = 'color';
+
+        if (this.includes(green, status)){
+            color = 'color: green;';
+        } else if (this.includes(red, status)) {
+            color = 'color: red;';
+        } else if (this.includes(orange, status)) {
+            color = 'color: orange;';
+        };
+
+        this.checkAttribute(el, 'style', color);
+    };
+
+    this.includes = function(arr, elem) {
+        if(arr.indexOf(elem) >= 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 };
 
 module.exports = new Utilities();

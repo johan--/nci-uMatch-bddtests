@@ -97,7 +97,8 @@ var PatientPage = function () {
         "Select DNA BAM File": "dnaFile",
         "Select cDNA BAM File": "rnaFile"
     };
-
+    this.slideShipmentList  = element.all(by.css('[ng-repeat="slide in specimenEvent.slides"]'));
+    this.assayHistoryList   = element.all(by.css('[ng-repeat="assay in specimenEvent.assays"]'));
 
     // *****************  Blood Specimens Tab  ********************//
     // This the master panel STRING for Tissue reports

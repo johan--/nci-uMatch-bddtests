@@ -6,6 +6,7 @@
 var fs = require('fs');
 
 var patientPage = require('../../pages/patientPage');
+var moment = require('moment');
 
 // Utility Methods
 var utilities = require('../../support/utilities');
@@ -39,7 +40,7 @@ module.exports = function () {
     });
 
     this.When(/^I collect information about the patient$/, function (callback) {
-        var url = '/api/v1/patients/' + patientPage.patientId
+        var url = '/api/v1/patients/' + patientPage.patientId;
 
         utilities.getRequestWithService('patient', url).then(function(response){
             patientPage.responseData = response
@@ -55,7 +56,7 @@ module.exports = function () {
 
     this.Then(/^I should see the same number of surgical event tabs$/, function (callback) {
 
-        var response = patientPage.responseData['tissue_specimens']
+        var response = patientPage.responseData['tissue_specimens'];
         var expectedCount = 0
         for (var i = 0; i < response.length; i++) {
             if (response.surgical_event_id !== null) {
@@ -70,6 +71,58 @@ module.exports = function () {
         expect(surgicalTabs.count()).to.eventually.eql(expectedCount).then(function () {
             browser.ignoreSynchronization = false;
         }).then(callback);
+    });
+
+    this.Then(/^I verify the data within the Slide shipment table$/, function (callback) {
+        var slide_shipments = [];
+        var slideShipmentList = patientPage.slideShipmentList;
+        var response = patientPage.responseData.tissue_specimens[0];
+
+        var compareSlideRow = function (tableRow, slideShipmentRow) {
+            var dateString = utilities.returnFormattedDate(slideShipmentRow["shipped_date"])  + ' GMT';
+            utilities.checkExpectation(tableRow.element(by.binding('slide.slide_barcode')), slideShipmentRow["slide_barcode"], "Slide Barcode Mismatch");
+            utilities.checkExpectation(tableRow.element(by.binding('slide.carrier')), slideShipmentRow["carrier"], "Carrier Mismatch");
+            utilities.checkExpectation(tableRow.element(by.css('tracking-link')), slideShipmentRow["tracking_id"], "Tracking Id Mismatch");
+            utilities.checkExpectation(tableRow.element(by.binding('slide.shipped_date')), dateString, "Shipped Date Mismatch");
+            expect(tableRow.element(by.css('tracking-link a')).isPresent()).to.eventually.eql(true);
+        };
+
+        for(var i = 0; i < response.specimen_shipments.length; i++){
+            if (response.specimen_shipments[i].slide_barcode !== undefined){
+                slide_shipments.push(response.specimen_shipments[i]);
+            }
+        }
+
+        slideShipmentList.count().then(function (cnt) {
+            for(var j= 0; j < cnt; j++){
+                compareSlideRow(slideShipmentList.get(j), slide_shipments[j]);
+            }
+        }).then(callback);
+    });
+
+    this.Then(/^I verify the data within the Assay History table$/, function (callback) {
+        var response = patientPage.responseData.tissue_specimens[0].assays;
+        var assayTableList = patientPage.assayHistoryList;
+
+        var compareAssayRow = function(tableRow, assayRow){
+            var gene = assayRow.biomarker.slice(3, -1);
+            var geneLink = tableRow.element(by.css('cosmic-link[link-id="assay.gene"]'));
+            var assayResult = tableRow.element(by.exactBinding('assay.result'));
+            var dateString = utilities.returnFormattedDate(assayRow['result_date']) + ' GMT';
+            utilities.checkExpectation(tableRow.all(by.css('td')).get(0), 'IHC', 'Assay static message');
+            utilities.checkExpectation(geneLink, gene, 'Gene value mismatch');
+            utilities.checkGeneLink(geneLink);
+            utilities.checkExpectation(tableRow.element(by.binding('assay.result_date')), dateString, 'Result Date Mismatch');
+            utilities.checkExpectation(assayResult, assayRow['result'], 'Assay Result mismatch');
+            utilities.checkColor(assayResult, assayRow['result']);
+        };
+
+        assayTableList.count().then(function(cnt){
+            for(var i = 0; i < cnt; i++) {
+                compareAssayRow(assayTableList.get(i), response[i]);
+            }
+        }).then(callback)
+
     });
 
     this.When(/^I click on the Surgical Event Tab at index "(.+?)"$/, function (index, callback) {
@@ -137,11 +190,6 @@ module.exports = function () {
 
 
         browser.sleep(50).then(callback);
-    });
-
-    this.Then(/^I see the Assay History Match with the database$/, function (callback) {
-        // Write code here that turns the phrase above into concrete actions
-        callback.pending();
     });
 
     this.Then(/^The status of each molecularId is displayed$/, function (callback) {
