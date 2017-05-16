@@ -1,7 +1,6 @@
-@rules_p1
 Feature: Test the functionality that filters the SNV variants based on specified filter criteria
 
-
+  @rules_p1
   Scenario Outline: FIL-SNV_01: Filter-out a SNV variant that has a location value as 'intronic' when the ova, function and exon are missing
     #   If snv has the location annotated (not guaranteed) and that
     #   annotation states that it is intronic, reject the snv as those should
@@ -23,7 +22,7 @@ Feature: Test the functionality that filters the SNV variants based on specified
       | tsvFile               | TAFile                        | ta                           |
       | SNV_location_intronic | SNV_location_intronic_TA.json | ["SNV_location_intronic100"] |
 
-
+  @rules_p1
   Scenario Outline: FIL-SNV_02: Filter-out a SNV variant that does not have a PASS filter
     Given a tsv variant report file "<tsvFile>" and treatment arms file "<TAFile>"
     When call the amoi rest service
@@ -32,7 +31,7 @@ Feature: Test the functionality that filters the SNV variants based on specified
       | tsvFile            | TAFile                        |
       | SNV_NO_PASS_filter | SNV_location_intronic_TA.json |
 
-
+  @rules_p1
   Scenario Outline: FIL-SNV_03: Filter out SVN variants with allele frequency less than 0.05%
     Given a tsv variant report file "<tsvFile>" and treatment arms file "<TAFile>"
     When call the amoi rest service
@@ -41,7 +40,7 @@ Feature: Test the functionality that filters the SNV variants based on specified
       | tsvFile            | TAFile                        |
       | SNV_NO_PASS_filter | SNV_location_intronic_TA.json |
 
-
+  @rules_p1
   Scenario Outline: FIL-SNV_04: Filter out SVN variants with FAO less than 25
     Given a tsv variant report file "<tsvFile>" and treatment arms file "<TAFile>"
     When call the amoi rest service
@@ -50,7 +49,7 @@ Feature: Test the functionality that filters the SNV variants based on specified
       | tsvFile            | TAFile                        |
       | SNV_NO_PASS_filter | SNV_location_intronic_TA.json |
 
-
+  @rules_p1
   Scenario Outline: FIL-SNV_05: Filter-out SVN variants with function 'synonymous'
     Given a tsv variant report file "<tsvFile>" and treatment arms file "<TAFile>"
     When call the amoi rest service
@@ -59,7 +58,7 @@ Feature: Test the functionality that filters the SNV variants based on specified
       | tsvFile            | TAFile                        |
       | SNV_NO_PASS_filter | SNV_location_intronic_TA.json |
 
-
+  @rules_p1
   Scenario Outline: FIL-SNV_06: Filter-in SVN variants with valid function name
   -refallele
   -unknown
@@ -89,6 +88,7 @@ Feature: Test the functionality that filters the SNV variants based on specified
       | tsvFile            | TAFile                        |
       | SNV_NO_PASS_filter | SNV_location_intronic_TA.json |
 
+  @rules_p1
   Scenario Outline: FIL-SNV_07: Filter-out all Germline SNV variants
     Given a tsv variant report file "<tsvFile>" and treatment arms file "<TAFile>"
     When call the amoi rest service
@@ -97,7 +97,7 @@ Feature: Test the functionality that filters the SNV variants based on specified
       | tsvFile             | TAFile                        |
       | SNV_Germline_filter | SNV_location_intronic_TA.json |
 
-
+  @rules_p1
   Scenario Outline: FIL-SNV_08: Filter-in SNVs if oncomine variant class has the value deleterious
     Given a tsv variant report file "<tsvFile>" and treatment arms file "<TAFile>"
     When call the amoi rest service
@@ -106,7 +106,7 @@ Feature: Test the functionality that filters the SNV variants based on specified
       | tsvFile                    | TAFile                        |
       | SNV_OVA_deleterious_filter | SNV_location_intronic_TA.json |
 
-
+  @rules_p1
   Scenario Outline: FIL-SNV_09: Filter-in SNVs if oncomine variant class has the value hotspot
     Given a tsv variant report file "<tsvFile>" and treatment arms file "<TAFile>"
     When call the amoi rest service
@@ -115,7 +115,7 @@ Feature: Test the functionality that filters the SNV variants based on specified
       | tsvFile                | TAFile                        |
       | SNV_OVA_hotspot_filter | SNV_location_intronic_TA.json |
 
-
+  @rules_p1
   Scenario Outline: FIL-SNV_10a: Filter-in SNVs if the variant matches a non-hotspot rule of a treatment arm
     Given a tsv variant report file "<tsvFile>" and treatment arms file "<TAFile>"
     When call the amoi rest service
@@ -128,19 +128,20 @@ Feature: Test the functionality that filters the SNV variants based on specified
       | FIL-SNV_10a_dot_ins | FIL-SNV_10.json | .      |
       | FIL-SNV_10a_dot_del | FIL-SNV_10.json | .      |
 
-
+  @rules_p1
   Scenario Outline: FIL-SNV_10b: Filter-out "." SNV if the variant doesn't match non-hotspot rule of treatment arm
     Given a tsv variant report file "<tsvFile>" and treatment arms file "<TAFile>"
     When call the amoi rest service
     Then returned moi report should not have snv variant "<id>"
     Examples:
-      | tsvFile             | TAFile          | id     |
+      | tsvFile             | TAFile          | id |
 #      | SNV_nhr_filter      | APEC1621-B.json | moip-2 |
-      | FIL-SNV_10b_dot_snp | FIL-SNV_10.json | .      |
-      | FIL-SNV_10b_dot_mnp | FIL-SNV_10.json | .      |
-      | FIL-SNV_10b_dot_ins | FIL-SNV_10.json | .      |
-      | FIL-SNV_10b_dot_del | FIL-SNV_10.json | .      |
+      | FIL-SNV_10b_dot_snp | FIL-SNV_10.json | .  |
+      | FIL-SNV_10b_dot_mnp | FIL-SNV_10.json | .  |
+      | FIL-SNV_10b_dot_ins | FIL-SNV_10.json | .  |
+      | FIL-SNV_10b_dot_del | FIL-SNV_10.json | .  |
 
+  @rules_p1
   Scenario Outline: FIL-SNV_11: Remove duplicate hotspot variants
     Given a tsv variant report file "<tsvFile>" and treatment arms file "<TAFile>"
     When call the amoi rest service
