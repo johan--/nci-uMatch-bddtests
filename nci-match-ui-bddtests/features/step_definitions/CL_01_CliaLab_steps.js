@@ -560,12 +560,12 @@ module.exports = function() {
             utilities.checkCOSFLink(identifier);
             utilities.checkExpectation(table.element(by.binding('item.filter')), expected['filter'], 'Filter Mismatch');
             utilities.checkExpectation(driver_gene, expected['driver_gene'], 'Driver Mismatch');
-//            utilities.checkGeneLink(driver_gene);
             utilities.checkExpectation(table.element(by.binding('item.driver_read_count')), expected['driver_read_count'], 'Driver Count Mismatch');
             utilities.checkExpectation(partner_gene, expected['partner_gene'], 'Partner Mismatch');
-//            utilities.checkGeneLink(partner_gene);
             utilities.checkExpectation(table.element(by.binding('item.partner_read_count')), expected['partner_read_count'], 'Partner Count Mismatch');
-            utilities.checkExpectation(table.element(by.binding('item.annotation')), expected['annotation'], 'Annotation Mismatch');``
+            utilities.checkExpectation(table.element(by.binding('item.annotation')), expected['annotation'], 'Annotation Mismatch');
+            utilities.checkGeneLink(driver_gene);
+            utilities.checkGeneLink(partner_gene);
         }).then(callback);
     });
 
