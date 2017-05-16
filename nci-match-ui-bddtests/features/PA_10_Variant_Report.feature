@@ -112,7 +112,6 @@ Feature: As a valid user I can access the variant report for a patient and navig
     And I verify the "ocp_alternative" in the SNVs/MNVs/Indels table
     And I verify the "allele_frequency" in the SNVs/MNVs/Indels table
     And I verify the "read_depth" in the SNVs/MNVs/Indels table
-#    And I verify the "amois" in the Gene Fusions table
     And I verify the "func_gene" in the SNVs/MNVs/Indels table
     And I verify that "func_gene" is a proper Gene link under "SNVs/MNVs/Indels"
     And I verify the "transcript" in the SNVs/MNVs/Indels table
@@ -123,7 +122,6 @@ Feature: As a valid user I can access the variant report for a patient and navig
     And I verify the "oncomine_variant_class" in the SNVs/MNVs/Indels table
     And I verify the "identifier" in the Copy Number Variants table
     And I verify that "identifier" are proper cosmic links under "Copy Number Variants"
-#    And I verify the "amois" in the Gene Fusions table
     And I verify the "chromosome" in the Copy Number Variants table
     And I verify the "raw_copy_number" in the Copy Number Variants table
     And I verify that "confidence_interval_5percent" is a proper Gene link under "Gene Fusions"
@@ -131,7 +129,6 @@ Feature: As a valid user I can access the variant report for a patient and navig
     And I verify the "confidence_interval_95percent" in the Copy Number Variants table
     And I verify the "identifier" in the Gene Fusions table
     And I verify that "identifier" are proper cosmic links under "Gene Fusions"
-#    And I verify the "amois" in the Gene Fusions table
     And I verify the "driver_gene" in the Gene Fusions table
     And I verify that "driver_gene" is a proper Gene link under "Gene Fusions"
     And I verify the "partner_gene" in the Gene Fusions table

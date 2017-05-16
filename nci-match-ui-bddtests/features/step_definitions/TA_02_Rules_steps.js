@@ -20,7 +20,6 @@ module.exports = function () {
     // When section
     this.When(/^I select the (.+) sub-tab$/, function(subTabName, callback){
         var elementIndex = taPage.expectedRulesSubTabs.indexOf(subTabName);
-        var response;
         var inputDetails = '/api/v1/treatment_arms/' + taPage.currentTreatmentId + '/' + taPage.currentStratumId;
 
         utilities.getRequestWithService('treatment', inputDetails).then(function (responseBody) {
@@ -92,6 +91,13 @@ module.exports = function () {
             taPage.valueList = valueList;
         }).then(callback);
     });
+
+    this.When(/^I enter "([^"]*)" in the "([^"]*)" search field$/, function (searchTerm, variantType, callback) {
+        var tableString = getTableString(variantType);
+        var input = element(by.css('input[grid-id="' + tableString + '"]'));
+        input.sendKeys(searchTerm).then(callback);
+    });
+
 
 //Then Section
     this.Then(/^I see that the element with css "(.*)" is a "(.+?)" link$/, function(selector, type, callback){
@@ -300,6 +306,20 @@ module.exports = function () {
         }).then(callback);
     });
 
+    this.Then(/^I should see "([^"]*)" in the retrieved row for "(.+?)"$/, function (searchTerm, variantType, callback) {
+        var tableString = getTableString(variantType);
+        var tableRows = element(by.id(tableString)).all(by.css('tbody tr'));
+        expect(tableRows.count()).to.eventually.eql(1);
+        expect(tableRows.get(0).getText()).to.eventually.include(searchTerm).notify(callback);
+    });
+
+    this.Then(/^I should not see any retrieved row for "(.+?)"$/, function(variantType, callback){
+        var tableString = getTableString(variantType);
+        var tableRows = element(by.id(tableString)).all(by.css('tbody tr'));
+        expect(tableRows.count()).to.eventually.eql(0).notify(callback);
+    });
+
+
     /**
      * Function to separate numbers from other alphabets, sort the individual
      * arrays and concat them together
@@ -324,5 +344,29 @@ module.exports = function () {
 
         var returnArray = numericArray.concat(stringArray);
         return returnArray;
+    }
+
+    function getTableString (variantTypeString) {
+        switch (variantTypeString) {
+            case 'SNVs / MNVs / Indels':
+                return 'snvsMnvsIndelsIncl';
+                break;
+
+            case 'CNVs':
+                return 'cnvsIncl';
+                break;
+
+            case 'Gene Fusions':
+                return 'geneFusionsIncl';
+                break;
+
+            case 'Non-Hotspot Rules':
+                return 'nonHotspotRulesIncl';
+                break;
+
+            case 'Non-Sequencing Assays':
+                return 'nonSequencingAssays';
+                break;
+        }
     }
 };

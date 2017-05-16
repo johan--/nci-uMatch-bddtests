@@ -74,21 +74,18 @@ module.exports = function() {
 
     });
 
-    this.When(/^I can see the clia report "([^"]*)" in the modal text box$/, function (comment, callback) {
-        var confirmVRStatus;
-        confirmVRStatus = cliaPage.confirmVRStatusCommentField.sendKeys(comment);
-        browser.sleep(50).then(callback);
+    this.When(/^I enter the Clia Lab comment "([^"]*)" in the modal text box$/, function (comment, callback) {
+        cliaPage.confirmVRStatusCommentField.sendKeys(comment).then(callback);
     });
 
     this.When(/^I click "(.+?)" on clia report Comment button$/, function (buttonText, callback) {
         var acceptProperty = element(by.buttonText(buttonText))
-        
 
             acceptProperty.click().then(function() {
                 browser.waitForAngular();
                 browser.ignoreSynchronization = false;
                 browser.sleep(4000);
-            })
+            });
 
         browser.executeScript('window.scrollTo(0, 100)').then(callback);
 
@@ -98,20 +95,23 @@ module.exports = function() {
         expect(cliaPage.infoPanel.get(0).all(by.css('dt+dd')).get(6).getText()).to.eventually.include(status).notify(callback);
     });
 
+    this.Then(/^I should see the comment as "(.+?)"$/, function (comment, callback) {
+        expect(element(by.css('[ng-if="comments!==null"] dd')).getText()).to.eventually.eql(comment).notify(callback);
+    });
+
     this.When(/^I enter "([^"]*)" in the search field of "([^"]*)" under "([^"]*)"$/, function (searchTerm, controlType, siteName, callback) {
-        var parent = cliaPage.tabNameMapping[siteName][controlType].element; 
         var input = cliaPage.tabNameMapping[siteName][controlType].searchElement;
-        var tableElement = parent.all(by.css('tr[ng-repeat^="item in filtered"]'));
+        cliaPage.parent = cliaPage.tabNameMapping[siteName][controlType].element;
         input.sendKeys(searchTerm).then(function(){
             browser.waitForAngular();
-
-            expect(tableElement.count()).to.eventually.equal(1)
         }).then(callback);
     });
 
     this.Then(/^I should see the status of variant report in list as "([^"]*)"$/, function (status, callback) {
+        var tableElement = cliaPage.parent.all(by.css('tr[ng-repeat^="item in filtered"]'));
+        expect(tableElement.count()).to.eventually.equal(1)
         expect(cliaPage.searchList.get(0).all(by.binding('item.report_status | dashify')).get(0).getText())
-            .to.eventually.eql(status).notify(callback);       
+            .to.eventually.eql(status).notify(callback);
     });
 
 };

@@ -86,6 +86,13 @@ module.exports = function() {
         }).then(callback);
     });
 
+    this.When(/^I collect information on the IR users for "(.+?)"$/, function (site, callback) {
+        var url = '/api/v1/ion_reporters/healthcheck?site=' + site;
+        utilities.getRequestWithService('ion', url).then(function(response){
+            cliaPage.responseData = response;
+        }).then(callback);
+    });
+
     this.When(/^I click on Generate MSN button$/, function (callback) {
         var generateMSNProperty = element(by.css('button[ng-click="$ctrl.generateMsnRow(\'' + cliaPage.controlType + '\')"]'));
         utilities.waitForElement(generateMSNProperty, 'Generate MSN button');
@@ -120,9 +127,40 @@ module.exports = function() {
         }).then(callback);
     });
 
+    this.When(/^I click on a random IR tab$/, function (callback) {
+        var counter = cliaPage.responseData.length;
+        var index = parseInt(Math.random() * counter);
+        cliaPage.expectedIRdetails = cliaPage.responseData[index];
+
+        console.log(cliaPage.expectedIRdetails);
+
+        var irId = cliaPage.expectedIRdetails['ion_reporter_id'];
+        element(by.css('li[ng-repeat="item in heartbeatList"][heading="' + irId + '"]')).click().then(function () {
+            browser.waitForAngular();
+        }).then(callback);
+    });
+
     this.Then(/^I verify that "([^"]*)" under "(MoCha|MD Anderson|Dartmouth)" is active$/, function (subTabName, sectionName, callback) {
          var elemToCheck = element(by.css('li[heading="' + subTabName + '"]'));
          utilities.checkElementIncludesAttribute(elemToCheck, 'class', 'active').then(callback);
+    });
+
+    this.Then(/^I can see the details about the new IR and matches with the backend$/,function (callback) {
+        //Checking if the tab is active
+        var irId = cliaPage.expectedIRdetails['ion_reporter_id'];
+        var el = element(by.css('li[ng-repeat="item in heartbeatList"][heading="' + irId + '"]'));
+        var tab = element.all(by.css('[ng-controller="HeartbeatController as heartbeat"] .active li .pull-right'));
+        utilities.checkElementIncludesAttribute(el, 'class', 'active').then(function () {
+            var lastContact = utilities.returnFormattedDate(cliaPage.expectedIRdetails['last_contact']) + ' GMT';
+            utilities.checkExpectation(tab.get(0) , cliaPage.expectedIRdetails['ip_address'], 'IP Mismatch');
+            utilities.checkExpectation(tab.get(1), cliaPage.expectedIRdetails['internal_ip_address'], 'Internal IP Mismatch');
+            utilities.checkExpectation(tab.get(2), cliaPage.expectedIRdetails['host_name'], 'Host Name Mismatch');
+            tab.get(3).getText().then(function (status) {
+                expect(status).to.include(cliaPage.expectedIRdetails['ir_status'].slice(0, -17), 'Status Mismatch');
+            });
+            utilities.checkExpectation(tab.get(4), cliaPage.expectedIRdetails['ion_reporter_version'], 'IR Version Mismatch');
+            utilities.checkExpectation(tab.get(5), lastContact, 'Last Contact mismatch');
+        }).then(callback);
     });
 
     this.Then(/^I verify the headings for "([^"]*)" under "(MoCha|MD Anderson|Dartmouth)"$/, function (subTabName, sectionName, callback) {
@@ -568,6 +606,12 @@ module.exports = function() {
             utilities.checkGeneLink(partner_gene);
         }).then(callback);
     });
+
+    this.Then(/^I can see the IR tabs$/, function (callback) {
+        expect(cliaPage.irTabs.count()).to.eventually.eql(cliaPage.responseData.length).notify(callback);
+    });
+
+
 
     // CLia related functions
 

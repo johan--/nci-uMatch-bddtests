@@ -646,7 +646,7 @@ var Utilities = function () {
     };
 
     this.returnFormattedDate = function(dateString) {
-        return moment(dateString).utc().format('LLL');
+        return moment.utc(dateString).utc().format('LLL');
     };
 
     this.checkColor = function(el, status) {

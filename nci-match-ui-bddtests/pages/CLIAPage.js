@@ -66,6 +66,14 @@ var CliaPage = function () {
     // this.infoPanel     = element(by.css('div.header-info-box clia-lab-vr-pc-header-box'))
     this.infoPanel = element.all(by.css('div.clia-lab-vr-pc-header-box'));
 
+    // IR PAnel
+    this.irTabs = element.all(by.css('li[ng-repeat="item in heartbeatList"]'));
+    this.irIPAddress = element(by.binding('item.ip_address'));
+    this.irIPInternalAddress = element(by.binding('item.internal_ip_address'));
+    this.irHostName = element(by.binding('item.host_name'));
+    this.irStatus = element(by.binding('item.ir_status'));
+    this.irVersion = element(by.binding('item.ion_reporter_version'));
+    this.irLastContact = element(by.binding('item.last_contact'));
 
     this.acceptNtcButton = element(by.css('button[ng-click="changeNtcStatusWithComment(\'PASSED\')"]'));
     this.rejectPcButton = element(by.css('button[ng-click="changePcStatusWithComment(\'FAILED\')"]'));

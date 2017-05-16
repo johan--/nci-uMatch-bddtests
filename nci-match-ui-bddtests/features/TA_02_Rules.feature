@@ -76,7 +76,7 @@ Feature: Treatment Arm Rules
     When I select the Non-Sequencing Assays sub-tab
     And I see that the elements in the column gene for table Non-Sequencing Assays is a gene
 
-@ui_p2
+  @ui_p2
   Scenario Outline: Variants are sorted by defaults in ascending order of Chromosomes on the <subTabName> table
     When I select the <subTabName> sub-tab
     And I select the Inclusion button
@@ -89,3 +89,21 @@ Feature: Treatment Arm Rules
       | subTabName           |
       | SNVs / MNVs / Indels |
       | CNVs                 |
+
+  @ui_p2
+  Scenario: User should be able to search for and retrieve one row based on search term
+    When I select the SNVs / MNVs / Indels sub-tab
+    And I enter "BT9" in the "SNVs / MNVs / Indels" search field
+    Then I should see "BT9" in the retrieved row for "SNVs / MNVs / Indels"
+    When I select the CNVs sub-tab
+    And I enter "MYCL" in the "CNVs" search field
+    Then I should see "MYCL" in the retrieved row for "CNVs"
+    When I select the Gene Fusions sub-tab
+    And I enter "TPM3-NTRK1.T7N10.COSF1318_2" in the "Gene Fusions" search field
+    Then I should see "TPM3-NTRK1.T7N10.COSF1318_2" in the retrieved row for "Gene Fusions"
+    When I select the Non-Sequencing Assays sub-tab
+    And I enter "MEH1" in the "Non-Sequencing Assays" search field
+    Then I should see "MEH1" in the retrieved row for "Non-Sequencing Assays"
+    When I select the Non-Hotspot Rules sub-tab
+    And I enter "SE" in the "Non-Hotspot Rules" search field
+    Then I should not see any retrieved row for "Non-Hotspot Rules"

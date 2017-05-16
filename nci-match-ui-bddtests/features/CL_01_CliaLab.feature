@@ -102,3 +102,17 @@ Feature: CLIA Labs Page
       | VR_Sender_dartmouth | Dartmouth   | Positive Sample Controls   |
       | VR_Sender_dartmouth | Dartmouth   | No Template Control        |
       | VR_Sender_dartmouth | Dartmouth   | Proficiency And Competency |
+
+  @ui_p1
+  Scenario Outline: A User can see the various IR reporters for <site> and their health check status and configurations
+    Given I stay logged in as "read_only" user
+    And I collect information on the IR users for "<site>"
+    When I navigate to the CLIA Labs page
+    And I click on the "<siteName>" section
+    Then I can see the IR tabs
+    When I click on a random IR tab
+    Then I can see the details about the new IR and matches with the backend
+    Examples:
+      | site  | siteName    |
+      | mocha | MoCha       |
+      | mda   | MD Anderson |
