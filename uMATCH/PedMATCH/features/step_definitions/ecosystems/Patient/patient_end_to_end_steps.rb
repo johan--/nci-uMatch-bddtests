@@ -125,6 +125,7 @@ Then(/^"([^"]*)" variant report "([^"]*)" uploaded with analysis id: "([^"]*)"$/
   else
     Patient_helper_methods.wait_until_patient_updated(@patient_id)
   end
+  sleep 10.0
 end
 
 # Then(/^requests assignment for this patient with re\-biopsy: "([^"]*)", step number: "([^"]*)"$/) do |re_bio, step_number|
