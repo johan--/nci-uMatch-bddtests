@@ -59,6 +59,10 @@ var CliaPage = function () {
     this.proficiencyCNVPanel    = element(by.css('clia-vr-table-cnv-with-check'));
     this.proficiencyGFPanel     = element(by.css('clia-vr-table-gf-with-check'));
 
+    this.QCSNVPanel             = element(by.id('cliaQcReportSnvMnvInd'));
+    this.QCCNVPanel             = element(by.id('cliaQcReportCnv'));
+    this.QCGeneFusionPanel      = element(by.id('cliaQcReportGeneFusion'));
+
     // this.infoPanel     = element(by.css('div.header-info-box clia-lab-vr-pc-header-box'))
     this.infoPanel = element.all(by.css('div.clia-lab-vr-pc-header-box'));
 

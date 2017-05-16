@@ -68,6 +68,7 @@ module.exports = function () {
         var surgicalEventId = patientId + '_SEI1';
         var expectedUrl = browser.baseUrl + '/#/patient?patient_id=' + patientId + '&section=surgical_event&surgical_event_id=' + surgicalEventId;
         browser.ignoreSynchronization = true;
+        utilities.checkAttribute(element(by.css('li[ng-repeat="specimenEvent in specimenEvents"]')), 'class', 'active');
         expect(browser.getCurrentUrl()).to.eventually.eql(expectedUrl).then(function () {
             browser.ignoreSynchronization = false;
         }).then(callback);

@@ -30,6 +30,19 @@ Feature: CLIA Labs Page
     And I verify that all Genes have a valid link in the "False Positive Variants" table
 
   @ui_p1
+  Scenario: User can access information about the uploaded QC report.
+    Given I stay logged in as "VR_Sender_mocha" user
+    When I navigate to sample control "SC_MOCHA_A2PD6" of type "Positive Sample Controls" under "MoCha"
+    And I collect information about the QC report from aliquot
+    And I click on the "QC Report" label
+    And I enter the first "identifier" from "snv_indels" in the "SNVs/MNVs/Indels" Table search
+    Then I verify the data in the SNV Table in QC report
+    When I enter the first "identifier" from "copy_number_variants" in the "Copy Number Variants" Table search
+    Then I verify the data in the CNV Table in QC report
+    When I enter the first "identifier" from "gene_fusions" in the "Gene Fusions" Table search
+    Then I verify the data in the Gene Fusions Table in QC report
+
+  @ui_p1
   Scenario Outline: User can access information about the uploaded <tableType> report.
     Given I stay logged in as "VR_Sender_mocha" user
     When I navigate to sample control "<sampleControlId>" of type "<tableType>" under "MoCha"

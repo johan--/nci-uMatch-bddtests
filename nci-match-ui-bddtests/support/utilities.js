@@ -641,7 +641,7 @@ var Utilities = function () {
             expectedValue =  '-'
         }
         el.getText().then(function(actualText){
-            expect(actualText).to.eql(expectedValue, message);
+            expect(actualText).to.eql(expectedValue.toString(), message);
         });
     };
 

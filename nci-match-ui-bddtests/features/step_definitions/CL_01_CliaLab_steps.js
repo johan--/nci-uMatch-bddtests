@@ -7,8 +7,8 @@ var fs = require('fs');
 var moment = require('moment');
 
 var utilities = require('../../support/utilities');
-var dash      = require('../../pages/dashboardPage');
 var cliaPage      = require('../../pages/CLIAPage');
+var patientPage = require('../../pages/patientPage');
 
 var nodeCmd   = require('node-cmd');
 module.exports = function() {
@@ -489,6 +489,86 @@ module.exports = function() {
 
     });
 
+    this.When(/^I collect information about the QC report from aliquot$/, function (callback) {
+        var url = '/api/v1/sample_controls/quality_control/' + cliaPage.molecularId;
+        utilities.getRequestWithService('ion', url, { Authorization: browser.sysToken }).then(function(responseBody){
+            cliaPage.responseData = responseBody;
+        }).then(callback);
+    });
+
+    this.Then(/^I enter the first "(.+?)" from "(.+?)" in the "(.+?)" Table search$/, function (field, variant, variantName, callback) {
+        cliaPage.searchValues = cliaPage.responseData[variant][0]
+        var searchTerm = cliaPage.searchValues[field];
+        var tableIndex = patientPage.expVarReportTables.indexOf(variantName);
+        cliaPage.tableId = getTableId(tableIndex);
+        console.log("Searching for: " + searchTerm);
+        cliaPage.tableId.element(by.model('filterAll')).sendKeys(searchTerm).then(function () {
+            browser.waitForAngular();
+        }).then(callback);
+    });
+
+    this.Then(/^I verify the data in the SNV Table in QC report$/, function (callback) {
+        var table = cliaPage.tableId;
+        var expected = cliaPage.searchValues;
+        browser.sleep(50).then(function () {
+            var identifier = table.element(by.css('cosmic-link[link-id="item.identifier"]'));
+            var func_gene = table.element(by.css('cosmic-link[link-id="item.func_gene"]'));
+            utilities.checkExpectation(identifier, expected['identifier'], 'Identifier Mismatch');
+            utilities.checkCosmicLink(identifier);
+            utilities.checkExpectation(table.element(by.binding('item.chromosome')), expected['chromosome'], 'Chromosome Mismatch');
+            utilities.checkExpectation(table.element(by.binding('item.position')), expected['position'], 'Position Mismatch');
+//            utilities.checkExpectation(table.element(by.css('long-string-handling[long-string="item.ocp_reference | dashify"]')), expected['ocp_reference'], 'Reference Mismatch');
+            utilities.checkExpectation(table.element(by.binding('item.ocp_alternative')), expected['ocp_alternative'], 'Alternative Mismatch');
+//            utilities.checkExpectation(table.element(by.binding('item.allele_frequency')), expected['allele_frequency'], 'Allelle Mismatch');
+            utilities.checkExpectation(func_gene, expected['func_gene'], 'Func Gene Mismatch');
+            utilities.checkGeneLink(func_gene);
+            utilities.checkExpectation(table.element(by.binding('item.oncomine_variant_class')), expected['oncomine_variant_class'], 'Oncomine Mismatch');
+            utilities.checkExpectation(table.element(by.binding('item.function')), expected['function'], 'Function Mismatch');
+            utilities.checkExpectation(table.element(by.binding('item.hgvs')), expected['hgvs'], 'HGVS Mismatch');
+            utilities.checkExpectation(table.element(by.binding('item.read_depth')), expected['read_depth'], 'Read Depth Mismatch');
+            utilities.checkExpectation(table.element(by.binding('item.transcript')), expected['transcript'], 'Transcript Mismatch');
+            utilities.checkExpectation(table.element(by.binding('item.protein')), expected['protein'], 'Protein Mismatch');
+        }).then(callback);
+    });
+
+    this.Then(/^I verify the data in the CNV Table in QC report$/, function (callback) {
+        var table = cliaPage.tableId;
+        var expected = cliaPage.searchValues;
+        browser.sleep(50).then(function () {
+            var identifier = table.element(by.css('cosmic-link[link-id="item.identifier"]'));
+            var func_gene = table.element(by.css('cosmic-link[link-id="item.func_gene"]'));
+            utilities.checkExpectation(identifier, expected['identifier'], 'Identifier Mismatch');
+            utilities.checkGeneLink(identifier);
+            utilities.checkExpectation(table.element(by.binding('item.raw_copy_number')), expected['raw_copy_number'], 'Raw Copy Number Mismatch');
+            utilities.checkExpectation(table.element(by.binding('item.filter')), expected['filter'], 'Filter Mismatch');
+            utilities.checkExpectation(table.element(by.binding('item.copy_number')), expected['copy_number'], 'Copy Number Mismatch');
+            utilities.checkExpectation(table.element(by.binding('item.confidence_interval_5_percent')), expected['confidence_interval_5_percent'], 'CI 5% Mismatch');
+            utilities.checkExpectation(table.element(by.binding('item.confidence_interval_95_percent')), expected['confidence_interval_95_percent'], 'CI 95% Mismatch');
+        }).then(callback);
+    });
+
+
+    this.Then(/^I verify the data in the Gene Fusions Table in QC report$/, function (callback) {
+        var table = cliaPage.tableId;
+        var expected = cliaPage.searchValues;
+        browser.sleep(50).then(function () {
+            var identifier = table.element(by.css('cosmic-link[link-id="item.identifier"]'));
+            var func_gene = table.element(by.css('cosmic-link[link-id="item.func_gene"]'));
+            var driver_gene = table.element(by.css('cosmic-link[link-id="item.driver_gene"]'));
+            var partner_gene = table.element(by.css('cosmic-link[link-id="item.partner_gene"]'));
+            utilities.checkExpectation(identifier, expected['identifier'], 'Identifier Mismatch');
+            utilities.checkCOSFLink(identifier);
+            utilities.checkExpectation(table.element(by.binding('item.filter')), expected['filter'], 'Filter Mismatch');
+            utilities.checkExpectation(driver_gene, expected['driver_gene'], 'Driver Mismatch');
+//            utilities.checkGeneLink(driver_gene);
+            utilities.checkExpectation(table.element(by.binding('item.driver_read_count')), expected['driver_read_count'], 'Driver Count Mismatch');
+            utilities.checkExpectation(partner_gene, expected['partner_gene'], 'Partner Mismatch');
+//            utilities.checkGeneLink(partner_gene);
+            utilities.checkExpectation(table.element(by.binding('item.partner_read_count')), expected['partner_read_count'], 'Partner Count Mismatch');
+            utilities.checkExpectation(table.element(by.binding('item.annotation')), expected['annotation'], 'Annotation Mismatch');``
+        }).then(callback);
+    });
+
     // CLia related functions
 
     function getSectionName (sectionName){
@@ -507,5 +587,10 @@ module.exports = function() {
             "Dartmouth": 'dartmouth'
         };
         return section[sectionName];
+    }
+
+    function getTableId (index) {
+        var tables = [cliaPage.QCSNVPanel, cliaPage.QCCNVPanel, cliaPage.QCGeneFusionPanel];
+        return tables[index];
     }
 };
