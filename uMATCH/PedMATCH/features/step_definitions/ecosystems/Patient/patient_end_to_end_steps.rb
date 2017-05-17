@@ -103,8 +103,8 @@ end
 
 Then(/^"([^"]*)" variant report "([^"]*)" uploaded with analysis id: "([^"]*)"$/) do |type, vcf, ani|
   @active_ts_ani = ani
-  # @current_auth0_role = 'MDA_VARIANT_REPORT_SENDER'
-  @current_auth0_role = 'ADMIN'
+  @current_auth0_role = 'MDA_VARIANT_REPORT_SENDER'
+  # @current_auth0_role = 'ADMIN'
   target_site = get_site(type).downcase
   moi = get_moi_or_barcode(type)
   @payload = {"analysis_id": ani,
@@ -188,10 +188,13 @@ Then(/^set patient off_study on step number: "([^"]*)"$/) do |step_number|
 end
 
 Then(/^COG approves patient on treatment arm: "([^"]*)", stratum: "([^"]*)" to step: "([^"]*)"$/) do |ta_id, stratum, step_number|
+  @current_auth0_role = 'PATIENT_MESSAGE_SENDER'
   @current_ta_id = ta_id
   @current_stratum = stratum
   @patient_step_number = step_number
-  @response = COG_helper_methods.on_treatment_arm(@patient_id, @patient_step_number, @current_ta_id, @current_stratum)
+  Patient_helper_methods.prepare_on_treatment_arm(@patient_id, ta_id, stratum,step_number)
+  @response = Patient_helper_methods.post_to_trigger(@current_auth0_role)
+  # @response = COG_helper_methods.on_treatment_arm(@patient_id, @patient_step_number, @current_ta_id, @current_stratum)
   # Patient_helper_methods.validate_response(@response, 'Success', 'successfully')
   Patient_helper_methods.wait_until_patient_field_is(@patient_id, 'current_status', 'ON_TREATMENT_ARM')
 end
