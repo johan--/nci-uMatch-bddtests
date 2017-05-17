@@ -113,8 +113,8 @@ var TreatmentArmsPage = function() {
     this.inclusionNHRTable = element.all(by.css('#nonHotspotRulesIncl tr[ng-repeat^="item in filtered"]'));
     this.exclusionNHRTable = element.all(by.css('#nonHotspotRulesExcl tr[ng-repeat^="item in filtered"]'));
 
-    this.actualHeadingIncludedSNVs = element.all(by.css('#snvsMnvsIndelsInclGrid th'));
-    this.actualHeadingExcludedSNVs = element.all(by.css('#snvsMnvsIndelsExclGrid th'));
+    this.actualHeadingIncludedSNVs = element.all(by.css('#snvsMnvsIndelsIncl th'));
+    this.actualHeadingExcludedSNVs = element.all(by.css('#snvsMnvsIndelsExcl th'));
     this.actualHeadingIncludedCNVs = element.all(by.css('#cnvsIncl th'));
     this.actualHeadingExcludedCNVs = element.all(by.css('#cnvsExcl th'));
     this.actualHeadingIncludedGene = element.all(by.css('#geneFusionsIncl th'));
