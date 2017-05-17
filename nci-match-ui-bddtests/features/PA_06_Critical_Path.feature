@@ -65,6 +65,7 @@ Feature: These are the critical path test cases.
     When I go to the patient "PT_CR07_RejectVariantReport" with variant report "PT_CR07_RejectVariantReport_ANI1"
     Then I can see the variant report page
     Then I see that Total MOIs match the number of MOIs on the page
+    And I wait for "5" seconds
     And I see that the Total aMOIs match the number of aMOIs on the page.
     And I get the Total confirmed MOIs on the page
     And I get the Total confirmed aMOIs on the page

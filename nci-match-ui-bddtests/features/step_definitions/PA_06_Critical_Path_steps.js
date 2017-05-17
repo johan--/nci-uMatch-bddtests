@@ -266,7 +266,9 @@ module.exports = function () {
         patientPage.patientId = patientId;
         patientPage.variantAnalysisId = variantReportId;
         browser.sleep(500).then(function () {
-            browser.get(uri, 1000);
+            browser.get(uri, 1000).then(function () {
+                browser.waitForAngular()
+            });
         }).then(callback);
     });
 

@@ -21162,7 +21162,7 @@
         "BOOL": true
       },
       "gene": {
-        "S": "GENE"
+        "S": "ALK, PIK3R1 , PTEN , MTOR , PIK3CA"
       },
       "assay_rules": {
         "L": [

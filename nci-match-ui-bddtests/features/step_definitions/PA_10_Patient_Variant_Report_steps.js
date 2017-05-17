@@ -68,7 +68,7 @@ module.exports = function () {
         var surgicalEventId = patientId + '_SEI1';
         var expectedUrl = browser.baseUrl + '/#/patient?patient_id=' + patientId + '&section=surgical_event&surgical_event_id=' + surgicalEventId;
         browser.ignoreSynchronization = true;
-        utilities.checkAttribute(element(by.css('li[ng-repeat="specimenEvent in specimenEvents"]')), 'class', 'active');
+        utilities.checkElementIncludesAttribute(element(by.css('li[ng-repeat="specimenEvent in specimenEvents"]')), 'class', 'active');
         expect(browser.getCurrentUrl()).to.eventually.eql(expectedUrl).then(function () {
             browser.ignoreSynchronization = false;
         }).then(callback);
@@ -120,6 +120,35 @@ module.exports = function () {
                 expected = patientPage.expGFTableHeadings;
                 break;
         };
+
+        actual.getText().then(function(actualArr){
+            expect(actualArr).to.eql(expected, "Expected: " + expected + "\nActual: " + actualArr);
+        }).then(callback);
+    });
+
+    this.Then(/^I can see the columns in "(.+?)" table for QC$/, function(tableHeading, callback){
+        var index = patientPage.expVarReportTables.indexOf(tableHeading);
+        var expected;
+        var actual = patientPage.mainTabSubHeadingArray().get(index).element(by.xpath('../..')).all(by.css('th'));
+        switch (tableHeading){
+            case 'SNVs/MNVs/Indels':
+                expected = patientPage.expSNVTableHeadings;
+                expected.splice(8, 0, 'Filter');
+                break;
+
+            case 'Copy Number Variants':
+                expected = patientPage.expCNVTableHeadings;
+                expected.splice(6, 0, 'Filter');
+                break;
+
+            case 'Gene Fusions':
+                expected = patientPage.expGFTableHeadings;
+                expected.splice(4, 0, 'Filter');
+                break;
+        };
+        // Removing the columns, confirm, Comment and aMOIS
+        expected = expected.slice(2);
+        expected.splice(1, 1);
 
         actual.getText().then(function(actualArr){
             expect(actualArr).to.eql(expected, "Expected: " + expected + "\nActual: " + actualArr);
@@ -233,105 +262,107 @@ module.exports = function () {
 
     this.Then(/^I verify the "(.+?)" in the SNVs\/MNVs\/Indels table$/, function(columnName, callback){
         var body = patientPage.mainTabSubHeadingArray().get(0).element(by.xpath('../..')).element(by.css('tbody'));
-        var hashSection   = patientPage.responseData.snv_indels;
+        var hashSection   = patientPage.responseData["snv_indels"];
+        browser.waitForAngular().then(function () {
+            if (hashSection.length > 0){
+                expect(body.getText()).to.eventually.eql('No SNVs, MNVs or Indels').notify(callback);
+            } else {
+                var expectedArray = [];
+                for (var i = 0; i < hashSection.length; i++ ) {
+                    if ( hashSection[i][columnName] === null || hashSection[i][columnName] === undefined ) {
+                        expectedArray.push('-');
+                    } else {
+                        expectedArray.push(hashSection[i][columnName]);
+                    }
+                }
+                switch (columnName) {
+                    case 'identifier':
+                        body.all(by.css('cosmic-link[link-id="item.identifier"]')).getText().then(function(actualArr){
+                            expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
+                        }).then(callback);
+                        break;
 
-        if (hashSection.length > 0){
-            expect(body.getText()).to.eventually.eql('No SNVs, MNVs or Indels').notify(callback);
-        } else {
-            var expectedArray = [];
-            for (var i = 0; i < hashSection.length; i++ ) {
-                if ( hashSection[i][columnName] === null || hashSection[i][columnName] === undefined ) {
-                    expectedArray.push('-');
-                } else {
-                    expectedArray.push(hashSection[i][columnName]);
+                    case 'chromosome':
+                        body.all(by.css('[ng-bind="item.chromosome | dashify"]')).getText().then(function(actualArr){
+                            expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
+                        }).then(callback);
+                        break;
+
+                    case 'position':
+                        body.all(by.css('[ng-bind="item.position | dashify"]')).getText().then(function(actualArr){
+                            expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
+                        }).then(callback);
+                        break;
+
+                    case 'ocp_reference':
+                        body.all(by.css('[ng-bind="item.ocp_reference | dashify"]')).getText().then(function(actualArr){
+                            expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
+                        }).then(callback);
+                        break;
+
+                    case 'ocp_alternative':
+                        body.all(by.css('[ng-bind="item.ocp_alternative | dashify"]')).getText().then(function(actualArr){
+                            expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
+                        }).then(callback);
+                        break;
+
+                    case 'allele_frequency':
+                        body.all(by.css('[ng-bind="item.allele_frequency | dashify"]')).getText().then(function(actualArr){
+                            expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
+                        }).then(callback);
+                        break;
+
+                    case 'read_depth':
+                        body.all(by.css('[ng-bind="item.read_depth | dashify"]')).getText().then(function(actualArr){
+                            expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
+                        }).then(callback);
+                        break;
+
+                    case 'func_gene':
+                        body.all(by.css('cosmic-link[link-id="item.func_gene"]')).getText().then(function(actualArr){
+                            expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
+                        }).then(callback);
+                        break;
+
+                    case 'transcript':
+                        body.all(by.css('[ng-bind="item.transcript | dashify"]')).getText().then(function(actualArr){
+                            expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
+                        }).then(callback);
+                        break;
+
+                    case 'hgvs':
+                        body.all(by.css('[ng-bind="item.hgvs | dashify"]')).getText().then(function(actualArr){
+                            expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
+                        }).then(callback);
+                        break;
+
+                    case 'protein':
+                        body.all(by.css('[ng-bind="item.protein | dashify"]')).getText().then(function(actualArr){
+                            expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
+                        }).then(callback);
+                        break;
+                    case 'exon':
+                        body.all(by.css('[ng-bind="item.exon | dashify"]')).getText().then(function(actualArr){
+                            expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
+                        }).then(callback);
+                        break;
+
+                    case 'oncomine_variant_class':
+                        body.all(by.css('[ng-bind="item.oncomine_variant_class | dashify"]')).getText().then(function(actualArr){
+                            expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
+                        }).then(callback);
+                        break;
+
+                    case 'function':
+                        body.all(by.css('[ng-bind="item.function | dashify"]')).getText().then(function(actualArr){
+                            expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
+                        }).then(callback);
+                        break;
+
                 }
             }
-            switch (columnName) {
-                case 'identifier':
-                    body.all(by.css('cosmic-link[link-id="item.identifier"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
-                    }).then(callback);
-                    break;
+        }).then(callback);
 
-                case 'chromosome':
-                    body.all(by.css('[ng-bind="item.chromosome | dashify"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
-                    }).then(callback);
-                    break;
-
-                case 'position':
-                    body.all(by.css('[ng-bind="item.position | dashify"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
-                    }).then(callback);
-                    break;
-
-                case 'ocp_reference':
-                    body.all(by.css('[ng-bind="item.ocp_reference | dashify"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
-                    }).then(callback);
-                    break;
-
-                case 'ocp_alternative':
-                    body.all(by.css('[ng-bind="item.ocp_alternative | dashify"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
-                    }).then(callback);
-                    break;
-
-                case 'allele_frequency':
-                    body.all(by.css('[ng-bind="item.allele_frequency | dashify"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
-                    }).then(callback);
-                    break;
-
-                case 'read_depth':
-                    body.all(by.css('[ng-bind="item.read_depth | dashify"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
-                    }).then(callback);
-                    break;
-
-                case 'func_gene':
-                    body.all(by.css('cosmic-link[link-id="item.func_gene"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
-                    }).then(callback);
-                    break;
-
-                case 'transcript':
-                    body.all(by.css('[ng-bind="item.transcript | dashify"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
-                    }).then(callback);
-                    break;
-
-                case 'hgvs':
-                    body.all(by.css('[ng-bind="item.hgvs | dashify"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
-                    }).then(callback);
-                    break;
-
-                case 'protein':
-                    body.all(by.css('[ng-bind="item.protein | dashify"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
-                    }).then(callback);
-                    break;
-                case 'exon':
-                    body.all(by.css('[ng-bind="item.exon | dashify"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
-                    }).then(callback);
-                    break;
-
-                case 'oncomine_variant_class':
-                    body.all(by.css('[ng-bind="item.oncomine_variant_class | dashify"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
-                    }).then(callback);
-                    break;
-
-                case 'function':
-                    body.all(by.css('[ng-bind="item.function | dashify"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
-                    }).then(callback);
-                    break;
-
-            }
-        }
     });
 
     this.Then(/^I verify that "(.+?)" are proper cosmic links under "(.+?)"$/, function(identifier, variantType,  callback){

@@ -98,12 +98,18 @@ Feature: As a valid user I can access the variant report for a patient and navig
     | patient_id             | variant_report               | torrent_version | pool1     | pool2     |
     | UI_PA09_TsVr52Uploaded | UI_PA09_TsVr52Uploaded_ANI1  | 5.2-25          | 449632.5  | 957045.5  |
 
-  @ui_p3
+  @ui_p2
   Scenario: Checking the QC values in the SNVs/MNVs/Indels table of the variant report
-    When I go to the patient "UI_PA08_PendingConfirmation" with variant report "UI_PA08_PendingConfirmation_ANI1"
-    And I click on the "QC Report" label
-    And I wait for "30" seconds
+    When I go to the patient "PT_VC00_CnvVrReceived" with variant report "PT_VC00_CnvVrReceived_ANI1"
     And I collect information about the patient QC
+    And I click on the "QC Report" label
+    Then I can see the "SNVs/MNVs/Indels" table heading
+    And I can see the "Copy Number Variants" table heading
+    And I can see the "Gene Fusions" table heading
+    And I can see the columns in "SNVs/MNVs/Indels" table for QC
+    And I can see the columns in "Copy Number Variants" table for QC
+    And I can see the columns in "Gene Fusions" table for QC
+    And I wait for "45" seconds
     And I verify the "identifier" in the SNVs/MNVs/Indels table
     And I verify that "identifier" are proper cosmic links under "SNVs/MNVs/Indels"
     And I verify the "chromosome" in the SNVs/MNVs/Indels table
