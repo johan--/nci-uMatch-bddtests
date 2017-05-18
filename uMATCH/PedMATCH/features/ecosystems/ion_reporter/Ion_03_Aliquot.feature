@@ -25,7 +25,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then field: "tsv_name" for this aliquot should be: "IR_TCWEV/NTC_MDA_OAFXP/SC_OAFXP_ANI1/test1.tsv"
     Then field: "dna_bai_name" for this aliquot should be: "IR_TCWEV/NTC_MDA_OAFXP/SC_OAFXP_ANI1/dna.bai"
     Then field: "cdna_bai_name" for this aliquot should be: "IR_TCWEV/NTC_MDA_OAFXP/SC_OAFXP_ANI1/cdna.bai"
-    Then field: "qc_name" for this aliquot should be: "IR_TCWEV/NTC_MDA_OAFXP/SC_OAFXP_ANI1/QA.pdf"
+#    Then field: "qc_name" for this aliquot should be: "IR_TCWEV/NTC_MDA_OAFXP/SC_OAFXP_ANI1/QA.pdf"
     Then field: "analysis_id" for this aliquot should be: "SC_OAFXP_ANI1"
     Then field: "ion_reporter_id" for this aliquot should be: "IR_TCWEV"
     Then field: "filename" for this aliquot should be: "test1"
@@ -37,7 +37,7 @@ Feature: Tests for aliquot service in ion ecosystem
     And file: "IR_TCWEV/NTC_MDA_OAFXP/SC_OAFXP_ANI1/test1.vcf" should be available in S3
     And file: "IR_TCWEV/NTC_MDA_OAFXP/SC_OAFXP_ANI1/dna.bai" should be available in S3
     And file: "IR_TCWEV/NTC_MDA_OAFXP/SC_OAFXP_ANI1/cdna.bai" should be available in S3
-    And file: "IR_TCWEV/NTC_MDA_OAFXP/SC_OAFXP_ANI1/QA.pdf" should be available in S3
+#    And file: "IR_TCWEV/NTC_MDA_OAFXP/SC_OAFXP_ANI1/QA.pdf" should be available in S3
 
   @ion_reporter_p1
   Scenario: ION_AQ02. for patient tissue specimen, aliquot service will generate tsv and bai files and upload to S3, then send variant files uploaded message to patient ecosystem once process done
