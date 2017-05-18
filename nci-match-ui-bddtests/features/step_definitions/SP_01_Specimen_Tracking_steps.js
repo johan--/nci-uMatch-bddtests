@@ -234,6 +234,171 @@ module.exports = function () {
         expect(STPage.topLvlTabElemList.get(linkIndex).getAttribute('class')).to.eventually.include('active').notify(callback);
     });
 
+    this.Then(/^I can see the "(.+?)" table columns$/, function ( tableType, callback) {
+        var expectedArray;
+        switch (tableType){
+            case 'Specimens':
+                expectedArray   = STPage.expectedSpecimensTableHeaders;
+                STPage.actualTable     = STPage.specimenTableElement;
+                break;
+
+            case 'CLIA Lab Shipments':
+                expectedArray   = STPage.expectedCliaLabTableHeaders;
+                STPage.actualTable     = STPage.cliaLAbTableElement;
+                break;
+
+            case 'Slide Shipments':
+                expectedArray   = STPage.expectedSlideShipmentHeaders;
+                STPage.actualTable     = STPage.slideShipTableElement;
+                break;
+        }
+        STPage.actualTable.all(by.css('thead th')).getText().then(function(headers){
+            expect(headers).to.eql(expectedArray, 'Expected: ' + expectedArray + '\nActual: ' + headers)
+        }).then(callback);
+    });
+
+    this.When(/^I collect information on specimens used for shipments$/, function (callback) {
+        var uri = '/api/v1/patients/specimens';
+        utilities.getRequestWithService('patient', uri).then(function (response) {
+            STPage.responseData = response;
+        }).then(callback);
+    });
+
+    this.When(/^I collect information on shipment used for shipments$/, function (callback) {
+        var uri = '/api/v1/patients/shipments';
+        utilities.getRequestWithService('patient', uri).then(function (response) {
+            STPage.responseData = response;
+        }).then(callback);
+    });
+
+    this.Then(/^I search for "(.+?)" in the search field$/, function (query, callback) {
+        var searchElement = STPage.actualTable.element(by.css('input'));
+        searchElement.clear().then(function(){
+            searchElement.sendKeys(query).then(function () {
+                browser.waitForAngular().then(function () {
+                    STPage.actualTable.all(by.css('tbody tr')).getText().then(function (app) {
+                    });
+                    expect(STPage.actualTable.all(by.css('tbody tr')).count()).to.eventually.eql(1)
+                })
+            })
+        }).then(callback);
+    });
+
+    this.When(/^I sort and separate the slide from tissue$/, function () {
+        var actualArr = {
+            "TISSUE_DNA_AND_CDNA": [],
+            "SLIDE": [],
+            "BLOOD_DNA": []
+            };
+
+        for(var i = 0; i < STPage.responseData.length; i++){
+            actualArr[STPage.responseData[i]["shipment_type"]].push(STPage.responseData[i])
+        }
+        STPage.actualArr = actualArr;
+    });
+
+    this.Then(/^I see the total number displayed matches with the response length$/, function (callback) {
+        var message = STPage.actualTable.element(by.css('[ng-if="vm.tableInfo.totalItems === vm.tableGridInfo.data.length"]'))
+        var expectedCount = STPage.responseData.length;
+        message.getText().then(function(msg){
+            expect(msg).to.eql('Total ' + expectedCount + ' items.', 'Count Mismatch')
+        }).then(callback);
+    });
+
+    this.Then(/^I see the total number displayed matches with the response length for "(DNA|SLIDE)"$/, function (shipment_type, callback) {
+        var count;
+        if (shipment_type === 'DNA'){
+            count = STPage.actualArr.TISSUE_DNA_AND_CDNA.length + STPage.actualArr.BLOOD_DNA.length
+        } else {
+            count = STPage.actualArr.SLIDE.length
+        }
+        var message = STPage.actualTable.element(by.css('[ng-if="vm.tableInfo.totalItems === vm.tableGridInfo.data.length"]'))
+        message.getText().then(function(msg){
+            expect(msg).to.eql('Total ' + count + ' items.', 'Count Mismatch')
+        }).then(callback);
+    });
+
+    this.Then(/^I see that the row matches with specimens data of the backend for "(.+?)"$/, function (query, callback) {
+        var hashSection;
+        var data = STPage.responseData;
+        var singleRow = STPage.actualTable.all(by.css('tbody td'));
+        for (var i = 0; i < data.length; i++) {
+            if (data[i].patient_id === query){
+                hashSection = data[i];
+                break
+            }
+        }
+        if (hashSection !== undefined) {
+            var collectedDate = utilities.returnFormattedDate(hashSection.collected_date) + ' GMT';
+            var received_date = utilities.returnFormattedDate(hashSection.received_date) + ' GMT';
+            browser.sleep(40).then(function () {
+                utilities.checkExpectation(singleRow.get(0).getText(), hashSection.surgical_event_id, 'Surgical Event Id Mismatch');
+                utilities.checkExpectation(singleRow.get(1).getText(), hashSection.patient_id, 'Patient Id Mismatch');
+                utilities.checkExpectation(singleRow.get(2).getText(), collectedDate, 'Collected Date Mismatch');
+                utilities.checkExpectation(singleRow.get(3).getText(), received_date, 'Received Date Mismatch');
+                utilities.checkExpectation(singleRow.get(4).getText(), hashSection.specimen_type, 'Surgical Event Id Mismatch');
+            }).then(callback);
+
+        } else {
+            expect(singleRow.count()).to.eventually.eql(0).notify(callback);
+        }
+    });
+
+    this.Then(/^I see that the row matches with Clia Lab data of the backend for "(.+?)"$/, function (query, callback) {
+        var hashSection;
+        var data = STPage.responseData;
+        var singleRow = STPage.actualTable.all(by.css('tbody td'));
+        for (var i = 0; i < data.length; i++) {
+            if (data[i].patient_id === query){
+                hashSection = data[i];
+                break
+            }
+        }
+        if (hashSection !== undefined) {
+            var shippedDate = utilities.returnFormattedDate(hashSection.shipped_date) + ' GMT';
+            browser.sleep(40).then(function () {
+                utilities.checkExpectation(singleRow.get(0).getText(), hashSection.molecular_id, 'Molecular Id Mismatch');
+                utilities.checkExpectation(singleRow.get(1).getText(), hashSection.surgical_event_id, 'Surgical Event_id Mismatch');
+                utilities.checkExpectation(singleRow.get(2).getText(), hashSection.patient_id, 'Patient Id Mismatch');
+                utilities.checkExpectation(singleRow.get(3).getText(), hashSection.shipment_type, 'Type Mismatch');
+                utilities.checkExpectation(singleRow.get(4).getText(), shippedDate, 'Shipped Date Mismatch');
+                utilities.checkExpectation(singleRow.get(5).getText(), hashSection.destination, 'Site Mismatch');
+                utilities.checkExpectation(singleRow.get(6).getText(), hashSection.carrier, 'Carrier Mismatch');
+                utilities.checkExpectation(singleRow.get(7).getText(), hashSection.tracking_id, 'Treacking Mismatch');
+            }).then(callback);
+
+        } else {
+            expect(singleRow.count()).to.eventually.eql(0).notify(callback);
+        }
+    });
+
+    this.Then(/^I see that the row matches with Slides data of the backend for "(.+?)"$/, function (query, callback) {
+        var hashSection;
+        var data = STPage.responseData;
+        var singleRow = STPage.actualTable.all(by.css('tbody td'));
+        for (var i = 0; i < data.length; i++) {
+            if (data[i].patient_id === query){
+                hashSection = data[i];
+                break
+            }
+        }
+        if (hashSection !== undefined) {
+            var shippedDate = utilities.returnFormattedDate(hashSection.shipped_date) + ' GMT';
+            browser.sleep(40).then(function () {
+                utilities.checkExpectation(singleRow.get(0).getText(), hashSection.slide_barcode, 'Slide Barcode Mismatch');
+                utilities.checkExpectation(singleRow.get(1).getText(), hashSection.surgical_event_id, 'Surgical Event_id Mismatch');
+                utilities.checkExpectation(singleRow.get(2).getText(), hashSection.patient_id, 'Patient Id Mismatch');
+                utilities.checkExpectation(singleRow.get(3).getText(), shippedDate, 'Shipped Date Mismatch');
+                utilities.checkExpectation(singleRow.get(4).getText(), hashSection.destination, 'Site Mismatch');
+                utilities.checkExpectation(singleRow.get(5).getText(), hashSection.carrier, 'Carrier Mismatch');
+                utilities.checkExpectation(singleRow.get(6).getText(), hashSection.tracking_id, 'Treacking Mismatch');
+            }).then(callback);
+
+        } else {
+            expect(singleRow.count()).to.eventually.eql(0).notify(callback);
+        }
+    });
+
     function shipmentBySite () {
         utilities.getRequestWithService('patient', '/api/v1/patients/shipments').then(function (responseBody) {
             var details = responseBody;

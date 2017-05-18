@@ -23,16 +23,29 @@ Feature: Specimen Tracking page
     Then I verify that I am taken directly to "PT_CR05_SpecimenShippedTwice_SEI1" page
     And I verify that surgical event tab is active
     Then I expect to see "2" rows in the tracking table
-      
+
+  @ui_p2
   Scenario: User can track Specimens
-    Then I see the Shipping Location section
-    And I see the Trend Analysis section
-    And I can see the chart at index "0" is for "MDA"
-    And I can see the chart at index "1" is for "MoCha"
-    And I can see the Distribution of specimens between sites
-    And I can see the Shipment Table Heading
-    And I can see the Shipments table
-    And I can see the Shipment table headers
-    When I collect information about shipment
-    And I enter the first available "molecular_id" in the search table
-    Then I can compare the details about shipment against the API
+    When I click on "Specimens" tab
+    And I collect information on specimens used for shipments
+    Then I can see the "Specimens" table columns
+    And I see the total number displayed matches with the response length
+    When I search for "PT_SC04d_TwoAssay" in the search field
+    Then I see that the row matches with specimens data of the backend for "PT_SC04d_TwoAssay"
+    When I search for "PT_SS25_BloodShipped" in the search field
+    Then I see that the row matches with specimens data of the backend for "PT_SS25_BloodShipped"
+
+  @ui_p2
+  Scenario: User can track Specimens
+    When I collect information on shipment used for shipments
+    And I sort and separate the slide from tissue
+    When I click on "CLIA Lab Shipments" tab
+    Then I can see the "CLIA Lab Shipments" table columns
+    And I see the total number displayed matches with the response length for "DNA"
+    When I search for "PT_SC02i_PendingApproval" in the search field
+    Then I see that the row matches with Clia Lab data of the backend for "PT_SC02i_PendingApproval"
+    When I click on "Slide Shipments" tab
+    And I can see the "Slide Shipments" table columns
+    And I see the total number displayed matches with the response length for "SLIDE"
+    When I search for "PT_SC04m_PendingApproval" in the search field
+    Then I see that the row matches with Slides data of the backend for "PT_SC04m_PendingApproval"

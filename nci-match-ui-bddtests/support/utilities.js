@@ -247,7 +247,7 @@ var Utilities = function () {
      * @param {Object} [headerObject] Authorization headerObject used to send request [Optional]
      */
     this.getRequestWithService = function (service, parameters, headerObject) {
-        var url = tierBasedURI(service) + parameters
+        var url = tierBasedURI(service) + parameters;
         var options = {
             uri: url,
             method: 'GET',

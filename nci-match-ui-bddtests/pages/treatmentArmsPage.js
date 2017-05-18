@@ -103,8 +103,8 @@ var TreatmentArmsPage = function() {
         by.css('.active>.panel-body>.ibox [ng-if="inExclusionType == \'inclusion\'"] .dataTables_wrapper>.row>.col-sm-12>table>tbody>tr.ng-valid'));
     this.exclusionTable = element.all(
         by.css('.active>.panel-body>.ibox [ng-if="inExclusionType == \'exclusion\'"] .dataTables_wrapper>.row>.col-sm-12>table>tbody>tr.ng-valid'));
-    this.inclusionsnvTable = element.all(by.css('#snvsMnvsIndelsInclGrid tr[ng-repeat^="item in filtered"]'));
-    this.exclusionsnvTable = element.all(by.css('#snvsMnvsIndelsExclGrid tr[ng-repeat^="item in filtered"]'));
+    this.inclusionsnvTable = element.all(by.css('#snvsMnvsIndelsIncl tr[ng-repeat^="item in filtered"]'));
+    this.exclusionsnvTable = element.all(by.css('#snvsMnvsIndelsExcl tr[ng-repeat^="item in filtered"]'));
     this.inclusioncnvTable = element.all(by.css('#cnvsIncl tr[ng-repeat^="item in filtered"]'));
     this.exclusioncnvTable = element.all(by.css('#cnvsExcl tr[ng-repeat^="item in filtered"]'));
     this.inclusionGeneTable = element.all(by.css('#geneFusionsIncl tr[ng-repeat^="item in filtered"]'));

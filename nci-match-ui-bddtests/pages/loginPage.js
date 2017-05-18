@@ -45,7 +45,7 @@ var LoginPage = function() {
                 clickAccessAndLogin(username, password).then(callback);
             }
         });
-    }
+    };
 
     this.beLoggedIn = function(username, password, name) {
         return browser.get('/#/auth/login', 1000).then(function(){

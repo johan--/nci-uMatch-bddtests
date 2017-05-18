@@ -76,7 +76,7 @@ module.exports = function () {
         var columnIndex;
         switch(variant) {
             case 'SNVs / MNVs / Indels':
-                idString = variantType === 'Inclusion' ? 'snvsMnvsIndelsInclGrid' : 'snvsMnvsIndelsExclGrid';
+                idString = variantType === 'Inclusion' ? 'snvsMnvsIndelsIncl' : 'snvsMnvsIndelsExcl';
                 expectedHeadings = variantType === 'Inclusion' ? taPage.expectedIncludedSNVs : taPage.expectedExcludedSNVs
                 break;
 
