@@ -10,7 +10,7 @@ Feature: Login
     When I navigate to the patients page
     Then I am redirected back to the login page
 
-  @ui_p2 @demo_p1
+  @ui_p2
   Scenario: Login with invalid credentials asks the user to login again.
     Given I am on the login page
     When I login with invalid email and password

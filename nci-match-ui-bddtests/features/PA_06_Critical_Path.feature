@@ -5,7 +5,7 @@
 @critical
 Feature: These are the critical path test cases.
 
-  @ui_p1  @demo_p3
+  @ui_p1
   Scenario: User can can see and click on a variant report and should be able to access the variant report page.
     Given I am logged in as a "VR_Reviewer_mda" user
     When I go to patient "PT_CR04_VRUploadedAssayReceived" details page
@@ -59,7 +59,7 @@ Feature: These are the critical path test cases.
     Then I can see the "This is a comment" in the modal text box
     And I click on the "OK" button
 
-  @ui_p3
+  @ui_p2
   Scenario: User can see all the amois associated with the patient and matches the table
     Given I stay logged in as "VR_Reviewer_mda" user
     When I go to the patient "PT_CR07_RejectVariantReport" with variant report "PT_CR07_RejectVariantReport_ANI1"
@@ -180,7 +180,7 @@ Feature: These are the critical path test cases.
     When I click on the assignment report link
     Then I can see the assignment report page "Assignment Report - PENDING"
 
-  @ui_p3
+  @ui_p2
   Scenario: Assignment report should provide information regarding the assignment
     Given I stay logged in as "AR_Reviewer" user
     When I go to patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" details page

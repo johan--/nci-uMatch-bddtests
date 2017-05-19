@@ -110,14 +110,17 @@ module.exports = function () {
         switch (tableHeading){
             case 'SNVs/MNVs/Indels':
                 expected = patientPage.expSNVTableHeadings;
+                patientPage.actualTable = element(by.css('vr-filtered-snv-mnv-indel'));
                 break;
 
             case 'Copy Number Variants':
                 expected = patientPage.expCNVTableHeadings;
+                patientPage.actualTable = element(by.css('vr-filtered-cnv'));
                 break;
 
             case 'Gene Fusions':
                 expected = patientPage.expGFTableHeadings;
+                patientPage.actualTable = element(by.css('vr-filtered-gf'));
                 break;
         };
 
@@ -126,22 +129,109 @@ module.exports = function () {
         }).then(callback);
     });
 
+    this.Then(/^I collect "(.+?)" data from the backend using using the first row of table as reference$/, function (tableType, callback) {
+        patientPage.actualFirstRow = patientPage.actualTable.all(by.css('tbody tr[ng-repeat="item in filtered"]')).get(0);
+        patientPage.actualFirstRow.element(by.css('[link-id="item.identifier"]')).getText().then(function(identifier){
+            var table = patientPage.responseData.variant_report[tableType];
+            for (var i = 0; i < table.length; i++){
+                if(table[i].identifier === identifier){
+                    patientPage.expectedData = table[i];
+                }
+            }
+        }).then(callback);
+    });
+
+    this.Then(/^I verify the data in the SNV table$/, function (callback) {
+        var firstRow = patientPage.actualFirstRow.all(by.css('td'));
+        var expected = patientPage.expectedData;
+        browser.sleep(50).then(function () {
+            utilities.checkExpectation(firstRow.get(2), expected.identifier, 'Identifier Mismatch');
+//            utilities.checkExpectation(firstRow.get(3), expected.identifier, 'Identifier Mismatch');
+            utilities.checkExpectation(firstRow.get(4), expected.chromosome, 'Chromosome Mismatch');
+            utilities.checkExpectation(firstRow.get(5), expected.position, 'Position Mismatch');
+            utilities.checkExpectation(firstRow.get(6), expected.ocp_reference, 'Reference Mismatch');
+            utilities.checkExpectation(firstRow.get(7), expected.ocp_alternative, 'Alternative Mismatch');
+            utilities.checkExpectation(firstRow.get(8), utilities.round(expected.allele_frequency, 3), 'Allele Frequency Mismatch');
+            utilities.checkExpectation(firstRow.get(9), utilities.integerize(expected.read_depth), 'Read Depth Mismatch');
+            utilities.checkExpectation(firstRow.get(10), expected.func_gene, 'Gene Mismatch');
+            utilities.checkExpectation(firstRow.get(11), expected.transcript, 'Transcript Mismatch');
+            utilities.checkExpectation(firstRow.get(12), expected.hgvs, 'HGVS Mismatch');
+            utilities.checkExpectation(firstRow.get(13), expected.protein, 'Protein Mismatch');
+            utilities.checkExpectation(firstRow.get(14), expected.exon, 'Exon Mismatch');
+            utilities.checkExpectation(firstRow.get(15), expected.oncomine_variant_class, 'Oncomine Mismatch');
+            utilities.checkExpectation(firstRow.get(16), expected.function, 'Function Mismatch');
+        }).then(callback);
+    });
+
+    this.Then(/^I verify the data in the CNV table$/, function (callback) {
+        var firstRow = patientPage.actualFirstRow.all(by.css('td'));
+        var expected = patientPage.expectedData;
+        browser.sleep(50).then(function () {
+            utilities.checkExpectation(firstRow.get(2), expected.identifier, 'Identifier Mismatch');
+//            utilities.checkExpectation(firstRow.get(3), expected.identifier, 'Identifier Mismatch');
+            utilities.checkExpectation(firstRow.get(4), expected.chromosome, 'Chromosome Mismatch');
+            utilities.checkExpectation(firstRow.get(5), utilities.integerize(expected.raw_copy_number), 'Raw CN Mismatch');
+            utilities.checkExpectation(firstRow.get(6), utilities.round(expected.confidence_interval_5_percent, 3), '5% Mismatch');
+            utilities.checkExpectation(firstRow.get(7), utilities.integerize(expected.copy_number), 'CN Mismatch');
+            utilities.checkExpectation(firstRow.get(8), utilities.round(expected.confidence_interval_95_percent, 3), '95% Mismatch');
+        }).then(callback);
+    });
+
+    this.Then(/^I verify the data in the Gene Fusions table$/, function (callback) {
+        var firstRow = patientPage.actualFirstRow.all(by.css('td'));
+        var expected = patientPage.expectedData;
+        browser.sleep(50).then(function () {
+            utilities.checkExpectation(firstRow.get(2), expected.identifier, 'Identifier Mismatch');
+//            utilities.checkExpectation(firstRow.get(3), expected.identifier, 'Identifier Mismatch');
+            utilities.checkExpectation(firstRow.get(4), expected.partner_gene, 'Gene2 Mismatch');
+            utilities.checkExpectation(firstRow.get(5), expected.driver_gene, 'Gene1  Mismatch');
+            utilities.checkExpectation(firstRow.get(6), utilities.integerize(expected.driver_read_count), 'Read Depth Mismatch');
+            utilities.checkExpectation(firstRow.get(7), expected.annotation, 'Annotation Mismatch');
+        }).then(callback);
+    });
+
+    this.Then(/^I verify that all "(.+?)" are "(COSM|COSF|Gene)" Links$/, function (binding, linkType, callback) {
+        var testElements = patientPage.actualTable.all(by.css('[link-id="item.' + binding + '"]'));
+        if (linkType === 'COSM'){
+            testElements.count().then(function (ct) {
+                for(var i = 0; i < ct; i++){
+                    utilities.checkCosmicLink(testElements.get(i));
+                }
+            }).then(callback);
+        } else if (linkType === 'COSF'){
+            testElements.count().then(function (ct) {
+                for(var i = 0; i < ct; i++){
+                    utilities.checkCOSFLink(testElements.get(i));
+                }
+            }).then(callback);
+        } else if (linkType === 'Gene'){
+            testElements.count().then(function (ct) {
+                for(var i = 0; i < ct; i++){
+                    utilities.checkGeneLink(testElements.get(i));
+                }
+            }).then(callback);
+        }
+    });
+
     this.Then(/^I can see the columns in "(.+?)" table for QC$/, function(tableHeading, callback){
         var index = patientPage.expVarReportTables.indexOf(tableHeading);
         var expected;
         var actual = patientPage.mainTabSubHeadingArray().get(index).element(by.xpath('../..')).all(by.css('th'));
         switch (tableHeading){
             case 'SNVs/MNVs/Indels':
+                patientPage.actualTable = element(by.css('vr-qc-snv-mnv-indel'));
                 expected = patientPage.expSNVTableHeadings;
                 expected.splice(8, 0, 'Filter');
                 break;
 
             case 'Copy Number Variants':
+                patientPage.actualTable = element(by.css('vr-qc-cnv'));
                 expected = patientPage.expCNVTableHeadings;
                 expected.splice(6, 0, 'Filter');
                 break;
 
             case 'Gene Fusions':
+                patientPage.actualTable = element(by.css('vr-qc-gf'));
                 expected = patientPage.expGFTableHeadings;
                 expected.splice(4, 0, 'Filter');
                 break;
@@ -153,216 +243,6 @@ module.exports = function () {
         actual.getText().then(function(actualArr){
             expect(actualArr).to.eql(expected, "Expected: " + expected + "\nActual: " + actualArr);
         }).then(callback);
-    });
-
-    this.Then(/^I verify the "(.+?)" in the Gene Fusions table$/, function (columnName, callback) {
-        var body = patientPage.mainTabSubHeadingArray().get(2).element(by.xpath('../..')).element(by.css('tbody'));
-        var hashSection   = patientPage.responseData.gene_fusions;
-
-        if (hashSection.length === 0){
-            expect(body.getText()).to.eventually.eql('No Gene Fusions').notify(callback);
-        } else {
-            var expectedArray = [];
-            for (var i = 0; i < hashSection.length; i++ ) {
-                if ( hashSection[i][columnName] === null || hashSection[i][columnName] === undefined ) {
-                    expectedArray.push('-');
-                } else {
-                    expectedArray.push(hashSection[i][columnName]);
-                }
-            }
-            switch (columnName) {
-                case 'identifier':
-                    body.all(by.css('cosmic-link[link-id="item.identifier"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort());
-                    }).then(callback);
-                    break;
-
-                case 'driver_gene':
-                    body.all(by.css('cosmic-link[link-id="item.driver_gene"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort());
-                    }).then(callback);
-                    break;
-
-                case 'partner_gene':
-                    body.all(by.css('cosmic-link[link-id="item.partner_gene"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort());
-                    }).then(callback);
-                    break;
-
-                case 'read_depth':
-                    body.all(by.css('[ng-bind="item.driver_read_count | dashify"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort());
-                    }).then(callback);
-                    break;
-
-                case 'annotation':
-                    body.all(by.css('[ng-bind="item.annotation | dashify"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort());
-                    }).then(callback);
-                    break;
-
-            }
-        }
-    });
-
-    this.Then(/^I verify the "(.+?)" in the Copy Number Variants table$/, function(columnName, callback){
-        var body = patientPage.mainTabSubHeadingArray().get(1).element(by.xpath('../..')).element(by.css('tbody'));
-        var hashSection   = patientPage.responseData.copy_number_variants;
-
-        if (hashSection.length === 0){
-            expect(body.getText()).to.eventually.eql('No Copy Number Variants').notify(callback);
-        } else {
-            var expectedArray = [];
-            for (var i = 0; i < hashSection.length; i++ ) {
-                if ( hashSection[i][columnName] === null || hashSection[i][columnName] === undefined ) {
-                    expectedArray.push('-');
-                } else {
-                    expectedArray.push(hashSection[i][columnName]);
-                }
-            }
-            switch (columnName) {
-                case 'identifier':
-                    body.all(by.css('cosmic-link[link-id="item.identifier"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort());
-                    }).then(callback);
-                    break;
-
-                case 'chromosome':
-                    body.all(by.css('[ng-bind="item.chromosome | dashify"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort());
-                    }).then(callback);
-                    break;
-
-                case 'raw_copy_number':
-                    body.all(by.css('[ng-bind="item.raw_copy_number | dashify"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort());
-                    }).then(callback);
-                    break;
-
-                case 'confidence_interval_5percent':
-                    body.all(by.css('[ng-bind="item.confidence_interval_5percent | dashify"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort());
-                    }).then(callback);
-                    break;
-
-                case 'copy_number':
-                    body.all(by.css('[ng-bind="item.copy_number | dashify"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort());
-                    }).then(callback);
-                    break;
-
-                case 'confidence_interval_95percent':
-                    body.all(by.css('[ng-bind="item.confidence_interval_95percent | dashify"]')).getText().then(function(actualArr){
-                        expect(actualArr.sort()).to.eql(expectedArray.sort());
-                    }).then(callback);
-                    break;
-            }
-        }
-    });
-
-    this.Then(/^I verify the "(.+?)" in the SNVs\/MNVs\/Indels table$/, function(columnName, callback){
-        var body = patientPage.mainTabSubHeadingArray().get(0).element(by.xpath('../..')).element(by.css('tbody'));
-        var hashSection   = patientPage.responseData["snv_indels"];
-        browser.waitForAngular().then(function () {
-            if (hashSection.length > 0){
-                expect(body.getText()).to.eventually.eql('No SNVs, MNVs or Indels').notify(callback);
-            } else {
-                var expectedArray = [];
-                for (var i = 0; i < hashSection.length; i++ ) {
-                    if ( hashSection[i][columnName] === null || hashSection[i][columnName] === undefined ) {
-                        expectedArray.push('-');
-                    } else {
-                        expectedArray.push(hashSection[i][columnName]);
-                    }
-                }
-                switch (columnName) {
-                    case 'identifier':
-                        body.all(by.css('cosmic-link[link-id="item.identifier"]')).getText().then(function(actualArr){
-                            expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
-                        }).then(callback);
-                        break;
-
-                    case 'chromosome':
-                        body.all(by.css('[ng-bind="item.chromosome | dashify"]')).getText().then(function(actualArr){
-                            expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
-                        }).then(callback);
-                        break;
-
-                    case 'position':
-                        body.all(by.css('[ng-bind="item.position | dashify"]')).getText().then(function(actualArr){
-                            expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
-                        }).then(callback);
-                        break;
-
-                    case 'ocp_reference':
-                        body.all(by.css('[ng-bind="item.ocp_reference | dashify"]')).getText().then(function(actualArr){
-                            expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
-                        }).then(callback);
-                        break;
-
-                    case 'ocp_alternative':
-                        body.all(by.css('[ng-bind="item.ocp_alternative | dashify"]')).getText().then(function(actualArr){
-                            expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
-                        }).then(callback);
-                        break;
-
-                    case 'allele_frequency':
-                        body.all(by.css('[ng-bind="item.allele_frequency | dashify"]')).getText().then(function(actualArr){
-                            expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
-                        }).then(callback);
-                        break;
-
-                    case 'read_depth':
-                        body.all(by.css('[ng-bind="item.read_depth | dashify"]')).getText().then(function(actualArr){
-                            expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
-                        }).then(callback);
-                        break;
-
-                    case 'func_gene':
-                        body.all(by.css('cosmic-link[link-id="item.func_gene"]')).getText().then(function(actualArr){
-                            expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
-                        }).then(callback);
-                        break;
-
-                    case 'transcript':
-                        body.all(by.css('[ng-bind="item.transcript | dashify"]')).getText().then(function(actualArr){
-                            expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
-                        }).then(callback);
-                        break;
-
-                    case 'hgvs':
-                        body.all(by.css('[ng-bind="item.hgvs | dashify"]')).getText().then(function(actualArr){
-                            expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
-                        }).then(callback);
-                        break;
-
-                    case 'protein':
-                        body.all(by.css('[ng-bind="item.protein | dashify"]')).getText().then(function(actualArr){
-                            expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
-                        }).then(callback);
-                        break;
-                    case 'exon':
-                        body.all(by.css('[ng-bind="item.exon | dashify"]')).getText().then(function(actualArr){
-                            expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
-                        }).then(callback);
-                        break;
-
-                    case 'oncomine_variant_class':
-                        body.all(by.css('[ng-bind="item.oncomine_variant_class | dashify"]')).getText().then(function(actualArr){
-                            expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
-                        }).then(callback);
-                        break;
-
-                    case 'function':
-                        body.all(by.css('[ng-bind="item.function | dashify"]')).getText().then(function(actualArr){
-                            expect(actualArr.sort()).to.eql(expectedArray.sort(), 'Actual: ' + actualArr + '\nExpected: ' + expectedArray);
-                        }).then(callback);
-                        break;
-
-                }
-            }
-        }).then(callback);
-
     });
 
     this.Then(/^I verify that "(.+?)" are proper cosmic links under "(.+?)"$/, function(identifier, variantType,  callback){

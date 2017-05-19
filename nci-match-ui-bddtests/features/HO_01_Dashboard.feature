@@ -26,7 +26,6 @@ Feature: Dashboard page.
     And I collect "patientStats" data from backend
     Then I can see the Treatment Arm Accrual chart data
 
-  @demo_p1
   @ui_p1
   Scenario: A user can see the Pending Review Section
     Then I can see the Dashboard banner

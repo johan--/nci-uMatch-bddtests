@@ -6,7 +6,7 @@
 Feature:Patients list page
   The user is able to see all the patients and their current status
 
-  @ui_p1 @demo_p3
+  @ui_p1
   Scenario: A user can see a list of all the patients registered
     Given I am a logged in user
     When I navigate to the patients page

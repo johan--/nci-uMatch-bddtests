@@ -139,11 +139,9 @@ var Utilities = function () {
             if (linkText.match(/COSM/)) {
                 var regexp = /\bCOSM(\d{1,})\b/;
                 var catchAll = regexp.exec(linkText);
-                // catchAll[1] is the second element in the matched group that is only the numbers.
+                // catchAll[1] is the second element in the matched group that are numbers.
                 var expectedString = 'http://grch37-cancer.sanger.ac.uk/cosmic/mutation/overview?id=' + catchAll[1] ;
                 expect(elem.all(by.css('a')).get(0).getAttribute('href')).to.eventually.eql(expectedString);
-            } else {
-                expect(elem.all(by.css('a')).count()).to.eventually.eql(0)
             }
         })
     };
@@ -164,7 +162,7 @@ var Utilities = function () {
     this.checkGeneLink = function (elem) {
         elem.getText().then(function (linkText) {
             if (linkText.match(/\w/)) {
-                var link
+                var link;
                 if(linkText === 'BAF47') {
                     link = 'SMARCB1';
                 } else if (linkText === 'BRG1') {
@@ -647,6 +645,14 @@ var Utilities = function () {
 
     this.returnFormattedDate = function(dateString) {
         return moment.utc(dateString).utc().format('LLL');
+    };
+
+    this.round = function (value, decimals) {
+        return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
+    };
+
+    this.integerize = function(numString){
+        return Math.ceil(parseInt(numString));
     };
 
     this.checkColor = function(el, status) {
