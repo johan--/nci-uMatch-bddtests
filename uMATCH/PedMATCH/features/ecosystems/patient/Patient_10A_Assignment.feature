@@ -167,3 +167,71 @@ Feature: Patients assignment tests
       | PT_AM09_VrAssayReady1 | PT_AM09_VrAssayReady1_ANI1 |
       | PT_AM09_VrAssayReady2 | PT_AM09_VrAssayReady2_ANI1 |
       | PT_AM09_VrAssayReady3 | PT_AM09_VrAssayReady3_ANI1 |
+
+  @patients_p1
+  Scenario: PT_AM10. patient should show correct assignment for selected arm
+    Given patient id is "PT_AM10_AssayVrReady"
+    And patient API user authorization role is "MDA_VARIANT_REPORT_REVIEWER"
+    Then load template variant report confirm message for analysis id: "PT_AM10_AssayVrReady_ANI1"
+    When PUT to MATCH variant report "confirm" service, response includes "successfully" with code "200"
+    Then patient status should change to "PENDING_CONFIRMATION"
+    Then patient GET service: "analysis_report", patient id: "PT_AM10_AssayVrReady", id: "PT_AM10_AssayVrReady_ANI1"
+    When GET from MATCH patient API, http code "200" should return
+    Then this patient analysis_report current_assignment should be treatment arm "APEC1621-A" stratum "100"
+    Then this patient analysis_report latest assignment SELECTED should be treatment arm "APEC1621-A" stratum "100"
+    Then this patient analysis_report latest assignment result should be in the order from following table
+      | result items                                  |
+      | NO_VARIANT_MATCH_EXCLUSION                    |
+      | ARM_SUSPENDED_EXCLUSION                       |
+      | LEVEL_OF_EVIDENCE_TIE_BREAKER_BASED_EXCLUSION |
+      | SELECTED                                      |
+    Then this patient analysis_report latest assignment should have treatment arm descriptions
+    Then patient GET service: "specimen_events", patient id: "PT_AM10_AssayVrReady", id: ""
+    When GET from MATCH patient API, http code "200" should return
+    Then this patient tissue specimen_events analyses "PT_AM10_AssayVrReady_ANI1" latest assignment should be:
+      | assignment_report_status | treatment_arm_id | treatment_arm_stratum_id | treatment_arm_version |
+      | PENDING                  | APEC1621-A       | 100                      | 2015-08-06            |
+
+  @patients_p3
+  Scenario: PT_AM11. patient should show correct assignment for compassionate care
+    Given patient id is "PT_AM11_AssayVrCompCareReady"
+    And patient API user authorization role is "MDA_VARIANT_REPORT_REVIEWER"
+    Then load template variant report confirm message for analysis id: "PT_AM11_AssayVrCompCareReady_ANI1"
+    When PUT to MATCH variant report "confirm" service, response includes "successfully" with code "200"
+    Then patient status should change to "PENDING_CONFIRMATION"
+    Then patient GET service: "analysis_report", patient id: "PT_AM11_AssayVrCompCareReady", id: "PT_AM11_AssayVrCompCareReady_ANI1"
+    When GET from MATCH patient API, http code "200" should return
+    Then this patient analysis_report current_assignment should be treatment arm "null" stratum "null"
+    Then this patient analysis_report latest assignment SELECTED should be treatment arm "null" stratum "null"
+    Then this patient analysis_report latest assignment result should be in the order from following table
+      | result items               |
+      | NO_VARIANT_MATCH_EXCLUSION |
+      | ARM_SUSPENDED_EXCLUSION    |
+    Then this patient analysis_report latest assignment should have treatment arm descriptions
+    Then patient GET service: "specimen_events", patient id: "PT_AM11_AssayVrCompCareReady", id: ""
+    When GET from MATCH patient API, http code "200" should return
+    Then this patient tissue specimen_events analyses "PT_AM10_AssayVrReady_ANI1" latest assignment should be:
+      | assignment_report_status | treatment_arm_id                  | treatment_arm_stratum_id | treatment_arm_version |
+      | PENDING                  | "CukeTest-122-1-SUSPENDED (null?) | stratum122a(null?)       | 2015-08-06            |
+
+  @patients_p3
+  Scenario: PT_AM12. patient should show correct assignkent for no ta available
+    Given patient id is "PT_AM12_AssayVrNoTaReady"
+    And patient API user authorization role is "MDA_VARIANT_REPORT_REVIEWER"
+    Then load template variant report confirm message for analysis id: "PT_AM12_AssayVrNoTaReady_ANI1"
+    When PUT to MATCH variant report "confirm" service, response includes "successfully" with code "200"
+    Then patient status should change to "PENDING_CONFIRMATION"
+    Then patient GET service: "analysis_report", patient id: "PT_AM12_AssayVrNoTaReady", id: "PT_AM12_AssayVrNoTaReady_ANI1"
+    When GET from MATCH patient API, http code "200" should return
+    Then this patient analysis_report current_assignment should be treatment arm "null" stratum "null"
+    Then this patient analysis_report latest assignment SELECTED should be treatment arm "null" stratum "null"
+    Then this patient analysis_report latest assignment result should be in the order from following table
+      | result items               |
+      | NO_VARIANT_MATCH_EXCLUSION |
+      | ARM_SUSPENDED_EXCLUSION    |
+    Then this patient analysis_report latest assignment should have treatment arm descriptions
+    Then patient GET service: "specimen_events", patient id: "PT_AM12_AssayVrNoTaReady", id: ""
+    When GET from MATCH patient API, http code "200" should return
+    Then this patient tissue specimen_events analyses "PT_AM10_AssayVrReady_ANI1" latest assignment should be:
+      | assignment_report_status | treatment_arm_id | treatment_arm_stratum_id | treatment_arm_version |
+      | PENDING                  | null             | null                     | null                  |

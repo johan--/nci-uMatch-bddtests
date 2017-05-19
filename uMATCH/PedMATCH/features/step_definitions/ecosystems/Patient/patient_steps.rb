@@ -330,7 +330,7 @@ And(/^patient should have prior_recommended_treatment_arms: "([^"]*)" with strat
     pra = 'prior_recommended_treatment_arms'
     expect(@current_patient_hash.keys).to include pra
     expect(@current_patient_hash[pra].class).to eq Array
-    ta = @current_patient_hash[pra].select{|i| i['treatment_arm_id']==ta_id && i['stratum_id'] == stratum}
+    ta = @current_patient_hash[pra].select { |i| i['treatment_arm_id']==ta_id && i['stratum_id'] == stratum }
     expect(ta.size).to eq 1
   end
 end
@@ -1115,14 +1115,39 @@ Then(/^this patient tissue specimen_events analyses "([^"]*)" should have correc
 end
 
 
+Then(/^this patient tissue specimen_events analyses "([^"]*)" latest assignment should be:$/) do |ani, table|
+  expect(@get_response.class).to eql Hash
+  expect(@get_response.keys).to include 'tissue_specimens'
+  expect(@get_response['tissue_specimens'].class).to eql Array
+
+  has_result = false
+  @get_response['tissue_specimens'].each { |this_specimen|
+    this_specimen['specimen_shipments'].each { |this_shipment|
+      this_shipment['analyses'].each { |this_analyses|
+        if this_analyses['analysis_id'] == ani
+          has_result = true
+          actual_ar = this_analyses['assignments'][0]
+          expect_ar = table.hashes[0]
+          expect_ar.each { |k, v|
+            expect(actual_ar[k]).to eq v
+          }
+        end
+      }
+    }
+  }
+  unless has_result
+    raise "Cannot find analyses with analysis id #{ani}"
+  end
+end
+
 Then(/^this patient tissue specimen_events specimen "([^"]*)" assays number "([^"]*)" field "([^"]*)" should be "([^"]*)"$/) do |sei, order, field, value|
   has_result = false
   @get_response['tissue_specimens'].each { |this_specimen|
-     if this_specimen['surgical_event_id'] == sei
-       has_result = true
-       assays = this_specimen['assays']
-       expect(assays[order.to_i-1][field]).to eq value
-     end
+    if this_specimen['surgical_event_id'] == sei
+      has_result = true
+      assays = this_specimen['assays']
+      expect(assays[order.to_i-1][field]).to eq value
+    end
   }
   unless has_result
     raise "Cannot find specimen with molecular id #{moi}"
@@ -1174,6 +1199,64 @@ Then(/^this patient analysis_report should have assignment report editable: "([^
   ars.each { |this_ar|
     expect(this_ar.keys).to include 'editable'
     expect(this_ar['editable'].to_s).to eq editable
+  }
+end
+
+Then(/^this patient analysis_report current_assignment should be treatment arm "([^"]*)" stratum "([^"]*)"$/) do |ta_id, stratum|
+  patient = @get_response['patient']
+  if ta_id == 'null' || stratum == 'null'
+    unless patient['current_assignment']
+      expect(patient['current_assignment']['treatment_arm_id']).to eq nil
+      expect(patient['current_assignment']['stratum_id']).to eq nil
+    end
+  else
+    expect(patient.keys).to include 'current_assignment'
+    expect(patient['current_assignment']['treatment_arm_id']).to eq ta_id
+    expect(patient['current_assignment']['stratum_id']).to eq stratum
+  end
+end
+
+Then(/^this patient analysis_report latest assignment SELECTED should be treatment arm "([^"]*)" stratum "([^"]*)"$/) do |ta_id, stratum|
+  ars = @get_response['assignments']
+  expect(ars.class).to eq Array
+  expect(ars.size).to be > 0
+  ar = ars[0]
+  expect(ar.keys).to include 'treatment_assignment_results'
+  expect(ar['treatment_assignment_results'].keys).to include 'SELECTED'
+  expect(ar['treatment_assignment_results']['SELECTED'].class).to eq Array
+  expect(ar['treatment_assignment_results']['SELECTED'][0].keys).to include 'treatment_arm'
+  selected_ta = ar['treatment_assignment_results']['SELECTED'][0]['treatment_arm']
+  expect(selected_ta.class).to eq Hash
+  expect(selected_ta['treatment_arm_id']).to eq ta_id
+  expect(selected_ta['stratum_id']).to eq stratum
+end
+
+Then(/^this patient analysis_report latest assignment result should be in the order from following table$/) do |table|
+  results = table.rows.collect { |a| a[0] }
+  ars = @get_response['assignments']
+  expect(ars.class).to eq Array
+  expect(ars.size).to be > 0
+  ar = ars[0]
+  expect(ar.keys).to include 'treatment_assignment_results'
+  expect(ar['treatment_assignment_results'].keys).to eq results
+end
+
+Then(/^this patient analysis_report latest assignment should have treatment arm descriptions$/) do
+  ars = @get_response['assignments']
+  expect(ars.class).to eq Array
+  expect(ars.size).to be > 0
+  ar = ars[0]
+  expect(ar.keys).to include 'treatment_assignment_results'
+  ar['treatment_assignment_results'].values.each { |i|
+    i.each { |ta|
+      expect(ta.keys).to include 'description'
+      ta_id = ta['treatment_arm']['treatment_arm_id']
+      stratum = ta['treatment_arm']['stratum_id']
+      v = ta['treatment_arm']['version']
+      url = "#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{ta_id}/#{stratum}/#{v}"
+      expect_ta = Helper_Methods.simple_get_request(url)['message_json']
+      expect(ta['description']).to eq expect_ta['description']
+    }
   }
 end
 

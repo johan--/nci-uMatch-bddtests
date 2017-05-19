@@ -633,10 +633,13 @@ class PatientMessageLoader
           treatment_arm_id='APEC1621-A',
           stratum_id='100',
           step_number='1.1')
-    service = 'approveOnTreatmentArm/'+patient_id
-    service = service + '/' + step_number + '/' + treatment_arm_id + '/' + stratum_id
-    send_message_to_local_cog(service, '')
-    wait_until_updated(patient_id, '')
+    message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['on_treatment_arm']
+    message['patient_id'] = patient_id
+    message['step_number'] = step_number
+    message['treatment_arm_id'] = treatment_arm_id
+    message['stratum_id'] = stratum_id
+    message['status_date'] = Time.now.iso8601
+    send_message_to_local(message, patient_id)
   end
 
   def self.reset_cog
