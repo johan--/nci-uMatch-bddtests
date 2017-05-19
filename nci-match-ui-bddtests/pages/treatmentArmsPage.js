@@ -245,7 +245,7 @@ var TreatmentArmsPage = function() {
         var geneLoc = 'cosmic-link[link-id="item.gene"]';
         var chrLoc = '[ng-bind="item.chromosome | dashify"]';
         var posLoc = '[ng-bind="item.position | dashify"]';
-        var referenceLoc = 'long-string-handling[long-string="item.ocp_reference"]';
+        var referenceLoc = '[ng-bind="item.ocp_reference | dashify"]';
         var alternateLoc = '[ng-bind="item.ocp_alternative | dashify"]';
         var proteinLoc = '[ng-bind="item.protein | dashify"]';
         var loeLoc = '[ng-bind="item.level_of_evidence | dashify"]';

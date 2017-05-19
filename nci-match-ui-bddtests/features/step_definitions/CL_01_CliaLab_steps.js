@@ -580,8 +580,8 @@ module.exports = function() {
             utilities.checkExpectation(table.element(by.binding('item.raw_copy_number')), expected['raw_copy_number'], 'Raw Copy Number Mismatch');
             utilities.checkExpectation(table.element(by.binding('item.filter')), expected['filter'], 'Filter Mismatch');
             utilities.checkExpectation(table.element(by.binding('item.copy_number')), expected['copy_number'], 'Copy Number Mismatch');
-            utilities.checkExpectation(table.element(by.binding('item.confidence_interval_5_percent')), expected['confidence_interval_5_percent'], 'CI 5% Mismatch');
-            utilities.checkExpectation(table.element(by.binding('item.confidence_interval_95_percent')), expected['confidence_interval_95_percent'], 'CI 95% Mismatch');
+            utilities.checkExpectation(table.element(by.binding('item.confidence_interval_5_percent')), utilities.round(expected['confidence_interval_5_percent'], 3), 'CI 5% Mismatch');
+            utilities.checkExpectation(table.element(by.binding('item.confidence_interval_95_percent')), utilities.round(['confidence_interval_95_percent'], 3), 'CI 95% Mismatch');
         }).then(callback);
     });
 
@@ -600,7 +600,6 @@ module.exports = function() {
             utilities.checkExpectation(driver_gene, expected['driver_gene'], 'Driver Mismatch');
             utilities.checkExpectation(table.element(by.binding('item.driver_read_count')), expected['driver_read_count'], 'Driver Count Mismatch');
             utilities.checkExpectation(partner_gene, expected['partner_gene'], 'Partner Mismatch');
-            utilities.checkExpectation(table.element(by.binding('item.partner_read_count')), expected['partner_read_count'], 'Partner Count Mismatch');
             utilities.checkExpectation(table.element(by.binding('item.annotation')), expected['annotation'], 'Annotation Mismatch');
             utilities.checkGeneLink(driver_gene);
             utilities.checkGeneLink(partner_gene);
