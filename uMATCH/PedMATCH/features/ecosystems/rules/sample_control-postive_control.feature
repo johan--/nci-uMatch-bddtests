@@ -51,3 +51,5 @@ Feature: Sample control tests for positive control
     Given a tsv variant report file "MATCH-Ctrlv3-S5-MC6-36-DNA_MATCH-Ctrlv3-S5-MC6-36-RNA" and treatment arms file "MultiTAs.json"
     When the positive_control service is called
     Then the report status return is "PASSED"
+    Then the gene "CDK12" is filtered out from the positive control variant report
+

@@ -215,6 +215,12 @@ And(/^match is false for "([^"]*)" variants in the positive variants$/) do |arg1
   end
 end
 
+Then(/^the gene "([^"]*)" is filtered out from the positive control variant report$/) do |gene|
+  @res["positive_variants"].each do |var|
+    expect(var["gene"]).not_to eql(gene), "Gene: '#{var['gene']}' appears in the positive control variant report"
+  end
+end
+
 Then(/^variant type "([^"]*)" with "([^"]*)" is found in the False positives table$/) do |arg1, arg2|
   flag = false
   @res['false_positive_variants'].each do |var|
