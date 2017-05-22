@@ -136,7 +136,7 @@ class Helper_Methods
       end
     end
     if status.eql?('Failure')
-      p @get_response['message']
+      puts @get_response['message']
     end
     return @get_response
   end

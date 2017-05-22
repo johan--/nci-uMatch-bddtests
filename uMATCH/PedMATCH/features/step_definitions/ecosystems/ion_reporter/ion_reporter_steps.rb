@@ -435,6 +435,21 @@ When(/^GET from sample_controls service, response includes "([^"]*)" with code "
   @returned_sample_control = response['message_json']
 end
 
+When(/^GET quality_control from sample_controls service, response includes "([^"]*)" with code "([^"]*)"$/) do |message, code|
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
+  @sc_sub_service = 'quality_control'
+  response = Helper_Methods.simple_get_request(prepare_sample_controls_url, true, @current_auth0_role)
+  expect(response['http_code']).to eq code
+  expect(response['message']).to include message
+  @returned_qc_report = response['message_json']
+end
+
+Then(/^the returned quality_control should have these fields$/) do |table|
+  fields = table.rows.collect { |a| a[0] }
+  fields.each { |this_field|
+    expect(@returned_qc_report.keys).to include this_field }
+end
+
 Then(/^if sample_control list returned, it should have editable: "([^"]*)"$/) do |editable|
   if @returned_sample_control.is_a?(Array)
     contains = @returned_sample_control.last
@@ -723,7 +738,7 @@ Then(/^each returned aliquot result should have field "([^"]*)"$/) do |field|
 end
 
 Then(/^returned aliquot file message should has field "([^"]*)"$/) do |field|
-  @returned_aliquot_file_result.class.should ==  Hash
+  @returned_aliquot_file_result.class.should == Hash
   expect_result = "aliquot file result has field: #{field}"
   actual_result = expect_result
   unless @returned_aliquot_file_result.keys.include?(field)
@@ -758,7 +773,6 @@ And(/^file: "([^"]*)" has been removed from adult match S3 bucket$/) do |file_na
     raise wrong_result
   end
 end
-
 
 
 ################################################
@@ -881,12 +895,11 @@ def prepare_sample_controls_url
     slash_moi = "/#{@molecular_id}"
   end
 
-  # slash_service = ''
-  # if @ion_sub_service!=nil && @ion_sub_service.length>0
-  #   slash_service = "/#{@ion_sub_service}"
-  # end
-  # url = "#{ENV['ion_system_endpoint']}/ion_reporters#{slash_ion_id}#{slash_service}"
-  url = "#{ENV['ion_system_endpoint']}/sample_controls#{slash_moi}"
+  slash_service = ''
+  if @sc_sub_service!=nil && @sc_sub_service.length>0
+    slash_service = "/#{@sc_sub_service}"
+  end
+  url = "#{ENV['ion_system_endpoint']}/sample_controls#{slash_service}#{slash_moi}"
 
   add_parameters_to_url(url, @url_params)
 end
@@ -957,7 +970,9 @@ def add_parameters_to_url(url, params)
     }
     parameters = '?' + parameters.last(parameters.length-1)
   end
-  url+parameters
+  output = url+parameters
+  puts output
+  output
 end
 
 def validate_date_diff(date_field, expect_date, actual_date, max_diff_second=5)

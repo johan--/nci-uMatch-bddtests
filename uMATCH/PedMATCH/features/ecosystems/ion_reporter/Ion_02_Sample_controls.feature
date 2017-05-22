@@ -236,5 +236,18 @@ Feature: Tests for sample_controls service in ion ecosystem
     Then there are|is 1 sample_control returned
     Then each returned sample_control should have field "editable"
 
+  @ion_reporter_p1
+  Scenario: ION_SC66. sample_controls/quality_control service should return correct content
+    Given molecular id is "SC_MOCHA_EP4AI"
+    When GET quality_control from sample_controls service, response includes "" with code "200"
+    Then the returned quality_control should have these fields
+      | fields                         |
+      | analysis_id                    |
+      | ion_reporter_id                |
+      | molecular_id                   |
+      | oncomine_control_panel_summary |
+      | total_variants                 |
+
+
 
 
