@@ -333,6 +333,21 @@ Then(/^moi report is returned without the ugf variant "([^"]*)"$/) do |arg1|
   end
 end
 
+Then(/^the returned moi reoprt ugf variant "([^"]*)" should have these values$/) do |ugf_id, table|
+  flag = false
+  @res['gene_fusions'].each do |gf|
+    if gf['identifier'] == ugf_id
+      table.hashes.each { |this_set|
+        field = this_set['field']
+        value = this_set['value']=='null' ? nil : this_set['value']
+        expect(gf[field].to_s).to eq value
+      }
+      flag = true
+    end
+  end
+  fail ("The gf #{ugf_id} is not found in the moi report") unless flag
+end
+
 Then(/^moi report is returned with the ugf variant "([^"]*)" as an amoi$/) do |arg1, string|
   arrTA = JSON.parse(string)
   @res['gene_fusions'].each do |gf|

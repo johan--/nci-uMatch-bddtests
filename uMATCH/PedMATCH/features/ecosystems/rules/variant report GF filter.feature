@@ -1,10 +1,16 @@
 @rules_p1
 Feature: Test the functionality that filters the Gene Fusion variants based on specified filter criteria
 
-  Scenario Outline: FIL-GF_01: Filter-in Genefusion with read_depth > 1000
+  Scenario Outline: FIL-GF_01: Filter-in Genefusion with read_depth > 1000 and driver_gene, partner_gene get generated
     Given a tsv variant report file "<tsvFile>" and treatment arms file "<TAFile>"
     When call the amoi rest service
     Then moi report is returned with the ugf variant "EGFR-EGFR.E1E8.DelPositive"
+    Then the returned moi reoprt ugf variant "EGFR-EGFR.E1E8.DelPositive" should have these values
+      | field              | value |
+      | driver_gene        | EGFR  |
+      | driver_read_count  | 1001  |
+      | partner_gene       | EGFR  |
+      | partner_read_count | 1001  |
     Examples:
       | tsvFile                          | TAFile          |
       | GF_EGFR_read-depth_filter_gt1000 | APEC1621-B.json |

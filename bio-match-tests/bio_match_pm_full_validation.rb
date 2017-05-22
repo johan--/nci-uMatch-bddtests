@@ -7,6 +7,7 @@ class BioMatchPMFullValidation
   NO_TA='No treatment arm selected'
 
   def initialize(tier)
+    Environment.setTier('local')
     if tier.downcase == 'local'
       @ion_reporter='bio-match-test'
       @patient_url='http://127.0.0.1:10240/api/v1/patients'
@@ -16,6 +17,7 @@ class BioMatchPMFullValidation
       @ir_url='http://localhost:5000/api/v1/aliquot'
       @mock_cog_url='http://127.0.0.1:3000'
       @s3_bucket='pedmatch-dev'
+      PatientMessageLoader.set_patient_api_url(@patient_url)
     elsif tier.downcase == 'uat'
       @ion_reporter='bio-match-test'
       @patient_url='https://pedmatch-uat.nci.nih.gov/api/v1/patients'
@@ -23,10 +25,15 @@ class BioMatchPMFullValidation
       @rule_url='https://pedmatch-uat.nci.nih.gov/api/v1/rules'
       @ta_url='https://pedmatch-uat.nci.nih.gov/api/v1/treatment_arms'
       @ir_url='https://pedmatch-uat.nci.nih.gov/api/v1/aliquot'
-      @mock_cog_url='https://pedmatch-uat.nci.nih.gov:3000'
+      @mock_cog_url='http://umatch-uat-alb-backend-1961495808.us-east-1.elb.amazonaws.com:3000'
       @s3_bucket='pedmatch-uat'
-      ENV['AWS_ACCESS_KEY_ID'] = ''
-      ENV['AWS_SECRET_ACCESS_KEY'] = ''
+      # ENV['AWS_ACCESS_KEY_ID'] = ''
+      # ENV['AWS_SECRET_ACCESS_KEY'] = ''
+      ENV['AUTH0_CLIENT_ID'] = ENV['UAT_AUTH0_CLIENT_ID']
+      ENV['ADMIN_AUTH0_USERNAME'] = ENV['UAT_ADMIN_AUTH0_USERNAME']
+      ENV['ADMIN_AUTH0_PASSWORD'] = ENV['UAT_ADMIN_AUTH0_PASSWORD']
+      ENV['AUTH0_DATABASE'] = ENV['UAT_AUTH0_DATABASE']
+      PatientMessageLoader.set_patient_api_url(@patient_url)
     else
       raise 'tier value can only by local or uat'
     end
@@ -46,7 +53,7 @@ class BioMatchPMFullValidation
     @pten = @patient_hash['pten_status']
     @baf47 = @patient_hash['baf47_status']
     @brg1 = @patient_hash['brg1_status']
-    @patient_id = Time.now.to_i.to_s
+    @patient_id = "#{test_id}_#{Time.now.to_i.to_s}"
     @patient_hash['patient_id'] = @patient_id
     @patient_hash['treatment_arm_statuses'].each { |this_status|
       set_ta_status_to_cog(this_status) }
@@ -55,9 +62,7 @@ class BioMatchPMFullValidation
 
   def build_patient(test_id)
     load_test(test_id)
-    Environment.setTier('local')
-    register_patient_to_cog(@patient_hash)
-    PatientMessageLoader.set_patient_api_url(@patient_url)
+    register_patient_to_cog(test_id, @pt.id)
     PatientMessageLoader.register_patient(@pt.id)
     PatientMessageLoader.specimen_received_tissue(@pt.id, @pt.sei)
     PatientMessageLoader.specimen_shipped_tissue(@pt.id, @pt.sei, @pt.moi)
@@ -65,6 +70,18 @@ class BioMatchPMFullValidation
     PatientMessageLoader.assay(@pt.id, @pt.sei, @pten, 'ICCPTENs')
     PatientMessageLoader.assay(@pt.id, @pt.sei, @baf47, 'ICCBAF47s')
     PatientMessageLoader.assay(@pt.id, @pt.sei, @brg1, 'ICCBRG1s')
+  end
+
+  def build_patient_new_step(patient_id, rebiopsy, step_number, pten='POSITIVE', baf47='POSITIVE', brg1='POSITIVE')
+    PatientMessageLoader.request_assignment(patient_id, rebiopsy, step_number)
+    if rebiopsy=='Y'
+      PatientMessageLoader.specimen_received_tissue(patient_id, "#{patient_id}_SEI2")
+      PatientMessageLoader.specimen_shipped_tissue(patient_id, "#{patient_id}_SEI2", "#{patient_id}_MOI2")
+      PatientMessageLoader.specimen_shipped_slide(patient_id, "#{patient_id}_SEI2", "#{patient_id}_BC2")
+      PatientMessageLoader.assay(patient_id, "#{patient_id}_SEI2", pten, 'ICCPTENs')
+      PatientMessageLoader.assay(patient_id, "#{patient_id}_SEI2", baf47, 'ICCBAF47s')
+      PatientMessageLoader.assay(patient_id, "#{patient_id}_SEI2", brg1, 'ICCBRG1s')
+    end
   end
 
   def upload_files
@@ -88,6 +105,10 @@ class BioMatchPMFullValidation
     puts "#{response['message']}"
     PatientMessageLoader.wait_until_patient_status_is(patient_id, 'TISSUE_VARIANT_REPORT_RECEIVED')
     sleep 15.0
+  end
+
+  def send_on_ta_message(patient_id, ta_id, stratum, step='1.1')
+    PatientMessageLoader.on_treatment_arm(patient_id, ta_id, stratum, step)
   end
 
   def upload_vcf_to_s3(patient_id, moi, ani)
@@ -138,7 +159,7 @@ class BioMatchPMFullValidation
     result['actual_treatment_arm'] = @actual_ta
     File.open("#{File.dirname(__FILE__)}/results/#{@test_id}.json", 'w') { |f| f.write(JSON.pretty_generate(result)) }
     File.open("#{File.dirname(__FILE__)}/results/#{@test_id}_Assignment_report.json", 'w') { |f| f.write(JSON.pretty_generate(response)) }
-    cmd = "aws s3 rm s3://#{@s3_bucket}/#{@ion_reporter}/ --recursive --region us-east-1"
+    # cmd = "aws s3 rm s3://#{@s3_bucket}/#{@ion_reporter}/ --recursive --region us-east-1"
     `#{cmd}`
     @patient_hash['treatment_arm_statuses'].each { |this_status|
       default_ta = {
@@ -149,7 +170,9 @@ class BioMatchPMFullValidation
       set_ta_status_to_cog(default_ta) }
   end
 
-  def register_patient_to_cog(patient_hash)
+  def register_patient_to_cog(test_id, patient_id)
+    patient_hash = JSON.parse(File.read("#{File.dirname(__FILE__)}/patients/#{test_id}.json"))
+    patient_hash['patient_id'] = patient_id
     url = "#{@mock_cog_url}/register_patient"
     Helper_Methods.post_request(url, patient_hash.to_json)
   end
@@ -174,6 +197,3 @@ class BioMatchPMFullValidation
     DynamoUtilities.upload_seed_data('treatment_arm', ta_json, 'local')
   end
 end
-
-tester = BioMatchPMFullValidation.new('local')
-tester.test('Test_D1_2')
