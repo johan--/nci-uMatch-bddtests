@@ -524,13 +524,13 @@ module.exports = function () {
     this.Then(/^I can see the selected treatment arm and the reason$/, function (callback) {
         var selectedTA = patientPage.responseData.patient.current_assignment;
         var taString = selectedTA.treatment_arm_id + '-' + selectedTA.stratum_id + ' (' + selectedTA.version + ')'
-
-        expect(patientPage.ruleNameList.get(0).getText()).to.eventually.include('SELECTED');
-        expect(patientPage.ruleDetailsList.get(0).all(by.css('.content-cell')).get(0).getText())
-            .to
-            .eventually
-            .eql(taString)
-            .notify(callback);
+        patientPage.ruleNameList.count().then(function(ct){
+            expect(patientPage.ruleNameList.get(ct - 1).getText()).to.eventually.include('SELECTED');
+            expect(patientPage.ruleDetailsList.get(0).all(by.css('.content-cell')).get(0).getText())
+                .to
+                .eventually
+                .eql(taString)
+        }).then(callback);
     });
 
     this.Then(/^The Types of Logic is the same as the backend$/, function (callback) {
