@@ -339,14 +339,14 @@ class Patient5xA
     PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
   end
 
-  def self.pt_sc04b_ts_shipped
+  def self.pt_sc04b_ts_shipped_no_sd
     pt = PatientDataSet.new('PT_SC04b_TsShippedNoSd')
     PatientMessageLoader.register_patient(pt.id)
     PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
     PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
   end
 
-  def self.pt_sc04b_ts_vr_uploaded
+  def self.pt_sc04b_ts_vr_uploaded_no_sd
     pt = PatientDataSet.new('PT_SC04b_TsVrUploadedNoSd')
     PatientMessageLoader.register_patient(pt.id)
     PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
@@ -355,7 +355,7 @@ class Patient5xA
     PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
   end
 
-  def self.pt_sc04b_ts_vr_confirmed
+  def self.pt_sc04b_ts_vr_confirmed_no_sd
     pt = PatientDataSet.new('PT_SC04b_TsVrConfirmedNoSd')
     PatientMessageLoader.register_patient(pt.id)
     PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)

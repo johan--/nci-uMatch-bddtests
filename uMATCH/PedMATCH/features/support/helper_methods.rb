@@ -485,6 +485,25 @@ class Helper_Methods
     files
   end
 
+  def self.s3_file_size(bucket,
+      path,
+      endpoint='https://s3.amazonaws.com',
+      region='us-east-1'
+  )
+    s3 = Aws::S3::Resource.new(
+        endpoint: endpoint,
+        region: region,
+        access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+        secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
+    )
+    files = s3.bucket(bucket).objects(prefix: path)
+    file = nil
+    files.each { |this_file|
+      file = this_file
+    }
+    file.content_length
+  end
+
   def self.s3_file_exists(bucket, file_path)
     files = s3_list_files(bucket, file_path)
     if files.length>0
