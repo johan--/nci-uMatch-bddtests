@@ -523,13 +523,17 @@ module.exports = function () {
 
     this.Then(/^I can see the selected treatment arm and the reason$/, function (callback) {
         var selectedTA = patientPage.responseData.patient.current_assignment;
-        var taString = selectedTA.treatment_arm_id + '-' + selectedTA.stratum_id + ' (' + selectedTA.version + ')'
-        patientPage.ruleNameList.count().then(function(ct){
-            expect(patientPage.ruleNameList.get(ct - 1).getText()).to.eventually.include('SELECTED');
-            expect(patientPage.ruleDetailsList.get(0).all(by.css('.content-cell')).get(0).getText())
+        var taString = utilities.stripStudyId(selectedTA.treatment_arm_id) + '-' + selectedTA.stratum_id + ' (' + selectedTA.version + ')';
+        patientPage.ruleDetailsList.count().then(function(ct){
+            expect(patientPage.ruleDetailsList.get(ct - 1).all(by.css('.content-cell')).get(0).getText())
                 .to
                 .eventually
                 .eql(taString)
+        });
+
+        patientPage.ruleNameList.count().then(function(ct){
+
+            expect(patientPage.ruleNameList.get(ct - 1).getText()).to.eventually.include('SELECTED');
         }).then(callback);
     });
 

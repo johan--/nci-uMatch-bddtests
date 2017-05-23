@@ -535,7 +535,7 @@ module.exports = function() {
     });
 
     this.Then(/^I enter the first "(.+?)" from "(.+?)" in the "(.+?)" Table search$/, function (field, variant, variantName, callback) {
-        cliaPage.searchValues = cliaPage.responseData[variant][0]
+        cliaPage.searchValues = cliaPage.responseData[variant][0];
         var searchTerm = cliaPage.searchValues[field];
         var tableIndex = patientPage.expVarReportTables.indexOf(variantName);
         cliaPage.tableId = getTableId(tableIndex);

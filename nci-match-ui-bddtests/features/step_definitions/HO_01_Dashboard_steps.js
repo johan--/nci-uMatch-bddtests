@@ -324,7 +324,6 @@ module.exports = function() {
     this.Then(/^I can see the Activity Feed section$/, function (callback) {
         var feedSection = element(by.css('div[ng-controller="ActivityController as activity"]'));
         var heading = feedSection.element(by.css('h3'));
-        browser.ignoreSynchronization = true;
         expect(heading.getText()).to.eventually.eql('Activity Feed').then(function () {
             browser.ignoreSynchronization = false;
         }).then(callback);
