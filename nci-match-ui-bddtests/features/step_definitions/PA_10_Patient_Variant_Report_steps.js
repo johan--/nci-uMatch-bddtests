@@ -238,7 +238,7 @@ module.exports = function () {
 //            utilities.checkExpectation(firstRow.get(3), expected.identifier, 'Identifier Mismatch');
             utilities.checkExpectation(firstRow.get(2), expected.partner_gene, 'Gene2 Mismatch');
             utilities.checkExpectation(firstRow.get(3), expected.driver_gene, 'Gene1  Mismatch');
-            utilities.checkExpectation(firstRow.get(4), utilities.integerize(expected.driver_read_count), 'Read Depth Mismatch');
+            utilities.checkExpectation(firstRow.get(4), utilities.dashifyIfEmpty(utilities.integerize(expected.driver_read_count)), 'Read Depth Mismatch');
             utilities.checkExpectation(firstRow.get(5), utilities.dashifyIfEmpty(expected.annotation), 'Annotation Mismatch');
         }).then(callback);
     });

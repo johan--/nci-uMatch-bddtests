@@ -651,7 +651,11 @@ var Utilities = function () {
     };
 
     this.integerize = function(numString){
-        return Math.ceil(numString).toString();
+        if (numString === null || numString === undefined){
+            return null
+        } else {
+            return Math.ceil(numString).toString();
+        }
     };
 
     this.checkColor = function(el, status) {
