@@ -72,12 +72,6 @@ Feature: Tests for aliquot service in ion ecosystem
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/dna.bai" should be available in S3
     And file: "IR_TCWEV/ION_AQ02_TsShipped_MOI1/ION_AQ02_TsShipped_ANI1/cdna.bai" should be available in S3
     Then add field: "analysis_id" value: "ION_AQ02_TsShipped_ANI2" to message body
-    Then add field: "site" value: "mda" to message body
-    Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
-    Then add field: "vcf_name" value: "test1.vcf" to message body
-    Then add field: "dna_bam_name" value: "dna.bam" to message body
-    Then add field: "cdna_bam_name" value: "cdna.bam" to message body
-    Then add field: "qc_name" value: "10-10-2016.pdf" to message body
     When PUT to aliquot service, response includes "Item updated" with code "200"
     Then wait until patient variant report is updated
     Then wait for "15" seconds
@@ -107,7 +101,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "analysis_id" value: "ION_AQ03_BdShipped_ANI1" to message body
     Then add field: "site" value: "mda" to message body
     Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
-    Then add field: "vcf_name" value: "test1.vcf" to message body
+    Then add field: "zip_name" value: "test1.zip" to message body
     Then add field: "dna_bam_name" value: "dna.bam" to message body
     Then add field: "cdna_bam_name" value: "cdna.bam" to message body
     Then add field: "qc_name" value: "10-10-2016.pdf" to message body
@@ -122,12 +116,6 @@ Feature: Tests for aliquot service in ion ecosystem
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/dna.bai" should be available in S3
     And file: "IR_TCWEV/ION_AQ03_BdShipped_BD_MOI1/ION_AQ03_BdShipped_ANI1/cdna.bai" should be available in S3
     Then add field: "analysis_id" value: "ION_AQ03_BdShipped_ANI2" to message body
-    Then add field: "site" value: "mda" to message body
-    Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
-    Then add field: "vcf_name" value: "test1.vcf" to message body
-    Then add field: "dna_bam_name" value: "dna.bam" to message body
-    Then add field: "cdna_bam_name" value: "cdna.bam" to message body
-    Then add field: "qc_name" value: "10-10-2016.pdf" to message body
     When PUT to aliquot service, response includes "Item updated" with code "200"
     Then wait until patient variant report is updated
     Then wait for "15" seconds

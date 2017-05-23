@@ -170,6 +170,10 @@ Then(/^field: "([^"]*)" for this ion_reporter should be: "([^"]*)"$/) do |field,
   ion_reporter[field].should == converted_value
 end
 
+Then(/^new ir message body$/) do
+  @payload = {}
+end
+
 Then(/^add field: "([^"]*)" value: "([^"]*)" to message body$/) do |field, value|
   converted_value = value=='null' ? nil : value
   converted_value = true if value == 'true'
