@@ -98,9 +98,17 @@ module.exports = function () {
     });
 
 
-    this.Then(/^I can see the Upload Progress in the toolbar$/, function (callback) {
-        // Write code here that turns the phrase above into concrete actions
-        callback(null, 'pending');
+    this.Then(/^I see the downloads in the timeline$/, function (callback) {
+        var timeline = patientPage.timelineList;
+        expect(timeline.get(0).element(by.css('.timeline-title')).getText())
+            .to.eventually.include('TISSUE Variant Report received.');
+        expect(timeline.get(1).element(by.css('.timeline-title')).getText())
+            .to.eventually.include('Variant Report file uploaded.');
+        expect(timeline.get(2).element(by.css('.timeline-title')).getText())
+            .to.eventually.include('Variant Report file uploaded.');
+        expect(timeline.get(3).element(by.css('.timeline-title')).getText())
+            .to.eventually.include('Variant Report file uploaded.')
+            .notify(callback);
     });
 
     this.Then(/^I click on the Upload Progress in the toolbar$/, function (callback) {
@@ -126,6 +134,8 @@ module.exports = function () {
     this.Then(/^I clear the file from S3 under reporter "([^"]*)", mol_id "([^"]*)", analysis_id "([^"]*)"$/, function(reporter, molecularId, analysisId, callback){
         var bucketName = process.env.UI_HOSTNAME.match('localhost') ? 'pedmatch-dev' : 'pedmatch-int'
         var folderName = reporter + '/' + molecularId + '/' + analysisId;
+        patientPage.analysisId = analysisId;
+        patientPage.molecularId = molecularId;
 
         console.log('Bucket Name: ' + bucketName );
         console.log('Folder Name: ' + folderName );

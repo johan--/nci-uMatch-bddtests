@@ -390,30 +390,38 @@
   },
   {
     "treatment_arm_id": "APEC1621-UI",
-    "study_id": "APEC1621SC",
+    "treatment_arm_title": "APEC1621-UI (STR100)",
     "name": "APEC1621-UI for Testing",
+    "active": true,
+    "date_created": "2016-11-07 15:57:10 UTC",
+    "date_suspended": null,
     "version": "2015-08-06",
     "stratum_id": "STR100",
     "description": "Treatment Arm for UI tests new version",
     "target_id": "113",
     "target_name": "Crizotinib",
-    "gene": "ALK, PIK3R1 , PTEN , MTOR , PIK3CA",
+    "gene": "GENE",
+    "treatment_arm_status": "OPEN",
+    "study_id": "APEC1621SC",
     "assay_rules": [
       {
+        "assay_result_status": "POSITIVE",
         "type": "IHC",
         "gene": "PTAN",
-        "assay_result_status": "POSITIVE",
-        "assay_variant": "PRESENT",
-        "level_of_evidence": 3.0
+        "level_of_evidence": "3.0",
+        "assay_variant": "PRESENT"
       },
       {
+        "assay_result_status": "POSITIVE",
         "type": "IHC",
         "gene": "MEH1",
-        "assay_result_status": "POSITIVE",
-        "assay_variant": "EMPTY",
-        "level_of_evidence": 5.0
+        "level_of_evidence": "5.0",
+        "assay_variant": "EMPTY"
       }
     ],
+    "num_patients_assigned": 0,
+    "total_patients_on_arm": 0,
+    "date_opened": "2016-09-10T00:48:07+00:00",
     "treatment_arm_drugs": [
       {
         "name": "Crizotinib",
@@ -421,272 +429,44 @@
         "drug_id": "113"
       }
     ],
-    "snv_indels": [
-      {
-        "variant_type": "snp",
-        "chromosome": "chr6",
-        "gene": "GENE",
-        "protein": "p.Q61H",
-        "position": "152419923",
-        "identifier": "COSM1074639",
-        "ocp_reference": "F",
-        "ocp_alternative": "B",
-        "level_of_evidence": 3.0,
-        "inclusion": true,
-        "arm_specific": false
-      },
-      {
-        "variant_type": "snp",
-        "chromosome": "chr9",
-        "position": "80412493",
-        "gene": "GENE",
-        "protein": "p.Q61H",
-        "identifier": "COSM52975",
-        "ocp_reference": "B",
-        "ocp_alternative": "T",
-        "level_of_evidence": 3.0,
-        "inclusion": true,
-        "arm_specific": false
-      },
-      {
-        "variant_type": "snp",
-        "chromosome": "chr17",
-        "position": "7577064",
-        "gene": "GENE",
-        "protein": "p.Q61H",
-        "identifier": "COSM44451",
-        "ocp_reference": "T",
-        "ocp_alternative": "B",
-        "level_of_evidence": 3.0,
-        "inclusion": false,
-        "arm_specific": false
-      },
-      {
-        "variant_type": "snp",
-        "chromosome": "chr8",
-        "position": "70349258",
-        "gene": "GENE",
-        "protein": "p.Q61H",
-        "identifier": "COSM757681",
-        "ocp_reference": "B",
-        "ocp_alternative": "G",
-        "level_of_evidence": 3.0,
-        "inclusion": false,
-        "arm_specific": false
-      },
-      {
-        "variant_type": "snp",
-        "chromosome": "chr9",
-        "position": "100611165",
-        "identifier": "BT9",
-        "ocp_reference": "F",
-        "gene": "GENE",
-        "protein": "p.Q61H",
-        "ocp_alternative": "T",
-        "level_of_evidence": 3.0,
-        "inclusion": true,
-        "arm_specific": false
-      },
-      {
-        "variant_type": "del",
-        "chromosome": "chr22",
-        "position": "30035190",
-        "gene": "GENE",
-        "protein": "p.Q61H",
-        "identifier": "COSM22189",
-        "ocp_reference": "TTC",
-        "ocp_alternative": "-",
-        "level_of_evidence": 3.0,
-        "inclusion": true,
-        "arm_specific": false
-      },
-      {
-        "variant_type": "del",
-        "chromosome": "chrX",
-        "position": "70339250",
-        "identifier": "COSM131612",
-        "ocp_reference": "CAAGGTTTCAATAACCAG",
-        "ocp_alternative": "-",
-        "level_of_evidence": 3.0,
-        "inclusion": true,
-        "gene": "GENE",
-        "protein": "p.Q61H",
-        "arm_specific": false
-      },
-      {
-        "variant_type": "del",
-        "chromosome": "chrX",
-        "position": "70339270",
-        "identifier": "COSM143738",
-        "ocp_reference": "TGCTGTCTCTGGGGA",
-        "ocp_alternative": "-",
-        "level_of_evidence": 3.0,
-        "inclusion": false,
-        "gene": "GENE",
-        "protein": "p.Q61H",
-        "arm_specific": false
-      }
-    ],
-    "non_hotspot_rules": [
-      {
-        "func_gene": "MYCL",
-        "oncomine_variant_class": "amplification",
-        "level_of_evidence": 3.0,
-        "inclusion": true,
-        "exon": "19",
-        "arm_specific": false
-      },
-      {
-        "func_gene": "TP53",
-        "function": "Refallele",
-        "level_of_evidence": 2.0,
-        "inclusion": false,
-        "arm_specific": false
-      }
-    ],
-    "copy_number_variants": [
-      {
-        "variant_type": "cnv",
-        "chromosome": "chr1",
-        "position": "40361592",
-        "gene": "GENE",
-        "protein": "p.Q61H",
-        "identifier": "MYCL",
-        "ocp_reference": "B",
-        "ocp_alternative": "<CNV>",
-        "level_of_evidence": 2.0,
-        "inclusion": true,
-        "arm_specific": false
-      },
-      {
-        "variant_type": "cnv",
-        "chromosome": "chr1",
-        "position": "147022100",
-        "gene": "GENE",
-        "protein": "p.Q61H",
-        "identifier": "BCL9",
-        "ocp_reference": "G",
-        "ocp_alternative": "<CNV>",
-        "level_of_evidence": 2.0,
-        "inclusion": false,
-        "arm_specific": false
-      },
-      {
-        "variant_type": "cnv",
-        "chromosome": "chr10",
-        "position": "89624207",
-        "gene": "GENE",
-        "protein": "p.Q61H",
-        "identifier": "PTEN",
-        "ocp_reference": "T",
-        "ocp_alternative": "<CNV>",
-        "level_of_evidence": 2.0,
-        "inclusion": true,
-        "arm_specific": false
-      }
-    ],
-    "gene_fusions": [
-      {
-        "variant_type": "fusion",
-        "ocp_reference": null,
-        "gene": "TPM3",
-        "identifier": "TPM3-NTRK1.T7N10.COSF1318_1",
-        "protein": null,
-        "inclusion": true,
-        "public_med_ids": [
-          "18827604"
-        ],
-        "level_of_evidence": 2.0,
-        "chromosome": "chr2",
-        "ocp_alternative": null,
-        "position": "154142875",
-        "arm_specific": false
-      },
-      {
-        "variant_type": "fusion",
-        "ocp_reference": "G",
-        "gene": "NTRK1",
-        "protein": null,
-        "identifier": "TPM3-NTRK1.T7N10.COSF1318_2",
-        "inclusion": true,
-        "public_med_ids": [],
-        "level_of_evidence": 3.0,
-        "chromosome": "chr2",
-        "ocp_alternative": "[chr1:154142875[G",
-        "position": "156844362",
-        "arm_specific": false
-      },
-      {
-        "variant_type": "fusion",
-        "ocp_reference": "T",
-        "gene": "TPM3",
-        "identifier": "TPM3-ROS1.T7R35.COSF1273_1",
-        "protein": null,
-        "inclusion": false,
-        "public_med_ids": [
-          "1245784"
-        ],
-        "level_of_evidence": 3.0,
-        "chromosome": "chr1",
-        "ocp_alternative": "T]chr6:117642559]",
-        "position": "154142877",
-        "arm_specific": false
-      },
-      {
-        "variant_type": "fusion",
-        "ocp_reference": "T",
-        "gene": "ROS1",
-        "identifier": "TPM3-ROS1.T7R35.COSF1273_2",
-        "protein": null,
-        "inclusion": false,
-        "public_med_ids": [],
-        "level_of_evidence": 3.0,
-        "chromosome": "chr6",
-        "ocp_alternative": "[chr1:154142877[T",
-        "position": "117642559",
-        "arm_specific": false
-      }
-    ],
     "diseases": [
       {
         "disease_code_type": "ICD-O",
+        "exclusion": true,
         "disease_code": "10058354",
-        "disease_name": "Bronchioloalveolar carcinoma",
-        "exclusion": true
+        "disease_name": "Bronchioloalveolar carcinoma"
       },
       {
         "disease_code_type": "ICD-O",
+        "exclusion": true,
         "disease_code": "10025032",
-        "disease_name": "Lung adenocarcinoma",
-        "exclusion": true
+        "disease_name": "Lung adenocarcinoma"
       },
       {
         "disease_code_type": "ICD-O",
+        "exclusion": true,
         "disease_code": "90600324",
-        "disease_name": "Lung adenocar. w/ bronch. feat.",
-        "exclusion": true
+        "disease_name": "Lung adenocar. w/ bronch. feat."
       },
       {
         "disease_code_type": "ICD-O",
+        "exclusion": true,
         "disease_code": "10029514",
-        "disease_name": "Non-small cell lung cancer, NOS",
-        "exclusion": true
+        "disease_name": "Non-small cell lung cancer, NOS"
       },
       {
         "disease_code_type": "ICD-O",
+        "exclusion": true,
         "disease_code": "10025125",
-        "disease_name": "Squamous cell lung carcinoma",
-        "exclusion": true
+        "disease_name": "Squamous cell lung carcinoma"
       },
       {
         "disease_code_type": "ICD-O",
+        "exclusion": false,
         "disease_code": "10033701",
-        "disease_name": "Papillary thyroid carcinoma",
-        "exclusion": false
+        "disease_name": "Papillary thyroid carcinoma"
       }
     ],
-    "date_opened": "2016-09-10T00:48:07+00:00",
-    "date_suspended": "2016-08-25T00:48:07+00:00",
     "exclusion_drugs": [
       {
         "name": "Doxorubicin Hydrochloride",
@@ -694,7 +474,278 @@
         "drug_class": "GENE inhibitor",
         "target": "GENE"
       }
-    ]
+    ],
+    "status_log": {
+      "1478534230": "OPEN"
+    },
+    "snv_indels": [
+      {
+        "inclusion": true,
+        "identifier": "COSM1074639",
+        "public_med_ids": [
+          "LOXO Internal Communication"
+        ],
+        "gene": "GENE",
+        "arm_specific": false,
+        "ocp_reference": "F",
+        "variant_type": "snp",
+        "ocp_alternative": "B",
+        "level_of_evidence": "3.0",
+        "chromosome": 6,
+        "protein": "p.Q61H",
+        "position": "152419923"
+      },
+      {
+        "inclusion": true,
+        "identifier": "COSM52975",
+        "public_med_ids": [
+          "Internal NGS data"
+        ],
+        "gene": "GENE",
+        "arm_specific": false,
+        "ocp_reference": "B",
+        "variant_type": "snp",
+        "ocp_alternative": "T",
+        "level_of_evidence": "3.0",
+        "chromosome": 9,
+        "protein": "p.Q61H",
+        "position": "80412493"
+      },
+      {
+        "inclusion": false,
+        "identifier": "COSM44451",
+        "gene": "GENE",
+        "arm_specific": false,
+        "ocp_reference": "T",
+        "variant_type": "snp",
+        "ocp_alternative": "B",
+        "level_of_evidence": "3.0",
+        "chromosome": 17,
+        "protein": "p.Q61H",
+        "position": "7577064"
+      },
+      {
+        "inclusion": false,
+        "identifier": "COSM757681",
+        "gene": "GENE",
+        "arm_specific": false,
+        "ocp_reference": "B",
+        "variant_type": "snp",
+        "ocp_alternative": "G",
+        "level_of_evidence": "3.0",
+        "chromosome": 8,
+        "protein": "p.Q61H",
+        "position": "70349258"
+      },
+      {
+        "inclusion": true,
+        "identifier": "BT9",
+        "public_med_ids": [
+          "21309453"
+        ],
+        "gene": "GENE",
+        "arm_specific": false,
+        "ocp_reference": "F",
+        "variant_type": "snp",
+        "ocp_alternative": "T",
+        "level_of_evidence": "3.0",
+        "chromosome": 9,
+        "protein": "p.Q61H",
+        "position": "100611165"
+      },
+      {
+        "inclusion": true,
+        "identifier": "COSM22189",
+        "public_med_ids": [
+          "24;23423;23423"
+        ],
+        "gene": "GENE",
+        "arm_specific": false,
+        "ocp_reference": "TTC",
+        "variant_type": "del",
+        "ocp_alternative": "-",
+        "level_of_evidence": "3.0",
+        "chromosome": 22,
+        "protein": "p.Q61H",
+        "position": "30035190"
+      },
+      {
+        "inclusion": true,
+        "identifier": "COSM131612",
+        "public_med_ids": [
+          "21308039"
+        ],
+        "gene": "GENE",
+        "arm_specific": false,
+        "ocp_reference": "CAAGGTTTCAATAACCAG",
+        "variant_type": "del",
+        "ocp_alternative": "-",
+        "level_of_evidence": "3.0",
+        "chromosome": "X",
+        "protein": "p.Q61H",
+        "position": "70339250"
+      },
+      {
+        "inclusion": false,
+        "identifier": "COSM143738",
+        "gene": "GENE",
+        "arm_specific": false,
+        "ocp_reference": "TGCTGTCTCTGGGGA",
+        "variant_type": "del",
+        "ocp_alternative": "-",
+        "level_of_evidence": "3.0",
+        "chromosome": "X",
+        "protein": "p.Q61H",
+        "position": "70339270"
+      }
+    ],
+    "non_hotspot_rules": [
+      {
+        "inclusion": true,
+        "public_med_ids": [
+          "21308040"
+        ],
+        "arm_specific": false,
+        "func_gene": "MYCL",
+        "level_of_evidence": "3.0",
+        "oncomine_variant_class": "amplification",
+        "exon": "19"
+      },
+      {
+        "inclusion": false,
+        "arm_specific": false,
+        "level_of_evidence": "2.0",
+        "func_gene": "TP53",
+        "function": "Refallele"
+      }
+    ],
+    "copy_number_variants": [
+      {
+        "inclusion": true,
+        "identifier": "MYCL",
+        "public_med_ids": [
+          "21309039"
+        ],
+        "gene": "GENE",
+        "arm_specific": false,
+        "ocp_reference": "B",
+        "variant_type": "cnv",
+        "ocp_alternative": "<CNV>",
+        "level_of_evidence": "2.0",
+        "chromosome": 1,
+        "protein": "p.Q61H",
+        "position": "40361592"
+      },
+      {
+        "inclusion": false,
+        "identifier": "BCL9",
+        "gene": "GENE",
+        "arm_specific": false,
+        "ocp_reference": "G",
+        "variant_type": "cnv",
+        "ocp_alternative": "<CNV>",
+        "level_of_evidence": "2.0",
+        "chromosome": 1,
+        "protein": "p.Q61H",
+        "position": "147022100"
+      },
+      {
+        "inclusion": true,
+        "identifier": "PTEN",
+        "gene": "GENE",
+        "arm_specific": false,
+        "ocp_reference": "T",
+        "variant_type": "cnv",
+        "ocp_alternative": "<CNV>",
+        "level_of_evidence": "2.0",
+        "chromosome": 10,
+        "protein": "p.Q61H",
+        "position": "89624207"
+      }
+    ],
+    "gene_fusions": [
+      {
+        "inclusion": true,
+        "identifier": "TPM3-NTRK1.T7N10.COSF1318_1",
+        "public_med_ids": [
+          "18827604",
+          "18823454"
+        ],
+        "arm_specific": false,
+        "ocp_reference": null,
+        "gene": "TPM3",
+        "variant_type": "fusion",
+        "ocp_alternative": null,
+        "level_of_evidence": "2.0",
+        "chromosome": 2,
+        "protein": null,
+        "position": "154142875",
+        "gene1": "TPM3",
+        "gene2": "NTRK1"
+      },
+      {
+        "inclusion": true,
+        "identifier": "TPM3-NTRK1.T7N10.COSF1318_2",
+        "public_med_ids": [],
+        "arm_specific": false,
+        "ocp_reference": "G",
+        "gene": "NTRK1",
+        "variant_type": "fusion",
+        "ocp_alternative": "[chr1:154142875[G",
+        "level_of_evidence": "3.0",
+        "chromosome": 2,
+        "protein": null,
+        "position": "156844362",
+        "gene1": "TPM3",
+        "gene2": "NTRK1"
+      },
+      {
+        "inclusion": false,
+        "identifier": "TPM3-ROS1.T7R35.COSF1273_1",
+        "public_med_ids": [
+          "1245784"
+        ],
+        "arm_specific": false,
+        "ocp_reference": "T",
+        "gene": "TPM3",
+        "variant_type": "fusion",
+        "ocp_alternative": "T]chr6:117642559]",
+        "level_of_evidence": "3.0",
+        "chromosome": 1,
+        "protein": null,
+        "position": "154142877",
+        "gene1": "TPM3",
+        "gene2": "ROS1"
+      },
+      {
+        "inclusion": false,
+        "identifier": "TPM3-ROS1.T7R35.COSF1273_2",
+        "public_med_ids": [],
+        "arm_specific": false,
+        "ocp_reference": "T",
+        "gene": "ROS1",
+        "variant_type": "fusion",
+        "ocp_alternative": "[chr1:154142877[T",
+        "level_of_evidence": "3.0",
+        "chromosome": 6,
+        "protein": null,
+        "position": "117642559",
+        "gene1": "TPM3",
+        "gene2": "ROS1"
+      }
+    ],
+    "version_statistics": {
+      "current_patients": 0,
+      "former_patients": 0,
+      "not_enrolled_patients": 0,
+      "pending_patients": 0
+    },
+    "stratum_statistics": {
+      "current_patients": 0,
+      "former_patients": 0,
+      "not_enrolled_patients": 0,
+      "pending_patients": 0
+    }
   },
   {
     "treatment_arm_id": "APEC1621-ETE-A",

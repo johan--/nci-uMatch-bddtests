@@ -26,7 +26,10 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     And I wait for "5" seconds
     And I scroll to the top of the page
     And I can see the "3" Sample File upload process has started
+    When I go to patient "PT_AU04_MdaTsShipped1" details page
+    Then I see the downloads in the timeline
     Then I logout
+
   @ui_p1
   Scenario Outline: As a <site> user I can select only the same kind of IR user
     Given I am logged in as a "<user>" user
