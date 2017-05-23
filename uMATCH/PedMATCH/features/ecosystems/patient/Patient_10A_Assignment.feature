@@ -33,6 +33,23 @@ Feature: Patients assignment tests
     Then wait for "180" seconds
     Then patient status should change to "PENDING_CONFIRMATION"
 
+  @patients_p2
+  Scenario Outline: PT_AM02b. assignment report can be confirmed if cog service recovered after 2 failures
+    Given patient id is "<patient_id>"
+    And this patient is in mock assign lost patient list, service will come back after "3" tries
+    And patient API user authorization role is "ASSIGNMENT_REPORT_REVIEWER"
+    Then load template assignment report confirm message for analysis id: "<ani>"
+    Then PUT to MATCH assignment report "confirm" service, response includes "COG after 3 tries" with code "500"
+    And this patient is in mock assign lost patient list, service will come back after "2" tries
+    And patient API user authorization role is "ASSIGNMENT_REPORT_REVIEWER"
+    Then load template assignment report confirm message for analysis id: "<ani>"
+    Then PUT to MATCH assignment report "confirm" service, response includes "success" with code "200"
+    Examples:
+      | patient_id                           | ani                                       |
+      | PT_AM02b_PendingConfirmation         | PT_AM02b_PendingConfirmation_ANI1         |
+      | PT_AM02b_PendingConfirmationNoTa     | PT_AM02b_PendingConfirmationNoTa_ANI1     |
+      | PT_AM02b_PendingConfirmationCompCare | PT_AM02b_PendingConfirmationCompCare_ANI1 |
+
   @patients_p3
   Scenario: PT_AM03. on treatment arm message with wrong treatment arm information should fail
 #    patient: "PT_AM03_PendingApproval" with status: "PENDING_APPROVAL" on step: "1.0"

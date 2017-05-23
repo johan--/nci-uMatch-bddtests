@@ -709,6 +709,10 @@ Given(/^this patient is in mock service lost patient list, service will come bac
   COG_helper_methods.setServiceLostPatient(@patient_id, error_times)
 end
 
+Given(/^this patient is in mock assign lost patient list, service will come back after "([^"]*)" tries$/) do |error_times|
+  COG_helper_methods.set_assignment_lost_patient(@patient_id, error_times)
+end
+
 Then(/^COG received assignment status: "([^"]*)" for this patient$/) do |assignment_status|
   converted_status = assignment_status=='null' ? nil : assignment_status
   response = COG_helper_methods.get_patient_assignment_status(@patient_id)
