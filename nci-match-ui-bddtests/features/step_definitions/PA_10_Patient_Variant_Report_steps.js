@@ -133,6 +133,7 @@ module.exports = function () {
         patientPage.actualFirstRow = patientPage.actualTable.all(by.css('tbody tr[ng-repeat^="item in filtered"]')).get(0);
         patientPage.actualFirstRow.element(by.css('[link-id="item.identifier"]')).getText().then(function(identifier){
             var table = patientPage.responseData[tableType];
+            console.log table;
             for (var i = 0; i < table.length; i++){
                 if(table[i].identifier === identifier){
                     patientPage.expectedData = table[i];

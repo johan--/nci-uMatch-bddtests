@@ -57,6 +57,10 @@ Then(/^I "(should|should not)" see the treatment arm in the pending treatment ar
   end
 end
 
+Then(/^I "should" see the reason for failure as "existing ta (Placeholder)"$/) do |yesOrNo, reason|
+  expect(@response['message'].reason).to eql reason.to_s
+end
+
 
 Then(/^I "([^"]*)" see the treatment arm "([^"]*)" and version "([^"]*)" in the pending treatment arm table$/) do |see_or_not, treatment_arm, version|
   @treatment_arm_id = treatment_arm
