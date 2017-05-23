@@ -130,12 +130,13 @@ module.exports = function () {
     });
 
     this.Then(/^I collect "(.+?)" data from the backend using using the first row of table as reference$/, function (tableType, callback) {
-        patientPage.actualFirstRow = patientPage.actualTable.all(by.css('tbody tr[ng-repeat="item in filtered"]')).get(0);
+        patientPage.actualFirstRow = patientPage.actualTable.all(by.css('tbody tr[ng-repeat^="item in filtered"]')).get(0);
         patientPage.actualFirstRow.element(by.css('[link-id="item.identifier"]')).getText().then(function(identifier){
-            var table = patientPage.responseData.variant_report[tableType];
+            var table = patientPage.responseData[tableType];
             for (var i = 0; i < table.length; i++){
                 if(table[i].identifier === identifier){
                     patientPage.expectedData = table[i];
+                    break;
                 }
             }
         }).then(callback);
@@ -190,6 +191,57 @@ module.exports = function () {
         }).then(callback);
     });
 
+    this.Then(/^I verify the data in the SNV table of QC Report$/, function (callback) {
+        var firstRow = patientPage.actualFirstRow.all(by.css('td'));
+        var expected = patientPage.expectedData;
+        browser.sleep(50).then(function () {
+            utilities.checkExpectation(firstRow.get(0), expected.identifier, 'Identifier Mismatch');
+//            utilities.checkExpectation(firstRow.get(3), expected.identifier, 'Identifier Mismatch');
+            utilities.checkExpectation(firstRow.get(1), expected.chromosome, 'Chromosome Mismatch');
+            utilities.checkExpectation(firstRow.get(2), expected.position, 'Position Mismatch');
+            utilities.checkExpectation(firstRow.get(3), expected.ocp_reference, 'Reference Mismatch');
+            utilities.checkExpectation(firstRow.get(4), expected.ocp_alternative, 'Alternative Mismatch');
+            utilities.checkExpectation(firstRow.get(5), expected.filter, 'Filter Mismatch');
+            utilities.checkExpectation(firstRow.get(6), utilities.round(expected.allele_frequency, 3), 'Allele Frequency Mismatch');
+            utilities.checkExpectation(firstRow.get(7), utilities.integerize(expected.read_depth), 'Read Depth Mismatch');
+            utilities.checkExpectation(firstRow.get(8), expected.func_gene, 'Gene Mismatch');
+            utilities.checkExpectation(firstRow.get(9), expected.transcript, 'Transcript Mismatch');
+            utilities.checkExpectation(firstRow.get(10), expected.hgvs, 'HGVS Mismatch');
+            utilities.checkExpectation(firstRow.get(11), expected.protein, 'Protein Mismatch');
+            utilities.checkExpectation(firstRow.get(12), expected.exon, 'Exon Mismatch');
+            utilities.checkExpectation(firstRow.get(13), expected.oncomine_variant_class, 'Oncomine Mismatch');
+            utilities.checkExpectation(firstRow.get(14), expected.function, 'Function Mismatch');
+        }).then(callback);
+    });
+
+    this.Then(/^I verify the data in the CNV table of QC Report$/, function (callback) {
+        var firstRow = patientPage.actualFirstRow.all(by.css('td'));
+        var expected = patientPage.expectedData;
+        browser.sleep(50).then(function () {
+            utilities.checkExpectation(firstRow.get(0), expected.identifier, 'Identifier Mismatch');
+//            utilities.checkExpectation(firstRow.get(3), expected.identifier, 'Identifier Mismatch');
+            utilities.checkExpectation(firstRow.get(1), expected.chromosome, 'Chromosome Mismatch');
+            utilities.checkExpectation(firstRow.get(2), utilities.integerize(expected.raw_copy_number), 'Raw CN Mismatch');
+            utilities.checkExpectation(firstRow.get(3), expected.filter, 'Filter Mismatch');
+            utilities.checkExpectation(firstRow.get(4), utilities.round(expected.confidence_interval_5_percent, 3), '5% Mismatch');
+            utilities.checkExpectation(firstRow.get(5), utilities.integerize(expected.copy_number), 'CN Mismatch');
+            utilities.checkExpectation(firstRow.get(6), utilities.round(expected.confidence_interval_95_percent, 3), '95% Mismatch');
+        }).then(callback);
+    });
+
+    this.Then(/^I verify the data in the Gene Fusions table of QC Report$/, function (callback) {
+        var firstRow = patientPage.actualFirstRow.all(by.css('td'));
+        var expected = patientPage.expectedData;
+        browser.sleep(50).then(function () {
+            utilities.checkExpectation(firstRow.get(0), expected.identifier, 'Identifier Mismatch');
+            utilities.checkExpectation(firstRow.get(1), expected.filter, 'Filter Mismatch');
+//            utilities.checkExpectation(firstRow.get(3), expected.identifier, 'Identifier Mismatch');
+            utilities.checkExpectation(firstRow.get(2), expected.partner_gene, 'Gene2 Mismatch');
+            utilities.checkExpectation(firstRow.get(3), expected.driver_gene, 'Gene1  Mismatch');
+            utilities.checkExpectation(firstRow.get(4), utilities.integerize(expected.driver_read_count), 'Read Depth Mismatch');
+            utilities.checkExpectation(firstRow.get(5), utilities.dashifyIfEmpty(expected.annotation), 'Annotation Mismatch');
+        }).then(callback);
+    });
     this.Then(/^I verify that all "(.+?)" are "(COSM|COSF|Gene)" Links$/, function (binding, linkType, callback) {
         var testElements = patientPage.actualTable.all(by.css('[link-id="item.' + binding + '"]'));
         if (linkType === 'COSM'){

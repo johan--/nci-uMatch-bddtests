@@ -651,7 +651,7 @@ var Utilities = function () {
     };
 
     this.integerize = function(numString){
-        return Math.ceil(parseInt(numString));
+        return Math.ceil(numString).toString();
     };
 
     this.checkColor = function(el, status) {

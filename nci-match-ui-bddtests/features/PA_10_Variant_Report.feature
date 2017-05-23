@@ -89,22 +89,21 @@ Feature: As a valid user I can access the variant report for a patient and navig
     When I go to the patient "PT_VC00_CnvVrReceived" with variant report "PT_VC00_CnvVrReceived_ANI1"
     And I collect information about the patient QC
     And I click on the "QC Report" label
-    And I wait for "45" seconds
     Then I can see the "SNVs/MNVs/Indels" table heading
     And I can see the columns in "SNVs/MNVs/Indels" table for QC
     And I collect "snv_indels" data from the backend using using the first row of table as reference
-    And I verify the data in the SNV table
+    And I verify the data in the SNV table of QC Report
     And I verify that all "identifier" are "COSM" Links
     And I verify that all "func_gene" are "Gene" Links
     And I can see the "Copy Number Variants" table heading
     And I can see the columns in "Copy Number Variants" table for QC
     And I collect "copy_number_variants" data from the backend using using the first row of table as reference
-    And I verify the data in the CNV table
+    And I verify the data in the CNV table of QC Report
     And I verify that all "identifier" are "Gene" Links
     And I can see the "Gene Fusions" table heading
     And I can see the columns in "Gene Fusions" table for QC
     And I collect "gene_fusions" data from the backend using using the first row of table as reference
-    And I verify the data in the Gene Fusions table
+    And I verify the data in the Gene Fusions table of QC Report
     And I verify that all "identifier" are "COSF" Links
     And I verify that all "partner_gene" are "Gene" Links
     And I verify that all "driver_gene" are "Gene" Links
