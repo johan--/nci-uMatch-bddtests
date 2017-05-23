@@ -3,17 +3,29 @@ Feature: Test the functionality that filters the CNV variants based on specified
 
   Scenario: FIL-CNV_01: CNV with gene from the version 4 vcf list is filtered in
     Given a tsv variant report file "cnv_v4_gene_filter" and treatment arms file "APEC1621-B.json"
+    And remove quality control json from S3
     When call the amoi rest service
     Then moi report is returned with the cnv variant "DCUN1D1"
+    Then quality control json file should be generated
+    And the generated qc json should have these cnv genes
+      | gene    | tsg_gene | chromosome | position | raw_copy_number |
+      | DCUN1D1 | false    | chr3       | 23786962 | 2.1             |
+    And the generated qc json should have these cnv variants
+      | identifier | copy_number | chromosome | ref_copy_number | raw_copy_number |
+      | DCUN1D1    | 8.1         | chr3       | 2               | 2.1             |
 
   Scenario: FIL-CNV_02: CNV with gene from the version 5 vcf list is filtered out
     Given a tsv variant report file "cnv_v5_gene_filter" and treatment arms file "APEC1621-B.json"
+    And remove quality control json from S3
     When call the amoi rest service
+    Then quality control json file should be generated
     Then moi report is returned without the cnv variant "DCUN1D1"
 
   Scenario: FIL-CNV_03: CNV with copy number threshold >=7 is filtered in
     Given a tsv variant report file "cnv_v5_gene_filter" and treatment arms file "APEC1621-B.json"
+    And remove quality control json from S3
     When call the amoi rest service
+    Then quality control json file should be generated
     Then moi report is returned without the cnv variant "CDK4"
     Then moi report is returned with the cnv variant "MYCL" as an amoi
     """
@@ -23,7 +35,9 @@ Feature: Test the functionality that filters the CNV variants based on specified
 
   Scenario: FIL-CNV_04When a new treatment arm list is available, the rules are run and a a new variant report with updated amois is generated.
     Given a tsv variant report file "cnv_v5_gene_filter" and treatment arms file "APEC1621-B.json"
+    And remove quality control json from S3
     When call the amoi rest service
+    Then quality control json file should be generated
     Then moi report is returned without the cnv variant "CDK4"
     Then moi report is returned with the cnv variant "MYCL" as an amoi
     """
@@ -50,7 +64,9 @@ Feature: Test the functionality that filters the CNV variants based on specified
 
   Scenario Outline: FIL-CNV_05: CNV without PASS filter not returned in variant report
     Given a tsv variant report file "<tsvFile>" and treatment arms file "<TAFile>"
+    And remove quality control json from S3
     When call the amoi rest service
+    Then quality control json file should be generated
     Then moi report is returned without the cnv gene "AR"
     Then moi report is returned with the cnv gene "BCL9"
     Examples:
@@ -60,7 +76,9 @@ Feature: Test the functionality that filters the CNV variants based on specified
 
   Scenario: FIL-CNV_06: Oncomine pannel summary
     Given a tsv variant report file "oncomine_panel_test" and treatment arms file "APEC1621-B.json"
+    And remove quality control json from S3
     When call the amoi rest service
+    Then quality control json file should be generated
     Then the variant report contains poolsum in oncomine panel summary with
       | pool1Sum | 181742.0 |
       | pool2Sum | 558358.0 |
@@ -76,7 +94,9 @@ Feature: Test the functionality that filters the CNV variants based on specified
 
   Scenario: FIL-CNV_07: Verify the variant report based of the version 5.2 vcf
     Given a tsv variant report file "Sample-5922-19-DNA_Sample-5922-19-RNA_Non-Filtered_2017-03-16_07-46-49" and treatment arms file "APEC1621-B.json"
+    And remove quality control json from S3
     When call the amoi rest service
+    Then quality control json file should be generated
     Then the parsed vcf genes should match the list "v5.2geneList.txt"
     And the variant report contains the following values
       | torrent_variant_caller_version | 5.2-25  |
@@ -85,7 +105,9 @@ Feature: Test the functionality that filters the CNV variants based on specified
 
   Scenario: FIL-CNV_08: Oncomine panel summary when the fusion belongs to pool1 and pool2
     Given a tsv variant report file "oncomine_panel_test2" and treatment arms file "APEC1621-B.json"
+    And remove quality control json from S3
     When call the amoi rest service
+    Then quality control json file should be generated
     Then the variant report contains poolsum in oncomine panel summary with
       | pool1Sum | 182992.0 |
       | pool2Sum | 559608.0 |
@@ -101,7 +123,9 @@ Feature: Test the functionality that filters the CNV variants based on specified
 
   Scenario: FIL-CNV_09: Oncomine panel summary when the gene expression belongs to pool1 and pool2
     Given a tsv variant report file "oncomine_panel_test3" and treatment arms file "APEC1621-B.json"
+    And remove quality control json from S3
     When call the amoi rest service
+    Then quality control json file should be generated
     Then the variant report contains poolsum in oncomine panel summary with
       | pool1Sum | 181787.0 |
       | pool2Sum | 558403.0 |
@@ -109,7 +133,7 @@ Feature: Test the functionality that filters the CNV variants based on specified
       | POOL1 | 181482.0 |
       | POOL2 | 557781.0 |
     Then the variant report contains geneExpression in oncomine panel summary with
-      | POOL1 | 105.0  |
+      | POOL1 | 105.0 |
       | POOL2 | 472.0 |
     Then the variant report contains fusion in oncomine panel summary with
       | POOL1 | 200.0 |

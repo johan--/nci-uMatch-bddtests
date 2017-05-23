@@ -83,6 +83,59 @@ When(/^call the amoi rest service$/) do
   @var_report = @res
 end
 
+When(/^remove quality control json from S3$/) do
+  bucket = ENV['s3_bucket']
+  json_path = "BDD/msn-1111/job-1111/#{@tsv}.json"
+  Helper_Methods.s3_delete_path(bucket, json_path)
+  raise "#{json_path} cannot be deleted properly" if Helper_Methods.s3_file_exists(bucket, json_path)
+end
+
+When(/^quality control json file should be generated$/) do
+  bucket = ENV['s3_bucket']
+  json_path = "BDD/msn-1111/job-1111/#{@tsv}.json"
+  exist = Helper_Methods.s3_file_exists(bucket, json_path)
+  expect(exist).to eq true
+  @qc_report = JSON.parse(Helper_Methods.s3_read_text_file(bucket, json_path))
+end
+
+And(/^the generated qc json should have these cnv genes$/) do |table|
+  params = table.hashes
+  expect(@qc_report.keys).to include 'copy_number_variant_genes'
+  cnv_genes = @qc_report['copy_number_variant_genes']
+  params.each do |this_param|
+    gene = this_param['gene']
+    selected = cnv_genes.select { |x| x['gene']==gene }
+    expect(selected.size).to be == 1
+    this_param.each do |k, v|
+      expect_v = selected[0][k]
+      if Helper_Methods.is_number?(expect_v)
+        expect(expect_v.to_f).to eq v.to_f
+      else
+        expect(expect_v.to_s).to eq v.to_s
+      end
+    end
+  end
+end
+
+And(/^the generated qc json should have these cnv variants$/) do |table|
+  params = table.hashes
+  expect(@qc_report.keys).to include 'copy_number_variants'
+  cnv_vrs = @qc_report['copy_number_variants']
+  params.each do |this_param|
+    identifier = this_param['identifier']
+    selected = cnv_vrs.select { |x| x['identifier']==identifier }
+    expect(selected.size).to be == 1
+    this_param.each do |k, v|
+      expect_v = selected[0][k]
+      if Helper_Methods.is_number?(expect_v)
+        expect(expect_v).to be == v.to_f
+      else
+        expect(expect_v.to_s).to eq v
+      end
+    end
+  end
+end
+
 When(/^the proficiency_competency service is called/) do
   @resp = Helper_Methods.post_request("#{ENV['rules_endpoint']}/sample_control_report/proficiency_competency/BDD/msn-1111/job-1111/#{@tsv}?format=tsv", @treatment_arm.to_json)
   @res = JSON.parse(@resp['message'])
@@ -141,7 +194,7 @@ Then(/^in moi report the snv variant "([^"]*)" has "([^"]*)" amois$/) do |varian
   raise "Cannot find variant #{variant}" unless found
 end
 
-Then(/^in moi report the snv variant "([^"]*)" type is "([^"]*)"$/)do |variant, type|
+Then(/^in moi report the snv variant "([^"]*)" type is "([^"]*)"$/) do |variant, type|
   found = false
   @res['snv_indels'].each do |snv|
     if snv['identifier'] == variant

@@ -11,7 +11,9 @@ Feature: Test the functionality that filters the SNV variants based on specified
     #  missing than the location is intronic and we filter it out.
 
     Given a tsv variant report file "<tsvFile>" and treatment arms file "<TAFile>"
+    And remove quality control json from S3
     When call the amoi rest service
+    Then quality control json file should be generated
     Then moi report is returned with the snv variant "match769.2" as an amoi
     And amoi treatment arm names for snv variant "match769.2" include:
     """
@@ -25,7 +27,9 @@ Feature: Test the functionality that filters the SNV variants based on specified
   @rules_p1
   Scenario Outline: FIL-SNV_02: Filter-out a SNV variant that does not have a PASS filter
     Given a tsv variant report file "<tsvFile>" and treatment arms file "<TAFile>"
+    And remove quality control json from S3
     When call the amoi rest service
+    Then quality control json file should be generated
     Then moi report is returned without the snv variant "match769.3.1"
     Examples:
       | tsvFile            | TAFile                        |
@@ -34,7 +38,9 @@ Feature: Test the functionality that filters the SNV variants based on specified
   @rules_p1
   Scenario Outline: FIL-SNV_03: Filter out SVN variants with allele frequency less than 0.05%
     Given a tsv variant report file "<tsvFile>" and treatment arms file "<TAFile>"
+    And remove quality control json from S3
     When call the amoi rest service
+    Then quality control json file should be generated
     Then moi report is returned without the snv variant "match769.3.2"
     Examples:
       | tsvFile            | TAFile                        |
@@ -43,7 +49,9 @@ Feature: Test the functionality that filters the SNV variants based on specified
   @rules_p1
   Scenario Outline: FIL-SNV_04: Filter out SVN variants with FAO less than 25
     Given a tsv variant report file "<tsvFile>" and treatment arms file "<TAFile>"
+    And remove quality control json from S3
     When call the amoi rest service
+    Then quality control json file should be generated
     Then moi report is returned without the snv variant "match769.3.4"
     Examples:
       | tsvFile            | TAFile                        |
@@ -52,7 +60,9 @@ Feature: Test the functionality that filters the SNV variants based on specified
   @rules_p1
   Scenario Outline: FIL-SNV_05: Filter-out SVN variants with function 'synonymous'
     Given a tsv variant report file "<tsvFile>" and treatment arms file "<TAFile>"
+    And remove quality control json from S3
     When call the amoi rest service
+    Then quality control json file should be generated
     Then moi report is returned without the snv variant "match769.3.7"
     Examples:
       | tsvFile            | TAFile                        |
@@ -72,7 +82,9 @@ Feature: Test the functionality that filters the SNV variants based on specified
   -frameshiftblocksubstitution
   -nonframeshiftblocksubstitution
     Given a tsv variant report file "<tsvFile>" and treatment arms file "<TAFile>"
+    And remove quality control json from S3
     When call the amoi rest service
+    Then quality control json file should be generated
     Then moi report is returned with the snv variant "match769.3.8"
     Then moi report is returned with the snv variant "match769.3.9"
     Then moi report is returned with the snv variant "match769.3.10"
@@ -91,7 +103,9 @@ Feature: Test the functionality that filters the SNV variants based on specified
   @rules_p1
   Scenario Outline: FIL-SNV_07: Filter-out all Germline SNV variants
     Given a tsv variant report file "<tsvFile>" and treatment arms file "<TAFile>"
+    And remove quality control json from S3
     When call the amoi rest service
+    Then quality control json file should be generated
     Then moi report is returned with 0 snv variants
     Examples:
       | tsvFile             | TAFile                        |
@@ -100,7 +114,9 @@ Feature: Test the functionality that filters the SNV variants based on specified
   @rules_p1
   Scenario Outline: FIL-SNV_08: Filter-in SNVs if oncomine variant class has the value deleterious
     Given a tsv variant report file "<tsvFile>" and treatment arms file "<TAFile>"
+    And remove quality control json from S3
     When call the amoi rest service
+    Then quality control json file should be generated
     Then moi report is returned with 1 snv variants
     Examples:
       | tsvFile                    | TAFile                        |
@@ -109,7 +125,9 @@ Feature: Test the functionality that filters the SNV variants based on specified
   @rules_p1
   Scenario Outline: FIL-SNV_09: Filter-in SNVs if oncomine variant class has the value hotspot
     Given a tsv variant report file "<tsvFile>" and treatment arms file "<TAFile>"
+    And remove quality control json from S3
     When call the amoi rest service
+    Then quality control json file should be generated
     Then moi report is returned with 1 snv variants
     Examples:
       | tsvFile                | TAFile                        |
@@ -118,7 +136,9 @@ Feature: Test the functionality that filters the SNV variants based on specified
   @rules_p1
   Scenario Outline: FIL-SNV_10a: Filter-in SNVs if the variant matches a non-hotspot rule of a treatment arm
     Given a tsv variant report file "<tsvFile>" and treatment arms file "<TAFile>"
+    And remove quality control json from S3
     When call the amoi rest service
+    Then quality control json file should be generated
     Then moi report is returned with the snv variant "<id>" as an amoi
     Examples:
       | tsvFile             | TAFile          | id     |
@@ -131,7 +151,9 @@ Feature: Test the functionality that filters the SNV variants based on specified
   @rules_p1
   Scenario Outline: FIL-SNV_10b: Filter-out "." SNV if the variant doesn't match non-hotspot rule of treatment arm
     Given a tsv variant report file "<tsvFile>" and treatment arms file "<TAFile>"
+    And remove quality control json from S3
     When call the amoi rest service
+    Then quality control json file should be generated
     Then returned moi report should not have snv variant "<id>"
     Examples:
       | tsvFile             | TAFile          | id |
@@ -144,7 +166,9 @@ Feature: Test the functionality that filters the SNV variants based on specified
   @rules_p1
   Scenario Outline: FIL-SNV_11: Remove duplicate hotspot variants
     Given a tsv variant report file "<tsvFile>" and treatment arms file "<TAFile>"
+    And remove quality control json from S3
     When call the amoi rest service
+    Then quality control json file should be generated
     Then moi report is returned with the snv variant "COSM893813"
     Examples:
       | tsvFile                 | TAFile          |
@@ -157,7 +181,9 @@ Feature: Test the functionality that filters the SNV variants based on specified
     #in treatment arm b json, 769.2 is snv, . is mnv
     #in treatment arm c json, 769.2 is ins, . is fusion
     Given a tsv variant report file "FIL-SNV_12" and treatment arms file "<TAFile>"
+    And remove quality control json from S3
     When call the amoi rest service
+    Then quality control json file should be generated
     Then in moi report the snv variant "match769.2" has "<amoi_count1>" amois
     And in moi report the snv variant "match769.2" type is "mnp"
     Then in moi report the snv variant "." has "<amoi_count2>" amois

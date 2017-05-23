@@ -467,8 +467,8 @@ class Helper_Methods
     true if Date.parse(string) rescue false
   end
 
-  def self.is_number?(string)
-    true if Float(string) rescue false
+  def self.is_number?(obj)
+    true if Float(obj) rescue false
   end
 
   def self.s3_list_files(bucket,
@@ -564,6 +564,15 @@ class Helper_Methods
     cmd = "aws s3 cp s3://#{bucket}/#{s3_path} #{download_target}  --recursive --region us-east-1"
     `#{cmd}`
     puts "#{download_target} has been downloaded from S3 #{bucket}/#{s3_path}" if ENV['print_log'] == 'YES'
+  end
+
+  def self.s3_read_text_file(bucket, s3_path)
+    tmp_file = "#{File.dirname(__FILE__)}/tmp.txt"
+    cmd = "aws s3 cp s3://#{bucket}/#{s3_path} #{tmp_file} --region us-east-1"
+    `#{cmd}`
+    result = File.read(tmp_file)
+    FileUtils.remove(tmp_file)
+    result
   end
 
   def self.s3_upload_file(file_path, bucket, s3_path)
