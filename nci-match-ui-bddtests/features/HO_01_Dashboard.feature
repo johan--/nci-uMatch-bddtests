@@ -56,6 +56,7 @@ Feature: Dashboard page.
   @ui_p1
   Scenario: User can see the last 10 messages in the Activity feed
     When I collect information on the timeline
+    And I navigate to the dashboard page
     Then I can see the Activity Feed section
     And I can see "10" entries in the section
     And They match with the timeline response in order

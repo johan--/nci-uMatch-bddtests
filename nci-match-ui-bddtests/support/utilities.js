@@ -270,7 +270,7 @@ var Utilities = function () {
         var baseHeader = {
             "Content-Type": "application/json",
             "Accept": "application/json"
-        }
+        };
 
         var reqHeader = Object.assign(baseHeader, headers)
 
@@ -280,14 +280,14 @@ var Utilities = function () {
             headers: reqHeader,
             body: bodyParams,
             json: true
-        }
+        };
 
         return req(options).then(function (response) {
             return response;
         }).catch(function (err) {
             console.log(err);
         })
-    }
+    };
 
     /** This function returns the JSON response for api call. The url has to be provided
         url [String] Required: the url of the api. This call is made against the
@@ -462,12 +462,11 @@ var Utilities = function () {
         })
     };
 
-    this.getFirstNameFromEmail = function (email) {
-        return email.split('.')[0];
-    };
-
-    this.capitalize = function (text) {
-        return text.toLocaleLowerCase().replace(/\b./, function (f) { return f.toLocaleUpperCase(); })
+    this.checkValueInPubMed = function (elem, expected) {
+        elem.get(0).getText().then(function (column_value) {
+            var actual = column_value.toString().split('\n').join(',');
+            expect(actual).to.equal(expected.toString());
+        })
     };
 
     this.returnValidUserCredentials = function (role) {
@@ -678,7 +677,30 @@ var Utilities = function () {
         } else {
             return false;
         }
-    }
+    };
+
+    this.checkPubMedLink = function(el){
+        var checkLink = function(testLink, index) {
+            if (testLink.match(/^\d+(\n)?$/)){
+                index = (typeof index !== 'undefined') ?  index : 0;
+                var pubMedLinks = el.all(by.repeater('id in vm.publicMedIds'));
+                expect(pubMedLinks.count()).to.eventually.be.greaterThan(0);
+                expect(el.all(by.css('a')).get(index).getAttribute('href')).to.eventually.include('ncbi.nlm.nih.gov/pubmed/?term=' + testLink);
+            } else {
+                expect(el.element(by.css('a')).isPresent()).to.eventually.eql(false);
+            }
+        };
+        el.getText().then(function (link) {
+            if (link.match(/\n/)){
+                var linkArr = link.split('\n');
+                for(var i = 0 ; i < linkArr.length; i ++){
+                    checkLink(linkArr[i], i);
+                }
+            } else {
+                checkLink(link);
+            }
+        });
+    };
 };
 
 module.exports = new Utilities();

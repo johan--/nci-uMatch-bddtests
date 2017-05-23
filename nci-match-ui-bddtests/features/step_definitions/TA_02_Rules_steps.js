@@ -72,20 +72,19 @@ module.exports = function () {
 
     this.When(/^I capture the "([^"]*)" column under "([^"]*)" Table with "(Inclusion|Exclusion)" type$/, function (columnName, variant, variantType, callback) {
         var idString; // Table id that will be used to get the individual columns
-        var expectedHeadings;
         var columnIndex;
         switch(variant) {
             case 'SNVs / MNVs / Indels':
                 idString = variantType === 'Inclusion' ? 'snvsMnvsIndelsIncl' : 'snvsMnvsIndelsExcl';
-                expectedHeadings = variantType === 'Inclusion' ? taPage.expectedIncludedSNVs : taPage.expectedExcludedSNVs
+                taPage.expectedHeadings = variantType === 'Inclusion' ? taPage.expectedIncludedSNVs : taPage.expectedExcludedSNVs;
                 break;
 
              case 'CNVs':
                 idString = variantType === 'Inclusion' ? 'cnvsIncl' : 'cnvsExcl';
-                expectedHeadings = variantType === 'Inclusion' ? taPage.expectedIncludedCNVs : taPage.expectedExcludedCNVs
+                taPage.expectedHeadings = variantType === 'Inclusion' ? taPage.expectedIncludedCNVs : taPage.expectedExcludedCNVs;
                 break;
         }
-        columnIndex = expectedHeadings.indexOf(columnName) + 1; // Incremeting by one because nth-of-type is not zero based index
+        columnIndex = taPage.expectedHeadings.indexOf(columnName) + 1; // Incremeting by one because nth-of-type is not zero based index
         var columnValueList = element(by.id(idString)).all(by.css('tr[grid-item]>td:nth-of-type(' + columnIndex + ')'));
         columnValueList.getText().then(function(valueList){
             taPage.valueList = valueList;
@@ -218,66 +217,63 @@ module.exports = function () {
 
 
     this.Then(/^I should see the (Inclusion|Exclusion) Variants table for (.+?)$/, function (inclusionType, variant, callback) {
-        var data = [];
-        var tableType;
         var actualTableHeadings;
-        var expectedHeadings;
         var expectedToolTips;
         // First getting the data for the variant from the treatment arm
-        data = taPage.generateArmDetailForVariant(firstTreatmentArm, variant, inclusionType);
+        var data = taPage.generateArmDetailForVariant(firstTreatmentArm, variant, inclusionType);
 
         switch(variant) {
             case 'SNVs / MNVs / Indels':
                 actualTableHeadings = inclusionType === 'Inclusion' ? taPage.actualHeadingIncludedSNVs : taPage.actualHeadingExcludedSNVs;
-                expectedHeadings = inclusionType === 'Inclusion' ? taPage.expectedIncludedSNVs : taPage.expectedExcludedSNVs;
+                taPage.expectedHeadings = inclusionType === 'Inclusion' ? taPage.expectedIncludedSNVs : taPage.expectedExcludedSNVs;
                 expectedToolTips = inclusionType === 'Inclusion' ? taPage.expectedInclSNVToolTip : taPage.expectedExclSNVToolTip;
 
                 actualTableHeadings.getText().then(function(actualArr){
-                    expect(actualArr).to.eql(expectedHeadings, "Expected: " + expectedHeadings + '\nActual: ' + actualArr);
+                    expect(actualArr).to.eql(taPage.expectedHeadings, "Expected: " + taPage.expectedHeadings + '\nActual: ' + actualArr);
                 });
 
-                tableType = inclusionType === 'Inclusion' ? taPage.inclusionsnvTable : taPage.exclusionsnvTable;
+                taPage.tableType = inclusionType === 'Inclusion' ? taPage.inclusionsnvTable : taPage.exclusionsnvTable;
                 taPage.checkToolTips(actualTableHeadings, expectedToolTips);
-                taPage.checkSNVTable(data, tableType, inclusionType);
+                taPage.checkSNVTable(data, taPage.tableType, inclusionType);
                 break;
             case 'CNVs':
                 actualTableHeadings = inclusionType === 'Inclusion' ? taPage.actualHeadingIncludedCNVs : taPage.actualHeadingExcludedCNVs;
-                expectedHeadings = inclusionType === 'Inclusion' ? taPage.expectedIncludedCNVs : taPage.expectedExcludedCNVs;
+                taPage.expectedHeadings = inclusionType === 'Inclusion' ? taPage.expectedIncludedCNVs : taPage.expectedExcludedCNVs;
                 expectedToolTips = inclusionType === 'Inclusion' ? taPage.expectedInclCNVToolTip : taPage.expectedExclCNVToolTip;
 
                 actualTableHeadings.getText().then(function(actualArr){
-                    expect(actualArr).to.eql(expectedHeadings, "Expected: " + expectedHeadings + '\nActual: ' + actualArr);
+                    expect(actualArr).to.eql(taPage.expectedHeadings, "Expected: " + taPage.expectedHeadings + '\nActual: ' + actualArr);
                 });
 
-                tableType = inclusionType === 'Inclusion' ? taPage.inclusioncnvTable : taPage.exclusioncnvTable;
+                taPage.tableType = inclusionType === 'Inclusion' ? taPage.inclusioncnvTable : taPage.exclusioncnvTable;
                 taPage.checkToolTips(actualTableHeadings, expectedToolTips);
-                taPage.checkCNVTable(data, tableType, inclusionType);
+                taPage.checkCNVTable(data, taPage.tableType, inclusionType);
                 break;
             case 'Gene Fusions':
                 actualTableHeadings = inclusionType === 'Inclusion' ? taPage.actualHeadingIncludedGene : taPage.actualHeadingExcludedGene;
-                expectedHeadings = inclusionType === 'Inclusion' ? taPage.expectedIncludedGene : taPage.expectedExcludedGene;
+                taPage.expectedHeadings = inclusionType === 'Inclusion' ? taPage.expectedIncludedGene : taPage.expectedExcludedGene;
                 expectedToolTips = inclusionType === 'Inclusion' ? taPage.expectedInclGenToolTip : taPage.expectedExclGenToolTip;
 
                 actualTableHeadings.getText().then(function(actualArr){
-                    expect(actualArr).to.eql(expectedHeadings, "Expected: " + expectedHeadings + '\nActual: ' + actualArr);
+                    expect(actualArr).to.eql(taPage.expectedHeadings, "Expected: " + taPage.expectedHeadings + '\nActual: ' + actualArr);
                 });
 
-                tableType = inclusionType === 'Inclusion' ? taPage.inclusionGeneTable : taPage.exclusionGeneTable;
+                taPage.tableType = inclusionType === 'Inclusion' ? taPage.inclusionGeneTable : taPage.exclusionGeneTable;
                 taPage.checkToolTips(actualTableHeadings, expectedToolTips);
-                taPage.checkGeneFusionTable(data, tableType, inclusionType);
+                taPage.checkGeneFusionTable(data, taPage.tableType, inclusionType);
                 break;
             case 'Non-Hotspot Rules':
                 actualTableHeadings = inclusionType === 'Inclusion' ? taPage.actualHeadingIncludedNHRs : taPage.actualHeadingExcludedNHRs;
-                expectedHeadings = inclusionType === 'Inclusion' ? taPage.expectedIncludedNHRs : taPage.expectedExcludedNHRs;
+                taPage.expectedHeadings = inclusionType === 'Inclusion' ? taPage.expectedIncludedNHRs : taPage.expectedExcludedNHRs;
                 expectedToolTips = inclusionType === 'Inclusion' ? taPage.expectedInclNHRToolTip : taPage.expectedExclNHRToolTip;
 
                 actualTableHeadings.getText().then(function(actualArr){
-                    expect(actualArr).to.eql(expectedHeadings, "Expected: " + expectedHeadings + '\nActual: ' + actualArr);
+                    expect(actualArr).to.eql(taPage.expectedHeadings, "Expected: " + taPage.expectedHeadings + '\nActual: ' + actualArr);
                 });
 
-                tableType = inclusionType === 'Inclusion' ? taPage.inclusionNHRTable : taPage.exclusionNHRTable;
+                taPage.tableType = inclusionType === 'Inclusion' ? taPage.inclusionNHRTable : taPage.exclusionNHRTable;
                 taPage.checkToolTips(actualTableHeadings, expectedToolTips);
-                taPage.checkNonHotspotRulesTable(data, tableType, inclusionType);
+                taPage.checkNonHotspotRulesTable(data, taPage.tableType, inclusionType);
                 break;
         }
         browser.sleep(50).then(callback);
@@ -287,14 +283,24 @@ module.exports = function () {
         var data = firstTreatmentArm['assay_rules'];
         var repeater = taPage.assayTableRepeater;
         var actualTableHeadings = taPage.actualHeadingNonSequenceArray;
-        var expectedHeadings = taPage.expectedNonSequenceArray;
+        taPage.expectedHeadings = taPage.expectedNonSequenceArray;
         var expectedToopTips = taPage.expectedNonSeqArrToolTip;
         taPage.checkToolTips(actualTableHeadings, expectedToopTips);
         actualTableHeadings.getText().then(function(actualArr){
-            expect(actualArr).to.eql(expectedHeadings, "Expected: " + expectedHeadings + '\nActual: ' + actualArr);
+            expect(actualArr).to.eql(taPage.expectedHeadings, "Expected: " + taPage.expectedHeadings + '\nActual: ' + actualArr);
         });
         taPage.checkAssayResultsTable(data, repeater);
         browser.sleep(50).then(callback);
+    });
+
+    this.Then(/^I verify that all the Literature References are valid links$/, function (callback) {
+        var index = taPage.expectedHeadings.indexOf('Lit') // Because we need to look of only 'Lit' specifically
+        var tableRows = taPage.tableType;
+        tableRows.count().then(function(ct){
+            for (var i = 0; i < ct; i++){
+                utilities.checkPubMedLink(tableRows.get(i).all(by.css('td')).get(index));
+            }
+        }).then(callback);
     });
 
     this.When(/^I verify that they are sorted numerically$/, function (callback) {

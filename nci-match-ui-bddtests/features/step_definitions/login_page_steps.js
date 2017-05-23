@@ -124,7 +124,7 @@ module.exports = function () {
     this.When(/^I navigate to the (.+) page$/, function (pageName, callback) {
         browser.ignoreSynchronization = false;
         if (pageName === 'CLIA Labs'){
-            var endpoint = 'clia-labs?site=MoCha&type=positive'
+            var endpoint = 'clia-labs?site=MoCha&type=positive';
             dashboardPageObj.goToPageName(endpoint).then(callback);
         }else {
             dashboardPageObj.goToPageName(pageName).then(callback);

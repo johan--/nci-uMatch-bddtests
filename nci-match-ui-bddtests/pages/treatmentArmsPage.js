@@ -264,7 +264,7 @@ var TreatmentArmsPage = function() {
                             utils.checkValueInTable(row.all(by.css(posLoc)), firstData['position'].toString());
                             utils.checkValueInTable(row.all(by.css(referenceLoc)), firstData['ocp_reference'].toString());
                             utils.checkValueInTable(row.all(by.css(alternateLoc)), firstData['ocp_alternative'].toString());
-                            utils.checkValueInTable(row.all(by.css(litTableLoc)), med_id_string.toString());
+                            utils.checkValueInPubMed(row.all(by.css(litTableLoc)), med_id_string.toString());
                             utils.checkValueInTable(row.all(by.css(descriptionLoc)), utils.dashifyIfEmpty(firstData['description']));
                             utils.checkValueInTable(row.all(by.css(proteinLoc)), utils.dashifyIfEmpty(firstData['protein']));
                             utils.checkValueInTable(row.all(by.css(variantTypeloc)), firstData['variant_type']);
@@ -301,7 +301,7 @@ var TreatmentArmsPage = function() {
                             utils.checkValueInTable(row.all(by.css(geneLoc)), firstData['gene_name'].toString());
                             utils.checkValueInTable(row.all(by.css(chromLoc)), firstData['chromosome'].toString());
                             utils.checkValueInTable(row.all(by.css(posLoc)), firstData['position'].toString());
-                            utils.checkValueInTable(row.all(by.css(litTableLoc)), med_id_string.toString());
+                            utils.checkValueInPubMed(row.all(by.css(litTableLoc)), med_id_string.toString());
                             if(inclusionType === 'Inclusion') {
                                 utils.checkValueInTable(row.all(by.css(loeLoc)), firstData['level_of_evidence'].toString());
                             }
@@ -334,7 +334,7 @@ var TreatmentArmsPage = function() {
                             utils.checkValueInTable(row.all(by.css(idLoc)), firstData['identifier']);
                             utils.checkValueInTable(row.all(by.css(gene1Loc)), firstData['gene1']);
                             utils.checkValueInTable(row.all(by.css(gene2Loc)), firstData['gene2']);
-                            utils.checkValueInTable(row.all(by.css(litTableLoc)), med_id_string);
+                            utils.checkValueInPubMed(row.all(by.css(litTableLoc)), med_id_string);
                             if (inclusionType === 'Inclusion') {
                                 utils.checkValueInTable(row.all(by.css(loeLoc)), firstData['level_of_evidence']);
                             }
@@ -373,7 +373,7 @@ var TreatmentArmsPage = function() {
                             utils.checkValueInTable(row.all(by.css(exonLoc)), utils.dashifyIfEmpty(firstData['exon']));
                             utils.checkValueInTable(row.all(by.css(oncomineLoc)), utils.dashifyIfEmpty(firstData['oncomine_variant_class']));
                             utils.checkValueInTable(row.all(by.css(functionLoc)), utils.dashifyIfEmpty(firstData['function']));
-                            utils.checkValueInTable(row.all(by.css(litTableLoc)), utils.dashifyIfEmpty(med_id_string));
+                            utils.checkValueInPubMed(row.all(by.css(litTableLoc)), utils.dashifyIfEmpty(med_id_string));
                             if (inclusionType === 'Inclusion') {
                                 utils.checkValueInTable(row.all(by.css(loeLoc)), firstData['level_of_evidence'].toString());
                             }
@@ -563,7 +563,12 @@ var TreatmentArmsPage = function() {
         if (data === undefined) {
             return '-';
         } else {
-            return data.join('x').replace(/\s/g, '').replace(/x/g, '\n')
+            if (data.toString().match(/^\d$/)){
+                return data.join('x').replace(/\s/g, '').replace(/x/g, '\n')
+            } else {
+                return data;
+            }
+
         }
 
     }

@@ -19,8 +19,10 @@ Feature: Treatment Arm Rules
     Then I should see that <subTabName> sub-tab is active
     When I select the Inclusion button
     Then I should see the Inclusion Variants table for <subTabName>
+    And I verify that all the Literature References are valid links
     When I select the Exclusion button
     Then I should see the Exclusion Variants table for <subTabName>
+    And I verify that all the Literature References are valid links
     Examples:
       | subTabName           |
       | SNVs / MNVs / Indels |
