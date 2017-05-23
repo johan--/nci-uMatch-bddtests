@@ -534,9 +534,9 @@ class Helper_Methods
 
   end
 
-  def self.upload_vr_to_s3_if_needed(bucket, ion_folder, moi, ani, tsv_name = 'test1.tsv', template_type = 'default')
+  def self.upload_vr_to_s3_if_needed(bucket, ion_folder, moi, ani, vcf_name = 'test1.vcf', template_type = 'default')
     template_folder = "#{path_for_named_parent_folder('nci-uMatch-bddtests')}/DataSetup/variant_file_templates"
-    exist = s3_file_exists(bucket, "#{ion_folder}/#{moi}/#{ani}/#{tsv_name}")
+    exist = s3_file_exists(bucket, "#{ion_folder}/#{moi}/#{ani}/#{vcf_name}")
     if exist
       puts "#{moi} exists in S3 bucket #{bucket}, upload is skipped!" if ENV['print_log'] == 'YES'
     else
@@ -548,8 +548,8 @@ class Helper_Methods
       `#{cmd}`
       cmd = "cp #{template_ani_path}/* #{target_ani_path}"
       `#{cmd}`
-      unless tsv_name=='test1.tsv'
-        cmd = "mv #{target_ani_path}/test1.tsv #{target_ani_path}/#{tsv_name}"
+      unless vcf_name=='test1.vcf'
+        cmd = "mv #{target_ani_path}/test1.vcf #{target_ani_path}/#{vcf_name}"
         `#{cmd}`
       end
       cmd = "aws s3 cp #{output_folder} s3://#{bucket}/#{ion_folder}/ --recursive --region us-east-1"

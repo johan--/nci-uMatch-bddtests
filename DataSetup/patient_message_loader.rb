@@ -6,6 +6,7 @@ class PatientMessageLoader
 
   LOCAL_PATIENT_DATA_FOLDER = 'local_patient_data'
   LOCAL_PATIENT_API_URL = 'http://localhost:10240/api/v1/patients'
+  LOCAL_IR_API_URL = 'http://localhost:5000/api/v1'
   LOCAL_COG_URL = 'http://localhost:3000'
   SERVICE_NAME = 'trigger'
   MESSAGE_TEMPLATE_FILE = "#{File.dirname(__FILE__)}/../uMATCH/PedMATCH/public/patient_message_templates.json"
@@ -20,6 +21,10 @@ class PatientMessageLoader
 
   def self.patient_api_url
     @patient_api_url||=LOCAL_PATIENT_API_URL
+  end
+
+  def self.ir_api_url
+    @ir_api_url||=LOCAL_IR_API_URL
   end
 
   def self.cog_url
@@ -175,7 +180,7 @@ class PatientMessageLoader
     # sleep(@wait_time)
   end
 
-  def self.post_variant_report(message_json, patient_id, moi, message = nil)
+  def self.put_aliquot(message_json, patient_id, moi, message = nil)
     if @all_items.nil?
       @all_items = 0
     end
@@ -183,10 +188,10 @@ class PatientMessageLoader
       @failure = 0
     end
     @all_items += 1
-    output = Helper_Methods.post_request("#{patient_api_url}/variant_report/#{moi}", message_json.to_json)
+    output = Helper_Methods.put_request("#{ir_api_url}/aliquot/#{moi}", message_json.to_json)
     p "Output from running No.#{@all_items} curl: #{output['message']}"
     p "#{message} completed"
-    unless output['message'].downcase.include? 'success'
+    unless output['status'].downcase.include? 'success'
       p 'Failed'
       puts JSON.pretty_generate(message_json)
       @failure += 1
@@ -438,17 +443,15 @@ class PatientMessageLoader
           analysis_id,
           vr_type='default',
           folder='bdd_test_ion_reporter',
-          tsv_name='test1.tsv')
-    Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-dev', folder, molecular_id, analysis_id, tsv_name, vr_type)
-    Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-int', folder, molecular_id, analysis_id, tsv_name, vr_type)
+          vcf_name='test1.vcf')
+    Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-dev', folder, molecular_id, analysis_id, vcf_name, vr_type)
+    Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-int', folder, molecular_id, analysis_id, vcf_name, vr_type)
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['variant_file_uploaded']
     message['ion_reporter_id'] = folder
-    message['molecular_id'] = molecular_id
     message['analysis_id'] = analysis_id
-    message['tsv_file_name'] = tsv_name
-    message['patient_id'] = patient_id
-    post_variant_report(message, patient_id, molecular_id, 'variant report upload')
-    wait_until_updated(patient_id, '')
+    message['vcf_name'] = vcf_name
+    put_aliquot(message, patient_id, molecular_id, 'variant report upload')
+    wait_until_updated(patient_id, 'variant_report')
     sleep(5) #variant upload might take more time than other service, so wait internally
   end
 

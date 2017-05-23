@@ -166,10 +166,12 @@
     "comment_user": "qa"
   },
   "variant_file_uploaded": {
+    "analysis_id": "ani1",
+    "site": "mda",
     "ion_reporter_id": "bdd_test_ion_reporter",
-    "molecular_id": "3355-bsn-msn-2",
-    "analysis_id": "job1",
-    "tsv_file_name": "test1.tsv"
+    "vcf_name": "test1.vcf",
+    "dna_bam_name": "dna.bam",
+    "cdna_bam_name": "cdna.bam"
   },
   "variant_file_uploaded_event": {
     "ion_reporter_id": "IR_DTM00",
