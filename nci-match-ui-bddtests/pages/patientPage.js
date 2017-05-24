@@ -290,6 +290,58 @@ var PatientPage = function () {
         return filteredList;
     };
 
+    this.getTotalAMois = function() {
+        var self = this;
+        self.count = 0;
+        function totalSnvCount ()  {
+            return element(by.css('vr-filtered-snv-mnv-indel span.text-muted')).isPresent().then(function(presence){
+                if (presence === true ){
+                    return 0
+                } else {
+                    return element.all(by.css('vr-filtered-snv-mnv-indel div[ng-if="vm.isAmoi"]')).count().then(function (ct) {
+                        return ct;
+                    })
+                }
+            });
+        };
+
+        function totalCNVCount () {
+            return element(by.css('vr-filtered-cnv span.text-muted')).isPresent().then(function(presence){
+                if (presence === true ){
+                    return 0
+                } else {
+                    return element.all(by.css('vr-filtered-cnv div[ng-if="vm.isAmoi"]')).count().then(function (ct) {
+                        return ct;
+                    })
+                }
+            });
+        };
+
+        function totalGeneCount () {
+            return element(by.css('vr-filtered-gf span.text-muted')).isPresent().then(function(presence){
+                if (presence === true ){
+                    return 0
+                } else {
+                    return element.all(by.css('vr-filtered-gf div[ng-if="vm.isAmoi"]')).count().then(function (ct) {
+                        return ct;
+                    })
+                }
+            });
+        };
+
+        return totalSnvCount().then(function (ct) {
+            console.log("1: " + ct)
+            self.count += ct;
+        }).then(totalCNVCount().then(function (ct) {
+            console.log("2: " + ct)
+            self.count += ct;
+        })).then(totalGeneCount().then(function(ct){
+            console.log("3: " + ct)
+            self.count += ct;
+            return self.count;
+        }))
+    };
+
     function setPatientId(id) {
         patientId = id;
     }

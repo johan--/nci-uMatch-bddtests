@@ -349,9 +349,18 @@ module.exports = function () {
     });
 
     this.Then(/^I see that the Total aMOIs match the number of aMOIs on the page\.$/, function (callback) {
-        patientPage.totalAMois.getText().then(function (totalAMOI) {
-            expect(patientPage.totalAmoiRows.count()).to.eventually.eql(parseInt(totalAMOI));
+        browser.waitForAngular().then(function () {
+            patientPage.getTotalAMois().then(function (ct) {
+                console.log("Final Answer: " + ct);
+                utilities.checkExpectation(patientPage.totalAMois, ct, 'totalAmoi count Mismatch');
+            })
         }).then(callback);
+
+
+//        patientPage.totalAMois.getText().then(function (totalAMOI) {
+//
+//            expect(patientPage.totalAmoiRows.count()).to.eventually.eql(parseInt(totalAMOI));
+//        }).then(callback);
     });
 
     this.Then(/^I get the Total confirmed MOIs on the page$/, function (callback) {

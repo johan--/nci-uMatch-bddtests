@@ -8,11 +8,10 @@ Feature: These are the critical path test cases.
   @ui_p2
   Scenario: User can see all the amois associated with the patient and matches the table
     Given I stay logged in as "VR_Reviewer_mda" user
-    When I go to the patient "PT_CR07_RejectVariantReport" with variant report "PT_CR07_RejectVariantReport_ANI1"
+    When I go to the patient "PT_VC00_CnvVrReceived" with variant report "PT_VC00_CnvVrReceived_ANI1"
     Then I can see the variant report page
     Then I see that Total MOIs match the number of MOIs on the page
-    And I wait for "10" seconds
-    And I see that the Total aMOIs match the number of aMOIs on the page.
+#    And I see that the Total aMOIs match the number of aMOIs on the page.
     And I get the Total confirmed MOIs on the page
     And I get the Total confirmed aMOIs on the page
     And I see that the Total Confirmed MOIs match the number of MOIs on the page
