@@ -156,7 +156,7 @@ module.exports = function() {
             utilities.checkExpectation(tab.get(1), cliaPage.expectedIRdetails['internal_ip_address'], 'Internal IP Mismatch');
             utilities.checkExpectation(tab.get(2), cliaPage.expectedIRdetails['host_name'], 'Host Name Mismatch');
             tab.get(3).getText().then(function (status) {
-                expect(status).to.include(cliaPage.expectedIRdetails['ir_status'].slice(0, -17), 'Status Mismatch');
+                expect(status).to.include(cliaPage.expectedIRdetails['ir_status'].slice(0, -28), 'Status Mismatch');
             });
             utilities.checkExpectation(tab.get(4), cliaPage.expectedIRdetails['ion_reporter_version'], 'IR Version Mismatch');
             utilities.checkExpectation(tab.get(5), lastContact, 'Last Contact mismatch');

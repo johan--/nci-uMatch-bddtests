@@ -654,7 +654,7 @@ var Utilities = function () {
         if (numString === null || numString === undefined){
             return null
         } else {
-            return Math.ceil(numString).toString();
+            return Math.round(numString).toString();
         }
     };
 

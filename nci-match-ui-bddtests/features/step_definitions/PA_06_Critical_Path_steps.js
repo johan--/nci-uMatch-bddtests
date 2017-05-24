@@ -329,7 +329,6 @@ module.exports = function () {
 
     this.When(/^I collect information about the assignment$/, function (callback) {
         var url = '/api/v1/patients/' + patientPage.patientId + '/analysis_report/' + patientPage.variantAnalysisId;
-
         utilities.getRequestWithService('patient', url).then(function(response){
             patientPage.responseData = response;
         }).then(callback);

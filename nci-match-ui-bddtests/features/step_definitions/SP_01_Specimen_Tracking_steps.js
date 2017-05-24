@@ -382,6 +382,7 @@ module.exports = function () {
                 break
             }
         }
+        console.log(hashSection);
         if (hashSection !== undefined) {
             var shippedDate = utilities.returnFormattedDate(hashSection.shipped_date) + ' GMT';
             browser.sleep(40).then(function () {

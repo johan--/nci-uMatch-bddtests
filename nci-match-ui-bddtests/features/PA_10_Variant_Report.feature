@@ -44,7 +44,7 @@ Feature: As a valid user I can access the variant report for a patient and navig
     And I collect information about the assignment
     Then I can see the "SNVs/MNVs/Indels" table heading
     And I can see the columns in "SNVs/MNVs/Indels" table
-    And I collect "snv_indels" data from the backend using using the first row of table as reference
+    And I collect "snv_indels" variant data from the backend using using the first row of table as reference
     And I verify the data in the SNV table
     And I verify that all "identifier" are "COSM" Links
     And I verify that all "func_gene" are "Gene" Links
@@ -55,11 +55,9 @@ Feature: As a valid user I can access the variant report for a patient and navig
     And I collect information about the assignment
     Then I can see the "Copy Number Variants" table heading
     And I can see the columns in "Copy Number Variants" table
-    And I collect "copy_number_variants" data from the backend using using the first row of table as reference
+    And I collect "copy_number_variants" variant data from the backend using using the first row of table as reference
     And I verify the data in the CNV table
     And I verify that all "identifier" are "Gene" Links
-
-
 
   @ui_p2
   Scenario: Checking the filtered values in the Gene Fusion table of the variant report
@@ -67,7 +65,7 @@ Feature: As a valid user I can access the variant report for a patient and navig
     And I collect information about the assignment
     Then I can see the "Gene Fusions" table heading
     And I can see the columns in "Gene Fusions" table
-    And I collect "gene_fusions" data from the backend using using the first row of table as reference
+    And I collect "gene_fusions" variant data from the backend using using the first row of table as reference
     And I verify the data in the Gene Fusions table
     And I verify that all "identifier" are "COSF" Links
     And I verify that all "partner_gene" are "Gene" Links
