@@ -647,7 +647,11 @@ var Utilities = function () {
     };
 
     this.round = function (value, decimals) {
-        return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
+        if(value === null || value === undefined){
+            return null
+        } else {
+            return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
+        }
     };
 
     this.integerize = function(numString){

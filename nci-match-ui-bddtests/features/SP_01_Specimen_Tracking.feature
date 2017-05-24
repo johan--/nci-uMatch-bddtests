@@ -46,5 +46,5 @@ Feature: Specimen Tracking page
     When I click on "Slide Shipments" tab
     And I can see the "Slide Shipments" table columns
     And I see the total number displayed matches with the response length for "SLIDE"
-    When I search for "PT_SC04m_PendingApproval" in the search field
-    Then I see that the row matches with Slides data of the backend for "PT_SC04m_PendingApproval"
+    When I search for "PT_AS00_SlideShipped2" in the search field
+    Then I see that the row matches with Slides data of the backend for "PT_AS00_SlideShipped2"

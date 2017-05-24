@@ -330,16 +330,14 @@ var PatientPage = function () {
         };
 
         return totalSnvCount().then(function (ct) {
-            console.log("1: " + ct)
             self.count += ct;
-        }).then(totalCNVCount().then(function (ct) {
-            console.log("2: " + ct)
+        }).then(totalGeneCount().then(function (ct) {
             self.count += ct;
-        })).then(totalGeneCount().then(function(ct){
-            console.log("3: " + ct)
+        })).then(totalCNVCount().then(function(ct){
             self.count += ct;
+        })).then(function () {
             return self.count;
-        }))
+        });
     };
 
     function setPatientId(id) {

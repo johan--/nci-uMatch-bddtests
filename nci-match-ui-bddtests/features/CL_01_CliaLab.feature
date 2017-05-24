@@ -37,10 +37,10 @@ Feature: CLIA Labs Page
     And I click on the "QC Report" label
     And I enter the first "identifier" from "snv_indels" in the "SNVs/MNVs/Indels" Table search
     Then I verify the data in the SNV Table in QC report
-    When I enter the first "identifier" from "copy_number_variants" in the "Copy Number Variants" Table search
-    Then I verify the data in the CNV Table in QC report
     When I enter the first "identifier" from "gene_fusions" in the "Gene Fusions" Table search
     Then I verify the data in the Gene Fusions Table in QC report
+    When I enter the first "identifier" from "copy_number_variants" in the "Copy Number Variants" Table search
+    Then I verify the data in the CNV Table in QC report
     Examples:
       | sample          | control_type               |
       | SC_MOCHA_PALFC  | Positive Sample Controls   |
