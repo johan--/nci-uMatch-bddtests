@@ -292,15 +292,15 @@ class Patient_helper_methods
   end
 
   def self.upload_vr_to_s3(moi, ani, template='default', tsv_name='test1.tsv')
-    Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-dev', 'bdd_test_ion_reporter', moi, ani, tsv_name, template)
-    Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-int', 'bdd_test_ion_reporter', moi, ani, tsv_name, template)
+    Helper_Methods.upload_vr_to_s3('pedmatch-dev', 'bdd_test_ion_reporter', moi, ani, tsv_name, template)
+    Helper_Methods.upload_vr_to_s3('pedmatch-int', 'bdd_test_ion_reporter', moi, ani, tsv_name, template)
   end
 
   def self.prepare_vr_upload(pt_id, moi, ani, need_upload, site='default')
     @patient_id = pt_id
     if need_upload
-      Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-dev', 'bdd_test_ion_reporter', moi, ani)
-      Helper_Methods.upload_vr_to_s3_if_needed('pedmatch-int', 'bdd_test_ion_reporter', moi, ani)
+      Helper_Methods.upload_vr_to_s3('pedmatch-dev', 'bdd_test_ion_reporter', moi, ani)
+      Helper_Methods.upload_vr_to_s3('pedmatch-int', 'bdd_test_ion_reporter', moi, ani)
     end
     @request_hash = Patient_helper_methods.load_patient_message_templates('variant_file_uploaded')
     unless site=='default'

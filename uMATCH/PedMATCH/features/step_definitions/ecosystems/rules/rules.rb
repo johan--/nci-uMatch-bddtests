@@ -127,8 +127,8 @@ And(/^the generated qc json should have these cnv variants$/) do |table|
     expect(selected.size).to be == 1
     this_param.each do |k, v|
       expect_v = selected[0][k]
-      if Helper_Methods.is_number?(expect_v)
-        expect(expect_v).to be == v.to_f
+      if Helper_Methods.is_number?(v)
+        expect(expect_v.to_f).to be == v.to_f
       else
         expect(expect_v.to_s).to eq v
       end

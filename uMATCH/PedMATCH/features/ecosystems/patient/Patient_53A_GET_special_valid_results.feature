@@ -659,19 +659,24 @@ Feature: Patient GET service valid special case tests
     Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "5" field "result" should be "NEGATIVE"
     Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "5" field "biomarker" should be "ICCPTENs"
 
-  @patients_p3
+  @patients_p1
   Scenario Outline: PT_SC08a variant report can be downloaded properly
     Given patient id is "<patient_id>"
     And patient GET service: "variant_report", patient id: "<patient_id>", id: "<ani>"
     When GET from MATCH patient API, http code "200" should return
     Then save response from "variant" report download service to temp file
-    Then the saved variant report should have patient id "<patient_id>", analysis id "<ani>"
+    Then the saved "variant" report should have these values
+      | Patient ID            | <patient_id> |
+      | Analysis ID           | <ani>        |
+      | Status                | <status>     |
+      | Variant Report Type   | <type>       |
+    Then the saved variant report should have correct MOI summary as variant report "<ani>"
     Examples:
-      | patient_id                | ani                            |
-      | PT_SC08_TsVrUploadedTwice | PT_SC08_TsVrUploadedTwice_ANI1 |
-      | PT_SC08_TsVrUploadedTwice | PT_SC08_TsVrUploadedTwice_ANI2 |
-      | PT_SC08_BdVrUploadedTwice | PT_SC08_BdVrUploadedTwice_ANI1 |
-      | PT_SC08_BdVrUploadedTwice | PT_SC08_BdVrUploadedTwice_ANI2 |
+      | patient_id                | ani                            | status   | type   |
+      | PT_SC08_TsVrUploadedTwice | PT_SC08_TsVrUploadedTwice_ANI1 | REJECTED | TISSUE |
+      | PT_SC08_TsVrUploadedTwice | PT_SC08_TsVrUploadedTwice_ANI2 | PENDING  | TISSUE |
+      | PT_SC08_BdVrUploadedTwice | PT_SC08_BdVrUploadedTwice_ANI1 | REJECTED | BLOOD  |
+      | PT_SC08_BdVrUploadedTwice | PT_SC08_BdVrUploadedTwice_ANI2 | PENDING  | BLOOD  |
 
   @patients_p3
   Scenario Outline: PT_SC08b invalid variant report download request should fail
@@ -685,19 +690,26 @@ Feature: Patient GET service valid special case tests
       | PT_SC08_BdVrUploadedTwice | PT_SC08_TsVrUploadedTwice_ANI2 |
       | PT_SC08_BdVrUploadedTwice | non_existing_ani               |
 
-  @patients_p3
+  @patients_p1
   Scenario Outline: PT_SC09a assignment report can be downloaded properly
     Given patient id is "<patient_id>"
     And patient GET service: "assignment_report", patient id: "<patient_id>", id: "<uuid>"
-    When GET from MATCH patient API, http code "200" should return
     Then save response from "assignment" report download service to temp file
-    Then the saved assignment report should have patient id "<patient_id>", assignment date "<date>"
+    Then the saved "assignment" report should have these values
+      | Patient ID        | <patient_id>      |
+      | Surgical Event ID | <patient_id>_SEI1 |
+      | Molecular ID      | <patient_id>_MOI1 |
+      | Analysis ID       | <patient_id>_ANI1 |
+      | Status            | <status>          |
+      | Study ID          | APEC1621SC        |
+      | Report Status     | TREATMENT_FOUND   |
+    Then the saved assignment report should have correct assignment result as assignment "<uuid>"
     Examples:
-      | patient_id                  | uuid                                 | date                      |
-      | PT_SC09_PendingConfirmation | 301f05b2-a7b3-4305-8c2b-30bee9f258e1 | 2017-03-14T05:09:13+00:00 |
-      | PT_SC09_PendingApproval     | bdd3b258-d868-4358-90ed-fcbb73230de1 | 2017-03-14T05:10:25+00:00 |
-      | PT_SC09_OnTreatmentArm      | c880353f-421d-4bbe-8fa1-6a3cc38f1408 | 2017-03-14T05:11:11+00:00 |
-      | PT_SC09_TsReceivedStep2     | 1acf4d9c-b42b-4d7c-82ec-fa4334419767 | 2017-03-14T05:13:15+00:00 |
+      | patient_id                  | uuid                                 | status    |
+      | PT_SC09_PendingConfirmation | 301f05b2-a7b3-4305-8c2b-30bee9f258e1 | PENDING   |
+      | PT_SC09_PendingApproval     | bdd3b258-d868-4358-90ed-fcbb73230de1 | CONFIRMED |
+      | PT_SC09_OnTreatmentArm      | c880353f-421d-4bbe-8fa1-6a3cc38f1408 | CONFIRMED |
+      | PT_SC09_TsReceivedStep2     | 1acf4d9c-b42b-4d7c-82ec-fa4334419767 | CONFIRMED |
 
   @patients_p3
   Scenario Outline: PT_SC09b invalid assignment report download request should fail

@@ -212,6 +212,11 @@ class Patient02A
     PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei_increase, '2016-04-28T15:17:11+00:00')
   end
 
+  def self.pt_sr09_registered
+    pt = PatientDataSet.new('PT_SR09_Registered')
+    PatientMessageLoader.register_patient(pt.id)
+  end
+
   def self.pt_sr10_bd_vr_received
     pt = PatientDataSet.new('PT_SR10_BdVRReceived')
     PatientMessageLoader.register_patient(pt.id)

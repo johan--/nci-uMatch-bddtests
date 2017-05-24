@@ -1,7 +1,6 @@
 #!/usr/bin/ruby
 require 'rspec'
 require 'json'
-require 'roo'
 require_relative '../../../support/helper_methods.rb'
 require_relative '../../../support/patient_helper_methods.rb'
 require_relative '../../../support/cog_helper_methods.rb'
@@ -1294,25 +1293,37 @@ Then(/^save response from "([^"]*)" report download service to temp file$/) do |
 end
 
 
-Then(/^the saved variant report should have patient id "([^"]*)", analysis id "([^"]*)"$/) do |patient_id, ani|
-  file_path = "#{File.dirname(__FILE__)}/../../../../public/downloaded_report_files/variant_report_#{@patient_id}.xlsx"
-  xlsx = Roo::Spreadsheet.open(file_path)
-  sheet = xlsx.sheet(0)
-  actual_patient_id = sheet.cell('C', 5)
-  actual_ani = sheet.cell('C', 7)
-  actual_match_expect(actual_patient_id, patient_id)
-  actual_match_expect(actual_ani, ani)
+Then(/^the saved "(variant|assignment)" report should have these values$/) do |report_type, table|
+  file_path = "#{File.dirname(__FILE__)}/../../../../public/downloaded_report_files/"
+  file_path += "#{report_type}_report_#{@patient_id}.xlsx"
+  values = Helper_Methods.xlsx_row_hash(file_path, 0, 'B', 'C')
+  table.rows_hash.each { |k, v| actual_match_expect(values[k], v) }
 end
 
-Then(/^the saved assignment report should have patient id "([^"]*)", assignment date "([^"]*)"$/) do |patient_id, date|
+Then(/^the saved variant report should have correct MOI summary as variant report "([^"]*)"$/) do |ani|
+  file_path = "#{File.dirname(__FILE__)}/../../../../public/downloaded_report_files/variant_report_#{@patient_id}.xlsx"
+  values = Helper_Methods.xlsx_row_hash(file_path, 0, 'B', 'C')
+  url = "#{ENV['patients_endpoint']}/#{@patient_id}/analysis_report/#{ani}"
+  vr = Helper_Methods.simple_get_request(url)['message_json']['variant_report']
+  expect(values['Total MOIs']).to eq vr['total_mois'].to_i
+  expect(values['Total aMOIs']).to eq vr['total_amois'].to_i
+  expect(values['Total Confirmed MOIs']).to eq vr['total_confirmed_mois'].to_i
+  expect(values['Total Confirmed aMOIs']).to eq vr['total_confirmed_amois'].to_i
+end
+
+Then(/^the saved assignment report should have correct assignment result as assignment "([^"]*)"$/) do |uuid|
   file_path = "#{File.dirname(__FILE__)}/../../../../public/downloaded_report_files/assignment_report_#{@patient_id}.xlsx"
-  xlsx = Roo::Spreadsheet.open(file_path)
-  sheet = xlsx.sheet(0)
-  actual_patient_id = sheet.cell('C', 5)
-  puts sheet.cell('C', 14)
-  actual_date = sheet.cell('C', 14).utc
-  actual_match_expect(actual_patient_id, patient_id)
-  actual_match_expect(actual_date, DateTime.parse(date).utc)
+  values = Helper_Methods.xlsx_row_hash(file_path, 0, 'B', 'C')
+  url = "#{ENV['patients_endpoint']}/assignments?uuid=#{uuid}"
+  results = Helper_Methods.simple_get_request(url)['message_json'][0]['treatment_assignment_results']
+  results.values.each { |a|
+    a.each do |b|
+      ta = b['treatment_arm']
+      ta_name = "#{ta['treatment_arm_id']}/#{ta['stratum_id']}/#{ta['version']}"
+      expect(values.keys).to include ta_name
+      expect(values[ta_name]).to eq b['reason']
+    end
+  }
 end
 
 #1. list all patients, pick patients which have active_tissue_specimen=>variant_report_status
@@ -1421,7 +1432,11 @@ Then(/^returned event_data should have field "([^"]*)" with "(string|date|number
 end
 
 def actual_match_expect(actual, expect)
-  expect(actual).to eq expect
+  if Helper_Methods.is_number?(expect)
+    expect(actual.to_f).to be == expect.to_f
+  else
+    expect(actual.to_s).to expect v
+  end
 end
 
 def actual_include_expect(actual, expect)

@@ -6,6 +6,7 @@ require 'active_support'
 require 'active_support/core_ext'
 require 'aws-sdk'
 require_relative 'auth0_token'
+require 'roo'
 
 class Helper_Methods
   @requestGap = 5.0
@@ -534,30 +535,25 @@ class Helper_Methods
 
   end
 
-  def self.upload_vr_to_s3_if_needed(bucket, ion_folder, moi, ani, vcf_name = 'test1.vcf', template_type = 'default')
+  def self.upload_vr_to_s3(bucket, ion_folder, moi, ani, vcf_name = 'test1.vcf', template_type = 'default')
     template_folder = "#{path_for_named_parent_folder('nci-uMatch-bddtests')}/DataSetup/variant_file_templates"
-    exist = s3_file_exists(bucket, "#{ion_folder}/#{moi}/#{ani}/#{vcf_name}")
-    if exist
-      puts "#{moi} exists in S3 bucket #{bucket}, upload is skipped!" if ENV['print_log'] == 'YES'
-    else
-      output_folder = "#{template_folder}/upload"
-      target_ani_path = "#{output_folder}/#{moi}/#{ani}"
-      template_ani_path = "#{template_folder}/#{template_type}"
+    output_folder = "#{template_folder}/upload"
+    target_ani_path = "#{output_folder}/#{moi}/#{ani}"
+    template_ani_path = "#{template_folder}/#{template_type}"
 
-      cmd = "mkdir -p #{target_ani_path}"
+    cmd = "mkdir -p #{target_ani_path}"
+    `#{cmd}`
+    cmd = "cp #{template_ani_path}/* #{target_ani_path}"
+    `#{cmd}`
+    unless vcf_name=='test1.vcf'
+      cmd = "mv #{target_ani_path}/test1.vcf #{target_ani_path}/#{vcf_name}"
       `#{cmd}`
-      cmd = "cp #{template_ani_path}/* #{target_ani_path}"
-      `#{cmd}`
-      unless vcf_name=='test1.vcf'
-        cmd = "mv #{target_ani_path}/test1.vcf #{target_ani_path}/#{vcf_name}"
-        `#{cmd}`
-      end
-      cmd = "aws s3 cp #{output_folder} s3://#{bucket}/#{ion_folder}/ --recursive --region us-east-1"
-      `#{cmd}`
-      cmd = "rm -R #{output_folder}"
-      `#{cmd}`
-      puts "#{target_ani_path} has been uploaded to S3 bucket #{bucket}" if ENV['print_log'] == 'YES'
     end
+    cmd = "aws s3 cp #{output_folder} s3://#{bucket}/#{ion_folder}/ --recursive --region us-east-1"
+    `#{cmd}`
+    cmd = "rm -R #{output_folder}"
+    `#{cmd}`
+    puts "#{target_ani_path} has been uploaded to S3 bucket #{bucket}" if ENV['print_log'] == 'YES'
   end
 
   def self.s3_download_file(bucket, s3_path, download_target)
@@ -668,4 +664,30 @@ class Helper_Methods
     parent_path
   end
 
+  def self.xlsx_row_hash(file_path, sheet_id, key_column, value_column, row_range=(1..1000))
+    xlsx = Roo::Spreadsheet.open(file_path)
+    sheet = xlsx.sheet(sheet_id)
+    result = {}
+    row_range.each { |this_row|
+      result[sheet.cell(key_column, this_row)] = sheet.cell(value_column, this_row)
+    }
+    result
+  end
+
+  def self.xlsx_table_hashes(file_path, sheet_id, title_row)
+    xlsx = Roo::Spreadsheet.open(file_path)
+    sheet = xlsx.sheet(sheet_id)
+    keys = sheet.row(title_row)
+    result = []
+    i = title_row
+    while true
+      i += 1
+      this_row = sheet.row(i)
+      break unless this_row[0].present?
+      obj = {}
+      keys.each_with_index { |key, id| obj[key] = this_row[id] }
+      result << obj
+    end
+    result
+  end
 end

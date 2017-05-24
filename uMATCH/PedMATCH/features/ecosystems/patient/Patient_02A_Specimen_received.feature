@@ -1,6 +1,7 @@
 #encoding: utf-8
 @specimen_received
 Feature: NCH specimen received messages
+
   Background:
     Given patient API user authorization role is "SPECIMEN_MESSAGE_SENDER"
 
@@ -112,16 +113,18 @@ Feature: NCH specimen received messages
     #notice the response code 202 for PT_SR09_TsReceivedTwice_SEI2, it's NCH's requirement, they want to receive
     #multiple tissues with same surgical event id, but they don't care which one is taken, so that means we just
     #response 202 but don't process the new ones
-    Given patient id is "PT_SR09_TsReceivedTwice"
+    Given patient id is "<patient_id>"
     And load template specimen type: "TISSUE" received message for this patient
     Then set patient message field: "surgical_event_id" to value: "<sei>"
     Then set patient message field: "collection_dt" to value: "<collectTime>"
     Then set patient message field: "received_dttm" to value: "2016-04-30T15:17:11+00:00"
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
-      | sei                          | collectTime | message                | code |
-      | PT_SR09_TsReceivedTwice_SEI1 | 2016-04-30  | same surgical event id | 403  |
-      | PT_SR09_TsReceivedTwice_SEI2 | 2016-04-30  |                        | 202  |
+      | patient_id              | sei                          | collectTime | message                | code |
+      | PT_SR09_TsReceivedTwice | PT_SR09_TsReceivedTwice_SEI1 | 2016-04-30  | same surgical event id | 403  |
+      | PT_SR09_TsReceivedTwice | PT_SR09_TsReceivedTwice_SEI2 | 2016-04-30  |                        | 202  |
+      | PT_SR09_Registered      | PT_SR09_TsReceivedTwice_SEI1 | 2016-04-30  | same surgical event id | 403  |
+      | PT_SR09_Registered      | PT_SR09_TsReceivedTwice_SEI2 | 2016-04-30  | same surgical event id | 403  |
 
   @patients_p2
   Scenario Outline: PT_SR10a. tissue specimen_received message can only be accepted when patient is in certain status

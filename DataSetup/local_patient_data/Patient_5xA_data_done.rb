@@ -1006,7 +1006,7 @@ class Patient5xA
     PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
     PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
     PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
-    PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani_increase)
+    PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani_increase, 'cnv')
     PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
   end
 
@@ -1017,7 +1017,7 @@ class Patient5xA
     PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)
     PatientMessageLoader.variant_file_uploaded(pt.id, pt.bd_moi, pt.ani)
     PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.bd_moi, pt.ani)
-    PatientMessageLoader.variant_file_uploaded(pt.id, pt.bd_moi, pt.ani_increase)
+    PatientMessageLoader.variant_file_uploaded(pt.id, pt.bd_moi, pt.ani_increase, 'cnv')
     PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.bd_moi, pt.ani)
   end
 
