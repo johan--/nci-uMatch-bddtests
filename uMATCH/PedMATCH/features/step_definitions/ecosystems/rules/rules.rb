@@ -93,7 +93,15 @@ end
 When(/^quality control json file should be generated$/) do
   bucket = ENV['s3_bucket']
   json_path = "BDD/msn-1111/job-1111/#{@tsv}.json"
-  exist = Helper_Methods.s3_file_exists(bucket, json_path)
+  wait_time = 0
+  exist = false
+  while wait_time < 35
+    exist = Helper_Methods.s3_file_exists(bucket, json_path)
+    if exist
+      break
+    end
+    wait_time += 5.0
+  end
   expect(exist).to eq true
   @qc_report = JSON.parse(Helper_Methods.s3_read_text_file(bucket, json_path))
 end

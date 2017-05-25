@@ -8,14 +8,15 @@ Feature: Test the functionality that filters the Gene Fusion variants based on s
     Then quality control json file should be generated
     Then moi report is returned with the ugf variant "EGFR-EGFR.E1E8.DelPositive"
     Then the returned moi reoprt ugf variant "EGFR-EGFR.E1E8.DelPositive" should have these values
-      | field              | value |
-      | driver_gene        | EGFR  |
-      | driver_read_count  | 1001  |
-      | partner_gene       | EGFR  |
-      | partner_read_count | 1001  |
+      | field              | value        |
+      | driver_gene        | <driver>     |
+      | driver_read_count  | <read_depth> |
+      | partner_gene       | <partner>    |
+      | partner_read_count | <read_depth> |
     Examples:
-      | tsvFile                          | TAFile          |
-      | GF_EGFR_read-depth_filter_gt1000 | APEC1621-B.json |
+      | tsvFile                              | TAFile          | driver | partner | read_depth |
+      | GF_EGFR_read-depth_filter_gt1000     | APEC1621-B.json | EGFR   | EGFR    | 1001       |
+#      | GF_AR-OPHN1_read-depth_filter_gt1000 | APEC1621-B.json | AR     | OPHN1   | 1520       |
 
 
   Scenario Outline: FIL-GF_02: Filter-out Genefusion with read_depth eq 1000

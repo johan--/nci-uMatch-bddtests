@@ -580,7 +580,6 @@ class Patient_helper_methods
                when 'Gene2' then
                  variant_hash['driver_gene']
                when 'Read Depth' then
-                 # variant_hash['read_depth']  ???
                  variant_hash['read_depth'].nil? ? variant_hash['driver_read_count'] : variant_hash['read_depth']
                else
                  variant_hash[title.downcase.gsub(' ', '_')]
