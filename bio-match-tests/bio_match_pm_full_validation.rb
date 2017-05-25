@@ -71,7 +71,6 @@ class BioMatchPMFullValidation
     PatientMessageLoader.assay(@pt.id, @pt.sei, @baf47, 'ICCBAF47s')
     PatientMessageLoader.assay(@pt.id, @pt.sei, @brg1, 'ICCBRG1s')
   end
-
   def build_patient_new_step(patient_id, rebiopsy, step_number, pten='POSITIVE', baf47='POSITIVE', brg1='POSITIVE')
     PatientMessageLoader.request_assignment(patient_id, rebiopsy, step_number)
     if rebiopsy=='Y'
@@ -83,6 +82,10 @@ class BioMatchPMFullValidation
       PatientMessageLoader.assay(patient_id, "#{patient_id}_SEI2", brg1, 'ICCBRG1s')
     end
   end
+
+    def send_new_assay(patient_id, sei, biomarker, result='POSITIVE')
+      PatientMessageLoader.assay(patient_id, sei, result, biomarker)
+    end
 
   def upload_files
     upload_vcf_to_s3(@pt.id, @pt.moi, @pt.ani)

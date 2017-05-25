@@ -1303,7 +1303,8 @@ Then(/^the saved variant report should have correct variants summary as variant 
   expect(actual_snvs.size).to eq expect_snvs.size
   expect_snvs.each_with_index { |v, i|
     actual_snvs[i].each do |title, actual_value|
-      next if title == 'Confirm'#???
+      next unless title.present?
+      # next if title == 'Confirm'#???
       expect_value = Patient_helper_methods.ui_title_find_variant_value(title, v)
       puts "#{title}=> expect: #{expect_value}, actual: #{actual_value}"
       actual_match_expect(actual_value, expect_value)
@@ -1316,7 +1317,8 @@ Then(/^the saved variant report should have correct variants summary as variant 
   expect(actual_cnvs.size).to eq expect_cnvs.size
   expect_cnvs.each_with_index { |v, i|
     actual_cnvs[i].each do |title, actual_value|
-      next if title == 'Confirm'#???
+      next unless title.present?
+      # next if title == 'Confirm'#???
       expect_value = Patient_helper_methods.ui_title_find_variant_value(title, v)
       puts "#{title}=> expect: #{expect_value}, actual: #{actual_value}"
       actual_match_expect(actual_value, expect_value)
@@ -1329,7 +1331,8 @@ Then(/^the saved variant report should have correct variants summary as variant 
   expect(actual_gfs.size).to eq expect_gfs.size
   expect_gfs.each_with_index { |v, i|
     actual_gfs[i].each do |title, actual_value|
-      next if title == 'Confirm'#???
+      next unless title.present?
+      # next if title == 'Confirm'#???
       expect_value = Patient_helper_methods.ui_title_find_variant_value(title, v)
       puts "#{title}=> expect: #{expect_value}, actual: #{actual_value}"
       actual_match_expect(actual_value, expect_value)
@@ -1479,6 +1482,8 @@ end
 def actual_match_expect(actual, expect)
   if Helper_Methods.is_number?(expect)
     expect(actual.to_f).to be == expect.to_f
+  elsif Helper_Methods.is_boolean(expect)
+    expect(actual.to_s.downcase).to eq expect.to_s.downcase
   else
     expect(actual.to_s).to eq expect.to_s
   end

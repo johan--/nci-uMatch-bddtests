@@ -472,6 +472,10 @@ class Helper_Methods
     true if Float(obj) rescue false
   end
 
+  def self.is_boolean(obj)
+    obj.to_s.downcase=='true'||obj.to_s.downcase=='false'
+  end
+
   def self.s3_list_files(bucket,
       path,
       endpoint='https://s3.amazonaws.com',
@@ -566,6 +570,7 @@ class Helper_Methods
     tmp_file = "#{File.dirname(__FILE__)}/tmp.txt"
     cmd = "aws s3 cp s3://#{bucket}/#{s3_path} #{tmp_file} --region us-east-1"
     `#{cmd}`
+    sleep 10.0 unless File.exist?(tmp_file)
     result = File.read(tmp_file)
     FileUtils.remove(tmp_file)
     result
