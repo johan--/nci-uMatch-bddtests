@@ -8,7 +8,7 @@ Feature:Patients list page
 
   @ui_p1
   Scenario: A user can see a list of all the patients registered
-    Given I am a logged in user
+    Given I stay logged in as "read_only" user
     When I navigate to the patients page
     Then I should see the Patients breadcrumb
     And I should see the Patients Title
