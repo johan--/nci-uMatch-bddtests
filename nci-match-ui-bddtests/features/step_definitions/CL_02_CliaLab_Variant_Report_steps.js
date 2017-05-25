@@ -17,7 +17,7 @@ module.exports = function() {
 
     this.When(/^I go to clia variant filtered report with "(.+)" as the molecular_id on "(.+)" tab$/, function (molecularId, subTabName, callback) {
         var location;
-        cliaPage.site = 'MoCha';
+        cliaPage.site = 'mocha';
 
         if(subTabName === "Positive Sample Controls") {
             location = '/#/clia-lab-report/positive-control/?site=' + cliaPage.site
@@ -67,7 +67,6 @@ module.exports = function() {
             acceptProperty.click().then(function() {
                 browser.waitForAngular();
                 browser.ignoreSynchronization = false;
-                browser.sleep(5000);
             })
 
         }).then(callback)
@@ -80,11 +79,9 @@ module.exports = function() {
 
     this.When(/^I click "(.+?)" on clia report Comment button$/, function (buttonText, callback) {
         var acceptProperty = element(by.buttonText(buttonText))
-
+        browser.ignoreSynchronization = false;
             acceptProperty.click().then(function() {
                 browser.waitForAngular();
-                browser.ignoreSynchronization = false;
-                browser.sleep(4000);
             });
 
         browser.executeScript('window.scrollTo(0, 100)').then(callback);
