@@ -671,6 +671,7 @@ Feature: Patient GET service valid special case tests
       | Status                | <status>     |
       | Variant Report Type   | <type>       |
     Then the saved variant report should have correct MOI summary as variant report "<ani>"
+    Then the saved variant report should have correct variants summary as variant report "<ani>"
     Examples:
       | patient_id                | ani                            | status   | type   |
       | PT_SC08_TsVrUploadedTwice | PT_SC08_TsVrUploadedTwice_ANI1 | REJECTED | TISSUE |

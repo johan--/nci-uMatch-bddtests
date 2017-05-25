@@ -182,7 +182,7 @@ class Patient_helper_methods
     end
   end
 
-  def self.update_vr_event_message(key,value)
+  def self.update_vr_event_message(key, value)
     @request_hash[key] = value
     @request_hash['event'][key] = value
   end
@@ -554,6 +554,40 @@ class Patient_helper_methods
     get_special_result_from_url(url, 45, {field => value})
   end
 
+  def self.ui_title_find_variant_value(title, variant_hash)
+    return unless title.present?
+    result = case title
+               when 'Confirm' then
+                 variant_hash['confirmed'].to_s.downcase
+               when 'ID' then
+                 variant_hash['identifier']
+               when 'OCP Ref' then
+                 variant_hash['ocp_reference']
+               when 'OCP Alt' then
+                 variant_hash['ocp_alternative']
+               when 'Allele Freq' then
+                 variant_hash['allele_frequency']
+               when 'Raw CN' then
+                 variant_hash['raw_copy_number']
+               when 'CI 5%' then
+                 variant_hash['confidence_interval_5_percent']
+               when 'CN' then
+                 variant_hash['copy_number']
+               when 'CI 95%' then
+                 variant_hash['confidence_interval_95_percent']
+               when 'Gene1' then
+                 variant_hash['partner_gene']
+               when 'Gene2' then
+                 variant_hash['driver_gene']
+               when 'Read Depth' then
+                 # variant_hash['read_depth']  ???
+                 variant_hash['read_depth'].nil? ? variant_hash['driver_read_count'] : variant_hash['read_depth']
+               else
+                 variant_hash[title.downcase.gsub(' ', '_')]
+             end
+    result = '-' if result.nil?
+    result
+  end
 end
 
 

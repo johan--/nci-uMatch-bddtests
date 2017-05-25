@@ -1292,6 +1292,51 @@ Then(/^save response from "([^"]*)" report download service to temp file$/) do |
   Helper_Methods.simple_get_download(url, file_path, true, @current_auth0_role)
 end
 
+Then(/^the saved variant report should have correct variants summary as variant report "([^"]*)"$/) do |ani|
+  url = "#{ENV['patients_endpoint']}/#{@patient_id}/analysis_report/#{ani}"
+  vr = Helper_Methods.simple_get_request(url)['message_json']['variant_report']
+  file_path = "#{File.dirname(__FILE__)}/../../../../public/downloaded_report_files/"
+  file_path += "variant_report_#{@patient_id}.xlsx"
+  snv_title_row = Helper_Methods.xlsx_first_occurrence_row(file_path, 0, 'SNV Indels') + 1
+  actual_snvs = Helper_Methods.xlsx_table_hashes(file_path, 0, snv_title_row)
+  expect_snvs = vr['snv_indels']
+  expect(actual_snvs.size).to eq expect_snvs.size
+  expect_snvs.each_with_index { |v, i|
+    actual_snvs[i].each do |title, actual_value|
+      next if title == 'Confirm'#???
+      expect_value = Patient_helper_methods.ui_title_find_variant_value(title, v)
+      puts "#{title}=> expect: #{expect_value}, actual: #{actual_value}"
+      actual_match_expect(actual_value, expect_value)
+    end
+  }
+
+  cnv_title_row = Helper_Methods.xlsx_first_occurrence_row(file_path, 0, 'Copy Number Variants') + 1
+  actual_cnvs = Helper_Methods.xlsx_table_hashes(file_path, 0, cnv_title_row)
+  expect_cnvs = vr['copy_number_variants']
+  expect(actual_cnvs.size).to eq expect_cnvs.size
+  expect_cnvs.each_with_index { |v, i|
+    actual_cnvs[i].each do |title, actual_value|
+      next if title == 'Confirm'#???
+      expect_value = Patient_helper_methods.ui_title_find_variant_value(title, v)
+      puts "#{title}=> expect: #{expect_value}, actual: #{actual_value}"
+      actual_match_expect(actual_value, expect_value)
+    end
+  }
+  
+  gf_title_row = Helper_Methods.xlsx_first_occurrence_row(file_path, 0, 'Gene Fusions') + 1
+  actual_gfs = Helper_Methods.xlsx_table_hashes(file_path, 0, gf_title_row)
+  expect_gfs = vr['gene_fusions']
+  expect(actual_gfs.size).to eq expect_gfs.size
+  expect_gfs.each_with_index { |v, i|
+    actual_gfs[i].each do |title, actual_value|
+      next if title == 'Confirm'#???
+      expect_value = Patient_helper_methods.ui_title_find_variant_value(title, v)
+      puts "#{title}=> expect: #{expect_value}, actual: #{actual_value}"
+      actual_match_expect(actual_value, expect_value)
+    end
+  }
+
+end
 
 Then(/^the saved "(variant|assignment)" report should have these values$/) do |report_type, table|
   file_path = "#{File.dirname(__FILE__)}/../../../../public/downloaded_report_files/"
@@ -1435,7 +1480,7 @@ def actual_match_expect(actual, expect)
   if Helper_Methods.is_number?(expect)
     expect(actual.to_f).to be == expect.to_f
   else
-    expect(actual.to_s).to expect v
+    expect(actual.to_s).to eq expect.to_s
   end
 end
 

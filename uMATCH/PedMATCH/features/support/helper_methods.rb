@@ -690,4 +690,21 @@ class Helper_Methods
     end
     result
   end
+
+  def self.xlsx_first_occurrence_row(file_path, sheet_id, key_word)
+    xlsx = Roo::Spreadsheet.open(file_path)
+    sheet = xlsx.sheet(sheet_id)
+    result = 0
+    found = false
+    while result<sheet.last_row
+      result += 1
+      this_row = sheet.row(result)
+      if this_row.include?(key_word)
+        found = true
+        break
+      end
+    end
+    result = -1 unless found
+    result
+  end
 end
