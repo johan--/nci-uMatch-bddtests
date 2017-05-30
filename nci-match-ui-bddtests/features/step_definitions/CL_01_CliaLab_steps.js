@@ -326,7 +326,7 @@ module.exports = function() {
     });
 
     this.Then(/^I verify the presence of Positive controls and False positive variants table$/, function (callback) {
-        expect(cliaPage.sampleDetailTableHead.get(0).getText()).to.eventually.eql('Positive Controls');
+        expect(cliaPage.sampleDetailTableHead.get(0).getText()).to.eventually.eql('Positive Variants');
         expect(cliaPage.sampleDetailTableHead.get(1).getText()).to.eventually.eql('False Positive Variants');
         expect(cliaPage.samplePositivePanelTableColumn.getText()).to.eventually.eql(cliaPage.expectedPositiveControlsTableHeaders);
         expect(cliaPage.sampleFalsePosTableColumn.getText()).to.eventually.eql(cliaPage.expectedFalsePostiveVariantTableHEaders).notify(callback);
@@ -598,7 +598,7 @@ module.exports = function() {
             utilities.checkCOSFLink(identifier);
             utilities.checkExpectation(table.element(by.binding('item.filter')), expected['filter'], 'Filter Mismatch');
             utilities.checkExpectation(driver_gene, expected['driver_gene'], 'Driver Mismatch');
-            utilities.checkExpectation(table.element(by.binding('item.read_depth')), expected['read_depth'], 'Driver Count Mismatch');
+            utilities.checkExpectation(table.element(by.binding('item.read_depth')), utilities.dashifyIfZero(expected['read_depth']), 'Driver Count Mismatch');
             utilities.checkExpectation(partner_gene, expected['partner_gene'], 'Partner Mismatch');
             utilities.checkExpectation(table.element(by.binding('item.annotation')), expected['annotation'], 'Annotation Mismatch');
             utilities.checkGeneLink(driver_gene);

@@ -79,7 +79,8 @@ exports.config = {
     cucumberOpts: {
         require: ['support/env.js',
                   'features/step_definitions/*.js',
-                  'support/hooks.js' ],
+                  'support/hooks.js'
+        ],
         format: ['pretty',
             'json:../results/output.json']
     }

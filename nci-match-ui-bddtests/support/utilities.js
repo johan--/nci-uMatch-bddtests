@@ -121,6 +121,13 @@ var Utilities = function () {
         return retVal;
     };
 
+    this.dashifyIfZero = function (strVal) {
+        var retVal;
+        if (parseInt(strVal) === 0){
+            return '-'
+        }
+    };
+
     /** finds the index of the element that matches css and the end text that is provided.
      * @param elem = list of all the elements that match the locator
      * @param name = The text of the element.

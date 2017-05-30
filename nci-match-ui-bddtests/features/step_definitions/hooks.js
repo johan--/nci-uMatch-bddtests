@@ -5,6 +5,7 @@ module.exports = function() {
 
     this.After(function (scenario, callback) {
         if (scenario.isFailed()) {
+            console.log(':1 # Scenario:', scenario.getUri());
             browser.takeScreenshot().then(function (png) {
                 var img = new Buffer(png, 'base64');
                 scenario.attach(img, 'image/png', callback);
@@ -16,7 +17,7 @@ module.exports = function() {
             callback();
         }
     });
-    
+
       //this.AfterFeatures(function () {
       //    var Reporter = require('cucumber-html-report');
       //    var options = {

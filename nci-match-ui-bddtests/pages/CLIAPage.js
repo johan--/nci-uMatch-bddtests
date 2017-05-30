@@ -48,10 +48,10 @@ var CliaPage = function () {
     this.confirmVRStatusCommentField   = element(by.css('input[id="cgPromptInput"]')); // THis is the confirmation modal for the complete VR rejection
 
     this.sampleDetailTableHead  = element.all(by.css('.ibox-title.ibox-title-no-line-no-padding'));
-    this.samplePositivePanelTableColumn = element.all(by.css('#cliaVrTablePositive th'));
-    this.sampleFalsePosTableColumn = element.all(by.css('#cliaVrFalsePositive th'));
-    this.samplePositivePanel    = element(by.css('clia-vr-table-positive'));
-    this.sampleFalsePosPanel    = element(by.css('clia-vr-false-positive'));
+    this.samplePositivePanelTableColumn = element.all(by.css('#cliaVrTablePositive[grid-options="pendinPositiveGridOptions"] th'));
+    this.sampleFalsePosTableColumn = element.all(by.css('#cliaVrTablePositive[grid-actions="pendinFalsePositiveGridActions"] th'));
+    this.samplePositivePanel    = element(by.css('#cliaVrTablePositive[grid-options="pendinPositiveGridOptions"]'));
+    this.sampleFalsePosPanel    = element(by.css('#cliaVrTablePositive[grid-actions="pendinFalsePositiveGridActions"'));
     this.ntcSNVPanel            = element(by.css('clia-vr-table-snv-mnv-indel'));
     this.ntcCNVPanel            = element(by.css('clia-vr-table-cnv'));
     this.ntcGeneFusionPanel     = element(by.css('clia-vr-table-gf'));
