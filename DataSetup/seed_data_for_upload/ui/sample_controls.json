@@ -4836,10 +4836,10 @@
     },
     {
       "snv_indels": {
-        "S": "[]"
+        "L": []
       },
       "copy_number_variants": {
-        "S": "[]"
+        "L": []
       },
       "oncomine_control_panel_summary": {
         "S": "None"
@@ -4884,7 +4884,7 @@
         "S": "cdna.bai"
       },
       "gene_fusions": {
-        "S": "[]"
+        "L": []
       },
       "copy_number_variant_genes": {
         "S": "None"
@@ -8729,10 +8729,10 @@
     },
     {
       "snv_indels": {
-        "S": "[]"
+        "L": []
       },
       "copy_number_variants": {
-        "S": "[]"
+        "L": []
       },
       "oncomine_control_panel_summary": {
         "S": "None"
@@ -8777,7 +8777,7 @@
         "S": "cdna.bai"
       },
       "gene_fusions": {
-        "S": "[]"
+        "L": []
       },
       "copy_number_variant_genes": {
         "S": "None"

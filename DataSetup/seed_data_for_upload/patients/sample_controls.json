@@ -4841,7 +4841,7 @@
                 "S": "test1"
             },
             "gene_fusions": {
-                "S": "[]"
+                "L": []
             },
             "analysis_id": {
                 "S": "SC_J6RDR_ANI1"
@@ -4859,7 +4859,7 @@
                 "S": "2016-10-12 21:19:55.049068"
             },
             "snv_indels": {
-                "S": "[]"
+                "L": []
             },
             "cdna_bam_name": {
                 "S": "cdna.bam"
@@ -4880,7 +4880,7 @@
                 "S": "mda"
             },
             "copy_number_variants": {
-                "S": "[]"
+                "L": []
             },
             "control_type": {
                 "S": "no_template"
@@ -8734,7 +8734,7 @@
                 "S": "test1"
             },
             "gene_fusions": {
-                "S": "[]"
+                "L": []
             },
             "analysis_id": {
                 "S": "SC_NPID3_ANI1"
@@ -8752,7 +8752,7 @@
                 "S": "2016-10-12 21:20:00.672778"
             },
             "snv_indels": {
-                "S": "[]"
+                "L": []
             },
             "cdna_bam_name": {
                 "S": "cdna.bam"
@@ -8773,7 +8773,7 @@
                 "S": "mda"
             },
             "copy_number_variants": {
-                "S": "[]"
+                "L": []
             },
             "control_type": {
                 "S": "no_template"

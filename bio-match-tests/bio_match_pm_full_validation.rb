@@ -60,6 +60,12 @@ class BioMatchPMFullValidation
     @pt = PatientDataSet.new(@patient_id)
   end
 
+  def reload_test_for_patient(patient_id)
+    puts test_id = patient_id.gsub("_#{patient_id.split('_').last}", '')
+    load_test(test_id)
+    register_patient_to_cog(test_id, patient_id)
+  end
+
   def build_patient(test_id)
     load_test(test_id)
     register_patient_to_cog(test_id, @pt.id)
@@ -84,7 +90,9 @@ class BioMatchPMFullValidation
   end
 
     def send_new_assay(patient_id, sei, biomarker, result='POSITIVE')
-      PatientMessageLoader.assay(patient_id, sei, result, biomarker)
+      time =  Time.now.iso8601
+      sleep 5.0
+      PatientMessageLoader.assay(patient_id, sei, result, biomarker, time)
     end
 
   def upload_files
