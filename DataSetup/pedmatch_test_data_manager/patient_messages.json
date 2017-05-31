@@ -1,0 +1,346 @@
+{
+  "registration": {
+    "before": [
+      "has_result:<cog_url>/resetPatient/<patient_id>"
+    ],
+    "url": "<patient_api_url>/<patient_id>",
+    "http_method": "post",
+    "payload": {
+      "header": {
+        "msg_guid": "0f8fad5b-d9cb-469f-al65-80067728950e",
+        "msg_dttm": "<status_date>"
+      },
+      "study_id": "APEC1621SC",
+      "patient_id": "<patient_id>",
+      "step_number": "1.0",
+      "status_date": "<status_date>",
+      "status": "REGISTRATION",
+      "internal_use_only": {
+        "request_id": "4-654321",
+        "environment": "4",
+        "request": "REGISTRATION for test patient"
+      }
+    },
+    "after": [
+      "has_result:<patient_api_url>?patient_id=<patient_id>&current_status=REGISTRATION"
+    ]
+  },
+  "specimen_received_TISSUE": {
+    "before": [],
+    "url": "<patient_api_url>/<patient_id>",
+    "http_method": "post",
+    "payload": {
+      "header": {
+        "msg_guid": "ab6d8d37-caf2-4dbb-a360-0032c7a7a76c",
+        "msg_dttm": "<received_dttm>"
+      },
+      "specimen_received": {
+        "study_id": "APEC1621SC",
+        "patient_id": "<patient_id>",
+        "type": "TISSUE",
+        "surgical_event_id": "<surgical_event_id>",
+        "collection_dt": "<collection_dt>",
+        "received_dttm": "<received_dttm>"
+      },
+      "internal_use_only": {
+        "stars_patient_id": "ABCXYZ",
+        "stars_specimen_id": "ABCXYZ-0AK64M",
+        "stars_specimen_type": "Paraffin Block Primary",
+        "received_datetime": "<received_dttm>",
+        "qc_datetime": "<received_dttm>"
+      }
+    },
+    "after": [
+      "has_result:<patient_api_url>/specimens?surgical_event_id=<surgical_event_id>"
+    ]
+  },
+  "specimen_received_BLOOD": {
+    "before": [],
+    "url": "<patient_api_url>/<patient_id>",
+    "http_method": "post",
+    "payload": {
+      "header": {
+        "msg_guid": "ab6d8d37-caf2-4dbb-a360-0032c7a7a76c",
+        "msg_dttm": "<received_dttm>"
+      },
+      "specimen_received": {
+        "study_id": "APEC1621SC",
+        "patient_id": "<patient_id>",
+        "type": "BLOOD",
+        "collection_dt": "<collection_dt>",
+        "received_dttm": "<received_dttm>"
+      },
+      "internal_use_only": {
+        "stars_patient_id": "<patient_id>",
+        "stars_specimen_type": "Paraffin Block Primary",
+        "received_datetime": "<received_dttm>",
+        "qc_datetime": "<received_dttm>"
+      }
+    },
+    "after": [
+      "get_response_update:<patient_api_url>/events?entity_id=<patient_id>"
+    ]
+  },
+  "specimen_shipped_SLIDE": {
+    "before": [],
+    "url": "<patient_api_url>/<patient_id>",
+    "http_method": "post",
+    "payload": {
+      "header": {
+        "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+        "msg_dttm": "2016-05-01T19:42:13+00:00"
+      },
+      "specimen_shipped": {
+        "study_id": "APEC1621SC",
+        "patient_id": "<patient_id>",
+        "type": "SLIDE",
+        "surgical_event_id": "<surgical_event_id>",
+        "slide_barcode": "<slide_barcode>",
+        "carrier": "Federal Express",
+        "tracking_id": "7956 4568 1235",
+        "shipped_dttm": "<shipped_dttm>",
+        "destination": "MDA"
+      },
+      "internal_use_only": {
+        "stars_patient_id": "<patient_id>",
+        "stars_specimen_id_slide": "<slide_barcode>"
+      }
+    },
+    "after": [
+      "has_result:<patient_api_url>/shipments?slide_barcode=<slide_barcode>"
+    ]
+  },
+  "specimen_shipped_TISSUE": {
+    "before": [],
+    "url": "<patient_api_url>/<patient_id>",
+    "http_method": "post",
+    "payload": {
+      "header": {
+        "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+        "msg_dttm": "<shipped_dttm>"
+      },
+      "specimen_shipped": {
+        "study_id": "APEC1621SC",
+        "patient_id": "<patient_id>",
+        "type": "TISSUE_DNA_AND_CDNA",
+        "surgical_event_id": "<surgical_event_id>",
+        "molecular_id": "<molecular_id>",
+        "carrier": "Federal Express",
+        "tracking_id": "7956 4568 1235",
+        "shipped_dttm": "<shipped_dttm>",
+        "destination": "<destination>",
+        "dna_volume_ul": 10,
+        "dna_concentration_ng_per_ul": 25,
+        "cdna_volume_ul": 10
+      },
+      "internal_use_only": {
+        "stars_patient_id": "<patient_id>",
+        "stars_specimen_id_cdna": "<patient_id>-0BJ64F",
+        "stars_specimen_id_dna": "<patient_id>-0BJ64B"
+      }
+    },
+    "after": [
+      "has_result:<patient_api_url>/shipments?molecular_id=<molecular_id>"
+    ]
+  },
+  "specimen_shipped_BLOOD": {
+    "before": [],
+    "url": "<patient_api_url>/<patient_id>",
+    "http_method": "post",
+    "payload": {
+      "header": {
+        "msg_guid": "3037ddec-0081-4e22-8448-721ab4ad76b4",
+        "msg_dttm": "<shipped_dttm>"
+      },
+      "specimen_shipped": {
+        "study_id": "APEC1621SC",
+        "patient_id": "<patient_id>",
+        "type": "BLOOD_DNA",
+        "molecular_id": "<molecular_id>",
+        "carrier": "Federal Express",
+        "tracking_id": "7956 4568 1235",
+        "shipped_dttm": "<shipped_dttm>",
+        "destination": "<destination>",
+        "dna_volume_ul": 10,
+        "dna_concentration_ng_per_ul": 25,
+        "cdna_volume_ul": 10
+      },
+      "internal_use_only": {
+        "stars_patient_id": "<patient_id>",
+        "stars_specimen_id": "<molecular_id>"
+      }
+    },
+    "after": [
+      "has_result:<patient_api_url>/shipments?molecular_id=<molecular_id>"
+    ]
+  },
+  "assay_result_reported": {
+    "before": [],
+    "url": "<patient_api_url>/<patient_id>",
+    "http_method": "post",
+    "payload": {
+      "patient_id": "<patient_id>",
+      "study_id": "APEC1621SC",
+      "surgical_event_id": "<surgical_event_id>",
+      "case_number": "case-1234",
+      "type": "RESULT",
+      "biomarker": "<biomarker>",
+      "reported_date": "<reported_date>",
+      "result": "<result>"
+    },
+    "after": [
+      "get_response_update:<patient_api_url>/<patient_id>"
+    ]
+  },
+  "variant_dna_file_uploaded": {
+    "before": [],
+    "url": "<ir_api_url>/aliquot/<molecular_id>",
+    "http_method": "put",
+    "payload": {
+      "patient_id": "<patient_id>",
+      "molecular_id": "<molecular_id>",
+      "analysis_id": "<analysis_id>",
+      "dna_bam_name": "<dna_bam_name>",
+      "comment_user": "<comment_user>"
+    },
+    "after": [
+      "get_response_update:<patient_api_url>/events?entity_id=<patient_id>"
+    ]
+  },
+  "variant_cdna_file_uploaded": {
+    "before": [],
+    "url": "<ir_api_url>/aliquot/<molecular_id>",
+    "http_method": "put",
+    "payload": {
+      "patient_id": "<patient_id>",
+      "molecular_id": "<molecular_id>",
+      "analysis_id": "<analysis_id>",
+      "cdna_bam_name": "<cdna_bam_name>",
+      "comment_user": "<comment_user>"
+    },
+    "after": [
+      "get_response_update:<patient_api_url>/events?entity_id=<patient_id>"
+    ]
+  },
+  "aliquot": {
+    "before": [],
+    "url": "<ir_api_url>/aliquot/<molecular_id>",
+    "http_method": "put",
+    "payload": {
+      "analysis_id": "<analysis_id>",
+      "site": "<site>",
+      "ion_reporter_id": "<ion_reporter_id>",
+      "vcf_name": "test1.vcf",
+      "dna_bam_name": "dna.bam",
+      "cdna_bam_name": "cdna.bam"
+    },
+    "after": [
+      "has_result:<patient_api_url>/variant_reports?analysis_id=<analysis_id>",
+      "json_to_int:<ion_reporter_id>/<molecular_id>/<analysis_id>/test1.json"
+    ]
+  },
+  "variant_report_confirmed": {
+    "before": [],
+    "url": "<patient_api_url>/<patient_id>/variant_reports/<analysis_id>/<status>",
+    "http_method": "put",
+    "payload": {
+      "comment": "<comment>",
+      "comment_user": "<comment_user>"
+    },
+    "after": []
+  },
+  "assignment_confirmed": {
+    "before": [
+      "status:PENDING_CONFIRMATION"
+    ],
+    "url": "<patient_api_url>/<patient_id>/assignment_reports/<analysis_id>/confirm",
+    "http_method": "put",
+    "payload": {
+      "comment": "<comment>",
+      "comment_user": "<comment_user>"
+    },
+    "after": [
+      "has_result:<patient_api_url>/assignments?analysis_id=<analysis_id>"
+    ]
+  },
+  "on_treatment_arm": {
+    "before": [],
+    "url": "<patient_api_url>/<patient_id>",
+    "http_method": "post",
+    "payload": {
+      "header": {
+        "msg_guid": "0f8fad5b-d9cb-469f-a165-80067728950e",
+        "msg_dttm": "<status_date>"
+      },
+      "study_id": "APEC1621SC",
+      "patient_id": "<patient_id>",
+      "step_number": "<step_number>",
+      "treatment_arm_id": "<treatment_arm_id>",
+      "stratum_id": "<stratum_id>",
+      "status_date": "<status_date>",
+      "status": "ON_TREATMENT_ARM",
+      "message": "",
+      "internal_use_only": {
+        "request_id": "4-654400",
+        "environment": "5",
+        "request": "ON_TREATMENT_ARM for patient_id <patient_id>",
+        "treatment_arm_id": "<treatment_arm_id>",
+        "stratum_id": "<stratum_id>"
+      }
+    },
+    "after": [
+      "has_result:<patient_api_url>?patient_id=<patient_id>&current_status=ON_TREATMENT_ARM"
+    ]
+  },
+  "request_assignment": {
+    "before": [],
+    "url": "<patient_api_url>/<patient_id>",
+    "http_method": "post",
+    "payload": {
+      "header": {
+        "msg_guid": "0f8fad5b-d9cb-469f-a165-80067728950e",
+        "msg_dttm": "<status_date>"
+      },
+      "study_id": "APEC1621SC",
+      "patient_id": "<patient_id>",
+      "step_number": "<step_number>",
+      "status": "<status>",
+      "status_date": "<status_date>",
+      "rebiopsy": "<rebiopsy>",
+      "message": "Physician determines it is not in the patient’s best interest.",
+      "internal_use_only": {
+        "request_id": "4-654400",
+        "environment": "5",
+        "request": "REQUEST_ASSIGNMENT for patient_id <patient_id>"
+      }
+    },
+    "after": [
+      "get_response_update:<patient_api_url>/<patient_id>"
+    ]
+  },
+  "off_study": {
+    "before": [],
+    "url": "<patient_api_url>/<patient_id>",
+    "http_method": "post",
+    "payload": {
+      "header": {
+        "msg_guid": "0f8fad5b-d9cb-469f-a165-70867728950e",
+        "msg_dttm": "<status_date>"
+      },
+      "study_id": "APEC1621SC",
+      "patient_id": "<patient_id>",
+      "step_number": "<step_number>",
+      "status": "<status>",
+      "status_date": "<status_date>",
+      "message": "death",
+      "internal_use_only": {
+        "request_id": "4-654149",
+        "environment": "4",
+        "request": "OFF_STUDY"
+      }
+    },
+    "after": [
+      "get_response_update:<patient_api_url>/<patient_id>"
+    ]
+  }
+}

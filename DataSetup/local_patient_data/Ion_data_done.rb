@@ -149,8 +149,8 @@ class Iondata
     PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.ani)
     sleep(10.0)
     PatientMessageLoader.assignment_confirmed(pt.id, pt.ani)
-    # sleep(5.0)
-    # PatientMessageLoader.on_treatment_arm(pt.id, 'APEC1621-IR-A')
+    sleep(5.0)
+    PatientMessageLoader.on_treatment_arm(pt.id, 'APEC1621-IR-A')
   end
 
   def self.ion_aq61_vr_confirmed

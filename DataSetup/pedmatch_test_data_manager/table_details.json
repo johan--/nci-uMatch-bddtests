@@ -1,0 +1,67 @@
+{
+  "treatment_arm": {
+    "category": "treatment_arm_table",
+    "primary_key": "treatment_arm_id",
+    "sorting_key": "date_created"
+  },
+  "treatment_arm_assignment_event": {
+    "category": "treatment_arm_table",
+    "primary_key": "treatment_arm_id_stratum_id",
+    "sorting_key": "assignment_date"
+  },
+  "treatment_arm_pending": {
+    "category": "treatment_arm_table",
+    "primary_key": "treatment_arm_id",
+    "sorting_key": "version"
+  },
+  "patient": {
+    "category": "patient_table",
+    "primary_key": "patient_id",
+    "sorting_key": "registration_date"
+  },
+  "assignment": {
+    "category": "patient_table",
+    "primary_key": "patient_id",
+    "sorting_key": "assignment_date"
+  },
+  "event": {
+    "category": "patient_table",
+    "primary_key": "entity_id",
+    "sorting_key": "event_date"
+  },
+  "shipment": {
+    "category": "patient_table",
+    "primary_key": "uuid",
+    "sorting_key": "shipped_date"
+  },
+  "specimen": {
+    "category": "patient_table",
+    "primary_key": "patient_id",
+    "sorting_key": "sorting_key"
+  },
+  "variant": {
+    "category": "patient_table",
+    "primary_key": "uuid",
+    "sorting_key": ""
+  },
+  "variant_report": {
+    "category": "patient_table",
+    "primary_key": "patient_id",
+    "sorting_key": "variant_report_received_date"
+  },
+  "ion_reporters_APEC1621SC": {
+    "category": "ir_table",
+    "primary_key": "ion_reporter_id",
+    "sorting_key": ""
+  },
+  "ion_reporters_EAY131": {
+    "category": "ir_table",
+    "primary_key": "ion_reporter_id",
+    "sorting_key": ""
+  },
+  "sample_controls": {
+    "category": "ir_table",
+    "primary_key": "molecular_id",
+    "sorting_key": ""
+  }
+}
