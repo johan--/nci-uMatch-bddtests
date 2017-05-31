@@ -99,6 +99,12 @@ var PatientPage = function () {
     };
     this.slideShipmentList  = element.all(by.css('[ng-repeat="slide in specimenEvent.slides"]'));
     this.assayHistoryList   = element.all(by.css('[ng-repeat="assay in specimenEvent.assays"]'));
+    this.assignmentList     = element.all(by.css('.active[ng-repeat="tab in tabset.tabs"] [ng-repeat="assignment in analysis.assignments"]'));
+
+    // *****************  Variant Report and related Tabs  ********************//
+    this.assignmentTabList  = element.all(by.repeater('assignmentReport in assignmentReports'));
+    this.analysisIdInAssgnMntReport = element(by.binding('assignmentReport.analysis_id'));
+    this.commentInAssgnMntReport = element.all(by.css('dd[ng-if="assignmentReport.comment"]'));
 
     // *****************  Blood Specimens Tab  ********************//
     // This the master panel STRING for Tissue reports
@@ -128,7 +134,6 @@ var PatientPage = function () {
     // };
 
     // This the drop down for the surgical event under the Tissue Reports and blood variant.
-    this.variantReportDropDown = element(by.binding('tissueVariantReportOption.text'));
     this.bloodVariantReportDropDown = element(by.binding('bloodVariantReportOption.text'));
 
     this.expectedSurgicalSectionHeading = ['Slide Shipments', 'Assay History', 'Specimen History'];
@@ -136,7 +141,6 @@ var PatientPage = function () {
     //These are the elements present in the summary boxes of tissue reports
     this.patientSurgicalEventId    = element(by.css('span[ng-bind="variantReport.surgical_event_id | dashify"]')).element(by.xpath('..'));
     this.patientMolecularId        = element(by.css('span[ng-bind="variantReport.molecular_id | dashify"]'));
-    this.patientAnalysisId          = element(by.binding('variantReport.analysis_id'));
 
     this.tissueFileReceivedDate    = element(by.binding('currentTissueVariantReport.variant_report_received_date'));
     this.tissueReportStatus        = element(by.binding('currentTissueVariantReport.status'));

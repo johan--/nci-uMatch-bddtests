@@ -33,6 +33,7 @@ exports.config = {
         'features/PA_08_User_Roles.feature',
         'features/PA_09_Sample_Upload.feature',
         'features/PA_10_Variant_Report.feature',
+        'features/PA_11_Assignment_Report.feature',
 
         // Treatment Arm details page
         'features/TA_01_Analysis.feature',
