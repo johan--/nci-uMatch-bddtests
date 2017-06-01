@@ -105,6 +105,7 @@ var PatientPage = function () {
     this.assignmentTabList  = element.all(by.repeater('assignmentReport in assignmentReports'));
     this.analysisIdInAssgnMntReport = element(by.binding('assignmentReport.analysis_id'));
     this.commentInAssgnMntReport = element.all(by.css('dd[ng-if="assignmentReport.comment"]'));
+    this.assignmentSelectionReason = element.all(by.css('div[compile="assignmentReport.reasonHtml"]'));
 
     // *****************  Blood Specimens Tab  ********************//
     // This the master panel STRING for Tissue reports

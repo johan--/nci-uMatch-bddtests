@@ -69,6 +69,51 @@ module.exports = function () {
             expect(check).to.eql(present);
         }).then(callback);
     });
+
+    this.Then(/^The selected section on tab "(.+?)" has "(COSF|COSM|GENE)" text which is a link$/, function (tab, linkType, callback) {
+        var elem = patientPage.assignmentSelectionReason.get(tab - 1);
+        var arr;
+        elem.getText().then(function (reason) {
+            if (linkType === 'COSF'){
+                arr = utilities.extractLinks(reason, 'COSF');
+                for (var  i = 0; i < arr.length; i ++ ){
+                    utilities.checkCOSFText(arr[i], elem);
+                }
+            } else if (linkType === 'COSM') {
+                arr = utilities.extractLinks(reason, 'COSM')
+                for (var  i = 0; i < arr.length; i ++ ){
+                    utilities.checkCOSMText(arr[i], elem);
+                }
+            } else {
+                arr = utilities.extractLinks(reason, 'GENE')
+                for (var  i = 0; i < arr.length; i ++ ){
+                    utilities.checkGeneText(arr[i], elem);
+                }
+            }
+
+        }).then(callback)
+
+    });
+
+    this.Then(/^In the assignment logic section text with "(COSF|COSM|GENE)" is a link$/, function (linkType, callback) {
+        var selectedTab = element(by.css('.active[ng-repeat="tab in tabset.tabs"]'));
+        var elemList = selectedTab.all(by.css('[compile="rule.reasonHtml"]'));
+        var arr;
+        elemList.getText().then(function (reasonArray) {
+            for(var i = 0; i < reasonArray.length; i ++){
+                arr = utilities.extractLinks(reasonArray[i], linkType);
+                for(var j = 0; j < arr.length; j ++){
+                    if (linkType === 'COSF') {
+                        utilities.checkCOSFText(arr[j], selectedTab);
+                    } else if (linkType === 'COSM') {
+                        utilities.checkCOSMText(arr[j], selectedTab);
+                    } else if (linkType === 'GENE') {
+                        utilities.checkGeneText(arr[j], selectedTab);
+                    }
+                }
+            }
+        }).then(callback)
+    });
 };
 
 

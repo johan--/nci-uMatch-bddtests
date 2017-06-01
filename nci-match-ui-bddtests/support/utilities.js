@@ -153,6 +153,15 @@ var Utilities = function () {
         })
     };
 
+    this.checkCOSMText = function(text, parentElement) {
+        var elem = parentElement.element(by.cssContainingText('a', text));
+        var regexp = /\bCOSM(\d{1,})\b/;
+        var catchAll = regexp.exec(linkText);
+        var expectedString = 'http://grch37-cancer.sanger.ac.uk/cosmic/mutation/overview?id=' + catchAll[1] ;
+        expect(elem.isPresent).to.eventually.eql(true);
+        expect(elem.getAttribute('href')).to.eventually.eql(expectedString)
+    };
+
     /**
      * Check whether the check box under scrutiny is selected or not.
      * @param {element} [elem] [Checkbox element whose status is being checked]
@@ -177,12 +186,43 @@ var Utilities = function () {
                 } else {
                     link = linkText
                 }
-                expect(elem.element(by.css('a')).getAttribute('href')).to.eventually.eql('http://grch37-cancer.sanger.ac.uk/cosmic/gene/overview?ln=' + link, "Gene Link Mismatch");
+                expect(elem.element(by.css('a')).getAttribute('href'))
+                    .to
+                    .eventually
+                    .eql('http://grch37-cancer.sanger.ac.uk/cosmic/gene/overview?ln=' + link, "Gene Link Mismatch");
             } else {
                 // console.log(linkText);
                 expect(elem.all(by.css('a')).count()).to.eventually.eql(0)
             }
         })
+    };
+
+    this.checkGeneText = function (text, parentElement) {
+        var elem = parentElement.element(by.cssContainingText('a', text));
+        elem.getText().then(function (completeLink) {
+            if (completeLink.match(/GENE: /)) {
+                var linkText = completeLink.slice (6)
+                console.log(linkText)
+
+                if (linkText.match (/\w/)) {
+                    var link;
+                    if (linkText === 'BAF47') {
+                        link = 'SMARCB1';
+                    } else if (linkText === 'BRG1') {
+                        link = 'SMARCA4';
+                    } else {
+                        link = linkText
+                    }
+                    expect (elem.isPresent ())
+                        .to
+                        .eventually.eql (true);
+                    expect (elem.getAttribute ('href'))
+                        .to
+                        .eventually
+                        .eql ('http://grch37-cancer.sanger.ac.uk/cosmic/gene/overview?ln=' + link, "Gene Link Mismatch");
+                }
+            }
+        });
     };
 
     this.checkCOSFLink = function (elem) {
@@ -197,6 +237,15 @@ var Utilities = function () {
                 expect(elem.all(by.css('a')).count()).to.eventually.eql(0)
             }
         })
+    };
+
+    this.checkCOSFText = function(text, parentElement) {
+        var regexp = /COSF(\d{1,})/;
+        var catchAll = regexp.exec(text);
+        var elem = parentElement.element(by.cssContainingText('a', catchAll[0]));
+        expect(elem.isPresent()).to.eventually.eql(true);
+        var expectedString = 'http://grch37-cancer.sanger.ac.uk/cosmic/fusion/summary?id=' + catchAll[1];
+        expect(elem.getAttribute('href')).to.eventually.eql(expectedString);
     };
 
     /**
@@ -692,6 +741,24 @@ var Utilities = function () {
         } else {
             return false;
         }
+    };
+
+    this.extractLinks  = function(text, pattern){
+        var linkArray = [];
+        if (pattern === 'GENE'){
+            linkArray = text.match(/GENE: \w.+?\b/g);
+            if (linkArray === null){
+                linkArray = [];
+            }
+        } else {
+            var words = text.split(' ');
+            for ( var i = 0; i < words.length; i++ ){
+                if (words[i].match(pattern)){
+                    linkArray.push(words[i]);
+                }
+            }
+        }
+        return linkArray
     };
 
     this.checkPubMedLink = function(el){

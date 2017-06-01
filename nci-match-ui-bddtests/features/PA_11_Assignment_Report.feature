@@ -22,6 +22,14 @@ Feature: As a logged in user
     When I go to the Assignment Report on tab "1"
     Then I see that the Analysis Id is "PT_SC06a_PendingApprovalStep2_ANI1"
 
+  @assignment
+  Scenario: I should see the selected reasong should have links for COSF and COSM links
+    When I go to the patient "PT_SC10c_PendingConfirmationStep2" with variant report "PT_SC10c_PendingConfirmationStep2_ANI2"
+    And I go to the Assignment Report on tab "1"
+    Then The selected section on tab "1" has "COSF" text which is a link
+    And In the assignment logic section text with "COSF" is a link
+    And In the assignment logic section text with "GENE" is a link
+
   Scenario: I should see all the assignment report details for a surgical event
     When I go to the patient "PT_SC07c_PendingApproval" with surgical event "PT_SC07c_PendingApproval_SEI1"
     And I scroll to the bottom of the page
@@ -40,3 +48,5 @@ Feature: As a logged in user
     And Tab "1" "does" have a bell
     And Tab "2" "does not" have a bell
     And Tab "3" "does not" have a bell
+
+
