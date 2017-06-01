@@ -1,15 +1,16 @@
 require_relative 'patient_story_sender'
+require_relative 'treatment_arm_sender'
 require_relative 'patient_story'
 require_relative 'seed_file'
 require_relative 'data_transfer'
 require_relative 'logger'
 
 class PedMatchTestData
-  # def self.load_treatment_arms(tag='patients')
-  #   DataTransfer.clear_all_local
-  #   TableInfo.ion_tables.each { |table| DataTransfer.upload_seed_data(table, tag, 'local') }
-  #
-  # end
+  def self.load_treatment_arms(tag='patients')
+    DataTransfer.clear_all_local
+    DataTransfer.upload_ion_seed_to_local(tag)
+    TreatmentArmSender.send_all
+  end
 
   def self.load_patients(patient_list, tag='patients')
     failed = []
@@ -31,19 +32,4 @@ class PedMatchTestData
 end
 
 
-
-pt = PatientStory.new('PT_AU08_PendingApproval2')
-pt.story_register
-pt.story_specimen_received_tissue
-pt.story_specimen_shipped_tissue
-pt.story_specimen_shipped_slide
-pt.story_assay('NEGATIVE', 'ICCPTENs')
-pt.story_assay('NEGATIVE', 'ICCBAF47s')
-pt.story_assay('NEGATIVE', 'ICCBRG1s')
-pt.story_tissue_variant_report
-pt.story_variant_file_confirmed
-pt.story_assignment_confirmed
-pt.save
-
-list = %w(PT_AU08_PendingApproval2)
-PedMatchTestData.load_patients(list)
+PedMatchTestData.load_patients(PatientStory.all_patients)

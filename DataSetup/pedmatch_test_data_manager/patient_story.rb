@@ -44,6 +44,11 @@ class PatientStory
     result
   end
 
+  def create
+    yield
+    save
+  end
+
   def exist?
     File.exist?(@file_path)
   end
@@ -141,7 +146,7 @@ class PatientStory
     @story_hash << this_story
   end
 
-  def story_assay(result='POSITIVE', biomarker='ICCPTENs', reported_date='current')
+  def story_assay(biomarker, result='POSITIVE', reported_date='current')
     this_story = "assay_result_reported:<patient_id>=>#{@patient_id}&<surgical_event_id>=>#{@active_sei}"
     this_story += "&<biomarker>=>#{biomarker}&<result>=>#{result}&<reported_date>=>#{reported_date}"
     @story_hash << this_story
@@ -203,7 +208,7 @@ class PatientStory
   end
 
 
-  def story_request_assignment(rebiopsy='Y', step_number='2.0', status_date='current')
+  def story_request_assignment(rebiopsy, step_number='2.0', status_date='current')
     @step_number = step_number
     this_story = "request_assignment:<patient_id>=>#{@patient_id}&<step_number>=>#{step_number}"
     this_story += "&<status_date>=>#{status_date}"
@@ -212,15 +217,16 @@ class PatientStory
   end
 
 
-  def story_request_no_assignment(status_date='current')
-    this_story = "request_assignment:<patient_id>=>#{@patient_id}&<step_number>=>#{step_number}"
+  def story_request_no_assignment(step_number='2.0', status_date='current')
+    @step_number = step_number
+    this_story = "request_assignment:<patient_id>=>#{@patient_id}&<step_number>=>#{@step_number}"
     this_story += "&<status_date>=>#{status_date}&<status>=>REQUEST_NO_ASSIGNMENT&<rebiopsy>=>N"
     @story_hash << this_story
   end
 
-  def story_on_treatment_arm(treatment_arm_id='APEC1621-A', stratum_id='100', status_date='current')
+  def story_on_treatment_arm(treatment_arm_id, stratum_id, status_date='current')
     @step_number = (@step_number.to_i + 0.1).to_s
-    this_story = "on_treatment_arm:<patient_id>=>#{@patient_id}&<step_number>=>#{step_number}"
+    this_story = "on_treatment_arm:<patient_id>=>#{@patient_id}&<step_number>=>#{@step_number}"
     this_story += "&<status_date>=>#{status_date}"
     this_story += "&<treatment_arm_id>=>#{treatment_arm_id}&<stratum_id>=>#{stratum_id}"
     @story_hash << this_story

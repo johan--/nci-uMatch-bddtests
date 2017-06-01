@@ -93,6 +93,11 @@ class DataTransfer
     Logger.log('Upload to local dynamodb done!')
   end
 
+  def self.upload_ion_seed_to_local(tag='patient')
+    TableInfo.ion_tables.each { |table| upload_seed_data(table, tag, LOCAL_TIER) }
+    Logger.log('Upload ion seed to local dynamodb done!')
+  end
+
   def self.upload_seed_data_to_int(tag='patients')
     TableInfo.all_tables.each do |table|
       upload_seed_data(table, tag, INT_TIER)

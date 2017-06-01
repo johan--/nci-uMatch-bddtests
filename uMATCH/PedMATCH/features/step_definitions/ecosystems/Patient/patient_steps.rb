@@ -1263,6 +1263,35 @@ Then(/^this patient analysis_report latest assignment should have treatment arm 
   }
 end
 
+Then(/^this patient analysis_report variant reports should have these values$/) do |table|
+  values = table.rows_hash
+  vr = @get_response['variant_report']
+  expect(vr.class).to eq Hash
+  values.each { |k, v|
+    expect(vr.keys).to include k
+    expect(vr[k]).to eq v
+  }
+end
+
+Then(/^this patient analysis_report should have "([^"]*)" assignment reports$/) do |count|
+  ars = @get_response['assignments']
+  expect(ars.class).to eq Array
+  expect(ars.size).to eq count.to_i
+end
+
+Then(/^this patient analysis_report every assignment reports should have these values$/) do |table|
+  values = table.rows_hash
+  ars = @get_response['assignments']
+  expect(vr.class).to eq Array
+  values.each { |k, v|
+    ars.each { |ar|
+      expect(ar.class).to eq Hash
+      expect(ar.keys).to include k
+      expect(ar[k]).to eq v
+    }
+  }
+end
+
 Then(/^this patient blood specimen_shipments "([^"]*)" should have field "([^"]*)" value "([^"]*)"$/) do |moi, field, value|
   type = 'blood_specimens'
   shipment = 'specimen_shipments'
@@ -1324,7 +1353,7 @@ Then(/^the saved variant report should have correct variants summary as variant 
       actual_match_expect(actual_value, expect_value)
     end
   }
-  
+
   gf_title_row = Helper_Methods.xlsx_first_occurrence_row(file_path, 0, 'Gene Fusions') + 1
   actual_gfs = Helper_Methods.xlsx_table_hashes(file_path, 0, gf_title_row)
   expect_gfs = vr['gene_fusions']

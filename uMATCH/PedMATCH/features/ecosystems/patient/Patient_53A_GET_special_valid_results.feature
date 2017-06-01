@@ -666,10 +666,10 @@ Feature: Patient GET service valid special case tests
     When GET from MATCH patient API, http code "200" should return
     Then save response from "variant" report download service to temp file
     Then the saved "variant" report should have these values
-      | Patient ID            | <patient_id> |
-      | Analysis ID           | <ani>        |
-      | Status                | <status>     |
-      | Variant Report Type   | <type>       |
+      | Patient ID          | <patient_id> |
+      | Analysis ID         | <ani>        |
+      | Status              | <status>     |
+      | Variant Report Type | <type>       |
     Then the saved variant report should have correct MOI summary as variant report "<ani>"
     Then the saved variant report should have correct variants summary as variant report "<ani>"
     Examples:
@@ -742,6 +742,23 @@ Feature: Patient GET service valid special case tests
     When GET from MATCH patient API, http code "200" should return
     Then this patient tissue analysis_report variant field "snv_indels" should include id "COSM893754"
     Then this patient tissue analysis_report variant field "snv_indels" should include id "COSM26494"
+
+  @patients_p2
+  Scenario: PT_SC10c analysis report should show reports which only belongs to specified analysis id
+    Given patient GET service: "analysis_report", patient id: "PT_SC10c_PendingConfirmationStep2", id: "PT_SC10c_PendingConfirmationStep2_ANI1"
+    When GET from MATCH patient API, http code "200" should return
+    Then this patient analysis_report variant reports should have these values
+      | analysis_id | PT_SC10c_PendingConfirmationStep2_ANI1 |
+    Then this patient analysis_report should have "1" assignment reports
+    Then this patient analysis_report every assignment reports should have these values
+      | analysis_id | PT_SC10c_PendingConfirmationStep2_ANI1 |
+    Given patient GET service: "analysis_report", patient id: "PT_SC10c_PendingConfirmationStep2", id: "PT_SC10c_PendingConfirmationStep2_ANI2"
+    When GET from MATCH patient API, http code "200" should return
+    Then this patient analysis_report variant reports should have these values
+      | analysis_id | PT_SC10c_PendingConfirmationStep2_ANI2 |
+    Then this patient analysis_report should have "2" assignment reports
+    Then this patient analysis_report every assignment reports should have these values
+      | analysis_id | PT_SC10c_PendingConfirmationStep2_ANI2 |
 
   @patient_p2
   Scenario: PT_SC11a assay event should have correct values
