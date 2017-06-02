@@ -222,7 +222,7 @@ Feature: Tests for aliquot service in ion ecosystem
     Then wait for "5" seconds
     Then patient status should change to "<status1>"
     And patient should "<have>" variant report (analysis_id: "<ani1>")
-    And patient latest event field "event_message" should be "Variant Report file uploaded."
+    And patient latest event field "event_message" should be "Sequence file uploaded."
     And patient latest event_data field "file_name" should be "dna.bam"
     And patient latest event_data field "patient_id" should be "<patient_id>"
     And patient latest event_data field "analysis_id" should be "<ani1>"
