@@ -73,9 +73,9 @@ class BioMatchPMFullValidation
     PatientMessageLoader.specimen_received_tissue(@pt.id, @pt.sei)
     PatientMessageLoader.specimen_shipped_tissue(@pt.id, @pt.sei, @pt.moi)
     PatientMessageLoader.specimen_shipped_slide(@pt.id, @pt.sei, @pt.bc)
-    PatientMessageLoader.assay(@pt.id, @pt.sei, @pten, 'ICCPTENs')
-    PatientMessageLoader.assay(@pt.id, @pt.sei, @baf47, 'ICCBAF47s')
-    PatientMessageLoader.assay(@pt.id, @pt.sei, @brg1, 'ICCBRG1s')
+    PatientMessageLoader.assay(@pt.id, @pt.sei, @pten, 'ICCPTENs', 'current')
+    PatientMessageLoader.assay(@pt.id, @pt.sei, @baf47, 'ICCBAF47s', 'current')
+    PatientMessageLoader.assay(@pt.id, @pt.sei, @brg1, 'ICCBRG1s', 'current')
   end
   def build_patient_new_step(patient_id, rebiopsy, step_number, pten='POSITIVE', baf47='POSITIVE', brg1='POSITIVE')
     PatientMessageLoader.request_assignment(patient_id, rebiopsy, step_number)

@@ -136,8 +136,13 @@ class SeedFile
                            file_hash['Count'] = items.size
                            File.open(file, 'w') { |f| f.write(JSON.pretty_generate(file_hash)) }
                          end
+                         list = target_value_list.to_s
+                         if target_value_list.size>3
+                           list = "[#{target_value_list[0]}, #{target_value_list[1]}, #{target_value_list[2]}, "
+                           list += "and #{target_value_list.size-3} more...]"
+                         end
                          message = "There are #{old_count-items.size} items"
-                         message += "(#{target_field}=#{target_value_list.to_s}) get removed from #{nickname}"
+                         message += "(#{target_field}=#{list}) get removed from #{nickname}"
                          Logger.log(message)
                        end
 

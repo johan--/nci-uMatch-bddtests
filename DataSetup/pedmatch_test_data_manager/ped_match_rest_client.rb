@@ -1,9 +1,14 @@
 require 'json'
 require 'rest-client'
+require_relative 'constants'
 
-class PedMatchRest
-  RETRY_INTERVAL = 1
+class PedMatchRestClient
+  RETRY_INTERVAL = 0.5
   TIMEOUT = 45
+
+  def self.set_tier(tier)
+    Constants.set_tier(tier)
+  end
 
   def self.send_until_accept(url, method, payload)
     time = 0
@@ -19,40 +24,47 @@ class PedMatchRest
 
   def self.wait_until_has_result(url)
     time = 0
+    last_response = ''
     while time<TIMEOUT
       sleep RETRY_INTERVAL
       time += RETRY_INTERVAL
-      response = rest_request(url, 'get')
-      next if response.nil?
-      if response.code == 200
-        response_hash = JSON.parse(response.to_s)
+      last_response = rest_request(url, 'get')
+      next if last_response.nil?
+      if last_response.code == 200
+        response_hash = JSON.parse(last_response.to_s)
         break if response_hash.is_a?(Array) && response_hash.size > 0
       end
     end
+    last_response
   end
 
   def self.wait_until_update(url)
     time = 0
+    updated = false
     last_response = rest_request(url, 'get')
     while time<TIMEOUT
       sleep RETRY_INTERVAL
       time += RETRY_INTERVAL
       new_response = rest_request(url, 'get')
-      break unless new_response == last_response
+      unless new_response == last_response
+        updated = true
+        break
+      end
     end
+    updated
   end
 
   private_class_method def self.ped_match_auth
-                         payload = {:client_id => ENV['AUTH0_CLIENT_ID'],
-                                    :username => ENV['ADMIN_AUTH0_USERNAME'],
-                                    :password => ENV['ADMIN_AUTH0_PASSWORD'],
+                         payload = {:client_id => Constants.auth0_client_id,
+                                    :username => Constants.auth0_username,
+                                    :password => Constants.auth0_password,
                                     :grant_type => 'password',
                                     :scope => 'openid email roles',
-                                    :connection => ENV['AUTH0_DATABASE']}.to_json
+                                    :connection => Constants.auth0_database}.to_json
                          token_variable = 'PED_MATCH_TOKEN'
                          unless ENV[token_variable].present?
                            begin
-                             response = RestClient::Request.execute(:url => "https://#{ENV['AUTH0_DOMAIN']}/oauth/ro",
+                             response = RestClient::Request.execute(:url => "https://#{Constants.auth0_domain}/oauth/ro",
                                                                     :method => :post,
                                                                     :verify_ssl => false,
                                                                     :payload => payload,

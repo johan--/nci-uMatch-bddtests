@@ -1,4 +1,4 @@
-require_relative 'ped_match_rest'
+require_relative 'ped_match_rest_client'
 
 class TreatmentArmSender
   TA_FOLDER="#{File.dirname(__FILE__)}/../local_treatment_arm_data/Treatment_Arm_data.json"
@@ -19,7 +19,7 @@ class TreatmentArmSender
     version = treatment_arm_hash['version']
     treatment_arm_hash['date_created'] = Time.now.iso8601
     url = "#{treatment_arm_api_url}/#{ta_id}/#{stratum}/#{version}"
-    last_response = PedMatchRest.send_until_accept(url, 'post', treatment_arm_hash)
+    last_response = PedMatchRestClient.send_until_accept(url, 'post', treatment_arm_hash)
     if last_response.code < 203
       Logger.log("Treatment Arm: #{ta_id}-#{stratum}(#{version}) is done")
       true

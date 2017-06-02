@@ -7,57 +7,63 @@ require 'active_support/core_ext'
 require_relative 'table_info'
 require_relative 'logger'
 require_relative 'seed_file'
+require_relative 'constants'
 
-class DataTransfer
-  LOCAL_TIER = 'local'
-  INT_TIER = 'int'
-  UAT_TIER = 'uat'
-  LOCAL_DB_ENDPOINT = 'http://localhost:8000'
-  LOCAL_REGION = 'us-east-1'
-  INT_DB_ENDPOINT = 'https://dynamodb.us-east-1.amazonaws.com'
-  INT_REGION = 'us-east-1'
-  UAT_DB_ENDPOINT = 'https://dynamodb.us-east-1.amazonaws.com'
-  UAT_REGION = 'us-east-1'
+class PedMatchDatabase
 
   ################backup
   def self.backup(tag='patients')
     TableInfo.all_tables.each { |table|
-      copy_table_to_file(table, SeedFile.seed_file(table, tag)) if table_exist(table, LOCAL_TIER)
+      copy_table_to_file(table, SeedFile.seed_file(table, tag)) if table_exist(table)
     }
     Logger.log('Local backup done!')
   end
 
+  def self.backup_treatment_arm(tag='patients')
+    TableInfo.treatment_arm_tables.each { |table|
+      copy_table_to_file(table, SeedFile.seed_file(table, tag)) if table_exist(table)
+    }
+    Logger.log('Local treatment arm tables backup done!')
+  end
+
   def self.copy_table_to_file(table_name, file)
+    tier = Constants.current_tier
+    Constants.set_tier(Constants.tier_local)
     cmd = "aws dynamodb scan --table-name #{table_name} "
-    cmd = cmd + "--endpoint-url #{LOCAL_DB_ENDPOINT} > "
+    cmd = cmd + "--endpoint-url #{Constants.dynamodb_url} > "
     cmd = cmd + file
     `#{cmd}`
+    Constants.set_tier(tier)
     Logger.log("Table <#{table_name}> has been exported to #{file}")
   end
 
   ################clear
   def self.clear_all_local
-    TableInfo.all_tables.each { |table| clear_table(table, LOCAL_TIER) }
+    tier = Constants.current_tier
+    Constants.set_tier(Constants.tier_local)
+    TableInfo.all_tables.each { |table| clear_table(table) }
+    Constants.set_tier(tier)
     Logger.log('Clear local dynamodb done!')
   end
 
   def self.clear_all_int
-    TableInfo.all_tables.each { |table| clear_table(table, INT_TIER) }
+    tier = Constants.current_tier
+    Constants.set_tier(Constants.tier_local)
+    TableInfo.all_tables.each { |table| clear_table(table) }
+    Constants.set_tier(tier)
     Logger.log('Clear int dynamodb done!')
   end
 
-  def self.clear_table(table_name, tier)
-    setup_aws(tier)
-    unless table_exist(table_name, tier)
+  def self.clear_table(table_name)
+    setup_aws
+    unless table_exist(table_name)
       return
     end
     table_keys = TableInfo.keys(table_name)
     table_keys_should_match(table_name, table_keys)
 
     start_stamp = Time.now
-    # scan_result = @aws_db.scan(table_name: table_name, attributes_to_get: table_keys)
-    # all_items = scan_result.items
-    all_items = scan_all(table_name, table_keys) #scan_result.items
+    all_items = scan_all(table_name, table_keys)
     if all_items.nil? || all_items.size<1
       Logger.log("Table '#{table_name.upcase}' is empty skipping...")
     else
@@ -78,7 +84,9 @@ class DataTransfer
 
       end_stamp = Time.now
       diff = ((end_stamp - start_stamp) * 1000.0).to_f / 1000.0
-      Logger.log("Deleted #{deleted}/#{all_items.size} records from #{tier} \"#{table_name}\" table in #{diff} secs!")
+      message = "Deleted #{deleted}/#{all_items.size} records from #{Constants.current_tier} "
+      message += "\"#{table_name}\" table in #{diff} secs!"
+      Logger.log(message)
       unless deleted == all_items.size
         raise "Expected to delete #{all_items.size} items, actually deleted #{deleted} items"
       end
@@ -87,28 +95,37 @@ class DataTransfer
 
   #################upload
   def self.upload_seed_data_to_local(tag='patients')
+    tier = Constants.current_tier
+    Constants.set_tier(Constants.tier_local)
     TableInfo.all_tables.each do |table|
-      upload_seed_data(table, tag, LOCAL_TIER)
+      upload_seed_data(table, tag)
     end
+    Constants.set_tier(tier)
     Logger.log('Upload to local dynamodb done!')
   end
 
   def self.upload_ion_seed_to_local(tag='patient')
-    TableInfo.ion_tables.each { |table| upload_seed_data(table, tag, LOCAL_TIER) }
+    tier = Constants.current_tier
+    Constants.set_tier(Constants.tier_local)
+    TableInfo.ion_tables.each { |table| upload_seed_data(table, tag) }
+    Constants.set_tier(tier)
     Logger.log('Upload ion seed to local dynamodb done!')
   end
 
   def self.upload_seed_data_to_int(tag='patients')
+    tier = Constants.current_tier
+    Constants.set_tier(Constants.tier_int)
     TableInfo.all_tables.each do |table|
-      upload_seed_data(table, tag, INT_TIER)
+      upload_seed_data(table, tag)
     end
+    Constants.set_tier(tier)
     Logger.log('Upload to int dynamodb done!')
   end
 
-  def self.upload_seed_data(table_name, tag, tier)
+  def self.upload_seed_data(table_name, tag)
     all_items = SeedFile.all_items(table_name, tag)
-    setup_aws(tier)
-    return unless table_exist(table_name, tier)
+    setup_aws
+    return unless table_exist(table_name)
     table_keys = TableInfo.keys(table_name)
     table_keys_should_match(table_name, table_keys)
 
@@ -144,7 +161,9 @@ class DataTransfer
 
       end_stamp = Time.now
       diff = ((end_stamp - start_stamp) * 1000.0).to_f / 1000.0
-      Logger.log("Uploaded #{uploaded}/#{all_items.size} records to #{tier} \"#{table_name}\" table in #{diff} secs!")
+      message = "Uploaded #{uploaded}/#{all_items.size} records to #{Constants.current_tier} "
+      message += "\"#{table_name}\" table in #{diff} secs!"
+      Logger.log(message)
       unless uploaded == all_items.size
         raise "Expected to upload #{all_items.size} items, actually uploaded #{uploaded} items"
       end
@@ -189,31 +208,19 @@ class DataTransfer
 
 
   #################aws unitilies
-  def self.setup_aws(tier)
+  def self.setup_aws
     @aws_options = {
-        endpoint: '',
-        region: '',
+        endpoint: Constants.dynamodb_url,
+        region: Constants.dynamodb_region,
         access_key_id: ENV['AWS_ACCESS_KEY_ID'],
         secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
     }
-    case tier
-      when LOCAL_TIER
-        @aws_options[:endpoint] = LOCAL_DB_ENDPOINT
-        @aws_options[:region] = LOCAL_REGION
-      when INT_TIER
-        @aws_options[:endpoint] = INT_DB_ENDPOINT
-        @aws_options[:region] = INT_REGION
-      when UAT_TIER
-        @aws_options[:endpoint] = UAT_DB_ENDPOINT
-        @aws_options[:region] = UAT_REGION
-      else
-    end
     Aws.config.update(@aws_options)
     @aws_db = Aws::DynamoDB::Client.new
   end
 
-  def self.table_exist(table_name, tier)
-    setup_aws(tier) unless @aws_db.present?
+  def self.table_exist(table_name)
+    setup_aws unless @aws_db.present?
     exist = @aws_db.list_tables.table_names.include?(table_name)
     Logger.warning("Table '#{table_name.upcase}' not found.") unless exist
     exist

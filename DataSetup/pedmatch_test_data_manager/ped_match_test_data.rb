@@ -2,26 +2,40 @@ require_relative 'patient_story_sender'
 require_relative 'treatment_arm_sender'
 require_relative 'patient_story'
 require_relative 'seed_file'
-require_relative 'data_transfer'
+require_relative 'ped_match_database'
 require_relative 'logger'
+require_relative 'constants'
 
 class PedMatchTestData
-  def self.load_treatment_arms(tag='patients')
-    DataTransfer.clear_all_local
-    DataTransfer.upload_ion_seed_to_local(tag)
-    TreatmentArmSender.send_all
+  def self.use_local_tier
+    Constants.set_tier(Constants.tier_local)
+  end
+  def self.use_int_tier
+    Constants.set_tier(Constants.tier_int)
+  end
+  def self.use_uat_tier
+    Constants.set_tier(Constants.tier_uat)
   end
 
-  def self.load_patients(patient_list, tag='patients')
+  def self.clear_and_initial_all(tag='patients')
+    PedMatchDatabase.clear_all_local
+    TableInfo.patient_tables.each { |table| SeedFile.clear_seed_file(table, tag) }
+    TableInfo.treatment_arm_tables.each { |table| SeedFile.clear_seed_file(table, tag) }
+    PedMatchDatabase.upload_ion_seed_to_local(tag)
+    TreatmentArmSender.send_all
+    PedMatchDatabase.backup_treatment_arm(tag)
+  end
+
+  def self.load_seed_patients(patient_list, tag='patients')
     failed = []
     SeedFile.delete_patients(patient_list, tag)
-    DataTransfer.clear_all_local
-    DataTransfer.upload_seed_data_to_local(tag)
-    patient_list.each { |pt| failed << pt unless PatientStorySender.send_patient(pt) }
+    PedMatchDatabase.clear_all_local
+    PedMatchDatabase.upload_seed_data_to_local(tag)
+    patient_list.each { |pt| failed << pt unless PatientStorySender.send_seed_patient(pt) }
     passed_number = patient_list.size - failed.size
     if passed_number > 0
       sleep 10.0
-      DataTransfer.backup(tag)
+      PedMatchDatabase.backup(tag)
     end
     Logger.log("Load patient work is done. #{passed_number}/#{patient_list.size} patients are writen to seed file")
     if failed.size > 0
@@ -29,7 +43,26 @@ class PedMatchTestData
       Logger.warning(failed.to_s)
     end
   end
+
+  def self.load_patient_seed_file_index(index, tag='patients')
+    load_seed_patients(PatientStory.patients_in_save_file(index), tag)
+  end
+
+  def self.send_a_patient_story(patient_story)
+    PatientStorySender.send_patient_story(patient_story)
+  end
 end
 
 
-PedMatchTestData.load_patients(PatientStory.all_patients)
+# pt = PatientStory.new('PT_TEST111')
+# pt.create_temporary_patient{
+#   pt.story_register
+#   pt.story_specimen_received_tissue
+# }
+# PedMatchTestData.use_int_tier
+# PedMatchTestData.send_a_patient_story(pt)
+
+
+# PedMatchTestData.clear_and_initial_all
+# PedMatchTestData.load_patient_seed_file_index(1)
+# PedMatchTestData.load_seed_patients( ["ION_AQ08_CdnaUploaded1", "ION_AQ08_CdnaUploaded2"])

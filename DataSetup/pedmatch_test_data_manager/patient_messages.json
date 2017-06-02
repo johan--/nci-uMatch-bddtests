@@ -1,7 +1,7 @@
 {
   "registration": {
     "before": [
-      "has_result:<cog_url>/resetPatient/<patient_id>"
+      "post:<cog_url>/resetPatient/<patient_id>"
     ],
     "url": "<patient_api_url>/<patient_id>",
     "http_method": "post",
@@ -197,14 +197,15 @@
     "url": "<ir_api_url>/aliquot/<molecular_id>",
     "http_method": "put",
     "payload": {
-      "patient_id": "<patient_id>",
-      "molecular_id": "<molecular_id>",
       "analysis_id": "<analysis_id>",
-      "dna_bam_name": "<dna_bam_name>",
+      "site": "<site>",
+      "ion_reporter_id": "<ion_reporter_id>",
+      "dna_bam_name": "<cdna_bam_name>",
+      "patient_id": "<patient_id>",
       "comment_user": "<comment_user>"
     },
     "after": [
-      "get_response_update:<patient_api_url>/events?entity_id=<patient_id>"
+      "has_result:<patient_api_url>/events?entity_id=<patient_id>&event_message=Sequence%20file%20uploaded."
     ]
   },
   "variant_cdna_file_uploaded": {
@@ -212,14 +213,15 @@
     "url": "<ir_api_url>/aliquot/<molecular_id>",
     "http_method": "put",
     "payload": {
-      "patient_id": "<patient_id>",
-      "molecular_id": "<molecular_id>",
       "analysis_id": "<analysis_id>",
+      "site": "<site>",
+      "ion_reporter_id": "<ion_reporter_id>",
       "cdna_bam_name": "<cdna_bam_name>",
+      "patient_id": "<patient_id>",
       "comment_user": "<comment_user>"
     },
     "after": [
-      "get_response_update:<patient_api_url>/events?entity_id=<patient_id>"
+      "has_result:<patient_api_url>/events?entity_id=<patient_id>&event_message=Sequence%20file%20uploaded."
     ]
   },
   "aliquot": {
