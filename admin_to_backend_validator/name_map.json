@@ -1,0 +1,57 @@
+{
+  "ta_params": {
+    "ARM Official Name": "name",
+    "Arm Pathway Id": "treatment_arm_drugs/pathway_id",
+    "ARM Gene": "gene",
+    "ARM Id": "treatment_arm_id",
+    "Arm Pathway Name": "treatment_arm_drugs/pathway",
+    "Arm Target Name": "target_name",
+    "Arm Description": "description",
+    "ARM Drug": "treatment_arm_drugs/name",
+    "ARM Drug ID": "treatment_arm_drugs/drug_id",
+    "Version": "version",
+    "stratum_id": "stratum_id"
+  },
+  "exclusion_diseases":{
+    "Disease Code Type":"disease_code_type",
+    "Disease Code":"disease_code",
+    "Disease Name":"disease_name"
+  },
+  "exclusion_drugs":{
+    "Drug Id":"drug_id",
+    "Drug Name":"name",
+    "Class":"drug_class",
+    "Comment":"Comment"
+  },
+  "assay":{
+    "GeneName":"gene",
+    "IHCStatus(POSITIVE,NEGATIVE,INDETERMINATE)":"assay_result_status",
+    "LOE":"level_of_evidence",
+    "Variant(PRESENT,NEGATIVE,EMPTY)":"assay_variant",
+    "Description":"Description"
+  },
+  "non_hot_spots":{
+    "Description":"",
+    "oncominevariantclass":"",
+    "Gene Name":"",
+    "Exon":"",
+    "Domain Name":"",
+    "Domain Range":"",
+    "Function":"",
+    "level of evidence":"",
+    "Literature reference (Pubmed ID)":""
+  },
+  "variants":{
+    "Gene Name":"gene",
+    "Variant ID":"identifier",
+    "Variant Type":"variant_type",
+    "Variant Description":"description",
+    "Level of Evidence Code":"level_of_evidence",
+    "aMOI":"protein",
+    "Chromosome":"chromosome",
+    "Position":"position",
+    "Alt":"ocp_alternative",
+    "Ref":"ocp_reference",
+    "Literature Reference":"public_med_ids"
+  }
+}
