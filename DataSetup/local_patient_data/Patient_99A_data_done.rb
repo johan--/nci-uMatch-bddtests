@@ -2021,24 +2021,8 @@ class Patient99A
     PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
   end
 
-  def self.pt_am07_pending_approval
-    pt = PatientDataSet.new('PT_AM07_PendingApproval')
-    PatientMessageLoader.register_patient(pt.id)
-    PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
-    PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)
-    PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)
-    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')
-    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBAF47s')
-    PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBRG1s')
-    PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)
-    PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)
-    PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.ani)
-    sleep(10.0)
-    PatientMessageLoader.assignment_confirmed(pt.id, pt.ani)
-  end
-
-  def self.pt_am08_pending_approval_step2
-    pt = PatientDataSet.new('PT_AM08_PendingApprovalStep2')
+  def self.pt_rb02b_pending_appr_step2
+    pt = PatientDataSet.new('PT_RB02b_PendingApprStep2')
     PatientMessageLoader.reset_cog_patient(pt.id)
     PatientMessageLoader.register_patient(pt.id)
     PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)
