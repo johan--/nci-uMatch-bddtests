@@ -233,6 +233,7 @@ Then(/^set patient message field: "([^"]*)" to value: "([^"]*)"$/) do |field, va
       converted_value = nil
     elsif value.eql?('current') || value.eql?('today')
       converted_value = Helper_Methods.getDateAsRequired(value)
+      @saved_time_value = converted_value
     else
       converted_value = value
     end
@@ -370,6 +371,7 @@ And(/^this specimen has assay \(biomarker: "([^"]*)", result: "([^"]*)", reporte
   converted_biomarker = biomarker=='null' ? nil : biomarker
   converted_result = result=='null' ? nil : result
   converted_reported_date = reported_date=='null' ? nil : reported_date
+  converted_reported_date = converted_reported_date == 'saved_time_value' ? @saved_time_value : converted_reported_date
   returned_assay = find_assay(@current_specimen, converted_biomarker, converted_result, converted_reported_date)
   expect_result = "Can find assay with biomarker:#{biomarker}, result:#{result} and report_date:#{reported_date}"
   actual_result = "Can NOT find assay with biomarker:#{biomarker}, result:#{result} and report_date:#{reported_date}"
@@ -397,6 +399,7 @@ end
 And(/^patient active tissue specimen field "([^"]*)" should be "([^"]*)"$/) do |field, value|
   get_patient_if_needed
   converted_value = value=='null' ? nil : value
+  converted_value = converted_value == 'saved_time_value' ? @saved_time_value : converted_value
   ats = 'active_tissue_specimen'
   expect(@current_patient_hash.keys).to include ats
   expect(@current_patient_hash[ats][field]).to eq converted_value
@@ -1143,18 +1146,29 @@ Then(/^this patient tissue specimen_events analyses "([^"]*)" latest assignment 
   end
 end
 
-Then(/^this patient tissue specimen_events specimen "([^"]*)" assays number "([^"]*)" field "([^"]*)" should be "([^"]*)"$/) do |sei, order, field, value|
+Then(/^this patient tissue specimen_events specimen "([^"]*)" should have these assays$/) do |sei, table|
   has_result = false
+  params = table.hashes
   @get_response['tissue_specimens'].each { |this_specimen|
     if this_specimen['surgical_event_id'] == sei
       has_result = true
       assays = this_specimen['assays']
-      expect(assays[order.to_i-1][field]).to eq value
+      params.each do |this_param|
+        target_assay = assays[this_param['order'].to_i-1]
+        this_param.each do |k, v|
+          next if k == 'order'
+          value = v=='null'?nil:v
+          expect(target_assay[k]).to eq value
+        end
+
+      end
+
     end
   }
   unless has_result
     raise "Cannot find specimen with molecular id #{moi}"
   end
+
 end
 
 Then(/^this patient tissue analysis_report should have correct "([^"]*)" file names: "([^"]*)"$/) do |file_type, name|

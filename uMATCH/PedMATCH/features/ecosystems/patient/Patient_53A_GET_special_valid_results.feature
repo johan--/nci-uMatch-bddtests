@@ -643,21 +643,13 @@ Feature: Patient GET service valid special case tests
   Scenario: PT_SC07e specimen_events should display assay history in correct order
     Given patient GET service: "specimen_events", patient id: "PT_SC07e_FiveAssay", id: ""
     When GET from MATCH patient API, http code "200" should return
-    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "1" field "result_date" should be "2017-02-15T22:05:33+00:00"
-    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "1" field "result" should be "NEGATIVE"
-    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "1" field "biomarker" should be "ICCBRG1s"
-    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "2" field "result_date" should be "2017-02-14T22:05:33+00:00"
-    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "2" field "result" should be "INDETERMINATE"
-    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "2" field "biomarker" should be "ICCBRG1s"
-    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "3" field "result_date" should be "2017-02-13T22:05:33+00:00"
-    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "3" field "result" should be "POSITIVE"
-    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "3" field "biomarker" should be "ICCPTENs"
-    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "4" field "result_date" should be "2017-02-12T22:05:33+00:00"
-    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "4" field "result" should be "NEGATIVE"
-    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "4" field "biomarker" should be "ICCBAF47s"
-    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "5" field "result_date" should be "2017-02-11T22:05:33+00:00"
-    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "5" field "result" should be "NEGATIVE"
-    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" assays number "5" field "biomarker" should be "ICCPTENs"
+    Then this patient tissue specimen_events specimen "PT_SC07e_FiveAssay_SEI1" should have these assays
+      | order | biomarker | result        | result_date          |
+      | 1     | ICCBRG1s  | NEGATIVE      | 2017-06-05T21:15:47Z |
+      | 2     | ICCBRG1s  | INDETERMINATE | 2017-06-05T21:15:43Z |
+      | 3     | ICCPTENs  | POSITIVE      | 2017-06-05T21:15:41Z |
+      | 4     | ICCBAF47s | NEGATIVE      | 2017-06-05T21:15:39Z |
+      | 5     | ICCPTENs  | NEGATIVE      | 2017-06-05T21:15:38Z |
 
   @patients_p1
   Scenario Outline: PT_SC08a variant report can be downloaded properly

@@ -12,17 +12,17 @@ Feature: Assay Messages
     Then set patient message field: "surgical_event_id" to value: "<sei>"
     Then set patient message field: "biomarker" to value: "<biomarker>"
     Then set patient message field: "result" to value: "<result>"
-    Then set patient message field: "reported_date" to value: "<reported_date>"
+    Then set patient message field: "reported_date" to value: "current"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "ASSAY_RESULTS_RECEIVED"
     Then patient should have specimen (field: "surgical_event_id" is "<sei>")
-    And this specimen has assay (biomarker: "<biomarker>", result: "<result>", reported_date: "<reported_date>")
+    And this specimen has assay (biomarker: "<biomarker>", result: "<result>", reported_date: "saved_time_value")
     Examples:
-      | patient_id            | sei                        | biomarker | result        | reported_date             |
-      | PT_AS00_SlideShipped1 | PT_AS00_SlideShipped1_SEI1 | ICCPTENs  | POSITIVE      | 2016-08-18T10:42:13+00:00 |
-      | PT_AS00_SlideShipped2 | PT_AS00_SlideShipped2_SEI1 | ICCBAF47s | NEGATIVE      | 2016-08-18T11:42:13+00:00 |
-      | PT_AS00_SlideShipped3 | PT_AS00_SlideShipped3_SEI1 | ICCBRG1s  | NEGATIVE      | 2016-08-18T12:42:13+00:00 |
-      | PT_AS00_SlideShipped4 | PT_AS00_SlideShipped4_SEI1 | ICCBAF47s | INDETERMINATE | 2016-08-18T13:42:13+00:00 |
+      | patient_id            | sei                        | biomarker | result        |
+      | PT_AS00_SlideShipped1 | PT_AS00_SlideShipped1_SEI1 | ICCPTENs  | POSITIVE      |
+      | PT_AS00_SlideShipped2 | PT_AS00_SlideShipped2_SEI1 | ICCBAF47s | NEGATIVE      |
+      | PT_AS00_SlideShipped3 | PT_AS00_SlideShipped3_SEI1 | ICCBRG1s  | NEGATIVE      |
+      | PT_AS00_SlideShipped4 | PT_AS00_SlideShipped4_SEI1 | ICCBAF47s | INDETERMINATE |
 
 
   @patients_p2
@@ -167,11 +167,11 @@ Feature: Assay Messages
     Then set patient message field: "biomarker" to value: "ICCBRG1s"
     Then set patient message field: "result" to value: "NEGATIVE"
     Then set patient message field: "surgical_event_id" to value: "PT_AS10SlideShipped_SEI1"
-    Then set patient message field: "reported_date" to value: "2016-05-18T11:42:13+00:00"
+    Then set patient message field: "reported_date" to value: "current"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then wait until patient specimen is updated
     Then patient should have specimen (field: "surgical_event_id" is "PT_AS10SlideShipped_SEI1")
-    And this specimen has assay (biomarker: "ICCBRG1s", result: "NEGATIVE", reported_date: "2016-05-18T11:42:13+00:00")
+    And this specimen has assay (biomarker: "ICCBRG1s", result: "NEGATIVE", reported_date: "saved_time_value")
 
   @patients_p2
   Scenario: PT_AS10a. Assay result received for active surgical_event_id but doesn't belong to this patient should fail
@@ -189,23 +189,23 @@ Feature: Assay Messages
     Given patient id is "PT_AS11SlideShipped"
     And load template assay message for this patient
     Then set patient message field: "surgical_event_id" to value: "PT_AS11SlideShipped_SEI1"
-    Then set patient message field: "reported_date" to value: "<date>"
+    Then set patient message field: "reported_date" to value: "current"
     Then set patient message field: "biomarker" to value: "<biomarker>"
     Then set patient message field: "result" to value: "<result>"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then wait until patient specimen is updated
     Then patient should have specimen (field: "surgical_event_id" is "PT_AS11SlideShipped_SEI1")
-    And this specimen has assay (biomarker: "<biomarker>", result: "<result>", reported_date: "<date>")
-    And patient active tissue specimen field "<biomarker>_received_date" should be "<date>"
+    And this specimen has assay (biomarker: "<biomarker>", result: "<result>", reported_date: "saved_time_value")
+    And patient active tissue specimen field "<biomarker>_received_date" should be "saved_time_value"
     And patient active tissue specimen field "<biomarker>" should be "<result>"
     Examples:
-      | biomarker | result        | date                      |
-      | ICCPTENs  | POSITIVE      | 2016-05-18T10:42:13+00:00 |
-      | ICCBAF47s | NEGATIVE      | 2016-05-18T11:42:13+00:00 |
-      | ICCBRG1s  | POSITIVE      | 2016-05-18T12:42:13+00:00 |
-      | ICCPTENs  | NEGATIVE      | 2016-05-18T13:42:13+00:00 |
-      | ICCBAF47s | INDETERMINATE | 2016-05-18T14:42:13+00:00 |
-      | ICCBRG1s  | INDETERMINATE | 2016-05-18T15:42:13+00:00 |
+      | biomarker | result        |
+      | ICCPTENs  | POSITIVE      |
+      | ICCBAF47s | NEGATIVE      |
+      | ICCBRG1s  | POSITIVE      |
+      | ICCPTENs  | NEGATIVE      |
+      | ICCBAF47s | INDETERMINATE |
+      | ICCBRG1s  | INDETERMINATE |
 
   @patients_p2
   Scenario Outline: PT_AS12. assay result received message can be processed properly
@@ -292,9 +292,9 @@ Feature: Assay Messages
     And patient active tissue specimen field "<biomarker>" should be "<result>"
     Examples:
       | biomarker | result   | date                      |
-      | ICCPTENs  | POSITIVE | 2016-12-01T10:42:13+00:00 |
-      | ICCPTENs  | NEGATIVE | 2016-12-01T10:42:13+00:00 |
-      | ICCBAF47s | POSITIVE | 2016-12-01T11:42:13+00:00 |
-      | ICCBAF47s | NEGATIVE | 2016-12-01T11:42:13+00:00 |
-      | ICCBRG1s  | POSITIVE | 2016-12-01T11:42:13+00:00 |
-      | ICCBRG1s  | NEGATIVE | 2016-12-01T11:42:13+00:00 |
+      | ICCPTENs  | POSITIVE | 2017-06-06T10:42:13+00:00 |
+      | ICCPTENs  | NEGATIVE | 2017-06-06T10:42:13+00:00 |
+      | ICCBAF47s | POSITIVE | 2017-06-06T11:42:13+00:00 |
+      | ICCBAF47s | NEGATIVE | 2017-06-06T11:42:13+00:00 |
+      | ICCBRG1s  | POSITIVE | 2017-06-06T11:42:13+00:00 |
+      | ICCBRG1s  | NEGATIVE | 2017-06-06T11:42:13+00:00 |
