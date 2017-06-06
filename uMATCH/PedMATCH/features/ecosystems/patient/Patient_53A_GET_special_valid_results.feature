@@ -83,7 +83,7 @@ Feature: Patient GET service valid special case tests
   Scenario Outline: PT_SC02h pending_items should increase tissue_variant_reports value properly by rolling back confirmed variant report
     Given patient id is "<patient_id>"
     And patient API user authorization role is "ADMIN"
-    When PUT to MATCH variant report rollback, response includes "" with code "200"
+    When PUT to MATCH rollback, response includes "" with code "200"
     Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
     Then patient GET service: "pending_items", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return
@@ -96,7 +96,7 @@ Feature: Patient GET service valid special case tests
   Scenario Outline: PT_SC02i pending_items should increase tissue_variant_reports value properly by rolling back confirmed assignment report
     Given patient id is "<patient_id>"
     And patient API user authorization role is "ADMIN"
-    When PUT to MATCH variant report rollback, response includes "" with code "200"
+    When PUT to MATCH rollback, response includes "" with code "200"
     Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
     Then patient GET service: "pending_items", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return

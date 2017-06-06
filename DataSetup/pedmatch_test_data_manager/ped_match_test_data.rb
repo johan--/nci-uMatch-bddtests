@@ -10,9 +10,11 @@ class PedMatchTestData
   def self.use_local_tier
     Constants.set_tier(Constants.tier_local)
   end
+
   def self.use_int_tier
     Constants.set_tier(Constants.tier_int)
   end
+
   def self.use_uat_tier
     Constants.set_tier(Constants.tier_uat)
   end
@@ -62,7 +64,11 @@ end
 # PedMatchTestData.use_int_tier
 # PedMatchTestData.send_a_patient_story(pt)
 
+#
+# for i in (13..14)
+#   PedMatchTestData.load_patient_seed_file_index(i)
+# end
 
 # PedMatchTestData.clear_and_initial_all
-# PedMatchTestData.load_patient_seed_file_index(1)
-# PedMatchTestData.load_seed_patients( ["ION_AQ08_CdnaUploaded1", "ION_AQ08_CdnaUploaded2"])
+#   PedMatchTestData.load_patient_seed_file_index(19)
+

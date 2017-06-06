@@ -85,7 +85,7 @@ When(/^GET from MATCH patient API, http code "([^"]*)" should return$/) do |code
   end
 end
 
-When(/^PUT to MATCH variant report rollback, response includes "([^"]*)" with code "([^"]*)"$/) do |message, code|
+When(/^PUT to MATCH rollback, response includes "([^"]*)" with code "([^"]*)"$/) do |message, code|
   @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
   response = Patient_helper_methods.put_vr_rollback(@patient_id, @current_auth0_role)
   puts response.to_s

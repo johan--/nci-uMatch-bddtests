@@ -1,0 +1,43 @@
+{
+  "UI_MA_PendingApproval": [
+    "registration:<patient_id>=>UI_MA_PendingApproval&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>UI_MA_PendingApproval&<surgical_event_id>=>UI_MA_PendingApproval_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_TISSUE:<patient_id>=>UI_MA_PendingApproval&<surgical_event_id>=>UI_MA_PendingApproval_SEI1&<molecular_id>=>UI_MA_PendingApproval_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
+    "specimen_shipped_SLIDE:<patient_id>=>UI_MA_PendingApproval&<surgical_event_id>=>UI_MA_PendingApproval_SEI1&<slide_barcode>=>UI_MA_PendingApproval_BC1&<shipped_dttm>=>current",
+    "assay_result_reported:<patient_id>=>UI_MA_PendingApproval&<surgical_event_id>=>UI_MA_PendingApproval_SEI1&<biomarker>=>ICCPTENs&<result>=>NEGATIVE&<reported_date>=>current",
+    "assay_result_reported:<patient_id>=>UI_MA_PendingApproval&<surgical_event_id>=>UI_MA_PendingApproval_SEI1&<biomarker>=>ICCBAF47s&<result>=>NEGATIVE&<reported_date>=>current",
+    "assay_result_reported:<patient_id>=>UI_MA_PendingApproval&<surgical_event_id>=>UI_MA_PendingApproval_SEI1&<biomarker>=>ICCBRG1s&<result>=>NEGATIVE&<reported_date>=>current",
+    "aliquot:<patient_id>=>UI_MA_PendingApproval&<ion_reporter_id>=>bdd_test_ion_reporter&<analysis_id>=>UI_MA_PendingApproval_ANI1&<molecular_id>=>UI_MA_PendingApproval_MOI1&<site>=>MDA",
+    "variant_report_confirmed:<patient_id>=>UI_MA_PendingApproval&<analysis_id>=>UI_MA_PendingApproval_ANI1&<status>=>confirm&<comment>=>Test&<comment_user>=>QA",
+    "assignment_confirmed:<patient_id>=>UI_MA_PendingApproval&<analysis_id>=>UI_MA_PendingApproval_ANI1&<comment>=>Assignment 1&<comment_user>=>QA",
+    "request_assignment:<patient_id>=>UI_MA_PendingApproval&<step_number>=>2.0&<status_date>=>current&<status>=>REQUEST_ASSIGNMENT&<rebiopsy>=>N",
+    "assignment_confirmed:<patient_id>=>UI_MA_PendingApproval&<analysis_id>=>UI_MA_PendingApproval_ANI1&<comment>=>Assignment 2&<comment_user>=>QA",
+    "request_assignment:<patient_id>=>UI_MA_PendingApproval&<step_number>=>2.0&<status_date>=>current&<status>=>REQUEST_ASSIGNMENT&<rebiopsy>=>N",
+    "assignment_confirmed:<patient_id>=>UI_MA_PendingApproval&<analysis_id>=>UI_MA_PendingApproval_ANI1&<comment>=>Assignment 3&<comment_user>=>QA"
+  ],
+  "UI_SP01_MultiBdSpecimens": [
+    "registration:<patient_id>=>UI_SP01_MultiBdSpecimens&<status_date>=>current",
+    "specimen_received_BLOOD:<patient_id>=>UI_SP01_MultiBdSpecimens&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_BLOOD:<patient_id>=>UI_SP01_MultiBdSpecimens&<molecular_id>=>UI_SP01_MultiBdSpecimens_BD_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
+    "specimen_received_BLOOD:<patient_id>=>UI_SP01_MultiBdSpecimens&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_received_BLOOD:<patient_id>=>UI_SP01_MultiBdSpecimens&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_BLOOD:<patient_id>=>UI_SP01_MultiBdSpecimens&<molecular_id>=>UI_SP01_MultiBdSpecimens_BD_MOI2&<shipped_dttm>=>current&<destination>=>MDA",
+    "specimen_shipped_BLOOD:<patient_id>=>UI_SP01_MultiBdSpecimens&<molecular_id>=>UI_SP01_MultiBdSpecimens_BD_MOI3&<shipped_dttm>=>current&<destination>=>MDA"
+  ],
+  "TA_AS40_TsVrReceived": [
+    "registration:<patient_id>=>TA_AS40_TsVrReceived&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>TA_AS40_TsVrReceived&<surgical_event_id>=>TA_AS40_TsVrReceived_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_TISSUE:<patient_id>=>TA_AS40_TsVrReceived&<surgical_event_id>=>TA_AS40_TsVrReceived_SEI1&<molecular_id>=>TA_AS40_TsVrReceived_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
+    "specimen_shipped_SLIDE:<patient_id>=>TA_AS40_TsVrReceived&<surgical_event_id>=>TA_AS40_TsVrReceived_SEI1&<slide_barcode>=>TA_AS40_TsVrReceived_BC1&<shipped_dttm>=>current",
+    "assay_result_reported:<patient_id>=>TA_AS40_TsVrReceived&<surgical_event_id>=>TA_AS40_TsVrReceived_SEI1&<biomarker>=>ICCPTENs&<result>=>NEGATIVE&<reported_date>=>current",
+    "assay_result_reported:<patient_id>=>TA_AS40_TsVrReceived&<surgical_event_id>=>TA_AS40_TsVrReceived_SEI1&<biomarker>=>ICCBAF47s&<result>=>NEGATIVE&<reported_date>=>current",
+    "assay_result_reported:<patient_id>=>TA_AS40_TsVrReceived&<surgical_event_id>=>TA_AS40_TsVrReceived_SEI1&<biomarker>=>ICCBRG1s&<result>=>NEGATIVE&<reported_date>=>current",
+    "aliquot:<patient_id>=>TA_AS40_TsVrReceived&<ion_reporter_id>=>bdd_test_ion_reporter&<analysis_id>=>TA_AS40_TsVrReceived_ANI1&<molecular_id>=>TA_AS40_TsVrReceived_MOI1&<site>=>MDA"
+  ],
+  "UI_PA09_TsVr52Uploaded": [
+    "registration:<patient_id>=>UI_PA09_TsVr52Uploaded&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>UI_PA09_TsVr52Uploaded&<surgical_event_id>=>UI_PA09_TsVr52Uploaded_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_TISSUE:<patient_id>=>UI_PA09_TsVr52Uploaded&<surgical_event_id>=>UI_PA09_TsVr52Uploaded_SEI1&<molecular_id>=>UI_PA09_TsVr52Uploaded_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
+    "aliquot:<patient_id>=>UI_PA09_TsVr52Uploaded&<ion_reporter_id>=>bdd_test_ion_reporter&<analysis_id>=>UI_PA09_TsVr52Uploaded_ANI1&<molecular_id>=>UI_PA09_TsVr52Uploaded_MOI1&<site>=>MDA"
+  ]
+}

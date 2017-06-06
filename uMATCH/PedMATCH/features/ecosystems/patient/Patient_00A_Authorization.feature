@@ -437,7 +437,7 @@ Feature: Patient API authorization tests
   Scenario Outline: PT_AU13 role base authorization works properly for variant report rollback
     Given patient id is "<patient_id>"
     And patient API user authorization role is "<role>"
-    When PUT to MATCH variant report rollback, response includes "<message>" with code "<code>"
+    When PUT to MATCH rollback, response includes "<message>" with code "<code>"
     Examples:
       | patient_id             | role                              | message | code |
       | PT_AU13_TsVrConfirmed2 | NCI_MATCH_READONLY                |         | 401  |
@@ -454,7 +454,7 @@ Feature: Patient API authorization tests
       | PT_AU13_TsVrConfirmed2 | SPECIMEN_MESSAGE_SENDER           |         | 401  |
       | PT_AU13_TsVrConfirmed2 | ASSAY_MESSAGE_SENDER              |         | 401  |
 
-  @patients_p1
+  @patients_p3_off
   Scenario Outline: PT_AU14 role base authorization works properly for assignment rollback
     Given patient id is "<patient_id>"
     And patient API user authorization role is "<role>"

@@ -1,0 +1,161 @@
+{
+  "PT_SS28_TsReceived6": [
+    "registration:<patient_id>=>PT_SS28_TsReceived6&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS28_TsReceived6&<surgical_event_id>=>PT_SS28_TsReceived6_SEI1&<collection_dt>=>today&<received_dttm>=>current"
+  ],
+  "PT_SS28_TsReceived7": [
+    "registration:<patient_id>=>PT_SS28_TsReceived7&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS28_TsReceived7&<surgical_event_id>=>PT_SS28_TsReceived7_SEI1&<collection_dt>=>today&<received_dttm>=>current"
+  ],
+  "PT_SS28_BdReceived1": [
+    "registration:<patient_id>=>PT_SS28_BdReceived1&<status_date>=>current",
+    "specimen_received_BLOOD:<patient_id>=>PT_SS28_BdReceived1&<collection_dt>=>today&<received_dttm>=>current"
+  ],
+  "PT_SS28_BdReceived2": [
+    "registration:<patient_id>=>PT_SS28_BdReceived2&<status_date>=>current",
+    "specimen_received_BLOOD:<patient_id>=>PT_SS28_BdReceived2&<collection_dt>=>today&<received_dttm>=>current"
+  ],
+  "PT_SS28_BdReceived3": [
+    "registration:<patient_id>=>PT_SS28_BdReceived3&<status_date>=>current",
+    "specimen_received_BLOOD:<patient_id>=>PT_SS28_BdReceived3&<collection_dt>=>today&<received_dttm>=>current"
+  ],
+  "PT_SS28_BdReceived4": [
+    "registration:<patient_id>=>PT_SS28_BdReceived4&<status_date>=>current",
+    "specimen_received_BLOOD:<patient_id>=>PT_SS28_BdReceived4&<collection_dt>=>today&<received_dttm>=>current"
+  ],
+  "PT_SS21_TissueVariantConfirmed": [
+    "registration:<patient_id>=>PT_SS21_TissueVariantConfirmed&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS21_TissueVariantConfirmed&<surgical_event_id>=>PT_SS21_TissueVariantConfirmed_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_TISSUE:<patient_id>=>PT_SS21_TissueVariantConfirmed&<surgical_event_id>=>PT_SS21_TissueVariantConfirmed_SEI1&<molecular_id>=>PT_SS21_TissueVariantConfirmed_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
+    "aliquot:<patient_id>=>PT_SS21_TissueVariantConfirmed&<ion_reporter_id>=>bdd_test_ion_reporter&<analysis_id>=>PT_SS21_TissueVariantConfirmed_ANI1&<molecular_id>=>PT_SS21_TissueVariantConfirmed_MOI1&<site>=>MDA",
+    "variant_report_confirmed:<patient_id>=>PT_SS21_TissueVariantConfirmed&<analysis_id>=>PT_SS21_TissueVariantConfirmed_ANI1&<status>=>confirm&<comment>=>Test&<comment_user>=>QA"
+  ],
+  "PT_SS26_TsVRReceived": [
+    "registration:<patient_id>=>PT_SS26_TsVRReceived&<status_date>=>current",
+    "specimen_received_BLOOD:<patient_id>=>PT_SS26_TsVRReceived&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS26_TsVRReceived&<surgical_event_id>=>PT_SS26_TsVRReceived_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_TISSUE:<patient_id>=>PT_SS26_TsVRReceived&<surgical_event_id>=>PT_SS26_TsVRReceived_SEI1&<molecular_id>=>PT_SS26_TsVRReceived_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
+    "aliquot:<patient_id>=>PT_SS26_TsVRReceived&<ion_reporter_id>=>bdd_test_ion_reporter&<analysis_id>=>PT_SS26_TsVRReceived_ANI1&<molecular_id>=>PT_SS26_TsVRReceived_MOI1&<site>=>MDA"
+  ],
+  "PT_SS26_TsVRConfirmed": [
+    "registration:<patient_id>=>PT_SS26_TsVRConfirmed&<status_date>=>current",
+    "specimen_received_BLOOD:<patient_id>=>PT_SS26_TsVRConfirmed&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS26_TsVRConfirmed&<surgical_event_id>=>PT_SS26_TsVRConfirmed_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_TISSUE:<patient_id>=>PT_SS26_TsVRConfirmed&<surgical_event_id>=>PT_SS26_TsVRConfirmed_SEI1&<molecular_id>=>PT_SS26_TsVRConfirmed_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
+    "aliquot:<patient_id>=>PT_SS26_TsVRConfirmed&<ion_reporter_id>=>bdd_test_ion_reporter&<analysis_id>=>PT_SS26_TsVRConfirmed_ANI1&<molecular_id>=>PT_SS26_TsVRConfirmed_MOI1&<site>=>MDA",
+    "variant_report_confirmed:<patient_id>=>PT_SS26_TsVRConfirmed&<analysis_id>=>PT_SS26_TsVRConfirmed_ANI1&<status>=>confirm&<comment>=>Test&<comment_user>=>QA"
+  ],
+  "PT_SS27_VariantReportUploaded": [
+    "registration:<patient_id>=>PT_SS27_VariantReportUploaded&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS27_VariantReportUploaded&<surgical_event_id>=>PT_SS27_VariantReportUploaded_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_TISSUE:<patient_id>=>PT_SS27_VariantReportUploaded&<surgical_event_id>=>PT_SS27_VariantReportUploaded_SEI1&<molecular_id>=>PT_SS27_VariantReportUploaded_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
+    "aliquot:<patient_id>=>PT_SS27_VariantReportUploaded&<ion_reporter_id>=>bdd_test_ion_reporter&<analysis_id>=>PT_SS27_VariantReportUploaded_ANI1&<molecular_id>=>PT_SS27_VariantReportUploaded_MOI1&<site>=>MDA"
+  ],
+  "PT_SS30_TsBdReceived": [
+    "registration:<patient_id>=>PT_SS30_TsBdReceived&<status_date>=>current",
+    "specimen_received_BLOOD:<patient_id>=>PT_SS30_TsBdReceived&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS30_TsBdReceived&<surgical_event_id>=>PT_SS30_TsBdReceived_SEI1&<collection_dt>=>today&<received_dttm>=>current"
+  ],
+  "PT_SS26_PendingApproval1": [
+    "registration:<patient_id>=>PT_SS26_PendingApproval1&<status_date>=>current",
+    "specimen_received_BLOOD:<patient_id>=>PT_SS26_PendingApproval1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS26_PendingApproval1&<surgical_event_id>=>PT_SS26_PendingApproval1_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_TISSUE:<patient_id>=>PT_SS26_PendingApproval1&<surgical_event_id>=>PT_SS26_PendingApproval1_SEI1&<molecular_id>=>PT_SS26_PendingApproval1_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
+    "specimen_shipped_SLIDE:<patient_id>=>PT_SS26_PendingApproval1&<surgical_event_id>=>PT_SS26_PendingApproval1_SEI1&<slide_barcode>=>PT_SS26_PendingApproval1_BC1&<shipped_dttm>=>current",
+    "assay_result_reported:<patient_id>=>PT_SS26_PendingApproval1&<surgical_event_id>=>PT_SS26_PendingApproval1_SEI1&<biomarker>=>ICCPTENs&<result>=>NEGATIVE&<reported_date>=>current",
+    "assay_result_reported:<patient_id>=>PT_SS26_PendingApproval1&<surgical_event_id>=>PT_SS26_PendingApproval1_SEI1&<biomarker>=>ICCBAF47s&<result>=>NEGATIVE&<reported_date>=>current",
+    "assay_result_reported:<patient_id>=>PT_SS26_PendingApproval1&<surgical_event_id>=>PT_SS26_PendingApproval1_SEI1&<biomarker>=>ICCBRG1s&<result>=>NEGATIVE&<reported_date>=>current",
+    "aliquot:<patient_id>=>PT_SS26_PendingApproval1&<ion_reporter_id>=>bdd_test_ion_reporter&<analysis_id>=>PT_SS26_PendingApproval1_ANI1&<molecular_id>=>PT_SS26_PendingApproval1_MOI1&<site>=>MDA",
+    "variant_report_confirmed:<patient_id>=>PT_SS26_PendingApproval1&<analysis_id>=>PT_SS26_PendingApproval1_ANI1&<status>=>confirm&<comment>=>Test&<comment_user>=>QA",
+    "assignment_confirmed:<patient_id>=>PT_SS26_PendingApproval1&<analysis_id>=>PT_SS26_PendingApproval1_ANI1&<comment>=>Test&<comment_user>=>QA"
+  ],
+  "PT_SS26_RequestAssignment": [
+    "registration:<patient_id>=>PT_SS26_RequestAssignment&<status_date>=>current",
+    "specimen_received_BLOOD:<patient_id>=>PT_SS26_RequestAssignment&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS26_RequestAssignment&<surgical_event_id>=>PT_SS26_RequestAssignment_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_TISSUE:<patient_id>=>PT_SS26_RequestAssignment&<surgical_event_id>=>PT_SS26_RequestAssignment_SEI1&<molecular_id>=>PT_SS26_RequestAssignment_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
+    "specimen_shipped_SLIDE:<patient_id>=>PT_SS26_RequestAssignment&<surgical_event_id>=>PT_SS26_RequestAssignment_SEI1&<slide_barcode>=>PT_SS26_RequestAssignment_BC1&<shipped_dttm>=>current",
+    "assay_result_reported:<patient_id>=>PT_SS26_RequestAssignment&<surgical_event_id>=>PT_SS26_RequestAssignment_SEI1&<biomarker>=>ICCPTENs&<result>=>NEGATIVE&<reported_date>=>current",
+    "assay_result_reported:<patient_id>=>PT_SS26_RequestAssignment&<surgical_event_id>=>PT_SS26_RequestAssignment_SEI1&<biomarker>=>ICCBAF47s&<result>=>NEGATIVE&<reported_date>=>current",
+    "assay_result_reported:<patient_id>=>PT_SS26_RequestAssignment&<surgical_event_id>=>PT_SS26_RequestAssignment_SEI1&<biomarker>=>ICCBRG1s&<result>=>NEGATIVE&<reported_date>=>current",
+    "aliquot:<patient_id>=>PT_SS26_RequestAssignment&<ion_reporter_id>=>bdd_test_ion_reporter&<analysis_id>=>PT_SS26_RequestAssignment_ANI1&<molecular_id>=>PT_SS26_RequestAssignment_MOI1&<site>=>MDA",
+    "variant_report_confirmed:<patient_id>=>PT_SS26_RequestAssignment&<analysis_id>=>PT_SS26_RequestAssignment_ANI1&<status>=>confirm&<comment>=>Test&<comment_user>=>QA",
+    "assignment_confirmed:<patient_id>=>PT_SS26_RequestAssignment&<analysis_id>=>PT_SS26_RequestAssignment_ANI1&<comment>=>Test&<comment_user>=>QA",
+    "on_treatment_arm:<patient_id>=>PT_SS26_RequestAssignment&<step_number>=>1.1&<status_date>=>current&<treatment_arm_id>=>APEC1621-A&<stratum_id>=>100",
+    "request_assignment:<patient_id>=>PT_SS26_RequestAssignment&<step_number>=>2.0&<status_date>=>current&<status>=>REQUEST_ASSIGNMENT&<rebiopsy>=>Y"
+  ],
+  "PT_SS31_NoTaAvailable": [
+    "registration:<patient_id>=>PT_SS31_NoTaAvailable&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS31_NoTaAvailable&<surgical_event_id>=>PT_SS31_NoTaAvailable_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_TISSUE:<patient_id>=>PT_SS31_NoTaAvailable&<surgical_event_id>=>PT_SS31_NoTaAvailable_SEI1&<molecular_id>=>PT_SS31_NoTaAvailable_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
+    "specimen_shipped_SLIDE:<patient_id>=>PT_SS31_NoTaAvailable&<surgical_event_id>=>PT_SS31_NoTaAvailable_SEI1&<slide_barcode>=>PT_SS31_NoTaAvailable_BC1&<shipped_dttm>=>current",
+    "assay_result_reported:<patient_id>=>PT_SS31_NoTaAvailable&<surgical_event_id>=>PT_SS31_NoTaAvailable_SEI1&<biomarker>=>ICCPTENs&<result>=>NEGATIVE&<reported_date>=>current",
+    "assay_result_reported:<patient_id>=>PT_SS31_NoTaAvailable&<surgical_event_id>=>PT_SS31_NoTaAvailable_SEI1&<biomarker>=>ICCBAF47s&<result>=>NEGATIVE&<reported_date>=>current",
+    "assay_result_reported:<patient_id>=>PT_SS31_NoTaAvailable&<surgical_event_id>=>PT_SS31_NoTaAvailable_SEI1&<biomarker>=>ICCBRG1s&<result>=>NEGATIVE&<reported_date>=>current",
+    "aliquot:<patient_id>=>PT_SS31_NoTaAvailable&<ion_reporter_id>=>bdd_test_ion_reporter&<analysis_id>=>PT_SS31_NoTaAvailable_ANI1&<molecular_id>=>PT_SS31_NoTaAvailable_MOI1&<site>=>MDA",
+    "variant_report_confirmed:<patient_id>=>PT_SS31_NoTaAvailable&<analysis_id>=>PT_SS31_NoTaAvailable_ANI1&<status>=>confirm&<comment>=>Test&<comment_user>=>QA",
+    "assignment_confirmed:<patient_id>=>PT_SS31_NoTaAvailable&<analysis_id>=>PT_SS31_NoTaAvailable_ANI1&<comment>=>Test&<comment_user>=>QA"
+  ],
+  "PT_SS31_CompassionateCare": [
+    "registration:<patient_id>=>PT_SS31_CompassionateCare&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS31_CompassionateCare&<surgical_event_id>=>PT_SS31_CompassionateCare_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_TISSUE:<patient_id>=>PT_SS31_CompassionateCare&<surgical_event_id>=>PT_SS31_CompassionateCare_SEI1&<molecular_id>=>PT_SS31_CompassionateCare_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
+    "specimen_shipped_SLIDE:<patient_id>=>PT_SS31_CompassionateCare&<surgical_event_id>=>PT_SS31_CompassionateCare_SEI1&<slide_barcode>=>PT_SS31_CompassionateCare_BC1&<shipped_dttm>=>current",
+    "assay_result_reported:<patient_id>=>PT_SS31_CompassionateCare&<surgical_event_id>=>PT_SS31_CompassionateCare_SEI1&<biomarker>=>ICCPTENs&<result>=>NEGATIVE&<reported_date>=>current",
+    "assay_result_reported:<patient_id>=>PT_SS31_CompassionateCare&<surgical_event_id>=>PT_SS31_CompassionateCare_SEI1&<biomarker>=>ICCBAF47s&<result>=>NEGATIVE&<reported_date>=>current",
+    "assay_result_reported:<patient_id>=>PT_SS31_CompassionateCare&<surgical_event_id>=>PT_SS31_CompassionateCare_SEI1&<biomarker>=>ICCBRG1s&<result>=>NEGATIVE&<reported_date>=>current",
+    "aliquot:<patient_id>=>PT_SS31_CompassionateCare&<ion_reporter_id>=>bdd_test_ion_reporter&<analysis_id>=>PT_SS31_CompassionateCare_ANI1&<molecular_id>=>PT_SS31_CompassionateCare_MOI1&<site>=>MDA",
+    "variant_report_confirmed:<patient_id>=>PT_SS31_CompassionateCare&<analysis_id>=>PT_SS31_CompassionateCare_ANI1&<status>=>confirm&<comment>=>Test&<comment_user>=>QA",
+    "assignment_confirmed:<patient_id>=>PT_SS31_CompassionateCare&<analysis_id>=>PT_SS31_CompassionateCare_ANI1&<comment>=>Test&<comment_user>=>QA"
+  ],
+  "PT_AS00_SlideShipped1": [
+    "registration:<patient_id>=>PT_AS00_SlideShipped1&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_AS00_SlideShipped1&<surgical_event_id>=>PT_AS00_SlideShipped1_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_SLIDE:<patient_id>=>PT_AS00_SlideShipped1&<surgical_event_id>=>PT_AS00_SlideShipped1_SEI1&<slide_barcode>=>PT_AS00_SlideShipped1_BC1&<shipped_dttm>=>current"
+  ],
+  "PT_AS00_SlideShipped2": [
+    "registration:<patient_id>=>PT_AS00_SlideShipped2&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_AS00_SlideShipped2&<surgical_event_id>=>PT_AS00_SlideShipped2_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_SLIDE:<patient_id>=>PT_AS00_SlideShipped2&<surgical_event_id>=>PT_AS00_SlideShipped2_SEI1&<slide_barcode>=>PT_AS00_SlideShipped2_BC1&<shipped_dttm>=>current"
+  ],
+  "PT_AS00_SlideShipped3": [
+    "registration:<patient_id>=>PT_AS00_SlideShipped3&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_AS00_SlideShipped3&<surgical_event_id>=>PT_AS00_SlideShipped3_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_SLIDE:<patient_id>=>PT_AS00_SlideShipped3&<surgical_event_id>=>PT_AS00_SlideShipped3_SEI1&<slide_barcode>=>PT_AS00_SlideShipped3_BC1&<shipped_dttm>=>current"
+  ],
+  "PT_AS00_SlideShipped4": [
+    "registration:<patient_id>=>PT_AS00_SlideShipped4&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_AS00_SlideShipped4&<surgical_event_id>=>PT_AS00_SlideShipped4_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_SLIDE:<patient_id>=>PT_AS00_SlideShipped4&<surgical_event_id>=>PT_AS00_SlideShipped4_SEI1&<slide_barcode>=>PT_AS00_SlideShipped4_BC1&<shipped_dttm>=>current"
+  ],
+  "PT_AS02_SlideShipped": [
+    "registration:<patient_id>=>PT_AS02_SlideShipped&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_AS02_SlideShipped&<surgical_event_id>=>PT_AS02_SlideShipped_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_SLIDE:<patient_id>=>PT_AS02_SlideShipped&<surgical_event_id>=>PT_AS02_SlideShipped_SEI1&<slide_barcode>=>PT_AS02_SlideShipped_BC1&<shipped_dttm>=>current"
+  ],
+  "PT_AS03_SlideShipped": [
+    "registration:<patient_id>=>PT_AS03_SlideShipped&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_AS03_SlideShipped&<surgical_event_id>=>PT_AS03_SlideShipped_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_SLIDE:<patient_id>=>PT_AS03_SlideShipped&<surgical_event_id>=>PT_AS03_SlideShipped_SEI1&<slide_barcode>=>PT_AS03_SlideShipped_BC1&<shipped_dttm>=>current"
+  ],
+  "PT_AS04_SlideShipped": [
+    "registration:<patient_id>=>PT_AS04_SlideShipped&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_AS04_SlideShipped&<surgical_event_id>=>PT_AS04_SlideShipped_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_SLIDE:<patient_id>=>PT_AS04_SlideShipped&<surgical_event_id>=>PT_AS04_SlideShipped_SEI1&<slide_barcode>=>PT_AS04_SlideShipped_BC1&<shipped_dttm>=>current"
+  ],
+  "PT_AS05_SlideShipped": [
+    "registration:<patient_id>=>PT_AS05_SlideShipped&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_AS05_SlideShipped&<surgical_event_id>=>PT_AS05_SlideShipped_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_SLIDE:<patient_id>=>PT_AS05_SlideShipped&<surgical_event_id>=>PT_AS05_SlideShipped_SEI1&<slide_barcode>=>PT_AS05_SlideShipped_BC1&<shipped_dttm>=>current"
+  ],
+  "PT_AS06_SlideShipped": [
+    "registration:<patient_id>=>PT_AS06_SlideShipped&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_AS06_SlideShipped&<surgical_event_id>=>PT_AS06_SlideShipped_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_SLIDE:<patient_id>=>PT_AS06_SlideShipped&<surgical_event_id>=>PT_AS06_SlideShipped_SEI1&<slide_barcode>=>PT_AS06_SlideShipped_BC1&<shipped_dttm>=>current"
+  ],
+  "PT_AS07_SlideShipped": [
+    "registration:<patient_id>=>PT_AS07_SlideShipped&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_AS07_SlideShipped&<surgical_event_id>=>PT_AS07_SlideShipped_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_SLIDE:<patient_id>=>PT_AS07_SlideShipped&<surgical_event_id>=>PT_AS07_SlideShipped_SEI1&<slide_barcode>=>PT_AS07_SlideShipped_BC1&<shipped_dttm>=>current"
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "PT_SS10_TissueReceived": [
+    "registration:<patient_id>=>PT_SS10_TissueReceived&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS10_TissueReceived&<surgical_event_id>=>PT_SS10_TissueReceived_SEI1&<collection_dt>=>today&<received_dttm>=>current"
+  ],
+  "PT_SS11_Tissue1Shipped": [
+    "registration:<patient_id>=>PT_SS11_Tissue1Shipped&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS11_Tissue1Shipped&<surgical_event_id>=>PT_SS11_Tissue1Shipped_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_TISSUE:<patient_id>=>PT_SS11_Tissue1Shipped&<surgical_event_id>=>PT_SS11_Tissue1Shipped_SEI1&<molecular_id>=>PT_SS11_Tissue1Shipped_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
+    "specimen_shipped_TISSUE:<patient_id>=>PT_SS11_Tissue1Shipped&<surgical_event_id>=>PT_SS11_Tissue1Shipped_SEI1&<molecular_id>=>PT_SS11_Tissue1Shipped_MOI2&<shipped_dttm>=>current&<destination>=>MDA"
+  ],
+  "PT_SS12_Tissue1Shipped": [
+    "registration:<patient_id>=>PT_SS12_Tissue1Shipped&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS12_Tissue1Shipped&<surgical_event_id>=>PT_SS12_Tissue1Shipped_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_TISSUE:<patient_id>=>PT_SS12_Tissue1Shipped&<surgical_event_id>=>PT_SS12_Tissue1Shipped_SEI1&<molecular_id>=>PT_SS12_Tissue1Shipped_MOI1&<shipped_dttm>=>current&<destination>=>MDA"
+  ],
+  "PT_SS14_TissueReceived": [
+    "registration:<patient_id>=>PT_SS14_TissueReceived&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS14_TissueReceived&<surgical_event_id>=>PT_SS14_TissueReceived_SEI1&<collection_dt>=>today&<received_dttm>=>current"
+  ],
+  "PT_SS15_Slide1Shipped": [
+    "registration:<patient_id>=>PT_SS15_Slide1Shipped&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS15_Slide1Shipped&<surgical_event_id>=>PT_SS15_Slide1Shipped_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_SLIDE:<patient_id>=>PT_SS15_Slide1Shipped&<surgical_event_id>=>PT_SS15_Slide1Shipped_SEI1&<slide_barcode>=>PT_SS15_Slide1Shipped_BC1&<shipped_dttm>=>current"
+  ],
+  "PT_SS16_Slide1Shipped": [
+    "registration:<patient_id>=>PT_SS16_Slide1Shipped&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS16_Slide1Shipped&<surgical_event_id>=>PT_SS16_Slide1Shipped_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_SLIDE:<patient_id>=>PT_SS16_Slide1Shipped&<surgical_event_id>=>PT_SS16_Slide1Shipped_SEI1&<slide_barcode>=>PT_SS16_Slide1Shipped_BC1&<shipped_dttm>=>current"
+  ],
+  "PT_SS17_Registered": [
+    "registration:<patient_id>=>PT_SS17_Registered&<status_date>=>current"
+  ],
+  "PT_SS17a_Registered": [
+    "registration:<patient_id>=>PT_SS17a_Registered&<status_date>=>current"
+  ],
+  "PT_SS17b_Registered": [
+    "registration:<patient_id>=>PT_SS17b_Registered&<status_date>=>current"
+  ],
+  "PT_SS20_Blood1Shipped": [
+    "registration:<patient_id>=>PT_SS20_Blood1Shipped&<status_date>=>current",
+    "specimen_received_BLOOD:<patient_id>=>PT_SS20_Blood1Shipped&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_BLOOD:<patient_id>=>PT_SS20_Blood1Shipped&<molecular_id>=>PT_SS20_Blood1Shipped_BD_MOI1&<shipped_dttm>=>current&<destination>=>MDA"
+  ],
+  "PT_SS23_TissueReceived1": [
+    "registration:<patient_id>=>PT_SS23_TissueReceived1&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS23_TissueReceived1&<surgical_event_id>=>PT_SS23_TissueReceived1_SEI1&<collection_dt>=>today&<received_dttm>=>current"
+  ],
+  "PT_SS23_TissueReceived2": [
+    "registration:<patient_id>=>PT_SS23_TissueReceived2&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS23_TissueReceived2&<surgical_event_id>=>PT_SS23_TissueReceived2_SEI1&<collection_dt>=>today&<received_dttm>=>current"
+  ],
+  "PT_SS23_SlideShipped": [
+    "registration:<patient_id>=>PT_SS23_SlideShipped&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS23_SlideShipped&<surgical_event_id>=>PT_SS23_SlideShipped_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_SLIDE:<patient_id>=>PT_SS23_SlideShipped&<surgical_event_id>=>PT_SS23_SlideShipped_SEI1&<slide_barcode>=>PT_SS23_SlideShipped_BC1&<shipped_dttm>=>current"
+  ],
+  "PT_SS23_TissueShipped": [
+    "registration:<patient_id>=>PT_SS23_TissueShipped&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS23_TissueShipped&<surgical_event_id>=>PT_SS23_TissueShipped_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_TISSUE:<patient_id>=>PT_SS23_TissueShipped&<surgical_event_id>=>PT_SS23_TissueShipped_SEI1&<molecular_id>=>PT_SS23_TissueShipped_MOI1&<shipped_dttm>=>current&<destination>=>MDA"
+  ],
+  "PT_SS24_BloodShipped": [
+    "registration:<patient_id>=>PT_SS24_BloodShipped&<status_date>=>current",
+    "specimen_received_BLOOD:<patient_id>=>PT_SS24_BloodShipped&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS24_BloodShipped&<surgical_event_id>=>PT_SS24_BloodShipped_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_BLOOD:<patient_id>=>PT_SS24_BloodShipped&<molecular_id>=>PT_SS24_BloodShipped_BD_MOI1&<shipped_dttm>=>current&<destination>=>MDA"
+  ],
+  "PT_SS24_TissueShipped": [
+    "registration:<patient_id>=>PT_SS24_TissueShipped&<status_date>=>current",
+    "specimen_received_BLOOD:<patient_id>=>PT_SS24_TissueShipped&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS24_TissueShipped&<surgical_event_id>=>PT_SS24_TissueShipped_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_TISSUE:<patient_id>=>PT_SS24_TissueShipped&<surgical_event_id>=>PT_SS24_TissueShipped_SEI1&<molecular_id>=>PT_SS24_TissueShipped_MOI1&<shipped_dttm>=>current&<destination>=>MDA"
+  ],
+  "PT_SS25_BloodShipped": [
+    "registration:<patient_id>=>PT_SS25_BloodShipped&<status_date>=>current",
+    "specimen_received_BLOOD:<patient_id>=>PT_SS25_BloodShipped&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_BLOOD:<patient_id>=>PT_SS25_BloodShipped&<molecular_id>=>PT_SS25_BloodShipped_BD_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
+    "specimen_shipped_BLOOD:<patient_id>=>PT_SS25_BloodShipped&<molecular_id>=>PT_SS25_BloodShipped_BD_MOI2&<shipped_dttm>=>current&<destination>=>MDA"
+  ],
+  "PT_SS26_TsReceived": [
+    "registration:<patient_id>=>PT_SS26_TsReceived&<status_date>=>current",
+    "specimen_received_BLOOD:<patient_id>=>PT_SS26_TsReceived&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS26_TsReceived&<surgical_event_id>=>PT_SS26_TsReceived_SEI1&<collection_dt>=>today&<received_dttm>=>current"
+  ],
+  "PT_SS26_TsShipped": [
+    "registration:<patient_id>=>PT_SS26_TsShipped&<status_date>=>current",
+    "specimen_received_BLOOD:<patient_id>=>PT_SS26_TsShipped&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS26_TsShipped&<surgical_event_id>=>PT_SS26_TsShipped_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_TISSUE:<patient_id>=>PT_SS26_TsShipped&<surgical_event_id>=>PT_SS26_TsShipped_SEI1&<molecular_id>=>PT_SS26_TsShipped_MOI1&<shipped_dttm>=>current&<destination>=>MDA"
+  ],
+  "PT_SS26_AssayConfirmed": [
+    "registration:<patient_id>=>PT_SS26_AssayConfirmed&<status_date>=>current",
+    "specimen_received_BLOOD:<patient_id>=>PT_SS26_AssayConfirmed&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS26_AssayConfirmed&<surgical_event_id>=>PT_SS26_AssayConfirmed_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_SLIDE:<patient_id>=>PT_SS26_AssayConfirmed&<surgical_event_id>=>PT_SS26_AssayConfirmed_SEI1&<slide_barcode>=>PT_SS26_AssayConfirmed_BC1&<shipped_dttm>=>current",
+    "assay_result_reported:<patient_id>=>PT_SS26_AssayConfirmed&<surgical_event_id>=>PT_SS26_AssayConfirmed_SEI1&<biomarker>=>ICCPTENs&<result>=>NEGATIVE&<reported_date>=>current"
+  ],
+  "PT_SS28_TsReceived1": [
+    "registration:<patient_id>=>PT_SS28_TsReceived1&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS28_TsReceived1&<surgical_event_id>=>PT_SS28_TsReceived1_SEI1&<collection_dt>=>today&<received_dttm>=>current"
+  ],
+  "PT_SS28_TsReceived2": [
+    "registration:<patient_id>=>PT_SS28_TsReceived2&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS28_TsReceived2&<surgical_event_id>=>PT_SS28_TsReceived2_SEI1&<collection_dt>=>today&<received_dttm>=>current"
+  ],
+  "PT_SS28_TsReceived3": [
+    "registration:<patient_id>=>PT_SS28_TsReceived3&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS28_TsReceived3&<surgical_event_id>=>PT_SS28_TsReceived3_SEI1&<collection_dt>=>today&<received_dttm>=>current"
+  ],
+  "PT_SS28_TsReceived4": [
+    "registration:<patient_id>=>PT_SS28_TsReceived4&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS28_TsReceived4&<surgical_event_id>=>PT_SS28_TsReceived4_SEI1&<collection_dt>=>today&<received_dttm>=>current"
+  ],
+  "PT_SS28_TsReceived5": [
+    "registration:<patient_id>=>PT_SS28_TsReceived5&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS28_TsReceived5&<surgical_event_id>=>PT_SS28_TsReceived5_SEI1&<collection_dt>=>today&<received_dttm>=>current"
+  ]
+}

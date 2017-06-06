@@ -4,7 +4,7 @@ require_relative 'logger'
 class PatientStory
   SAVE_FILE_FOLDER = "#{File.dirname(__FILE__)}/seed_patient_stories"
   SAVE_FILE_PREFIX = 'seed_patient_story-'
-  MAX_PATIENTS = 100
+  MAX_PATIENTS = 25
   DEFAULT_NEW = 'default_new'
   DEFAULT_ACTIVE = 'default_active'
 
@@ -87,8 +87,13 @@ class PatientStory
   end
 
   def lookup
-    cmd = "grep -l -r #{@patient_id} #{SAVE_FILE_FOLDER}/."
-    `#{cmd}`.chop
+    cmd = "grep -l -r \\\"#{@patient_id}\\\" #{SAVE_FILE_FOLDER}/."
+    result = `#{cmd}`.strip
+    if result.split(SAVE_FILE_PREFIX).size > 2
+      Logger.error("There are multiple files that contain patient #{patient_id}, they are:")
+      Logger.error(result)
+    end
+    result
   end
 
   def save
@@ -135,7 +140,7 @@ class PatientStory
     @story_hash << this_story
   end
 
-  def story_specimen_received_tissue(surgical_event_id = DEFAULT_NEW, collect_date='today')
+  def story_specimen_received_tissue(collect_date='today', surgical_event_id = DEFAULT_NEW)
     @active_sei = process_id(@active_sei, surgical_event_id)
     d = collect_date.include?(':') ? collect_date : "#{collect_date}T00:01:01+00:00"
     d = 'current' if collect_date == 'today'
@@ -152,9 +157,9 @@ class PatientStory
     @story_hash << this_story
   end
 
-  def story_specimen_shipped_tissue(molecular_id = DEFAULT_NEW,
-                                    destination='MDA',
+  def story_specimen_shipped_tissue(destination='MDA',
                                     shipped_time='current',
+                                    molecular_id = DEFAULT_NEW,
                                     surgical_event_id = DEFAULT_ACTIVE)
     @active_ts_moi = process_id(@active_ts_moi, molecular_id)
     @active_site = destination
@@ -164,8 +169,8 @@ class PatientStory
     @story_hash << this_story
   end
 
-  def story_specimen_shipped_slide(slide_barcode = DEFAULT_NEW,
-                                   shipped_time='current',
+  def story_specimen_shipped_slide(shipped_time='current',
+                                   slide_barcode = DEFAULT_NEW,
                                    surgical_event_id = DEFAULT_ACTIVE)
     @active_bc = process_id(@active_bc, slide_barcode)
     sei = process_id(@active_sei, surgical_event_id)
@@ -174,7 +179,7 @@ class PatientStory
     @story_hash << this_story
   end
 
-  def story_specimen_shipped_blood(molecular_id = DEFAULT_NEW, destination='MDA', shipped_time='current')
+  def story_specimen_shipped_blood(destination='MDA', shipped_time='current', molecular_id = DEFAULT_NEW)
     @active_bd_moi = process_id(@active_bd_moi, molecular_id)
     @active_site = destination
     this_story = "specimen_shipped_BLOOD:<patient_id>=>#{@patient_id}&"
@@ -189,9 +194,9 @@ class PatientStory
     @story_hash << this_story
   end
 
-  def story_tissue_variant_report(analysis_id = DEFAULT_NEW,
-                                  vr_type='default',
+  def story_tissue_variant_report(vr_type='default',
                                   folder='bdd_test_ion_reporter',
+                                  analysis_id = DEFAULT_NEW,
                                   molecular_id=DEFAULT_ACTIVE,
                                   site=DEFAULT_ACTIVE)
     @active_ts_ani = process_id(@active_ts_ani, analysis_id)
@@ -203,9 +208,9 @@ class PatientStory
     @story_hash << this_story
   end
 
-  def story_blood_variant_report(analysis_id = DEFAULT_NEW,
-                                 vr_type='default',
+  def story_blood_variant_report(vr_type='default',
                                  folder='bdd_test_ion_reporter',
+                                 analysis_id = DEFAULT_NEW,
                                  molecular_id=DEFAULT_ACTIVE,
                                  site=DEFAULT_ACTIVE)
     @active_bd_ani = process_id(@active_bd_ani, analysis_id)
@@ -272,9 +277,9 @@ class PatientStory
   end
 
 
-  def story_request_no_assignment(step_number='2.0', status_date='current')
-    @step_number = step_number
-    this_story = "request_assignment:<patient_id>=>#{@patient_id}&<step_number>=>#{step_number}"
+  def story_request_no_assignment(step_number=DEFAULT_ACTIVE, status_date='current')
+    @step_number = process_id(@step_number, step_number)
+    this_story = "request_assignment:<patient_id>=>#{@patient_id}&<step_number>=>#{@step_number}"
     this_story += "&<status_date>=>#{status_date}&<status>=>REQUEST_NO_ASSIGNMENT&<rebiopsy>=>N"
     @story_hash << this_story
   end
@@ -290,4 +295,3 @@ class PatientStory
 
   private :lookup, :load
 end
-

@@ -11,7 +11,7 @@ class PatientStorySender
   TIMEOUT = 45
 
   def self.set_tier(tier)
-   Constants.set_tier(tier)
+    Constants.set_tier(tier)
   end
 
   def self.send_patient_story(patient_story)
@@ -100,6 +100,8 @@ class PatientStorySender
                                              PedMatchRestClient.wait_until_update(param)
                                            when 'post' then
                                              PedMatchRestClient.send_until_accept(param, 'post', {})
+                                           when 'sleep' then
+                                             sleep(param.to_f)
                                            when 'json_to_int' then
                                              copy_json_to_int(param)
                                            else
@@ -118,3 +120,42 @@ class PatientStorySender
                          true
                        end
 end
+#
+# path = '/Users/wangl17/match_apps/nci-uMatch-bddtests/DataSetup/local_patient_data/Patient_TA_UI_data_done.rb'
+# f = File.new(path, 'r+')
+# f.each { |line|
+#   if line.strip.start_with?('def self.')
+#     f.seek(-line.length, IO::SEEK_CUR)
+#     f.write(' ' * (line.length - 1))
+#     f.write("\n")
+#   end
+# }
+#
+# string = File.read(path)
+# string.gsub!('  end', 'pt.save')
+# string.gsub!('PatientDataSet', 'PatientStory')
+# string.gsub!('PatientMessageLoader.register_patient(pt.id)', 'pt.story_register')
+# string.gsub!('PatientMessageLoader.specimen_received_tissue(pt.id, pt.sei)', 'pt.story_specimen_received_tissue')
+# string.gsub!('PatientMessageLoader.specimen_shipped_tissue(pt.id, pt.sei, pt.moi)', 'pt.story_specimen_shipped_tissue')
+# string.gsub!('PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani)', 'pt.story_tissue_variant_report')
+# string.gsub!('PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.moi, pt.ani)', '')
+# string.gsub!('PatientMessageLoader.copy_CNV_json_to_int_folder(pt.id, pt.bd_moi, pt.ani)', '')
+# string.gsub!('sleep(10.0)', '')
+# string.gsub!('PatientMessageLoader.reset_cog_patient(pt.id)', '')
+#
+# string.gsub!('PatientMessageLoader.specimen_shipped_slide(pt.id, pt.sei, pt.bc)', 'pt.story_specimen_shipped_slide')
+# string.gsub!('PatientMessageLoader.specimen_received_blood(pt.id)', 'pt.story_specimen_received_blood')
+# string.gsub!('PatientMessageLoader.specimen_shipped_blood(pt.id, pt.bd_moi)', 'pt.story_specimen_shipped_blood')
+# string.gsub!("PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCPTENs')", "pt.story_assay('ICCPTENs', 'NEGATIVE')")
+# string.gsub!("PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBAF47s')", "pt.story_assay('ICCBAF47s', 'NEGATIVE')")
+# string.gsub!("PatientMessageLoader.assay(pt.id, pt.sei, 'NEGATIVE', 'ICCBRG1s')", "pt.story_assay('ICCBRG1s', 'NEGATIVE')")
+# string.gsub!("PatientMessageLoader.variant_file_confirmed(pt.id, 'confirm', pt.ani)", 'pt.story_variant_file_confirmed')
+# string.gsub!("PatientMessageLoader.variant_file_confirmed(pt.id, 'reject', pt.ani)", "pt.story_variant_file_confirmed('reject')")
+# string.gsub!("PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani, 'no_ta_available')", "pt.story_tissue_variant_report('no_ta_available')")
+# string.gsub!("PatientMessageLoader.variant_file_uploaded(pt.id, pt.moi, pt.ani, 'compassionate_care')", "pt.story_tissue_variant_report('compassionate_care')")
+# string.gsub!("PatientMessageLoader.on_treatment_arm(pt.id, 'APEC1621-A')", "pt.story_on_treatment_arm('APEC1621-A', '100')")
+# string.gsub!('PatientMessageLoader.request_assignment(pt.id)', "pt.story_request_assignment('Y')")
+# string.gsub!('PatientMessageLoader.assignment_confirmed(pt.id, pt.ani)', 'pt.story_assignment_confirmed')
+# string.gsub!("PatientMessageLoader.request_no_assignment(pt.id, '1.1')", 'pt.story_request_no_assignment')
+# string.gsub!('PatientMessageLoader.variant_file_uploaded(pt.id, pt.bd_moi, pt.ani)', 'pt.story_blood_variant_report')
+# File.open(path, 'w') { |f| f.write(string) }

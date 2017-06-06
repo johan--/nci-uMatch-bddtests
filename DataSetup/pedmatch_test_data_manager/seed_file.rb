@@ -22,9 +22,10 @@ class SeedFile
       field_name = table_name=='event' ? 'entity_id' : 'patient_id'
       remove_json_nodes_from_file(seed_file(table_name, tag), field_name, patient_list, 'S', "#{tag}/#{table_name}")
     }
-    TableInfo.treatment_arm_tables.each { |table_name|
-      remove_json_nodes_from_file(seed_file(table_name, tag), 'patient_id', patient_list, 'S', "#{tag}/#{table_name}")
-    }
+    rollback_in_ta_tables(patient_list, tag)
+    # TableInfo.treatment_arm_tables.each { |table_name|
+    #   remove_json_nodes_from_file(seed_file(table_name, tag), 'patient_id', patient_list, 'S', "#{tag}/#{table_name}")
+    # }
   end
 
   def self.copy_patients_between_tags(patient_list, from_tag, to_tag)
@@ -151,5 +152,68 @@ class SeedFile
                          items = file_hash['Items']
                          items.select { |this_item|
                            this_item.keys.include?(target_field) && target_value.eql?(this_item[target_field][value_type]) }
+                       end
+
+  private_class_method def self.rollback_in_ta_tables(patient_list, tag)
+                         file = seed_file('treatment_arm_assignment_event', tag)
+                         file_hash = JSON.parse(File.read(file))
+                         items = file_hash['Items']
+                         old_count = items.size
+                         items.each do |this_item|
+                           if patient_list.include?(this_item['patient_id']['S'])
+                             items.delete(this_item)
+                             # status = this_item['patient_status']['S']
+                             # ta_id = this_item['treatment_arm_id']['S']
+                             # stratum = this_item['stratum_id']['S']
+                             # version = this_item['version']['S']
+                             # update_ta_table(status, ta_id, stratum, version, tag)
+                           end
+                         end
+
+                         deleted = old_count-items.size
+                         if deleted > 0
+                           file_hash['ScannedCount'] = items.size
+                           file_hash['Count'] = items.size
+                           File.open(file, 'w') { |f| f.write(JSON.pretty_generate(file_hash)) }
+                         end
+                         list = patient_list.to_s
+                         if patient_list.size>3
+                           list = "[#{patient_list[0]}, #{patient_list[1]}, #{patient_list[2]}, "
+                           list += "and #{patient_list.size-3} more...]"
+                         end
+                         message = "There are #{deleted} patients"
+                         message += "(patient_id=#{list}) get removed from treatment arm tables"
+                         Logger.log(message)
+                       end
+
+  private_class_method def self.update_ta_table(status, ta_id, stratum, version, tag)
+                         statuses = %w(PREVIOUSLY_ON_ARM PREVIOUSLY_ON_ARM_OFF_STUDY NOT_ENROLLED_ON_ARM)
+                         statuses << 'NOT_ENROLLED_ON_ARM_OFF_STUDY'
+                         statuses << 'PENDING_APPROVAL'
+                         statuses << 'ON_TREATMENT_ARM'
+                         return unless statuses.include?(status)
+                         file_hash = JSON.parse(File.read(seed_file('treatment_arm', tag)))
+                         ta_hashes = file_hash.select { |this_ta| this_ta['treatment_arm_id']['S'] == ta_id && this_ta['stratum_id']['S']==stratum }
+                         ta_hash = ta_hash.select{|ta| ta['version']['S']==version}
+                         case status
+                           when 'PREVIOUSLY_ON_ARM', 'PREVIOUSLY_ON_ARM_OFF_STUDY'
+                             field = 'former_patients'
+                             v_field = 'version_former_patients'
+                           when 'NOT_ENROLLED_ON_ARM', 'NOT_ENROLLED_ON_ARM_OFF_STUDY'
+                             field = 'not_enrolled_patients'
+                             v_field = 'version_not_enrolled_patients'
+                           when 'PENDING_APPROVAL'
+                             field = 'pending_patients'
+                             v_field = 'version_pending_patients'
+                           when 'ON_TREATMENT_ARM'
+                             field = 'current_patients'
+                             v_field = 'version_current_patients'
+                           else
+                             field = ''
+                             v_field = ''
+                         end
+                         ta_hash[v_field] = (ta_hash[v_field]['N'].to_i - 1).to_s
+                         ta_hashes.each { |ta| ta[field] = (ta[field]['N'].to_i - 1).to_s }
+                         File.open(seed_file('treatment_arm', tag), 'w') { |f| f.write(JSON.pretty_generate(file_hash)) }
                        end
 end

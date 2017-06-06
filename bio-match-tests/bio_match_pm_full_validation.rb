@@ -18,6 +18,22 @@ class BioMatchPMFullValidation
       @mock_cog_url='http://127.0.0.1:3000'
       @s3_bucket='pedmatch-dev'
       PatientMessageLoader.set_patient_api_url(@patient_url)
+    elsif tier.downcase == 'int'
+      @ion_reporter='bio-match-test'
+      @patient_url='https://pedmatch-int.nci.nih.gov/api/v1/patients'
+      @treatment_arm_url='https://pedmatch-int.nci.nih.gov/api/v1/treatment_arms'
+      @rule_url='https://pedmatch-int.nci.nih.gov/api/v1/rules'
+      @ta_url='https://pedmatch-int.nci.nih.gov/api/v1/treatment_arms'
+      @ir_url='https://pedmatch-int.nci.nih.gov/api/v1/aliquot'
+      @mock_cog_url='http://umatch-uat-alb-backend-1961495808.us-east-1.elb.amazonaws.com:3000'
+      @s3_bucket='pedmatch-int'
+      # ENV['AWS_ACCESS_KEY_ID'] = ''
+      # ENV['AWS_SECRET_ACCESS_KEY'] = ''
+      ENV['AUTH0_CLIENT_ID'] = ENV['INT_AUTH0_CLIENT_ID']
+      ENV['ADMIN_AUTH0_USERNAME'] = ENV['INT_ADMIN_AUTH0_USERNAME']
+      ENV['ADMIN_AUTH0_PASSWORD'] = ENV['INT_ADMIN_AUTH0_PASSWORD']
+      ENV['AUTH0_DATABASE'] = ENV['INT_AUTH0_DATABASE']
+      PatientMessageLoader.set_patient_api_url(@patient_url)
     elsif tier.downcase == 'uat'
       @ion_reporter='bio-match-test'
       @patient_url='https://pedmatch-uat.nci.nih.gov/api/v1/patients'

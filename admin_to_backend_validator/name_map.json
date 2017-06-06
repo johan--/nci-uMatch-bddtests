@@ -1,14 +1,14 @@
 {
   "ta_params": {
     "ARM Official Name": "name",
-    "Arm Pathway Id": "treatment_arm_drugs/pathway_id",
+    "Arm Pathway Id": "treatment_arm_drugs[0]pathway_id",
     "ARM Gene": "gene",
     "ARM Id": "treatment_arm_id",
-    "Arm Pathway Name": "treatment_arm_drugs/pathway",
+    "Arm Pathway Name": "treatment_arm_drugs[0]pathway",
     "Arm Target Name": "target_name",
     "Arm Description": "description",
-    "ARM Drug": "treatment_arm_drugs/name",
-    "ARM Drug ID": "treatment_arm_drugs/drug_id",
+    "ARM Drug": "treatment_arm_drugs[0]name",
+    "ARM Drug ID": "treatment_arm_drugs[0]drug_id",
     "Version": "version",
     "stratum_id": "stratum_id"
   },
@@ -52,6 +52,6 @@
     "Position":"position",
     "Alt":"ocp_alternative",
     "Ref":"ocp_reference",
-    "Literature Reference":"public_med_ids"
+    "Literature Reference":"public_med_ids[0]"
   }
 }
