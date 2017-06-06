@@ -312,7 +312,7 @@ Feature: Ensure the rules are fired correctly and patients are assigned to the r
     When assignPatient service is called for patient "PID-1234"
     Then a patient assignment json is returned with report_status "TREATMENT_FOUND"
     And a patient assignment json is returned with reason category "SELECTED" for treatment arm "Rules-Test13"
-    And the patient assignment reason is "A match was found for inclusion nonhotspot variant ({GENE: KRAS}, FUNC: -, EXON: 20, OVA: deleterious, PROTEIN: p.A416BC)."
+    And the patient assignment reason is "A match was found for inclusion nonhotspot variant (GENE: KRAS, FUNC: -, EXON: 20, OVA: deleterious, PROTEIN: p.A416BC)."
 
   Scenario: PA_40: Matching non-hotspot rule - gene and domain out of range
     Given  the patient assignment json "patient_json_with_matching_non-hotspot-rules_gene-domain-match"
@@ -326,7 +326,7 @@ Feature: Ensure the rules are fired correctly and patients are assigned to the r
     And treatment arm json "Rules-Test15"
     When assignPatient service is called for patient "PID-1234"
     Then a patient assignment json is returned with report_status "TREATMENT_FOUND"
-    And the patient assignment reason is "A match was found for inclusion nonhotspot variant ({GENE: KRAS}, FUNC: -, EXON: 20, OVA: deleterious, PROTEIN: p.A416BC)."
+    And the patient assignment reason is "A match was found for inclusion nonhotspot variant (GENE: KRAS, FUNC: -, EXON: 20, OVA: deleterious, PROTEIN: p.A416BC)."
 
 
   Scenario: PA_42: Matching non-hotspot rule - gene and protein does not exist
