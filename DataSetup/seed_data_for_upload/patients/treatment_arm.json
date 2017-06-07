@@ -20240,6 +20240,9 @@
             "gene_fusions": {
                 "L": []
             },
+            "assay_rules": {
+                "L": []
+            },
             "snv_indels": {
                 "L": [
                     {

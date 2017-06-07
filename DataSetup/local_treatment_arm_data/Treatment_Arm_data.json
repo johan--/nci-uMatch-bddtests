@@ -1601,6 +1601,7 @@
     "target_id": 1234,
     "target_name": "HGFR Pathway",
     "date_created": "2016-11-08 15:57:25 UTC",
+    "assay_rules": [],
     "treatment_arm_drugs": [
       {
         "drugClass": "angiokinase inhibitor",
