@@ -1,7 +1,7 @@
 @patients_rollback
 Feature: Patient API rollback tests
 
-  @patients_p1
+  @patients_p1_off
   Scenario Outline: PT_RB01.rollback request will fail when patient is on certain status
     Given patient id is "<patient_id>"
     When PUT to MATCH rollback, response includes "invalid" with code "403"
@@ -25,7 +25,7 @@ Feature: Patient API rollback tests
 #      | PT_RB01_NoTaAvailable         | OFF_STUDY_BIOPSY_EXPIRED |
 #      | PT_RB01_CompassionateCare     | OFF_STUDY_BIOPSY_EXPIRED |
 
-  @patients_p1
+  @patients_p1_off
   Scenario Outline: PT_RB01a. confirmed and rejected variant report can be rolled back
     Given patient id is "<patient_id>"
     And patient API user authorization role is "ADMIN"
@@ -49,7 +49,7 @@ Feature: Patient API rollback tests
       | PT_RB01a_VrConfirmedTwoAssays |
       | PT_RB01a_VrRejectedTwoAssays  |
 
-  @patients_p2
+  @patients_p2_off
   Scenario Outline: PT_RB01b. rollback request should only rollback the latest confirmed variant report
     Given patient id is "<patient_id>"
     And patient API user authorization role is "ADMIN"
@@ -64,7 +64,7 @@ Feature: Patient API rollback tests
       | PT_RB01b_VrConfirmedStep2 |
       | PT_RB01b_VrRejectedStep2  |
 
-  @patients_p1
+  @patients_p1_off
   Scenario Outline: PT_RB02a. confirmed assignment report can be rolled back and redo the assignment should have same result
     Given patient id is "<patient_id>"
     And this patient should have "<count>" assignments for analysis id "<patient_id>_ANI1"
@@ -88,7 +88,7 @@ Feature: Patient API rollback tests
       | PT_RB02a_PendingApproval     | 1     | APEC1621-A     |            |            |                |            |
       | PT_RB02a_PendAppr3Assigns    | 3     | APEC1621-ETE-C | APEC1621-A | 100        | APEC1621-ETE-A | 100        |
 
-  @patients_p2
+  @patients_p2_off
   Scenario: PT_RB02b. rollback service only rollback the latest confirmed assignment report
     Given patient id is "PT_RB02b_PendingApprStep2"
     When PUT to MATCH rollback, response includes "" with code "200"

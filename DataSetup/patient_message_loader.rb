@@ -344,7 +344,7 @@ class PatientMessageLoader
     message['specimen_received']['surgical_event_id'] = surgical_event_id
     message['specimen_received']['collection_dt'] = convert_date(collect_time)
     unless message['specimen_received']['collection_dt'].include?(':')
-      message['specimen_received']['received_dttm'] = "#{convert_date(collect_time)}T22:06:33+00:00"
+      message['specimen_received']['received_dttm'] = "#{convert_date(collect_time)}T05:06:33+00:00"
     end
     send_message_to_local(message, patient_id)
     wait_until_updated(patient_id, '')

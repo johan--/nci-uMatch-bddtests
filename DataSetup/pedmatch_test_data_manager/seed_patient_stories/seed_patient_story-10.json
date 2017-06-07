@@ -54,13 +54,17 @@
     "registration:<patient_id>=>PT_SC07d_TsVrUploaded&<status_date>=>current",
     "specimen_received_TISSUE:<patient_id>=>PT_SC07d_TsVrUploaded&<surgical_event_id>=>PT_SC07d_TsVrUploaded_SEI1&<collection_dt>=>today&<received_dttm>=>current",
     "specimen_shipped_TISSUE:<patient_id>=>PT_SC07d_TsVrUploaded&<surgical_event_id>=>PT_SC07d_TsVrUploaded_SEI1&<molecular_id>=>PT_SC07d_TsVrUploaded_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
-    "aliquot:<patient_id>=>PT_SC07d_TsVrUploaded&<ion_reporter_id>=>bdd_test_ion_reporter&<analysis_id>=>PT_SC07d_TsVrUploaded_ANI1&<molecular_id>=>PT_SC07d_TsVrUploaded_MOI1&<site>=>MDA"
+    "aliquot:<patient_id>=>PT_SC07d_TsVrUploaded&<ion_reporter_id>=>bdd_test_ion_reporter&<analysis_id>=>PT_SC07d_TsVrUploaded_ANI1&<molecular_id>=>PT_SC07d_TsVrUploaded_MOI1&<site>=>MDA",
+    "variant_dna_file_uploaded:<patient_id>=>PT_SC07d_TsVrUploaded&<dna_bam_name>=>dna.bam&<analysis_id>=>PT_SC07d_TsVrUploaded_ANI1&<molecular_id>=>PT_SC07d_TsVrUploaded_MOI1&<comment_user>=>qa",
+    "variant_cdna_file_uploaded:<patient_id>=>PT_SC07d_TsVrUploaded&<cdna_bam_name>=>cdna.bam&<analysis_id>=>PT_SC07d_TsVrUploaded_ANI1&<molecular_id>=>PT_SC07d_TsVrUploaded_MOI1&<comment_user>=>qa"
   ],
   "PT_SC10a_TsVrUploaded": [
     "registration:<patient_id>=>PT_SC10a_TsVrUploaded&<status_date>=>current",
     "specimen_received_TISSUE:<patient_id>=>PT_SC10a_TsVrUploaded&<surgical_event_id>=>PT_SC10a_TsVrUploaded_SEI1&<collection_dt>=>today&<received_dttm>=>current",
     "specimen_shipped_TISSUE:<patient_id>=>PT_SC10a_TsVrUploaded&<surgical_event_id>=>PT_SC10a_TsVrUploaded_SEI1&<molecular_id>=>PT_SC10a_TsVrUploaded_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
-    "aliquot:<patient_id>=>PT_SC10a_TsVrUploaded&<ion_reporter_id>=>bdd_test_ion_reporter&<analysis_id>=>PT_SC10a_TsVrUploaded_ANI1&<molecular_id>=>PT_SC10a_TsVrUploaded_MOI1&<site>=>MDA"
+    "aliquot:<patient_id>=>PT_SC10a_TsVrUploaded&<ion_reporter_id>=>bdd_test_ion_reporter&<analysis_id>=>PT_SC10a_TsVrUploaded_ANI1&<molecular_id>=>PT_SC10a_TsVrUploaded_MOI1&<site>=>MDA",
+    "variant_dna_file_uploaded:<patient_id>=>PT_SC10a_TsVrUploaded&<dna_bam_name>=>dna.bam&<analysis_id>=>PT_SC10a_TsVrUploaded_ANI1&<molecular_id>=>PT_SC10a_TsVrUploaded_MOI1&<comment_user>=>qa",
+    "variant_cdna_file_uploaded:<patient_id>=>PT_SC10a_TsVrUploaded&<cdna_bam_name>=>cdna.bam&<analysis_id>=>PT_SC10a_TsVrUploaded_ANI1&<molecular_id>=>PT_SC10a_TsVrUploaded_MOI1&<comment_user>=>qa"
   ],
   "PT_SC02h_TsVrConfirmed": [
     "registration:<patient_id>=>PT_SC02h_TsVrConfirmed&<status_date>=>current",

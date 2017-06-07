@@ -251,6 +251,7 @@ Feature: Patient GET service valid special case tests
     And load template specimen type: "TISSUE" shipped message for this patient
     Then set patient message field: "surgical_event_id" to value: "PT_SC04c_TsReceived_SEI1"
     Then set patient message field: "molecular_id" to value: "PT_SC04c_TsReceived_MOI1"
+    Then set patient message field: "shipped_dttm" to value: "current"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "TISSUE_NUCLEIC_ACID_SHIPPED"
     Then patient GET service: "patient_limbos", patient id: "", id: ""
@@ -315,14 +316,14 @@ Feature: Patient GET service valid special case tests
     Then patient status should change to "TISSUE_SPECIMEN_RECEIVED"
     Then patient GET service: "patient_limbos", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return
-    Then there are "<new>" patient_limbos have field: "patient_id" value: "<patient_id>"
+    Then there are "1" patient_limbos have field: "patient_id" value: "<patient_id>"
     And this patient patient_limbos has_amoi should be "false"
     Examples:
-      | patient_id                 | sei                             | date       | time                      | old | new |
-      | PT_SC04f_Registered1       | PT_SC04f_Registered1_SEI1       | today      | current                   | 0   | 0   |
-      | PT_SC04f_Registered2       | PT_SC04f_Registered2_SEI1       | 2016-12-05 | 2016-12-05T19:42:13+00:00 | 0   | 1   |
-      | PT_SC04f_TsVrUploaded      | PT_SC04f_TsVrUploaded_SEI2      | today      | current                   | 1   | 0   |
-      | PT_SC04f_RequestAssignment | PT_SC04f_RequestAssignment_SEI2 | 2016-12-05 | 2016-12-05T19:42:13+00:00 | 0   | 1   |
+      | patient_id                 | sei                             | date       | time                      | old |
+      | PT_SC04f_Registered1       | PT_SC04f_Registered1_SEI1       | today      | current                   | 0   |
+      | PT_SC04f_Registered2       | PT_SC04f_Registered2_SEI1       | 2016-12-05 | 2016-12-05T19:42:13+00:00 | 0   |
+      | PT_SC04f_TsVrUploaded      | PT_SC04f_TsVrUploaded_SEI2      | today      | current                   | 1   |
+      | PT_SC04f_RequestAssignment | PT_SC04f_RequestAssignment_SEI2 | 2016-12-05 | 2016-12-05T19:42:13+00:00 | 0   |
 
   @patients_p1
   Scenario: PT_SC04g patient_limbos should remove patient once this patient change to OFF_STUDY
@@ -665,11 +666,11 @@ Feature: Patient GET service valid special case tests
     Then the saved variant report should have correct MOI summary as variant report "<ani>"
     Then the saved variant report should have correct variants summary as variant report "<ani>"
     Examples:
-      | patient_id                | ani                            | status   | type   |
-      | PT_SC08_TsVrUploadedTwice | PT_SC08_TsVrUploadedTwice_ANI1 | REJECTED | TISSUE |
-      | PT_SC08_TsVrUploadedTwice | PT_SC08_TsVrUploadedTwice_ANI2 | PENDING  | TISSUE |
-      | PT_SC08_BdVrUploadedTwice | PT_SC08_BdVrUploadedTwice_ANI1 | REJECTED | BLOOD  |
-      | PT_SC08_BdVrUploadedTwice | PT_SC08_BdVrUploadedTwice_ANI2 | PENDING  | BLOOD  |
+      | patient_id                | ani                               | status   | type   |
+      | PT_SC08_TsVrUploadedTwice | PT_SC08_TsVrUploadedTwice_ANI1    | REJECTED | TISSUE |
+      | PT_SC08_TsVrUploadedTwice | PT_SC08_TsVrUploadedTwice_ANI2    | PENDING  | TISSUE |
+      | PT_SC08_BdVrUploadedTwice | PT_SC08_BdVrUploadedTwice_BD_ANI1 | REJECTED | BLOOD  |
+      | PT_SC08_BdVrUploadedTwice | PT_SC08_BdVrUploadedTwice_BD_ANI2 | PENDING  | BLOOD  |
 
   @patients_p3
   Scenario Outline: PT_SC08b invalid variant report download request should fail
@@ -699,10 +700,10 @@ Feature: Patient GET service valid special case tests
     Then the saved assignment report should have correct assignment result as assignment "<uuid>"
     Examples:
       | patient_id                  | uuid                                 | status    |
-      | PT_SC09_PendingConfirmation | 301f05b2-a7b3-4305-8c2b-30bee9f258e1 | PENDING   |
-      | PT_SC09_PendingApproval     | bdd3b258-d868-4358-90ed-fcbb73230de1 | CONFIRMED |
-      | PT_SC09_OnTreatmentArm      | c880353f-421d-4bbe-8fa1-6a3cc38f1408 | CONFIRMED |
-      | PT_SC09_TsReceivedStep2     | 1acf4d9c-b42b-4d7c-82ec-fa4334419767 | CONFIRMED |
+      | PT_SC09_PendingConfirmation | cd53ebfb-e994-4da3-a661-6018d4167c26 | PENDING   |
+      | PT_SC09_PendingApproval     | fe3dda34-e606-4261-915f-48bb46525742 | CONFIRMED |
+      | PT_SC09_OnTreatmentArm      | b3dd218f-0f11-4b0a-8aa0-d13a8344b45f | CONFIRMED |
+      | PT_SC09_TsReceivedStep2     | d9249782-1b51-4a4d-a182-7406404ca764 | CONFIRMED |
 
   @patients_p3
   Scenario Outline: PT_SC09b invalid assignment report download request should fail

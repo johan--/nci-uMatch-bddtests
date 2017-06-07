@@ -238,7 +238,7 @@ Feature: NCH specimen received messages
     Then set patient message field: "received_dttm" to value: "current"
     When POST to MATCH patients service, response includes "successfully" with code "202"
     Then patient status should change to "TISSUE_SPECIMEN_RECEIVED"
-    Then patient should have variant report (analysis_id: "PT_SR14d_BdVrUploaded_ANI1")
+    Then patient should have variant report (analysis_id: "PT_SR14d_BdVrUploaded_BD_ANI1")
     And this variant report field: "status" should be "PENDING"
 
   @patients_p3

@@ -1157,7 +1157,7 @@ Then(/^this patient tissue specimen_events specimen "([^"]*)" should have these 
         target_assay = assays[this_param['order'].to_i-1]
         this_param.each do |k, v|
           next if k == 'order'
-          value = v=='null'?nil:v
+          value = v=='null' ? nil : v
           expect(target_assay[k]).to eq value
         end
 
@@ -1296,7 +1296,7 @@ end
 Then(/^this patient analysis_report every assignment reports should have these values$/) do |table|
   values = table.rows_hash
   ars = @get_response['assignments']
-  expect(vr.class).to eq Array
+  expect(ars.class).to eq Array
   values.each { |k, v|
     ars.each { |ar|
       expect(ar.class).to eq Hash
@@ -1520,6 +1520,37 @@ Then(/^returned event_data should have field "([^"]*)" with "(string|date|number
         expect(event['event_data'][field].class).to eq Hash
     end
   }
+end
+
+Then(/^create auth0 password with stored password with prefix "([^"]*)"$/) do |prefix|
+  current_password = ENV["PWD_#{@current_auth0_role}_AUTH0_PASSWORD"]
+  @new_auth0_password = "#{prefix}#{current_password}"
+end
+
+When(/^PATCH to MATCH account password change service, response includes "([^"]*)" with code "([^"]*)"$/) do |msg, code|
+  url = "#{ENV['patients_endpoint']}/users"
+  payload = {:password => @new_auth0_password}
+  response = Helper_Methods.patch_request(url, payload.to_json.to_s, "PWD_#{@current_auth0_role}")
+  expect(response['message']).to include msg
+  expect(response['http_code'].to_s).to eq code
+end
+
+Then(/^apply auth0 token using stored password with prefix "([^"]*)", response includes "([^"]*)" with code "([^"]*)"$/) do |prefix, msg, code|
+  payload = {:client_id => ENV['AUTH0_CLIENT_ID'],
+            :username => ENV["PWD_#{@current_auth0_role}_AUTH0_USERNAME"],
+            :password => prefix + ["PWD_#{@current_auth0_role}_AUTH0_PASSWORD"],
+            :grant_type => 'password',
+            :scope => scope,
+            :connection => ENV['AUTH0_DATABASE']}.to_json
+
+  response = RestClient::Request.execute(:url => "https://#{ENV['AUTH0_DOMAIN']}/oauth/ro",
+                                         :method => :post,
+                                         :verify_ssl => false,
+                                         :payload => payload,
+                                         :headers => {:content_type => 'application/json',
+                                                      :accept => 'application/json'})
+  expect(response.to_s).to include msg
+  expect(response.code.to_s).to eq code
 end
 
 def actual_match_expect(actual, expect)

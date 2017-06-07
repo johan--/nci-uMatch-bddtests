@@ -312,6 +312,42 @@ class Helper_Methods
     return @post_response
   end
 
+  def Helper_Methods.patch_request(service, payload, auth0_role = 'PWD_ADMIN')
+    puts "Patch URL: #{service}"
+    patch_response = {}
+    headers = {:content_type => 'json', :accept => 'json'}
+    Auth0Token.add_auth0_if_needed(headers, auth0_role)
+    begin
+      response = RestClient::Request.execute(:url => service, :method => :patch, :verify_ssl => false, :payload => payload, :headers => headers)
+    rescue StandardError => e
+      patch_response['status'] = 'Failure'
+      if e.message.nil?
+        http_code = '500'
+      else
+        http_code = e.message[0, 3]
+      end
+      patch_response['http_code'] = http_code
+      if e.respond_to?('response')
+        patch_response['message'] = e.response
+      else
+        patch_response['message'] = e.message
+      end
+      puts patch_response['message']
+      return patch_response
+    end
+
+    http_code = "#{response.code}"
+    status = http_code.match(/20(\d)/) ? 'Success' : 'Failure'
+    patch_response['status'] = status
+    patch_response['http_code'] = http_code
+    patch_response['message'] = response.body
+    if status.eql?('Failure')
+      p patch_response['message']
+    end
+    return patch_response
+
+  end
+
   def self.valid_json?(json)
     begin
       JSON.parse(json)

@@ -85,10 +85,10 @@ class BioMatchPMFullValidation
   def build_patient(test_id)
     load_test(test_id)
     register_patient_to_cog(test_id, @pt.id)
-    PatientMessageLoader.register_patient(@pt.id)
-    PatientMessageLoader.specimen_received_tissue(@pt.id, @pt.sei)
-    PatientMessageLoader.specimen_shipped_tissue(@pt.id, @pt.sei, @pt.moi)
-    PatientMessageLoader.specimen_shipped_slide(@pt.id, @pt.sei, @pt.bc)
+    PatientMessageLoader.register_patient(@pt.id, 'current')
+    PatientMessageLoader.specimen_received_tissue(@pt.id, @pt.sei, 'today')
+    PatientMessageLoader.specimen_shipped_tissue(@pt.id, @pt.sei, @pt.moi, 'current')
+    PatientMessageLoader.specimen_shipped_slide(@pt.id, @pt.sei, @pt.bc, 'current')
     PatientMessageLoader.assay(@pt.id, @pt.sei, @pten, 'ICCPTENs', 'current')
     PatientMessageLoader.assay(@pt.id, @pt.sei, @baf47, 'ICCBAF47s', 'current')
     PatientMessageLoader.assay(@pt.id, @pt.sei, @brg1, 'ICCBRG1s', 'current')
@@ -96,12 +96,12 @@ class BioMatchPMFullValidation
   def build_patient_new_step(patient_id, rebiopsy, step_number, pten='POSITIVE', baf47='POSITIVE', brg1='POSITIVE')
     PatientMessageLoader.request_assignment(patient_id, rebiopsy, step_number)
     if rebiopsy=='Y'
-      PatientMessageLoader.specimen_received_tissue(patient_id, "#{patient_id}_SEI2")
-      PatientMessageLoader.specimen_shipped_tissue(patient_id, "#{patient_id}_SEI2", "#{patient_id}_MOI2")
-      PatientMessageLoader.specimen_shipped_slide(patient_id, "#{patient_id}_SEI2", "#{patient_id}_BC2")
-      PatientMessageLoader.assay(patient_id, "#{patient_id}_SEI2", pten, 'ICCPTENs')
-      PatientMessageLoader.assay(patient_id, "#{patient_id}_SEI2", baf47, 'ICCBAF47s')
-      PatientMessageLoader.assay(patient_id, "#{patient_id}_SEI2", brg1, 'ICCBRG1s')
+      PatientMessageLoader.specimen_received_tissue(patient_id, "#{patient_id}_SEI2", 'today')
+      PatientMessageLoader.specimen_shipped_tissue(patient_id, "#{patient_id}_SEI2", "#{patient_id}_MOI2", 'current')
+      PatientMessageLoader.specimen_shipped_slide(patient_id, "#{patient_id}_SEI2", "#{patient_id}_BC2", 'current')
+      PatientMessageLoader.assay(patient_id, "#{patient_id}_SEI2", pten, 'ICCPTENs', 'current')
+      PatientMessageLoader.assay(patient_id, "#{patient_id}_SEI2", baf47, 'ICCBAF47s', 'current')
+      PatientMessageLoader.assay(patient_id, "#{patient_id}_SEI2", brg1, 'ICCBRG1s', 'current')
     end
   end
 

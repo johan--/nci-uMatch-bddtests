@@ -60,6 +60,7 @@ Feature: Patient API authorization tests
     And load template specimen type: "TISSUE" shipped message for this patient
     Then set patient message field: "molecular_id" to value: "<patient_id>_MOI1"
     Then set patient message field: "surgical_event_id" to value: "<patient_id>_SEI1"
+    Then set patient message field: "shipped_dttm" to value: "current"
     And patient API user authorization role is "<auth_role>"
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
@@ -433,7 +434,7 @@ Feature: Patient API authorization tests
       | PT_AU12_TsShippedToMca | mocha     | SPECIMEN_MESSAGE_SENDER           |         | 401  |
       | PT_AU12_TsShippedToDtm | dartmouth | ASSAY_MESSAGE_SENDER              |         | 401  |
 
-  @patients_p1
+  @patients_p1_off
   Scenario Outline: PT_AU13 role base authorization works properly for variant report rollback
     Given patient id is "<patient_id>"
     And patient API user authorization role is "<role>"
@@ -526,3 +527,30 @@ Feature: Patient API authorization tests
       | PATIENT_MESSAGE_SENDER            | false        | false        | false        |
       | SPECIMEN_MESSAGE_SENDER           | false        | false        | false        |
       | ASSAY_MESSAGE_SENDER              | false        | false        | false        |
+
+   @patients_p2_off
+   Scenario Outline: PT_AU17a user can change auth0 password properly
+     Given patient API user authorization role is "<role>"
+     Then create auth0 password with stored password with prefix "AU17_"
+     When PATCH to MATCH account password change service, response includes "<message>" with code "202"
+     Then apply auth0 token using stored password with prefix "AU17_", response includes "id_token" with code "200"
+     Then apply auth0 token using stored password with prefix "", response includes "password" with code "401"
+     Then create auth0 password with stored password with prefix ""
+     When PATCH to MATCH account password change service, response includes "<message>" with code "202"
+     Then apply auth0 token using stored password with prefix "AU17_", response includes "password" with code "401"
+     Then apply auth0 token using stored password with prefix "", response includes "id_token" with code "200"
+     Examples:
+       | role                              |
+       | ADMIN                             |
+       | SYSTEM                            |
+       | ASSIGNMENT_REPORT_REVIEWER        |
+       | MDA_VARIANT_REPORT_SENDER         |
+       | MDA_VARIANT_REPORT_REVIEWER       |
+       | MOCHA_VARIANT_REPORT_SENDER       |
+       | MOCHA_VARIANT_REPORT_REVIEWER     |
+       | DARTMOUTH_VARIANT_REPORT_SENDER   |
+       | DARTMOUTH_VARIANT_REPORT_REVIEWER |
+       | PATIENT_MESSAGE_SENDER            |
+       | SPECIMEN_MESSAGE_SENDER           |
+       | ASSAY_MESSAGE_SENDER              |
+
