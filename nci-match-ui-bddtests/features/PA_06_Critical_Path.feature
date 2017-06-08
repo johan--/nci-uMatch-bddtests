@@ -163,6 +163,7 @@ Feature: These are the critical path test cases.
     Given I stay logged in as "VR_Reviewer_mda" user
     When I go to the patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" with variant report "PT_CR01_PathAssayDoneVRUploadedToConfirm_ANI1"
     Then I can see the variant report page
+    And I scroll to the bottom of the page
     And I click on the "CONFIRM" button
     Then I "should" see the confirmation modal pop up
     When I click on the "OK" button
