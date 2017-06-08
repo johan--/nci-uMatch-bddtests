@@ -32,7 +32,7 @@ module.exports = function () {
 
     this.Then(/^I should see the variant report link for "(.+?)"$/, function (analysisId, callback) {
         patientPage.variantAnalysisId = analysisId;
-        var varRepString = 'li[ng-repeat="'+ patientPage.variantAndAssignmentPanelString + '"] a[href="#/patient/' + patientPage.patientId + '/variant_report?analysis_id=' + analysisId + '"]';
+        var varRepString = 'li[ng-repeat="'+ patientPage.variantAndAssignmentPanelString + '"] dt a[href="#/patient/' + patientPage.patientId + '/variant_report?analysis_id=' + analysisId + '"]';
         variantReportLink = element(by.css(varRepString));
         variantReportLink.getLocation().then(function(loc){
             browser.executeScript('window.scrollTo(' + loc.x + ', ' + (loc.y - 100) + ')').then(function(){
@@ -46,14 +46,14 @@ module.exports = function () {
        });
 
     this.Then(/^I click the variant report link for "(.+?)"$/, function (analysisId, callback) {
-        var varRepString = 'li[ng-repeat="'+ patientPage.variantAndAssignmentPanelString + '"] a[href="#/patient/' + patientPage.patientId + '/variant_report?analysis_id=' + analysisId + '"]';
+        var varRepString = 'li[ng-repeat="'+ patientPage.variantAndAssignmentPanelString + '"] dt a[href="#/patient/' + patientPage.patientId + '/variant_report?analysis_id=' + analysisId + '"]';
         variantReportLink = element(by.css(varRepString));
 
         expect(variantReportLink.isPresent()).to.eventually.eql(true).then(function(){
             browser.sleep(1000).then(function(){
                 variantReportLink.getLocation().then(function(location) {
                     browser.executeScript('window.scrollTo(' + (location.x + 50) + ', ' + (location.y + 50) + ')').then(function(){
-                        variantReportLink.element(by.css('i')).click().then(function(){
+                        variantReportLink.click().then(function(){
                             browser.waitForAngular();
                         });
                     });

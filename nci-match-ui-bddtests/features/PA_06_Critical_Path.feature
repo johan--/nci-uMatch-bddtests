@@ -93,6 +93,7 @@ Feature: These are the critical path test cases.
     Given I stay logged in as "VR_Reviewer_mda" user
     When I go to the patient "PT_CR03_VRUploadedPathConfirmed" with variant report "PT_CR03_VRUploadedPathConfirmed_ANI1"
     Then I can see the variant report page
+    And I scroll to the bottom of the page
     And I click on the "CONFIRM" button
     Then I "should" see the confirmation modal pop up
     When I click on the "OK" button
@@ -131,6 +132,7 @@ Feature: These are the critical path test cases.
     Given I stay logged in as "VR_Reviewer_mda" user
     When I go to the patient "PT_CR07_RejectVariantReport" with variant report "PT_CR07_RejectVariantReport_ANI1"
     Then I can see the variant report page
+    And I scroll to the bottom of the page
     And I click on the "REJECT" button
     Then I "should" see the confirmation modal pop up
     And I enter the comment "This is a comment" in the VR modal text box

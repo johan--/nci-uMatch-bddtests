@@ -38,7 +38,7 @@ Feature: Patient Summary Page
     Then I should see the "Summary" tab is active
     And I scroll to the bottom of the page
     And I should see the "Patient Timeline" section heading
-    And I should see a message "COG Message: Patient is deceased." in the timeline
+    And I should see a message "COG Message: death" in the timeline
 
   @ui_p2
   Scenario Outline: Patient with status "<status>" <see_or_not> show TA

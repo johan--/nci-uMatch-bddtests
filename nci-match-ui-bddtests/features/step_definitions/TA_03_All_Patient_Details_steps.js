@@ -19,6 +19,7 @@ module.exports = function () {
 
 
     this.When(/^I enter "([^"]*)" in the all patients data filter field$/, function (patient_id, callback) {
+        taPage.allPatientDataFilter.clear();
         taPage.allPatientDataFilter.sendKeys(patient_id).then(callback);
     });
 

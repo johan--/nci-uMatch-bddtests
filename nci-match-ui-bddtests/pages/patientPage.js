@@ -206,7 +206,7 @@ var PatientPage = function () {
     // Patient details page left hand side top summary
     this.expectedPatientSummaryLabels = [
         'Patient ID',
-        'Patient',
+        'Demographics',
         'Status',
         'Current Step',
         'Treatment Arm'
