@@ -1,6 +1,6 @@
 @ui_p2
 Feature: MATCHKB-352. Users are given authorization based on their roles.
-
+@demo
  Scenario: As a variant_report reviewer from MDA lab I can edit variant comments
     Given I am logged in as a "VR_Reviewer_mda" user
     When I go to the patient "UI_PA08_MdaTsVrUploaded" with variant report "UI_PA08_MdaTsVrUploaded_ANI1"
