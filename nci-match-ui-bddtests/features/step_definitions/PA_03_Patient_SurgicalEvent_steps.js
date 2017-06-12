@@ -109,7 +109,7 @@ module.exports = function () {
             var geneLink = tableRow.element(by.css('cosmic-link[link-id="assay.gene"]'));
             var assayResult = tableRow.element(by.exactBinding('assay.result'));
             var dateString = utilities.returnFormattedDate(assayRow['result_date']) + ' GMT';
-            utilities.checkExpectation(tableRow.all(by.css('td')).get(0), 'IHC', 'Assay static message');
+            utilities.checkExpectation(tableRow.all(by.css('td')).get(1), 'IHC', 'Assay static message');
             utilities.checkExpectation(geneLink, gene, 'Gene value mismatch');
             utilities.checkGeneLink(geneLink);
             utilities.checkExpectation(tableRow.element(by.binding('assay.result_date')), dateString, 'Result Date Mismatch');

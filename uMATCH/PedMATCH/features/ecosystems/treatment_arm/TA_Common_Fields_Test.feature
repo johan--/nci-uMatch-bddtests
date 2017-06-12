@@ -49,7 +49,7 @@ Feature: TA_CF. Treatment Arm API common tests for all fields
 	"name":"Afatinib",
 	"target_id":1234,
 	"target_name":"HGFR Pathway",
-    "date_created": "2017-01-28 15:57:25 UTC",
+    "date_created": "2017-06-01 15:57:25 UTC",
 	"treatment_arm_drugs":[{"drugClass":"angiokinase inhibitor","description":"Afatinib","name":"Afatinib","drugId":"1"}],
 	"gene_fusions":[],
 	"non_hotspot_rules":[],
@@ -125,7 +125,7 @@ Feature: TA_CF. Treatment Arm API common tests for all fields
 	    "target_name" : "ALK",
 	    "version":"2016-05-25",
 	    "gene" : "ALK",
-        "date_created": "2016-11-08 15:57:25 UTC",
+        "date_created": "2017-06-01 15:57:25 UTC",
 	    "treatment_arm_drugs" : [
 	        {
 	            "drugId" : "1234",

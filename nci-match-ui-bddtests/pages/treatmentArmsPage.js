@@ -150,7 +150,7 @@ var TreatmentArmsPage = function() {
 
     //List of Expected values
     this.expectedLeftBoxLabels = ['ID', 'Name', 'Stratum ID', 'Description', 'Status', 'Version'];
-    this.expectedRightBoxLabels = ['Genes', 'Total Patients Assigned on Current Version', 'Total Patients Ever Assigned', 'Total Patients Currently on Treatment', 'Total Patients Ever on Treatment', 'Drugs', 'Download'];
+    this.expectedRightBoxLabels = ['Genes', 'Patients Assigned on Current Version', 'Patients Ever Assigned', 'Patients Currently on Treatment', 'Patients Ever on Treatment', 'Drugs', 'Download'];
     this.expectedTableHeaders = [
         "ID",
         "Stratum",

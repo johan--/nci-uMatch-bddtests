@@ -81,12 +81,6 @@ module.exports = function () {
         }).then(callback);
     });
 
-    // this.Then(/^The Upload new sample file link is not visible$/, function (callback) {
-    //     var elem = element(by.cssContainingText('.btn', 'Upload new sample file'));
-    //     expect(elem.isPresent()).to.eventually.eql(false).notify(callback);
-    // });
-
-
     this.Then(/^I can see the "(.+?)" Sample File upload process has started$/, function (number, callback) {
         patientPage.downloadTracker.getLocation().then(function(location){
             browser.executeScript('window.scrollTo(' + location.x + ', ' + (location.y - 10) + ')').then(function(){
@@ -100,15 +94,25 @@ module.exports = function () {
 
     this.Then(/^I see the downloads in the timeline$/, function (callback) {
         var timeline = patientPage.timelineList;
-        expect(timeline.get(0).element(by.css('.timeline-title')).getText())
-            .to.eventually.include('TISSUE Variant Report received.');
-        expect(timeline.get(1).element(by.css('.timeline-title')).getText())
-            .to.eventually.include('Variant Report file uploaded.');
-        expect(timeline.get(2).element(by.css('.timeline-title')).getText())
-            .to.eventually.include('Variant Report file uploaded.');
-        expect(timeline.get(3).element(by.css('.timeline-title')).getText())
-            .to.eventually.include('Variant Report file uploaded.')
-            .notify(callback);
+
+        timeline.get(0).element(by.css('.timeline-title')).getText().then(function (firstMessage){
+            if (firstMessage.include('Sequence file uploaded')) {
+                utilities.checkExpectation(timeline.get(1).element(by.css('.timeline-title')), '')
+                timeline.get(1).element(by.css('.timeline-title')).getText().then(function (tst){
+                    expect(tst).to.include('Sequence file uploaded')
+                });
+                timeline.get(2).element(by.css('.timeline-title')).getText().then(function (tst){
+                    expect(tst).to.include('VCF file uploaded')
+                });
+            } else if (firstMessage.include('TISSUE Variant Report received.')){
+                expect(timeline.get(1).element(by.css('.timeline-title')).getText())
+                    .to.eventually.include('Sequence file uploaded');
+                expect(timeline.get(2).element(by.css('.timeline-title')).getText())
+                    .to.eventually.include('Sequence file uploaded');
+                expect(timeline.get(3).element(by.css('.timeline-title')).getText())
+                    .to.eventually.include('VCF file uploaded')
+            }
+        }).then(callback);
     });
 
     this.Then(/^I click on the Upload Progress in the toolbar$/, function (callback) {
