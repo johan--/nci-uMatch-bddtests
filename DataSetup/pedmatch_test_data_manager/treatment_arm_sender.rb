@@ -21,7 +21,7 @@ class TreatmentArmSender
     url = "#{treatment_arm_api_url}/#{ta_id}/#{stratum}/#{version}"
     last_response = PedMatchRestClient.send_until_accept(url, 'post', treatment_arm_hash)
     if last_response.code < 203
-      Logger.log("Treatment Arm: #{ta_id}-#{stratum}(#{version}) is done")
+      Logger.info("Treatment Arm: #{ta_id}-#{stratum}(#{version}) is done")
       true
     else
       error = "Failed to generate Treatment Arm: #{ta_id}-#{stratum}(#{version}) with error: "

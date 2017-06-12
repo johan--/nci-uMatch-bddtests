@@ -39,7 +39,7 @@ class PedMatchTestData
       sleep 10.0
       PedMatchDatabase.backup(tag)
     end
-    Logger.log("Load patient work is done. #{passed_number}/#{patient_list.size} patients are writen to seed file")
+    Logger.info("Load patient work is done. #{passed_number}/#{patient_list.size} patients are writen to seed file")
     if failed.size > 0
       Logger.warning('The following patients are not loaded properly, please reload them')
       Logger.warning(failed.to_s)

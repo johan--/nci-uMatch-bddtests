@@ -19,7 +19,7 @@ class PatientStorySender
       templates = JSON.parse(File.read(MESSAGE_TEMPLATE_FILE))
       story = patient_story.full_story
       patient_id = patient_story.patient_id
-      Logger.log("Start process patient #{patient_id} with #{story.size} steps")
+      Logger.info("Start process patient #{patient_id} with #{story.size} steps")
       story.each_with_index do |s, i|
         message = Marshal.load(Marshal.dump(templates[s.keys[0]]))
         values = add_realtime_values(s.values[0])
@@ -33,7 +33,7 @@ class PatientStorySender
         end
         last_response = PedMatchRestClient.send_until_accept(url, message['http_method'], payload)
         if last_response.code < 203
-          Logger.log("Patient: #{patient_id} message (#{i+1}/#{story.size})<#{s.keys[0]}> is done")
+          Logger.info("Patient: #{patient_id} message (#{i+1}/#{story.size})<#{s.keys[0]}> is done")
         else
           error = "Failed to generate patient: #{patient_id} in step (#{i+1}/#{story.size})<#{s.keys[0]}> with error: "
           Logger.error(error)
@@ -45,7 +45,7 @@ class PatientStorySender
           return false
         end
       end
-      Logger.log("Patient #{patient_id} is done")
+      Logger.info("Patient #{patient_id} is done")
       true
     else
       Logger.error("Expect parameter is PatientStory, but it is #{patient_story.class}")
@@ -116,7 +116,7 @@ class PatientStorySender
                          int_path = "s3://pedmatch-int/#{file_path}"
                          cmd = "aws s3 cp #{dev_path} #{int_path} --region us-east-1"
                          `#{cmd}`
-                         Logger.log("#{dev_path} has been uploaded to #{int_path}")
+                         Logger.info("#{dev_path} has been uploaded to #{int_path}")
                          true
                        end
 end

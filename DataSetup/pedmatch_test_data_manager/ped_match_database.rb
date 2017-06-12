@@ -16,14 +16,14 @@ class PedMatchDatabase
     TableInfo.all_tables.each { |table|
       copy_table_to_file(table, SeedFile.seed_file(table, tag)) if table_exist(table)
     }
-    Logger.log('Local backup done!')
+    Logger.info('Local backup done!')
   end
 
   def self.backup_treatment_arm(tag='patients')
     TableInfo.treatment_arm_tables.each { |table|
       copy_table_to_file(table, SeedFile.seed_file(table, tag)) if table_exist(table)
     }
-    Logger.log('Local treatment arm tables backup done!')
+    Logger.info('Local treatment arm tables backup done!')
   end
 
   def self.copy_table_to_file(table_name, file)
@@ -34,7 +34,7 @@ class PedMatchDatabase
     cmd = cmd + file
     `#{cmd}`
     Constants.set_tier(tier)
-    Logger.log("Table <#{table_name}> has been exported to #{file}")
+    Logger.info("Table <#{table_name}> has been exported to #{file}")
   end
 
   ################clear
@@ -43,7 +43,7 @@ class PedMatchDatabase
     Constants.set_tier(Constants.tier_local)
     TableInfo.all_tables.each { |table| clear_table(table) }
     Constants.set_tier(tier)
-    Logger.log('Clear local dynamodb done!')
+    Logger.info('Clear local dynamodb done!')
   end
 
   def self.clear_all_int
@@ -51,7 +51,7 @@ class PedMatchDatabase
     Constants.set_tier(Constants.tier_local)
     TableInfo.all_tables.each { |table| clear_table(table) }
     Constants.set_tier(tier)
-    Logger.log('Clear int dynamodb done!')
+    Logger.info('Clear int dynamodb done!')
   end
 
   def self.clear_table(table_name)
@@ -65,7 +65,7 @@ class PedMatchDatabase
     start_stamp = Time.now
     all_items = scan_all(table_name, table_keys)
     if all_items.nil? || all_items.size<1
-      Logger.log("Table '#{table_name.upcase}' is empty skipping...")
+      Logger.info("Table '#{table_name.upcase}' is empty skipping...")
     else
       deleted = 0
       batch_size = 25
@@ -86,7 +86,7 @@ class PedMatchDatabase
       diff = ((end_stamp - start_stamp) * 1000.0).to_f / 1000.0
       message = "Deleted #{deleted}/#{all_items.size} records from #{Constants.current_tier} "
       message += "\"#{table_name}\" table in #{diff} secs!"
-      Logger.log(message)
+      Logger.info(message)
       unless deleted == all_items.size
         raise "Expected to delete #{all_items.size} items, actually deleted #{deleted} items"
       end
@@ -101,7 +101,7 @@ class PedMatchDatabase
       upload_seed_data(table, tag)
     end
     Constants.set_tier(tier)
-    Logger.log('Upload to local dynamodb done!')
+    Logger.info('Upload to local dynamodb done!')
   end
 
   def self.upload_ion_seed_to_local(tag='patient')
@@ -109,7 +109,7 @@ class PedMatchDatabase
     Constants.set_tier(Constants.tier_local)
     TableInfo.ion_tables.each { |table| upload_seed_data(table, tag) }
     Constants.set_tier(tier)
-    Logger.log('Upload ion seed to local dynamodb done!')
+    Logger.info('Upload ion seed to local dynamodb done!')
   end
 
   def self.upload_seed_data_to_int(tag='patients')
@@ -119,7 +119,7 @@ class PedMatchDatabase
       upload_seed_data(table, tag)
     end
     Constants.set_tier(tier)
-    Logger.log('Upload to int dynamodb done!')
+    Logger.info('Upload to int dynamodb done!')
   end
 
   def self.upload_seed_data(table_name, tag)
@@ -132,7 +132,7 @@ class PedMatchDatabase
     start_stamp = Time.now
 
     if all_items.nil? || all_items.size<1
-      Logger.log("Seed data for table '#{table_name.upcase}' is empty skipping...")
+      Logger.info("Seed data for table '#{table_name.upcase}' is empty skipping...")
     else
       uploaded = 0
       batch_size = 25
@@ -163,7 +163,7 @@ class PedMatchDatabase
       diff = ((end_stamp - start_stamp) * 1000.0).to_f / 1000.0
       message = "Uploaded #{uploaded}/#{all_items.size} records to #{Constants.current_tier} "
       message += "\"#{table_name}\" table in #{diff} secs!"
-      Logger.log(message)
+      Logger.info(message)
       unless uploaded == all_items.size
         raise "Expected to upload #{all_items.size} items, actually uploaded #{uploaded} items"
       end

@@ -21,10 +21,10 @@ class Utilities
     FileUtils.cp_r("#{template_ani_path}/.", target_ani_path)
     cmd = "aws s3 cp #{output_folder} s3://#{DEV_BUCKET}/#{BDD_IR}/ --recursive --region us-east-1"
     `#{cmd}`
-    Logger.log("#{target_ani_path} has been uploaded to S3 bucket #{DEV_BUCKET}")
+    Logger.info("#{target_ani_path} has been uploaded to S3 bucket #{DEV_BUCKET}")
     cmd = "aws s3 cp #{output_folder} s3://#{INT_BUCKET}/#{BDD_IR}/ --recursive --region us-east-1"
     `#{cmd}`
-    Logger.log("#{target_ani_path} has been uploaded to S3 bucket #{INT_BUCKET}")
+    Logger.info("#{target_ani_path} has been uploaded to S3 bucket #{INT_BUCKET}")
     FileUtils.rm_r(output_folder)
   end
 
@@ -33,6 +33,6 @@ class Utilities
     int_path = "s3://#{INT_BUCKET}/#{BDD_IR}/#{moi}/#{ani}/#{json_name}"
     cmd = "aws s3 cp #{dev_path} #{int_path} --region us-east-1"
     `#{cmd}`
-    Logger.log("#{dev_path} has been uploaded to #{int_path}")
+    Logger.info("#{dev_path} has been uploaded to #{int_path}")
   end
 end

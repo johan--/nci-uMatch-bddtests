@@ -528,29 +528,29 @@ Feature: Patient API authorization tests
       | SPECIMEN_MESSAGE_SENDER           | false        | false        | false        |
       | ASSAY_MESSAGE_SENDER              | false        | false        | false        |
 
-   @patients_p2_off
-   Scenario Outline: PT_AU17a user can change auth0 password properly
-     Given patient API user authorization role is "<role>"
-     Then create auth0 password with stored password with prefix "AU17_"
-     When PATCH to MATCH account password change service, response includes "<message>" with code "202"
-     Then apply auth0 token using stored password with prefix "AU17_", response includes "id_token" with code "200"
-     Then apply auth0 token using stored password with prefix "", response includes "password" with code "401"
-     Then create auth0 password with stored password with prefix ""
-     When PATCH to MATCH account password change service, response includes "<message>" with code "202"
-     Then apply auth0 token using stored password with prefix "AU17_", response includes "password" with code "401"
-     Then apply auth0 token using stored password with prefix "", response includes "id_token" with code "200"
-     Examples:
-       | role                              |
-       | ADMIN                             |
-       | SYSTEM                            |
-       | ASSIGNMENT_REPORT_REVIEWER        |
-       | MDA_VARIANT_REPORT_SENDER         |
-       | MDA_VARIANT_REPORT_REVIEWER       |
-       | MOCHA_VARIANT_REPORT_SENDER       |
-       | MOCHA_VARIANT_REPORT_REVIEWER     |
-       | DARTMOUTH_VARIANT_REPORT_SENDER   |
-       | DARTMOUTH_VARIANT_REPORT_REVIEWER |
-       | PATIENT_MESSAGE_SENDER            |
-       | SPECIMEN_MESSAGE_SENDER           |
-       | ASSAY_MESSAGE_SENDER              |
+  @patients_p2_off
+  Scenario Outline: PT_AU17a user can change auth0 password properly
+    Given patient API user authorization role is "<role>"
+    Then create auth0 password with stored password with prefix "AU17_"
+    When PATCH to MATCH account password change service, response includes "changed" with code "202"
+    Then apply auth0 token using stored password with prefix "AU17_", response includes "id_token" with code "200"
+    Then apply auth0 token using stored password with prefix "", response includes "password" with code "401"
+    Then create auth0 password with stored password with prefix ""
+    When PATCH to MATCH account password change service, response includes "changed" with code "202"
+    Then apply auth0 token using stored password with prefix "AU17_", response includes "password" with code "401"
+    Then apply auth0 token using stored password with prefix "", response includes "id_token" with code "200"
+    Examples:
+      | role                              |
+      | ADMIN                             |
+      | SYSTEM                            |
+      | ASSIGNMENT_REPORT_REVIEWER        |
+      | MDA_VARIANT_REPORT_SENDER         |
+      | MDA_VARIANT_REPORT_REVIEWER       |
+      | MOCHA_VARIANT_REPORT_SENDER       |
+      | MOCHA_VARIANT_REPORT_REVIEWER     |
+      | DARTMOUTH_VARIANT_REPORT_SENDER   |
+      | DARTMOUTH_VARIANT_REPORT_REVIEWER |
+      | PATIENT_MESSAGE_SENDER            |
+      | SPECIMEN_MESSAGE_SENDER           |
+      | ASSAY_MESSAGE_SENDER              |
 

@@ -22,7 +22,7 @@ class Constants
   def self.set_tier(tier)
     if TIERS.include?(tier)
       @tier = tier
-      Logger.log("Constants tier has been set to #{@tier}")
+      Logger.info("Constants tier has been set to #{@tier}")
     else
       Logger.error("Tier value can only be #{TIERS.to_s}, the passed in value is #{tier}")
     end

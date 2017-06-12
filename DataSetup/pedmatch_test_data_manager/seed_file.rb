@@ -40,13 +40,13 @@ class SeedFile
           to_patients = []
           to_hash['Items'].each { |this_to| to_patients << this_to[field_name]['S'] }
           if to_patients.include?(this_patient)
-            Logger.log("patient #{this_patient} has already been in #{to_tag} #{table_name} seed data, skipping...")
+            Logger.info("patient #{this_patient} has already been in #{to_tag} #{table_name} seed data, skipping...")
           else
             to_hash['Items'].push(*this_pt_data)
             to_hash['ScannedCount'] = to_hash['ScannedCount'] + this_pt_data.size
             to_hash['Count'] = to_hash['Count'] + this_pt_data.size
             File.open(to_file, 'w') { |f| f.write(JSON.pretty_generate(to_hash)) }
-            Logger.log("There are #{this_pt_data.size} #{table_name} items(#{field_name}=#{this_patient}) get copied")
+            Logger.info("There are #{this_pt_data.size} #{table_name} items(#{field_name}=#{this_patient}) get copied")
           end
         end
       }
@@ -69,9 +69,9 @@ class SeedFile
         end
       }
       error = analysis.select { |k, v| v > 1 }
-      Logger.log(table_name)
-      Logger.log(JSON.pretty_generate(error))
-      Logger.log("\n\n")
+      Logger.info(table_name)
+      Logger.info(JSON.pretty_generate(error))
+      Logger.info("\n\n")
     }
   end
 
@@ -99,7 +99,7 @@ class SeedFile
         file_hash['Count'] = new_items.size
         File.open(seed_file(table_name, tag), 'w') { |f| f.write(JSON.pretty_generate(file_hash)) }
       end
-      Logger.log("#{items.size-new_items.size} items are deleted from #{tag} #{table_name}")
+      Logger.info("#{items.size-new_items.size} items are deleted from #{tag} #{table_name}")
     }
   end
 
@@ -117,7 +117,7 @@ class SeedFile
         :ConsumedCapacity => nil
     }
     File.open(seed_file(table_name, tag), 'w') { |f| f.write(JSON.pretty_generate(empty_data)) }
-    Logger.log("#{seed_file(table_name, tag)} get cleared")
+    Logger.info("#{seed_file(table_name, tag)} get cleared")
   end
 
   def self.seed_file(table_name, tag='patients')
@@ -144,7 +144,7 @@ class SeedFile
                          end
                          message = "There are #{old_count-items.size} items"
                          message += "(#{target_field}=#{list}) get removed from #{nickname}"
-                         Logger.log(message)
+                         Logger.info(message)
                        end
 
   private_class_method def self.get_json_node_from_file(file, target_field, target_value, value_type)
@@ -183,7 +183,7 @@ class SeedFile
                          end
                          message = "There are #{deleted} patients"
                          message += "(patient_id=#{list}) get removed from treatment arm tables"
-                         Logger.log(message)
+                         Logger.info(message)
                        end
 
   private_class_method def self.update_ta_table(status, ta_id, stratum, version, tag)

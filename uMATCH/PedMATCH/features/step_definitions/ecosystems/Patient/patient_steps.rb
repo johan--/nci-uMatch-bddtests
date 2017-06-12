@@ -1523,32 +1523,25 @@ Then(/^returned event_data should have field "([^"]*)" with "(string|date|number
 end
 
 Then(/^create auth0 password with stored password with prefix "([^"]*)"$/) do |prefix|
-  current_password = ENV["PWD_#{@current_auth0_role}_AUTH0_PASSWORD"]
+  current_password = ENV["#{@current_auth0_role}_AUTH0_PASSWORD"]
   @new_auth0_password = "#{prefix}#{current_password}"
 end
 
 When(/^PATCH to MATCH account password change service, response includes "([^"]*)" with code "([^"]*)"$/) do |msg, code|
   url = "#{ENV['patients_endpoint']}/users"
   payload = {:password => @new_auth0_password}
+  ENV["PWD_#{@current_auth0_role}_AUTH0_USERNAME"] = "psd-#{ENV["#{@current_auth0_role}_AUTH0_USERNAME"]}"
+  ENV["PWD_#{@current_auth0_role}_AUTH0_PASSWORD"] = ENV["#{@current_auth0_role}_AUTH0_PASSWORD"]
   response = Helper_Methods.patch_request(url, payload.to_json.to_s, "PWD_#{@current_auth0_role}")
   expect(response['message']).to include msg
   expect(response['http_code'].to_s).to eq code
 end
 
 Then(/^apply auth0 token using stored password with prefix "([^"]*)", response includes "([^"]*)" with code "([^"]*)"$/) do |prefix, msg, code|
-  payload = {:client_id => ENV['AUTH0_CLIENT_ID'],
-            :username => ENV["PWD_#{@current_auth0_role}_AUTH0_USERNAME"],
-            :password => prefix + ["PWD_#{@current_auth0_role}_AUTH0_PASSWORD"],
-            :grant_type => 'password',
-            :scope => scope,
-            :connection => ENV['AUTH0_DATABASE']}.to_json
+  username = "psd-#{ENV["#{@current_auth0_role}_AUTH0_USERNAME"]}"
+  password = "#{prefix}#{ENV["#{@current_auth0_role}_AUTH0_PASSWORD"]}"
 
-  response = RestClient::Request.execute(:url => "https://#{ENV['AUTH0_DOMAIN']}/oauth/ro",
-                                         :method => :post,
-                                         :verify_ssl => false,
-                                         :payload => payload,
-                                         :headers => {:content_type => 'application/json',
-                                                      :accept => 'application/json'})
+  response = Auth0Token.ped_match_auth0_response(username,password)
   expect(response.to_s).to include msg
   expect(response.code.to_s).to eq code
 end

@@ -102,7 +102,7 @@ class PatientStory
     raise "#{@file_path} is not an Hash" unless file.is_a?(Hash)
     file[@patient_id] = @story_hash
     File.open(@file_path, 'w') { |f| f.write(JSON.pretty_generate(file)) }
-    Logger.log("#{@patient_id} has been written to file #{@file_path}")
+    Logger.info("#{@patient_id} has been written to file #{@file_path}")
   end
 
   def load
