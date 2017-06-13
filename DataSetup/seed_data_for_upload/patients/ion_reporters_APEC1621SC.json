@@ -1,22 +1,11 @@
 {
-    "Count": 42,
-    "ScannedCount": 42,
     "Items": [
         {
-            "ion_reporter_id": {
-                "S": "IR_CFUER"
-            },
-            "site": {
-                "S": "mda"
-            },
-            "study_id": {
-                "S": "APEC1621SC"
-            },
             "host_name": {
                 "S": "MATCH_IR_IR_CFUER"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:01.446499"
+            "site": {
+                "S": "mda"
             },
             "internal_ip_address": {
                 "S": "78.30.156.72"
@@ -27,25 +16,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:37.632102"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:01.446499"
+            },
             "ip_address": {
                 "S": "87.140.98.231"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_GBOPP"
-            },
-            "site": {
-                "S": "mda"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_CFUER"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_GBOPP"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:02.446499"
+            "site": {
+                "S": "mda"
             },
             "internal_ip_address": {
                 "S": "149.32.157.177"
@@ -56,25 +45,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:35.952421"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:02.446499"
+            },
             "ip_address": {
                 "S": "85.140.158.2"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_SAO13"
-            },
-            "site": {
-                "S": "yale"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_GBOPP"
+            }
+        },
+        {
             "host_name": {
                 "S": "YSM-MATCH-IR"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:23.446499"
+            "site": {
+                "S": "yale"
             },
             "internal_ip_address": {
                 "S": "10.84.20.162"
@@ -88,25 +77,25 @@
             "data_files": {
                 "S": "DB Report, Data File"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:23.446499"
+            },
             "ip_address": {
                 "S": "204.60.187.1"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_MCA03"
-            },
-            "site": {
-                "S": "mocha"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_SAO13"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_MCA03"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:03.446499"
+            "site": {
+                "S": "mocha"
             },
             "internal_ip_address": {
                 "S": "38.53.52.116"
@@ -117,25 +106,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:37.632102"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:03.446499"
+            },
             "ip_address": {
                 "S": "206.112.158.18"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_1H9XW"
-            },
-            "site": {
-                "S": "mocha"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_MCA03"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_1H9XW"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:04.446499"
+            "site": {
+                "S": "mocha"
             },
             "internal_ip_address": {
                 "S": "40.48.8.159"
@@ -146,25 +135,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:41.018144"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:04.446499"
+            },
             "ip_address": {
                 "S": "79.13.120.157"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_3I4AB"
-            },
-            "site": {
-                "S": "mda"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_1H9XW"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_3I4AB"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:05.446499"
+            "site": {
+                "S": "mda"
             },
             "internal_ip_address": {
                 "S": "155.179.34.188"
@@ -175,25 +164,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:39.894323"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:05.446499"
+            },
             "ip_address": {
                 "S": "196.36.103.80"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_TG2DY"
-            },
-            "site": {
-                "S": "mocha"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_3I4AB"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_TG2DY"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:06.446499"
+            "site": {
+                "S": "mocha"
             },
             "internal_ip_address": {
                 "S": "178.69.35.188"
@@ -204,25 +193,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:41.577614"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:06.446499"
+            },
             "ip_address": {
                 "S": "77.238.187.225"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_37Y4Y"
-            },
-            "site": {
-                "S": "mda"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_TG2DY"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_37Y4Y"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:07.446499"
+            "site": {
+                "S": "mda"
             },
             "internal_ip_address": {
                 "S": "163.4.0.82"
@@ -233,25 +222,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:38.752627"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:07.446499"
+            },
             "ip_address": {
                 "S": "211.83.183.203"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_DTM00"
-            },
-            "site": {
-                "S": "dartmouth"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_37Y4Y"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_DTM00"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:25.446499"
+            "site": {
+                "S": "dartmouth"
             },
             "internal_ip_address": {
                 "S": "206.54.144.230"
@@ -262,25 +251,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:37.632102"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:25.446499"
+            },
             "ip_address": {
                 "S": "224.136.191.19"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_KTBOF"
-            },
-            "site": {
-                "S": "dartmouth"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_DTM00"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_KTBOF"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:01.446499"
+            "site": {
+                "S": "dartmouth"
             },
             "internal_ip_address": {
                 "S": "5.140.150.123"
@@ -291,25 +280,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:37.632102"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:01.446499"
+            },
             "ip_address": {
                 "S": "237.174.171.230"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_MDA05"
-            },
-            "site": {
-                "S": "mda"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_KTBOF"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_MDA05"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:08.446499"
+            "site": {
+                "S": "mda"
             },
             "internal_ip_address": {
                 "S": "180.226.27.126"
@@ -320,25 +309,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:37.632102"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:08.446499"
+            },
             "ip_address": {
                 "S": "11.21.192.89"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_D1227"
-            },
-            "site": {
-                "S": "mocha"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_MDA05"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_D1227"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:03.446499"
+            "site": {
+                "S": "mocha"
             },
             "internal_ip_address": {
                 "S": "249.67.92.146"
@@ -349,25 +338,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:21:37.632102"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:03.446499"
+            },
             "ip_address": {
                 "S": "189.169.153.35"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_ONO31"
-            },
-            "site": {
-                "S": "mda"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_D1227"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_ONO31"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:09.446499"
+            "site": {
+                "S": "mda"
             },
             "internal_ip_address": {
                 "S": "171.74.19.68"
@@ -378,25 +367,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:37.073738"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:09.446499"
+            },
             "ip_address": {
                 "S": "162.94.15.43"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_MDA03"
-            },
-            "site": {
-                "S": "mda"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_ONO31"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_MDA03"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:10.446499"
+            "site": {
+                "S": "mda"
             },
             "internal_ip_address": {
                 "S": "152.19.1.81"
@@ -407,25 +396,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:37.632102"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:10.446499"
+            },
             "ip_address": {
                 "S": "246.97.217.6"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_PU4NI"
-            },
-            "site": {
-                "S": "mocha"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_MDA03"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_PU4NI"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:11.446499"
+            "site": {
+                "S": "mocha"
             },
             "internal_ip_address": {
                 "S": "51.34.189.212"
@@ -436,25 +425,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:42.698643"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:11.446499"
+            },
             "ip_address": {
                 "S": "87.15.137.84"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_NX0TL"
-            },
-            "site": {
-                "S": "mocha"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_PU4NI"
+            }
+        },
+        {
             "host_name": {
                 "S": "NCI-MATCH-IR"
             },
-            "last_contact": {
-                "S": "2017-02-02 12:08:23.446499"
+            "site": {
+                "S": "mocha"
             },
             "internal_ip_address": {
                 "S": "129.43.39.182"
@@ -468,25 +457,25 @@
             "data_files": {
                 "S": "DB Report"
             },
+            "last_contact": {
+                "S": "2017-02-02 12:08:23.446499"
+            },
             "ip_address": {
                 "S": "129.43.39.182"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_0HV52"
-            },
-            "site": {
-                "S": "mocha"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_NX0TL"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_0HV52"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:12.446499"
+            "site": {
+                "S": "mocha"
             },
             "internal_ip_address": {
                 "S": "252.123.252.218"
@@ -497,25 +486,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:40.458413"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:12.446499"
+            },
             "ip_address": {
                 "S": "247.102.248.94"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_MCA00"
-            },
-            "site": {
-                "S": "mocha"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_0HV52"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_MCA00"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:13.446499"
+            "site": {
+                "S": "mocha"
             },
             "internal_ip_address": {
                 "S": "96.37.116.103"
@@ -526,25 +515,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:37.632102"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:13.446499"
+            },
             "ip_address": {
                 "S": "202.191.64.45"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_0R0WO"
-            },
-            "site": {
-                "S": "mocha"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_MCA00"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_0R0WO"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:14.446499"
+            "site": {
+                "S": "mocha"
             },
             "internal_ip_address": {
                 "S": "206.3.253.6"
@@ -555,25 +544,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:42.140228"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:14.446499"
+            },
             "ip_address": {
                 "S": "42.136.249.43"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_MCAUP"
-            },
-            "site": {
-                "S": "mocha"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_0R0WO"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_MCAUP"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:13.446499"
+            "site": {
+                "S": "mocha"
             },
             "internal_ip_address": {
                 "S": "96.122.166.24"
@@ -584,25 +573,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:11:37.632102"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:13.446499"
+            },
             "ip_address": {
                 "S": "105.150.152.208"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_TCWEV"
-            },
-            "site": {
-                "S": "mda"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_MCAUP"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_TCWEV"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:15.446499"
+            "site": {
+                "S": "mda"
             },
             "internal_ip_address": {
                 "S": "130.230.130.121"
@@ -613,25 +602,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:39.312361"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:15.446499"
+            },
             "ip_address": {
                 "S": "215.16.83.106"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_MDA00"
-            },
-            "site": {
-                "S": "mda"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_TCWEV"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_MDA00"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:16.446499"
+            "site": {
+                "S": "mda"
             },
             "internal_ip_address": {
                 "S": "175.47.246.36"
@@ -642,25 +631,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:37.632102"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:16.446499"
+            },
             "ip_address": {
                 "S": "228.217.125.2"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_X6WHA"
-            },
-            "site": {
-                "S": "mocha"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_MDA00"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_X6WHA"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:17.446499"
+            "site": {
+                "S": "mocha"
             },
             "internal_ip_address": {
                 "S": "193.38.96.34"
@@ -671,25 +660,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:43.258256"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:17.446499"
+            },
             "ip_address": {
                 "S": "81.50.171.131"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_MCA04"
-            },
-            "site": {
-                "S": "mocha"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_X6WHA"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_MCA04"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:18.446499"
+            "site": {
+                "S": "mocha"
             },
             "internal_ip_address": {
                 "S": "18.34.135.157"
@@ -700,25 +689,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:37.632102"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:18.446499"
+            },
             "ip_address": {
                 "S": "178.225.36.35"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_MDAUP"
-            },
-            "site": {
-                "S": "mda"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_MCA04"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_MDAUP"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:16.446499"
+            "site": {
+                "S": "mda"
             },
             "internal_ip_address": {
                 "S": "213.223.8.105"
@@ -729,25 +718,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:10:37.632102"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:16.446499"
+            },
             "ip_address": {
                 "S": "22.89.131.158"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_DTM02"
-            },
-            "site": {
-                "S": "dartmouth"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_MDAUP"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_DTM02"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:25.446499"
+            "site": {
+                "S": "dartmouth"
             },
             "internal_ip_address": {
                 "S": "251.36.83.10"
@@ -758,25 +747,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:37.632102"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:25.446499"
+            },
             "ip_address": {
                 "S": "59.173.162.88"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_MDA04"
-            },
-            "site": {
-                "S": "mda"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_DTM02"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_MDA04"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:19.446499"
+            "site": {
+                "S": "mda"
             },
             "internal_ip_address": {
                 "S": "26.171.30.75"
@@ -787,25 +776,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:37.632102"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:19.446499"
+            },
             "ip_address": {
                 "S": "0.174.190.181"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_6823R"
-            },
-            "site": {
-                "S": "mda"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_MDA04"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_6823R"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:20.446499"
+            "site": {
+                "S": "mda"
             },
             "internal_ip_address": {
                 "S": "51.142.232.14"
@@ -816,58 +805,58 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:38.192693"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:20.446499"
+            },
             "ip_address": {
                 "S": "2.154.144.246"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_LB123"
-            },
-            "site": {
-                "S": "mocha"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_6823R"
+            }
+        },
+        {
             "host_name": {
                 "S": "NCIAS-D1356"
+            },
+            "site": {
+                "S": "mocha"
+            },
+            "internal_ip_address": {
+                "S": "10.133.226.13"
+            },
+            "ion_reporter_version": {
+                "S": "5.0"
+            },
+            "date_ion_reporter_id_created": {
+                "S": "2016-10-12 21:19:36.514328"
+            },
+            "data_files": {
+                "S": "DB Report"
             },
             "last_contact": {
                 "S": "2017-02-02 05:08:23.446499"
             },
-            "internal_ip_address": {
-                "S": "10.133.226.13"
-            },
-            "ion_reporter_version": {
-                "S": "5.0"
-            },
-            "date_ion_reporter_id_created": {
-                "S": "2016-10-12 21:19:36.514328"
-            },
-            "data_files": {
-                "S": "DB Report"
-            },
             "ip_address": {
                 "S": "10.133.226.13"
+            },
+            "study_id": {
+                "S": "APEC1621SC"
+            },
+            "ion_reporter_id": {
+                "S": "IR_LB123"
             }
         },
         {
-            "ion_reporter_id": {
-                "S": "IR_WO3IA"
+            "host_name": {
+                "S": "NCIAS-D1356"
             },
             "site": {
                 "S": "mocha"
             },
-            "study_id": {
-                "S": "APEC1621SC"
-            },
-            "host_name": {
-                "S": "NCIAS-D1356"
-            },
-            "last_contact": {
-                "S": "2017-02-02 07:08:23.446499"
-            },
             "internal_ip_address": {
                 "S": "10.133.226.13"
             },
@@ -880,25 +869,25 @@
             "data_files": {
                 "S": "DB Report"
             },
+            "last_contact": {
+                "S": "2017-02-02 07:08:23.446499"
+            },
             "ip_address": {
                 "S": "10.133.226.13"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_MDA02"
-            },
-            "site": {
-                "S": "mda"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_WO3IA"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_MDA02"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:21.446499"
+            "site": {
+                "S": "mda"
             },
             "internal_ip_address": {
                 "S": "56.104.37.162"
@@ -909,25 +898,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:37.632102"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:21.446499"
+            },
             "ip_address": {
                 "S": "242.188.173.31"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_DTM01"
-            },
-            "site": {
-                "S": "dartmouth"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_MDA02"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_DTM01"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:25.446499"
+            "site": {
+                "S": "dartmouth"
             },
             "internal_ip_address": {
                 "S": "203.73.73.205"
@@ -938,25 +927,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:37.632102"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:25.446499"
+            },
             "ip_address": {
                 "S": "95.69.0.41"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_D1356"
-            },
-            "site": {
-                "S": "mda"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_DTM01"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_D1356"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:03.446499"
+            "site": {
+                "S": "mda"
             },
             "internal_ip_address": {
                 "S": "98.195.220.223"
@@ -967,25 +956,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:20:37.632102"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:03.446499"
+            },
             "ip_address": {
                 "S": "178.144.39.145"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_DTMUP"
-            },
-            "site": {
-                "S": "dartmouth"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_D1356"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_DTMUP"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:25.446499"
+            "site": {
+                "S": "dartmouth"
             },
             "internal_ip_address": {
                 "S": "94.54.73.55"
@@ -996,25 +985,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:12:37.632102"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:25.446499"
+            },
             "ip_address": {
                 "S": "48.10.224.104"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_WAO85"
-            },
-            "site": {
-                "S": "mocha"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_DTMUP"
+            }
+        },
+        {
             "host_name": {
                 "S": "NCI-MATCH-IR"
             },
-            "last_contact": {
-                "S": "2017-02-02 13:08:23.446499"
+            "site": {
+                "S": "mocha"
             },
             "internal_ip_address": {
                 "S": "129.43.127.133"
@@ -1028,25 +1017,25 @@
             "data_files": {
                 "S": "Data File"
             },
+            "last_contact": {
+                "S": "2017-02-02 13:08:23.446499"
+            },
             "ip_address": {
                 "S": "129.43.127.133"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_MCA01"
-            },
-            "site": {
-                "S": "mocha"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_WAO85"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_MCA01"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:22.446499"
+            "site": {
+                "S": "mocha"
             },
             "internal_ip_address": {
                 "S": "127.100.1.209"
@@ -1057,25 +1046,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:37.632102"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:22.446499"
+            },
             "ip_address": {
                 "S": "31.183.247.72"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_MDA01"
-            },
-            "site": {
-                "S": "mda"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_MCA01"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_MDA01"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:24.446499"
+            "site": {
+                "S": "mda"
             },
             "internal_ip_address": {
                 "S": "186.20.159.51"
@@ -1086,25 +1075,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:37.632102"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:24.446499"
+            },
             "ip_address": {
                 "S": "58.246.98.254"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_AIO78"
-            },
-            "site": {
-                "S": "mda"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_MDA01"
+            }
+        },
+        {
             "host_name": {
                 "S": "MDACC-MATCH-IR"
             },
-            "last_contact": {
-                "S": "2017-02-02 12:18:23.446499"
+            "site": {
+                "S": "mda"
             },
             "internal_ip_address": {
                 "S": "172.20.174.24"
@@ -1118,25 +1107,25 @@
             "data_files": {
                 "S": "Log File"
             },
+            "last_contact": {
+                "S": "2017-02-02 12:18:23.446499"
+            },
             "ip_address": {
                 "S": "132.183.13.75"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_MCA05"
-            },
-            "site": {
-                "S": "dartmouth"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_AIO78"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_MCA05"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:25.446499"
+            "site": {
+                "S": "dartmouth"
             },
             "internal_ip_address": {
                 "S": "104.170.24.253"
@@ -1147,25 +1136,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:37.632102"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:25.446499"
+            },
             "ip_address": {
                 "S": "147.92.44.1"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_IGEAW"
-            },
-            "site": {
-                "S": "mda"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_MCA05"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_IGEAW"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:26.446499"
+            "site": {
+                "S": "mda"
             },
             "internal_ip_address": {
                 "S": "38.218.127.130"
@@ -1176,25 +1165,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:36.514328"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:26.446499"
+            },
             "ip_address": {
                 "S": "247.0.158.151"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_MCA02"
-            },
-            "site": {
-                "S": "mocha"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_IGEAW"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_MCA02"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:27.446499"
+            "site": {
+                "S": "mocha"
             },
             "internal_ip_address": {
                 "S": "14.95.103.123"
@@ -1205,25 +1194,25 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:37.632102"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:27.446499"
+            },
             "ip_address": {
                 "S": "55.151.85.53"
-            }
-        },
-        {
-            "ion_reporter_id": {
-                "S": "IR_DTM99"
-            },
-            "site": {
-                "S": "dartmouth"
             },
             "study_id": {
                 "S": "APEC1621SC"
             },
+            "ion_reporter_id": {
+                "S": "IR_MCA02"
+            }
+        },
+        {
             "host_name": {
                 "S": "MATCH_IR_IR_DTM99"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:25.446499"
+            "site": {
+                "S": "dartmouth"
             },
             "internal_ip_address": {
                 "S": "180.103.159.157"
@@ -1234,10 +1223,21 @@
             "date_ion_reporter_id_created": {
                 "S": "2016-10-12 21:19:37.632102"
             },
+            "last_contact": {
+                "S": "2017-02-01 15:08:25.446499"
+            },
             "ip_address": {
                 "S": "221.187.167.187"
+            },
+            "study_id": {
+                "S": "APEC1621SC"
+            },
+            "ion_reporter_id": {
+                "S": "IR_DTM99"
             }
         }
     ],
-    "ConsumedCapacity": null
+    "ScannedCount": 42,
+    "ConsumedCapacity": null,
+    "Count": 42
 }
