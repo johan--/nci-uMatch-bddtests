@@ -55,6 +55,7 @@ class PedMatchTestData
   end
 end
 
+PedMatchTestData.load_seed_patients(['PT_VC00_CnvVrReceived'])
 
 # pt = PatientStory.new('PT_TEST111')
 # pt.create_temporary_patient{

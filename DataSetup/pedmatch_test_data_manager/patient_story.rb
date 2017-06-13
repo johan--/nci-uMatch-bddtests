@@ -39,7 +39,7 @@ class PatientStory
     unless hash.keys.size < MAX_PATIENTS
       id = file.split(SAVE_FILE_PREFIX).last.gsub('.json', '').to_i+1
       file = path_for_save_file(id)
-      File.open(file, 'w') { |f| f.write('{}') }
+      File.open(file, 'w') {|f| f.write('{}')}
     end
     file
   end
@@ -60,11 +60,11 @@ class PatientStory
   def full_story
     result = []
     load if @story_hash.empty?
-    @story_hash.each { |string|
+    @story_hash.each {|string|
       this_step={}
       label = string.split(':<')[0]
       this_step[label]={}
-      string.gsub("#{label}:", '').split('&').each { |v|
+      string.gsub("#{label}:", '').split('&').each {|v|
         pair = v.split('=>')
         this_step[label][pair[0]]=pair[1]
       }
@@ -101,7 +101,7 @@ class PatientStory
     file = JSON.parse(File.read(@file_path))
     raise "#{@file_path} is not an Hash" unless file.is_a?(Hash)
     file[@patient_id] = @story_hash
-    File.open(@file_path, 'w') { |f| f.write(JSON.pretty_generate(file)) }
+    File.open(@file_path, 'w') {|f| f.write(JSON.pretty_generate(file))}
     Logger.info("#{@patient_id} has been written to file #{@file_path}")
   end
 
@@ -196,6 +196,7 @@ class PatientStory
 
   def story_tissue_variant_report(vr_type='default',
                                   folder='bdd_test_ion_reporter',
+                                  process_bams=true,
                                   analysis_id = DEFAULT_NEW,
                                   molecular_id=DEFAULT_ACTIVE,
                                   site=DEFAULT_ACTIVE)
@@ -203,13 +204,18 @@ class PatientStory
     moi = process_id(@active_ts_moi, molecular_id)
     site = process_id(@active_site, site)
     Utilities.upload_vr(@active_ts_moi, @active_ts_ani, vr_type)
-    this_story = "aliquot:<patient_id>=>#{@patient_id}&<ion_reporter_id>=>#{folder}"
+    this_story = "aliquot:<patient_id>=>#{@patient_id}&<ion_reporter_id>=>#{folder}&<vr_type>=>#{vr_type}"
     this_story += "&<analysis_id>=>#{@active_ts_ani}&<molecular_id>=>#{moi}&<site>=>#{site}"
     @story_hash << this_story
+    if process_bams
+      story_file_uploaded_dna(@active_ts_ani)
+      story_file_uploaded_cdna(@active_ts_ani)
+    end
   end
 
   def story_blood_variant_report(vr_type='default',
                                  folder='bdd_test_ion_reporter',
+                                 process_bams=true,
                                  analysis_id = DEFAULT_NEW,
                                  molecular_id=DEFAULT_ACTIVE,
                                  site=DEFAULT_ACTIVE)
@@ -217,9 +223,13 @@ class PatientStory
     moi = process_id(@active_bd_moi, molecular_id)
     site = process_id(@active_site, site)
     Utilities.upload_vr(@active_bd_moi, @active_bd_ani, vr_type)
-    this_story = "aliquot:<patient_id>=>#{@patient_id}&<ion_reporter_id>=>#{folder}"
+    this_story = "aliquot:<patient_id>=>#{@patient_id}&<ion_reporter_id>=>#{folder}&<vr_type>=>#{vr_type}"
     this_story += "&<analysis_id>=>#{@active_bd_ani}&<molecular_id>=>#{moi}&<site>=>#{site}"
     @story_hash << this_story
+    if process_bams
+      story_file_uploaded_dna(@active_bd_ani)
+      story_file_uploaded_cdna(@active_bd_ani)
+    end
   end
 
   def story_file_uploaded_cdna(analysis_id, cdna_bam_name='cdna.bam', comment_user='qa', molecular_id=DEFAULT_ACTIVE)

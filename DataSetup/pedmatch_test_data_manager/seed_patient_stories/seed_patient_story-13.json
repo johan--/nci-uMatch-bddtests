@@ -33,7 +33,9 @@
     "assay_result_reported:<patient_id>=>PT_VC00_CnvVrReceived&<surgical_event_id>=>PT_VC00_CnvVrReceived_SEI1&<biomarker>=>ICCPTENs&<result>=>NEGATIVE&<reported_date>=>current",
     "assay_result_reported:<patient_id>=>PT_VC00_CnvVrReceived&<surgical_event_id>=>PT_VC00_CnvVrReceived_SEI1&<biomarker>=>ICCBAF47s&<result>=>NEGATIVE&<reported_date>=>current",
     "assay_result_reported:<patient_id>=>PT_VC00_CnvVrReceived&<surgical_event_id>=>PT_VC00_CnvVrReceived_SEI1&<biomarker>=>ICCBRG1s&<result>=>NEGATIVE&<reported_date>=>current",
-    "aliquot:<patient_id>=>PT_VC00_CnvVrReceived&<ion_reporter_id>=>bdd_test_ion_reporter&<analysis_id>=>PT_VC00_CnvVrReceived_ANI1&<molecular_id>=>PT_VC00_CnvVrReceived_MOI1&<site>=>MDA"
+    "aliquot:<patient_id>=>PT_VC00_CnvVrReceived&<ion_reporter_id>=>bdd_test_ion_reporter&<vr_type>=>cnv&<analysis_id>=>PT_VC00_CnvVrReceived_ANI1&<molecular_id>=>PT_VC00_CnvVrReceived_MOI1&<site>=>MDA",
+    "variant_dna_file_uploaded:<patient_id>=>PT_VC00_CnvVrReceived&<dna_bam_name>=>dna.bam&<analysis_id>=>PT_VC00_CnvVrReceived&<molecular_id>=>PT_VC00_CnvVrReceived_MOI1&<comment_user>=>qa",
+    "variant_cdna_file_uploaded:<patient_id>=>PT_VC00_CnvVrReceived&<cdna_bam_name>=>cdna.bam&<analysis_id>=>PT_VC00_CnvVrReceived&<molecular_id>=>PT_VC00_CnvVrReceived_MOI1&<comment_user>=>qa"
   ],
   "PT_RB02a_PendingConfirmation": [
     "registration:<patient_id>=>PT_RB02a_PendingConfirmation&<status_date>=>current",
