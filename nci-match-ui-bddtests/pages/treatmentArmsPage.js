@@ -89,9 +89,11 @@ var TreatmentArmsPage = function() {
     // Right info box
     this.taGene = element(by.binding('currentVersion.gene'));
     this.taPatientsAssigned = element(by.binding(
-        'currentVersion.version_statistics.current_patients + currentVersion.version_statistics.pending_patients | zerofy'));
+        'currentVersion.version_statistics.current_patients + currentVersion.version_statistics.pending_patients + currentVersion.version_statistics.former_patients | zerofy'));
     this.taTotalPatientsAssigned = element(by.binding(
-        'currentVersion.stratum_statistics.current_patients + currentVersion.stratum_statistics.pending_patients | zerofy'));
+        'currentVersion.stratum_statistics.current_patients + currentVersion.stratum_statistics.pending_patients + currentVersion.stratum_statistics.former_patients | zerofy'));
+    this.currentPatientsAssigned = element(by.binding('currentVersion.stratum_statistics.current_patients | zerofy'));
+    this.totalEverPatientsAssigned = element(by.binding('currentVersion.stratum_statistics.current_patients + currentVersion.stratum_statistics.former_patients | zerofy'));
     this.taDrug= element.all(by.repeater('drug in currentVersion.treatment_arm_drugs'));
 
     // Inclusion/exclusion button

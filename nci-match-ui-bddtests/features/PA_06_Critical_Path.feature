@@ -248,4 +248,3 @@ Feature: These are the critical path test cases.
     And I wait for "5" seconds
     And I scroll to the top of the page
     And I can see the "3" Sample File upload process has started
-    Then I logout

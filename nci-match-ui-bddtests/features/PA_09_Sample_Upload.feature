@@ -55,7 +55,7 @@ Feature: MATCHKB-542. Users can upload patient sample files.
         | patient_id                    | surgical_event_id                     | status                            | visibility  |
         | ION_AQ02_TsShipped            | ION_AQ02_TsShipped_SEI1               | TISSUE_NUCLEIC_ACID_SHIPPED       | visible     |
         | ION_AQ41_TsVrUploaded         | ION_AQ41_TsVrUploaded_SEI1            | TISSUE_VARIANT_REPORT_RECEIVED    | visible     |
-        | PT_AM01_TsVrReceived1         | PT_AM01_TsVrReceived1_SEI1            | ASSAY_RESULTS_RECEIVED            | visible     |
+        | PT_OS01_AssayReceived         | PT_OS01_AssayReceived_SEI1            | ASSAY_RESULTS_RECEIVED            | visible     |
         | PT_AS12_PendingConfirmation   | PT_AS12_PendingConfirmation_SEI1      | PENDING_CONFIRMATION              | invisible   |
         | PT_AM03_PendingApproval       | PT_AM03_PendingApproval_SEI1          | PENDING_APPROVAL                  | invisible   |
         | PT_SR10_CompassionateCare     | PT_SR10_CompassionateCare_SEI1        | COMPASSIONATE_CARE                | invisible   |
