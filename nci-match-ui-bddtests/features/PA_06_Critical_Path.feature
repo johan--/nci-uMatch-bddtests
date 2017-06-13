@@ -214,6 +214,15 @@ Feature: These are the critical path test cases.
     # And I "should" see the patient "Stratum Id" as "100"
     # And I "should" see the patient "Version" as "2015-08-06"
 
+  @ui_p2
+    Scenario: Arm Suspended Exclusion must explicitly call out the reason as the Arm was suspended
+    Given I stay logged in as "AR_Reviewer" user
+    When I go to patient "PT_CR01_PathAssayDoneVRUploadedToConfirm" details page
+    And I get the link to "PT_CR01_PathAssayDoneVRUploadedToConfirm_ANI1" assignment report
+    And I navigate to the Assignment Report
+    And I get to the row heading that says "ARM_SUSPENDED_EXCLUSION"
+    Then I see the first row after has the message description "but it is in a SUSPENDED state"
+
   @ui_p1
   Scenario: Confirmed Assignment Report updates information on the Assignment report section of the patient
     Given I stay logged in as "AR_Reviewer" user

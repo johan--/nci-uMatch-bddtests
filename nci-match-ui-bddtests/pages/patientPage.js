@@ -190,6 +190,7 @@ var PatientPage = function () {
     this.assignmentSummaryBoxes      = element.all(by.css('.assignment-header-box'));
     this.selectedAssignmentBoxHeader = element(by.css('div.panel-primary>div.panel-heading'));
     this.selectedAssignmentBoxText   = element(by.css('div.panel-primary>div.panel-body'));
+    this.allRowsinAssignmentLogic    = element.all(by.css('div[ng-if="variantReport && variantReport.status===\'CONFIRMED\'"] table:nth-of-type(2) tbody>tr'))
     this.ruleNameList                = element.all(by.css('[ng-repeat-start="(ruleName, ruleDetails) in assignmentReport.treatment_assignment_results"]'));
     this.ruleDetailsList             = element.all(by.repeater('rule in ruleDetails'));
 

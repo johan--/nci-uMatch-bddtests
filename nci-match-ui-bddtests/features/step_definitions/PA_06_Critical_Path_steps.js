@@ -41,6 +41,31 @@ module.exports = function () {
         }).then(callback);
     });
 
+    this.When(/^I get to the row heading that says "([^"]*)"$/, function (heading, callback) {
+        var allRows = patientPage.allRowsinAssignmentLogic;
+        patientPage.catchRow = -1;
+
+        var isSelected = function (elem, index) {
+            return elem.getText().then(function(txt){
+                var presence = txt.includes(heading)
+                if (presence) {
+                    patientPage.catchRow = index
+                }
+                return presence
+            })
+        };
+
+        allRows.count().then(function (cnt) {
+            for ( var i = 0; i < cnt; i ++ ){
+                isSelected(allRows.get(i), i).then(function (present) {
+                    if (present === true) {
+                        console.log("found")
+                    }
+                })
+            }
+        }).then(callback);
+    });
+
     this.When(/^The patient has a status of "([^"]*)"$/, function (status, callback) {
          expect(patientPage.patientDetailsStatus.getText()).to.eventually.eql(status).notify(callback);
        });
@@ -354,6 +379,10 @@ module.exports = function () {
                 utilities.checkExpectation(patientPage.totalAMois, ct, 'totalAmoi count Mismatch');
             })
         }).then(callback);
+    });
+
+    this.Then(/^I see the first row after has the message description "([^"]*)"$/, function (message, callback) {
+        expect(patientPage.allRowsinAssignmentLogic.get(patientPage.catchRow + 1).getText()).eventually.include(message).notify(callback);
     });
 
     this.Then(/^I get the Total confirmed MOIs on the page$/, function (callback) {

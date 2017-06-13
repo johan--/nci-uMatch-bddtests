@@ -1,9 +1,11 @@
 Feature: Treatment Arm details page show the details about the patient associated with that particular TA
 
-
-  Scenario Outline: A patient on status <status> <see_or_not> see the Date Off Arm data generated
+  Background:
     Given I stay logged in as "read_only" user
     When I go to treatment arm with "APEC1621-A" as the id and "100" as stratum id
+
+  @ui_p2
+  Scenario Outline: A patient on status <status> <see_or_not> see the Date Off Arm data generated
     And I enter "<patient_id>" in the all patients data filter field
     And His status in the all patients table is "<status>"
     Then I "<see_or_not>" see the Data of Arm Generated
@@ -19,8 +21,6 @@ Feature: Treatment Arm details page show the details about the patient associate
 
   @ui_p2
   Scenario: Patients on different statuses should show or not show the Date Off Arm data generated
-    Given I stay logged in as "read_only" user
-    When I go to treatment arm with "APEC1621-A" as the id and "100" as stratum id
     And I enter "PT_SR10_ProgressReBioY" in the all patients data filter field
     And His status in the all patients table is "PREVIOUSLY_ON_ARM"
     Then I "should" see the Data of Arm Generated
