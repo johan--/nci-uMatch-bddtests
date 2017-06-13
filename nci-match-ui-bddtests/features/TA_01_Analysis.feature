@@ -32,7 +32,7 @@ Feature: Treatment Arms Dashboard
 
   @ui_p1
   Scenario: Logged in user can access the dashboard of Treatment Arms page
-    When I go to treatment arm with "APEC1621-2V" as the id and "100" as stratum id
+    When I go to treatment arm with "APEC1621-A" as the id and "100" as stratum id
     And I collect backend information about the treatment arm
     Then I should see the treatment-arms detail dashboard
     And I should see detailed Treatment Arms breadcrumb

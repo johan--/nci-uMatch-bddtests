@@ -313,14 +313,20 @@ module.exports = function () {
         utilities.checkElementArray(taPage.rightInfoBoxLabels, taPage.expectedRightBoxLabels);
         var expectedDrugList = [];
         var drugDetails = firstTreatmentArm.treatment_arm_drugs;
+        var totalAssignedPatients = firstTreatmentArm.version_statistics.current_patients + firstTreatmentArm.version_statistics.pending_patients + firstTreatmentArm.version_statistics.former_patients;
+        var totalEverAssignedPatients = firstTreatmentArm.stratum_statistics.current_patients + firstTreatmentArm.stratum_statistics.pending_patients + firstTreatmentArm.stratum_statistics.former_patients;
+        var currentlyONTA = firstTreatmentArm.stratum_statistics.current_patients
+        var patientsEverONTA = firstTreatmentArm.stratum_statistics.current_patients + firstTreatmentArm.stratum_statistics.former_patients;
         var versionCurrentPatients = utilities.zerofyIfEmpty(firstTreatmentArm.version_statistics.current_patients);
         var stratumCurrentPatients = utilities.zerofyIfEmpty(firstTreatmentArm.stratum_statistics.current_patients);
+        var tablePanel = taPage.rightInfoBoxItems
         for(var i = 0; i < drugDetails.length; i ++){
             expectedDrugList.push(drugDetails[i].name);
         }
-        // expect(taPage.taGene.getText()).to.eventually.equal(firstTreatmentArm.gene);
-        expect(taPage.taPatientsAssigned.getText()).to.eventually.equal(versionCurrentPatients.toString());
-        expect(taPage.taTotalPatientsAssigned.getText()).to.eventually.equal(stratumCurrentPatients.toString());
+        expect(tablePanel.get(1).getText()).to.eventually.eql(totalAssignedPatients.toString(), 'Total Patients Assigned');
+        expect(tablePanel.get(2).getText()).to.eventually.eql(totalEverAssignedPatients.toString(), 'Total Patients ever assigned');
+        expect(tablePanel.get(3).getText()).to.eventually.eql(currentlyONTA.toString(), 'Patients on TA');
+        expect(tablePanel.get(4).getText()).to.eventually.eql(patientsEverONTA.toString(), 'Patients ever on TA');
         taPage.taDrug.getText().then(function (actualDrugList) {
             expect(actualDrugList).to.eql(expectedDrugList)
         }).then(callback);
