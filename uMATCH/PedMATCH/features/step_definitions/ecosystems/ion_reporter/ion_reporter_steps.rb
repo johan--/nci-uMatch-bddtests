@@ -675,7 +675,20 @@ end
 
 Then(/^field: "([^"]*)" for this aliquot should be: "([^"]*)"$/) do |field, value|
   converted_value = value=='null' ? nil : value
-  @returned_aliquot_result[field].should == converted_value
+  if Helper_Methods.is_number?(converted_value)
+    expect(@returned_aliquot_result[field].to_f).to be == converted_value.to_f
+  elsif Helper_Methods.is_boolean(converted_value)
+    expect(@returned_aliquot_result[field].to_s.downcase).to eq converted_value.to_s.downcase
+  else
+    expect(@returned_aliquot_result[field].to_s).to eq converted_value.to_s
+  end
+end
+
+Then(/^oncomine_control pool "(1|2)" sum for this aliquot should be: "([^"]*)"$/) do |pool, value|
+  field = "pool#{pool}Sum"
+  expect(@returned_aliquot_result.keys).to include 'oncomine_control_panel_summary'
+  expect(@returned_aliquot_result['oncomine_control_panel_summary'].keys).to include field
+  expect(@returned_aliquot_result['oncomine_control_panel_summary'][field].to_f).to eq value.to_f
 end
 
 # doesn't have varaint_report field anymore, this field has been flatten into root

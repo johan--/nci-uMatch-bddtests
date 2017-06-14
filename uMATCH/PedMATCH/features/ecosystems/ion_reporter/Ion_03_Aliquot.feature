@@ -263,6 +263,7 @@ Feature: Tests for aliquot service in ion ecosystem
     And this variant report oncomine_control pool "1" sum should be "449632.5"
     And this variant report oncomine_control pool "2" sum should be "957045.5"
 
+  @ion_reporter_p1
   Scenario: ION_AQ09b aliquot service can handle vcf version 5.2 properly for sample control
     Given molecular id is "NTC_MDA_VNTE5"
     And ir user authorization role is "SYSTEM"
@@ -276,8 +277,8 @@ Feature: Tests for aliquot service in ion ecosystem
     Then field: "tsv_name" for this aliquot should be: "IR_TCWEV/NTC_MDA_VNTE5/NTC_MDA_VNTE5_ANI1/test1.tsv"
     Then field: "torrent_variant_caller_version" for this aliquot should be: "5.2-25"
     Then field: "mappedFusionPanelReads" for this aliquot should be: "1406678"
-    Then field: "pool1Sum" for this aliquot should be: "449632.5"
-    Then field: "pool2Sum" for this aliquot should be: "957045.5"
+    Then oncomine_control pool "1" sum for this aliquot should be: "449632.5"
+    Then oncomine_control pool "2" sum for this aliquot should be: "957045.5"
 
 
   @ion_reporter_p2
@@ -530,3 +531,6 @@ Feature: Tests for aliquot service in ion ecosystem
       | moi                  | ani | site |
       | one_file_doesnt_exis |     |      |
       | two_files_dont_exist |     |      |
+
+
+
