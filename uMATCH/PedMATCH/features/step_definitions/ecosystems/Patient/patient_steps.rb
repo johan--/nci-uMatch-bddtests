@@ -137,7 +137,7 @@ def prepare_get_url
     get_service_queries = "&projections=[#{@get_service_projections.join(',')}]"
   end
   unless @get_service_parameters.nil?
-    get_service_queries += "&#{@get_service_parameters.map { |k, v| "#{k}=#{v}" }.join('&')}"
+    get_service_queries += "&#{@get_service_parameters.map {|k, v| "#{k}=#{v}"}.join('&')}"
   end
   url += get_service_queries.sub('&', '?') #.sub method only replace the first occurrence
 end
@@ -300,7 +300,7 @@ end
 #########################################################
 Then(/^there should have one patient with id "([^"]*)"$/) do |pt_id|
   patients = Patient_helper_methods.get_any_result_from_url("#{ENV['patients_endpoint']}")
-  filtered = patients.select { |this_pt| this_pt['patient_id']==pt_id }
+  filtered = patients.select {|this_pt| this_pt['patient_id']==pt_id}
   expect(filtered.size).to eq 1
 end
 
@@ -330,7 +330,7 @@ And(/^patient should have prior_recommended_treatment_arms: "([^"]*)" with strat
     pra = 'prior_recommended_treatment_arms'
     expect(@current_patient_hash.keys).to include pra
     expect(@current_patient_hash[pra].class).to eq Array
-    ta = @current_patient_hash[pra].select { |i| i['treatment_arm_id']==ta_id && i['stratum_id'] == stratum }
+    ta = @current_patient_hash[pra].select {|i| i['treatment_arm_id']==ta_id && i['stratum_id'] == stratum}
     expect(ta.size).to eq 1
   end
 end
@@ -521,9 +521,9 @@ Then(/^patient should "(have|not have)" assignment report \(analysis_id: "([^"]*
   response = Patient_helper_methods.get_any_result_from_url(url)
   expect(response.class).to eq Hash
   assignments = []
-  response['tissue_specimens'].each { |this_specimen|
-    this_specimen['specimen_shipments'].each { |this_shippment|
-      this_shippment['analyses'].each { |this_analysis|
+  response['tissue_specimens'].each {|this_specimen|
+    this_specimen['specimen_shipments'].each {|this_shippment|
+      this_shippment['analyses'].each {|this_analysis|
         if this_analysis['analysis_id'] == ani
           assignments = this_analysis['assignments']
           break
@@ -601,7 +601,7 @@ Then(/^variants in variant report \(analysis_id: "([^"]*)"\) have confirmed: "([
   unless variants.is_a?(Array)
     raise "Expect array returned, actually #{variants.class.to_s} returned"
   end
-  variants.each { |this_variant|
+  variants.each {|this_variant|
     actual_match_expect(this_variant['confirmed'].to_s, confirmed)
   }
 end
@@ -629,7 +629,7 @@ And(/^analysis_id "([^"]*)" should have (\d+) PENDING (\d+) REJECTED (\d+) CONFI
   actual_rejected = 0
   actual_confirmed = 0
   if assignments.is_a?(Array)
-    assignments.each { |this_assignment|
+    assignments.each {|this_assignment|
       case this_assignment['status']
         when 'PENDING'
           actual_pending += 1
@@ -771,14 +771,14 @@ end
 
 And(/^each element of response should have field "([^"]*)"$/) do |field|
   raise 'GET response is empty' if @get_response.length<1
-  @get_response.each { |this_element|
+  @get_response.each {|this_element|
     expect(this_element.keys).to include field
   }
 end
 
 And(/^each element of response should have field "([^"]*)" with value "([^"]*)"$/) do |field, value|
   raise 'GET response is empty' if @get_response.length<1
-  @get_response.each { |this_element|
+  @get_response.each {|this_element|
     expect(this_element.keys).to include field
     expect(this_element[field]).to eql value
   }
@@ -786,7 +786,7 @@ end
 
 And(/^each element of response should have (\d+) fields$/) do |field_count|
   raise 'GET response is empty' if @get_response.length<1
-  @get_response.each { |this_element|
+  @get_response.each {|this_element|
     expect(this_element.length).to eql field_count.to_i
   }
 end
@@ -821,19 +821,32 @@ And(/^patient statistics field "([^"]*)" should have correct value$/) do |field|
       expect(actual.to_i).to eql Helper_Methods.dynamodb_table_distinct_column('variant_report', {status: 'CONFIRMED'}, 'patient_id').length
     when 'treatment_arm_accrual'
       db_accrual = {}
-      patients = Helper_Methods.dynamodb_table_items('patient', {current_status: 'ON_TREATMENT_ARM'})
-      patients.each { |this_patient|
-        ta = this_patient['current_assignment']['selected_treatment_arm']['treatment_arm_id']
-        st = this_patient['current_assignment']['selected_treatment_arm']['stratum_id']
-        vs = this_patient['current_assignment']['selected_treatment_arm']['version']
+      Helper_Methods.dynamodb_table_items('assignment').each do |a|
+        next if a['cog_assignment_date'].nil?
+        ta = a['selected_treatment_arm']['treatment_arm_id']
+        st = a['selected_treatment_arm']['stratum_id']
+        vs = a['selected_treatment_arm']['version']
         tt = "#{ta} (#{st}, #{vs})"
         if db_accrual.keys.include?(tt)
-          db_accrual[tt]['patients'] += 1
+          db_accrual[tt][:patients] += 1
         else
-          db_accrual[tt] = {'name' => ta, 'stratum_id' => st, 'patients' => 1}
+          db_accrual[tt] = {:name => ta, :stratum_id => st, :patients => 1}
         end
-      }
+      end
       expect(@get_response['treatment_arm_accrual']).to eql db_accrual
+    # patients = Helper_Methods.dynamodb_table_items('patient', {current_status: 'ON_TREATMENT_ARM'})
+    # patients.each { |this_patient|
+    #   ta = this_patient['current_assignment']['selected_treatment_arm']['treatment_arm_id']
+    #   st = this_patient['current_assignment']['selected_treatment_arm']['stratum_id']
+    #   vs = this_patient['current_assignment']['selected_treatment_arm']['version']
+    #   tt = "#{ta} (#{st}, #{vs})"
+    #   if db_accrual.keys.include?(tt)
+    #     db_accrual[tt]['patients'] += 1
+    #   else
+    #     db_accrual[tt] = {'name' => ta, 'stratum_id' => st, 'patients' => 1}
+    #   end
+    # }
+    # expect(@get_response['treatment_arm_accrual']).to eql db_accrual
     else
   end
 end
@@ -850,7 +863,7 @@ And(/^patient pending_items field "([^"]*)" should have correct value$/) do |fie
   expect_key_list = []
   patient_list = Patient_helper_methods.get_any_result_from_url(ENV['patients_endpoint'])
   skip_status = %w(OFF_STUDY OFF_STUDY_BIOPSY_EXPIRED REQUEST_NO_ASSIGNMENT)
-  patient_list.each { |this_patient|
+  patient_list.each {|this_patient|
     next if skip_status.include?(this_patient['current_status'])
     case field
       when 'tissue_variant_reports'
@@ -866,7 +879,7 @@ And(/^patient pending_items field "([^"]*)" should have correct value$/) do |fie
       else
     end
   }
-  response[field].each { |this_item|
+  response[field].each {|this_item|
     actual_key_list << this_item['analysis_id']
   }
   extra_actual = actual_key_list - expect_key_list
@@ -881,7 +894,7 @@ Then(/^there are "([^"]*)" patient "([^"]*)" pending_items have field: "([^"]*)"
   expect(@get_response.keys).to include type
   expect_result = "There are #{count} matching results"
   actual_count = 0
-  @get_response[type].each { |this_item|
+  @get_response[type].each {|this_item|
     if this_item[field]==value
       actual_count += 1
     end
@@ -894,7 +907,7 @@ Then(/^there are "([^"]*)" patient_limbos have field: "([^"]*)" value: "([^"]*)"
   expect(@get_response.class).to eql Array
   expect_result = "There are #{count} matching results"
   actual_count = 0
-  @get_response.each { |this_item|
+  @get_response.each {|this_item|
     if this_item[field]==value
       actual_count += 1
     end
@@ -905,7 +918,7 @@ end
 
 Then(/^this patient patient_limbos field "([^"]*)" should be correct$/) do |field|
   expect(@get_response.class).to eql Array
-  this_patient_limbos = @get_response.find { |this_item| this_item['patient_id'] == @patient_id }
+  this_patient_limbos = @get_response.find {|this_item| this_item['patient_id'] == @patient_id}
   expect(this_patient_limbos).not_to eql nil
   get_patient_if_needed
   expect(this_patient_limbos[field]).to eql @current_patient_hash[field]
@@ -913,15 +926,15 @@ end
 
 Then(/^this patient patient_limbos should have "([^"]*)" messages which contain "([^"]*)"$/) do |count, contain|
   expect(@get_response.class).to eql Array
-  this_patient_limbos = @get_response.find { |this_item| this_item['patient_id'] == @patient_id }
+  this_patient_limbos = @get_response.find {|this_item| this_item['patient_id'] == @patient_id}
   expect(this_patient_limbos).not_to eql nil
   expect(this_patient_limbos.keys).to include 'message'
   contain_list = contain.split('-')
   actual_list = this_patient_limbos['message']
 
   expect(actual_list.size).to eql count.to_i
-  contain_list.each { |this_contain|
-    unless actual_list.any? { |this_actual| this_actual.downcase.include?(this_contain.downcase) }
+  contain_list.each {|this_contain|
+    unless actual_list.any? {|this_actual| this_actual.downcase.include?(this_contain.downcase)}
       raise "#{actual_list.to_s} is expected to contain #{this_contain}"
     end
   }
@@ -929,7 +942,7 @@ end
 
 Then(/^this patient patient_limbos days_pending should be correct$/) do
   expect(@get_response.class).to eql Array
-  this_patient_limbos = @get_response.find { |this_item| this_item['patient_id'] == @patient_id }
+  this_patient_limbos = @get_response.find {|this_item| this_item['patient_id'] == @patient_id}
   ats = 'active_tissue_specimen'
   dp = 'days_pending'
   expect(this_patient_limbos).not_to eql nil
@@ -944,7 +957,7 @@ end
 
 Then(/^this patient patient_limbos has_amoi should be "(true|false)"$/) do |has_amoi|
   expect(@get_response.class).to eql Array
-  this_patient_limbos = @get_response.find { |this_item| this_item['patient_id'] == @patient_id }
+  this_patient_limbos = @get_response.find {|this_item| this_item['patient_id'] == @patient_id}
 
   # check test PT_SC04f
   # expect(this_patient_limbos).not_to eql nil
@@ -963,7 +976,7 @@ Then(/^there are "([^"]*)" patient action_items have field: "([^"]*)" value: "([
   expect(@get_response.class).to eql Array
   expect_result = "There are #{count} matching results"
   actual_count = 0
-  @get_response.each { |this_item|
+  @get_response.each {|this_item|
     if this_item[field]==value
       actual_count += 1
     end
@@ -984,7 +997,7 @@ end
 
 Then(/^patient treatment_arm_history should have treatment_arm: "([^"]*)", stratum: "([^"]*)", step: "([^"]*)"/) do |ta, stratum, step|
   expect(@get_response.class).to eql Array
-  has = @get_response.any? { |this_ta|
+  has = @get_response.any? {|this_ta|
     this_ta['treatment_arm_id'] == ta &&
         this_ta['stratum_id'] == stratum &&
         this_ta['step'] == step
@@ -996,7 +1009,7 @@ end
 
 Then(/^patient treatment_arm_history should not have treatment_arm: "([^"]*)", stratum: "([^"]*)"/) do |ta, stratum|
   expect(@get_response.class).to eql Array
-  has = @get_response.any? { |this_ta|
+  has = @get_response.any? {|this_ta|
     this_ta['treatment_arm_id'] == ta &&
         this_ta['stratum_id'] == stratum
   }
@@ -1026,9 +1039,9 @@ Then(/^this patient specimen_events should have assignment: analysis_id "([^"]*)
   expect(@get_response.class).to eql Hash
   expect(@get_response.keys).to include type
   assignments = []
-  @get_response[type].each { |this_specimen|
-    this_specimen['specimen_shipments'].each { |this_shippment|
-      this_shippment['analyses'].each { |this_analysis|
+  @get_response[type].each {|this_specimen|
+    this_specimen['specimen_shipments'].each {|this_shippment|
+      this_shippment['analyses'].each {|this_analysis|
         if this_analysis['analysis_id'] == ani
           assignments = this_analysis['assignments']
           break
@@ -1037,7 +1050,7 @@ Then(/^this patient specimen_events should have assignment: analysis_id "([^"]*)
     }
   }
   expect(assignments.size).to be > 0
-  target = assignments.select { |this_as| this_as['comment'] == cmt }
+  target = assignments.select {|this_as| this_as['comment'] == cmt}
   expect(target.size).to eql 1
 end
 
@@ -1047,8 +1060,8 @@ Then(/^this patient tissue specimen_events "([^"]*)" should have field "([^"]*)"
   expect(@get_response.class).to eql Hash
   expect(@get_response.keys).to include type
   has_result = false
-  @get_response[type].each { |this_specimen|
-    this_specimen['specimen_shipments'].each { |this_shippment|
+  @get_response[type].each {|this_specimen|
+    this_specimen['specimen_shipments'].each {|this_shippment|
       next unless this_shippment['molecular_id'] == moi
       has_result = true
       expect(this_shippment.keys).to include field
@@ -1066,8 +1079,8 @@ Then(/^this patient tissue specimen_events "([^"]*)" allow_upload field should b
   expect(@get_response.class).to eql Hash
   expect(@get_response.keys).to include type
   has_result = false
-  @get_response[type].each { |this_specimen|
-    this_specimen['specimen_shipments'].each { |this_shipment|
+  @get_response[type].each {|this_specimen|
+    this_specimen['specimen_shipments'].each {|this_shipment|
       next unless this_shipment['molecular_id'] == moi
       has_result = true
       if allow == 'true'
@@ -1085,9 +1098,9 @@ end
 
 Then(/^this patient tissue specimen_events analyses "([^"]*)" should have correct "([^"]*)" file names: "([^"]*)"$/) do |ani, file_type, name|
   has_result = false
-  @get_response['tissue_specimens'].each { |this_specimen|
-    this_specimen['specimen_shipments'].each { |this_shipment|
-      this_shipment['analyses'].each { |this_analyses|
+  @get_response['tissue_specimens'].each {|this_specimen|
+    this_specimen['specimen_shipments'].each {|this_shipment|
+      this_shipment['analyses'].each {|this_analyses|
         if this_analyses['analysis_id'] == ani
           has_result = true
           case file_type
@@ -1127,14 +1140,14 @@ Then(/^this patient tissue specimen_events analyses "([^"]*)" latest assignment 
   expect(@get_response['tissue_specimens'].class).to eql Array
 
   has_result = false
-  @get_response['tissue_specimens'].each { |this_specimen|
-    this_specimen['specimen_shipments'].each { |this_shipment|
-      this_shipment['analyses'].each { |this_analyses|
+  @get_response['tissue_specimens'].each {|this_specimen|
+    this_specimen['specimen_shipments'].each {|this_shipment|
+      this_shipment['analyses'].each {|this_analyses|
         if this_analyses['analysis_id'] == ani
           has_result = true
           actual_ar = this_analyses['assignments'][0]
           expect_ar = table.hashes[0]
-          expect_ar.each { |k, v|
+          expect_ar.each {|k, v|
             expect(actual_ar[k]).to eq v
           }
         end
@@ -1149,7 +1162,7 @@ end
 Then(/^this patient tissue specimen_events specimen "([^"]*)" should have these assays$/) do |sei, table|
   has_result = false
   params = table.hashes
-  @get_response['tissue_specimens'].each { |this_specimen|
+  @get_response['tissue_specimens'].each {|this_specimen|
     if this_specimen['surgical_event_id'] == sei
       has_result = true
       assays = this_specimen['assays']
@@ -1201,7 +1214,7 @@ Then(/^this patient tissue analysis_report variant field "([^"]*)" should includ
   expect(vr.keys).to include field
   expect(vr[field].class).to eq Array
   expect(vr[field].size).to be > 0
-  all_ids = vr[field].collect { |this_variant| this_variant['identifier'] }
+  all_ids = vr[field].collect {|this_variant| this_variant['identifier']}
   expect(all_ids).to include id
 end
 
@@ -1213,7 +1226,7 @@ end
 
 Then(/^this patient analysis_report should have assignment report editable: "([^"]*)"$/) do |editable|
   ars = @get_response['assignments']
-  ars.each { |this_ar|
+  ars.each {|this_ar|
     expect(this_ar.keys).to include 'editable'
     expect(this_ar['editable'].to_s).to eq editable
   }
@@ -1249,7 +1262,7 @@ Then(/^this patient analysis_report latest assignment SELECTED should be treatme
 end
 
 Then(/^this patient analysis_report latest assignment result should be in the order from following table$/) do |table|
-  results = table.rows.collect { |a| a[0] }
+  results = table.rows.collect {|a| a[0]}
   ars = @get_response['assignments']
   expect(ars.class).to eq Array
   expect(ars.size).to be > 0
@@ -1264,8 +1277,8 @@ Then(/^this patient analysis_report latest assignment should have treatment arm 
   expect(ars.size).to be > 0
   ar = ars[0]
   expect(ar.keys).to include 'treatment_assignment_results'
-  ar['treatment_assignment_results'].values.each { |i|
-    i.each { |ta|
+  ar['treatment_assignment_results'].values.each {|i|
+    i.each {|ta|
       expect(ta.keys).to include 'description'
       ta_id = ta['treatment_arm']['treatment_arm_id']
       stratum = ta['treatment_arm']['stratum_id']
@@ -1281,7 +1294,7 @@ Then(/^this patient analysis_report variant reports should have these values$/) 
   values = table.rows_hash
   vr = @get_response['variant_report']
   expect(vr.class).to eq Hash
-  values.each { |k, v|
+  values.each {|k, v|
     expect(vr.keys).to include k
     expect(vr[k]).to eq v
   }
@@ -1297,8 +1310,8 @@ Then(/^this patient analysis_report every assignment reports should have these v
   values = table.rows_hash
   ars = @get_response['assignments']
   expect(ars.class).to eq Array
-  values.each { |k, v|
-    ars.each { |ar|
+  values.each {|k, v|
+    ars.each {|ar|
       expect(ar.class).to eq Hash
       expect(ar.keys).to include k
       expect(ar[k]).to eq v
@@ -1316,7 +1329,7 @@ Then(/^this patient blood specimen_shipments "([^"]*)" should have field "([^"]*
   expect(@get_response[type].keys).to include shipment
   expect(@get_response[type][shipment].class).to eql Array
   has_result = false
-  @get_response[type][shipment].each { |this_shipment|
+  @get_response[type][shipment].each {|this_shipment|
     next unless this_shipment['molecular_id'] == moi
     has_result = true
     expect(this_shipment.keys).to include field
@@ -1344,7 +1357,7 @@ Then(/^the saved variant report should have correct variants summary as variant 
   actual_snvs = Helper_Methods.xlsx_table_hashes(file_path, 0, snv_title_row)
   expect_snvs = vr['snv_indels']
   expect(actual_snvs.size).to eq expect_snvs.size
-  expect_snvs.each_with_index { |v, i|
+  expect_snvs.each_with_index {|v, i|
     actual_snvs[i].each do |title, actual_value|
       next unless title.present?
       # next if title == 'Confirm'#???
@@ -1358,7 +1371,7 @@ Then(/^the saved variant report should have correct variants summary as variant 
   actual_cnvs = Helper_Methods.xlsx_table_hashes(file_path, 0, cnv_title_row)
   expect_cnvs = vr['copy_number_variants']
   expect(actual_cnvs.size).to eq expect_cnvs.size
-  expect_cnvs.each_with_index { |v, i|
+  expect_cnvs.each_with_index {|v, i|
     actual_cnvs[i].each do |title, actual_value|
       next unless title.present?
       # next if title == 'Confirm'#???
@@ -1372,7 +1385,7 @@ Then(/^the saved variant report should have correct variants summary as variant 
   actual_gfs = Helper_Methods.xlsx_table_hashes(file_path, 0, gf_title_row)
   expect_gfs = vr['gene_fusions']
   expect(actual_gfs.size).to eq expect_gfs.size
-  expect_gfs.each_with_index { |v, i|
+  expect_gfs.each_with_index {|v, i|
     actual_gfs[i].each do |title, actual_value|
       next unless title.present?
       # next if title == 'Confirm'#???
@@ -1388,7 +1401,7 @@ Then(/^the saved "(variant|assignment)" report should have these values$/) do |r
   file_path = "#{File.dirname(__FILE__)}/../../../../public/downloaded_report_files/"
   file_path += "#{report_type}_report_#{@patient_id}.xlsx"
   values = Helper_Methods.xlsx_row_hash(file_path, 0, 'B', 'C')
-  table.rows_hash.each { |k, v| actual_match_expect(values[k], v) }
+  table.rows_hash.each {|k, v| actual_match_expect(values[k], v)}
 end
 
 Then(/^the saved variant report should have correct MOI summary as variant report "([^"]*)"$/) do |ani|
@@ -1407,7 +1420,7 @@ Then(/^the saved assignment report should have correct assignment result as assi
   values = Helper_Methods.xlsx_row_hash(file_path, 0, 'B', 'C')
   url = "#{ENV['patients_endpoint']}/assignments?uuid=#{uuid}"
   results = Helper_Methods.simple_get_request(url)['message_json'][0]['treatment_assignment_results']
-  results.values.each { |a|
+  results.values.each {|a|
     a.each do |b|
       ta = b['treatment_arm']
       ta_name = "#{ta['treatment_arm_id']}/#{ta['stratum_id']}/#{ta['version']}"
@@ -1426,7 +1439,7 @@ end
 Then(/^patient amois should have correct value$/) do
   all_patients = Helper_Methods.dynamodb_table_items('patient')
   qualified_active_ani = {}
-  all_patients.each { |this_patient|
+  all_patients.each {|this_patient|
     next unless this_patient.keys.include?('active_tissue_specimen')
     active_ts_specimen = this_patient['active_tissue_specimen']
     next unless active_ts_specimen.keys.include?('active_analysis_id')
@@ -1437,7 +1450,7 @@ Then(/^patient amois should have correct value$/) do
     qualified_active_ani[active_ani] = 0
   }
   all_variants = Helper_Methods.dynamodb_table_items('variant')
-  all_variants.each { |this_variant|
+  all_variants.each {|this_variant|
     next unless qualified_active_ani.keys.include?(this_variant['analysis_id'])
     if this_variant.keys.include?('amois') && this_variant['amois'].size > 0
       qualified_active_ani[this_variant['analysis_id']] += 1
@@ -1451,13 +1464,13 @@ Then(/^patient amois should have correct value$/) do
   #     qualified_active_ani[this_vr['analysis_id']] = this_vr['total_amois'].to_i
   #   end
   # }
-  puts qualified_active_ani.select { |k, v| v.to_i==1 }
-  expect = "#{qualified_active_ani.select { |k, v| v.to_i==0 }.size},"
-  expect += " #{qualified_active_ani.select { |k, v| v.to_i==1 }.size},"
-  expect += " #{qualified_active_ani.select { |k, v| v.to_i==2 }.size},"
-  expect += " #{qualified_active_ani.select { |k, v| v.to_i==3 }.size},"
-  expect += " #{qualified_active_ani.select { |k, v| v.to_i==4 }.size},"
-  expect += " #{qualified_active_ani.select { |k, v| v.to_i>4 }.size}"
+  puts qualified_active_ani.select {|k, v| v.to_i==1}
+  expect = "#{qualified_active_ani.select {|k, v| v.to_i==0}.size},"
+  expect += " #{qualified_active_ani.select {|k, v| v.to_i==1}.size},"
+  expect += " #{qualified_active_ani.select {|k, v| v.to_i==2}.size},"
+  expect += " #{qualified_active_ani.select {|k, v| v.to_i==3}.size},"
+  expect += " #{qualified_active_ani.select {|k, v| v.to_i==4}.size},"
+  expect += " #{qualified_active_ani.select {|k, v| v.to_i>4}.size}"
   actual = "#{@get_response['amois'][0]},"
   actual += " #{@get_response['amois'][1]},"
   actual += " #{@get_response['amois'][2]},"
@@ -1470,17 +1483,18 @@ end
 
 Then(/^returned events should include assay event with biomacker "([^"]*)" result "([^"]*)"$/) do |biomacker, result|
   expect(@get_response.class).to eq Array
-  assay_events = @get_response.select { |event|
-    event['entity_id'] == @patient_id && event['event_type'] == 'assay' }
+  assay_events = @get_response.select do |event|
+    event['entity_id'] == @patient_id && event['event_type'] == 'assay'
+  end
   expect(assay_events.size).to be > 0
-  result = assay_events.select { |event|
-    event['event_data']['assay_result'] == result && event['event_data']['biomarker']==biomacker }
+  result = assay_events.select {|event|
+    event['event_data']['assay_result'] == result && event['event_data']['biomarker']==biomacker}
   expect(result.size).to eq 1
 end
 
 Then(/^returned events should have field "([^"]*)" with "(string|date|number|array|hash)" value$/) do |field, value_type|
   expect(@get_response.class).to eq Array
-  @get_response.each { |event|
+  @get_response.each {|event|
     expect(event.keys).to include field
     case value_type
       when 'string'
@@ -1499,7 +1513,7 @@ end
 
 Then(/^returned event_data should have field "([^"]*)" with "(string|date|number|array|hash)" value$/) do |field, value_type|
   expect(@get_response.class).to eq Array
-  @get_response.each { |event|
+  @get_response.each {|event|
     puts event['entity_id']
     expect(event.keys).to include 'event_data'
     expect(event['event_data'].class).to eq Hash
@@ -1541,7 +1555,7 @@ Then(/^apply auth0 token using stored password with prefix "([^"]*)", response i
   username = "psd-#{ENV["#{@current_auth0_role}_AUTH0_USERNAME"]}"
   password = "#{prefix}#{ENV["#{@current_auth0_role}_AUTH0_PASSWORD"]}"
 
-  response = Auth0Token.ped_match_auth0_response(username,password)
+  response = Auth0Token.ped_match_auth0_response(username, password)
   expect(response.to_s).to include msg
   expect(response.code.to_s).to eq code
 end
@@ -1622,8 +1636,8 @@ def find_variant (patient_json, variant_uuid)
   variant_reports = patient_json['variant_reports']
   variant_reports.each do |thisVariantReport|
     variants = thisVariantReport['variants']
-    variants.each { |key, value|
-      value.each { |variant|
+    variants.each {|key, value|
+      value.each {|variant|
         if variant['uuid']==variant_uuid
           return variant
         end

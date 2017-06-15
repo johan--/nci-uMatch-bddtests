@@ -444,8 +444,8 @@ class PatientMessageLoader
           vr_type='default',
           folder='bdd_test_ion_reporter',
           vcf_name='test1.vcf')
-    Helper_Methods.upload_vr_to_s3('pedmatch-dev', folder, molecular_id, analysis_id, vcf_name, vr_type)
-    Helper_Methods.upload_vr_to_s3('pedmatch-int', folder, molecular_id, analysis_id, vcf_name, vr_type)
+    Helper_Methods.upload_vr_to_s3('pedmatch-dev', folder, molecular_id, analysis_id, vcf_name.gsub('.vcf', ''), vr_type)
+    Helper_Methods.upload_vr_to_s3('pedmatch-int', folder, molecular_id, analysis_id, vcf_name.gsub('.vcf', ''), vr_type)
     message = JSON(IO.read(MESSAGE_TEMPLATE_FILE))['aliquot']
     message['ion_reporter_id'] = folder
     message['analysis_id'] = analysis_id

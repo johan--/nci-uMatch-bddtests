@@ -575,7 +575,7 @@ class Helper_Methods
 
   end
 
-  def self.upload_vr_to_s3(bucket, ion_folder, moi, ani, vcf_name = 'test1.vcf', template_type = 'default')
+  def self.upload_vr_to_s3(bucket, ion_folder, moi, ani, base_name = 'test1', template_type = 'default')
     template_folder = "#{path_for_named_parent_folder('nci-uMatch-bddtests')}/DataSetup/variant_file_templates"
     output_folder = "#{template_folder}/upload"
     target_ani_path = "#{output_folder}/#{moi}/#{ani}"
@@ -585,10 +585,15 @@ class Helper_Methods
     `#{cmd}`
     cmd = "cp #{template_ani_path}/* #{target_ani_path}"
     `#{cmd}`
-    unless vcf_name=='test1.vcf'
-      cmd = "mv #{target_ani_path}/test1.vcf #{target_ani_path}/#{vcf_name}"
+    unless base_name=='test1'
+      cmd = "mv #{target_ani_path}/test1.vcf #{target_ani_path}/#{base_name}.vcf"
+      `#{cmd}`
+      cmd = "mv #{target_ani_path}/test1.tsv #{target_ani_path}/#{base_name}.tsv"
+      `#{cmd}`
+      cmd = "mv #{target_ani_path}/test1.zip #{target_ani_path}/#{base_name}.zip"
       `#{cmd}`
     end
+    s3_delete_path(bucket, "#{ion_folder}/#{moi}/#{ani}/#{base_name}.json")
     cmd = "aws s3 cp #{output_folder} s3://#{bucket}/#{ion_folder}/ --recursive --region us-east-1"
     `#{cmd}`
     cmd = "rm -R #{output_folder}"

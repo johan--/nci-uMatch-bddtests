@@ -292,8 +292,8 @@ class Patient_helper_methods
   end
 
   def self.upload_vr_to_s3(moi, ani, template='default', tsv_name='test1.tsv')
-    Helper_Methods.upload_vr_to_s3('pedmatch-dev', 'bdd_test_ion_reporter', moi, ani, tsv_name, template)
-    Helper_Methods.upload_vr_to_s3('pedmatch-int', 'bdd_test_ion_reporter', moi, ani, tsv_name, template)
+    Helper_Methods.upload_vr_to_s3('pedmatch-dev', 'bdd_test_ion_reporter', moi, ani, tsv_name.gsub('.tsv', ''), template)
+    Helper_Methods.upload_vr_to_s3('pedmatch-int', 'bdd_test_ion_reporter', moi, ani, tsv_name.gsub('.tsv', ''), template)
   end
 
   def self.prepare_vr_upload(pt_id, moi, ani, need_upload, site='default')

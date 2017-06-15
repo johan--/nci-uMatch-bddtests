@@ -7,15 +7,15 @@ Feature: Patient API rollback tests
     When PUT to MATCH rollback, response includes "invalid" with code "403"
     Then patient status should change to "<status>"
     Examples:
-      | patient_id            | status                   |
-      | PT_RB01_Registered    | REGISTRATION             |
-      | PT_RB01_TsReceived    | OFF_STUDY_BIOPSY_EXPIRED |
-      | PT_RB01_TsShipped     | OFF_STUDY_BIOPSY_EXPIRED |
-      | PT_RB01_slideShipped  | OFF_STUDY_BIOPSY_EXPIRED |
-      | PT_RB01_AssayReceived | OFF_STUDY_BIOPSY_EXPIRED |
-      | PT_RB01_TsVrReceived  | OFF_STUDY_BIOPSY_EXPIRED |
-      | PT_RB01_ReqAssignment | OFF_STUDY_BIOPSY_EXPIRED |
-      | PT_RB01_OffStudy      | OFF_STUDY                |
+      | patient_id            | status                         |
+      | PT_RB01_Registered    | REGISTRATION                   |
+      | PT_RB01_TsReceived    | TISSUE_SPECIMEN_RECEIVED       |
+      | PT_RB01_TsShipped     | TISSUE_NUCLEIC_ACID_SHIPPED    |
+      | PT_RB01_slideShipped  | TISSUE_SLIDE_SPECIMEN_SHIPPED  |
+      | PT_RB01_AssayReceived | ASSAY_RESULTS_RECEIVED         |
+      | PT_RB01_TsVrReceived  | TISSUE_VARIANT_REPORT_RECEIVED |
+      | PT_RB01_ReqAssignment | REQUEST_ASSIGNMENT             |
+      | PT_RB01_OffStudy      | OFF_STUDY                      |
 #      | PT_RB01_TsVrConfirmed         | OFF_STUDY_BIOPSY_EXPIRED |
 #      | PT_RB01_TsVrRejected          | OFF_STUDY_BIOPSY_EXPIRED |
 #      | PT_RB01_PendingConfirmation   | OFF_STUDY_BIOPSY_EXPIRED |
@@ -97,3 +97,32 @@ Feature: Patient API rollback tests
     And this assignment status should be "CONFIRMED"
     Then this patient should have "1" assignments for analysis id "PT_RB02b_PendingApprStep2_ANI2"
     And this assignment status should be "PENDING"
+
+
+
+  @patients_p1_off
+  Scenario Outline: PT_SC02h pending_items should increase tissue_variant_reports value properly by rolling back confirmed variant report
+    Given patient id is "<patient_id>"
+    And patient API user authorization role is "ADMIN"
+    When PUT to MATCH rollback, response includes "" with code "200"
+    Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
+    Then patient GET service: "pending_items", patient id: "", id: ""
+    When GET from MATCH patient API, http code "200" should return
+    Then there are "1" patient "<pending_type>" pending_items have field: "analysis_id" value: "<ani>"
+    Examples:
+      | patient_id             | ani                         | pending_type           |
+      | PT_SC02h_TsVrConfirmed | PT_SC02h_TsVrConfirmed_ANI1 | tissue_variant_reports |
+
+  @patients_p1_off
+  Scenario Outline: PT_SC02i pending_items should increase tissue_variant_reports value properly by rolling back confirmed assignment report
+    Given patient id is "<patient_id>"
+    And patient API user authorization role is "ADMIN"
+    When PUT to MATCH rollback, response includes "" with code "200"
+    Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
+    Then patient GET service: "pending_items", patient id: "", id: ""
+    When GET from MATCH patient API, http code "200" should return
+    Then there are "1" patient "tissue_variant_reports" pending_items have field: "analysis_id" value: "<ani>"
+    Then there are "0" patient "assignment_reports" pending_items have field: "analysis_id" value: "<ani>"
+    Examples:
+      | patient_id               | ani                           |
+      | PT_SC02i_PendingApproval | PT_SC02i_PendingApproval_ANI1 |
