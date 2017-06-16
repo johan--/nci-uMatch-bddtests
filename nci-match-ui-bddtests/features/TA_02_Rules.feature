@@ -14,8 +14,7 @@ Feature: Treatment Arm Rules
 
   @ui_p1
   Scenario Outline: Logged in user can access <subTabName> with Inclusion/Exclusion details under Rules
-    When I scroll to the bottom of the page
-    And I select the <subTabName> sub-tab
+    When I select the <subTabName> sub-tab
     Then I should see that <subTabName> sub-tab is active
     When I select the Inclusion button
     Then I should see the Inclusion Variants table for <subTabName>

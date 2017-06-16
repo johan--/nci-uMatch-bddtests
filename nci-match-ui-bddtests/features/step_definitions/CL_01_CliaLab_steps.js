@@ -469,7 +469,17 @@ module.exports = function() {
     });
 
     this.Then(/^I verify the data present in False Positive Variants table$/,function(callback){
-        var responseData = cliaPage.responseData.false_positive_variants;
+        var cmp = function(a, b){
+            var e,f;
+            e = a.identifier === null ? 'ZZZZZZZZZZZ' : a.identifier;
+            f = b.identifier === null ? 'ZZZZZZZZZZZ' : b.identifier;
+
+            if (e > f)
+                return  1;
+            if (e < f)
+                return  -1;
+        };
+        var responseData = cliaPage.responseData.false_positive_variants.sort(cmp);
         var tableRow = cliaPage.sampleFalsePosPanel.all(by.css('tbody>tr'));
 
         var compareTable = function(row, data){
@@ -499,8 +509,21 @@ module.exports = function() {
 
 
     this.Then(/^I verify the data present in Positive Controls table$/,function(callback){
-        var responseData = cliaPage.responseData.positive_variants;
         var tableRow = cliaPage.samplePositivePanel.all(by.css('tbody>tr'));
+
+        var cmp = function(a, b){
+            var e,f;
+            e = a.identifier === null ? 'ZZZZZZZZZZZ' : a.identifier;
+            f = b.identifier === null ? 'ZZZZZZZZZZZ' : b.identifier;
+
+            if (e > f)
+                return  1;
+            if (e < f)
+                return  -1;
+        };
+
+        var variants = cliaPage.responseData.positive_variants;
+        var responseData = variants.sort(cmp);
 
         var compareTable = function(row, data){
             var identifier = row.element(by.css('cosmic-link[link-id="item.identifier"]'));
@@ -519,10 +542,9 @@ module.exports = function() {
             utilities.checkExpectation(row.element(by.binding('item.function')), data["function"], 'Function Mismatch');
         };
 
-        tableRow.count().then(function(cnt){
-            for(var i = 0; i < cnt; i ++){
-                compareTable(tableRow.get(i), responseData[i])
-            }
+
+        browser.sleep(50).then(function(){
+            compareTable(tableRow.get(0), responseData[0])
         }).then(callback);
 
     });
