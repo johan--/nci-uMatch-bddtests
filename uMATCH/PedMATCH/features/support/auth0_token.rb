@@ -60,7 +60,7 @@ class Auth0Token
                                                           :accept => 'application/json'})
     rescue StandardError => e
       puts e.to_s
-      return ''
+      return e.response
     end
     response
   end

@@ -821,32 +821,32 @@ And(/^patient statistics field "([^"]*)" should have correct value$/) do |field|
       expect(actual.to_i).to eql Helper_Methods.dynamodb_table_distinct_column('variant_report', {status: 'CONFIRMED'}, 'patient_id').length
     when 'treatment_arm_accrual'
       db_accrual = {}
-      Helper_Methods.dynamodb_table_items('assignment').each do |a|
-        next if a['cog_assignment_date'].nil?
-        ta = a['selected_treatment_arm']['treatment_arm_id']
-        st = a['selected_treatment_arm']['stratum_id']
-        vs = a['selected_treatment_arm']['version']
-        tt = "#{ta} (#{st}, #{vs})"
-        if db_accrual.keys.include?(tt)
-          db_accrual[tt][:patients] += 1
-        else
-          db_accrual[tt] = {:name => ta, :stratum_id => st, :patients => 1}
-        end
+      # Helper_Methods.dynamodb_table_items('assignment').each do |a|
+      #   next if a['cog_assignment_date'].nil?
+      #   ta = a['selected_treatment_arm']['treatment_arm_id']
+      #   st = a['selected_treatment_arm']['stratum_id']
+      #   vs = a['selected_treatment_arm']['version']
+      #   tt = "#{ta} (#{st}, #{vs})"
+      #   if db_accrual.keys.include?(tt)
+      #     db_accrual[tt][:patients] += 1
+      #   else
+      #     db_accrual[tt] = {:name => ta, :stratum_id => st, :patients => 1}
+      #   end
+      # end
+      # expect(@get_response['treatment_arm_accrual']).to eql db_accrual
+    patients = Helper_Methods.dynamodb_table_items('patient', {current_status: 'ON_TREATMENT_ARM'})
+    patients.each { |this_patient|
+      ta = this_patient['current_assignment']['selected_treatment_arm']['treatment_arm_id']
+      st = this_patient['current_assignment']['selected_treatment_arm']['stratum_id']
+      vs = this_patient['current_assignment']['selected_treatment_arm']['version']
+      tt = "#{ta} (#{st}, #{vs})"
+      if db_accrual.keys.include?(tt)
+        db_accrual[tt]['patients'] += 1
+      else
+        db_accrual[tt] = {'name' => ta, 'stratum_id' => st, 'patients' => 1}
       end
-      expect(@get_response['treatment_arm_accrual']).to eql db_accrual
-    # patients = Helper_Methods.dynamodb_table_items('patient', {current_status: 'ON_TREATMENT_ARM'})
-    # patients.each { |this_patient|
-    #   ta = this_patient['current_assignment']['selected_treatment_arm']['treatment_arm_id']
-    #   st = this_patient['current_assignment']['selected_treatment_arm']['stratum_id']
-    #   vs = this_patient['current_assignment']['selected_treatment_arm']['version']
-    #   tt = "#{ta} (#{st}, #{vs})"
-    #   if db_accrual.keys.include?(tt)
-    #     db_accrual[tt]['patients'] += 1
-    #   else
-    #     db_accrual[tt] = {'name' => ta, 'stratum_id' => st, 'patients' => 1}
-    #   end
-    # }
-    # expect(@get_response['treatment_arm_accrual']).to eql db_accrual
+    }
+    expect(@get_response['treatment_arm_accrual']).to eql db_accrual
     else
   end
 end
