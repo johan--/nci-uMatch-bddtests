@@ -342,6 +342,26 @@ Then(/^moi report is returned with the indel variant "([^"]*)" as an amoi$/) do 
   end
 end
 
+Then(/^moi report is returned with indel variants with following amoi information$/) do |table|
+  params = table.hashes
+  params.each do |param|
+    find = @res['snv_indels'].select {|v| v['identifier']==param['id']&&v['protein']==param['protein']}
+    expect(find.size).to be 1
+    target = find[0]
+    if param['is_amoi']=='true'
+      expect(target['amois'].size).to be > 0
+      amoi = target['amois'][0]
+      expect(amoi['treatment_arm_id'].to_s).to eq param['amoi_ta_id']
+      expect(amoi['stratum_id'].to_s).to eq param['amoi_ta_stratum']
+      expect(amoi['version'].to_s).to eq param['amoi_ta_version']
+      expect(amoi['amoi_status'].to_s).to eq param['amoi_status']
+      expect(amoi['exclusion'].to_s).to eq param['amoi_exclusion']
+    else
+      expect(target['amois'].size).to be 0
+    end
+  end
+end
+
 
 Then(/^moi report is returned with the cnv variant "([^"]*)"$/) do |arg1|
   flag = false

@@ -138,6 +138,7 @@ class BioMatchPMQuickValidation
       @generated_vr = {}
       @actual_ta = "Rule engine cannot generate variant report for patient #{patient_id}"
     end
+    @generated_vr
   end
 
   def generate_assignment(patient_id)
