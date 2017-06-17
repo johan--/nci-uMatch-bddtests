@@ -125,7 +125,7 @@ var LoginPage = function() {
             "grant_type": 'password',
             "scope": 'openid email roles',
             "connection":  process.env.AUTH0_DATABASE
-        }
+        };
         return utils.waitForElement(email, 'Email Text box').then(function () {
             utils.postRequest('https://ncimatch.auth0.com/oauth/ro', data, function(responseData){
                 // console.log(responseData.id_token);
