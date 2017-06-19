@@ -115,7 +115,7 @@ Then(/^"([^"]*)" variant report "([^"]*)" uploaded with analysis id: "([^"]*)"$/
               "cdna_bam_name": "cdna.bam",
               "qc_name": "qc.pdf"}
 
-  aliquot_url = "#{ENV['ion_system_endpoint']}/aliquot/#{moi}"
+  aliquot_url = "#{ENV['aliquot_endpoint']}/#{moi}"
 
   response = Helper_Methods.put_request(aliquot_url, @payload.to_json.to_s, true, @current_auth0_role)
   code = '202'

@@ -10,7 +10,7 @@ And(/^ir user authorization role is "([^"]*)"$/) do |role|
 end
 
 When(/^the ion reporter service \/version is called, the version "([^"]*)" is returned$/) do |version|
-  url = "#{ENV['ion_system_endpoint']}/ion_reporters/version"
+  url = "#{ENV['ion_reporter_endpoint']}/version"
   response = Helper_Methods.simple_get_request(url)['message_json']
   raise "response is expected to be a Hash, but it is a #{response.class.to_s}" unless response.is_a?(Hash)
   raise "response is expected to contain field version, but it is #{response.to_s}" unless response.keys.include?('version')
@@ -137,7 +137,7 @@ Then(/^there are (\d+) ion_reporter_ids generated$/) do |count|
 end
 
 Then(/^each generated ion_reporter_id should have (\d+) record$/) do |count|
-  url = "#{ENV['ion_system_endpoint']}/ion_reporters"
+  url = "#{ENV['ion_reporter_endpoint']}"
   ion_reporters = Helper_Methods.simple_get_request(url)['message_json']
   @generated_ion_ids.each { |this_ion_id|
     total = 0
@@ -154,7 +154,7 @@ Then(/^field: "([^"]*)" for each generated ion_reporter should be: "([^"]*)"$/) 
   converted_value = value=='null' ? nil : value
   @generated_ion_ids.each { |this_ion_id|
     @ion_id = this_ion_id
-    url = prepare_ion_reporters_url #"#{ENV['ion_system_endpoint']}/ion_reporters/#{this_ion_id}"
+    url = prepare_ion_reporters_url
     ion_reporter = Helper_Methods.simple_get_request(url)['message_json']
     ion_reporter[field].should == converted_value
   }
@@ -162,7 +162,7 @@ end
 
 Then(/^field: "([^"]*)" for this ion_reporter should be: "([^"]*)"$/) do |field, value|
   converted_value = value=='null' ? nil : value
-  url = prepare_ion_reporters_url #"#{ENV['ion_system_endpoint']}/ion_reporters/#{@ion_id}"
+  url = prepare_ion_reporters_url
   ion_reporter = Helper_Methods.simple_get_request(url)['message_json']
   if ion_reporter.is_a?(Array)
     ion_reporter = ion_reporter[0]
@@ -243,7 +243,7 @@ end
 Then(/^each generated ion_reporter should have (\d+) field\-value pairs$/) do |count|
   @generated_ion_ids.each { |this_ion_id|
     @ion_id = this_ion_id
-    url = prepare_ion_reporters_url #"#{ENV['ion_system_endpoint']}/ion_reporters/#{this_ion_id}"
+    url = prepare_ion_reporters_url
     ion_reporter = Helper_Methods.simple_get_request(url)['message_json']
     ion_reporter.keys.length.should == count.to_i
   }
@@ -252,7 +252,7 @@ end
 Then(/^each generated ion_reporter should have field: "([^"]*)"$/) do |field|
   @generated_ion_ids.each { |this_ion_id|
     @ion_id = this_ion_id
-    url = prepare_ion_reporters_url #"#{ENV['ion_system_endpoint']}/ion_reporters/#{this_ion_id}"
+    url = prepare_ion_reporters_url
     ion_reporter = Helper_Methods.simple_get_request(url)['message_json']
     expect_result = "ion_reporter #{this_ion_id} has field: #{field}"
     actual_result = expect_result
@@ -325,7 +325,7 @@ Then(/^each returned ion_reporter field "([^"]*)" should be "([^"]*)"$/) do |fie
 end
 
 Then(/^updated ion_reporter should not have field: "([^"]*)"$/) do |field|
-  url = prepare_ion_reporters_url #"#{ENV['ion_system_endpoint']}/ion_reporters/#{@ion_id}"
+  url = prepare_ion_reporters_url
   ion_reporter = Helper_Methods.simple_get_request(url)['message_json']
   expect_result = "ion_reporter #{@ion_id} doesn't have field: #{field}"
   actual_result = expect_result
@@ -338,7 +338,7 @@ end
 Then(/^each generated ion_reporter should have correct date_ion_reporter_id_created$/) do
   @generated_ion_ids.each { |this_ion_id|
     @ion_id = this_ion_id
-    url = prepare_ion_reporters_url #"#{ENV['ion_system_endpoint']}/ion_reporters/#{this_ion_id}"
+    url = prepare_ion_reporters_url
     ion_reporter = Helper_Methods.simple_get_request(url)['message_json']
     returned_date = DateTime.parse(ion_reporter['date_ion_reporter_id_created']).to_i
     validate_date_diff('date_ion_reporter_id_created', @ion_generate_date, returned_date)
@@ -355,13 +355,13 @@ Then(/^each generated ion_reporter should have correct date_ion_reporter_id_crea
 end
 
 Then(/^record total ion_reporters count$/) do
-  url = "#{ENV['ion_system_endpoint']}/ion_reporters"
+  url = "#{ENV['ion_reporter_endpoint']}"
   ion_reporters = Helper_Methods.simple_get_request(url)['message_json']
   @total_ion_count = ion_reporters.length
 end
 
 Then(/^new and old total ion_reporters counts should have (\d+) difference$/) do |diff|
-  url = "#{ENV['ion_system_endpoint']}/ion_reporters"
+  url = "#{ENV['ion_reporter_endpoint']}"
   ion_reporters = Helper_Methods.simple_get_request(url)['message_json']
   current_count = ion_reporters.length
   puts "Current ion reporter count is #{current_count}, previous count is #{@total_ion_count}"
@@ -496,7 +496,7 @@ end
 
 
 Then(/^generated sample_control molecular id should have (\d+) record$/) do |count|
-  url = "#{ENV['ion_system_endpoint']}/sample_controls"
+  url = "#{ENV['sample_control_endpoint']}"
   sample_controls = Helper_Methods.simple_get_request(url)['message_json']
   total = 0
   sample_controls.each { |this_sc|
@@ -596,13 +596,13 @@ Then(/^each returned sample_control should have field "([^"]*)"$/) do |field|
 end
 
 Then(/^record total sample_controls count$/) do
-  url = "#{ENV['ion_system_endpoint']}/sample_controls"
+  url = "#{ENV['sample_control_endpoint']}"
   sample_controls = Helper_Methods.simple_get_request(url)['message_json']
   @total_sc_count = sample_controls.length
 end
 
 Then(/^new and old total sample_controls counts should have (\d+) difference$/) do |diff|
-  url = "#{ENV['ion_system_endpoint']}/sample_controls"
+  url = "#{ENV['sample_control_endpoint']}"
   sample_controls = Helper_Methods.simple_get_request(url)['message_json']
   current_count = sample_controls.length
   puts "Current sample control count is #{current_count}, previous count is #{@total_sc_count}"
@@ -888,7 +888,7 @@ def prepare_ion_healthcheck_url
   if @ion_id.present?
     params['ion_reporter_id']=@ion_id
   end
-  url = "#{ENV['ion_system_endpoint']}/ion_reporters/healthcheck"
+  url = "#{ENV['ion_reporter_endpoint']}/healthcheck"
   add_parameters_to_url(url, params)
 end
 
@@ -902,7 +902,7 @@ def prepare_ion_reporters_url
   if @ion_sub_service!=nil && @ion_sub_service.length>0
     slash_service = "/#{@ion_sub_service}"
   end
-  url = "#{ENV['ion_system_endpoint']}/ion_reporters#{slash_ion_id}#{slash_service}"
+  url = "#{ENV['ion_reporter_endpoint']}#{slash_ion_id}#{slash_service}"
   add_parameters_to_url(url, @url_params)
 end
 
@@ -916,7 +916,7 @@ def prepare_sample_controls_url
   if @sc_sub_service!=nil && @sc_sub_service.length>0
     slash_service = "/#{@sc_sub_service}"
   end
-  url = "#{ENV['ion_system_endpoint']}/sample_controls#{slash_service}#{slash_moi}"
+  url = "#{ENV['sample_control_endpoint']}#{slash_service}#{slash_moi}"
 
   add_parameters_to_url(url, @url_params)
 end
@@ -934,7 +934,7 @@ def prepare_sequence_file_url(type, sub_type)
   if sub_type!=nil && sub_type.length>0
     slash_sub_type = "/#{sub_type}"
   end
-  url = "#{ENV['ion_system_endpoint']}/sample_controls/sequence_files#{slash_moi}#{slash_type}#{slash_sub_type}"
+  url = "#{ENV['sample_control_endpoint']}/sequence_files#{slash_moi}#{slash_type}#{slash_sub_type}"
   add_parameters_to_url(url, @url_params)
 end
 
@@ -947,7 +947,7 @@ def prepare_files_url(file_name)
   if file_name!=nil && file_name.length>0
     slash_file_name = "/#{file_name}"
   end
-  url = "#{ENV['ion_system_endpoint']}/sample_controls/files#{slash_moi}#{slash_file_name}"
+  url = "#{ENV['sample_control_endpoint']}/files#{slash_moi}#{slash_file_name}"
   add_parameters_to_url(url, @url_params)
 end
 
@@ -956,7 +956,7 @@ def prepare_aliquot_url
   if @molecular_id!=nil && @molecular_id.length>0
     slash_moi = "/#{@molecular_id}"
   end
-  url = "#{ENV['ion_system_endpoint']}/aliquot#{slash_moi}"
+  url = "#{ENV['aliquot_endpoint']}#{slash_moi}"
   add_parameters_to_url(url, @url_params)
 end
 
@@ -970,7 +970,7 @@ def prepare_adult_match_aliquot_url
 end
 
 def prepare_aliquot_file_url
-  url = "#{ENV['ion_system_endpoint']}/aliquot/files/#{@ion_id}/#{@molecular_id}/#{@analysis_id}/#{@analysis_file}"
+  url = "#{ENV['aliquot_endpoint']}/files/#{@ion_id}/#{@molecular_id}/#{@analysis_id}/#{@analysis_file}"
   add_parameters_to_url(url, @url_params)
 
 end

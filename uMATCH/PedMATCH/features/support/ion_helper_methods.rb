@@ -222,7 +222,7 @@ class ION_helper_methods
   end
   
   def self.create_ion_reporters(site, message, expected_status, expected_partial_message)
-    url = "#{ENV['ion_system_endpoint']}/ion_reporters?site=#{site}"
+    url = "#{ENV['ion_reporter_endpoint']}?site=#{site}"
     response = Helper_Methods.post_request(url, message.to_json.to_s)
     validate_response(response, expected_status, expected_partial_message)
     JSON.parse(response['message'])['ion_reporter_id']
