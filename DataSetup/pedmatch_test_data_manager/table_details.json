@@ -39,6 +39,11 @@
     "primary_key": "patient_id",
     "sorting_key": "sorting_key"
   },
+  "message": {
+    "category": "patient_table",
+    "primary_key": "id",
+    "sorting_key": ""
+  },
   "variant": {
     "category": "patient_table",
     "primary_key": "uuid",

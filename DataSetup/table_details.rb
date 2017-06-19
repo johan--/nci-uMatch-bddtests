@@ -35,6 +35,11 @@ class TableDetails
       keys: %w(patient_id sorting_key)
   }
 
+  MESSAGE = {
+      name: 'message',
+      keys: %w(id)
+  }
+
   VARIANT = {
       name: 'variant',
       keys: %w(uuid)
@@ -86,7 +91,7 @@ class TableDetails
   end
 
   def self.patient_tables
-    %w(patient assignment event shipment specimen variant variant_report)
+    %w(patient assignment event shipment specimen variant variant_report message)
   end
 
   def self.ion_tables
