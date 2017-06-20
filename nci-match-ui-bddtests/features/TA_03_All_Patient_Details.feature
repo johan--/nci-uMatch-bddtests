@@ -16,7 +16,7 @@ Feature: Treatment Arm details page show the details about the patient associate
       | PT_RA06_OnTreatmentArm        | ON_TREATMENT_ARM     | should not |
       | PT_AU06_PendingConfirmation0  | PENDING_CONFIRMATION | should not |
       | PT_AU08_PendingApproval0      | PENDING_APPROVAL     | should not |
-      | PT_SC06a_PendingApprovalStep2 | REQUEST_ASSIGNMENT   | should not |
+#      | PT_SC06a_PendingApprovalStep2 | REQUEST_ASSIGNMENT   | should not |
 #    | PT_GVF_RequestNoAssignment | REQUEST_NO_ASSIGNMENT | should not |
 
   @ui_p2

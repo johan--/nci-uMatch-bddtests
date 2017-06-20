@@ -50,9 +50,9 @@ exports.config = {
         // Specimen Tracking page
         'features/SP_01_Specimen_Tracking.feature'
     ],
-    getPageTimeout: 120000,
-    allScriptsTimeout: 120000,
-
+    getPageTimeout: 180000,
+    allScriptsTimeout: 180000,
+    setDefaultTimeout: 180000
     params: {
         useAuth0 : true
     },
