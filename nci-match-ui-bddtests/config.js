@@ -52,7 +52,7 @@ exports.config = {
     ],
     getPageTimeout: 180000,
     allScriptsTimeout: 180000,
-    setDefaultTimeout: 180000
+    setDefaultTimeout: 180000,
     params: {
         useAuth0 : true
     },
