@@ -12,7 +12,7 @@ var utilities = require('../../support/utilities.js');
 
 module.exports = function () {
     var accessbtn = element(by.buttonText('ACCESS NCI-MATCHBox'));
-    var userId = process.env.NCI_MATCH_USERID;
+    var userId = process.env.NCI_MATCH_READONLY_AUTH0_USERNAME;
     var previousLogin = element(by.css('div[title="' + userId + ' (Auth0)"]'));
 
     this.World = require('../step_definitions/world').World;
@@ -29,8 +29,8 @@ module.exports = function () {
         browser.ignoreSynchronization = false;
         loginPageObj.goToLoginPage();
 
-        var email = process.env.NCI_MATCH_USERID;
-        var password = process.env.NCI_MATCH_PASSWORD;
+        var email = process.env.NCI_MATCH_READONLY_AUTH0_USERNAME;
+        var password = process.env.NCI_MATCH_READONLY_AUTH0_PASSWORD;
 
         loginPageObj.login(email, password);
         utilities.waitForElement(dashboardPageObj.dashboardPanel, 'sticky top menu').then(function (presence){
@@ -110,10 +110,10 @@ module.exports = function () {
 
     this.When(/^I login with (valid|invalid) email and password/, function(validity, callback){
         var email;
-        var password = process.env.NCI_MATCH_PASSWORD;
+        var password = process.env.NCI_MATCH_READONLY_AUTH0_PASSWORD;
 
         if (validity == 'valid'){
-            email = process.env.NCI_MATCH_USERID;
+            email = process.env.NCI_MATCH_READONLY_AUTH0_USERNAME;
         } else {
             email = 'abc_xyz@nih.gov';
         }
