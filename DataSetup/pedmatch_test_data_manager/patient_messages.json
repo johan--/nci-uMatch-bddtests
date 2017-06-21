@@ -251,7 +251,7 @@
   },
   "assignment_confirmed": {
     "before": [
-      "sleep:10.0",
+      "sleep:30.0",
       "has_result:<patient_api_url>?patient_id=<patient_id>&current_status=PENDING_CONFIRMATION"
     ],
     "url": "<patient_api_url>/<patient_id>/assignment_reports/<analysis_id>/confirm",
@@ -266,7 +266,7 @@
   },
   "on_treatment_arm": {
     "before": [
-      "sleep:10.0"
+      "sleep:30.0"
     ],
     "url": "<patient_api_url>/<patient_id>",
     "http_method": "post",
@@ -297,7 +297,7 @@
   },
   "request_assignment": {
     "before": [
-      "sleep:10.0"
+      "sleep:30.0"
     ],
     "url": "<patient_api_url>/<patient_id>",
     "http_method": "post",

@@ -97,9 +97,9 @@ Given(/^template treatment arm assignment json for patient "([^"]*)" with treatm
   assignment_json_file = File.join(Support::TEMPLATE_FOLDER, 'validPedMATCHTreatmentArmAssignmentEventTempalte.json')
   @jsonString = File.read(assignment_json_file)
   @jsonString.gsub('**pt_id**', patient_id)
-  @jsonString.gsub('**ta_id**',ta_id)
-  @jsonString.gsub('**stratum**',stratum_id)
-  @jsonString.gsub('**version**',version)
+  @jsonString.gsub('**ta_id**', ta_id)
+  @jsonString.gsub('**stratum**', stratum_id)
+  @jsonString.gsub('**version**', version)
   @request_url = "#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{@ta_id}/#{@stratum_id}/#{@version}/assignment_event"
 end
 
@@ -211,7 +211,7 @@ Then(/^returned treatment arm assignment report should have patient "([^"]*)" in
   message_hash = JSON.parse(@response['message'])
   expect(message_hash.keys).to include 'patients_list'
   expect(message_hash['patients_list'].class).to eq Array
-  all_patient_id = message_hash['patients_list'].collect { |this_patient| this_patient['patient_id'] }
+  all_patient_id = message_hash['patients_list'].collect {|this_patient| this_patient['patient_id']}
   expect(all_patient_id).to include patient_id
 end
 
@@ -300,7 +300,7 @@ Then(/^treatment arm return from basic treatment arms has correct status: "([^"]
   response = find_all_basic_treatment_arms
   @response = JSON.parse(response)
 
-  selected_ta = @response.select { |e| e['id'] == @ta_id && e['stratum_id'] == @stratum_id }
+  selected_ta = @response.select {|e| e['id'] == @ta_id && e['stratum_id'] == @stratum_id}
   expect(selected_ta.size).to be > 0
 
   element = selected_ta.first
@@ -317,7 +317,7 @@ Then(/^the treatment arm return from \/basciTreatmentArms\/id has correct values
   returnedTASize.should_not == 'Returned treatment arm count is 0'
 
   expectValue = nil
-  correctBasicTAs[0].each { |key, value|
+  correctBasicTAs[0].each {|key, value|
     if key.eql? 'name'
       realResult = "name value is #{value}"
       realResult.should == "name value is #{id}"
@@ -386,8 +386,6 @@ Then(/^the first returned treatment arm has "([^"]*)" variant \(id: "([^"]*)", f
   match_variant.length.should == 1
   @current_variant = match_variant[0]
 end
-
-
 
 
 Then(/^the returned treatment arm has "([^"]*)" value: "([^"]*)" in field: "([^"]*)"$/) do |type, value, field|
@@ -473,7 +471,7 @@ Then(/^the returned treatment arm has "([^"]*)" variant \(id: "([^"]*)", field: 
 end
 
 And(/^this treatment arm variant has field "([^"]*)" value "([^"]*)"$/) do |field, value|
-  converted_value = value=='null'?nil:value
+  converted_value = value=='null' ? nil : value
   expect(@current_variant.keys).to include field
   expect(@current_variant[field]).to eq converted_value
 end
@@ -700,6 +698,39 @@ Then(/^every result from basic treatment arms should exist in regular call$/) do
     ta_ids << ta['id']
   end
   expect(basic_TA_ids.sort).to eql(ta_ids.sort)
+end
+
+Given(/^response of treatment arm accrual command should match database$/) do
+  url = "#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/accrual"
+  response = Helper_Methods.simple_get_request(url)['message_json']
+  db_accrual = []
+  Helper_Methods.dynamodb_table_items('assignment').each do |a|
+    next if a['cog_assignment_date'].nil?
+    ta = a['selected_treatment_arm']['treatment_arm_id']
+    st = a['selected_treatment_arm']['stratum_id']
+    vs = a['selected_treatment_arm']['version']
+    selected = db_accrual.select do |t|
+      t["treatment_arm_id"] == ta && t["stratum_id"] == st && t["version"] == vs
+    end
+    if selected.size < 1
+      new = {"treatment_arm_id" => ta, "stratum_id" => st, "version" => vs, "patient_count" => 1}
+      db_accrual << new
+    else
+      selected[0]["patient_count"] += 1
+    end
+  end
+  expect(response.size).to eq db_accrual.size
+  actual_hash = {}
+  expect_hash = {}
+  response.each {|h| actual_hash["#{h['treatment_arm_id']}_#{h['stratum_id']}_#{h['version']}"] = h['patient_count']}
+  db_accrual.each {|h| expect_hash["#{h['treatment_arm_id']}_#{h['stratum_id']}_#{h['version']}"] = h['patient_count']}
+  expect(actual_hash.keys.sort).to eq expect_hash.keys.sort
+  actual_hash.keys.each do |key|
+    expect = "#{key}: #{expect_hash[key]}"
+    actual = "#{key}: #{actual_hash[key]}"
+    expect(actual).to eq expect
+  end
+
 end
 
 def nil_if_null(value)

@@ -18,7 +18,7 @@ class SeedFile
   end
 
   def self.delete_patients(patient_list, tag)
-    TableInfo.patient_tables.each { |table_name|
+    TableInfo.patient_tables.each {|table_name|
       field_name = table_name=='event' ? 'entity_id' : 'patient_id'
       remove_json_nodes_from_file(seed_file(table_name, tag), field_name, patient_list, 'S', "#{tag}/#{table_name}")
     }
@@ -29,23 +29,23 @@ class SeedFile
   end
 
   def self.copy_patients_between_tags(patient_list, from_tag, to_tag)
-    patient_list.each { |this_patient|
+    patient_list.each {|this_patient|
       tables = (TableInfo.patient_tables << TableInfo.treatment_arm_tables).flatten
-      tables.each { |table_name|
+      tables.each {|table_name|
         field_name = table_name=='event' ? 'entity_id' : 'patient_id'
         this_pt_data = get_json_node_from_file(seed_file(table_name, from_tag), field_name, this_patient, 'S')
         if this_pt_data.size > 0
           to_file = seed_file(table_name, to_tag)
           to_hash = JSON.parse(File.read(to_file))
           to_patients = []
-          to_hash['Items'].each { |this_to| to_patients << this_to[field_name]['S'] }
+          to_hash['Items'].each {|this_to| to_patients << this_to[field_name]['S']}
           if to_patients.include?(this_patient)
             Logger.info("patient #{this_patient} has already been in #{to_tag} #{table_name} seed data, skipping...")
           else
             to_hash['Items'].push(*this_pt_data)
             to_hash['ScannedCount'] = to_hash['ScannedCount'] + this_pt_data.size
             to_hash['Count'] = to_hash['Count'] + this_pt_data.size
-            File.open(to_file, 'w') { |f| f.write(JSON.pretty_generate(to_hash)) }
+            File.open(to_file, 'w') {|f| f.write(JSON.pretty_generate(to_hash))}
             Logger.info("There are #{this_pt_data.size} #{table_name} items(#{field_name}=#{this_patient}) get copied")
           end
         end
@@ -54,12 +54,12 @@ class SeedFile
   end
 
   def self.analysis(tag)
-    TableInfo.all_tables.each { |table_name|
+    TableInfo.all_tables.each {|table_name|
       primary_key = TableInfo.primary_key(table_name)
       sorting_key = TableInfo.sorting_key(table_name)
       file_hash = JSON.parse(File.read(seed_file(table_name, tag)))['Items']
       analysis = {}
-      file_hash.each { |this_item|
+      file_hash.each {|this_item|
         id = this_item[primary_key]['S']
         id += "|#{this_item[sorting_key]['S']}" if sorting_key.length > 0
         if analysis.keys.include?(id)
@@ -68,7 +68,7 @@ class SeedFile
           analysis[id] = 1
         end
       }
-      error = analysis.select { |k, v| v > 1 }
+      error = analysis.select {|k, v| v > 1}
       Logger.info(table_name)
       Logger.info(JSON.pretty_generate(error))
       Logger.info("\n\n")
@@ -76,14 +76,14 @@ class SeedFile
   end
 
   def self.cleanup(tag)
-    TableInfo.all_tables.each { |table_name|
+    TableInfo.all_tables.each {|table_name|
       primary_key = TableInfo.primary_key(table_name)
       sorting_key = TableInfo.sorting_key(table_name)
       file_hash = JSON.parse(File.read(seed_file(table_name, tag)))
       items = file_hash['Items']
       ids = []
       new_items = []
-      items.each { |this_item|
+      items.each {|this_item|
         id = this_item[primary_key]['S']
         id += "|#{this_item[sorting_key]['S']}" if sorting_key.length > 0
         if ids.include?(id)
@@ -97,14 +97,14 @@ class SeedFile
         file_hash['Items'] = new_items
         file_hash['ScannedCount'] = new_items.size
         file_hash['Count'] = new_items.size
-        File.open(seed_file(table_name, tag), 'w') { |f| f.write(JSON.pretty_generate(file_hash)) }
+        File.open(seed_file(table_name, tag), 'w') {|f| f.write(JSON.pretty_generate(file_hash))}
       end
       Logger.info("#{items.size-new_items.size} items are deleted from #{tag} #{table_name}")
     }
   end
 
   def self.clear_all_seed_files(tag)
-    TableInfo.all_tables.each { |table_name|
+    TableInfo.all_tables.each {|table_name|
       clear_seed_file(table_name, tag)
     }
   end
@@ -116,7 +116,7 @@ class SeedFile
         :Items => [],
         :ConsumedCapacity => nil
     }
-    File.open(seed_file(table_name, tag), 'w') { |f| f.write(JSON.pretty_generate(empty_data)) }
+    File.open(seed_file(table_name, tag), 'w') {|f| f.write(JSON.pretty_generate(empty_data))}
     Logger.info("#{seed_file(table_name, tag)} get cleared")
   end
 
@@ -128,14 +128,14 @@ class SeedFile
                          file_hash = JSON.parse(File.read(file))
                          items = file_hash['Items']
                          old_count = items.size
-                         items.delete_if { |this_item|
-                           this_item.keys.include?(target_field) && target_value_list.include?(this_item[target_field][value_type]) }
+                         items.delete_if {|this_item|
+                           this_item.keys.include?(target_field) && target_value_list.include?(this_item[target_field][value_type])}
 
                          deleted = old_count-items.size
                          if deleted > 0
                            file_hash['ScannedCount'] = items.size
                            file_hash['Count'] = items.size
-                           File.open(file, 'w') { |f| f.write(JSON.pretty_generate(file_hash)) }
+                           File.open(file, 'w') {|f| f.write(JSON.pretty_generate(file_hash))}
                          end
                          list = target_value_list.to_s
                          if target_value_list.size>3
@@ -150,8 +150,8 @@ class SeedFile
   private_class_method def self.get_json_node_from_file(file, target_field, target_value, value_type)
                          file_hash = JSON.parse(File.read(file))
                          items = file_hash['Items']
-                         items.select { |this_item|
-                           this_item.keys.include?(target_field) && target_value.eql?(this_item[target_field][value_type]) }
+                         items.select {|this_item|
+                           this_item.keys.include?(target_field) && target_value.eql?(this_item[target_field][value_type])}
                        end
 
   private_class_method def self.rollback_in_ta_tables(patient_list, tag)
@@ -162,11 +162,11 @@ class SeedFile
                          items.each do |this_item|
                            if patient_list.include?(this_item['patient_id']['S'])
                              items.delete(this_item)
-                             # status = this_item['patient_status']['S']
-                             # ta_id = this_item['treatment_arm_id']['S']
-                             # stratum = this_item['stratum_id']['S']
-                             # version = this_item['version']['S']
-                             # update_ta_table(status, ta_id, stratum, version, tag)
+                             status = this_item['patient_status']['S']
+                             ta_id = this_item['treatment_arm_id']['S']
+                             stratum = this_item['stratum_id']['S']
+                             version = this_item['version']['S']
+                             update_ta_table(status, ta_id, stratum, version, tag)
                            end
                          end
 
@@ -174,7 +174,7 @@ class SeedFile
                          if deleted > 0
                            file_hash['ScannedCount'] = items.size
                            file_hash['Count'] = items.size
-                           File.open(file, 'w') { |f| f.write(JSON.pretty_generate(file_hash)) }
+                           File.open(file, 'w') {|f| f.write(JSON.pretty_generate(file_hash))}
                          end
                          list = patient_list.to_s
                          if patient_list.size>3
@@ -193,8 +193,9 @@ class SeedFile
                          statuses << 'ON_TREATMENT_ARM'
                          return unless statuses.include?(status)
                          file_hash = JSON.parse(File.read(seed_file('treatment_arm', tag)))
-                         ta_hashes = file_hash.select { |this_ta| this_ta['treatment_arm_id']['S'] == ta_id && this_ta['stratum_id']['S']==stratum }
-                         ta_hash = ta_hash.select{|ta| ta['version']['S']==version}
+                         ta_hashes = file_hash['Items'].select {|this_ta|
+                           this_ta['treatment_arm_id']['S'] == ta_id && this_ta['stratum_id']['S']==stratum}
+                         ta_hash = ta_hashes.select {|ta| ta['version']['S']==version}[0]
                          case status
                            when 'PREVIOUSLY_ON_ARM', 'PREVIOUSLY_ON_ARM_OFF_STUDY'
                              field = 'former_patients'
@@ -212,8 +213,8 @@ class SeedFile
                              field = ''
                              v_field = ''
                          end
-                         ta_hash[v_field] = (ta_hash[v_field]['N'].to_i - 1).to_s
-                         ta_hashes.each { |ta| ta[field] = (ta[field]['N'].to_i - 1).to_s }
-                         File.open(seed_file('treatment_arm', tag), 'w') { |f| f.write(JSON.pretty_generate(file_hash)) }
+                         ta_hash[v_field]['N'] = (ta_hash[v_field]['N'].to_i - 1).to_s
+                         ta_hashes.each {|ta| ta[field]['N'] = (ta[field]['N'].to_i - 1).to_s}
+                         File.open(seed_file('treatment_arm', tag), 'w') {|f| f.write(JSON.pretty_generate(file_hash))}
                        end
 end
