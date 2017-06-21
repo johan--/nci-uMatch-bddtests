@@ -673,20 +673,21 @@ Feature: Patient GET service valid special case tests
     Then the saved assignment report should have correct assignment result as assignment "<uuid>"
     Examples:
       | patient_id                  | uuid                                 | status    |
-      | PT_SC09_PendingConfirmation | cd53ebfb-e994-4da3-a661-6018d4167c26 | PENDING   |
-      | PT_SC09_PendingApproval     | fe3dda34-e606-4261-915f-48bb46525742 | CONFIRMED |
-      | PT_SC09_OnTreatmentArm      | b3dd218f-0f11-4b0a-8aa0-d13a8344b45f | CONFIRMED |
-      | PT_SC09_TsReceivedStep2     | d9249782-1b51-4a4d-a182-7406404ca764 | CONFIRMED |
+      | PT_SC09_PendingConfirmation | 8203208a-2884-473a-be6c-df2186155959 | PENDING   |
+      | PT_SC09_PendingApproval     | 37a69258-7dac-456f-a25f-97e06edcd4c1 | CONFIRMED |
+      | PT_SC09_OnTreatmentArm      | 1048f5da-2918-415a-9b00-df4c8c09b279 | CONFIRMED |
+      | PT_SC09_TsReceivedStep2     | f39aeadc-1923-4386-a650-fc8838bca051 | CONFIRMED |
 
   @patients_p3
   Scenario Outline: PT_SC09b invalid assignment report download request should fail
+    #the 2nd examples: PT_SC09_PendingApproval with PT_SC09_PendingConfirmation's uuid
     Given patient id is "<patient_id>"
     And patient GET service: "assignment_report", patient id: "<patient_id>", id: "<uuid>"
     When GET from MATCH patient API, http code "404" should return
     Examples:
       | patient_id                  | uuid                                 |
       | PT_SC09_PendingConfirmation | non_existing_uuid                    |
-      | PT_SC09_PendingApproval     | 301f05b2-a7b3-4305-8c2b-30bee9f258e1 |
+      | PT_SC09_PendingApproval     | 8203208a-2884-473a-be6c-df2186155959 |
 
   @patients_p2
   Scenario: PT_SC10a analysis_report can return all variant file names
@@ -704,6 +705,7 @@ Feature: Patient GET service valid special case tests
     Then upload files for molecular_id "PT_SC10b_TsShipped_MOI1" analysis_id "PT_SC10b_TsShipped_ANI1" using template "default_vcf52"
     When POST to MATCH variant report upload service, response includes "successfully" with code "202"
     Then wait until patient variant report is updated
+    Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
     Then patient GET service: "analysis_report", patient id: "PT_SC10b_TsShipped", id: "PT_SC10b_TsShipped_ANI1"
     When GET from MATCH patient API, http code "200" should return
     Then this patient tissue analysis_report variant field "snv_indels" should include id "COSM893754"
