@@ -374,7 +374,7 @@ Feature: Patient API authorization tests
       | specimens             | PT_GVF_RequestNoAssignment |                          | MDA_VARIANT_REPORT_SENDER         | 200  |
       | shipments             |                            |                          | MDA_VARIANT_REPORT_REVIEWER       | 200  |
       | specimen_events       | PT_GVF_VrAssayReady        |                          | MOCHA_VARIANT_REPORT_SENDER       | 200  |
-      | variants              |                            |                          | MOCHA_VARIANT_REPORT_REVIEWER     | 200  |
+      | patient_limbos        |                            |                          | MOCHA_VARIANT_REPORT_REVIEWER     | 200  |
       | pending_items         |                            |                          | DARTMOUTH_VARIANT_REPORT_SENDER   | 200  |
       | amois                 |                            |                          | DARTMOUTH_VARIANT_REPORT_REVIEWER | 200  |
       | shipments             |                            |                          | PATIENT_MESSAGE_SENDER            | 200  |
@@ -540,11 +540,11 @@ Feature: Patient API authorization tests
     Then apply auth0 token using stored password with prefix "AU17_", response includes "password" with code "401"
     Then apply auth0 token using stored password with prefix "", response includes "id_token" with code "200"
     Examples:
-      | role                              |
-      | ADMIN                             |
-      | PATIENT_MESSAGE_SENDER            |
-      | SPECIMEN_MESSAGE_SENDER           |
-      | ASSAY_MESSAGE_SENDER              |
+      | role                    |
+      | ADMIN                   |
+      | PATIENT_MESSAGE_SENDER  |
+      | SPECIMEN_MESSAGE_SENDER |
+      | ASSAY_MESSAGE_SENDER    |
 
   @patients_p2_off
   Scenario Outline: PT_AU17b certain user is not allowed to use auth0 password change service
