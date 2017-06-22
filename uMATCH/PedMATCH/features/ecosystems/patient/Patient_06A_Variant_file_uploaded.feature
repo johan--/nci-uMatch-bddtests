@@ -298,3 +298,19 @@ Feature: Variant files uploaded message
       | PT_VU17_BdShippedTwice | PT_VU17_BdShippedTwice_BD_MOI2 | true  |
       | PT_VU17_BdVrUploaded   | PT_VU17_BdVrUploaded_BD_MOI1   | true  |
 
+  @patients_p1
+  Scenario: PT_VU18. multiple variant report can be processed at same time
+    Given patient id is "PT_VU18_TsShipped1"
+    And load template variant file uploaded message for molecular id: "PT_VU18_TsShipped1_MOI1"
+    Then set patient message field: "analysis_id" to value: "PT_VU18_TsShipped1_ANI1"
+    Then files for molecular_id "PT_VU18_TsShipped1_MOI1" and analysis_id "PT_VU18_TsShipped1_ANI1" are in S3
+    When POST to MATCH variant report upload service, response includes "success" with code "202"
+    Given patient id is "PT_VU18_TsShipped2"
+    And load template variant file uploaded message for molecular id: "PT_VU18_TsShipped2_MOI1"
+    Then set patient message field: "analysis_id" to value: "PT_VU18_TsShipped2_ANI1"
+    Then files for molecular_id "PT_VU18_TsShipped2_MOI1" and analysis_id "PT_VU18_TsShipped2_ANI1" are in S3
+    When POST to MATCH variant report upload service, response includes "success" with code "202"
+    And patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
+    Then patient id is "PT_VU18_TsShipped1"
+    And patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
+

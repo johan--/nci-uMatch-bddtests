@@ -228,3 +228,16 @@ Feature: Patients assignment tests
     Then this patient tissue specimen_events analyses "PT_AM10_AssayVrReady_ANI1" latest assignment should be:
       | assignment_report_status | treatment_arm_id | treatment_arm_stratum_id | treatment_arm_version |
       | PENDING                  | null             | null                     | null                  |
+
+    @patients_p1
+    Scenario: PT_AM13. multiple assignment can be processed at same time
+      Given patient id is "PT_AM13_AssayVrReady1"
+      And patient API user authorization role is "MDA_VARIANT_REPORT_REVIEWER"
+      Then load template variant report confirm message for analysis id: "PT_AM13_AssayVrReady1_ANI1"
+      When PUT to MATCH variant report "confirm" service, response includes "successfully" with code "200"
+      Given patient id is "PT_AM13_AssayVrReady2"
+      Then load template variant report confirm message for analysis id: "PT_AM13_AssayVrReady2_ANI1"
+      When PUT to MATCH variant report "confirm" service, response includes "successfully" with code "200"
+      And patient status should change to "PENDING_CONFIRMATION"
+      Then patient id is "PT_AM13_AssayVrReady1"
+      And patient status should change to "PENDING_CONFIRMATION"

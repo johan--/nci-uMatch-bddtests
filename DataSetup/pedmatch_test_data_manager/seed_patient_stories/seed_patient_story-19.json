@@ -67,5 +67,43 @@
     "variant_report_confirmed:<patient_id>=>PT_SC10c_PendingConfirmationStep2&<analysis_id>=>PT_SC10c_PendingConfirmationStep2_ANI2&<status>=>confirm&<comment>=>Test&<comment_user>=>QA",
     "assignment_confirmed:<patient_id>=>PT_SC10c_PendingConfirmationStep2&<analysis_id>=>PT_SC10c_PendingConfirmationStep2_ANI2&<comment>=>Test&<comment_user>=>QA",
     "request_assignment:<patient_id>=>PT_SC10c_PendingConfirmationStep2&<step_number>=>2.0&<status_date>=>current&<status>=>REQUEST_ASSIGNMENT&<rebiopsy>=>N"
+  ],
+  "PT_VU18_TsShipped1": [
+    "registration:<patient_id>=>PT_VU18_TsShipped1&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_VU18_TsShipped1&<surgical_event_id>=>PT_VU18_TsShipped1_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_TISSUE:<patient_id>=>PT_VU18_TsShipped1&<surgical_event_id>=>PT_VU18_TsShipped1_SEI1&<molecular_id>=>PT_VU18_TsShipped1_MOI1&<shipped_dttm>=>current&<destination>=>MDA"
+  ],
+  "PT_VU18_TsShipped2": [
+    "registration:<patient_id>=>PT_VU18_TsShipped2&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_VU18_TsShipped2&<surgical_event_id>=>PT_VU18_TsShipped2_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_TISSUE:<patient_id>=>PT_VU18_TsShipped2&<surgical_event_id>=>PT_VU18_TsShipped2_SEI1&<molecular_id>=>PT_VU18_TsShipped2_MOI1&<shipped_dttm>=>current&<destination>=>MDA"
+  ],
+  "PT_AM13_AssayVrReady1": [
+    "registration:<patient_id>=>PT_AM13_AssayVrReady1&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_AM13_AssayVrReady1&<surgical_event_id>=>PT_AM13_AssayVrReady1_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_TISSUE:<patient_id>=>PT_AM13_AssayVrReady1&<surgical_event_id>=>PT_AM13_AssayVrReady1_SEI1&<molecular_id>=>PT_AM13_AssayVrReady1_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
+    "specimen_shipped_SLIDE:<patient_id>=>PT_AM13_AssayVrReady1&<surgical_event_id>=>PT_AM13_AssayVrReady1_SEI1&<slide_barcode>=>PT_AM13_AssayVrReady1_BC1&<shipped_dttm>=>current",
+    "assay_result_reported:<patient_id>=>PT_AM13_AssayVrReady1&<surgical_event_id>=>PT_AM13_AssayVrReady1_SEI1&<biomarker>=>ICCPTENs&<result>=>NEGATIVE&<reported_date>=>current",
+    "assay_result_reported:<patient_id>=>PT_AM13_AssayVrReady1&<surgical_event_id>=>PT_AM13_AssayVrReady1_SEI1&<biomarker>=>ICCBAF47s&<result>=>NEGATIVE&<reported_date>=>current",
+    "assay_result_reported:<patient_id>=>PT_AM13_AssayVrReady1&<surgical_event_id>=>PT_AM13_AssayVrReady1_SEI1&<biomarker>=>ICCBRG1s&<result>=>NEGATIVE&<reported_date>=>current",
+    "aliquot:<patient_id>=>PT_AM13_AssayVrReady1&<ion_reporter_id>=>bdd_test_ion_reporter&<vr_type>=>default&<analysis_id>=>PT_AM13_AssayVrReady1_ANI1&<molecular_id>=>PT_AM13_AssayVrReady1_MOI1&<site>=>MDA",
+    "variant_dna_file_uploaded:<patient_id>=>PT_AM13_AssayVrReady1&<dna_bam_name>=>dna.bam&<analysis_id>=>PT_AM13_AssayVrReady1_ANI1&<molecular_id>=>PT_AM13_AssayVrReady1_MOI1&<comment_user>=>qa",
+    "variant_cdna_file_uploaded:<patient_id>=>PT_AM13_AssayVrReady1&<cdna_bam_name>=>cdna.bam&<analysis_id>=>PT_AM13_AssayVrReady1_ANI1&<molecular_id>=>PT_AM13_AssayVrReady1_MOI1&<comment_user>=>qa",
+    "variant_dna_file_uploaded:<patient_id>=>PT_AM13_AssayVrReady1&<dna_bam_name>=>dna.bam&<analysis_id>=>PT_AM13_AssayVrReady1_ANI1&<molecular_id>=>PT_AM13_AssayVrReady1_MOI1&<comment_user>=>qa",
+    "variant_cdna_file_uploaded:<patient_id>=>PT_AM13_AssayVrReady1&<cdna_bam_name>=>cdna.bam&<analysis_id>=>PT_AM13_AssayVrReady1_ANI1&<molecular_id>=>PT_AM13_AssayVrReady1_MOI1&<comment_user>=>qa"
+  ],
+  "PT_AM13_AssayVrReady2": [
+    "registration:<patient_id>=>PT_AM13_AssayVrReady2&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_AM13_AssayVrReady2&<surgical_event_id>=>PT_AM13_AssayVrReady2_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_TISSUE:<patient_id>=>PT_AM13_AssayVrReady2&<surgical_event_id>=>PT_AM13_AssayVrReady2_SEI1&<molecular_id>=>PT_AM13_AssayVrReady2_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
+    "specimen_shipped_SLIDE:<patient_id>=>PT_AM13_AssayVrReady2&<surgical_event_id>=>PT_AM13_AssayVrReady2_SEI1&<slide_barcode>=>PT_AM13_AssayVrReady2_BC1&<shipped_dttm>=>current",
+    "assay_result_reported:<patient_id>=>PT_AM13_AssayVrReady2&<surgical_event_id>=>PT_AM13_AssayVrReady2_SEI1&<biomarker>=>ICCPTENs&<result>=>NEGATIVE&<reported_date>=>current",
+    "assay_result_reported:<patient_id>=>PT_AM13_AssayVrReady2&<surgical_event_id>=>PT_AM13_AssayVrReady2_SEI1&<biomarker>=>ICCBAF47s&<result>=>NEGATIVE&<reported_date>=>current",
+    "assay_result_reported:<patient_id>=>PT_AM13_AssayVrReady2&<surgical_event_id>=>PT_AM13_AssayVrReady2_SEI1&<biomarker>=>ICCBRG1s&<result>=>NEGATIVE&<reported_date>=>current",
+    "aliquot:<patient_id>=>PT_AM13_AssayVrReady2&<ion_reporter_id>=>bdd_test_ion_reporter&<vr_type>=>default&<analysis_id>=>PT_AM13_AssayVrReady2_ANI1&<molecular_id>=>PT_AM13_AssayVrReady2_MOI1&<site>=>MDA",
+    "variant_dna_file_uploaded:<patient_id>=>PT_AM13_AssayVrReady2&<dna_bam_name>=>dna.bam&<analysis_id>=>PT_AM13_AssayVrReady2_ANI1&<molecular_id>=>PT_AM13_AssayVrReady2_MOI1&<comment_user>=>qa",
+    "variant_cdna_file_uploaded:<patient_id>=>PT_AM13_AssayVrReady2&<cdna_bam_name>=>cdna.bam&<analysis_id>=>PT_AM13_AssayVrReady2_ANI1&<molecular_id>=>PT_AM13_AssayVrReady2_MOI1&<comment_user>=>qa",
+    "variant_dna_file_uploaded:<patient_id>=>PT_AM13_AssayVrReady2&<dna_bam_name>=>dna.bam&<analysis_id>=>PT_AM13_AssayVrReady2_ANI1&<molecular_id>=>PT_AM13_AssayVrReady2_MOI1&<comment_user>=>qa",
+    "variant_cdna_file_uploaded:<patient_id>=>PT_AM13_AssayVrReady2&<cdna_bam_name>=>cdna.bam&<analysis_id>=>PT_AM13_AssayVrReady2_ANI1&<molecular_id>=>PT_AM13_AssayVrReady2_MOI1&<comment_user>=>qa"
   ]
 }
