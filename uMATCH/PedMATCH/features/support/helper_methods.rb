@@ -608,7 +608,7 @@ class Helper_Methods
   end
 
   def self.s3_read_text_file(bucket, s3_path)
-    tmp_file = "#{File.dirname(__FILE__)}/tmp.txt"
+    tmp_file = "#{File.dirname(__FILE__)}/tmp_#{Time.now.to_i.to_s}.txt"
     cmd = "aws s3 cp s3://#{bucket}/#{s3_path} #{tmp_file} --region us-east-1"
     `#{cmd}`
     sleep 10.0 unless File.exist?(tmp_file)
