@@ -56,3 +56,25 @@ Feature: Sample control tests for positive control
     Then the gene "RAD51" is filtered out from the positive control variant report
     Then the gene "RAD51C" is filtered out from the positive control variant report
 
+    Scenario: SC-PC_10: Verify that when use vcf version 5.2 oncomine summary is generated
+      Given a tsv variant report file "samplecontrol_vcf52" and treatment arms file "MultiTAs.json"
+      And remove quality control json from S3
+      When the positive_control service is called
+      Then quality control json file should be generated
+      Then the variant report contains poolsum in oncomine panel summary with
+        | pool1Sum | 181787.0 |
+        | pool2Sum | 558403.0 |
+      Then the variant report contains exprControl in oncomine panel summary with
+        | POOL1 | 181482.0 |
+        | POOL2 | 557781.0 |
+      Then the variant report contains geneExpression in oncomine panel summary with
+        | POOL1 | 105.0 |
+        | POOL2 | 472.0 |
+      Then the variant report contains fusion in oncomine panel summary with
+        | POOL1 | 200.0 |
+        | POOL2 | 150.0 |
+      And the variant report contains the following values
+        | torrent_variant_caller_version | 5.2-25  |
+        | mapd                           | 0.280   |
+        | mappedFusionPanelReads         | 1406678 |
+
