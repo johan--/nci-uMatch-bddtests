@@ -9,6 +9,7 @@ Feature: As a valid user I can access the variant report for a patient and navig
     When I go to the patient "PT_AM05_TsVrReceived1" with variant report "PT_AM05_TsVrReceived1_ANI1"
     And I scroll to the bottom of the page
     Then I can see the "<table>" table
+    And I click on "<columnNumber>" column header of the "<table>" table
     And I remember order of elements in column "<columnNumber>" of the "<table>" table
     And I click on "<columnNumber>" column header of the "<table>" table
     Then I should see the data in the column to be sorted properly
