@@ -105,5 +105,18 @@
     "variant_cdna_file_uploaded:<patient_id>=>PT_AM13_AssayVrReady2&<cdna_bam_name>=>cdna.bam&<analysis_id>=>PT_AM13_AssayVrReady2_ANI1&<molecular_id>=>PT_AM13_AssayVrReady2_MOI1&<comment_user>=>qa",
     "variant_dna_file_uploaded:<patient_id>=>PT_AM13_AssayVrReady2&<dna_bam_name>=>dna.bam&<analysis_id>=>PT_AM13_AssayVrReady2_ANI1&<molecular_id>=>PT_AM13_AssayVrReady2_MOI1&<comment_user>=>qa",
     "variant_cdna_file_uploaded:<patient_id>=>PT_AM13_AssayVrReady2&<cdna_bam_name>=>cdna.bam&<analysis_id>=>PT_AM13_AssayVrReady2_ANI1&<molecular_id>=>PT_AM13_AssayVrReady2_MOI1&<comment_user>=>qa"
+  ],
+  "PT_SR10_PendingConfirmation": [
+    "registration:<patient_id>=>PT_SR10_PendingConfirmation&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SR10_PendingConfirmation&<surgical_event_id>=>PT_SR10_PendingConfirmation_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_TISSUE:<patient_id>=>PT_SR10_PendingConfirmation&<surgical_event_id>=>PT_SR10_PendingConfirmation_SEI1&<molecular_id>=>PT_SR10_PendingConfirmation_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
+    "specimen_shipped_SLIDE:<patient_id>=>PT_SR10_PendingConfirmation&<surgical_event_id>=>PT_SR10_PendingConfirmation_SEI1&<slide_barcode>=>PT_SR10_PendingConfirmation_BC1&<shipped_dttm>=>current",
+    "assay_result_reported:<patient_id>=>PT_SR10_PendingConfirmation&<surgical_event_id>=>PT_SR10_PendingConfirmation_SEI1&<biomarker>=>ICCPTENs&<result>=>POSITIVE&<reported_date>=>current",
+    "assay_result_reported:<patient_id>=>PT_SR10_PendingConfirmation&<surgical_event_id>=>PT_SR10_PendingConfirmation_SEI1&<biomarker>=>ICCBAF47s&<result>=>POSITIVE&<reported_date>=>current",
+    "assay_result_reported:<patient_id>=>PT_SR10_PendingConfirmation&<surgical_event_id>=>PT_SR10_PendingConfirmation_SEI1&<biomarker>=>ICCBRG1s&<result>=>POSITIVE&<reported_date>=>current",
+    "aliquot:<patient_id>=>PT_SR10_PendingConfirmation&<ion_reporter_id>=>bdd_test_ion_reporter&<vr_type>=>default&<analysis_id>=>PT_SR10_PendingConfirmation_ANI1&<molecular_id>=>PT_SR10_PendingConfirmation_MOI1&<site>=>MDA",
+    "variant_dna_file_uploaded:<patient_id>=>PT_SR10_PendingConfirmation&<dna_bam_name>=>dna.bam&<analysis_id>=>PT_SR10_PendingConfirmation_ANI1&<molecular_id>=>PT_SR10_PendingConfirmation_MOI1&<comment_user>=>qa",
+    "variant_cdna_file_uploaded:<patient_id>=>PT_SR10_PendingConfirmation&<cdna_bam_name>=>cdna.bam&<analysis_id>=>PT_SR10_PendingConfirmation_ANI1&<molecular_id>=>PT_SR10_PendingConfirmation_MOI1&<comment_user>=>qa",
+    "variant_report_confirmed:<patient_id>=>PT_SR10_PendingConfirmation&<analysis_id>=>PT_SR10_PendingConfirmation_ANI1&<status>=>confirm&<comment>=>Test&<comment_user>=>QA"
   ]
 }

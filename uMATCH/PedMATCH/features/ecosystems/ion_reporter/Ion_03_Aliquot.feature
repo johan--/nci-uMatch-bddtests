@@ -266,24 +266,26 @@ Feature: Tests for aliquot service in ion ecosystem
   @ion_reporter_p1
   Scenario Outline: ION_AQ09b aliquot service can handle vcf version 5.2 properly for sample control
     Given molecular id is "<moi>"
+    And file: "IR_TCWEV/<moi>/<moi>_ANI1/test1.tsv" has been removed from S3 bucket
+    And file: "IR_TCWEV/<moi>/<moi>_ANI1/test1.json" has been removed from S3 bucket
     And ir user authorization role is "SYSTEM"
-    Then add field: "analysis_id" value: "<moi>ANI1" to message body
+    Then add field: "analysis_id" value: "<moi>_ANI1" to message body
     Then add field: "site" value: "<site>" to message body
     Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
     Then add field: "vcf_name" value: "test1.vcf" to message body
     When PUT to aliquot service, response includes "Item updated" with code "200"
-    Then wait for "90" seconds
+    Then wait for "60" seconds
     When GET from aliquot service, response "" with code "200"
-    Then field: "tsv_name" for this aliquot should be: "<tsv_name>"
+    Then field: "tsv_name" for this aliquot should be: "IR_TCWEV/<moi>/<moi>_ANI1/test1.tsv"
     Then field: "torrent_variant_caller_version" for this aliquot should be: "5.2-25"
     Then field: "mappedFusionPanelReads" for this aliquot should be: "1406678"
     Then oncomine_control pool "1" sum for this aliquot should be: "449632.5"
     Then oncomine_control pool "2" sum for this aliquot should be: "957045.5"
     Examples:
-      | moi            | tsv_name                                              | site  |
-      | NTC_MDA_VNTE5  | IR_TCWEV/NTC_MDA_VNTE5/NTC_MDA_VNTE5_ANI1/test1.tsv   | mda   |
-      | SC_MOCHA_HY9S5 | IR_TCWEV/SC_MOCHA_HY9S5/SC_MOCHA_HY9S5_ANI1/test1.tsv | mocha |
-      | PCC_MDA_ZCCND  | IR_TCWEV/PCC_MDA_ZCCND/PCC_MDA_ZCCND_ANI1/test1.tsv   | mda   |
+      | moi            | site  |
+      | NTC_MDA_VNTE5  | mda   |
+      | SC_MOCHA_HY9S5 | mocha |
+      | PCC_MDA_ZCCND  | mda   |
 
 
   @ion_reporter_p2
