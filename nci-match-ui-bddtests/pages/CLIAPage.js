@@ -51,7 +51,7 @@ var CliaPage = function () {
     this.samplePositivePanelTableColumn = element.all(by.css('#cliaVrTablePositive[grid-options="pendinPositiveGridOptions"] th'));
     this.sampleFalsePosTableColumn = element.all(by.css('#cliaVrTablePositive[grid-actions="pendinFalsePositiveGridActions"] th'));
     this.samplePositivePanel    = element(by.css('#cliaVrTablePositive[grid-options="pendinPositiveGridOptions"]'));
-    this.sampleFalsePosPanel    = element(by.css('#cliaVrTablePositive[grid-actions="pendinFalsePositiveGridActions"'));
+    this.sampleFalsePosPanel    = element(by.css('#cliaVrTablePositive[grid-actions="pendinFalsePositiveGridActions"]'));
     this.ntcSNVPanel            = element(by.css('clia-vr-table-snv-mnv-indel'));
     this.ntcCNVPanel            = element(by.css('clia-vr-table-cnv'));
     this.ntcGeneFusionPanel     = element(by.css('clia-vr-table-gf'));
