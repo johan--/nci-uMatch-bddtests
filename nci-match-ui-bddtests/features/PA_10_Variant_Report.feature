@@ -9,7 +9,6 @@ Feature: As a valid user I can access the variant report for a patient and navig
     When I go to the patient "PT_AM05_TsVrReceived1" with variant report "PT_AM05_TsVrReceived1_ANI1"
     And I scroll to the bottom of the page
     Then I can see the "<table>" table
-    And I click on "<columnNumber>" column header of the "<table>" table
     And I remember order of elements in column "<columnNumber>" of the "<table>" table
     And I click on "<columnNumber>" column header of the "<table>" table
     Then I should see the data in the column to be sorted properly
@@ -76,6 +75,7 @@ Feature: As a valid user I can access the variant report for a patient and navig
   @ui_p2
   Scenario Outline: Patient with variant report of torrent version <torent_version> will <have_or_not> pool-total values
     When I go to the patient "<patient_id>" with variant report "<variant_report>"
+    And I collect information about the assignment
     Then I expect to see the Torrent Variant Caller Version as "<torrent_version>"
     And I expect to see the Pool 1 Total as "<pool1>"
     And I expect to see the Pool 2 Total as "<pool2>"

@@ -89,11 +89,13 @@ module.exports = function () {
     });
 
     this.Then(/^I expect to see the Pool 1 Total as "([^"]*)"$/, function (total, callback) {
-        expect(patientPage.pool1Total.getText()).to.eventually.eql(total).notify(callback);
+        var expectedTotal = browser.responseData.variant_report.oncomine_control_panel_summary.pool1Sum;
+        expect(patientPage.pool1Total.getText()).to.eventually.eql(expectedTotal).notify(callback);
     });
 
     this.Then(/^I expect to see the Pool 2 Total as "([^"]*)"$/, function (total, callback) {
-        expect(patientPage.pool2Total.getText()).to.eventually.eql(total).notify(callback);
+        var expectedTotal = browser.responseData.variant_report.oncomine_control_panel_summary.pool2Sum;
+        expect(patientPage.pool2Total.getText()).to.eventually.eql(expectedTotal).notify(callback);
     });
 
     this.Then(/^I can see the "(.+?)" table heading$/, function(tableHeading, callback){

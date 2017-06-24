@@ -35,7 +35,7 @@ Feature: Specimen Tracking page
     Then I see that the row matches with specimens data of the backend for "PT_SS25_BloodShipped"
 
   @ui_p2
-  Scenario: User can track Specimens
+  Scenario: User can track Clia Lab and Slide  Shipments
     When I collect information on shipment used for shipments
     And I sort and separate the slide from tissue
     When I click on "CLIA Lab Shipments" tab

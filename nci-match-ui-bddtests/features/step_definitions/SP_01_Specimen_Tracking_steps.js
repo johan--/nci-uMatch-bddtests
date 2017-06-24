@@ -346,7 +346,7 @@ module.exports = function () {
 
     this.Then(/^I see that the row matches with Clia Lab data of the backend for "(.+?)"$/, function (query, callback) {
         var hashSection;
-        var data = STPage.responseData;
+        var data = STPage.actualArr.TISSUE_DNA_AND_CDNA;
         var singleRow = STPage.actualTable.all(by.css('tbody td'));
         for (var i = 0; i < data.length; i++) {
             if (data[i].patient_id === query){
