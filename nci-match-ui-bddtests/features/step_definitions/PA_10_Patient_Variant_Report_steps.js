@@ -45,7 +45,7 @@ module.exports = function () {
     });
 
     this.Then(/^I should see the data in the column to be sorted properly$/, function (callback) {
-        var expectedSortedData = patientPage.unsortedColumnData.sort().reverse();
+        var expectedSortedData = patientPage.unsortedColumnData.sort();
 
         expect(expectedSortedData).to.deep.equal(patientPage.sortedColumnData);
         callback();
