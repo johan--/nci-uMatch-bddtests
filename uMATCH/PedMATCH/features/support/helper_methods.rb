@@ -11,6 +11,7 @@ require 'roo'
 class Helper_Methods
   @requestGap = 5.0
   @requestTimeout = 10.0
+  DEFAULT_TIMEOUT = 60.0
 
   def Helper_Methods.get_request(url, params={}, auth0_on = true, auth0_role = 'ADMIN')
     get_response = {}
@@ -28,7 +29,11 @@ class Helper_Methods
     begin
       # puts "url is #{@url}"
       # puts "header is #{headers}"
-      response = RestClient::Request.execute(:url => @url, :method => :get, :verify_ssl => false, :headers => headers)
+      response = RestClient::Request.execute(:url => @url,
+                                             :method => :get,
+                                             :verify_ssl => false,
+                                             :headers => headers,
+                                             :timeout => DEFAULT_TIMEOUT)
       get_response['http_code'] = response.code
       get_response['status'] = response.code == 200 ? 'Success' : 'Failure'
       get_response['message'] = response.body
@@ -67,7 +72,11 @@ class Helper_Methods
       sleep(@requestGap)
       runTime += @requestGap
       begin
-        @res = RestClient::Request.execute(:url => @service, :method => :get, :verify_ssl => false, :headers => headers)
+        @res = RestClient::Request.execute(:url => @service,
+                                           :method => :get,
+                                           :verify_ssl => false,
+                                           :headers => headers,
+                                           :timeout => DEFAULT_TIMEOUT)
       rescue StandardError => e
         puts "Error: #{e.message} occurred"
         @res = '[]'
@@ -104,7 +113,11 @@ class Helper_Methods
     headers = {}
     Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
     begin
-      response = RestClient::Request.execute(:url => service, :method => :get, :verify_ssl => false, :headers => headers)
+      response = RestClient::Request.execute(:url => service,
+                                             :method => :get,
+                                             :verify_ssl => false,
+                                             :headers => headers,
+                                             :timeout => DEFAULT_TIMEOUT)
     rescue StandardError => e
       @get_response['status'] = 'Failure'
       if e.message.nil?
@@ -158,7 +171,11 @@ class Helper_Methods
     Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
     loop do
       begin
-        response_string = RestClient::Request.execute(:url => service, :method => :get, :verify_ssl => false, :headers => headers)
+        response_string = RestClient::Request.execute(:url => service,
+                                                      :method => :get,
+                                                      :verify_ssl => false,
+                                                      :headers => headers,
+                                                      :timeout => DEFAULT_TIMEOUT)
       rescue StandardError => e
         print "Error: #{e.message} occurred\n"
         return {}
@@ -209,7 +226,11 @@ class Helper_Methods
     print "#{url[0..len]}\n"
     headers = {}
     Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
-    @res = RestClient::Request.execute(:url => @service, :method => :get, :verify_ssl => false, :headers => headers)
+    @res = RestClient::Request.execute(:url => @service,
+                                       :method => :get,
+                                       :verify_ssl => false,
+                                       :headers => headers,
+                                       :timeout => DEFAULT_TIMEOUT)
     return @res
   end
 
@@ -283,7 +304,12 @@ class Helper_Methods
     headers = {:content_type => 'json', :accept => 'json'}
     Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
     begin
-      response = RestClient::Request.execute(:url => service, :method => :post, :verify_ssl => false, :payload => payload, :headers => headers)
+      response = RestClient::Request.execute(:url => service,
+                                             :method => :post,
+                                             :verify_ssl => false,
+                                             :payload => payload,
+                                             :headers => headers,
+                                             :timeout => DEFAULT_TIMEOUT)
     rescue StandardError => e
       @post_response['status'] = 'Failure'
       if e.message.nil?
@@ -318,7 +344,12 @@ class Helper_Methods
     headers = {:content_type => 'json', :accept => 'json'}
     Auth0Token.add_auth0_if_needed(headers, auth0_role)
     begin
-      response = RestClient::Request.execute(:url => service, :method => :patch, :verify_ssl => false, :payload => payload, :headers => headers)
+      response = RestClient::Request.execute(:url => service,
+                                             :method => :patch,
+                                             :verify_ssl => false,
+                                             :payload => payload,
+                                             :headers => headers,
+                                             :timeout => DEFAULT_TIMEOUT)
     rescue StandardError => e
       patch_response['status'] = 'Failure'
       if e.message.nil?
@@ -365,7 +396,12 @@ class Helper_Methods
     headers = {:content_type => 'json', :accept => 'json'}
     Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
     begin
-      response = RestClient::Request.execute(:url => service, :method => :put, :verify_ssl => false, :payload => payload, :headers => headers)
+      response = RestClient::Request.execute(:url => service,
+                                             :method => :put,
+                                             :verify_ssl => false,
+                                             :payload => payload,
+                                             :headers => headers,
+                                             :timeout => DEFAULT_TIMEOUT)
     rescue StandardError => e
       @put_response['status'] = 'Failure'
       if e.message.nil?
@@ -400,7 +436,11 @@ class Helper_Methods
     headers = {:accept => 'json'}
     Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
     begin
-      response = RestClient::Request.execute(:url => service, :method => :delete, :verify_ssl => false, :headers => headers)
+      response = RestClient::Request.execute(:url => service,
+                                             :method => :delete,
+                                             :verify_ssl => false,
+                                             :headers => headers,
+                                             :timeout => DEFAULT_TIMEOUT)
     rescue StandardError => e
       @delete_response['status'] = 'Failure'
       if e.message.nil?
@@ -539,7 +579,7 @@ class Helper_Methods
     )
     files = s3.bucket(bucket).objects(prefix: path)
     file = nil
-    files.each { |this_file|
+    files.each {|this_file|
       file = this_file
     }
     file.content_length
@@ -566,7 +606,7 @@ class Helper_Methods
         secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
     )
     files = s3.bucket(bucket).objects(prefix: path)
-    files.each { |this_file|
+    files.each {|this_file|
       this_file.delete if this_file.key.eql?(path)
       if ENV['print_log'] == 'YES'
         puts "Deleted #{this_file.identifiers[:key]} from bucket <#{this_file.identifiers[:bucket_name]}>"
@@ -652,7 +692,7 @@ class Helper_Methods
   def self.dynamodb_table_items(table, criteria={}, columns=[])
     dynamodb_create_client
     filter = {}
-    criteria.map { |k, v| filter[k] = {comparison_operator: 'EQ', attribute_value_list: [v]} }
+    criteria.map {|k, v| filter[k] = {comparison_operator: 'EQ', attribute_value_list: [v]}}
     scan_option = {table_name: table}
     scan_option['scan_filter'] = filter if filter.length>0
     scan_option['conditional_operator'] = 'AND' if filter.length>1
@@ -675,14 +715,14 @@ class Helper_Methods
   def self.dynamodb_table_distinct_column(table, criteria={}, distinct_column)
     dynamodb_create_client
     all_result = dynamodb_table_items(table, criteria)
-    all_result.map { |hash| hash[distinct_column] }.uniq
+    all_result.map {|hash| hash[distinct_column]}.uniq
   end
 
   def self.dynamodb_table_primary_key(table)
     dynamodb_create_client
     resp = @dynamodb_client.describe_table({table_name: table})
     key = 'no_sorting_key'
-    resp.table.key_schema.each { |this_key|
+    resp.table.key_schema.each {|this_key|
       if this_key.key_type == 'HASH'
         key = this_key.attribute_name
       end
@@ -694,7 +734,7 @@ class Helper_Methods
     dynamodb_create_client
     resp = @dynamodb_client.describe_table({table_name: table})
     key = 'no_sorting_key'
-    resp.table.key_schema.each { |this_key|
+    resp.table.key_schema.each {|this_key|
       if this_key.key_type == 'RANGE'
         key = this_key.attribute_name
       end
@@ -714,7 +754,7 @@ class Helper_Methods
     xlsx = Roo::Spreadsheet.open(file_path)
     sheet = xlsx.sheet(sheet_id)
     result = {}
-    row_range.each { |this_row|
+    row_range.each {|this_row|
       result[sheet.cell(key_column, this_row)] = sheet.cell(value_column, this_row)
     }
     result
@@ -731,7 +771,7 @@ class Helper_Methods
       this_row = sheet.row(i)
       break unless this_row[0].present?
       obj = {}
-      keys.each_with_index { |key, id| obj[key] = this_row[id] }
+      keys.each_with_index {|key, id| obj[key] = this_row[id]}
       result << obj
     end
     result
