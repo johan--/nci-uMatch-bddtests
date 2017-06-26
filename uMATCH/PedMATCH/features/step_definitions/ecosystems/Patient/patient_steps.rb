@@ -1536,24 +1536,41 @@ Then(/^returned event_data should have field "([^"]*)" with "(string|date|number
   }
 end
 
-Then(/^create auth0 password with stored password with prefix "([^"]*)"$/) do |prefix|
-  current_password = ENV["#{@current_auth0_role}_AUTH0_PASSWORD"]
-  @new_auth0_password = "#{prefix}#{current_password}"
+Then(/^create a new auth0 password$/) do
+  base_password = ENV["#{@current_auth0_role}_AUTH0_PASSWORD"]
+  @password_prefixes ||= JSON.parse(Helper_Methods.s3_read_text_file(ENV['s3_bucket'], 'DONT_DELETE_BDD_DATA.txt'))
+  old_prefix = @password_prefixes[@current_auth0_role]
+  old_prefix = '' if old_prefix.nil?
+  new_prefix = Time.now.to_i.to_s
+  @old_auth0_password = "#{old_prefix}#{base_password}"
+  @new_auth0_password = "#{new_prefix}#{base_password}"
+  @password_prefixes[@current_auth0_role] = new_prefix
 end
 
 When(/^PATCH to MATCH account password change service, response includes "([^"]*)" with code "([^"]*)"$/) do |msg, code|
   url = "#{ENV['patients_endpoint']}/users"
   payload = {:password => @new_auth0_password}
   ENV["PWD_#{@current_auth0_role}_AUTH0_USERNAME"] = "psd-#{ENV["#{@current_auth0_role}_AUTH0_USERNAME"]}"
-  ENV["PWD_#{@current_auth0_role}_AUTH0_PASSWORD"] = ENV["#{@current_auth0_role}_AUTH0_PASSWORD"]
+  ENV["PWD_#{@current_auth0_role}_AUTH0_PASSWORD"] = @old_auth0_password
   response = Helper_Methods.patch_request(url, payload.to_json.to_s, "PWD_#{@current_auth0_role}")
   expect(response['message']).to include msg
   expect(response['http_code'].to_s).to eq code
+  File.open('./DONT_DELETE_BDD_DATA.txt', 'w') {|f| f.write(JSON.pretty_generate(@password_prefixes))}
+  Helper_Methods.s3_upload_file('./DONT_DELETE_BDD_DATA.txt', ENV['s3_bucket'], 'DONT_DELETE_BDD_DATA.txt')
+  cmd = 'rm ./DONT_DELETE_BDD_DATA.txt'
+  `#{cmd}`
 end
 
-Then(/^apply auth0 token using stored password with prefix "([^"]*)", response includes "([^"]*)" with code "([^"]*)"$/) do |prefix, msg, code|
+Then(/^apply auth0 token using "(old|new)" password, response includes "([^"]*)" with code "([^"]*)"$/) do |old_new, msg, code|
   username = "psd-#{ENV["#{@current_auth0_role}_AUTH0_USERNAME"]}"
-  password = "#{prefix}#{ENV["#{@current_auth0_role}_AUTH0_PASSWORD"]}"
+  case old_new
+    when 'old'
+      password = @old_auth0_password
+    when 'new'
+      password = @new_auth0_password
+    else
+      raise 'The first parameter of this step should be either old or new'
+  end
 
   response = Auth0Token.ped_match_auth0_response(username, password)
   expect(response.to_s).to include msg
@@ -1646,4 +1663,3 @@ def find_variant (patient_json, variant_uuid)
   end
   nil
 end
-

@@ -11,7 +11,7 @@ require 'roo'
 class Helper_Methods
   @requestGap = 5.0
   @requestTimeout = 10.0
-  DEFAULT_TIMEOUT = 60.0
+  @default_timeout = 60.0
 
   def Helper_Methods.get_request(url, params={}, auth0_on = true, auth0_role = 'ADMIN')
     get_response = {}
@@ -33,7 +33,7 @@ class Helper_Methods
                                              :method => :get,
                                              :verify_ssl => false,
                                              :headers => headers,
-                                             :timeout => DEFAULT_TIMEOUT)
+                                             :timeout => @default_timeout)
       get_response['http_code'] = response.code
       get_response['status'] = response.code == 200 ? 'Success' : 'Failure'
       get_response['message'] = response.body
@@ -76,7 +76,7 @@ class Helper_Methods
                                            :method => :get,
                                            :verify_ssl => false,
                                            :headers => headers,
-                                           :timeout => DEFAULT_TIMEOUT)
+                                           :timeout => @default_timeout)
       rescue StandardError => e
         puts "Error: #{e.message} occurred"
         @res = '[]'
@@ -117,7 +117,7 @@ class Helper_Methods
                                              :method => :get,
                                              :verify_ssl => false,
                                              :headers => headers,
-                                             :timeout => DEFAULT_TIMEOUT)
+                                             :timeout => @default_timeout)
     rescue StandardError => e
       @get_response['status'] = 'Failure'
       if e.message.nil?
@@ -175,7 +175,7 @@ class Helper_Methods
                                                       :method => :get,
                                                       :verify_ssl => false,
                                                       :headers => headers,
-                                                      :timeout => DEFAULT_TIMEOUT)
+                                                      :timeout => @default_timeout)
       rescue StandardError => e
         print "Error: #{e.message} occurred\n"
         return {}
@@ -230,7 +230,7 @@ class Helper_Methods
                                        :method => :get,
                                        :verify_ssl => false,
                                        :headers => headers,
-                                       :timeout => DEFAULT_TIMEOUT)
+                                       :timeout => @default_timeout)
     return @res
   end
 
@@ -309,7 +309,7 @@ class Helper_Methods
                                              :verify_ssl => false,
                                              :payload => payload,
                                              :headers => headers,
-                                             :timeout => DEFAULT_TIMEOUT)
+                                             :timeout => @default_timeout)
     rescue StandardError => e
       @post_response['status'] = 'Failure'
       if e.message.nil?
@@ -349,7 +349,7 @@ class Helper_Methods
                                              :verify_ssl => false,
                                              :payload => payload,
                                              :headers => headers,
-                                             :timeout => DEFAULT_TIMEOUT)
+                                             :timeout => @default_timeout)
     rescue StandardError => e
       patch_response['status'] = 'Failure'
       if e.message.nil?
@@ -401,7 +401,7 @@ class Helper_Methods
                                              :verify_ssl => false,
                                              :payload => payload,
                                              :headers => headers,
-                                             :timeout => DEFAULT_TIMEOUT)
+                                             :timeout => @default_timeout)
     rescue StandardError => e
       @put_response['status'] = 'Failure'
       if e.message.nil?
@@ -440,7 +440,7 @@ class Helper_Methods
                                              :method => :delete,
                                              :verify_ssl => false,
                                              :headers => headers,
-                                             :timeout => DEFAULT_TIMEOUT)
+                                             :timeout => @default_timeout)
     rescue StandardError => e
       @delete_response['status'] = 'Failure'
       if e.message.nil?

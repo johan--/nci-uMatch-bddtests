@@ -528,17 +528,13 @@ Feature: Patient API authorization tests
       | SPECIMEN_MESSAGE_SENDER           | false        | false        | false        |
       | ASSAY_MESSAGE_SENDER              | false        | false        | false        |
 
-  @patients_p2_off
+  @patients_p2
   Scenario Outline: PT_AU17a certain user can change auth0 password properly
     Given patient API user authorization role is "<role>"
-    Then create auth0 password with stored password with prefix "AU17_"
+    Then create a new auth0 password
     When PATCH to MATCH account password change service, response includes "200" with code "200"
-    Then apply auth0 token using stored password with prefix "AU17_", response includes "id_token" with code "200"
-    Then apply auth0 token using stored password with prefix "", response includes "password" with code "401"
-    Then create auth0 password with stored password with prefix ""
-    When PATCH to MATCH account password change service, response includes "200" with code "200"
-    Then apply auth0 token using stored password with prefix "AU17_", response includes "password" with code "401"
-    Then apply auth0 token using stored password with prefix "", response includes "id_token" with code "200"
+    Then apply auth0 token using "new" password, response includes "id_token" with code "200"
+    Then apply auth0 token using "old" password, response includes "password" with code "401"
     Examples:
       | role                    |
       | ADMIN                   |
@@ -546,10 +542,10 @@ Feature: Patient API authorization tests
       | SPECIMEN_MESSAGE_SENDER |
       | ASSAY_MESSAGE_SENDER    |
 
-  @patients_p2_off
+  @patients_p2
   Scenario Outline: PT_AU17b certain user is not allowed to use auth0 password change service
     Given patient API user authorization role is "<role>"
-    Then create auth0 password with stored password with prefix "AU17_"
+    Then create a new auth0 password
     When PATCH to MATCH account password change service, response includes "authorized" with code "401"
     Examples:
       | role                              |
