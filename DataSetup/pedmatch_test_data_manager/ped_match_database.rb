@@ -37,6 +37,17 @@ class PedMatchDatabase
     Logger.info("Table <#{table_name}> has been exported to #{file}")
   end
 
+  ################reload
+  def self.reload_local(tag='patients')
+    clear_all_local
+    upload_seed_data_to_local(tag)
+  end
+
+  def self.reload_int(tag='patients')
+    clear_all_int
+    upload_seed_data_to_int(tag)
+  end
+
   ################clear
   def self.clear_all_local
     tier = Constants.current_tier
@@ -48,7 +59,7 @@ class PedMatchDatabase
 
   def self.clear_all_int
     tier = Constants.current_tier
-    Constants.set_tier(Constants.tier_local)
+    Constants.set_tier(Constants.tier_int)
     TableInfo.all_tables.each { |table| clear_table(table) }
     Constants.set_tier(tier)
     Logger.info('Clear int dynamodb done!')

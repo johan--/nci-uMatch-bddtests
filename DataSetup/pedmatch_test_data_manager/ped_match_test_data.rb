@@ -54,18 +54,3 @@ class PedMatchTestData
     PatientStorySender.send_patient_story(patient_story)
   end
 end
-
-# pt = PatientStory.new('PT_SR10_PendingConfirmation')
-# pt.create_seed_patient{
-#   pt.story_register
-#   pt.story_specimen_received_tissue
-#   pt.story_specimen_shipped_tissue
-#   pt.story_specimen_shipped_slide
-#   pt.story_assay('ICCPTENs')
-#   pt.story_assay('ICCBAF47s')
-#   pt.story_assay('ICCBRG1s')
-#   pt.story_tissue_variant_report
-#   pt.story_variant_file_confirmed
-# }
-
-PedMatchTestData.load_seed_patients(['PT_AS08_TsReceivedStep2'])
