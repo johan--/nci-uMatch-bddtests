@@ -1,152 +1,152 @@
 {
-    "ConsumedCapacity": null,
-    "ScannedCount": 5,
     "Items": [
         {
-            "ion_reporter_version": {
-                "S": "5.0"
-            },
-            "host_name": {
-                "S": "MATCH_IR_IR_IGXAW"
-            },
-            "date_ion_reporter_id_created": {
-                "S": "2016-10-12 21:19:36.514328"
-            },
-            "ion_reporter_id": {
-                "S": "IR_IGXAW"
-            },
             "ip_address": {
                 "S": "170.54.147.240"
             },
-            "internal_ip_address": {
-                "S": "51.91.246.138"
-            },
-            "study_id": {
-                "S": "EAY131"
+            "date_ion_reporter_id_created": {
+                "S": "2016-10-12 21:19:36.514328"
             },
             "site": {
                 "S": "mocha"
             },
             "last_contact": {
                 "S": "2017-02-01 15:08:26.446499"
-            }
-        },
-        {
+            },
+            "study_id": {
+                "S": "EAY131"
+            },
             "ion_reporter_version": {
                 "S": "5.0"
             },
             "host_name": {
-                "S": "MATCH_IR_IR_CFUXR"
-            },
-            "date_ion_reporter_id_created": {
-                "S": "2016-10-12 21:19:37.632102"
+                "S": "MATCH_IR_IR_IGXAW"
             },
             "ion_reporter_id": {
-                "S": "IR_CFUXR"
+                "S": "IR_IGXAW"
             },
+            "internal_ip_address": {
+                "S": "51.91.246.138"
+            }
+        },
+        {
             "ip_address": {
                 "S": "254.194.103.181"
             },
-            "internal_ip_address": {
-                "S": "162.214.160.146"
-            },
-            "study_id": {
-                "S": "EAY131"
+            "date_ion_reporter_id_created": {
+                "S": "2016-10-12 21:19:37.632102"
             },
             "site": {
                 "S": "mda"
             },
             "last_contact": {
                 "S": "2017-02-01 15:08:01.446499"
-            }
-        },
-        {
+            },
+            "study_id": {
+                "S": "EAY131"
+            },
             "ion_reporter_version": {
                 "S": "5.0"
             },
             "host_name": {
-                "S": "MATCH_IR_IR_MGH99"
-            },
-            "date_ion_reporter_id_created": {
-                "S": "2016-10-12 21:19:37.632102"
+                "S": "MATCH_IR_IR_CFUXR"
             },
             "ion_reporter_id": {
-                "S": "IR_MGH99"
+                "S": "IR_CFUXR"
             },
+            "internal_ip_address": {
+                "S": "162.214.160.146"
+            }
+        },
+        {
             "ip_address": {
                 "S": "110.43.74.33"
             },
-            "internal_ip_address": {
-                "S": "19.182.162.213"
-            },
-            "study_id": {
-                "S": "EAY131"
+            "date_ion_reporter_id_created": {
+                "S": "2016-10-12 21:19:37.632102"
             },
             "site": {
                 "S": "mgh"
             },
             "last_contact": {
                 "S": "2017-02-01 15:08:25.446499"
-            }
-        },
-        {
+            },
+            "study_id": {
+                "S": "EAY131"
+            },
             "ion_reporter_version": {
                 "S": "5.0"
             },
             "host_name": {
-                "S": "MATCH_IR_IR_YAL02"
-            },
-            "date_ion_reporter_id_created": {
-                "S": "2016-10-12 21:19:37.632102"
+                "S": "MATCH_IR_IR_MGH99"
             },
             "ion_reporter_id": {
-                "S": "IR_YAL02"
+                "S": "IR_MGH99"
             },
+            "internal_ip_address": {
+                "S": "19.182.162.213"
+            }
+        },
+        {
             "ip_address": {
                 "S": "151.232.195.85"
             },
-            "internal_ip_address": {
-                "S": "190.135.23.20"
-            },
-            "study_id": {
-                "S": "EAY131"
+            "date_ion_reporter_id_created": {
+                "S": "2016-10-12 21:19:37.632102"
             },
             "site": {
                 "S": "yale"
             },
             "last_contact": {
                 "S": "2017-02-01 15:08:27.446499"
-            }
-        },
-        {
-            "ion_reporter_version": {
-                "S": "5.2"
-            },
-            "host_name": {
-                "S": "MATCH_IR_IR_DTM99"
-            },
-            "date_ion_reporter_id_created": {
-                "S": "2016-10-12 21:19:37.632102"
-            },
-            "ion_reporter_id": {
-                "S": "IR_DTM99"
-            },
-            "ip_address": {
-                "S": "109.229.233.70"
-            },
-            "internal_ip_address": {
-                "S": "239.141.121.157"
             },
             "study_id": {
                 "S": "EAY131"
+            },
+            "ion_reporter_version": {
+                "S": "5.0"
+            },
+            "host_name": {
+                "S": "MATCH_IR_IR_YAL02"
+            },
+            "ion_reporter_id": {
+                "S": "IR_YAL02"
+            },
+            "internal_ip_address": {
+                "S": "190.135.23.20"
+            }
+        },
+        {
+            "ip_address": {
+                "S": "109.229.233.70"
+            },
+            "date_ion_reporter_id_created": {
+                "S": "2016-10-12 21:19:37.632102"
             },
             "site": {
                 "S": "dartmouth"
             },
             "last_contact": {
                 "S": "2017-02-01 15:08:25.446499"
+            },
+            "study_id": {
+                "S": "EAY131"
+            },
+            "ion_reporter_version": {
+                "S": "5.2"
+            },
+            "host_name": {
+                "S": "MATCH_IR_IR_DTM99"
+            },
+            "ion_reporter_id": {
+                "S": "IR_DTM99"
+            },
+            "internal_ip_address": {
+                "S": "239.141.121.157"
             }
         }
     ],
+    "ScannedCount": 5,
+    "ConsumedCapacity": null,
     "Count": 5
 }
