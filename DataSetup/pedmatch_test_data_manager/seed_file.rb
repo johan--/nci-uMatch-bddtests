@@ -51,6 +51,7 @@ class SeedFile
         end
       }
     }
+    add_patients_to_ta_table(patient_list, to_tag)
   end
 
   def self.analysis(tag)
@@ -124,6 +125,32 @@ class SeedFile
     "#{SEED_DATA_FOLDER}/#{tag}/#{table_name}.json"
   end
 
+  private_class_method def self.add_patients_to_ta_table(patient_list, tag)
+                         file = seed_file('treatment_arm_assignment_event', tag)
+                         file_hash = JSON.parse(File.read(file))
+                         items = file_hash['Items']
+                         changed = []
+                         items.each do |this_item|
+                           if patient_list.include?(this_item['patient_id']['S'])
+                             status = this_item['patient_status']['S']
+                             ta_id = this_item['treatment_arm_id']['S']
+                             stratum = this_item['stratum_id']['S']
+                             version = this_item['version']['S']
+                             changed << this_item['patient_id']['S']
+                             update_ta_table(status, ta_id, stratum, version, tag, 'add')
+                           end
+                         end
+
+                         list = changed.to_s
+                         if changed.size>3
+                           list = "[#{changed[0]}, #{changed[1]}, #{changed[2]}, "
+                           list += "and #{changed.size-3} more...]"
+                         end
+                         message = "There are #{changed.size} patients"
+                         message += "(patient_id=#{list}) get updated in treatment arm table"
+                         Logger.info(message)
+                       end
+
   private_class_method def self.remove_json_nodes_from_file(file, target_field, target_value_list, value_type, nickname)
                          file_hash = JSON.parse(File.read(file))
                          items = file_hash['Items']
@@ -186,7 +213,7 @@ class SeedFile
                          Logger.info(message)
                        end
 
-  private_class_method def self.update_ta_table(status, ta_id, stratum, version, tag)
+  private_class_method def self.update_ta_table(status, ta_id, stratum, version, tag, add_or_remove='remove')
                          statuses = %w(PREVIOUSLY_ON_ARM PREVIOUSLY_ON_ARM_OFF_STUDY NOT_ENROLLED_ON_ARM)
                          statuses << 'NOT_ENROLLED_ON_ARM_OFF_STUDY'
                          statuses << 'PENDING_APPROVAL'
@@ -213,8 +240,16 @@ class SeedFile
                              field = ''
                              v_field = ''
                          end
-                         ta_hash[v_field]['N'] = (ta_hash[v_field]['N'].to_i - 1).to_s
-                         ta_hashes.each {|ta| ta[field]['N'] = (ta[field]['N'].to_i - 1).to_s}
+                         case add_or_remove
+                           when 'add'
+                             diff = 1
+                           when 'remove'
+                             diff = -1
+                           else
+                             diff = 0
+                         end
+                         ta_hash[v_field]['N'] = (ta_hash[v_field]['N'].to_i + diff).to_s
+                         ta_hashes.each {|ta| ta[field]['N'] = (ta[field]['N'].to_i + diff).to_s}
                          File.open(seed_file('treatment_arm', tag), 'w') {|f| f.write(JSON.pretty_generate(file_hash))}
                        end
 end

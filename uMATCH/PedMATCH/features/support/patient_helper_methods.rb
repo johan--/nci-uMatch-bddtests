@@ -398,12 +398,13 @@ class Patient_helper_methods
   end
 
   def self.is_this_hash(target_object, query, path)
+    new_target = target_object
     path.each do |path_key|
-      target_object = target_object[path_key]
+      new_target = new_target[path_key]
     end
     is_this = true
     query.each do |key, value|
-      is_this = is_this && target_object[key.to_s]==value.to_s
+      is_this = is_this && new_target[key.to_s]==value.to_s
     end
     is_this
   end
@@ -434,7 +435,13 @@ class Patient_helper_methods
         end
       end
 
-      if is_this_hash(target_object, query_hash, path) || run_time>internal_timeout
+      if is_this_hash(target_object, query_hash, path)
+        puts "response match query hash: #{query_hash.to_json}"
+        return target_object
+      end
+
+      if run_time>internal_timeout
+        puts "response doesn't match query hash: #{query_hash.to_json} til timeout!"
         return target_object
       end
 

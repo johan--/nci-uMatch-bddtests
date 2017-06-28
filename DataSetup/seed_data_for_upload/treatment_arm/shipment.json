@@ -1,80 +1,8 @@
 {
-  "ScannedCount": 2,
-  "Count": 2,
+  "ScannedCount": 0,
+  "Count": 0,
   "Items": [
-    {
-      "carrier": {
-        "S": "Federal Express"
-      },
-      "surgical_event_id": {
-        "S": "TA_AS40_TsVrReceived_SEI1"
-      },
-      "study_id": {
-        "S": "APEC1621SC"
-      },
-      "uuid": {
-        "S": "e725a10f-02f5-4aa2-a901-4fcd94bb566e"
-      },
-      "slide_barcode": {
-        "S": "TA_AS40_TsVrReceived_BC1"
-      },
-      "destination": {
-        "S": "MDA"
-      },
-      "shipped_date": {
-        "S": "2016-05-01T19:42:13+00:00"
-      },
-      "tracking_id": {
-        "S": "7956 4568 1235"
-      },
-      "patient_id": {
-        "S": "TA_AS40_TsVrReceived"
-      },
-      "shipment_type": {
-        "S": "SLIDE"
-      }
-    },
-    {
-      "surgical_event_id": {
-        "S": "TA_AS40_TsVrReceived_SEI1"
-      },
-      "study_id": {
-        "S": "APEC1621SC"
-      },
-      "dna_concentration_ng_per_ul": {
-        "N": "25"
-      },
-      "destination": {
-        "S": "MDA"
-      },
-      "molecular_id": {
-        "S": "TA_AS40_TsVrReceived_MOI1"
-      },
-      "patient_id": {
-        "S": "TA_AS40_TsVrReceived"
-      },
-      "shipment_type": {
-        "S": "TISSUE_DNA_AND_CDNA"
-      },
-      "carrier": {
-        "S": "Federal Express"
-      },
-      "dna_volume_ul": {
-        "N": "10"
-      },
-      "uuid": {
-        "S": "4e9eaabb-f16b-4682-b70f-8b1ca91a6e24"
-      },
-      "shipped_date": {
-        "S": "2016-05-01T19:42:13+00:00"
-      },
-      "tracking_id": {
-        "S": "7956 4568 1235"
-      },
-      "cdna_volume_ul": {
-        "N": "10"
-      }
-    }
+
   ],
   "ConsumedCapacity": null
 }

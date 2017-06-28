@@ -1,85 +1,8 @@
 {
-  "ScannedCount": 1,
-  "Count": 1,
+  "ScannedCount": 0,
+  "Count": 0,
   "Items": [
-    {
-      "current_step_number": {
-        "S": "1.0"
-      },
-      "study_id": {
-        "S": "APEC1621"
-      },
-      "status_date": {
-        "S": "2017-02-27T20:30:40+00:00"
-      },
-      "active_tissue_specimen": {
-        "M": {
-          "ICCPTENs_received_date": {
-            "S": "2016-05-30T12:11:09.071-05:00"
-          },
-          "ICCPTENs": {
-            "S": "NEGATIVE"
-          },
-          "has_amoi": {
-            "BOOL": true
-          },
-          "active_destination": {
-            "S": "MDA"
-          },
-          "variant_report_status": {
-            "S": "PENDING"
-          },
-          "specimen_received_date": {
-            "S": "2016-04-25T22:06:33+00:00"
-          },
-          "ICCBRG1s_received_date": {
-            "S": "2016-05-30T12:11:09.071-05:00"
-          },
-          "pathology_status": {
-            "S": "Y"
-          },
-          "slide_barcode": {
-            "S": "TA_AS40_TsVrReceived_BC1"
-          },
-          "specimen_collected_date": {
-            "S": "2016-04-25T04:00:00"
-          },
-          "ICCBRG1s": {
-            "S": "NEGATIVE"
-          },
-          "active_molecular_id": {
-            "S": "TA_AS40_TsVrReceived_MOI1"
-          },
-          "active_analysis_id": {
-            "S": "TA_AS40_TsVrReceived_ANI1"
-          },
-          "surgical_event_id": {
-            "S": "TA_AS40_TsVrReceived_SEI1"
-          },
-          "ICCBAF47s": {
-            "S": "NEGATIVE"
-          },
-          "active_molecular_id_shipped_date": {
-            "S": "2016-05-01T19:42:13+00:00"
-          },
-          "slide_shipped_date": {
-            "S": "2016-05-01T19:42:13+00:00"
-          },
-          "ICCBAF47s_received_date": {
-            "S": "2016-05-30T12:11:09.071-05:00"
-          }
-        }
-      },
-      "patient_id": {
-        "S": "TA_AS40_TsVrReceived"
-      },
-      "registration_date": {
-        "S": "2016-02-09T22:06:33+00:00"
-      },
-      "current_status": {
-        "S": "TISSUE_VARIANT_REPORT_RECEIVED"
-      }
-    }
+
   ],
   "ConsumedCapacity": null
 }
