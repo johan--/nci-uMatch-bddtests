@@ -21,7 +21,7 @@ module.exports = function () {
 
     this.When(/^I login with "((in)?valid)" email and password$/, function (validity, callback) {
         var email = validity === 'valid' ? process.env.ADMIN_UI_AUTH0_USERNAME : 'abc@xyz.com';
-        var password = process.env.ADMIN_UI_AUTH0_PASSWORD
+        var password = process.env.ADMIN_UI_AUTH0_PASSWORD;
 
         loginPage.loginProcess(email, password);
         browser.sleep(50).then(callback);
@@ -42,20 +42,12 @@ module.exports = function () {
     });
 
     this.When(/^I logout$/, function(callback){
-        var toasterElement = element(by.css('[ng-click="click(toaster)"]'));
-        toasterElement.isPresent().then(function (presence) {
-            if (presence === true ) {
-                toasterElement.click().then(function () {
-                    login.logout().then(function () {
-                        browser.waitForAngular();
-                    });
-                }).then(callback);
-            } else {
-                login.logout().then(function () {
+        login.logoutButton.getLocation().then(function(loc){
+            browser.executeScript('window.scrollTo(0, ' + (loc.y - 50) + ')').then(function(){
+                login.logoutButton.click().then(function () {
                     browser.waitForAngular();
                 });
-
-            }
+            });
         }).then(callback);
     });
 };

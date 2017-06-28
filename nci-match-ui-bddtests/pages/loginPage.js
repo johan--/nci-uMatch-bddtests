@@ -13,14 +13,14 @@ var LoginPage = function() {
     var loginbtn = element(by.buttonText('Access'));
     var accessBtn = element(by.css('div[ng-controller="AuthController"]')).element(by.css('button[ng-click="login()"]'));
     var previousUser = element(by.css('.a0-zocial.a0-block.a0-guest'));
-    var notYourAccount = element(by.css('.a0-centered.a0-all'))
+    var notYourAccount = element(by.css('.a0-centered.a0-all'));
     var oldUserLink = element(by.xpath(".//*[@id='a0-onestep']/div[2]/div/form/div[1]/a"));
     var dashboardLink = element(by.linkText('Dashboard'));
     var loginPopupPanel = element(by.css('.a0-onestep'));
     var previousAccountUsed = element(by.css('div[data-strategy="auth0"]'));
     var userLoggedin = element(by.css('span.welcome')); // This is the span that says 'Welcome <Username>'
-    var logoutLink = element(by.css('a[ng-click="logout()"]'))
     this.navBarHeading = element(by.css('div.sticky-navbar h2'));
+    this.logoutButton = element(by.css('a[ng-click="logout()"]'));
 
     this.goToLoginPage = function(){
         browser.get('/#/auth/login', 1000).then(function () {
@@ -73,7 +73,7 @@ var LoginPage = function() {
                 })
             });
         });
-    }
+    };
 
     function logoutUser(){
         return logoutLink.click().then(function(){
@@ -90,7 +90,7 @@ var LoginPage = function() {
                         previousAccountUsed.getText().then(function(previousUserId){
                             if (previousUserId === username){
                                 previousAccountUsed.click().then(function(){
-                                    return;
+
                                 });
                             } else{
                                 browser.sleep(500).then(function(){
