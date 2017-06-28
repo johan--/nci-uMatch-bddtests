@@ -77,7 +77,7 @@ module Request
   # message <String> Unaltered response body
   #
   def get_request(url, auth0_role='ADMIN', auth0_on = true)
-    puts "GET url: #{url}"
+    # puts "GET url: #{url}"
     headers = {
       content_type: :json,
       accept: :json
