@@ -12,7 +12,6 @@ module Auth0Client
 
 	def create_auth0_message(role)
 		user_details = UserManagement.get_user_details(role)
-    p user_details[:email]
 		{
 			"client_id": ENV['AUTH0_CLIENT_ID'],
     	"username": user_details[:email],
@@ -26,8 +25,6 @@ module Auth0Client
 	def get_auth0_token(role)
 		raise "Provided role: #{role} is not a valid role" unless role_valid?(role)
 		token_name = "#{role}_UI_AUTH0_TOKEN"
-
-    p ENV['AUTH0_DOMAIN']
 
 		url = "https://#{ENV['AUTH0_DOMAIN']}/oauth/ro"
 
@@ -44,8 +41,6 @@ module Auth0Client
             accept: :json
           }
         }
-        p 'payload'
-        p options[:payload]
 				response = RestClient::Request.execute(
 						options
 
