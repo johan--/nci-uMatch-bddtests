@@ -12,6 +12,7 @@ module Auth0Client
 
 	def create_auth0_message(role)
 		user_details = UserManagement.get_user_details(role)
+    p user_details[:email]
 		{
 			"client_id": ENV['AUTH0_CLIENT_ID'],
     	"username": user_details[:email],
@@ -25,20 +26,29 @@ module Auth0Client
 	def get_auth0_token(role)
 		raise "Provided role: #{role} is not a valid role" unless role_valid?(role)
 		token_name = "#{role}_UI_AUTH0_TOKEN"
-		token_value = create_auth0_message(role)
+
+    p ENV['AUTH0_DOMAIN']
+
 		url = "https://#{ENV['AUTH0_DOMAIN']}/oauth/ro"
 
 		if ENV[token_name].to_s.empty?  # check for nil or empty
 			begin
+
+        options = {
+            method: :post,
+            url: url,
+            verify_ssl: false,
+            payload: create_auth0_message(role),
+            headers: {
+            content_type: :json,
+            accept: :json
+          }
+        }
+        p 'payload'
+        p options[:payload]
 				response = RestClient::Request.execute(
-						method: :post,
-						url: url,
-						verify_ssl: false,
-						payload: create_auth0_message(role),
-						headers: {
-							content_type: :json,
-							accept: :json
-						}
+						options
+
 					)
 			rescue => e
 				puts "Failure to acquire Token"
@@ -48,6 +58,8 @@ module Auth0Client
 
 			begin
 				token_hash = JSON.parse(response)
+        p 'token'
+        p token_hash['id_token']
 				ENV[token_name] = token_hash['id_token']
 			rescue => e
 				puts "Failure to retireve id_token from response"
