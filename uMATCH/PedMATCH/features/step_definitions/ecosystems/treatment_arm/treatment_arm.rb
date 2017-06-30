@@ -103,10 +103,10 @@ Given(/^template treatment arm assignment json for patient "([^"]*)" with treatm
   @stratum_id = stratum_id
   assignment_json_file = File.join(Support::TEMPLATE_FOLDER, 'validPedMATCHTreatmentArmAssignmentEventTempalte.json')
   @jsonString = File.read(assignment_json_file)
-  @jsonString.gsub('**pt_id**', patient_id)
-  @jsonString.gsub('**ta_id**', ta_id)
-  @jsonString.gsub('**stratum**', stratum_id)
-  @jsonString.gsub('**version**', version)
+  @jsonString.gsub!('**pt_id**', patient_id)
+  @jsonString.gsub!('**ta_id**', ta_id)
+  @jsonString.gsub!('**stratum**', stratum_id)
+  @jsonString.gsub!('**version**', version)
   @request_url = "#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{@ta_id}/#{@stratum_id}/#{@version}/assignment_event"
 end
 

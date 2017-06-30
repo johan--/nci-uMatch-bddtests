@@ -74,7 +74,7 @@ Feature: TA_AU. Treatment Arm API authorization tests
 
   @treatment_arm_p1
   Scenario Outline: TA_AU04 role base authorization works properly for the service POST treatment arm assignment event
-    Given template treatment arm assignment json for patient "<patient_id>" with treatment arm id: "APEC1621-A", stratum_id: "100" and version: "2015-08-06"
+    Given template treatment arm assignment json for patient "<patient_id>" with treatment arm id: "APEC1621-XXX", stratum_id: "1" and version: "v_1"
     When POST to MATCH treatment arm API as authorization role "<auth_role>"
     Then a http response code of "<code>" is returned
     Examples:
