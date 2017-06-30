@@ -1,5 +1,121 @@
 [
   {
+    "treatment_arm_id": "APEC1621-M",
+    "name": "APEC1621-M",
+    "version": "v_1",
+    "date_created": "2017-04-06 15:57:10 UTC",
+    "stratum_id": "100",
+    "description": "APEC1621-M, 100, v_1",
+    "target_id": "113",
+    "target_name": "Crizotinib",
+    "gene": "ALK",
+    "treatment_arm_status": "OPEN",
+    "study_id": "APEC1621SC",
+    "assay_rules": [],
+    "num_patients_assigned": null,
+    "treatment_arm_drugs": [
+      {
+        "name": "Crizotinib",
+        "pathway": "ALK",
+        "drug_id": "113"
+      }
+    ],
+    "snv_indels": [
+      {
+        "variant_type": "snp",
+        "chromosome": "chr2",
+        "gene": "IDH1",
+        "protein": "p.Val178Ile",
+        "position": "209108317",
+        "identifier": "COSM9999",
+        "ocp_reference": "CAAT",
+        "ocp_alternative": "T",
+        "level_of_evidence": 1.0,
+        "inclusion": true,
+        "arm_specific": false
+      }
+    ],
+    "non_hotspot_rules": [
+    ],
+    "copy_number_variants": [],
+    "gene_fusions": [
+    ],
+    "diseases": [
+      {
+        "disease_code_type": "ICD-O",
+        "disease_code": "10025125",
+        "disease_name": "Squamous cell lung carcinoma",
+        "exclusion": true
+      }
+    ],
+    "exclusion_drugs": [
+      {
+        "name": "Doxorubicin Hydrochloride",
+        "drug_id": "10001",
+        "drug_class": "ALK inhibitor",
+        "target": "ALK"
+      }
+    ]
+  },
+//  {
+//    "treatment_arm_id": "APEC1621-M",
+//    "name": "APEC1621-M",
+//    "version": "v_2",
+//    "date_created": "2017-07-06 15:57:10 UTC",
+//    "stratum_id": "100",
+//    "description": "APEC1621-M, 100, v_1",
+//    "target_id": "113",
+//    "target_name": "Crizotinib",
+//    "gene": "ALK",
+//    "treatment_arm_status": "OPEN",
+//    "study_id": "APEC1621SC",
+//    "assay_rules": [],
+//    "num_patients_assigned": null,
+//    "treatment_arm_drugs": [
+//      {
+//        "name": "Crizotinib",
+//        "pathway": "ALK",
+//        "drug_id": "113"
+//      }
+//    ],
+//    "snv_indels": [
+//      {
+//        "variant_type": "snp",
+//        "chromosome": "chr2",
+//        "gene": "IDH1",
+//        "protein": "p.Val178Ile",
+//        "position": "209108317",
+//        "identifier": "COSM9999",
+//        "ocp_reference": "CAAT",
+//        "ocp_alternative": "T",
+//        "level_of_evidence": 1.0,
+//        "inclusion": true,
+//        "arm_specific": false
+//      }
+//    ],
+//    "non_hotspot_rules": [
+//    ],
+//    "copy_number_variants": [],
+//    "gene_fusions": [
+//    ],
+//    "diseases": [
+//      {
+//        "disease_code_type": "ICD-O",
+//        "disease_code": "10025125",
+//        "disease_name": "Squamous cell lung carcinoma",
+//        "exclusion": true
+//      }
+//    ],
+//    "exclusion_drugs": [
+//      {
+//        "name": "Doxorubicin Hydrochloride",
+//        "drug_id": "10001",
+//        "drug_class": "ALK inhibitor",
+//        "target": "ALK"
+//      }
+//    ]
+//  },
+  {
     "treatment_arm_id": "APEC1621-A",
     "name": "APEC1621-A",
     "version": "2015-08-06",

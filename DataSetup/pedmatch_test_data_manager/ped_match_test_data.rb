@@ -20,6 +20,7 @@ class PedMatchTestData
   end
 
   def self.clear_and_initial_all(tag='patients')
+    SeedFile.create_tag_if_not_exist(tag)
     PedMatchDatabase.clear_all_local
     TableInfo.patient_tables.each { |table| SeedFile.clear_seed_file(table, tag) }
     TableInfo.treatment_arm_tables.each { |table| SeedFile.clear_seed_file(table, tag) }
@@ -36,7 +37,7 @@ class PedMatchTestData
     patient_list.each { |pt| failed << pt unless PatientStorySender.send_seed_patient(pt) }
     passed_number = patient_list.size - failed.size
     if passed_number > 0
-      sleep 10.0
+      sleep 30.0 #we need to wait more time until treatment arm assignment event get processed (if the story end with an assignment related action)
       PedMatchDatabase.backup(tag)
     end
     Logger.info("Load patient work is done. #{passed_number}/#{patient_list.size} patients are writen to seed file")

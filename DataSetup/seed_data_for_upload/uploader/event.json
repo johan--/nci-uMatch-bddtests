@@ -1,0 +1,5365 @@
+{
+    "Count": 143,
+    "ConsumedCapacity": null,
+    "ScannedCount": 143,
+    "Items": [
+        {
+            "entity_id": {
+                "S": "UP_JWP06_TsShippedToDartmouth"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:37:54.482"
+            },
+            "event_data": {
+                "M": {
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "REGISTRATION message received from COG for patient UP_JWP06_TsShippedToDartmouth."
+            },
+            "event_type": {
+                "S": "patient"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP06_TsShippedToDartmouth"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:37:57.652"
+            },
+            "event_data": {
+                "M": {
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "collection_dt": {
+                        "S": "2017-06-28"
+                    },
+                    "study_id": {
+                        "S": "APEC1621SC"
+                    },
+                    "received_dttm": {
+                        "S": "2017-06-28T12:37:55-04:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP06_TsShippedToDartmouth_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWP06_TsShippedToDartmouth"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received at NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP06_TsShippedToDartmouth"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:37:58.673"
+            },
+            "event_data": {
+                "M": {
+                    "molecular_cdna_id": {
+                        "NULL": true
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWP06_TsShippedToDartmouth_MOI1"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "destination": {
+                        "S": "Dartmouth"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "TISSUE_DNA_AND_CDNA"
+                    },
+                    "molecular_dna_id": {
+                        "NULL": true
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP06_TsShippedToDartmouth_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP01a_TsShippedToMocha"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:36:06.819"
+            },
+            "event_data": {
+                "M": {
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "REGISTRATION message received from COG for patient UP_JWP01a_TsShippedToMocha."
+            },
+            "event_type": {
+                "S": "patient"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP01a_TsShippedToMocha"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:36:07.911"
+            },
+            "event_data": {
+                "M": {
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "collection_dt": {
+                        "S": "2017-06-28"
+                    },
+                    "study_id": {
+                        "S": "APEC1621SC"
+                    },
+                    "received_dttm": {
+                        "S": "2017-06-28T12:36:06-04:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP01a_TsShippedToMocha_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWP01a_TsShippedToMocha"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received at NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP01a_TsShippedToMocha"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:36:08.953"
+            },
+            "event_data": {
+                "M": {
+                    "molecular_cdna_id": {
+                        "NULL": true
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWP01a_TsShippedToMocha_MOI1"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "destination": {
+                        "S": "MoCha"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "TISSUE_DNA_AND_CDNA"
+                    },
+                    "molecular_dna_id": {
+                        "NULL": true
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP01a_TsShippedToMocha_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_JWN07_TsVrUploaded"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:38:01.733"
+            },
+            "event_data": {
+                "M": {
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "REGISTRATION message received from COG for patient PT_JWN07_TsVrUploaded."
+            },
+            "event_type": {
+                "S": "patient"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_JWN07_TsVrUploaded"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:38:04.859"
+            },
+            "event_data": {
+                "M": {
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "collection_dt": {
+                        "S": "2017-06-28"
+                    },
+                    "study_id": {
+                        "S": "APEC1621SC"
+                    },
+                    "received_dttm": {
+                        "S": "2017-06-28T12:38:02-04:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "PT_JWN07_TsVrUploaded_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "PT_JWN07_TsVrUploaded"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received at NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_JWN07_TsVrUploaded"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:38:05.922"
+            },
+            "event_data": {
+                "M": {
+                    "molecular_cdna_id": {
+                        "NULL": true
+                    },
+                    "molecular_id": {
+                        "S": "PT_JWN07_TsVrUploaded_MOI1"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "destination": {
+                        "S": "MDA"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "TISSUE_DNA_AND_CDNA"
+                    },
+                    "molecular_dna_id": {
+                        "NULL": true
+                    },
+                    "surgical_event_id": {
+                        "S": "PT_JWN07_TsVrUploaded_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_JWN07_TsVrUploaded"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:38:27.892"
+            },
+            "event_data": {
+                "M": {
+                    "variant_report_status": {
+                        "S": "PENDING"
+                    },
+                    "specimen_received_date": {
+                        "NULL": true
+                    },
+                    "analysis_id": {
+                        "S": "PT_JWN07_TsVrUploaded_ANI1"
+                    },
+                    "molecular_id": {
+                        "S": "PT_JWN07_TsVrUploaded_MOI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "variant_report_type": {
+                        "S": "TISSUE"
+                    },
+                    "clia_lab": {
+                        "S": "MDA"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "TISSUE Variant Report generated."
+            },
+            "event_type": {
+                "S": "variant_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_JWN07_TsVrUploaded"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:38:29.433"
+            },
+            "event_data": {
+                "M": {
+                    "file_name": {
+                        "S": "dna.bam"
+                    },
+                    "analysis_id": {
+                        "S": "PT_JWN07_TsVrUploaded_ANI1"
+                    },
+                    "patient_id": {
+                        "S": "PT_JWN07_TsVrUploaded"
+                    },
+                    "molecular_id": {
+                        "S": "PT_JWN07_TsVrUploaded_MOI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "comment_user": {
+                        "S": "qa"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Sequence file uploaded."
+            },
+            "event_type": {
+                "S": "variant_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_JWN07_TsVrUploaded"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:38:30.546"
+            },
+            "event_data": {
+                "M": {
+                    "file_name": {
+                        "S": "cdna.bam"
+                    },
+                    "analysis_id": {
+                        "S": "PT_JWN07_TsVrUploaded_ANI1"
+                    },
+                    "patient_id": {
+                        "S": "PT_JWN07_TsVrUploaded"
+                    },
+                    "molecular_id": {
+                        "S": "PT_JWN07_TsVrUploaded_MOI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "comment_user": {
+                        "S": "qa"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Sequence file uploaded."
+            },
+            "event_type": {
+                "S": "variant_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP03a_TsShippedToMda"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:36:58.289"
+            },
+            "event_data": {
+                "M": {
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "REGISTRATION message received from COG for patient UP_JWP03a_TsShippedToMda."
+            },
+            "event_type": {
+                "S": "patient"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP03a_TsShippedToMda"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:37:04.683"
+            },
+            "event_data": {
+                "M": {
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "collection_dt": {
+                        "S": "2017-06-28"
+                    },
+                    "study_id": {
+                        "S": "APEC1621SC"
+                    },
+                    "received_dttm": {
+                        "S": "2017-06-28T12:36:58-04:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP03a_TsShippedToMda_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWP03a_TsShippedToMda"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received at NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP03a_TsShippedToMda"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:37:09.227"
+            },
+            "event_data": {
+                "M": {
+                    "molecular_cdna_id": {
+                        "NULL": true
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWP03a_TsShippedToMda_MOI1"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "destination": {
+                        "S": "MDA"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "TISSUE_DNA_AND_CDNA"
+                    },
+                    "molecular_dna_id": {
+                        "NULL": true
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP03a_TsShippedToMda_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_PendingConfirmation"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:39:40.915"
+            },
+            "event_data": {
+                "M": {
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "REGISTRATION message received from COG for patient UP_JWN06_PendingConfirmation."
+            },
+            "event_type": {
+                "S": "patient"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_PendingConfirmation"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:39:41.941"
+            },
+            "event_data": {
+                "M": {
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "collection_dt": {
+                        "S": "2017-06-28"
+                    },
+                    "study_id": {
+                        "S": "APEC1621SC"
+                    },
+                    "received_dttm": {
+                        "S": "2017-06-28T12:39:40-04:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_PendingConfirmation_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWN06_PendingConfirmation"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received at NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_PendingConfirmation"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:39:42.984"
+            },
+            "event_data": {
+                "M": {
+                    "molecular_cdna_id": {
+                        "NULL": true
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_PendingConfirmation_MOI1"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "destination": {
+                        "S": "MDA"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "TISSUE_DNA_AND_CDNA"
+                    },
+                    "molecular_dna_id": {
+                        "NULL": true
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_PendingConfirmation_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_PendingConfirmation"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:40:15.585"
+            },
+            "event_data": {
+                "M": {
+                    "variant_report_status": {
+                        "S": "PENDING"
+                    },
+                    "specimen_received_date": {
+                        "NULL": true
+                    },
+                    "analysis_id": {
+                        "S": "UP_JWN06_PendingConfirmation_ANI1"
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_PendingConfirmation_MOI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "variant_report_type": {
+                        "S": "TISSUE"
+                    },
+                    "clia_lab": {
+                        "S": "MDA"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "TISSUE Variant Report generated."
+            },
+            "event_type": {
+                "S": "variant_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_PendingConfirmation"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:40:17.083"
+            },
+            "event_data": {
+                "M": {
+                    "file_name": {
+                        "S": "dna.bam"
+                    },
+                    "analysis_id": {
+                        "S": "UP_JWN06_PendingConfirmation_ANI1"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWN06_PendingConfirmation"
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_PendingConfirmation_MOI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "comment_user": {
+                        "S": "qa"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Sequence file uploaded."
+            },
+            "event_type": {
+                "S": "variant_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_PendingConfirmation"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:40:18.208"
+            },
+            "event_data": {
+                "M": {
+                    "file_name": {
+                        "S": "cdna.bam"
+                    },
+                    "analysis_id": {
+                        "S": "UP_JWN06_PendingConfirmation_ANI1"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWN06_PendingConfirmation"
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_PendingConfirmation_MOI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "comment_user": {
+                        "S": "qa"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Sequence file uploaded."
+            },
+            "event_type": {
+                "S": "variant_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_PendingConfirmation"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:40:20.587"
+            },
+            "event_data": {
+                "M": {
+                    "slide_barcode": {
+                        "S": "UP_JWN06_PendingConfirmation_BC1"
+                    },
+                    "destination": {
+                        "S": "MDA"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "SLIDE"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_PendingConfirmation_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type SLIDE shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_PendingConfirmation"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:40:23.717"
+            },
+            "event_data": {
+                "M": {
+                    "assay_result": {
+                        "S": "POSITIVE"
+                    },
+                    "biomarker": {
+                        "S": "IHC PTEN"
+                    },
+                    "surgical_event_id": {
+                        "NULL": true
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Assay result for ICCPTENs received from MDA."
+            },
+            "event_type": {
+                "S": "assay"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_PendingConfirmation"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:40:24.739"
+            },
+            "event_data": {
+                "M": {
+                    "assay_result": {
+                        "S": "POSITIVE"
+                    },
+                    "biomarker": {
+                        "S": "IHC BAF47"
+                    },
+                    "surgical_event_id": {
+                        "NULL": true
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Assay result for ICCBAF47s received from MDA."
+            },
+            "event_type": {
+                "S": "assay"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_PendingConfirmation"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:40:25.758"
+            },
+            "event_data": {
+                "M": {
+                    "assay_result": {
+                        "S": "POSITIVE"
+                    },
+                    "biomarker": {
+                        "S": "IHC BRG1"
+                    },
+                    "surgical_event_id": {
+                        "NULL": true
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Assay result for ICCBRG1s received from MDA."
+            },
+            "event_type": {
+                "S": "assay"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_PendingConfirmation"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:40:26.898"
+            },
+            "event_data": {
+                "M": {
+                    "variant_report_status": {
+                        "S": "CONFIRMED"
+                    },
+                    "status": {
+                        "S": "CONFIRMED"
+                    },
+                    "comment_user": {
+                        "S": "QA"
+                    },
+                    "comment": {
+                        "S": "Test"
+                    },
+                    "analysis_id": {
+                        "S": "UP_JWN06_PendingConfirmation_ANI1"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_PendingConfirmation_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWN06_PendingConfirmation"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "TISSUE Variant Report updated to CONFIRMED."
+            },
+            "event_type": {
+                "S": "variant_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_PendingConfirmation"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:40:26.996"
+            },
+            "event_data": {
+                "M": {
+                    "status": {
+                        "S": "AWAITING_PATIENT_DATA"
+                    },
+                    "assignment_report_status": {
+                        "S": "AWAITING_PATIENT_DATA"
+                    },
+                    "analysis_id": {
+                        "S": "UP_JWN06_PendingConfirmation_ANI1"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_PendingConfirmation_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_PendingConfirmation_MOI1"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Patient is ready for assignment, awaiting patient data from COG."
+            },
+            "event_type": {
+                "S": "assignment_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_PendingConfirmation"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:40:28.867"
+            },
+            "event_data": {
+                "M": {
+                    "analysis_id": {
+                        "S": "UP_JWN06_PendingConfirmation_ANI1"
+                    },
+                    "assignment_report_status": {
+                        "S": "AWAITING_TREATMENT_ARM_STATUS"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_PendingConfirmation_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_status": {
+                        "S": "AWAITING_TREATMENT_ARM_STATUS"
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_PendingConfirmation_MOI1"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Patient is ready for assignment, awaiting treatment arm statuses from COG."
+            },
+            "event_type": {
+                "S": "assignment_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_PendingConfirmation"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:40:37.506"
+            },
+            "event_data": {
+                "M": {
+                    "analysis_id": {
+                        "S": "UP_JWN06_PendingConfirmation_ANI1"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWN06_PendingConfirmation"
+                    },
+                    "assignment_report_status": {
+                        "S": "TREATMENT_FOUND"
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_PendingConfirmation_MOI1"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_PendingConfirmation_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "assignment_uuid": {
+                        "S": "f6fe8dc1-c6a0-497b-a7a8-c4c01e8afb7a"
+                    },
+                    "treatment_arm": {
+                        "M": {
+                            "treatment_arm_id": {
+                                "S": "APEC1621-A"
+                            },
+                            "reason": {
+                                "S": "The level of evidence for the variant on this treatment arm is 2.0. A match was found for inclusion variant TPM3-ALK.T7A20. A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required."
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "treatment_arm_status": {
+                                "S": "OPEN"
+                            }
+                        }
+                    },
+                    "patient_status": {
+                        "S": "PENDING_CONFIRMATION"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Patient assignment is pending confirmation"
+            },
+            "event_type": {
+                "S": "assignment_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP02a_TsShippedToMocha1"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:36:33.830"
+            },
+            "event_data": {
+                "M": {
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "REGISTRATION message received from COG for patient UP_JWP02a_TsShippedToMocha1."
+            },
+            "event_type": {
+                "S": "patient"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP02a_TsShippedToMocha1"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:36:34.857"
+            },
+            "event_data": {
+                "M": {
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "collection_dt": {
+                        "S": "2017-06-28"
+                    },
+                    "study_id": {
+                        "S": "APEC1621SC"
+                    },
+                    "received_dttm": {
+                        "S": "2017-06-28T12:36:34-04:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP02a_TsShippedToMocha1_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWP02a_TsShippedToMocha1"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received at NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP02a_TsShippedToMocha1"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:36:35.913"
+            },
+            "event_data": {
+                "M": {
+                    "molecular_cdna_id": {
+                        "NULL": true
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWP02a_TsShippedToMocha1_MOI1"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "destination": {
+                        "S": "MoCha"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "TISSUE_DNA_AND_CDNA"
+                    },
+                    "molecular_dna_id": {
+                        "NULL": true
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP02a_TsShippedToMocha1_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP03a_TsShippedToDartmouth"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:37:12.269"
+            },
+            "event_data": {
+                "M": {
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "REGISTRATION message received from COG for patient UP_JWP03a_TsShippedToDartmouth."
+            },
+            "event_type": {
+                "S": "patient"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP03a_TsShippedToDartmouth"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:37:13.311"
+            },
+            "event_data": {
+                "M": {
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "collection_dt": {
+                        "S": "2017-06-28"
+                    },
+                    "study_id": {
+                        "S": "APEC1621SC"
+                    },
+                    "received_dttm": {
+                        "S": "2017-06-28T12:37:12-04:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP03a_TsShippedToDartmouth_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWP03a_TsShippedToDartmouth"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received at NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP03a_TsShippedToDartmouth"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:37:16.472"
+            },
+            "event_data": {
+                "M": {
+                    "molecular_cdna_id": {
+                        "NULL": true
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWP03a_TsShippedToDartmouth_MOI1"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "destination": {
+                        "S": "Dartmouth"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "TISSUE_DNA_AND_CDNA"
+                    },
+                    "molecular_dna_id": {
+                        "NULL": true
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP03a_TsShippedToDartmouth_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP04_TsShippedToMda"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:37:26.732"
+            },
+            "event_data": {
+                "M": {
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "REGISTRATION message received from COG for patient UP_JWP04_TsShippedToMda."
+            },
+            "event_type": {
+                "S": "patient"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP04_TsShippedToMda"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:37:29.880"
+            },
+            "event_data": {
+                "M": {
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "collection_dt": {
+                        "S": "2017-06-28"
+                    },
+                    "study_id": {
+                        "S": "APEC1621SC"
+                    },
+                    "received_dttm": {
+                        "S": "2017-06-28T12:37:27-04:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP04_TsShippedToMda_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWP04_TsShippedToMda"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received at NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP04_TsShippedToMda"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:37:30.925"
+            },
+            "event_data": {
+                "M": {
+                    "molecular_cdna_id": {
+                        "NULL": true
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWP04_TsShippedToMda_MOI1"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "destination": {
+                        "S": "MDA"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "TISSUE_DNA_AND_CDNA"
+                    },
+                    "molecular_dna_id": {
+                        "NULL": true
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP04_TsShippedToMda_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP05_TsShippedToMocha"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:37:39.583"
+            },
+            "event_data": {
+                "M": {
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "REGISTRATION message received from COG for patient UP_JWP05_TsShippedToMocha."
+            },
+            "event_type": {
+                "S": "patient"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP05_TsShippedToMocha"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:37:40.628"
+            },
+            "event_data": {
+                "M": {
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "collection_dt": {
+                        "S": "2017-06-28"
+                    },
+                    "study_id": {
+                        "S": "APEC1621SC"
+                    },
+                    "received_dttm": {
+                        "S": "2017-06-28T12:37:39-04:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP05_TsShippedToMocha_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWP05_TsShippedToMocha"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received at NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP05_TsShippedToMocha"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:37:43.823"
+            },
+            "event_data": {
+                "M": {
+                    "molecular_cdna_id": {
+                        "NULL": true
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWP05_TsShippedToMocha_MOI1"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "destination": {
+                        "S": "MoCha"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "TISSUE_DNA_AND_CDNA"
+                    },
+                    "molecular_dna_id": {
+                        "NULL": true
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP05_TsShippedToMocha_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP02a_TsShippedToMda1"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:36:26.535"
+            },
+            "event_data": {
+                "M": {
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "REGISTRATION message received from COG for patient UP_JWP02a_TsShippedToMda1."
+            },
+            "event_type": {
+                "S": "patient"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP02a_TsShippedToMda1"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:36:27.555"
+            },
+            "event_data": {
+                "M": {
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "collection_dt": {
+                        "S": "2017-06-28"
+                    },
+                    "study_id": {
+                        "S": "APEC1621SC"
+                    },
+                    "received_dttm": {
+                        "S": "2017-06-28T12:36:26-04:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP02a_TsShippedToMda1_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWP02a_TsShippedToMda1"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received at NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP02a_TsShippedToMda1"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:36:30.751"
+            },
+            "event_data": {
+                "M": {
+                    "molecular_cdna_id": {
+                        "NULL": true
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWP02a_TsShippedToMda1_MOI1"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "destination": {
+                        "S": "MDA"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "TISSUE_DNA_AND_CDNA"
+                    },
+                    "molecular_dna_id": {
+                        "NULL": true
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP02a_TsShippedToMda1_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_TsShippedToMdaTwice"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:39:32.606"
+            },
+            "event_data": {
+                "M": {
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "REGISTRATION message received from COG for patient UP_JWN06_TsShippedToMdaTwice."
+            },
+            "event_type": {
+                "S": "patient"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_TsShippedToMdaTwice"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:39:35.721"
+            },
+            "event_data": {
+                "M": {
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "collection_dt": {
+                        "S": "2017-06-28"
+                    },
+                    "study_id": {
+                        "S": "APEC1621SC"
+                    },
+                    "received_dttm": {
+                        "S": "2017-06-28T12:39:33-04:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_TsShippedToMdaTwice_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWN06_TsShippedToMdaTwice"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received at NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_TsShippedToMdaTwice"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:39:36.761"
+            },
+            "event_data": {
+                "M": {
+                    "molecular_cdna_id": {
+                        "NULL": true
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_TsShippedToMdaTwice_MOI1"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "destination": {
+                        "S": "MDA"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "TISSUE_DNA_AND_CDNA"
+                    },
+                    "molecular_dna_id": {
+                        "NULL": true
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_TsShippedToMdaTwice_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_TsShippedToMdaTwice"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:39:37.848"
+            },
+            "event_data": {
+                "M": {
+                    "molecular_cdna_id": {
+                        "NULL": true
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_TsShippedToMdaTwice_MOI2"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "destination": {
+                        "S": "MDA"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "TISSUE_DNA_AND_CDNA"
+                    },
+                    "molecular_dna_id": {
+                        "NULL": true
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_TsShippedToMdaTwice_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP06_TsShippedToMocha"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:37:46.834"
+            },
+            "event_data": {
+                "M": {
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "REGISTRATION message received from COG for patient UP_JWP06_TsShippedToMocha."
+            },
+            "event_type": {
+                "S": "patient"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP06_TsShippedToMocha"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:37:47.861"
+            },
+            "event_data": {
+                "M": {
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "collection_dt": {
+                        "S": "2017-06-28"
+                    },
+                    "study_id": {
+                        "S": "APEC1621SC"
+                    },
+                    "received_dttm": {
+                        "S": "2017-06-28T12:37:47-04:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP06_TsShippedToMocha_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWP06_TsShippedToMocha"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received at NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP06_TsShippedToMocha"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:37:51.475"
+            },
+            "event_data": {
+                "M": {
+                    "molecular_cdna_id": {
+                        "NULL": true
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWP06_TsShippedToMocha_MOI1"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "destination": {
+                        "S": "MoCha"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "TISSUE_DNA_AND_CDNA"
+                    },
+                    "molecular_dna_id": {
+                        "NULL": true
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP06_TsShippedToMocha_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_PendingApproval"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:40:29.879"
+            },
+            "event_data": {
+                "M": {
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "REGISTRATION message received from COG for patient UP_JWN06_PendingApproval."
+            },
+            "event_type": {
+                "S": "patient"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_PendingApproval"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:40:30.918"
+            },
+            "event_data": {
+                "M": {
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "collection_dt": {
+                        "S": "2017-06-28"
+                    },
+                    "study_id": {
+                        "S": "APEC1621SC"
+                    },
+                    "received_dttm": {
+                        "S": "2017-06-28T12:40:29-04:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_PendingApproval_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWN06_PendingApproval"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received at NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_PendingApproval"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:40:38.009"
+            },
+            "event_data": {
+                "M": {
+                    "molecular_cdna_id": {
+                        "NULL": true
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_PendingApproval_MOI1"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "destination": {
+                        "S": "MDA"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "TISSUE_DNA_AND_CDNA"
+                    },
+                    "molecular_dna_id": {
+                        "NULL": true
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_PendingApproval_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_PendingApproval"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:40:48.877"
+            },
+            "event_data": {
+                "M": {
+                    "variant_report_status": {
+                        "S": "PENDING"
+                    },
+                    "specimen_received_date": {
+                        "NULL": true
+                    },
+                    "analysis_id": {
+                        "S": "UP_JWN06_PendingApproval_ANI1"
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_PendingApproval_MOI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "variant_report_type": {
+                        "S": "TISSUE"
+                    },
+                    "clia_lab": {
+                        "S": "MDA"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "TISSUE Variant Report generated."
+            },
+            "event_type": {
+                "S": "variant_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_PendingApproval"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:40:50.260"
+            },
+            "event_data": {
+                "M": {
+                    "file_name": {
+                        "S": "dna.bam"
+                    },
+                    "analysis_id": {
+                        "S": "UP_JWN06_PendingApproval_ANI1"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWN06_PendingApproval"
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_PendingApproval_MOI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "comment_user": {
+                        "S": "qa"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Sequence file uploaded."
+            },
+            "event_type": {
+                "S": "variant_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_PendingApproval"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:40:51.382"
+            },
+            "event_data": {
+                "M": {
+                    "file_name": {
+                        "S": "cdna.bam"
+                    },
+                    "analysis_id": {
+                        "S": "UP_JWN06_PendingApproval_ANI1"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWN06_PendingApproval"
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_PendingApproval_MOI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "comment_user": {
+                        "S": "qa"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Sequence file uploaded."
+            },
+            "event_type": {
+                "S": "variant_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_PendingApproval"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:40:53.780"
+            },
+            "event_data": {
+                "M": {
+                    "slide_barcode": {
+                        "S": "UP_JWN06_PendingApproval_BC1"
+                    },
+                    "destination": {
+                        "S": "MDA"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "SLIDE"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_PendingApproval_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type SLIDE shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_PendingApproval"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:40:56.905"
+            },
+            "event_data": {
+                "M": {
+                    "assay_result": {
+                        "S": "POSITIVE"
+                    },
+                    "biomarker": {
+                        "S": "IHC PTEN"
+                    },
+                    "surgical_event_id": {
+                        "NULL": true
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Assay result for ICCPTENs received from MDA."
+            },
+            "event_type": {
+                "S": "assay"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_PendingApproval"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:41:00.027"
+            },
+            "event_data": {
+                "M": {
+                    "assay_result": {
+                        "S": "POSITIVE"
+                    },
+                    "biomarker": {
+                        "S": "IHC BAF47"
+                    },
+                    "surgical_event_id": {
+                        "NULL": true
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Assay result for ICCBAF47s received from MDA."
+            },
+            "event_type": {
+                "S": "assay"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_PendingApproval"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:41:01.068"
+            },
+            "event_data": {
+                "M": {
+                    "assay_result": {
+                        "S": "POSITIVE"
+                    },
+                    "biomarker": {
+                        "S": "IHC BRG1"
+                    },
+                    "surgical_event_id": {
+                        "NULL": true
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Assay result for ICCBRG1s received from MDA."
+            },
+            "event_type": {
+                "S": "assay"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_PendingApproval"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:41:02.009"
+            },
+            "event_data": {
+                "M": {
+                    "variant_report_status": {
+                        "S": "CONFIRMED"
+                    },
+                    "status": {
+                        "S": "CONFIRMED"
+                    },
+                    "comment_user": {
+                        "S": "QA"
+                    },
+                    "comment": {
+                        "S": "Test"
+                    },
+                    "analysis_id": {
+                        "S": "UP_JWN06_PendingApproval_ANI1"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_PendingApproval_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWN06_PendingApproval"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "TISSUE Variant Report updated to CONFIRMED."
+            },
+            "event_type": {
+                "S": "variant_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_PendingApproval"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:41:02.143"
+            },
+            "event_data": {
+                "M": {
+                    "status": {
+                        "S": "AWAITING_PATIENT_DATA"
+                    },
+                    "assignment_report_status": {
+                        "S": "AWAITING_PATIENT_DATA"
+                    },
+                    "analysis_id": {
+                        "S": "UP_JWN06_PendingApproval_ANI1"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_PendingApproval_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_PendingApproval_MOI1"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Patient is ready for assignment, awaiting patient data from COG."
+            },
+            "event_type": {
+                "S": "assignment_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_PendingApproval"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:41:04.162"
+            },
+            "event_data": {
+                "M": {
+                    "analysis_id": {
+                        "S": "UP_JWN06_PendingApproval_ANI1"
+                    },
+                    "assignment_report_status": {
+                        "S": "AWAITING_TREATMENT_ARM_STATUS"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_PendingApproval_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_status": {
+                        "S": "AWAITING_TREATMENT_ARM_STATUS"
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_PendingApproval_MOI1"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Patient is ready for assignment, awaiting treatment arm statuses from COG."
+            },
+            "event_type": {
+                "S": "assignment_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_PendingApproval"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:41:10.243"
+            },
+            "event_data": {
+                "M": {
+                    "analysis_id": {
+                        "S": "UP_JWN06_PendingApproval_ANI1"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWN06_PendingApproval"
+                    },
+                    "assignment_report_status": {
+                        "S": "TREATMENT_FOUND"
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_PendingApproval_MOI1"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_PendingApproval_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "assignment_uuid": {
+                        "S": "9c630c11-83d3-4cc8-bb5e-6ec581fdfd36"
+                    },
+                    "treatment_arm": {
+                        "M": {
+                            "treatment_arm_id": {
+                                "S": "APEC1621-A"
+                            },
+                            "reason": {
+                                "S": "The level of evidence for the variant on this treatment arm is 2.0. A match was found for inclusion variant TPM3-ALK.T7A20. A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required."
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "treatment_arm_status": {
+                                "S": "OPEN"
+                            }
+                        }
+                    },
+                    "patient_status": {
+                        "S": "PENDING_CONFIRMATION"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Patient assignment is pending confirmation"
+            },
+            "event_type": {
+                "S": "assignment_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_PendingApproval"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:41:33.341"
+            },
+            "event_data": {
+                "M": {
+                    "patient_status": {
+                        "S": "PENDING_APPROVAL"
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_PendingApproval_MOI1"
+                    },
+                    "treatment_arm": {
+                        "M": {
+                            "treatment_arm_id": {
+                                "S": "APEC1621-A"
+                            },
+                            "reason": {
+                                "S": "The level of evidence for the variant on this treatment arm is 2.0. A match was found for inclusion variant TPM3-ALK.T7A20. A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required."
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "treatment_arm_status": {
+                                "S": "OPEN"
+                            }
+                        }
+                    },
+                    "comment": {
+                        "S": "Test"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWN06_PendingApproval"
+                    },
+                    "analysis_id": {
+                        "S": "UP_JWN06_PendingApproval_ANI1"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_PendingApproval_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "assignment_uuid": {
+                        "S": "9c630c11-83d3-4cc8-bb5e-6ec581fdfd36"
+                    },
+                    "comment_user": {
+                        "S": "QA"
+                    },
+                    "assignment_report_status": {
+                        "S": "CONFIRMED"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Patient assignment is pending approval by COG"
+            },
+            "event_type": {
+                "S": "assignment_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_JWN08_TsVrUploaded"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:38:49.321"
+            },
+            "event_data": {
+                "M": {
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "REGISTRATION message received from COG for patient PT_JWN08_TsVrUploaded."
+            },
+            "event_type": {
+                "S": "patient"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_JWN08_TsVrUploaded"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:38:50.348"
+            },
+            "event_data": {
+                "M": {
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "collection_dt": {
+                        "S": "2017-06-28"
+                    },
+                    "study_id": {
+                        "S": "APEC1621SC"
+                    },
+                    "received_dttm": {
+                        "S": "2017-06-28T12:38:49-04:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "PT_JWN08_TsVrUploaded_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "PT_JWN08_TsVrUploaded"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received at NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_JWN08_TsVrUploaded"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:38:53.811"
+            },
+            "event_data": {
+                "M": {
+                    "molecular_cdna_id": {
+                        "NULL": true
+                    },
+                    "molecular_id": {
+                        "S": "PT_JWN08_TsVrUploaded_MOI1"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "destination": {
+                        "S": "MDA"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "TISSUE_DNA_AND_CDNA"
+                    },
+                    "molecular_dna_id": {
+                        "NULL": true
+                    },
+                    "surgical_event_id": {
+                        "S": "PT_JWN08_TsVrUploaded_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_JWN08_TsVrUploaded"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:39:03.931"
+            },
+            "event_data": {
+                "M": {
+                    "variant_report_status": {
+                        "S": "PENDING"
+                    },
+                    "specimen_received_date": {
+                        "NULL": true
+                    },
+                    "analysis_id": {
+                        "S": "PT_JWN08_TsVrUploaded_ANI1"
+                    },
+                    "molecular_id": {
+                        "S": "PT_JWN08_TsVrUploaded_MOI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "variant_report_type": {
+                        "S": "TISSUE"
+                    },
+                    "clia_lab": {
+                        "S": "MDA"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "TISSUE Variant Report generated."
+            },
+            "event_type": {
+                "S": "variant_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_JWN08_TsVrUploaded"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:39:06.839"
+            },
+            "event_data": {
+                "M": {
+                    "file_name": {
+                        "S": "dna.bam"
+                    },
+                    "analysis_id": {
+                        "S": "PT_JWN08_TsVrUploaded_ANI1"
+                    },
+                    "patient_id": {
+                        "S": "PT_JWN08_TsVrUploaded"
+                    },
+                    "molecular_id": {
+                        "S": "PT_JWN08_TsVrUploaded_MOI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "comment_user": {
+                        "S": "qa"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Sequence file uploaded."
+            },
+            "event_type": {
+                "S": "variant_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_JWN08_TsVrUploaded"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:39:07.970"
+            },
+            "event_data": {
+                "M": {
+                    "file_name": {
+                        "S": "cdna.bam"
+                    },
+                    "analysis_id": {
+                        "S": "PT_JWN08_TsVrUploaded_ANI1"
+                    },
+                    "patient_id": {
+                        "S": "PT_JWN08_TsVrUploaded"
+                    },
+                    "molecular_id": {
+                        "S": "PT_JWN08_TsVrUploaded_MOI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "comment_user": {
+                        "S": "qa"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Sequence file uploaded."
+            },
+            "event_type": {
+                "S": "variant_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_JWN09_TsVrUploaded"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:39:10.823"
+            },
+            "event_data": {
+                "M": {
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "REGISTRATION message received from COG for patient PT_JWN09_TsVrUploaded."
+            },
+            "event_type": {
+                "S": "patient"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_JWN09_TsVrUploaded"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:39:13.942"
+            },
+            "event_data": {
+                "M": {
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "collection_dt": {
+                        "S": "2017-06-28"
+                    },
+                    "study_id": {
+                        "S": "APEC1621SC"
+                    },
+                    "received_dttm": {
+                        "S": "2017-06-28T12:39:11-04:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "PT_JWN09_TsVrUploaded_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "PT_JWN09_TsVrUploaded"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received at NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_JWN09_TsVrUploaded"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:39:14.974"
+            },
+            "event_data": {
+                "M": {
+                    "molecular_cdna_id": {
+                        "NULL": true
+                    },
+                    "molecular_id": {
+                        "S": "PT_JWN09_TsVrUploaded_MOI1"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "destination": {
+                        "S": "MDA"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "TISSUE_DNA_AND_CDNA"
+                    },
+                    "molecular_dna_id": {
+                        "NULL": true
+                    },
+                    "surgical_event_id": {
+                        "S": "PT_JWN09_TsVrUploaded_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_JWN09_TsVrUploaded"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:39:22.308"
+            },
+            "event_data": {
+                "M": {
+                    "variant_report_status": {
+                        "S": "PENDING"
+                    },
+                    "specimen_received_date": {
+                        "NULL": true
+                    },
+                    "analysis_id": {
+                        "S": "PT_JWN09_TsVrUploaded_ANI1"
+                    },
+                    "molecular_id": {
+                        "S": "PT_JWN09_TsVrUploaded_MOI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "variant_report_type": {
+                        "S": "TISSUE"
+                    },
+                    "clia_lab": {
+                        "S": "MDA"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "TISSUE Variant Report generated."
+            },
+            "event_type": {
+                "S": "variant_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_JWN09_TsVrUploaded"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:39:23.645"
+            },
+            "event_data": {
+                "M": {
+                    "file_name": {
+                        "S": "dna.bam"
+                    },
+                    "analysis_id": {
+                        "S": "PT_JWN09_TsVrUploaded_ANI1"
+                    },
+                    "patient_id": {
+                        "S": "PT_JWN09_TsVrUploaded"
+                    },
+                    "molecular_id": {
+                        "S": "PT_JWN09_TsVrUploaded_MOI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "comment_user": {
+                        "S": "qa"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Sequence file uploaded."
+            },
+            "event_type": {
+                "S": "variant_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_JWN09_TsVrUploaded"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:39:24.774"
+            },
+            "event_data": {
+                "M": {
+                    "file_name": {
+                        "S": "cdna.bam"
+                    },
+                    "analysis_id": {
+                        "S": "PT_JWN09_TsVrUploaded_ANI1"
+                    },
+                    "patient_id": {
+                        "S": "PT_JWN09_TsVrUploaded"
+                    },
+                    "molecular_id": {
+                        "S": "PT_JWN09_TsVrUploaded_MOI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "comment_user": {
+                        "S": "qa"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Sequence file uploaded."
+            },
+            "event_type": {
+                "S": "variant_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_TsShippedStep2"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:43:13.492"
+            },
+            "event_data": {
+                "M": {
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "REGISTRATION message received from COG for patient UP_JWN06_TsShippedStep2."
+            },
+            "event_type": {
+                "S": "patient"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_TsShippedStep2"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:43:14.518"
+            },
+            "event_data": {
+                "M": {
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "collection_dt": {
+                        "S": "2017-06-28"
+                    },
+                    "study_id": {
+                        "S": "APEC1621SC"
+                    },
+                    "received_dttm": {
+                        "S": "2017-06-28T12:43:13-04:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_TsShippedStep2_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWN06_TsShippedStep2"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received at NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_TsShippedStep2"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:43:15.566"
+            },
+            "event_data": {
+                "M": {
+                    "molecular_cdna_id": {
+                        "NULL": true
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_TsShippedStep2_MOI1"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "destination": {
+                        "S": "MDA"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "TISSUE_DNA_AND_CDNA"
+                    },
+                    "molecular_dna_id": {
+                        "NULL": true
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_TsShippedStep2_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_TsShippedStep2"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:43:35.593"
+            },
+            "event_data": {
+                "M": {
+                    "variant_report_status": {
+                        "S": "PENDING"
+                    },
+                    "specimen_received_date": {
+                        "NULL": true
+                    },
+                    "analysis_id": {
+                        "S": "UP_JWN06_TsShippedStep2_ANI1"
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_TsShippedStep2_MOI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "variant_report_type": {
+                        "S": "TISSUE"
+                    },
+                    "clia_lab": {
+                        "S": "MDA"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "TISSUE Variant Report generated."
+            },
+            "event_type": {
+                "S": "variant_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_TsShippedStep2"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:43:37.384"
+            },
+            "event_data": {
+                "M": {
+                    "file_name": {
+                        "S": "dna.bam"
+                    },
+                    "analysis_id": {
+                        "S": "UP_JWN06_TsShippedStep2_ANI1"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWN06_TsShippedStep2"
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_TsShippedStep2_MOI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "comment_user": {
+                        "S": "qa"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Sequence file uploaded."
+            },
+            "event_type": {
+                "S": "variant_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_TsShippedStep2"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:43:38.568"
+            },
+            "event_data": {
+                "M": {
+                    "file_name": {
+                        "S": "cdna.bam"
+                    },
+                    "analysis_id": {
+                        "S": "UP_JWN06_TsShippedStep2_ANI1"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWN06_TsShippedStep2"
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_TsShippedStep2_MOI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "comment_user": {
+                        "S": "qa"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Sequence file uploaded."
+            },
+            "event_type": {
+                "S": "variant_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_TsShippedStep2"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:43:40.431"
+            },
+            "event_data": {
+                "M": {
+                    "slide_barcode": {
+                        "S": "UP_JWN06_TsShippedStep2_BC1"
+                    },
+                    "destination": {
+                        "S": "MDA"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "SLIDE"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_TsShippedStep2_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type SLIDE shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_TsShippedStep2"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:43:43.555"
+            },
+            "event_data": {
+                "M": {
+                    "assay_result": {
+                        "S": "POSITIVE"
+                    },
+                    "biomarker": {
+                        "S": "IHC PTEN"
+                    },
+                    "surgical_event_id": {
+                        "NULL": true
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Assay result for ICCPTENs received from MDA."
+            },
+            "event_type": {
+                "S": "assay"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_TsShippedStep2"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:43:44.568"
+            },
+            "event_data": {
+                "M": {
+                    "assay_result": {
+                        "S": "POSITIVE"
+                    },
+                    "biomarker": {
+                        "S": "IHC BAF47"
+                    },
+                    "surgical_event_id": {
+                        "NULL": true
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Assay result for ICCBAF47s received from MDA."
+            },
+            "event_type": {
+                "S": "assay"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_TsShippedStep2"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:43:45.583"
+            },
+            "event_data": {
+                "M": {
+                    "assay_result": {
+                        "S": "POSITIVE"
+                    },
+                    "biomarker": {
+                        "S": "IHC BRG1"
+                    },
+                    "surgical_event_id": {
+                        "NULL": true
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Assay result for ICCBRG1s received from MDA."
+            },
+            "event_type": {
+                "S": "assay"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_TsShippedStep2"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:43:46.544"
+            },
+            "event_data": {
+                "M": {
+                    "variant_report_status": {
+                        "S": "CONFIRMED"
+                    },
+                    "status": {
+                        "S": "CONFIRMED"
+                    },
+                    "comment_user": {
+                        "S": "QA"
+                    },
+                    "comment": {
+                        "S": "Test"
+                    },
+                    "analysis_id": {
+                        "S": "UP_JWN06_TsShippedStep2_ANI1"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_TsShippedStep2_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWN06_TsShippedStep2"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "TISSUE Variant Report updated to CONFIRMED."
+            },
+            "event_type": {
+                "S": "variant_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_TsShippedStep2"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:43:47.048"
+            },
+            "event_data": {
+                "M": {
+                    "status": {
+                        "S": "AWAITING_PATIENT_DATA"
+                    },
+                    "assignment_report_status": {
+                        "S": "AWAITING_PATIENT_DATA"
+                    },
+                    "analysis_id": {
+                        "S": "UP_JWN06_TsShippedStep2_ANI1"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_TsShippedStep2_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_TsShippedStep2_MOI1"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Patient is ready for assignment, awaiting patient data from COG."
+            },
+            "event_type": {
+                "S": "assignment_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_TsShippedStep2"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:43:48.690"
+            },
+            "event_data": {
+                "M": {
+                    "analysis_id": {
+                        "S": "UP_JWN06_TsShippedStep2_ANI1"
+                    },
+                    "assignment_report_status": {
+                        "S": "AWAITING_TREATMENT_ARM_STATUS"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_TsShippedStep2_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_status": {
+                        "S": "AWAITING_TREATMENT_ARM_STATUS"
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_TsShippedStep2_MOI1"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Patient is ready for assignment, awaiting treatment arm statuses from COG."
+            },
+            "event_type": {
+                "S": "assignment_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_TsShippedStep2"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:43:54.702"
+            },
+            "event_data": {
+                "M": {
+                    "analysis_id": {
+                        "S": "UP_JWN06_TsShippedStep2_ANI1"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWN06_TsShippedStep2"
+                    },
+                    "assignment_report_status": {
+                        "S": "TREATMENT_FOUND"
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_TsShippedStep2_MOI1"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_TsShippedStep2_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "assignment_uuid": {
+                        "S": "e2b2b8f0-6c60-4a1f-9550-20df32b4eab3"
+                    },
+                    "treatment_arm": {
+                        "M": {
+                            "treatment_arm_id": {
+                                "S": "APEC1621-A"
+                            },
+                            "reason": {
+                                "S": "The level of evidence for the variant on this treatment arm is 2.0. A match was found for inclusion variant TPM3-ALK.T7A20. A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required."
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "treatment_arm_status": {
+                                "S": "OPEN"
+                            }
+                        }
+                    },
+                    "patient_status": {
+                        "S": "PENDING_CONFIRMATION"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Patient assignment is pending confirmation"
+            },
+            "event_type": {
+                "S": "assignment_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_TsShippedStep2"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:44:18.244"
+            },
+            "event_data": {
+                "M": {
+                    "patient_status": {
+                        "S": "PENDING_APPROVAL"
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_TsShippedStep2_MOI1"
+                    },
+                    "treatment_arm": {
+                        "M": {
+                            "treatment_arm_id": {
+                                "S": "APEC1621-A"
+                            },
+                            "reason": {
+                                "S": "The level of evidence for the variant on this treatment arm is 2.0. A match was found for inclusion variant TPM3-ALK.T7A20. A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required."
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "treatment_arm_status": {
+                                "S": "OPEN"
+                            }
+                        }
+                    },
+                    "comment": {
+                        "S": "Test"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWN06_TsShippedStep2"
+                    },
+                    "analysis_id": {
+                        "S": "UP_JWN06_TsShippedStep2_ANI1"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_TsShippedStep2_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "assignment_uuid": {
+                        "S": "e2b2b8f0-6c60-4a1f-9550-20df32b4eab3"
+                    },
+                    "comment_user": {
+                        "S": "QA"
+                    },
+                    "assignment_report_status": {
+                        "S": "CONFIRMED"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Patient assignment is pending approval by COG"
+            },
+            "event_type": {
+                "S": "assignment_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_TsShippedStep2"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:44:51.669"
+            },
+            "event_data": {
+                "M": {
+                    "step": {
+                        "S": "1.1"
+                    },
+                    "patient_status": {
+                        "S": "ON_TREATMENT_ARM"
+                    },
+                    "treatment_arm": {
+                        "M": {
+                            "treatment_arm_id": {
+                                "S": "APEC1621-A"
+                            },
+                            "reason": {
+                                "S": "The level of evidence for the variant on this treatment arm is 2.0. A match was found for inclusion variant TPM3-ALK.T7A20. A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required."
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "treatment_arm_status": {
+                                "S": "OPEN"
+                            }
+                        }
+                    }
+                }
+            },
+            "event_message": {
+                "S": "ON_TREATMENT_ARM message received from COG for patient UP_JWN06_TsShippedStep2."
+            },
+            "event_type": {
+                "S": "patient"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_TsShippedStep2"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:45:23.503"
+            },
+            "event_data": {
+                "M": {
+                    "rebiopsy": {
+                        "S": "Y"
+                    },
+                    "message": {
+                        "S": "Physician determines it is not in the patient’s best interest."
+                    },
+                    "step": {
+                        "S": "2.0"
+                    },
+                    "patient_status": {
+                        "S": "REQUEST_ASSIGNMENT"
+                    }
+                }
+            },
+            "event_message": {
+                "S": " message received from COG for patient UP_JWN06_TsShippedStep2."
+            },
+            "event_type": {
+                "S": "patient"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_TsShippedStep2"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:45:25.544"
+            },
+            "event_data": {
+                "M": {
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "collection_dt": {
+                        "S": "2017-06-28"
+                    },
+                    "study_id": {
+                        "S": "APEC1621SC"
+                    },
+                    "received_dttm": {
+                        "S": "2017-06-28T12:45:23-04:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_TsShippedStep2_SEI2"
+                    },
+                    "step": {
+                        "S": "2.0"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWN06_TsShippedStep2"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received at NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_TsShippedStep2"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:45:26.601"
+            },
+            "event_data": {
+                "M": {
+                    "molecular_cdna_id": {
+                        "NULL": true
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_TsShippedStep2_MOI2"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "destination": {
+                        "S": "MDA"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "TISSUE_DNA_AND_CDNA"
+                    },
+                    "molecular_dna_id": {
+                        "NULL": true
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_TsShippedStep2_SEI2"
+                    },
+                    "step": {
+                        "S": "2.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP02a_TsShippedToMda2"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:36:39.286"
+            },
+            "event_data": {
+                "M": {
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "REGISTRATION message received from COG for patient UP_JWP02a_TsShippedToMda2."
+            },
+            "event_type": {
+                "S": "patient"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP02a_TsShippedToMda2"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:36:40.313"
+            },
+            "event_data": {
+                "M": {
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "collection_dt": {
+                        "S": "2017-06-28"
+                    },
+                    "study_id": {
+                        "S": "APEC1621SC"
+                    },
+                    "received_dttm": {
+                        "S": "2017-06-28T12:36:39-04:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP02a_TsShippedToMda2_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWP02a_TsShippedToMda2"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received at NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP02a_TsShippedToMda2"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:36:43.476"
+            },
+            "event_data": {
+                "M": {
+                    "molecular_cdna_id": {
+                        "NULL": true
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWP02a_TsShippedToMda2_MOI1"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "destination": {
+                        "S": "MDA"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "TISSUE_DNA_AND_CDNA"
+                    },
+                    "molecular_dna_id": {
+                        "NULL": true
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP02a_TsShippedToMda2_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_JWN10_TsVrUploaded"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:38:32.870"
+            },
+            "event_data": {
+                "M": {
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "REGISTRATION message received from COG for patient PT_JWN10_TsVrUploaded."
+            },
+            "event_type": {
+                "S": "patient"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_JWN10_TsVrUploaded"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:38:35.984"
+            },
+            "event_data": {
+                "M": {
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "collection_dt": {
+                        "S": "2017-06-28"
+                    },
+                    "study_id": {
+                        "S": "APEC1621SC"
+                    },
+                    "received_dttm": {
+                        "S": "2017-06-28T12:38:33-04:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "PT_JWN10_TsVrUploaded_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "PT_JWN10_TsVrUploaded"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received at NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_JWN10_TsVrUploaded"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:38:37.042"
+            },
+            "event_data": {
+                "M": {
+                    "molecular_cdna_id": {
+                        "NULL": true
+                    },
+                    "molecular_id": {
+                        "S": "PT_JWN10_TsVrUploaded_MOI1"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "destination": {
+                        "S": "MDA"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "TISSUE_DNA_AND_CDNA"
+                    },
+                    "molecular_dna_id": {
+                        "NULL": true
+                    },
+                    "surgical_event_id": {
+                        "S": "PT_JWN10_TsVrUploaded_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_JWN10_TsVrUploaded"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:38:44.304"
+            },
+            "event_data": {
+                "M": {
+                    "variant_report_status": {
+                        "S": "PENDING"
+                    },
+                    "specimen_received_date": {
+                        "NULL": true
+                    },
+                    "analysis_id": {
+                        "S": "PT_JWN10_TsVrUploaded_ANI1"
+                    },
+                    "molecular_id": {
+                        "S": "PT_JWN10_TsVrUploaded_MOI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "variant_report_type": {
+                        "S": "TISSUE"
+                    },
+                    "clia_lab": {
+                        "S": "MDA"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "TISSUE Variant Report generated."
+            },
+            "event_type": {
+                "S": "variant_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_JWN10_TsVrUploaded"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:38:45.737"
+            },
+            "event_data": {
+                "M": {
+                    "file_name": {
+                        "S": "dna.bam"
+                    },
+                    "analysis_id": {
+                        "S": "PT_JWN10_TsVrUploaded_ANI1"
+                    },
+                    "patient_id": {
+                        "S": "PT_JWN10_TsVrUploaded"
+                    },
+                    "molecular_id": {
+                        "S": "PT_JWN10_TsVrUploaded_MOI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "comment_user": {
+                        "S": "qa"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Sequence file uploaded."
+            },
+            "event_type": {
+                "S": "variant_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "PT_JWN10_TsVrUploaded"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:38:46.867"
+            },
+            "event_data": {
+                "M": {
+                    "file_name": {
+                        "S": "cdna.bam"
+                    },
+                    "analysis_id": {
+                        "S": "PT_JWN10_TsVrUploaded_ANI1"
+                    },
+                    "patient_id": {
+                        "S": "PT_JWN10_TsVrUploaded"
+                    },
+                    "molecular_id": {
+                        "S": "PT_JWN10_TsVrUploaded_MOI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "comment_user": {
+                        "S": "qa"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Sequence file uploaded."
+            },
+            "event_type": {
+                "S": "variant_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP04_TsShippedToDartmouth"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:37:33.981"
+            },
+            "event_data": {
+                "M": {
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "REGISTRATION message received from COG for patient UP_JWP04_TsShippedToDartmouth."
+            },
+            "event_type": {
+                "S": "patient"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP04_TsShippedToDartmouth"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:37:35.014"
+            },
+            "event_data": {
+                "M": {
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "collection_dt": {
+                        "S": "2017-06-28"
+                    },
+                    "study_id": {
+                        "S": "APEC1621SC"
+                    },
+                    "received_dttm": {
+                        "S": "2017-06-28T12:37:34-04:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP04_TsShippedToDartmouth_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWP04_TsShippedToDartmouth"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received at NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP04_TsShippedToDartmouth"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:37:36.128"
+            },
+            "event_data": {
+                "M": {
+                    "molecular_cdna_id": {
+                        "NULL": true
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWP04_TsShippedToDartmouth_MOI1"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "destination": {
+                        "S": "Dartmouth"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "TISSUE_DNA_AND_CDNA"
+                    },
+                    "molecular_dna_id": {
+                        "NULL": true
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP04_TsShippedToDartmouth_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP02a_TsShippedToDartmouth2"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:36:46.569"
+            },
+            "event_data": {
+                "M": {
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "REGISTRATION message received from COG for patient UP_JWP02a_TsShippedToDartmouth2."
+            },
+            "event_type": {
+                "S": "patient"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP02a_TsShippedToDartmouth2"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:36:47.604"
+            },
+            "event_data": {
+                "M": {
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "collection_dt": {
+                        "S": "2017-06-28"
+                    },
+                    "study_id": {
+                        "S": "APEC1621SC"
+                    },
+                    "received_dttm": {
+                        "S": "2017-06-28T12:36:46-04:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP02a_TsShippedToDartmouth2_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWP02a_TsShippedToDartmouth2"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received at NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP02a_TsShippedToDartmouth2"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:36:53.773"
+            },
+            "event_data": {
+                "M": {
+                    "molecular_cdna_id": {
+                        "NULL": true
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWP02a_TsShippedToDartmouth2_MOI1"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "destination": {
+                        "S": "Dartmouth"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "TISSUE_DNA_AND_CDNA"
+                    },
+                    "molecular_dna_id": {
+                        "NULL": true
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP02a_TsShippedToDartmouth2_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP01c_TsShippedToDartmouth"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:36:12.046"
+            },
+            "event_data": {
+                "M": {
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "REGISTRATION message received from COG for patient UP_JWP01c_TsShippedToDartmouth."
+            },
+            "event_type": {
+                "S": "patient"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP01c_TsShippedToDartmouth"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:36:15.170"
+            },
+            "event_data": {
+                "M": {
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "collection_dt": {
+                        "S": "2017-06-28"
+                    },
+                    "study_id": {
+                        "S": "APEC1621SC"
+                    },
+                    "received_dttm": {
+                        "S": "2017-06-28T12:36:12-04:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP01c_TsShippedToDartmouth_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWP01c_TsShippedToDartmouth"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received at NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP01c_TsShippedToDartmouth"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:36:16.216"
+            },
+            "event_data": {
+                "M": {
+                    "molecular_cdna_id": {
+                        "NULL": true
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWP01c_TsShippedToDartmouth_MOI1"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "destination": {
+                        "S": "Dartmouth"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "TISSUE_DNA_AND_CDNA"
+                    },
+                    "molecular_dna_id": {
+                        "NULL": true
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP01c_TsShippedToDartmouth_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN05_TsShippedToMda"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:39:27.316"
+            },
+            "event_data": {
+                "M": {
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "REGISTRATION message received from COG for patient UP_JWN05_TsShippedToMda."
+            },
+            "event_type": {
+                "S": "patient"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN05_TsShippedToMda"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:39:28.477"
+            },
+            "event_data": {
+                "M": {
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "collection_dt": {
+                        "S": "2017-06-28"
+                    },
+                    "study_id": {
+                        "S": "APEC1621SC"
+                    },
+                    "received_dttm": {
+                        "S": "2017-06-28T12:39:27-04:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN05_TsShippedToMda_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWN05_TsShippedToMda"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received at NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN05_TsShippedToMda"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:39:29.517"
+            },
+            "event_data": {
+                "M": {
+                    "molecular_cdna_id": {
+                        "NULL": true
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN05_TsShippedToMda_MOI1"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "destination": {
+                        "S": "MDA"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "TISSUE_DNA_AND_CDNA"
+                    },
+                    "molecular_dna_id": {
+                        "NULL": true
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN05_TsShippedToMda_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_OnTreatmentArm"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:41:35.952"
+            },
+            "event_data": {
+                "M": {
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "REGISTRATION message received from COG for patient UP_JWN06_OnTreatmentArm."
+            },
+            "event_type": {
+                "S": "patient"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_OnTreatmentArm"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:41:37.998"
+            },
+            "event_data": {
+                "M": {
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "collection_dt": {
+                        "S": "2017-06-28"
+                    },
+                    "study_id": {
+                        "S": "APEC1621SC"
+                    },
+                    "received_dttm": {
+                        "S": "2017-06-28T12:41:36-04:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_OnTreatmentArm_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWN06_OnTreatmentArm"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received at NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_OnTreatmentArm"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:41:41.135"
+            },
+            "event_data": {
+                "M": {
+                    "molecular_cdna_id": {
+                        "NULL": true
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_OnTreatmentArm_MOI1"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "destination": {
+                        "S": "MDA"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "TISSUE_DNA_AND_CDNA"
+                    },
+                    "molecular_dna_id": {
+                        "NULL": true
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_OnTreatmentArm_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_OnTreatmentArm"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:41:59.547"
+            },
+            "event_data": {
+                "M": {
+                    "variant_report_status": {
+                        "S": "PENDING"
+                    },
+                    "specimen_received_date": {
+                        "NULL": true
+                    },
+                    "analysis_id": {
+                        "S": "UP_JWN06_OnTreatmentArm_ANI1"
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_OnTreatmentArm_MOI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "variant_report_type": {
+                        "S": "TISSUE"
+                    },
+                    "clia_lab": {
+                        "S": "MDA"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "TISSUE Variant Report generated."
+            },
+            "event_type": {
+                "S": "variant_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_OnTreatmentArm"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:42:00.829"
+            },
+            "event_data": {
+                "M": {
+                    "file_name": {
+                        "S": "dna.bam"
+                    },
+                    "analysis_id": {
+                        "S": "UP_JWN06_OnTreatmentArm_ANI1"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWN06_OnTreatmentArm"
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_OnTreatmentArm_MOI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "comment_user": {
+                        "S": "qa"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Sequence file uploaded."
+            },
+            "event_type": {
+                "S": "variant_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_OnTreatmentArm"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:42:01.952"
+            },
+            "event_data": {
+                "M": {
+                    "file_name": {
+                        "S": "cdna.bam"
+                    },
+                    "analysis_id": {
+                        "S": "UP_JWN06_OnTreatmentArm_ANI1"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWN06_OnTreatmentArm"
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_OnTreatmentArm_MOI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "comment_user": {
+                        "S": "qa"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Sequence file uploaded."
+            },
+            "event_type": {
+                "S": "variant_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_OnTreatmentArm"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:42:04.699"
+            },
+            "event_data": {
+                "M": {
+                    "slide_barcode": {
+                        "S": "UP_JWN06_OnTreatmentArm_BC1"
+                    },
+                    "destination": {
+                        "S": "MDA"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "SLIDE"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_OnTreatmentArm_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type SLIDE shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_OnTreatmentArm"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:42:05.726"
+            },
+            "event_data": {
+                "M": {
+                    "assay_result": {
+                        "S": "POSITIVE"
+                    },
+                    "biomarker": {
+                        "S": "IHC PTEN"
+                    },
+                    "surgical_event_id": {
+                        "NULL": true
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Assay result for ICCPTENs received from MDA."
+            },
+            "event_type": {
+                "S": "assay"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_OnTreatmentArm"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:42:06.744"
+            },
+            "event_data": {
+                "M": {
+                    "assay_result": {
+                        "S": "POSITIVE"
+                    },
+                    "biomarker": {
+                        "S": "IHC BAF47"
+                    },
+                    "surgical_event_id": {
+                        "NULL": true
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Assay result for ICCBAF47s received from MDA."
+            },
+            "event_type": {
+                "S": "assay"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_OnTreatmentArm"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:42:07.759"
+            },
+            "event_data": {
+                "M": {
+                    "assay_result": {
+                        "S": "POSITIVE"
+                    },
+                    "biomarker": {
+                        "S": "IHC BRG1"
+                    },
+                    "surgical_event_id": {
+                        "NULL": true
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Assay result for ICCBRG1s received from MDA."
+            },
+            "event_type": {
+                "S": "assay"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_OnTreatmentArm"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:42:08.873"
+            },
+            "event_data": {
+                "M": {
+                    "variant_report_status": {
+                        "S": "CONFIRMED"
+                    },
+                    "status": {
+                        "S": "CONFIRMED"
+                    },
+                    "comment_user": {
+                        "S": "QA"
+                    },
+                    "comment": {
+                        "S": "Test"
+                    },
+                    "analysis_id": {
+                        "S": "UP_JWN06_OnTreatmentArm_ANI1"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_OnTreatmentArm_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWN06_OnTreatmentArm"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "TISSUE Variant Report updated to CONFIRMED."
+            },
+            "event_type": {
+                "S": "variant_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_OnTreatmentArm"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:42:08.967"
+            },
+            "event_data": {
+                "M": {
+                    "status": {
+                        "S": "AWAITING_PATIENT_DATA"
+                    },
+                    "assignment_report_status": {
+                        "S": "AWAITING_PATIENT_DATA"
+                    },
+                    "analysis_id": {
+                        "S": "UP_JWN06_OnTreatmentArm_ANI1"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_OnTreatmentArm_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_OnTreatmentArm_MOI1"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Patient is ready for assignment, awaiting patient data from COG."
+            },
+            "event_type": {
+                "S": "assignment_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_OnTreatmentArm"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:42:10.864"
+            },
+            "event_data": {
+                "M": {
+                    "analysis_id": {
+                        "S": "UP_JWN06_OnTreatmentArm_ANI1"
+                    },
+                    "assignment_report_status": {
+                        "S": "AWAITING_TREATMENT_ARM_STATUS"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_OnTreatmentArm_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_status": {
+                        "S": "AWAITING_TREATMENT_ARM_STATUS"
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_OnTreatmentArm_MOI1"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Patient is ready for assignment, awaiting treatment arm statuses from COG."
+            },
+            "event_type": {
+                "S": "assignment_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_OnTreatmentArm"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:42:17.391"
+            },
+            "event_data": {
+                "M": {
+                    "analysis_id": {
+                        "S": "UP_JWN06_OnTreatmentArm_ANI1"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWN06_OnTreatmentArm"
+                    },
+                    "assignment_report_status": {
+                        "S": "TREATMENT_FOUND"
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_OnTreatmentArm_MOI1"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_OnTreatmentArm_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "assignment_uuid": {
+                        "S": "736ab035-fe8a-4515-bba8-8e296cdcc42d"
+                    },
+                    "treatment_arm": {
+                        "M": {
+                            "treatment_arm_id": {
+                                "S": "APEC1621-A"
+                            },
+                            "reason": {
+                                "S": "The level of evidence for the variant on this treatment arm is 2.0. A match was found for inclusion variant TPM3-ALK.T7A20. A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required."
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "treatment_arm_status": {
+                                "S": "OPEN"
+                            }
+                        }
+                    },
+                    "patient_status": {
+                        "S": "PENDING_CONFIRMATION"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Patient assignment is pending confirmation"
+            },
+            "event_type": {
+                "S": "assignment_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_OnTreatmentArm"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:42:40.163"
+            },
+            "event_data": {
+                "M": {
+                    "patient_status": {
+                        "S": "PENDING_APPROVAL"
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWN06_OnTreatmentArm_MOI1"
+                    },
+                    "treatment_arm": {
+                        "M": {
+                            "treatment_arm_id": {
+                                "S": "APEC1621-A"
+                            },
+                            "reason": {
+                                "S": "The level of evidence for the variant on this treatment arm is 2.0. A match was found for inclusion variant TPM3-ALK.T7A20. A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required."
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "treatment_arm_status": {
+                                "S": "OPEN"
+                            }
+                        }
+                    },
+                    "comment": {
+                        "S": "Test"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWN06_OnTreatmentArm"
+                    },
+                    "analysis_id": {
+                        "S": "UP_JWN06_OnTreatmentArm_ANI1"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWN06_OnTreatmentArm_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "assignment_uuid": {
+                        "S": "736ab035-fe8a-4515-bba8-8e296cdcc42d"
+                    },
+                    "comment_user": {
+                        "S": "QA"
+                    },
+                    "assignment_report_status": {
+                        "S": "CONFIRMED"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Patient assignment is pending approval by COG"
+            },
+            "event_type": {
+                "S": "assignment_report"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWN06_OnTreatmentArm"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:43:11.493"
+            },
+            "event_data": {
+                "M": {
+                    "step": {
+                        "S": "1.1"
+                    },
+                    "patient_status": {
+                        "S": "ON_TREATMENT_ARM"
+                    },
+                    "treatment_arm": {
+                        "M": {
+                            "treatment_arm_id": {
+                                "S": "APEC1621-A"
+                            },
+                            "reason": {
+                                "S": "The level of evidence for the variant on this treatment arm is 2.0. A match was found for inclusion variant TPM3-ALK.T7A20. A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required."
+                            },
+                            "stratum_id": {
+                                "S": "100"
+                            },
+                            "version": {
+                                "S": "2015-08-06"
+                            },
+                            "treatment_arm_status": {
+                                "S": "OPEN"
+                            }
+                        }
+                    }
+                }
+            },
+            "event_message": {
+                "S": "ON_TREATMENT_ARM message received from COG for patient UP_JWN06_OnTreatmentArm."
+            },
+            "event_type": {
+                "S": "patient"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP04_TsShippedToMocha"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:37:19.482"
+            },
+            "event_data": {
+                "M": {
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "REGISTRATION message received from COG for patient UP_JWP04_TsShippedToMocha."
+            },
+            "event_type": {
+                "S": "patient"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP04_TsShippedToMocha"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:37:22.634"
+            },
+            "event_data": {
+                "M": {
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "collection_dt": {
+                        "S": "2017-06-28"
+                    },
+                    "study_id": {
+                        "S": "APEC1621SC"
+                    },
+                    "received_dttm": {
+                        "S": "2017-06-28T12:37:19-04:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP04_TsShippedToMocha_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWP04_TsShippedToMocha"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received at NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP04_TsShippedToMocha"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:37:23.675"
+            },
+            "event_data": {
+                "M": {
+                    "molecular_cdna_id": {
+                        "NULL": true
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWP04_TsShippedToMocha_MOI1"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "destination": {
+                        "S": "MoCha"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "TISSUE_DNA_AND_CDNA"
+                    },
+                    "molecular_dna_id": {
+                        "NULL": true
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP04_TsShippedToMocha_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP01a_TsShippedToMda"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:36:01.621"
+            },
+            "event_data": {
+                "M": {
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "REGISTRATION message received from COG for patient UP_JWP01a_TsShippedToMda."
+            },
+            "event_type": {
+                "S": "patient"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP01a_TsShippedToMda"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:36:02.609"
+            },
+            "event_data": {
+                "M": {
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "collection_dt": {
+                        "S": "2017-06-28"
+                    },
+                    "study_id": {
+                        "S": "APEC1621SC"
+                    },
+                    "received_dttm": {
+                        "S": "2017-06-28T12:36:01-04:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP01a_TsShippedToMda_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWP01a_TsShippedToMda"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received at NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP01a_TsShippedToMda"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:36:03.650"
+            },
+            "event_data": {
+                "M": {
+                    "molecular_cdna_id": {
+                        "NULL": true
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWP01a_TsShippedToMda_MOI1"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "destination": {
+                        "S": "MDA"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "TISSUE_DNA_AND_CDNA"
+                    },
+                    "molecular_dna_id": {
+                        "NULL": true
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP01a_TsShippedToMda_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP01c_TsShippedToMocha"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:36:19.307"
+            },
+            "event_data": {
+                "M": {
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_status": {
+                        "S": "REGISTRATION"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "REGISTRATION message received from COG for patient UP_JWP01c_TsShippedToMocha."
+            },
+            "event_type": {
+                "S": "patient"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP01c_TsShippedToMocha"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:36:20.321"
+            },
+            "event_data": {
+                "M": {
+                    "type": {
+                        "S": "TISSUE"
+                    },
+                    "collection_dt": {
+                        "S": "2017-06-28"
+                    },
+                    "study_id": {
+                        "S": "APEC1621SC"
+                    },
+                    "received_dttm": {
+                        "S": "2017-06-28T12:36:19-04:00"
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP01c_TsShippedToMocha_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    },
+                    "patient_id": {
+                        "S": "UP_JWP01c_TsShippedToMocha"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen of type TISSUE received at NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        },
+        {
+            "entity_id": {
+                "S": "UP_JWP01c_TsShippedToMocha"
+            },
+            "event_date": {
+                "S": "2017-06-28T16:36:23.460"
+            },
+            "event_data": {
+                "M": {
+                    "molecular_cdna_id": {
+                        "NULL": true
+                    },
+                    "molecular_id": {
+                        "S": "UP_JWP01c_TsShippedToMocha_MOI1"
+                    },
+                    "tracking_number": {
+                        "S": "7956 4568 1235"
+                    },
+                    "destination": {
+                        "S": "MoCha"
+                    },
+                    "carrier": {
+                        "S": "Federal Express"
+                    },
+                    "type": {
+                        "S": "TISSUE_DNA_AND_CDNA"
+                    },
+                    "molecular_dna_id": {
+                        "NULL": true
+                    },
+                    "surgical_event_id": {
+                        "S": "UP_JWP01c_TsShippedToMocha_SEI1"
+                    },
+                    "step": {
+                        "S": "1.0"
+                    }
+                }
+            },
+            "event_message": {
+                "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+            },
+            "event_type": {
+                "S": "specimen"
+            }
+        }
+    ]
+}

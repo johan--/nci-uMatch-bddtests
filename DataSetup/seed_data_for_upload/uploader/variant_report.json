@@ -1,0 +1,967 @@
+{
+    "Items": [
+        {
+            "oncomine_control_panel_summary": {
+                "M": {
+                    "tbp": {
+                        "N": "0"
+                    },
+                    "itgb7": {
+                        "N": "0"
+                    },
+                    "pool1Sum": {
+                        "N": "0.0"
+                    },
+                    "fPool": {
+                        "M": {}
+                    },
+                    "pool2Sum": {
+                        "N": "0.0"
+                    },
+                    "myc": {
+                        "N": "0"
+                    },
+                    "sum": {
+                        "N": "0"
+                    },
+                    "ecPool": {
+                        "M": {}
+                    },
+                    "gePool": {
+                        "M": {}
+                    },
+                    "hmbs": {
+                        "N": "0"
+                    },
+                    "lmna": {
+                        "N": "0"
+                    },
+                    "lrp1": {
+                        "N": "0"
+                    }
+                }
+            },
+            "analysis_id": {
+                "S": "PT_JWN07_TsVrUploaded_ANI1"
+            },
+            "total_confirmed_mois": {
+                "N": "4"
+            },
+            "total_mois": {
+                "N": "4"
+            },
+            "patient_id": {
+                "S": "PT_JWN07_TsVrUploaded"
+            },
+            "molecular_id": {
+                "S": "PT_JWN07_TsVrUploaded_MOI1"
+            },
+            "vcf_file_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "total_confirmed_amois": {
+                "N": "2"
+            },
+            "dna_bai_name": {
+                "S": "dna.bai"
+            },
+            "cellularity": {
+                "N": "1"
+            },
+            "clia_lab": {
+                "S": "MDA"
+            },
+            "surgical_event_id": {
+                "S": "PT_JWN07_TsVrUploaded_SEI1"
+            },
+            "variant_report_received_date": {
+                "S": "2017-06-28T16:38:27+00:00"
+            },
+            "status_date": {
+                "S": "2017-06-28T16:38:27+00:00"
+            },
+            "mappedFusionPanelReads": {
+                "N": "849327"
+            },
+            "dna_bam_name": {
+                "S": "dna.bam"
+            },
+            "total_amois": {
+                "N": "2"
+            },
+            "cdna_bam_name": {
+                "S": "cdna.bam"
+            },
+            "ion_reporter_id": {
+                "S": "bdd_test_ion_reporter"
+            },
+            "cdna_bai_name": {
+                "S": "cdna.bai"
+            },
+            "copy_number_variant_genes": {
+                "L": []
+            },
+            "mapd": {
+                "N": "0.666"
+            },
+            "tsv_file_name": {
+                "S": "test1.tsv"
+            },
+            "torrent_variant_caller_version": {
+                "S": "4.2-13"
+            },
+            "status": {
+                "S": "PENDING"
+            }
+        },
+        {
+            "total_confirmed_mois": {
+                "N": "4"
+            },
+            "analysis_id": {
+                "S": "UP_JWN06_PendingConfirmation_ANI1"
+            },
+            "oncomine_control_panel_summary": {
+                "M": {
+                    "tbp": {
+                        "N": "0"
+                    },
+                    "itgb7": {
+                        "N": "0"
+                    },
+                    "pool1Sum": {
+                        "N": "0.0"
+                    },
+                    "fPool": {
+                        "M": {}
+                    },
+                    "pool2Sum": {
+                        "N": "0.0"
+                    },
+                    "myc": {
+                        "N": "0"
+                    },
+                    "sum": {
+                        "N": "0"
+                    },
+                    "ecPool": {
+                        "M": {}
+                    },
+                    "gePool": {
+                        "M": {}
+                    },
+                    "hmbs": {
+                        "N": "0"
+                    },
+                    "lmna": {
+                        "N": "0"
+                    },
+                    "lrp1": {
+                        "N": "0"
+                    }
+                }
+            },
+            "total_mois": {
+                "N": "4"
+            },
+            "patient_id": {
+                "S": "UP_JWN06_PendingConfirmation"
+            },
+            "molecular_id": {
+                "S": "UP_JWN06_PendingConfirmation_MOI1"
+            },
+            "vcf_file_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "total_confirmed_amois": {
+                "N": "2"
+            },
+            "dna_bai_name": {
+                "S": "dna.bai"
+            },
+            "cellularity": {
+                "N": "1"
+            },
+            "clia_lab": {
+                "S": "MDA"
+            },
+            "surgical_event_id": {
+                "S": "UP_JWN06_PendingConfirmation_SEI1"
+            },
+            "variant_report_received_date": {
+                "S": "2017-06-28T16:40:15+00:00"
+            },
+            "status_date": {
+                "S": "2017-06-28T16:40:26+00:00"
+            },
+            "mappedFusionPanelReads": {
+                "N": "849327"
+            },
+            "dna_bam_name": {
+                "S": "dna.bam"
+            },
+            "total_amois": {
+                "N": "2"
+            },
+            "comment": {
+                "S": "Test"
+            },
+            "cdna_bam_name": {
+                "S": "cdna.bam"
+            },
+            "ion_reporter_id": {
+                "S": "bdd_test_ion_reporter"
+            },
+            "cdna_bai_name": {
+                "S": "cdna.bai"
+            },
+            "copy_number_variant_genes": {
+                "L": []
+            },
+            "mapd": {
+                "N": "0.666"
+            },
+            "tsv_file_name": {
+                "S": "test1.tsv"
+            },
+            "torrent_variant_caller_version": {
+                "S": "4.2-13"
+            },
+            "status": {
+                "S": "CONFIRMED"
+            },
+            "comment_user": {
+                "S": "QA"
+            }
+        },
+        {
+            "total_confirmed_mois": {
+                "N": "4"
+            },
+            "analysis_id": {
+                "S": "UP_JWN06_PendingApproval_ANI1"
+            },
+            "oncomine_control_panel_summary": {
+                "M": {
+                    "tbp": {
+                        "N": "0"
+                    },
+                    "itgb7": {
+                        "N": "0"
+                    },
+                    "pool1Sum": {
+                        "N": "0.0"
+                    },
+                    "fPool": {
+                        "M": {}
+                    },
+                    "pool2Sum": {
+                        "N": "0.0"
+                    },
+                    "myc": {
+                        "N": "0"
+                    },
+                    "sum": {
+                        "N": "0"
+                    },
+                    "ecPool": {
+                        "M": {}
+                    },
+                    "gePool": {
+                        "M": {}
+                    },
+                    "hmbs": {
+                        "N": "0"
+                    },
+                    "lmna": {
+                        "N": "0"
+                    },
+                    "lrp1": {
+                        "N": "0"
+                    }
+                }
+            },
+            "total_mois": {
+                "N": "4"
+            },
+            "patient_id": {
+                "S": "UP_JWN06_PendingApproval"
+            },
+            "molecular_id": {
+                "S": "UP_JWN06_PendingApproval_MOI1"
+            },
+            "vcf_file_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "total_confirmed_amois": {
+                "N": "2"
+            },
+            "dna_bai_name": {
+                "S": "dna.bai"
+            },
+            "cellularity": {
+                "N": "1"
+            },
+            "clia_lab": {
+                "S": "MDA"
+            },
+            "surgical_event_id": {
+                "S": "UP_JWN06_PendingApproval_SEI1"
+            },
+            "variant_report_received_date": {
+                "S": "2017-06-28T16:40:48+00:00"
+            },
+            "status_date": {
+                "S": "2017-06-28T16:41:01+00:00"
+            },
+            "mappedFusionPanelReads": {
+                "N": "849327"
+            },
+            "dna_bam_name": {
+                "S": "dna.bam"
+            },
+            "total_amois": {
+                "N": "2"
+            },
+            "comment": {
+                "S": "Test"
+            },
+            "cdna_bam_name": {
+                "S": "cdna.bam"
+            },
+            "ion_reporter_id": {
+                "S": "bdd_test_ion_reporter"
+            },
+            "cdna_bai_name": {
+                "S": "cdna.bai"
+            },
+            "copy_number_variant_genes": {
+                "L": []
+            },
+            "mapd": {
+                "N": "0.666"
+            },
+            "tsv_file_name": {
+                "S": "test1.tsv"
+            },
+            "torrent_variant_caller_version": {
+                "S": "4.2-13"
+            },
+            "status": {
+                "S": "CONFIRMED"
+            },
+            "comment_user": {
+                "S": "QA"
+            }
+        },
+        {
+            "oncomine_control_panel_summary": {
+                "M": {
+                    "tbp": {
+                        "N": "0"
+                    },
+                    "itgb7": {
+                        "N": "0"
+                    },
+                    "pool1Sum": {
+                        "N": "0.0"
+                    },
+                    "fPool": {
+                        "M": {}
+                    },
+                    "pool2Sum": {
+                        "N": "0.0"
+                    },
+                    "myc": {
+                        "N": "0"
+                    },
+                    "sum": {
+                        "N": "0"
+                    },
+                    "ecPool": {
+                        "M": {}
+                    },
+                    "gePool": {
+                        "M": {}
+                    },
+                    "hmbs": {
+                        "N": "0"
+                    },
+                    "lmna": {
+                        "N": "0"
+                    },
+                    "lrp1": {
+                        "N": "0"
+                    }
+                }
+            },
+            "analysis_id": {
+                "S": "PT_JWN08_TsVrUploaded_ANI1"
+            },
+            "total_confirmed_mois": {
+                "N": "4"
+            },
+            "total_mois": {
+                "N": "4"
+            },
+            "patient_id": {
+                "S": "PT_JWN08_TsVrUploaded"
+            },
+            "molecular_id": {
+                "S": "PT_JWN08_TsVrUploaded_MOI1"
+            },
+            "vcf_file_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "total_confirmed_amois": {
+                "N": "2"
+            },
+            "dna_bai_name": {
+                "S": "dna.bai"
+            },
+            "cellularity": {
+                "N": "1"
+            },
+            "clia_lab": {
+                "S": "MDA"
+            },
+            "surgical_event_id": {
+                "S": "PT_JWN08_TsVrUploaded_SEI1"
+            },
+            "variant_report_received_date": {
+                "S": "2017-06-28T16:39:03+00:00"
+            },
+            "status_date": {
+                "S": "2017-06-28T16:39:03+00:00"
+            },
+            "mappedFusionPanelReads": {
+                "N": "849327"
+            },
+            "dna_bam_name": {
+                "S": "dna.bam"
+            },
+            "total_amois": {
+                "N": "2"
+            },
+            "cdna_bam_name": {
+                "S": "cdna.bam"
+            },
+            "ion_reporter_id": {
+                "S": "bdd_test_ion_reporter"
+            },
+            "cdna_bai_name": {
+                "S": "cdna.bai"
+            },
+            "copy_number_variant_genes": {
+                "L": []
+            },
+            "mapd": {
+                "N": "0.666"
+            },
+            "tsv_file_name": {
+                "S": "test1.tsv"
+            },
+            "torrent_variant_caller_version": {
+                "S": "4.2-13"
+            },
+            "status": {
+                "S": "PENDING"
+            }
+        },
+        {
+            "oncomine_control_panel_summary": {
+                "M": {
+                    "tbp": {
+                        "N": "0"
+                    },
+                    "itgb7": {
+                        "N": "0"
+                    },
+                    "pool1Sum": {
+                        "N": "0.0"
+                    },
+                    "fPool": {
+                        "M": {}
+                    },
+                    "pool2Sum": {
+                        "N": "0.0"
+                    },
+                    "myc": {
+                        "N": "0"
+                    },
+                    "sum": {
+                        "N": "0"
+                    },
+                    "ecPool": {
+                        "M": {}
+                    },
+                    "gePool": {
+                        "M": {}
+                    },
+                    "hmbs": {
+                        "N": "0"
+                    },
+                    "lmna": {
+                        "N": "0"
+                    },
+                    "lrp1": {
+                        "N": "0"
+                    }
+                }
+            },
+            "analysis_id": {
+                "S": "PT_JWN09_TsVrUploaded_ANI1"
+            },
+            "total_confirmed_mois": {
+                "N": "4"
+            },
+            "total_mois": {
+                "N": "4"
+            },
+            "patient_id": {
+                "S": "PT_JWN09_TsVrUploaded"
+            },
+            "molecular_id": {
+                "S": "PT_JWN09_TsVrUploaded_MOI1"
+            },
+            "vcf_file_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "total_confirmed_amois": {
+                "N": "2"
+            },
+            "dna_bai_name": {
+                "S": "dna.bai"
+            },
+            "cellularity": {
+                "N": "1"
+            },
+            "clia_lab": {
+                "S": "MDA"
+            },
+            "surgical_event_id": {
+                "S": "PT_JWN09_TsVrUploaded_SEI1"
+            },
+            "variant_report_received_date": {
+                "S": "2017-06-28T16:39:22+00:00"
+            },
+            "status_date": {
+                "S": "2017-06-28T16:39:22+00:00"
+            },
+            "mappedFusionPanelReads": {
+                "N": "849327"
+            },
+            "dna_bam_name": {
+                "S": "dna.bam"
+            },
+            "total_amois": {
+                "N": "2"
+            },
+            "cdna_bam_name": {
+                "S": "cdna.bam"
+            },
+            "ion_reporter_id": {
+                "S": "bdd_test_ion_reporter"
+            },
+            "cdna_bai_name": {
+                "S": "cdna.bai"
+            },
+            "copy_number_variant_genes": {
+                "L": []
+            },
+            "mapd": {
+                "N": "0.666"
+            },
+            "tsv_file_name": {
+                "S": "test1.tsv"
+            },
+            "torrent_variant_caller_version": {
+                "S": "4.2-13"
+            },
+            "status": {
+                "S": "PENDING"
+            }
+        },
+        {
+            "total_confirmed_mois": {
+                "N": "4"
+            },
+            "analysis_id": {
+                "S": "UP_JWN06_TsShippedStep2_ANI1"
+            },
+            "oncomine_control_panel_summary": {
+                "M": {
+                    "tbp": {
+                        "N": "0"
+                    },
+                    "itgb7": {
+                        "N": "0"
+                    },
+                    "pool1Sum": {
+                        "N": "0.0"
+                    },
+                    "fPool": {
+                        "M": {}
+                    },
+                    "pool2Sum": {
+                        "N": "0.0"
+                    },
+                    "myc": {
+                        "N": "0"
+                    },
+                    "sum": {
+                        "N": "0"
+                    },
+                    "ecPool": {
+                        "M": {}
+                    },
+                    "gePool": {
+                        "M": {}
+                    },
+                    "hmbs": {
+                        "N": "0"
+                    },
+                    "lmna": {
+                        "N": "0"
+                    },
+                    "lrp1": {
+                        "N": "0"
+                    }
+                }
+            },
+            "total_mois": {
+                "N": "4"
+            },
+            "patient_id": {
+                "S": "UP_JWN06_TsShippedStep2"
+            },
+            "molecular_id": {
+                "S": "UP_JWN06_TsShippedStep2_MOI1"
+            },
+            "vcf_file_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "total_confirmed_amois": {
+                "N": "2"
+            },
+            "dna_bai_name": {
+                "S": "dna.bai"
+            },
+            "cellularity": {
+                "N": "1"
+            },
+            "clia_lab": {
+                "S": "MDA"
+            },
+            "surgical_event_id": {
+                "S": "UP_JWN06_TsShippedStep2_SEI1"
+            },
+            "variant_report_received_date": {
+                "S": "2017-06-28T16:43:35+00:00"
+            },
+            "status_date": {
+                "S": "2017-06-28T16:43:46+00:00"
+            },
+            "mappedFusionPanelReads": {
+                "N": "849327"
+            },
+            "dna_bam_name": {
+                "S": "dna.bam"
+            },
+            "total_amois": {
+                "N": "2"
+            },
+            "comment": {
+                "S": "Test"
+            },
+            "cdna_bam_name": {
+                "S": "cdna.bam"
+            },
+            "ion_reporter_id": {
+                "S": "bdd_test_ion_reporter"
+            },
+            "cdna_bai_name": {
+                "S": "cdna.bai"
+            },
+            "copy_number_variant_genes": {
+                "L": []
+            },
+            "mapd": {
+                "N": "0.666"
+            },
+            "tsv_file_name": {
+                "S": "test1.tsv"
+            },
+            "torrent_variant_caller_version": {
+                "S": "4.2-13"
+            },
+            "status": {
+                "S": "CONFIRMED"
+            },
+            "comment_user": {
+                "S": "QA"
+            }
+        },
+        {
+            "oncomine_control_panel_summary": {
+                "M": {
+                    "tbp": {
+                        "N": "0"
+                    },
+                    "itgb7": {
+                        "N": "0"
+                    },
+                    "pool1Sum": {
+                        "N": "0.0"
+                    },
+                    "fPool": {
+                        "M": {}
+                    },
+                    "pool2Sum": {
+                        "N": "0.0"
+                    },
+                    "myc": {
+                        "N": "0"
+                    },
+                    "sum": {
+                        "N": "0"
+                    },
+                    "ecPool": {
+                        "M": {}
+                    },
+                    "gePool": {
+                        "M": {}
+                    },
+                    "hmbs": {
+                        "N": "0"
+                    },
+                    "lmna": {
+                        "N": "0"
+                    },
+                    "lrp1": {
+                        "N": "0"
+                    }
+                }
+            },
+            "analysis_id": {
+                "S": "PT_JWN10_TsVrUploaded_ANI1"
+            },
+            "total_confirmed_mois": {
+                "N": "4"
+            },
+            "total_mois": {
+                "N": "4"
+            },
+            "patient_id": {
+                "S": "PT_JWN10_TsVrUploaded"
+            },
+            "molecular_id": {
+                "S": "PT_JWN10_TsVrUploaded_MOI1"
+            },
+            "vcf_file_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "total_confirmed_amois": {
+                "N": "2"
+            },
+            "dna_bai_name": {
+                "S": "dna.bai"
+            },
+            "cellularity": {
+                "N": "1"
+            },
+            "clia_lab": {
+                "S": "MDA"
+            },
+            "surgical_event_id": {
+                "S": "PT_JWN10_TsVrUploaded_SEI1"
+            },
+            "variant_report_received_date": {
+                "S": "2017-06-28T16:38:44+00:00"
+            },
+            "status_date": {
+                "S": "2017-06-28T16:38:44+00:00"
+            },
+            "mappedFusionPanelReads": {
+                "N": "849327"
+            },
+            "dna_bam_name": {
+                "S": "dna.bam"
+            },
+            "total_amois": {
+                "N": "2"
+            },
+            "cdna_bam_name": {
+                "S": "cdna.bam"
+            },
+            "ion_reporter_id": {
+                "S": "bdd_test_ion_reporter"
+            },
+            "cdna_bai_name": {
+                "S": "cdna.bai"
+            },
+            "copy_number_variant_genes": {
+                "L": []
+            },
+            "mapd": {
+                "N": "0.666"
+            },
+            "tsv_file_name": {
+                "S": "test1.tsv"
+            },
+            "torrent_variant_caller_version": {
+                "S": "4.2-13"
+            },
+            "status": {
+                "S": "PENDING"
+            }
+        },
+        {
+            "total_confirmed_mois": {
+                "N": "4"
+            },
+            "analysis_id": {
+                "S": "UP_JWN06_OnTreatmentArm_ANI1"
+            },
+            "oncomine_control_panel_summary": {
+                "M": {
+                    "tbp": {
+                        "N": "0"
+                    },
+                    "itgb7": {
+                        "N": "0"
+                    },
+                    "pool1Sum": {
+                        "N": "0.0"
+                    },
+                    "fPool": {
+                        "M": {}
+                    },
+                    "pool2Sum": {
+                        "N": "0.0"
+                    },
+                    "myc": {
+                        "N": "0"
+                    },
+                    "sum": {
+                        "N": "0"
+                    },
+                    "ecPool": {
+                        "M": {}
+                    },
+                    "gePool": {
+                        "M": {}
+                    },
+                    "hmbs": {
+                        "N": "0"
+                    },
+                    "lmna": {
+                        "N": "0"
+                    },
+                    "lrp1": {
+                        "N": "0"
+                    }
+                }
+            },
+            "total_mois": {
+                "N": "4"
+            },
+            "patient_id": {
+                "S": "UP_JWN06_OnTreatmentArm"
+            },
+            "molecular_id": {
+                "S": "UP_JWN06_OnTreatmentArm_MOI1"
+            },
+            "vcf_file_name": {
+                "S": "test1.vcf"
+            },
+            "variant_report_type": {
+                "S": "TISSUE"
+            },
+            "total_confirmed_amois": {
+                "N": "2"
+            },
+            "dna_bai_name": {
+                "S": "dna.bai"
+            },
+            "cellularity": {
+                "N": "1"
+            },
+            "clia_lab": {
+                "S": "MDA"
+            },
+            "surgical_event_id": {
+                "S": "UP_JWN06_OnTreatmentArm_SEI1"
+            },
+            "variant_report_received_date": {
+                "S": "2017-06-28T16:41:59+00:00"
+            },
+            "status_date": {
+                "S": "2017-06-28T16:42:08+00:00"
+            },
+            "mappedFusionPanelReads": {
+                "N": "849327"
+            },
+            "dna_bam_name": {
+                "S": "dna.bam"
+            },
+            "total_amois": {
+                "N": "2"
+            },
+            "comment": {
+                "S": "Test"
+            },
+            "cdna_bam_name": {
+                "S": "cdna.bam"
+            },
+            "ion_reporter_id": {
+                "S": "bdd_test_ion_reporter"
+            },
+            "cdna_bai_name": {
+                "S": "cdna.bai"
+            },
+            "copy_number_variant_genes": {
+                "L": []
+            },
+            "mapd": {
+                "N": "0.666"
+            },
+            "tsv_file_name": {
+                "S": "test1.tsv"
+            },
+            "torrent_variant_caller_version": {
+                "S": "4.2-13"
+            },
+            "status": {
+                "S": "CONFIRMED"
+            },
+            "comment_user": {
+                "S": "QA"
+            }
+        }
+    ],
+    "ConsumedCapacity": null,
+    "ScannedCount": 8,
+    "Count": 8
+}

@@ -24,8 +24,8 @@ class PatientStorySender
         message = Marshal.load(Marshal.dump(templates[s.keys[0]]))
         values = add_realtime_values(s.values[0])
         url = update_string_values(message['url'], values)
-        before = message['before'].collect { |v| update_string_values(v, values) }
-        after = message['after'].collect { |v| update_string_values(v, values) }
+        before = message['before'].collect {|v| update_string_values(v, values)}
+        after = message['after'].collect {|v| update_string_values(v, values)}
         payload = update_hash_values(message['payload'], values)
         unless run_operations(before)
           Logger.error("Failed to run before operation <#{before}> for patient: #{patient_id}")
@@ -74,7 +74,7 @@ class PatientStorySender
                        end
 
   private_class_method def self.update_string_values(string, values)
-                         values.each { |k, v| string.gsub!(k, v) }
+                         values.each {|k, v| string.gsub!(k, v)}
                          string
                        end
 
@@ -103,20 +103,15 @@ class PatientStorySender
                                            when 'sleep' then
                                              sleep(param.to_f)
                                            when 'json_to_int' then
-                                             copy_json_to_int(param)
+                                             Utilities.copy_json_to_int(param)
+                                           when 'upload_vr_file' then
+                                             list = param.split('/')
+                                             Utilities.upload_vr(list[0], list[1], list[2])
                                            else
+                                             Logger.warning("#{op} is not a valid operation")
                                          end
                            result = result && this_result
                          end
                          result
-                       end
-
-  private_class_method def self.copy_json_to_int(file_path)
-                         dev_path = "s3://pedmatch-dev/#{file_path}"
-                         int_path = "s3://pedmatch-int/#{file_path}"
-                         cmd = "aws s3 cp #{dev_path} #{int_path} --region us-east-1"
-                         `#{cmd}`
-                         Logger.info("#{dev_path} has been uploaded to #{int_path}")
-                         true
                        end
 end

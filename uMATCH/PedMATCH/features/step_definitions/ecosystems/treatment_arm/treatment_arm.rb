@@ -29,6 +29,13 @@ Given(/^GET list service for treatment arm id "([^"]*)", stratum id "([^"]*)" an
   end
 end
 
+Then(/^wait until ta assignment report for id "([^"]*)" stratum "([^"]*)" is updated$/) do |ta_id, stratum|
+  @ta_id = ta_id
+  @stratum_id = stratum
+  @request_url = "#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{@ta_id}/#{@stratum_id}/assignment_report"
+  @response = Helper_Methods.wait_until_updated(@request_url, 45)
+end
+
 Given(/^GET assignment report service for treatment arm id "([^"]*)" and stratum id "([^"]*)"$/) do |ta_id, stratum_id|
   @ta_id = ta_id
   @stratum_id = stratum_id
@@ -207,12 +214,19 @@ Then (/^the returned treatment arm has "(.+?)" as the version$/) do |version|
   expect(JSON.parse(@response['message']).first['version']).to eql(version)
 end
 
-Then(/^returned treatment arm assignment report should have patient "([^"]*)" in patients list$/) do |patient_id|
-  message_hash = JSON.parse(@response['message'])
-  expect(message_hash.keys).to include 'patients_list'
-  expect(message_hash['patients_list'].class).to eq Array
-  all_patient_id = message_hash['patients_list'].collect {|this_patient| this_patient['patient_id']}
-  expect(all_patient_id).to include patient_id
+Then(/^returned ta assignment report should have patient "([^"]*)" with following values$/) do |patient_id, table|
+  expect(@response.keys).to include 'patients_list'
+  expect(@response['patients_list'].class).to eq Array
+  found = false
+  @response['patients_list'].each do |this_pt|
+    if this_pt['patient_id'] == patient_id
+      found = true
+      values = table.rows_hash
+      values.each {|k, v| expect(this_pt[k]).to eq v}
+
+    end
+  end
+  raise "Cannot find patient #{patient_id}" unless found
 end
 
 Then(/^wait for "([^"]*)" seconds$/) do |seconds|
@@ -708,22 +722,21 @@ Given(/^response of treatment arm accrual command should match database$/) do
     next if a['cog_assignment_date'].nil?
     ta = a['selected_treatment_arm']['treatment_arm_id']
     st = a['selected_treatment_arm']['stratum_id']
-    vs = a['selected_treatment_arm']['version']
     selected = db_accrual.select do |t|
-      t["treatment_arm_id"] == ta && t["stratum_id"] == st && t["version"] == vs
+      t["treatment_arm_id"] == ta && t["stratum_id"] == st
     end
     if selected.size < 1
-      new = {"treatment_arm_id" => ta, "stratum_id" => st, "version" => vs, "patient_count" => 1}
+      new = {"treatment_arm_id" => ta, "stratum_id" => st, "patient_count" => 1}
       db_accrual << new
     else
-      selected[0]["patient_count"] += 1
+      selected[0]['patient_count'] += 1
     end
   end
   expect(response.size).to eq db_accrual.size
   actual_hash = {}
   expect_hash = {}
-  response.each {|h| actual_hash["#{h['treatment_arm_id']}_#{h['stratum_id']}_#{h['version']}"] = h['patient_count']}
-  db_accrual.each {|h| expect_hash["#{h['treatment_arm_id']}_#{h['stratum_id']}_#{h['version']}"] = h['patient_count']}
+  response.each {|h| actual_hash["#{h['treatment_arm_id']}_#{h['stratum_id']}"] = h['patient_count']}
+  db_accrual.each {|h| expect_hash["#{h['treatment_arm_id']}_#{h['stratum_id']}"] = h['patient_count']}
   expect(actual_hash.keys.sort).to eq expect_hash.keys.sort
   actual_hash.keys.each do |key|
     expect = "#{key}: #{expect_hash[key]}"
@@ -731,6 +744,80 @@ Given(/^response of treatment arm accrual command should match database$/) do
     expect(actual).to eq expect
   end
 
+end
+
+And(/^record treatment arm statistic numbers$/) do
+  url = "#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms"
+  response = Helper_Methods.simple_get_request(url)['message_json']
+  @recorded_ta_statistics = {}
+  response.each do |this_ta|
+    ta_stratum = "#{this_ta['treatment_arm_id']}_#{this_ta['stratum_id']}"
+    version = this_ta['version']
+    @recorded_ta_statistics[ta_stratum] ||= {}
+    @recorded_ta_statistics[ta_stratum][version] = {}
+    @recorded_ta_statistics[ta_stratum][version]['version_statistics'] = this_ta['version_statistics']
+    @recorded_ta_statistics[ta_stratum][version]['stratum_statistics'] = this_ta['stratum_statistics']
+  end
+end
+
+Then(/^the statistic number changes for treatment arms should be described in this table$/) do |table|
+  url = "#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms"
+  response = Helper_Methods.simple_get_request(url)['message_json']
+  new_ta_statistics = {}
+  response.each do |this_ta|
+    ta_stratum = "#{this_ta['treatment_arm_id']}_#{this_ta['stratum_id']}"
+    version = this_ta['version']
+    new_ta_statistics[ta_stratum] ||= {}
+    new_ta_statistics[ta_stratum][version] = {}
+    new_ta_statistics[ta_stratum][version]['version_statistics'] = this_ta['version_statistics']
+    new_ta_statistics[ta_stratum][version]['stratum_statistics'] = this_ta['stratum_statistics']
+  end
+
+  new_expected_statistics = Marshal.load(Marshal.dump(@recorded_ta_statistics))
+  table.hashes.each do |this_h|
+    ta_stratum = "#{this_h['ta_id']}_#{this_h['stratum']}"
+    next if this_h['ta_id'].empty?
+    stratums = new_expected_statistics.select{|id, _| id == ta_stratum}
+    expect(stratums.size).to be 1
+    stratums[ta_stratum].each do |ver, statistics|
+      value = statistics['stratum_statistics']['current_patients'].to_i
+      statistics['stratum_statistics']['current_patients'] = value + this_h['current_patients'].to_i
+      value = statistics['stratum_statistics']['former_patients'].to_i
+      statistics['stratum_statistics']['former_patients'] = value + this_h['former_patients'].to_i
+      value = statistics['stratum_statistics']['not_enrolled_patients'].to_i
+      statistics['stratum_statistics']['not_enrolled_patients'] = value + this_h['not_enrolled_patients'].to_i
+      value = statistics['stratum_statistics']['pending_patients'].to_i
+      statistics['stratum_statistics']['pending_patients'] = value + this_h['pending_patients'].to_i
+      if ver == this_h['version']
+        value = statistics['version_statistics']['current_patients'].to_i
+        statistics['version_statistics']['current_patients'] = value + this_h['current_patients'].to_i
+        value = statistics['version_statistics']['former_patients'].to_i
+        statistics['version_statistics']['former_patients'] = value + this_h['former_patients'].to_i
+        value = statistics['version_statistics']['not_enrolled_patients'].to_i
+        statistics['version_statistics']['not_enrolled_patients'] = value + this_h['not_enrolled_patients'].to_i
+        value = statistics['version_statistics']['pending_patients'].to_i
+        statistics['version_statistics']['pending_patients'] = value + this_h['pending_patients'].to_i
+      end
+    end
+  end
+
+  expect(new_ta_statistics).to eq new_expected_statistics
+end
+
+Then(/^there is no treatment arm statistic number change$/) do
+  url = "#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms"
+  response = Helper_Methods.simple_get_request(url)['message_json']
+  new_ta_statistics = {}
+  response.each do |this_ta|
+    ta_stratum = "#{this_ta['treatment_arm_id']}_#{this_ta['stratum_id']}"
+    version = this_ta['version']
+    new_ta_statistics[ta_stratum] ||= {}
+    new_ta_statistics[ta_stratum][version] = {}
+    new_ta_statistics[ta_stratum][version]['version_statistics'] = this_ta['version_statistics']
+    new_ta_statistics[ta_stratum][version]['stratum_statistics'] = this_ta['stratum_statistics']
+  end
+
+  expect(new_ta_statistics).to eq @recorded_ta_statistics
 end
 
 def nil_if_null(value)

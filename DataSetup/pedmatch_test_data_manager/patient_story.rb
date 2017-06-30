@@ -203,7 +203,6 @@ class PatientStory
     @active_ts_ani = process_id(@active_ts_ani, analysis_id)
     moi = process_id(@active_ts_moi, molecular_id)
     site = process_id(@active_site, site)
-    Utilities.upload_vr(@active_ts_moi, @active_ts_ani, vr_type)
     this_story = "aliquot:<patient_id>=>#{@patient_id}&<ion_reporter_id>=>#{folder}&<vr_type>=>#{vr_type}"
     this_story += "&<analysis_id>=>#{@active_ts_ani}&<molecular_id>=>#{moi}&<site>=>#{site}"
     @story_hash << this_story
@@ -222,7 +221,6 @@ class PatientStory
     @active_bd_ani = process_id(@active_bd_ani, analysis_id)
     moi = process_id(@active_bd_moi, molecular_id)
     site = process_id(@active_site, site)
-    Utilities.upload_vr(@active_bd_moi, @active_bd_ani, vr_type)
     this_story = "aliquot:<patient_id>=>#{@patient_id}&<ion_reporter_id>=>#{folder}&<vr_type>=>#{vr_type}"
     this_story += "&<analysis_id>=>#{@active_bd_ani}&<molecular_id>=>#{moi}&<site>=>#{site}"
     @story_hash << this_story

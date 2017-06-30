@@ -497,7 +497,7 @@
                 "S": "EZH2"
             }, 
             "treatment_arm_id": {
-                "S": "APEC1621C1"
+                "S": "APEC1621SCC1"
             }, 
             "gene_fusions": {
                 "L": []
@@ -3038,7 +3038,7 @@
                 "S": "FGFR"
             }, 
             "treatment_arm_id": {
-                "S": "APEC1621B1"
+                "S": "APEC1621SCB1"
             }, 
             "gene_fusions": {
                 "L": [
@@ -6013,7 +6013,7 @@
                 "S": "ALK"
             }, 
             "treatment_arm_id": {
-                "S": "APEC1621F1"
+                "S": "APEC1621SCF1"
             }, 
             "gene_fusions": {
                 "L": [
@@ -10332,7 +10332,7 @@
                 "S": "ALK"
             }, 
             "treatment_arm_id": {
-                "S": "APEC1621F2"
+                "S": "APEC1621SCF2"
             }, 
             "gene_fusions": {
                 "L": []
@@ -10739,7 +10739,7 @@
                 "S": "BRAF"
             }, 
             "treatment_arm_id": {
-                "S": "APEC1621G1"
+                "S": "APEC1621SCG1"
             }, 
             "gene_fusions": {
                 "L": []
@@ -10863,7 +10863,7 @@
                 "S": "NTRK"
             }, 
             "treatment_arm_id": {
-                "S": "APEC1621A1"
+                "S": "APEC1621SCA1"
             }, 
             "gene_fusions": {
                 "L": [
@@ -30306,7 +30306,7 @@
                 "S": "PI3K"
             }, 
             "treatment_arm_id": {
-                "S": "APEC1621D2"
+                "S": "APEC1621SCD2"
             }, 
             "gene_fusions": {
                 "L": [
@@ -46382,7 +46382,7 @@
                 "S": "TSC"
             }, 
             "treatment_arm_id": {
-                "S": "APEC1621D1"
+                "S": "APEC1621SCD1"
             }, 
             "gene_fusions": {
                 "L": [
@@ -55659,7 +55659,7 @@
                 "S": "MAP2K1"
             }, 
             "treatment_arm_id": {
-                "S": "APEC1621E1"
+                "S": "APEC1621SCE1"
             }, 
             "gene_fusions": {
                 "L": [
@@ -59664,7 +59664,7 @@
                 "S": "BRCA"
             }, 
             "treatment_arm_id": {
-                "S": "APEC1621H1"
+                "S": "APEC1621SCH1"
             }, 
             "gene_fusions": {
                 "L": []

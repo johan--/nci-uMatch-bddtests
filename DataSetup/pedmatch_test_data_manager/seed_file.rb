@@ -1,10 +1,19 @@
 require_relative 'table_info'
 require_relative 'logger'
+require 'fileutils'
 require 'json'
 
 class SeedFile
   SEED_DATA_FOLDER = "#{File.dirname(__FILE__)}/../seed_data_for_upload"
 
+  def self.create_tag_if_not_exist(tag)
+    if Dir.exist?("#{SEED_DATA_FOLDER}/#{tag}")
+      puts "Tag exists #{tag}, skip"
+      return
+    end
+    FileUtils.makedirs("#{SEED_DATA_FOLDER}/#{tag}")
+    FileUtils.cp_r("#{SEED_DATA_FOLDER}/patients/.", "#{SEED_DATA_FOLDER}/#{tag}")
+  end
 
   def self.all_items(table, tag)
     file = seed_file(table, tag)

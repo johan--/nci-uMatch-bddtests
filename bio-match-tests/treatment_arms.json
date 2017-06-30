@@ -1,7 +1,7 @@
 [
   {
-    "treatment_arm_id": "APEC1621H",
-    "treatment_arm_title": "APEC1621H (1)",
+    "treatment_arm_id": "APEC1621SCH",
+    "treatment_arm_title": "APEC1621SCH (1)",
     "name": "Phase 2 study of Olaparib in patients with tumors harboring targetable alterations in BRCA1, BRCA2, ATM, RAD51C or RAD51D",
     "active": true,
     "date_created": "2017-04-21T15:34:43+00:00",
@@ -134,8 +134,8 @@
     }
   },
   {
-    "treatment_arm_id": "APEC1621G",
-    "treatment_arm_title": "APEC1621G (1)",
+    "treatment_arm_id": "APEC1621SCG",
+    "treatment_arm_title": "APEC1621SCG (1)",
     "name": "Phase 2 study of Vemurafinib in patients with tumors harboring BRAF V600* mutations",
     "active": true,
     "date_created": "2017-04-21T15:34:43+00:00",
@@ -317,8 +317,8 @@
     }
   },
   {
-    "treatment_arm_id": "APEC1621F2",
-    "treatment_arm_title": "APEC1621F2 (1)",
+    "treatment_arm_id": "APEC1621SCF2",
+    "treatment_arm_title": "APEC1621SCF2 (1)",
     "name": "Phase 2 study of Ensartinib (X-396) in patients harboring ALK mutations",
     "active": true,
     "date_created": "2017-04-21T15:34:42+00:00",
@@ -381,8 +381,8 @@
     }
   },
   {
-    "treatment_arm_id": "APEC1621F1",
-    "treatment_arm_title": "APEC1621F1 (1)",
+    "treatment_arm_id": "APEC1621SCF1",
+    "treatment_arm_title": "APEC1621SCF1 (1)",
     "name": "Phase 2 study of Ensartinib (X-396) in patients harboring ALK or ROS1 Fusions",
     "active": true,
     "date_created": "2017-04-21T15:34:42+00:00",
@@ -2212,8 +2212,8 @@
     }
   },
   {
-    "treatment_arm_id": "APEC1621E",
-    "treatment_arm_title": "APEC1621E (1)",
+    "treatment_arm_id": "APEC1621SCE",
+    "treatment_arm_title": "APEC1621SCE (1)",
     "name": "Phase 2 study of Selumetinib in patients with tumors harboring MAPK activating mutations",
     "active": true,
     "date_created": "2017-04-21T15:34:41+00:00",
@@ -5929,8 +5929,8 @@
     }
   },
   {
-    "treatment_arm_id": "APEC1621D1",
-    "treatment_arm_title": "APEC1621D1 (1)",
+    "treatment_arm_id": "APEC1621SCD1",
+    "treatment_arm_title": "APEC1621SCD1 (1)",
     "name": "Phase 2 study of LY3023414 in TSC1/TSC2 mutation",
     "active": true,
     "date_created": "2017-04-21T15:34:40+00:00",
@@ -12241,8 +12241,8 @@
     }
   },
   {
-    "treatment_arm_id": "APEC1621D2",
-    "treatment_arm_title": "APEC1621D2 (1)",
+    "treatment_arm_id": "APEC1621SCD2",
+    "treatment_arm_title": "APEC1621SCD2 (1)",
     "name": "Phase 2 study of LY3023414 in PTEN, PIK3CA or mTOR mutation or PTEN loss",
     "active": true,
     "date_created": "2017-04-21T15:34:40+00:00",
@@ -20368,8 +20368,8 @@
     }
   },
   {
-    "treatment_arm_id": "APEC1621C",
-    "treatment_arm_title": "APEC1621C (1)",
+    "treatment_arm_id": "APEC1621SCC",
+    "treatment_arm_title": "APEC1621SCC (1)",
     "name": "Phase 2 study of Tazemetostat in patients with tumors harboring EZH2 alterations",
     "active": true,
     "date_created": "2017-04-21T15:34:39+00:00",
@@ -20593,8 +20593,8 @@
     }
   },
   {
-    "treatment_arm_id": "APEC1621B",
-    "treatment_arm_title": "APEC1621B (1)",
+    "treatment_arm_id": "APEC1621SCB",
+    "treatment_arm_title": "APEC1621SCB (1)",
     "name": "Phase 2 study of Erdafitinib (JNJ42756493) in patients with tumors harboring FGFR alterations",
     "active": true,
     "date_created": "2017-04-21T15:34:39+00:00",
@@ -22797,8 +22797,8 @@
     }
   },
   {
-    "treatment_arm_id": "APEC1621A",
-    "treatment_arm_title": "APEC1621A (1)",
+    "treatment_arm_id": "APEC1621SCA",
+    "treatment_arm_title": "APEC1621SCA (1)",
     "name": "Phase 2 study of LOXO-101 in patients with tumors with NTRK fusions.",
     "active": true,
     "date_created": "2017-04-21T15:34:38+00:00",

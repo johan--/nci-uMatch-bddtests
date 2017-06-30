@@ -223,7 +223,9 @@
     ]
   },
   "aliquot": {
-    "before": [],
+    "before": [
+      "upload_vr_file:<molecular_id>/<analysis_id>/<vr_type>"
+    ],
     "url": "<ir_api_url>/aliquot/<molecular_id>",
     "http_method": "put",
     "payload": {

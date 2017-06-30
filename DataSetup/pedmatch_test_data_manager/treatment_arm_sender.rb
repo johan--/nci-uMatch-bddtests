@@ -41,7 +41,9 @@ class TreatmentArmSender
   def self.send_all
     ALL_TA_DATA.each { |ta|
       send_by_hash(ta)
+      sleep 1.0
     }
+    sleep 10.0
   end
 
   def self.all_treatment_arms
