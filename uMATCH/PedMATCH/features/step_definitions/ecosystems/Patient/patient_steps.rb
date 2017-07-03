@@ -834,19 +834,19 @@ And(/^patient statistics field "([^"]*)" should have correct value$/) do |field|
       #   end
       # end
       # expect(@get_response['treatment_arm_accrual']).to eql db_accrual
-    patients = Helper_Methods.dynamodb_table_items('patient', {current_status: 'ON_TREATMENT_ARM'})
-    patients.each { |this_patient|
-      ta = this_patient['current_assignment']['selected_treatment_arm']['treatment_arm_id']
-      st = this_patient['current_assignment']['selected_treatment_arm']['stratum_id']
-      vs = this_patient['current_assignment']['selected_treatment_arm']['version']
-      tt = "#{ta} (#{st}, #{vs})"
-      if db_accrual.keys.include?(tt)
-        db_accrual[tt]['patients'] += 1
-      else
-        db_accrual[tt] = {'name' => ta, 'stratum_id' => st, 'patients' => 1}
-      end
-    }
-    expect(@get_response['treatment_arm_accrual']).to eql db_accrual
+      patients = Helper_Methods.dynamodb_table_items('patient', {current_status: 'ON_TREATMENT_ARM'})
+      patients.each {|this_patient|
+        ta = this_patient['current_assignment']['selected_treatment_arm']['treatment_arm_id']
+        st = this_patient['current_assignment']['selected_treatment_arm']['stratum_id']
+        vs = this_patient['current_assignment']['selected_treatment_arm']['version']
+        tt = "#{ta} (#{st}, #{vs})"
+        if db_accrual.keys.include?(tt)
+          db_accrual[tt]['patients'] += 1
+        else
+          db_accrual[tt] = {'name' => ta, 'stratum_id' => st, 'patients' => 1}
+        end
+      }
+      expect(@get_response['treatment_arm_accrual']).to eql db_accrual
     else
   end
 end
@@ -1555,10 +1555,12 @@ When(/^PATCH to MATCH account password change service, response includes "([^"]*
   response = Helper_Methods.patch_request(url, payload.to_json.to_s, "PWD_#{@current_auth0_role}")
   expect(response['message']).to include msg
   expect(response['http_code'].to_s).to eq code
-  File.open('./DONT_DELETE_BDD_DATA.txt', 'w') {|f| f.write(JSON.pretty_generate(@password_prefixes))}
-  Helper_Methods.s3_upload_file('./DONT_DELETE_BDD_DATA.txt', ENV['s3_bucket'], 'DONT_DELETE_BDD_DATA.txt')
-  cmd = 'rm ./DONT_DELETE_BDD_DATA.txt'
-  `#{cmd}`
+  if (code.to_i < 203)
+    File.open('./DONT_DELETE_BDD_DATA.txt', 'w') {|f| f.write(JSON.pretty_generate(@password_prefixes))}
+    Helper_Methods.s3_upload_file('./DONT_DELETE_BDD_DATA.txt', ENV['s3_bucket'], 'DONT_DELETE_BDD_DATA.txt')
+    cmd = 'rm ./DONT_DELETE_BDD_DATA.txt'
+    `#{cmd}`
+  end
 end
 
 Then(/^apply auth0 token using "(old|new)" password, response includes "([^"]*)" with code "([^"]*)"$/) do |old_new, msg, code|
