@@ -43,6 +43,9 @@ var CliaPage = function () {
     this.sampleDetailTotVariant = element(by.binding('data.total_variants'));
     this.sampleDetailMAPD       = element(by.binding('data.mapd'));
     this.sampleDetailCell       = element(by.binding('data.cellularity'));
+    this.dateReceived           = element(by.binding('data.date_variant_received'));
+    this.pool1Sum               = element(by.binding('oncomine_control_panel_summary.pool1Sum'));
+    this.pool2Sum               = element(by.binding('oncomine_control_panel_summary.pool2Sum'));
 
     this.confirmChangeCommentField     = element(by.css('input[name="comment"]'));  // This is the confirmation modal for individual rejection
     this.confirmVRStatusCommentField   = element(by.css('input[id="cgPromptInput"]')); // THis is the confirmation modal for the complete VR rejection

@@ -29,6 +29,12 @@ Feature: CLIA Labs Page
     And I verify that valid IDs are links and invalid IDs are not in "False Positive Variants" table
     And I verify that all Genes have a valid link in the "False Positive Variants" table
 
+  @ui_p1 @test
+  Scenario: User can see the pool1 and pool2 value in QC Report
+    Given I stay logged in as "VR_Sender_mocha" user
+    When I navigate to sample control "NTC_MDA_NUWQS" of type "No Template Control" under "MD Anderson"
+    And I collect information about the sample variant report from aliquot
+    And I verify all the values on the right hand side section under No Template Control
   @ui_p1
   Scenario Outline: User can access information about the uploaded QC report.
     Given I stay logged in as "VR_Sender_mocha" user

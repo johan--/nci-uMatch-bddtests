@@ -319,6 +319,16 @@ module.exports = function() {
     });
 
 
+    this.Then(/^I verify all the values on the right hand side section under No Template Control$/, function (callback) {
+        var date = utilities.returnFormattedDate(cliaPage.responseData['date_variant_received']);
+        expect(cliaPage.sampleDetailCell.getText()).to.eventually.include(cliaPage.responseData['cellularity']);
+        expect(cliaPage.sampleDetailMAPD.getText()).to.eventually.include(cliaPage.responseData['mapd']);
+        expect(cliaPage.dateReceived.getText()).to.eventually.eql(date + ' GMT');
+        expect(cliaPage.pool1Sum.getText()).to.eventually.eql(cliaPage.responseData['oncomine_control_panel_summary']['pool1Sum'].toString());
+        expect(cliaPage.pool2Sum.getText()).to.eventually.eql(cliaPage.responseData['oncomine_control_panel_summary']['pool2Sum'].toString());
+        expect(cliaPage.sampleDetailTotVariant.getText()).to.eventually.eql(cliaPage.responseData['total_variants'].toString()).notify(callback);
+    });
+
     this.Then(/^I verify all the values on the right hand side section under "(No Template Control|Proficiency And Competency)"$/, function (headerType, callback) {
         expect(cliaPage.sampleDetailCell.getText()).to.eventually.include(cliaPage.responseData['cellularity']);
         expect(cliaPage.sampleDetailMAPD.getText()).to.eventually.include(cliaPage.responseData['mapd']);
