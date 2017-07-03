@@ -48,6 +48,7 @@ list << 'TA_AS01_TsVrReceivedV2Step2'
 # PedMatchTestData.load_seed_patients(list, 'treatment_arm')
 #
 PedMatchDatabase.reload_local('treatment_arm')
+# SeedFile.copy_patients_between_tags(['TA_AS40_TsVrReceived'], 'patients', 'treatment_arm')
 #
 # h = JSON.parse(File.read('/Users/wangl17/match_apps/nci-uMatch-bddtests/DataSetup/local_treatment_arm_data/a.json'))
 # v = h.collect {|a| "#{a['date_created']}"}
@@ -87,3 +88,4 @@ PedMatchDatabase.reload_local('treatment_arm')
 # pt_list << 'PT_SC07c_PendingApproval'
 
 # SeedFile.copy_patients_between_tags(pt_list.uniq, 'patients', 'treatment_arm')
+

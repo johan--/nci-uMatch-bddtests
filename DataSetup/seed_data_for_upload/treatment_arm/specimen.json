@@ -1,6 +1,6 @@
 {
   "ConsumedCapacity": null,
-  "ScannedCount": 93,
+  "ScannedCount": 94,
   "Items": [
     {
       "surgical_event_id": {
@@ -7194,7 +7194,100 @@
       "received_date": {
         "S": "2017-06-21T02:38:23+00:00"
       }
+    },
+    {
+      "specimen_type": {
+        "S": "TISSUE"
+      },
+      "collected_date": {
+        "S": "2017-06-05T00:00:00+00:00"
+      },
+      "pathology_status": {
+        "S": "Y"
+      },
+      "surgical_event_id": {
+        "S": "TA_AS40_TsVrReceived_SEI1"
+      },
+      "pathology_status_date": {
+        "S": "2017-06-06T03:54:42+00:00"
+      },
+      "active_molecular_id": {
+        "S": "TA_AS40_TsVrReceived_MOI1"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "sorting_key": {
+        "S": "2017-06-06T03:54:42.109"
+      },
+      "patient_id": {
+        "S": "TA_AS40_TsVrReceived"
+      },
+      "assays": {
+        "L": [
+          {
+            "M": {
+              "active": {
+                "BOOL": true
+              },
+              "result_date": {
+                "S": "2017-06-05T23:54:50-04:00"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBRG1s"
+              }
+            }
+          },
+          {
+            "M": {
+              "active": {
+                "BOOL": true
+              },
+              "result_date": {
+                "S": "2017-06-05T23:54:49-04:00"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCBAF47s"
+              }
+            }
+          },
+          {
+            "M": {
+              "active": {
+                "BOOL": true
+              },
+              "result_date": {
+                "S": "2017-06-05T23:54:46-04:00"
+              },
+              "result": {
+                "S": "NEGATIVE"
+              },
+              "case_number": {
+                "S": "case-1234"
+              },
+              "biomarker": {
+                "S": "ICCPTENs"
+              }
+            }
+          }
+        ]
+      },
+      "received_date": {
+        "S": "2017-06-06T03:54:41+00:00"
+      }
     }
   ],
-  "Count": 93
+  "Count": 94
 }

@@ -19402,9 +19402,82 @@
           }
         ]
       }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-06T03:55:05+00:00"
+      },
+      "molecular_id": {
+        "S": "TA_AS40_TsVrReceived_MOI1"
+      },
+      "analysis_id": {
+        "S": "TA_AS40_TsVrReceived_ANI1"
+      },
+      "read_depth": {
+        "N": "1070"
+      },
+      "identifier": {
+        "S": "SUSPENDED.ID"
+      },
+      "surgical_event_id": {
+        "S": "TA_AS40_TsVrReceived_SEI1"
+      },
+      "partner_read_count": {
+        "N": "1070"
+      },
+      "annotation": {
+        "S": "-"
+      },
+      "partner_gene": {
+        "S": "RET"
+      },
+      "patient_id": {
+        "S": "TA_AS40_TsVrReceived"
+      },
+      "variant_type": {
+        "S": "fusion"
+      },
+      "filter": {
+        "S": "PASS"
+      },
+      "driver_read_count": {
+        "N": "1070"
+      },
+      "driver_gene": {
+        "S": "RET"
+      },
+      "confirmed": {
+        "BOOL": true
+      },
+      "uuid": {
+        "S": "cb19d643-ecdf-4bb3-bb05-c322b196d860"
+      },
+      "amois": {
+        "L": [
+          {
+            "M": {
+              "amoi_status": {
+                "S": "PRIOR"
+              },
+              "treatment_arm_id": {
+                "S": "CukeTest-122-1-SUSPENDED"
+              },
+              "stratum_id": {
+                "S": "stratum122a"
+              },
+              "version": {
+                "S": "2015-08-06"
+              },
+              "exclusion": {
+                "BOOL": false
+              }
+            }
+          }
+        ]
+      }
     }
   ],
-  "ScannedCount": 212,
+  "ScannedCount": 213,
   "ConsumedCapacity": null,
-  "Count": 212
+  "Count": 213
 }

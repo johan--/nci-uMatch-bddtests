@@ -1,5 +1,5 @@
 {
-  "Count": 83,
+  "Count": 84,
   "Items": [
     {
       "dna_bai_name": {
@@ -26970,8 +26970,118 @@
       "comment_user": {
         "S": "QA"
       }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-06T03:55:05+00:00"
+      },
+      "molecular_id": {
+        "S": "TA_AS40_TsVrReceived_MOI1"
+      },
+      "total_confirmed_mois": {
+        "N": "1"
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "surgical_event_id": {
+        "S": "TA_AS40_TsVrReceived_SEI1"
+      },
+      "total_mois": {
+        "N": "1"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_amois": {
+        "N": "1"
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "vcf_file_name": {
+        "S": "test1.vcf"
+      },
+      "analysis_id": {
+        "S": "TA_AS40_TsVrReceived_ANI1"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "variant_report_received_date": {
+        "S": "2017-06-06T03:55:05+00:00"
+      },
+      "oncomine_control_panel_summary": {
+        "M": {
+          "myc": {
+            "N": "0.0"
+          },
+          "ecPool": {
+            "M": {
+            }
+          },
+          "gePool": {
+            "M": {
+            }
+          },
+          "lrp1": {
+            "N": "0.0"
+          },
+          "pool2Sum": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "fPool": {
+            "M": {
+            }
+          },
+          "pool1Sum": {
+            "N": "0.0"
+          }
+        }
+      },
+      "status": {
+        "S": "PENDING"
+      },
+      "total_amois": {
+        "N": "1"
+      },
+      "mappedFusionPanelReads": {
+        "N": "849327"
+      },
+      "patient_id": {
+        "S": "TA_AS40_TsVrReceived"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      }
     }
   ],
   "ConsumedCapacity": null,
-  "ScannedCount": 83
+  "ScannedCount": 84
 }

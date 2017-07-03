@@ -1,5 +1,5 @@
 {
-  "ScannedCount": 1118,
+  "ScannedCount": 1126,
   "Items": [
     {
       "event_type": {
@@ -43294,8 +43294,284 @@
       "event_date": {
         "S": "2017-06-21T02:41:38.059"
       }
+    },
+    {
+      "event_message": {
+        "S": "REGISTRATION message received from COG for patient TA_AS40_TsVrReceived."
+      },
+      "event_data": {
+        "M": {
+          "patient_status": {
+            "S": "REGISTRATION"
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "patient"
+      },
+      "entity_id": {
+        "S": "TA_AS40_TsVrReceived"
+      },
+      "event_date": {
+        "S": "2017-06-06T03:54:41.071"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Specimen of type TISSUE received at NCH."
+      },
+      "event_data": {
+        "M": {
+          "type": {
+            "S": "TISSUE"
+          },
+          "patient_id": {
+            "S": "TA_AS40_TsVrReceived"
+          },
+          "study_id": {
+            "S": "APEC1621SC"
+          },
+          "surgical_event_id": {
+            "S": "TA_AS40_TsVrReceived_SEI1"
+          },
+          "collection_dt": {
+            "S": "2017-06-05"
+          },
+          "received_dttm": {
+            "S": "2017-06-05T23:54:41-04:00"
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "specimen"
+      },
+      "entity_id": {
+        "S": "TA_AS40_TsVrReceived"
+      },
+      "event_date": {
+        "S": "2017-06-06T03:54:42.124"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+      },
+      "event_data": {
+        "M": {
+          "molecular_dna_id": {
+            "NULL": true
+          },
+          "tracking_number": {
+            "S": "7956 4568 1235"
+          },
+          "molecular_id": {
+            "S": "TA_AS40_TsVrReceived_MOI1"
+          },
+          "type": {
+            "S": "TISSUE_DNA_AND_CDNA"
+          },
+          "destination": {
+            "S": "MDA"
+          },
+          "surgical_event_id": {
+            "S": "TA_AS40_TsVrReceived_SEI1"
+          },
+          "carrier": {
+            "S": "Federal Express"
+          },
+          "molecular_cdna_id": {
+            "NULL": true
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "specimen"
+      },
+      "entity_id": {
+        "S": "TA_AS40_TsVrReceived"
+      },
+      "event_date": {
+        "S": "2017-06-06T03:54:43.171"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Specimen Shipment of type SLIDE shipped from NCH."
+      },
+      "event_data": {
+        "M": {
+          "type": {
+            "S": "SLIDE"
+          },
+          "tracking_number": {
+            "S": "7956 4568 1235"
+          },
+          "destination": {
+            "S": "MDA"
+          },
+          "surgical_event_id": {
+            "S": "TA_AS40_TsVrReceived_SEI1"
+          },
+          "carrier": {
+            "S": "Federal Express"
+          },
+          "slide_barcode": {
+            "S": "TA_AS40_TsVrReceived_BC1"
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "specimen"
+      },
+      "entity_id": {
+        "S": "TA_AS40_TsVrReceived"
+      },
+      "event_date": {
+        "S": "2017-06-06T03:54:46.336"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Assay result for ICCPTENs received from MDA."
+      },
+      "event_data": {
+        "M": {
+          "assay_result": {
+            "S": "NEGATIVE"
+          },
+          "biomarker": {
+            "S": "IHC PTEN"
+          },
+          "surgical_event_id": {
+            "NULL": true
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "assay"
+      },
+      "entity_id": {
+        "S": "TA_AS40_TsVrReceived"
+      },
+      "event_date": {
+        "S": "2017-06-06T03:54:49.466"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Assay result for ICCBAF47s received from MDA."
+      },
+      "event_data": {
+        "M": {
+          "assay_result": {
+            "S": "NEGATIVE"
+          },
+          "biomarker": {
+            "S": "IHC BAF47"
+          },
+          "surgical_event_id": {
+            "NULL": true
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "assay"
+      },
+      "entity_id": {
+        "S": "TA_AS40_TsVrReceived"
+      },
+      "event_date": {
+        "S": "2017-06-06T03:54:50.489"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Assay result for ICCBRG1s received from MDA."
+      },
+      "event_data": {
+        "M": {
+          "assay_result": {
+            "S": "NEGATIVE"
+          },
+          "biomarker": {
+            "S": "IHC BRG1"
+          },
+          "surgical_event_id": {
+            "NULL": true
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "assay"
+      },
+      "entity_id": {
+        "S": "TA_AS40_TsVrReceived"
+      },
+      "event_date": {
+        "S": "2017-06-06T03:54:53.624"
+      }
+    },
+    {
+      "event_message": {
+        "S": "TISSUE Variant Report generated."
+      },
+      "event_data": {
+        "M": {
+          "clia_lab": {
+            "S": "MDA"
+          },
+          "molecular_id": {
+            "S": "TA_AS40_TsVrReceived_MOI1"
+          },
+          "analysis_id": {
+            "S": "TA_AS40_TsVrReceived_ANI1"
+          },
+          "specimen_received_date": {
+            "NULL": true
+          },
+          "variant_report_status": {
+            "S": "PENDING"
+          },
+          "variant_report_type": {
+            "S": "TISSUE"
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "variant_report"
+      },
+      "entity_id": {
+        "S": "TA_AS40_TsVrReceived"
+      },
+      "event_date": {
+        "S": "2017-06-06T03:55:05.053"
+      }
     }
   ],
   "ConsumedCapacity": null,
-  "Count": 1118
+  "Count": 1126
 }
