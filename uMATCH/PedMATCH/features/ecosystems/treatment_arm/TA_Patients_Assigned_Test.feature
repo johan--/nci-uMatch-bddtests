@@ -3,16 +3,16 @@ Feature: TA_AS. Treatment Arm API Tests that focus on assignment records
   @treatment_arm_p1
   Scenario Outline: TA_AS01. treatment arm assignment data update properly (confirm variant report)
     Given patient id is "<patient_id>"
-#    And record treatment arm statistic numbers
-#    Then load template variant report confirm message for analysis id: "<patient_id>_<ani>"
-#    When PUT to MATCH variant report "confirm" service, response includes "success" with code "200"
-#    Then wait until ta assignment report for id "APEC1621-M" stratum "100" is updated
+    And record treatment arm statistic numbers
+    Then load template variant report confirm message for analysis id: "<patient_id>_<ani>"
+    When PUT to MATCH variant report "confirm" service, response includes "success" with code "200"
+    Then wait until ta assignment report for id "APEC1621-M" stratum "100" is updated
     Then following ta assignment reports for patient "<patient_id>" should be found
       | ta_id      | stratum | version    | patient_status |
       | APEC1621-M | 100     | v_2        | <status_m>     |
       | APEC1621-A | 100     | 2015-08-06 | <status_a>     |
-#    Then there is no treatment arm statistic number change
-#    Then response of treatment arm accrual command should match database
+    Then there is no treatment arm statistic number change
+    Then response of treatment arm accrual command should match database
     Examples:
       | patient_id                  | ani  | status_m             | status_a          |
       | TA_AS01_TsVrReceivedV1      | ANI1 | PENDING_CONFIRMATION |                   |

@@ -49,7 +49,7 @@ Feature: TA_CF. Treatment Arm API common tests for all fields
 	"name":"Afatinib",
 	"target_id":1234,
 	"target_name":"HGFR Pathway",
-    "date_created": "2017-06-10 15:57:25 UTC",
+    "date_created": "current",
 	"treatment_arm_drugs":[{"drugClass":"angiokinase inhibitor","description":"Afatinib","name":"Afatinib","drugId":"1"}],
 	"gene_fusions":[],
 	"non_hotspot_rules":[],

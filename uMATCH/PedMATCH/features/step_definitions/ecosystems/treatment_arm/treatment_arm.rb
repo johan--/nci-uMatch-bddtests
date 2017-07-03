@@ -60,6 +60,7 @@ Given(/^that treatment arm is received from COG:$/) do |taJson|
   @ta_id = request['treatment_arm_id']
   @stratum_id = request['stratum_id']
   @version = request['version']
+  request['date_created'] = Helper_Methods.getDateAsRequired(request['date_created'])
   @jsonString = request.to_json
 end
 
