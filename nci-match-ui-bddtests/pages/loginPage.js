@@ -62,7 +62,7 @@ var LoginPage = function() {
                                 return browser.get('/#/dashboard', 1000);
                             } else {
                                 // console.log("Different User Logging out")
-                                return logoutLink.click().then(function(){
+                                return element(by.css('a[ng-click="logout()"]')).click().then(function(){
                                     return browser.get('/#/auth/login', 1000).then(function() {
                                         return clickAccessAndLogin(username, password)
                                     });
