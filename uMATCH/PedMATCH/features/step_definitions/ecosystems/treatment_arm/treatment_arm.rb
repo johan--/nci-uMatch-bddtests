@@ -214,19 +214,29 @@ Then (/^the returned treatment arm has "(.+?)" as the version$/) do |version|
   expect(JSON.parse(@response['message']).first['version']).to eql(version)
 end
 
-Then(/^returned ta assignment report should have patient "([^"]*)" with following values$/) do |patient_id, table|
-  expect(@response.keys).to include 'patients_list'
-  expect(@response['patients_list'].class).to eq Array
-  found = false
-  @response['patients_list'].each do |this_pt|
-    if this_pt['patient_id'] == patient_id
-      found = true
-      values = table.rows_hash
-      values.each {|k, v| expect(this_pt[k]).to eq v}
-
+Then(/^following ta assignment reports for patient "([^"]*)" should be found$/) do |patient_id, table|
+  table.hashes.each do |param|
+    url = "#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{param['ta_id']}/#{param['stratum']}/assignment_report"
+    response = Helper_Methods.simple_get_request(url)['message_json']
+    expect(response.keys).to include 'patients_list'
+    expect(response['patients_list'].class).to eq Array
+    found = false
+    selected = response['patients_list'].select{|this_pt| this_pt['patient_id'] == patient_id}
+    if param['patient_status'].present?
+      selected.each do |this_pt|
+        if this_pt['patient_id'] == patient_id
+          found = true
+          expect(this_pt['version']).to eq param['version']
+          expect(this_pt['patient_status']).to eq param['patient_status']
+        end
+      end
+      raise "Cannot find patient #{patient_id}" unless found
+    else
+      error =  "#{patient_id} should not exist in assignment report for"
+      error += "#{param['ta_id']}/#{param['stratum']}/#{param['version']}"
+      raise error if selected.size > 0
     end
   end
-  raise "Cannot find patient #{patient_id}" unless found
 end
 
 Then(/^wait for "([^"]*)" seconds$/) do |seconds|

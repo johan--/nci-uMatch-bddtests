@@ -143,6 +143,10 @@
     "registration:<patient_id>=>TA_AS01_TsVrReceivedV2&<status_date>=>current",
     "specimen_received_TISSUE:<patient_id>=>TA_AS01_TsVrReceivedV2&<surgical_event_id>=>TA_AS01_TsVrReceivedV2_SEI1&<collection_dt>=>today&<received_dttm>=>current",
     "specimen_shipped_TISSUE:<patient_id>=>TA_AS01_TsVrReceivedV2&<surgical_event_id>=>TA_AS01_TsVrReceivedV2_SEI1&<molecular_id>=>TA_AS01_TsVrReceivedV2_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
+    "specimen_shipped_SLIDE:<patient_id>=>TA_AS01_TsVrReceivedV2&<surgical_event_id>=>TA_AS01_TsVrReceivedV2_SEI1&<slide_barcode>=>TA_AS01_TsVrReceivedV2_BC1&<shipped_dttm>=>current",
+    "assay_result_reported:<patient_id>=>TA_AS01_TsVrReceivedV2&<surgical_event_id>=>TA_AS01_TsVrReceivedV2_SEI1&<biomarker>=>ICCPTENs&<result>=>POSITIVE&<reported_date>=>current",
+    "assay_result_reported:<patient_id>=>TA_AS01_TsVrReceivedV2&<surgical_event_id>=>TA_AS01_TsVrReceivedV2_SEI1&<biomarker>=>ICCBAF47s&<result>=>POSITIVE&<reported_date>=>current",
+    "assay_result_reported:<patient_id>=>TA_AS01_TsVrReceivedV2&<surgical_event_id>=>TA_AS01_TsVrReceivedV2_SEI1&<biomarker>=>ICCBRG1s&<result>=>POSITIVE&<reported_date>=>current",
     "aliquot:<patient_id>=>TA_AS01_TsVrReceivedV2&<ion_reporter_id>=>bdd_test_ion_reporter&<vr_type>=>APEC1621-M&<analysis_id>=>TA_AS01_TsVrReceivedV2_ANI1&<molecular_id>=>TA_AS01_TsVrReceivedV2_MOI1&<site>=>MDA",
     "variant_dna_file_uploaded:<patient_id>=>TA_AS01_TsVrReceivedV2&<dna_bam_name>=>dna.bam&<analysis_id>=>TA_AS01_TsVrReceivedV2_ANI1&<molecular_id>=>TA_AS01_TsVrReceivedV2_MOI1&<comment_user>=>qa",
     "variant_cdna_file_uploaded:<patient_id>=>TA_AS01_TsVrReceivedV2&<cdna_bam_name>=>cdna.bam&<analysis_id>=>TA_AS01_TsVrReceivedV2_ANI1&<molecular_id>=>TA_AS01_TsVrReceivedV2_MOI1&<comment_user>=>qa"
@@ -164,6 +168,10 @@
     "request_assignment:<patient_id>=>TA_AS01_TsVrReceivedV2Step2&<step_number>=>2.0&<status_date>=>current&<status>=>REQUEST_ASSIGNMENT&<rebiopsy>=>Y",
     "specimen_received_TISSUE:<patient_id>=>TA_AS01_TsVrReceivedV2Step2&<surgical_event_id>=>TA_AS01_TsVrReceivedV2Step2_SEI2&<collection_dt>=>today&<received_dttm>=>current",
     "specimen_shipped_TISSUE:<patient_id>=>TA_AS01_TsVrReceivedV2Step2&<surgical_event_id>=>TA_AS01_TsVrReceivedV2Step2_SEI2&<molecular_id>=>TA_AS01_TsVrReceivedV2Step2_MOI2&<shipped_dttm>=>current&<destination>=>MDA",
+    "specimen_shipped_SLIDE:<patient_id>=>TA_AS01_TsVrReceivedV2Step2&<surgical_event_id>=>TA_AS01_TsVrReceivedV2Step2_SEI2&<slide_barcode>=>TA_AS01_TsVrReceivedV2Step2_BC2&<shipped_dttm>=>current",
+    "assay_result_reported:<patient_id>=>TA_AS01_TsVrReceivedV2Step2&<surgical_event_id>=>TA_AS01_TsVrReceivedV2Step2_SEI2&<biomarker>=>ICCPTENs&<result>=>POSITIVE&<reported_date>=>current",
+    "assay_result_reported:<patient_id>=>TA_AS01_TsVrReceivedV2Step2&<surgical_event_id>=>TA_AS01_TsVrReceivedV2Step2_SEI2&<biomarker>=>ICCBAF47s&<result>=>POSITIVE&<reported_date>=>current",
+    "assay_result_reported:<patient_id>=>TA_AS01_TsVrReceivedV2Step2&<surgical_event_id>=>TA_AS01_TsVrReceivedV2Step2_SEI2&<biomarker>=>ICCBRG1s&<result>=>POSITIVE&<reported_date>=>current",
     "aliquot:<patient_id>=>TA_AS01_TsVrReceivedV2Step2&<ion_reporter_id>=>bdd_test_ion_reporter&<vr_type>=>APEC1621-M&<analysis_id>=>TA_AS01_TsVrReceivedV2Step2_ANI2&<molecular_id>=>TA_AS01_TsVrReceivedV2Step2_MOI2&<site>=>MDA",
     "variant_dna_file_uploaded:<patient_id>=>TA_AS01_TsVrReceivedV2Step2&<dna_bam_name>=>dna.bam&<analysis_id>=>TA_AS01_TsVrReceivedV2Step2_ANI2&<molecular_id>=>TA_AS01_TsVrReceivedV2Step2_MOI2&<comment_user>=>qa",
     "variant_cdna_file_uploaded:<patient_id>=>TA_AS01_TsVrReceivedV2Step2&<cdna_bam_name>=>cdna.bam&<analysis_id>=>TA_AS01_TsVrReceivedV2Step2_ANI2&<molecular_id>=>TA_AS01_TsVrReceivedV2Step2_MOI2&<comment_user>=>qa"

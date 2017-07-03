@@ -8,7 +8,7 @@ class SeedFile
 
   def self.create_tag_if_not_exist(tag)
     if Dir.exist?("#{SEED_DATA_FOLDER}/#{tag}")
-      puts "Tag exists #{tag}, skip"
+      Logger.warning("Tag exists #{tag}, skip")
       return
     end
     FileUtils.makedirs("#{SEED_DATA_FOLDER}/#{tag}")
@@ -257,8 +257,22 @@ class SeedFile
                            else
                              diff = 0
                          end
+                         add_number_fields(ta_hash)
                          ta_hash[v_field]['N'] = (ta_hash[v_field]['N'].to_i + diff).to_s
-                         ta_hashes.each {|ta| ta[field]['N'] = (ta[field]['N'].to_i + diff).to_s}
+                         ta_hashes.each do |ta|
+                           add_number_fields(ta)
+                           ta[field]['N'] = (ta[field]['N'].to_i + diff).to_s
+                         end
                          File.open(seed_file('treatment_arm', tag), 'w') {|f| f.write(JSON.pretty_generate(file_hash))}
+                       end
+  private_class_method def self.add_number_fields(ta_hash)
+                         ta_hash['former_patients'] = {'N' => "0"} unless ta_hash['former_patients'].present?
+                         ta_hash['version_former_patients'] = {'N' => "0"} unless ta_hash['version_former_patients'].present?
+                         ta_hash['not_enrolled_patients'] = {'N' => "0"} unless ta_hash['not_enrolled_patients'].present?
+                         ta_hash['version_not_enrolled_patients'] = {'N' => "0"} unless ta_hash['version_not_enrolled_patients'].present?
+                         ta_hash['pending_patients'] = {'N' => "0"} unless ta_hash['pending_patients'].present?
+                         ta_hash['version_pending_patients'] = {'N' => "0"} unless ta_hash['version_pending_patients'].present?
+                         ta_hash['current_patients'] = {'N' => "0"} unless ta_hash['current_patients'].present?
+                         ta_hash['version_current_patients'] = {'N' => "0"} unless ta_hash['version_current_patients'].present?
                        end
 end
