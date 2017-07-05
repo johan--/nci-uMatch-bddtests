@@ -21,6 +21,7 @@ var LoginPage = function() {
     var userLoggedin = element(by.css('span.welcome')); // This is the span that says 'Welcome <Username>'
     this.navBarHeading = element(by.css('div.sticky-navbar h2'));
     this.logoutButton = element(by.css('a[ng-click="logout()"]'));
+    var logoutLink = element(by.css('a[ng-click="logout()"]>i.fa-sign-out'));
 
     this.goToLoginPage = function(){
         browser.get('/#/auth/login', 1000).then(function () {
