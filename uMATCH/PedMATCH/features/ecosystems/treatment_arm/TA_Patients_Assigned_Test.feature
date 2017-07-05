@@ -1,5 +1,6 @@
 @treatment_arm
 Feature: TA_AS. Treatment Arm API Tests that focus on assignment records
+
   @treatment_arm_p1
   Scenario Outline: TA_AS01. treatment arm assignment data update properly (confirm variant report)
     Given patient id is "<patient_id>"
@@ -60,14 +61,14 @@ Feature: TA_AS. Treatment Arm API Tests that focus on assignment records
     Then response of treatment arm accrual command should match database
     Examples:
       | patient_id                    | ver | step | status_m                      | status_a                    | cp | fp | np | pp |
-      | TA_AS03_PendingConfV1         | v_1 | 1.0  | NOT_ENROLLED_ON_ARM           |                             | 0  | 0  | 1  | 0  |
-      | TA_AS03_PendingConfV1Step2    | v_1 | 2.0  | NOT_ENROLLED_ON_ARM           | PREVIOUSLY_ON_ARM_OFF_STUDY | 0  | 0  | 1  | 0  |
+      | TA_AS03_PendingConfV1         | v_1 | 1.0  | NOT_ENROLLED_ON_ARM_OFF_STUDY |                             | 0  | 0  | 1  | 0  |
+      | TA_AS03_PendingConfV1Step2    | v_1 | 2.0  | NOT_ENROLLED_ON_ARM_OFF_STUDY | PREVIOUSLY_ON_ARM_OFF_STUDY | 0  | 0  | 1  | 0  |
       | TA_AS03_PendingApprV1         | v_1 | 1.0  | NOT_ENROLLED_ON_ARM_OFF_STUDY |                             | 0  | 0  | 1  | -1 |
       | TA_AS03_PendingApprV1Step2    | v_1 | 2.0  | NOT_ENROLLED_ON_ARM_OFF_STUDY | PREVIOUSLY_ON_ARM_OFF_STUDY | 0  | 0  | 1  | -1 |
       | TA_AS03_OnTreatmentArmV1      | v_1 | 1.0  | PREVIOUSLY_ON_ARM_OFF_STUDY   |                             | -1 | 1  | 0  | 0  |
       | TA_AS03_OnTreatmentArmV1Step2 | v_1 | 2.1  | PREVIOUSLY_ON_ARM_OFF_STUDY   | PREVIOUSLY_ON_ARM_OFF_STUDY | -1 | 1  | 0  | 0  |
-      | TA_AS03_PendingConfV2         | v_2 | 1.0  | NOT_ENROLLED_ON_ARM           |                             | 0  | 0  | 1  | 0  |
-      | TA_AS03_PendingConfV2Step2    | v_2 | 2.0  | NOT_ENROLLED_ON_ARM           | PREVIOUSLY_ON_ARM_OFF_STUDY | 0  | 0  | 1  | 0  |
+      | TA_AS03_PendingConfV2         | v_2 | 1.0  | NOT_ENROLLED_ON_ARM_OFF_STUDY |                             | 0  | 0  | 1  | 0  |
+      | TA_AS03_PendingConfV2Step2    | v_2 | 2.0  | NOT_ENROLLED_ON_ARM_OFF_STUDY | PREVIOUSLY_ON_ARM_OFF_STUDY | 0  | 0  | 1  | 0  |
       | TA_AS03_PendingApprV2         | v_2 | 1.0  | NOT_ENROLLED_ON_ARM_OFF_STUDY |                             | 0  | 0  | 1  | -1 |
       | TA_AS03_PendingApprV2Step2    | v_2 | 2.0  | NOT_ENROLLED_ON_ARM_OFF_STUDY | PREVIOUSLY_ON_ARM_OFF_STUDY | 0  | 0  | 1  | -1 |
       | TA_AS03_OnTreatmentArmV2      | v_2 | 1.0  | PREVIOUSLY_ON_ARM_OFF_STUDY   |                             | -1 | 1  | 0  | 0  |
