@@ -1514,7 +1514,6 @@ end
 Then(/^returned event_data should have field "([^"]*)" with "(string|date|number|array|hash)" value$/) do |field, value_type|
   expect(@get_response.class).to eq Array
   @get_response.each {|event|
-    puts event['entity_id']
     expect(event.keys).to include 'event_data'
     expect(event['event_data'].class).to eq Hash
     unless event['event_data'].has_key?(field)

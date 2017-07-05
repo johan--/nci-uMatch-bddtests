@@ -140,6 +140,12 @@ script:
   - cd ..
   - ls -alt
   - mv results/ results_critical/; mkdir results
+  - export DATE_TRIM=`TZ=America/New_York date "+%m-%d-%y"`
+  - ruby DataSetup/html_converter.rb --file=cucumber_report.html --folder=results_critical --date=$DATE_TRIM
+  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results_critical/cucumber_report.html s3://cucumber-test-reports/$DATE_TRIM/critical$CUC_TAG.html --region us-east-1
+  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results_critical/screenshot s3://cucumber-test-reports/$DATE_TRIM/screenshot --region us-east-1 --recursive
+  - export TIME_TRIM=`TZ=America/New_York date "+%H:%M:%S"`
+  - curl -X PUT "http://pedmatch-admin-int-alb-frontend-792655680.us-east-1.elb.amazonaws.com:3025/reports/update/$DATE_TRIM/$CUC_TAG_TRIM/$TIME_TRIM" -d ''
   - TRAVIS_TEST_RESULT=$STATUS
 after_success:
   #Run P3 cucumber tests
@@ -154,6 +160,12 @@ after_success:
   - node support/generate_report.js
   - cd ..
   - ls -alt
+  - export DATE_TRIM=`TZ=America/New_York date "+%m-%d-%y"`
+  - ruby DataSetup/html_converter.rb --file=cucumber_report.html --folder=results --date=$DATE_TRIM
+  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/cucumber_report.html s3://cucumber-test-reports/$DATE_TRIM/non-critical$CUC_TAG.html --region us-east-1
+  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/screenshot s3://cucumber-test-reports/$DATE_TRIM/screenshot --region us-east-1 --recursive
+  - export TIME_TRIM=`TZ=America/New_York date "+%H:%M:%S"`
+  - curl -X PUT "http://pedmatch-admin-int-alb-frontend-792655680.us-east-1.elb.amazonaws.com:3025/reports/update/$DATE_TRIM/$CUC_TAG_TRIM/$TIME_TRIM" -d ''
 
   # Deploy to AWS UAT
   - |
@@ -188,19 +200,19 @@ after_failure:
     - node support/generate_report.js
 after_script:
   #Set above, - export DATE=`TZ=America/New_York date "+%m-%d-%y-%H%M"`
-  - export DATE_TRIM=`TZ=America/New_York date "+%m-%d-%y"`
+#  - export DATE_TRIM=`TZ=America/New_York date "+%m-%d-%y"`
   #Send result json to S3 for review
   ######COMMENTING FOR NOW###########################
 #  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_BUILD_NUMBER/ --region us-east-1 --recursive
   ###################################################
   - cd ..
-  - ruby DataSetup/html_converter.rb --file=cucumber_report.html --folder=results_critical --date=$DATE_TRIM
-  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results_critical/cucumber_report.html s3://cucumber-test-reports/$DATE_TRIM/critical$CUC_TAG.html --region us-east-1
-  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results_critical/screenshot s3://cucumber-test-reports/$DATE_TRIM/screenshot --region us-east-1 --recursive
-
-  - ruby DataSetup/html_converter.rb --file=cucumber_report.html --folder=results --date=$DATE_TRIM
-  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/cucumber_report.html s3://cucumber-test-reports/$DATE_TRIM/non-critical$CUC_TAG.html --region us-east-1
-  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/screenshot s3://cucumber-test-reports/$DATE_TRIM/screenshot --region us-east-1 --recursive
+#  - ruby DataSetup/html_converter.rb --file=cucumber_report.html --folder=results_critical --date=$DATE_TRIM
+#  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results_critical/cucumber_report.html s3://cucumber-test-reports/$DATE_TRIM/critical$CUC_TAG.html --region us-east-1
+#  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results_critical/screenshot s3://cucumber-test-reports/$DATE_TRIM/screenshot --region us-east-1 --recursive
+#
+#  - ruby DataSetup/html_converter.rb --file=cucumber_report.html --folder=results --date=$DATE_TRIM
+#  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/cucumber_report.html s3://cucumber-test-reports/$DATE_TRIM/non-critical$CUC_TAG.html --region us-east-1
+#  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/screenshot s3://cucumber-test-reports/$DATE_TRIM/screenshot --region us-east-1 --recursive
 
   #- aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/result.json s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_BUILD_NUMBER/ --region us-east-1
 
@@ -218,8 +230,8 @@ after_script:
   # - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/uMATCH/PedMATCH/results/output.json s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_COMMIT/ --region us-east-1
   # - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/nci-match-ui-bddtests/results/result.json s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_COMMIT/ --region us-east-1
   #update test report service
-  - export TIME_TRIM=`TZ=America/New_York date "+%H:%M:%S"`
-  - curl -X PUT "http://pedmatch-admin-int-alb-frontend-792655680.us-east-1.elb.amazonaws.com:3025/reports/update/$DATE_TRIM/$CUC_TAG_TRIM/$TIME_TRIM" -d ''
+#  - export TIME_TRIM=`TZ=America/New_York date "+%H:%M:%S"`
+#  - curl -X PUT "http://pedmatch-admin-int-alb-frontend-792655680.us-east-1.elb.amazonaws.com:3025/reports/update/$DATE_TRIM/$CUC_TAG_TRIM/$TIME_TRIM" -d ''
 notifications:
   slack:
     rooms:
