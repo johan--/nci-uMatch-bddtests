@@ -143,7 +143,10 @@ script:
   - export DATE_TRIM=`TZ=America/New_York date "+%m-%d-%y"`
   - ruby DataSetup/html_converter.rb --file=cucumber_report.html --folder=results_critical --date=$DATE_TRIM
   - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results_critical/cucumber_report.html s3://cucumber-test-reports/$DATE_TRIM/critical$CUC_TAG.html --region us-east-1
-  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results_critical/screenshot s3://cucumber-test-reports/$DATE_TRIM/screenshot --region us-east-1 --recursive
+  - |
+    if [ -d "~/build/CBIIT/nci-uMatch-bddtests/results_critical/screenshot" ]; then
+      aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results_critical/screenshot s3://cucumber-test-reports/$DATE_TRIM/screenshot --region us-east-1 --recursive
+    fi
   - export TIME_TRIM=`TZ=America/New_York date "+%H:%M:%S"`
   - curl -X PUT "http://pedmatch-admin-int-alb-frontend-792655680.us-east-1.elb.amazonaws.com:3025/reports/update/$DATE_TRIM/$CUC_TAG_TRIM/$TIME_TRIM" -d ''
   - TRAVIS_TEST_RESULT=$STATUS
@@ -163,7 +166,10 @@ after_success:
   - export DATE_TRIM=`TZ=America/New_York date "+%m-%d-%y"`
   - ruby DataSetup/html_converter.rb --file=cucumber_report.html --folder=results --date=$DATE_TRIM
   - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/cucumber_report.html s3://cucumber-test-reports/$DATE_TRIM/non-critical$CUC_TAG.html --region us-east-1
-  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/screenshot s3://cucumber-test-reports/$DATE_TRIM/screenshot --region us-east-1 --recursive
+  - |
+    if [ -d "~/build/CBIIT/nci-uMatch-bddtests/results/screenshot" ]; then
+      aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/screenshot s3://cucumber-test-reports/$DATE_TRIM/screenshot --region us-east-1 --recursive
+    fi
   - export TIME_TRIM=`TZ=America/New_York date "+%H:%M:%S"`
   - curl -X PUT "http://pedmatch-admin-int-alb-frontend-792655680.us-east-1.elb.amazonaws.com:3025/reports/update/$DATE_TRIM/$CUC_TAG_TRIM/$TIME_TRIM" -d ''
 
