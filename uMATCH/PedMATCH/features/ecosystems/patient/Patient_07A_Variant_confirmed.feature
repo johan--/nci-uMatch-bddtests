@@ -174,7 +174,7 @@ Feature: Variant files confirmed messages
 #      |null           |can't be blank                                                                  |
       | other  | can only be 'confirm' or 'reject' |
 
-  @patient_p2
+  @patients_p2
   Scenario Outline: PT_VC11b. variant report cannot be confirmed (rejected) more than one time
     Given patient id is "<patient_id>"
     Then load template variant report confirm message for analysis id: "<patient_id>_ANI1"
