@@ -127,7 +127,7 @@ module.exports = function () {
 
     this.When(/^I click on the Surgical Event Tab at index "(.+?)"$/, function (index, callback) {
         surgicalTabs.get(index).click().then(function () {
-            browser.sleep(10);
+            browser.waitForAngular();
         }).then(callback);
     });
 
