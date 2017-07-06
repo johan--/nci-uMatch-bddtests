@@ -81,3 +81,11 @@ pt.story_register
 pt.story_specimen_received_tissue
 ...
 PedMatchTestData.send_a_patient_story(pt)
+
+7. How to added a new treatment arm
+ta = {'treatment_arm_id'=>'APEC1621SC-TEST', 'stratum_id'=>'100', 'version'=>'v_1', ...} #a hash
+PedMatchTestData.add_treatment_arm(ta)
+
+or
+ta = "{"treatment_arm_id":"APEC1621SC-TEST", "stratum_id":"100", "version":"v_1", ...}" #a string
+PedMatchTestData.add_treatment_arm(ta)

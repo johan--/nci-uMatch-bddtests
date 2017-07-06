@@ -22,8 +22,8 @@ class PedMatchTestData
   def self.clear_and_initial_all(tag='patients')
     SeedFile.create_tag_if_not_exist(tag)
     PedMatchDatabase.clear_all_local
-    TableInfo.patient_tables.each { |table| SeedFile.clear_seed_file(table, tag) }
-    TableInfo.treatment_arm_tables.each { |table| SeedFile.clear_seed_file(table, tag) }
+    TableInfo.patient_tables.each {|table| SeedFile.clear_seed_file(table, tag)}
+    TableInfo.treatment_arm_tables.each {|table| SeedFile.clear_seed_file(table, tag)}
     PedMatchDatabase.upload_ion_seed_to_local(tag)
     TreatmentArmSender.send_all
     PedMatchDatabase.backup_treatment_arm(tag)
@@ -34,7 +34,7 @@ class PedMatchTestData
     SeedFile.delete_patients(patient_list, tag)
     PedMatchDatabase.clear_all_local
     PedMatchDatabase.upload_seed_data_to_local(tag)
-    patient_list.each { |pt| failed << pt unless PatientStorySender.send_seed_patient(pt) }
+    patient_list.each {|pt| failed << pt unless PatientStorySender.send_seed_patient(pt)}
     passed_number = patient_list.size - failed.size
     if passed_number > 0
       sleep 30.0 #we need to wait more time until treatment arm assignment event get processed (if the story end with an assignment related action)
@@ -53,5 +53,14 @@ class PedMatchTestData
 
   def self.send_a_patient_story(patient_story)
     PatientStorySender.send_patient_story(patient_story)
+  end
+
+  def self.add_treatment_arm(ta_text_or_hash, tag='patients')
+    PedMatchDatabase.clear_all_local
+    PedMatchDatabase.upload_seed_data_to_local(tag)
+    if TreatmentArmSender.send_by_json(ta_text_or_hash)
+      sleep 10.0
+      PedMatchDatabase.backup_treatment_arm(tag)
+    end
   end
 end
