@@ -436,7 +436,7 @@ end
 Then(/^patient should have variant report \(analysis_id: "([^"]*)"\)$/) do |ani|
   url = "#{ENV['patients_endpoint']}/variant_reports?analysis_id=#{ani}"
   try_time = 0
-  while try_time < 9
+  while try_time < 25
     @current_variant_report = Patient_helper_methods.get_any_result_from_url(url)
     break if @current_variant_report.size > 0
     puts "Retrying to get variant report #{ani}..."
@@ -458,7 +458,7 @@ end
 Then(/^this patient should have "([^"]*)" assignments for analysis id "([^"]*)"$/) do |count, ani|
   url = "#{ENV['patients_endpoint']}/assignments?analysis_id=#{ani}"
   try_time = 0
-  while try_time < 9
+  while try_time < 25
     @current_assignment = Patient_helper_methods.get_any_result_from_url(url)
     break if @current_assignment.size > 0
     puts "Retrying to get variant report #{ani}..."
