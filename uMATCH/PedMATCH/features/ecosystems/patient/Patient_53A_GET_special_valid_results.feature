@@ -9,7 +9,8 @@ Feature: Patient GET service valid special case tests
     Then patient statistics field "number_of_patients" should have correct value
     Then patient statistics field "number_of_patients_on_treatment_arm" should have correct value
     Then patient statistics field "number_of_patients_with_confirmed_variant_report" should have correct value
-    Then patient statistics field "treatment_arm_accrual" should have correct value
+    #the actual treatment arm accrual information comes form treatment arm api, it is tested in treatment arm feature
+#    Then patient statistics field "treatment_arm_accrual" should have correct value
 
   @patients_p2
   Scenario: PT_SC01b statistics service should update number_of_patients properly
@@ -48,7 +49,8 @@ Feature: Patient GET service valid special case tests
     Then patient GET service: "statistics", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return
     Then patient statistics field "number_of_patients_on_treatment_arm" should have correct value
-    Then patient statistics field "treatment_arm_accrual" should have correct value
+    #the actual treatment arm accrual information comes form treatment arm api, it is tested in treatment arm feature
+#    Then patient statistics field "treatment_arm_accrual" should have correct value
     Examples:
       | patient_id                    | ta_id          | stratum | step |
       | PT_SC01d_PendingApproval      | APEC1621-A     | 100     | 1.1  |
