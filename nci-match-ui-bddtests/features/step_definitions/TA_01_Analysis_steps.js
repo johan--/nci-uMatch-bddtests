@@ -230,6 +230,34 @@ module.exports = function () {
         browser.sleep(50).then(callback);
     });
 
+    this.When(/^I enter id "(.+?)" in the treatment arm filter textbox$/, function(taId, callback) {
+        var searchField = element(by.model('filterAll'));
+        currentTreatmentId = taId;
+        searchField.clear().then(function () {
+            searchField.sendKeys(taId).then(function () {
+                expect(searchField.getAttribute('value')).to.eventually.eql(currentTreatmentId);
+            });
+        }).then(callback);
+    });
+
+    this.Then(/^I should see "(.+?)" is marked as prefix and "(.+?)" as the remainder$/, function (prefix, remainder, callback) {
+        var prefixElement = element(by.css('[ng-repeat^="item in filtered"] span>span.ta-id-prefix'));
+        var remElement = element(by.css('[ng-repeat^="item in filtered"] span>span.ta-name'));
+
+        expect(prefixElement.getText()).to.eventually.eql(prefix);
+        expect(remElement.getText()).to.eventually.eql(remainder).notify(callback);
+    });
+
+    this.Then(/^I should see the "(.+?)" is marked as prefix and the "(.+?)" as remainder in the ID$/, function (prefix, remainder, callback) {
+        var taId = element.all(by.css('dd.treatment-arm-id-split')).get(0);
+
+        var prefixElement = taId.element(by.css('span.ta-id-prefix'));
+        var remainElement = taId.element(by.css('span.ta-id-remainder'));
+
+        expect(prefixElement.getText()).to.eventually.eql(prefix);
+        expect(remainElement.getText()).to.eventually.eql(remainder).notify(callback);
+    });
+
     this.Then(/^I should see the data maps to the relevant column$/, function (callback) {
         var moment = require('moment');
         var currentPatients     = utilities.dashifyIfEmpty(firstTreatmentArm.stratum_statistics.current_patients);

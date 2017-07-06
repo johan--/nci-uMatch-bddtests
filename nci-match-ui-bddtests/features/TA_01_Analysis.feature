@@ -65,6 +65,18 @@ Feature: Treatment Arms Dashboard
     And I should see Patient Assignment Outcome chart
     And I should see Diseases Represented chart
 
+  @ui_p2
+  Scenario: Treatment arms are grayed out in the list page and in the details page.
+    Given I navigate to the treatment-arms page
+    And I enter id "APEC1621-SCTest" in the treatment arm filter textbox
+    Then I should see "APEC1621-" is marked as prefix and "SCTest" as the remainder
+    When I enter id "APEC1621SC-SCTest" in the treatment arm filter textbox
+    Then I should see "APEC1621SC-" is marked as prefix and "SCTest" as the remainder
+    When I go to treatment arm with "APEC1621-SCTest" as the id and "100" as stratum id
+    Then I should see the "APEC1621-" is marked as prefix and the "SCTest" as remainder in the ID
+    When I go to treatment arm with "APEC1621SC-SCTest" as the id and "100" as stratum id
+    Then I should see the "APEC1621SC-" is marked as prefix and the "SCTest" as remainder in the ID
+
   @broken
   Scenario: Logged in user can access the different versions of Treatment Arm under the History Tab
     When I go to treatment arm with "APEC1621-2V" as the id and "100" as stratum id
