@@ -1,6 +1,6 @@
 {
-  "ScannedCount": 197,
-  "Count": 197,
+  "ScannedCount": 217,
+  "Count": 217,
   "Items": [
     {
       "status_date": {
@@ -17020,6 +17020,1786 @@
       },
       "surgical_event_id": {
         "S": "PT_SS27_VariantReportUploaded_SEI1"
+      },
+      "identifier": {
+        "S": "."
+      },
+      "flow_reference_allele_observations": {
+        "N": "329"
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-21T03:14:20+00:00"
+      },
+      "molecular_id": {
+        "S": "PT_SR10_ProgressReBioY_MOI1"
+      },
+      "analysis_id": {
+        "S": "PT_SR10_ProgressReBioY_ANI1"
+      },
+      "read_depth": {
+        "N": "1001"
+      },
+      "identifier": {
+        "S": "TPM3-ALK.T7A20"
+      },
+      "surgical_event_id": {
+        "S": "PT_SR10_ProgressReBioY_SEI1"
+      },
+      "partner_read_count": {
+        "N": "1001"
+      },
+      "annotation": {
+        "S": "-"
+      },
+      "partner_gene": {
+        "S": "TPM3"
+      },
+      "patient_id": {
+        "S": "PT_SR10_ProgressReBioY"
+      },
+      "variant_type": {
+        "S": "fusion"
+      },
+      "filter": {
+        "S": "PASS"
+      },
+      "driver_read_count": {
+        "N": "1001"
+      },
+      "driver_gene": {
+        "S": "ALK"
+      },
+      "confirmed": {
+        "BOOL": true
+      },
+      "uuid": {
+        "S": "ae01f5dd-7987-433d-8fab-ec4baf49fdd4"
+      },
+      "amois": {
+        "L": [
+          {
+            "M": {
+              "amoi_status": {
+                "S": "CURRENT"
+              },
+              "treatment_arm_id": {
+                "S": "APEC1621-ETE-A"
+              },
+              "stratum_id": {
+                "S": "100"
+              },
+              "version": {
+                "S": "2015-08-06"
+              },
+              "exclusion": {
+                "BOOL": false
+              }
+            }
+          },
+          {
+            "M": {
+              "amoi_status": {
+                "S": "CURRENT"
+              },
+              "treatment_arm_id": {
+                "S": "APEC1621-A"
+              },
+              "stratum_id": {
+                "S": "100"
+              },
+              "version": {
+                "S": "2015-08-06"
+              },
+              "exclusion": {
+                "BOOL": false
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-21T03:14:20+00:00"
+      },
+      "molecular_id": {
+        "S": "PT_SR10_ProgressReBioY_MOI1"
+      },
+      "analysis_id": {
+        "S": "PT_SR10_ProgressReBioY_ANI1"
+      },
+      "read_depth": {
+        "N": "1070"
+      },
+      "identifier": {
+        "S": "CCDC6-RET.C1R12.COSF1271"
+      },
+      "surgical_event_id": {
+        "S": "PT_SR10_ProgressReBioY_SEI1"
+      },
+      "partner_read_count": {
+        "N": "1070"
+      },
+      "annotation": {
+        "S": "-"
+      },
+      "partner_gene": {
+        "S": "CCDC6"
+      },
+      "patient_id": {
+        "S": "PT_SR10_ProgressReBioY"
+      },
+      "variant_type": {
+        "S": "fusion"
+      },
+      "filter": {
+        "S": "PASS"
+      },
+      "driver_read_count": {
+        "N": "1070"
+      },
+      "driver_gene": {
+        "S": "RET"
+      },
+      "confirmed": {
+        "BOOL": true
+      },
+      "uuid": {
+        "S": "e995e5bc-241b-4ef5-8523-3f0a795a89b2"
+      },
+      "amois": {
+        "L": [
+          {
+            "M": {
+              "amoi_status": {
+                "S": "CURRENT"
+              },
+              "treatment_arm_id": {
+                "S": "APEC1621-ETE-C"
+              },
+              "stratum_id": {
+                "S": "100"
+              },
+              "version": {
+                "S": "2015-08-06"
+              },
+              "exclusion": {
+                "BOOL": false
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-21T03:14:20+00:00"
+      },
+      "cds_reference": {
+        "S": "CC"
+      },
+      "oncomine_variant_class": {
+        "S": "Deleterious"
+      },
+      "read_depth": {
+        "N": "525"
+      },
+      "func_gene": {
+        "S": "TP53"
+      },
+      "allele_frequency": {
+        "N": "0.373333"
+      },
+      "variant_type": {
+        "S": "ins"
+      },
+      "flow_alternative_allele_observation_count": {
+        "N": "196"
+      },
+      "transcript": {
+        "S": "NM_000546.5"
+      },
+      "protein": {
+        "S": "p.Ser90fs"
+      },
+      "position": {
+        "S": "7579420"
+      },
+      "uuid": {
+        "S": "1ff74c09-4436-4ed2-bf6a-824e1bdd615d"
+      },
+      "amois": {
+        "L": [
+
+        ]
+      },
+      "exon": {
+        "S": "4"
+      },
+      "molecular_id": {
+        "S": "PT_SR10_ProgressReBioY_MOI1"
+      },
+      "analysis_id": {
+        "S": "PT_SR10_ProgressReBioY_ANI1"
+      },
+      "ocp_reference": {
+        "S": "-"
+      },
+      "chromosome": {
+        "S": "chr17"
+      },
+      "hgvs": {
+        "S": "c.267_268insCC"
+      },
+      "location": {
+        "S": "exonic"
+      },
+      "confirmed": {
+        "BOOL": true
+      },
+      "reference_allele_observations": {
+        "N": "308"
+      },
+      "ocp_alternative": {
+        "S": "GG"
+      },
+      "alternative_allele_observation_count": {
+        "N": "154"
+      },
+      "function": {
+        "S": "frameshiftInsertion"
+      },
+      "patient_id": {
+        "S": "PT_SR10_ProgressReBioY"
+      },
+      "filter": {
+        "S": "PASS"
+      },
+      "surgical_event_id": {
+        "S": "PT_SR10_ProgressReBioY_SEI1"
+      },
+      "identifier": {
+        "S": "."
+      },
+      "flow_reference_allele_observations": {
+        "N": "329"
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-21T03:14:20+00:00"
+      },
+      "cds_reference": {
+        "S": "C"
+      },
+      "amois": {
+        "L": [
+
+        ]
+      },
+      "read_depth": {
+        "N": "1814"
+      },
+      "func_gene": {
+        "S": "PIK3CA"
+      },
+      "allele_frequency": {
+        "N": "0.435502"
+      },
+      "variant_type": {
+        "S": "snp"
+      },
+      "flow_alternative_allele_observation_count": {
+        "N": "790"
+      },
+      "transcript": {
+        "S": "NM_006218.2"
+      },
+      "protein": {
+        "S": "p.His1047Arg"
+      },
+      "position": {
+        "S": "178952085"
+      },
+      "uuid": {
+        "S": "e123e08b-3930-4001-b529-dccf801096a5"
+      },
+      "oncomine_variant_class": {
+        "S": "Hotspot"
+      },
+      "exon": {
+        "S": "21"
+      },
+      "molecular_id": {
+        "S": "PT_SR10_ProgressReBioY_MOI1"
+      },
+      "cds_alternative": {
+        "S": "T"
+      },
+      "analysis_id": {
+        "S": "PT_SR10_ProgressReBioY_ANI1"
+      },
+      "ocp_reference": {
+        "S": "A"
+      },
+      "chromosome": {
+        "S": "chr3"
+      },
+      "hgvs": {
+        "S": "c.3140A>G"
+      },
+      "location": {
+        "S": "exonic"
+      },
+      "confirmed": {
+        "BOOL": true
+      },
+      "reference_allele_observations": {
+        "N": "1020"
+      },
+      "ocp_alternative": {
+        "S": "G"
+      },
+      "alternative_allele_observation_count": {
+        "N": "790"
+      },
+      "function": {
+        "S": "missense"
+      },
+      "patient_id": {
+        "S": "PT_SR10_ProgressReBioY"
+      },
+      "filter": {
+        "S": "PASS"
+      },
+      "surgical_event_id": {
+        "S": "PT_SR10_ProgressReBioY_SEI1"
+      },
+      "identifier": {
+        "S": "COSM775"
+      },
+      "flow_reference_allele_observations": {
+        "N": "1024"
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-27T14:39:56+00:00"
+      },
+      "cds_reference": {
+        "S": "C"
+      },
+      "amois": {
+        "L": [
+
+        ]
+      },
+      "read_depth": {
+        "N": "1814"
+      },
+      "func_gene": {
+        "S": "PIK3CA"
+      },
+      "allele_frequency": {
+        "N": "0.435502"
+      },
+      "variant_type": {
+        "S": "snp"
+      },
+      "flow_alternative_allele_observation_count": {
+        "N": "790"
+      },
+      "transcript": {
+        "S": "NM_006218.2"
+      },
+      "protein": {
+        "S": "p.His1047Arg"
+      },
+      "position": {
+        "S": "178952085"
+      },
+      "uuid": {
+        "S": "096df615-7c01-4597-be0b-4f33279d46c0"
+      },
+      "oncomine_variant_class": {
+        "S": "Hotspot"
+      },
+      "exon": {
+        "S": "21"
+      },
+      "molecular_id": {
+        "S": "PT_AS08_TsReceivedStep2_MOI1"
+      },
+      "cds_alternative": {
+        "S": "T"
+      },
+      "analysis_id": {
+        "S": "PT_AS08_TsReceivedStep2_ANI1"
+      },
+      "ocp_reference": {
+        "S": "A"
+      },
+      "chromosome": {
+        "S": "chr3"
+      },
+      "hgvs": {
+        "S": "c.3140A>G"
+      },
+      "location": {
+        "S": "exonic"
+      },
+      "confirmed": {
+        "BOOL": true
+      },
+      "reference_allele_observations": {
+        "N": "1020"
+      },
+      "ocp_alternative": {
+        "S": "G"
+      },
+      "alternative_allele_observation_count": {
+        "N": "790"
+      },
+      "function": {
+        "S": "missense"
+      },
+      "patient_id": {
+        "S": "PT_AS08_TsReceivedStep2"
+      },
+      "filter": {
+        "S": "PASS"
+      },
+      "surgical_event_id": {
+        "S": "PT_AS08_TsReceivedStep2_SEI1"
+      },
+      "identifier": {
+        "S": "COSM775"
+      },
+      "flow_reference_allele_observations": {
+        "N": "1024"
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-27T14:39:56+00:00"
+      },
+      "molecular_id": {
+        "S": "PT_AS08_TsReceivedStep2_MOI1"
+      },
+      "analysis_id": {
+        "S": "PT_AS08_TsReceivedStep2_ANI1"
+      },
+      "read_depth": {
+        "N": "1070"
+      },
+      "identifier": {
+        "S": "CCDC6-RET.C1R12.COSF1271"
+      },
+      "surgical_event_id": {
+        "S": "PT_AS08_TsReceivedStep2_SEI1"
+      },
+      "partner_read_count": {
+        "N": "1070"
+      },
+      "annotation": {
+        "S": "-"
+      },
+      "partner_gene": {
+        "S": "CCDC6"
+      },
+      "patient_id": {
+        "S": "PT_AS08_TsReceivedStep2"
+      },
+      "variant_type": {
+        "S": "fusion"
+      },
+      "filter": {
+        "S": "PASS"
+      },
+      "driver_read_count": {
+        "N": "1070"
+      },
+      "driver_gene": {
+        "S": "RET"
+      },
+      "confirmed": {
+        "BOOL": true
+      },
+      "uuid": {
+        "S": "90e38e93-0095-4b2f-9cf4-648d3bfc9f8b"
+      },
+      "amois": {
+        "L": [
+          {
+            "M": {
+              "amoi_status": {
+                "S": "CURRENT"
+              },
+              "treatment_arm_id": {
+                "S": "APEC1621-ETE-C"
+              },
+              "stratum_id": {
+                "S": "100"
+              },
+              "version": {
+                "S": "2015-08-06"
+              },
+              "exclusion": {
+                "BOOL": false
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-27T14:39:56+00:00"
+      },
+      "cds_reference": {
+        "S": "CC"
+      },
+      "amois": {
+        "L": [
+
+        ]
+      },
+      "read_depth": {
+        "N": "525"
+      },
+      "func_gene": {
+        "S": "TP53"
+      },
+      "allele_frequency": {
+        "N": "0.373333"
+      },
+      "variant_type": {
+        "S": "ins"
+      },
+      "flow_alternative_allele_observation_count": {
+        "N": "196"
+      },
+      "transcript": {
+        "S": "NM_000546.5"
+      },
+      "protein": {
+        "S": "p.Ser90fs"
+      },
+      "position": {
+        "S": "7579420"
+      },
+      "uuid": {
+        "S": "ea808a52-dae6-447f-9fbe-9df03c30f1e0"
+      },
+      "oncomine_variant_class": {
+        "S": "Deleterious"
+      },
+      "exon": {
+        "S": "4"
+      },
+      "molecular_id": {
+        "S": "PT_AS08_TsReceivedStep2_MOI1"
+      },
+      "analysis_id": {
+        "S": "PT_AS08_TsReceivedStep2_ANI1"
+      },
+      "ocp_reference": {
+        "S": "-"
+      },
+      "chromosome": {
+        "S": "chr17"
+      },
+      "hgvs": {
+        "S": "c.267_268insCC"
+      },
+      "location": {
+        "S": "exonic"
+      },
+      "confirmed": {
+        "BOOL": true
+      },
+      "reference_allele_observations": {
+        "N": "308"
+      },
+      "ocp_alternative": {
+        "S": "GG"
+      },
+      "alternative_allele_observation_count": {
+        "N": "154"
+      },
+      "function": {
+        "S": "frameshiftInsertion"
+      },
+      "patient_id": {
+        "S": "PT_AS08_TsReceivedStep2"
+      },
+      "filter": {
+        "S": "PASS"
+      },
+      "surgical_event_id": {
+        "S": "PT_AS08_TsReceivedStep2_SEI1"
+      },
+      "identifier": {
+        "S": "."
+      },
+      "flow_reference_allele_observations": {
+        "N": "329"
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-27T14:39:56+00:00"
+      },
+      "molecular_id": {
+        "S": "PT_AS08_TsReceivedStep2_MOI1"
+      },
+      "analysis_id": {
+        "S": "PT_AS08_TsReceivedStep2_ANI1"
+      },
+      "read_depth": {
+        "N": "1001"
+      },
+      "identifier": {
+        "S": "TPM3-ALK.T7A20"
+      },
+      "surgical_event_id": {
+        "S": "PT_AS08_TsReceivedStep2_SEI1"
+      },
+      "partner_read_count": {
+        "N": "1001"
+      },
+      "annotation": {
+        "S": "-"
+      },
+      "partner_gene": {
+        "S": "TPM3"
+      },
+      "patient_id": {
+        "S": "PT_AS08_TsReceivedStep2"
+      },
+      "variant_type": {
+        "S": "fusion"
+      },
+      "filter": {
+        "S": "PASS"
+      },
+      "driver_read_count": {
+        "N": "1001"
+      },
+      "driver_gene": {
+        "S": "ALK"
+      },
+      "confirmed": {
+        "BOOL": true
+      },
+      "uuid": {
+        "S": "48795ce7-6738-48aa-a5ab-6126ff468048"
+      },
+      "amois": {
+        "L": [
+          {
+            "M": {
+              "amoi_status": {
+                "S": "CURRENT"
+              },
+              "treatment_arm_id": {
+                "S": "APEC1621-ETE-A"
+              },
+              "stratum_id": {
+                "S": "100"
+              },
+              "version": {
+                "S": "2015-08-06"
+              },
+              "exclusion": {
+                "BOOL": false
+              }
+            }
+          },
+          {
+            "M": {
+              "amoi_status": {
+                "S": "CURRENT"
+              },
+              "treatment_arm_id": {
+                "S": "APEC1621-A"
+              },
+              "stratum_id": {
+                "S": "100"
+              },
+              "version": {
+                "S": "2015-08-06"
+              },
+              "exclusion": {
+                "BOOL": false
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-21T01:11:58+00:00"
+      },
+      "cds_reference": {
+        "S": "C"
+      },
+      "amois": {
+        "L": [
+
+        ]
+      },
+      "read_depth": {
+        "N": "1814"
+      },
+      "func_gene": {
+        "S": "PIK3CA"
+      },
+      "allele_frequency": {
+        "N": "0.435502"
+      },
+      "variant_type": {
+        "S": "snp"
+      },
+      "flow_alternative_allele_observation_count": {
+        "N": "790"
+      },
+      "transcript": {
+        "S": "NM_006218.2"
+      },
+      "protein": {
+        "S": "p.His1047Arg"
+      },
+      "position": {
+        "S": "178952085"
+      },
+      "uuid": {
+        "S": "19c07fac-bc9d-4ab1-a8f9-0c39ad788bb2"
+      },
+      "oncomine_variant_class": {
+        "S": "Hotspot"
+      },
+      "exon": {
+        "S": "21"
+      },
+      "molecular_id": {
+        "S": "PT_RA06_OnTreatmentArm_MOI1"
+      },
+      "cds_alternative": {
+        "S": "T"
+      },
+      "analysis_id": {
+        "S": "PT_RA06_OnTreatmentArm_ANI1"
+      },
+      "ocp_reference": {
+        "S": "A"
+      },
+      "chromosome": {
+        "S": "chr3"
+      },
+      "hgvs": {
+        "S": "c.3140A>G"
+      },
+      "location": {
+        "S": "exonic"
+      },
+      "confirmed": {
+        "BOOL": true
+      },
+      "reference_allele_observations": {
+        "N": "1020"
+      },
+      "ocp_alternative": {
+        "S": "G"
+      },
+      "alternative_allele_observation_count": {
+        "N": "790"
+      },
+      "function": {
+        "S": "missense"
+      },
+      "patient_id": {
+        "S": "PT_RA06_OnTreatmentArm"
+      },
+      "filter": {
+        "S": "PASS"
+      },
+      "surgical_event_id": {
+        "S": "PT_RA06_OnTreatmentArm_SEI1"
+      },
+      "identifier": {
+        "S": "COSM775"
+      },
+      "flow_reference_allele_observations": {
+        "N": "1024"
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-21T01:11:58+00:00"
+      },
+      "molecular_id": {
+        "S": "PT_RA06_OnTreatmentArm_MOI1"
+      },
+      "analysis_id": {
+        "S": "PT_RA06_OnTreatmentArm_ANI1"
+      },
+      "read_depth": {
+        "N": "1001"
+      },
+      "identifier": {
+        "S": "TPM3-ALK.T7A20"
+      },
+      "surgical_event_id": {
+        "S": "PT_RA06_OnTreatmentArm_SEI1"
+      },
+      "partner_read_count": {
+        "N": "1001"
+      },
+      "annotation": {
+        "S": "-"
+      },
+      "partner_gene": {
+        "S": "TPM3"
+      },
+      "patient_id": {
+        "S": "PT_RA06_OnTreatmentArm"
+      },
+      "variant_type": {
+        "S": "fusion"
+      },
+      "filter": {
+        "S": "PASS"
+      },
+      "driver_read_count": {
+        "N": "1001"
+      },
+      "driver_gene": {
+        "S": "ALK"
+      },
+      "confirmed": {
+        "BOOL": true
+      },
+      "uuid": {
+        "S": "e61b730c-a9ba-4e60-98ce-8b74e73fa315"
+      },
+      "amois": {
+        "L": [
+          {
+            "M": {
+              "amoi_status": {
+                "S": "CURRENT"
+              },
+              "treatment_arm_id": {
+                "S": "APEC1621-ETE-A"
+              },
+              "stratum_id": {
+                "S": "100"
+              },
+              "version": {
+                "S": "2015-08-06"
+              },
+              "exclusion": {
+                "BOOL": false
+              }
+            }
+          },
+          {
+            "M": {
+              "amoi_status": {
+                "S": "CURRENT"
+              },
+              "treatment_arm_id": {
+                "S": "APEC1621-A"
+              },
+              "stratum_id": {
+                "S": "100"
+              },
+              "version": {
+                "S": "2015-08-06"
+              },
+              "exclusion": {
+                "BOOL": false
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-21T01:11:58+00:00"
+      },
+      "cds_reference": {
+        "S": "CC"
+      },
+      "oncomine_variant_class": {
+        "S": "Deleterious"
+      },
+      "read_depth": {
+        "N": "525"
+      },
+      "func_gene": {
+        "S": "TP53"
+      },
+      "allele_frequency": {
+        "N": "0.373333"
+      },
+      "variant_type": {
+        "S": "ins"
+      },
+      "flow_alternative_allele_observation_count": {
+        "N": "196"
+      },
+      "transcript": {
+        "S": "NM_000546.5"
+      },
+      "protein": {
+        "S": "p.Ser90fs"
+      },
+      "position": {
+        "S": "7579420"
+      },
+      "uuid": {
+        "S": "0d84894c-43a2-4d74-857b-35becf032bd4"
+      },
+      "amois": {
+        "L": [
+
+        ]
+      },
+      "exon": {
+        "S": "4"
+      },
+      "molecular_id": {
+        "S": "PT_RA06_OnTreatmentArm_MOI1"
+      },
+      "analysis_id": {
+        "S": "PT_RA06_OnTreatmentArm_ANI1"
+      },
+      "ocp_reference": {
+        "S": "-"
+      },
+      "chromosome": {
+        "S": "chr17"
+      },
+      "hgvs": {
+        "S": "c.267_268insCC"
+      },
+      "location": {
+        "S": "exonic"
+      },
+      "confirmed": {
+        "BOOL": true
+      },
+      "reference_allele_observations": {
+        "N": "308"
+      },
+      "ocp_alternative": {
+        "S": "GG"
+      },
+      "alternative_allele_observation_count": {
+        "N": "154"
+      },
+      "function": {
+        "S": "frameshiftInsertion"
+      },
+      "patient_id": {
+        "S": "PT_RA06_OnTreatmentArm"
+      },
+      "filter": {
+        "S": "PASS"
+      },
+      "surgical_event_id": {
+        "S": "PT_RA06_OnTreatmentArm_SEI1"
+      },
+      "identifier": {
+        "S": "."
+      },
+      "flow_reference_allele_observations": {
+        "N": "329"
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-21T01:11:58+00:00"
+      },
+      "molecular_id": {
+        "S": "PT_RA06_OnTreatmentArm_MOI1"
+      },
+      "analysis_id": {
+        "S": "PT_RA06_OnTreatmentArm_ANI1"
+      },
+      "read_depth": {
+        "N": "1070"
+      },
+      "identifier": {
+        "S": "CCDC6-RET.C1R12.COSF1271"
+      },
+      "surgical_event_id": {
+        "S": "PT_RA06_OnTreatmentArm_SEI1"
+      },
+      "partner_read_count": {
+        "N": "1070"
+      },
+      "annotation": {
+        "S": "-"
+      },
+      "partner_gene": {
+        "S": "CCDC6"
+      },
+      "patient_id": {
+        "S": "PT_RA06_OnTreatmentArm"
+      },
+      "variant_type": {
+        "S": "fusion"
+      },
+      "filter": {
+        "S": "PASS"
+      },
+      "driver_read_count": {
+        "N": "1070"
+      },
+      "driver_gene": {
+        "S": "RET"
+      },
+      "confirmed": {
+        "BOOL": true
+      },
+      "uuid": {
+        "S": "b0631da1-d691-4918-9497-a877905be445"
+      },
+      "amois": {
+        "L": [
+          {
+            "M": {
+              "amoi_status": {
+                "S": "CURRENT"
+              },
+              "treatment_arm_id": {
+                "S": "APEC1621-ETE-C"
+              },
+              "stratum_id": {
+                "S": "100"
+              },
+              "version": {
+                "S": "2015-08-06"
+              },
+              "exclusion": {
+                "BOOL": false
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-21T04:25:27+00:00"
+      },
+      "cds_reference": {
+        "S": "CC"
+      },
+      "oncomine_variant_class": {
+        "S": "Deleterious"
+      },
+      "read_depth": {
+        "N": "525"
+      },
+      "func_gene": {
+        "S": "TP53"
+      },
+      "allele_frequency": {
+        "N": "0.373333"
+      },
+      "variant_type": {
+        "S": "ins"
+      },
+      "flow_alternative_allele_observation_count": {
+        "N": "196"
+      },
+      "transcript": {
+        "S": "NM_000546.5"
+      },
+      "protein": {
+        "S": "p.Ser90fs"
+      },
+      "position": {
+        "S": "7579420"
+      },
+      "uuid": {
+        "S": "558042f4-8d78-48e8-8831-c5758218048d"
+      },
+      "amois": {
+        "L": [
+
+        ]
+      },
+      "exon": {
+        "S": "4"
+      },
+      "molecular_id": {
+        "S": "PT_AU06_PendingConfirmation0_MOI1"
+      },
+      "analysis_id": {
+        "S": "PT_AU06_PendingConfirmation0_ANI1"
+      },
+      "ocp_reference": {
+        "S": "-"
+      },
+      "chromosome": {
+        "S": "chr17"
+      },
+      "hgvs": {
+        "S": "c.267_268insCC"
+      },
+      "location": {
+        "S": "exonic"
+      },
+      "confirmed": {
+        "BOOL": true
+      },
+      "reference_allele_observations": {
+        "N": "308"
+      },
+      "ocp_alternative": {
+        "S": "GG"
+      },
+      "alternative_allele_observation_count": {
+        "N": "154"
+      },
+      "function": {
+        "S": "frameshiftInsertion"
+      },
+      "patient_id": {
+        "S": "PT_AU06_PendingConfirmation0"
+      },
+      "filter": {
+        "S": "PASS"
+      },
+      "surgical_event_id": {
+        "S": "PT_AU06_PendingConfirmation0_SEI1"
+      },
+      "identifier": {
+        "S": "."
+      },
+      "flow_reference_allele_observations": {
+        "N": "329"
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-21T04:25:27+00:00"
+      },
+      "molecular_id": {
+        "S": "PT_AU06_PendingConfirmation0_MOI1"
+      },
+      "analysis_id": {
+        "S": "PT_AU06_PendingConfirmation0_ANI1"
+      },
+      "read_depth": {
+        "N": "1070"
+      },
+      "identifier": {
+        "S": "CCDC6-RET.C1R12.COSF1271"
+      },
+      "surgical_event_id": {
+        "S": "PT_AU06_PendingConfirmation0_SEI1"
+      },
+      "partner_read_count": {
+        "N": "1070"
+      },
+      "annotation": {
+        "S": "-"
+      },
+      "partner_gene": {
+        "S": "CCDC6"
+      },
+      "patient_id": {
+        "S": "PT_AU06_PendingConfirmation0"
+      },
+      "variant_type": {
+        "S": "fusion"
+      },
+      "filter": {
+        "S": "PASS"
+      },
+      "driver_read_count": {
+        "N": "1070"
+      },
+      "driver_gene": {
+        "S": "RET"
+      },
+      "confirmed": {
+        "BOOL": true
+      },
+      "uuid": {
+        "S": "d42858ce-ae64-4275-84e8-a0781d736a0d"
+      },
+      "amois": {
+        "L": [
+          {
+            "M": {
+              "amoi_status": {
+                "S": "CURRENT"
+              },
+              "treatment_arm_id": {
+                "S": "APEC1621-ETE-C"
+              },
+              "stratum_id": {
+                "S": "100"
+              },
+              "version": {
+                "S": "2015-08-06"
+              },
+              "exclusion": {
+                "BOOL": false
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-21T04:25:27+00:00"
+      },
+      "molecular_id": {
+        "S": "PT_AU06_PendingConfirmation0_MOI1"
+      },
+      "analysis_id": {
+        "S": "PT_AU06_PendingConfirmation0_ANI1"
+      },
+      "read_depth": {
+        "N": "1001"
+      },
+      "identifier": {
+        "S": "TPM3-ALK.T7A20"
+      },
+      "surgical_event_id": {
+        "S": "PT_AU06_PendingConfirmation0_SEI1"
+      },
+      "partner_read_count": {
+        "N": "1001"
+      },
+      "annotation": {
+        "S": "-"
+      },
+      "partner_gene": {
+        "S": "TPM3"
+      },
+      "patient_id": {
+        "S": "PT_AU06_PendingConfirmation0"
+      },
+      "variant_type": {
+        "S": "fusion"
+      },
+      "filter": {
+        "S": "PASS"
+      },
+      "driver_read_count": {
+        "N": "1001"
+      },
+      "driver_gene": {
+        "S": "ALK"
+      },
+      "confirmed": {
+        "BOOL": true
+      },
+      "uuid": {
+        "S": "3bc2987a-3ee1-4208-87ab-e00ccd58c984"
+      },
+      "amois": {
+        "L": [
+          {
+            "M": {
+              "amoi_status": {
+                "S": "CURRENT"
+              },
+              "treatment_arm_id": {
+                "S": "APEC1621-ETE-A"
+              },
+              "stratum_id": {
+                "S": "100"
+              },
+              "version": {
+                "S": "2015-08-06"
+              },
+              "exclusion": {
+                "BOOL": false
+              }
+            }
+          },
+          {
+            "M": {
+              "amoi_status": {
+                "S": "CURRENT"
+              },
+              "treatment_arm_id": {
+                "S": "APEC1621-A"
+              },
+              "stratum_id": {
+                "S": "100"
+              },
+              "version": {
+                "S": "2015-08-06"
+              },
+              "exclusion": {
+                "BOOL": false
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-21T04:25:27+00:00"
+      },
+      "cds_reference": {
+        "S": "C"
+      },
+      "amois": {
+        "L": [
+
+        ]
+      },
+      "read_depth": {
+        "N": "1814"
+      },
+      "func_gene": {
+        "S": "PIK3CA"
+      },
+      "allele_frequency": {
+        "N": "0.435502"
+      },
+      "variant_type": {
+        "S": "snp"
+      },
+      "flow_alternative_allele_observation_count": {
+        "N": "790"
+      },
+      "transcript": {
+        "S": "NM_006218.2"
+      },
+      "protein": {
+        "S": "p.His1047Arg"
+      },
+      "position": {
+        "S": "178952085"
+      },
+      "uuid": {
+        "S": "931e4c67-dc52-47e9-93a5-07b05807182f"
+      },
+      "oncomine_variant_class": {
+        "S": "Hotspot"
+      },
+      "exon": {
+        "S": "21"
+      },
+      "molecular_id": {
+        "S": "PT_AU06_PendingConfirmation0_MOI1"
+      },
+      "cds_alternative": {
+        "S": "T"
+      },
+      "analysis_id": {
+        "S": "PT_AU06_PendingConfirmation0_ANI1"
+      },
+      "ocp_reference": {
+        "S": "A"
+      },
+      "chromosome": {
+        "S": "chr3"
+      },
+      "hgvs": {
+        "S": "c.3140A>G"
+      },
+      "location": {
+        "S": "exonic"
+      },
+      "confirmed": {
+        "BOOL": true
+      },
+      "reference_allele_observations": {
+        "N": "1020"
+      },
+      "ocp_alternative": {
+        "S": "G"
+      },
+      "alternative_allele_observation_count": {
+        "N": "790"
+      },
+      "function": {
+        "S": "missense"
+      },
+      "patient_id": {
+        "S": "PT_AU06_PendingConfirmation0"
+      },
+      "filter": {
+        "S": "PASS"
+      },
+      "surgical_event_id": {
+        "S": "PT_AU06_PendingConfirmation0_SEI1"
+      },
+      "identifier": {
+        "S": "COSM775"
+      },
+      "flow_reference_allele_observations": {
+        "N": "1024"
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-21T04:22:00+00:00"
+      },
+      "cds_reference": {
+        "S": "C"
+      },
+      "amois": {
+        "L": [
+
+        ]
+      },
+      "read_depth": {
+        "N": "1814"
+      },
+      "func_gene": {
+        "S": "PIK3CA"
+      },
+      "allele_frequency": {
+        "N": "0.435502"
+      },
+      "variant_type": {
+        "S": "snp"
+      },
+      "flow_alternative_allele_observation_count": {
+        "N": "790"
+      },
+      "transcript": {
+        "S": "NM_006218.2"
+      },
+      "protein": {
+        "S": "p.His1047Arg"
+      },
+      "position": {
+        "S": "178952085"
+      },
+      "uuid": {
+        "S": "367f53f7-2d6a-4e3b-8f6d-a4fad8f1465d"
+      },
+      "oncomine_variant_class": {
+        "S": "Hotspot"
+      },
+      "exon": {
+        "S": "21"
+      },
+      "molecular_id": {
+        "S": "PT_AU08_PendingApproval0_MOI1"
+      },
+      "cds_alternative": {
+        "S": "T"
+      },
+      "analysis_id": {
+        "S": "PT_AU08_PendingApproval0_ANI1"
+      },
+      "ocp_reference": {
+        "S": "A"
+      },
+      "chromosome": {
+        "S": "chr3"
+      },
+      "hgvs": {
+        "S": "c.3140A>G"
+      },
+      "location": {
+        "S": "exonic"
+      },
+      "confirmed": {
+        "BOOL": true
+      },
+      "reference_allele_observations": {
+        "N": "1020"
+      },
+      "ocp_alternative": {
+        "S": "G"
+      },
+      "alternative_allele_observation_count": {
+        "N": "790"
+      },
+      "function": {
+        "S": "missense"
+      },
+      "patient_id": {
+        "S": "PT_AU08_PendingApproval0"
+      },
+      "filter": {
+        "S": "PASS"
+      },
+      "surgical_event_id": {
+        "S": "PT_AU08_PendingApproval0_SEI1"
+      },
+      "identifier": {
+        "S": "COSM775"
+      },
+      "flow_reference_allele_observations": {
+        "N": "1024"
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-21T04:22:00+00:00"
+      },
+      "molecular_id": {
+        "S": "PT_AU08_PendingApproval0_MOI1"
+      },
+      "analysis_id": {
+        "S": "PT_AU08_PendingApproval0_ANI1"
+      },
+      "read_depth": {
+        "N": "1001"
+      },
+      "identifier": {
+        "S": "TPM3-ALK.T7A20"
+      },
+      "surgical_event_id": {
+        "S": "PT_AU08_PendingApproval0_SEI1"
+      },
+      "partner_read_count": {
+        "N": "1001"
+      },
+      "annotation": {
+        "S": "-"
+      },
+      "partner_gene": {
+        "S": "TPM3"
+      },
+      "patient_id": {
+        "S": "PT_AU08_PendingApproval0"
+      },
+      "variant_type": {
+        "S": "fusion"
+      },
+      "filter": {
+        "S": "PASS"
+      },
+      "driver_read_count": {
+        "N": "1001"
+      },
+      "driver_gene": {
+        "S": "ALK"
+      },
+      "confirmed": {
+        "BOOL": true
+      },
+      "uuid": {
+        "S": "c3543dcc-2645-445f-8ed5-40b2c3732446"
+      },
+      "amois": {
+        "L": [
+          {
+            "M": {
+              "amoi_status": {
+                "S": "CURRENT"
+              },
+              "treatment_arm_id": {
+                "S": "APEC1621-ETE-A"
+              },
+              "stratum_id": {
+                "S": "100"
+              },
+              "version": {
+                "S": "2015-08-06"
+              },
+              "exclusion": {
+                "BOOL": false
+              }
+            }
+          },
+          {
+            "M": {
+              "amoi_status": {
+                "S": "CURRENT"
+              },
+              "treatment_arm_id": {
+                "S": "APEC1621-A"
+              },
+              "stratum_id": {
+                "S": "100"
+              },
+              "version": {
+                "S": "2015-08-06"
+              },
+              "exclusion": {
+                "BOOL": false
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-21T04:22:00+00:00"
+      },
+      "molecular_id": {
+        "S": "PT_AU08_PendingApproval0_MOI1"
+      },
+      "analysis_id": {
+        "S": "PT_AU08_PendingApproval0_ANI1"
+      },
+      "read_depth": {
+        "N": "1070"
+      },
+      "identifier": {
+        "S": "CCDC6-RET.C1R12.COSF1271"
+      },
+      "surgical_event_id": {
+        "S": "PT_AU08_PendingApproval0_SEI1"
+      },
+      "partner_read_count": {
+        "N": "1070"
+      },
+      "annotation": {
+        "S": "-"
+      },
+      "partner_gene": {
+        "S": "CCDC6"
+      },
+      "patient_id": {
+        "S": "PT_AU08_PendingApproval0"
+      },
+      "variant_type": {
+        "S": "fusion"
+      },
+      "filter": {
+        "S": "PASS"
+      },
+      "driver_read_count": {
+        "N": "1070"
+      },
+      "driver_gene": {
+        "S": "RET"
+      },
+      "confirmed": {
+        "BOOL": true
+      },
+      "uuid": {
+        "S": "e849fe4f-ba68-46c0-af03-40582099730f"
+      },
+      "amois": {
+        "L": [
+          {
+            "M": {
+              "amoi_status": {
+                "S": "CURRENT"
+              },
+              "treatment_arm_id": {
+                "S": "APEC1621-ETE-C"
+              },
+              "stratum_id": {
+                "S": "100"
+              },
+              "version": {
+                "S": "2015-08-06"
+              },
+              "exclusion": {
+                "BOOL": false
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-21T04:22:00+00:00"
+      },
+      "cds_reference": {
+        "S": "CC"
+      },
+      "oncomine_variant_class": {
+        "S": "Deleterious"
+      },
+      "read_depth": {
+        "N": "525"
+      },
+      "func_gene": {
+        "S": "TP53"
+      },
+      "allele_frequency": {
+        "N": "0.373333"
+      },
+      "variant_type": {
+        "S": "ins"
+      },
+      "flow_alternative_allele_observation_count": {
+        "N": "196"
+      },
+      "transcript": {
+        "S": "NM_000546.5"
+      },
+      "protein": {
+        "S": "p.Ser90fs"
+      },
+      "position": {
+        "S": "7579420"
+      },
+      "uuid": {
+        "S": "46c2795e-412e-4230-be23-c28f3fac5460"
+      },
+      "amois": {
+        "L": [
+
+        ]
+      },
+      "exon": {
+        "S": "4"
+      },
+      "molecular_id": {
+        "S": "PT_AU08_PendingApproval0_MOI1"
+      },
+      "analysis_id": {
+        "S": "PT_AU08_PendingApproval0_ANI1"
+      },
+      "ocp_reference": {
+        "S": "-"
+      },
+      "chromosome": {
+        "S": "chr17"
+      },
+      "hgvs": {
+        "S": "c.267_268insCC"
+      },
+      "location": {
+        "S": "exonic"
+      },
+      "confirmed": {
+        "BOOL": true
+      },
+      "reference_allele_observations": {
+        "N": "308"
+      },
+      "ocp_alternative": {
+        "S": "GG"
+      },
+      "alternative_allele_observation_count": {
+        "N": "154"
+      },
+      "function": {
+        "S": "frameshiftInsertion"
+      },
+      "patient_id": {
+        "S": "PT_AU08_PendingApproval0"
+      },
+      "filter": {
+        "S": "PASS"
+      },
+      "surgical_event_id": {
+        "S": "PT_AU08_PendingApproval0_SEI1"
       },
       "identifier": {
         "S": "."
