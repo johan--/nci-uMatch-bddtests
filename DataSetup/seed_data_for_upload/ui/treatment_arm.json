@@ -1,5 +1,5 @@
 {
-  "Count": 16,
+  "Count": 18,
   "ConsumedCapacity": null,
   "Items": [
     {
@@ -55,9 +55,7 @@
                 "BOOL": true
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -85,9 +83,7 @@
                 "BOOL": true
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -115,9 +111,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -145,9 +139,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -896,9 +888,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -929,9 +919,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -962,9 +950,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -995,9 +981,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -1028,9 +1012,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -1061,9 +1043,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -1094,9 +1074,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -1127,9 +1105,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -1160,9 +1136,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -1193,9 +1167,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -1226,9 +1198,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -1259,9 +1229,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -1292,9 +1260,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -1325,9 +1291,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -1358,9 +1322,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -1391,9 +1353,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -1424,9 +1384,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -1457,9 +1415,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -1490,9 +1446,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -1523,9 +1477,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -1556,9 +1508,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -1589,9 +1539,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -1622,9 +1570,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -1655,9 +1601,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -1688,9 +1632,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -1721,9 +1663,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -1754,9 +1694,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -1787,9 +1725,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -1820,9 +1756,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -1853,9 +1787,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -1886,9 +1818,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -1919,9 +1849,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -1952,9 +1880,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -1985,9 +1911,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -2018,9 +1942,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -2051,9 +1973,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -2084,9 +2004,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -2117,9 +2035,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -2150,9 +2066,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -2183,9 +2097,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -2216,9 +2128,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -2249,9 +2159,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -2282,9 +2190,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -2315,9 +2221,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -2348,9 +2252,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -2381,9 +2283,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -2414,9 +2314,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -2447,9 +2345,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -2480,9 +2376,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -2513,9 +2407,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -2546,9 +2438,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -2579,9 +2469,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -2612,9 +2500,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -2645,9 +2531,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -2678,9 +2562,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -2711,9 +2593,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -2744,9 +2624,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -2777,9 +2655,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -2810,9 +2686,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -2843,9 +2717,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -2876,9 +2748,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -2909,9 +2779,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -2942,9 +2810,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -2975,9 +2841,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -3008,9 +2872,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -3041,9 +2903,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -3074,9 +2934,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -3107,9 +2965,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -3140,9 +2996,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -3173,9 +3027,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -3206,9 +3058,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -3239,9 +3089,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -3272,9 +3120,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -3305,9 +3151,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -3338,9 +3182,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -3371,9 +3213,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -3404,9 +3244,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -3437,9 +3275,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -3470,9 +3306,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -3503,9 +3337,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -3536,9 +3368,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -3569,9 +3399,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -3602,9 +3430,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -3635,9 +3461,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -3668,9 +3492,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -3701,9 +3523,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -3734,9 +3554,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -3767,9 +3585,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -3800,9 +3616,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -3833,9 +3647,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -3866,9 +3678,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -3899,9 +3709,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -3932,9 +3740,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -3965,9 +3771,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -3998,9 +3802,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -4031,9 +3833,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -4064,9 +3864,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -4097,9 +3895,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -4130,9 +3926,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -4163,9 +3957,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -4196,9 +3988,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -4229,9 +4019,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -4262,9 +4050,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -4295,9 +4081,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -4328,9 +4112,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -4361,9 +4143,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -4394,9 +4174,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -4427,9 +4205,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -4460,9 +4236,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -4493,9 +4267,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -4526,9 +4298,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -4559,9 +4329,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -4592,9 +4360,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -4625,9 +4391,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -4658,9 +4422,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -4691,9 +4453,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -4724,9 +4484,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -4736,17 +4494,13 @@
         ]
       },
       "copy_number_variants": {
-        "L": [
-
-        ]
+        "L": []
       },
       "date_created": {
         "S": "2017-07-05T11:36:07-04:00"
       },
       "assay_rules": {
-        "L": [
-
-        ]
+        "L": []
       },
       "is_active_flag": {
         "BOOL": true
@@ -11487,9 +11241,7 @@
                 "S": "T"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -11529,9 +11281,7 @@
                 "S": "T"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -11571,9 +11321,7 @@
                 "S": "T"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -11613,9 +11361,7 @@
                 "S": "T"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -11655,9 +11401,7 @@
                 "S": "T"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -11697,9 +11441,7 @@
                 "S": "TT"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -11739,9 +11481,7 @@
                 "S": "TT"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -11781,9 +11521,7 @@
                 "S": "G"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -11823,9 +11561,7 @@
                 "S": "G"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -11865,9 +11601,7 @@
                 "S": "TTG"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -11907,9 +11641,7 @@
                 "S": "TG"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -11949,9 +11681,7 @@
                 "S": "TG"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -11991,9 +11721,7 @@
                 "S": "GT"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -12033,9 +11761,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -12075,9 +11801,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -12117,9 +11841,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -12159,9 +11881,7 @@
                 "S": "GT"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -12201,9 +11921,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -12243,9 +11961,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -12285,9 +12001,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -12327,9 +12041,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -12369,9 +12081,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -12411,9 +12121,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -12453,9 +12161,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -12495,9 +12201,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -12537,9 +12241,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -12579,9 +12281,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -12621,9 +12321,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -12663,9 +12361,7 @@
                 "S": "T"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -12705,9 +12401,7 @@
                 "S": "T"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -12747,9 +12441,7 @@
                 "S": "T"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -12789,9 +12481,7 @@
                 "S": "CT"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -12831,9 +12521,7 @@
                 "S": "CT"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -12873,9 +12561,7 @@
                 "S": "G"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -12915,9 +12601,7 @@
                 "S": "G"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -12957,9 +12641,7 @@
                 "S": "CT"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -12999,9 +12681,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -13041,9 +12721,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -13083,9 +12761,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -13125,9 +12801,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -13167,9 +12841,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -13209,9 +12881,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -13251,9 +12921,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -13293,9 +12961,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -13335,9 +13001,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -13377,9 +13041,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -13419,9 +13081,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -13461,9 +13121,7 @@
                 "S": "G"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -13503,9 +13161,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -13545,9 +13201,7 @@
                 "S": "T"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -13587,9 +13241,7 @@
                 "S": "T"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -13629,9 +13281,7 @@
                 "S": "T"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -13671,9 +13321,7 @@
                 "S": "T"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -13713,9 +13361,7 @@
                 "S": "T"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -13755,9 +13401,7 @@
                 "S": "T"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -13797,9 +13441,7 @@
                 "S": "T"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -13839,9 +13481,7 @@
                 "S": "TT"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -13881,9 +13521,7 @@
                 "S": "G"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -13923,9 +13561,7 @@
                 "S": "G"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -13965,9 +13601,7 @@
                 "S": "GA"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -14007,9 +13641,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -14049,9 +13681,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -14091,9 +13721,7 @@
                 "S": "GC"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -14133,9 +13761,7 @@
                 "S": "GC"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -14175,9 +13801,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -14217,9 +13841,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -14259,9 +13881,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -14301,9 +13921,7 @@
                 "S": "GC"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -14343,9 +13961,7 @@
                 "S": "GC"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -14385,9 +14001,7 @@
                 "S": "GC"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -14427,9 +14041,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -14469,9 +14081,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -14511,9 +14121,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -14553,9 +14161,7 @@
                 "S": "CC"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -14595,9 +14201,7 @@
                 "S": "CC"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -14637,9 +14241,7 @@
                 "S": "CC"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -14679,9 +14281,7 @@
                 "S": "CA"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -14721,9 +14321,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -14763,9 +14361,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -14805,9 +14401,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -14847,9 +14441,7 @@
                 "S": "AC"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -14889,9 +14481,7 @@
                 "S": "AC"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -14931,9 +14521,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -14973,9 +14561,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -15015,9 +14601,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -15057,9 +14641,7 @@
                 "S": "ACC"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -15099,9 +14681,7 @@
                 "S": "AC"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -15141,9 +14721,7 @@
                 "S": "ACC"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -15183,9 +14761,7 @@
                 "S": "ACC"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -15225,9 +14801,7 @@
                 "S": "AC"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -15267,9 +14841,7 @@
                 "S": "CA"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -15309,9 +14881,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -15351,9 +14921,7 @@
                 "S": "T"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -15393,9 +14961,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -15435,9 +15001,7 @@
                 "S": "T"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -15477,9 +15041,7 @@
                 "S": "T"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -15519,9 +15081,7 @@
                 "S": "CA"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -15561,9 +15121,7 @@
                 "S": "CA"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -15603,9 +15161,7 @@
                 "S": "CA"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -15645,9 +15201,7 @@
                 "S": "ACT"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -15687,9 +15241,7 @@
                 "S": "AC"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -15729,9 +15281,7 @@
                 "S": "AC"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -15771,9 +15321,7 @@
                 "S": "AC"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -15813,9 +15361,7 @@
                 "S": "A"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -15855,9 +15401,7 @@
                 "S": "A"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -15897,9 +15441,7 @@
                 "S": "AC"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -15939,9 +15481,7 @@
                 "S": "A"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -15981,9 +15521,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -16023,9 +15561,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -16065,9 +15601,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -16101,9 +15635,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -16113,9 +15645,7 @@
           {
             "M": {
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "variant_type": {
                 "S": "ins"
@@ -16152,9 +15682,7 @@
           {
             "M": {
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "variant_type": {
                 "S": "ins"
@@ -16224,9 +15752,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -16266,9 +15792,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -16308,9 +15832,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -16350,9 +15872,7 @@
                 "S": "T"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -16392,9 +15912,7 @@
                 "S": "G"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -16434,9 +15952,7 @@
                 "S": "G"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -16476,9 +15992,7 @@
                 "S": "TAG"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -16518,9 +16032,7 @@
                 "S": "A"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -16560,9 +16072,7 @@
                 "S": "A"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -16602,9 +16112,7 @@
                 "S": "G"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -16644,9 +16152,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -16686,9 +16192,7 @@
                 "S": "A"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -16728,9 +16232,7 @@
                 "S": "A"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -16770,9 +16272,7 @@
                 "S": "A"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -16812,9 +16312,7 @@
                 "S": "T"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -16854,9 +16352,7 @@
                 "S": "T"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -16896,9 +16392,7 @@
                 "S": "TCA"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -16938,9 +16432,7 @@
                 "S": "T"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -16980,9 +16472,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -17022,9 +16512,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -17064,9 +16552,7 @@
                 "S": "T"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -17106,9 +16592,7 @@
                 "S": "T"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -17148,9 +16632,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -17190,9 +16672,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -17232,9 +16712,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -17274,9 +16752,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -17316,9 +16792,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -17358,9 +16832,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -17400,9 +16872,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -17442,9 +16912,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -17484,9 +16952,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -17526,9 +16992,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -17568,9 +17032,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -17610,9 +17072,7 @@
                 "S": "A"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -17652,9 +17112,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -17688,9 +17146,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -17727,9 +17183,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -17772,9 +17226,7 @@
                 "S": "A"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -17814,9 +17266,7 @@
                 "S": "A"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -17856,9 +17306,7 @@
                 "S": "G"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -17898,9 +17346,7 @@
                 "S": "G"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -17934,9 +17380,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -17973,9 +17417,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -18012,9 +17454,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -18057,9 +17497,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -18099,9 +17537,7 @@
                 "S": "G"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -18135,9 +17571,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -18174,9 +17608,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -18213,9 +17645,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -18252,9 +17682,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -18291,9 +17719,7 @@
                 "BOOL": false
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -18336,9 +17762,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -18378,9 +17802,7 @@
                 "S": "T"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -18420,9 +17842,7 @@
                 "S": "G"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -18462,9 +17882,7 @@
                 "S": "A"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -18504,9 +17922,7 @@
                 "S": "G"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -18546,9 +17962,7 @@
                 "S": "G"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -18588,9 +18002,7 @@
                 "S": "T"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -18630,9 +18042,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -18672,9 +18082,7 @@
                 "S": "A"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -18714,9 +18122,7 @@
                 "S": "G"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -18756,9 +18162,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -18798,9 +18202,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           }
@@ -18814,6 +18216,570 @@
       },
       "treatment_arm_id": {
         "S": "APEC1621LOTSNV"
+      },
+      "date_opened": {
+        "S": "2017-07-05T15:36:10+00:00"
+      }
+    },
+    {
+      "name": {
+        "S": "APEC1621-SCTest"
+      },
+      "description": {
+        "S": "APEC1621-SCTest LY3023414 in TSC1/TSC2 mutations"
+      },
+      "diseases": {
+        "L": [
+          {
+            "M": {
+              "disease_code_type": {
+                "S": "ICD-O"
+              },
+              "disease_code": {
+                "S": "9384-1"
+              },
+              "exclusion": {
+                "BOOL": true
+              },
+              "disease_name": {
+                "S": "Subependymal giant cell astrocytoma (C71._)"
+              }
+            }
+          }
+        ]
+      },
+      "treatment_arm_status": {
+        "S": "OPEN"
+      },
+      "non_hotspot_rules": {
+        "L": [
+          {
+            "M": {
+              "func_gene": {
+                "S": "TSC1"
+              },
+              "level_of_evidence": {
+                "N": "3"
+              },
+              "type": {
+                "S": "nhr"
+              },
+              "oncomine_variant_class": {
+                "S": "Deleterious"
+              },
+              "$$hash_key": {
+                "S": "object:414"
+              },
+              "inclusion": {
+                "BOOL": true
+              },
+              "public_med_ids": {
+                "L": []
+              },
+              "arm_specific": {
+                "BOOL": false
+              }
+            }
+          }
+        ]
+      },
+      "target_name": {
+        "S": "LY3023414"
+      },
+      "exclusion_drugs": {
+        "L": [
+          {
+            "M": {
+              "name": {
+                "S": "LY3023414"
+              },
+              "drug_id": {
+                "S": "783668"
+              },
+              "drug_class": {
+                "S": "PI3K/mTOR"
+              }
+            }
+          }
+        ]
+      },
+      "treatment_arm_drugs": {
+        "L": [
+          {
+            "M": {
+              "name": {
+                "S": "LY3023414"
+              },
+              "pathway": {
+                "S": "PI3K/AKT1/mTOR"
+              },
+              "drug_id": {
+                "S": "783668"
+              }
+            }
+          }
+        ]
+      },
+      "gene_fusions": {
+        "L": []
+      },
+      "copy_number_variants": {
+        "L": []
+      },
+      "date_created": {
+        "S": "2017-07-05T11:36:07-04:00"
+      },
+      "assay_rules": {
+        "L": []
+      },
+      "is_active_flag": {
+        "BOOL": true
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "status_log": {
+        "M": {
+          "1499268970": {
+            "S": "OPEN"
+          }
+        }
+      },
+      "stratum_id": {
+        "S": "100"
+      },
+      "snv_indels": {
+        "L": [
+          {
+            "M": {
+              "identifier": {
+                "S": "PM_MCH12"
+              },
+              "variant_type": {
+                "S": "snp"
+              },
+              "position": {
+                "S": "135781386"
+              },
+              "ocp_reference": {
+                "S": "G"
+              },
+              "description": {
+                "S": "Missense"
+              },
+              "arm_specific": {
+                "BOOL": false
+              },
+              "inclusion": {
+                "BOOL": true
+              },
+              "$$hash_key": {
+                "S": "object:128"
+              },
+              "public_med_ids": {
+                "L": [
+                  {
+                    "S": "21309039"
+                  }
+                ]
+              },
+              "chromosome": {
+                "S": "chr9"
+              },
+              "level_of_evidence": {
+                "N": "3"
+              },
+              "gene": {
+                "S": "TSC1"
+              },
+              "ocp_alternative": {
+                "S": "A"
+              }
+            }
+          },
+          {
+            "M": {
+              "variant_type": {
+                "S": "del"
+              },
+              "position": {
+                "S": "135781060"
+              },
+              "gene": {
+                "S": "TSC1"
+              },
+              "description": {
+                "S": "Missense"
+              },
+              "arm_specific": {
+                "BOOL": false
+              },
+              "identifier": {
+                "S": "PM_COSM1636659"
+              },
+              "level_of_evidence": {
+                "N": "3"
+              },
+              "chromosome": {
+                "S": "chr9"
+              },
+              "inclusion": {
+                "BOOL": true
+              },
+              "$$hash_key": {
+                "S": "object:129"
+              },
+              "ocp_reference": {
+                "S": "CT"
+              },
+              "public_med_ids": {
+                "L": [
+                  {
+                    "S": "21309039"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "identifier": {
+                "S": "PM_MCH11"
+              },
+              "variant_type": {
+                "S": "snp"
+              },
+              "position": {
+                "S": "135778042"
+              },
+              "ocp_reference": {
+                "S": "G"
+              },
+              "description": {
+                "S": "Missense"
+              },
+              "arm_specific": {
+                "BOOL": false
+              },
+              "inclusion": {
+                "BOOL": true
+              },
+              "$$hash_key": {
+                "S": "object:130"
+              },
+              "public_med_ids": {
+                "L": [
+                  {
+                    "S": "21309039"
+                  }
+                ]
+              },
+              "chromosome": {
+                "S": "chr9"
+              },
+              "level_of_evidence": {
+                "N": "3"
+              },
+              "gene": {
+                "S": "TSC1"
+              },
+              "ocp_alternative": {
+                "S": "A"
+              }
+            }
+          }
+        ]
+      },
+      "gene": {
+        "S": "TSC"
+      },
+      "version": {
+        "S": "version100"
+      },
+      "treatment_arm_id": {
+        "S": "APEC1621-SCTest"
+      },
+      "date_opened": {
+        "S": "2017-07-05T15:36:10+00:00"
+      }
+    },
+    {
+      "name": {
+        "S": "APEC1621SC-SCTest"
+      },
+      "description": {
+        "S": "APEC1621SC-SCTest LY3023414 in TSC1/TSC2 mutations"
+      },
+      "diseases": {
+        "L": [
+          {
+            "M": {
+              "disease_code_type": {
+                "S": "ICD-O"
+              },
+              "disease_code": {
+                "S": "9384-1"
+              },
+              "exclusion": {
+                "BOOL": true
+              },
+              "disease_name": {
+                "S": "Subependymal giant cell astrocytoma (C71._)"
+              }
+            }
+          }
+        ]
+      },
+      "treatment_arm_status": {
+        "S": "OPEN"
+      },
+      "non_hotspot_rules": {
+        "L": [
+          {
+            "M": {
+              "func_gene": {
+                "S": "TSC1"
+              },
+              "level_of_evidence": {
+                "N": "3"
+              },
+              "type": {
+                "S": "nhr"
+              },
+              "oncomine_variant_class": {
+                "S": "Deleterious"
+              },
+              "$$hash_key": {
+                "S": "object:414"
+              },
+              "inclusion": {
+                "BOOL": true
+              },
+              "public_med_ids": {
+                "L": []
+              },
+              "arm_specific": {
+                "BOOL": false
+              }
+            }
+          }
+        ]
+      },
+      "target_name": {
+        "S": "LY3023414"
+      },
+      "exclusion_drugs": {
+        "L": [
+          {
+            "M": {
+              "name": {
+                "S": "LY3023414"
+              },
+              "drug_id": {
+                "S": "783668"
+              },
+              "drug_class": {
+                "S": "PI3K/mTOR"
+              }
+            }
+          }
+        ]
+      },
+      "treatment_arm_drugs": {
+        "L": [
+          {
+            "M": {
+              "name": {
+                "S": "LY3023414"
+              },
+              "pathway": {
+                "S": "PI3K/AKT1/mTOR"
+              },
+              "drug_id": {
+                "S": "783668"
+              }
+            }
+          }
+        ]
+      },
+      "gene_fusions": {
+        "L": []
+      },
+      "copy_number_variants": {
+        "L": []
+      },
+      "date_created": {
+        "S": "2017-07-05T11:36:07-04:00"
+      },
+      "assay_rules": {
+        "L": []
+      },
+      "is_active_flag": {
+        "BOOL": true
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "status_log": {
+        "M": {
+          "1499268970": {
+            "S": "OPEN"
+          }
+        }
+      },
+      "stratum_id": {
+        "S": "100"
+      },
+      "snv_indels": {
+        "L": [
+          {
+            "M": {
+              "identifier": {
+                "S": "PM_MCH12"
+              },
+              "variant_type": {
+                "S": "snp"
+              },
+              "position": {
+                "S": "135781386"
+              },
+              "ocp_reference": {
+                "S": "G"
+              },
+              "description": {
+                "S": "Missense"
+              },
+              "arm_specific": {
+                "BOOL": false
+              },
+              "inclusion": {
+                "BOOL": true
+              },
+              "$$hash_key": {
+                "S": "object:128"
+              },
+              "public_med_ids": {
+                "L": [
+                  {
+                    "S": "21309039"
+                  }
+                ]
+              },
+              "chromosome": {
+                "S": "chr9"
+              },
+              "level_of_evidence": {
+                "N": "3"
+              },
+              "gene": {
+                "S": "TSC1"
+              },
+              "ocp_alternative": {
+                "S": "A"
+              }
+            }
+          },
+          {
+            "M": {
+              "variant_type": {
+                "S": "del"
+              },
+              "position": {
+                "S": "135781060"
+              },
+              "gene": {
+                "S": "TSC1"
+              },
+              "description": {
+                "S": "Missense"
+              },
+              "arm_specific": {
+                "BOOL": false
+              },
+              "identifier": {
+                "S": "PM_COSM1636659"
+              },
+              "level_of_evidence": {
+                "N": "3"
+              },
+              "chromosome": {
+                "S": "chr9"
+              },
+              "inclusion": {
+                "BOOL": true
+              },
+              "$$hash_key": {
+                "S": "object:129"
+              },
+              "ocp_reference": {
+                "S": "CT"
+              },
+              "public_med_ids": {
+                "L": [
+                  {
+                    "S": "21309039"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "M": {
+              "identifier": {
+                "S": "PM_MCH11"
+              },
+              "variant_type": {
+                "S": "snp"
+              },
+              "position": {
+                "S": "135778042"
+              },
+              "ocp_reference": {
+                "S": "G"
+              },
+              "description": {
+                "S": "Missense"
+              },
+              "arm_specific": {
+                "BOOL": false
+              },
+              "inclusion": {
+                "BOOL": true
+              },
+              "$$hash_key": {
+                "S": "object:130"
+              },
+              "public_med_ids": {
+                "L": [
+                  {
+                    "S": "21309039"
+                  }
+                ]
+              },
+              "chromosome": {
+                "S": "chr9"
+              },
+              "level_of_evidence": {
+                "N": "3"
+              },
+              "gene": {
+                "S": "TSC1"
+              },
+              "ocp_alternative": {
+                "S": "A"
+              }
+            }
+          }
+        ]
+      },
+      "gene": {
+        "S": "TSC"
+      },
+      "version": {
+        "S": "version100"
+      },
+      "treatment_arm_id": {
+        "S": "APEC1621SC-SCTest"
       },
       "date_opened": {
         "S": "2017-07-05T15:36:10+00:00"
@@ -18939,9 +18905,7 @@
                 "S": "TPM3"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "ocp_reference": {
                 "S": "C"
@@ -18978,9 +18942,7 @@
                 "S": "NTRK1"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "ocp_reference": {
                 "S": "G"
@@ -19017,9 +18979,7 @@
                 "S": "TPM3"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "ocp_reference": {
                 "S": "T"
@@ -19056,9 +19016,7 @@
                 "S": "ROS1"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "ocp_reference": {
                 "S": "T"
@@ -19608,17 +19566,13 @@
         "S": "2017-07-05T15:35:56+00:00"
       },
       "non_hotspot_rules": {
-        "L": [
-
-        ]
+        "L": []
       },
       "target_name": {
         "S": "Crizotinib"
       },
       "copy_number_variants": {
-        "L": [
-
-        ]
+        "L": []
       },
       "gene_fusions": {
         "L": [
@@ -19692,9 +19646,7 @@
         ]
       },
       "snv_indels": {
-        "L": [
-
-        ]
+        "L": []
       },
       "name": {
         "S": "APEC1621-2V"
@@ -19726,9 +19678,7 @@
         "S": "2017-07-05T11:35:56-04:00"
       },
       "assay_rules": {
-        "L": [
-
-        ]
+        "L": []
       },
       "stratum_id": {
         "S": "100"
@@ -19781,22 +19731,16 @@
         "S": "2017-07-05T15:36:11+00:00"
       },
       "non_hotspot_rules": {
-        "L": [
-
-        ]
+        "L": []
       },
       "target_name": {
         "S": "Crizotinib"
       },
       "assay_rules": {
-        "L": [
-
-        ]
+        "L": []
       },
       "gene_fusions": {
-        "L": [
-
-        ]
+        "L": []
       },
       "treatment_arm_status": {
         "S": "OPEN"
@@ -20048,9 +19992,7 @@
         "S": "113"
       },
       "copy_number_variants": {
-        "L": [
-
-        ]
+        "L": []
       }
     },
     {
@@ -20083,9 +20025,7 @@
                 "BOOL": true
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -20098,9 +20038,7 @@
         "S": "Crizotinib"
       },
       "assay_rules": {
-        "L": [
-
-        ]
+        "L": []
       },
       "gene_fusions": {
         "L": [
@@ -20184,9 +20122,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           }
@@ -20216,9 +20152,7 @@
         ]
       },
       "snv_indels": {
-        "L": [
-
-        ]
+        "L": []
       },
       "name": {
         "S": "APEC1621-ETE-A"
@@ -20353,9 +20287,7 @@
         "S": "113"
       },
       "copy_number_variants": {
-        "L": [
-
-        ]
+        "L": []
       },
       "former_patients": {
         "N": "0"
@@ -20409,9 +20341,7 @@
                 "BOOL": true
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -20424,9 +20354,7 @@
         "S": "Ensartinib (X-396)"
       },
       "assay_rules": {
-        "L": [
-
-        ]
+        "L": []
       },
       "gene_fusions": {
         "L": [
@@ -20510,9 +20438,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -20552,9 +20478,7 @@
                 "S": "G"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           }
@@ -20833,9 +20757,7 @@
         "S": "OPEN"
       },
       "non_hotspot_rules": {
-        "L": [
-
-        ]
+        "L": []
       },
       "target_name": {
         "S": "HGFR Pathway"
@@ -20864,9 +20786,7 @@
         ]
       },
       "gene_fusions": {
-        "L": [
-
-        ]
+        "L": []
       },
       "date_created": {
         "S": "2017-07-05T11:36:01-04:00"
@@ -20875,9 +20795,7 @@
         "S": "1234"
       },
       "assay_rules": {
-        "L": [
-
-        ]
+        "L": []
       },
       "stratum_id": {
         "S": "1"
@@ -20944,9 +20862,7 @@
         "S": "2016-05-28"
       },
       "copy_number_variants": {
-        "L": [
-
-        ]
+        "L": []
       },
       "date_opened": {
         "S": "2017-07-05T15:36:02+00:00"
@@ -21141,9 +21057,7 @@
                 "N": "3.0"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "chromosome": {
                 "S": "chr2"
@@ -21239,9 +21153,7 @@
                 "N": "3.0"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "chromosome": {
                 "S": "chr6"
@@ -21921,9 +21833,7 @@
                 "BOOL": true
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -21936,22 +21846,16 @@
         "S": "Crizotinib"
       },
       "assay_rules": {
-        "L": [
-
-        ]
+        "L": []
       },
       "gene_fusions": {
-        "L": [
-
-        ]
+        "L": []
       },
       "treatment_arm_status": {
         "S": "OPEN"
       },
       "exclusion_drugs": {
-        "L": [
-
-        ]
+        "L": []
       },
       "snv_indels": {
         "L": [
@@ -22168,9 +22072,7 @@
         "S": "113"
       },
       "copy_number_variants": {
-        "L": [
-
-        ]
+        "L": []
       }
     },
     {
@@ -22203,9 +22105,7 @@
                 "BOOL": true
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -22218,22 +22118,16 @@
         "S": "Crizotinib"
       },
       "assay_rules": {
-        "L": [
-
-        ]
+        "L": []
       },
       "gene_fusions": {
-        "L": [
-
-        ]
+        "L": []
       },
       "treatment_arm_status": {
         "S": "OPEN"
       },
       "exclusion_drugs": {
-        "L": [
-
-        ]
+        "L": []
       },
       "snv_indels": {
         "L": [
@@ -22450,9 +22344,7 @@
         "S": "113"
       },
       "copy_number_variants": {
-        "L": [
-
-        ]
+        "L": []
       }
     },
     {
@@ -22466,17 +22358,13 @@
         "S": "2017-07-05T15:35:54+00:00"
       },
       "non_hotspot_rules": {
-        "L": [
-
-        ]
+        "L": []
       },
       "target_name": {
         "S": "Crizotinib"
       },
       "assay_rules": {
-        "L": [
-
-        ]
+        "L": []
       },
       "gene_fusions": {
         "L": [
@@ -22516,9 +22404,7 @@
                 "S": "G"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           },
@@ -22558,9 +22444,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           }
@@ -22650,9 +22534,7 @@
         ]
       },
       "snv_indels": {
-        "L": [
-
-        ]
+        "L": []
       },
       "name": {
         "S": "APEC1621-ETE-C"
@@ -22787,9 +22669,7 @@
         "S": "122"
       },
       "copy_number_variants": {
-        "L": [
-
-        ]
+        "L": []
       },
       "former_patients": {
         "N": "0"
@@ -22827,17 +22707,13 @@
         "S": "2017-07-05T15:35:59+00:00"
       },
       "non_hotspot_rules": {
-        "L": [
-
-        ]
+        "L": []
       },
       "target_name": {
         "S": "Crizotinib"
       },
       "assay_rules": {
-        "L": [
-
-        ]
+        "L": []
       },
       "gene_fusions": {
         "L": [
@@ -22877,9 +22753,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           }
@@ -23089,9 +22963,7 @@
         "S": "122-1"
       },
       "copy_number_variants": {
-        "L": [
-
-        ]
+        "L": []
       }
     },
     {
@@ -23105,17 +22977,13 @@
         "S": "2017-07-05T15:36:00+00:00"
       },
       "non_hotspot_rules": {
-        "L": [
-
-        ]
+        "L": []
       },
       "target_name": {
         "S": "Crizotinib"
       },
       "assay_rules": {
-        "L": [
-
-        ]
+        "L": []
       },
       "gene_fusions": {
         "L": [
@@ -23216,9 +23084,7 @@
         ]
       },
       "snv_indels": {
-        "L": [
-
-        ]
+        "L": []
       },
       "name": {
         "S": "CukeTest-122-1-SUSPENDED"
@@ -23369,9 +23235,7 @@
         "S": "122"
       },
       "copy_number_variants": {
-        "L": [
-
-        ]
+        "L": []
       }
     },
     {
@@ -23385,17 +23249,13 @@
         "S": "2017-07-05T15:35:55+00:00"
       },
       "non_hotspot_rules": {
-        "L": [
-
-        ]
+        "L": []
       },
       "target_name": {
         "S": "Crizotinib"
       },
       "assay_rules": {
-        "L": [
-
-        ]
+        "L": []
       },
       "gene_fusions": {
         "L": [
@@ -23472,9 +23332,7 @@
                 "N": "3.0"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "chromosome": {
                 "S": "chr10"
@@ -23528,9 +23386,7 @@
         ]
       },
       "snv_indels": {
-        "L": [
-
-        ]
+        "L": []
       },
       "name": {
         "S": "APEC1621-ETE-B"
@@ -23736,9 +23592,7 @@
                 "BOOL": true
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               },
               "arm_specific": {
                 "BOOL": false
@@ -23751,9 +23605,7 @@
         "S": "Crizotinib"
       },
       "assay_rules": {
-        "L": [
-
-        ]
+        "L": []
       },
       "gene_fusions": {
         "L": [
@@ -23837,9 +23689,7 @@
                 "S": "C"
               },
               "public_med_ids": {
-                "L": [
-
-                ]
+                "L": []
               }
             }
           }
@@ -23869,9 +23719,7 @@
         ]
       },
       "snv_indels": {
-        "L": [
-
-        ]
+        "L": []
       },
       "name": {
         "S": "APEC1621-A"
@@ -24022,9 +23870,7 @@
         "S": "113"
       },
       "copy_number_variants": {
-        "L": [
-
-        ]
+        "L": []
       },
       "former_patients": {
         "N": "9"
@@ -24062,22 +23908,16 @@
         "S": "2017-07-05T15:35:45+00:00"
       },
       "non_hotspot_rules": {
-        "L": [
-
-        ]
+        "L": []
       },
       "target_name": {
         "S": "Crizotinib"
       },
       "assay_rules": {
-        "L": [
-
-        ]
+        "L": []
       },
       "gene_fusions": {
-        "L": [
-
-        ]
+        "L": []
       },
       "treatment_arm_status": {
         "S": "OPEN"
@@ -24212,11 +24052,9 @@
         "S": "113"
       },
       "copy_number_variants": {
-        "L": [
-
-        ]
+        "L": []
       }
     }
   ],
-  "ScannedCount": 16
+  "ScannedCount": 18
 }
