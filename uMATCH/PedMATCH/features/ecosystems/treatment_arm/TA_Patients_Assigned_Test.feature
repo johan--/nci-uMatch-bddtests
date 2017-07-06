@@ -7,7 +7,7 @@ Feature: TA_AS. Treatment Arm API Tests that focus on assignment records
     And record treatment arm statistic numbers
     Then load template variant report confirm message for analysis id: "<patient_id>_<ani>"
     When PUT to MATCH variant report "confirm" service, response includes "success" with code "200"
-    Then wait until ta assignment report for id "APEC1621-M" stratum "100" is updated
+    Then wait until patient "<patient_id>" ta assignment report for id "APEC1621-M" stratum "100" is updated
     Then following ta assignment reports for patient "<patient_id>" should be found
       | ta_id      | stratum | version    | patient_status |
       | APEC1621-M | 100     | v_2        | <status_m>     |
@@ -27,7 +27,7 @@ Feature: TA_AS. Treatment Arm API Tests that focus on assignment records
     And record treatment arm statistic numbers
     Then load template assignment report confirm message for analysis id: "<ani>"
     When PUT to MATCH assignment report "confirm" service, response includes "success" with code "200"
-    Then wait until ta assignment report for id "APEC1621-M" stratum "100" is updated
+    Then wait until patient "<patient_id>" ta assignment report for id "APEC1621-M" stratum "100" is updated
     Then following ta assignment reports for patient "<patient_id>" should be found
       | ta_id      | stratum | version    | patient_status |
       | APEC1621-M | 100     | <ver>      | <status_m>     |
@@ -50,7 +50,7 @@ Feature: TA_AS. Treatment Arm API Tests that focus on assignment records
     Then load template off study message for this patient
     Then set patient message field: "step_number" to value: "<step>"
     When POST to MATCH patients service, response includes "success" with code "202"
-    Then wait until ta assignment report for id "APEC1621-M" stratum "100" is updated
+    Then wait until patient "<patient_id>" ta assignment report for id "APEC1621-M" stratum "100" is updated
     Then following ta assignment reports for patient "<patient_id>" should be found
       | ta_id      | stratum | version    | patient_status |
       | APEC1621-M | 100     | <ver>      | <status_m>     |
@@ -83,7 +83,7 @@ Feature: TA_AS. Treatment Arm API Tests that focus on assignment records
     Then set patient message field: "stratum_id" to value: "100"
     Then set patient message field: "step_number" to value: "<step>"
     When POST to MATCH patients service, response includes "success" with code "202"
-    Then wait until ta assignment report for id "APEC1621-M" stratum "100" is updated
+    Then wait until patient "<patient_id>" ta assignment report for id "APEC1621-M" stratum "100" is updated
     Then following ta assignment reports for patient "<patient_id>" should be found
       | ta_id      | stratum | version    | patient_status   |
       | APEC1621-M | 100     | <ver>      | ON_TREATMENT_ARM |
@@ -107,7 +107,7 @@ Feature: TA_AS. Treatment Arm API Tests that focus on assignment records
     Then set patient message field: "rebiopsy" to value: "<rebiopsy>"
     And set patient message field: "step_number" to value: "<step>"
     When POST to MATCH patients service, response includes "success" with code "202"
-    Then wait until ta assignment report for id "APEC1621-M" stratum "100" is updated
+    Then wait until patient "<patient_id>" ta assignment report for id "APEC1621-M" stratum "100" is updated
     Then following ta assignment reports for patient "<patient_id>" should be found
       | ta_id      | stratum | version    | patient_status |
       | APEC1621-M | 100     | <ver>      | <status_m>     |
@@ -117,23 +117,23 @@ Feature: TA_AS. Treatment Arm API Tests that focus on assignment records
       | APEC1621-M | 100     | <ver>   | <cp>             | <fp>            | <np>                  | <pp>             |
     Then response of treatment arm accrual command should match database
     Examples:
-      | patient_id                      | rebiopsy | ver | step | status_m            | status_a          | cp | fp | np | pp |
-      | TA_AS05_PendingApprV1_1         | Y        | v_1 | 1.0  | NOT_ENROLLED_ON_ARM |                   | 0  | 0  | 1  | -1 |
-      | TA_AS05_PendingApprV1_2         | N        | v_1 | 1.0  | NOT_ENROLLED_ON_ARM |                   | 0  | 0  | 1  | -1 |
-      | TA_AS05_PendingApprV1Step2_1    | Y        | v_1 | 1.0  | NOT_ENROLLED_ON_ARM | PREVIOUSLY_ON_ARM | 0  | 0  | 1  | -1 |
-      | TA_AS05_PendingApprV1Step2_2    | N        | v_1 | 1.0  | NOT_ENROLLED_ON_ARM | PREVIOUSLY_ON_ARM | 0  | 0  | 1  | -1 |
-      | TA_AS05_OnTreatmentArmV1_1      | Y        | v_1 | 2.0  | PREVIOUSLY_ON_ARM   |                   | -1 | 1  | 0  | 0  |
-      | TA_AS05_OnTreatmentArmV1_2      | N        | v_1 | 2.0  | PREVIOUSLY_ON_ARM   |                   | -1 | 1  | 0  | 0  |
-      | TA_AS05_OnTreatmentArmV1Step2_1 | Y        | v_1 | 3.0  | PREVIOUSLY_ON_ARM   | PREVIOUSLY_ON_ARM | -1 | 1  | 0  | 0  |
-      | TA_AS05_OnTreatmentArmV1Step2_2 | N        | v_1 | 3.0  | PREVIOUSLY_ON_ARM   | PREVIOUSLY_ON_ARM | -1 | 1  | 0  | 0  |
-      | TA_AS05_PendingApprV2_1         | Y        | v_2 | 1.0  | NOT_ENROLLED_ON_ARM |                   | 0  | 0  | 1  | -1 |
-      | TA_AS05_PendingApprV2_2         | N        | v_2 | 1.0  | NOT_ENROLLED_ON_ARM |                   | 0  | 0  | 1  | -1 |
-      | TA_AS05_PendingApprV2Step2_1    | Y        | v_2 | 1.0  | NOT_ENROLLED_ON_ARM | PREVIOUSLY_ON_ARM | 0  | 0  | 1  | -1 |
-      | TA_AS05_PendingApprV2Step2_2    | N        | v_2 | 1.0  | NOT_ENROLLED_ON_ARM | PREVIOUSLY_ON_ARM | 0  | 0  | 1  | -1 |
-      | TA_AS05_OnTreatmentArmV2_1      | Y        | v_2 | 2.0  | PREVIOUSLY_ON_ARM   |                   | -1 | 1  | 0  | 0  |
-      | TA_AS05_OnTreatmentArmV2_2      | N        | v_2 | 2.0  | PREVIOUSLY_ON_ARM   |                   | -1 | 1  | 0  | 0  |
-      | TA_AS05_OnTreatmentArmV2Step2_1 | Y        | v_2 | 3.0  | PREVIOUSLY_ON_ARM   | PREVIOUSLY_ON_ARM | -1 | 1  | 0  | 0  |
-      | TA_AS05_OnTreatmentArmV2Step2_2 | N        | v_2 | 3.0  | PREVIOUSLY_ON_ARM   | PREVIOUSLY_ON_ARM | -1 | 1  | 0  | 0  |
+      | patient_id                      | rebiopsy | ver | step |  status_m            | status_a          | cp | fp | np | pp |
+      | TA_AS05_PendingApprV1_1         | Y        | v_1 | 1.0  |  NOT_ENROLLED_ON_ARM |                   | 0  | 0  | 1  | -1 |
+      | TA_AS05_PendingApprV1_2         | N        | v_1 | 1.0  |  NOT_ENROLLED_ON_ARM |                   | 0  | 0  | 1  | -1 |
+      | TA_AS05_PendingApprV1Step2_1    | Y        | v_1 | 1.0  |  NOT_ENROLLED_ON_ARM | PREVIOUSLY_ON_ARM | 0  | 0  | 1  | -1 |
+      | TA_AS05_PendingApprV1Step2_2    | N        | v_1 | 1.0  |  NOT_ENROLLED_ON_ARM | PREVIOUSLY_ON_ARM | 0  | 0  | 1  | -1 |
+      | TA_AS05_OnTreatmentArmV1_1      | Y        | v_1 | 2.0  |  PREVIOUSLY_ON_ARM   |                   | -1 | 1  | 0  | 0  |
+      | TA_AS05_OnTreatmentArmV1_2      | N        | v_1 | 2.0  |  PREVIOUSLY_ON_ARM   |                   | -1 | 1  | 0  | 0  |
+      | TA_AS05_OnTreatmentArmV1Step2_1 | Y        | v_1 | 3.0  |  PREVIOUSLY_ON_ARM   | PREVIOUSLY_ON_ARM | -1 | 1  | 0  | 0  |
+      | TA_AS05_OnTreatmentArmV1Step2_2 | N        | v_1 | 3.0  |  PREVIOUSLY_ON_ARM   | PREVIOUSLY_ON_ARM | -1 | 1  | 0  | 0  |
+      | TA_AS05_PendingApprV2_1         | Y        | v_2 | 1.0  |  NOT_ENROLLED_ON_ARM |                   | 0  | 0  | 1  | -1 |
+      | TA_AS05_PendingApprV2_2         | N        | v_2 | 1.0  |  NOT_ENROLLED_ON_ARM |                   | 0  | 0  | 1  | -1 |
+      | TA_AS05_PendingApprV2Step2_1    | Y        | v_2 | 1.0  |  NOT_ENROLLED_ON_ARM | PREVIOUSLY_ON_ARM | 0  | 0  | 1  | -1 |
+      | TA_AS05_PendingApprV2Step2_2    | N        | v_2 | 1.0  |  NOT_ENROLLED_ON_ARM | PREVIOUSLY_ON_ARM | 0  | 0  | 1  | -1 |
+      | TA_AS05_OnTreatmentArmV2_1      | Y        | v_2 | 2.0  |  PREVIOUSLY_ON_ARM   |                   | -1 | 1  | 0  | 0  |
+      | TA_AS05_OnTreatmentArmV2_2      | N        | v_2 | 2.0  |  PREVIOUSLY_ON_ARM   |                   | -1 | 1  | 0  | 0  |
+      | TA_AS05_OnTreatmentArmV2Step2_1 | Y        | v_2 | 3.0  |  PREVIOUSLY_ON_ARM   | PREVIOUSLY_ON_ARM | -1 | 1  | 0  | 0  |
+      | TA_AS05_OnTreatmentArmV2Step2_2 | N        | v_2 | 3.0  |  PREVIOUSLY_ON_ARM   | PREVIOUSLY_ON_ARM | -1 | 1  | 0  | 0  |
 
   @treatment_arm_p2
   Scenario: TA_AS40. treatment arm assignment patient list should include patient who has compassionate care assignment
@@ -143,10 +143,10 @@ Feature: TA_AS. Treatment Arm API Tests that focus on assignment records
     When PUT to MATCH variant report "confirm" service, response includes "successfully" with code "200"
     Then patient status should change to "PENDING_CONFIRMATION"
     Then patient API user authorization role is "ASSIGNMENT_REPORT_REVIEWER"
-    Then wait until ta assignment report for id "CukeTest-122-1-SUSPENDED" stratum "stratum122a" is updated
+    Then wait until patient "TA_AS40_TsVrReceived" ta assignment report for id "CukeTest-122-1-SUSPENDED" stratum "stratum122a" is updated
     Then load template assignment report confirm message for analysis id: "TA_AS40_TsVrReceived_ANI1"
     Then PUT to MATCH assignment report "confirm" service, response includes "successfully" with code "200"
-    Then wait until ta assignment report for id "CukeTest-122-1-SUSPENDED" stratum "stratum122a" is updated
+    Then wait until patient "TA_AS40_TsVrReceived" ta assignment report for id "CukeTest-122-1-SUSPENDED" stratum "stratum122a" is updated
     Then following ta assignment reports for patient "TA_AS40_TsVrReceived" should be found
       | ta_id                    | stratum     | version    | patient_status     |
       | CukeTest-122-1-SUSPENDED | stratum122a | 2015-08-06 | COMPASSIONATE_CARE |

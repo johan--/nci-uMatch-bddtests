@@ -29,11 +29,22 @@ Given(/^GET list service for treatment arm id "([^"]*)", stratum id "([^"]*)" an
   end
 end
 
-Then(/^wait until ta assignment report for id "([^"]*)" stratum "([^"]*)" is updated$/) do |ta_id, stratum|
+Then(/^wait until patient "([^"]*)" ta assignment report for id "([^"]*)" stratum "([^"]*)" is updated$/) do |patient_id, ta_id, stratum|
   @ta_id = ta_id
   @stratum_id = stratum
   @request_url = "#{ENV['treatment_arm_endpoint']}/api/v1/treatment_arms/#{@ta_id}/#{@stratum_id}/assignment_report"
-  @response = Helper_Methods.wait_until_updated(@request_url, 45)
+  try_time = 0
+  old_patient_assignment = 'nothing'
+  while try_time < 30
+    @response = Helper_Methods.simple_get_request(@request_url)['message_json']
+    new_patient_assignment = @response['patients_list'].select {|a| a['patient_id']==patient_id}
+    new_patient_assignment = new_patient_assignment[0] if new_patient_assignment.is_a?(Array)
+    old_patient_assignment = new_patient_assignment if old_patient_assignment == 'nothing'
+    break unless new_patient_assignment == old_patient_assignment
+    puts "Retrying to get updated treatment arm assignment for patient #{patient_id}..."
+    try_time += 1
+    sleep 5.0
+  end
 end
 
 Given(/^GET assignment report service for treatment arm id "([^"]*)" and stratum id "([^"]*)"$/) do |ta_id, stratum_id|
@@ -222,7 +233,7 @@ Then(/^following ta assignment reports for patient "([^"]*)" should be found$/) 
     expect(response.keys).to include 'patients_list'
     expect(response['patients_list'].class).to eq Array
     found = false
-    selected = response['patients_list'].select{|this_pt| this_pt['patient_id'] == patient_id}
+    selected = response['patients_list'].select {|this_pt| this_pt['patient_id'] == patient_id}
     if param['patient_status'].present?
       selected.each do |this_pt|
         if this_pt['patient_id'] == patient_id
@@ -233,7 +244,7 @@ Then(/^following ta assignment reports for patient "([^"]*)" should be found$/) 
       end
       raise "Cannot find patient #{patient_id}" unless found
     else
-      error =  "#{patient_id} should not exist in assignment report for"
+      error = "#{patient_id} should not exist in assignment report for"
       error += "#{param['ta_id']}/#{param['stratum']}/#{param['version']}"
       raise error if selected.size > 0
     end
@@ -788,7 +799,7 @@ Then(/^the statistic number changes for treatment arms should be described in th
   table.hashes.each do |this_h|
     ta_stratum = "#{this_h['ta_id']}_#{this_h['stratum']}"
     next if this_h['ta_id'].empty?
-    stratums = new_expected_statistics.select{|id, _| id == ta_stratum}
+    stratums = new_expected_statistics.select {|id, _| id == ta_stratum}
     expect(stratums.size).to be 1
     stratums[ta_stratum].each do |ver, statistics|
       value = statistics['stratum_statistics']['current_patients'].to_i
@@ -811,8 +822,15 @@ Then(/^the statistic number changes for treatment arms should be described in th
       end
     end
   end
-
-  expect(new_ta_statistics).to eq new_expected_statistics
+  expect(new_ta_statistics.keys.sort).to eq new_expected_statistics.keys.sort
+  new_ta_statistics.each do |id, v|
+    puts id
+    expect(v.keys.sort).to eq new_expected_statistics[id].keys.sort
+    v.each {|version, statistics|
+      puts version
+      expect(statistics).to eq new_expected_statistics[id][version]
+    }
+  end
 end
 
 Then(/^there is no treatment arm statistic number change$/) do
