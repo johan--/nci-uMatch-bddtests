@@ -811,9 +811,8 @@ end
 
 And(/^patient statistics field "([^"]*)" should have correct value$/) do |field|
   url = prepare_get_url
-  actual_value = actual.to_i
+  actual_value = @get_response[field].to_i
   expect(@get_response.keys).to include field
-  actual = @get_response[field]
   case field
     when 'number_of_patients'
       expect_value = Helper_Methods.dynamodb_table_items('patient', {}).length
