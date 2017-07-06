@@ -1,6 +1,6 @@
 {
-  "ScannedCount": 35,
-  "Count": 35,
+  "ScannedCount": 53,
+  "Count": 53,
   "Items": [
     {
       "ion_reporter_id": {
@@ -20644,6 +20644,2094 @@
       },
       "patient_id": {
         "S": "TA_AS40_TsVrReceived"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-20T19:51:18+00:00"
+      },
+      "molecular_id": {
+        "S": "PT_SC06a_PendingApprovalStep2_MOI1"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_confirmed_mois": {
+        "N": "4"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "surgical_event_id": {
+        "S": "PT_SC06a_PendingApprovalStep2_SEI1"
+      },
+      "total_mois": {
+        "N": "4"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "vcf_file_name": {
+        "S": "test1.vcf"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "analysis_id": {
+        "S": "PT_SC06a_PendingApprovalStep2_ANI1"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "comment": {
+        "S": "Test"
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "variant_report_received_date": {
+        "S": "2017-06-20T19:51:16+00:00"
+      },
+      "oncomine_control_panel_summary": {
+        "M": {
+          "myc": {
+            "N": "0.0"
+          },
+          "ecPool": {
+            "M": {
+            }
+          },
+          "gePool": {
+            "M": {
+            }
+          },
+          "lrp1": {
+            "N": "0.0"
+          },
+          "pool2Sum": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "fPool": {
+            "M": {
+            }
+          },
+          "pool1Sum": {
+            "N": "0.0"
+          }
+        }
+      },
+      "status": {
+        "S": "CONFIRMED"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "mappedFusionPanelReads": {
+        "N": "849327"
+      },
+      "patient_id": {
+        "S": "PT_SC06a_PendingApprovalStep2"
+      },
+      "comment_user": {
+        "S": "QA"
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-20T19:53:17+00:00"
+      },
+      "molecular_id": {
+        "S": "PT_SC06a_PendingApprovalStep2_MOI2"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_confirmed_mois": {
+        "N": "4"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "surgical_event_id": {
+        "S": "PT_SC06a_PendingApprovalStep2_SEI2"
+      },
+      "total_mois": {
+        "N": "4"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "vcf_file_name": {
+        "S": "test1.vcf"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "analysis_id": {
+        "S": "PT_SC06a_PendingApprovalStep2_ANI2"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "comment": {
+        "S": "Test"
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "variant_report_received_date": {
+        "S": "2017-06-20T19:53:16+00:00"
+      },
+      "oncomine_control_panel_summary": {
+        "M": {
+          "myc": {
+            "N": "0.0"
+          },
+          "ecPool": {
+            "M": {
+            }
+          },
+          "gePool": {
+            "M": {
+            }
+          },
+          "lrp1": {
+            "N": "0.0"
+          },
+          "pool2Sum": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "fPool": {
+            "M": {
+            }
+          },
+          "pool1Sum": {
+            "N": "0.0"
+          }
+        }
+      },
+      "status": {
+        "S": "CONFIRMED"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "mappedFusionPanelReads": {
+        "N": "849327"
+      },
+      "patient_id": {
+        "S": "PT_SC06a_PendingApprovalStep2"
+      },
+      "comment_user": {
+        "S": "QA"
+      }
+    },
+    {
+      "dna_bai_name": {
+        "S": "dna.bai"
+      },
+      "status_date": {
+        "S": "2017-06-20T19:54:12+00:00"
+      },
+      "mappedFusionPanelReads": {
+        "N": "849327"
+      },
+      "molecular_id": {
+        "S": "PT_SC10c_PendingConfirmationStep2_MOI1"
+      },
+      "total_confirmed_mois": {
+        "N": "4"
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "surgical_event_id": {
+        "S": "PT_SC10c_PendingConfirmationStep2_SEI1"
+      },
+      "comment": {
+        "S": "Test"
+      },
+      "cdna_bai_name": {
+        "S": "cdna.bai"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "variant_report_received_date": {
+        "S": "2017-06-20T19:54:03+00:00"
+      },
+      "vcf_file_name": {
+        "S": "test1.vcf"
+      },
+      "cdna_bam_name": {
+        "S": "cdna.bam"
+      },
+      "analysis_id": {
+        "S": "PT_SC10c_PendingConfirmationStep2_ANI1"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "total_mois": {
+        "N": "4"
+      },
+      "oncomine_control_panel_summary": {
+        "M": {
+          "myc": {
+            "N": "0.0"
+          },
+          "ecPool": {
+            "M": {
+            }
+          },
+          "gePool": {
+            "M": {
+            }
+          },
+          "lrp1": {
+            "N": "0.0"
+          },
+          "pool2Sum": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "fPool": {
+            "M": {
+            }
+          },
+          "pool1Sum": {
+            "N": "0.0"
+          }
+        }
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "dna_bam_name": {
+        "S": "dna.bam"
+      },
+      "patient_id": {
+        "S": "PT_SC10c_PendingConfirmationStep2"
+      },
+      "comment_user": {
+        "S": "QA"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "status": {
+        "S": "CONFIRMED"
+      }
+    },
+    {
+      "dna_bai_name": {
+        "S": "dna.bai"
+      },
+      "status_date": {
+        "S": "2017-06-20T19:56:27+00:00"
+      },
+      "mappedFusionPanelReads": {
+        "N": "849327"
+      },
+      "molecular_id": {
+        "S": "PT_SC10c_PendingConfirmationStep2_MOI2"
+      },
+      "total_confirmed_mois": {
+        "N": "4"
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "surgical_event_id": {
+        "S": "PT_SC10c_PendingConfirmationStep2_SEI2"
+      },
+      "comment": {
+        "S": "Test"
+      },
+      "cdna_bai_name": {
+        "S": "cdna.bai"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "variant_report_received_date": {
+        "S": "2017-06-20T19:56:23+00:00"
+      },
+      "vcf_file_name": {
+        "S": "test1.vcf"
+      },
+      "cdna_bam_name": {
+        "S": "cdna.bam"
+      },
+      "analysis_id": {
+        "S": "PT_SC10c_PendingConfirmationStep2_ANI2"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "total_mois": {
+        "N": "4"
+      },
+      "oncomine_control_panel_summary": {
+        "M": {
+          "myc": {
+            "N": "0.0"
+          },
+          "ecPool": {
+            "M": {
+            }
+          },
+          "gePool": {
+            "M": {
+            }
+          },
+          "lrp1": {
+            "N": "0.0"
+          },
+          "pool2Sum": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "fPool": {
+            "M": {
+            }
+          },
+          "pool1Sum": {
+            "N": "0.0"
+          }
+        }
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "dna_bam_name": {
+        "S": "dna.bam"
+      },
+      "patient_id": {
+        "S": "PT_SC10c_PendingConfirmationStep2"
+      },
+      "comment_user": {
+        "S": "QA"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "status": {
+        "S": "CONFIRMED"
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-05T21:25:52+00:00"
+      },
+      "molecular_id": {
+        "S": "PT_VU09_VariantReportUploaded_MOI1"
+      },
+      "total_confirmed_mois": {
+        "N": "4"
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "surgical_event_id": {
+        "S": "PT_VU09_VariantReportUploaded_SEI1"
+      },
+      "total_mois": {
+        "N": "4"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "vcf_file_name": {
+        "S": "test1.vcf"
+      },
+      "analysis_id": {
+        "S": "PT_VU09_VariantReportUploaded_ANI1"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "variant_report_received_date": {
+        "S": "2017-06-05T21:25:52+00:00"
+      },
+      "oncomine_control_panel_summary": {
+        "M": {
+          "myc": {
+            "N": "0.0"
+          },
+          "ecPool": {
+            "M": {
+            }
+          },
+          "gePool": {
+            "M": {
+            }
+          },
+          "lrp1": {
+            "N": "0.0"
+          },
+          "pool2Sum": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "fPool": {
+            "M": {
+            }
+          },
+          "pool1Sum": {
+            "N": "0.0"
+          }
+        }
+      },
+      "status": {
+        "S": "PENDING"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "mappedFusionPanelReads": {
+        "N": "849327"
+      },
+      "patient_id": {
+        "S": "PT_VU09_VariantReportUploaded"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-20T21:00:45+00:00"
+      },
+      "molecular_id": {
+        "S": "PT_RA03_TsShipped_MOI1"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_confirmed_mois": {
+        "N": "4"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "surgical_event_id": {
+        "S": "PT_RA03_TsShipped_SEI1"
+      },
+      "total_mois": {
+        "N": "4"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "vcf_file_name": {
+        "S": "test1.vcf"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "analysis_id": {
+        "S": "PT_RA03_TsShipped_ANI1"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "comment": {
+        "S": "Test"
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "variant_report_received_date": {
+        "S": "2017-06-20T21:00:43+00:00"
+      },
+      "oncomine_control_panel_summary": {
+        "M": {
+          "myc": {
+            "N": "0.0"
+          },
+          "ecPool": {
+            "M": {
+            }
+          },
+          "gePool": {
+            "M": {
+            }
+          },
+          "lrp1": {
+            "N": "0.0"
+          },
+          "pool2Sum": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "fPool": {
+            "M": {
+            }
+          },
+          "pool1Sum": {
+            "N": "0.0"
+          }
+        }
+      },
+      "status": {
+        "S": "CONFIRMED"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "mappedFusionPanelReads": {
+        "N": "849327"
+      },
+      "patient_id": {
+        "S": "PT_RA03_TsShipped"
+      },
+      "comment_user": {
+        "S": "QA"
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-05T19:11:03+00:00"
+      },
+      "molecular_id": {
+        "S": "PT_AS12_VrConfirmed_MOI1"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_confirmed_mois": {
+        "N": "4"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "surgical_event_id": {
+        "S": "PT_AS12_VrConfirmed_SEI1"
+      },
+      "total_mois": {
+        "N": "4"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "vcf_file_name": {
+        "S": "test1.vcf"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "analysis_id": {
+        "S": "PT_AS12_VrConfirmed_ANI1"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "comment": {
+        "S": "Test"
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "variant_report_received_date": {
+        "S": "2017-06-05T19:11:02+00:00"
+      },
+      "oncomine_control_panel_summary": {
+        "M": {
+          "myc": {
+            "N": "0.0"
+          },
+          "ecPool": {
+            "M": {
+            }
+          },
+          "gePool": {
+            "M": {
+            }
+          },
+          "lrp1": {
+            "N": "0.0"
+          },
+          "pool2Sum": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "fPool": {
+            "M": {
+            }
+          },
+          "pool1Sum": {
+            "N": "0.0"
+          }
+        }
+      },
+      "status": {
+        "S": "CONFIRMED"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "mappedFusionPanelReads": {
+        "N": "849327"
+      },
+      "patient_id": {
+        "S": "PT_AS12_VrConfirmed"
+      },
+      "comment_user": {
+        "S": "QA"
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-06T03:05:20+00:00"
+      },
+      "molecular_id": {
+        "S": "PT_AM01_TsVrReceived1_MOI1"
+      },
+      "total_confirmed_mois": {
+        "N": "4"
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "surgical_event_id": {
+        "S": "PT_AM01_TsVrReceived1_SEI1"
+      },
+      "total_mois": {
+        "N": "4"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "vcf_file_name": {
+        "S": "test1.vcf"
+      },
+      "analysis_id": {
+        "S": "PT_AM01_TsVrReceived1_ANI1"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "variant_report_received_date": {
+        "S": "2017-06-06T03:05:20+00:00"
+      },
+      "oncomine_control_panel_summary": {
+        "M": {
+          "myc": {
+            "N": "0.0"
+          },
+          "ecPool": {
+            "M": {
+            }
+          },
+          "gePool": {
+            "M": {
+            }
+          },
+          "lrp1": {
+            "N": "0.0"
+          },
+          "pool2Sum": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "fPool": {
+            "M": {
+            }
+          },
+          "pool1Sum": {
+            "N": "0.0"
+          }
+        }
+      },
+      "status": {
+        "S": "PENDING"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "mappedFusionPanelReads": {
+        "N": "849327"
+      },
+      "patient_id": {
+        "S": "PT_AM01_TsVrReceived1"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-21T03:16:33+00:00"
+      },
+      "molecular_id": {
+        "S": "PT_SS26_RequestAssignment_MOI1"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_confirmed_mois": {
+        "N": "4"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "surgical_event_id": {
+        "S": "PT_SS26_RequestAssignment_SEI1"
+      },
+      "total_mois": {
+        "N": "4"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "vcf_file_name": {
+        "S": "test1.vcf"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "analysis_id": {
+        "S": "PT_SS26_RequestAssignment_ANI1"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "comment": {
+        "S": "Test"
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "variant_report_received_date": {
+        "S": "2017-06-21T03:16:31+00:00"
+      },
+      "oncomine_control_panel_summary": {
+        "M": {
+          "myc": {
+            "N": "0.0"
+          },
+          "ecPool": {
+            "M": {
+            }
+          },
+          "gePool": {
+            "M": {
+            }
+          },
+          "lrp1": {
+            "N": "0.0"
+          },
+          "pool2Sum": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "fPool": {
+            "M": {
+            }
+          },
+          "pool1Sum": {
+            "N": "0.0"
+          }
+        }
+      },
+      "status": {
+        "S": "CONFIRMED"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "mappedFusionPanelReads": {
+        "N": "849327"
+      },
+      "patient_id": {
+        "S": "PT_SS26_RequestAssignment"
+      },
+      "comment_user": {
+        "S": "QA"
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-21T03:32:55+00:00"
+      },
+      "molecular_id": {
+        "S": "PT_SS31_CompassionateCare_MOI1"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_confirmed_mois": {
+        "N": "1"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "surgical_event_id": {
+        "S": "PT_SS31_CompassionateCare_SEI1"
+      },
+      "total_mois": {
+        "N": "1"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_amois": {
+        "N": "1"
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "vcf_file_name": {
+        "S": "test1.vcf"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "analysis_id": {
+        "S": "PT_SS31_CompassionateCare_ANI1"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "comment": {
+        "S": "Test"
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "variant_report_received_date": {
+        "S": "2017-06-21T03:32:53+00:00"
+      },
+      "oncomine_control_panel_summary": {
+        "M": {
+          "myc": {
+            "N": "0.0"
+          },
+          "ecPool": {
+            "M": {
+            }
+          },
+          "gePool": {
+            "M": {
+            }
+          },
+          "lrp1": {
+            "N": "0.0"
+          },
+          "pool2Sum": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "fPool": {
+            "M": {
+            }
+          },
+          "pool1Sum": {
+            "N": "0.0"
+          }
+        }
+      },
+      "status": {
+        "S": "CONFIRMED"
+      },
+      "total_amois": {
+        "N": "1"
+      },
+      "mappedFusionPanelReads": {
+        "N": "849327"
+      },
+      "patient_id": {
+        "S": "PT_SS31_CompassionateCare"
+      },
+      "comment_user": {
+        "S": "QA"
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-21T03:33:56+00:00"
+      },
+      "molecular_id": {
+        "S": "PT_SS31_NoTaAvailable_MOI1"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_confirmed_mois": {
+        "N": "1"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "surgical_event_id": {
+        "S": "PT_SS31_NoTaAvailable_SEI1"
+      },
+      "total_mois": {
+        "N": "1"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_amois": {
+        "N": "0"
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "vcf_file_name": {
+        "S": "test1.vcf"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "analysis_id": {
+        "S": "PT_SS31_NoTaAvailable_ANI1"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "comment": {
+        "S": "Test"
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "variant_report_received_date": {
+        "S": "2017-06-21T03:33:55+00:00"
+      },
+      "oncomine_control_panel_summary": {
+        "M": {
+          "myc": {
+            "N": "0.0"
+          },
+          "ecPool": {
+            "M": {
+            }
+          },
+          "gePool": {
+            "M": {
+            }
+          },
+          "lrp1": {
+            "N": "0.0"
+          },
+          "pool2Sum": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "fPool": {
+            "M": {
+            }
+          },
+          "pool1Sum": {
+            "N": "0.0"
+          }
+        }
+      },
+      "status": {
+        "S": "CONFIRMED"
+      },
+      "total_amois": {
+        "N": "0"
+      },
+      "mappedFusionPanelReads": {
+        "N": "849327"
+      },
+      "patient_id": {
+        "S": "PT_SS31_NoTaAvailable"
+      },
+      "comment_user": {
+        "S": "QA"
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-21T03:27:32+00:00"
+      },
+      "molecular_id": {
+        "S": "PT_AS12_PendingConfirmation_MOI1"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_confirmed_mois": {
+        "N": "4"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "surgical_event_id": {
+        "S": "PT_AS12_PendingConfirmation_SEI1"
+      },
+      "total_mois": {
+        "N": "4"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "vcf_file_name": {
+        "S": "test1.vcf"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "analysis_id": {
+        "S": "PT_AS12_PendingConfirmation_ANI1"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "comment": {
+        "S": "Test"
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "variant_report_received_date": {
+        "S": "2017-06-21T03:27:30+00:00"
+      },
+      "oncomine_control_panel_summary": {
+        "M": {
+          "myc": {
+            "N": "0.0"
+          },
+          "ecPool": {
+            "M": {
+            }
+          },
+          "gePool": {
+            "M": {
+            }
+          },
+          "lrp1": {
+            "N": "0.0"
+          },
+          "pool2Sum": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "fPool": {
+            "M": {
+            }
+          },
+          "pool1Sum": {
+            "N": "0.0"
+          }
+        }
+      },
+      "status": {
+        "S": "CONFIRMED"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "mappedFusionPanelReads": {
+        "N": "849327"
+      },
+      "patient_id": {
+        "S": "PT_AS12_PendingConfirmation"
+      },
+      "comment_user": {
+        "S": "QA"
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-21T01:09:50+00:00"
+      },
+      "molecular_id": {
+        "S": "PT_AM03_PendingApproval_MOI1"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_confirmed_mois": {
+        "N": "4"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "surgical_event_id": {
+        "S": "PT_AM03_PendingApproval_SEI1"
+      },
+      "total_mois": {
+        "N": "4"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "vcf_file_name": {
+        "S": "test1.vcf"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "analysis_id": {
+        "S": "PT_AM03_PendingApproval_ANI1"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "comment": {
+        "S": "Test"
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "variant_report_received_date": {
+        "S": "2017-06-21T01:09:48+00:00"
+      },
+      "oncomine_control_panel_summary": {
+        "M": {
+          "myc": {
+            "N": "0.0"
+          },
+          "ecPool": {
+            "M": {
+            }
+          },
+          "gePool": {
+            "M": {
+            }
+          },
+          "lrp1": {
+            "N": "0.0"
+          },
+          "pool2Sum": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "fPool": {
+            "M": {
+            }
+          },
+          "pool1Sum": {
+            "N": "0.0"
+          }
+        }
+      },
+      "status": {
+        "S": "CONFIRMED"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "mappedFusionPanelReads": {
+        "N": "849327"
+      },
+      "patient_id": {
+        "S": "PT_AM03_PendingApproval"
+      },
+      "comment_user": {
+        "S": "QA"
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-21T03:24:32+00:00"
+      },
+      "molecular_id": {
+        "S": "PT_AS12_OnTreatmentArm_MOI1"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_confirmed_mois": {
+        "N": "4"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "surgical_event_id": {
+        "S": "PT_AS12_OnTreatmentArm_SEI1"
+      },
+      "total_mois": {
+        "N": "4"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "vcf_file_name": {
+        "S": "test1.vcf"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "analysis_id": {
+        "S": "PT_AS12_OnTreatmentArm_ANI1"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "comment": {
+        "S": "Test"
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "variant_report_received_date": {
+        "S": "2017-06-21T03:24:30+00:00"
+      },
+      "oncomine_control_panel_summary": {
+        "M": {
+          "myc": {
+            "N": "0.0"
+          },
+          "ecPool": {
+            "M": {
+            }
+          },
+          "gePool": {
+            "M": {
+            }
+          },
+          "lrp1": {
+            "N": "0.0"
+          },
+          "pool2Sum": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "fPool": {
+            "M": {
+            }
+          },
+          "pool1Sum": {
+            "N": "0.0"
+          }
+        }
+      },
+      "status": {
+        "S": "CONFIRMED"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "mappedFusionPanelReads": {
+        "N": "849327"
+      },
+      "patient_id": {
+        "S": "PT_AS12_OnTreatmentArm"
+      },
+      "comment_user": {
+        "S": "QA"
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-05T18:14:51+00:00"
+      },
+      "molecular_id": {
+        "S": "ION_AQ41_TsVrUploaded_MOI1"
+      },
+      "total_confirmed_mois": {
+        "N": "4"
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "surgical_event_id": {
+        "S": "ION_AQ41_TsVrUploaded_SEI1"
+      },
+      "total_mois": {
+        "N": "4"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "vcf_file_name": {
+        "S": "test1.vcf"
+      },
+      "analysis_id": {
+        "S": "ION_AQ41_TsVrUploaded_ANI1"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "variant_report_received_date": {
+        "S": "2017-06-05T18:14:51+00:00"
+      },
+      "oncomine_control_panel_summary": {
+        "M": {
+          "myc": {
+            "N": "0.0"
+          },
+          "ecPool": {
+            "M": {
+            }
+          },
+          "gePool": {
+            "M": {
+            }
+          },
+          "lrp1": {
+            "N": "0.0"
+          },
+          "pool2Sum": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "fPool": {
+            "M": {
+            }
+          },
+          "pool1Sum": {
+            "N": "0.0"
+          }
+        }
+      },
+      "status": {
+        "S": "PENDING"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "mappedFusionPanelReads": {
+        "N": "849327"
+      },
+      "patient_id": {
+        "S": "ION_AQ41_TsVrUploaded"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-21T03:36:06+00:00"
+      },
+      "molecular_id": {
+        "S": "PT_SR10_CompassionateCare_MOI1"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_confirmed_mois": {
+        "N": "1"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "surgical_event_id": {
+        "S": "PT_SR10_CompassionateCare_SEI1"
+      },
+      "total_mois": {
+        "N": "1"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_amois": {
+        "N": "1"
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "vcf_file_name": {
+        "S": "test1.vcf"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "analysis_id": {
+        "S": "PT_SR10_CompassionateCare_ANI1"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "comment": {
+        "S": "Test"
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "variant_report_received_date": {
+        "S": "2017-06-21T03:36:04+00:00"
+      },
+      "oncomine_control_panel_summary": {
+        "M": {
+          "myc": {
+            "N": "0.0"
+          },
+          "ecPool": {
+            "M": {
+            }
+          },
+          "gePool": {
+            "M": {
+            }
+          },
+          "lrp1": {
+            "N": "0.0"
+          },
+          "pool2Sum": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "fPool": {
+            "M": {
+            }
+          },
+          "pool1Sum": {
+            "N": "0.0"
+          }
+        }
+      },
+      "status": {
+        "S": "CONFIRMED"
+      },
+      "total_amois": {
+        "N": "1"
+      },
+      "mappedFusionPanelReads": {
+        "N": "849327"
+      },
+      "patient_id": {
+        "S": "PT_SR10_CompassionateCare"
+      },
+      "comment_user": {
+        "S": "QA"
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-20T20:33:43+00:00"
+      },
+      "molecular_id": {
+        "S": "PT_RA03_NoTaAvailable_MOI1"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_confirmed_mois": {
+        "N": "1"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "surgical_event_id": {
+        "S": "PT_RA03_NoTaAvailable_SEI1"
+      },
+      "total_mois": {
+        "N": "1"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_amois": {
+        "N": "0"
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "vcf_file_name": {
+        "S": "test1.vcf"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "analysis_id": {
+        "S": "PT_RA03_NoTaAvailable_ANI1"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "comment": {
+        "S": "Test"
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "variant_report_received_date": {
+        "S": "2017-06-20T20:33:41+00:00"
+      },
+      "oncomine_control_panel_summary": {
+        "M": {
+          "myc": {
+            "N": "0.0"
+          },
+          "ecPool": {
+            "M": {
+            }
+          },
+          "gePool": {
+            "M": {
+            }
+          },
+          "lrp1": {
+            "N": "0.0"
+          },
+          "pool2Sum": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "fPool": {
+            "M": {
+            }
+          },
+          "pool1Sum": {
+            "N": "0.0"
+          }
+        }
+      },
+      "status": {
+        "S": "CONFIRMED"
+      },
+      "total_amois": {
+        "N": "0"
+      },
+      "mappedFusionPanelReads": {
+        "N": "849327"
+      },
+      "patient_id": {
+        "S": "PT_RA03_NoTaAvailable"
+      },
+      "comment_user": {
+        "S": "QA"
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-05T19:04:26+00:00"
+      },
+      "molecular_id": {
+        "S": "PT_SS27_VariantReportUploaded_MOI1"
+      },
+      "total_confirmed_mois": {
+        "N": "4"
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "surgical_event_id": {
+        "S": "PT_SS27_VariantReportUploaded_SEI1"
+      },
+      "total_mois": {
+        "N": "4"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "vcf_file_name": {
+        "S": "test1.vcf"
+      },
+      "analysis_id": {
+        "S": "PT_SS27_VariantReportUploaded_ANI1"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "variant_report_received_date": {
+        "S": "2017-06-05T19:04:26+00:00"
+      },
+      "oncomine_control_panel_summary": {
+        "M": {
+          "myc": {
+            "N": "0.0"
+          },
+          "ecPool": {
+            "M": {
+            }
+          },
+          "gePool": {
+            "M": {
+            }
+          },
+          "lrp1": {
+            "N": "0.0"
+          },
+          "pool2Sum": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "fPool": {
+            "M": {
+            }
+          },
+          "pool1Sum": {
+            "N": "0.0"
+          }
+        }
+      },
+      "status": {
+        "S": "PENDING"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "mappedFusionPanelReads": {
+        "N": "849327"
+      },
+      "patient_id": {
+        "S": "PT_SS27_VariantReportUploaded"
       },
       "copy_number_variant_genes": {
         "L": [

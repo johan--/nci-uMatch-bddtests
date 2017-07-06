@@ -1,7 +1,7 @@
 # A sample Gemfile
 source "https://rubygems.org"
 
-gem 'rails', '5.0.2'
+gem 'rails', '~>5.0'
 
 gem 'rubyXL'
 
@@ -24,7 +24,7 @@ group :test, :development do
   # gem 'simplecov-rcov'
   # gem "rcov_rails"
   # gem "rcov"
-  gem 'json', '1.8.3'
+  gem 'json'
   gem "xls2json"
   gem "creek"
   gem "parallel_tests"

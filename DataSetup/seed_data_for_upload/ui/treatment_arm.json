@@ -20364,16 +20364,16 @@
         "N": "0"
       },
       "not_enrolled_patients": {
-        "N": "2"
+        "N": "3"
       },
       "version_not_enrolled_patients": {
-        "N": "2"
+        "N": "3"
       },
       "pending_patients": {
-        "N": "0"
+        "N": "1"
       },
       "version_pending_patients": {
-        "N": "0"
+        "N": "1"
       },
       "current_patients": {
         "N": "0"
@@ -24027,10 +24027,10 @@
         ]
       },
       "former_patients": {
-        "N": "3"
+        "N": "7"
       },
       "version_former_patients": {
-        "N": "3"
+        "N": "7"
       },
       "not_enrolled_patients": {
         "N": "2"
@@ -24039,16 +24039,16 @@
         "N": "2"
       },
       "pending_patients": {
-        "N": "0"
+        "N": "1"
       },
       "version_pending_patients": {
-        "N": "0"
+        "N": "1"
       },
       "current_patients": {
-        "N": "1"
+        "N": "2"
       },
       "version_current_patients": {
-        "N": "1"
+        "N": "2"
       }
     },
     {
