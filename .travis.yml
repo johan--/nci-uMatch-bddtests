@@ -88,9 +88,9 @@ script:
     fi
 
   - |
-    if [ "$CUC_TAG" == "@treatment_arm"]; then
+    if [ "$CUC_TAG" == "@treatment_arm" ]; then
       cd uMATCH/PedMATCH
-      cucumber --tags $CUC_TAG$P1,$CUC_TAG$P2 --format pretty --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --expand
+      cucumber --tags @treatment_arm_p1,@treatment_arm_p2 --format pretty --format json --out ../../results/output-treatment_arm.json --expand
       CURRENT_STATUS=$?
       if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
       cd ../..
