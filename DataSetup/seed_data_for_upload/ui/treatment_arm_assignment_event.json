@@ -1,7 +1,7 @@
 {
   "ConsumedCapacity": null,
-  "Count": 28,
-  "ScannedCount": 28,
+  "Count": 29,
+  "ScannedCount": 29,
   "Items": [
     {
       "treatment_arm_id": {
@@ -57624,6 +57624,80 @@
       },
       "patient_id": {
         "S": "PT_AU08_PendingApproval0"
+      }
+    },
+    {
+      "treatment_arm_id_stratum_id": {
+        "S": "APEC1621-A_100"
+      },
+      "treatment_arm_id": {
+        "S": "APEC1621-A"
+      },
+      "patient_status_history": {
+        "L": [
+          {
+            "S": "PENDING_APPROVAL"
+          },
+          {
+            "S": "PENDING_CONFIRMATION"
+          },
+          {
+            "S": "PENDING_CONFIRMATION"
+          },
+          {
+            "S": "PENDING_APPROVAL"
+          }
+        ]
+      },
+      "version": {
+        "S": "2015-08-06"
+      },
+      "assignment_reason": {
+        "S": "The level of evidence for the variant on this treatment arm is 2.0. A match was found for inclusion variant TPM3-ALK.T7A20. A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required."
+      },
+      "event": {
+        "S": "PENDING_PATIENT"
+      },
+      "patient_status": {
+        "S": "PENDING_APPROVAL"
+      },
+      "diseases": {
+        "L": [
+          {
+            "M": {
+              "disease_code_type": {
+                "S": "Thyroid Cancer"
+              },
+              "disease_name": {
+                "S": "Papillary thyroid carcinoma"
+              },
+              "disease_code": {
+                "S": "10033701"
+              }
+            }
+          }
+        ]
+      },
+      "treatment_arm_status": {
+        "S": "OPEN"
+      },
+      "stratum_id": {
+        "S": "100"
+      },
+      "molecular_id": {
+        "S": "PT_SC02i_PendingApproval_MOI1"
+      },
+      "step_number": {
+        "S": "1.0"
+      },
+      "analysis_id": {
+        "S": "PT_SC02i_PendingApproval_ANI1"
+      },
+      "assignment_date": {
+        "S": "2017-06-05T21:23:31+00:00"
+      },
+      "patient_id": {
+        "S": "PT_SC02i_PendingApproval"
       }
     }
   ]

@@ -24,7 +24,7 @@ Feature: Treatment Arm details page show the details about the patient associate
     And I enter "PT_SR10_ProgressReBioY" in the all patients data filter field
     And His status in the all patients table is "PREVIOUSLY_ON_ARM"
     Then I "should" see the Data of Arm Generated
-    And I enter "PT_AS08_TsReceivedStep2" in the all patients data filter field
+    And I enter "UI_MA_PendingApproval" in the all patients data filter field
     And His status in the all patients table is "NOT_ENROLLED_ON_ARM"
     Then I "should" see the Data of Arm Generated
     And I enter "PT_RA06_OnTreatmentArm" in the all patients data filter field

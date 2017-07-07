@@ -1,6 +1,6 @@
 {
-  "ScannedCount": 58,
-  "Count": 58,
+  "ScannedCount": 59,
+  "Count": 59,
   "Items": [
     {
       "ion_reporter_id": {
@@ -23314,6 +23314,122 @@
       },
       "patient_id": {
         "S": "PT_AU08_PendingApproval0"
+      },
+      "comment_user": {
+        "S": "QA"
+      }
+    },
+    {
+      "status_date": {
+        "S": "2017-06-21T02:34:17+00:00"
+      },
+      "molecular_id": {
+        "S": "PT_SC02i_PendingApproval_MOI1"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "total_confirmed_mois": {
+        "N": "4"
+      },
+      "variant_report_type": {
+        "S": "TISSUE"
+      },
+      "surgical_event_id": {
+        "S": "PT_SC02i_PendingApproval_SEI1"
+      },
+      "total_mois": {
+        "N": "4"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "vcf_file_name": {
+        "S": "test1.vcf"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "analysis_id": {
+        "S": "PT_SC02i_PendingApproval_ANI1"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "comment": {
+        "S": "Test"
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "variant_report_received_date": {
+        "S": "2017-06-21T02:34:15+00:00"
+      },
+      "oncomine_control_panel_summary": {
+        "M": {
+          "myc": {
+            "N": "0.0"
+          },
+          "ecPool": {
+            "M": {
+            }
+          },
+          "gePool": {
+            "M": {
+            }
+          },
+          "lrp1": {
+            "N": "0.0"
+          },
+          "pool2Sum": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "fPool": {
+            "M": {
+            }
+          },
+          "pool1Sum": {
+            "N": "0.0"
+          }
+        }
+      },
+      "status": {
+        "S": "CONFIRMED"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "mappedFusionPanelReads": {
+        "N": "849327"
+      },
+      "patient_id": {
+        "S": "PT_SC02i_PendingApproval"
       },
       "comment_user": {
         "S": "QA"

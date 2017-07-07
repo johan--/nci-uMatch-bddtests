@@ -1,6 +1,6 @@
 {
-  "ScannedCount": 633,
-  "Count": 633,
+  "ScannedCount": 659,
+  "Count": 659,
   "Items": [
     {
       "event_message": {
@@ -23992,6 +23992,965 @@
       },
       "event_date": {
         "S": "2017-06-21T04:22:33.434"
+      }
+    },
+    {
+      "event_message": {
+        "S": "REGISTRATION message received from COG for patient PT_SC02i_PendingApproval."
+      },
+      "event_data": {
+        "M": {
+          "patient_status": {
+            "S": "REGISTRATION"
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "patient"
+      },
+      "entity_id": {
+        "S": "PT_SC02i_PendingApproval"
+      },
+      "event_date": {
+        "S": "2017-06-21T02:33:43.424"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Specimen of type TISSUE received at NCH."
+      },
+      "event_data": {
+        "M": {
+          "type": {
+            "S": "TISSUE"
+          },
+          "patient_id": {
+            "S": "PT_SC02i_PendingApproval"
+          },
+          "study_id": {
+            "S": "APEC1621SC"
+          },
+          "surgical_event_id": {
+            "S": "PT_SC02i_PendingApproval_SEI1"
+          },
+          "collection_dt": {
+            "S": "2017-06-20"
+          },
+          "received_dttm": {
+            "S": "2017-06-20T22:33:43-04:00"
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "specimen"
+      },
+      "entity_id": {
+        "S": "PT_SC02i_PendingApproval"
+      },
+      "event_date": {
+        "S": "2017-06-21T02:33:44.504"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+      },
+      "event_data": {
+        "M": {
+          "molecular_dna_id": {
+            "NULL": true
+          },
+          "tracking_number": {
+            "S": "7956 4568 1235"
+          },
+          "molecular_id": {
+            "S": "PT_SC02i_PendingApproval_MOI1"
+          },
+          "type": {
+            "S": "TISSUE_DNA_AND_CDNA"
+          },
+          "destination": {
+            "S": "MDA"
+          },
+          "surgical_event_id": {
+            "S": "PT_SC02i_PendingApproval_SEI1"
+          },
+          "carrier": {
+            "S": "Federal Express"
+          },
+          "molecular_cdna_id": {
+            "NULL": true
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "specimen"
+      },
+      "entity_id": {
+        "S": "PT_SC02i_PendingApproval"
+      },
+      "event_date": {
+        "S": "2017-06-21T02:33:47.879"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Specimen Shipment of type SLIDE shipped from NCH."
+      },
+      "event_data": {
+        "M": {
+          "type": {
+            "S": "SLIDE"
+          },
+          "tracking_number": {
+            "S": "7956 4568 1235"
+          },
+          "destination": {
+            "S": "MDA"
+          },
+          "surgical_event_id": {
+            "S": "PT_SC02i_PendingApproval_SEI1"
+          },
+          "carrier": {
+            "S": "Federal Express"
+          },
+          "slide_barcode": {
+            "S": "PT_SC02i_PendingApproval_BC1"
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "specimen"
+      },
+      "entity_id": {
+        "S": "PT_SC02i_PendingApproval"
+      },
+      "event_date": {
+        "S": "2017-06-21T02:33:48.886"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Assay result for ICCPTENs received from MDA."
+      },
+      "event_data": {
+        "M": {
+          "assay_result": {
+            "S": "NEGATIVE"
+          },
+          "biomarker": {
+            "S": "IHC PTEN"
+          },
+          "surgical_event_id": {
+            "NULL": true
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "assay"
+      },
+      "entity_id": {
+        "S": "PT_SC02i_PendingApproval"
+      },
+      "event_date": {
+        "S": "2017-06-21T02:33:52.496"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Assay result for ICCBAF47s received from MDA."
+      },
+      "event_data": {
+        "M": {
+          "assay_result": {
+            "S": "NEGATIVE"
+          },
+          "biomarker": {
+            "S": "IHC BAF47"
+          },
+          "surgical_event_id": {
+            "NULL": true
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "assay"
+      },
+      "entity_id": {
+        "S": "PT_SC02i_PendingApproval"
+      },
+      "event_date": {
+        "S": "2017-06-21T02:33:53.526"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Assay result for ICCBRG1s received from MDA."
+      },
+      "event_data": {
+        "M": {
+          "assay_result": {
+            "S": "NEGATIVE"
+          },
+          "biomarker": {
+            "S": "IHC BRG1"
+          },
+          "surgical_event_id": {
+            "NULL": true
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "assay"
+      },
+      "entity_id": {
+        "S": "PT_SC02i_PendingApproval"
+      },
+      "event_date": {
+        "S": "2017-06-21T02:33:56.672"
+      }
+    },
+    {
+      "event_message": {
+        "S": "TISSUE Variant Report generated."
+      },
+      "event_data": {
+        "M": {
+          "clia_lab": {
+            "S": "MDA"
+          },
+          "molecular_id": {
+            "S": "PT_SC02i_PendingApproval_MOI1"
+          },
+          "analysis_id": {
+            "S": "PT_SC02i_PendingApproval_ANI1"
+          },
+          "specimen_received_date": {
+            "NULL": true
+          },
+          "variant_report_status": {
+            "S": "PENDING"
+          },
+          "variant_report_type": {
+            "S": "TISSUE"
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "variant_report"
+      },
+      "entity_id": {
+        "S": "PT_SC02i_PendingApproval"
+      },
+      "event_date": {
+        "S": "2017-06-21T02:34:15.767"
+      }
+    },
+    {
+      "event_message": {
+        "S": "TISSUE Variant Report updated to CONFIRMED."
+      },
+      "event_data": {
+        "M": {
+          "patient_id": {
+            "S": "PT_SC02i_PendingApproval"
+          },
+          "analysis_id": {
+            "S": "PT_SC02i_PendingApproval_ANI1"
+          },
+          "comment_user": {
+            "S": "QA"
+          },
+          "surgical_event_id": {
+            "S": "PT_SC02i_PendingApproval_SEI1"
+          },
+          "step": {
+            "S": "1.0"
+          },
+          "status": {
+            "S": "CONFIRMED"
+          },
+          "variant_report_status": {
+            "S": "CONFIRMED"
+          },
+          "comment": {
+            "S": "Test"
+          }
+        }
+      },
+      "event_type": {
+        "S": "variant_report"
+      },
+      "entity_id": {
+        "S": "PT_SC02i_PendingApproval"
+      },
+      "event_date": {
+        "S": "2017-06-21T02:34:17.517"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Patient is ready for assignment, awaiting patient data from COG."
+      },
+      "event_data": {
+        "M": {
+          "assignment_report_status": {
+            "S": "AWAITING_PATIENT_DATA"
+          },
+          "molecular_id": {
+            "S": "PT_SC02i_PendingApproval_MOI1"
+          },
+          "analysis_id": {
+            "S": "PT_SC02i_PendingApproval_ANI1"
+          },
+          "surgical_event_id": {
+            "S": "PT_SC02i_PendingApproval_SEI1"
+          },
+          "status": {
+            "S": "AWAITING_PATIENT_DATA"
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "assignment_report"
+      },
+      "entity_id": {
+        "S": "PT_SC02i_PendingApproval"
+      },
+      "event_date": {
+        "S": "2017-06-21T02:34:17.658"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Patient is ready for assignment, awaiting treatment arm statuses from COG."
+      },
+      "event_data": {
+        "M": {
+          "assignment_report_status": {
+            "S": "AWAITING_TREATMENT_ARM_STATUS"
+          },
+          "molecular_id": {
+            "S": "PT_SC02i_PendingApproval_MOI1"
+          },
+          "analysis_id": {
+            "S": "PT_SC02i_PendingApproval_ANI1"
+          },
+          "patient_status": {
+            "S": "AWAITING_TREATMENT_ARM_STATUS"
+          },
+          "surgical_event_id": {
+            "S": "PT_SC02i_PendingApproval_SEI1"
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "assignment_report"
+      },
+      "entity_id": {
+        "S": "PT_SC02i_PendingApproval"
+      },
+      "event_date": {
+        "S": "2017-06-21T02:34:18.655"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Patient assignment is pending confirmation"
+      },
+      "event_data": {
+        "M": {
+          "patient_id": {
+            "S": "PT_SC02i_PendingApproval"
+          },
+          "assignment_report_status": {
+            "S": "TREATMENT_FOUND"
+          },
+          "assignment_uuid": {
+            "S": "82c704ca-7bb8-4db2-b457-acc41e372c77"
+          },
+          "treatment_arm": {
+            "M": {
+              "treatment_arm_status": {
+                "S": "OPEN"
+              },
+              "version": {
+                "S": "2015-08-06"
+              },
+              "stratum_id": {
+                "S": "100"
+              },
+              "reason": {
+                "S": "The level of evidence for the variant on this treatment arm is 2.0. A match was found for inclusion variant TPM3-ALK.T7A20. A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required."
+              },
+              "treatment_arm_id": {
+                "S": "APEC1621-A"
+              }
+            }
+          },
+          "molecular_id": {
+            "S": "PT_SC02i_PendingApproval_MOI1"
+          },
+          "analysis_id": {
+            "S": "PT_SC02i_PendingApproval_ANI1"
+          },
+          "patient_status": {
+            "S": "PENDING_CONFIRMATION"
+          },
+          "surgical_event_id": {
+            "S": "PT_SC02i_PendingApproval_SEI1"
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "assignment_report"
+      },
+      "entity_id": {
+        "S": "PT_SC02i_PendingApproval"
+      },
+      "event_date": {
+        "S": "2017-06-21T02:34:23.847"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Patient assignment is pending approval by COG"
+      },
+      "event_data": {
+        "M": {
+          "patient_id": {
+            "S": "PT_SC02i_PendingApproval"
+          },
+          "assignment_report_status": {
+            "S": "CONFIRMED"
+          },
+          "assignment_uuid": {
+            "S": "82c704ca-7bb8-4db2-b457-acc41e372c77"
+          },
+          "treatment_arm": {
+            "M": {
+              "treatment_arm_status": {
+                "S": "OPEN"
+              },
+              "version": {
+                "S": "2015-08-06"
+              },
+              "stratum_id": {
+                "S": "100"
+              },
+              "reason": {
+                "S": "The level of evidence for the variant on this treatment arm is 2.0. A match was found for inclusion variant TPM3-ALK.T7A20. A match was found for inclusion disease Papillary thyroid carcinoma (10033701) and it's required."
+              },
+              "treatment_arm_id": {
+                "S": "APEC1621-A"
+              }
+            }
+          },
+          "comment_user": {
+            "S": "QA"
+          },
+          "analysis_id": {
+            "S": "PT_SC02i_PendingApproval_ANI1"
+          },
+          "patient_status": {
+            "S": "PENDING_APPROVAL"
+          },
+          "surgical_event_id": {
+            "S": "PT_SC02i_PendingApproval_SEI1"
+          },
+          "comment": {
+            "S": "Test"
+          },
+          "molecular_id": {
+            "S": "PT_SC02i_PendingApproval_MOI1"
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "assignment_report"
+      },
+      "entity_id": {
+        "S": "PT_SC02i_PendingApproval"
+      },
+      "event_date": {
+        "S": "2017-06-21T02:34:48.902"
+      }
+    },
+    {
+      "event_message": {
+        "S": "REGISTRATION message received from COG for patient PT_AS00_SlideShipped2."
+      },
+      "event_data": {
+        "M": {
+          "patient_status": {
+            "S": "REGISTRATION"
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "patient"
+      },
+      "entity_id": {
+        "S": "PT_AS00_SlideShipped2"
+      },
+      "event_date": {
+        "S": "2017-06-05T19:07:47.866"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Specimen of type TISSUE received at NCH."
+      },
+      "event_data": {
+        "M": {
+          "type": {
+            "S": "TISSUE"
+          },
+          "patient_id": {
+            "S": "PT_AS00_SlideShipped2"
+          },
+          "study_id": {
+            "S": "APEC1621SC"
+          },
+          "surgical_event_id": {
+            "S": "PT_AS00_SlideShipped2_SEI1"
+          },
+          "collection_dt": {
+            "S": "2017-06-05"
+          },
+          "received_dttm": {
+            "S": "2017-06-05T19:07:48Z"
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "specimen"
+      },
+      "entity_id": {
+        "S": "PT_AS00_SlideShipped2"
+      },
+      "event_date": {
+        "S": "2017-06-05T19:07:48.911"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Specimen Shipment of type SLIDE shipped from NCH."
+      },
+      "event_data": {
+        "M": {
+          "type": {
+            "S": "SLIDE"
+          },
+          "tracking_number": {
+            "S": "7956 4568 1235"
+          },
+          "destination": {
+            "S": "MDA"
+          },
+          "surgical_event_id": {
+            "S": "PT_AS00_SlideShipped2_SEI1"
+          },
+          "carrier": {
+            "S": "Federal Express"
+          },
+          "slide_barcode": {
+            "S": "PT_AS00_SlideShipped2_BC1"
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "specimen"
+      },
+      "entity_id": {
+        "S": "PT_AS00_SlideShipped2"
+      },
+      "event_date": {
+        "S": "2017-06-05T19:07:52.034"
+      }
+    },
+    {
+      "event_message": {
+        "S": "REGISTRATION message received from COG for patient PT_SC04d_TwoAssay."
+      },
+      "event_data": {
+        "M": {
+          "patient_status": {
+            "S": "REGISTRATION"
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "patient"
+      },
+      "entity_id": {
+        "S": "PT_SC04d_TwoAssay"
+      },
+      "event_date": {
+        "S": "2017-06-05T20:51:34.469"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Specimen of type TISSUE received at NCH."
+      },
+      "event_data": {
+        "M": {
+          "type": {
+            "S": "TISSUE"
+          },
+          "patient_id": {
+            "S": "PT_SC04d_TwoAssay"
+          },
+          "study_id": {
+            "S": "APEC1621SC"
+          },
+          "surgical_event_id": {
+            "S": "PT_SC04d_TwoAssay_SEI1"
+          },
+          "collection_dt": {
+            "S": "2017-06-05"
+          },
+          "received_dttm": {
+            "S": "2017-06-05T20:51:34Z"
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "specimen"
+      },
+      "entity_id": {
+        "S": "PT_SC04d_TwoAssay"
+      },
+      "event_date": {
+        "S": "2017-06-05T20:51:35.498"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Specimen Shipment of type TISSUE_DNA_AND_CDNA shipped from NCH."
+      },
+      "event_data": {
+        "M": {
+          "molecular_dna_id": {
+            "NULL": true
+          },
+          "tracking_number": {
+            "S": "7956 4568 1235"
+          },
+          "molecular_id": {
+            "S": "PT_SC04d_TwoAssay_MOI1"
+          },
+          "type": {
+            "S": "TISSUE_DNA_AND_CDNA"
+          },
+          "destination": {
+            "S": "MDA"
+          },
+          "surgical_event_id": {
+            "S": "PT_SC04d_TwoAssay_SEI1"
+          },
+          "carrier": {
+            "S": "Federal Express"
+          },
+          "molecular_cdna_id": {
+            "NULL": true
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "specimen"
+      },
+      "entity_id": {
+        "S": "PT_SC04d_TwoAssay"
+      },
+      "event_date": {
+        "S": "2017-06-05T20:51:36.559"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Specimen Shipment of type SLIDE shipped from NCH."
+      },
+      "event_data": {
+        "M": {
+          "type": {
+            "S": "SLIDE"
+          },
+          "tracking_number": {
+            "S": "7956 4568 1235"
+          },
+          "destination": {
+            "S": "MDA"
+          },
+          "surgical_event_id": {
+            "S": "PT_SC04d_TwoAssay_SEI1"
+          },
+          "carrier": {
+            "S": "Federal Express"
+          },
+          "slide_barcode": {
+            "S": "PT_SC04d_TwoAssay_BC1"
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "specimen"
+      },
+      "entity_id": {
+        "S": "PT_SC04d_TwoAssay"
+      },
+      "event_date": {
+        "S": "2017-06-05T20:51:39.642"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Assay result for ICCPTENs received from MDA."
+      },
+      "event_data": {
+        "M": {
+          "assay_result": {
+            "S": "NEGATIVE"
+          },
+          "biomarker": {
+            "S": "IHC PTEN"
+          },
+          "surgical_event_id": {
+            "NULL": true
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "assay"
+      },
+      "entity_id": {
+        "S": "PT_SC04d_TwoAssay"
+      },
+      "event_date": {
+        "S": "2017-06-05T20:51:40.669"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Assay result for ICCBAF47s received from MDA."
+      },
+      "event_data": {
+        "M": {
+          "assay_result": {
+            "S": "NEGATIVE"
+          },
+          "biomarker": {
+            "S": "IHC BAF47"
+          },
+          "surgical_event_id": {
+            "NULL": true
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "assay"
+      },
+      "entity_id": {
+        "S": "PT_SC04d_TwoAssay"
+      },
+      "event_date": {
+        "S": "2017-06-05T20:51:43.776"
+      }
+    },
+    {
+      "event_message": {
+        "S": "REGISTRATION message received from COG for patient PT_SS25_BloodShipped."
+      },
+      "event_data": {
+        "M": {
+          "patient_status": {
+            "S": "REGISTRATION"
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "patient"
+      },
+      "entity_id": {
+        "S": "PT_SS25_BloodShipped"
+      },
+      "event_date": {
+        "S": "2017-06-05T19:01:06.376"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Specimen of type BLOOD received at NCH."
+      },
+      "event_data": {
+        "M": {
+          "study_id": {
+            "S": "APEC1621SC"
+          },
+          "patient_id": {
+            "S": "PT_SS25_BloodShipped"
+          },
+          "type": {
+            "S": "BLOOD"
+          },
+          "received_dttm": {
+            "S": "2017-06-05T19:01:06Z"
+          },
+          "collection_dt": {
+            "S": "2017-06-05"
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "specimen"
+      },
+      "entity_id": {
+        "S": "PT_SS25_BloodShipped"
+      },
+      "event_date": {
+        "S": "2017-06-05T19:01:09.497"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Specimen Shipment of type BLOOD_DNA shipped from NCH."
+      },
+      "event_data": {
+        "M": {
+          "type": {
+            "S": "BLOOD_DNA"
+          },
+          "tracking_number": {
+            "S": "7956 4568 1235"
+          },
+          "molecular_id": {
+            "S": "PT_SS25_BloodShipped_BD_MOI1"
+          },
+          "destination": {
+            "S": "MDA"
+          },
+          "carrier": {
+            "S": "Federal Express"
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "specimen"
+      },
+      "entity_id": {
+        "S": "PT_SS25_BloodShipped"
+      },
+      "event_date": {
+        "S": "2017-06-05T19:01:12.664"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Specimen Shipment of type BLOOD_DNA shipped from NCH."
+      },
+      "event_data": {
+        "M": {
+          "type": {
+            "S": "BLOOD_DNA"
+          },
+          "tracking_number": {
+            "S": "7956 4568 1235"
+          },
+          "molecular_id": {
+            "S": "PT_SS25_BloodShipped_BD_MOI2"
+          },
+          "destination": {
+            "S": "MDA"
+          },
+          "carrier": {
+            "S": "Federal Express"
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "specimen"
+      },
+      "entity_id": {
+        "S": "PT_SS25_BloodShipped"
+      },
+      "event_date": {
+        "S": "2017-06-05T19:01:13.664"
       }
     }
   ],
