@@ -64,7 +64,6 @@ module.exports = function() {
 
     this.Then(/^I can see patients with Pending Tissue Variant Reports$/, function (callback) {
         browser.ignoreSynchronization = true;
-        console.log(dash.responseData)
         var pendingVRCount = dash.responseData.tissue_variant_reports.length.toString();
         browser.sleep(1000);
         expect(dash.pendingTVRCount.getText()).to.eventually.eql(pendingVRCount).notify(callback);

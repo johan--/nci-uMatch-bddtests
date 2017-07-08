@@ -94,7 +94,9 @@ module.exports = function () {
     this.When(/^I enter "([^"]*)" in the "([^"]*)" search field$/, function (searchTerm, variantType, callback) {
         var tableString = getTableString(variantType);
         var input = element(by.css('input[grid-id="' + tableString + '"]'));
-        input.sendKeys(searchTerm).then(callback);
+        input.clear().then(function () {
+            input.sendKeys(searchTerm)
+        }).then(callback);
     });
 
 
@@ -325,6 +327,13 @@ module.exports = function () {
         expect(tableRows.count()).to.eventually.eql(0).notify(callback);
     });
 
+    this.Then(/^I should see "(\d{1,})" rows in the retrieved row for "(.+?)"$/, function (rowNo, variantType, callback) {
+        var tableString = getTableString(variantType);
+
+        var tableRows = element(by.id(tableString)).all(by.css('table tbody tr'));
+        expect(tableRows.count()).to.eventually.eql(parseInt(rowNo)).notify(callback);
+    });
+
 
     /**
      * Function to separate numbers from other alphabets, sort the individual
@@ -372,6 +381,10 @@ module.exports = function () {
 
             case 'Non-Sequencing Assays':
                 return 'nonSequencingAssays';
+                break;
+
+            case 'Drugs / Disease':
+                return 'exclusionaryDrugs';
                 break;
         }
     }

@@ -96,15 +96,34 @@ Feature: Treatment Arm Rules
     When I select the SNVs / MNVs / Indels sub-tab
     And I enter "BT9" in the "SNVs / MNVs / Indels" search field
     Then I should see "BT9" in the retrieved row for "SNVs / MNVs / Indels"
+    Then I should see "1" rows in the retrieved row for "SNVs / MNVs / Indels"
+    And I enter "yyyyyyyyy" in the "SNVs / MNVs / Indels" search field
+    Then I should see "0" rows in the retrieved row for "SNVs / MNVs / Indels"
     When I select the CNVs sub-tab
     And I enter "MYCL" in the "CNVs" search field
     Then I should see "MYCL" in the retrieved row for "CNVs"
+    Then I should see "1" rows in the retrieved row for "CNVs"
+    And I enter "yyyyyyyyy" in the "CNVs" search field
+    Then I should see "0" rows in the retrieved row for "CNVs"
     When I select the Gene Fusions sub-tab
     And I enter "TPM3-NTRK1.T7N10.COSF1318_2" in the "Gene Fusions" search field
     Then I should see "TPM3-NTRK1.T7N10.COSF1318_2" in the retrieved row for "Gene Fusions"
-    When I select the Non-Sequencing Assays sub-tab
-    And I enter "MEH1" in the "Non-Sequencing Assays" search field
-    Then I should see "MEH1" in the retrieved row for "Non-Sequencing Assays"
+    Then I should see "1" rows in the retrieved row for "Gene Fusions"
+    And I enter "yyyyyyyyy" in the "Gene Fusions" search field
+    Then I should see "0" rows in the retrieved row for "Gene Fusions"
     When I select the Non-Hotspot Rules sub-tab
     And I enter "SE" in the "Non-Hotspot Rules" search field
     Then I should not see any retrieved row for "Non-Hotspot Rules"
+    When I select the Drugs / Disease sub-tab
+    And I enter "10066674" in the "Drugs / Disease" search field
+    Then I should see "10066674" in the retrieved row for "Drugs / Disease"
+    Then I should see "1" rows in the retrieved row for "Drugs / Disease"
+    And I enter "yyyyyyyyy" in the "Drugs / Disease" search field
+    Then I should see "0" rows in the retrieved row for "Drugs / Disease"
+    When I select the Non-Sequencing Assays sub-tab
+    And I enter "MEH1" in the "Non-Sequencing Assays" search field
+    Then I should see "MEH1" in the retrieved row for "Non-Sequencing Assays"
+    Then I should see "1" rows in the retrieved row for "Non-Sequencing Assays"
+    And I enter "yyyyyyyyy" in the "Non-Sequencing Assays" search field
+    Then I should see "0" rows in the retrieved row for "Non-Sequencing Assays"
+
