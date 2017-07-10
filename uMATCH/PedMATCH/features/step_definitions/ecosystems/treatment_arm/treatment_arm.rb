@@ -37,6 +37,8 @@ Then(/^wait until patient "([^"]*)" ta assignment report for id "([^"]*)" stratu
   old_patient_assignment = 'nothing'
   while try_time < 30
     @response = Helper_Methods.simple_get_request(@request_url)['message_json']
+    next if @response.is_a?(Array) #when it's the first patient in this ta's assignment event table
+    #the first time call this ta's assignment event GET, the response is an empty array (instead of an empty hash)
     new_patient_assignment = @response['patients_list'].select {|a| a['patient_id']==patient_id}
     new_patient_assignment = new_patient_assignment[0] if new_patient_assignment.is_a?(Array)
     old_patient_assignment = new_patient_assignment if old_patient_assignment == 'nothing'
