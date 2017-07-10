@@ -53,8 +53,7 @@ module Auth0Client
 
 			begin
 				token_hash = JSON.parse(response)
-        p 'token'
-        p token_hash['id_token']
+        p 'Token created'
 				ENV[token_name] = token_hash['id_token']
 			rescue => e
 				puts "Failure to retireve id_token from response"
@@ -67,7 +66,7 @@ module Auth0Client
 
 	def add_auth0_header(headers, role)
 		auth0_token = get_auth0_token(role)
-		headers[:Authorization] = "Bearer #{auth0_token}" if auth0_token.size > 1
+		headers['Authorization'] = "Bearer #{auth0_token}" if auth0_token.size > 1
 
 		headers
 	end

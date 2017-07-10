@@ -39,7 +39,7 @@ Feature: Treatment arm validation
     When I issue a post request for validation at level "all" with the treatment arm
     Then I "should" see a "Success" message
     And I "should" see "false" value under the "passed" field
-    And I should see the reason of rejection on "all" as "drug_id is missing from treatment_arm_drugs"
+    And I should see the reason of rejection on "treatment_arm_drugs 0 drug_id" as "The treatment_arm_drug drug_id at index 0 is in an invalid format"
 
   Scenario: A treatment arm with no drug name in treatment arm drugs should fail validation
     Given I retrieve the template for treatment arm
@@ -47,6 +47,7 @@ Feature: Treatment arm validation
     When I issue a post request for validation at level "all" with the treatment arm
     Then I "should" see a "Success" message
     And I "should" see "false" value under the "passed" field
+    And I should see the reason of rejection on "treatment_arm_drugs 0 name" as "The treatment_arm_drug at index 0 must have a drug name."
 
   Scenario Outline: Validate02_<sno>:  A treatment arm with any of the important fields missing should fail validation
     Given I retrieve the template for treatment arm
@@ -95,7 +96,7 @@ Feature: Treatment arm validation
     When I issue a post request for validation at level "all" with the treatment arm
     Then I should see the reason of rejection on "treatment_arm_id" as "The field treatment_arm_id must be a string. (i.e APEC1621A1)"
 
-  Scenario Outline: Validation should raise and inform the user about the ordinal of snv_indel that has the error
+  Scenario Outline: Validation should raise and inform the user about the ordinal of snv_indels that has the error
     Given I retrieve the template for treatment arm
     And I add a duplicate of the object to "<top_level>"
     And I set "<key>" to "<value>"
@@ -109,16 +110,60 @@ Feature: Treatment arm validation
       | snv_indels           | identifier        |       | reason placeholder |
       | snv_indels           | level_of_evidence |       | reason placeholder |
       | snv_indels           | inclusion         |       | reason placeholder |
+
+  Scenario Outline: Validation should raise and inform the user about the ordinal of assay_rules that has the error
+    Given I retrieve the template for treatment arm
+    And I add a duplicate of the object to "<top_level>"
+    And I set "<key>" to "<value>"
+    When I issue a post request for validation at level "<top_level>" with the treatment arm
+    Then I "should" see a "Success" message
+    And I "should" see "false" value under the "passed" field
+    Then I should see the reason of rejection on "<top_level>" as "<reason>"
+    Examples:
+      | top_level            | key               | value | reason             |
       | assay_rules          | type              |       | reason placeholder |
       | assay_rules          | type              |       | reason placeholder |
       | assay_rules          | type              |       | reason placeholder |
       | assay_rules          | type              |       | reason placeholder |
+
+  Scenario Outline: Validation should raise and inform the user about the ordinal of cnv that has the error
+    Given I retrieve the template for treatment arm
+    And I add a duplicate of the object to "<top_level>"
+    And I set "<key>" to "<value>"
+    When I issue a post request for validation at level "<top_level>" with the treatment arm
+    Then I "should" see a "Success" message
+    And I "should" see "false" value under the "passed" field
+    Then I should see the reason of rejection on "<top_level>" as "<reason>"
+    Examples:
+      | top_level            | key               | value | reason             |
       | copy_number_variants | variant_type      |       | reason placeholder |
       | copy_number_variants | variant_type      |       | reason placeholder |
       | copy_number_variants | variant_type      |       | reason placeholder |
+
+  Scenario Outline: Validation should raise and inform the user about the ordinal of gene fusions that has the error
+    Given I retrieve the template for treatment arm
+    And I add a duplicate of the object to "<top_level>"
+    And I set "<key>" to "<value>"
+    When I issue a post request for validation at level "<top_level>" with the treatment arm
+    Then I "should" see a "Success" message
+    And I "should" see "false" value under the "passed" field
+    Then I should see the reason of rejection on "<top_level>" as "<reason>"
+    Examples:
+      | top_level            | key               | value | reason             |
       | gene_fusions         | variant_type      |       | reason placeholder |
       | gene_fusions         | variant_type      |       | reason placeholder |
       | gene_fusions         | variant_type      |       | reason placeholder |
+
+  Scenario Outline: Validation should raise and inform the user about the ordinal of NHR that has the error
+    Given I retrieve the template for treatment arm
+    And I add a duplicate of the object to "<top_level>"
+    And I set "<key>" to "<value>"
+    When I issue a post request for validation at level "<top_level>" with the treatment arm
+    Then I "should" see a "Success" message
+    And I "should" see "false" value under the "passed" field
+    Then I should see the reason of rejection on "<top_level>" as "<reason>"
+    Examples:
+      | top_level            | key               | value | reason             |
       | non_hotspot_rules    | inclusion         |       | reason placeholder |
       | non_hotspot_rules    | inclusion         |       | reason placeholder |
       | non_hotspot_rules    | inclusion         |       | reason placeholder |

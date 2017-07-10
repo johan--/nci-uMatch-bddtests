@@ -13,8 +13,8 @@ Feature: Pending treatment arm call
 
   Scenario: Pending_02: A valid user can retrieve the details of a single treatment arm from the pending ta table
     Given I am a user of type "ADMIN"
-    When I issue a get request to pending treatment arms with id "APEC1621-AA-PEND" and version "version1"
-    And The "treatment_arm_id" of the treatment arm should be "APEC1621-AA-PEND"
+    When I issue a get request to pending treatment arms with id "APEC1621-AA_PEND" and version "version1"
+    And The "treatment_arm_id" of the treatment arm should be "APEC1621-AA_PEND"
     And The "version" of the treatment arm should be "version1"
 
   Scenario Outline: Pending_03_<Sno>: When a treatment arm is not found an error should be raised

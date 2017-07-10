@@ -46,7 +46,6 @@ class Converter
     file_write.puts(html_string)
     file_write.close
   end
-
 end
 
 f = Converter.new(options)
