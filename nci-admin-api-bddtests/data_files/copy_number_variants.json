@@ -1,0 +1,13 @@
+{
+    "gene": "MET",
+    "ocp_reference": null,
+    "identifier": "MET",
+    "inclusion": false,
+    "public_med_ids": ["18827604"],
+    "variant_type": "cnv",
+    "ocp_alternative": null,
+    "position": null,
+    "level_of_evidence": 3.0,
+    "arm_specific": false,
+    "chromosome": null
+}
