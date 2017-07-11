@@ -132,7 +132,7 @@ module.exports = function() {
         var index = parseInt(Math.random() * counter);
         cliaPage.expectedIRdetails = cliaPage.responseData[index];
 
-        console.log(cliaPage.expectedIRdetails);
+        // console.log(cliaPage.expectedIRdetails);
 
         var irId = cliaPage.expectedIRdetails['ion_reporter_id'];
         element(by.css('li[ng-repeat="item in heartbeatList"][heading="' + irId + '"]')).click().then(function () {

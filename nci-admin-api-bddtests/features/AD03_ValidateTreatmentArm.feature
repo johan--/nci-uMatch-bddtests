@@ -167,23 +167,23 @@ Feature: Treatment arm validation
       | gene_fusions | level_of_evidence |                      | gene_fusions 1 level_of_evidence | within gene_fusions located at index 1, must have a level_of_evidence, and that level_of_evidence must be a number. |
       | gene_fusions | level_of_evidence | asdf                 | gene_fusions 1 level_of_evidence | within gene_fusions located at index 1, must have a level_of_evidence, and that level_of_evidence must be a number. |
 
-  @broken
   Scenario Outline: Validation should raise and inform the user about the ordinal of NHR that has the error
     Given I retrieve the template for treatment arm
     And I add a duplicate of the object to "<top_level>"
     And I set "<key>" to "<value>"
-    When I issue a post request for validation at level "<top_level>" with the treatment arm
+    And I add it to the treatment arm
+    When I issue a post request for validation at level "all" with the treatment arm
     Then I "should" see a "Success" message
     And I "should" see "false" value under the "passed" field
     Then I should see the reason of rejection on "<combination>" as "<reason>"
     Examples:
-      | top_level         | key       | value | combination | reason             |
-      | non_hotspot_rules | inclusion |       |             | reason placeholder |
-      | non_hotspot_rules | inclusion |       |             | reason placeholder |
-      | non_hotspot_rules | inclusion |       |             | reason placeholder |
-      | non_hotspot_rules | inclusion |       |             | reason placeholder |
-      | non_hotspot_rules | inclusion |       |             | reason placeholder |
-      | non_hotspot_rules | inclusion |       |             | reason placeholder |
+      | top_level         | key               | value    | combination                           | reason                                                                                                                               |
+      | non_hotspot_rules | inclusion         |          | non_hotspot_rules 1 inclusion         | non_hotspot_rules located at index 1, must be defined as either an inclusion or exclusion variant                                    |
+      | non_hotspot_rules | inclusion         | asdf     | non_hotspot_rules 1 inclusion         | non_hotspot_rules located at index 1, must be defined as either an inclusion or exclusion variant                                    |
+      | non_hotspot_rules | level_of_evidence |          | non_hotspot_rules 1 level_of_evidence | within non_hotspot_rules located at index 1, must have a level_of_evidence, and that level_of_evidence must be a number.             |
+      | non_hotspot_rules | level_of_evidence | asdsa    | non_hotspot_rules 1 level_of_evidence | The variant, within non_hotspot_rules located at index 1, must have a level_of_evidence, and that level_of_evidence must be a number |
+      | non_hotspot_rules | func_gene         | 31231    | non_hotspot_rules 1 gene              | The field gene within non_hotspot_rules at index 1 must be alphanumeric only.                                                        |
+      | non_hotspot_rules | inclusion         | sdfasdfs | non_hotspot_rules 1 inclusion         | non_hotspot_rules located at index 1, must be defined as either an inclusion or exclusion variant                                    |
 
   @broken
   Scenario: A treatent arm with multiple errors should see all the errors

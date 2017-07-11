@@ -126,7 +126,7 @@ module.exports = function() {
 
     this.Then(/^I can see the Treatment Arm Accrual chart data$/, function (callback) {
         try{
-            var responseSize = Object.keys(dash.responseData.treatment_arm_accrual).length;
+            // var responseSize = Object.keys(dash.responseData.treatment_arm_accrual).length;
             browser.ignoreSynchronization = true;
             browser.sleep(2000).then(function () {
                 if (responseSize > 0){

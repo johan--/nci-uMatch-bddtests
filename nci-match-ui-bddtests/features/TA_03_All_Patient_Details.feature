@@ -26,7 +26,7 @@ Feature: Treatment Arm details page show the details about the patient associate
     Then I "should" see the Data of Arm Generated
     And I enter "UI_MA_PendingApproval" in the all patients data filter field
     And His status in the all patients table is "NOT_ENROLLED_ON_ARM"
-    Then I "should" see the Data of Arm Generated
+    Then I "should not" see the Data of Arm Generated
     And I enter "PT_RA06_OnTreatmentArm" in the all patients data filter field
     And His status in the all patients table is "ON_TREATMENT_ARM"
     Then I "should not" see the Data of Arm Generated

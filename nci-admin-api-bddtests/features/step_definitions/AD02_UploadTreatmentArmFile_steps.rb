@@ -30,6 +30,15 @@ When(/^I upload file "([^"]*)" selecting all TAs with version "([^"]*)"$/) do |f
   @response = Request.post_request(request, body)
 end
 
+When(/^I "(should|should not)" see success within response$/) do |see_or_not|
+  see = see_or_not == "should"
+  if see
+    result = JSON.parse(@response['message'])
+    expect(result['response']['data'].first['treatment_arm_id']).to  eql(@treatment_arm_id)
+    expect(result['response']['data'].first['status']).to be_truthy
+  end
+end
+
 Then(/^I collect a list of entries from pending treatment arm table$/) do
   pending # Write code here that turns the phrase above into concrete actions
 end
