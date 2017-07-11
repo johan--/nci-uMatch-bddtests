@@ -177,13 +177,29 @@ Feature: Treatment arm validation
     And I "should" see "false" value under the "passed" field
     Then I should see the reason of rejection on "<combination>" as "<reason>"
     Examples:
-      | top_level         | key               | value    | combination                           | reason                                                                                                                               |
-      | non_hotspot_rules | inclusion         |          | non_hotspot_rules 1 inclusion         | non_hotspot_rules located at index 1, must be defined as either an inclusion or exclusion variant                                    |
-      | non_hotspot_rules | inclusion         | asdf     | non_hotspot_rules 1 inclusion         | non_hotspot_rules located at index 1, must be defined as either an inclusion or exclusion variant                                    |
-      | non_hotspot_rules | level_of_evidence |          | non_hotspot_rules 1 level_of_evidence | within non_hotspot_rules located at index 1, must have a level_of_evidence, and that level_of_evidence must be a number.             |
-      | non_hotspot_rules | level_of_evidence | asdsa    | non_hotspot_rules 1 level_of_evidence | The variant, within non_hotspot_rules located at index 1, must have a level_of_evidence, and that level_of_evidence must be a number |
-      | non_hotspot_rules | func_gene         | 31231    | non_hotspot_rules 1 gene              | The field gene within non_hotspot_rules at index 1 must be alphanumeric only.                                                        |
-      | non_hotspot_rules | inclusion         | sdfasdfs | non_hotspot_rules 1 inclusion         | non_hotspot_rules located at index 1, must be defined as either an inclusion or exclusion variant                                    |
+      | top_level         | key               | value    | combination                           | reason                                                                                                                             |
+      | non_hotspot_rules | inclusion         |          | non_hotspot_rules 1 inclusion         | non_hotspot_rules located at index 1, must be defined as either an inclusion or exclusion variant                                  |
+      | non_hotspot_rules | inclusion         | asdf     | non_hotspot_rules 1 inclusion         | non_hotspot_rules located at index 1, must be defined as either an inclusion or exclusion variant                                  |
+      | non_hotspot_rules | level_of_evidence |          | non_hotspot_rules 1 level_of_evidence | non_hotspot_rules located at index 1, must have a level_of_evidence, and that level_of_evidence must be a number.                  |
+      | non_hotspot_rules | level_of_evidence | asdsa    | non_hotspot_rules 1 level_of_evidence | non_hotspot_rules located at index 1, must have a level_of_evidence, and that level_of_evidence must be a number                   |
+      | non_hotspot_rules | func_gene         | 31231    | non_hotspot_rules 1 gene              | The field gene within non_hotspot_rules at index 1 must be alphanumeric only.                                                      |
+      | non_hotspot_rules | inclusion         | sdfasdfs | non_hotspot_rules 1 inclusion         | non_hotspot_rules located at index 1, must be defined as either an inclusion or exclusion variant                                  |
+      | non_hotspot_rules | domain_range      | 412- 622 | non_hotspot_rules 1 domain_range      | valid range where the second number is greater than the first number, and both numbers must be separated by a hyphen with no space |
+      | non_hotspot_rules | domain_range      | 412 -622 | non_hotspot_rules 1 domain_range      | valid range where the second number is greater than the first number, and both numbers must be separated by a hyphen with no space |
+      | non_hotspot_rules | domain_range      | abc-def  | non_hotspot_rules 1 domain_range      | valid range where the second number is greater than the first number, and both numbers must be separated by a hyphen with no space |
+      | non_hotspot_rules | domain_range      | 622-412  | non_hotspot_rules 1 domain_range      | valid range where the second number is greater than the first number, and both numbers must be separated by a hyphen with no space |
+
+  Scenario: NHR should have at least one value in the variant
+    Given I retrieve the template for treatment arm
+    And I add a duplicate of the object to "non_hotspot_rules"
+    And I set "func_gene" to ""
+    And I set "function" to ""
+    And I set "oncomine_variant_class" to ""
+    And I set "exon" to ""
+    And I add it to the treatment arm
+    When I issue a post request for validation at level "all" with the treatment arm
+    Then I should see the reason of rejection on "non_hotspot_rules" as "non_hotspot_rules at index 1 needs to contain one of thefollowing fields to be considered valid:\nfunc_gene\nfunction\noncomine_variant_class\nexon"
+    And I "should" see "false" value under the "passed" field
 
   @broken
   Scenario: A treatent arm with multiple errors should see all the errors
