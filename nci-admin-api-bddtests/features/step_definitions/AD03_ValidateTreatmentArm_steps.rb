@@ -32,7 +32,9 @@ end
 
 Given(/^I set "([^"]*)" to "([^"]*)"$/) do |key, value|
   @field_element[key] = value
+end
 
+Given (/^I add it to the treatment arm$/) do
   @ta_template[@field] << @field_element
 end
 
@@ -70,18 +72,13 @@ Then(/^I "(should|should not)" see "([^"]*)" value under the "([^"]*)" field$/) 
   end
 end
 
-Then(/^I should see the reason of rejection on "([^"]*)" as "([^"]*)"$/) do |field, reason|
+Then(/^I should see the reason of rejection on "([^"]*)" as "(.*)"$/) do |field, reason|
   message = JSON.parse(@response['message'])
 
   error_key = message['error_messages'].select { |e| e.key? field }
   expect(error_key.size).to be > 0
 
-  error_message = error_key.select { |e| e.values.each { |a| a.include? reason } }
-  expect(error_message.size).to be > 0
-end
-
-Then(/^I should see the reason of rejection as "([^"]*)"\{'treatment_arm_id': 'The field treatment_arm_id must be a string\. \(i\.e APEC(\d+)A(\d+)\)'\}"([^"]*)"$/) do |arg1, arg2, arg3, arg4|
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(error_key[0][field]).to include(reason)
 end
 
 Then(/^I should see the reason of rejection as "([^"]*)"$/) do |arg1|

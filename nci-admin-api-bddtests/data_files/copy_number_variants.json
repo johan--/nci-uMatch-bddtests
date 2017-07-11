@@ -2,7 +2,7 @@
     "gene": "MET",
     "ocp_reference": null,
     "identifier": "MET",
-    "inclusion": false,
+    "inclusion": true,
     "public_med_ids": ["18827604"],
     "variant_type": "cnv",
     "ocp_alternative": null,
