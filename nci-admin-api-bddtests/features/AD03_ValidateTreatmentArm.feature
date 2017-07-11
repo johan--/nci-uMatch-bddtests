@@ -57,13 +57,13 @@ Feature: Treatment arm validation
     And I should see the reason of rejection on "<field>" as "<reason>"
     And I "should" see "false" value under the "passed" field
     Examples:
-      | sno | field               | validation_level | reason                                                                  |
-      | 1   | treatment_arm_id    | all              | The field treatment_arm_id must exist within the treatment arm.         |
-      | 2   | name                | all              | The field name must exist within the treatment arm.                     |
-      | 3   | version             | all              | The field version must exist within the treatment arm.                  |
-      | 4   | stratum_id          | all              | The field stratum_id must exist.                                        |
-      | 5   | study_id            | all              | The field study_id must exist and it must be set to the value APEC1621. |
-      | 6   | treatment_arm_drugs | all              | The field treatment arm drugs must exist within the treatment arm.      |
+      | sno | field               | validation_level | reason                                                                                |
+      | 1   | treatment_arm_id    | all              | The field treatment_arm_id must exist within the treatment arm.                       |
+      | 2   | name                | all              | The field name must exist within the treatment arm.                                   |
+      | 3   | version             | all              | The field version must exist within the treatment arm.                                |
+      | 4   | stratum_id          | all              | The field stratum_id must exist.                                                      |
+      | 5   | study_id            | all              | The field study_id must exist and it must be set to the value APEC1621.               |
+      | 6   | treatment_arm_drugs | all              | The field treatment arm drugs must exist and contain at least one treatment arm drug. |
 
 
   Scenario Outline: Validate03_<sno>: A treatment Arm with certain missing top level fields should not fail validation
@@ -107,12 +107,12 @@ Feature: Treatment arm validation
     And I "should" see "false" value under the "passed" field
     Then I should see the reason of rejection on "<combination>" as "<reason>"
     Examples:
-      | top_level  | key               | value      | reason                                                                                                                          | combination                    |
-      | snv_indels | variant_type      |            | within snv_indels located at index 1, must have the proper variant type.                                           | snv_indels 1 variant_type      |
-      | snv_indels | identifier        |            | within snv_indels located at index 1, must have an identifier, and that identifier must be a string.               | snv_indels 1 identifier        |
-      | snv_indels | level_of_evidence |            | within snv_indels located at index 1, must have a level_of_evidence, and that level_of_evidence must be an number. | snv_indels 1 level_of_evidence |
-      | snv_indels | inclusion         |            | within snv_indels located at index 1, must be defined as either an inclusion or exclusion variant                  | snv_indels 1 inclusion         |
-      | snv_indels | identifier        | COSM462592 | There are two variants with the same identifier in this treatment arm.                                                          | snv_indels                     |
+      | top_level  | key               | value      | reason                                                                                                            | combination                    |
+      | snv_indels | variant_type      |            | within snv_indels located at index 1, must have the proper variant type.                                          | snv_indels 1 variant_type      |
+      | snv_indels | identifier        |            | within snv_indels located at index 1, must have an identifier, and that identifier must be a string.              | snv_indels 1 identifier        |
+      | snv_indels | level_of_evidence |            | within snv_indels located at index 1, must have a level_of_evidence, and that level_of_evidence must be a number. | snv_indels 1 level_of_evidence |
+      | snv_indels | inclusion         |            | within snv_indels located at index 1, must be defined as either an inclusion or exclusion variant                 | snv_indels 1 inclusion         |
+      | snv_indels | identifier        | COSM462592 | There are two variants with the same identifier in this treatment arm.                                            | snv_indels                     |
 
   Scenario Outline: Validation should raise and inform the user about the ordinal of assay_rules that has the error
     Given I retrieve the template for treatment arm
@@ -124,7 +124,7 @@ Feature: Treatment arm validation
     And I "should" see "false" value under the "passed" field
     Then I should see the reason of rejection on "<combination>" as "<reason>"
     Examples:
-      | top_level   | key                 | value | combination                      | reason                                                                                                                                                  |
+      | top_level   | key                 | value | combination                      | reason                                                                                                                                       |
       | assay_rules | assay_result_status |       | assay_rule 1 assay_result_status | assay_result_status, within assay rules, must exist and it must be set to one of the following values: POSITIVE, NEGATIVE, or INDETERMINATE. |
       | assay_rules | assay_variant       |       | assay_rule 1 assay_variant       | assay_variant, within assay rules, must exist and it must be set to one of the following values: EMPTY, PRESENT, or NEGATIVE.                |
       | assay_rules | level_of_evidence   |       | assay_rule 1 level_of_evidence   | level_of_evidence, within assay rules, must be a number.                                                                                     |
@@ -141,7 +141,7 @@ Feature: Treatment arm validation
     And I "should" see "false" value under the "passed" field
     Then I should see the reason of rejection on "<combination>" as "<reason>"
     Examples:
-      | top_level            | key               | value | combination                              | reason                                                                                                                                   |
+      | top_level            | key               | value | combination                              | reason                                                                                                                      |
       | copy_number_variants | variant_type      |       | copy_number_variants 0 variant_type      | within copy_number_variants located at index 0, must have a type.                                                           |
       | copy_number_variants | variant_type      | xxx   | copy_number_variants 0 variant_type      | within copy_number_variants located at index 0, must have the proper type.                                                  |
       | copy_number_variants | identifier        |       | copy_number_variants 0 identifier        | within copy_number_variants located at index 0, must have an identifier.                                                    |
@@ -159,10 +159,10 @@ Feature: Treatment arm validation
     And I "should" see "false" value under the "passed" field
     Then I should see the reason of rejection on "<combination>" as "<reason>"
     Examples:
-      | top_level    | key               | value                | combination                      | reason                                                                                                                           |
+      | top_level    | key               | value                | combination                      | reason                                                                                                              |
       | gene_fusions | variant_type      |                      | gene_fusions 1 variant_type      | within gene_fusions located at index 1, must have a type.                                                           |
       | gene_fusions | variant_type      | asdf                 | gene_fusions 1 variant_type      | within gene_fusions located at index 1, must have the proper type.                                                  |
-      | gene_fusions | identifier        | ARHGEF2-NTRK1.A21N10 | gene_fusions                     | There are two variants with the same identifier in this treatment arm.                                                           |
+      | gene_fusions | identifier        | ARHGEF2-NTRK1.A21N10 | gene_fusions                     | There are two variants with the same identifier in this treatment arm.                                              |
       | gene_fusions | identifier        |                      | gene_fusions 1 identifier        | within gene_fusions located at index 1, must have an identifier.                                                    |
       | gene_fusions | level_of_evidence |                      | gene_fusions 1 level_of_evidence | within gene_fusions located at index 1, must have a level_of_evidence, and that level_of_evidence must be a number. |
       | gene_fusions | level_of_evidence | asdf                 | gene_fusions 1 level_of_evidence | within gene_fusions located at index 1, must have a level_of_evidence, and that level_of_evidence must be a number. |

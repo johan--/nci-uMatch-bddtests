@@ -38,8 +38,8 @@ end
 
 Then(/^I should retrieve one treatment arm$/) do
 	response_message = JSON.parse(@response['message'])
-	expect(response_message).to be_a Hash
   expect(response_message.size).to eql(1);
+  expect(response_message).to be_a Hash
 end
 
 Then(/^I should retrieve an array of treatment arm\(s\)$/) do

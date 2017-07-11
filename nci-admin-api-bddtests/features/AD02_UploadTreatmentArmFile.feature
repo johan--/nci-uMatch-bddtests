@@ -54,4 +54,3 @@ Feature: Upload Treatment Arm from File
     And I "should" see the treatment arm "APEC1621_repeat" and version "version1" in the pending treatment arm table
     When I upload file "APEC1621_repeat.xlsx" selecting sheet name "APEC1621_repeat" with version "version1"
     Then I "should" see a "Failure" message
-    Then I "should" see the reason for failure as "existing ta (Placeholder)"

@@ -19,7 +19,7 @@ module Request
   # message <String> Unaltered response body
   #
 	def post_request(url, body={}, auth0_role='ADMIN', auth0_on=true)
-		puts "POST_URL: #{url}"
+		# puts "POST_URL: #{url}"
 		headers = {
 			content_type: :json,
       accept: :json
