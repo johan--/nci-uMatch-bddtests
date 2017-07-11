@@ -111,15 +111,16 @@ Feature: NCH Specimen shipped messages
       | null     | can't be blank       |
 
 
-  @patients_p2
-  Scenario: PT_SS06. shipped_dttm older than collection_dt fails
-  #  Testing patient: PT_SS06_TissueReceived, surgical_event_id: PT_SS06_TissueReceived_SEI1, collected_date: "2016-04-25T15:17:11+00:00",
-    Given patient id is "PT_SS06_TissueReceived"
-    And load template specimen type: "TISSUE" shipped message for this patient
-    Then set patient message field: "surgical_event_id" to value: "PT_SS06_TissueReceived_SEI1"
-    Then set patient message field: "molecular_id" to value: "PT_SS06_TissueReceived_MOI1"
-    Then set patient message field: "shipped_dttm" to value: "2016-03-25T16:17:11+00:00"
-    When POST to MATCH patients service, response includes "collected date" with code "403"
+#    not required manymore
+#  @patients_p2
+#  Scenario: PT_SS06. shipped_dttm older than collection_dt fails
+#  #  Testing patient: PT_SS06_TissueReceived, surgical_event_id: PT_SS06_TissueReceived_SEI1, collected_date: "2016-04-25T15:17:11+00:00",
+#    Given patient id is "PT_SS06_TissueReceived"
+#    And load template specimen type: "TISSUE" shipped message for this patient
+#    Then set patient message field: "surgical_event_id" to value: "PT_SS06_TissueReceived_SEI1"
+#    Then set patient message field: "molecular_id" to value: "PT_SS06_TissueReceived_MOI1"
+#    Then set patient message field: "shipped_dttm" to value: "2016-03-25T16:17:11+00:00"
+#    When POST to MATCH patients service, response includes "collected date" with code "403"
 
     #this test case is not required
 #  Scenario: PT_SS06a. shipped_dttm should not be older than the latest shipped_dttm in the same surgical_event_id
@@ -507,14 +508,39 @@ Feature: NCH Specimen shipped messages
     Given patient id is "<patient_id>"
     And load template specimen type: "<type>" shipped message for this patient
     Then set patient message field: "surgical_event_id" to value: "<patient_id>_SEI1"
-    Then set patient message field: "<field>" to value: "<valie>"
+    Then set patient message field: "<field>" to value: "<value>"
     Then set patient message field: "shipped_dttm" to value: "current"
     When POST to MATCH patients service, response includes "InvalidTransition" with code "403"
     Examples:
-      | patient_id                | type   | field         | valie                          |
+      | patient_id                | type   | field         | value                          |
       | PT_SS31_NoTaAvailable     | TISSUE | molecular_id  | PT_SS31_NoTaAvailable_MOI2     |
       | PT_SS31_NoTaAvailable     | SLIDE  | slide_barcode | PT_SS31_NoTaAvailable_BC2      |
       | PT_SS31_CompassionateCare | TISSUE | molecular_id  | PT_SS31_CompassionateCare_MOI2 |
       | PT_SS31_CompassionateCare | SLIDE  | slide_barcode | PT_SS31_CompassionateCare_BC2  |
+
+  @patients_p1
+  Scenario Outline: PT_SS32. shipped_dttm can be any time on the same day when specimen is collected
+    Given patient id is "<patient_id>"
+    And load template specimen type: "TISSUE" received message for this patient
+    Then set patient message field: "surgical_event_id" to value: "<patient_id>_SEI1"
+    Then set patient message field: "collection_dt" to value: "2017-07-05"
+    Then set patient message field: "received_dttm" to value: "2017-07-05T00:00:01+00:00"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
+    Then patient status should change to "TISSUE_SPECIMEN_RECEIVED"
+    Then load template specimen type: "<type>" shipped message for this patient
+    And set patient message field: "surgical_event_id" to value: "<patient_id>_SEI1"
+    Then set patient message field: "<field>" to value: "<value>"
+    And set patient message field: "shipped_dttm" to value: "2017-07-05T<time>"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
+    Examples:
+      | patient_id          | type   | field         | value                    | time           |
+      | PT_SS32_Registered1 | TISSUE | molecular_id  | PT_SS32_Registered1_MOI1 | 00:01:00-04:00 |
+      | PT_SS32_Registered2 | TISSUE | molecular_id  | PT_SS32_Registered2_MOI1 | 01:01:00-05:00 |
+      | PT_SS32_Registered3 | TISSUE | molecular_id  | PT_SS32_Registered3_MOI1 | 06:00:00-06:00 |
+      | PT_SS32_Registered4 | TISSUE | molecular_id  | PT_SS32_Registered4_MOI1 | 11:59:59-00:00 |
+      | PT_SS32_Registered5 | SLIDE  | slide_barcode | PT_SS32_Registered5_BC1  | 10:01:00-07:00 |
+      | PT_SS32_Registered6 | SLIDE  | slide_barcode | PT_SS32_Registered6_BC1  | 04:01:00-08:00 |
+      | PT_SS32_Registered7 | SLIDE  | slide_barcode | PT_SS32_Registered7_BC1  | 08:01:00-09:00 |
+      | PT_SS32_Registered8 | SLIDE  | slide_barcode | PT_SS32_Registered8_BC1  | 00:00:01-10:00 |
 
 

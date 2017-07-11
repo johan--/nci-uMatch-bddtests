@@ -17,7 +17,8 @@ class AdminVsBackend
     Logger.hide_log(true)
   end
 
-  def validate_all
+  def validate_all(tier = Constants.tier_uat)
+    Constants.set_tier(tier)
     @spreadsheet.sheets.each {|sheet_id| validate(sheet_id)}
   end
 
@@ -249,6 +250,5 @@ class Util
   end
 end
 
-Constants.set_tier('uat')
 tas = AdminVsBackend.new('/Users/wangl17/Downloads/PedMATCH_Master_Spreadsheet_for_Treatment_Arm_Loader.xlsx')
-tas.validate_all
+tas.validate_all(Constants.tier_uat)

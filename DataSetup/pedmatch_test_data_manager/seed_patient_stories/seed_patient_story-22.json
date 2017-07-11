@@ -26,5 +26,29 @@
     "variant_report_confirmed:<patient_id>=>TA_AS05_OnTreatmentArmV2Step2_2&<analysis_id>=>TA_AS05_OnTreatmentArmV2Step2_2_ANI2&<status>=>confirm&<comment>=>Test&<comment_user>=>QA",
     "assignment_confirmed:<patient_id>=>TA_AS05_OnTreatmentArmV2Step2_2&<analysis_id>=>TA_AS05_OnTreatmentArmV2Step2_2_ANI2&<comment>=>Test&<comment_user>=>QA",
     "on_treatment_arm:<patient_id>=>TA_AS05_OnTreatmentArmV2Step2_2&<step_number>=>2.1&<status_date>=>current&<treatment_arm_id>=>APEC1621-M&<stratum_id>=>100"
+  ],
+  "PT_SS32_Registered1": [
+    "registration:<patient_id>=>PT_SS32_Registered1&<status_date>=>current"
+  ],
+  "PT_SS32_Registered2": [
+    "registration:<patient_id>=>PT_SS32_Registered2&<status_date>=>current"
+  ],
+  "PT_SS32_Registered3": [
+    "registration:<patient_id>=>PT_SS32_Registered3&<status_date>=>current"
+  ],
+  "PT_SS32_Registered4": [
+    "registration:<patient_id>=>PT_SS32_Registered4&<status_date>=>current"
+  ],
+  "PT_SS32_Registered5": [
+    "registration:<patient_id>=>PT_SS32_Registered5&<status_date>=>current"
+  ],
+  "PT_SS32_Registered6": [
+    "registration:<patient_id>=>PT_SS32_Registered6&<status_date>=>current"
+  ],
+  "PT_SS32_Registered7": [
+    "registration:<patient_id>=>PT_SS32_Registered7&<status_date>=>current"
+  ],
+  "PT_SS32_Registered8": [
+    "registration:<patient_id>=>PT_SS32_Registered8&<status_date>=>current"
   ]
 }

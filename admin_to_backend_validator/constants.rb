@@ -1,6 +1,6 @@
 require_relative 'logger'
 class Constants
-  TIERS = %w(local int uat)
+  TIERS = %w(local int uat prod)
   @tier = TIERS[0]
 
   def self.tier_local
@@ -13,6 +13,10 @@ class Constants
 
   def self.tier_uat
     TIERS[2]
+  end
+
+  def self.tier_prod
+    TIERS[3]
   end
 
   def self.current_tier
@@ -36,6 +40,8 @@ class Constants
         'https://pedmatch-int.nci.nih.gov/api/v1/treatment_arms'
       when TIERS[2] then
         'https://pedmatch-uat.nci.nih.gov/api/v1/treatment_arms'
+      when TIERS[3] then
+        'https://pedmatch.nci.nih.gov/api/v1/treatment_arms'
       else
         'http://localhost:10235/api/v1/treatment_arms'
     end
@@ -49,6 +55,8 @@ class Constants
         'https://pedmatch-int.nci.nih.gov/api/v1/patients'
       when TIERS[2] then
         'https://pedmatch-uat.nci.nih.gov/api/v1/patients'
+      when TIERS[3] then
+        'https://pedmatch.nci.nih.gov/api/v1/patients'
       else
         'http://localhost:10240/api/v1/patients'
     end
@@ -62,21 +70,10 @@ class Constants
         'https://pedmatch-int.nci.nih.gov/api/v1'
       when TIERS[2] then
         'https://pedmatch-uat.nci.nih.gov/api/v1'
+      when TIERS[3] then
+        'https://pedmatch.nci.nih.gov/api/v1'
       else
         'http://localhost:5000/api/v1'
-    end
-  end
-
-  def self.url_mock_cog
-    case @tier
-      when TIERS[0] then
-        'http://localhost:3000'
-      when TIERS[1] then
-        'http://pedmatch-int.nci.nih.gov:3000'
-      when TIERS[2] then
-        'http://umatch-uat-alb-backend-1961495808.us-east-1.elb.amazonaws.com:3000'
-      else
-        'http://localhost:3000'
     end
   end
 
@@ -88,6 +85,8 @@ class Constants
         'pedmatch-int'
       when TIERS[2] then
         'pedmatch-uat'
+      when TIERS[2] then
+        'pedmatch-prod'
       else
         'pedmatch-dev'
     end
@@ -122,6 +121,8 @@ class Constants
         ENV['INT_AUTH0_CLIENT_ID']
       when TIERS[2] then
         ENV['UAT_AUTH0_CLIENT_ID']
+      when TIERS[3] then
+        ENV['PROD_AUTH0_CLIENT_ID']
       else
         ENV['AUTH0_CLIENT_ID']
     end
@@ -135,6 +136,8 @@ class Constants
         ENV['INT_ADMIN_AUTH0_USERNAME']
       when TIERS[2] then
         ENV['UAT_ADMIN_AUTH0_USERNAME']
+      when TIERS[3] then
+        ENV['PROD_ADMIN_AUTH0_USERNAME']
       else
         ENV['ADMIN_AUTH0_USERNAME']
     end
@@ -148,6 +151,8 @@ class Constants
         ENV['INT_ADMIN_AUTH0_PASSWORD']
       when TIERS[2] then
         ENV['UAT_ADMIN_AUTH0_PASSWORD']
+      when TIERS[3] then
+        ENV['PROD_ADMIN_AUTH0_PASSWORD']
       else
         ENV['ADMIN_AUTH0_PASSWORD']
     end
@@ -161,6 +166,8 @@ class Constants
         ENV['INT_AUTH0_DATABASE']
       when TIERS[2] then
         ENV['UAT_AUTH0_DATABASE']
+      when TIERS[3] then
+        ENV['PROD_AUTH0_DATABASE']
       else
         ENV['AUTH0_DATABASE']
     end
