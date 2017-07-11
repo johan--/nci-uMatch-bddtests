@@ -108,10 +108,10 @@ Feature: Treatment arm validation
     Then I should see the reason of rejection on "<combination>" as "<reason>"
     Examples:
       | top_level  | key               | value      | reason                                                                                                                          | combination                    |
-      | snv_indels | variant_type      |            | The variant, within snv_indels located at index 1, must have the proper variant type.                                           | snv_indels 1 variant_type      |
-      | snv_indels | identifier        |            | The variant, within snv_indels located at index 1, must have an identifier, and that identifier must be a string.               | snv_indels 1 identifier        |
-      | snv_indels | level_of_evidence |            | The variant, within snv_indels located at index 1, must have a level_of_evidence, and that level_of_evidence must be an number. | snv_indels 1 level_of_evidence |
-      | snv_indels | inclusion         |            | The variant, within snv_indels located at index 1, must be defined as either an inclusion or exclusion variant                  | snv_indels 1 inclusion         |
+      | snv_indels | variant_type      |            | within snv_indels located at index 1, must have the proper variant type.                                           | snv_indels 1 variant_type      |
+      | snv_indels | identifier        |            | within snv_indels located at index 1, must have an identifier, and that identifier must be a string.               | snv_indels 1 identifier        |
+      | snv_indels | level_of_evidence |            | within snv_indels located at index 1, must have a level_of_evidence, and that level_of_evidence must be an number. | snv_indels 1 level_of_evidence |
+      | snv_indels | inclusion         |            | within snv_indels located at index 1, must be defined as either an inclusion or exclusion variant                  | snv_indels 1 inclusion         |
       | snv_indels | identifier        | COSM462592 | There are two variants with the same identifier in this treatment arm.                                                          | snv_indels                     |
 
   Scenario Outline: Validation should raise and inform the user about the ordinal of assay_rules that has the error
@@ -125,11 +125,11 @@ Feature: Treatment arm validation
     Then I should see the reason of rejection on "<combination>" as "<reason>"
     Examples:
       | top_level   | key                 | value | combination                      | reason                                                                                                                                                  |
-      | assay_rules | assay_result_status |       | assay_rule 1 assay_result_status | The field, assay_result_status, within assay rules, must exist and it must be set to one of the following values: POSITIVE, NEGATIVE, or INDETERMINATE. |
-      | assay_rules | assay_variant       |       | assay_rule 1 assay_variant       | The field, assay_variant, within assay rules, must exist and it must be set to one of the following values: EMPTY, PRESENT, or NEGATIVE.                |
-      | assay_rules | level_of_evidence   |       | assay_rule 1 level_of_evidence   | The field, level_of_evidence, within assay rules, must be a number.                                                                                     |
-      | assay_rules | type                |       | assay_rule 1 type                | The field, type, within assay rules, must exist and it must be set to "IHC".                                                                            |
-      | assay_rules | type                | XXX   | assay_rule 1 type                | The field, type, within assay rules, must be set to "IHC".                                                                                              |
+      | assay_rules | assay_result_status |       | assay_rule 1 assay_result_status | assay_result_status, within assay rules, must exist and it must be set to one of the following values: POSITIVE, NEGATIVE, or INDETERMINATE. |
+      | assay_rules | assay_variant       |       | assay_rule 1 assay_variant       | assay_variant, within assay rules, must exist and it must be set to one of the following values: EMPTY, PRESENT, or NEGATIVE.                |
+      | assay_rules | level_of_evidence   |       | assay_rule 1 level_of_evidence   | level_of_evidence, within assay rules, must be a number.                                                                                     |
+      | assay_rules | type                |       | assay_rule 1 type                | type, within assay rules, must exist and it must be set to "IHC".                                                                            |
+      | assay_rules | type                | XXX   | assay_rule 1 type                | type, within assay rules, must be set to "IHC".                                                                                              |
 
   Scenario Outline: Validation should raise and inform the user about the ordinal of cnv that has the error
     Given I retrieve the template for treatment arm
@@ -142,11 +142,11 @@ Feature: Treatment arm validation
     Then I should see the reason of rejection on "<combination>" as "<reason>"
     Examples:
       | top_level            | key               | value | combination                              | reason                                                                                                                                   |
-      | copy_number_variants | variant_type      |       | copy_number_variants 0 variant_type      | The variant, within copy_number_variants located at index 0, must have a type.                                                           |
-      | copy_number_variants | variant_type      | xxx   | copy_number_variants 0 variant_type      | The variant, within copy_number_variants located at index 0, must have the proper type.                                                  |
-      | copy_number_variants | identifier        |       | copy_number_variants 0 identifier        | The variant, within copy_number_variants located at index 0, must have an identifier.                                                    |
-      | copy_number_variants | level_of_evidence |       | copy_number_variants 0 level_of_evidence | The variant, within copy_number_variants located at index 0, must have a level_of_evidence, and that level_of_evidence must be a number. |
-      | copy_number_variants | level_of_evidence | z     | copy_number_variants 0 level_of_evidence | The variant, within copy_number_variants located at index 0, must have a level_of_evidence, and that level_of_evidence must be a number. |
+      | copy_number_variants | variant_type      |       | copy_number_variants 0 variant_type      | within copy_number_variants located at index 0, must have a type.                                                           |
+      | copy_number_variants | variant_type      | xxx   | copy_number_variants 0 variant_type      | within copy_number_variants located at index 0, must have the proper type.                                                  |
+      | copy_number_variants | identifier        |       | copy_number_variants 0 identifier        | within copy_number_variants located at index 0, must have an identifier.                                                    |
+      | copy_number_variants | level_of_evidence |       | copy_number_variants 0 level_of_evidence | within copy_number_variants located at index 0, must have a level_of_evidence, and that level_of_evidence must be a number. |
+      | copy_number_variants | level_of_evidence | z     | copy_number_variants 0 level_of_evidence | within copy_number_variants located at index 0, must have a level_of_evidence, and that level_of_evidence must be a number. |
 
   Scenario Outline: Validation should raise and inform the user about the ordinal of gene fusions that has the error
     Given I retrieve the template for treatment arm
@@ -160,12 +160,12 @@ Feature: Treatment arm validation
     Then I should see the reason of rejection on "<combination>" as "<reason>"
     Examples:
       | top_level    | key               | value                | combination                      | reason                                                                                                                           |
-      | gene_fusions | variant_type      |                      | gene_fusions 1 variant_type      | The variant, within gene_fusions located at index 1, must have a type.                                                           |
-      | gene_fusions | variant_type      | asdf                 | gene_fusions 1 variant_type      | The variant, within gene_fusions located at index 1, must have the proper type.                                                  |
+      | gene_fusions | variant_type      |                      | gene_fusions 1 variant_type      | within gene_fusions located at index 1, must have a type.                                                           |
+      | gene_fusions | variant_type      | asdf                 | gene_fusions 1 variant_type      | within gene_fusions located at index 1, must have the proper type.                                                  |
       | gene_fusions | identifier        | ARHGEF2-NTRK1.A21N10 | gene_fusions                     | There are two variants with the same identifier in this treatment arm.                                                           |
-      | gene_fusions | identifier        |                      | gene_fusions 1 identifier        | The variant, within gene_fusions located at index 1, must have an identifier.                                                    |
-      | gene_fusions | level_of_evidence |                      | gene_fusions 1 level_of_evidence | The variant, within gene_fusions located at index 1, must have a level_of_evidence, and that level_of_evidence must be a number. |
-      | gene_fusions | level_of_evidence | asdf                 | gene_fusions 1 level_of_evidence | The variant, within gene_fusions located at index 1, must have a level_of_evidence, and that level_of_evidence must be a number. |
+      | gene_fusions | identifier        |                      | gene_fusions 1 identifier        | within gene_fusions located at index 1, must have an identifier.                                                    |
+      | gene_fusions | level_of_evidence |                      | gene_fusions 1 level_of_evidence | within gene_fusions located at index 1, must have a level_of_evidence, and that level_of_evidence must be a number. |
+      | gene_fusions | level_of_evidence | asdf                 | gene_fusions 1 level_of_evidence | within gene_fusions located at index 1, must have a level_of_evidence, and that level_of_evidence must be a number. |
 
   @broken
   Scenario Outline: Validation should raise and inform the user about the ordinal of NHR that has the error
