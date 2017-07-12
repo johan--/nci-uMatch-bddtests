@@ -6,11 +6,11 @@ Given(/^I build a request param with id "([^"]*)", stratum id "([^"]*)" and vers
 	@version = Utility.nil_if_empty(version)
 
 	param_array = []
-	param_array << "treatment_arm_id=#{@treatment_arm_id}" unless @treatment_arm_id.nil?
-	param_array << "stratum_id=#{@stratum_id}" unless @stratum_id.nil?
-	param_array << "version=#{@version}" unless @version.nil?
+	param_array << @treatment_arm_id unless @treatment_arm_id.nil?
+	param_array << @stratum_id unless @stratum_id.nil?
+	param_array << @version unless @version.nil?
 
-  @query = param_array.join('&')
+  @query = param_array.join('/')
 end
 
 Given(/^I build a request param with id "([^"]*)"$/) do |treatment_arm_id|
@@ -31,15 +31,16 @@ Given(/^I build a request param with "([^"]*)" "([^"]*)" and "([^"]*)" "([^"]*)"
 end
 
 When(/^I make a get call to treatment_arm_api with those parameters$/) do
-  request = "#{@admin_endpoint}/api/v1/admintool/treatment_arm_api?#{@query}"
-  
+  request = "#{@admin_endpoint}/api/v1/admintool/treatment_arm_api/#{@query}"
   @response = Request.get_request(request)
 end
 
 Then(/^I should retrieve one treatment arm$/) do
 	response_message = JSON.parse(@response['message'])
-  expect(response_message.size).to eql(1);
   expect(response_message).to be_a Hash
+  expect(response_message['treatment_arm_id']).to eq(@treatment_arm_id)
+  expect(response_message['stratum_id']).to eq(@stratum_id)
+  expect(response_message['version']).to eq(@version)
 end
 
 Then(/^I should retrieve an array of treatment arm\(s\)$/) do
@@ -60,10 +61,10 @@ Then(/^All the "([^"]*)" in all the treatment arm is "([^"]*)"$/) do |field, val
   end
 end
 
-Then(/^I should receive an empty hash$/) do
+Then(/^I should receive an appropriate message$/) do
   response_message = JSON.parse(@response['message'])
   expect(response_message).to be_a Hash
-  expect(response_message.size).to eql(0);
+  expect(response_message['message']).to include('Unsuccessful GET from treatment arm');
 end
 
 Then(/^I should receive an empty array$/) do

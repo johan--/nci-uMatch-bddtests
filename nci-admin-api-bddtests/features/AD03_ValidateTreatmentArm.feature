@@ -184,8 +184,6 @@ Feature: Treatment arm validation
       | non_hotspot_rules | level_of_evidence | asdsa    | non_hotspot_rules 1 level_of_evidence | non_hotspot_rules located at index 1, must have a level_of_evidence, and that level_of_evidence must be a number                   |
       | non_hotspot_rules | func_gene         | 31231    | non_hotspot_rules 1 gene              | The field gene within non_hotspot_rules at index 1 must be alphanumeric only.                                                      |
       | non_hotspot_rules | inclusion         | sdfasdfs | non_hotspot_rules 1 inclusion         | non_hotspot_rules located at index 1, must be defined as either an inclusion or exclusion variant                                  |
-      | non_hotspot_rules | domain_range      | 412- 622 | non_hotspot_rules 1 domain_range      | valid range where the second number is greater than the first number, and both numbers must be separated by a hyphen with no space |
-      | non_hotspot_rules | domain_range      | 412 -622 | non_hotspot_rules 1 domain_range      | valid range where the second number is greater than the first number, and both numbers must be separated by a hyphen with no space |
       | non_hotspot_rules | domain_range      | abc-def  | non_hotspot_rules 1 domain_range      | valid range where the second number is greater than the first number, and both numbers must be separated by a hyphen with no space |
       | non_hotspot_rules | domain_range      | 622-412  | non_hotspot_rules 1 domain_range      | valid range where the second number is greater than the first number, and both numbers must be separated by a hyphen with no space |
 

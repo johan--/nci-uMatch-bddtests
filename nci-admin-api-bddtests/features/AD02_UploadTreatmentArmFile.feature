@@ -13,9 +13,9 @@ Feature: Upload Treatment Arm from File
     When I upload file "SelectOneTAFromListTest.xlsx" selecting sheet name "APEC1621-AA" with version "2017-02-02"
     Then  I "should" see a "Success" message
     And I "should" see success within response
-    And I should see a status code of "200"
     And I "should" see the treatment arm in the pending treatment arm table
     And I "should not" see the treatment arm "APEC1621-BB" and version "2017-02-02" in the pending treatment arm table
+    And I should see a status code of "200"
 
   Scenario: Uploading an excel sheet and selecting no treatment arm should upload all the treamtnet arms
     When I upload file "SelectAllTAFromListTest.xlsx" selecting all TAs with version "2017-02-02"

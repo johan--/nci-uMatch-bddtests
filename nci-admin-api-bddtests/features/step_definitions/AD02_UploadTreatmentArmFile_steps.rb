@@ -6,6 +6,7 @@ end
 
 When(/^I upload file "([^"]*)" selecting sheet name "([^"]*)" with version "([^"]*)"$/) do |file, sheet_name, ver|
 	file_name = Utility.nil_if_empty(file)
+  puts @admin_endpoint
 	@treatment_arm_id = sheet_name
 	@version  = Utility.nil_if_empty(ver)
   request = "#{@admin_endpoint}/api/v1/admintool/upload_to_aws?user=#{@user}"
@@ -14,6 +15,7 @@ When(/^I upload file "([^"]*)" selecting sheet name "([^"]*)" with version "([^"
   	excel_sheet_names: [@treatment_arm_id],
   	version: @version
   }
+  puts body
   @response = Request.post_request(request, body)
 end
 
