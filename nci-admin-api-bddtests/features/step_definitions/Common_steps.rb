@@ -15,6 +15,8 @@ end
 
 Then(/^I "(should|should not)" see a "([^"]*)" message$/) do |see_or_not, message|
   success = see_or_not == 'should'
+  puts @response
+
   if (success)
   	expect(@response["status"]).to eql(message)
   else
