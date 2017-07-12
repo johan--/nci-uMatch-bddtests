@@ -20,12 +20,8 @@ module Request
   #
 	def post_request(url, body={}, auth0_role='ADMIN', auth0_on=true)
 		# puts "POST_URL: #{url}"
-    puts "#####################################################################"
-    puts "This is the earl"
 
-    start = url.index('/v1/')
-    puts url[(start + 4 )..-1]
-		headers = {
+	headers = {
 			content_type: :json,
       accept: :json
 		}
@@ -66,7 +62,7 @@ module Request
       return post_response
     end
     puts post_response
-    
+
     post_response
 	end
 
