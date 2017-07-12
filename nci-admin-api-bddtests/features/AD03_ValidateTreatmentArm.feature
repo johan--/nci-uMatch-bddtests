@@ -198,7 +198,7 @@ Feature: Treatment arm validation
     And I set "exon" to ""
     And I add it to the treatment arm
     When I issue a post request for validation at level "all" with the treatment arm
-    Then I should see the reason of rejection on "non_hotspot_rules" as "non_hotspot_rules at index 1 needs to contain one of thefollowing fields to be considered valid:\nfunc_gene\nfunction\noncomine_variant_class\nexon"
+    Then I should see the reason of rejection on "non_hotspot_rules" as "non_hotspot_rules at index 1 needs to contain one of the following fields to be considered valid: func_gene, function, oncomine_variant_class, exon"
     And I "should" see "false" value under the "passed" field
 
   @broken
