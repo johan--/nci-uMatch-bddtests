@@ -13,7 +13,8 @@ module.exports = function() {
         "patientStats"       : '/api/v1/patients/statistics',
         "pendingReportStats" : '/api/v1/patients/amois',
         "pendingItems"       : '/api/v1/patients/pending_items',
-        "timeline"           : '/api/v1/patients/events?order=desc&num=10'
+        "timeline"           : '/api/v1/patients/events?order=desc&num=10',
+        "accrual"            : '/api/v1/treatment_arms/accrual'
     };
 
     // This is all the listing under the patient statistics section on the top banner.
@@ -125,24 +126,26 @@ module.exports = function() {
     });
 
     this.Then(/^I can see the Treatment Arm Accrual chart data$/, function (callback) {
-        try{
-            // var responseSize = Object.keys(dash.responseData.treatment_arm_accrual).length;
-            browser.ignoreSynchronization = true;
-            browser.sleep(2000).then(function () {
-                if (responseSize > 0){
-                    expect(dash.accrualChart.isPresent()).to.eventually.eql(true).then(function(){
-                        browser.ignoreSynchronization = false;
-                    }).then(callback);
-                } else {
-                    expect(dash.accrualChart.isPresent()).to.eventually.eql(false).then(function(){
-                        browser.ignoreSynchronization = false;
-                    }).then(callback);
-                }
-            })
-        }
-        catch(e) {
-            console.log(e).then(callback);
-        }
+        utilities.getRequestWithService('treatment', callList['accrual']).then(function (response) {
+            try{
+                var responseSize = response.length;
+                browser.ignoreSynchronization = true;
+                browser.sleep(2000).then(function () {
+                    if (responseSize > 0){
+                        expect(dash.accrualChart.isPresent()).to.eventually.eql(true).then(function(){
+                            browser.ignoreSynchronization = false;
+                        })
+                    } else {
+                        expect(dash.accrualChart.isPresent()).to.eventually.eql(false).then(function(){
+                            browser.ignoreSynchronization = false;
+                        })
+                    }
+                })
+            }
+            catch(e) {
+                console.log(e).then(callback);
+            }
+        }).then(callback)
     });
 
     this.Then(/^I can see the Pending Review Section Heading$/, function (callback) {

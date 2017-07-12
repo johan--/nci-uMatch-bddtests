@@ -166,6 +166,7 @@ Feature: Treatment arm validation
       | gene_fusions | identifier        |                      | gene_fusions 1 identifier        | identifier for the gene_fusion at index, 1 must exist                                                               |
       | gene_fusions | identifier        | ARHGEF2              | gene_fusions 1 identifier        | gene_fusion at index, 1 must be in the proper format. It must be gene hyphen gene period string.                    |
       | gene_fusions | identifier        | ARHGEF2-NTRK1        | gene_fusions 1 identifier        | gene_fusion at index, 1 must be in the proper format. It must be gene hyphen gene period string.                    |
+      | gene_fusions | identifier        | ARorBF2-NTRK1        | gene_fusions 1 identifier        | gene_fusion at index, 1 must be in the proper format. It must be gene hyphen gene period string.                    |
       | gene_fusions | level_of_evidence |                      | gene_fusions 1 level_of_evidence | within gene_fusions located at index 1, must have a level_of_evidence, and that level_of_evidence must be a number. |
       | gene_fusions | level_of_evidence | asdf                 | gene_fusions 1 level_of_evidence | within gene_fusions located at index 1, must have a level_of_evidence, and that level_of_evidence must be a number. |
 

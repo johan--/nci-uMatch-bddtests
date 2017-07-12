@@ -23,7 +23,6 @@ Feature: Dashboard page.
     And I can see patients with Pending Assignment Reports
     And I collect "pendingReportStats" data from backend
     Then I can see Sequenced and confirmed patients data
-    And I collect "patientStats" data from backend
     Then I can see the Treatment Arm Accrual chart data
 
   @ui_p1
