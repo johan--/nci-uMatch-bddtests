@@ -83,7 +83,7 @@ Feature: As a valid user I can access the variant report for a patient and navig
     | patient_id             | variant_report               | torrent_version | pool1     | pool2     |
     | UI_PA09_TsVr52Uploaded | UI_PA09_TsVr52Uploaded_ANI1  | 5.2-25          | 449632.5  | 957045.5  |
 
-  @ui_p2 @demo_p1
+  @ui_p2
   Scenario: Checking the QC values in the SNVs/MNVs/Indels table of the variant report
     When I go to the patient "PT_VC00_CnvVrReceived" with variant report "PT_VC00_CnvVrReceived_ANI1"
     And I collect information about the patient QC
