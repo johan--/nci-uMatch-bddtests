@@ -34,11 +34,19 @@ end
 
 When(/^I "(should|should not)" see success within response$/) do |see_or_not|
   see = see_or_not == "should"
+  result = JSON.parse(@response['message'])
   if see
-    result = JSON.parse(@response['message'])
     expect(result['response']['data'].first['treatment_arm_id']).to  eql(@treatment_arm_id)
     expect(result['response']['data'].first['status']).to be_truthy
+  else
+    expect(result['response']['data'].first['treatment_arm_id']).to  eql(@treatment_arm_id)
+    expect(result['response']['data'].first['status']).to be false
   end
+end
+
+When(/^I see failure message as "(.+?)"$/) do |reason|
+  result = JSON.parse(@response['message'])
+  expect(result['response']['data'].first['message']).to  include(reason)
 end
 
 Then(/^I collect a list of entries from pending treatment arm table$/) do

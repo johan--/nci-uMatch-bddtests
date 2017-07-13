@@ -61,8 +61,6 @@ module Request
       end
       return post_response
     end
-    puts post_response
-
     post_response
 	end
 

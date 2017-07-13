@@ -54,4 +54,6 @@ Feature: Upload Treatment Arm from File
   Scenario: Uploading a excel sheet with an existing TA ID, stratum id and version should raise a flag
     And I "should" see the treatment arm "APEC1621_repeat" and version "version1" in the pending treatment arm table
     When I upload file "APEC1621_repeat.xlsx" selecting sheet name "APEC1621_repeat" with version "version1"
-    Then I "should" see a "Failure" message
+    Then I "should" see a "Success" message
+    And I "should not" see success within response
+    And I see failure message as "A treatment arm with the same treatment_arm_id, version, and stratum_id already exists"

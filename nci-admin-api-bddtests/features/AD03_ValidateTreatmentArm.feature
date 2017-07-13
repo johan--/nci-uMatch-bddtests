@@ -165,7 +165,6 @@ Feature: Treatment arm validation
       | gene_fusions | identifier        | ARHGEF2-NTRK1.A21N10 | gene_fusions                     | There are two variants with the same identifier in this treatment arm.                                              |
       | gene_fusions | identifier        |                      | gene_fusions 1 identifier        | identifier for the gene_fusion at index, 1 must exist                                                               |
       | gene_fusions | identifier        | ARHGEF2              | gene_fusions 1 identifier        | gene_fusion at index, 1 must be in the proper format. It must be gene hyphen gene period string.                    |
-      | gene_fusions | identifier        | ARHGEF2-NTRK1        | gene_fusions 1 identifier        | gene_fusion at index, 1 must be in the proper format. It must be gene hyphen gene period string.                    |
       | gene_fusions | identifier        | ARorBF2-NTRK1        | gene_fusions 1 identifier        | gene_fusion at index, 1 must be in the proper format. It must be gene hyphen gene period string.                    |
       | gene_fusions | level_of_evidence |                      | gene_fusions 1 level_of_evidence | within gene_fusions located at index 1, must have a level_of_evidence, and that level_of_evidence must be a number. |
       | gene_fusions | level_of_evidence | asdf                 | gene_fusions 1 level_of_evidence | within gene_fusions located at index 1, must have a level_of_evidence, and that level_of_evidence must be a number. |
@@ -202,6 +201,22 @@ Feature: Treatment arm validation
     Then I should see the reason of rejection on "non_hotspot_rules" as "non_hotspot_rules at index 1 needs to contain one of the following fields to be considered valid: func_gene, function, oncomine_variant_class, exon"
     And I "should" see "false" value under the "passed" field
 
+  Scenario Outline: IF LOE is present in an exclusion variant it should not be an issue
+    Given I retrieve the template for treatment arm
+    And I add a duplicate of the object to "<variant_type>"
+    And I set "identifier" to "<variant_value>"
+    And I set "inclusion" to "false"
+    And I set "level_of_evidence" to "3.0"
+    And I add it to the treatment arm
+    When I issue a post request for validation at level "all" with the treatment arm
+    And I "should" see "true" value under the "passed" field
+    Examples:
+      | variant_type         | variant_value |
+      | gene_fusions         | ARHGEF1-NTRK2 |
+      | snv_indels           | COSM1111      |
+      | copy_number_variants | TEM           |
+
+
   @broken
   Scenario: A treatent arm with multiple errors should see all the errors
     Given I retrieve the template for treatment arm
@@ -209,5 +224,4 @@ Feature: Treatment arm validation
     And I remove the field "name" from the template
     When I issue a post request for validation at level "all" with the treatment arm
     Then I "should" see a "Success" message
-    And I should see the reason of rejection as "<reason>"
     And I "should" see "false" value under the "passed" field

@@ -31,7 +31,15 @@ Given(/^I pick the "([^"]*)" ordinal of "([^"]*)"$/) do |ordinal, field|
 end
 
 Given(/^I set "([^"]*)" to "([^"]*)"$/) do |key, value|
-  @field_element[key] = value
+  input = value
+  if (value == 'true' || value == 'false')
+    input = value == 'true'
+  end
+  @field_element[key] = input
+end
+
+Given(/^I set loe to "([^"]*)"$/) do |value|
+  @field_element['level_of_evidence'] = value.to_f
 end
 
 Given (/^I add it to the treatment arm$/) do
@@ -81,6 +89,6 @@ Then(/^I should see the reason of rejection on "([^"]*)" as "(.*)"$/) do |field,
   expect(error_key[0][field]).to include(reason)
 end
 
-Then(/^I should see the reason of rejection as "([^"]*)"$/) do |arg1|
-  message = JSON.parse(@response['message'])
+Then(/^I see the response$/) do
+  puts JSON.parse(@response['message'])
 end
