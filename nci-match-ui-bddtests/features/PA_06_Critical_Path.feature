@@ -244,16 +244,18 @@ Feature: These are the critical path test cases.
     And The "Upload new sample file" link is "enabled"
     And I can click on the "Upload new sample file" link
     And I can see the "Upload BAM files and Variant ZIP files" dialog
-    And The "Upload" button is "disabled"
+    And The "Start Upload" button looks "disabled"
+    And The "Close" button looks "enabled"
     Then I select an Ion Reporter "dartmouth - IR_DTM00"
     And I enter Analysis ID "PT_UI04_DtmTsShipped1_An123"
     And I make all elements visible
     And I press "Select Variant ZIP File" file button to upload "vcf_sample.zip" file
     And I press "Select DNA BAM File" file button to upload "dna_sample.bam" file
     And I press "Select cDNA BAM File" file button to upload "rna_sample.bam" file
-    Then The "Upload" button is "visible"
-    And The "Upload" button is "enabled"
-    Then I can click on the "Upload" button
+    Then The "Start Upload" button looks "enabled"
+    And The "Stop Upload and Close" button looks "enabled"
+    Then I can click on the "Start Upload" button
     And I wait for "5" seconds
-    And I scroll to the top of the page
-    And I can see the "3" Sample File upload process has started
+    And I verify that file "vcf_sample.zip" has completed upload
+    And I verify that file "dna_sample.bam" has completed upload
+    And I verify that file "rna_sample.bam" has completed upload

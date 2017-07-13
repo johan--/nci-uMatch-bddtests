@@ -115,6 +115,13 @@ module.exports = function () {
         }).then(callback);
     });
 
+
+    this.Then(/^I verify that file "([^"]*)" has completed upload$/, function (fileName, callback) {
+        var elem = element(by.cssContainingText('span.upload-name', fileName));
+
+        expect(elem.getText()).to.eventually.eql(fileName + ' : uploaded 100%').notify(callback)
+    });
+
     this.Then(/^I click on the Upload Progress in the toolbar$/, function (callback) {
          // Write code here that turns the phrase above into concrete actions
          callback(null, 'pending');
@@ -196,5 +203,5 @@ module.exports = function () {
             console.log(err);
             return;
         }).then(callback);
-    })
+    });
 };

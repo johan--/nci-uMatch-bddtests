@@ -27,7 +27,7 @@ module.exports = function () {
             browser.executeScript('window.scrollTo(' + loc.x + ',' + loc.y + ')')
         }).then(callback);
     });
-    
+
 
     this.When(/^The "(.+?)" button is "(disabled|enabled|visible|invisible)"$/, function (buttonText, buttonState, callback) {
         var button = element(by.buttonText(buttonText));
@@ -38,6 +38,21 @@ module.exports = function () {
             expect(button.isEnabled()).to.eventually.eql(isAvailable).notify(callback);
         } else {
             expect(button.isPresent()).to.eventually.eql(isAvailable).notify(callback);
+        }
+    });
+
+    this.When(/^The "(.+?)" button looks "(disabled|enabled)"/, function (buttonText, buttonState, callback) {
+        var button = element(by.buttonText(buttonText));
+        var isEnabled = buttonState === 'enabled';
+
+        if (isEnabled){
+            button.getAttribute('class').then(function (allAttributes) {
+                var attributeArray = allAttributes.split(' ');
+                // console.log(attributeArray);
+                expect (attributeArray).not.to.include('disabled');
+            }).then(callback);
+        } else {
+            utilities.checkElementIncludesAttribute(button, 'class', 'disabled').then(callback)
         }
     });
 

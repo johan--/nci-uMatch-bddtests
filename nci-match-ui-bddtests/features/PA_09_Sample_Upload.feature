@@ -13,22 +13,21 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     And The "Upload new sample file" link is "enabled"
     And I can click on the "Upload new sample file" link
     And I can see the "Upload BAM files and Variant ZIP files" dialog
-    And The "Upload" button is "disabled"
+    And The "Start Upload" button looks "disabled"
     Then I select an Ion Reporter "mda - IR_MDA05"
     And I enter Analysis ID "PT_AU04_MdaTsShipped1_An123"
     And I make all elements visible
     And I press "Select Variant ZIP File" file button to upload "vcf_sample.zip" file
     And I press "Select DNA BAM File" file button to upload "dna_sample.bam" file
     And I press "Select cDNA BAM File" file button to upload "rna_sample.bam" file
-    Then The "Upload" button is "visible"
-    And The "Upload" button is "enabled"
-    Then I can click on the "Upload" button
+    Then The "Start Upload" button looks "enabled"
+    Then I can click on the "Start Upload" button
     And I wait for "5" seconds
-    And I scroll to the top of the page
-    And I can see the "3" Sample File upload process has started
+    And I verify that file "vcf_sample.zip" has completed upload
+    And I verify that file "dna_sample.bam" has completed upload
+    And I verify that file "rna_sample.bam" has completed upload
     When I go to patient "PT_AU04_MdaTsShipped1" details page
     Then I see the downloads in the timeline
-    Then I logout
 
   @ui_p1
   Scenario Outline: As a <site> user I can select only the same kind of IR user
@@ -39,7 +38,7 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     And I can see the "Upload BAM files and Variant ZIP files" dialog
     And I click on the "Select Site and Ion Reporter ID" button
     Then I can only see "<site>" type user
-    And I click on the "Cancel" button
+    And I click on the "Close" button
     And I logout
     Examples:
       | user                | patient_id               | surgical_event_id            | site  |
@@ -76,19 +75,20 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     And I can click on the "Upload new sample file" link
     And I can see the "Upload BAM files and Variant ZIP files" dialog
     Then I select an Ion Reporter "mda - IR_MDA05"
-    Then The "Upload" button is "disabled"
+    Then The "Start Upload" button looks "disabled"
+    And The "Close" button looks "enabled"
     Then I enter Analysis ID "ION_AQ41_TsVrUploaded_ANI1"
     And I make all elements visible
     And I press "Select Variant ZIP File" file button to upload "vcfFile.vcf" file
     And I press "Select DNA BAM File" file button to upload "dna.bam" file
     And I press "Select cDNA BAM File" file button to upload "cdna.bam" file
-    And The "Upload" button is "disabled"
+    And The "Start Upload" button looks "disabled"
     Then I enter Analysis ID "TOTALLY_NEW_ID"
-    And The "Upload" button is "enabled"
+    And The "Start Upload" button looks "enabled"
     Then I select an Ion Reporter "Select Site and Ion Reporter ID"
-    And The "Upload" button is "disabled"
+    And The "Start Upload" button looks "disabled"
 
-@broken
+  @ui_p2
   Scenario: As a privileged user I can cancel upload
     Given I am logged in as a "VR_Reviewer_mocha" user
     When I go to patient "ION_AQ02_TsShipped" with surgical event "ION_AQ02_TsShipped_SEI1"
@@ -99,15 +99,12 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     And I can see the "Upload BAM files and Variant ZIP files" dialog
     Then I select an Ion Reporter "mocha - IR_MCA00"
     And I enter Analysis ID "ION_AQ41_TsVrUploaded_ANI1"
-    And The "Upload" button is "enabled"
-    And I click on the "Upload" button
-    Then I can see the Upload Progress in the toolbar
-    And I click on the Upload Progress in the toolbar
-    Then I can see current uploads
-    And I can cancel the first upload in the list
-    Then The cancelled file is removed from the upload list
-    Then I logout
+    And The "Start Upload" button looks "enabled"
+    And I click on the "Start Upload" button
+    When I click on the "Stop Download and Close" button
+    Then The "Upload new sample file" button is "enabled"
 
+  @ui_p2
   Scenario: As a privileged Mocha Sender I can upload a sample file
     Given I clear the file from S3 under reporter "IR_MCA00", mol_id "PT_AU04_MochaTsShipped1_MOI1", analysis_id "PT_AU04_MochaTsShipped1_An123"
     And I am logged in as a "VR_Sender_mocha" user
@@ -118,17 +115,18 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     And The "Upload new sample file" link is "enabled"
     And I can click on the "Upload new sample file" link
     And I can see the "Upload BAM files and Variant ZIP files" dialog
-    And The "Upload" button is "disabled"
+    And The "Start Upload" button looks "disabled"
     Then I select an Ion Reporter "mocha - IR_MCA00"
     And I enter Analysis ID "PT_AU04_MochaTsShipped1_An123"
     And I make all elements visible
     And I press "Select Variant ZIP File" file button to upload "vcf_sample.zip" file
     And I press "Select DNA BAM File" file button to upload "dna_sample.bam" file
     And I press "Select cDNA BAM File" file button to upload "cdna_sample.bam" file
-    Then The "Upload" button is "visible"
-    And The "Upload" button is "enabled"
-    Then I can click on the "Upload" button
+    Then The "Start Upload" button looks "enabled"
+    Then I can click on the "Start Upload" button
     And I wait for "15" seconds
-    And I scroll to the top of the page
-    And I can see the "3" Sample File upload process has started
-    Then I logout
+    And I verify that file "vcf_sample.zip" has completed upload
+    And I verify that file "dna_sample.bam" has completed upload
+    And I verify that file "rna_sample.bam" has completed upload
+    When I go to patient "PT_AU04_MochaTsShipped1" details page
+    Then I see the downloads in the timeline
