@@ -127,6 +127,6 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     And I wait for "15" seconds
     And I verify that file "vcf_sample.zip" has completed upload
     And I verify that file "dna_sample.bam" has completed upload
-    And I verify that file "rna_sample.bam" has completed upload
+    And I verify that file "cdna_sample.bam" has completed upload
     When I go to patient "PT_AU04_MochaTsShipped1" details page
     Then I see the downloads in the timeline
