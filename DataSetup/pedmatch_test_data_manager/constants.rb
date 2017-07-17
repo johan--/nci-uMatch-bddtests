@@ -80,6 +80,32 @@ class Constants
     end
   end
 
+  def self.aws_access_key
+    case @tier
+      when TIERS[0] then
+        ENV['AWS_ACCESS_KEY_ID']
+      when TIERS[1] then
+        ENV['AWS_ACCESS_KEY_ID']
+      when TIERS[2] then
+        ENV['UAT_AWS_ACCESS_KEY_ID']
+      else
+        ENV['AWS_ACCESS_KEY_ID']
+    end
+  end
+
+  def self.aws_secret_key
+    case @tier
+      when TIERS[0] then
+        ENV['AWS_SECRET_ACCESS_KEY']
+      when TIERS[1] then
+        ENV['AWS_SECRET_ACCESS_KEY']
+      when TIERS[2] then
+        ENV['UAT_AWS_SECRET_ACCESS_KEY']
+      else
+        ENV['AWS_SECRET_ACCESS_KEY']
+    end
+  end
+
   def self.s3_bucket
     case @tier
       when TIERS[0] then
