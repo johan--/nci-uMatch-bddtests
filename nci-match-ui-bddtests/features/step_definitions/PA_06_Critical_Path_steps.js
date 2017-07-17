@@ -490,11 +490,12 @@ module.exports = function () {
         var patientString = '[patient-id="timelineEvent.entity_id"]';
         var variantReportStatusString = '[ng-if^="timelineEvent.event_data.variant_report_status"]';
         var variantAnalysisIdString = 'span[ng-if^="timelineEvent.event_data.analysis_id"]';
-        expect(timeline.all(by.css(patientString)).get(0).getText()).to.eventually.eql(patientPage.patientId);
-        expect(timeline.all(by.css(variantReportStatusString)).get(0).getText()).to.eventually.include(message);
-        expect(timeline.all(by.css(variantAnalysisIdString)).get(0)
+        browser.waitForAngular().then(function () {
+            expect(timeline.all(by.css(patientString)).get(0).getText()).to.eventually.eql(patientPage.patientId);
+            expect(timeline.all(by.css(variantReportStatusString)).get(0).getText()).to.eventually.include(message);
+            expect(timeline.all(by.css(variantAnalysisIdString)).get(0)
                 .getText()).to.eventually.eql(label)
-            .notify(callback);
+        }).then(callback);
     });
 
     this.Then(/^I can see the top level details about assignment report$/, function (callback) {

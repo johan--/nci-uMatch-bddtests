@@ -97,7 +97,6 @@ module.exports = function () {
 
         timeline.get(0).element(by.css('.timeline-title')).getText().then(function (firstMessage){
             if (firstMessage.includes('Sequence file uploaded')) {
-                utilities.checkExpectation(timeline.get(1).element(by.css('.timeline-title')), '')
                 timeline.get(1).element(by.css('.timeline-title')).getText().then(function (tst){
                     expect(tst).to.includes('Sequence file uploaded')
                 });
@@ -119,7 +118,7 @@ module.exports = function () {
     this.Then(/^I verify that file "([^"]*)" has completed upload$/, function (fileName, callback) {
         var elem = element(by.cssContainingText('span.upload-name', fileName));
 
-        expect(elem.getText()).to.eventually.eql(fileName + ' : uploaded 100%').notify(callback)
+        expect(elem.getText()).to.eventually.eql(fileName + ': 100%').notify(callback)
     });
 
     this.Then(/^I click on the Upload Progress in the toolbar$/, function (callback) {

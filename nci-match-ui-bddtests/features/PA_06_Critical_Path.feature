@@ -253,9 +253,11 @@ Feature: These are the critical path test cases.
     And I press "Select DNA BAM File" file button to upload "dna_sample.bam" file
     And I press "Select cDNA BAM File" file button to upload "rna_sample.bam" file
     Then The "Start Upload" button looks "enabled"
-    And The "Stop Upload and Close" button looks "enabled"
+    And The "Close" button looks "enabled"
     Then I can click on the "Start Upload" button
     And I wait for "5" seconds
+    And The "Start Upload" button looks "disabled"
     And I verify that file "vcf_sample.zip" has completed upload
     And I verify that file "dna_sample.bam" has completed upload
     And I verify that file "rna_sample.bam" has completed upload
+    Then I can click on the "Close" button
