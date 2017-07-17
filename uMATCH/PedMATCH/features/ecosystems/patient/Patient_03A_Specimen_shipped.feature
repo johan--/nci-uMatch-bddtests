@@ -110,17 +110,15 @@ Feature: NCH Specimen shipped messages
       |          | can't be blank       |
       | null     | can't be blank       |
 
-
-#    not required manymore
 #  @patients_p2
-#  Scenario: PT_SS06. shipped_dttm older than collection_dt fails
-#  #  Testing patient: PT_SS06_TissueReceived, surgical_event_id: PT_SS06_TissueReceived_SEI1, collected_date: "2016-04-25T15:17:11+00:00",
-#    Given patient id is "PT_SS06_TissueReceived"
-#    And load template specimen type: "TISSUE" shipped message for this patient
-#    Then set patient message field: "surgical_event_id" to value: "PT_SS06_TissueReceived_SEI1"
-#    Then set patient message field: "molecular_id" to value: "PT_SS06_TissueReceived_MOI1"
-#    Then set patient message field: "shipped_dttm" to value: "2016-03-25T16:17:11+00:00"
-#    When POST to MATCH patients service, response includes "collected date" with code "403"
+  Scenario: PT_SS06. shipped_dttm older than collection_dt fails
+  #  Testing patient: PT_SS06_TissueReceived, surgical_event_id: PT_SS06_TissueReceived_SEI1, collected_date: "2016-04-25T15:17:11+00:00",
+    Given patient id is "PT_SS06_TissueReceived"
+    And load template specimen type: "TISSUE" shipped message for this patient
+    Then set patient message field: "surgical_event_id" to value: "PT_SS06_TissueReceived_SEI1"
+    Then set patient message field: "molecular_id" to value: "PT_SS06_TissueReceived_MOI1"
+    Then set patient message field: "shipped_dttm" to value: "2016-03-25T16:17:11+00:00"
+    When POST to MATCH patients service, response includes "collected date" with code "403"
 
     #this test case is not required
 #  Scenario: PT_SS06a. shipped_dttm should not be older than the latest shipped_dttm in the same surgical_event_id
