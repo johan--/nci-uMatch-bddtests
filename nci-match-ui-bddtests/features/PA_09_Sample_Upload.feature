@@ -22,10 +22,14 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     And I press "Select cDNA BAM File" file button to upload "rna_sample.bam" file
     Then The "Start Upload" button looks "enabled"
     Then I can click on the "Start Upload" button
-    And I wait for "5" seconds
+    And I wait for "1" seconds
+    Then The "Start Upload" button looks "disabled"
+    And I wait for "4" seconds
     And I verify that file "vcf_sample.zip" has completed upload
     And I verify that file "dna_sample.bam" has completed upload
     And I verify that file "rna_sample.bam" has completed upload
+    Then The "Start Upload" button looks "disabled"
+    Then I can click on the "Close" button
     When I go to patient "PT_AU04_MdaTsShipped1" details page
     Then I see the downloads in the timeline
 
@@ -121,12 +125,15 @@ Feature: MATCHKB-542. Users can upload patient sample files.
     And I make all elements visible
     And I press "Select Variant ZIP File" file button to upload "vcf_sample.zip" file
     And I press "Select DNA BAM File" file button to upload "dna_sample.bam" file
-    And I press "Select cDNA BAM File" file button to upload "cdna_sample.bam" file
+    And I press "Select cDNA BAM File" file button to upload "rna_sample.bam" file
     Then The "Start Upload" button looks "enabled"
     Then I can click on the "Start Upload" button
-    And I wait for "15" seconds
+    And I wait for "5" seconds
     And I verify that file "vcf_sample.zip" has completed upload
     And I verify that file "dna_sample.bam" has completed upload
-    And I verify that file "cdna_sample.bam" has completed upload
+    And I verify that file "rna_sample.bam" has completed upload
+    Then The "Start Upload" button looks "disabled"
+    Then The "Close" button looks "enabled"
+    Then I can click on the "Close" button
     When I go to patient "PT_AU04_MochaTsShipped1" details page
     Then I see the downloads in the timeline
