@@ -168,7 +168,7 @@ script:
       aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results_critical/screenshot s3://cucumber-test-reports/$DATE_TRIM/screenshot --region us-east-1 --recursive
     fi
   - export TIME_TRIM=`TZ=America/New_York date "+%H:%M:%S"`
-  - curl -X PUT "http://pedmatch-admin-int-alb-frontend-792655680.us-east-1.elb.amazonaws.com:3025/reports/update/$DATE_TRIM/$CUC_TAG_TRIM/$TIME_TRIM" -d ''
+  - curl -X PUT "https://admintool.umatch-int.nci.nih.gov:3025/reports/update/$DATE_TRIM/$CUC_TAG_TRIM/$TIME_TRIM" -d ''
   - TRAVIS_TEST_RESULT=$STATUS
 after_success:
   #Run P3 cucumber tests
@@ -191,7 +191,7 @@ after_success:
       aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/screenshot s3://cucumber-test-reports/$DATE_TRIM/screenshot --region us-east-1 --recursive
     fi
   - export TIME_TRIM=`TZ=America/New_York date "+%H:%M:%S"`
-  - curl -X PUT "http://pedmatch-admin-int-alb-frontend-792655680.us-east-1.elb.amazonaws.com:3025/reports/update/$DATE_TRIM/$CUC_TAG_TRIM/$TIME_TRIM" -d ''
+  - curl -X PUT "https://admintool.umatch-int.nci.nih.gov:3025/reports/update/$DATE_TRIM/$CUC_TAG_TRIM/$TIME_TRIM" -d ''
 
   # Deploy to AWS UAT
   - |
@@ -257,7 +257,7 @@ after_script:
   # - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/nci-match-ui-bddtests/results/result.json s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_COMMIT/ --region us-east-1
   #update test report service
 #  - export TIME_TRIM=`TZ=America/New_York date "+%H:%M:%S"`
-#  - curl -X PUT "http://pedmatch-admin-int-alb-frontend-792655680.us-east-1.elb.amazonaws.com:3025/reports/update/$DATE_TRIM/$CUC_TAG_TRIM/$TIME_TRIM" -d ''
+#  - curl -X PUT "https://admintool.umatch-int.nci.nih.gov:3025//reports/update/$DATE_TRIM/$CUC_TAG_TRIM/$TIME_TRIM" -d ''
 notifications:
   slack:
     rooms:
