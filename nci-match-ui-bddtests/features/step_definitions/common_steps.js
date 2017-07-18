@@ -81,9 +81,11 @@ module.exports = function () {
 
     this.Then(/^I can click on the "([^"]*)" link$/, function(linkText, callback) {
         var button = element(by.cssContainingText('.btn', linkText));
-        button.click()
-            .then(function () { browser.sleep(1); })
-            .then(callback);
+        button.getLocation().then(function(loc){
+            browser.executeScript_('window.scrollTo('+ loc.x +',' + (loc.y + 100)  + ')').then(function () {
+                button.click();
+            })
+        }).then(callback);
     });
 
     this.Then(/^I can click on the "([^"]*)" button$/, function(buttonText, callback) {

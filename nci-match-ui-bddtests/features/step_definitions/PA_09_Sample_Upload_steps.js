@@ -94,23 +94,48 @@ module.exports = function () {
 
     this.Then(/^I see the downloads in the timeline$/, function (callback) {
         var timeline = patientPage.timelineList;
+        browser.sleep(500).then(function () {
+                timeline.get(0).element(by.css('.timeline-title')).getText().then(function (firstMessage){
+                    var expectedArray = ['Step: 1.0. Sequence file uploaded', 'Step: 1.0. VCF file uploaded.'];
+                    if (firstMessage.includes('Sequence file uploaded')) {
+                        timeline.get(1).element(by.css('.timeline-title')).getText().then(function (tst){
+                            expect(expectedArray).to.includes(tst)
+                        });
+                        timeline.get(2).element(by.css('.timeline-title')).getText().then(function (tst){
+                            expect(expectedArray).to.includes(tst)
+                        });
 
-        timeline.get(0).element(by.css('.timeline-title')).getText().then(function (firstMessage){
-            if (firstMessage.includes('Sequence file uploaded')) {
-                timeline.get(1).element(by.css('.timeline-title')).getText().then(function (tst){
-                    expect(tst).to.includes('Sequence file uploaded')
+                        expect(timeline.get(0).element(by.binding('timelineEvent.event_data.analysis_id')).getText())
+                            .to.eventually.eql(patientPage.analysisId);
+
+                        expect(timeline.get(1).element(by.binding('timelineEvent.event_data.analysis_id')).getText())
+                            .to.eventually.eql(patientPage.analysisId);
+
+                        expect(timeline.get(2).element(by.binding('timelineEvent.event_data.analysis_id')).getText())
+                            .to.eventually.eql(patientPage.analysisId);
+
+                    } else if (firstMessage.includes('TISSUE Variant Report received.')){
+                        timeline.get(1).element(by.css('.timeline-title')).getText().then(function (tst) {
+                            expect(expectedArray).to.includes(tst)
+                        });
+
+                        timeline.get(2).element(by.css('.timeline-title')).getText().then(function (tst) {
+                            expect(expectedArray).to.includes(tst)
+                        });
+
+                        timeline.get(3).element(by.css('.timeline-title')).getText().then(function (tst) {
+                            expect(expectedArray).to.includes(tst)
+                        });
+                        expect(timeline.get(0).element(by.binding('timelineEvent.event_data.analysis_id')).getText())
+                            .to.eventually.eql(patientPage.analysisId);
+                        expect(timeline.get(1).element(by.binding('timelineEvent.event_data.analysis_id')).getText())
+                            .to.eventually.eql(patientPage.analysisId);
+                        expect(timeline.get(2).element(by.binding('timelineEvent.event_data.analysis_id')).getText())
+                            .to.eventually.eql(patientPage.analysisId);
+                        expect(timeline.get(2).element(by.binding('timelineEvent.event_data.analysis_id')).getText())
+                            .to.eventually.eql(patientPage.analysisId);
+                    }
                 });
-                timeline.get(2).element(by.css('.timeline-title')).getText().then(function (tst){
-                    expect(tst).to.includes('VCF file uploaded')
-                });
-            } else if (firstMessage.includes('TISSUE Variant Report received.')){
-                expect(timeline.get(1).element(by.css('.timeline-title')).getText())
-                    .to.eventually.includes('Sequence file uploaded');
-                expect(timeline.get(2).element(by.css('.timeline-title')).getText())
-                    .to.eventually.includes('Sequence file uploaded');
-                expect(timeline.get(3).element(by.css('.timeline-title')).getText())
-                    .to.eventually.includes('VCF file uploaded')
-            }
         }).then(callback);
     });
 
@@ -202,5 +227,73 @@ module.exports = function () {
             console.log(err);
             return;
         }).then(callback);
+    });
+
+
+    this.Then(/^I clear the file "([^"]*)", from S3 under patient "([^"]*)"$/, function(fileName, patientId, callback){
+        var bucketName = process.env.UI_HOSTNAME.match('localhost') ? 'pedmatch-dev' : 'pedmatch-int';
+        var filePath = patientId + "/" + fileName
+
+        console.log('Bucket Name: ' + bucketName );
+        console.log('Folder Name: ' + filePath );
+
+        var S3 = new AWS.S3({
+            region: 'us-east-1',
+            endpoint: 'https://s3.amazonaws.com',
+            accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+            secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+            apiVersion: 'latest'
+        });
+
+        var params = {
+            Bucket: bucketName, /* required */
+            Delete: {
+                Objects: [
+                    {
+                        Key: filePath
+                    }
+                ]
+            }
+        };
+
+        var deletePromise = S3.deleteObjects(params).promise();
+
+        deletePromise.then(function(data){
+            console.log("Deleting files in S3");
+            return;
+        }).catch(function(err){
+            console.log(err);
+            return;
+        }).then(callback);
+    });
+
+    this.When(/^I click Upload button to add a file "(.+?)"$/, function (fileName, next) {
+        console.log('reached step');
+        var xxx = document.querySelectorAll('.drop-box')
+        console.log(xxx);
+        browser.executeAsyncScript(function (callback) {
+            console.log("inside the execture scrupt")
+            var xxx = document.querySelectorAll('.drop-box')
+            console.log(xxx);
+//                .style.display = 'inline';
+//            element(by.css('input')).getText().then(function (xxx) {
+//                console.log(xxx)
+//            });
+            callback();
+        }).then(next);
+    });
+
+    this.When(/^I "(can|cannot)" see the file "(.+?)" in the Documents tab$/, function (seeOrNot, fileName, callback) {
+        browser.sleep(5000).then(callback);
+    });
+
+    this.When(/^I "(can|cannot)" see the file "(.+?)" on S3 under "(.+?)"$/, function (seeOrNot, fileName, patientId, callback) {
+        browser.sleep(10).then(callback);
+    });
+
+    this.When(/^I click on the Documents tab$/, function (callback) {
+        element(by.css('li[heading="Documents"')).click().then(function () {
+            browser.waitForAngular()
+        }).then(callback)
     });
 };

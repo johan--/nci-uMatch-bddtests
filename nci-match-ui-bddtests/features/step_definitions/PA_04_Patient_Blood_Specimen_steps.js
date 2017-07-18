@@ -42,7 +42,7 @@ module.exports = function() {
         utilities.waitForElement(patientPage.bloodSpecimenTab, 'Blood Specimen Tab').then(function(presence){
             if(presence === true) {
                 patientPage.bloodSpecimenTab.click().then(function(){
-                    browser.waitForAngular();
+                    browser.sleep(200);
                 });
             } else {
                 expect("Blood Speciment Tab was not found").to.eql("Blood Speciment Tab was found");

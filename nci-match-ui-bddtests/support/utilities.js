@@ -45,7 +45,7 @@ var Utilities = function () {
     this.getSubTabHeadingElement = function(headingName){
         var returnElement = element(by.cssContainingText('uib-tab-heading', headingName));
         return returnElement
-    }
+    };
 
     /** This function checks for the breadcrumb path that is provided. It returns the expectation's result.
      * @param path [String] in the format string1 / string2 /string3 and so forth

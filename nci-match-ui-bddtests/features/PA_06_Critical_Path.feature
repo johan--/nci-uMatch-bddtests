@@ -240,9 +240,9 @@ Feature: These are the critical path test cases.
     When I go to patient "PT_UI04_DtmTsShipped1" with surgical event "PT_UI04_DtmTsShipped1_SEI1"
     And I scroll to the bottom of the page
     And I can see that some files have not been uploaded for the Surgical Event
-    Then The "Upload new sample file" link is "visible"
-    And The "Upload new sample file" link is "enabled"
-    And I can click on the "Upload new sample file" link
+    Then The "Upload new sample files" link is "visible"
+    And The "Upload new sample files" link is "enabled"
+    And I can click on the "Upload new sample files" link
     And I can see the "Upload BAM files and Variant ZIP files" dialog
     And The "Start Upload" button looks "disabled"
     And The "Close" button looks "enabled"
