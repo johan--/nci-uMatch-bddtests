@@ -405,60 +405,60 @@ require_relative 'match_test_data_manager'
 
 # MatchTestDataManager.backup_local_db('patients')
 
-def convert
-
-  list = []
-
-  Environment.setTier('local')
-  bucket = 'pedmatch-dev'
-  url = 'http://127.0.0.1:10235/api/v1/treatment_arms'
-  tas_string = Helper_Methods.simple_get_request(url)['message']
-  url = 'http://localhost:10240/api/v1/patients/variant_reports'
-  vrs = Helper_Methods.simple_get_request(url)['message_json']
-  vrs.each { |this_vr|
-    pt_id = this_vr['patient_id']
-    moi = this_vr['molecular_id']
-    ani = this_vr['analysis_id']
-    ir_id = this_vr['ion_reporter_id']
-    tsv = this_vr['tsv_file_name']
-    path = "#{ir_id}/#{moi}/#{ani}"
-    tsv_path = "#{path}/#{tsv}"
-    if list.include?(ani)
-      next
-    end
-    unless Helper_Methods.s3_file_exists(bucket, tsv_path)
-      dev_path = "s3://pedmatch-dev/#{tsv_path}"
-      int_path = "s3://pedmatch-int/#{tsv_path}"
-      Helper_Methods.s3_cp_single_file(int_path, dev_path)
-      puts "#{ani}"
-    end
-
-    unless Helper_Methods.s3_file_exists(bucket, tsv_path)
-      puts "tsv #{tsv_path} is not there"
-      next
-    end
-    json_path = "#{tsv_path[0..tsv_path.size-5]}.json"
-    if Helper_Methods.s3_file_size(bucket, tsv_path) == 5096
-      template = "#{File.dirname(__FILE__)}/variant_file_templates/default/test1.json"
-      Helper_Methods.s3_upload_file(template, bucket, tsv_path)
-      Helper_Methods.s3_upload_file(template, 'pedmatch-int', tsv_path)
-      puts "#{ani}"
-    else
-      # if json_path.end_with?('.json')
-      #   Helper_Methods.s3_delete_path('pedmatch-dev', json_path)
-      # else
-      #   raise "Wrong json file #{json_path}"
-      # end
-      # json_name = File.basename(json_path)
-      # url = "http://127.0.0.1:10250/api/v1/rules/variant_report/#{pt_id}/#{path}/#{tsv[0..tsv.size-5]}"
-      # Helper_Methods.post_request(url, tas_string)
-      # PatientMessageLoader.copy_CNV_json_to_int_folder('', moi, ani, ir_id, json_name)
-    end
-  }
-end
-
-
-convert
+# def convert
+#
+#   list = []
+#
+#   Environment.setTier('local')
+#   bucket = 'pedmatch-dev'
+#   url = 'http://127.0.0.1:10235/api/v1/treatment_arms'
+#   tas_string = Helper_Methods.simple_get_request(url)['message']
+#   url = 'http://localhost:10240/api/v1/patients/variant_reports'
+#   vrs = Helper_Methods.simple_get_request(url)['message_json']
+#   vrs.each { |this_vr|
+#     pt_id = this_vr['patient_id']
+#     moi = this_vr['molecular_id']
+#     ani = this_vr['analysis_id']
+#     ir_id = this_vr['ion_reporter_id']
+#     tsv = this_vr['tsv_file_name']
+#     path = "#{ir_id}/#{moi}/#{ani}"
+#     tsv_path = "#{path}/#{tsv}"
+#     if list.include?(ani)
+#       next
+#     end
+#     unless Helper_Methods.s3_file_exists(bucket, tsv_path)
+#       dev_path = "s3://pedmatch-dev/#{tsv_path}"
+#       int_path = "s3://pedmatch-int/#{tsv_path}"
+#       Helper_Methods.s3_cp_single_file(int_path, dev_path)
+#       puts "#{ani}"
+#     end
+#
+#     unless Helper_Methods.s3_file_exists(bucket, tsv_path)
+#       puts "tsv #{tsv_path} is not there"
+#       next
+#     end
+#     json_path = "#{tsv_path[0..tsv_path.size-5]}.json"
+#     if Helper_Methods.s3_file_size(bucket, tsv_path) == 5096
+#       template = "#{File.dirname(__FILE__)}/variant_file_templates/default/test1.json"
+#       Helper_Methods.s3_upload_file(template, bucket, tsv_path)
+#       Helper_Methods.s3_upload_file(template, 'pedmatch-int', tsv_path)
+#       puts "#{ani}"
+#     else
+#       # if json_path.end_with?('.json')
+#       #   Helper_Methods.s3_delete_path('pedmatch-dev', json_path)
+#       # else
+#       #   raise "Wrong json file #{json_path}"
+#       # end
+#       # json_name = File.basename(json_path)
+#       # url = "http://127.0.0.1:10250/api/v1/rules/variant_report/#{pt_id}/#{path}/#{tsv[0..tsv.size-5]}"
+#       # Helper_Methods.post_request(url, tas_string)
+#       # PatientMessageLoader.copy_CNV_json_to_int_folder('', moi, ani, ir_id, json_name)
+#     end
+#   }
+# end
+#
+#
+# convert
 
 
 # MatchTestDataManager.backup_local_db('patients')
