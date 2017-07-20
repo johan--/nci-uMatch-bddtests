@@ -5,6 +5,7 @@ Feature: Sample control tests for proficiency and competency control
     Given a tsv variant report file "SNV_NO_PASS_filter" and treatment arms file "MultiTAs.json"
     When the proficiency_competency service is called
     Then the report status return is "PENDING"
+    And the report type return is "TISSUE"
     Then moi report is returned with the snv variant "match769.3.3"
     Then moi report is returned with the snv variant "match769.3.6"
     Then moi report is returned with the snv variant "match769.3.8"
@@ -85,3 +86,9 @@ Feature: Sample control tests for proficiency and competency control
       | torrent_variant_caller_version | 5.2-25  |
       | mapd                           | 0.280   |
       | mappedFusionPanelReads         | 1406678 |
+
+  Scenario: SC-PCC_07: Blood proficiency_competency variant report should be generated
+    Given a tsv variant report file "blood_test1" and treatment arms file "MultiTAs.json"
+    When the proficiency_competency service is called
+    Then the report status return is "PENDING"
+    And the report type return is "BLOOD"

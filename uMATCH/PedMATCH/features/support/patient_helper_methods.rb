@@ -397,18 +397,6 @@ class Patient_helper_methods
     @patient_message_root_key = ''
   end
 
-  def self.is_this_hash(target_object, query, path)
-    new_target = target_object
-    path.each do |path_key|
-      new_target = new_target[path_key]
-    end
-    is_this = true
-    query.each do |key, value|
-      is_this = is_this && new_target[key.to_s]==value.to_s
-    end
-    is_this
-  end
-
   ######## services #####
   def self.get_response_and_code(url, auth0_role)
     Helper_Methods.simple_get_request(url, true, auth0_role)
@@ -416,38 +404,6 @@ class Patient_helper_methods
 
   def self.get_any_result_from_url(url)
     return Helper_Methods.simple_get_request(url)['message_json']
-  end
-
-  def self.get_special_result_from_url(url, timeout, query_hash, path=[])
-    internal_timeout = 300.0
-    run_time = 0.0
-    wait_time = 5.0
-    loop do
-      response = Helper_Methods.simple_get_request(url)['message_json']
-      target_object = response
-      if response.is_a?(Array)
-        if response.length == 1
-          target_object = response[0]
-        elsif response.length == 0
-          target_object = {}
-        else
-          next
-        end
-      end
-
-      if is_this_hash(target_object, query_hash, path)
-        puts "response match query hash: #{query_hash.to_json}"
-        return target_object
-      end
-
-      if run_time>internal_timeout
-        puts "response doesn't match query hash: #{query_hash.to_json} til timeout!"
-        return target_object
-      end
-
-      sleep(wait_time)
-      run_time += wait_time
-    end
   end
 
   def self.get_updated_result_from_url(url, timeout)
@@ -558,7 +514,7 @@ class Patient_helper_methods
 
   def self.wait_until_patient_field_is(patient_id, field, value)
     url = "#{ENV['patients_endpoint']}/#{patient_id}"
-    get_special_result_from_url(url, 45, {field => value})
+    Helper_Methods.get_special_result_from_url(url, 45, {field => value})
   end
 
   def self.ui_title_find_variant_value(title, variant_hash)

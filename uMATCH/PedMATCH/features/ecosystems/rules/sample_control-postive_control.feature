@@ -5,6 +5,7 @@ Feature: Sample control tests for positive control
     Given a tsv variant report file "samplecontrol_all-matched_v2" and treatment arms file "MultiTAs.json"
     When the positive_control service is called
     Then the report status return is "PASSED"
+    And the report type return is "TISSUE"
 
   Scenario: SC-PC_02: Verify that when the variant report matches the positive controls, there are no variants in the false positives
     Given a tsv variant report file "samplecontrol_all-matched_v2" and treatment arms file "MultiTAs.json"
@@ -77,4 +78,10 @@ Feature: Sample control tests for positive control
         | torrent_variant_caller_version | 5.2-25  |
         | mapd                           | 0.280   |
         | mappedFusionPanelReads         | 1406678 |
+
+  Scenario: SC-PC_11: Blood positive_control variant report should be generated
+    Given a tsv variant report file "blood_test1" and treatment arms file "MultiTAs.json"
+    When the positive_control service is called
+    Then the report status return is "PASSED"
+    And the report type return is "BLOOD"
 

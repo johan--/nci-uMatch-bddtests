@@ -258,46 +258,51 @@ class Helper_Methods
     {}
   end
 
-  def Helper_Methods.get_request_when_method_true(url, method, timeout=45.0)
-    total_time = 0.0
-    wait_time = 1.0
+  def self.get_special_result_from_url(url, timeout, query_hash, path=[])
+    internal_timeout = 300.0
+    run_time = 0.0
+    wait_time = 5.0
     loop do
-      new_result = Helper_Methods.simple_get_request(url)['message_json']
-      # puts new_result.to_json.to_s
-      total_time += wait_time
-      if method.call(new_result) || total_time>timeout
-        return new_result
+      response = Helper_Methods.simple_get_request(url)['message_json']
+      target_object = response
+      if response.is_a?(Array)
+        if response.length == 1
+          target_object = response[0]
+        elsif response.length == 0
+          target_object = {}
+        else
+          next
+        end
+      end
+
+      if is_this_hash(target_object, query_hash, path)
+        puts "response match query hash: #{query_hash.to_json}"
+        return target_object
+      end
+
+      if run_time>internal_timeout
+        puts "response doesn't match query hash: #{query_hash.to_json} til timeout!"
+        return target_object
       end
 
       sleep(wait_time)
+      run_time += wait_time
     end
-    {}
   end
 
-  def Helper_Methods.get_request_when_method_false(url, method, timeout=45.0)
-    total_time = 0.0
-    wait_time = 1.0
-    loop do
-      new_result = Helper_Methods.simple_get_request(url)['message_json']
-      # puts new_result.to_json.to_s
-      total_time += wait_time
-      if !method.call(new_result) || total_time>timeout
-        return new_result
-      end
-
-      sleep(wait_time)
+  def self.is_this_hash(target_object, query, path)
+    new_target = target_object
+    path.each do |path_key|
+      new_target = new_target[path_key]
     end
-    {}
+    is_this = true
+    query.each do |key, value|
+      is_this = is_this && new_target[key.to_s]==value.to_s
+    end
+    is_this
   end
 
-  # post_request
-  # returns: Hash
-  #   {
-  #       'status' => 'Success' | 'Failure',
-  #       'http_code' => <http_code returned>
-  #       'message'  => UNALTERED body of the response
-  #   }
-  def Helper_Methods.post_request(service, payload, auth0_on = true, auth0_role = 'ADMIN')
+  def Helper_Methods.post_request(service, payload, auth0_on = true, auth0_role = 'SYSTEM')
     puts "Post URL: #{service}"
     # print "JSON:\n#{payload}\n\n"
     @post_response = {}

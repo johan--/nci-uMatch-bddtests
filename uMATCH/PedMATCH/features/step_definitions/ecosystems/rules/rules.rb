@@ -167,6 +167,10 @@ Then(/^the report status return is "([^"]*)"$/) do |status|
   expect(@res['report_status']).to eql(status)
 end
 
+Then(/^the report type return is "([^"]*)"$/) do |type|
+  expect(@res['variant_report_type']).to eql(type)
+end
+
 Then(/^moi report is returned with the snv variant "([^"]*)" as an amoi$/) do |arg1|
   found = false
   @res['snv_indels'].each do |snv|

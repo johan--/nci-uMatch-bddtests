@@ -6,6 +6,7 @@ Feature: Sample control tests for no template control
     When the no_template service is called
     Then the report status return is "FAILED"
     Then moi report is returned with the snv variant "COSM6224"
+    And the report type return is "TISSUE"
 
   Scenario: SC-NT_02: Verify that when the variant report contains no variants (none passes the filters) then the status of the NTC variant report is set to PASSED
     Given a tsv variant report file "NTC_variantReport-Passed" and treatment arms file "MultiTAs.json"
@@ -38,4 +39,10 @@ Feature: Sample control tests for no template control
       | torrent_variant_caller_version | 5.2-25  |
       | mapd                           | 0.280   |
       | mappedFusionPanelReads         | 1406678 |
+
+  Scenario: SC-NT_04: Blood no_template variant report should be generated
+    Given a tsv variant report file "blood_test1" and treatment arms file "MultiTAs.json"
+    When the no_template service is called
+    Then the report status return is "FAILED"
+    And the report type return is "BLOOD"
 

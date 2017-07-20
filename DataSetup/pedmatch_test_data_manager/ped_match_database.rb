@@ -26,6 +26,13 @@ class PedMatchDatabase
     Logger.info('Local treatment arm tables backup done!')
   end
 
+  def self.backup_ion(tag='patients')
+    TableInfo.ion_tables.each { |table|
+      copy_table_to_file(table, SeedFile.seed_file(table, tag)) if table_exist(table)
+    }
+    Logger.info('Local treatment arm tables backup done!')
+  end
+
   def self.copy_table_to_file(table_name, file)
     tier = Constants.current_tier
     Constants.set_tier(Constants.tier_local)

@@ -641,6 +641,12 @@ Then(/^PUT to adult match aliquot service, response includes "([^"]*)" with code
   expect(response['message']).to include message
 end
 
+Then(/^wait until this sample control has field "([^"]*)" value "([^"]*)"$/) do |field, value|
+  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
+  response = Helper_Methods.get_special_result_from_url(prepare_aliquot_url, 45, {field=>value})
+  expect(response[field]).to eq value
+  @returned_aliquot_result = response
+end
 
 When(/^GET from aliquot service, response "([^"]*)" with code "([^"]*)"$/) do |message, code|
   @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
