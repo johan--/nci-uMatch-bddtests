@@ -13,7 +13,7 @@ class Helper_Methods
   @requestTimeout = 10.0
   @default_timeout = 60.0
 
-  def Helper_Methods.get_request(url, params={}, auth0_on = true, auth0_role = 'ADMIN')
+  def Helper_Methods.get_request(url, params={}, auth0_on = true, auth0_role = 'SYSTEM')
     get_response = {}
     no_log = params['no_log']
     params.delete('no_log')
@@ -27,13 +27,14 @@ class Helper_Methods
     headers = {}
     Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
     begin
-      # puts "url is #{@url}"
-      # puts "header is #{headers}"
+      start_time = Time.now.to_i
       response = RestClient::Request.execute(:url => @url,
                                              :method => :get,
                                              :verify_ssl => false,
                                              :headers => headers,
                                              :timeout => @default_timeout)
+      end_time = Time.now.to_i
+      puts "[uMATCH BDD]#{Time.now.to_s} Complete GET URL: \n#{service}, duration: #{end_time-start_time} seconds"
       get_response['http_code'] = response.code
       get_response['status'] = response.code == 200 ? 'Success' : 'Failure'
       get_response['message'] = response.body
@@ -58,7 +59,7 @@ class Helper_Methods
     end
   end
 
-  def Helper_Methods.get_list_request(service, params={}, auth0_on = true, auth0_role = 'ADMIN')
+  def Helper_Methods.get_list_request(service, params={}, auth0_on = true, auth0_role = 'SYSTEM')
     @params = params.values.join('/')
     @service = "#{service}/#{@params}"
 
@@ -68,6 +69,7 @@ class Helper_Methods
 
     result = []
     runTime = 0.0
+    start_time = Time.now.to_i
     loop do
       sleep(@requestGap)
       runTime += @requestGap
@@ -81,6 +83,8 @@ class Helper_Methods
         puts "Error: #{e.message} occurred"
         @res = '[]'
         result = JSON.parse(@res)
+        end_time = Time.now.to_i
+        puts "[uMATCH BDD]#{Time.now.to_s} Complete GET URL: \n#{service}, duration: #{end_time-start_time} seconds"
         return result
       end
       if @res=='null'
@@ -91,10 +95,12 @@ class Helper_Methods
         break
       end
     end
+    end_time = Time.now.to_i
+    puts "[uMATCH BDD]#{Time.now.to_s} Complete GET URL: \n#{service}, duration: #{end_time-start_time} seconds"
     return result
   end
 
-  def self.simple_get_download(service, output_file, auth0_on = true, auth0_role = 'ADMIN')
+  def self.simple_get_download(service, output_file, auth0_on = true, auth0_role = 'SYSTEM')
     #do not use RestClient, because cucumber use UTF-8, which will cause encoding problem when writing binary file
     @get_response={}
     headers = {}
@@ -108,16 +114,19 @@ class Helper_Methods
     `#{cmd}`
   end
 
-  def Helper_Methods.simple_get_request(service, auth0_on = true, auth0_role = 'ADMIN')
+  def Helper_Methods.simple_get_request(service, auth0_on = true, auth0_role = 'SYSTEM')
     @get_response={}
     headers = {}
     Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
     begin
+      start_time = Time.now.to_i
       response = RestClient::Request.execute(:url => service,
                                              :method => :get,
                                              :verify_ssl => false,
                                              :headers => headers,
                                              :timeout => @default_timeout)
+      end_time = Time.now.to_i
+      puts "[uMATCH BDD]#{Time.now.to_s} Complete GET URL: \n#{service}, duration: #{end_time-start_time} seconds"
     rescue StandardError => e
       @get_response['status'] = 'Failure'
       if e.message.nil?
@@ -214,7 +223,7 @@ class Helper_Methods
     return {}
   end
 
-  def Helper_Methods.get_request_url_param(service, params={}, auth0_on = true, auth0_role = 'ADMIN')
+  def Helper_Methods.get_request_url_param(service, params={}, auth0_on = true, auth0_role = 'SYSTEM')
     print "URL: #{service}\n"
     @params = ''
     params.each do |key, value|
@@ -226,11 +235,14 @@ class Helper_Methods
     print "#{url[0..len]}\n"
     headers = {}
     Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
+    start_time = Time.now.to_i
     @res = RestClient::Request.execute(:url => @service,
                                        :method => :get,
                                        :verify_ssl => false,
                                        :headers => headers,
                                        :timeout => @default_timeout)
+    end_time = Time.now.to_i
+    puts "[uMATCH BDD]#{Time.now.to_s} Complete GET URL: \n#{service}, duration: #{end_time-start_time} seconds"
     return @res
   end
 
@@ -303,18 +315,20 @@ class Helper_Methods
   end
 
   def Helper_Methods.post_request(service, payload, auth0_on = true, auth0_role = 'SYSTEM')
-    puts "Post URL: #{service}"
     # print "JSON:\n#{payload}\n\n"
     @post_response = {}
     headers = {:content_type => 'json', :accept => 'json'}
     Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
     begin
+      puts "[uMATCH BDD]#{Time.now.to_s} Start POST URL: \n#{service}"
       response = RestClient::Request.execute(:url => service,
                                              :method => :post,
                                              :verify_ssl => false,
                                              :payload => payload,
                                              :headers => headers,
                                              :timeout => @default_timeout)
+      puts response.class
+      puts response.methods
     rescue StandardError => e
       @post_response['status'] = 'Failure'
       if e.message.nil?
@@ -344,11 +358,11 @@ class Helper_Methods
   end
 
   def Helper_Methods.patch_request(service, payload, auth0_role = 'PWD_ADMIN')
-    puts "Patch URL: #{service}"
     patch_response = {}
     headers = {:content_type => 'json', :accept => 'json'}
     Auth0Token.add_auth0_if_needed(headers, auth0_role)
     begin
+      puts "[uMATCH BDD]#{Time.now.to_s} Start PATCH URL: \n#{service}"
       response = RestClient::Request.execute(:url => service,
                                              :method => :patch,
                                              :verify_ssl => false,
@@ -393,14 +407,14 @@ class Helper_Methods
     end
   end
 
-  def Helper_Methods.put_request(service, payload, auth0_on = true, auth0_role = 'ADMIN')
-    print "Put URL: #{service}\n"
+  def Helper_Methods.put_request(service, payload, auth0_on = true, auth0_role = 'SYSTEM')
     # # print "JSON:\n#{JSON.pretty_generate(JSON.parse(payload))}\n\n"
     # print "JSON:\n#{payload}\n\n"
     @put_response = {}
     headers = {:content_type => 'json', :accept => 'json'}
     Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
     begin
+      puts "[uMATCH BDD]#{Time.now.to_s} Start PUT URL: \n#{service}"
       response = RestClient::Request.execute(:url => service,
                                              :method => :put,
                                              :verify_ssl => false,
@@ -435,12 +449,12 @@ class Helper_Methods
     return @put_response
   end
 
-  def Helper_Methods.delete_request(service, auth0_on = true, auth0_role = 'ADMIN')
-    print "Delete URL: #{service}\n"
+  def Helper_Methods.delete_request(service, auth0_on = true, auth0_role = 'SYSTEM')
     @delete_response = {}
     headers = {:accept => 'json'}
     Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
     begin
+      puts "[uMATCH BDD]#{Time.now.to_s} Start DELETE URL: \n#{service}"
       response = RestClient::Request.execute(:url => service,
                                              :method => :delete,
                                              :verify_ssl => false,
