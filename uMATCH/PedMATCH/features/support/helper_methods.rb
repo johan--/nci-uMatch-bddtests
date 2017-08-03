@@ -327,8 +327,6 @@ class Helper_Methods
                                              :payload => payload,
                                              :headers => headers,
                                              :timeout => @default_timeout)
-      puts response.class
-      puts response.methods
     rescue StandardError => e
       @post_response['status'] = 'Failure'
       if e.message.nil?
