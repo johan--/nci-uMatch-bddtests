@@ -13,7 +13,7 @@ class Helper_Methods
   @requestTimeout = 10.0
   @default_timeout = 60.0
 
-  def Helper_Methods.get_request(url, params={}, auth0_on = true, auth0_role = 'SYSTEM')
+  def Helper_Methods.get_request(url, params={}, auth0_on = true, auth0_role = 'ADMIN')
     get_response = {}
     no_log = params['no_log']
     params.delete('no_log')
@@ -59,7 +59,7 @@ class Helper_Methods
     end
   end
 
-  def Helper_Methods.get_list_request(service, params={}, auth0_on = true, auth0_role = 'SYSTEM')
+  def Helper_Methods.get_list_request(service, params={}, auth0_on = true, auth0_role = 'ADMIN')
     @params = params.values.join('/')
     @service = "#{service}/#{@params}"
 
@@ -100,7 +100,7 @@ class Helper_Methods
     return result
   end
 
-  def self.simple_get_download(service, output_file, auth0_on = true, auth0_role = 'SYSTEM')
+  def self.simple_get_download(service, output_file, auth0_on = true, auth0_role = 'ADMIN')
     #do not use RestClient, because cucumber use UTF-8, which will cause encoding problem when writing binary file
     @get_response={}
     headers = {}
@@ -114,7 +114,7 @@ class Helper_Methods
     `#{cmd}`
   end
 
-  def Helper_Methods.simple_get_request(service, auth0_on = true, auth0_role = 'SYSTEM')
+  def Helper_Methods.simple_get_request(service, auth0_on = true, auth0_role = 'ADMIN')
     @get_response={}
     headers = {}
     Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
@@ -223,7 +223,7 @@ class Helper_Methods
     return {}
   end
 
-  def Helper_Methods.get_request_url_param(service, params={}, auth0_on = true, auth0_role = 'SYSTEM')
+  def Helper_Methods.get_request_url_param(service, params={}, auth0_on = true, auth0_role = 'ADMIN')
     print "URL: #{service}\n"
     @params = ''
     params.each do |key, value|
@@ -314,7 +314,7 @@ class Helper_Methods
     is_this
   end
 
-  def Helper_Methods.post_request(service, payload, auth0_on = true, auth0_role = 'SYSTEM')
+  def Helper_Methods.post_request(service, payload, auth0_on = true, auth0_role = 'ADMIN')
     # print "JSON:\n#{payload}\n\n"
     @post_response = {}
     headers = {:content_type => 'json', :accept => 'json'}
@@ -407,7 +407,7 @@ class Helper_Methods
     end
   end
 
-  def Helper_Methods.put_request(service, payload, auth0_on = true, auth0_role = 'SYSTEM')
+  def Helper_Methods.put_request(service, payload, auth0_on = true, auth0_role = 'ADMIN')
     # # print "JSON:\n#{JSON.pretty_generate(JSON.parse(payload))}\n\n"
     # print "JSON:\n#{payload}\n\n"
     @put_response = {}
@@ -449,7 +449,7 @@ class Helper_Methods
     return @put_response
   end
 
-  def Helper_Methods.delete_request(service, auth0_on = true, auth0_role = 'SYSTEM')
+  def Helper_Methods.delete_request(service, auth0_on = true, auth0_role = 'ADMIN')
     @delete_response = {}
     headers = {:accept => 'json'}
     Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
