@@ -8,6 +8,7 @@ var patientPage = require('../../pages/patientPage');
 
 // Utility Methods
 var utilities = require('../../support/utilities');
+var moment = require('moment');
 
 module.exports = function () {
     this.World = require('../step_definitions/world').World;
@@ -477,12 +478,15 @@ module.exports = function () {
         var timeline = patientPage.timelineList.get(0);
         var variantReportStatusString = '[ng-if^="timelineEvent.event_data.variant_report_status"]';
         var variantAnalysisIdString = 'span[ng-if^="timelineEvent.event_data.analysis_id"]';
-        browser.sleep(3000);
+        var timestamp = '[ng-class="{\'date-top-border\': (showStepDelimiter && timelineEvent.isStepChanging)}"]';
 
-        expect(timeline.all(by.css(variantReportStatusString)).get(0).getText()).to.eventually.include(message);
-        expect(timeline.all(by.css(variantAnalysisIdString)).get(0)
-                .getText()).to.eventually.eql(label)
-            .notify(callback);
+        utilities.getRequestWithService('patient', '/api/v1/patients/events?order=desc&entity_id=' + patientPage.patientId).then(function (response) {
+            var expected = moment.utc(response[0].event_date).utc().format('LLL');
+            expect(timeline.all(by.css(variantReportStatusString)).get(0).getText()).to.eventually.include(message);
+            expect(timeline.all(by.css(variantAnalysisIdString)).get(0)
+                .getText()).to.eventually.eql(label);
+            expect(timeline.all(by.css(timestamp)).get(0).getText()).to.eventually.include(expected);
+        }).then(callback)
     });
 
     this.Then(/^I see the confirmation message in the Dashboard activity feed as "(.+?)" for "(.+?)"$/, function (message, label, callback) {
@@ -490,16 +494,21 @@ module.exports = function () {
         var patientString = '[patient-id="timelineEvent.entity_id"]';
         var variantReportStatusString = '[ng-if^="timelineEvent.event_data.variant_report_status"]';
         var variantAnalysisIdString = 'span[ng-if^="timelineEvent.event_data.analysis_id"]';
-        browser.waitForAngular().then(function () {
-            expect(timeline.all(by.css(patientString)).get(0).getText()).to.eventually.eql(patientPage.patientId);
-            expect(timeline.all(by.css(variantReportStatusString)).get(0).getText()).to.eventually.include(message);
-            expect(timeline.all(by.css(variantAnalysisIdString)).get(0)
-                .getText()).to.eventually.eql(label)
+        var timestamp = '[ng-class="{\'date-top-border\': (showStepDelimiter && timelineEvent.isStepChanging)}"]';
+
+        utilities.getRequestWithService('patient', '/api/v1/patients/events?order=desc&num=10').then(function(response) {
+            var expected = moment.utc(response[0].event_date).utc().format('LLL')
+            browser.waitForAngular().then(function () {
+                expect(timeline.all(by.css(patientString)).get(0).getText()).to.eventually.eql(patientPage.patientId);
+                expect(timeline.all(by.css(variantReportStatusString)).get(0).getText()).to.eventually.include(message);
+                expect(timeline.all(by.css(variantAnalysisIdString)).get(0)
+                    .getText()).to.eventually.eql(label);
+                expect(timeline.all(by.css(timestamp)).get(0).getText()).to.eventually.include(expected);
+            })
         }).then(callback);
     });
 
     this.Then(/^I can see the top level details about assignment report$/, function (callback) {
-        var moment = require('moment');
         var assignment = patientPage.responseData.assignments[0];
 
         var ltSideAssignmentValues = patientPage.assignmentSummaryBoxes.all(by.css('.ng-binding'));
