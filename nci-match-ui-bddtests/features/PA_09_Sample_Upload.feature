@@ -94,7 +94,7 @@ Feature: MATCHKB-542. Users can upload patient sample files.
 
   @ui_p2
   Scenario: As a privileged user I can cancel upload
-    Given I am logged in as a "VR_Sender_mocha" user
+    Given I am logged in as a "VR_Sender_mda" user
     When I go to patient "ION_AQ02_TsShipped" with surgical event "ION_AQ02_TsShipped_SEI1"
     And I can see that some files have not been uploaded for the Surgical Event
     Then The "Upload new sample files" link is "visible"
