@@ -481,11 +481,21 @@ module.exports = function () {
         var timestamp = '[ng-class="{\'date-top-border\': (showStepDelimiter && timelineEvent.isStepChanging)}"]';
 
         utilities.getRequestWithService('patient', '/api/v1/patients/events?order=desc&entity_id=' + patientPage.patientId).then(function (response) {
-            var expected = moment.utc(response[0].event_date).utc().format('LLL');
-            expect(timeline.all(by.css(variantReportStatusString)).get(0).getText()).to.eventually.include(message);
-            expect(timeline.all(by.css(variantAnalysisIdString)).get(0)
-                .getText()).to.eventually.eql(label);
-            expect(timeline.all(by.css(timestamp)).get(0).getText()).to.eventually.include(expected);
+            console.log('event_date');
+            console.log(response[0].event_date);
+            var date = response[0].event_date.length === 30 ? response[0].event_date.substr(0,19): response[0].event_date
+            var expected = moment.utc(date).utc().format('LLL');
+            
+            timeline.all(by.css(variantReportStatusString)).get(0).getText().then(function (actual) {
+                expect(actual).to.include(message)
+            });
+            timeline.all(by.css(variantAnalysisIdString)).get(0).getText().then(function (actual) {
+                expect(actual).to.eql(label);
+            });
+            timeline.all(by.css(timestamp)).get(0).getText().then(function (actual) {
+                expect(actual).to.include(expected)
+            });
+
         }).then(callback)
     });
 
@@ -497,7 +507,11 @@ module.exports = function () {
         var timestamp = '[ng-class="{\'date-top-border\': (showStepDelimiter && timelineEvent.isStepChanging)}"]';
 
         utilities.getRequestWithService('patient', '/api/v1/patients/events?order=desc&num=10').then(function(response) {
-            var expected = moment.utc(response[0].event_date).utc().format('LLL')
+            console.log('event_date');
+            console.log(response[0].event_date)
+            var date = response[0].event_date.length === 30 ? response[0].event_date.substr(0,19): response[0].event_date
+            var expected = moment.utc(date).utc().format('LLL');
+
             browser.waitForAngular().then(function () {
                 expect(timeline.all(by.css(patientString)).get(0).getText()).to.eventually.eql(patientPage.patientId);
                 expect(timeline.all(by.css(variantReportStatusString)).get(0).getText()).to.eventually.include(message);
