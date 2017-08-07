@@ -85,17 +85,9 @@ When(/^GET from MATCH patient API, http code "([^"]*)" should return$/) do |code
   end
 end
 
-When(/^PUT to MATCH rollback, response includes "([^"]*)" with code "([^"]*)"$/) do |message, code|
+When(/^PUT to MATCH rollback with step number "([^"]*)", response includes "([^"]*)" with code "([^"]*)"$/) do |step, message, code|
   @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
-  response = Patient_helper_methods.put_vr_rollback(@patient_id, @current_auth0_role)
-  puts response.to_s
-  actual_match_expect(response['http_code'], code)
-  # actual_include_expect(response['message'], retMsg)
-end
-
-When(/^PUT to MATCH assignment report rollback, response includes "([^"]*)" with code "([^"]*)"$/) do |message, code|
-  @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
-  response = Patient_helper_methods.put_assignment_rollback(@patient_id, @current_auth0_role)
+  response = Patient_helper_methods.put_vr_rollback(@patient_id, step, @current_auth0_role)
   puts response.to_s
   actual_match_expect(response['http_code'], code)
   # actual_include_expect(response['message'], retMsg)
@@ -367,18 +359,21 @@ Then(/^patient should have one specimen with surgical_event_id "([^"]*)"$/) do |
   expect(shipment.size).to eq 1
 end
 
-And(/^this specimen has assay \(biomarker: "([^"]*)", result: "([^"]*)", reported_date: "([^"]*)"\)$/) do |biomarker, result, reported_date|
-  converted_biomarker = biomarker=='null' ? nil : biomarker
-  converted_result = result=='null' ? nil : result
-  converted_reported_date = reported_date=='null' ? nil : reported_date
-  converted_reported_date = converted_reported_date == 'saved_time_value' ? @saved_time_value : converted_reported_date
-  returned_assay = find_assay(@current_specimen, converted_biomarker, converted_result, converted_reported_date)
-  expect_result = "Can find assay with biomarker:#{biomarker}, result:#{result} and report_date:#{reported_date}"
-  actual_result = "Can NOT find assay with biomarker:#{biomarker}, result:#{result} and report_date:#{reported_date}"
-  unless returned_assay.nil?
-    actual_result = expect_result
+And(/^this specimen has following assay$/) do |table|
+  table.hashes do |assay|
+    converted_biomarker = assay['biomarker']=='null' ? nil : assay['biomarker']
+    converted_result = assay['result']=='null' ? nil : assay['result']
+    converted_date = assay['reported_date']=='null' ? nil : assay['reported_date']
+    converted_date = converted_date == 'saved_time_value' ? @saved_time_value : converted_date
+    returned_assay = find_assay(@current_specimen, converted_biomarker, converted_result, converted_date)
+    expect_result = "Can find assay with biomarker:#{assay['biomarker']}, result:#{assay['result']} and report_date:#{assay['reported_date']}"
+    actual_result = "Can NOT find assay with biomarker:#{assay['biomarker']}, result:#{assay['result']} and report_date:#{assay['reported_date']}"
+    unless returned_assay.nil?
+      actual_result = expect_result
+    end
+    actual_result.should == expect_result
+    expect(returned_assay['active'].to_s).to eq assay['active'] if assay.has_key?('active')
   end
-  actual_result.should == expect_result
 end
 
 And(/^this specimen has pathology status: "([^"]*)"$/) do |pathology_status|

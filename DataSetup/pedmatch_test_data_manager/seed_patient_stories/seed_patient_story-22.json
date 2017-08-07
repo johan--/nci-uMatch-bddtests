@@ -50,5 +50,13 @@
   ],
   "PT_SS32_Registered8": [
     "registration:<patient_id>=>PT_SS32_Registered8&<status_date>=>current"
+  ],
+  "PT_AS15_AssayReceived": [
+    "registration:<patient_id>=>PT_AS15_AssayReceived&<status_date>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_AS15_AssayReceived&<surgical_event_id>=>PT_AS15_AssayReceived_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_SLIDE:<patient_id>=>PT_AS15_AssayReceived&<surgical_event_id>=>PT_AS15_AssayReceived_SEI1&<slide_barcode>=>PT_AS15_AssayReceived_BC1&<shipped_dttm>=>2017-08-05T10:42:13+00:00",
+    "assay_result_reported:<patient_id>=>PT_AS15_AssayReceived&<surgical_event_id>=>PT_AS15_AssayReceived_SEI1&<biomarker>=>ICCPTENs&<result>=>POSITIVE&<reported_date>=>2017-08-06T10:42:13+00:00",
+    "assay_result_reported:<patient_id>=>PT_AS15_AssayReceived&<surgical_event_id>=>PT_AS15_AssayReceived_SEI1&<biomarker>=>ICCBAF47s&<result>=>POSITIVE&<reported_date>=>2017-08-06T10:43:13+00:00",
+    "assay_result_reported:<patient_id>=>PT_AS15_AssayReceived&<surgical_event_id>=>PT_AS15_AssayReceived_SEI1&<biomarker>=>ICCBRG1s&<result>=>POSITIVE&<reported_date>=>2017-08-06T10:44:13+00:00"
   ]
 }

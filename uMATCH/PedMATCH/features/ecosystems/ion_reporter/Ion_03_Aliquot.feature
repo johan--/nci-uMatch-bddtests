@@ -273,10 +273,9 @@ Feature: Tests for aliquot service in ion ecosystem
     Then add field: "ion_reporter_id" value: "IR_TCWEV" to message body
     Then add field: "vcf_name" value: "test1.vcf" to message body
     When PUT to aliquot service, response includes "Item updated" with code "200"
-    Then wait for "60" seconds
+    Then wait until this sample control has field "tsv_name" value "IR_TCWEV/<moi>/<moi>_ANI1/test1.tsv"
+    Then wait until this sample control has field "torrent_variant_caller_version" value "5.2-25"
     When GET from aliquot service, response "" with code "200"
-    Then field: "tsv_name" for this aliquot should be: "IR_TCWEV/<moi>/<moi>_ANI1/test1.tsv"
-    Then field: "torrent_variant_caller_version" for this aliquot should be: "5.2-25"
     Then field: "mappedFusionPanelReads" for this aliquot should be: "1406678"
     Then oncomine_control pool "1" sum for this aliquot should be: "449632.5"
     Then oncomine_control pool "2" sum for this aliquot should be: "957045.5"

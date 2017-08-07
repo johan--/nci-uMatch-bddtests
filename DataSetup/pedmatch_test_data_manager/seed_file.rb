@@ -6,13 +6,13 @@ require 'json'
 class SeedFile
   SEED_DATA_FOLDER = "#{File.dirname(__FILE__)}/../seed_data_for_upload"
 
-  def self.create_tag_if_not_exist(tag)
+  def self.create_tag_if_not_exist(tag, copy_patient=true)
     if Dir.exist?("#{SEED_DATA_FOLDER}/#{tag}")
       Logger.warning("Tag exists #{tag}, skip")
       return
     end
     FileUtils.makedirs("#{SEED_DATA_FOLDER}/#{tag}")
-    FileUtils.cp_r("#{SEED_DATA_FOLDER}/patients/.", "#{SEED_DATA_FOLDER}/#{tag}")
+    FileUtils.cp_r("#{SEED_DATA_FOLDER}/patients/.", "#{SEED_DATA_FOLDER}/#{tag}") if copy_patient
   end
 
   def self.all_items(table, tag)

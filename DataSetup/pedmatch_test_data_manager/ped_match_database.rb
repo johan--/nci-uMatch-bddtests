@@ -19,6 +19,14 @@ class PedMatchDatabase
     Logger.info('Local backup done!')
   end
 
+  def self.dump_int
+    tag = 'int_dump'
+    SeedFile.create_tag_if_not_exist(tag, false)
+    TableInfo.all_tables.each { |table|
+      copy_table_to_file(table, SeedFile.seed_file(table, tag), Constants.tier_int) if table_exist(table)
+    }
+  end
+
   def self.backup_treatment_arm(tag='patients')
     TableInfo.treatment_arm_tables.each { |table|
       copy_table_to_file(table, SeedFile.seed_file(table, tag)) if table_exist(table)
@@ -33,14 +41,14 @@ class PedMatchDatabase
     Logger.info('Local treatment arm tables backup done!')
   end
 
-  def self.copy_table_to_file(table_name, file)
-    tier = Constants.current_tier
-    Constants.set_tier(Constants.tier_local)
+  def self.copy_table_to_file(table_name, file, tier=Constants.tier_local)
+    current_tier = Constants.current_tier
+    Constants.set_tier(tier)
     cmd = "aws dynamodb scan --table-name #{table_name} "
     cmd = cmd + "--endpoint-url #{Constants.dynamodb_url} > "
     cmd = cmd + file
     `#{cmd}`
-    Constants.set_tier(tier)
+    Constants.set_tier(current_tier)
     Logger.info("Table <#{table_name}> has been exported to #{file}")
   end
 
@@ -53,6 +61,11 @@ class PedMatchDatabase
   def self.reload_int(tag='patients')
     clear_all_int
     upload_seed_data_to_int(tag)
+  end
+
+  def self.load_int_to_local
+    dump_int
+    reload_local('int_dump')
   end
 
   ################clear
