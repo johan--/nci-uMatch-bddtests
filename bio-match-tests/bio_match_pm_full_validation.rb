@@ -71,8 +71,8 @@ class BioMatchPMFullValidation
     @brg1 = @patient_hash['brg1_status']
     @patient_id = "#{test_id}_#{Time.now.to_i.to_s}"
     @patient_hash['patient_id'] = @patient_id
-    @patient_hash['treatment_arm_statuses'].each { |this_status|
-      set_ta_status_to_cog(this_status) }
+    @patient_hash['treatment_arm_statuses'].each {|this_status|
+      set_ta_status_to_cog(this_status)}
     @pt = PatientDataSet.new(@patient_id)
   end
 
@@ -93,6 +93,7 @@ class BioMatchPMFullValidation
     PatientMessageLoader.assay(@pt.id, @pt.sei, @baf47, 'ICCBAF47s', 'current')
     PatientMessageLoader.assay(@pt.id, @pt.sei, @brg1, 'ICCBRG1s', 'current')
   end
+
   def build_patient_new_step(patient_id, rebiopsy, step_number, pten='POSITIVE', baf47='POSITIVE', brg1='POSITIVE')
     PatientMessageLoader.request_assignment(patient_id, rebiopsy, step_number)
     if rebiopsy=='Y'
@@ -105,17 +106,17 @@ class BioMatchPMFullValidation
     end
   end
 
-    def send_new_assay(patient_id, sei, biomarker, result='POSITIVE')
-      time =  Time.now.iso8601
-      sleep 5.0
-      PatientMessageLoader.assay(patient_id, sei, result, biomarker, time)
-    end
+  def send_new_assay(patient_id, sei, biomarker, result='POSITIVE')
+    time = DateTime.current.utc.iso8601
+    sleep 5.0
+    PatientMessageLoader.assay(patient_id, sei, result, biomarker, time)
+  end
 
   def upload_files
     upload_vcf_to_s3(@pt.id, @pt.moi, @pt.ani)
     send_vcf_message(@pt.id, @pt.moi, @pt.ani)
   end
-  
+
   def confirm_patient
     PatientMessageLoader.variant_file_confirmed(@pt.id, 'confirm', @pt.ani)
     PatientMessageLoader.wait_until_patient_status_is(@pt.id, 'PENDING_CONFIRMATION')
@@ -172,9 +173,9 @@ class BioMatchPMFullValidation
                                  selected[0]['treatment_arm']['stratum_id'])
         else
           @actual_ta = ''
-          selected.each { |this_selected|
+          selected.each {|this_selected|
             @actual_ta += ta_string(this_selected[0]['treatment_arm']['treatment_arm_id'],
-                                    this_selected[0]['treatment_arm']['stratum_id']) + ' ' }
+                                    this_selected[0]['treatment_arm']['stratum_id']) + ' '}
         end
       else
         @actual_ta = ta_string('', '')
@@ -184,17 +185,17 @@ class BioMatchPMFullValidation
     result['test_result'] = test_result
     result['expected_treatment_arm'] = @expect_ta
     result['actual_treatment_arm'] = @actual_ta
-    File.open("#{File.dirname(__FILE__)}/results/#{@test_id}.json", 'w') { |f| f.write(JSON.pretty_generate(result)) }
-    File.open("#{File.dirname(__FILE__)}/results/#{@test_id}_Assignment_report.json", 'w') { |f| f.write(JSON.pretty_generate(response)) }
+    File.open("#{File.dirname(__FILE__)}/results/#{@test_id}.json", 'w') {|f| f.write(JSON.pretty_generate(result))}
+    File.open("#{File.dirname(__FILE__)}/results/#{@test_id}_Assignment_report.json", 'w') {|f| f.write(JSON.pretty_generate(response))}
     # cmd = "aws s3 rm s3://#{@s3_bucket}/#{@ion_reporter}/ --recursive --region us-east-1"
     `#{cmd}`
-    @patient_hash['treatment_arm_statuses'].each { |this_status|
+    @patient_hash['treatment_arm_statuses'].each {|this_status|
       default_ta = {
           :treatment_arm_id => this_status['treatment_arm_id'],
           :stratum_id => this_status['stratum_id'],
           :status => 'OPEN'
       }
-      set_ta_status_to_cog(default_ta) }
+      set_ta_status_to_cog(default_ta)}
   end
 
   def register_patient_to_cog(test_id, patient_id)

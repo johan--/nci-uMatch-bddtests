@@ -87,7 +87,7 @@ end
 
 When(/^PUT to MATCH rollback with step number "([^"]*)", response includes "([^"]*)" with code "([^"]*)"$/) do |step, message, code|
   @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
-  response = Patient_helper_methods.put_vr_rollback(@patient_id, step, @current_auth0_role)
+  response = Patient_helper_methods.put_rollback(@patient_id, step, @current_auth0_role)
   puts response.to_s
   actual_match_expect(response['http_code'], code)
   # actual_include_expect(response['message'], retMsg)
@@ -360,7 +360,7 @@ Then(/^patient should have one specimen with surgical_event_id "([^"]*)"$/) do |
 end
 
 And(/^this specimen has following assay$/) do |table|
-  table.hashes do |assay|
+  table.hashes.each do |assay|
     converted_biomarker = assay['biomarker']=='null' ? nil : assay['biomarker']
     converted_result = assay['result']=='null' ? nil : assay['result']
     converted_date = assay['reported_date']=='null' ? nil : assay['reported_date']

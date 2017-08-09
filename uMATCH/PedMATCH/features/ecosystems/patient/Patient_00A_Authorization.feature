@@ -435,10 +435,10 @@ Feature: Patient API authorization tests
       | PT_AU12_TsShippedToDtm | dartmouth | ASSAY_MESSAGE_SENDER              |         | 401  |
 
   @patients_p1_off
-  Scenario Outline: PT_AU13 role base authorization works properly for variant report rollback
+  Scenario Outline: PT_AU13 role base authorization works properly for rollback
     Given patient id is "<patient_id>"
     And patient API user authorization role is "<role>"
-    When PUT to MATCH rollback, response includes "<message>" with code "<code>"
+    When PUT to MATCH rollback with step number "1.0", response includes "<message>" with code "<code>"
     Examples:
       | patient_id             | role                              | message | code |
       | PT_AU13_TsVrConfirmed2 | NCI_MATCH_READONLY                |         | 401  |
@@ -455,26 +455,6 @@ Feature: Patient API authorization tests
       | PT_AU13_TsVrConfirmed2 | SPECIMEN_MESSAGE_SENDER           |         | 401  |
       | PT_AU13_TsVrConfirmed2 | ASSAY_MESSAGE_SENDER              |         | 401  |
 
-  @patients_p3_off
-  Scenario Outline: PT_AU14 role base authorization works properly for assignment rollback
-    Given patient id is "<patient_id>"
-    And patient API user authorization role is "<role>"
-    When PUT to MATCH assignment report rollback, response includes "<message>" with code "<code>"
-    Examples:
-      | patient_id               | role                              | message | code |
-      | PT_AU14_PendingApproval2 | NCI_MATCH_READONLY                |         | 401  |
-      | PT_AU14_PendingApproval1 | ADMIN                             | success | 200  |
-      | PT_AU14_PendingApproval2 | SYSTEM                            |         | 401  |
-      | PT_AU14_PendingApproval2 | ASSIGNMENT_REPORT_REVIEWER        |         | 401  |
-      | PT_AU14_PendingApproval2 | MDA_VARIANT_REPORT_SENDER         |         | 401  |
-      | PT_AU14_PendingApproval2 | MDA_VARIANT_REPORT_REVIEWER       |         | 401  |
-      | PT_AU14_PendingApproval2 | MOCHA_VARIANT_REPORT_SENDER       |         | 401  |
-      | PT_AU14_PendingApproval2 | MOCHA_VARIANT_REPORT_REVIEWER     |         | 401  |
-      | PT_AU14_PendingApproval2 | DARTMOUTH_VARIANT_REPORT_SENDER   |         | 401  |
-      | PT_AU14_PendingApproval2 | DARTMOUTH_VARIANT_REPORT_REVIEWER |         | 401  |
-      | PT_AU14_PendingApproval2 | PATIENT_MESSAGE_SENDER            |         | 401  |
-      | PT_AU14_PendingApproval2 | SPECIMEN_MESSAGE_SENDER           |         | 401  |
-      | PT_AU14_PendingApproval2 | ASSAY_MESSAGE_SENDER              |         | 401  |
 
   @patients_p1
   Scenario Outline: PT_AU15 role base authorization works properly for editable field in assignment reports
