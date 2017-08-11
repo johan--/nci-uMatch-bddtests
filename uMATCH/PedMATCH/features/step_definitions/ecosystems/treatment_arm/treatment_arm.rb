@@ -281,6 +281,9 @@ Then(/^a failure response code of "([^"]*)" is returned$/) do |response_code|
 end
 
 Then(/^a http response code of "([^"]*)" is returned$/) do |response_code|
+  if @response['http_code'].to_s != response_code.to_s
+    puts @response
+  end
   expect(@response['http_code'].to_s).to eq(response_code.to_s)
 end
 
