@@ -27,14 +27,15 @@ class Helper_Methods
     headers = {}
     Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
     begin
-      start_time = Time.now.to_i
+      start_time = Time.now.to_f
       response = RestClient::Request.execute(:url => @url,
                                              :method => :get,
                                              :verify_ssl => false,
                                              :headers => headers,
                                              :timeout => @default_timeout)
-      end_time = Time.now.to_i
-      puts "[uMATCH BDD]#{Time.now.to_s} Complete GET URL: \n#{service}, duration: #{end_time-start_time} seconds"
+      end_time = Time.now.to_f
+      puts "[uMATCH BDD]#{Time.now.to_s} Complete GET URL: \n#{@url}, duration: #{end_time-start_time} seconds"
+
       get_response['http_code'] = response.code
       get_response['status'] = response.code == 200 ? 'Success' : 'Failure'
       get_response['message'] = response.body
