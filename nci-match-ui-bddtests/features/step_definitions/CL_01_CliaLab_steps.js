@@ -566,6 +566,72 @@ module.exports = function() {
         }).then(callback);
     });
 
+    this.When(/^I enter "([^"]*)" as "([^"]*)" from "([^"]*)" in the "([^"]*)" Table search$/, function(searchTerm, termType, variant, tableName, callback) {
+        cliaPage.variant = cliaPage.responseData[variant].filter(function(st) { return st[termType] === searchTerm });
+        var tableIndex = patientPage.expVarReportTables.indexOf(tableName);
+        cliaPage.tableId = getTableId(tableIndex);
+        cliaPage.tableId.element(by.model('filterAll')).clear().then(function () {
+            cliaPage.tableId.element(by.model('filterAll')).sendKeys(searchTerm).then(function () {
+                browser.waitForAngular ();
+            });
+        }).then(callback)
+    });
+
+    this.Then(/^I verify the results in the SNV Table in QC report$/, function (callback) {
+        var tableRows = cliaPage.tableId.all(by.css('table tbody tr'));
+        var colElements = tableRows.get(0).all(by.css('td'));
+        var variant = cliaPage.variant[0];
+
+        browser.sleep(50).then(function () {
+            expect(tableRows.count()).to.eventually.eql(1);
+            utilities.checkExpectation(colElements.get(0), utilities.dashifyIfEmpty(variant.identifier), 'Identifier Mismatch');
+            utilities.checkExpectation(colElements.get(1), utilities.dashifyIfEmpty(variant.chromosome), 'Chrom Mismatch');
+            utilities.checkExpectation(colElements.get(2), utilities.dashifyIfEmpty(variant.position), 'Position Mismatch');
+            utilities.checkExpectation(colElements.get(3), utilities.dashifyIfEmpty(variant.ocp_reference), 'OCP Ref Mismatch');
+            utilities.checkExpectation(colElements.get(4), utilities.dashifyIfEmpty(variant.ocp_alternative), 'OCP Alt Mismatch');
+            utilities.checkExpectation(colElements.get(5), utilities.dashifyIfEmpty(variant.filter), 'Filter Mismatch');
+            utilities.checkExpectation(colElements.get(6), utilities.dashifyIfEmpty(utilities.round(variant.allele_frequency, 3)), 'Allele Freq Mismatch');
+            utilities.checkExpectation(colElements.get(7), utilities.dashifyIfEmpty(variant.func_gene), 'Func Gene Mismatch');
+            utilities.checkExpectation(colElements.get(8), utilities.dashifyIfEmpty(variant.oncomine_variant_class), 'Oncomine VC Mismatch');
+            utilities.checkExpectation(colElements.get(9), utilities.dashifyIfEmpty(variant.function), 'Function Mismatch');
+            utilities.checkExpectation(colElements.get(10), utilities.dashifyIfEmpty(variant.hgvs), 'HGVS Mismatch');
+            utilities.checkExpectation(colElements.get(11), utilities.dashifyIfEmpty(variant.read_depth), 'Read Depth Mismatch');
+            utilities.checkExpectation(colElements.get(12), utilities.dashifyIfEmpty(variant.transcript), 'Transcript Mismatch');
+            utilities.checkExpectation(colElements.get(13), utilities.dashifyIfEmpty(variant.protein), 'Protein Mismatch');
+        }).then(callback);
+    });
+
+    this.Then(/^I verify the results in the CNV Table in QC report$/, function (callback) {
+        var tableRows = cliaPage.tableId.all(by.css('table tbody tr'));
+        var colElements = tableRows.get(0).all(by.css('td'));
+        var variant = cliaPage.variant[0];
+        browser.sleep(50).then(function () {
+            expect(tableRows.count()).to.eventually.eql(1);
+            utilities.checkExpectation(colElements.get(0), utilities.dashifyIfEmpty(variant.identifier), 'Gene Mismatch');
+            utilities.checkExpectation(colElements.get(1), utilities.dashifyIfEmpty(variant.chromosome), 'Chrom Mismatch');
+            utilities.checkExpectation(colElements.get(2), utilities.dashifyIfEmpty(utilities.round(variant.raw_copy_number, 0)), 'Raw CN Mismatch');
+            utilities.checkExpectation(colElements.get(3), utilities.dashifyIfEmpty(variant.filter), 'Filter Mismatch');
+            utilities.checkExpectation(colElements.get(4), utilities.dashifyIfEmpty(utilities.round(variant.confidence_interval_5_percent, 3)), 'CI5% Mismatch');
+            utilities.checkExpectation(colElements.get(5), utilities.dashifyIfEmpty(utilities.round(variant.copy_number, 0)), 'CN Mismatch');
+            utilities.checkExpectation(colElements.get(6), utilities.dashifyIfEmpty(utilities.round(variant.confidence_interval_95_percent, 3)), 'Func Gene Mismatch');
+        }).then(callback);
+    });
+
+    this.Then(/^I verify the results in the Gene Fusions Table in QC report$/, function (callback) {
+        var tableRows = cliaPage.tableId.all(by.css('table tbody tr'));
+        var colElements = tableRows.get(0).all(by.css('td'));
+        var variant = cliaPage.variant[0];
+        browser.sleep(50).then(function () {
+            expect(tableRows.count()).to.eventually.eql(1);
+            utilities.checkExpectation(colElements.get(0), utilities.dashifyIfEmpty(variant.identifier), 'Identifier Mismatch');
+            utilities.checkExpectation(colElements.get(1), utilities.dashifyIfEmpty(variant.filter), 'Filter Mismatch');
+            utilities.checkExpectation(colElements.get(2), utilities.dashifyIfEmpty(variant.partner_gene), 'Gene1 Mismatch');
+            utilities.checkExpectation(colElements.get(3), utilities.dashifyIfEmpty(variant.driver_gene), 'Gene2 Mismatch');
+            utilities.checkExpectation(colElements.get(4), utilities.dashifyIfZero(variant.read_depth), 'Read Depth Mismatch');
+            utilities.checkExpectation(colElements.get(5), utilities.dashifyIfEmpty(variant.annotation), 'Annotation Mismatch');
+        }).then(callback);
+    });
+
     this.Then(/^I enter the first "(.+?)" from "(.+?)" in the "(.+?)" Table search$/, function (field, variant, variantName, callback) {
         cliaPage.searchValues = cliaPage.responseData[variant][0];
         var searchTerm = cliaPage.searchValues[field];

@@ -53,6 +53,44 @@ Feature: CLIA Labs Page
       | NTC_MOCHA_KGPVI | No Template Control        |
       | PCC_MOCHA_FDK09 | Proficiency And Competency |
 
+  @ui_p1
+  Scenario Outline: User can search for specific information in the SNV table of uploaded QC report.
+    Given I stay logged in as "VR_Sender_mocha" user
+    When I navigate to sample control "<sample>" of type "<control_type>" under "MoCha"
+    And I collect information about the QC report from aliquot
+    And I click on the "QC Report" label
+    And I enter "<searchTerm1>" as "<variant1>" from "snv_indels" in the "SNVs/MNVs/Indels" Table search
+    Then I verify the results in the SNV Table in QC report
+    And I enter "<searchTerm2>" as "<variant2>" from "snv_indels" in the "SNVs/MNVs/Indels" Table search
+    Then I verify the results in the SNV Table in QC report
+    And I enter "<searchTerm3>" as "<variant3>" from "snv_indels" in the "SNVs/MNVs/Indels" Table search
+    Then I verify the results in the SNV Table in QC report
+    Examples:
+      | sample         | control_type             | searchTerm1 | variant1   | searchTerm2      | variant2 | searchTerm3 | variant3 |
+      | SC_MOCHA_5AMCC | Positive Sample Controls | COSM12580   | identifier | c.346_349delACTT | hgvs     | nonsense    | function |
+
+  @ui_p1
+  Scenario: User can search for specific information in the CNV table of uploaded QC report.
+    Given I stay logged in as "VR_Sender_mocha" user
+    When I navigate to sample control "SC_MOCHA_5AMCC" of type "Positive Sample Controls" under "MoCha"
+    And I collect information about the QC report from aliquot
+    And I click on the "QC Report" label
+    And I enter "MTOR" as "identifier" from "copy_number_variants" in the "Copy Number Variants" Table search
+    Then I verify the results in the CNV Table in QC report
+    And I enter "chr6" as "chromosome" from "copy_number_variants" in the "Copy Number Variants" Table search
+    Then I verify the results in the CNV Table in QC report
+
+
+  @ui_p1
+  Scenario: User can search for specific information in the Gene Fusion table of uploaded QC report.
+    Given I stay logged in as "VR_Sender_mocha" user
+    When I navigate to sample control "SC_MOCHA_5AMCC" of type "Positive Sample Controls" under "MoCha"
+    And I collect information about the QC report from aliquot
+    And I click on the "QC Report" label
+    And I enter "CLTC-ROS1.C31R35_2" as "identifier" from "gene_fusions" in the "Gene Fusions" Table search
+    Then I verify the results in the Gene Fusions Table in QC report
+    And I enter "EGFR-EGFR.E1E8.DelPositive.1_2" as "identifier" from "gene_fusions" in the "Gene Fusions" Table search
+    Then I verify the results in the Gene Fusions Table in QC report
 
   @ui_p1
   Scenario Outline: User can access information about the uploaded <tableType> report.

@@ -57,7 +57,7 @@ exports.config = {
     params: {
         useAuth0 : true
     },
-
+    ignoreUncaughtExceptions: true,
     onPrepare: function () {
       browser.driver.manage().window().setSize(3200, 1800);
 
