@@ -5,7 +5,7 @@ require 'json'
 require 'active_support'
 require 'active_support/core_ext'
 require_relative 'table_info'
-require_relative 'logger'
+require_relative 'log'
 require_relative 'seed_file'
 require_relative 'constants'
 
@@ -16,7 +16,7 @@ class PedMatchDatabase
     TableInfo.all_tables.each { |table|
       copy_table_to_file(table, SeedFile.seed_file(table, tag)) if table_exist(table)
     }
-    Logger.info('Local backup done!')
+    Log.info('Local backup done!')
   end
 
   def self.dump_int
@@ -31,14 +31,14 @@ class PedMatchDatabase
     TableInfo.treatment_arm_tables.each { |table|
       copy_table_to_file(table, SeedFile.seed_file(table, tag)) if table_exist(table)
     }
-    Logger.info('Local treatment arm tables backup done!')
+    Log.info('Local treatment arm tables backup done!')
   end
 
   def self.backup_ion(tag='patients')
     TableInfo.ion_tables.each { |table|
       copy_table_to_file(table, SeedFile.seed_file(table, tag)) if table_exist(table)
     }
-    Logger.info('Local treatment arm tables backup done!')
+    Log.info('Local treatment arm tables backup done!')
   end
 
   def self.copy_table_to_file(table_name, file, tier=Constants.tier_local)
@@ -49,7 +49,7 @@ class PedMatchDatabase
     cmd = cmd + file
     `#{cmd}`
     Constants.set_tier(current_tier)
-    Logger.info("Table <#{table_name}> has been exported to #{file}")
+    Log.info("Table <#{table_name}> has been exported to #{file}")
   end
 
   ################reload
@@ -74,7 +74,7 @@ class PedMatchDatabase
     Constants.set_tier(Constants.tier_local)
     TableInfo.all_tables.each { |table| clear_table(table) }
     Constants.set_tier(tier)
-    Logger.info('Clear local dynamodb done!')
+    Log.info('Clear local dynamodb done!')
   end
 
   def self.clear_all_int
@@ -82,7 +82,7 @@ class PedMatchDatabase
     Constants.set_tier(Constants.tier_int)
     TableInfo.all_tables.each { |table| clear_table(table) }
     Constants.set_tier(tier)
-    Logger.info('Clear int dynamodb done!')
+    Log.info('Clear int dynamodb done!')
   end
 
   def self.clear_table(table_name)
@@ -96,7 +96,7 @@ class PedMatchDatabase
     start_stamp = Time.now
     all_items = scan_all(table_name, table_keys)
     if all_items.nil? || all_items.size<1
-      Logger.info("Table '#{table_name.upcase}' is empty skipping...")
+      Log.info("Table '#{table_name.upcase}' is empty skipping...")
     else
       deleted = 0
       batch_size = 25
@@ -108,8 +108,8 @@ class PedMatchDatabase
           @aws_db.batch_write_item(request)
           deleted += items.size
         rescue => e
-          Logger.warning("Could not delete table #{table_name}")
-          Logger.warning(e.backtrace)
+          Log.warning("Could not delete table #{table_name}")
+          Log.warning(e.backtrace)
         end
       }
 
@@ -117,7 +117,7 @@ class PedMatchDatabase
       diff = ((end_stamp - start_stamp) * 1000.0).to_f / 1000.0
       message = "Deleted #{deleted}/#{all_items.size} records from #{Constants.current_tier} "
       message += "\"#{table_name}\" table in #{diff} secs!"
-      Logger.info(message)
+      Log.info(message)
       unless deleted == all_items.size
         raise "Expected to delete #{all_items.size} items, actually deleted #{deleted} items"
       end
@@ -132,7 +132,7 @@ class PedMatchDatabase
       upload_seed_data(table, tag)
     end
     Constants.set_tier(tier)
-    Logger.info('Upload to local dynamodb done!')
+    Log.info('Upload to local dynamodb done!')
   end
 
   def self.upload_ion_seed_to_local(tag='patient')
@@ -140,7 +140,7 @@ class PedMatchDatabase
     Constants.set_tier(Constants.tier_local)
     TableInfo.ion_tables.each { |table| upload_seed_data(table, tag) }
     Constants.set_tier(tier)
-    Logger.info('Upload ion seed to local dynamodb done!')
+    Log.info('Upload ion seed to local dynamodb done!')
   end
 
   def self.upload_seed_data_to_int(tag='patients')
@@ -150,7 +150,7 @@ class PedMatchDatabase
       upload_seed_data(table, tag)
     end
     Constants.set_tier(tier)
-    Logger.info('Upload to int dynamodb done!')
+    Log.info('Upload to int dynamodb done!')
   end
 
   def self.upload_seed_data(table_name, tag)
@@ -163,7 +163,7 @@ class PedMatchDatabase
     start_stamp = Time.now
 
     if all_items.nil? || all_items.size<1
-      Logger.info("Seed data for table '#{table_name.upcase}' is empty skipping...")
+      Log.info("Seed data for table '#{table_name.upcase}' is empty skipping...")
     else
       uploaded = 0
       batch_size = 25
@@ -185,8 +185,8 @@ class PedMatchDatabase
           @aws_db.batch_write_item(request)
           uploaded += items.size
         rescue => e
-          Logger.warning("Could not upload seed to table #{table_name}")
-          Logger.warning(e.backtrace)
+          Log.warning("Could not upload seed to table #{table_name}")
+          Log.warning(e.backtrace)
         end
       }
 
@@ -194,7 +194,7 @@ class PedMatchDatabase
       diff = ((end_stamp - start_stamp) * 1000.0).to_f / 1000.0
       message = "Uploaded #{uploaded}/#{all_items.size} records to #{Constants.current_tier} "
       message += "\"#{table_name}\" table in #{diff} secs!"
-      Logger.info(message)
+      Log.info(message)
       unless uploaded == all_items.size
         raise "Expected to upload #{all_items.size} items, actually uploaded #{uploaded} items"
       end
@@ -226,13 +226,13 @@ class PedMatchDatabase
   def self.is_a_valid_field(class_name, field_name, field_object)
     length_correct = field_object.keys.length == 1
     unless length_correct
-      Logger.warning("#{class_name}-#{field_name} has #{field_object.keys.length} keys")
+      Log.warning("#{class_name}-#{field_name} has #{field_object.keys.length} keys")
     end
 
     acceptable_types = %w(M S BOOL N L NULL)
     type_correct = acceptable_types.include?(field_object.keys[0])
     unless type_correct
-      Logger.warning("#{class_name}-#{field_name} has invalid key #{field_object.keys[0]}")
+      Log.warning("#{class_name}-#{field_name} has invalid key #{field_object.keys[0]}")
     end
     length_correct && type_correct
   end
@@ -253,7 +253,7 @@ class PedMatchDatabase
   def self.table_exist(table_name)
     setup_aws unless @aws_db.present?
     exist = @aws_db.list_tables.table_names.include?(table_name)
-    Logger.warning("Table '#{table_name.upcase}' not found.") unless exist
+    Log.warning("Table '#{table_name.upcase}' not found.") unless exist
     exist
   end
 
@@ -262,7 +262,7 @@ class PedMatchDatabase
     resp = @aws_db.describe_table({table_name: table_name})
     resp.table.key_schema.each { |this_key| actual_keys << this_key.attribute_name }
     unless keys == actual_keys
-      Logger.warning("The keys in the the table #{table_name} have changed.")
+      Log.warning("The keys in the the table #{table_name} have changed.")
       exit
     end
   end

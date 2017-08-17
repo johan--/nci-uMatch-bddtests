@@ -26,7 +26,7 @@ This README will introduce how to create seed data and how to reload it.
 
 ####========= Classes =========
 * **Constants**: store all constants, including all api urls, all secrets(only environment varaible names, you need to setup your own ENV) for different test tiers
-* **Logger**: a small log utility. Try to use this logger everywhere
+* **Log**: a small log utility. Try to use this logger everywhere
 * **PatientStory**: create, query, modify, save, load patient stories
 * **PatientStorySender**: Process patient story with message template to generate actual REST calls and execute those call to generate patient seed data
 * **patient_messages.json**: store all necessary information when create patient REST call, include payload template, http method, before and after operations

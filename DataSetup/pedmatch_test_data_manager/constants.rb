@@ -1,4 +1,4 @@
-require_relative 'logger'
+require_relative 'log'
 class Constants
   TIERS = %w(local int uat)
   @tier = TIERS[0]
@@ -22,9 +22,9 @@ class Constants
   def self.set_tier(tier)
     if TIERS.include?(tier)
       @tier = tier
-      Logger.info("Constants tier has been set to #{@tier}")
+      Log.info("Constants tier has been set to #{@tier}")
     else
-      Logger.error("Tier value can only be #{TIERS.to_s}, the passed in value is #{tier}")
+      Log.error("Tier value can only be #{TIERS.to_s}, the passed in value is #{tier}")
     end
   end
 

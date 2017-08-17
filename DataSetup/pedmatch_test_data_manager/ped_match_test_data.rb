@@ -3,7 +3,7 @@ require_relative 'treatment_arm_sender'
 require_relative 'patient_story'
 require_relative 'seed_file'
 require_relative 'ped_match_database'
-require_relative 'logger'
+require_relative 'log'
 require_relative 'constants'
 
 class PedMatchTestData
@@ -40,10 +40,10 @@ class PedMatchTestData
       sleep 30.0 #we need to wait more time until treatment arm assignment event get processed (if the story end with an assignment related action)
       PedMatchDatabase.backup(tag)
     end
-    Logger.info("Load patient work is done. #{passed_number}/#{patient_list.size} patients are writen to seed file")
+    Log.info("Load patient work is done. #{passed_number}/#{patient_list.size} patients are writen to seed file")
     if failed.size > 0
-      Logger.warning('The following patients are not loaded properly, please reload them')
-      Logger.warning(failed.to_s)
+      Log.warning('The following patients are not loaded properly, please reload them')
+      Log.warning(failed.to_s)
     end
   end
 

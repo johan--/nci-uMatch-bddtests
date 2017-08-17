@@ -19,7 +19,7 @@ class PatientStorySender
       templates = JSON.parse(File.read(MESSAGE_TEMPLATE_FILE))
       story = patient_story.full_story
       patient_id = patient_story.patient_id
-      Logger.info("Start process patient #{patient_id} with #{story.size} steps")
+      Log.info("Start process patient #{patient_id} with #{story.size} steps")
       story.each_with_index do |s, i|
         message = Marshal.load(Marshal.dump(templates[s.keys[0]]))
         values = add_realtime_values(s.values[0])
@@ -28,27 +28,27 @@ class PatientStorySender
         after = message['after'].collect {|v| update_string_values(v, values)}
         payload = update_hash_values(message['payload'], values)
         unless run_operations(before)
-          Logger.error("Failed to run before operation <#{before}> for patient: #{patient_id}")
+          Log.error("Failed to run before operation <#{before}> for patient: #{patient_id}")
           return false
         end
         last_response = PedMatchRestClient.send_until_accept(url, message['http_method'], payload)
         if last_response.code < 203
-          Logger.info("Patient: #{patient_id} message (#{i+1}/#{story.size})<#{s.keys[0]}> is done")
+          Log.info("Patient: #{patient_id} message (#{i+1}/#{story.size})<#{s.keys[0]}> is done")
         else
           error = "Failed to generate patient: #{patient_id} in step (#{i+1}/#{story.size})<#{s.keys[0]}> with error: "
-          Logger.error(error)
-          Logger.error(last_response)
+          Log.error(error)
+          Log.error(last_response)
           return false
         end
         unless run_operations(after)
-          Logger.error("Failed to run after operation <#{after}> for patient: #{patient_id}")
+          Log.error("Failed to run after operation <#{after}> for patient: #{patient_id}")
           return false
         end
       end
-      Logger.info("Patient #{patient_id} is done")
+      Log.info("Patient #{patient_id} is done")
       true
     else
-      Logger.error("Expect parameter is PatientStory, but it is #{patient_story.class}")
+      Log.error("Expect parameter is PatientStory, but it is #{patient_story.class}")
     end
   end
 
@@ -57,7 +57,7 @@ class PatientStorySender
     if pt.exist?
       send_patient_story(pt)
     else
-      Logger.error("Patient #{patient_id} doesn't exist, to create patient please use PatientStory")
+      Log.error("Patient #{patient_id} doesn't exist, to create patient please use PatientStory")
       false
     end
   end
@@ -108,7 +108,7 @@ class PatientStorySender
                                              list = param.split('/')
                                              Utilities.upload_vr(list[0], list[1], list[2])
                                            else
-                                             Logger.warning("#{op} is not a valid operation")
+                                             Log.warning("#{op} is not a valid operation")
                                          end
                            result = result && this_result
                          end

@@ -71,13 +71,13 @@ class PedMatchRestClient
                                                                     :headers => {:content_type => 'application/json',
                                                                                  :accept => 'application/json'})
                            rescue StandardError => e
-                             Logger.error(e.to_s)
+                             Log.error(e.to_s)
                              return ''
                            end
                            begin
                              response_hash = JSON.parse(response)
                            rescue StandardError => e
-                             Logger.error(e.to_s)
+                             Log.error(e.to_s)
                              return ''
                            end
                            ENV[token_variable] = response_hash['id_token']

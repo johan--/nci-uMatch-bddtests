@@ -1,4 +1,4 @@
-class Logger
+class Log
   @hide_log = false
   def self.hide_log(hide=true)
     @hide_log = hide

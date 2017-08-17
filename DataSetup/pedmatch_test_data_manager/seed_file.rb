@@ -1,5 +1,5 @@
 require_relative 'table_info'
-require_relative 'logger'
+require_relative 'log'
 require 'fileutils'
 require 'json'
 
@@ -8,7 +8,7 @@ class SeedFile
 
   def self.create_tag_if_not_exist(tag, copy_patient=true)
     if Dir.exist?("#{SEED_DATA_FOLDER}/#{tag}")
-      Logger.warning("Tag exists #{tag}, skip")
+      Log.warning("Tag exists #{tag}, skip")
       return
     end
     FileUtils.makedirs("#{SEED_DATA_FOLDER}/#{tag}")
@@ -21,7 +21,7 @@ class SeedFile
     if File.exist?(file)
       result = JSON.parse(File.read(file))['Items']
     else
-      Logger.warning("Seed data #{file} doesn't exist")
+      Log.warning("Seed data #{file} doesn't exist")
     end
     result
   end
@@ -49,13 +49,13 @@ class SeedFile
           to_patients = []
           to_hash['Items'].each {|this_to| to_patients << this_to[field_name]['S']}
           if to_patients.include?(this_patient)
-            Logger.info("patient #{this_patient} has already been in #{to_tag} #{table_name} seed data, skipping...")
+            Log.info("patient #{this_patient} has already been in #{to_tag} #{table_name} seed data, skipping...")
           else
             to_hash['Items'].push(*this_pt_data)
             to_hash['ScannedCount'] = to_hash['ScannedCount'] + this_pt_data.size
             to_hash['Count'] = to_hash['Count'] + this_pt_data.size
             File.open(to_file, 'w') {|f| f.write(JSON.pretty_generate(to_hash))}
-            Logger.info("There are #{this_pt_data.size} #{table_name} items(#{field_name}=#{this_patient}) get copied")
+            Log.info("There are #{this_pt_data.size} #{table_name} items(#{field_name}=#{this_patient}) get copied")
           end
         end
       }
@@ -79,9 +79,9 @@ class SeedFile
         end
       }
       error = analysis.select {|k, v| v > 1}
-      Logger.info(table_name)
-      Logger.info(JSON.pretty_generate(error))
-      Logger.info("\n\n")
+      Log.info(table_name)
+      Log.info(JSON.pretty_generate(error))
+      Log.info("\n\n")
     }
   end
 
@@ -97,7 +97,7 @@ class SeedFile
         id = this_item[primary_key]['S']
         id += "|#{this_item[sorting_key]['S']}" if sorting_key.length > 0
         if ids.include?(id)
-          Logger.warning("#{id} is duplicated")
+          Log.warning("#{id} is duplicated")
         else
           new_items << this_item
           ids << id
@@ -109,7 +109,7 @@ class SeedFile
         file_hash['Count'] = new_items.size
         File.open(seed_file(table_name, tag), 'w') {|f| f.write(JSON.pretty_generate(file_hash))}
       end
-      Logger.info("#{items.size-new_items.size} items are deleted from #{tag} #{table_name}")
+      Log.info("#{items.size-new_items.size} items are deleted from #{tag} #{table_name}")
     }
   end
 
@@ -127,7 +127,7 @@ class SeedFile
         :ConsumedCapacity => nil
     }
     File.open(seed_file(table_name, tag), 'w') {|f| f.write(JSON.pretty_generate(empty_data))}
-    Logger.info("#{seed_file(table_name, tag)} get cleared")
+    Log.info("#{seed_file(table_name, tag)} get cleared")
   end
 
   def self.seed_file(table_name, tag='patients')
@@ -157,7 +157,7 @@ class SeedFile
                          end
                          message = "There are #{changed.size} patients"
                          message += "(patient_id=#{list}) get updated in treatment arm table"
-                         Logger.info(message)
+                         Log.info(message)
                        end
 
   private_class_method def self.remove_json_nodes_from_file(file, target_field, target_value_list, value_type, nickname)
@@ -180,7 +180,7 @@ class SeedFile
                          end
                          message = "There are #{old_count-items.size} items"
                          message += "(#{target_field}=#{list}) get removed from #{nickname}"
-                         Logger.info(message)
+                         Log.info(message)
                        end
 
   private_class_method def self.get_json_node_from_file(file, target_field, target_value, value_type)
@@ -219,7 +219,7 @@ class SeedFile
                          end
                          message = "There are #{deleted} patients"
                          message += "(patient_id=#{list}) get removed from treatment arm tables"
-                         Logger.info(message)
+                         Log.info(message)
                        end
 
   private_class_method def self.update_ta_table(status, ta_id, stratum, version, tag, add_or_remove='remove')

@@ -23,13 +23,13 @@ class TreatmentArmSender
     url = "#{treatment_arm_api_url}/#{ta_id}/#{stratum}/#{version}"
     last_response = PedMatchRestClient.send_until_accept(url, 'post', treatment_arm_hash)
     if last_response.code < 203
-      Logger.info("Treatment Arm: #{ta_id}-#{stratum}(#{version}) is done")
+      Log.info("Treatment Arm: #{ta_id}-#{stratum}(#{version}) is done")
       sleep 1.0
       true
     else
       error = "Failed to generate Treatment Arm: #{ta_id}-#{stratum}(#{version}) with error: "
-      Logger.error(error)
-      Logger.error(last_response)
+      Log.error(error)
+      Log.error(last_response)
       false
     end
   end
@@ -63,11 +63,11 @@ class TreatmentArmSender
     v = hash['version']
     exist = hash.any? {|ta| ta['treatment_arm_id'] == ta_id && ta['stratum_id'] == str && ta['version'] == v}
     if  exist
-      Logger.error("Treatment arm #{ta_id}-#{str}(#{v}) exists in library!")
+      Log.error("Treatment arm #{ta_id}-#{str}(#{v}) exists in library!")
     else
       @all_ta_data << hash
       File.open(TA_LIBRARY, 'w') {|f| f.write(JSON.pretty_generate(@all_ta_data))}
-      Logger.log("Treatment arm #{ta_id}-#{str}(#{v}) has been inserted to library!")
+      Log.log("Treatment arm #{ta_id}-#{str}(#{v}) has been inserted to library!")
     end
   end
 
@@ -76,13 +76,13 @@ class TreatmentArmSender
                            begin
                              JSON.parse(ta_json_or_hash)
                            rescue JSON::ParserError => e
-                             Logger.log(e.to_s)
+                             Log.log(e.to_s)
                              nil
                            end
                          elsif ta_json_or_hash.is_a?(Hash)
                            ta_json_or_hash
                          else
-                           Logger.error("#{ta_json_or_hash.to_s} is not a string or hash!")
+                           Log.error("#{ta_json_or_hash.to_s} is not a string or hash!")
                            nil
                          end
                        end

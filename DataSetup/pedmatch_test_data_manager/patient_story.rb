@@ -1,5 +1,5 @@
 require_relative 'utilities'
-require_relative 'logger'
+require_relative 'log'
 
 class PatientStory
   SAVE_FILE_FOLDER = "#{File.dirname(__FILE__)}/seed_patient_stories"
@@ -29,7 +29,7 @@ class PatientStory
   def self.path_for_save_file(id)
     id_string = id.to_s.rjust(2, '0')
     result = "#{SAVE_FILE_FOLDER}/#{SAVE_FILE_PREFIX}#{id_string}.json"
-    Logger.error("#{result} doesn't exist!") unless File.exist?(result)
+    Log.error("#{result} doesn't exist!") unless File.exist?(result)
     result
   end
 
@@ -90,8 +90,8 @@ class PatientStory
     cmd = "grep -l -r \\\"#{@patient_id}\\\" #{SAVE_FILE_FOLDER}/."
     result = `#{cmd}`.strip
     if result.split(SAVE_FILE_PREFIX).size > 2
-      Logger.error("There are multiple files that contain patient #{patient_id}, they are:")
-      Logger.error(result)
+      Log.error("There are multiple files that contain patient #{patient_id}, they are:")
+      Log.error(result)
     end
     result
   end
@@ -102,7 +102,7 @@ class PatientStory
     raise "#{@file_path} is not an Hash" unless file.is_a?(Hash)
     file[@patient_id] = @story_hash
     File.open(@file_path, 'w') {|f| f.write(JSON.pretty_generate(file))}
-    Logger.info("#{@patient_id} has been written to file #{@file_path}")
+    Log.info("#{@patient_id} has been written to file #{@file_path}")
   end
 
   def load
