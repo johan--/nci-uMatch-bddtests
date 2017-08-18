@@ -28,9 +28,9 @@ Feature: TA_AR. Treatment Arm API Tests that focus on assay_rules
     Then a failure message is returned which contains: "<errorMessage>"
     Examples:
       |gene   | type |status          |variant    |loe       |description             |errorMessage                                        |
-      |null   | IHC  |POSITIVE        |PRESENT    |2.0       |null gene               |NilClass did not match the following type: string   |
+      |null   | IHC  |POSITIVE        |PRESENT    |2.0       |null gene               |null did not match the following type: string   |
       |PTEN   | IHC  |negative        |NEGATIVE   |1.0       |lower case status       |did not match one of the following values           |
       |MLH1   | IHC  |INDETERMINATE   |Empty      |1.0       |mix case variant        |did not match one of the following values           |
       |PTEN   | IHC  |otherValue      |NEGATIVE   |3.0       |non-enum status         |did not match one of the following values           |
-      |MLH1   | IHC  |INDETERMINATE   |null       |3.0       |null variant            |NilClass did not match the following type: string   |
+      |MLH1   | IHC  |INDETERMINATE   |null       |3.0       |null variant            |null did not match the following type: string   |
       |MSCH2  | IHC  |NEGATIVE        |NEGATIVE   |-2.0      |minus loe               |did not have a minimum value of 0                   |

@@ -16,7 +16,7 @@ Feature: TA_DG. Treatment Arm API Tests that focus on "treatment_arm_drugs" and 
     Given template treatment arm json with a random id
     And set template treatment arm json field: "treatment_arm_drugs" to string value: "null"
     When creating a new treatment arm using post request
-    Then a failure message is returned which contains: "The property '#/treatment_arm_drugs' of type NilClass did not match the following type: array"
+    Then a failure message is returned which contains: "The property '#/treatment_arm_drugs' of type null did not match the following type: array"
 
   @treatment_arm_p2
   Scenario: TA_DG3. New Treatment Arm without "treatment_arm_drugs" field should fail
@@ -53,7 +53,7 @@ Feature: TA_DG. Treatment Arm API Tests that focus on "treatment_arm_drugs" and 
     Then a failure message is returned which contains: "<validation_message>"
     Examples:
       | drugName | drugPathway | drugId | validation_message         |
-      | null     | EGFR        | 781254 | name' of type NilClass     |
+      | null     | EGFR        | 781254 | name' of type null         |
       |          | EGFR        | 781254 | minimum string length of 1 |
 
   Scenario Outline: TA_DG6b. New Treatment Arm with incomplete drug id should pass

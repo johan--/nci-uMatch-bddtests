@@ -24,4 +24,4 @@ Feature: TA_SID. Treatment Arm API Tests that focus on "study_id" field
     And clear list field: "study_id" from template treatment arm json
     Then set template treatment arm json field: "study_id" to string value: "null"
     When creating a new treatment arm using post request
-    Then a failure message is returned which contains: "study_id' of type NilClass did not match the following type"
+    Then a failure message is returned which contains: "study_id' of type null did not match the following type"

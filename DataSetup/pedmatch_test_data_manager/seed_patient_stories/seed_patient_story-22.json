@@ -62,8 +62,6 @@
   "PT_RB01_Registered": [
     "registration:<patient_id>=>PT_RB01_Registered&<status_date>=>current",
     "specimen_received_TISSUE:<patient_id>=>PT_RB01_Registered&<surgical_event_id>=>PT_RB01_Registered_SEI1&<collection_dt>=>today&<received_dttm>=>current",
-    "specimen_received_BLOOD:<patient_id>=>PT_RB01_Registered&<collection_dt>=>today&<received_dttm>=>current",
-    "specimen_shipped_BLOOD:<patient_id>=>PT_RB01_Registered&<molecular_id>=>PT_RB01_Registered_BD_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
     "specimen_shipped_TISSUE:<patient_id>=>PT_RB01_Registered&<surgical_event_id>=>PT_RB01_Registered_SEI1&<molecular_id>=>PT_RB01_Registered_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
     "specimen_shipped_SLIDE:<patient_id>=>PT_RB01_Registered&<surgical_event_id>=>PT_RB01_Registered_SEI1&<slide_barcode>=>PT_RB01_Registered_BC1&<shipped_dttm>=>current",
     "assay_result_reported:<patient_id>=>PT_RB01_Registered&<surgical_event_id>=>PT_RB01_Registered_SEI1&<biomarker>=>ICCPTENs&<result>=>POSITIVE&<reported_date>=>current",
@@ -72,6 +70,21 @@
     "aliquot:<patient_id>=>PT_RB01_Registered&<ion_reporter_id>=>bdd_test_ion_reporter&<vr_type>=>default&<analysis_id>=>PT_RB01_Registered_ANI1&<molecular_id>=>PT_RB01_Registered_MOI1&<site>=>MDA",
     "variant_dna_file_uploaded:<patient_id>=>PT_RB01_Registered&<dna_bam_name>=>dna.bam&<analysis_id>=>PT_RB01_Registered_ANI1&<molecular_id>=>PT_RB01_Registered_MOI1&<comment_user>=>qa",
     "variant_cdna_file_uploaded:<patient_id>=>PT_RB01_Registered&<cdna_bam_name>=>cdna.bam&<analysis_id>=>PT_RB01_Registered_ANI1&<molecular_id>=>PT_RB01_Registered_MOI1&<comment_user>=>qa",
-    "variant_report_confirmed:<patient_id>=>PT_RB01_Registered&<analysis_id>=>PT_RB01_Registered_ANI1&<status>=>confirm&<comment>=>Test&<comment_user>=>QA"
+    "variant_report_confirmed:<patient_id>=>PT_RB01_Registered&<analysis_id>=>PT_RB01_Registered_ANI1&<status>=>confirm&<comment>=>Test&<comment_user>=>QA",
+    "assignment_confirmed:<patient_id>=>PT_RB01_Registered&<analysis_id>=>PT_RB01_Registered_ANI1&<comment>=>Test&<comment_user>=>QA",
+    "on_treatment_arm:<patient_id>=>PT_RB01_Registered&<step_number>=>1.1&<status_date>=>current&<treatment_arm_id>=>APEC1621-A&<stratum_id>=>100",
+    "request_assignment:<patient_id>=>PT_RB01_Registered&<step_number>=>2.0&<status_date>=>current&<status>=>REQUEST_ASSIGNMENT&<rebiopsy>=>Y",
+    "specimen_received_TISSUE:<patient_id>=>PT_RB01_Registered&<surgical_event_id>=>PT_RB01_Registered_SEI2&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_TISSUE:<patient_id>=>PT_RB01_Registered&<surgical_event_id>=>PT_RB01_Registered_SEI2&<molecular_id>=>PT_RB01_Registered_MOI2&<shipped_dttm>=>current&<destination>=>MDA",
+    "specimen_shipped_SLIDE:<patient_id>=>PT_RB01_Registered&<surgical_event_id>=>PT_RB01_Registered_SEI2&<slide_barcode>=>PT_RB01_Registered_BC2&<shipped_dttm>=>current",
+    "assay_result_reported:<patient_id>=>PT_RB01_Registered&<surgical_event_id>=>PT_RB01_Registered_SEI2&<biomarker>=>ICCPTENs&<result>=>POSITIVE&<reported_date>=>current",
+    "assay_result_reported:<patient_id>=>PT_RB01_Registered&<surgical_event_id>=>PT_RB01_Registered_SEI2&<biomarker>=>ICCBAF47s&<result>=>POSITIVE&<reported_date>=>current",
+    "assay_result_reported:<patient_id>=>PT_RB01_Registered&<surgical_event_id>=>PT_RB01_Registered_SEI2&<biomarker>=>ICCBRG1s&<result>=>POSITIVE&<reported_date>=>current",
+    "aliquot:<patient_id>=>PT_RB01_Registered&<ion_reporter_id>=>bdd_test_ion_reporter&<vr_type>=>APEC1621-M&<analysis_id>=>PT_RB01_Registered_ANI2&<molecular_id>=>PT_RB01_Registered_MOI2&<site>=>MDA",
+    "variant_dna_file_uploaded:<patient_id>=>PT_RB01_Registered&<dna_bam_name>=>dna.bam&<analysis_id>=>PT_RB01_Registered_ANI2&<molecular_id>=>PT_RB01_Registered_MOI2&<comment_user>=>qa",
+    "variant_cdna_file_uploaded:<patient_id>=>PT_RB01_Registered&<cdna_bam_name>=>cdna.bam&<analysis_id>=>PT_RB01_Registered_ANI2&<molecular_id>=>PT_RB01_Registered_MOI2&<comment_user>=>qa",
+    "variant_report_confirmed:<patient_id>=>PT_RB01_Registered&<analysis_id>=>PT_RB01_Registered_ANI2&<status>=>confirm&<comment>=>Test&<comment_user>=>QA",
+    "assignment_confirmed:<patient_id>=>PT_RB01_Registered&<analysis_id>=>PT_RB01_Registered_ANI2&<comment>=>Test&<comment_user>=>QA",
+    "on_treatment_arm:<patient_id>=>PT_RB01_Registered&<step_number>=>2.1&<status_date>=>current&<treatment_arm_id>=>APEC1621-M&<stratum_id>=>100"
   ]
 }
