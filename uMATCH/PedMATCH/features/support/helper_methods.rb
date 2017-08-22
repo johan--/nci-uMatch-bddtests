@@ -70,7 +70,7 @@ class Helper_Methods
 
     result = []
     runTime = 0.0
-    start_time = Time.now.to_i
+    start_time = Time.now.to_f
     loop do
       sleep(@requestGap)
       runTime += @requestGap
@@ -84,7 +84,7 @@ class Helper_Methods
         puts "Error: #{e.message} occurred"
         @res = '[]'
         result = JSON.parse(@res)
-        end_time = Time.now.to_i
+        end_time = Time.now.to_f
         puts "[uMATCH BDD]#{Time.now.to_s} Complete GET URL: \n#{service}, duration: #{end_time-start_time} seconds"
         return result
       end
@@ -96,7 +96,7 @@ class Helper_Methods
         break
       end
     end
-    end_time = Time.now.to_i
+    end_time = Time.now.to_f
     puts "[uMATCH BDD]#{Time.now.to_s} Complete GET URL: \n#{service}, duration: #{end_time-start_time} seconds"
     return result
   end
@@ -120,13 +120,13 @@ class Helper_Methods
     headers = {}
     Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
     begin
-      start_time = Time.now.to_i
+      start_time = Time.now.to_f
       response = RestClient::Request.execute(:url => service,
                                              :method => :get,
                                              :verify_ssl => false,
                                              :headers => headers,
                                              :timeout => @default_timeout)
-      end_time = Time.now.to_i
+      end_time = Time.now.to_f
       puts "[uMATCH BDD]#{Time.now.to_s} Complete GET URL: \n#{service}, duration: #{end_time-start_time} seconds"
     rescue StandardError => e
       @get_response['status'] = 'Failure'
@@ -236,13 +236,13 @@ class Helper_Methods
     print "#{url[0..len]}\n"
     headers = {}
     Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
-    start_time = Time.now.to_i
+    start_time = Time.now.to_f
     @res = RestClient::Request.execute(:url => @service,
                                        :method => :get,
                                        :verify_ssl => false,
                                        :headers => headers,
                                        :timeout => @default_timeout)
-    end_time = Time.now.to_i
+    end_time = Time.now.to_f
     puts "[uMATCH BDD]#{Time.now.to_s} Complete GET URL: \n#{service}, duration: #{end_time-start_time} seconds"
     return @res
   end
