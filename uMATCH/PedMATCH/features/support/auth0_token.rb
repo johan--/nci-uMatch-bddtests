@@ -83,18 +83,19 @@ class Auth0Token
       prefix = role == 'NO_ROLE'?'':"#{role}_"
       scope = role == 'NO_ROLE'?'openid email':'openid email roles'
       response = ped_match_auth0_response(ENV["#{prefix}AUTH0_USERNAME"], ENV["#{prefix}AUTH0_PASSWORD"], scope)
+      puts "Response Code: #{response.code}"
 
       begin
         raise "Request to Auth0 Failed" unless response.code == 200 # guard clause
 
         response_hash = JSON.parse(response)
         ENV[token_variable] = response_hash['id_token']
-        puts "A #{ENV[token_variable].length} digi auth0 #{role} token is generated"
-        return ENV[token_variable]
+        puts "A #{ENV[token_variable].length} digit auth0 #{role} token is generated"
+        ENV[token_variable]
       rescue StandardError => e
         puts response
         puts e.to_s
-        return ''
+        ''
       end
     end
   end
@@ -102,7 +103,8 @@ class Auth0Token
   def self.add_auth0_if_needed(headers, role)
     if ENV['NEED_AUTH0'] == 'YES'
       token = generate_auth0_token(role)
-      if token.size>1
+      puts token
+      if token.length>1
         headers['Authorization'] = "Bearer #{token}"
       end
     end
