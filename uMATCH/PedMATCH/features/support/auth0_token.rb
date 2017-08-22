@@ -104,11 +104,11 @@ class Auth0Token
 
   def self.add_auth0_if_needed(headers, role)
     if ENV['NEED_AUTH0'] == 'YES'
-      token = generate_auth0_token(role)
-      puts token
-
-      headers['Authorization'] = "Bearer #{token}" if token.length > 1
-
+      generate_auth0_token(role)
+      "#{role}_AUTH0_TOKEN"
+      puts ENV["#{role}_AUTH0_TOKEN"]
+      
+      headers['Authorization'] = "Bearer #{ENV["#{role}_AUTH0_TOKEN"]}" if token.length > 1
     end
     headers
   end
