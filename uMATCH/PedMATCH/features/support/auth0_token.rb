@@ -79,9 +79,9 @@ class Auth0Token
       return ''
     end
     token_variable = "#{role}_AUTH0_TOKEN"
-    if ENV[token_variable].nil? || ENV[token_variable].size < 1
-      prefix = role == 'NO_ROLE'?'':"#{role}_"
-      scope = role == 'NO_ROLE'?'openid email':'openid email roles'
+    if ENV[token_variable].nil? || ENV[token_variable].length < 1
+      prefix = role == 'NO_ROLE' ? '':"#{role}_"
+      scope = role == 'NO_ROLE' ? 'openid email':'openid email roles'
       response = ped_match_auth0_response(ENV["#{prefix}AUTH0_USERNAME"], ENV["#{prefix}AUTH0_PASSWORD"], scope)
       puts "Response Code: #{response.code}"
 
@@ -93,9 +93,11 @@ class Auth0Token
         puts "A #{ENV[token_variable].length} digit auth0 #{role} token is generated"
         ENV[token_variable]
       rescue StandardError => e
+        puts "Request to Auth0 Failed"
         puts response
         puts e.to_s
-        ''
+        ENV[token_variable] = ''
+        ENV[token_variable]
       end
     end
   end
@@ -104,9 +106,9 @@ class Auth0Token
     if ENV['NEED_AUTH0'] == 'YES'
       token = generate_auth0_token(role)
       puts token
-      if token.length>1
-        headers['Authorization'] = "Bearer #{token}"
-      end
+
+      headers['Authorization'] = "Bearer #{token}" if token.length > 1
+
     end
     headers
   end
