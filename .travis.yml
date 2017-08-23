@@ -64,7 +64,7 @@ before_script:
   # THIS IS TEMPORARY> THIS IS TO CONDUCT A RCA ON THE PATIENT TEST AND THE FOLLOWING BLOCK SHOULD BE REMOVED ASLL THE WAY TO "cd .."
   - |
     if [ "$CUC_TAG" == "@demo" ]; then
-      bundle exec ruby -r "./ped_match_database.rb" -e "PedMatchDatabase.reload_int patients"
+      bundle exec ruby -r "./ped_match_database.rb" -e "PedMatchDatabase.reload_int 'patients'"
     fi
   - cd ..
 
