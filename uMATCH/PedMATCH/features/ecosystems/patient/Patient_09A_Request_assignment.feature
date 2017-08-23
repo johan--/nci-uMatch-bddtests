@@ -3,7 +3,7 @@ Feature: Patients request assignment tests
   Background:
     Given patient API user authorization role is "PATIENT_MESSAGE_SENDER"
 
-  @patients_p1
+  @patients_p1 @demo_p1
   Scenario Outline: PT_RA01. patient can be set to request assignment (rebiopsy=N) properly
 #    patient: PT_RA01_PendingApproval is on 1.0 now
 #    patient: PT_RA01_OnTreatmentArm is on 1.1 now

@@ -213,7 +213,7 @@ Feature: Assay Messages
       | ICCBAF47s | INDETERMINATE |
       | ICCBRG1s  | INDETERMINATE |
 
-  @patients_p2
+  @patients_p2 @demo_p1
   Scenario Outline: PT_AS12. assay result received message can be processed properly
     Given patient id is "<patient_id>"
     And load template assay message for this patient
@@ -237,7 +237,7 @@ Feature: Assay Messages
       | PT_AS12_VrConfirmed | PENDING_CONFIRMATION   | PT_AS12_VrConfirmed_SEI1 |
       | PT_AS12_VrReceived  | ASSAY_RESULTS_RECEIVED | PT_AS12_VrReceived_SEI1  |
 
-  @patients_p2
+  @patients_p2 @demo_p1
   Scenario Outline: PT_AS12a. assay result can be received and updated properly after assignment
     Given patient id is "<patient_id>"
     And load template assay message for this patient
@@ -309,7 +309,7 @@ Feature: Assay Messages
       | ICCBRG1s  | POSITIVE | 2017-06-06T11:42:13+00:00 |
       | ICCBRG1s  | NEGATIVE | 2017-06-06T11:42:13+00:00 |
 
-  @patients_p2
+  @patients_p2 @demo_p1
   Scenario Outline: PT_AS15. assay with older report date should be considered as old assay
     Given patient id is "PT_AS15_AssayReceived"
     And load template assay message for this patient

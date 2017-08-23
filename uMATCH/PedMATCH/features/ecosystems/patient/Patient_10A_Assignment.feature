@@ -1,7 +1,7 @@
 #encoding: utf-8
 Feature: Patients assignment tests
 
-  @patients_p1
+  @patients_p1 @demo_p1
   Scenario Outline: PT_AM01. in proper situation, patient ecosystem can send correct status (other than PENDING_APPROVAL) to COG
 #    patient: PT_AM01_TsVrReceived1 will not have TA available
 #    patient: PT_AM01_TsVrReceived1 will have a closed TA available
@@ -62,7 +62,7 @@ Feature: Patients assignment tests
     Then set patient message field: "step_number" to value: "1.1"
     When POST to MATCH patients service, response includes "treatment arm id" with code "403"
 
-  @patients_p1
+  @patients_p1 @demo_p1
   Scenario Outline: PT_AM04. treatment arm should be able to assign to multiple patients
     Given patient id is "<patient_id>"
     And patient API user authorization role is "MDA_VARIANT_REPORT_REVIEWER"
