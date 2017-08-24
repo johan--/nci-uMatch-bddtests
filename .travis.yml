@@ -100,7 +100,7 @@ script:
     if [ "$CUC_TAG" == "@ion_reporter_new" ]; then
       export OLD_IR_SYSTEM="FALSE"
       cd uMATCH/PedMATCH
-      bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t @ion_reporter_p1,@ion_reporter_p2  -f pretty --format json --out ../../results/output-@ion_reporter_p1-$TEST_ENV_NUMBER.json --expand' -n 2
+      bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t @ion_reporter_p1,@ion_reporter_p2  -f pretty --format json --out ../../results/output-@ion_reporter_p1-$TEST_ENV_NUMBER.json --expand --color' -n 2
       CURRENT_STATUS=$?
       if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
       cd ../..
@@ -110,7 +110,7 @@ script:
     if [ "$CUC_TAG" == "@ion_reporter" -o "$CUC_TAG" == "@patients" -o "$CUC_TAG" == "@rules" ]; then
       export OLD_IR_SYSTEM="TRUE"
       cd uMATCH/PedMATCH
-      bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P1,$CUC_TAG$P2 -f pretty --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --expand' -n 2
+      bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P1,$CUC_TAG$P2 -f pretty --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --expand --color' -n 2
       CURRENT_STATUS=$?
       if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
       cd ../..
@@ -119,7 +119,7 @@ script:
   - |
     if [ "$CUC_TAG" == "@treatment_arm" ]; then
       cd uMATCH/PedMATCH
-      cucumber --tags @treatment_arm_p1,@treatment_arm_p2 --format pretty --format json --out ../../results/output-treatment_arm.json --expand
+      cucumber --tags @treatment_arm_p1,@treatment_arm_p2 --format pretty --format json --out ../../results/output-treatment_arm.json --expand --color
       CURRENT_STATUS=$?
       if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
       cd ../..
@@ -128,7 +128,7 @@ script:
   - |
     if [ "$CUC_TAG" == "@ete" ]; then
       cd uMATCH/PedMATCH
-      cucumber --tags @ete --format pretty --format json --out ../../results/output-ete.json --expand
+      cucumber --tags @ete --format pretty --format json --out ../../results/output-ete.json --expand --color
       CURRENT_STATUS=$?
       if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
       cd ../..
@@ -215,10 +215,10 @@ after_success:
   - |
     if [ "$TRIGGER_REPO" == "nci-match-ir-ecosystem-api" ]; then
       echo "Deploying both IR services to AWS UAT for Ped & Adult"
-      docker run -it --rm -e AWS_ACCESS_KEY_ID=$UAT_AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$UAT_AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster PedMatch-UAT-Backend --service-name PedMatch-nci-match-ir-ecosystem-api-UAT -i matchbox/nci-match-ir-ecosystem-api:$TRIGGER_VER --timeout 540 --max-definitions 25
-      docker run -it --rm -e AWS_ACCESS_KEY_ID=$UAT_AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$UAT_AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster PedMatch-UAT-Backend --service-name PedMatch-nci-match-ir-ecosystem-processor-UAT -i matchbox/nci-match-ir-ecosystem-processor:$TRIGGER_VER --timeout 540 --max-definitions 25
-      docker run -it --rm -e AWS_ACCESS_KEY_ID=$UAT_AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$UAT_AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster AdultMatch-UAT-Backend --service-name AdultMATCH-nci-match-ir-ecosystem-api-UAT -i matchbox/nci-match-ir-ecosystem-api:$TRIGGER_VER --timeout 540 --max-definitions 25
-      docker run -it --rm -e AWS_ACCESS_KEY_ID=$UAT_AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$UAT_AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster AdultMatch-UAT-Backend --service-name AdultMATCH-nci-match-ir-ecosystem-processor-UAT -i matchbox/nci-match-ir-ecosystem-processor:$TRIGGER_VER --timeout 540 --max-definitions 25
+      docker run -it --rm -e AWS_ACCESS_KEY_ID=$UAT_AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$UAT_AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster PedMatch-UAT-Backend --service-name PedMatch-nci-match-ir-ecosystem-api-UAT -i fnlcr/nci-match-ir-ecosystem-api:$TRIGGER_VER --timeout 540 --max-definitions 25
+      docker run -it --rm -e AWS_ACCESS_KEY_ID=$UAT_AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$UAT_AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster PedMatch-UAT-Backend --service-name PedMatch-nci-match-ir-ecosystem-processor-UAT -i fnlcr/nci-match-ir-ecosystem-processor:$TRIGGER_VER --timeout 540 --max-definitions 25
+      docker run -it --rm -e AWS_ACCESS_KEY_ID=$UAT_AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$UAT_AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster AdultMatch-UAT-Backend --service-name AdultMATCH-nci-match-ir-ecosystem-api-UAT -i fnlcr/nci-match-ir-ecosystem-api:$TRIGGER_VER --timeout 540 --max-definitions 25
+      docker run -it --rm -e AWS_ACCESS_KEY_ID=$UAT_AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$UAT_AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster AdultMatch-UAT-Backend --service-name AdultMATCH-nci-match-ir-ecosystem-processor-UAT -i fnlcr/nci-match-ir-ecosystem-processor:$TRIGGER_VER --timeout 540 --max-definitions 25
     else
       echo "Deploying to AWS UAT (place holder, the actual code will not be pushed)"
       docker run -it --rm -e AWS_ACCESS_KEY_ID=$UAT_AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$UAT_AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster PedMatch-UAT-Backend --service-name PedMatch-$TRIGGER_REPO-UAT -i $TRIGGER_DOCKER_IMAGE:$TRIGGER_VER  --timeout 540 --max-definitions 25

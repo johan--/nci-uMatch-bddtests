@@ -94,6 +94,7 @@ class Auth0Token
     end
     return ENV[token_variable]
   end
+
   def self.add_auth0_if_needed(headers, role)
     if ENV['NEED_AUTH0'] == 'YES'
       token = generate_auth0_token(role)
