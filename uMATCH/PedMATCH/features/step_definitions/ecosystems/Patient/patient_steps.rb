@@ -27,7 +27,7 @@ When(/^POST to MATCH patients service, response includes "([^"]*)" with code "([
     if message == ''
       expect(message.to_s).to eql(retMsg)
     else
-      actual_include_expect(response['message']['message'].to_s, retMsg)
+      actual_include_expect(response['message'].to_s, retMsg)
     end
   else
     actual_include_expect(response['message'], retMsg)
