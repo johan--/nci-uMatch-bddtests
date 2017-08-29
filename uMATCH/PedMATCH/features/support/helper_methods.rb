@@ -34,7 +34,7 @@ class Helper_Methods
                                              :headers => headers,
                                              :timeout => @default_timeout)
       end_time = Time.now.to_f
-      puts "[uMATCH BDD]#{Time.now.to_s} Complete GET URL: \n#{@url}, duration: #{end_time-start_time} seconds"
+      puts "[uMATCH BDD]#{Time.now.to_s} Complete GET URL: \t\"#{@url}\", duration: #{end_time-start_time} seconds"
 
       get_response['http_code'] = response.code
       get_response['status'] = response.code == 200 ? 'Success' : 'Failure'
@@ -85,7 +85,7 @@ class Helper_Methods
         @res = '[]'
         result = JSON.parse(@res)
         end_time = Time.now.to_f
-        puts "[uMATCH BDD]#{Time.now.to_s} Complete GET URL: \n#{service}, duration: #{end_time-start_time} seconds"
+        puts "[uMATCH BDD]#{Time.now.to_s} Complete GET URL: \t#{service}, duration: #{end_time-start_time} seconds"
         return result
       end
       if @res=='null'
@@ -97,7 +97,7 @@ class Helper_Methods
       end
     end
     end_time = Time.now.to_f
-    puts "[uMATCH BDD]#{Time.now.to_s} Complete GET URL: \n#{service}, duration: #{end_time-start_time} seconds"
+    puts "[uMATCH BDD]#{Time.now.to_s} Complete GET URL: \t#{service}, duration: #{end_time-start_time} seconds"
     return result
   end
 
@@ -127,7 +127,7 @@ class Helper_Methods
                                              :headers => headers,
                                              :timeout => @default_timeout)
       end_time = Time.now.to_f
-      puts "[uMATCH BDD]#{Time.now.to_s} Complete GET URL: \n#{service}, duration: #{end_time-start_time} seconds"
+      puts "[uMATCH BDD]#{Time.now.to_s} Complete GET URL: \t#{service}, duration: #{end_time-start_time} seconds"
     rescue StandardError => e
       @get_response['status'] = 'Failure'
       if e.message.nil?
@@ -243,7 +243,7 @@ class Helper_Methods
                                        :headers => headers,
                                        :timeout => @default_timeout)
     end_time = Time.now.to_f
-    puts "[uMATCH BDD]#{Time.now.to_s} Complete GET URL: \n#{service}, duration: #{end_time-start_time} seconds"
+    puts "[uMATCH BDD]#{Time.now.to_s} Complete GET URL: \t#{service}, duration: #{end_time-start_time} seconds"
     return @res
   end
 
@@ -289,12 +289,12 @@ class Helper_Methods
       end
 
       if is_this_hash(target_object, query_hash, path)
-        puts "response match query hash: #{query_hash.to_json}"
+        puts "response matched query hash: #{query_hash.to_json}"
         return target_object
       end
 
-      if run_time>internal_timeout
-        puts "response doesn't match query hash: #{query_hash.to_json} til timeout!"
+      if run_time > internal_timeout
+        puts "response did not match query hash: #{query_hash.to_json} till timeout!"
         return target_object
       end
 
@@ -321,7 +321,7 @@ class Helper_Methods
     headers = {:content_type => 'json', :accept => 'json'}
     Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
     begin
-      puts "[uMATCH BDD]#{Time.now.to_s} Start POST URL: \n#{service}"
+      puts "[uMATCH BDD]#{Time.now.to_s} Start POST URL: \t#{service}"
       response = RestClient::Request.execute(:url => service,
                                              :method => :post,
                                              :verify_ssl => false,
@@ -341,7 +341,7 @@ class Helper_Methods
       else
         @post_response['message'] = e.message
       end
-      puts @post_response['message']
+      # puts @post_response['message']
       return @post_response
     end
 
@@ -361,7 +361,7 @@ class Helper_Methods
     headers = {:content_type => 'json', :accept => 'json'}
     Auth0Token.add_auth0_if_needed(headers, auth0_role)
     begin
-      puts "[uMATCH BDD]#{Time.now.to_s} Start PATCH URL: \n#{service}"
+      puts "[uMATCH BDD]#{Time.now.to_s} Start PATCH URL: \t#{service}"
       response = RestClient::Request.execute(:url => service,
                                              :method => :patch,
                                              :verify_ssl => false,
@@ -381,7 +381,7 @@ class Helper_Methods
       else
         patch_response['message'] = e.message
       end
-      puts patch_response['message']
+      # puts patch_response['message']
       return patch_response
     end
 
@@ -410,10 +410,14 @@ class Helper_Methods
     # # print "JSON:\n#{JSON.pretty_generate(JSON.parse(payload))}\n\n"
     # print "JSON:\n#{payload}\n\n"
     @put_response = {}
+    puts "URL: #{service}"
+    puts "Payload: #{payload}"
     headers = {:content_type => 'json', :accept => 'json'}
+
     Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
+    puts "Headers: #{headers}"
     begin
-      puts "[uMATCH BDD]#{Time.now.to_s} Start PUT URL: \n#{service}"
+      puts "[uMATCH BDD]#{Time.now.to_s} Start PUT URL: \t#{service}"
       response = RestClient::Request.execute(:url => service,
                                              :method => :put,
                                              :verify_ssl => false,

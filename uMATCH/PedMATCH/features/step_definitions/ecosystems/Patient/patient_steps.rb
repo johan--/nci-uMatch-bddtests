@@ -21,8 +21,17 @@ When(/^POST to MATCH patients service, response includes "([^"]*)" with code "([
   @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
   response = Patient_helper_methods.post_to_trigger(@current_auth0_role)
   puts response.to_s
+  message = response['message']
   actual_match_expect(response['http_code'], code)
-  # actual_include_expect(response['message'], retMsg)
+  if code.to_i > 299   # This should cover all error scenarios
+    if message == ''
+      expect(message.to_s).to eql(retMsg)
+    else
+      actual_include_expect(response['message']['message'].to_s, retMsg)
+    end
+  else
+    actual_include_expect(response['message'], retMsg)
+  end
 end
 
 When(/^POST to MATCH patients event service, response includes "([^"]*)" with code "([^"]*)"$/) do |retMsg, code|
