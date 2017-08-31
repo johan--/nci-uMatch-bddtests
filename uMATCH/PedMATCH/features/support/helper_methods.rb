@@ -415,7 +415,7 @@ class Helper_Methods
     headers = {:content_type => 'json', :accept => 'json'}
 
     Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
-    puts "Headers: #{headers}"
+    # puts "Headers: #{headers}"
     begin
       puts "[uMATCH BDD]#{Time.now.to_s} Start PUT URL: \t#{service}"
       response = RestClient::Request.execute(:url => service,
