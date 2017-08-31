@@ -11,7 +11,9 @@
     "gene": "ALK",
     "treatment_arm_status": "OPEN",
     "study_id": "APEC1621SC",
-    "assay_rules": [],
+    "assay_rules": [
+
+    ],
     "num_patients_assigned": null,
     "treatment_arm_drugs": [
       {
@@ -36,9 +38,13 @@
       }
     ],
     "non_hotspot_rules": [
+
     ],
-    "copy_number_variants": [],
+    "copy_number_variants": [
+
+    ],
     "gene_fusions": [
+
     ],
     "diseases": [
       {
@@ -57,64 +63,6 @@
       }
     ]
   },
-  //  {
-  //    "treatment_arm_id": "APEC1621-M",
-  //    "name": "APEC1621-M",
-  //    "version": "v_2",
-  //    "date_created": "2017-07-06 15:57:10 UTC",
-  //    "stratum_id": "100",
-  //    "description": "APEC1621-M, 100, v_1",
-  //    "target_id": "113",
-  //    "target_name": "Crizotinib",
-  //    "gene": "ALK",
-  //    "treatment_arm_status": "OPEN",
-  //    "study_id": "APEC1621SC",
-  //    "assay_rules": [],
-  //    "num_patients_assigned": null,
-  //    "treatment_arm_drugs": [
-  //      {
-  //        "name": "Crizotinib",
-  //        "pathway": "ALK",
-  //        "drug_id": "113"
-  //      }
-  //    ],
-  //    "snv_indels": [
-  //      {
-  //        "variant_type": "snp",
-  //        "chromosome": "chr2",
-  //        "gene": "IDH1",
-  //        "protein": "p.Val178Ile",
-  //        "position": "209108317",
-  //        "identifier": "COSM9999",
-  //        "ocp_reference": "CAAT",
-  //        "ocp_alternative": "T",
-  //        "level_of_evidence": 1.0,
-  //        "inclusion": true,
-  //        "arm_specific": false
-  //      }
-  //    ],
-  //    "non_hotspot_rules": [
-  //    ],
-  //    "copy_number_variants": [],
-  //    "gene_fusions": [
-  //    ],
-  //    "diseases": [
-  //      {
-  //        "disease_code_type": "ICD-O",
-  //        "disease_code": "10025125",
-  //        "disease_name": "Squamous cell lung carcinoma",
-  //        "exclusion": true
-  //      }
-  //    ],
-  //    "exclusion_drugs": [
-  //      {
-  //        "name": "Doxorubicin Hydrochloride",
-  //        "drug_id": "10001",
-  //        "drug_class": "ALK inhibitor",
-  //        "target": "ALK"
-  //      }
-  //    ]
-  //  },
   {
     "treatment_arm_id": "APEC1621-A",
     "name": "APEC1621-A",
@@ -126,7 +74,9 @@
     "gene": "ALK",
     "treatment_arm_status": "OPEN",
     "study_id": "APEC1621SC",
-    "assay_rules": [],
+    "assay_rules": [
+
+    ],
     "num_patients_assigned": null,
     "treatment_arm_drugs": [
       {
@@ -135,19 +85,25 @@
         "drug_id": "113"
       }
     ],
-    "snv_indels": [],
+    "snv_indels": [
+
+    ],
     "non_hotspot_rules": [
       {
         "inclusion": true,
         "oncomine_variant_class": "deleterious",
-        "public_med_ids": [],
+        "public_med_ids": [
+
+        ],
         "func_gene": "PTEN",
         "arm_specific": false,
         "level_of_evidence": 3.0,
         "protein_match": null
       }
     ],
-    "copy_number_variants": [],
+    "copy_number_variants": [
+
+    ],
     "gene_fusions": [
       {
         "variant_type": "fusion",
@@ -171,7 +127,9 @@
         "gene": "FGFR2",
         "identifier": "FGFR2-OFD1.F17O3",
         "inclusion": true,
-        "public_med_ids": [],
+        "public_med_ids": [
+
+        ],
         "arm_specific": false,
         "level_of_evidence": 3.0,
         "chromosome": "chr10",
@@ -410,7 +368,9 @@
         "gene": "TPM3",
         "identifier": "TPM3-NTRK1.T7N10.COSF1318_1",
         "inclusion": true,
-        "public_med_ids": [],
+        "public_med_ids": [
+
+        ],
         "level_of_evidence": 2.0,
         "chromosome": "chr2",
         "ocp_alternative": "C[chr1:156844362[",
@@ -423,7 +383,9 @@
         "gene": "NTRK1",
         "identifier": "TPM3-NTRK1.T7N10.COSF1318_2",
         "inclusion": true,
-        "public_med_ids": [],
+        "public_med_ids": [
+
+        ],
         "level_of_evidence": 3.0,
         "chromosome": "chr2",
         "ocp_alternative": "[chr1:154142875[G",
@@ -436,7 +398,9 @@
         "gene": "TPM3",
         "identifier": "TPM3-ROS1.T7R35.COSF1273_1",
         "inclusion": false,
-        "public_med_ids": [],
+        "public_med_ids": [
+
+        ],
         "level_of_evidence": 3.0,
         "chromosome": "chr1",
         "ocp_alternative": "T]chr6:117642559]",
@@ -449,7 +413,9 @@
         "gene": "ROS1",
         "identifier": "TPM3-ROS1.T7R35.COSF1273_2",
         "inclusion": false,
-        "public_med_ids": [],
+        "public_med_ids": [
+
+        ],
         "level_of_evidence": 3.0,
         "chromosome": "chr6",
         "ocp_alternative": "[chr1:154142877[T",
@@ -798,7 +764,9 @@
       {
         "inclusion": true,
         "identifier": "TPM3-NTRK1.T7N10.COSF1318_2",
-        "public_med_ids": [],
+        "public_med_ids": [
+
+        ],
         "arm_specific": false,
         "ocp_reference": "G",
         "gene": "NTRK1",
@@ -832,7 +800,9 @@
       {
         "inclusion": false,
         "identifier": "TPM3-ROS1.T7R35.COSF1273_2",
-        "public_med_ids": [],
+        "public_med_ids": [
+
+        ],
         "arm_specific": false,
         "ocp_reference": "T",
         "gene": "ROS1",
@@ -858,7 +828,9 @@
     "gene": "ALK",
     "treatment_arm_status": "OPEN",
     "study_id": "APEC1621SC",
-    "assay_rules": [],
+    "assay_rules": [
+
+    ],
     "num_patients_assigned": null,
     "treatment_arm_drugs": [
       {
@@ -907,13 +879,19 @@
         "target": "ALK"
       }
     ],
-    "snv_indels": [],
-    "copy_number_variants": [],
+    "snv_indels": [
+
+    ],
+    "copy_number_variants": [
+
+    ],
     "non_hotspot_rules": [
       {
         "inclusion": true,
         "oncomine_variant_class": "deleterious",
-        "public_med_ids": [],
+        "public_med_ids": [
+
+        ],
         "func_gene": "PTEN",
         "arm_specific": false,
         "level_of_evidence": 3.5,
@@ -943,7 +921,9 @@
         "gene": "FGFR2",
         "identifier": "FGFR2-OFD1.F17O3",
         "inclusion": true,
-        "public_med_ids": [],
+        "public_med_ids": [
+
+        ],
         "arm_specific": false,
         "level_of_evidence": 3.3,
         "chromosome": "chr10",
@@ -964,7 +944,9 @@
     "gene": "ALK",
     "treatment_arm_status": "OPEN",
     "study_id": "APEC1621SC",
-    "assay_rules": [],
+    "assay_rules": [
+
+    ],
     "num_patients_assigned": null,
     "treatment_arm_drugs": [
       {
@@ -1013,7 +995,9 @@
         "target": "ALK"
       }
     ],
-    "snv_indels": [],
+    "snv_indels": [
+
+    ],
     "copy_number_variants": [
       {
         "variant_type": "cnv",
@@ -1029,7 +1013,9 @@
         "arm_specific": false
       }
     ],
-    "non_hotspot_rules": [],
+    "non_hotspot_rules": [
+
+    ],
     "gene_fusions": [
       {
         "variant_type": "fusion",
@@ -1061,7 +1047,9 @@
         "gene": "FGFR2",
         "identifier": "FGFR2-OFD1.F17O3",
         "inclusion": false,
-        "public_med_ids": [],
+        "public_med_ids": [
+
+        ],
         "arm_specific": false,
         "level_of_evidence": 3.0,
         "chromosome": "chr10",
@@ -1081,7 +1069,9 @@
     "gene": "RET",
     "treatment_arm_status": "OPEN",
     "study_id": "APEC1621SC",
-    "assay_rules": [],
+    "assay_rules": [
+
+    ],
     "num_patients_assigned": null,
     "treatment_arm_drugs": [
       {
@@ -1166,9 +1156,15 @@
         "target": ""
       }
     ],
-    "snv_indels": [],
-    "copy_number_variants": [],
-    "non_hotspot_rules": [],
+    "snv_indels": [
+
+    ],
+    "copy_number_variants": [
+
+    ],
+    "non_hotspot_rules": [
+
+    ],
     "gene_fusions": [
       {
         "variant_type": "fusion",
@@ -1179,7 +1175,9 @@
         "identifier": "CCDC6-RET.C1R12.COSF1271",
         "ocp_alternative": "[chr10:61665879[G",
         "inclusion": true,
-        "public_med_ids": [],
+        "public_med_ids": [
+
+        ],
         "arm_specific": false,
         "level_of_evidence": 4.0,
         "description": "RET translocation"
@@ -1193,7 +1191,9 @@
         "identifier": "AGTRAP-BRAF.A5B8.COSF828",
         "ocp_alternative": "C]chr7:140494267]",
         "inclusion": true,
-        "public_med_ids": [],
+        "public_med_ids": [
+
+        ],
         "arm_specific": false,
         "level_of_evidence": 3.0,
         "description": "some description"
@@ -1211,7 +1211,9 @@
     "gene": "MTOR",
     "treatment_arm_status": "OPEN",
     "study_id": "APEC1621SC",
-    "assay_rules": [],
+    "assay_rules": [
+
+    ],
     "num_patients_assigned": null,
     "treatment_arm_drugs": [
       {
@@ -1278,8 +1280,12 @@
         "description": "some description"
       }
     ],
-    "copy_number_variants": [],
-    "non_hotspot_rules": [],
+    "copy_number_variants": [
+
+    ],
+    "non_hotspot_rules": [
+
+    ],
     "gene_fusions": [
       {
         "variant_type": "fusion",
@@ -1290,7 +1296,9 @@
         "identifier": "FGFR2-OFD1.F17O3",
         "ocp_alternative": "C[chrX:13754596[",
         "inclusion": false,
-        "public_med_ids": [],
+        "public_med_ids": [
+
+        ],
         "arm_specific": false,
         "level_of_evidence": 3.0,
         "description": "some description"
@@ -1308,7 +1316,9 @@
     "gene": "ALK",
     "treatment_arm_status": "OPEN",
     "study_id": "APEC1621SC",
-    "assay_rules": [],
+    "assay_rules": [
+
+    ],
     "num_patients_assigned": null,
     "treatment_arm_drugs": [
       {
@@ -1317,9 +1327,15 @@
         "drug_id": "113"
       }
     ],
-    "snv_indels": [],
-    "non_hotspot_rules": [],
-    "copy_number_variants": [],
+    "snv_indels": [
+
+    ],
+    "non_hotspot_rules": [
+
+    ],
+    "copy_number_variants": [
+
+    ],
     "gene_fusions": [
       {
         "variant_type": "fusion",
@@ -1366,7 +1382,9 @@
     "gene": "RET",
     "treatment_arm_status": "OPEN",
     "study_id": "APEC1621SC",
-    "assay_rules": [],
+    "assay_rules": [
+
+    ],
     "num_patients_assigned": null,
     "treatment_arm_drugs": [
       {
@@ -1375,9 +1393,15 @@
         "drug_id": "113"
       }
     ],
-    "snv_indels": [],
-    "non_hotspot_rules": [],
-    "copy_number_variants": [],
+    "snv_indels": [
+
+    ],
+    "non_hotspot_rules": [
+
+    ],
+    "copy_number_variants": [
+
+    ],
     "gene_fusions": [
       {
         "variant_type": "fusion",
@@ -1463,7 +1487,9 @@
     "gene": "ALK",
     "treatment_arm_status": "OPEN",
     "study_id": "APEC1621SC",
-    "assay_rules": [],
+    "assay_rules": [
+
+    ],
     "num_patients_assigned": null,
     "treatment_arm_drugs": [
       {
@@ -1495,7 +1521,9 @@
       {
         "inclusion": true,
         "oncomine_variant_class": "deleterious",
-        "public_med_ids": [],
+        "public_med_ids": [
+
+        ],
         "func_gene": "PTEN",
         "arm_specific": false,
         "level_of_evidence": 3.0
@@ -1538,7 +1566,9 @@
         "func_gene": "BRAF",
         "identifier": "AGTRAP-BRAF.A5B8.COSF828.1_2",
         "inclusion": true,
-        "public_med_ids": [],
+        "public_med_ids": [
+
+        ],
         "arm_specific": false,
         "level_of_evidence": 3.0,
         "chromosome": "chr7",
@@ -1552,7 +1582,9 @@
         "func_gene": "MAGI3",
         "identifier": "MAGI3-AKT3.M10A3_1",
         "inclusion": true,
-        "public_med_ids": [],
+        "public_med_ids": [
+
+        ],
         "arm_specific": false,
         "level_of_evidence": 3.0,
         "chromosome": "chr1",
@@ -1619,7 +1651,9 @@
     "target_id": 1234,
     "target_name": "HGFR Pathway",
     "date_created": "2016-11-08 15:57:25 UTC",
-    "assay_rules": [],
+    "assay_rules": [
+
+    ],
     "treatment_arm_drugs": [
       {
         "drugClass": "angiokinase inhibitor",
@@ -1628,8 +1662,12 @@
         "drugId": "1"
       }
     ],
-    "gene_fusions": [],
-    "non_hotspot_rules": [],
+    "gene_fusions": [
+
+    ],
+    "non_hotspot_rules": [
+
+    ],
     "snv_indels": [
       {
         "variant_type": "snp",
@@ -1647,7 +1685,9 @@
         "protein": "p.L858R"
       }
     ],
-    "copy_number_variants": []
+    "copy_number_variants": [
+
+    ]
   },
   {
     "treatment_arm_id": "APEC1621-X",
@@ -1661,7 +1701,9 @@
     "gene": "ALK",
     "treatment_arm_status": "OPEN",
     "study_id": "APEC1621SC",
-    "assay_rules": [],
+    "assay_rules": [
+
+    ],
     "num_patients_assigned": null,
     "treatment_arm_drugs": [
       {
@@ -1698,15 +1740,21 @@
       {
         "inclusion": true,
         "oncomine_variant_class": "deleterious",
-        "public_med_ids": [],
+        "public_med_ids": [
+
+        ],
         "func_gene": "PTEN",
         "arm_specific": false,
         "level_of_evidence": 2.0,
         "protein_match": null
       }
     ],
-    "copy_number_variants": [],
-    "gene_fusions": [],
+    "copy_number_variants": [
+
+    ],
+    "gene_fusions": [
+
+    ],
     "diseases": [
       {
         "disease_code_type": "ICD-O",
@@ -1745,7 +1793,9 @@
         "exclusion": false
       }
     ],
-    "exclusion_drugs": []
+    "exclusion_drugs": [
+
+    ]
   },
   {
     "treatment_arm_id": "APEC1621-X",
@@ -1759,7 +1809,9 @@
     "gene": "ALK",
     "treatment_arm_status": "OPEN",
     "study_id": "APEC1621SC",
-    "assay_rules": [],
+    "assay_rules": [
+
+    ],
     "num_patients_assigned": null,
     "treatment_arm_drugs": [
       {
@@ -1796,15 +1848,21 @@
       {
         "inclusion": true,
         "oncomine_variant_class": "deleterious",
-        "public_med_ids": [],
+        "public_med_ids": [
+
+        ],
         "func_gene": "PTEN",
         "arm_specific": false,
         "level_of_evidence": 3.0,
         "protein_match": null
       }
     ],
-    "copy_number_variants": [],
-    "gene_fusions": [],
+    "copy_number_variants": [
+
+    ],
+    "gene_fusions": [
+
+    ],
     "diseases": [
       {
         "disease_code_type": "ICD-O",
@@ -1843,7 +1901,9 @@
         "exclusion": false
       }
     ],
-    "exclusion_drugs": []
+    "exclusion_drugs": [
+
+    ]
   },
   {
     "treatment_arm_id": "APEC1621-2V",
@@ -1856,7 +1916,9 @@
     "gene": "ALK",
     "treatment_arm_status": "OPEN",
     "study_id": "APEC1621SC",
-    "assay_rules": [],
+    "assay_rules": [
+
+    ],
     "num_patients_assigned": null,
     "treatment_arm_drugs": [
       {
@@ -1893,9 +1955,15 @@
         "arm_specific": false
       }
     ],
-    "non_hotspot_rules": [],
-    "copy_number_variants": [],
-    "gene_fusions": [],
+    "non_hotspot_rules": [
+
+    ],
+    "copy_number_variants": [
+
+    ],
+    "gene_fusions": [
+
+    ],
     "diseases": [
       {
         "disease_code_type": "ICD-O",
@@ -1945,11 +2013,13 @@
   },
   {
     "assay_rules": [
+
     ],
     "copy_number_variants": [
+
     ],
     "date_created": "2017-05-04T20:54:02+00:00",
-    "description": "LY3023414 in TSC1\/TSC2 mutations",
+    "description": "LY3023414 in TSC1/TSC2 mutations",
     "diseases": [
       {
         "disease_code": "9384-1",
@@ -1960,7 +2030,7 @@
     ],
     "exclusion_drugs": [
       {
-        "drug_class": "PI3K\/mTOR",
+        "drug_class": "PI3K/mTOR",
         "drug_id": "783668",
         "name": "LY3023414"
       },
@@ -2169,66 +2239,66 @@
         "name": "ZSTK-474"
       },
       {
-        "drug_class": "PI3K\/AKT",
+        "drug_class": "PI3K/AKT",
         "name": "DNE3"
       },
       {
-        "drug_class": "PI3K\/AKT",
+        "drug_class": "PI3K/AKT",
         "name": "Miltefosine (Impavido)"
       },
       {
-        "drug_class": "PI3K\/mTOR",
+        "drug_class": "PI3K/mTOR",
         "drug_id": "753146",
         "name": "BEZ235"
       },
       {
-        "drug_class": "PI3K\/mTOR",
+        "drug_class": "PI3K/mTOR",
         "name": "DGC0980 (apitolisib)"
       },
       {
-        "drug_class": "PI3K\/mTOR",
+        "drug_class": "PI3K/mTOR",
         "name": "DS 7423"
       },
       {
-        "drug_class": "PI3K\/mTOR",
+        "drug_class": "PI3K/mTOR",
         "name": "GDC 0980"
       },
       {
-        "drug_class": "PI3K\/mTOR",
+        "drug_class": "PI3K/mTOR",
         "name": "GSK 2126458"
       },
       {
-        "drug_class": "PI3K\/mTOR",
+        "drug_class": "PI3K/mTOR",
         "name": "PF 05212384"
       },
       {
-        "drug_class": "PI3K\/mTOR",
+        "drug_class": "PI3K/mTOR",
         "name": "PF-04691502"
       },
       {
-        "drug_class": "PI3K\/mTOR",
+        "drug_class": "PI3K/mTOR",
         "name": "PKI-587"
       },
       {
-        "drug_class": "PI3K\/mTOR",
+        "drug_class": "PI3K/mTOR",
         "name": "Quinacrine"
       },
       {
-        "drug_class": "PI3K\/mTOR",
+        "drug_class": "PI3K/mTOR",
         "drug_id": "762370",
         "name": "XL-765"
       },
       {
-        "drug_class": "TORC1\/2",
+        "drug_class": "TORC1/2",
         "drug_id": "768435",
         "name": "MLN-0128"
       },
       {
-        "drug_class": "TORC1\/2",
+        "drug_class": "TORC1/2",
         "name": "P-P7170"
       },
       {
-        "drug_class": "TORC1\/2",
+        "drug_class": "TORC1/2",
         "name": "Palomid-529"
       }
     ],
@@ -2242,9 +2312,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2140"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2254,9 +2324,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2141"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2266,9 +2336,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2142"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2278,9 +2348,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2143"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2290,9 +2360,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2144"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2302,9 +2372,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2145"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2314,9 +2384,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2146"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2326,9 +2396,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2147"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2338,9 +2408,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2148"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2350,9 +2420,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2149"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2362,9 +2432,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2150"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2374,9 +2444,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2151"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2386,9 +2456,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2152"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2398,9 +2468,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2153"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2410,9 +2480,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2154"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2422,9 +2492,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2155"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2434,9 +2504,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2156"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2446,9 +2516,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2157"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2458,9 +2528,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2158"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2470,9 +2540,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2159"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2482,9 +2552,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2160"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2494,9 +2564,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2161"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2506,9 +2576,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2162"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2518,9 +2588,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2163"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2530,9 +2600,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2164"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2542,9 +2612,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2165"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2554,9 +2624,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2166"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2566,9 +2636,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2167"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2578,9 +2648,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2168"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2590,9 +2660,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2169"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2602,9 +2672,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2170"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2614,9 +2684,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2171"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2626,9 +2696,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2172"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2638,9 +2708,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2173"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2650,9 +2720,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2174"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2662,9 +2732,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2175"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2674,9 +2744,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2176"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2686,9 +2756,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2177"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2698,9 +2768,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2178"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2710,9 +2780,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2179"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2722,9 +2792,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2180"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2734,9 +2804,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2181"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2746,9 +2816,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2182"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2758,9 +2828,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2183"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2770,9 +2840,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2184"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2782,9 +2852,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2185"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2794,9 +2864,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2186"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2806,9 +2876,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2187"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2818,9 +2888,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2188"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2830,9 +2900,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2189"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2842,9 +2912,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2190"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2854,9 +2924,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2191"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2866,9 +2936,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2192"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2878,9 +2948,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2193"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2890,9 +2960,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2194"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2902,9 +2972,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2195"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2914,9 +2984,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2196"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2926,9 +2996,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2197"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2938,9 +3008,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2198"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2950,9 +3020,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2199"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2962,9 +3032,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2200"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2974,9 +3044,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2201"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2986,9 +3056,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2202"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -2998,9 +3068,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2203"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3010,9 +3080,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2204"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3022,9 +3092,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2205"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3034,9 +3104,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2206"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3046,9 +3116,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2207"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3058,9 +3128,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2208"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3070,9 +3140,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2209"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3082,9 +3152,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2210"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3094,9 +3164,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2211"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3106,9 +3176,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2212"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3118,9 +3188,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2213"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3130,9 +3200,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2214"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3142,9 +3212,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2215"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3154,9 +3224,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2216"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3166,9 +3236,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2217"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3178,9 +3248,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2218"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3190,9 +3260,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2219"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3202,9 +3272,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2220"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3214,9 +3284,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2221"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3226,9 +3296,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2222"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3238,9 +3308,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2223"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3250,9 +3320,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2224"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3262,9 +3332,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2225"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3274,9 +3344,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2226"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3286,9 +3356,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2227"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3298,9 +3368,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2228"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3310,9 +3380,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2229"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3322,9 +3392,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2230"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3334,9 +3404,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2231"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3346,9 +3416,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2232"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3358,9 +3428,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2233"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3370,9 +3440,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2234"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3382,9 +3452,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2235"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3394,9 +3464,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2236"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3406,9 +3476,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2237"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3418,9 +3488,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2238"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3430,9 +3500,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2239"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3442,9 +3512,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2240"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3454,9 +3524,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2241"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3466,9 +3536,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2242"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3478,9 +3548,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2243"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3490,9 +3560,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2244"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3502,9 +3572,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2245"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3514,9 +3584,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2246"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3526,9 +3596,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2247"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3538,9 +3608,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2248"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3550,9 +3620,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2249"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3562,9 +3632,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2250"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3574,9 +3644,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2251"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3586,9 +3656,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2252"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3598,9 +3668,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2253"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3610,9 +3680,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2254"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3622,9 +3692,9 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2255"
+        "variant_type": "fusion"
       },
       {
         "arm_specific": false,
@@ -3634,12 +3704,12 @@
         "inclusion": false,
         "level_of_evidence": 2,
         "public_med_ids": [
+
         ],
-        "variant_type": "fusion",
-        "$$hashKey": "object:2256"
+        "variant_type": "fusion"
       }
     ],
-    "name": "Phase 2 study of LY3023414 in TSC1\/TSC2 mutation",
+    "name": "Phase 2 study of LY3023414 in TSC1/TSC2 mutation",
     "non_hotspot_rules": [
       {
         "arm_specific": false,
@@ -3648,9 +3718,9 @@
         "level_of_evidence": 3,
         "oncomine_variant_class": "Deleterious",
         "public_med_ids": [
+
         ],
-        "type": "nhr",
-        "$$hashKey": "object:414"
+        "type": "nhr"
       },
       {
         "arm_specific": false,
@@ -3659,9 +3729,9 @@
         "level_of_evidence": 3,
         "oncomine_variant_class": "Deleterious",
         "public_med_ids": [
+
         ],
-        "type": "nhr",
-        "$$hashKey": "object:415"
+        "type": "nhr"
       },
       {
         "arm_specific": false,
@@ -3670,9 +3740,9 @@
         "level_of_evidence": null,
         "oncomine_variant_class": "Deleterious",
         "public_med_ids": [
+
         ],
-        "type": "nhr",
-        "$$hashKey": "object:2136"
+        "type": "nhr"
       },
       {
         "arm_specific": false,
@@ -3681,9 +3751,9 @@
         "level_of_evidence": null,
         "oncomine_variant_class": "Deleterious",
         "public_med_ids": [
+
         ],
-        "type": "nhr",
-        "$$hashKey": "object:2137"
+        "type": "nhr"
       }
     ],
     "snv_indels": [
@@ -3701,8 +3771,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:128"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -3717,8 +3786,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "del",
-        "$$hashKey": "object:129"
+        "variant_type": "del"
       },
       {
         "arm_specific": false,
@@ -3734,8 +3802,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:130"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -3751,8 +3818,7 @@
         "public_med_ids": [
           "22161988"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:131"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -3768,8 +3834,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:132"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -3785,8 +3850,7 @@
         "public_med_ids": [
           "22161988"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:133"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -3802,8 +3866,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:134"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -3819,8 +3882,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:135"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -3836,8 +3898,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:136"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -3853,8 +3914,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:137"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -3870,8 +3930,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:138"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -3887,8 +3946,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:139"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -3904,8 +3962,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:140"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -3921,8 +3978,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:141"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -3938,8 +3994,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:142"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -3955,8 +4010,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:143"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -3972,8 +4026,7 @@
         "public_med_ids": [
           "22161988"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:144"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -3989,8 +4042,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:145"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4006,8 +4058,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:146"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4023,8 +4074,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:147"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4039,8 +4089,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "del",
-        "$$hashKey": "object:148"
+        "variant_type": "del"
       },
       {
         "arm_specific": false,
@@ -4055,8 +4104,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "del",
-        "$$hashKey": "object:149"
+        "variant_type": "del"
       },
       {
         "arm_specific": false,
@@ -4072,8 +4120,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:150"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4089,8 +4136,7 @@
         "public_med_ids": [
           "22161988"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:151"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4106,8 +4152,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:152"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4123,8 +4168,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:153"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4139,8 +4183,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "del",
-        "$$hashKey": "object:154"
+        "variant_type": "del"
       },
       {
         "arm_specific": false,
@@ -4156,8 +4199,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:155"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4173,8 +4215,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:156"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4190,8 +4231,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:157"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4207,8 +4247,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:158"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4224,8 +4263,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:159"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4241,8 +4279,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:160"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4258,8 +4295,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:161"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4275,8 +4311,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:162"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4292,8 +4327,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:163"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4309,8 +4343,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:164"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4326,8 +4359,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:165"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4343,8 +4375,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:166"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4360,8 +4391,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:167"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4376,8 +4406,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "del",
-        "$$hashKey": "object:168"
+        "variant_type": "del"
       },
       {
         "arm_specific": false,
@@ -4393,8 +4422,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:169"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4410,8 +4438,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:170"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4427,8 +4454,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:171"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4444,8 +4470,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:172"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4461,8 +4486,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:173"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4478,8 +4502,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:174"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4495,8 +4518,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:175"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4512,8 +4534,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:176"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4529,8 +4550,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:177"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4546,8 +4566,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:178"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4563,8 +4582,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:179"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4580,8 +4598,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:180"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4597,8 +4614,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:181"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4614,8 +4630,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:182"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4631,8 +4646,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:183"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4648,8 +4662,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:184"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4665,8 +4678,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:185"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4682,8 +4694,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:186"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4699,8 +4710,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:187"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4716,8 +4726,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:188"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4733,8 +4742,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:189"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4749,8 +4757,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "del",
-        "$$hashKey": "object:190"
+        "variant_type": "del"
       },
       {
         "arm_specific": false,
@@ -4766,8 +4773,7 @@
         "public_med_ids": [
           "22903760"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:191"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4783,8 +4789,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:192"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4800,8 +4805,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:193"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4817,8 +4821,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:194"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4834,8 +4837,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:195"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4851,8 +4853,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:196"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4868,8 +4869,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:197"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4885,8 +4885,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:198"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4902,8 +4901,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:199"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4919,8 +4917,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:200"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4936,8 +4933,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:201"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4953,8 +4949,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:202"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4970,8 +4965,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:203"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -4987,8 +4981,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:204"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5004,8 +4997,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:205"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5021,8 +5013,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:206"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5038,8 +5029,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:207"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5055,8 +5045,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:208"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5072,8 +5061,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:209"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5089,8 +5077,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:210"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5106,8 +5093,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:211"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5123,8 +5109,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:212"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5139,8 +5124,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "ins",
-        "$$hashKey": "object:213"
+        "variant_type": "ins"
       },
       {
         "arm_specific": false,
@@ -5155,8 +5139,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "del",
-        "$$hashKey": "object:214"
+        "variant_type": "del"
       },
       {
         "arm_specific": false,
@@ -5171,8 +5154,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "del",
-        "$$hashKey": "object:215"
+        "variant_type": "del"
       },
       {
         "arm_specific": false,
@@ -5188,8 +5170,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "ins",
-        "$$hashKey": "object:216"
+        "variant_type": "ins"
       },
       {
         "arm_specific": false,
@@ -5204,8 +5185,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "ins",
-        "$$hashKey": "object:217"
+        "variant_type": "ins"
       },
       {
         "arm_specific": false,
@@ -5220,8 +5200,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "del",
-        "$$hashKey": "object:218"
+        "variant_type": "del"
       },
       {
         "arm_specific": false,
@@ -5237,8 +5216,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:219"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5254,8 +5232,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:220"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5271,8 +5248,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:221"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5288,8 +5264,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:222"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5305,8 +5280,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:223"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5322,8 +5296,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:224"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5339,8 +5312,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:225"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5356,8 +5328,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:226"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5373,8 +5344,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:227"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5390,8 +5360,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:228"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5407,8 +5376,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:229"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5424,8 +5392,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:230"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5441,8 +5408,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:231"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5458,8 +5424,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:232"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5475,8 +5440,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:233"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5492,8 +5456,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:234"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5509,8 +5472,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:235"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5526,8 +5488,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:236"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5543,8 +5504,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:237"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5560,8 +5520,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:238"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5577,8 +5536,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:239"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5594,8 +5552,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:240"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5611,8 +5568,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:241"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5628,8 +5584,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:242"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5645,8 +5600,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:243"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5662,8 +5616,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:244"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5679,8 +5632,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:245"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5696,8 +5648,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:246"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5713,8 +5664,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:247"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5730,8 +5680,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:248"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5747,8 +5696,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:249"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5764,8 +5712,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:250"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5781,8 +5728,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:251"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5798,8 +5744,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:252"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5815,8 +5760,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:253"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5832,8 +5776,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:254"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5849,8 +5792,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:255"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5866,8 +5808,7 @@
         "public_med_ids": [
           "21309039"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:256"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5883,8 +5824,7 @@
         "public_med_ids": [
           "25724664"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:257"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5900,8 +5840,7 @@
         "public_med_ids": [
           "25724664"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:258"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5916,8 +5855,7 @@
         "public_med_ids": [
           "25782670"
         ],
-        "variant_type": "del",
-        "$$hashKey": "object:259"
+        "variant_type": "del"
       },
       {
         "arm_specific": false,
@@ -5933,8 +5871,7 @@
         "public_med_ids": [
           "25782670"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:260"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5950,8 +5887,7 @@
         "public_med_ids": [
           "25782670"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:261"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5967,8 +5903,7 @@
         "public_med_ids": [
           "25782670"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:262"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -5984,8 +5919,7 @@
         "public_med_ids": [
           "25782670"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:263"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -6001,8 +5935,7 @@
         "public_med_ids": [
           "25782670"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:264"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -6018,8 +5951,7 @@
         "public_med_ids": [
           "25782670"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:265"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -6035,8 +5967,7 @@
         "public_med_ids": [
           "25782670"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:266"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -6052,8 +5983,7 @@
         "public_med_ids": [
           "25782670"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:267"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -6069,8 +5999,7 @@
         "public_med_ids": [
           "25782670"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:268"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -6086,8 +6015,7 @@
         "public_med_ids": [
           "25782670"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:269"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -6103,8 +6031,7 @@
         "public_med_ids": [
           "25782670"
         ],
-        "variant_type": "snp",
-        "$$hashKey": "object:270"
+        "variant_type": "snp"
       },
       {
         "arm_specific": false,
@@ -6118,6 +6045,7 @@
         "ocp_reference": "T",
         "position": "115256528",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6133,6 +6061,7 @@
         "ocp_reference": "T",
         "position": "115256528",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6148,6 +6077,7 @@
         "ocp_reference": "T",
         "position": "115256529",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6163,6 +6093,7 @@
         "ocp_reference": "T",
         "position": "115256529",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6178,6 +6109,7 @@
         "ocp_reference": "T",
         "position": "115256529",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6193,6 +6125,7 @@
         "ocp_reference": "TT",
         "position": "115256529",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -6208,6 +6141,7 @@
         "ocp_reference": "TT",
         "position": "115256529",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -6223,6 +6157,7 @@
         "ocp_reference": "G",
         "position": "115256530",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6238,6 +6173,7 @@
         "ocp_reference": "G",
         "position": "115256530",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6253,6 +6189,7 @@
         "ocp_reference": "TTG",
         "position": "115256530",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -6268,6 +6205,7 @@
         "ocp_reference": "TG",
         "position": "115256530",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -6283,6 +6221,7 @@
         "ocp_reference": "TG",
         "position": "115256530",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -6298,6 +6237,7 @@
         "ocp_reference": "GT",
         "position": "115256531",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -6313,6 +6253,7 @@
         "ocp_reference": "C",
         "position": "115258744",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6328,6 +6269,7 @@
         "ocp_reference": "C",
         "position": "115258744",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6343,6 +6285,7 @@
         "ocp_reference": "C",
         "position": "115258744",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6358,6 +6301,7 @@
         "ocp_reference": "GT",
         "position": "115258744",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -6373,6 +6317,7 @@
         "ocp_reference": "C",
         "position": "115258745",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6388,6 +6333,7 @@
         "ocp_reference": "C",
         "position": "115258745",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6403,6 +6349,7 @@
         "ocp_reference": "C",
         "position": "115258745",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6418,6 +6365,7 @@
         "ocp_reference": "C",
         "position": "115258747",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6433,6 +6381,7 @@
         "ocp_reference": "C",
         "position": "115258747",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6448,6 +6397,7 @@
         "ocp_reference": "C",
         "position": "115258747",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6463,6 +6413,7 @@
         "ocp_reference": "C",
         "position": "115258748",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6478,6 +6429,7 @@
         "ocp_reference": "C",
         "position": "115258748",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6493,6 +6445,7 @@
         "ocp_reference": "C",
         "position": "115258748",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6508,6 +6461,7 @@
         "ocp_reference": "C",
         "position": "533873",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6523,6 +6477,7 @@
         "ocp_reference": "C",
         "position": "533873",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6538,6 +6493,7 @@
         "ocp_reference": "T",
         "position": "533874",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6553,6 +6509,7 @@
         "ocp_reference": "T",
         "position": "533874",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6568,6 +6525,7 @@
         "ocp_reference": "T",
         "position": "533874",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6583,6 +6541,7 @@
         "ocp_reference": "CT",
         "position": "533874",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -6598,6 +6557,7 @@
         "ocp_reference": "CT",
         "position": "533874",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -6613,6 +6573,7 @@
         "ocp_reference": "G",
         "position": "533875",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6628,6 +6589,7 @@
         "ocp_reference": "G",
         "position": "533875",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6643,6 +6605,7 @@
         "ocp_reference": "CT",
         "position": "533875",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -6658,6 +6621,7 @@
         "ocp_reference": "C",
         "position": "534285",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6673,6 +6637,7 @@
         "ocp_reference": "C",
         "position": "534285",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6688,6 +6653,7 @@
         "ocp_reference": "C",
         "position": "534286",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6703,6 +6669,7 @@
         "ocp_reference": "C",
         "position": "534286",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6718,6 +6685,7 @@
         "ocp_reference": "C",
         "position": "534286",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6733,6 +6701,7 @@
         "ocp_reference": "C",
         "position": "534288",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6748,6 +6717,7 @@
         "ocp_reference": "C",
         "position": "534288",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6763,6 +6733,7 @@
         "ocp_reference": "C",
         "position": "534288",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6778,6 +6749,7 @@
         "ocp_reference": "C",
         "position": "534289",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6793,6 +6765,7 @@
         "ocp_reference": "C",
         "position": "534289",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6808,6 +6781,7 @@
         "ocp_reference": "C",
         "position": "534289",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6823,6 +6797,7 @@
         "ocp_reference": "G",
         "position": "25378561",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6838,6 +6813,7 @@
         "ocp_reference": "C",
         "position": "25378562",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6853,6 +6829,7 @@
         "ocp_reference": "T",
         "position": "25378647",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6868,6 +6845,7 @@
         "ocp_reference": "T",
         "position": "25378647",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6883,6 +6861,7 @@
         "ocp_reference": "T",
         "position": "25380275",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6898,6 +6877,7 @@
         "ocp_reference": "T",
         "position": "25380275",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6913,6 +6893,7 @@
         "ocp_reference": "T",
         "position": "25380276",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6928,6 +6909,7 @@
         "ocp_reference": "T",
         "position": "25380276",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6943,6 +6925,7 @@
         "ocp_reference": "T",
         "position": "25380276",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6958,6 +6941,7 @@
         "ocp_reference": "TT",
         "position": "25380276",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -6973,6 +6957,7 @@
         "ocp_reference": "G",
         "position": "25380277",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -6988,6 +6973,7 @@
         "ocp_reference": "G",
         "position": "25380277",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7003,6 +6989,7 @@
         "ocp_reference": "GA",
         "position": "25380278",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -7018,6 +7005,7 @@
         "ocp_reference": "C",
         "position": "25398275",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7033,6 +7021,7 @@
         "ocp_reference": "C",
         "position": "25398276",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7048,6 +7037,7 @@
         "ocp_reference": "GC",
         "position": "25398279",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7063,6 +7053,7 @@
         "ocp_reference": "GC",
         "position": "25398279",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7078,6 +7069,7 @@
         "ocp_reference": "C",
         "position": "25398281",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7093,6 +7085,7 @@
         "ocp_reference": "C",
         "position": "25398281",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7108,6 +7101,7 @@
         "ocp_reference": "C",
         "position": "25398281",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7123,6 +7117,7 @@
         "ocp_reference": "GC",
         "position": "25398281",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -7138,6 +7133,7 @@
         "ocp_reference": "GC",
         "position": "25398281",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -7153,6 +7149,7 @@
         "ocp_reference": "GC",
         "position": "25398281",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -7168,6 +7165,7 @@
         "ocp_reference": "C",
         "position": "25398282",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7183,6 +7181,7 @@
         "ocp_reference": "C",
         "position": "25398282",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7198,6 +7197,7 @@
         "ocp_reference": "C",
         "position": "25398282",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7213,6 +7213,7 @@
         "ocp_reference": "CC",
         "position": "25398283",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -7228,6 +7229,7 @@
         "ocp_reference": "CC",
         "position": "25398283",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -7243,6 +7245,7 @@
         "ocp_reference": "CC",
         "position": "25398283",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -7258,6 +7261,7 @@
         "ocp_reference": "CA",
         "position": "25398283",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -7273,6 +7277,7 @@
         "ocp_reference": "C",
         "position": "25398284",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7288,6 +7293,7 @@
         "ocp_reference": "C",
         "position": "25398284",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7303,6 +7309,7 @@
         "ocp_reference": "C",
         "position": "25398284",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7318,6 +7325,7 @@
         "ocp_reference": "AC",
         "position": "25398284",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -7333,6 +7341,7 @@
         "ocp_reference": "AC",
         "position": "25398284",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -7348,6 +7357,7 @@
         "ocp_reference": "C",
         "position": "25398285",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7363,6 +7373,7 @@
         "ocp_reference": "C",
         "position": "25398285",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7378,6 +7389,7 @@
         "ocp_reference": "C",
         "position": "25398285",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7393,6 +7405,7 @@
         "ocp_reference": "ACC",
         "position": "25398285",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -7408,6 +7421,7 @@
         "ocp_reference": "AC",
         "position": "25398284",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -7423,6 +7437,7 @@
         "ocp_reference": "ACC",
         "position": "25398285",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -7438,6 +7453,7 @@
         "ocp_reference": "ACC",
         "position": "25398285",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -7453,6 +7469,7 @@
         "ocp_reference": "AC",
         "position": "25398284",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -7468,6 +7485,7 @@
         "ocp_reference": "CA",
         "position": "25398283",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -7483,6 +7501,7 @@
         "ocp_reference": "C",
         "position": "47426121",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7498,6 +7517,7 @@
         "ocp_reference": "T",
         "position": "47426120",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7513,6 +7533,7 @@
         "ocp_reference": "C",
         "position": "47426121",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7528,6 +7549,7 @@
         "ocp_reference": "T",
         "position": "140453132",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7543,6 +7565,7 @@
         "ocp_reference": "T",
         "position": "140453132",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7558,6 +7581,7 @@
         "ocp_reference": "CA",
         "position": "140453134",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -7573,6 +7597,7 @@
         "ocp_reference": "CA",
         "position": "140453134",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -7588,6 +7613,7 @@
         "ocp_reference": "CA",
         "position": "140453134",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -7603,6 +7629,7 @@
         "ocp_reference": "ACT",
         "position": "140453135",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -7618,6 +7645,7 @@
         "ocp_reference": "AC",
         "position": "140453135",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -7633,6 +7661,7 @@
         "ocp_reference": "AC",
         "position": "140453135",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -7648,6 +7677,7 @@
         "ocp_reference": "AC",
         "position": "140453135",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -7663,6 +7693,7 @@
         "ocp_reference": "A",
         "position": "140453135",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7678,6 +7709,7 @@
         "ocp_reference": "A",
         "position": "140453135",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7693,6 +7725,7 @@
         "ocp_reference": "AC",
         "position": "140453135",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -7708,6 +7741,7 @@
         "ocp_reference": "A",
         "position": "140453136",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7723,6 +7757,7 @@
         "ocp_reference": "C",
         "position": "140453136",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7738,6 +7773,7 @@
         "ocp_reference": "C",
         "position": "140453136",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7753,6 +7789,7 @@
         "ocp_reference": "C",
         "position": "140453136",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7767,6 +7804,7 @@
         "ocp_reference": "TCA",
         "position": "140453136",
         "public_med_ids": [
+
         ],
         "variant_type": "del"
       },
@@ -7781,6 +7819,7 @@
         "ocp_alternative": "GTA",
         "position": "140453139",
         "public_med_ids": [
+
         ],
         "variant_type": "ins"
       },
@@ -7795,6 +7834,7 @@
         "ocp_alternative": "AAC",
         "position": "140453141",
         "public_med_ids": [
+
         ],
         "variant_type": "ins"
       },
@@ -7810,6 +7850,7 @@
         "ocp_reference": "C",
         "position": "140481403",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7825,6 +7866,7 @@
         "ocp_reference": "C",
         "position": "140481403",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7840,6 +7882,7 @@
         "ocp_reference": "C",
         "position": "140481412",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7855,6 +7898,7 @@
         "ocp_reference": "T",
         "position": "140453134",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7870,6 +7914,7 @@
         "ocp_reference": "G",
         "position": "140453139",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7885,6 +7930,7 @@
         "ocp_reference": "G",
         "position": "140453142",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7900,6 +7946,7 @@
         "ocp_reference": "TAG",
         "position": "140453144",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -7915,6 +7962,7 @@
         "ocp_reference": "A",
         "position": "140453145",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7930,6 +7978,7 @@
         "ocp_reference": "A",
         "position": "140453145",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7945,6 +7994,7 @@
         "ocp_reference": "G",
         "position": "140453146",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7960,6 +8010,7 @@
         "ocp_reference": "C",
         "position": "140453149",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7975,6 +8026,7 @@
         "ocp_reference": "A",
         "position": "140453150",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -7990,6 +8042,7 @@
         "ocp_reference": "A",
         "position": "140453150",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8005,6 +8058,7 @@
         "ocp_reference": "A",
         "position": "140453152",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8020,6 +8074,7 @@
         "ocp_reference": "T",
         "position": "140453154",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8035,6 +8090,7 @@
         "ocp_reference": "T",
         "position": "140453154",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8050,6 +8106,7 @@
         "ocp_reference": "TCA",
         "position": "140453154",
         "public_med_ids": [
+
         ],
         "variant_type": "mnp"
       },
@@ -8065,6 +8122,7 @@
         "ocp_reference": "T",
         "position": "140453154",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8080,6 +8138,7 @@
         "ocp_reference": "C",
         "position": "140453155",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8095,6 +8154,7 @@
         "ocp_reference": "C",
         "position": "140453179",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8110,6 +8170,7 @@
         "ocp_reference": "T",
         "position": "140453193",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8125,6 +8186,7 @@
         "ocp_reference": "T",
         "position": "140481393",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8140,6 +8202,7 @@
         "ocp_reference": "C",
         "position": "140481402",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8155,6 +8218,7 @@
         "ocp_reference": "C",
         "position": "140481402",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8170,6 +8234,7 @@
         "ocp_reference": "C",
         "position": "140481402",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8185,6 +8250,7 @@
         "ocp_reference": "C",
         "position": "140481411",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8200,6 +8266,7 @@
         "ocp_reference": "C",
         "position": "140481411",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8215,6 +8282,7 @@
         "ocp_reference": "C",
         "position": "140481411",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8230,6 +8298,7 @@
         "ocp_reference": "C",
         "position": "140481412",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8245,6 +8314,7 @@
         "ocp_reference": "C",
         "position": "140481417",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8260,6 +8330,7 @@
         "ocp_reference": "C",
         "position": "140481417",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8275,6 +8346,7 @@
         "ocp_reference": "C",
         "position": "140481418",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8290,6 +8362,7 @@
         "ocp_reference": "C",
         "position": "140481418",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8305,6 +8378,7 @@
         "ocp_reference": "A",
         "position": "140481420",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8320,6 +8394,7 @@
         "ocp_reference": "C",
         "position": "140481423",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8334,6 +8409,7 @@
         "ocp_reference": "TGCTTCTGGGTAAGA",
         "position": "66727443",
         "public_med_ids": [
+
         ],
         "variant_type": "del"
       },
@@ -8348,6 +8424,7 @@
         "ocp_reference": "CACCTTCTGCTTCTG",
         "position": "66727450",
         "public_med_ids": [
+
         ],
         "variant_type": "del"
       },
@@ -8363,6 +8440,7 @@
         "ocp_reference": "A",
         "position": "66727451",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8378,6 +8456,7 @@
         "ocp_reference": "A",
         "position": "66727454",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8393,6 +8472,7 @@
         "ocp_reference": "G",
         "position": "66727455",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8408,6 +8488,7 @@
         "ocp_reference": "G",
         "position": "66727455",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8422,6 +8503,7 @@
         "ocp_reference": "TCCCACCTTCTGCTT",
         "position": "66727466",
         "public_med_ids": [
+
         ],
         "variant_type": "del"
       },
@@ -8436,6 +8518,7 @@
         "ocp_reference": "CTCCCACCTTCTGCT",
         "position": "66727468",
         "public_med_ids": [
+
         ],
         "variant_type": "del"
       },
@@ -8450,6 +8533,7 @@
         "ocp_reference": "TTCTCCCACCTTCTG",
         "position": "66727470",
         "public_med_ids": [
+
         ],
         "variant_type": "del"
       },
@@ -8465,6 +8549,7 @@
         "ocp_reference": "C",
         "position": "66727482",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8480,6 +8565,7 @@
         "ocp_reference": "G",
         "position": "66727483",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8494,6 +8580,7 @@
         "ocp_reference": "TCTCCA",
         "position": "66729099",
         "public_med_ids": [
+
         ],
         "variant_type": "del"
       },
@@ -8508,6 +8595,7 @@
         "ocp_reference": "ATCTCC",
         "position": "66729100",
         "public_med_ids": [
+
         ],
         "variant_type": "del"
       },
@@ -8522,6 +8610,7 @@
         "ocp_reference": "GATCTC",
         "position": "66729101",
         "public_med_ids": [
+
         ],
         "variant_type": "del"
       },
@@ -8536,6 +8625,7 @@
         "ocp_reference": "TGATCT",
         "position": "66729102",
         "public_med_ids": [
+
         ],
         "variant_type": "del"
       },
@@ -8550,6 +8640,7 @@
         "ocp_reference": "TTTGAT",
         "position": "66729104",
         "public_med_ids": [
+
         ],
         "variant_type": "del"
       },
@@ -8565,6 +8656,7 @@
         "ocp_reference": "C",
         "position": "66729150",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8580,6 +8672,7 @@
         "ocp_reference": "T",
         "position": "66729153",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8595,6 +8688,7 @@
         "ocp_reference": "G",
         "position": "66729154",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8610,6 +8704,7 @@
         "ocp_reference": "A",
         "position": "66729159",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8625,6 +8720,7 @@
         "ocp_reference": "G",
         "position": "66729175",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8640,6 +8736,7 @@
         "ocp_reference": "G",
         "position": "66774131",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8655,6 +8752,7 @@
         "ocp_reference": "T",
         "position": "3118942",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8670,6 +8768,7 @@
         "ocp_reference": "C",
         "position": "3118942",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8685,6 +8784,7 @@
         "ocp_reference": "A",
         "position": "80409488",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8700,6 +8800,7 @@
         "ocp_reference": "G",
         "position": "80409488",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8715,6 +8816,7 @@
         "ocp_reference": "C",
         "position": "80409488",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       },
@@ -8730,6 +8832,7 @@
         "ocp_reference": "C",
         "position": "80412493",
         "public_med_ids": [
+
         ],
         "variant_type": "snp"
       }
@@ -8741,7 +8844,7 @@
       {
         "drug_id": "783668",
         "name": "LY3023414",
-        "pathway": "PI3K\/AKT1\/mTOR"
+        "pathway": "PI3K/AKT1/mTOR"
       }
     ],
     "treatment_arm_id": "APEC1621LOTSNV",

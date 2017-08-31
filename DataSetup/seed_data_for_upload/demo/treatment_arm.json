@@ -48,9 +48,6 @@
               "oncomine_variant_class": {
                 "S": "Deleterious"
               },
-              "$$hash_key": {
-                "S": "object:414"
-              },
               "inclusion": {
                 "BOOL": true
               },
@@ -77,9 +74,6 @@
               },
               "oncomine_variant_class": {
                 "S": "Deleterious"
-              },
-              "$$hash_key": {
-                "S": "object:415"
               },
               "inclusion": {
                 "BOOL": true
@@ -108,9 +102,6 @@
               "oncomine_variant_class": {
                 "S": "Deleterious"
               },
-              "$$hash_key": {
-                "S": "object:2136"
-              },
               "inclusion": {
                 "BOOL": false
               },
@@ -137,9 +128,6 @@
               },
               "oncomine_variant_class": {
                 "S": "Deleterious"
-              },
-              "$$hash_key": {
-                "S": "object:2137"
               },
               "inclusion": {
                 "BOOL": false
@@ -883,9 +871,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2140"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -915,9 +900,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2141"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -949,9 +931,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2142"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -981,9 +960,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2143"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -1015,9 +991,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2144"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -1047,9 +1020,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2145"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -1081,9 +1051,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2146"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -1113,9 +1080,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2147"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -1147,9 +1111,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2148"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -1179,9 +1140,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2149"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -1213,9 +1171,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2150"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -1245,9 +1200,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2151"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -1279,9 +1231,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2152"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -1311,9 +1260,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2153"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -1345,9 +1291,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2154"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -1377,9 +1320,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2155"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -1411,9 +1351,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2156"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -1443,9 +1380,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2157"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -1477,9 +1411,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2158"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -1509,9 +1440,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2159"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -1543,9 +1471,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2160"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -1575,9 +1500,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2161"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -1609,9 +1531,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2162"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -1641,9 +1560,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2163"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -1675,9 +1591,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2164"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -1707,9 +1620,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2165"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -1741,9 +1651,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2166"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -1773,9 +1680,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2167"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -1807,9 +1711,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2168"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -1839,9 +1740,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2169"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -1873,9 +1771,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2170"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -1905,9 +1800,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2171"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -1939,9 +1831,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2172"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -1971,9 +1860,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2173"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -2005,9 +1891,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2174"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -2037,9 +1920,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2175"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -2071,9 +1951,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2176"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -2103,9 +1980,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2177"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -2137,9 +2011,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2178"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -2169,9 +2040,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2179"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -2203,9 +2071,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2180"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -2235,9 +2100,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2181"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -2269,9 +2131,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2182"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -2301,9 +2160,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2183"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -2335,9 +2191,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2184"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -2367,9 +2220,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2185"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -2401,9 +2251,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2186"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -2433,9 +2280,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2187"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -2467,9 +2311,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2188"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -2499,9 +2340,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2189"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -2533,9 +2371,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2190"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -2565,9 +2400,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2191"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -2599,9 +2431,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2192"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -2631,9 +2460,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2193"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -2665,9 +2491,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2194"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -2697,9 +2520,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2195"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -2731,9 +2551,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2196"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -2763,9 +2580,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2197"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -2797,9 +2611,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2198"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -2829,9 +2640,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2199"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -2863,9 +2671,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2200"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -2895,9 +2700,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2201"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -2929,9 +2731,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2202"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -2961,9 +2760,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2203"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -2995,9 +2791,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2204"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -3027,9 +2820,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2205"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -3061,9 +2851,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2206"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -3093,9 +2880,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2207"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -3127,9 +2911,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2208"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -3159,9 +2940,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2209"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -3193,9 +2971,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2210"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -3225,9 +3000,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2211"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -3259,9 +3031,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2212"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -3291,9 +3060,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2213"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -3325,9 +3091,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2214"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -3357,9 +3120,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2215"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -3391,9 +3151,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2216"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -3423,9 +3180,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2217"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -3457,9 +3211,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2218"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -3489,9 +3240,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2219"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -3523,9 +3271,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2220"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -3555,9 +3300,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2221"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -3589,9 +3331,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2222"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -3621,9 +3360,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2223"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -3655,9 +3391,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2224"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -3687,9 +3420,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2225"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -3721,9 +3451,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2226"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -3753,9 +3480,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2227"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -3787,9 +3511,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2228"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -3819,9 +3540,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2229"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -3853,9 +3571,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2230"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -3885,9 +3600,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2231"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -3919,9 +3631,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2232"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -3951,9 +3660,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2233"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -3985,9 +3691,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2234"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -4017,9 +3720,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2235"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -4051,9 +3751,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2236"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -4083,9 +3780,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2237"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -4117,9 +3811,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2238"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -4149,9 +3840,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2239"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -4183,9 +3871,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2240"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -4215,9 +3900,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2241"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -4249,9 +3931,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2242"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -4281,9 +3960,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2243"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -4315,9 +3991,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2244"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -4347,9 +4020,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2245"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -4381,9 +4051,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2246"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -4413,9 +4080,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2247"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -4447,9 +4111,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2248"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -4479,9 +4140,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2249"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -4513,9 +4171,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2250"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -4545,9 +4200,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2251"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -4579,9 +4231,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2252"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -4611,9 +4260,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2253"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -4645,9 +4291,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2254"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -4678,9 +4321,6 @@
               "level_of_evidence": {
                 "N": "2"
               },
-              "$$hash_key": {
-                "S": "object:2255"
-              },
               "description": {
                 "S": "BRAF Gene Fusions"
               },
@@ -4710,9 +4350,6 @@
               },
               "level_of_evidence": {
                 "N": "2"
-              },
-              "$$hash_key": {
-                "S": "object:2256"
               },
               "description": {
                 "S": "BRAF Gene Fusions"
@@ -4789,9 +4426,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:128"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -4842,9 +4476,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:129"
-              },
               "ocp_reference": {
                 "S": "CT"
               },
@@ -4879,9 +4510,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:130"
               },
               "public_med_ids": {
                 "L": [
@@ -4927,9 +4555,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:131"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -4973,9 +4598,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:132"
               },
               "public_med_ids": {
                 "L": [
@@ -5021,9 +4643,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:133"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -5067,9 +4686,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:134"
               },
               "public_med_ids": {
                 "L": [
@@ -5115,9 +4731,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:135"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -5161,9 +4774,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:136"
               },
               "public_med_ids": {
                 "L": [
@@ -5209,9 +4819,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:137"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -5255,9 +4862,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:138"
               },
               "public_med_ids": {
                 "L": [
@@ -5303,9 +4907,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:139"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -5349,9 +4950,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:140"
               },
               "public_med_ids": {
                 "L": [
@@ -5397,9 +4995,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:141"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -5443,9 +5038,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:142"
               },
               "public_med_ids": {
                 "L": [
@@ -5491,9 +5083,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:143"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -5537,9 +5126,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:144"
               },
               "public_med_ids": {
                 "L": [
@@ -5585,9 +5171,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:145"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -5632,9 +5215,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:146"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -5678,9 +5258,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:147"
               },
               "public_med_ids": {
                 "L": [
@@ -5732,9 +5309,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:148"
-              },
               "ocp_reference": {
                 "S": "GAC"
               },
@@ -5776,9 +5350,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:149"
-              },
               "ocp_reference": {
                 "S": "AGT"
               },
@@ -5813,9 +5384,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:150"
               },
               "public_med_ids": {
                 "L": [
@@ -5861,9 +5429,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:151"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -5908,9 +5473,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:152"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -5954,9 +5516,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:153"
               },
               "public_med_ids": {
                 "L": [
@@ -6008,9 +5567,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:154"
-              },
               "ocp_reference": {
                 "S": "GGA"
               },
@@ -6045,9 +5601,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:155"
               },
               "public_med_ids": {
                 "L": [
@@ -6093,9 +5646,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:156"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -6139,9 +5689,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:157"
               },
               "public_med_ids": {
                 "L": [
@@ -6187,9 +5734,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:158"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -6233,9 +5777,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:159"
               },
               "public_med_ids": {
                 "L": [
@@ -6281,9 +5822,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:160"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -6327,9 +5865,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:161"
               },
               "public_med_ids": {
                 "L": [
@@ -6375,9 +5910,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:162"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -6421,9 +5953,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:163"
               },
               "public_med_ids": {
                 "L": [
@@ -6469,9 +5998,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:164"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -6515,9 +6041,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:165"
               },
               "public_med_ids": {
                 "L": [
@@ -6563,9 +6086,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:166"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -6609,9 +6129,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:167"
               },
               "public_med_ids": {
                 "L": [
@@ -6663,9 +6180,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:168"
-              },
               "ocp_reference": {
                 "S": "GAA"
               },
@@ -6700,9 +6214,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:169"
               },
               "public_med_ids": {
                 "L": [
@@ -6748,9 +6259,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:170"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -6794,9 +6302,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:171"
               },
               "public_med_ids": {
                 "L": [
@@ -6842,9 +6347,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:172"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -6888,9 +6390,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:173"
               },
               "public_med_ids": {
                 "L": [
@@ -6936,9 +6435,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:174"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -6982,9 +6478,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:175"
               },
               "public_med_ids": {
                 "L": [
@@ -7030,9 +6523,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:176"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -7076,9 +6566,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:177"
               },
               "public_med_ids": {
                 "L": [
@@ -7124,9 +6611,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:178"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -7170,9 +6654,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:179"
               },
               "public_med_ids": {
                 "L": [
@@ -7218,9 +6699,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:180"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -7264,9 +6742,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:181"
               },
               "public_med_ids": {
                 "L": [
@@ -7312,9 +6787,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:182"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -7358,9 +6830,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:183"
               },
               "public_med_ids": {
                 "L": [
@@ -7406,9 +6875,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:184"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -7452,9 +6918,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:185"
               },
               "public_med_ids": {
                 "L": [
@@ -7500,9 +6963,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:186"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -7546,9 +7006,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:187"
               },
               "public_med_ids": {
                 "L": [
@@ -7594,9 +7051,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:188"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -7641,9 +7095,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:189"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -7684,9 +7135,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:190"
               },
               "ocp_alternative": {
                 "S": "G"
@@ -7732,9 +7180,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:191"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -7778,9 +7223,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:192"
               },
               "public_med_ids": {
                 "L": [
@@ -7826,9 +7268,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:193"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -7872,9 +7311,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:194"
               },
               "public_med_ids": {
                 "L": [
@@ -7920,9 +7356,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:195"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -7966,9 +7399,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:196"
               },
               "public_med_ids": {
                 "L": [
@@ -8014,9 +7444,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:197"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -8060,9 +7487,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:198"
               },
               "public_med_ids": {
                 "L": [
@@ -8108,9 +7532,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:199"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -8154,9 +7575,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:200"
               },
               "public_med_ids": {
                 "L": [
@@ -8202,9 +7620,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:201"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -8248,9 +7663,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:202"
               },
               "public_med_ids": {
                 "L": [
@@ -8296,9 +7708,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:203"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -8342,9 +7751,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:204"
               },
               "public_med_ids": {
                 "L": [
@@ -8390,9 +7796,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:205"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -8436,9 +7839,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:206"
               },
               "public_med_ids": {
                 "L": [
@@ -8484,9 +7884,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:207"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -8530,9 +7927,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:208"
               },
               "public_med_ids": {
                 "L": [
@@ -8578,9 +7972,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:209"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -8624,9 +8015,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:210"
               },
               "public_med_ids": {
                 "L": [
@@ -8672,9 +8060,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:211"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -8719,9 +8104,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:212"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -8762,9 +8144,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:213"
               },
               "ocp_alternative": {
                 "S": "GCTCTGCTG"
@@ -8816,9 +8195,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:214"
-              },
               "ocp_reference": {
                 "S": "CACATCAAGCGGCTCCGC"
               },
@@ -8860,9 +8236,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:215"
-              },
               "ocp_reference": {
                 "S": "AAC"
               },
@@ -8897,9 +8270,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:216"
               },
               "public_med_ids": {
                 "L": [
@@ -8941,9 +8311,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:217"
               },
               "ocp_alternative": {
                 "S": "GCA"
@@ -8995,9 +8362,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:218"
-              },
               "ocp_reference": {
                 "S": "ATC"
               },
@@ -9032,9 +8396,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:219"
               },
               "public_med_ids": {
                 "L": [
@@ -9080,9 +8441,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:220"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -9126,9 +8484,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:221"
               },
               "public_med_ids": {
                 "L": [
@@ -9174,9 +8529,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:222"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -9220,9 +8572,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:223"
               },
               "public_med_ids": {
                 "L": [
@@ -9268,9 +8617,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:224"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -9314,9 +8660,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:225"
               },
               "public_med_ids": {
                 "L": [
@@ -9362,9 +8705,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:226"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -9408,9 +8748,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:227"
               },
               "public_med_ids": {
                 "L": [
@@ -9456,9 +8793,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:228"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -9502,9 +8836,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:229"
               },
               "public_med_ids": {
                 "L": [
@@ -9550,9 +8881,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:230"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -9596,9 +8924,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:231"
               },
               "public_med_ids": {
                 "L": [
@@ -9644,9 +8969,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:232"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -9690,9 +9012,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:233"
               },
               "public_med_ids": {
                 "L": [
@@ -9738,9 +9057,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:234"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -9784,9 +9100,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:235"
               },
               "public_med_ids": {
                 "L": [
@@ -9832,9 +9145,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:236"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -9878,9 +9188,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:237"
               },
               "public_med_ids": {
                 "L": [
@@ -9926,9 +9233,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:238"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -9972,9 +9276,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:239"
               },
               "public_med_ids": {
                 "L": [
@@ -10020,9 +9321,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:240"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -10066,9 +9364,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:241"
               },
               "public_med_ids": {
                 "L": [
@@ -10114,9 +9409,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:242"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -10160,9 +9452,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:243"
               },
               "public_med_ids": {
                 "L": [
@@ -10208,9 +9497,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:244"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -10254,9 +9540,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:245"
               },
               "public_med_ids": {
                 "L": [
@@ -10302,9 +9585,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:246"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -10348,9 +9628,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:247"
               },
               "public_med_ids": {
                 "L": [
@@ -10396,9 +9673,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:248"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -10442,9 +9716,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:249"
               },
               "public_med_ids": {
                 "L": [
@@ -10490,9 +9761,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:250"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -10536,9 +9804,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:251"
               },
               "public_med_ids": {
                 "L": [
@@ -10584,9 +9849,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:252"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -10630,9 +9892,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:253"
               },
               "public_med_ids": {
                 "L": [
@@ -10678,9 +9937,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:254"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -10724,9 +9980,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:255"
               },
               "public_med_ids": {
                 "L": [
@@ -10772,9 +10025,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:256"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -10819,9 +10069,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:257"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -10865,9 +10112,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:258"
               },
               "public_med_ids": {
                 "L": [
@@ -10919,9 +10163,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:259"
-              },
               "ocp_reference": {
                 "S": "GTT"
               },
@@ -10956,9 +10197,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:260"
               },
               "public_med_ids": {
                 "L": [
@@ -11004,9 +10242,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:261"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -11050,9 +10285,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:262"
               },
               "public_med_ids": {
                 "L": [
@@ -11098,9 +10330,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:263"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -11144,9 +10373,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:264"
               },
               "public_med_ids": {
                 "L": [
@@ -11192,9 +10418,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:265"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -11238,9 +10461,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:266"
               },
               "public_med_ids": {
                 "L": [
@@ -11286,9 +10506,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:267"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -11332,9 +10549,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:268"
               },
               "public_med_ids": {
                 "L": [
@@ -11380,9 +10594,6 @@
               "inclusion": {
                 "BOOL": true
               },
-              "$$hash_key": {
-                "S": "object:269"
-              },
               "public_med_ids": {
                 "L": [
                   {
@@ -11426,9 +10637,6 @@
               },
               "inclusion": {
                 "BOOL": true
-              },
-              "$$hash_key": {
-                "S": "object:270"
               },
               "public_med_ids": {
                 "L": [
