@@ -663,16 +663,20 @@ class Helper_Methods
     puts "#{target_ani_path} has been uploaded to S3 bucket #{bucket}" if ENV['print_log'] == 'YES'
   end
 
+
   def self.s3_download_file(bucket, s3_path, download_target)
-    cmd = "aws s3 cp s3://#{bucket}/#{s3_path} #{download_target}  --recursive --region us-east-1"
-    `#{cmd}`
+    s3_client = Aws::S3::Resource.new(
+        endpoint: 'https://s3.amazonaws.com',
+        region: 'us-east-1',
+        access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+        secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'])
+    s3_client.bucket(bucket).object(s3_path).download_file(download_target)
     puts "#{download_target} has been downloaded from S3 #{bucket}/#{s3_path}" if ENV['print_log'] == 'YES'
   end
 
   def self.s3_read_text_file(bucket, s3_path)
     tmp_file = "#{File.dirname(__FILE__)}/tmp_#{Time.now.to_i.to_s}.txt"
-    cmd = "aws s3 cp s3://#{bucket}/#{s3_path} #{tmp_file} --region us-east-1"
-    `#{cmd}`
+    Helper_Methods.s3_download_file(bucket, s3_path, tmp_file)
     sleep 10.0 unless File.exist?(tmp_file)
     result = File.read(tmp_file)
     FileUtils.remove(tmp_file)
