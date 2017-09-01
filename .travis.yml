@@ -107,7 +107,7 @@ script:
     fi
 
   - |
-    if [ "$CUC_TAG" == "@ion_reporter" -o "$CUC_TAG" == "@patients" -o "$CUC_TAG" == "@rules" ]; then
+    if [ "$CUC_TAG" == "@ion_reporter" -o "$CUC_TAG" == "@patients" ]; then
       export OLD_IR_SYSTEM="TRUE"
       cd uMATCH/PedMATCH
       bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P1,$CUC_TAG$P2 -f pretty --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --expand --color' -n 2
@@ -117,9 +117,9 @@ script:
     fi
 
   - |
-    if [ "$CUC_TAG" == "@treatment_arm" ]; then
+    if [ "$CUC_TAG" == "@treatment_arm" -o "$CUC_TAG" == "@rules" ]; then
       cd uMATCH/PedMATCH
-      cucumber --tags @treatment_arm_p1,@treatment_arm_p2 --format pretty --format json --out ../../results/output-treatment_arm.json --expand --color
+      cucumber --tags $CUC_TAG$P1,$CUC_TAG$P2 --format pretty --format json --out ../../results/output-$CUC_TAG.json --expand --color
       CURRENT_STATUS=$?
       if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
       cd ../..
