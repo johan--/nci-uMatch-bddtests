@@ -23,15 +23,15 @@ When(/^POST to MATCH patients service, response includes "([^"]*)" with code "([
   puts response.to_s
   message = response['message']
   actual_match_expect(response['http_code'], code)
-  # if code.to_i > 299   # This should cover all error scenarios
-  #   if message == ''
-  #     expect(message.to_s).to eql(retMsg)
-  #   else
-  #     actual_include_expect(response['message'].to_s, retMsg)
-  #   end
-  # else
-  #   actual_include_expect(response['message'], retMsg)
-  # end
+  if code.to_i > 299   # This should cover all error scenarios
+    if message == ''
+      expect(message.to_s).to eql(retMsg)
+    else
+      actual_include_expect(response['message'].to_s, retMsg)
+    end
+  else
+    actual_include_expect(response['message'], retMsg)
+  end
 end
 
 When(/^POST to MATCH patients event service, response includes "([^"]*)" with code "([^"]*)"$/) do |retMsg, code|
@@ -39,7 +39,7 @@ When(/^POST to MATCH patients event service, response includes "([^"]*)" with co
   response = Patient_helper_methods.post_vr_upload_event(@current_auth0_role)
   puts response.to_s
   actual_match_expect(response['http_code'], code)
-  # actual_include_expect(response['message'], retMsg)
+  actual_include_expect(response['message'], retMsg)
 end
 
 When(/^POST to MATCH variant report upload service, response includes "([^"]*)" with code "([^"]*)"$/) do |retMsg, code|
@@ -47,7 +47,7 @@ When(/^POST to MATCH variant report upload service, response includes "([^"]*)" 
   response = Patient_helper_methods.post_vr_upload(@molecular_id, @current_auth0_role)
   puts response.to_s
   actual_match_expect(response['http_code'], code)
-  # actual_include_expect(response['message'], retMsg)
+  actual_include_expect(response['message'], retMsg)
 end
 
 When(/^POST to MATCH variant report upload service$/) do
@@ -61,7 +61,7 @@ When(/^PUT to MATCH variant report "([^"]*)" service, response includes "([^"]*)
   response = Patient_helper_methods.put_vr_confirm(@analysis_id, status, @current_auth0_role)
   puts response.to_s
   actual_match_expect(response['http_code'], code)
-  # actual_include_expect(response['message'], retMsg)
+  actual_include_expect(response['message'], retMsg)
 end
 
 When(/^PUT to MATCH variant "([^"]*)" service for this uuid, response includes "([^"]*)" with code "([^"]*)"$/) do |checked, retMsg, code|
@@ -69,7 +69,7 @@ When(/^PUT to MATCH variant "([^"]*)" service for this uuid, response includes "
   response = Patient_helper_methods.put_variant_confirm(@current_variant_uuid, checked, @current_auth0_role)
   puts response.to_s
   actual_match_expect(response['http_code'], code)
-  # actual_include_expect(response['message'], retMsg)
+  actual_include_expect(response['message'], retMsg)
 end
 
 When(/^PUT to MATCH assignment report "([^"]*)" service, response includes "([^"]*)" with code "([^"]*)"$/) do |status, retMsg, code|
@@ -77,7 +77,7 @@ When(/^PUT to MATCH assignment report "([^"]*)" service, response includes "([^"
   response = Patient_helper_methods.put_ar_confirm(@analysis_id, status, @current_auth0_role)
   puts response.to_s
   actual_match_expect(response['http_code'], code)
-  # actual_include_expect(response['message'], retMsg)
+  actual_include_expect(response['message'], retMsg)
 end
 
 When(/^GET from MATCH patient API, http code "([^"]*)" should return$/) do |code|
@@ -94,12 +94,12 @@ When(/^GET from MATCH patient API, http code "([^"]*)" should return$/) do |code
   end
 end
 
-When(/^PUT to MATCH rollback with step number "([^"]*)", response includes "([^"]*)" with code "([^"]*)"$/) do |step, message, code|
+When(/^PUT to MATCH rollback with step number "([^"]*)", response includes "([^"]*)" with code "([^"]*)"$/) do |step, retMsg, code|
   @current_auth0_role = 'ADMIN' unless @current_auth0_role.present?
   response = Patient_helper_methods.put_rollback(@patient_id, step, @current_auth0_role)
   puts response.to_s
   actual_match_expect(response['http_code'], code)
-  # actual_include_expect(response['message'], retMsg)
+  actual_include_expect(response['message'], retMsg)
 end
 
 #########################################################

@@ -4,13 +4,13 @@ require 'json'
 require_relative '../../../support/helper_methods.rb'
 
 When(/^call healthcheck for application "(patient_api|patient_state|patient_processor|ta_api|ta_processor|rules|admin|aliquot|sample_control|ion_reporter)", http code "([^"]*)" should be returned$/) do |app, code|
-  url = case
+  url = case app
           when 'patient_api' then 'https://pedmatch-int.nci.nih.gov/api/v1/patients/healthcheck'
-          when 'patient_state' then 'https://pedmatch-int.nci.nih.gov/api/v1/patients/healthcheck'
-          when 'patient_processor' then 'https://pedmatch-int.nci.nih.gov/api/v1/patients/healthcheck'
-          when 'ta_api' then 'https://pedmatch-int.nci.nih.gov/api/v1/patients/healthcheck'
-          when 'ta_processor' then 'https://pedmatch-int.nci.nih.gov/api/v1/patients/healthcheck'
-          when 'rules' then 'https://pedmatch-int.nci.nih.gov/api/v1/patients/healthcheck'
+          when 'patient_state' then 'https://pedmatch-int.nci.nih.gov/api/v1/state_validator/healthcheck'
+          when 'patient_processor' then 'https://pedmatch-int.nci.nih.gov:3010/healthcheck'
+          when 'ta_api' then 'https://pedmatch-int.nci.nih.gov/api/v1/treatment_arms/healthcheck'
+          when 'ta_processor' then 'https://pedmatch-int.nci.nih.gov:10236/healthcheck'
+          when 'rules' then 'https://pedmatch-uat.nci.nih.gov/api/v1/rules/health_check'
           when 'admin' then 'https://pedmatch-int.nci.nih.gov/api/v1/patients/healthcheck'
           when 'aliquot' then 'https://pedmatch-int.nci.nih.gov/api/v1/aliquots_api/version'
           when 'sample_control' then 'https://pedmatch-int.nci.nih.gov/api/v1/sample_controls_api/version'

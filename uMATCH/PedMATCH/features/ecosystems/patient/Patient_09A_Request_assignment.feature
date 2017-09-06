@@ -50,7 +50,7 @@ Feature: Patients request assignment tests
     #there is no “PATHOLOGY_REVIEWED” status anymore
 #      | PT_RA02_PathoConfirmed      | 2.0                 | 2.0              |         | Failure     | PATHOLOGY_REVIEWED              |
 
-  @patients_p3
+  @patients_off
   Scenario: PT_RA02a. request assignment(rebiopsy=N) should trigger assignment again if patient is on REQUEST_ASSIGNMENT status
     Given patient id is "PT_RA02a_RequestAssignment"
     And load template request assignment message for this patient
