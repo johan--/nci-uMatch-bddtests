@@ -50,6 +50,7 @@ This README will introduce how to create seed data and how to reload it.
     ```
 
 2. How to copy some existing good patient seed data from tag to tag (normally when you initial a new tag, you want some existing patients)
+
     ```ruby
     list = [patient_id1, patient_id2,...]
     SeedFile.copy_patients_between_tags(list, 'patients', tag_name)  ##patients tag have almost all seed patients
@@ -57,8 +58,8 @@ This README will introduce how to create seed data and how to reload it.
     ```
 
 3. How to create a new patient
-    ```ruby
 
+    ```ruby
     pt = PatientStory.new(patient_id)
     pt.create_seed_patient{
       pt.story_register
@@ -69,6 +70,7 @@ This README will introduce how to create seed data and how to reload it.
     ```
 
 4. How to re-generate existing patients
+
     ```ruby
     list = [patient_id1, patient_id2,...]
     PedMatchTestData.load_seed_patients(list, tag_name)
@@ -77,12 +79,14 @@ This README will introduce how to create seed data and how to reload it.
            If there is any patient listed in the failed list, please regenerate those patients
 
 5. How to reload seed data to dynamodb
+
     ```ruby
     PedMatchDatabase.reload_local(tag_name)  ## to local
     PedMatchDatabase.reload_int(tag_name)  ## to int
     ```
 
 6. I don't want to do seed data related work, I just want to create a patient temporarily without breaking the seed dump file
+
     ```ruby
     pt = PatientStory.new(patient_id)
     pt.create_temporary_patient{
@@ -92,7 +96,9 @@ This README will introduce how to create seed data and how to reload it.
     }
     PedMatchTestData.send_a_patient_story(pt)
     ```
+
     or
+
     ```ruby
     pt = PatientStory.new(patient_id)
     pt.story_register
@@ -102,12 +108,14 @@ This README will introduce how to create seed data and how to reload it.
     ```
 
 7. How to added a new treatment arm
+
     ```ruby
     ta = {'treatment_arm_id'=>'APEC1621SC-TEST', 'stratum_id'=>'100', 'version'=>'v_1', ...} #a hash
     PedMatchTestData.add_treatment_arm(ta)
     ```
 
     or
+
     ```ruby
     ta = "{"treatment_arm_id":"APEC1621SC-TEST", "stratum_id":"100", "version":"v_1", ...}" #a string
     PedMatchTestData.add_treatment_arm(ta)

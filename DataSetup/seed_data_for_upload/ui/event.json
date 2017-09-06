@@ -1,6 +1,6 @@
 {
-  "ScannedCount": 659,
-  "Count": 659,
+  "ScannedCount": 663,
+  "Count": 663,
   "Items": [
     {
       "event_message": {
@@ -24951,6 +24951,141 @@
       },
       "event_date": {
         "S": "2017-06-05T19:01:13.664"
+      }
+    },
+    {
+      "event_message": {
+        "S": "REGISTRATION message received from COG for patient PT_VU16_BdVRUploaded."
+      },
+      "entity_id": {
+        "S": "PT_VU16_BdVRUploaded"
+      },
+      "event_date": {
+        "S": "2017-06-05T21:31:43.125"
+      },
+      "event_data": {
+        "M": {
+          "patient_status": {
+            "S": "REGISTRATION"
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "patient"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Specimen of type BLOOD received at NCH."
+      },
+      "entity_id": {
+        "S": "PT_VU16_BdVRUploaded"
+      },
+      "event_date": {
+        "S": "2017-06-05T21:31:44.171"
+      },
+      "event_data": {
+        "M": {
+          "type": {
+            "S": "BLOOD"
+          },
+          "received_dttm": {
+            "S": "2017-06-05T21:31:43Z"
+          },
+          "study_id": {
+            "S": "APEC1621SC"
+          },
+          "patient_id": {
+            "S": "PT_VU16_BdVRUploaded"
+          },
+          "collection_dt": {
+            "S": "2017-06-05"
+          },
+          "step": {
+            "S": "1.0"
+          }
+        }
+      },
+      "event_type": {
+        "S": "specimen"
+      }
+    },
+    {
+      "event_message": {
+        "S": "Specimen Shipment of type BLOOD_DNA shipped from NCH."
+      },
+      "entity_id": {
+        "S": "PT_VU16_BdVRUploaded"
+      },
+      "event_date": {
+        "S": "2017-06-05T21:31:47.300"
+      },
+      "event_data": {
+        "M": {
+          "tracking_number": {
+            "S": "7956 4568 1235"
+          },
+          "type": {
+            "S": "BLOOD_DNA"
+          },
+          "carrier": {
+            "S": "Federal Express"
+          },
+          "destination": {
+            "S": "MDA"
+          },
+          "step": {
+            "S": "1.0"
+          },
+          "molecular_id": {
+            "S": "PT_VU16_BdVRUploaded_BD_MOI1"
+          }
+        }
+      },
+      "event_type": {
+        "S": "specimen"
+      }
+    },
+    {
+      "event_message": {
+        "S": "BLOOD Variant Report received."
+      },
+      "entity_id": {
+        "S": "PT_VU16_BdVRUploaded"
+      },
+      "event_date": {
+        "S": "2017-06-05T21:32:00.340"
+      },
+      "event_data": {
+        "M": {
+          "analysis_id": {
+            "S": "PT_VU16_BdVRUploaded_BD_ANI1"
+          },
+          "specimen_received_date": {
+            "NULL": true
+          },
+          "variant_report_type": {
+            "S": "BLOOD"
+          },
+          "clia_lab": {
+            "S": "MDA"
+          },
+          "molecular_id": {
+            "S": "PT_VU16_BdVRUploaded_BD_MOI1"
+          },
+          "step": {
+            "S": "1.0"
+          },
+          "variant_report_status": {
+            "S": "PENDING"
+          }
+        }
+      },
+      "event_type": {
+        "S": "variant_report"
       }
     }
   ],

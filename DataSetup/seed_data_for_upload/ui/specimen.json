@@ -1,6 +1,6 @@
 {
-  "ScannedCount": 86,
-  "Count": 86,
+  "ScannedCount": 87,
+  "Count": 87,
   "Items": [
     {
       "specimen_type": {
@@ -4953,6 +4953,29 @@
       },
       "received_date": {
         "S": "2017-06-05T19:01:06+00:00"
+      }
+    },
+    {
+      "sorting_key": {
+        "S": "2017-06-05T21:31:44.159"
+      },
+      "collected_date": {
+        "S": "2017-06-05T00:00:00+00:00"
+      },
+      "patient_id": {
+        "S": "PT_VU16_BdVRUploaded"
+      },
+      "active_molecular_id": {
+        "S": "PT_VU16_BdVRUploaded_BD_MOI1"
+      },
+      "received_date": {
+        "S": "2017-06-05T21:31:43+00:00"
+      },
+      "specimen_type": {
+        "S": "BLOOD"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
       }
     }
   ],

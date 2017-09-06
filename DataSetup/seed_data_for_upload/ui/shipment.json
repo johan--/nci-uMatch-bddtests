@@ -1,6 +1,6 @@
 {
-  "ScannedCount": 133,
-  "Count": 133,
+  "ScannedCount": 134,
+  "Count": 134,
   "Items": [
     {
       "shipped_date": {
@@ -4955,6 +4955,44 @@
       },
       "destination": {
         "S": "MDA"
+      }
+    },
+    {
+      "patient_id": {
+        "S": "PT_VU16_BdVRUploaded"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "destination": {
+        "S": "MDA"
+      },
+      "dna_concentration_ng_per_ul": {
+        "N": "25"
+      },
+      "tracking_id": {
+        "S": "7956 4568 1235"
+      },
+      "molecular_id": {
+        "S": "PT_VU16_BdVRUploaded_BD_MOI1"
+      },
+      "uuid": {
+        "S": "9fe8b9fd-ea2c-4913-bf6d-fdce8dd06f59"
+      },
+      "shipment_type": {
+        "S": "BLOOD_DNA"
+      },
+      "cdna_volume_ul": {
+        "N": "10"
+      },
+      "carrier": {
+        "S": "Federal Express"
+      },
+      "shipped_date": {
+        "S": "2017-06-05T21:31:44+00:00"
+      },
+      "dna_volume_ul": {
+        "N": "10"
       }
     }
   ],

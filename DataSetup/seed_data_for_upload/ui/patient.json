@@ -1,6 +1,6 @@
 {
-  "ScannedCount": 78,
-  "Count": 78,
+  "ScannedCount": 79,
+  "Count": 79,
   "Items": [
     {
       "patient_id": {
@@ -35336,6 +35336,48 @@
       },
       "status_date": {
         "S": "2017-06-05T19:01:03+00:00"
+      }
+    },
+    {
+      "current_step_number": {
+        "S": "1.0"
+      },
+      "registration_date": {
+        "S": "2017-06-05T21:31:40+00:00"
+      },
+      "patient_id": {
+        "S": "PT_VU16_BdVRUploaded"
+      },
+      "study_id": {
+        "S": "APEC1621SC"
+      },
+      "current_status": {
+        "S": "REGISTRATION"
+      },
+      "active_blood_specimen": {
+        "M": {
+          "variant_report_status": {
+            "S": "PENDING"
+          },
+          "active_molecular_id_shipped_date": {
+            "S": "2017-06-05T21:31:44Z"
+          },
+          "specimen_collected_date": {
+            "S": "2017-06-05T04:00:00"
+          },
+          "active_destination": {
+            "S": "MDA"
+          },
+          "active_molecular_id": {
+            "S": "PT_VU16_BdVRUploaded_BD_MOI1"
+          },
+          "active_analysis_id": {
+            "S": "PT_VU16_BdVRUploaded_BD_ANI1"
+          }
+        }
+      },
+      "status_date": {
+        "S": "2017-06-05T21:31:40+00:00"
       }
     }
   ],

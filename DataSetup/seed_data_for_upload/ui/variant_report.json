@@ -1,6 +1,6 @@
 {
-  "ScannedCount": 59,
-  "Count": 59,
+  "ScannedCount": 60,
+  "Count": 60,
   "Items": [
     {
       "ion_reporter_id": {
@@ -23433,6 +23433,113 @@
       },
       "comment_user": {
         "S": "QA"
+      }
+    },
+    {
+      "total_confirmed_amois": {
+        "N": "2"
+      },
+      "torrent_variant_caller_version": {
+        "S": "4.2-13"
+      },
+      "mapd": {
+        "N": "0.666"
+      },
+      "variant_report_type": {
+        "S": "BLOOD"
+      },
+      "status": {
+        "S": "PENDING"
+      },
+      "total_confirmed_mois": {
+        "N": "4"
+      },
+      "clia_lab": {
+        "S": "MDA"
+      },
+      "mappedFusionPanelReads": {
+        "N": "849327"
+      },
+      "tsv_file_name": {
+        "S": "test1.tsv"
+      },
+      "ion_reporter_id": {
+        "S": "bdd_test_ion_reporter"
+      },
+      "variant_report_received_date": {
+        "S": "2017-06-05T21:32:00+00:00"
+      },
+      "oncomine_control_panel_summary": {
+        "M": {
+          "pool1Sum": {
+            "N": "0.0"
+          },
+          "pool2Sum": {
+            "N": "0.0"
+          },
+          "fPool": {
+            "M": {
+            }
+          },
+          "hmbs": {
+            "N": "0.0"
+          },
+          "myc": {
+            "N": "0.0"
+          },
+          "lmna": {
+            "N": "0.0"
+          },
+          "sum": {
+            "N": "0.0"
+          },
+          "ecPool": {
+            "M": {
+            }
+          },
+          "tbp": {
+            "N": "0.0"
+          },
+          "itgb7": {
+            "N": "0.0"
+          },
+          "lrp1": {
+            "N": "0.0"
+          },
+          "gePool": {
+            "M": {
+            }
+          }
+        }
+      },
+      "vcf_file_name": {
+        "S": "test1.vcf"
+      },
+      "copy_number_variant_genes": {
+        "L": [
+
+        ]
+      },
+      "molecular_id": {
+        "S": "PT_VU16_BdVRUploaded_BD_MOI1"
+      },
+      "cellularity": {
+        "N": "1"
+      },
+      "total_mois": {
+        "N": "4"
+      },
+      "patient_id": {
+        "S": "PT_VU16_BdVRUploaded"
+      },
+      "analysis_id": {
+        "S": "PT_VU16_BdVRUploaded_BD_ANI1"
+      },
+      "total_amois": {
+        "N": "2"
+      },
+      "status_date": {
+        "S": "2017-06-05T21:32:00+00:00"
       }
     }
   ],
