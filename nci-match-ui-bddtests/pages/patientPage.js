@@ -183,8 +183,8 @@ var PatientPage = function () {
     this.variantReportStatus    = element.all(by.binding('variantReport.status'));
     this.variantsCheckBoxList   = element.all(by.css('check-box-with-confirm input'));
     this.torrentVersion         = element(by.css('.tissue-variant-report-header-box dd:nth-child(12)'));
-    this.pool1Total             = element.all(by.css('.tissue-variant-report-header-box')).get(1).all(by.css('dd')).get(3)
-    this.pool2Total             = element.all(by.css('.tissue-variant-report-header-box')).get(1).all(by.css('dd')).get(4)
+    this.pool1Total             = element.all(by.css('.tissue-variant-report-header-box')).get(1).all(by.css('dd')).get(3);
+    this.pool2Total             = element.all(by.css('.tissue-variant-report-header-box')).get(1).all(by.css('dd')).get(4);
 
     // Elements found on Assignment Report TAB
     this.assignmentSummaryBoxes      = element.all(by.css('.assignment-header-box'));
@@ -200,6 +200,12 @@ var PatientPage = function () {
             .element(by.xpath('..'))
             .element(by.tagName('table'));
     };
+
+
+    // This section may be a copy but is restricted to Blood Variant Report.
+    this.bloodVRDetails = element.all(by.css('div.tissue-variant-report-header-box'));
+    this.bloodSNVTable = element(by.css('vr-filtered-snv-mnv-indel table'));
+    this.bloodGeneTable = element(by.css('vr-filtered-gf table'));
 
     // ****************** Expected values *******************//
     // Patient list table
@@ -225,7 +231,17 @@ var PatientPage = function () {
         'Patient Documents'
     ];
 
-    //**************************** Timeline **********************//
+    this.expectedBloodVRLeftColumn = ['Molecular ID', 'Analysis ID', 'Variant Report Type', 'Site / Ion Reporter ID',
+                                        'Torrent Variant Caller Version', 'Files', 'Created Date', '', 'Status'];
+
+    this.expectedBloodVRRightColumn = ['Cellularity', 'MAPD', 'Total MOIs', 'Total Confirmed MOIs'];
+    this.expectedBloodSNVTableColumn = ['Confirm', 'Comment', 'ID', 'Chrom', 'Position', 'OCP Ref', 'OCP Alt', 'Allele Freq',
+                                        'Read Depth', 'Gene', 'Transcript', 'HGVS', 'Protein', 'Exon',
+                                        'Oncomine Variant Class', 'Function' ];
+    this.expectedBloodGeneFusions = ['Confirm', 'Comment', 'ID', 'Gene 1', 'Gene 2', 'Read Depth', 'Annotation'];
+
+
+        //**************************** Timeline **********************//
     this.timelineList = element.all(by.repeater('timelineEvent in activity.data'));
     this.variantReportStatusString = '[ng-if="timelineEvent.event_data.variant_report_status"]';
     this.variantAnalysisIdString   = 'span[ng-if="timelineEvent.event_data.analysis_id"]';

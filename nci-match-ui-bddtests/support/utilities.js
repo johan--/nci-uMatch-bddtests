@@ -23,8 +23,10 @@ var Utilities = function () {
         return expect(browser.getTitle()).to.eventually.equal(title);
     };
 
-    this.checkElementValue = function (css_locator, expected) {
-        expect(element(by.css(css_locator)).getText()).to.eventually.equal(expected);
+    this.expectValue = function (el, expected, msg) {
+        return el.getText().then(function (val) {
+            return expect(val).to.eql(expected, msg + ' Mismatch');
+        });
     };
 
     this.waitForElement = function (element, message) {
@@ -783,6 +785,24 @@ var Utilities = function () {
             }
         });
     };
+
+    this.getMoiCount = function(response) {
+        var result = {moi: 0, confirmedMoi: 0};
+
+        var variants = ['snv_indels', 'copy_number_variants', 'gene_fusions'];
+        for(var i = 0 ;i < variants.length; i ++ ){
+            var variant = response[variants[i]];
+            if (variant.length > 0) {
+                console.log(variants[i])
+                result.moi = result.moi + variant.length;
+                var confirmed = variant.filter(function (v) {
+                    return v.confirmed === true;
+                });
+                result.confirmedMoi = result.confirmedMoi + confirmed.length;
+            }
+        }
+        return result;
+    }
 };
 
 module.exports = new Utilities();
