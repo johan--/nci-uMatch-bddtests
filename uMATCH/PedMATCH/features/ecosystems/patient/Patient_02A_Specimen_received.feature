@@ -9,7 +9,6 @@ Feature: NCH specimen received messages
   Scenario: PT_SR01. Consume a specimen_received message for type "Blood" for a patient already registered in Match
     Given patient id is "PT_SR01_Registered"
     And load template specimen type: "BLOOD" received message for this patient
-    Then set patient message field: "surgical_event_id" to value: ""
     Then set patient message field: "collection_dt" to value: "today"
     Then set patient message field: "received_dttm" to value: "current"
     When POST to MATCH patients service, response includes "successfully" with code "202"
@@ -152,24 +151,24 @@ Feature: NCH specimen received messages
 #      | PT_SR10_NPathoReceived   | PT_SR10_NPathoReceived_SEI2   | Success | processed successfully |
 #      | PT_SR10_YPathoReceived   | PT_SR10_YPathoReceived_SEI2   | Success | processed successfully |
 
-  @patients_p3
+  @patients_p2
   Scenario Outline: PT_SR10b. blood specimen_received message can only be accepted when patient is in certain status
     Given patient id is "<patient_id>"
     And load template specimen type: "BLOOD" received message for this patient
-    Then set patient message field: "surgical_event_id" to value: ""
     Then set patient message field: "collection_dt" to value: "today"
     Then set patient message field: "received_dttm" to value: "current"
     When POST to MATCH patients service, response includes "<message>" with code "<http_code>"
     Examples:
-      | patient_id              | http_code | message                |
-      | PT_SR10_TsReceived      | 202       | processed successfully |
-      | PT_SR10_BdVRReceived    | 202       | processed successfully |
-      | PT_SR10_PendingApproval | 202       | processed successfully |
-      | PT_SR10_ProgressReBioY1 | 202       | processed successfully |
-      | PT_SR10_OffStudy2       | 403       | cannot transition from |
-        #we don't confirm or reject BLOOD variant report anymore
-#      | PT_SR10_BdVRRejected    | Success | processed successfully   |
-#      | PT_SR10_BdVRConfirmed   | Failure | confirmed variant report |
+      | patient_id                  | http_code | message                  |
+      | PT_SR10_TsReceived          | 202       | success                  |
+      | PT_SR10_BdVRReceived        | 202       | success                  |
+      | PT_SR10_PendingConfirmation | 202       | success                  |
+      | PT_SR10_PendingApproval     | 202       | success                  |
+      | PT_SR10_OnTreatmentArm      | 202       | success                  |
+      | PT_SR10_ProgressReBioY1     | 202       | success                  |
+      | PT_SR10_OffStudy2           | 403       | cannot transition from   |
+      | PT_SR10_BdVRRejected        | 202       | success                  |
+      | PT_SR10_BdVRConfirmed       | 403       | confirmed variant report |
 
   @patients_p2
   Scenario Outline: PT_SR11. Return error message when study_id is invalid
@@ -211,7 +210,6 @@ Feature: NCH specimen received messages
   #    Test patient: PT_SR14_TsVrUploaded1; variant report files uploaded: PT_SR14_BdVrUploaded(_BD_MOI1, _ANI1)
     Given patient id is "PT_SR14_TsVrUploaded1"
     And load template specimen type: "BLOOD" received message for this patient
-    Then set patient message field: "surgical_event_id" to value: ""
     Then set patient message field: "collection_dt" to value: "today"
     Then set patient message field: "received_dttm" to value: "current"
     When POST to MATCH patients service, response includes "successfully" with code "202"
@@ -219,16 +217,17 @@ Feature: NCH specimen received messages
     Then patient should have variant report (analysis_id: "PT_SR14_TsVrUploaded1_ANI1")
     And this variant report field: "status" should be "PENDING"
 
-#    no requirement now
-#  @patients_p3
-#  Scenario: PT_SR14c. When a new BLOOD specimen_received message is received,  the pending BLOOD variant report from the old Surgical event is set to "REJECTED" status
-#  #    Test patient: PT_SR14_BdVrUploaded; variant report files uploaded: PT_SR14_BdVrUploaded(_BD_MOI1, _ANI1)
-#    And template specimen received message in type: "BLOOD" for patient: "PT_SR14_BdVrUploaded", it has surgical_event_id: ""
-#    Then set patient message field: "collection_dt" to value: "2016-08-21"
-#    When POST to MATCH patients service, response includes "successfully" with code "202"
-#    Then wait for "30" seconds
-#    Then patient should have variant report (analysis_id: "PT_SR14_BdVrUploaded_ANI1") within 15 seconds
-#    And this variant report has value: "REJECTED" in field: "status"
+  @patients_p2
+  Scenario: PT_SR14c. When a new BLOOD specimen_received message is received,  the pending BLOOD variant report from the old Surgical event is set to "REJECTED" status
+  #    Test patient: PT_SR14c_BdVrUploaded; variant report files uploaded: PT_SR14c_BdVrUploaded(_BD_MOI1, _ANI1)
+    Given patient id is "PT_SR14c_BdVrUploaded"
+    And load template specimen type: "BLOOD" received message for this patient
+    Then set patient message field: "collection_dt" to value: "today"
+    Then set patient message field: "received_dttm" to value: "current"
+    When POST to MATCH patients service, response includes "successfully" with code "202"
+    Then wait until patient specimen is updated
+    Then patient should have variant report (analysis_id: "PT_SR14c_BdVrUploaded_BD_ANI1")
+    And this variant report field: "status" should be "REJECTED"
 
   @patients_p1
   Scenario: PT_SR14d. When a new TISSUE specimen_received message is received,  the pending BLOOD variant report should not change status

@@ -551,7 +551,7 @@ And(/^this variant report field: "([^"]*)" should be "([^"]*)"$/) do |field, val
   if returned_value.nil? || convert_value.nil?
     actual_match_expect(returned_value, convert_value)
   else
-    actual_match_expect(convert_value.to_s.downcase, returned_value.to_s.downcase)
+    actual_match_expect(returned_value.to_s.downcase, convert_value.to_s.downcase)
   end
 end
 

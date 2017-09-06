@@ -86,5 +86,87 @@
     "variant_report_confirmed:<patient_id>=>PT_RB01_Registered&<analysis_id>=>PT_RB01_Registered_ANI2&<status>=>confirm&<comment>=>Test&<comment_user>=>QA",
     "assignment_confirmed:<patient_id>=>PT_RB01_Registered&<analysis_id>=>PT_RB01_Registered_ANI2&<comment>=>Test&<comment_user>=>QA",
     "on_treatment_arm:<patient_id>=>PT_RB01_Registered&<step_number>=>2.1&<status_date>=>current&<treatment_arm_id>=>APEC1621-M&<stratum_id>=>100"
+  ],
+  "PT_SR10_BdVRRejected": [
+    "registration:<patient_id>=>PT_SR10_BdVRRejected&<status_date>=>current",
+    "specimen_received_BLOOD:<patient_id>=>PT_SR10_BdVRRejected&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_BLOOD:<patient_id>=>PT_SR10_BdVRRejected&<molecular_id>=>PT_SR10_BdVRRejected_BD_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
+    "aliquot:<patient_id>=>PT_SR10_BdVRRejected&<ion_reporter_id>=>bdd_test_ion_reporter&<vr_type>=>blood_vr&<analysis_id>=>PT_SR10_BdVRRejected_BD_ANI1&<molecular_id>=>PT_SR10_BdVRRejected_BD_MOI1&<site>=>MDA",
+    "variant_dna_file_uploaded:<patient_id>=>PT_SR10_BdVRRejected&<dna_bam_name>=>dna.bam&<analysis_id>=>PT_SR10_BdVRRejected_BD_ANI1&<molecular_id>=>PT_SR10_BdVRRejected_MOI0&<comment_user>=>qa",
+    "variant_cdna_file_uploaded:<patient_id>=>PT_SR10_BdVRRejected&<cdna_bam_name>=>cdna.bam&<analysis_id>=>PT_SR10_BdVRRejected_BD_ANI1&<molecular_id>=>PT_SR10_BdVRRejected_MOI0&<comment_user>=>qa",
+    "variant_report_confirmed:<patient_id>=>PT_SR10_BdVRRejected&<analysis_id>=>PT_SR10_BdVRRejected_BD_ANI1&<status>=>reject&<comment>=>Test&<comment_user>=>QA"
+  ],
+  "PT_SR10_BdVRConfirmed": [
+    "registration:<patient_id>=>PT_SR10_BdVRConfirmed&<status_date>=>current",
+    "specimen_received_BLOOD:<patient_id>=>PT_SR10_BdVRConfirmed&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_BLOOD:<patient_id>=>PT_SR10_BdVRConfirmed&<molecular_id>=>PT_SR10_BdVRConfirmed_BD_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
+    "aliquot:<patient_id>=>PT_SR10_BdVRConfirmed&<ion_reporter_id>=>bdd_test_ion_reporter&<vr_type>=>blood_vr&<analysis_id>=>PT_SR10_BdVRConfirmed_BD_ANI1&<molecular_id>=>PT_SR10_BdVRConfirmed_BD_MOI1&<site>=>MDA",
+    "variant_dna_file_uploaded:<patient_id>=>PT_SR10_BdVRConfirmed&<dna_bam_name>=>dna.bam&<analysis_id>=>PT_SR10_BdVRConfirmed_BD_ANI1&<molecular_id>=>PT_SR10_BdVRConfirmed_MOI0&<comment_user>=>qa",
+    "variant_cdna_file_uploaded:<patient_id>=>PT_SR10_BdVRConfirmed&<cdna_bam_name>=>cdna.bam&<analysis_id>=>PT_SR10_BdVRConfirmed_BD_ANI1&<molecular_id>=>PT_SR10_BdVRConfirmed_MOI0&<comment_user>=>qa",
+    "variant_report_confirmed:<patient_id>=>PT_SR10_BdVRConfirmed&<analysis_id>=>PT_SR10_BdVRConfirmed_BD_ANI1&<status>=>confirm&<comment>=>Test&<comment_user>=>QA"
+  ],
+  "PT_SR14c_BdVrUploaded": [
+    "registration:<patient_id>=>PT_SR14c_BdVrUploaded&<status_date>=>current",
+    "specimen_received_BLOOD:<patient_id>=>PT_SR14c_BdVrUploaded&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_BLOOD:<patient_id>=>PT_SR14c_BdVrUploaded&<molecular_id>=>PT_SR14c_BdVrUploaded_BD_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
+    "aliquot:<patient_id>=>PT_SR14c_BdVrUploaded&<ion_reporter_id>=>bdd_test_ion_reporter&<vr_type>=>blood_vr&<analysis_id>=>PT_SR14c_BdVrUploaded_BD_ANI1&<molecular_id>=>PT_SR14c_BdVrUploaded_BD_MOI1&<site>=>MDA",
+    "variant_dna_file_uploaded:<patient_id>=>PT_SR14c_BdVrUploaded&<dna_bam_name>=>dna.bam&<analysis_id>=>PT_SR14c_BdVrUploaded_BD_ANI1&<molecular_id>=>PT_SR14c_BdVrUploaded_MOI0&<comment_user>=>qa",
+    "variant_cdna_file_uploaded:<patient_id>=>PT_SR14c_BdVrUploaded&<cdna_bam_name>=>cdna.bam&<analysis_id>=>PT_SR14c_BdVrUploaded_BD_ANI1&<molecular_id>=>PT_SR14c_BdVrUploaded_MOI0&<comment_user>=>qa"
+  ],
+  "PT_SS26_BdVRReceived": [
+    "registration:<patient_id>=>PT_SS26_BdVRReceived&<status_date>=>current",
+    "specimen_received_BLOOD:<patient_id>=>PT_SS26_BdVRReceived&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_BLOOD:<patient_id>=>PT_SS26_BdVRReceived&<molecular_id>=>PT_SS26_BdVRReceived_BD_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
+    "aliquot:<patient_id>=>PT_SS26_BdVRReceived&<ion_reporter_id>=>bdd_test_ion_reporter&<vr_type>=>blood_vr&<analysis_id>=>PT_SS26_BdVRReceived_BD_ANI1&<molecular_id>=>PT_SS26_BdVRReceived_BD_MOI1&<site>=>MDA",
+    "variant_dna_file_uploaded:<patient_id>=>PT_SS26_BdVRReceived&<dna_bam_name>=>dna.bam&<analysis_id>=>PT_SS26_BdVRReceived_BD_ANI1&<molecular_id>=>PT_SS26_BdVRReceived_MOI0&<comment_user>=>qa",
+    "variant_cdna_file_uploaded:<patient_id>=>PT_SS26_BdVRReceived&<cdna_bam_name>=>cdna.bam&<analysis_id>=>PT_SS26_BdVRReceived_BD_ANI1&<molecular_id>=>PT_SS26_BdVRReceived_MOI0&<comment_user>=>qa"
+  ],
+  "PT_SS26_BdVRRejected": [
+    "registration:<patient_id>=>PT_SS26_BdVRRejected&<status_date>=>current",
+    "specimen_received_BLOOD:<patient_id>=>PT_SS26_BdVRRejected&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_BLOOD:<patient_id>=>PT_SS26_BdVRRejected&<molecular_id>=>PT_SS26_BdVRRejected_BD_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
+    "aliquot:<patient_id>=>PT_SS26_BdVRRejected&<ion_reporter_id>=>bdd_test_ion_reporter&<vr_type>=>blood_vr&<analysis_id>=>PT_SS26_BdVRRejected_BD_ANI1&<molecular_id>=>PT_SS26_BdVRRejected_BD_MOI1&<site>=>MDA",
+    "variant_dna_file_uploaded:<patient_id>=>PT_SS26_BdVRRejected&<dna_bam_name>=>dna.bam&<analysis_id>=>PT_SS26_BdVRRejected_BD_ANI1&<molecular_id>=>PT_SS26_BdVRRejected_MOI0&<comment_user>=>qa",
+    "variant_cdna_file_uploaded:<patient_id>=>PT_SS26_BdVRRejected&<cdna_bam_name>=>cdna.bam&<analysis_id>=>PT_SS26_BdVRRejected_BD_ANI1&<molecular_id>=>PT_SS26_BdVRRejected_MOI0&<comment_user>=>qa",
+    "variant_report_confirmed:<patient_id>=>PT_SS26_BdVRRejected&<analysis_id>=>PT_SS26_BdVRRejected_BD_ANI1&<status>=>reject&<comment>=>Test&<comment_user>=>QA"
+  ],
+  "PT_SS26_BdVRConfirmed": [
+    "registration:<patient_id>=>PT_SS26_BdVRConfirmed&<status_date>=>current",
+    "specimen_received_BLOOD:<patient_id>=>PT_SS26_BdVRConfirmed&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_BLOOD:<patient_id>=>PT_SS26_BdVRConfirmed&<molecular_id>=>PT_SS26_BdVRConfirmed_BD_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
+    "aliquot:<patient_id>=>PT_SS26_BdVRConfirmed&<ion_reporter_id>=>bdd_test_ion_reporter&<vr_type>=>blood_vr&<analysis_id>=>PT_SS26_BdVRConfirmed_BD_ANI1&<molecular_id>=>PT_SS26_BdVRConfirmed_BD_MOI1&<site>=>MDA",
+    "variant_dna_file_uploaded:<patient_id>=>PT_SS26_BdVRConfirmed&<dna_bam_name>=>dna.bam&<analysis_id>=>PT_SS26_BdVRConfirmed_BD_ANI1&<molecular_id>=>PT_SS26_BdVRConfirmed_MOI0&<comment_user>=>qa",
+    "variant_cdna_file_uploaded:<patient_id>=>PT_SS26_BdVRConfirmed&<cdna_bam_name>=>cdna.bam&<analysis_id>=>PT_SS26_BdVRConfirmed_BD_ANI1&<molecular_id>=>PT_SS26_BdVRConfirmed_MOI0&<comment_user>=>qa",
+    "variant_report_confirmed:<patient_id>=>PT_SS26_BdVRConfirmed&<analysis_id>=>PT_SS26_BdVRConfirmed_BD_ANI1&<status>=>confirm&<comment>=>Test&<comment_user>=>QA"
+  ],
+  "PT_SS26_PendingConfirmation": [
+    "registration:<patient_id>=>PT_SS26_PendingConfirmation&<status_date>=>current",
+    "specimen_received_BLOOD:<patient_id>=>PT_SS26_PendingConfirmation&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS26_PendingConfirmation&<surgical_event_id>=>PT_SS26_PendingConfirmation_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_TISSUE:<patient_id>=>PT_SS26_PendingConfirmation&<surgical_event_id>=>PT_SS26_PendingConfirmation_SEI1&<molecular_id>=>PT_SS26_PendingConfirmation_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
+    "specimen_shipped_SLIDE:<patient_id>=>PT_SS26_PendingConfirmation&<surgical_event_id>=>PT_SS26_PendingConfirmation_SEI1&<slide_barcode>=>PT_SS26_PendingConfirmation_BC1&<shipped_dttm>=>current",
+    "aliquot:<patient_id>=>PT_SS26_PendingConfirmation&<ion_reporter_id>=>bdd_test_ion_reporter&<vr_type>=>default&<analysis_id>=>PT_SS26_PendingConfirmation_ANI1&<molecular_id>=>PT_SS26_PendingConfirmation_MOI1&<site>=>MDA",
+    "variant_dna_file_uploaded:<patient_id>=>PT_SS26_PendingConfirmation&<dna_bam_name>=>dna.bam&<analysis_id>=>PT_SS26_PendingConfirmation_ANI1&<molecular_id>=>PT_SS26_PendingConfirmation_MOI1&<comment_user>=>qa",
+    "variant_cdna_file_uploaded:<patient_id>=>PT_SS26_PendingConfirmation&<cdna_bam_name>=>cdna.bam&<analysis_id>=>PT_SS26_PendingConfirmation_ANI1&<molecular_id>=>PT_SS26_PendingConfirmation_MOI1&<comment_user>=>qa",
+    "assay_result_reported:<patient_id>=>PT_SS26_PendingConfirmation&<surgical_event_id>=>PT_SS26_PendingConfirmation_SEI1&<biomarker>=>ICCPTENs&<result>=>POSITIVE&<reported_date>=>current",
+    "assay_result_reported:<patient_id>=>PT_SS26_PendingConfirmation&<surgical_event_id>=>PT_SS26_PendingConfirmation_SEI1&<biomarker>=>ICCBAF47s&<result>=>POSITIVE&<reported_date>=>current",
+    "assay_result_reported:<patient_id>=>PT_SS26_PendingConfirmation&<surgical_event_id>=>PT_SS26_PendingConfirmation_SEI1&<biomarker>=>ICCBRG1s&<result>=>POSITIVE&<reported_date>=>current",
+    "variant_report_confirmed:<patient_id>=>PT_SS26_PendingConfirmation&<analysis_id>=>PT_SS26_PendingConfirmation_ANI1&<status>=>confirm&<comment>=>Test&<comment_user>=>QA"
+  ],
+  "PT_SS26_OnTreatmentArm": [
+    "registration:<patient_id>=>PT_SS26_OnTreatmentArm&<status_date>=>current",
+    "specimen_received_BLOOD:<patient_id>=>PT_SS26_OnTreatmentArm&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_received_TISSUE:<patient_id>=>PT_SS26_OnTreatmentArm&<surgical_event_id>=>PT_SS26_OnTreatmentArm_SEI1&<collection_dt>=>today&<received_dttm>=>current",
+    "specimen_shipped_TISSUE:<patient_id>=>PT_SS26_OnTreatmentArm&<surgical_event_id>=>PT_SS26_OnTreatmentArm_SEI1&<molecular_id>=>PT_SS26_OnTreatmentArm_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
+    "specimen_shipped_SLIDE:<patient_id>=>PT_SS26_OnTreatmentArm&<surgical_event_id>=>PT_SS26_OnTreatmentArm_SEI1&<slide_barcode>=>PT_SS26_OnTreatmentArm_BC1&<shipped_dttm>=>current",
+    "aliquot:<patient_id>=>PT_SS26_OnTreatmentArm&<ion_reporter_id>=>bdd_test_ion_reporter&<vr_type>=>default&<analysis_id>=>PT_SS26_OnTreatmentArm_ANI1&<molecular_id>=>PT_SS26_OnTreatmentArm_MOI1&<site>=>MDA",
+    "variant_dna_file_uploaded:<patient_id>=>PT_SS26_OnTreatmentArm&<dna_bam_name>=>dna.bam&<analysis_id>=>PT_SS26_OnTreatmentArm_ANI1&<molecular_id>=>PT_SS26_OnTreatmentArm_MOI1&<comment_user>=>qa",
+    "variant_cdna_file_uploaded:<patient_id>=>PT_SS26_OnTreatmentArm&<cdna_bam_name>=>cdna.bam&<analysis_id>=>PT_SS26_OnTreatmentArm_ANI1&<molecular_id>=>PT_SS26_OnTreatmentArm_MOI1&<comment_user>=>qa",
+    "assay_result_reported:<patient_id>=>PT_SS26_OnTreatmentArm&<surgical_event_id>=>PT_SS26_OnTreatmentArm_SEI1&<biomarker>=>ICCPTENs&<result>=>POSITIVE&<reported_date>=>current",
+    "assay_result_reported:<patient_id>=>PT_SS26_OnTreatmentArm&<surgical_event_id>=>PT_SS26_OnTreatmentArm_SEI1&<biomarker>=>ICCBAF47s&<result>=>POSITIVE&<reported_date>=>current",
+    "assay_result_reported:<patient_id>=>PT_SS26_OnTreatmentArm&<surgical_event_id>=>PT_SS26_OnTreatmentArm_SEI1&<biomarker>=>ICCBRG1s&<result>=>POSITIVE&<reported_date>=>current",
+    "variant_report_confirmed:<patient_id>=>PT_SS26_OnTreatmentArm&<analysis_id>=>PT_SS26_OnTreatmentArm_ANI1&<status>=>confirm&<comment>=>Test&<comment_user>=>QA",
+    "assignment_confirmed:<patient_id>=>PT_SS26_OnTreatmentArm&<analysis_id>=>PT_SS26_OnTreatmentArm_ANI1&<comment>=>Test&<comment_user>=>QA",
+    "on_treatment_arm:<patient_id>=>PT_SS26_OnTreatmentArm&<step_number>=>1.1&<status_date>=>current&<treatment_arm_id>=>APEC1621-A&<stratum_id>=>100"
   ]
 }

@@ -212,7 +212,7 @@ class PatientStory
     end
   end
 
-  def story_blood_variant_report(vr_type='default',
+  def story_blood_variant_report(vr_type='blood_vr',
                                  folder='bdd_test_ion_reporter',
                                  process_bams=true,
                                  analysis_id = DEFAULT_NEW,
@@ -246,8 +246,16 @@ class PatientStory
     @story_hash << this_story
   end
 
-  def story_variant_file_confirmed(status='confirm', comment='Test', comment_user='QA', analysis_id=DEFAULT_ACTIVE)
+  def story_tissue_vr_confirmed(status='confirm', comment='Test', comment_user='QA', analysis_id=DEFAULT_ACTIVE)
     ani = process_id(@active_ts_ani, analysis_id)
+    this_story = "variant_report_confirmed:<patient_id>=>#{@patient_id}&"
+    this_story += "<analysis_id>=>#{ani}&<status>=>#{status}"
+    this_story += "&<comment>=>#{comment}&<comment_user>=>#{comment_user}"
+    @story_hash << this_story
+  end
+
+  def story_blood_vr_confirmed(status='confirm', comment='Test', comment_user='QA', analysis_id=DEFAULT_ACTIVE)
+    ani = process_id(@active_bd_ani, analysis_id)
     this_story = "variant_report_confirmed:<patient_id>=>#{@patient_id}&"
     this_story += "<analysis_id>=>#{ani}&<status>=>#{status}"
     this_story += "&<comment>=>#{comment}&<comment_user>=>#{comment_user}"

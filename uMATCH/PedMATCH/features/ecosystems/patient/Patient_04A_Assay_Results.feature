@@ -102,10 +102,14 @@ Feature: Assay Messages
     Then set patient message field: "reported_date" to value: "<value>"
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
-      | value   | message        | code |
-      |         | can't be blank | 403  |
-      | nonDate | date           | 400  |
-      | null    | can't be blank | 403  |
+      | value                     | message        | code |
+      |                           | can't be blank | 403  |
+      | nonDate                   | date           | 400  |
+      | null                      | can't be blank | 403  |
+      | 2117-06-06T10:42:13+00:00 | before         | 403  |
+#      #we don't check this
+#      | 1997-06-06T10:42:13+00:00 | slide         | 403  |
+
 
   @patients_p2
   Scenario Outline: PT_AS07. Assay result with invalid result(other than POSITIVE, NEGATIVE or INDETERMINATE) should fail

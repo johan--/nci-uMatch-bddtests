@@ -9,7 +9,6 @@ Feature: NCH Specimen shipped messages
   Scenario: PT_SS01. Received specimen_shipped message for type 'BLOOD' from NCH for a patient who has already received the specimen_received message
     Given patient id is "PT_SS01_BloodReceived"
     And load template specimen type: "BLOOD" shipped message for this patient
-    Then set patient message field: "surgical_event_id" to value: ""
     Then set patient message field: "molecular_id" to value: "PT_SS01_BloodReceived_BD_MOI1"
     Then set patient message field: "shipped_dttm" to value: "current"
     When POST to MATCH patients service, response includes "successfully" with code "202"
@@ -312,7 +311,7 @@ Feature: NCH Specimen shipped messages
     Then set patient message field: "shipped_dttm" to value: "current"
     When POST to MATCH patients service, response includes "Unable to find a TISSUE specimen" with code "403"
 
-  @patients_p3
+  @patients_p2
   Scenario: PT_SS17. shipped blood without blood received fails
   #  Testing patient: PT_SS17_Registered
   #     These is no blood specimen received event in this patient
@@ -335,7 +334,6 @@ Feature: NCH Specimen shipped messages
   #    blood molecular_id: PT_SS20_Blood1Shipped_BD_MOI1 has shipped
     Given patient id is "PT_SS20_Blood1Shipped"
     And load template specimen type: "BLOOD" shipped message for this patient
-    Then set patient message field: "surgical_event_id" to value: ""
     Then set patient message field: "molecular_id" to value: "PT_SS20_Blood1Shipped_BD_MOI2"
     Then set patient message field: "shipped_dttm" to value: "current"
     When POST to MATCH patients service, response includes "successfully" with code "202"
@@ -354,13 +352,6 @@ Feature: NCH Specimen shipped messages
     Then set patient message field: "shipped_dttm" to value: "current"
     When POST to MATCH patients service, response includes "confirmed variant report" with code "403"
 
-    #we don't confirm or reject BLOOD variant report anymore
-#  Scenario: PT_SS22. Blood cannot be shipped if there is one blood variant report get confirmed
-#  #    Testing patient: PT_SS22_BloodVariantConfirmed, molecular_id: PT_SS22_BloodVariantConfirmed_MOI1, analysis_id: PT_SS22_BloodVariantConfirmed_ANI1
-#  #      this patient has BLOOD_VARIANT_REPORT_CONFIRMED status
-#    Given template specimen shipped message in type: "BLOOD" for patient: "PT_SS22_BloodVariantConfirmed", it has surgical_event_id: "", molecular_id or slide_barcode: "PT_SS22_BloodVariantConfirmed_MOI2"
-#    Then set patient message field: "shipped_dttm" to value: "2016-08-25T16:17:11+00:00"
-#    When POST to MATCH patients service, response includes "confirmed variant report" with status "Failure"
 
   @patients_p2
   Scenario Outline: PT_SS23. Tissue shipment and slide shipment should not depend on each other
@@ -419,15 +410,20 @@ Feature: NCH Specimen shipped messages
     Then set patient message field: "shipped_dttm" to value: "current"
     When POST to MATCH patients service, response includes "<message>" with code "<http_code>"
     Examples:
-      | patient_id                | moi                              | http_code | message                |
-      | PT_SS26_TsReceived        | PT_SS26_TsReceived_BD_MOI1       | 202       | processed successfully |
-      | PT_SS26_TsShipped         | PT_SS26_TsShipped_BD_MOI1        | 202       | processed successfully |
-      | PT_SS26_AssayConfirmed    | PT_SS26_AssayConfirmed_BD_MOI1   | 202       | processed successfully |
-      | PT_SS26_TsVRReceived      | PT_SS26_TsVRReceived_BD_MOI1     | 202       | processed successfully |
-      | PT_SS26_TsVRConfirmed     | PT_SS26_TsVRConfirmed_BD_MOI1    | 202       | processed successfully |
-      | PT_SS26_PendingApproval1  | PT_SS26_PendingApproval1_BD_MOI1 | 202       | processed successfully |
-      | PT_SS26_RequestAssignment | PT_SS26_Progression_BD_MOI1      | 202       | processed successfully |
-      | PT_SS26_OffStudy          | PT_SS26_OffStudy_BD_MOI1         | 403       | cannot transition from |
+      | patient_id                  | moi                                 | http_code | message                  |
+      | PT_SS26_TsReceived          | PT_SS26_TsReceived_BD_MOI1          | 202       | processed successfully   |
+      | PT_SS26_TsShipped           | PT_SS26_TsShipped_BD_MOI1           | 202       | processed successfully   |
+      | PT_SS26_AssayConfirmed      | PT_SS26_AssayConfirmed_BD_MOI1      | 202       | processed successfully   |
+      | PT_SS26_TsVRReceived        | PT_SS26_TsVRReceived_BD_MOI1        | 202       | processed successfully   |
+      | PT_SS26_TsVRConfirmed       | PT_SS26_TsVRConfirmed_BD_MOI1       | 202       | processed successfully   |
+      | PT_SS26_PendingApproval1    | PT_SS26_PendingApproval1_BD_MOI1    | 202       | processed successfully   |
+      | PT_SS26_RequestAssignment   | PT_SS26_Progression_BD_MOI1         | 202       | processed successfully   |
+      | PT_SS26_OffStudy            | PT_SS26_OffStudy_BD_MOI1            | 403       | cannot transition from   |
+      | PT_SS22_BdVRReceived        | PT_SS22_BdVRReceived_BD_MOI2        | 202       | success                  |
+      | PT_SS22_PendingConfirmation | PT_SS22_PendingConfirmation_BD_MOI1 | 202       | success                  |
+      | PT_SS22_OnTreatmentArm      | PT_SS22_OnTreatmentArm_BD_MOI1      | 202       | success                  |
+      | PT_SS22_BdVRRejected        | PT_SS22_BdVRRejected_BD_MOI2        | 202       | success                  |
+      | PT_SS22_BdVRConfirmed       | PT_SS22_BdVRConfirmed_BD_MOI2       | 403       | confirmed variant report |
       #there is no “PATHOLOGY_REVIEWED” status anymore
 #      | PT_SS26_PathologyConfirmed | PT_SS26_PathologyConfirmed_BD_MOI1 | Success | processed successfully |
 

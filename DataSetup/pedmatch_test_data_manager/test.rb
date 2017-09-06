@@ -4,16 +4,22 @@ require_relative 'ped_match_test_data'
 require_relative 'patient_story'
 require_relative 'constants'
 
-# pt = PatientStory.new('PT_AS15_AssayReceived')
+# pt = PatientStory.new('PT_SS26_OnTreatmentArm')
 # pt.create_seed_patient {
 #   pt.story_register
+#   pt.story_specimen_received_blood
 #   pt.story_specimen_received_tissue
-#   pt.story_specimen_shipped_slide('2017-08-05T10:42:13+00:00')
-#   pt.story_assay('ICCPTENs', 'POSITIVE', '2017-08-06T10:42:13+00:00')
-#   pt.story_assay('ICCBAF47s', 'POSITIVE', '2017-08-06T10:43:13+00:00')
-#   pt.story_assay('ICCBRG1s', 'POSITIVE', '2017-08-06T10:44:13+00:00')
+#   pt.story_specimen_shipped_tissue
+#   pt.story_specimen_shipped_slide
+#   pt.story_tissue_variant_report
+#   pt.story_assay('ICCPTENs')
+#   pt.story_assay('ICCBAF47s')
+#   pt.story_assay('ICCBRG1s')
+#   pt.story_tissue_vr_confirmed
+#   pt.story_assignment_confirmed
+#   pt.story_on_treatment_arm('APEC1621-A', '100')
 # }
-PedMatchTestData.load_seed_patients(['PT_AS15_AssayReceived'])
+PedMatchTestData.load_seed_patients(['PT_SS26_OnTreatmentArm','PT_SS26_BdVRRejected'])
 
 
 # pt = PatientStory.new('PT_Test1')
@@ -23,7 +29,7 @@ PedMatchTestData.load_seed_patients(['PT_AS15_AssayReceived'])
 # PedMatchTestData.use_uat_tier
 # PedMatchTestData.send_a_patient_story(pt)
 
-# PedMatchDatabase.reload_local('ion_reporter')
+# PedMatchDatabase.reload_local
 # PedMatchDatabase.backup_ion('ion_reporter')
 # PedMatchDatabase.backup('demo')
 # string = File.read('./delete.json')
