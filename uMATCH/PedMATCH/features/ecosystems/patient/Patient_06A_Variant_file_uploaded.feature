@@ -225,7 +225,7 @@ Feature: Variant files uploaded message
 #    Then retrieve patient: "PT_VU15_TissueReceivedAndShippedTwice" from API
 #    Then returned patient has variant report (surgical_event_id: "SEI_02", molecular_id: "MOI_01", analysis_id: "ANI_01")
 
-  @patients_p3
+  @patients_p2
   Scenario: PT_VU16. blood variant files uploaded with new analysis_id make all pending old files rejected
 #    Test patient: PT_VU16_BdVRUploaded; variant report files uploaded: molecular_id: _BR_MOI1, analysis_id: _ANI1
 #          Plan to uploaded molecular_id: _BR_MOI1, analysis_id: _ANI2
@@ -241,19 +241,6 @@ Feature: Variant files uploaded message
     And this variant report field: "status" should be "REJECTED"
 
 
-    #no blood status is used anymore
-#  Scenario Outline: PT_VU17. blood variant files cannot be uploaded if patient has BLOOD_VARIANT_REPORT_CONFIRMED status, but still can upload tissue variant files
-##    Test patient: PT_VU17_BdVRConfirmed; blood variant report files confirmed: molecular_id: _BR_MOI1, analysis_id: _ANI1
-##                                        tissue specimen has been shipped: molecular_id: _MOI1
-#    Given template variant file uploaded message for patient: "PT_VU17_BdVRConfirmed", it has molecular_id: "<moi>" and analysis_id: "<ani>"
-#    When POST to MATCH variant report upload service, response includes "<message>" with status "<post_status>"
-#    Then patient should have variant report (analysis_id: "<query_ani>") within 15 seconds
-#    And this variant report has value: "<vr_status>" in field: "status"
-#    Examples:
-#      | moi                           | ani                        | query_ani                  | vr_status | message                | post_status |
-#      | PT_VU17_BdVRConfirmed_BD_MOI1 | PT_VU17_BdVRConfirmed_ANI2 | PT_VU17_BdVRConfirmed_ANI1 | CONFIRMED | confirmed              | Failure     |
-#      | PT_VU17_BdVRConfirmed_MOI1    | PT_VU17_BdVRConfirmed_ANI3 | PT_VU17_BdVRConfirmed_ANI3 | PENDING   | processed successfully | Success     |
-
   @patients_p1
   Scenario Outline: PT_VU17a. tissue specimen allow_upload should have correct values
     Given patient GET service: "specimen_events", patient id: "<patient_id>", id: ""
@@ -261,28 +248,28 @@ Feature: Variant files uploaded message
     When GET from MATCH patient API, http code "200" should return
     And this patient tissue specimen_events "<moi>" allow_upload field should be "<allow>"
     Examples:
-      | patient_id                      | moi                                  | allow |
-      | PT_VU17_TsShippedTwice          | PT_VU17_TsShippedTwice_MOI1          | false |
-      | PT_VU17_TsShippedTwice          | PT_VU17_TsShippedTwice_MOI2          | true  |
-      | PT_VU17_TsVrUploaded            | PT_VU17_TsVrUploaded_MOI1            | true  |
-      | PT_VU17_TsVrUploadedStep2       | PT_VU17_TsVrUploadedStep2_MOI1       | false |
-      | PT_VU17_TsVrUploadedStep2       | PT_VU17_TsVrUploadedStep2_MOI2       | true  |
-      | PT_VU17_TsShipDtmThenMda        | PT_VU17_TsShipDtmThenMda_MOI1        | false |
-      | PT_VU17_TsShipDtmThenMda        | PT_VU17_TsShipDtmThenMda_MOI2        | true  |
-      | PT_VU17_TsShipMdaThenDtm        | PT_VU17_TsShipMdaThenDtm_MOI1        | false |
-      | PT_VU17_TsShipMdaThenDtm        | PT_VU17_TsShipMdaThenDtm_MOI2        | false |
-      | PT_VU17_PendingConfirmation     | PT_VU17_PendingConfirmation_MOI1     | false |
-      | PT_VU17_PendingApproval         | PT_VU17_PendingApproval_MOI1         | false |
-      | PT_VU17_TsShippedOffStudy       | PT_VU17_TsShippedOffStudy_MOI1       | false |
-      | PT_VU17_TsSlideShipped          | PT_VU17_TsSlideShipped_MOI1          | true  |
-      | PT_VU17_TsShippedAssayReceived  | PT_VU17_TsShippedAssayReceived_MOI1  | true  |
-      | PT_VU17_TsVrConfirmed           | PT_VU17_TsVrConfirmed_MOI1           | false |
-      | PT_VU17_TsVrRejected            | PT_VU17_TsVrRejected_MOI1            | true  |
-      | PT_VU17_OnTreatmentArm          | PT_VU17_OnTreatmentArm_MOI1          | false |
-      | PT_VU17_ReqAssignment           | PT_VU17_ReqAssignment_MOI1           | false |
-      | PT_VU17_ReqNoAssignment         | PT_VU17_ReqNoAssignment_MOI1         | false |
-      | PT_VU17_NoTaAvailable           | PT_VU17_NoTaAvailable_MOI1           | false |
-      | PT_VU17_CompassionateCare       | PT_VU17_CompassionateCare_MOI1       | false |
+      | patient_id                     | moi                                 | allow |
+      | PT_VU17_TsShippedTwice         | PT_VU17_TsShippedTwice_MOI1         | false |
+      | PT_VU17_TsShippedTwice         | PT_VU17_TsShippedTwice_MOI2         | true  |
+      | PT_VU17_TsVrUploaded           | PT_VU17_TsVrUploaded_MOI1           | true  |
+      | PT_VU17_TsVrUploadedStep2      | PT_VU17_TsVrUploadedStep2_MOI1      | false |
+      | PT_VU17_TsVrUploadedStep2      | PT_VU17_TsVrUploadedStep2_MOI2      | true  |
+      | PT_VU17_TsShipDtmThenMda       | PT_VU17_TsShipDtmThenMda_MOI1       | false |
+      | PT_VU17_TsShipDtmThenMda       | PT_VU17_TsShipDtmThenMda_MOI2       | true  |
+      | PT_VU17_TsShipMdaThenDtm       | PT_VU17_TsShipMdaThenDtm_MOI1       | false |
+      | PT_VU17_TsShipMdaThenDtm       | PT_VU17_TsShipMdaThenDtm_MOI2       | false |
+      | PT_VU17_PendingConfirmation    | PT_VU17_PendingConfirmation_MOI1    | false |
+      | PT_VU17_PendingApproval        | PT_VU17_PendingApproval_MOI1        | false |
+      | PT_VU17_TsShippedOffStudy      | PT_VU17_TsShippedOffStudy_MOI1      | false |
+      | PT_VU17_TsSlideShipped         | PT_VU17_TsSlideShipped_MOI1         | true  |
+      | PT_VU17_TsShippedAssayReceived | PT_VU17_TsShippedAssayReceived_MOI1 | true  |
+      | PT_VU17_TsVrConfirmed          | PT_VU17_TsVrConfirmed_MOI1          | false |
+      | PT_VU17_TsVrRejected           | PT_VU17_TsVrRejected_MOI1           | true  |
+      | PT_VU17_OnTreatmentArm         | PT_VU17_OnTreatmentArm_MOI1         | false |
+      | PT_VU17_ReqAssignment          | PT_VU17_ReqAssignment_MOI1          | false |
+      | PT_VU17_ReqNoAssignment        | PT_VU17_ReqNoAssignment_MOI1        | false |
+      | PT_VU17_NoTaAvailable          | PT_VU17_NoTaAvailable_MOI1          | false |
+      | PT_VU17_CompassionateCare      | PT_VU17_CompassionateCare_MOI1      | false |
 #      | PT_VU17_TsShippedOffStudyBioExp | PT_VU17_TsShippedOffStudyBioExp_MOI1 | false |
 
 
@@ -297,6 +284,8 @@ Feature: Variant files uploaded message
       | PT_VU17_BdShippedTwice | PT_VU17_BdShippedTwice_BD_MOI1 | false |
       | PT_VU17_BdShippedTwice | PT_VU17_BdShippedTwice_BD_MOI2 | true  |
       | PT_VU17_BdVrUploaded   | PT_VU17_BdVrUploaded_BD_MOI1   | true  |
+      | PT_VU17_BdVrConfirmed  | PT_VU17_BdVrConfirmed_BD_MOI1  | false |
+      | PT_VU17_BdVrRejected   | PT_VU17_BdVrRejected_BD_MOI1   | true  |
 
   @patients_p1
   Scenario: PT_VU18. multiple variant report can be processed at same time
@@ -313,4 +302,34 @@ Feature: Variant files uploaded message
     And patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
     Then patient id is "PT_VU18_TsShipped1"
     And patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
+
+  @patients_p1
+  Scenario: PT_VU19. tissue variant report can be uploaded when blood variant report is confirmed
+    Given patient id is "PT_VU19_BdVrConfirmed"
+    And load template variant file uploaded message for molecular id: "PT_VU19_BdVrConfirmed_MOI1"
+    Then set patient message field: "analysis_id" to value: " PT_VU19_BdVrConfirmed_ANI1"
+    Then files for molecular_id "PT_VU19_BdVrConfirmed_MOI1" and analysis_id "PT_VU19_BdVrConfirmed_ANI1" are in S3
+    When POST to MATCH variant report upload service, response includes "successfully" with code "202"
+    Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
+    Then patient should have variant report (analysis_id: "PT_VU19_BdVrConfirmed_ANI1")
+
+  @patients_p2
+  Scenario Outline: PT_VU20. blood variant report can only be uploaded when patient is in certain status
+    Given patient id is "<patient_id>"
+    And load template variant file uploaded message for molecular id: "<patient_id>_BD_MOI1"
+    Then set patient message field: "analysis_id" to value: " <ani>"
+    Then files for molecular_id "<patient_id>_BD_MOI1" and analysis_id "<ani>" are in S3
+    When POST to MATCH variant report upload service, response includes "<message>" with code "<code>"
+    Examples:
+      | patient_id                  | ani                                 | message    | code |
+      | PT_VU20_BdVrUploaded        | PT_VU20_BdVrUploaded_BD_ANI2        | success    | 202  |
+      | PT_VU20_BdVrConfirmed       | PT_VU20_BdVrConfirmed_BD_ANI2       | transition | 403  |
+      | PT_VU20_BdVrRejected        | PT_VU20_BdVrRejected_BD_ANI2        | success    | 202  |
+      | PT_VU20_OffStudy            | PT_VU20_OffStudy_BD_ANI2            | transition | 403  |
+      | PT_VU20_TsVrConfirmed       | PT_VU20_TsVrConfirmed_BD_ANI2       | success    | 202  |
+      | PT_VU20_PendingConfirmation | PT_VU20_PendingConfirmation_BD_ANI2 | success    | 202  |
+      | PT_VU20_PendingApproval     | PT_VU20_PendingApproval_BD_ANI2     | success    | 202  |
+      | PT_VU20_OnTreatmentArm      | PT_VU20_OnTreatmentArm_BD_ANI2      | success    | 202  |
+      | PT_VU20_RequestAssignment   | PT_VU20_RequestAssignment_BD_ANI2   | success    | 202  |
+
 
