@@ -108,7 +108,7 @@ var Utilities = function () {
         if (strVal == null || strVal === undefined) {
             retVal = '-'
         } else {
-            retVal = strVal
+            retVal = strVal.toString();
         }
         return retVal;
     };

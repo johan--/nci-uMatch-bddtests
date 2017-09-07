@@ -612,7 +612,7 @@ module.exports = function() {
             utilities.checkExpectation(colElements.get(2), utilities.dashifyIfEmpty(utilities.round(variant.raw_copy_number, 0)), 'Raw CN Mismatch');
             utilities.checkExpectation(colElements.get(3), utilities.dashifyIfEmpty(variant.filter), 'Filter Mismatch');
             utilities.checkExpectation(colElements.get(4), utilities.dashifyIfEmpty(utilities.round(variant.confidence_interval_5_percent, 3)), 'CI5% Mismatch');
-            utilities.checkExpectation(colElements.get(5), utilities.dashifyIfEmpty(utilities.round(variant.copy_number, 0)), 'CN Mismatch');
+            utilities.checkExpectation(colElements.get(5), utilities.dashifyIfEmpty(variant.copy_number), 'CN Mismatch');
             utilities.checkExpectation(colElements.get(6), utilities.dashifyIfEmpty(utilities.round(variant.confidence_interval_95_percent, 3)), 'Func Gene Mismatch');
         }).then(callback);
     });
@@ -677,7 +677,7 @@ module.exports = function() {
             utilities.checkGeneLink(identifier);
             utilities.checkExpectation(table.element(by.binding('item.raw_copy_number')), utilities.integerize(expected['raw_copy_number']), 'Raw Copy Number Mismatch');
             utilities.checkExpectation(table.element(by.binding('item.filter')), expected['filter'], 'Filter Mismatch');
-            utilities.checkExpectation(table.element(by.binding('item.copy_number')), utilities.integerize(expected['copy_number']), 'Copy Number Mismatch');
+            utilities.checkExpectation(table.element(by.binding('item.copy_number')), expected['copy_number'].toString(), 'Copy Number Mismatch');
             utilities.checkExpectation(table.element(by.binding('item.confidence_interval_5_percent')), utilities.round(expected['confidence_interval_5_percent'], 3), 'CI 5% Mismatch');
             utilities.checkExpectation(table.element(by.binding('item.confidence_interval_95_percent')), utilities.round(expected['confidence_interval_95_percent'], 3), 'CI 95% Mismatch');
         }).then(callback);

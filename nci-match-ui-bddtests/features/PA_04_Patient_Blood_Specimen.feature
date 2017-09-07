@@ -45,7 +45,7 @@ Feature: Patient Blood SpecimenTab
     And I can see that the SNV table for Blood variant report matches with the backend
     And I can see that the Gene table for Blood variant report matches with the backend
 
-  @ui_p1 
+  @ui_p1
   Scenario: Confirming a Blood variant report will update the status of the report and also inform the activity feed on both dashboard and patient page.
     Given I stay logged in as "VR_Reviewer_mda" user
     When I go to the patient "PT_VU16_BdVRUploaded" with variant report "PT_VU16_BdVRUploaded_BD_ANI1"
