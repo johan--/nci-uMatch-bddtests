@@ -37,7 +37,7 @@ Feature: Assay Messages
     Examples:
       | patient_id | message        |
   #    |          |can't be blank             |
-      | nonPatient | NOT_REGISTERED |
+      | nonPatient | registered |
 #    |null      |can't be blank             |
 
   @patients_p2

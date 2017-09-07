@@ -121,7 +121,7 @@ Feature: NCH specimen received messages
     Examples:
       | patient_id              | sei                          | collectTime | message                | code |
       | PT_SR09_TsReceivedTwice | PT_SR09_TsReceivedTwice_SEI1 | 2016-04-30  | same surgical event id | 403  |
-      | PT_SR09_TsReceivedTwice | PT_SR09_TsReceivedTwice_SEI2 | 2016-04-30  |                        | 202  |
+      | PT_SR09_TsReceivedTwice | PT_SR09_TsReceivedTwice_SEI2 | 2016-04-30  | success                | 202  |
       | PT_SR09_Registered      | PT_SR09_TsReceivedTwice_SEI1 | 2016-04-30  | same surgical event id | 403  |
       | PT_SR09_Registered      | PT_SR09_TsReceivedTwice_SEI2 | 2016-04-30  | same surgical event id | 403  |
 

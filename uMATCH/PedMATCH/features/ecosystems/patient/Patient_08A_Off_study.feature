@@ -13,23 +13,23 @@ Feature: Patients off study tests
     Then patient status should change to "<patient_status>"
     And patient field: "current_step_number" should have value: "<current_step_number>"
     Examples:
-      | patient_id                    | current_step_number | message      | http_code | patient_status           |
-      | PT_OS01_Registered            | 1.0                 | successfully | 202       | OFF_STUDY                |
-      | PT_OS01_TsReceived            | 1.0                 | successfully | 202       | OFF_STUDY                |
-      | PT_OS01_TsShipped             | 2.0                 | successfully | 202       | OFF_STUDY                |
-      | PT_OS01_slideShipped          | 2.0                 | successfully | 202       | OFF_STUDY                |
-      | PT_OS01_AssayReceived         | 1.0                 | successfully | 202       | OFF_STUDY                |
-      | PT_OS01_TsVrReceived          | 2.0                 | successfully | 202       | OFF_STUDY                |
-      | PT_OS01_TsVrConfirmed         | 1.0                 | successfully | 202       | OFF_STUDY                |
-      | PT_OS01_TsVrRejected          | 1.0                 | successfully | 202       | OFF_STUDY                |
-      | PT_OS01_PendingConfirmation   | 2.0                 | successfully | 202       | OFF_STUDY                |
-      | PT_OS01_PendingApproval       | 2.0                 | successfully | 202       | OFF_STUDY                |
-      | PT_OS01_OnTreatmentArm        | 1.1                 | successfully | 202       | OFF_STUDY                |
-      | PT_OS01_ReqAssignment         | 2.0                 | successfully | 202       | OFF_STUDY                |
-      | PT_OS01_ReqNoAssignment       | 1.1                 | successfully | 202       | OFF_STUDY                |
-      | PT_OS01_NoTaAvailable         | 1.0                 | successfully | 202       | OFF_STUDY                |
-      | PT_OS01_CompassionateCare     | 1.0                 | successfully | 202       | OFF_STUDY                |
-      | PT_OS01_OffStudy              | 1.0                 | off          | 403       | OFF_STUDY                |
+      | patient_id                  | current_step_number | message      | http_code | patient_status |
+      | PT_OS01_Registered          | 1.0                 | successfully | 202       | OFF_STUDY      |
+      | PT_OS01_TsReceived          | 1.0                 | successfully | 202       | OFF_STUDY      |
+      | PT_OS01_TsShipped           | 2.0                 | successfully | 202       | OFF_STUDY      |
+      | PT_OS01_slideShipped        | 2.0                 | successfully | 202       | OFF_STUDY      |
+      | PT_OS01_AssayReceived       | 1.0                 | successfully | 202       | OFF_STUDY      |
+      | PT_OS01_TsVrReceived        | 2.0                 | successfully | 202       | OFF_STUDY      |
+      | PT_OS01_TsVrConfirmed       | 1.0                 | successfully | 202       | OFF_STUDY      |
+      | PT_OS01_TsVrRejected        | 1.0                 | successfully | 202       | OFF_STUDY      |
+      | PT_OS01_PendingConfirmation | 2.0                 | successfully | 202       | OFF_STUDY      |
+      | PT_OS01_PendingApproval     | 2.0                 | successfully | 202       | OFF_STUDY      |
+      | PT_OS01_OnTreatmentArm      | 1.1                 | successfully | 202       | OFF_STUDY      |
+      | PT_OS01_ReqAssignment       | 2.0                 | successfully | 202       | OFF_STUDY      |
+      | PT_OS01_ReqNoAssignment     | 1.1                 | successfully | 202       | OFF_STUDY      |
+      | PT_OS01_NoTaAvailable       | 1.0                 | successfully | 202       | OFF_STUDY      |
+      | PT_OS01_CompassionateCare   | 1.0                 | successfully | 202       | OFF_STUDY      |
+      | PT_OS01_OffStudy            | 1.0                 | OFF_STUDY    | 403       | OFF_STUDY      |
     #no bio expired anymore
 #      | PT_OS01_OffStudyBiopsyExpired | 1.0                 | expired      | 403       | OFF_STUDY_BIOPSY_EXPIRED |
     #no blood status is used anymore
@@ -124,9 +124,9 @@ Feature: Patients off study tests
     And set patient message field: "step_number" to value: "2.0"
     When POST to MATCH patients service, response includes "off" with code "403"
     Examples:
-      | patient_id    | current_status           | rebiopsy |
-      | PT_OS04_OnTA1 | OFF_STUDY                | Y        |
-      | PT_OS04_OnTA1 | OFF_STUDY                | N        |
+      | patient_id    | current_status | rebiopsy |
+      | PT_OS04_OnTA1 | OFF_STUDY      | Y        |
+      | PT_OS04_OnTA1 | OFF_STUDY      | N        |
     #no bio expired any more
 #      | PT_OS04_OnTA2 | OFF_STUDY_BIOPSY_EXPIRED | Y        |
 #      | PT_OS04_OnTA2 | OFF_STUDY_BIOPSY_EXPIRED | N        |

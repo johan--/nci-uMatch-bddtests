@@ -1,6 +1,6 @@
 {
-    "ConsumedCapacity": null,
     "Count": 0,
-    "ScannedCount": 0,
-    "Items": []
+    "ConsumedCapacity": null,
+    "Items": [],
+    "ScannedCount": 0
 }

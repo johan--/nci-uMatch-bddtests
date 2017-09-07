@@ -504,7 +504,7 @@ Feature: NCH Specimen shipped messages
     Then set patient message field: "surgical_event_id" to value: "<patient_id>_SEI1"
     Then set patient message field: "<field>" to value: "<value>"
     Then set patient message field: "shipped_dttm" to value: "current"
-    When POST to MATCH patients service, response includes "InvalidTransition" with code "403"
+    When POST to MATCH patients service, response includes "transition" with code "403"
     Examples:
       | patient_id                | type   | field         | value                          |
       | PT_SS31_NoTaAvailable     | TISSUE | molecular_id  | PT_SS31_NoTaAvailable_MOI2     |

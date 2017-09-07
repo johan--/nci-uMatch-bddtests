@@ -78,7 +78,7 @@ Feature: Register a new patient in PEDMatchbox:
       | PT_RG05_EmptyDate     |             | can't be blank | 403  |
       | PT_RG05_NullDate      | null        | can't be blank | 403  |
       | PT_RG05_StringDate    | Other       | invalid date   | 400  |
-      | PT_RG05_FutureDate    | future      | current date   | 400  |
+      | PT_RG05_FutureDate    | future      | invalid date   | 400  |
       | PT_RG05_TimeStampDate | 1471360795  | invalid date   | 400  |
 
   @patients_p3

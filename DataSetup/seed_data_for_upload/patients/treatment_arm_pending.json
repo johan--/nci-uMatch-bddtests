@@ -1,64 +1,47 @@
 {
-    "ConsumedCapacity": null,
-    "Count": 2,
     "Items": [
         {
             "version": {
                 "S": "version1"
             },
-            "treatment_arm_id": {
-                "S": "APEC1621-AA_PEND_pending"
-            },
             "info": {
                 "S": "npm-d-admin@outlook.com"
+            },
+            "treatment_arm_id": {
+                "S": "APEC1621-AA_PEND_pending"
             }
         },
         {
             "version": {
                 "S": "version1"
             },
-            "treatment_arm_id": {
-                "S": "APEC1621-AA_PEND"
-            },
             "info": {
                 "M": {
-                    "gene": {
-                        "S": "NTRK1, NTRK2, NTRK3"
+                    "version": {
+                        "S": "version1"
                     },
-                    "snv_indels": {
+                    "assay_rules": {
                         "L": []
                     },
-                    "copy_number_variants": {
-                        "L": []
+                    "study_id": {
+                        "S": "APEC1621SC"
                     },
-                    "diseases": {
-                        "L": []
+                    "target_name": {
+                        "S": "LOXO-101"
                     },
                     "name": {
                         "S": "NCI-COG Pediatric MATCH - Phase 2 study of Larotrectinib (LOXO-101) in patients with tumors harboring NTRK fusions."
                     },
-                    "non_hotspot_rules": {
+                    "diseases": {
                         "L": []
                     },
-                    "date_created": {
-                        "S": "2017-07-05T16:34:06+00:00"
-                    },
-                    "study_id": {
-                        "S": "APEC1621SC"
+                    "non_hotspot_rules": {
+                        "L": []
                     },
                     "gene_fusions": {
                         "L": [
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "ARHGEF2-NTRK1.A21N10"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -69,11 +52,11 @@
                                     "identifier": {
                                         "S": "ARHGEF2-NTRK1.A21N10"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "ARHGEF2-NTRK1.A21N10"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -81,22 +64,22 @@
                                     "description": {
                                         "S": "NTRK1 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    },
+                                    "variantid": {
+                                        "S": "ARHGEF2-NTRK1.A21N10"
+                                    },
+                                    "protein": {
+                                        "S": "ARHGEF2-NTRK1.A21N10"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "BCAN-NTRK1.B13N11"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -107,11 +90,11 @@
                                     "identifier": {
                                         "S": "BCAN-NTRK1.B13N11"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "BCAN-NTRK1.B13N11"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -119,22 +102,22 @@
                                     "description": {
                                         "S": "NTRK1 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    },
+                                    "variantid": {
+                                        "S": "BCAN-NTRK1.B13N11"
+                                    },
+                                    "protein": {
+                                        "S": "BCAN-NTRK1.B13N11"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "CD74-NTRK1.C7N10"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -145,34 +128,34 @@
                                     "identifier": {
                                         "S": "CD74-NTRK1.C7N10"
                                     },
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    },
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    },
+                                    "inclusion": {
+                                        "BOOL": true
+                                    },
+                                    "description": {
+                                        "S": "NTRK1 Gene Fusion"
+                                    },
                                     "variant_type": {
                                         "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
                                     },
                                     "variantid": {
                                         "S": "CD74-NTRK1.C7N10"
                                     },
-                                    "inclusion": {
-                                        "BOOL": true
-                                    },
-                                    "description": {
-                                        "S": "NTRK1 Gene Fusion"
-                                    },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "protein": {
+                                        "S": "CD74-NTRK1.C7N10"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "CEL-NTRK1.C7N7.2"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -183,34 +166,34 @@
                                     "identifier": {
                                         "S": "CEL-NTRK1.C7N7.2"
                                     },
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    },
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    },
+                                    "inclusion": {
+                                        "BOOL": true
+                                    },
+                                    "description": {
+                                        "S": "NTRK1 Gene Fusion"
+                                    },
                                     "variant_type": {
                                         "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
                                     },
                                     "variantid": {
                                         "S": "CEL-NTRK1.C7N7.2"
                                     },
-                                    "inclusion": {
-                                        "BOOL": true
-                                    },
-                                    "description": {
-                                        "S": "NTRK1 Gene Fusion"
-                                    },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "protein": {
+                                        "S": "CEL-NTRK1.C7N7.2"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "CHTOP-NTRK1.C5N10"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -221,34 +204,34 @@
                                     "identifier": {
                                         "S": "CHTOP-NTRK1.C5N10"
                                     },
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    },
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    },
+                                    "inclusion": {
+                                        "BOOL": true
+                                    },
+                                    "description": {
+                                        "S": "NTRK1 Gene Fusion"
+                                    },
                                     "variant_type": {
                                         "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
                                     },
                                     "variantid": {
                                         "S": "CHTOP-NTRK1.C5N10"
                                     },
-                                    "inclusion": {
-                                        "BOOL": true
-                                    },
-                                    "description": {
-                                        "S": "NTRK1 Gene Fusion"
-                                    },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "protein": {
+                                        "S": "CHTOP-NTRK1.C5N10"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "CHTOP-NTRK1.C5N11"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -259,34 +242,34 @@
                                     "identifier": {
                                         "S": "CHTOP-NTRK1.C5N11"
                                     },
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    },
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    },
+                                    "inclusion": {
+                                        "BOOL": true
+                                    },
+                                    "description": {
+                                        "S": "NTRK1 Gene Fusion"
+                                    },
                                     "variant_type": {
                                         "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
                                     },
                                     "variantid": {
                                         "S": "CHTOP-NTRK1.C5N11"
                                     },
-                                    "inclusion": {
-                                        "BOOL": true
-                                    },
-                                    "description": {
-                                        "S": "NTRK1 Gene Fusion"
-                                    },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "protein": {
+                                        "S": "CHTOP-NTRK1.C5N11"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "EPHB2-NTRK1.E3N9"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -297,34 +280,34 @@
                                     "identifier": {
                                         "S": "EPHB2-NTRK1.E3N9"
                                     },
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    },
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    },
+                                    "inclusion": {
+                                        "BOOL": true
+                                    },
+                                    "description": {
+                                        "S": "NTRK1 Gene Fusion"
+                                    },
                                     "variant_type": {
                                         "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
                                     },
                                     "variantid": {
                                         "S": "EPHB2-NTRK1.E3N9"
                                     },
-                                    "inclusion": {
-                                        "BOOL": true
-                                    },
-                                    "description": {
-                                        "S": "NTRK1 Gene Fusion"
-                                    },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "protein": {
+                                        "S": "EPHB2-NTRK1.E3N9"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "EPS15-NTRK1.E21N9"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -335,11 +318,11 @@
                                     "identifier": {
                                         "S": "EPS15-NTRK1.E21N9"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "EPS15-NTRK1.E21N9"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -347,22 +330,22 @@
                                     "description": {
                                         "S": "NTRK1 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    },
+                                    "variantid": {
+                                        "S": "EPS15-NTRK1.E21N9"
+                                    },
+                                    "protein": {
+                                        "S": "EPS15-NTRK1.E21N9"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "EPS15-NTRK1.E21N9.1"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -373,11 +356,11 @@
                                     "identifier": {
                                         "S": "EPS15-NTRK1.E21N9.1"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "EPS15-NTRK1.E21N9.1"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -385,22 +368,22 @@
                                     "description": {
                                         "S": "NTRK1 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    },
+                                    "variantid": {
+                                        "S": "EPS15-NTRK1.E21N9.1"
+                                    },
+                                    "protein": {
+                                        "S": "EPS15-NTRK1.E21N9.1"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "IRF2BP2-NTRK1.I1N10.1"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -411,34 +394,34 @@
                                     "identifier": {
                                         "S": "IRF2BP2-NTRK1.I1N10.1"
                                     },
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    },
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    },
+                                    "inclusion": {
+                                        "BOOL": true
+                                    },
+                                    "description": {
+                                        "S": "NTRK1 Gene Fusion"
+                                    },
                                     "variant_type": {
                                         "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
                                     },
                                     "variantid": {
                                         "S": "IRF2BP2-NTRK1.I1N10.1"
                                     },
-                                    "inclusion": {
-                                        "BOOL": true
-                                    },
-                                    "description": {
-                                        "S": "NTRK1 Gene Fusion"
-                                    },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "protein": {
+                                        "S": "IRF2BP2-NTRK1.I1N10.1"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "LMNA-NTRK1.L10N11"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -449,34 +432,34 @@
                                     "identifier": {
                                         "S": "LMNA-NTRK1.L10N11"
                                     },
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    },
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    },
+                                    "inclusion": {
+                                        "BOOL": true
+                                    },
+                                    "description": {
+                                        "S": "NTRK1 Gene Fusion"
+                                    },
                                     "variant_type": {
                                         "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
                                     },
                                     "variantid": {
                                         "S": "LMNA-NTRK1.L10N11"
                                     },
-                                    "inclusion": {
-                                        "BOOL": true
-                                    },
-                                    "description": {
-                                        "S": "NTRK1 Gene Fusion"
-                                    },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "protein": {
+                                        "S": "LMNA-NTRK1.L10N11"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "LMNA-NTRK1.L10N12"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -487,11 +470,11 @@
                                     "identifier": {
                                         "S": "LMNA-NTRK1.L10N12"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "LMNA-NTRK1.L10N12"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -499,22 +482,22 @@
                                     "description": {
                                         "S": "NTRK1 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    },
+                                    "variantid": {
+                                        "S": "LMNA-NTRK1.L10N12"
+                                    },
+                                    "protein": {
+                                        "S": "LMNA-NTRK1.L10N12"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "LMNA-NTRK1.L11N11"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -525,11 +508,11 @@
                                     "identifier": {
                                         "S": "LMNA-NTRK1.L11N11"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "LMNA-NTRK1.L11N11"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -537,22 +520,22 @@
                                     "description": {
                                         "S": "NTRK1 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    },
+                                    "variantid": {
+                                        "S": "LMNA-NTRK1.L11N11"
+                                    },
+                                    "protein": {
+                                        "S": "LMNA-NTRK1.L11N11"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "LMNA-NTRK1.L2N11"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -563,34 +546,34 @@
                                     "identifier": {
                                         "S": "LMNA-NTRK1.L2N11"
                                     },
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    },
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    },
+                                    "inclusion": {
+                                        "BOOL": true
+                                    },
+                                    "description": {
+                                        "S": "NTRK1 Gene Fusion"
+                                    },
                                     "variant_type": {
                                         "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
                                     },
                                     "variantid": {
                                         "S": "LMNA-NTRK1.L2N11"
                                     },
-                                    "inclusion": {
-                                        "BOOL": true
-                                    },
-                                    "description": {
-                                        "S": "NTRK1 Gene Fusion"
-                                    },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "protein": {
+                                        "S": "LMNA-NTRK1.L2N11"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "LMNA-NTRK1.L3N11"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -601,34 +584,34 @@
                                     "identifier": {
                                         "S": "LMNA-NTRK1.L3N11"
                                     },
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    },
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    },
+                                    "inclusion": {
+                                        "BOOL": true
+                                    },
+                                    "description": {
+                                        "S": "NTRK1 Gene Fusion"
+                                    },
                                     "variant_type": {
                                         "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
                                     },
                                     "variantid": {
                                         "S": "LMNA-NTRK1.L3N11"
                                     },
-                                    "inclusion": {
-                                        "BOOL": true
-                                    },
-                                    "description": {
-                                        "S": "NTRK1 Gene Fusion"
-                                    },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "protein": {
+                                        "S": "LMNA-NTRK1.L3N11"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "LMNA-NTRK1.L5N10"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -639,34 +622,34 @@
                                     "identifier": {
                                         "S": "LMNA-NTRK1.L5N10"
                                     },
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    },
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    },
+                                    "inclusion": {
+                                        "BOOL": true
+                                    },
+                                    "description": {
+                                        "S": "NTRK1 Gene Fusion"
+                                    },
                                     "variant_type": {
                                         "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
                                     },
                                     "variantid": {
                                         "S": "LMNA-NTRK1.L5N10"
                                     },
-                                    "inclusion": {
-                                        "BOOL": true
-                                    },
-                                    "description": {
-                                        "S": "NTRK1 Gene Fusion"
-                                    },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "protein": {
+                                        "S": "LMNA-NTRK1.L5N10"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "LMNA-NTRK1.L6N12"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -677,34 +660,34 @@
                                     "identifier": {
                                         "S": "LMNA-NTRK1.L6N12"
                                     },
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    },
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    },
+                                    "inclusion": {
+                                        "BOOL": true
+                                    },
+                                    "description": {
+                                        "S": "NTRK1 Gene Fusion"
+                                    },
                                     "variant_type": {
                                         "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
                                     },
                                     "variantid": {
                                         "S": "LMNA-NTRK1.L6N12"
                                     },
-                                    "inclusion": {
-                                        "BOOL": true
-                                    },
-                                    "description": {
-                                        "S": "NTRK1 Gene Fusion"
-                                    },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "protein": {
+                                        "S": "LMNA-NTRK1.L6N12"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "MPRIP-NTRK1.M14N12"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -715,34 +698,34 @@
                                     "identifier": {
                                         "S": "MPRIP-NTRK1.M14N12"
                                     },
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    },
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    },
+                                    "inclusion": {
+                                        "BOOL": true
+                                    },
+                                    "description": {
+                                        "S": "NTRK1 Gene Fusion"
+                                    },
                                     "variant_type": {
                                         "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
                                     },
                                     "variantid": {
                                         "S": "MPRIP-NTRK1.M14N12"
                                     },
-                                    "inclusion": {
-                                        "BOOL": true
-                                    },
-                                    "description": {
-                                        "S": "NTRK1 Gene Fusion"
-                                    },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "protein": {
+                                        "S": "MPRIP-NTRK1.M14N12"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "MPRIP-NTRK1.M18N12"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -753,11 +736,11 @@
                                     "identifier": {
                                         "S": "MPRIP-NTRK1.M18N12"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "MPRIP-NTRK1.M18N12"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -765,22 +748,22 @@
                                     "description": {
                                         "S": "NTRK1 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    },
+                                    "variantid": {
+                                        "S": "MPRIP-NTRK1.M18N12"
+                                    },
+                                    "protein": {
+                                        "S": "MPRIP-NTRK1.M18N12"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "MPRIP-NTRK1.M21N12"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -791,11 +774,11 @@
                                     "identifier": {
                                         "S": "MPRIP-NTRK1.M21N12"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "MPRIP-NTRK1.M21N12"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -803,22 +786,22 @@
                                     "description": {
                                         "S": "NTRK1 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    },
+                                    "variantid": {
+                                        "S": "MPRIP-NTRK1.M21N12"
+                                    },
+                                    "protein": {
+                                        "S": "MPRIP-NTRK1.M21N12"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "MRPL24-NTRK1.M1N9"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -829,11 +812,11 @@
                                     "identifier": {
                                         "S": "MRPL24-NTRK1.M1N9"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "MRPL24-NTRK1.M1N9"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -841,22 +824,22 @@
                                     "description": {
                                         "S": "NTRK1 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    },
+                                    "variantid": {
+                                        "S": "MRPL24-NTRK1.M1N9"
+                                    },
+                                    "protein": {
+                                        "S": "MRPL24-NTRK1.M1N9"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "MRPL24-NTRK1.M1N9.1"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -867,11 +850,11 @@
                                     "identifier": {
                                         "S": "MRPL24-NTRK1.M1N9.1"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "MRPL24-NTRK1.M1N9.1"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -879,22 +862,22 @@
                                     "description": {
                                         "S": "NTRK1 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    },
+                                    "variantid": {
+                                        "S": "MRPL24-NTRK1.M1N9.1"
+                                    },
+                                    "protein": {
+                                        "S": "MRPL24-NTRK1.M1N9.1"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "NFASC-NTRK1.N20N10"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -905,11 +888,11 @@
                                     "identifier": {
                                         "S": "NFASC-NTRK1.N20N10"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "NFASC-NTRK1.N20N10"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -917,22 +900,22 @@
                                     "description": {
                                         "S": "NTRK1 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    },
+                                    "variantid": {
+                                        "S": "NFASC-NTRK1.N20N10"
+                                    },
+                                    "protein": {
+                                        "S": "NFASC-NTRK1.N20N10"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "NTRK1-DYNC2H1.N17D85"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -943,11 +926,11 @@
                                     "identifier": {
                                         "S": "NTRK1-DYNC2H1.N17D85"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "NTRK1-DYNC2H1.N17D85"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -955,22 +938,22 @@
                                     "description": {
                                         "S": "NTRK1 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    },
+                                    "variantid": {
+                                        "S": "NTRK1-DYNC2H1.N17D85"
+                                    },
+                                    "protein": {
+                                        "S": "NTRK1-DYNC2H1.N17D85"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "NTRK1-NTRK1.N6N8"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -981,34 +964,34 @@
                                     "identifier": {
                                         "S": "NTRK1-NTRK1.N6N8"
                                     },
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    },
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    },
+                                    "inclusion": {
+                                        "BOOL": true
+                                    },
+                                    "description": {
+                                        "S": "NTRK1 Gene Fusion"
+                                    },
                                     "variant_type": {
                                         "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
                                     },
                                     "variantid": {
                                         "S": "NTRK1-NTRK1.N6N8"
                                     },
-                                    "inclusion": {
-                                        "BOOL": true
-                                    },
-                                    "description": {
-                                        "S": "NTRK1 Gene Fusion"
-                                    },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "protein": {
+                                        "S": "NTRK1-NTRK1.N6N8"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "PPL-NTRK1.P12N13"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -1019,34 +1002,34 @@
                                     "identifier": {
                                         "S": "PPL-NTRK1.P12N13"
                                     },
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    },
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    },
+                                    "inclusion": {
+                                        "BOOL": true
+                                    },
+                                    "description": {
+                                        "S": "NTRK1 Gene Fusion"
+                                    },
                                     "variant_type": {
                                         "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
                                     },
                                     "variantid": {
                                         "S": "PPL-NTRK1.P12N13"
                                     },
-                                    "inclusion": {
-                                        "BOOL": true
-                                    },
-                                    "description": {
-                                        "S": "NTRK1 Gene Fusion"
-                                    },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "protein": {
+                                        "S": "PPL-NTRK1.P12N13"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "PPL-NTRK1.P22N10"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -1057,11 +1040,11 @@
                                     "identifier": {
                                         "S": "PPL-NTRK1.P22N10"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "PPL-NTRK1.P22N10"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -1069,22 +1052,22 @@
                                     "description": {
                                         "S": "NTRK1 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    },
+                                    "variantid": {
+                                        "S": "PPL-NTRK1.P22N10"
+                                    },
+                                    "protein": {
+                                        "S": "PPL-NTRK1.P22N10"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "PPL-NTRK1.P22N11"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -1095,11 +1078,11 @@
                                     "identifier": {
                                         "S": "PPL-NTRK1.P22N11"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "PPL-NTRK1.P22N11"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -1107,22 +1090,22 @@
                                     "description": {
                                         "S": "NTRK1 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    },
+                                    "variantid": {
+                                        "S": "PPL-NTRK1.P22N11"
+                                    },
+                                    "protein": {
+                                        "S": "PPL-NTRK1.P22N11"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "RABGAP1L-NTRK1.R14N16"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -1133,11 +1116,11 @@
                                     "identifier": {
                                         "S": "RABGAP1L-NTRK1.R14N16"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "RABGAP1L-NTRK1.R14N16"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -1145,22 +1128,22 @@
                                     "description": {
                                         "S": "NTRK1 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    },
+                                    "variantid": {
+                                        "S": "RABGAP1L-NTRK1.R14N16"
+                                    },
+                                    "protein": {
+                                        "S": "RABGAP1L-NTRK1.R14N16"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "RNF213-NTRK1.R15N12"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -1171,11 +1154,11 @@
                                     "identifier": {
                                         "S": "RNF213-NTRK1.R15N12"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "RNF213-NTRK1.R15N12"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -1183,22 +1166,22 @@
                                     "description": {
                                         "S": "NTRK1 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    },
+                                    "variantid": {
+                                        "S": "RNF213-NTRK1.R15N12"
+                                    },
+                                    "protein": {
+                                        "S": "RNF213-NTRK1.R15N12"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "SQSTM1-NTRK1.S2N10"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -1209,11 +1192,11 @@
                                     "identifier": {
                                         "S": "SQSTM1-NTRK1.S2N10"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "SQSTM1-NTRK1.S2N10"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -1221,22 +1204,22 @@
                                     "description": {
                                         "S": "NTRK1 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    },
+                                    "variantid": {
+                                        "S": "SQSTM1-NTRK1.S2N10"
+                                    },
+                                    "protein": {
+                                        "S": "SQSTM1-NTRK1.S2N10"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "SQSTM1-NTRK1.S5N10"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -1247,11 +1230,11 @@
                                     "identifier": {
                                         "S": "SQSTM1-NTRK1.S5N10"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "SQSTM1-NTRK1.S5N10"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -1259,22 +1242,22 @@
                                     "description": {
                                         "S": "NTRK1 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    },
+                                    "variantid": {
+                                        "S": "SQSTM1-NTRK1.S5N10"
+                                    },
+                                    "protein": {
+                                        "S": "SQSTM1-NTRK1.S5N10"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "SSBP2-NTRK1.S12N12"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -1285,11 +1268,11 @@
                                     "identifier": {
                                         "S": "SSBP2-NTRK1.S12N12"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "SSBP2-NTRK1.S12N12"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -1297,22 +1280,22 @@
                                     "description": {
                                         "S": "NTRK1 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    },
+                                    "variantid": {
+                                        "S": "SSBP2-NTRK1.S12N12"
+                                    },
+                                    "protein": {
+                                        "S": "SSBP2-NTRK1.S12N12"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "TFG-NTRK1.T6N10"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -1323,11 +1306,11 @@
                                     "identifier": {
                                         "S": "TFG-NTRK1.T6N10"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "TFG-NTRK1.T6N10"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -1335,22 +1318,22 @@
                                     "description": {
                                         "S": "NTRK1 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    },
+                                    "variantid": {
+                                        "S": "TFG-NTRK1.T6N10"
+                                    },
+                                    "protein": {
+                                        "S": "TFG-NTRK1.T6N10"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "TFG-NTRK1.T6N14"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -1361,34 +1344,34 @@
                                     "identifier": {
                                         "S": "TFG-NTRK1.T6N14"
                                     },
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    },
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    },
+                                    "inclusion": {
+                                        "BOOL": true
+                                    },
+                                    "description": {
+                                        "S": "NTRK1 Gene Fusion"
+                                    },
                                     "variant_type": {
                                         "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
                                     },
                                     "variantid": {
                                         "S": "TFG-NTRK1.T6N14"
                                     },
-                                    "inclusion": {
-                                        "BOOL": true
-                                    },
-                                    "description": {
-                                        "S": "NTRK1 Gene Fusion"
-                                    },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "protein": {
+                                        "S": "TFG-NTRK1.T6N14"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "TP53-NTRK1.T10N9"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -1399,34 +1382,34 @@
                                     "identifier": {
                                         "S": "TP53-NTRK1.T10N9"
                                     },
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    },
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    },
+                                    "inclusion": {
+                                        "BOOL": true
+                                    },
+                                    "description": {
+                                        "S": "NTRK1 Gene Fusion"
+                                    },
                                     "variant_type": {
                                         "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
                                     },
                                     "variantid": {
                                         "S": "TP53-NTRK1.T10N9"
                                     },
-                                    "inclusion": {
-                                        "BOOL": true
-                                    },
-                                    "description": {
-                                        "S": "NTRK1 Gene Fusion"
-                                    },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "protein": {
+                                        "S": "TP53-NTRK1.T10N9"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "TP53-NTRK1.T11N9"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -1437,34 +1420,34 @@
                                     "identifier": {
                                         "S": "TP53-NTRK1.T11N9"
                                     },
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    },
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    },
+                                    "inclusion": {
+                                        "BOOL": true
+                                    },
+                                    "description": {
+                                        "S": "NTRK1 Gene Fusion"
+                                    },
                                     "variant_type": {
                                         "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
                                     },
                                     "variantid": {
                                         "S": "TP53-NTRK1.T11N9"
                                     },
-                                    "inclusion": {
-                                        "BOOL": true
-                                    },
-                                    "description": {
-                                        "S": "NTRK1 Gene Fusion"
-                                    },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "protein": {
+                                        "S": "TP53-NTRK1.T11N9"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "TP53-NTRK1.T8N9"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -1475,11 +1458,11 @@
                                     "identifier": {
                                         "S": "TP53-NTRK1.T8N9"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "TP53-NTRK1.T8N9"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -1487,22 +1470,22 @@
                                     "description": {
                                         "S": "NTRK1 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    },
+                                    "variantid": {
+                                        "S": "TP53-NTRK1.T8N9"
+                                    },
+                                    "protein": {
+                                        "S": "TP53-NTRK1.T8N9"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "TP53-NTRK1.T9N9"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -1513,11 +1496,11 @@
                                     "identifier": {
                                         "S": "TP53-NTRK1.T9N9"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "TP53-NTRK1.T9N9"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -1525,22 +1508,22 @@
                                     "description": {
                                         "S": "NTRK1 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    },
+                                    "variantid": {
+                                        "S": "TP53-NTRK1.T9N9"
+                                    },
+                                    "protein": {
+                                        "S": "TP53-NTRK1.T9N9"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "TPM3-NTRK1.T7N10.COSF1329"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -1551,34 +1534,34 @@
                                     "identifier": {
                                         "S": "TPM3-NTRK1.T7N10.COSF1329"
                                     },
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    },
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    },
+                                    "inclusion": {
+                                        "BOOL": true
+                                    },
+                                    "description": {
+                                        "S": "NTRK1 Gene Fusion"
+                                    },
                                     "variant_type": {
                                         "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
                                     },
                                     "variantid": {
                                         "S": "TPM3-NTRK1.T7N10.COSF1329"
                                     },
-                                    "inclusion": {
-                                        "BOOL": true
-                                    },
-                                    "description": {
-                                        "S": "NTRK1 Gene Fusion"
-                                    },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "protein": {
+                                        "S": "TPM3-NTRK1.T7N10.COSF1329"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "TPM3-NTRK1.T7N12"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -1589,34 +1572,34 @@
                                     "identifier": {
                                         "S": "TPM3-NTRK1.T7N12"
                                     },
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    },
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    },
+                                    "inclusion": {
+                                        "BOOL": true
+                                    },
+                                    "description": {
+                                        "S": "NTRK1 Gene Fusion"
+                                    },
                                     "variant_type": {
                                         "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
                                     },
                                     "variantid": {
                                         "S": "TPM3-NTRK1.T7N12"
                                     },
-                                    "inclusion": {
-                                        "BOOL": true
-                                    },
-                                    "description": {
-                                        "S": "NTRK1 Gene Fusion"
-                                    },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "protein": {
+                                        "S": "TPM3-NTRK1.T7N12"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "TPM3-NTRK1.T7N13"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -1627,34 +1610,34 @@
                                     "identifier": {
                                         "S": "TPM3-NTRK1.T7N13"
                                     },
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    },
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    },
+                                    "inclusion": {
+                                        "BOOL": true
+                                    },
+                                    "description": {
+                                        "S": "NTRK1 Gene Fusion"
+                                    },
                                     "variant_type": {
                                         "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
                                     },
                                     "variantid": {
                                         "S": "TPM3-NTRK1.T7N13"
                                     },
-                                    "inclusion": {
-                                        "BOOL": true
-                                    },
-                                    "description": {
-                                        "S": "NTRK1 Gene Fusion"
-                                    },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "protein": {
+                                        "S": "TPM3-NTRK1.T7N13"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "TPM3-NTRK1.T7N7.ins"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -1665,34 +1648,34 @@
                                     "identifier": {
                                         "S": "TPM3-NTRK1.T7N7.ins"
                                     },
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    },
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    },
+                                    "inclusion": {
+                                        "BOOL": true
+                                    },
+                                    "description": {
+                                        "S": "NTRK1 Gene Fusion"
+                                    },
                                     "variant_type": {
                                         "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
                                     },
                                     "variantid": {
                                         "S": "TPM3-NTRK1.T7N7.ins"
                                     },
-                                    "inclusion": {
-                                        "BOOL": true
-                                    },
-                                    "description": {
-                                        "S": "NTRK1 Gene Fusion"
-                                    },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "protein": {
+                                        "S": "TPM3-NTRK1.T7N7.ins"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "TPM3-NTRK1.T8N10"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -1703,11 +1686,11 @@
                                     "identifier": {
                                         "S": "TPM3-NTRK1.T8N10"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "TPM3-NTRK1.T8N10"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -1715,22 +1698,22 @@
                                     "description": {
                                         "S": "NTRK1 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    },
+                                    "variantid": {
+                                        "S": "TPM3-NTRK1.T8N10"
+                                    },
+                                    "protein": {
+                                        "S": "TPM3-NTRK1.T8N10"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "TPR-NTRK1.T16int9N10"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -1741,11 +1724,11 @@
                                     "identifier": {
                                         "S": "TPR-NTRK1.T16int9N10"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "TPR-NTRK1.T16int9N10"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -1753,22 +1736,60 @@
                                     "description": {
                                         "S": "NTRK1 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    },
+                                    "variantid": {
+                                        "S": "TPR-NTRK1.T16int9N10"
+                                    },
+                                    "protein": {
+                                        "S": "TPR-NTRK1.T16int9N10"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
+                                    "public_med_ids": {
+                                        "L": [
+                                            {
+                                                "S": "9172002"
+                                            }
+                                        ]
                                     },
-                                    "protein": {
+                                    "identifier": {
                                         "S": "TPR-NTRK1.T21N10.COSF1326"
                                     },
                                     "level_of_evidence": {
                                         "N": "2.0"
                                     },
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    },
+                                    "inclusion": {
+                                        "BOOL": true
+                                    },
+                                    "description": {
+                                        "S": "NTRK1 Gene Fusion"
+                                    },
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    },
+                                    "variantid": {
+                                        "S": "TPR-NTRK1.T21N10.COSF1326"
+                                    },
+                                    "protein": {
+                                        "S": "TPR-NTRK1.T21N10.COSF1326"
+                                    }
+                                }
+                            },
+                            {
+                                "M": {
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -1777,36 +1798,36 @@
                                         ]
                                     },
                                     "identifier": {
-                                        "S": "TPR-NTRK1.T21N10.COSF1326"
-                                    },
-                                    "variant_type": {
-                                        "S": "fusion"
-                                    },
-                                    "variantid": {
-                                        "S": "TPR-NTRK1.T21N10.COSF1326"
-                                    },
-                                    "inclusion": {
-                                        "BOOL": true
-                                    },
-                                    "description": {
-                                        "S": "NTRK1 Gene Fusion"
-                                    },
-                                    "arm_specific": {
-                                        "BOOL": false
-                                    }
-                                }
-                            },
-                            {
-                                "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
                                         "S": "TPR-NTRK1.T21N9"
                                     },
                                     "level_of_evidence": {
                                         "N": "3.0"
                                     },
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    },
+                                    "inclusion": {
+                                        "BOOL": true
+                                    },
+                                    "description": {
+                                        "S": "NTRK1 Gene Fusion"
+                                    },
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    },
+                                    "variantid": {
+                                        "S": "TPR-NTRK1.T21N9"
+                                    },
+                                    "protein": {
+                                        "S": "TPR-NTRK1.T21N9"
+                                    }
+                                }
+                            },
+                            {
+                                "M": {
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -1815,51 +1836,13 @@
                                         ]
                                     },
                                     "identifier": {
-                                        "S": "TPR-NTRK1.T21N9"
-                                    },
-                                    "variant_type": {
-                                        "S": "fusion"
-                                    },
-                                    "variantid": {
-                                        "S": "TPR-NTRK1.T21N9"
-                                    },
-                                    "inclusion": {
-                                        "BOOL": true
-                                    },
-                                    "description": {
-                                        "S": "NTRK1 Gene Fusion"
-                                    },
-                                    "arm_specific": {
-                                        "BOOL": false
-                                    }
-                                }
-                            },
-                            {
-                                "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
                                         "S": "TPR-NTRK1.T6N12.1"
                                     },
                                     "level_of_evidence": {
                                         "N": "3.0"
                                     },
-                                    "public_med_ids": {
-                                        "L": [
-                                            {
-                                                "S": "9172002"
-                                            }
-                                        ]
-                                    },
-                                    "identifier": {
-                                        "S": "TPR-NTRK1.T6N12.1"
-                                    },
-                                    "variant_type": {
-                                        "S": "fusion"
-                                    },
-                                    "variantid": {
-                                        "S": "TPR-NTRK1.T6N12.1"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -1867,22 +1850,22 @@
                                     "description": {
                                         "S": "NTRK1 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    },
+                                    "variantid": {
+                                        "S": "TPR-NTRK1.T6N12.1"
+                                    },
+                                    "protein": {
+                                        "S": "TPR-NTRK1.T6N12.1"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK1"
-                                    },
-                                    "protein": {
-                                        "S": "TPR-NTRK1.T6N12.COSF1324"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "2.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -1893,11 +1876,11 @@
                                     "identifier": {
                                         "S": "TPR-NTRK1.T6N12.COSF1324"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "2.0"
                                     },
-                                    "variantid": {
-                                        "S": "TPR-NTRK1.T6N12.COSF1324"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -1905,22 +1888,22 @@
                                     "description": {
                                         "S": "NTRK1 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK1"
+                                    },
+                                    "variantid": {
+                                        "S": "TPR-NTRK1.T6N12.COSF1324"
+                                    },
+                                    "protein": {
+                                        "S": "TPR-NTRK1.T6N12.COSF1324"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK2"
-                                    },
-                                    "protein": {
-                                        "S": "AFAP1-NTRK2.A14N12"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -1931,11 +1914,11 @@
                                     "identifier": {
                                         "S": "AFAP1-NTRK2.A14N12"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "AFAP1-NTRK2.A14N12"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -1943,22 +1926,22 @@
                                     "description": {
                                         "S": "NTRK2 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK2"
+                                    },
+                                    "variantid": {
+                                        "S": "AFAP1-NTRK2.A14N12"
+                                    },
+                                    "protein": {
+                                        "S": "AFAP1-NTRK2.A14N12"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK2"
-                                    },
-                                    "protein": {
-                                        "S": "AGBL4-NTRK2.A6N16"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -1969,11 +1952,11 @@
                                     "identifier": {
                                         "S": "AGBL4-NTRK2.A6N16"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "AGBL4-NTRK2.A6N16"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -1981,22 +1964,22 @@
                                     "description": {
                                         "S": "NTRK2 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK2"
+                                    },
+                                    "variantid": {
+                                        "S": "AGBL4-NTRK2.A6N16"
+                                    },
+                                    "protein": {
+                                        "S": "AGBL4-NTRK2.A6N16"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK2"
-                                    },
-                                    "protein": {
-                                        "S": "DAB2IP-NTRK2.D1N17"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -2007,11 +1990,11 @@
                                     "identifier": {
                                         "S": "DAB2IP-NTRK2.D1N17"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "DAB2IP-NTRK2.D1N17"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -2019,22 +2002,22 @@
                                     "description": {
                                         "S": "NTRK2 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK2"
+                                    },
+                                    "variantid": {
+                                        "S": "DAB2IP-NTRK2.D1N17"
+                                    },
+                                    "protein": {
+                                        "S": "DAB2IP-NTRK2.D1N17"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK2"
-                                    },
-                                    "protein": {
-                                        "S": "NACC2-NTRK2.N4N13.COSF1448"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -2045,11 +2028,11 @@
                                     "identifier": {
                                         "S": "NACC2-NTRK2.N4N13.COSF1448"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "NACC2-NTRK2.N4N13.COSF1448"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -2057,22 +2040,22 @@
                                     "description": {
                                         "S": "NTRK2 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK2"
+                                    },
+                                    "variantid": {
+                                        "S": "NACC2-NTRK2.N4N13.COSF1448"
+                                    },
+                                    "protein": {
+                                        "S": "NACC2-NTRK2.N4N13.COSF1448"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK2"
-                                    },
-                                    "protein": {
-                                        "S": "NAV1-NTRK2.N15N11"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -2083,11 +2066,11 @@
                                     "identifier": {
                                         "S": "NAV1-NTRK2.N15N11"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "NAV1-NTRK2.N15N11"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -2095,22 +2078,22 @@
                                     "description": {
                                         "S": "NTRK2 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK2"
+                                    },
+                                    "variantid": {
+                                        "S": "NAV1-NTRK2.N15N11"
+                                    },
+                                    "protein": {
+                                        "S": "NAV1-NTRK2.N15N11"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK2"
-                                    },
-                                    "protein": {
-                                        "S": "QKI-NTRK2.Q6N16.COSF1446"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -2121,34 +2104,34 @@
                                     "identifier": {
                                         "S": "QKI-NTRK2.Q6N16.COSF1446"
                                     },
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    },
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    },
+                                    "inclusion": {
+                                        "BOOL": true
+                                    },
+                                    "description": {
+                                        "S": "NTRK2 Gene Fusion"
+                                    },
                                     "variant_type": {
                                         "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK2"
                                     },
                                     "variantid": {
                                         "S": "QKI-NTRK2.Q6N16.COSF1446"
                                     },
-                                    "inclusion": {
-                                        "BOOL": true
-                                    },
-                                    "description": {
-                                        "S": "NTRK2 Gene Fusion"
-                                    },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "protein": {
+                                        "S": "QKI-NTRK2.Q6N16.COSF1446"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK2"
-                                    },
-                                    "protein": {
-                                        "S": "SLMAP-NTRK2.S14N16"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -2159,11 +2142,11 @@
                                     "identifier": {
                                         "S": "SLMAP-NTRK2.S14N16"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "SLMAP-NTRK2.S14N16"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -2171,22 +2154,22 @@
                                     "description": {
                                         "S": "NTRK2 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK2"
+                                    },
+                                    "variantid": {
+                                        "S": "SLMAP-NTRK2.S14N16"
+                                    },
+                                    "protein": {
+                                        "S": "SLMAP-NTRK2.S14N16"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK2"
-                                    },
-                                    "protein": {
-                                        "S": "SQSTM1-NTRK2.S5N17"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -2197,11 +2180,11 @@
                                     "identifier": {
                                         "S": "SQSTM1-NTRK2.S5N17"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "SQSTM1-NTRK2.S5N17"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -2209,22 +2192,22 @@
                                     "description": {
                                         "S": "NTRK2 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK2"
+                                    },
+                                    "variantid": {
+                                        "S": "SQSTM1-NTRK2.S5N17"
+                                    },
+                                    "protein": {
+                                        "S": "SQSTM1-NTRK2.S5N17"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK2"
-                                    },
-                                    "protein": {
-                                        "S": "TRIM24-NTRK2.T12N15"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -2235,34 +2218,34 @@
                                     "identifier": {
                                         "S": "TRIM24-NTRK2.T12N15"
                                     },
+                                    "level_of_evidence": {
+                                        "N": "3.0"
+                                    },
+                                    "arm_specific": {
+                                        "BOOL": false
+                                    },
+                                    "inclusion": {
+                                        "BOOL": true
+                                    },
+                                    "description": {
+                                        "S": "NTRK2 Gene Fusion"
+                                    },
                                     "variant_type": {
                                         "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK2"
                                     },
                                     "variantid": {
                                         "S": "TRIM24-NTRK2.T12N15"
                                     },
-                                    "inclusion": {
-                                        "BOOL": true
-                                    },
-                                    "description": {
-                                        "S": "NTRK2 Gene Fusion"
-                                    },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "protein": {
+                                        "S": "TRIM24-NTRK2.T12N15"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK2"
-                                    },
-                                    "protein": {
-                                        "S": "TRIM24-NTRK2.T12N16"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -2273,11 +2256,11 @@
                                     "identifier": {
                                         "S": "TRIM24-NTRK2.T12N16"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "TRIM24-NTRK2.T12N16"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -2285,22 +2268,22 @@
                                     "description": {
                                         "S": "NTRK2 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK2"
+                                    },
+                                    "variantid": {
+                                        "S": "TRIM24-NTRK2.T12N16"
+                                    },
+                                    "protein": {
+                                        "S": "TRIM24-NTRK2.T12N16"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK2"
-                                    },
-                                    "protein": {
-                                        "S": "VCL-NTRK2.V16N12"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -2311,11 +2294,11 @@
                                     "identifier": {
                                         "S": "VCL-NTRK2.V16N12"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "VCL-NTRK2.V16N12"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -2323,22 +2306,22 @@
                                     "description": {
                                         "S": "NTRK2 Gene Fusion"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK2"
+                                    },
+                                    "variantid": {
+                                        "S": "VCL-NTRK2.V16N12"
+                                    },
+                                    "protein": {
+                                        "S": "VCL-NTRK2.V16N12"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK3"
-                                    },
-                                    "protein": {
-                                        "S": "AKAP13-NTRK3.A14N14"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -2349,11 +2332,11 @@
                                     "identifier": {
                                         "S": "AKAP13-NTRK3.A14N14"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "AKAP13-NTRK3.A14N14"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -2361,22 +2344,22 @@
                                     "description": {
                                         "S": "NTRK3 Gene Fusions"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK3"
+                                    },
+                                    "variantid": {
+                                        "S": "AKAP13-NTRK3.A14N14"
+                                    },
+                                    "protein": {
+                                        "S": "AKAP13-NTRK3.A14N14"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK3"
-                                    },
-                                    "protein": {
-                                        "S": "BTBD1-NTRK3.B4N14"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -2387,11 +2370,11 @@
                                     "identifier": {
                                         "S": "BTBD1-NTRK3.B4N14"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "BTBD1-NTRK3.B4N14"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -2399,22 +2382,22 @@
                                     "description": {
                                         "S": "NTRK3 Gene Fusions"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK3"
+                                    },
+                                    "variantid": {
+                                        "S": "BTBD1-NTRK3.B4N14"
+                                    },
+                                    "protein": {
+                                        "S": "BTBD1-NTRK3.B4N14"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK3"
-                                    },
-                                    "protein": {
-                                        "S": "COX5A-NTRK3.C1N15"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -2425,11 +2408,11 @@
                                     "identifier": {
                                         "S": "COX5A-NTRK3.C1N15"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "COX5A-NTRK3.C1N15"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -2437,22 +2420,22 @@
                                     "description": {
                                         "S": "NTRK3 Gene Fusions"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK3"
+                                    },
+                                    "variantid": {
+                                        "S": "COX5A-NTRK3.C1N15"
+                                    },
+                                    "protein": {
+                                        "S": "COX5A-NTRK3.C1N15"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK3"
-                                    },
-                                    "protein": {
-                                        "S": "EML4-NTRK3.E2N14"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -2463,11 +2446,11 @@
                                     "identifier": {
                                         "S": "EML4-NTRK3.E2N14"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "EML4-NTRK3.E2N14"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -2475,22 +2458,22 @@
                                     "description": {
                                         "S": "NTRK3 Gene Fusions"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK3"
+                                    },
+                                    "variantid": {
+                                        "S": "EML4-NTRK3.E2N14"
+                                    },
+                                    "protein": {
+                                        "S": "EML4-NTRK3.E2N14"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK3"
-                                    },
-                                    "protein": {
-                                        "S": "ETV6-NTRK3.E4N14.1"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "2.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -2504,11 +2487,11 @@
                                     "identifier": {
                                         "S": "ETV6-NTRK3.E4N14.1"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "2.0"
                                     },
-                                    "variantid": {
-                                        "S": "ETV6-NTRK3.E4N14.1"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -2516,22 +2499,22 @@
                                     "description": {
                                         "S": "NTRK3 Gene Fusions"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK3"
+                                    },
+                                    "variantid": {
+                                        "S": "ETV6-NTRK3.E4N14.1"
+                                    },
+                                    "protein": {
+                                        "S": "ETV6-NTRK3.E4N14.1"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK3"
-                                    },
-                                    "protein": {
-                                        "S": "ETV6-NTRK3.E4N15.COSF823.2"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "2.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -2542,11 +2525,11 @@
                                     "identifier": {
                                         "S": "ETV6-NTRK3.E4N15.COSF823.2"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "2.0"
                                     },
-                                    "variantid": {
-                                        "S": "ETV6-NTRK3.E4N15.COSF823.2"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -2554,22 +2537,22 @@
                                     "description": {
                                         "S": "NTRK3 Gene Fusions"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK3"
+                                    },
+                                    "variantid": {
+                                        "S": "ETV6-NTRK3.E4N15.COSF823.2"
+                                    },
+                                    "protein": {
+                                        "S": "ETV6-NTRK3.E4N15.COSF823.2"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK3"
-                                    },
-                                    "protein": {
-                                        "S": "ETV6-NTRK3.E5N14"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "2.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -2580,11 +2563,11 @@
                                     "identifier": {
                                         "S": "ETV6-NTRK3.E5N14"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "2.0"
                                     },
-                                    "variantid": {
-                                        "S": "ETV6-NTRK3.E5N14"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -2592,22 +2575,22 @@
                                     "description": {
                                         "S": "NTRK3 Gene Fusions"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK3"
+                                    },
+                                    "variantid": {
+                                        "S": "ETV6-NTRK3.E5N14"
+                                    },
+                                    "protein": {
+                                        "S": "ETV6-NTRK3.E5N14"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK3"
-                                    },
-                                    "protein": {
-                                        "S": "ETV6-NTRK3.E5N15.COSF571.1"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "2.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -2624,11 +2607,11 @@
                                     "identifier": {
                                         "S": "ETV6-NTRK3.E5N15.COSF571.1"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "2.0"
                                     },
-                                    "variantid": {
-                                        "S": "ETV6-NTRK3.E5N15.COSF571.1"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -2636,22 +2619,22 @@
                                     "description": {
                                         "S": "NTRK3 Gene Fusions"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK3"
+                                    },
+                                    "variantid": {
+                                        "S": "ETV6-NTRK3.E5N15.COSF571.1"
+                                    },
+                                    "protein": {
+                                        "S": "ETV6-NTRK3.E5N15.COSF571.1"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK3"
-                                    },
-                                    "protein": {
-                                        "S": "FAT1-NTRK3.F2N7"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -2662,11 +2645,11 @@
                                     "identifier": {
                                         "S": "FAT1-NTRK3.F2N7"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "FAT1-NTRK3.F2N7"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -2674,22 +2657,22 @@
                                     "description": {
                                         "S": "NTRK3 Gene Fusions"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK3"
+                                    },
+                                    "variantid": {
+                                        "S": "FAT1-NTRK3.F2N7"
+                                    },
+                                    "protein": {
+                                        "S": "FAT1-NTRK3.F2N7"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK3"
-                                    },
-                                    "protein": {
-                                        "S": "LYN-NTRK3.L8N14"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -2700,11 +2683,11 @@
                                     "identifier": {
                                         "S": "LYN-NTRK3.L8N14"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "LYN-NTRK3.L8N14"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -2712,22 +2695,22 @@
                                     "description": {
                                         "S": "NTRK3 Gene Fusions"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK3"
+                                    },
+                                    "variantid": {
+                                        "S": "LYN-NTRK3.L8N14"
+                                    },
+                                    "protein": {
+                                        "S": "LYN-NTRK3.L8N14"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK3"
-                                    },
-                                    "protein": {
-                                        "S": "NTRK3-HOMER1.N17H2"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -2738,11 +2721,11 @@
                                     "identifier": {
                                         "S": "NTRK3-HOMER1.N17H2"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "NTRK3-HOMER1.N17H2"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -2750,22 +2733,22 @@
                                     "description": {
                                         "S": "NTRK3 Gene Fusions"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK3"
+                                    },
+                                    "variantid": {
+                                        "S": "NTRK3-HOMER1.N17H2"
+                                    },
+                                    "protein": {
+                                        "S": "NTRK3-HOMER1.N17H2"
                                     }
                                 }
                             },
                             {
                                 "M": {
-                                    "gene": {
-                                        "S": "NTRK3"
-                                    },
-                                    "protein": {
-                                        "S": "RBPMS-NTRK3.R5N14"
-                                    },
-                                    "level_of_evidence": {
-                                        "N": "3.0"
-                                    },
                                     "public_med_ids": {
                                         "L": [
                                             {
@@ -2776,11 +2759,11 @@
                                     "identifier": {
                                         "S": "RBPMS-NTRK3.R5N14"
                                     },
-                                    "variant_type": {
-                                        "S": "fusion"
+                                    "level_of_evidence": {
+                                        "N": "3.0"
                                     },
-                                    "variantid": {
-                                        "S": "RBPMS-NTRK3.R5N14"
+                                    "arm_specific": {
+                                        "BOOL": false
                                     },
                                     "inclusion": {
                                         "BOOL": true
@@ -2788,37 +2771,34 @@
                                     "description": {
                                         "S": "NTRK3 Gene Fusions"
                                     },
-                                    "arm_specific": {
-                                        "BOOL": false
+                                    "variant_type": {
+                                        "S": "fusion"
+                                    },
+                                    "gene": {
+                                        "S": "NTRK3"
+                                    },
+                                    "variantid": {
+                                        "S": "RBPMS-NTRK3.R5N14"
+                                    },
+                                    "protein": {
+                                        "S": "RBPMS-NTRK3.R5N14"
                                     }
                                 }
                             }
                         ]
                     },
-                    "target_name": {
-                        "S": "LOXO-101"
-                    },
-                    "version": {
-                        "S": "version1"
-                    },
-                    "description": {
-                        "S": "Larotrectinib (LOXO-101) in  NTRK fusions"
-                    },
-                    "stratum_id": {
-                        "S": "1"
-                    },
-                    "assay_rules": {
-                        "L": []
+                    "treatment_arm_id": {
+                        "S": "APEC1621-AA_PEND"
                     },
                     "exclusion_drugs": {
                         "L": [
                             {
                                 "M": {
-                                    "name": {
-                                        "S": "Larotrectinib (LOXO-101)"
-                                    },
                                     "drug_id": {
                                         "S": "788607"
+                                    },
+                                    "name": {
+                                        "S": "Larotrectinib (LOXO-101)"
                                     }
                                 }
                             },
@@ -2845,29 +2825,49 @@
                             }
                         ]
                     },
+                    "description": {
+                        "S": "Larotrectinib (LOXO-101) in  NTRK fusions"
+                    },
+                    "copy_number_variants": {
+                        "L": []
+                    },
+                    "date_created": {
+                        "S": "2017-07-05T16:34:06+00:00"
+                    },
+                    "stratum_id": {
+                        "S": "1"
+                    },
+                    "gene": {
+                        "S": "NTRK1, NTRK2, NTRK3"
+                    },
+                    "snv_indels": {
+                        "L": []
+                    },
                     "treatment_arm_drugs": {
                         "L": [
                             {
                                 "M": {
-                                    "name": {
-                                        "S": "LOXO-101"
+                                    "drug_id": {
+                                        "S": "788607"
                                     },
                                     "pathway": {
                                         "S": "Receptor tyrosine kinase"
                                     },
-                                    "drug_id": {
-                                        "S": "788607"
+                                    "name": {
+                                        "S": "LOXO-101"
                                     }
                                 }
                             }
                         ]
-                    },
-                    "treatment_arm_id": {
-                        "S": "APEC1621-AA_PEND"
                     }
                 }
+            },
+            "treatment_arm_id": {
+                "S": "APEC1621-AA_PEND"
             }
         }
     ],
-    "ScannedCount": 2
+    "Count": 2,
+    "ScannedCount": 2,
+    "ConsumedCapacity": null
 }

@@ -45,7 +45,7 @@ Feature: Variant files confirmed messages
     Given patient id is "PT_VC03_VRUploadedAfterRejected"
     And a random "fusion" variant for analysis id "PT_VC03_VRUploadedAfterRejected_ANI1"
     And load template variant confirm message for this patient
-    Then PUT to MATCH variant "unchecked" service for this uuid, response includes "TBD" with code "403"
+    Then PUT to MATCH variant "unchecked" service for this uuid, response includes "REJECTED" with code "403"
 
 #  comment: should not be null or empty if confirmed is false --- DON'T test, this will be UI work
 
