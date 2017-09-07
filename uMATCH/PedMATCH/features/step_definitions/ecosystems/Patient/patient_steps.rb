@@ -833,10 +833,11 @@ And(/^patient statistics field "([^"]*)" should have correct value$/) do |field|
       end
       expect(actual_value).to eql expect_value
     when 'number_of_patients_with_confirmed_variant_report'
-      expect_value = Helper_Methods.dynamodb_table_distinct_column('variant_report', {status: 'CONFIRMED'}, 'patient_id').length
+      criteria = {status: 'CONFIRMED', variant_report_type: 'TISSUE'}
+      expect_value = Helper_Methods.dynamodb_table_distinct_column('variant_report', criteria, 'patient_id').length
       unless actual_value == expect_value
         actual_value = Patient_helper_methods.get_response_and_code(url, 'ADMIN')['message_json'][field].to_i
-        expect_value = Helper_Methods.dynamodb_table_distinct_column('variant_report', {status: 'CONFIRMED'}, 'patient_id').length
+        expect_value = Helper_Methods.dynamodb_table_distinct_column('variant_report', criteria, 'patient_id').length
       end
       expect(actual_value).to eql expect_value
     # when 'treatment_arm_accrual'

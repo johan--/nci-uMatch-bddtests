@@ -201,7 +201,7 @@ Feature: Variant files uploaded message
     And load template variant file uploaded message for molecular id: "PT_VU13_VariantReportConfirmed_MOI1"
     Then set patient message field: "analysis_id" to value: "PT_VU13_VariantReportConfirmed_ANI2"
     Then files for molecular_id "PT_VU13_VariantReportConfirmed_MOI1" and analysis_id "PT_VU13_VariantReportConfirmed_ANI2" are in S3
-    When POST to MATCH variant report upload service, response includes "already has a confirmed  variant report" with code "403"
+    When POST to MATCH variant report upload service, response includes "confirmed TISSUE variant report" with code "403"
 
   @patients_p3
   Scenario: PT_VU14. variant file uploaded to blood specimen should has correct result
@@ -237,7 +237,7 @@ Feature: Variant files uploaded message
     Then wait until patient variant report is updated
     Then patient should have variant report (analysis_id: "PT_VU16_BdVRUploaded_ANI2")
     And this variant report field: "status" should be "PENDING"
-    Then patient should have variant report (analysis_id: "PT_VU16_BdVRUploaded_ANI1")
+    Then patient should have variant report (analysis_id: "PT_VU16_BdVRUploaded_BD_ANI1")
     And this variant report field: "status" should be "REJECTED"
 
 
