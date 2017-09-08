@@ -17,9 +17,9 @@ Feature: Make sure all services are running
   Scenario: GN_HC03. healthcheck for patient_processor should work as expected
     When call healthcheck for application "patient_processor", http code "200" should be returned
     Then following key-value pairs should be returned
-      | dynamodb_connection | successful |
-      | queue_connection    | successful |
-      | s3_connection       | successful |
+      | dynamodb_connection | Successful |
+      | queue_connection    | Successful |
+      | s3_connection       | Successful |
 
   Scenario: GN_HC04. healthcheck for treatment arm api should work as expected
     When call healthcheck for application "ta_api", http code "200" should be returned
