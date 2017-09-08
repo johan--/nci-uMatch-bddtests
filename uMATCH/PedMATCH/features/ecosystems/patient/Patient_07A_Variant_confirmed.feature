@@ -265,20 +265,20 @@ Feature: Variant files confirmed messages
   Scenario Outline: PT_VC16. blood variant report can be confirmed when patient is in certain status
     Given patient id is "<patient_id>"
     Then load template variant report confirm message for analysis id: "<patient_id>_BD_ANI1"
-    When PUT to MATCH variant report "confirm" service, response includes "success" with code "200"
+    When PUT to MATCH variant report "confirm" service, response includes "<message>" with code "<code>"
     Examples:
-      | patient_id                      |
-      | PT_VC16_BdVrTsReceived          |
-      | PT_VC16_BdVrTsShipped           |
-      | PT_VC16_BdVrSlideShipped        |
-      | PT_VC16_BdVrAssayReceived       |
-      | PT_VC16_BdVrTsVrReceived        |
-      | PT_VC16_BdVrTsVrConfirmed       |
-      | PT_VC16_BdVrTsVrRejected        |
-      | PT_VC16_BdVrPendingConfirmation |
-      | PT_VC16_BdVrPendingApproval     |
-      | PT_VC16_BdVrOnTreatmentArm      |
-      | PT_VC16_BdVrReqAssignment       |
-      | PT_VC16_BdVrNoTaAvailable       |
-      | PT_VC16_BdVrCompassionateCare   |
-      | PT_VC16_BdVrOffStudy            |
+      | patient_id                      | message   | code |
+      | PT_VC16_BdVrTsReceived          | success   | 200  |
+      | PT_VC16_BdVrTsShipped           | success   | 200  |
+      | PT_VC16_BdVrSlideShipped        | success   | 200  |
+      | PT_VC16_BdVrAssayReceived       | success   | 200  |
+      | PT_VC16_BdVrTsVrReceived        | success   | 200  |
+      | PT_VC16_BdVrTsVrConfirmed       | success   | 200  |
+      | PT_VC16_BdVrTsVrRejected        | success   | 200  |
+      | PT_VC16_BdVrPendingConfirmation | success   | 200  |
+      | PT_VC16_BdVrPendingApproval     | success   | 200  |
+      | PT_VC16_BdVrOnTreatmentArm      | success   | 200  |
+      | PT_VC16_BdVrReqAssignment       | success   | 200  |
+      | PT_VC16_BdVrNoTaAvailable       | success   | 200  |
+      | PT_VC16_BdVrCompassionateCare   | success   | 200  |
+      | PT_VC16_BdVrOffStudy            | OFF_STUDY | 403  |

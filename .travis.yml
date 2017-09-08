@@ -43,6 +43,9 @@ before_script:
   - npm install
   - cd ..
 
+  #remove the results folder placeholder
+  - rm results/output.json
+
   # Version reporting
   - ruby -v
   - bundle --version
@@ -241,6 +244,7 @@ after_failure:
     - touch ../results/tmp.json
     - for filename in ../results/*.json; do filesize=$(wc -c <"$filename"); if [ $filesize -le 0 ]; then echo $filename is 0 bytes, deleted it; rm $filename; fi; done
     - node support/generate_report.js
+    - cd ..
 after_script:
   #Set above, - export DATE=`TZ=America/New_York date "+%m-%d-%y-%H%M"`
 #  - export DATE_TRIM=`TZ=America/New_York date "+%m-%d-%y"`
@@ -248,7 +252,6 @@ after_script:
   ######COMMENTING FOR NOW###########################
 #  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_BUILD_NUMBER/ --region us-east-1 --recursive
   ###################################################
-  - cd ..
 #  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results_critical/cucumber_report.html s3://cucumber-test-reports/$DATE_TRIM/critical$CUC_TAG.html --region us-east-1
 #  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results_critical/screenshot s3://cucumber-test-reports/$DATE_TRIM/screenshot --region us-east-1 --recursive
 #
@@ -258,11 +261,14 @@ after_script:
 
   #- aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/result.json s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_BUILD_NUMBER/ --region us-east-1
 
-  #purge queues
-  - aws sqs purge-queue --queue-url https://sqs.us-east-1.amazonaws.com/127516845550/ion_reporter_queue
-  - aws sqs purge-queue --queue-url https://sqs.us-east-1.amazonaws.com/127516845550/ion_reporter_queue_dlx
-  - aws sqs purge-queue --queue-url https://sqs.us-east-1.amazonaws.com/127516845550/patient_queue
-  - aws sqs purge-queue --queue-url https://sqs.us-east-1.amazonaws.com/127516845550/treatment_arm_queue
+  # Purge queues
+  - cd DataSetup
+  - ruby -r "./sqs_utilities.rb" -e "SQSUtilities.purge_queue 'ion_reporter_queue'"
+  - ruby -r "./sqs_utilities.rb" -e "SQSUtilities.purge_queue 'ion_reporter_queue_dlx'"
+  - ruby -r "./sqs_utilities.rb" -e "SQSUtilities.purge_queue 'patient_queue'"
+  - ruby -r "./sqs_utilities.rb" -e "SQSUtilities.purge_queue 'treatment_arm_queue'"
+  - ruby -r "./sqs_utilities.rb" -e "SQSUtilities.purge_queue 'pedmatch-int_ion_reporter_queue3'"
+  - cd ..
 ######COMMENTING FOR NOW###########################
 #  - export DATE=`TZ=America/New_York date "+%m-%d-%y-%H%M"`
 #  - export TEST_REPORT='BDD Test Report'
