@@ -25,6 +25,6 @@ end
 Then(/^following key\-value pairs should be returned$/) do |table|
   table.rows_hash.each do |k, v|
     expect(@healthcheck.keys).to include k
-    expect(@healthcheck[k]).to eq v
+    expect(@healthcheck[k].downcase).to include v.downcase
   end
 end
