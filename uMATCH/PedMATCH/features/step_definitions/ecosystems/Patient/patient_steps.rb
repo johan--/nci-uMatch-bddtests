@@ -572,14 +572,13 @@ end
 #   ta_id.should == 'pending'
 # end
 #
-Given(/^a random "([^"]*)" variant for analysis id "([^"]*)"$/) do |variant_type, ani|
+Given(/^a random variant for analysis id "([^"]*)"$/) do |ani|
   @analysis_id = ani=='null' ? nil : ani
-  url = "#{ENV['patients_endpoint']}/variants?analysis_id=#{@analysis_id}&variant_type=#{variant_type}"
+  url = "#{ENV['patients_endpoint']}/variants?analysis_id=#{@analysis_id}"
   this_variant = Patient_helper_methods.get_any_result_from_url(url)
-  if this_variant.is_a?(Array)
-    this_variant = this_variant[0]
-  end
-  @current_variant_uuid = this_variant['uuid']
+  expect(this_variant.class).to eq Array
+  expect(this_variant.size).to be > 0
+  @current_variant_uuid = this_variant.sample['uuid']
 end
 
 Then(/^this variant should have confirmed field: "([^"]*)" and comment field: "([^"]*)"$/) do |confirmed, comment|

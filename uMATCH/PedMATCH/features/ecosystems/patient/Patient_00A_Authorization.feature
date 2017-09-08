@@ -175,7 +175,7 @@ Feature: Patient API authorization tests
   @patients_p3
   Scenario Outline: PT_AU05b role base authorization works properly for patient variant confirm
     Given patient id is "<patient_id>"
-    And a random "fusion" variant for analysis id "<patient_id>_ANI1"
+    And a random variant for analysis id "<patient_id>_ANI1"
     And load template variant confirm message for this patient
     And patient API user authorization role is "<auth_role>"
     Then PUT to MATCH variant "<check>" service for this uuid, response includes "<message>" with code "<code>"

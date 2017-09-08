@@ -1,25 +1,9 @@
 {
     "ConsumedCapacity": null,
-    "Count": 5,
     "Items": [
         {
-            "date_ion_reporter_id_created": {
-                "S": "2016-10-12 21:19:36.514328"
-            },
-            "ip_address": {
-                "S": "170.54.147.240"
-            },
             "last_contact": {
                 "S": "2017-02-01 15:08:26.446499"
-            },
-            "study_id": {
-                "S": "EAY131"
-            },
-            "site": {
-                "S": "mocha"
-            },
-            "ion_reporter_id": {
-                "S": "IR_IGXAW"
             },
             "host_name": {
                 "S": "MATCH_IR_IR_IGXAW"
@@ -27,28 +11,28 @@
             "internal_ip_address": {
                 "S": "51.91.246.138"
             },
-            "ion_reporter_version": {
-                "S": "5.0"
-            }
-        },
-        {
-            "date_ion_reporter_id_created": {
-                "S": "2016-10-12 21:19:37.632102"
+            "site": {
+                "S": "mocha"
             },
             "ip_address": {
-                "S": "254.194.103.181"
+                "S": "170.54.147.240"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:01.446499"
+            "ion_reporter_version": {
+                "S": "5.0"
             },
             "study_id": {
                 "S": "EAY131"
             },
-            "site": {
-                "S": "mda"
-            },
             "ion_reporter_id": {
-                "S": "IR_CFUXR"
+                "S": "IR_IGXAW"
+            },
+            "date_ion_reporter_id_created": {
+                "S": "2016-10-12 21:19:36.514328"
+            }
+        },
+        {
+            "last_contact": {
+                "S": "2017-02-01 15:08:01.446499"
             },
             "host_name": {
                 "S": "MATCH_IR_IR_CFUXR"
@@ -56,28 +40,28 @@
             "internal_ip_address": {
                 "S": "162.214.160.146"
             },
-            "ion_reporter_version": {
-                "S": "5.0"
-            }
-        },
-        {
-            "date_ion_reporter_id_created": {
-                "S": "2016-10-12 21:19:37.632102"
+            "site": {
+                "S": "mda"
             },
             "ip_address": {
-                "S": "110.43.74.33"
+                "S": "254.194.103.181"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:25.446499"
+            "ion_reporter_version": {
+                "S": "5.0"
             },
             "study_id": {
                 "S": "EAY131"
             },
-            "site": {
-                "S": "mgh"
-            },
             "ion_reporter_id": {
-                "S": "IR_MGH99"
+                "S": "IR_CFUXR"
+            },
+            "date_ion_reporter_id_created": {
+                "S": "2016-10-12 21:19:37.632102"
+            }
+        },
+        {
+            "last_contact": {
+                "S": "2017-02-01 15:08:25.446499"
             },
             "host_name": {
                 "S": "MATCH_IR_IR_MGH99"
@@ -85,28 +69,28 @@
             "internal_ip_address": {
                 "S": "19.182.162.213"
             },
-            "ion_reporter_version": {
-                "S": "5.0"
-            }
-        },
-        {
-            "date_ion_reporter_id_created": {
-                "S": "2016-10-12 21:19:37.632102"
+            "site": {
+                "S": "mgh"
             },
             "ip_address": {
-                "S": "151.232.195.85"
+                "S": "110.43.74.33"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:27.446499"
+            "ion_reporter_version": {
+                "S": "5.0"
             },
             "study_id": {
                 "S": "EAY131"
             },
-            "site": {
-                "S": "yale"
-            },
             "ion_reporter_id": {
-                "S": "IR_YAL02"
+                "S": "IR_MGH99"
+            },
+            "date_ion_reporter_id_created": {
+                "S": "2016-10-12 21:19:37.632102"
+            }
+        },
+        {
+            "last_contact": {
+                "S": "2017-02-01 15:08:27.446499"
             },
             "host_name": {
                 "S": "MATCH_IR_IR_YAL02"
@@ -114,28 +98,28 @@
             "internal_ip_address": {
                 "S": "190.135.23.20"
             },
-            "ion_reporter_version": {
-                "S": "5.0"
-            }
-        },
-        {
-            "date_ion_reporter_id_created": {
-                "S": "2016-10-12 21:19:37.632102"
+            "site": {
+                "S": "yale"
             },
             "ip_address": {
-                "S": "109.229.233.70"
+                "S": "151.232.195.85"
             },
-            "last_contact": {
-                "S": "2017-02-01 15:08:25.446499"
+            "ion_reporter_version": {
+                "S": "5.0"
             },
             "study_id": {
                 "S": "EAY131"
             },
-            "site": {
-                "S": "dartmouth"
-            },
             "ion_reporter_id": {
-                "S": "IR_DTM99"
+                "S": "IR_YAL02"
+            },
+            "date_ion_reporter_id_created": {
+                "S": "2016-10-12 21:19:37.632102"
+            }
+        },
+        {
+            "last_contact": {
+                "S": "2017-02-01 15:08:25.446499"
             },
             "host_name": {
                 "S": "MATCH_IR_IR_DTM99"
@@ -143,10 +127,26 @@
             "internal_ip_address": {
                 "S": "239.141.121.157"
             },
+            "site": {
+                "S": "dartmouth"
+            },
+            "ip_address": {
+                "S": "109.229.233.70"
+            },
             "ion_reporter_version": {
                 "S": "5.2"
+            },
+            "study_id": {
+                "S": "EAY131"
+            },
+            "ion_reporter_id": {
+                "S": "IR_DTM99"
+            },
+            "date_ion_reporter_id_created": {
+                "S": "2016-10-12 21:19:37.632102"
             }
         }
     ],
-    "ScannedCount": 5
+    "ScannedCount": 5,
+    "Count": 5
 }

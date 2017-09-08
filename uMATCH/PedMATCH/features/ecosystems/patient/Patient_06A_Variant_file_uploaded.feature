@@ -280,12 +280,13 @@ Feature: Variant files uploaded message
     When GET from MATCH patient API, http code "200" should return
     And this patient blood specimen_shipments "<moi>" should have field "allow_upload" value "<allow>"
     Examples:
-      | patient_id             | moi                            | allow |
-      | PT_VU17_BdShippedTwice | PT_VU17_BdShippedTwice_BD_MOI1 | false |
-      | PT_VU17_BdShippedTwice | PT_VU17_BdShippedTwice_BD_MOI2 | true  |
-      | PT_VU17_BdVrUploaded   | PT_VU17_BdVrUploaded_BD_MOI1   | true  |
-      | PT_VU17_BdVrConfirmed  | PT_VU17_BdVrConfirmed_BD_MOI1  | false |
-      | PT_VU17_BdVrRejected   | PT_VU17_BdVrRejected_BD_MOI1   | true  |
+      | patient_id                    | moi                                   | allow |
+      | PT_VU17_BdShippedTwice        | PT_VU17_BdShippedTwice_BD_MOI1        | false |
+      | PT_VU17_BdShippedTwice        | PT_VU17_BdShippedTwice_BD_MOI2        | true  |
+      | PT_VU17_BdVrUploaded          | PT_VU17_BdVrUploaded_BD_MOI1          | true  |
+      | PT_VU17_BdVrConfirmed         | PT_VU17_BdVrConfirmed_BD_MOI1         | false |
+      | PT_VU17_BdVrRejected          | PT_VU17_BdVrRejected_BD_MOI1          | true  |
+      | PT_VU17_BdShippedThenReceived | PT_VU17_BdShippedThenRecieved_BD_MOI1 | true  |
 
   @patients_p1
   Scenario: PT_VU18. multiple variant report can be processed at same time
@@ -321,15 +322,18 @@ Feature: Variant files uploaded message
     Then files for molecular_id "<patient_id>_BD_MOI1" and analysis_id "<ani>" are in S3
     When POST to MATCH variant report upload service, response includes "<message>" with code "<code>"
     Examples:
-      | patient_id                  | ani                                 | message    | code |
-      | PT_VU20_BdVrUploaded        | PT_VU20_BdVrUploaded_BD_ANI2        | success    | 202  |
-      | PT_VU20_BdVrConfirmed       | PT_VU20_BdVrConfirmed_BD_ANI2       | transition | 403  |
-      | PT_VU20_BdVrRejected        | PT_VU20_BdVrRejected_BD_ANI2        | success    | 202  |
-      | PT_VU20_OffStudy            | PT_VU20_OffStudy_BD_ANI2            | transition | 403  |
-      | PT_VU20_TsVrConfirmed       | PT_VU20_TsVrConfirmed_BD_ANI2       | success    | 202  |
-      | PT_VU20_PendingConfirmation | PT_VU20_PendingConfirmation_BD_ANI2 | success    | 202  |
-      | PT_VU20_PendingApproval     | PT_VU20_PendingApproval_BD_ANI2     | success    | 202  |
-      | PT_VU20_OnTreatmentArm      | PT_VU20_OnTreatmentArm_BD_ANI2      | success    | 202  |
-      | PT_VU20_RequestAssignment   | PT_VU20_RequestAssignment_BD_ANI2   | success    | 202  |
+      | patient_id                    | ani                                   | message    | code |
+      | PT_VU20_BdVrUploaded          | PT_VU20_BdVrUploaded_BD_ANI2          | success    | 202  |
+      | PT_VU20_BdVrConfirmed         | PT_VU20_BdVrConfirmed_BD_ANI2         | transition | 403  |
+      | PT_VU20_BdVrRejected          | PT_VU20_BdVrRejected_BD_ANI2          | success    | 202  |
+      | PT_VU20_OffStudy              | PT_VU20_OffStudy_BD_ANI2              | transition | 403  |
+      | PT_VU20_TsVrConfirmed         | PT_VU20_TsVrConfirmed_BD_ANI2         | success    | 202  |
+      | PT_VU20_PendingConfirmation   | PT_VU20_PendingConfirmation_BD_ANI2   | success    | 202  |
+      | PT_VU20_PendingApproval       | PT_VU20_PendingApproval_BD_ANI2       | success    | 202  |
+      | PT_VU20_OnTreatmentArm        | PT_VU20_OnTreatmentArm_BD_ANI2        | success    | 202  |
+      | PT_VU20_RequestAssignment     | PT_VU20_RequestAssignment_BD_ANI2     | success    | 202  |
+      | PT_VU20_BdShippedThenReceived | PT_VU20_BdShippedThenRecieved_BD_ANI1 | success    | 202  |
+      | PT_VU20_NoTaAvailable         | PT_VU20_NoTaAvailable_BD_ANI1         | success    | 202  |
+      | PT_VU20_CompassionateCare     | PT_VU20_CompassionateCare_BD_ANI1     | success    | 202  |
 
 

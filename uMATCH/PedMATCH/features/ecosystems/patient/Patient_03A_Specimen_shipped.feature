@@ -424,6 +424,8 @@ Feature: NCH Specimen shipped messages
       | PT_SS22_OnTreatmentArm      | PT_SS22_OnTreatmentArm_BD_MOI1      | 202       | success                  |
       | PT_SS22_BdVRRejected        | PT_SS22_BdVRRejected_BD_MOI2        | 202       | success                  |
       | PT_SS22_BdVRConfirmed       | PT_SS22_BdVRConfirmed_BD_MOI2       | 403       | confirmed variant report |
+      | PT_SS22_NoTaAvailable       | PT_SS22_NoTaAvailable_BD_MOI1       | 202       | success                  |
+      | PT_SS22_CompassionateCare   | PT_SS22_CompassionateCare_BD_MOI1   | 202       | success                  |
       #there is no “PATHOLOGY_REVIEWED” status anymore
 #      | PT_SS26_PathologyConfirmed | PT_SS26_PathologyConfirmed_BD_MOI1 | Success | processed successfully |
 

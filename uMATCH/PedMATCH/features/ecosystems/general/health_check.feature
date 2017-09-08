@@ -1,5 +1,5 @@
 #encoding: utf-8
-#@ion_reporter_p1 @patients_p1 @rules_p1 @treatment_arm_p1 @admin_api_p1
+@patients_p1 @rules_p1 @demo_p1 @treatment_arm_p1
 Feature: Make sure all services are running
 
   Scenario: GN_HC01. healthcheck for patient_api should work as expected

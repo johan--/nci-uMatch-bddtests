@@ -169,6 +169,8 @@ Feature: NCH specimen received messages
       | PT_SR10_OffStudy2           | 403       | cannot transition from   |
       | PT_SR10_BdVRRejected        | 202       | success                  |
       | PT_SR10_BdVRConfirmed       | 403       | confirmed variant report |
+      | PT_SR10_NoTaAvailable       | 202       | success                  |
+      | PT_SR10_CompassionateCare   | 202       | success                  |
 
   @patients_p2
   Scenario Outline: PT_SR11. Return error message when study_id is invalid

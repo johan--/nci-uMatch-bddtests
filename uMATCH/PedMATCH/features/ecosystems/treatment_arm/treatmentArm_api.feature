@@ -1,10 +1,12 @@
-Feature: api that provides access to treatment arm data. This feature ensures the api is running
-@demo_p1
-  Scenario Outline: Test to ensure that treatment_arm_api service is running
-    When the ta service /version is called
-    Then the version "<version>" is returned
-  Examples:
-    |version    |
-    |0.0.9      |
+#this test is replaced by general/health_check.feature
 
+#Feature: api that provides access to treatment arm data. This feature ensures the api is running
+#@demo_p1
+#  Scenario Outline: Test to ensure that treatment_arm_api service is running
+#    When the ta service /version is called
+#    Then the version "<version>" is returned
+#  Examples:
+#    |version    |
+#    |0.0.9      |
+#
 
