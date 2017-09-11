@@ -22,13 +22,9 @@ Feature: Patient Blood SpecimenTab
   Scenario: A User can see all the shipments and the specimens for blood on the blood specimens page
     Given I go to patient "UI_SP01_MultiBdSpecimens" details page
     When I collect information about blood shipments for the patient "UI_SP01_MultiBdSpecimens"
-  # Then I should see "3" messages of "Specimen of type BLOOD received at NCH." on the front page
-  # And I should see "3" messages of "Specimen Shipment of type BLOOD_DNA shipped from NCH." on the front page
-    When I click on the Blood Specimens tab
+      When I click on the Blood Specimens tab
     And I should see entries under the Blood Specimens table match with the backend
     And I should see entries under the Blood Shipments table match with the backend
-  # And I verify one entry in the Blood Specimens table with the backend
-  # And I verify one entry in the Blood Shipments table with the backend
 
   Scenario: A user should see the Top level details on the Blood Variant Report tab
     When I go to the patient "PT_VU16_BdVRUploaded" with variant report "PT_VU16_BdVRUploaded_BD_ANI1"
@@ -36,14 +32,13 @@ Feature: Patient Blood SpecimenTab
     And I collect information about the patient "PT_VU16_BdVRUploaded" with blood variant report "PT_VU16_BdVRUploaded_BD_ANI1"
     And I should see the top level data maps to the back end call
 
-
   Scenario: A user should see the Top level details on the Blood Variant Report tab
-    Given I collect information about the patient "PT_VU16_BdVRUploaded" with blood variant report "PT_VU16_BdVRUploaded_BD_ANI1"
-    When I go to the patient "PT_VU16_BdVRUploaded" with variant report "PT_VU16_BdVRUploaded_BD_ANI1"
+    Given I collect information about the patient "PT_SC08_BdVrUploadedTwice" with blood variant report "PT_SC08_BdVrUploadedTwice_BD_ANI2"
+    When I go to the patient "PT_SC08_BdVrUploadedTwice_BD" with variant report "PT_SC08_BdVrUploadedTwice_BD_ANI2"
     Then I can see the SNV table for Blood variant report
     And I can see the Gene Fusions table for Blood Variant Report
     And I can see that the SNV table for Blood variant report matches with the backend
-    And I can see that the Gene table for Blood variant report matches with the backend
+    And I can see that the CNV table for Blood variant report matches with the backend
 
   @ui_p1
   Scenario: Confirming a Blood variant report will update the status of the report and also inform the activity feed on both dashboard and patient page.

@@ -206,6 +206,7 @@ var PatientPage = function () {
     this.bloodVRDetails = element.all(by.css('div.tissue-variant-report-header-box'));
     this.bloodSNVTable = element(by.css('vr-filtered-snv-mnv-indel table'));
     this.bloodGeneTable = element(by.css('vr-filtered-gf table'));
+    this.bloodCNVTable = element(by.css('vr-filtered-cnv table'))
 
     // ****************** Expected values *******************//
     // Patient list table

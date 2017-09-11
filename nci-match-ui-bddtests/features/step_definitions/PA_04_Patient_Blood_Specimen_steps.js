@@ -251,6 +251,28 @@ module.exports = function() {
         }).then(callback);
     });
 
+    this.Then(/^I can see that the CNV table for Blood variant report matches with the backend$/, function(callback){
+        var cnvData = variantReport.copy_number_variants;
+        var cnvTableRows = patientPage.bloodCNVTable.all(by.css('tbody tr'));
+
+        cnvTableRows.count().then(function(cnt){
+            expect(cnt).to.eql(cnvData.length);
+            for(var idx = 0 ; idx < cnt; idx ++){
+                var i = idx;
+                var cnvTableData = cnvTableRows.get(i).all(by.css('td'));
+                var resultData = cnvData[i];
+
+                utilities.expectValue(cnvTableData.get(1), utilities.dashifyIfEmpty(resultData.comment), 'Comment');
+                utilities.expectValue(cnvTableData.get(2), resultData.identifier, 'Identifier');
+                utilities.expectValue(cnvTableData.get(3), resultData.chromosome, 'Chromosome');
+                utilities.expectValue(cnvTableData.get(4), utilities.dashifyIfEmpty(resultData.confidence_interval_5_percent), 'CN 5');
+                utilities.expectValue(cnvTableData.get(5), utilities.dashifyIfEmpty(resultData.raw_copy_number), 'Raw CN');
+                utilities.expectValue(cnvTableData.get(6), utilities.dashifyIfEmpty(resultData.confidence_interval_95_percent), 'CN 95');
+            }
+        }).then(callback);
+
+    })
+
     function splitTissueVariantReportDropDown(dropDownText){
         var returnValue = {};
         var textArray = dropDownText.split('|');
