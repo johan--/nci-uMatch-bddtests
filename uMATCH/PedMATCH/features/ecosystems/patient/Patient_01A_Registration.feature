@@ -35,7 +35,7 @@ Feature: Register a new patient in PEDMatchbox:
     Then set patient message field: "status_date" to value: "current"
     When POST to MATCH patients service, response includes "already been registered" with code "403"
 
-  @patients_p2
+  @patients_p3
   Scenario Outline: PT_RG03. patient registration with invalid study_id
     Given patient id is "<patient_id>"
     Given load template registration message for this patient
@@ -67,7 +67,7 @@ Feature: Register a new patient in PEDMatchbox:
       | PT_RG04_WrongStpNum3 | 8.0         | 1.0            |
       | PT_RG04_WrongStpNum4 | 1.5         | 1.0            |
 
-  @patients_p2
+  @patients_p3
   Scenario Outline: PT_RG05. patient registration with invalid status_date should fail
     Given patient id is "<patient_id>"
     Given load template registration message for this patient

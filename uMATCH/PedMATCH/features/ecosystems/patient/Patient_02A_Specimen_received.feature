@@ -6,7 +6,7 @@ Feature: NCH specimen received messages
     Given patient API user authorization role is "SPECIMEN_MESSAGE_SENDER"
 
   @patients_p3
-  Scenario: PT_SR01. Consume a specimen_received message for type "Blood" for a patient already registered in Match
+  Scenario: PT_SR01. blood specimen received message can be proccessed properly
     Given patient id is "PT_SR01_Registered"
     And load template specimen type: "BLOOD" received message for this patient
     Then set patient message field: "collection_dt" to value: "today"
@@ -18,7 +18,7 @@ Feature: NCH specimen received messages
 #    Then patient field: "current_status" should have value: "BLOOD_SPECIMEN_RECEIVED" within 15 seconds
 
   @patients_p1
-  Scenario: PT_SR02. Consume a specimen_received message for type "Tissue" for a patient already registered in Match
+  Scenario: PT_SR02. tissue specimen received message can be proccessed properly
     Given patient id is "PT_SR02_Registered"
     And load template specimen type: "TISSUE" received message for this patient
     Then set patient message field: "surgical_event_id" to value: "PT_SR02_Registered_SEI1"
@@ -92,7 +92,7 @@ Feature: NCH specimen received messages
       | TISSUE | PT_NonExistingPatient_SEI1 |
       | BLOOD  |                            |
 
-  @patients_p2
+  @patients_p3
   Scenario Outline: PT_SR08. Return error message when invalid type (other than BLOOD or TISSUE) is received
     Given patient id is "PT_SR08_Registered"
     And load template specimen type: "<specimen_type>" received message for this patient
@@ -119,11 +119,11 @@ Feature: NCH specimen received messages
     Then set patient message field: "received_dttm" to value: "2016-04-30T15:17:11+00:00"
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
-      | patient_id              | sei                          | collectTime | message                | code |
-      | PT_SR09_TsReceivedTwice | PT_SR09_TsReceivedTwice_SEI1 | 2016-04-30  | same surgical event id | 403  |
-      | PT_SR09_TsReceivedTwice | PT_SR09_TsReceivedTwice_SEI2 | 2016-04-30  | success                | 202  |
-      | PT_SR09_Registered      | PT_SR09_TsReceivedTwice_SEI1 | 2016-04-30  | same surgical event id | 403  |
-      | PT_SR09_Registered      | PT_SR09_TsReceivedTwice_SEI2 | 2016-04-30  | same surgical event id | 403  |
+      | patient_id              | sei                          | collectTime | message           | code |
+      | PT_SR09_TsReceivedTwice | PT_SR09_TsReceivedTwice_SEI1 | 2016-04-30  | surgical_event_id | 403  |
+      | PT_SR09_TsReceivedTwice | PT_SR09_TsReceivedTwice_SEI2 | 2016-04-30  | success           | 202  |
+      | PT_SR09_Registered      | PT_SR09_TsReceivedTwice_SEI1 | 2016-04-30  | surgical_event_id | 403  |
+      | PT_SR09_Registered      | PT_SR09_TsReceivedTwice_SEI2 | 2016-04-30  | surgical_event_id | 403  |
 
   @patients_p2
   Scenario Outline: PT_SR10a. tissue specimen_received message can only be accepted when patient is in certain status

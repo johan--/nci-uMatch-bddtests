@@ -7,7 +7,7 @@
     "assay_result_reported:<patient_id>=>PT_SC09_PendingConfirmation&<surgical_event_id>=>PT_SC09_PendingConfirmation_SEI1&<biomarker>=>ICCPTENs&<result>=>NEGATIVE&<reported_date>=>current",
     "assay_result_reported:<patient_id>=>PT_SC09_PendingConfirmation&<surgical_event_id>=>PT_SC09_PendingConfirmation_SEI1&<biomarker>=>ICCBAF47s&<result>=>NEGATIVE&<reported_date>=>current",
     "assay_result_reported:<patient_id>=>PT_SC09_PendingConfirmation&<surgical_event_id>=>PT_SC09_PendingConfirmation_SEI1&<biomarker>=>ICCBRG1s&<result>=>NEGATIVE&<reported_date>=>current",
-    "aliquot:<patient_id>=>PT_SC09_PendingConfirmation&<ion_reporter_id>=>bdd_test_ion_reporter&<analysis_id>=>PT_SC09_PendingConfirmation_ANI1&<molecular_id>=>PT_SC09_PendingConfirmation_MOI1&<site>=>MDA",
+    "aliquot:<patient_id>=>PT_SC09_PendingConfirmation&<ion_reporter_id>=>bdd_test_ion_reporter&<vr_type>=>default&<analysis_id>=>PT_SC09_PendingConfirmation_ANI1&<molecular_id>=>PT_SC09_PendingConfirmation_MOI1&<site>=>MDA",
     "variant_report_confirmed:<patient_id>=>PT_SC09_PendingConfirmation&<analysis_id>=>PT_SC09_PendingConfirmation_ANI1&<status>=>confirm&<comment>=>Test&<comment_user>=>QA"
   ],
   "PT_SC09_PendingApproval": [
@@ -18,7 +18,7 @@
     "assay_result_reported:<patient_id>=>PT_SC09_PendingApproval&<surgical_event_id>=>PT_SC09_PendingApproval_SEI1&<biomarker>=>ICCPTENs&<result>=>NEGATIVE&<reported_date>=>current",
     "assay_result_reported:<patient_id>=>PT_SC09_PendingApproval&<surgical_event_id>=>PT_SC09_PendingApproval_SEI1&<biomarker>=>ICCBAF47s&<result>=>NEGATIVE&<reported_date>=>current",
     "assay_result_reported:<patient_id>=>PT_SC09_PendingApproval&<surgical_event_id>=>PT_SC09_PendingApproval_SEI1&<biomarker>=>ICCBRG1s&<result>=>NEGATIVE&<reported_date>=>current",
-    "aliquot:<patient_id>=>PT_SC09_PendingApproval&<ion_reporter_id>=>bdd_test_ion_reporter&<analysis_id>=>PT_SC09_PendingApproval_ANI1&<molecular_id>=>PT_SC09_PendingApproval_MOI1&<site>=>MDA",
+    "aliquot:<patient_id>=>PT_SC09_PendingApproval&<ion_reporter_id>=>bdd_test_ion_reporter&<vr_type>=>default&<analysis_id>=>PT_SC09_PendingApproval_ANI1&<molecular_id>=>PT_SC09_PendingApproval_MOI1&<site>=>MDA",
     "variant_report_confirmed:<patient_id>=>PT_SC09_PendingApproval&<analysis_id>=>PT_SC09_PendingApproval_ANI1&<status>=>confirm&<comment>=>Test&<comment_user>=>QA",
     "assignment_confirmed:<patient_id>=>PT_SC09_PendingApproval&<analysis_id>=>PT_SC09_PendingApproval_ANI1&<comment>=>Test&<comment_user>=>QA"
   ],
@@ -30,7 +30,7 @@
     "assay_result_reported:<patient_id>=>PT_SC09_OnTreatmentArm&<surgical_event_id>=>PT_SC09_OnTreatmentArm_SEI1&<biomarker>=>ICCPTENs&<result>=>NEGATIVE&<reported_date>=>current",
     "assay_result_reported:<patient_id>=>PT_SC09_OnTreatmentArm&<surgical_event_id>=>PT_SC09_OnTreatmentArm_SEI1&<biomarker>=>ICCBAF47s&<result>=>NEGATIVE&<reported_date>=>current",
     "assay_result_reported:<patient_id>=>PT_SC09_OnTreatmentArm&<surgical_event_id>=>PT_SC09_OnTreatmentArm_SEI1&<biomarker>=>ICCBRG1s&<result>=>NEGATIVE&<reported_date>=>current",
-    "aliquot:<patient_id>=>PT_SC09_OnTreatmentArm&<ion_reporter_id>=>bdd_test_ion_reporter&<analysis_id>=>PT_SC09_OnTreatmentArm_ANI1&<molecular_id>=>PT_SC09_OnTreatmentArm_MOI1&<site>=>MDA",
+    "aliquot:<patient_id>=>PT_SC09_OnTreatmentArm&<ion_reporter_id>=>bdd_test_ion_reporter&<vr_type>=>default&<analysis_id>=>PT_SC09_OnTreatmentArm_ANI1&<molecular_id>=>PT_SC09_OnTreatmentArm_MOI1&<site>=>MDA",
     "variant_report_confirmed:<patient_id>=>PT_SC09_OnTreatmentArm&<analysis_id>=>PT_SC09_OnTreatmentArm_ANI1&<status>=>confirm&<comment>=>Test&<comment_user>=>QA",
     "assignment_confirmed:<patient_id>=>PT_SC09_OnTreatmentArm&<analysis_id>=>PT_SC09_OnTreatmentArm_ANI1&<comment>=>Test&<comment_user>=>QA",
     "on_treatment_arm:<patient_id>=>PT_SC09_OnTreatmentArm&<step_number>=>1.1&<status_date>=>current&<treatment_arm_id>=>APEC1621-A&<stratum_id>=>100"
@@ -43,7 +43,7 @@
     "assay_result_reported:<patient_id>=>PT_SC09_TsReceivedStep2&<surgical_event_id>=>PT_SC09_TsReceivedStep2_SEI1&<biomarker>=>ICCPTENs&<result>=>NEGATIVE&<reported_date>=>current",
     "assay_result_reported:<patient_id>=>PT_SC09_TsReceivedStep2&<surgical_event_id>=>PT_SC09_TsReceivedStep2_SEI1&<biomarker>=>ICCBAF47s&<result>=>NEGATIVE&<reported_date>=>current",
     "assay_result_reported:<patient_id>=>PT_SC09_TsReceivedStep2&<surgical_event_id>=>PT_SC09_TsReceivedStep2_SEI1&<biomarker>=>ICCBRG1s&<result>=>NEGATIVE&<reported_date>=>current",
-    "aliquot:<patient_id>=>PT_SC09_TsReceivedStep2&<ion_reporter_id>=>bdd_test_ion_reporter&<analysis_id>=>PT_SC09_TsReceivedStep2_ANI1&<molecular_id>=>PT_SC09_TsReceivedStep2_MOI1&<site>=>MDA",
+    "aliquot:<patient_id>=>PT_SC09_TsReceivedStep2&<ion_reporter_id>=>bdd_test_ion_reporter&<vr_type>=>default&<analysis_id>=>PT_SC09_TsReceivedStep2_ANI1&<molecular_id>=>PT_SC09_TsReceivedStep2_MOI1&<site>=>MDA",
     "variant_report_confirmed:<patient_id>=>PT_SC09_TsReceivedStep2&<analysis_id>=>PT_SC09_TsReceivedStep2_ANI1&<status>=>confirm&<comment>=>Test&<comment_user>=>QA",
     "assignment_confirmed:<patient_id>=>PT_SC09_TsReceivedStep2&<analysis_id>=>PT_SC09_TsReceivedStep2_ANI1&<comment>=>Test&<comment_user>=>QA",
     "on_treatment_arm:<patient_id>=>PT_SC09_TsReceivedStep2&<step_number>=>1.1&<status_date>=>current&<treatment_arm_id>=>APEC1621-A&<stratum_id>=>100",
@@ -54,7 +54,7 @@
     "registration:<patient_id>=>PT_SC07d_TsVrUploaded&<status_date>=>current",
     "specimen_received_TISSUE:<patient_id>=>PT_SC07d_TsVrUploaded&<surgical_event_id>=>PT_SC07d_TsVrUploaded_SEI1&<collection_dt>=>today&<received_dttm>=>current",
     "specimen_shipped_TISSUE:<patient_id>=>PT_SC07d_TsVrUploaded&<surgical_event_id>=>PT_SC07d_TsVrUploaded_SEI1&<molecular_id>=>PT_SC07d_TsVrUploaded_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
-    "aliquot:<patient_id>=>PT_SC07d_TsVrUploaded&<ion_reporter_id>=>bdd_test_ion_reporter&<analysis_id>=>PT_SC07d_TsVrUploaded_ANI1&<molecular_id>=>PT_SC07d_TsVrUploaded_MOI1&<site>=>MDA",
+    "aliquot:<patient_id>=>PT_SC07d_TsVrUploaded&<ion_reporter_id>=>bdd_test_ion_reporter&<vr_type>=>default&<analysis_id>=>PT_SC07d_TsVrUploaded_ANI1&<molecular_id>=>PT_SC07d_TsVrUploaded_MOI1&<site>=>MDA",
     "variant_dna_file_uploaded:<patient_id>=>PT_SC07d_TsVrUploaded&<dna_bam_name>=>dna.bam&<analysis_id>=>PT_SC07d_TsVrUploaded_ANI1&<molecular_id>=>PT_SC07d_TsVrUploaded_MOI1&<comment_user>=>qa",
     "variant_cdna_file_uploaded:<patient_id>=>PT_SC07d_TsVrUploaded&<cdna_bam_name>=>cdna.bam&<analysis_id>=>PT_SC07d_TsVrUploaded_ANI1&<molecular_id>=>PT_SC07d_TsVrUploaded_MOI1&<comment_user>=>qa"
   ],
@@ -62,7 +62,7 @@
     "registration:<patient_id>=>PT_SC10a_TsVrUploaded&<status_date>=>current",
     "specimen_received_TISSUE:<patient_id>=>PT_SC10a_TsVrUploaded&<surgical_event_id>=>PT_SC10a_TsVrUploaded_SEI1&<collection_dt>=>today&<received_dttm>=>current",
     "specimen_shipped_TISSUE:<patient_id>=>PT_SC10a_TsVrUploaded&<surgical_event_id>=>PT_SC10a_TsVrUploaded_SEI1&<molecular_id>=>PT_SC10a_TsVrUploaded_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
-    "aliquot:<patient_id>=>PT_SC10a_TsVrUploaded&<ion_reporter_id>=>bdd_test_ion_reporter&<analysis_id>=>PT_SC10a_TsVrUploaded_ANI1&<molecular_id>=>PT_SC10a_TsVrUploaded_MOI1&<site>=>MDA",
+    "aliquot:<patient_id>=>PT_SC10a_TsVrUploaded&<ion_reporter_id>=>bdd_test_ion_reporter&<vr_type>=>default&<analysis_id>=>PT_SC10a_TsVrUploaded_ANI1&<molecular_id>=>PT_SC10a_TsVrUploaded_MOI1&<site>=>MDA",
     "variant_dna_file_uploaded:<patient_id>=>PT_SC10a_TsVrUploaded&<dna_bam_name>=>dna.bam&<analysis_id>=>PT_SC10a_TsVrUploaded_ANI1&<molecular_id>=>PT_SC10a_TsVrUploaded_MOI1&<comment_user>=>qa",
     "variant_cdna_file_uploaded:<patient_id>=>PT_SC10a_TsVrUploaded&<cdna_bam_name>=>cdna.bam&<analysis_id>=>PT_SC10a_TsVrUploaded_ANI1&<molecular_id>=>PT_SC10a_TsVrUploaded_MOI1&<comment_user>=>qa"
   ],
@@ -70,7 +70,7 @@
     "registration:<patient_id>=>PT_SC02h_TsVrConfirmed&<status_date>=>current",
     "specimen_received_TISSUE:<patient_id>=>PT_SC02h_TsVrConfirmed&<surgical_event_id>=>PT_SC02h_TsVrConfirmed_SEI1&<collection_dt>=>today&<received_dttm>=>current",
     "specimen_shipped_TISSUE:<patient_id>=>PT_SC02h_TsVrConfirmed&<surgical_event_id>=>PT_SC02h_TsVrConfirmed_SEI1&<molecular_id>=>PT_SC02h_TsVrConfirmed_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
-    "aliquot:<patient_id>=>PT_SC02h_TsVrConfirmed&<ion_reporter_id>=>bdd_test_ion_reporter&<analysis_id>=>PT_SC02h_TsVrConfirmed_ANI1&<molecular_id>=>PT_SC02h_TsVrConfirmed_MOI1&<site>=>MDA",
+    "aliquot:<patient_id>=>PT_SC02h_TsVrConfirmed&<ion_reporter_id>=>bdd_test_ion_reporter&<vr_type>=>default&<analysis_id>=>PT_SC02h_TsVrConfirmed_ANI1&<molecular_id>=>PT_SC02h_TsVrConfirmed_MOI1&<site>=>MDA",
     "variant_report_confirmed:<patient_id>=>PT_SC02h_TsVrConfirmed&<analysis_id>=>PT_SC02h_TsVrConfirmed_ANI1&<status>=>confirm&<comment>=>Test&<comment_user>=>QA"
   ],
   "PT_SC02i_PendingApproval": [
@@ -81,7 +81,7 @@
     "assay_result_reported:<patient_id>=>PT_SC02i_PendingApproval&<surgical_event_id>=>PT_SC02i_PendingApproval_SEI1&<biomarker>=>ICCPTENs&<result>=>NEGATIVE&<reported_date>=>current",
     "assay_result_reported:<patient_id>=>PT_SC02i_PendingApproval&<surgical_event_id>=>PT_SC02i_PendingApproval_SEI1&<biomarker>=>ICCBAF47s&<result>=>NEGATIVE&<reported_date>=>current",
     "assay_result_reported:<patient_id>=>PT_SC02i_PendingApproval&<surgical_event_id>=>PT_SC02i_PendingApproval_SEI1&<biomarker>=>ICCBRG1s&<result>=>NEGATIVE&<reported_date>=>current",
-    "aliquot:<patient_id>=>PT_SC02i_PendingApproval&<ion_reporter_id>=>bdd_test_ion_reporter&<analysis_id>=>PT_SC02i_PendingApproval_ANI1&<molecular_id>=>PT_SC02i_PendingApproval_MOI1&<site>=>MDA",
+    "aliquot:<patient_id>=>PT_SC02i_PendingApproval&<ion_reporter_id>=>bdd_test_ion_reporter&<vr_type>=>default&<analysis_id>=>PT_SC02i_PendingApproval_ANI1&<molecular_id>=>PT_SC02i_PendingApproval_MOI1&<site>=>MDA",
     "variant_report_confirmed:<patient_id>=>PT_SC02i_PendingApproval&<analysis_id>=>PT_SC02i_PendingApproval_ANI1&<status>=>confirm&<comment>=>Test&<comment_user>=>QA",
     "assignment_confirmed:<patient_id>=>PT_SC02i_PendingApproval&<analysis_id>=>PT_SC02i_PendingApproval_ANI1&<comment>=>Test&<comment_user>=>QA"
   ],
@@ -167,19 +167,19 @@
     "registration:<patient_id>=>PT_VU09_VariantReportUploaded&<status_date>=>current",
     "specimen_received_TISSUE:<patient_id>=>PT_VU09_VariantReportUploaded&<surgical_event_id>=>PT_VU09_VariantReportUploaded_SEI1&<collection_dt>=>today&<received_dttm>=>current",
     "specimen_shipped_TISSUE:<patient_id>=>PT_VU09_VariantReportUploaded&<surgical_event_id>=>PT_VU09_VariantReportUploaded_SEI1&<molecular_id>=>PT_VU09_VariantReportUploaded_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
-    "aliquot:<patient_id>=>PT_VU09_VariantReportUploaded&<ion_reporter_id>=>bdd_test_ion_reporter&<analysis_id>=>PT_VU09_VariantReportUploaded_ANI1&<molecular_id>=>PT_VU09_VariantReportUploaded_MOI1&<site>=>MDA"
+    "aliquot:<patient_id>=>PT_VU09_VariantReportUploaded&<ion_reporter_id>=>bdd_test_ion_reporter&<vr_type>=>default&<analysis_id>=>PT_VU09_VariantReportUploaded_ANI1&<molecular_id>=>PT_VU09_VariantReportUploaded_MOI1&<site>=>MDA"
   ],
   "PT_VU10_VariantReportUploaded": [
     "registration:<patient_id>=>PT_VU10_VariantReportUploaded&<status_date>=>current",
     "specimen_received_TISSUE:<patient_id>=>PT_VU10_VariantReportUploaded&<surgical_event_id>=>PT_VU10_VariantReportUploaded_SEI1&<collection_dt>=>today&<received_dttm>=>current",
     "specimen_shipped_TISSUE:<patient_id>=>PT_VU10_VariantReportUploaded&<surgical_event_id>=>PT_VU10_VariantReportUploaded_SEI1&<molecular_id>=>PT_VU10_VariantReportUploaded_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
-    "aliquot:<patient_id>=>PT_VU10_VariantReportUploaded&<ion_reporter_id>=>bdd_test_ion_reporter&<analysis_id>=>PT_VU10_VariantReportUploaded_ANI1&<molecular_id>=>PT_VU10_VariantReportUploaded_MOI1&<site>=>MDA"
+    "aliquot:<patient_id>=>PT_VU10_VariantReportUploaded&<ion_reporter_id>=>bdd_test_ion_reporter&<vr_type>=>default&<analysis_id>=>PT_VU10_VariantReportUploaded_ANI1&<molecular_id>=>PT_VU10_VariantReportUploaded_MOI1&<site>=>MDA"
   ],
   "PT_VU11_VariantReportRejected": [
     "registration:<patient_id>=>PT_VU11_VariantReportRejected&<status_date>=>current",
     "specimen_received_TISSUE:<patient_id>=>PT_VU11_VariantReportRejected&<surgical_event_id>=>PT_VU11_VariantReportRejected_SEI1&<collection_dt>=>today&<received_dttm>=>current",
     "specimen_shipped_TISSUE:<patient_id>=>PT_VU11_VariantReportRejected&<surgical_event_id>=>PT_VU11_VariantReportRejected_SEI1&<molecular_id>=>PT_VU11_VariantReportRejected_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
-    "aliquot:<patient_id>=>PT_VU11_VariantReportRejected&<ion_reporter_id>=>bdd_test_ion_reporter&<analysis_id>=>PT_VU11_VariantReportRejected_ANI1&<molecular_id>=>PT_VU11_VariantReportRejected_MOI1&<site>=>MDA",
+    "aliquot:<patient_id>=>PT_VU11_VariantReportRejected&<ion_reporter_id>=>bdd_test_ion_reporter&<vr_type>=>default&<analysis_id>=>PT_VU11_VariantReportRejected_ANI1&<molecular_id>=>PT_VU11_VariantReportRejected_MOI1&<site>=>MDA",
     "variant_report_confirmed:<patient_id>=>PT_VU11_VariantReportRejected&<analysis_id>=>PT_VU11_VariantReportRejected_ANI1&<status>=>reject&<comment>=>Test&<comment_user>=>QA"
   ]
 }
