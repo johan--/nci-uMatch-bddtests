@@ -12,6 +12,7 @@ before_install:
   - echo $AUTHOR
   - echo $TRIGGER_VER
   - echo $TRIGGER_DOCKER_IMAGE
+  - echo $TRAVIS_COMMIT
   - echo $CUC_TAG
   - export CUC_TAG_TRIM=${CUC_TAG//@/}
   # Pull latest docker image from last step to test against before it gets updated by someone else
@@ -31,6 +32,12 @@ before_script:
   # Update Ruby cucumber dependencies
   - gem install bundler
   - bundle install
+
+  #check if $TRAVIS_COMMIT same age or older than current image (if it is newer, the whole bdd build should exit)
+  - cd TestManagement
+  - ruby -r "./bdd_image_checker.rb" -e "BDDImageChecker.new.check '$TRIGGER_REPO', '$TRAVIS_COMMIT'"
+  - cd ..
+
   # Update Node UI test dependencies only if it is a UI project
   - |
     if [ "$CUC_TAG" == "@admin_ui" ]; then
