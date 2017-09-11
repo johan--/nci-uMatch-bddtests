@@ -39,5 +39,3 @@ class BDDImageChecker
     JSON.parse(response)
   end
 end
-
-BDDImageChecker.check('nci-match-patient-api', '8f909e8f72a6ad703f96eb39bfd8f939e034044b')
