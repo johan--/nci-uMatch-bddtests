@@ -2,7 +2,6 @@ require 'rest-client'
 
 class BDDImageChecker
   def self.check(trigger_repo, trigger_commit)
-    raise 'TEST!!!!!!!!!!!!'
     url = case trigger_repo
             when 'nci-match-patient-api' then 'https://pedmatch-int.nci.nih.gov/api/v1/patients/version'
             when 'nci-match-patient-state-api' then 'https://pedmatch-int.nci.nih.gov/api/v1/state_validator/version'
