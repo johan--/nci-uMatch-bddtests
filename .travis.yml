@@ -35,7 +35,7 @@ before_script:
 
   #check if $TRAVIS_COMMIT same age or older than current image (if it is newer, the whole bdd build should exit)
   - cd TestManagement
-  - ruby -r "./bdd_image_checker.rb" -e "BDDImageChecker.new.check '$TRIGGER_REPO', '$TRAVIS_COMMIT'"
+  - ruby -r "./bdd_image_checker.rb" -e "BDDImageChecker.check '$TRIGGER_REPO', '$TRAVIS_COMMIT'"
   - cd ..
 
   # Update Node UI test dependencies only if it is a UI project
