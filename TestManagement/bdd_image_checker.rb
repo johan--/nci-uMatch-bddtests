@@ -34,7 +34,7 @@ class BDDImageChecker
   end
 
   def self.rest_get(url)
-    response = RestClient::Request.execute(:url => url, :method => :get)
+    response = RestClient::Request.execute(:url => url.gsub("\n", ''), :method => :get)
     raise "Cannot get response from #{url}!" unless response.code == 200
     JSON.parse(response)
   end
