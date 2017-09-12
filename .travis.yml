@@ -12,6 +12,7 @@ before_install:
   - echo $AUTHOR
   - echo $TRIGGER_VER
   - echo $TRIGGER_DOCKER_IMAGE
+  - echo $TRIGGER_COMMIT
   - echo $TRAVIS_COMMIT
   - echo $CUC_TAG
   - export CUC_TAG_TRIM=${CUC_TAG//@/}
@@ -35,7 +36,7 @@ before_script:
 
   #check if $TRAVIS_COMMIT same age or older than current image (if it is newer, the whole bdd build should exit)
   - cd TestManagement
-  - ruby -r "./bdd_image_checker.rb" -e "BDDImageChecker.check '$TRIGGER_REPO', '$TRAVIS_COMMIT'"
+  - ruby -r "./bdd_image_checker.rb" -e "BDDImageChecker.check '$TRIGGER_REPO', '$TRIGGER_COMMIT'"
   - cd ..
 
   # Update Node UI test dependencies only if it is a UI project
