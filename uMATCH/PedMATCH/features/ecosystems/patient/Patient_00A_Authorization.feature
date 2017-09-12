@@ -13,9 +13,9 @@ Feature: Patient API authorization tests
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
       | patient_id   | auth_role                         | message    | code |
-      | PT_AU01_New0 | NO_TOKEN                          | authorized | 401  |
+      | PT_AU01_New0 | NO_TOKEN                          |            | 401  |
       | PT_AU01_New0 | NCI_MATCH_READONLY                | authorized | 401  |
-      | PT_AU01_New0 | NO_ROLE                           | authorized | 401  |
+      | PT_AU01_New0 | NO_ROLE                           |            | 401  |
       | PT_AU01_New1 | ADMIN                             | success    | 202  |
       | PT_AU01_New2 | SYSTEM                            | authorized | 401  |
       | PT_AU01_New0 | ASSIGNMENT_REPORT_REVIEWER        | authorized | 401  |
@@ -38,9 +38,9 @@ Feature: Patient API authorization tests
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
       | patient_id          | auth_role                         | message    | code |
-      | PT_AU02_Registered0 | NO_TOKEN                          | authorized | 401  |
+      | PT_AU02_Registered0 | NO_TOKEN                          |            | 401  |
       | PT_AU02_Registered0 | NCI_MATCH_READONLY                | authorized | 401  |
-      | PT_AU02_Registered0 | NO_ROLE                           | authorized | 401  |
+      | PT_AU02_Registered0 | NO_ROLE                           |            | 401  |
       | PT_AU02_Registered1 | ADMIN                             | success    | 202  |
       | PT_AU02_Registered2 | SYSTEM                            | authorized | 401  |
       | PT_AU02_Registered0 | ASSIGNMENT_REPORT_REVIEWER        | authorized | 401  |
@@ -65,9 +65,9 @@ Feature: Patient API authorization tests
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
       | patient_id          | auth_role                         | message    | code |
-      | PT_AU02_TsReceived0 | NO_TOKEN                          | authorized | 401  |
+      | PT_AU02_TsReceived0 | NO_TOKEN                          |            | 401  |
       | PT_AU02_TsReceived0 | NCI_MATCH_READONLY                | authorized | 401  |
-      | PT_AU02_TsReceived0 | NO_ROLE                           | authorized | 401  |
+      | PT_AU02_TsReceived0 | NO_ROLE                           |            | 401  |
       | PT_AU02_TsReceived1 | ADMIN                             | success    | 202  |
       | PT_AU02_TsReceived2 | SYSTEM                            | authorized | 401  |
       | PT_AU02_TsReceived0 | ASSIGNMENT_REPORT_REVIEWER        | authorized | 401  |
@@ -91,9 +91,9 @@ Feature: Patient API authorization tests
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
       | patient_id            | auth_role                         | message    | code |
-      | PT_AU03_SlideShipped0 | NO_TOKEN                          | authorized | 401  |
+      | PT_AU03_SlideShipped0 | NO_TOKEN                          |            | 401  |
       | PT_AU03_SlideShipped0 | NCI_MATCH_READONLY                | authorized | 401  |
-      | PT_AU03_SlideShipped0 | NO_ROLE                           | authorized | 401  |
+      | PT_AU03_SlideShipped0 | NO_ROLE                           |            | 401  |
       | PT_AU03_SlideShipped1 | ADMIN                             | success    | 202  |
       | PT_AU03_SlideShipped2 | SYSTEM                            | authorized | 401  |
       | PT_AU03_SlideShipped0 | ASSIGNMENT_REPORT_REVIEWER        | authorized | 401  |
@@ -120,9 +120,9 @@ Feature: Patient API authorization tests
     When POST to MATCH variant report upload service, response includes "<message>" with code "<code>"
     Examples:
       | patient_id              | auth_role                         | message    | code |
-      | PT_AU04_MdaTsShipped0   | NO_TOKEN                          | authorized | 401  |
+      | PT_AU04_MdaTsShipped0   | NO_TOKEN                          |            | 401  |
       | PT_AU04_MdaTsShipped0   | NCI_MATCH_READONLY                | authorized | 401  |
-      | PT_AU04_MdaTsShipped0   | NO_ROLE                           | authorized | 401  |
+      | PT_AU04_MdaTsShipped0   | NO_ROLE                           |            | 401  |
       | PT_AU04_MdaTsShipped1   | ADMIN                             | success    | 202  |
       | PT_AU04_MochaTsShipped1 | SYSTEM                            | success    | 202  |
       | PT_AU04_MdaTsShipped0   | ASSIGNMENT_REPORT_REVIEWER        | authorized | 401  |
@@ -150,9 +150,9 @@ Feature: Patient API authorization tests
     When PUT to MATCH variant report "confirm" service, response includes "<message>" with code "<code>"
     Examples:
       | patient_id                 | auth_role                         | message    | code |
-      | PT_AU05_MdaTsVrUploaded0   | NO_TOKEN                          | authorized | 401  |
+      | PT_AU05_MdaTsVrUploaded0   | NO_TOKEN                          |            | 401  |
       | PT_AU05_MdaTsVrUploaded0   | NCI_MATCH_READONLY                | authorized | 401  |
-      | PT_AU05_MdaTsVrUploaded0   | NO_ROLE                           | authorized | 401  |
+      | PT_AU05_MdaTsVrUploaded0   | NO_ROLE                           |            | 401  |
       | PT_AU05_MdaTsVrUploaded1   | ADMIN                             | success    | 200  |
       | PT_AU05_MochaTsVrUploaded1 | SYSTEM                            | authorized | 401  |
       | PT_AU05_MdaTsVrUploaded0   | ASSIGNMENT_REPORT_REVIEWER        | authorized | 401  |
@@ -181,9 +181,9 @@ Feature: Patient API authorization tests
     Then PUT to MATCH variant "<check>" service for this uuid, response includes "<message>" with code "<code>"
     Examples:
       | patient_id                 | auth_role                         | check     | message    | code |
-      | PT_AU05_MdaTsVrUploaded0   | NO_TOKEN                          | unchecked | authorized | 401  |
+      | PT_AU05_MdaTsVrUploaded0   | NO_TOKEN                          | unchecked |            | 401  |
       | PT_AU05_MdaTsVrUploaded0   | NCI_MATCH_READONLY                | unchecked | authorized | 401  |
-      | PT_AU05_MdaTsVrUploaded0   | NO_ROLE                           | unchecked | authorized | 401  |
+      | PT_AU05_MdaTsVrUploaded0   | NO_ROLE                           | unchecked |            | 401  |
       | PT_AU05_MdaTsVrUploaded3   | ADMIN                             | unchecked | changed to | 200  |
       | PT_AU05_MochaTsVrUploaded3 | SYSTEM                            | checked   | authorized | 401  |
       | PT_AU05_MdaTsVrUploaded0   | ASSIGNMENT_REPORT_REVIEWER        | unchecked | authorized | 401  |
@@ -211,9 +211,9 @@ Feature: Patient API authorization tests
     When PUT to MATCH assignment report "confirm" service, response includes "<message>" with code "<code>"
     Examples:
       | patient_id                   | auth_role                         | message    | code |
-      | PT_AU06_PendingConfirmation0 | NO_TOKEN                          | authorized | 401  |
+      | PT_AU06_PendingConfirmation0 | NO_TOKEN                          |            | 401  |
       | PT_AU06_PendingConfirmation0 | NCI_MATCH_READONLY                | authorized | 401  |
-      | PT_AU06_PendingConfirmation0 | NO_ROLE                           | authorized | 401  |
+      | PT_AU06_PendingConfirmation0 | NO_ROLE                           |            | 401  |
       | PT_AU06_PendingConfirmation1 | ADMIN                             | success    | 200  |
       | PT_AU06_PendingConfirmation2 | SYSTEM                            | authorized | 401  |
       | PT_AU06_PendingConfirmation3 | ASSIGNMENT_REPORT_REVIEWER        | success    | 200  |
@@ -236,9 +236,9 @@ Feature: Patient API authorization tests
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
       | patient_id          | auth_role                         | message    | code |
-      | PT_AU07_Registered0 | NO_TOKEN                          | authorized | 401  |
+      | PT_AU07_Registered0 | NO_TOKEN                          |            | 401  |
       | PT_AU07_Registered0 | NCI_MATCH_READONLY                | authorized | 401  |
-      | PT_AU07_Registered0 | NO_ROLE                           | authorized | 401  |
+      | PT_AU07_Registered0 | NO_ROLE                           |            | 401  |
       | PT_AU07_Registered1 | ADMIN                             | success    | 202  |
       | PT_AU07_Registered2 | SYSTEM                            | authorized | 401  |
       | PT_AU07_Registered0 | ASSIGNMENT_REPORT_REVIEWER        | authorized | 401  |
@@ -262,9 +262,9 @@ Feature: Patient API authorization tests
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
       | patient_id          | auth_role                         | message    | code |
-      | PT_AU07_TsReceived0 | NO_TOKEN                          | authorized | 401  |
+      | PT_AU07_TsReceived0 | NO_TOKEN                          |            | 401  |
       | PT_AU07_TsReceived0 | NCI_MATCH_READONLY                | authorized | 401  |
-      | PT_AU07_TsReceived0 | NO_ROLE                           | authorized | 401  |
+      | PT_AU07_TsReceived0 | NO_ROLE                           |            | 401  |
       | PT_AU07_TsReceived1 | ADMIN                             | success    | 202  |
       | PT_AU07_TsReceived2 | SYSTEM                            | authorized | 401  |
       | PT_AU07_TsReceived0 | ASSIGNMENT_REPORT_REVIEWER        | authorized | 401  |
@@ -288,9 +288,9 @@ Feature: Patient API authorization tests
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
       | patient_id               | rebiopsy | auth_role                         | message    | code |
-      | PT_AU08_PendingApproval0 | Y        | NO_TOKEN                          | authorized | 401  |
+      | PT_AU08_PendingApproval0 | Y        | NO_TOKEN                          |            | 401  |
       | PT_AU08_PendingApproval0 | Y        | NCI_MATCH_READONLY                | authorized | 401  |
-      | PT_AU08_PendingApproval0 | Y        | NO_ROLE                           | authorized | 401  |
+      | PT_AU08_PendingApproval0 | Y        | NO_ROLE                           |            | 401  |
       | PT_AU08_PendingApproval1 | N        | ADMIN                             | success    | 202  |
       | PT_AU08_PendingApproval2 | Y        | SYSTEM                            | authorized | 401  |
       | PT_AU08_PendingApproval0 | Y        | ASSIGNMENT_REPORT_REVIEWER        | authorized | 401  |
@@ -314,9 +314,9 @@ Feature: Patient API authorization tests
     When POST to MATCH patients service, response includes "<message>" with code "<code>"
     Examples:
       | patient_id               | auth_role                         | message    | code |
-      | PT_AU08_PendingApproval0 | NO_TOKEN                          | authorized | 401  |
+      | PT_AU08_PendingApproval0 | NO_TOKEN                          |            | 401  |
       | PT_AU08_PendingApproval0 | NCI_MATCH_READONLY                | authorized | 401  |
-      | PT_AU08_PendingApproval0 | NO_ROLE                           | authorized | 401  |
+      | PT_AU08_PendingApproval0 | NO_ROLE                           |            | 401  |
       | PT_AU08_PendingApproval5 | ADMIN                             | success    | 202  |
       | PT_AU08_PendingApproval6 | SYSTEM                            | authorized | 401  |
       | PT_AU08_PendingApproval0 | ASSIGNMENT_REPORT_REVIEWER        | authorized | 401  |
@@ -342,9 +342,9 @@ Feature: Patient API authorization tests
 #    Then wait for "1" seconds
     Examples:
       | patient_id               | auth_role                         | message    | code |
-      | PT_AU09_PendingApproval0 | NO_TOKEN                          | authorized | 401  |
+      | PT_AU09_PendingApproval0 | NO_TOKEN                          |            | 401  |
       | PT_AU09_PendingApproval0 | NCI_MATCH_READONLY                | authorized | 401  |
-      | PT_AU09_PendingApproval0 | NO_ROLE                           | authorized | 401  |
+      | PT_AU09_PendingApproval0 | NO_ROLE                           |            | 401  |
       | PT_AU09_PendingApproval1 | ADMIN                             | success    | 202  |
       | PT_AU09_PendingApproval2 | SYSTEM                            | authorized | 401  |
       | PT_AU09_PendingApproval0 | ASSIGNMENT_REPORT_REVIEWER        | authorized | 401  |
