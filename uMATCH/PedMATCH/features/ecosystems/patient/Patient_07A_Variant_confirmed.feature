@@ -155,7 +155,7 @@ Feature: Variant files confirmed messages
   Scenario Outline: PT_VC10. variant report confirm message using non-current ids should fail
     Given patient id is "<patient_id>"
     Then load template variant report confirm message for analysis id: "<ani>"
-    When PUT to MATCH variant report "confirm" service, response includes "latest analysis id" with code "403"
+    When PUT to MATCH variant report "confirm" service, response includes "analysis id" with code "403"
     Examples:
       | patient_id                   | ani                               |
       | PT_VC10_VRUploadedSEIExpired | PT_VC10_VRUploadedSEIExpired_ANI1 |
@@ -178,19 +178,19 @@ Feature: Variant files confirmed messages
   Scenario Outline: PT_VC11b. variant report cannot be confirmed (rejected) more than one time
     Given patient id is "<patient_id>"
     Then load template variant report confirm message for analysis id: "<ani>"
-    When PUT to MATCH variant report "<status>" service, response includes "not in PENDING state" with code "403"
+    When PUT to MATCH variant report "<status>" service, response includes "<message>" with code "403"
     Then patient should have variant report (analysis_id: "<ani>")
     And this variant report field: "status" should be "<previous_status>"
     Examples:
-      | patient_id             | ani                            | status  | previous_status |
-      | PT_VC11b_TsVRConfirmed | PT_VC11b_TsVRConfirmed_ANI1    | confirm | confirmed       |
-      | PT_VC11b_TsVRRejected  | PT_VC11b_TsVRRejected_ANI1     | confirm | rejected        |
-      | PT_VC11b_TsVRConfirmed | PT_VC11b_TsVRConfirmed_ANI1    | reject  | confirmed       |
-      | PT_VC11b_TsVRRejected  | PT_VC11b_TsVRRejected_ANI1     | reject  | rejected        |
-      | PT_VC11b_BdVRConfirmed | PT_VC11b_BdVRConfirmed_BD_ANI1 | confirm | confirmed       |
-      | PT_VC11b_BdVRRejected  | PT_VC11b_BdVRRejected_BD_ANI1  | confirm | rejected        |
-      | PT_VC11b_BdVRConfirmed | PT_VC11b_BdVRConfirmed_BD_ANI1 | reject  | confirmed       |
-      | PT_VC11b_BdVRRejected  | PT_VC11b_BdVRRejected_BD_ANI1  | reject  | rejected        |
+      | patient_id             | ani                            | status  | previous_status | message              |
+      | PT_VC11b_TsVRConfirmed | PT_VC11b_TsVRConfirmed_ANI1    | confirm | confirmed       | CONFIRMED            |
+      | PT_VC11b_TsVRRejected  | PT_VC11b_TsVRRejected_ANI1     | confirm | rejected        | CONFIRMED            |
+      | PT_VC11b_TsVRConfirmed | PT_VC11b_TsVRConfirmed_ANI1    | reject  | confirmed       | CONFIRMED            |
+      | PT_VC11b_TsVRRejected  | PT_VC11b_TsVRRejected_ANI1     | reject  | rejected        | CONFIRMED            |
+      | PT_VC11b_BdVRConfirmed | PT_VC11b_BdVRConfirmed_BD_ANI1 | confirm | confirmed       | not in PENDING state |
+      | PT_VC11b_BdVRRejected  | PT_VC11b_BdVRRejected_BD_ANI1  | confirm | rejected        | not in PENDING state |
+      | PT_VC11b_BdVRConfirmed | PT_VC11b_BdVRConfirmed_BD_ANI1 | reject  | confirmed       | not in PENDING state |
+      | PT_VC11b_BdVRRejected  | PT_VC11b_BdVRRejected_BD_ANI1  | reject  | rejected        | not in PENDING state |
 
 
   @patients_p1
