@@ -286,7 +286,7 @@ Feature: Variant files uploaded message
       | PT_VU17_BdVrUploaded          | PT_VU17_BdVrUploaded_BD_MOI1          | true  |
       | PT_VU17_BdVrConfirmed         | PT_VU17_BdVrConfirmed_BD_MOI1         | false |
       | PT_VU17_BdVrRejected          | PT_VU17_BdVrRejected_BD_MOI1          | true  |
-      | PT_VU17_BdShippedThenReceived | PT_VU17_BdShippedThenRecieved_BD_MOI1 | true  |
+      | PT_VU17_BdShippedThenReceived | PT_VU17_BdShippedThenReceived_BD_MOI1 | true  |
 
   @patients_p1
   Scenario: PT_VU18. multiple variant report can be processed at same time
@@ -324,7 +324,7 @@ Feature: Variant files uploaded message
     Examples:
       | patient_id                    | ani                                   | message    | code |
       | PT_VU20_BdVrUploaded          | PT_VU20_BdVrUploaded_BD_ANI2          | success    | 202  |
-      | PT_VU20_BdVrConfirmed         | PT_VU20_BdVrConfirmed_BD_ANI2         | transition | 403  |
+      | PT_VU20_BdVrConfirmed         | PT_VU20_BdVrConfirmed_BD_ANI2         | confirmed  | 403  |
       | PT_VU20_BdVrRejected          | PT_VU20_BdVrRejected_BD_ANI2          | success    | 202  |
       | PT_VU20_OffStudy              | PT_VU20_OffStudy_BD_ANI2              | transition | 403  |
       | PT_VU20_TsVrConfirmed         | PT_VU20_TsVrConfirmed_BD_ANI2         | success    | 202  |

@@ -177,21 +177,20 @@ Feature: Variant files confirmed messages
   @patients_p2
   Scenario Outline: PT_VC11b. variant report cannot be confirmed (rejected) more than one time
     Given patient id is "<patient_id>"
-    Then load template variant report confirm message for analysis id: "<patient_id>_ANI1"
+    Then load template variant report confirm message for analysis id: "<ani>"
     When PUT to MATCH variant report "<status>" service, response includes "not in PENDING state" with code "403"
-    Then wait for "15" seconds
-    Then patient should have variant report (analysis_id: "<patient_id>_ANI1")
+    Then patient should have variant report (analysis_id: "<ani>")
     And this variant report field: "status" should be "<previous_status>"
     Examples:
-      | patient_id             | status  | previous_status |
-      | PT_VC11b_TsVRConfirmed | confirm | confirmed       |
-      | PT_VC11b_TsVRRejected  | confirm | rejected        |
-      | PT_VC11b_TsVRConfirmed | reject  | confirmed       |
-      | PT_VC11b_TsVRRejected  | reject  | rejected        |
-      | PT_VC11b_BdVRConfirmed | confirm | confirm         |
-      | PT_VC11b_BdVRRejected  | confirm | reject          |
-      | PT_VC11b_BdVRConfirmed | reject  | confirm         |
-      | PT_VC11b_BdVRRejected  | reject  | reject          |
+      | patient_id             | ani                            | status  | previous_status |
+      | PT_VC11b_TsVRConfirmed | PT_VC11b_TsVRConfirmed_ANI1    | confirm | confirmed       |
+      | PT_VC11b_TsVRRejected  | PT_VC11b_TsVRRejected_ANI1     | confirm | rejected        |
+      | PT_VC11b_TsVRConfirmed | PT_VC11b_TsVRConfirmed_ANI1    | reject  | confirmed       |
+      | PT_VC11b_TsVRRejected  | PT_VC11b_TsVRRejected_ANI1     | reject  | rejected        |
+      | PT_VC11b_BdVRConfirmed | PT_VC11b_BdVRConfirmed_BD_ANI1 | confirm | confirmed       |
+      | PT_VC11b_BdVRRejected  | PT_VC11b_BdVRRejected_BD_ANI1  | confirm | rejected        |
+      | PT_VC11b_BdVRConfirmed | PT_VC11b_BdVRConfirmed_BD_ANI1 | reject  | confirmed       |
+      | PT_VC11b_BdVRRejected  | PT_VC11b_BdVRRejected_BD_ANI1  | reject  | rejected        |
 
 
   @patients_p1

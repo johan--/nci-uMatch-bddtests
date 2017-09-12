@@ -25,7 +25,7 @@ When(/^POST to MATCH patients service, response includes "([^"]*)" with code "([
   actual_match_expect(response['http_code'], code)
   if code.to_i > 299   # This should cover all error scenarios
     if message == ''
-      expect(message.to_s).to eql(retMsg)
+      actual_include_expect(message.to_s, retMsg)
     else
       actual_include_expect(response['message'].to_s, retMsg)
     end
