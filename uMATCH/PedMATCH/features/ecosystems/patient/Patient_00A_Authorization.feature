@@ -442,7 +442,7 @@ Feature: Patient API authorization tests
     Examples:
       | patient_id             | role                              | message    | code |
       | PT_AU13_TsVrConfirmed2 | NCI_MATCH_READONLY                | authorized | 401  |
-      | PT_AU13_TsVrConfirmed1 | ADMIN                             | success    | 200  |
+      | PT_AU13_TsVrConfirmed1 | ADMIN                             | success    | 202  |
       | PT_AU13_TsVrConfirmed2 | SYSTEM                            | authorized | 401  |
       | PT_AU13_TsVrConfirmed2 | ASSIGNMENT_REPORT_REVIEWER        | authorized | 401  |
       | PT_AU13_TsVrConfirmed2 | MDA_VARIANT_REPORT_SENDER         | authorized | 401  |

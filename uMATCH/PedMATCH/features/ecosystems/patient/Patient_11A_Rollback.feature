@@ -35,7 +35,7 @@ Feature: Patient API rollback tests
   @patients_p1_off
   Scenario Outline: PT_RB02a. VR confirmed (rejected) can be rolled back properly
     Given patient id is "<patient_id>"
-    When PUT to MATCH rollback with step number "<step>", response includes "roll back" with code "200"
+    When PUT to MATCH rollback with step number "<step>", response includes "roll back" with code "202"
     Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
     Then patient should have variant report (analysis_id: "<ani>")
     And this variant report field: "comment_user" should be "null"
@@ -60,7 +60,7 @@ Feature: Patient API rollback tests
     Then there are "1" patient_limbos have field: "patient_id" value: "<patient_id>"
     Then this patient patient_limbos should have "2" messages which contain "<limbo_vr>-Slide"
 
-    When PUT to MATCH rollback with step number "<step>", response includes "roll back" with code "200"
+    When PUT to MATCH rollback with step number "<step>", response includes "roll back" with code "202"
     Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
     Then patient should have variant report (analysis_id: "<ani>")
     And this variant report field: "comment_user" should be "null"
@@ -84,7 +84,7 @@ Feature: Patient API rollback tests
   @patients_p1_off
   Scenario Outline: PT_RB02b. PENDING_CONFIRMATION can be rolled back properly
     Given patient id is "<patient_id>"
-    When PUT to MATCH rollback with step number "<step>", response includes "roll back" with code "200"
+    When PUT to MATCH rollback with step number "<step>", response includes "roll back" with code "202"
     Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
     Examples:
       | patient_id                    |
@@ -97,7 +97,7 @@ Feature: Patient API rollback tests
   Scenario Outline: PT_RB01a. confirmed and rejected variant report can be rolled back
     Given patient id is "<patient_id>"
     And patient API user authorization role is "ADMIN"
-    When PUT to MATCH rollback with step number "1.0", response includes "roll back" with code "200"
+    When PUT to MATCH rollback with step number "1.0", response includes "roll back" with code "202"
     Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
     Then patient should have variant report (analysis_id: "<patient_id>_ANI1")
     And this variant report field: "comment_user" should be "null"
@@ -121,7 +121,7 @@ Feature: Patient API rollback tests
   Scenario Outline: PT_RB01b. rollback request should only rollback the latest confirmed variant report
     Given patient id is "<patient_id>"
     And patient API user authorization role is "ADMIN"
-    When PUT to MATCH rollback with step number "1.0", response includes "roll back" with code "200"
+    When PUT to MATCH rollback with step number "1.0", response includes "roll back" with code "202"
     Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
     Then patient should have variant report (analysis_id: "<patient_id>_ANI2")
     And this variant report field: "status" should be "PENDING"
@@ -140,7 +140,7 @@ Feature: Patient API rollback tests
     And patient should have prior_recommended_treatment_arms: "<prior_ta1>" with stratum id: "<prior_str1>"
     And patient should have prior_recommended_treatment_arms: "<prior_ta2>" with stratum id: "<prior_str2>"
     And patient API user authorization role is "ADMIN"
-    When PUT to MATCH rollback with step number "1.0", response includes "roll back" with code "200"
+    When PUT to MATCH rollback with step number "1.0", response includes "roll back" with code "202"
     Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
     Then patient should "not have" assignment report (analysis_id: "<patient_id>_ANI1")
     Then patient should have variant report (analysis_id: "<patient_id>_ANI1")
@@ -159,7 +159,7 @@ Feature: Patient API rollback tests
   @patients_p2_off
   Scenario: PT_RB02b. rollback service only rollback the latest confirmed assignment report
     Given patient id is "PT_RB02b_PendingApprStep2"
-    When PUT to MATCH rollback with step number "1.0", response includes "roll back" with code "200"
+    When PUT to MATCH rollback with step number "1.0", response includes "roll back" with code "202"
     Then patient status should change to "PENDING_CONFIRMATION"
     Then this patient should have "1" assignments for analysis id "PT_RB02b_PendingApprStep2_ANI1"
     And this assignment status should be "CONFIRMED"
@@ -171,7 +171,7 @@ Feature: Patient API rollback tests
   Scenario Outline: PT_SC02h pending_items should increase tissue_variant_reports value properly by rolling back confirmed variant report
     Given patient id is "<patient_id>"
     And patient API user authorization role is "ADMIN"
-    When PUT to MATCH rollback with step number "1.0", response includes "roll back" with code "200"
+    When PUT to MATCH rollback with step number "1.0", response includes "roll back" with code "202"
     Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
     Then patient GET service: "pending_items", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return
@@ -184,7 +184,7 @@ Feature: Patient API rollback tests
   Scenario Outline: PT_SC02i pending_items should increase tissue_variant_reports value properly by rolling back confirmed assignment report
     Given patient id is "<patient_id>"
     And patient API user authorization role is "ADMIN"
-    When PUT to MATCH rollback with step number "1.0", response includes "roll back" with code "200"
+    When PUT to MATCH rollback with step number "1.0", response includes "roll back" with code "202"
     Then patient status should change to "TISSUE_VARIANT_REPORT_RECEIVED"
     Then patient GET service: "pending_items", patient id: "", id: ""
     When GET from MATCH patient API, http code "200" should return
