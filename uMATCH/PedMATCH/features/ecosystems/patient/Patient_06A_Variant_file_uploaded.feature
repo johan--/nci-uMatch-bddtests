@@ -82,7 +82,7 @@ Feature: Variant files uploaded message
     And load template variant file uploaded message for molecular id: "<moi>"
     Then set patient message field: "analysis_id" to value: "<ani>"
     Then files for molecular_id "<moi>" and analysis_id "<ani>" are in S3
-    When POST to MATCH variant report upload service, response includes "Molecular id doesn't exist" with code "403"
+    When POST to MATCH variant report upload service, response includes "id doesn't exist" with code "403"
     Examples:
       | patient_id            | moi                          | ani                        |
       | PT_VU05_TissueShipped | PT_VU05_TissueShipped_MOI1   | PT_VU05_TissueShipped_ANI1 |

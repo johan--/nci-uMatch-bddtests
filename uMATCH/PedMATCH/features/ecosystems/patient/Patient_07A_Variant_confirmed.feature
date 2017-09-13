@@ -184,9 +184,9 @@ Feature: Variant files confirmed messages
     Examples:
       | patient_id             | ani                            | status  | previous_status | message              |
       | PT_VC11b_TsVRConfirmed | PT_VC11b_TsVRConfirmed_ANI1    | confirm | confirmed       | CONFIRMED            |
-      | PT_VC11b_TsVRRejected  | PT_VC11b_TsVRRejected_ANI1     | confirm | rejected        | CONFIRMED            |
+      | PT_VC11b_TsVRRejected  | PT_VC11b_TsVRRejected_ANI1     | confirm | rejected        | REJECTED            |
       | PT_VC11b_TsVRConfirmed | PT_VC11b_TsVRConfirmed_ANI1    | reject  | confirmed       | CONFIRMED            |
-      | PT_VC11b_TsVRRejected  | PT_VC11b_TsVRRejected_ANI1     | reject  | rejected        | CONFIRMED            |
+      | PT_VC11b_TsVRRejected  | PT_VC11b_TsVRRejected_ANI1     | reject  | rejected        | REJECTED            |
       | PT_VC11b_BdVRConfirmed | PT_VC11b_BdVRConfirmed_BD_ANI1 | confirm | confirmed       | not in PENDING state |
       | PT_VC11b_BdVRRejected  | PT_VC11b_BdVRRejected_BD_ANI1  | confirm | rejected        | not in PENDING state |
       | PT_VC11b_BdVRConfirmed | PT_VC11b_BdVRConfirmed_BD_ANI1 | reject  | confirmed       | not in PENDING state |

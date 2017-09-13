@@ -238,6 +238,6 @@
     "specimen_received_BLOOD:<patient_id>=>PT_SC08_BdVrUploadedTwice&<collection_dt>=>today&<received_dttm>=>current",
     "specimen_shipped_BLOOD:<patient_id>=>PT_SC08_BdVrUploadedTwice&<molecular_id>=>PT_SC08_BdVrUploadedTwice_BD_MOI1&<shipped_dttm>=>current&<destination>=>MDA",
     "aliquot:<patient_id>=>PT_SC08_BdVrUploadedTwice&<ion_reporter_id>=>bdd_test_ion_reporter&<vr_type>=>blood_vr&<analysis_id>=>PT_SC08_BdVrUploadedTwice_BD_ANI1&<molecular_id>=>PT_SC08_BdVrUploadedTwice_BD_MOI1&<site>=>MDA",
-    "aliquot:<patient_id>=>PT_SC08_BdVrUploadedTwice&<ion_reporter_id>=>bdd_test_ion_reporter&<vr_type>=>cnv&<analysis_id>=>PT_SC08_BdVrUploadedTwice_BD_ANI2&<molecular_id>=>PT_SC08_BdVrUploadedTwice_BD_MOI1&<site>=>MDA"
+    "aliquot:<patient_id>=>PT_SC08_BdVrUploadedTwice&<ion_reporter_id>=>bdd_test_ion_reporter&<vr_type>=>blood_vr&<analysis_id>=>PT_SC08_BdVrUploadedTwice_BD_ANI2&<molecular_id>=>PT_SC08_BdVrUploadedTwice_BD_MOI1&<site>=>MDA"
   ]
 }
