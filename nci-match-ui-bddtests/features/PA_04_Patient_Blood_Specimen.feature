@@ -31,12 +31,12 @@ Feature: Patient Blood SpecimenTab
     Then I should see the top level details of the blood variant report
     And I collect information about the patient "PT_VU16_BdVRUploaded" with blood variant report "PT_VU16_BdVRUploaded_BD_ANI1"
     And I should see the top level data maps to the back end call
-
+@test
   Scenario: A user should see the Top level details on the Blood Variant Report tab
     Given I collect information about the patient "PT_SC08_BdVrUploadedTwice" with blood variant report "PT_SC08_BdVrUploadedTwice_BD_ANI2"
     When I go to the patient "PT_SC08_BdVrUploadedTwice_BD" with variant report "PT_SC08_BdVrUploadedTwice_BD_ANI2"
     Then I can see the SNV table for Blood variant report
-    And I can see the Gene Fusions table for Blood Variant Report
+    And I can see the CNV table for Blood Variant Report
     And I can see that the SNV table for Blood variant report matches with the backend
     And I can see that the CNV table for Blood variant report matches with the backend
 

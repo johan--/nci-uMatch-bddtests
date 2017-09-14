@@ -195,7 +195,7 @@ module.exports = function() {
 
     });
 
-    this.Then(/^I can see the Gene Fusions table for Blood Variant Report$/, function (callback) {
+    this.Then(/^I can see the CNV table for Blood Variant Report$/, function (callback) {
         var tableHeadings = patientPage.bloodGeneTable.all(by.css('th'));
         expect(tableHeadings.getText()).to.eventually.eql(patientPage.expectedBloodGeneFusions).notify(callback);
     });

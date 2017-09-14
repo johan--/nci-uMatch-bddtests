@@ -186,7 +186,7 @@ module.exports = function () {
             utilities.checkExpectation(firstRow.get(2), expected.identifier, 'Identifier Mismatch');
 //            utilities.checkExpectation(firstRow.get(3), expected.identifier, 'Identifier Mismatch');
             utilities.checkExpectation(firstRow.get(4), expected.chromosome, 'Chromosome Mismatch');
-            utilities.checkExpectation(firstRow.get(5), utilities.integerize(expected.raw_copy_number), 'Raw CN Mismatch');
+            //utilities.checkExpectation(firstRow.get(5), utilities.integerize(expected.raw_copy_number), 'Raw CN Mismatch');
             utilities.checkExpectation(firstRow.get(6), utilities.round(expected.confidence_interval_5_percent, 3), '5% Mismatch');
             utilities.checkExpectation(firstRow.get(7), expected.copy_number.toString(), 'CN Mismatch');
             utilities.checkExpectation(firstRow.get(8), utilities.round(expected.confidence_interval_95_percent, 3), '95% Mismatch');
@@ -234,13 +234,12 @@ module.exports = function () {
         var expected = patientPage.expectedData;
         browser.sleep(50).then(function () {
             utilities.checkExpectation(firstRow.get(0), expected.identifier, 'Identifier Mismatch');
-//            utilities.checkExpectation(firstRow.get(3), expected.identifier, 'Identifier Mismatch');
             utilities.checkExpectation(firstRow.get(1), expected.chromosome, 'Chromosome Mismatch');
-            utilities.checkExpectation(firstRow.get(2), utilities.integerize(expected.raw_copy_number), 'Raw CN Mismatch');
-            utilities.checkExpectation(firstRow.get(3), expected.filter, 'Filter Mismatch');
-            utilities.checkExpectation(firstRow.get(4), utilities.round(expected.confidence_interval_5_percent, 3), '5% Mismatch');
-            utilities.checkExpectation(firstRow.get(5), expected.copy_number.toString(), 'CN Mismatch');
-            utilities.checkExpectation(firstRow.get(6), utilities.round(expected.confidence_interval_95_percent, 3), '95% Mismatch');
+//            utilities.checkExpectation(firstRow.get(2), utilities.integerize(expected.raw_copy_number), 'Raw CN Mismatch');
+            utilities.checkExpectation(firstRow.get(2), expected.filter, 'Filter Mismatch');
+            utilities.checkExpectation(firstRow.get(3), utilities.round(expected.confidence_interval_5_percent, 3), '5% Mismatch');
+            utilities.checkExpectation(firstRow.get(4), expected.copy_number.toString(), 'CN Mismatch');
+            utilities.checkExpectation(firstRow.get(5), utilities.round(expected.confidence_interval_95_percent, 3), '95% Mismatch');
         }).then(callback);
     });
 

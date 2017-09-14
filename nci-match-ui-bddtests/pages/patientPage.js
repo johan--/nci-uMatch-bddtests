@@ -389,7 +389,7 @@ var PatientPage = function () {
     // Expected Values in the Tissue Report Page.
     this.expVarReportTables = [ 'SNVs/MNVs/Indels', 'Copy Number Variants', 'Gene Fusions' ];
     this.expSNVTableHeadings = [ 'Confirm', 'Comment', 'ID', 'aMOI', 'Chrom', 'Position', 'OCP Ref', 'OCP Alt', 'Allele Freq', 'Read Depth', 'Gene', 'Transcript', 'HGVS', 'Protein', 'Exon', 'Oncomine Variant Class', 'Function' ]
-    this.expCNVTableHeadings = [ 'Confirm', 'Comment', 'ID', 'aMOI', 'Chrom', 'Raw CN', 'CI 5%', 'CN', 'CI 95%' ];
+    this.expCNVTableHeadings = [ 'Confirm', 'Comment', 'ID', 'aMOI', 'Chrom', 'CI 5%', 'CN', 'CI 95%' ];
     this.expGFTableHeadings = [ 'Confirm', 'Comment', 'ID', 'aMOI', 'Gene 1', 'Gene 2', 'Read Depth', 'Annotation' ];
 
 
