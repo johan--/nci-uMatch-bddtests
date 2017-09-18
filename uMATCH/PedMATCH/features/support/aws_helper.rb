@@ -144,4 +144,8 @@ class AWSHelper
     }
     key
   end
+
+  def self.dynamodb_put_item(item_hash, table)
+    dynamodb_client.put_item({:item => item_hash, :table_name => table_name})
+  end
 end

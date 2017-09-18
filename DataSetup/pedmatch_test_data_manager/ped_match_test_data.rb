@@ -47,10 +47,6 @@ class PedMatchTestData
     end
   end
 
-  def self.load_patient_seed_file_index(index, tag='patients')
-    load_seed_patients(PatientStory.patients_in_save_file(index), tag)
-  end
-
   def self.send_a_patient_story(patient_story)
     PatientStorySender.send_patient_story(patient_story)
   end

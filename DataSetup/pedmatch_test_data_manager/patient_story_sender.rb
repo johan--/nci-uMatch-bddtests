@@ -21,8 +21,9 @@ class PatientStorySender
       patient_id = patient_story.patient_id
       Log.info("Start process patient #{patient_id} with #{story.size} steps")
       story.each_with_index do |s, i|
-        message = Marshal.load(Marshal.dump(templates[s.keys[0]]))
-        values = add_realtime_values(s.values[0])
+        operation = s['operation']
+        message = Marshal.load(Marshal.dump(templates[operation]))
+        values = add_realtime_values(s['parameters'])
         url = update_string_values(message['url'], values)
         before = message['before'].collect {|v| update_string_values(v, values)}
         after = message['after'].collect {|v| update_string_values(v, values)}
@@ -33,9 +34,9 @@ class PatientStorySender
         end
         last_response = PedMatchRestClient.send_until_accept(url, message['http_method'], payload)
         if last_response.code < 203
-          Log.info("Patient: #{patient_id} message (#{i+1}/#{story.size})<#{s.keys[0]}> is done")
+          Log.info("Patient: #{patient_id} message (#{i+1}/#{story.size})<#{operation}> is done")
         else
-          error = "Failed to generate patient: #{patient_id} in step (#{i+1}/#{story.size})<#{s.keys[0]}> with error: "
+          error = "Failed to generate patient: #{patient_id} in step (#{i+1}/#{story.size})<#{operation}> with error: "
           Log.error(error)
           Log.error(last_response)
           return false
