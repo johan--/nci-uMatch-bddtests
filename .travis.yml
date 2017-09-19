@@ -8,6 +8,7 @@ addons:
 node_js:
   - 6
 before_install:
+  - if [ -z "$AUTHOR" ]; then export AUTHOR=`git --no-pager show -s --format='%an <%ae>'`; fi
   - echo $TRIGGER_REPO
   - echo $AUTHOR
   - echo $TRIGGER_VER
