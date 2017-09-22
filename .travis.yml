@@ -16,6 +16,8 @@ before_install:
   - echo $AUTHOR
   - echo $TRIGGER_VER
   - echo $TRIGGER_DOCKER_IMAGE
+  #if this build is triggered by BDD itself, user this commit as TRIGGER_COMMIT
+  - if [ -z "$AUTHOR" ]; then export TRIGGER_COMMIT=$TRAVIS_COMMIT; fi
   - echo $TRIGGER_COMMIT
   - echo $TRAVIS_COMMIT
   - echo $CUC_TAG
@@ -201,7 +203,7 @@ script:
     if [ -d "~/build/CBIIT/nci-uMatch-bddtests/results_critical/screenshot" ]; then
       aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results_critical/screenshot s3://cucumber-test-reports/$DATE_TRIM/screenshot --region us-east-1 --recursive
     fi
-#  - curl -X PUT "$TEST_MANAGEMENT_URL/reports/update/ped-match/$DATE_TRIM/$CUC_TAG_TRIM" -d ''
+#  - curl -X PUT "https://admintool.umatch-int.nci.nih.gov:3025/reports/update/ped-match/$DATE_TRIM/$CUC_TAG_TRIM" -d ''
   - curl -s -X PUT -H "Content-Type:application/json"
     -d "{\"project\":\"ped-match\", \"date\":\"$DATE_TRIM\", \"tag\":\"$CUC_TAG_TRIM\", \"trigger_author\":\"$AUTHOR\", \"trigger_repo\":\"$TRIGGER_REPO\", \"trigger_commit\":\"$TRIGGER_COMMIT\", \"travis_id\":\"$TRAVIS_JOB_ID\"}"
     $TEST_MANAGEMENT_URL/reports/update
@@ -227,10 +229,10 @@ after_success:
     if [ -d "~/build/CBIIT/nci-uMatch-bddtests/results/screenshot" ]; then
       aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results/screenshot s3://cucumber-test-reports/$DATE_TRIM/screenshot --region us-east-1 --recursive
     fi
-#  - curl -X PUT "$TEST_MANAGEMENT_URL/reports/update/ped-match/$DATE_TRIM/$CUC_TAG_TRIM" -d ''
+#  - curl -X PUT "https://admintool.umatch-int.nci.nih.gov:3025/reports/update/ped-match/$DATE_TRIM/$CUC_TAG_TRIM" -d ''
   - curl -s -X PUT -H "Content-Type:application/json"
     -d "{\"project\":\"ped-match\", \"date\":\"$DATE_TRIM\", \"tag\":\"$CUC_TAG_TRIM\", \"trigger_author\":\"$AUTHOR\", \"trigger_repo\":\"$TRIGGER_REPO\", \"trigger_commit\":\"$TRIGGER_COMMIT\", \"travis_id\":\"$TRAVIS_JOB_ID\"}"
-    $TEST_MANAGEMENT_URL/reports/update
+    https://admintool.umatch-int.nci.nih.gov:3025/reports/update
 
   # Deploy to AWS UAT
   - |
@@ -297,7 +299,7 @@ after_script:
   # - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/uMATCH/PedMATCH/results/output.json s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_COMMIT/ --region us-east-1
   # - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/nci-match-ui-bddtests/results/result.json s3://cucumbertest-reports/$TRIGGER_REPO/$DATE-$TRAVIS_COMMIT/ --region us-east-1
   #update test report service
-#  - curl -X PUT "$TEST_MANAGEMENT_URL/reports/update/ped-match/$DATE_TRIM/$CUC_TAG_TRIM" -d ''
+#  - curl -X PUT "https://admintool.umatch-int.nci.nih.gov:3025/reports/update/ped-match/$DATE_TRIM/$CUC_TAG_TRIM" -d ''
 notifications:
   slack:
     rooms:
