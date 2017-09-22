@@ -205,7 +205,7 @@ script:
     fi
 #  - curl -X PUT "https://admintool.umatch-int.nci.nih.gov:3025/reports/update/ped-match/$DATE_TRIM/$CUC_TAG_TRIM" -d ''
   - curl -s -X PUT -H "Content-Type:application/json"
-    -d "{\"project\":\"ped-match\", \"date\":\"$DATE_TRIM\", \"tag\":\"$CUC_TAG_TRIM\", \"trigger_author\":\"$AUTHOR\", \"trigger_repo\":\"$TRIGGER_REPO\", \"trigger_commit\":\"$TRIGGER_COMMIT\", \"travis_id\":\"$TRAVIS_JOB_ID\"}"
+    -d "{\"project\":\"ped-match\", \"date\":\"$DATE_TRIM\", \"tag\":\"$CUC_TAG_TRIM\", \"trigger_author\":\"$AUTHOR\", \"trigger_repo\":\"$TRIGGER_REPO\", \"trigger_commit\":\"$TRIGGER_COMMIT\", \"travis_id\":\"$TRAVIS_BUILD_ID\"}"
     $TEST_MANAGEMENT_URL/reports/update
   - curl -X GET "$TEST_MANAGEMENT_URL/report_notified/ped-match/$DATE_TRIM/$CUC_TAG_TRIM" -d ''
   - TRAVIS_TEST_RESULT=$STATUS
@@ -231,7 +231,7 @@ after_success:
     fi
 #  - curl -X PUT "https://admintool.umatch-int.nci.nih.gov:3025/reports/update/ped-match/$DATE_TRIM/$CUC_TAG_TRIM" -d ''
   - curl -s -X PUT -H "Content-Type:application/json"
-    -d "{\"project\":\"ped-match\", \"date\":\"$DATE_TRIM\", \"tag\":\"$CUC_TAG_TRIM\", \"trigger_author\":\"$AUTHOR\", \"trigger_repo\":\"$TRIGGER_REPO\", \"trigger_commit\":\"$TRIGGER_COMMIT\", \"travis_id\":\"$TRAVIS_JOB_ID\"}"
+    -d "{\"project\":\"ped-match\", \"date\":\"$DATE_TRIM\", \"tag\":\"$CUC_TAG_TRIM\", \"trigger_author\":\"$AUTHOR\", \"trigger_repo\":\"$TRIGGER_REPO\", \"trigger_commit\":\"$TRIGGER_COMMIT\", \"travis_id\":\"$TRAVIS_BUILD_ID\"}"
     https://admintool.umatch-int.nci.nih.gov:3025/reports/update
 
   # Deploy to AWS UAT
@@ -252,7 +252,7 @@ after_success:
 after_failure:
 #    Notify $AUTHOR ------ NOT DONE YET
     - cd TestManagement
-    - ruby -r "./bdd_notifier.rb" -e "BDDNotifier.new.notify_bdd_failure '$AUTHOR', '$TRIGGER_REPO', '$TRIGGER_VER', '$CUC_TAG', '$TRAVIS_JOB_ID'"
+    - ruby -r "./bdd_notifier.rb" -e "BDDNotifier.new.notify_bdd_failure '$AUTHOR', '$TRIGGER_REPO', '$TRIGGER_VER', '$CUC_TAG', '$TRAVIS_BUILD_ID'"
     - cd ..
 
     #Run P3 cucumber tests
