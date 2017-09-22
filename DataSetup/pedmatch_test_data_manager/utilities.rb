@@ -4,6 +4,7 @@ require 'active_support'
 require 'active_support/core_ext'
 require_relative 'log'
 require 'aws-sdk'
+require 'rest-client'
 
 
 class Utilities
@@ -11,6 +12,25 @@ class Utilities
   DEV_BUCKET = 'pedmatch-dev'
   INT_BUCKET = 'pedmatch-int'
 
+  def self.rest_request(service, request_type, payload='', headers={})
+    if payload.is_a?(Hash) || payload.is_a?(Array)
+      message = payload.to_json
+    else
+      message = payload
+    end
+    params = {:url => service,
+              :method => request_type.downcase,
+              :verify_ssl => false,
+              :headers => headers,
+              :payload => message}
+    begin
+      response = RestClient::Request.execute(params)
+      return response
+    rescue => e
+      response = e.response
+      return response
+    end
+  end
 
   def self.upload_vr(moi, ani, type='default')
     template_folder = "#{File.dirname(__FILE__)}/../variant_file_templates"

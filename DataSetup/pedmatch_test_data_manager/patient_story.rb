@@ -8,7 +8,7 @@ class PatientStory < GeneralStory
 
 
   def initialize(patient_id)
-    super(patient_id, 'ped-match')
+    super(patient_id, 'ped-match', 'patient')
     @active_sei = "#{@patient_id}_SEI0"
     @active_bd_moi = "#{@patient_id}_BD_MOI0"
     @active_ts_moi = "#{@patient_id}_MOI0"
@@ -313,42 +313,43 @@ class PatientStory < GeneralStory
     @story_hash << this_story
   end
 
-  # SAVE_FILE_FOLDER = "#{File.dirname(__FILE__)}/seed_patient_stories"
-  #
-  # def self.convert_to_dynamodb
-  #   count = 0
-  #   Dir["#{SAVE_FILE_FOLDER}/*"].each do |file|
-  #     puts "processing seed story file #{file}"
-  #     hashes = JSON.parse(File.read(file))
-  #     hashes.each do |pt_id, stories|
-  #       puts "processing patient #{pt_id}"
-  #       s = []
-  #       stories.each do |story|
-  #         parts = story.split(':')
-  #         op = parts[0]
-  #         params = {}
-  #         parts = parts[1].split('&')
-  #         parts.each do |part|
-  #           p = part.split('=>')
-  #           params[p[0]]=p[1]
-  #         end
-  #         s << {
-  #             operation: op,
-  #             parameters: params
-  #         }
-  #       end
-  #       item = {
-  #           data_id: pt_id,
-  #           project: "ped-match",
-  #           story: s
-  #       }
-  #       Utilities.dynamodb_put_item(item, STORY_TABLE)
-  #       count+=1
-  #     end
-  #
-  #   end
-  #   puts "#{count} patients are processed"
-  # end
+  SAVE_FILE_FOLDER = "#{File.dirname(__FILE__)}/seed_patient_stories"
+
+  def self.convert_to_dynamodb
+    count = 0
+    Dir["#{SAVE_FILE_FOLDER}/*"].each do |file|
+      puts "processing seed story file #{file}"
+      hashes = JSON.parse(File.read(file))
+      hashes.each do |pt_id, stories|
+        puts "processing patient #{pt_id}"
+        s = []
+        stories.each do |story|
+          parts = story.split(':')
+          op = parts[0]
+          params = {}
+          parts = parts[1].split('&')
+          parts.each do |part|
+            p = part.split('=>')
+            params[p[0]]=p[1]
+          end
+          s << {
+              operation: op,
+              parameters: params
+          }
+        end
+        item = {
+            data_id: pt_id,
+            project: 'ped-match',
+            category: 'patient',
+            story: s
+        }
+        Utilities.dynamodb_put_item(item, STORY_TABLE)
+        count+=1
+      end
+
+    end
+    puts "#{count} patients are processed"
+  end
 
   private :process_id, :increase_id
 end

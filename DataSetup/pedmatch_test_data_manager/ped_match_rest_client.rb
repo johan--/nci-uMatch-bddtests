@@ -1,6 +1,7 @@
 require 'json'
-require 'rest-client'
 require_relative 'constants'
+require 'active_record'
+require_relative 'utilities'
 
 class PedMatchRestClient
   RETRY_INTERVAL = 0.5
@@ -16,7 +17,7 @@ class PedMatchRestClient
     while time<TIMEOUT
       sleep RETRY_INTERVAL
       time += RETRY_INTERVAL
-      last_response = rest_request(url, method, payload)
+      last_response = send(url, method, payload)
       break if last_response.code < 203
     end
     last_response
@@ -28,7 +29,7 @@ class PedMatchRestClient
     while time<TIMEOUT
       sleep RETRY_INTERVAL
       time += RETRY_INTERVAL
-      last_response = rest_request(url, 'get')
+      last_response = send(url, 'get')
       next if last_response.nil?
       if last_response.code == 200
         response_hash = JSON.parse(last_response.to_s)
@@ -41,11 +42,11 @@ class PedMatchRestClient
   def self.wait_until_update(url)
     time = 0
     updated = false
-    last_response = rest_request(url, 'get')
+    last_response = send(url, 'get')
     while time<TIMEOUT
       sleep RETRY_INTERVAL
       time += RETRY_INTERVAL
-      new_response = rest_request(url, 'get')
+      new_response = send(url, 'get')
       unless new_response == last_response
         updated = true
         break
@@ -85,25 +86,12 @@ class PedMatchRestClient
                          return ENV[token_variable]
                        end
 
-  def self.rest_request(service, request_type, payload={})
-    headers = {:Authorization => "Bearer #{ped_match_auth}"}
-    unless request_type.eql?('get')
-      headers[:content_type] = 'application/json'
-      headers[:accept] = 'application/json'
-    end
-    params = {:url => service,
-              :method => request_type.downcase,
-              :verify_ssl => false,
-              :headers => headers}
-    unless request_type.downcase == 'get'
-      params[:payload] = payload.to_json.to_s
-    end
-    begin
-      response = RestClient::Request.execute(params)
-      return response
-    rescue => e
-      response = e.response
-      return response
-    end
-  end
+  private_class_method def self.send(service, request_type, payload='')
+                         headers = {:Authorization => "Bearer #{ped_match_auth}"}
+                         unless request_type.eql?('get')
+                           headers[:content_type] = 'application/json'
+                           headers[:accept] = 'application/json'
+                         end
+                         Utilities.rest_request(service, request_type, payload, headers)
+                       end
 end
