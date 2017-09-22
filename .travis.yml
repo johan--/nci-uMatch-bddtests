@@ -22,6 +22,15 @@ before_install:
   - echo $TRAVIS_COMMIT
   - echo $CUC_TAG
   - export CUC_TAG_TRIM=${CUC_TAG//@/}
+  # check if $TRIGGER_DOCKER_IMAGE is same with the image in EC2 container, if it's not, quit this job
+  - |
+    if ! [ -z "$TRIGGER_DOCKER_IMAGE" ]; then
+      export IMAGE_TO_CHECK=$TRIGGER_DOCKER_IMAGE:$TRIGGER_VER
+      IMAGE_TO_CHECK=$(echo $IMAGE_TO_CHECK | sed 's#/#%2F#g')
+      export RESPONSE=`curl -X GET "$TEST_MANAGEMENT_URL/docker_image_check/PedMatch-$TRIGGER_REPO-INTTEST/$IMAGE_TO_CHECK" -d ''`
+      echo $RESPONSE
+      if [[ $RESPONSE == *"doesn't"* ]]; then TRAVIS_TEST_RESULT=1; fi
+    fi
   # Pull latest docker image from last step to test against before it gets updated by someone else
   # - docker pull matchbox/$TRIGGER_REPO
   # Set Ruby version
@@ -41,9 +50,9 @@ before_script:
   - bundle install
 
   #check if $TRAVIS_COMMIT same age or older than current image (if it is newer, the whole bdd build should exit)
-  - cd TestManagement
-  - ruby -r "./bdd_image_checker.rb" -e "BDDImageChecker.check '$TRIGGER_REPO', '$TRIGGER_COMMIT'"
-  - cd ..
+#  - cd TestManagement
+#  - ruby -r "./bdd_image_checker.rb" -e "BDDImageChecker.check '$TRIGGER_REPO', '$TRIGGER_COMMIT'"
+#  - cd ..
 
   # Update Node UI test dependencies only if it is a UI project
   - |
@@ -250,10 +259,6 @@ after_success:
   # - curl -s -X POST -H "Content-Type:application/json" -H "Accept:application/json" -H "Travis-API-Version:3" -H "Authorization:token $UAT_TRAVIS_TOKEN" -d "{\"request\":{\"message\":\"Triggered by $TRIGGER_REPO $TRAVIS_COMMIT\", \"branch\":\"master\", \"config\":{\"env\":{\"matrix\":[\"TRIGGER_REPO=$TRIGGER_REPO;CUC_TAG=$CUC_TAG\"]}}}}" https://api.travis-ci.org/repo/CBIIT%2Fnci-uMatch-uattests/requests
 
 after_failure:
-#    Notify $AUTHOR ------ NOT DONE YET
-    - cd TestManagement
-    - ruby -r "./bdd_notifier.rb" -e "BDDNotifier.new.notify_bdd_failure '$AUTHOR', '$TRIGGER_REPO', '$TRIGGER_VER', '$CUC_TAG', '$TRAVIS_BUILD_ID'"
-    - cd ..
 
     #Run P3 cucumber tests
     - cd uMATCH/PedMATCH; bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P3 --format json --out ../../results/output-$CUC_TAG$P3-$TEST_ENV_NUMBER.json --expand' -n 2
