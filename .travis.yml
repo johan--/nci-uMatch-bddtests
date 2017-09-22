@@ -17,7 +17,7 @@ before_install:
   - echo $TRIGGER_VER
   - echo $TRIGGER_DOCKER_IMAGE
   #if this build is triggered by BDD itself, user this commit as TRIGGER_COMMIT
-  - if [ -z "$AUTHOR" ]; then export TRIGGER_COMMIT=$TRAVIS_COMMIT; fi
+  - if [ -z "$TRIGGER_COMMIT" ]; then export TRIGGER_COMMIT=$TRAVIS_COMMIT; fi
   - echo $TRIGGER_COMMIT
   - echo $TRAVIS_COMMIT
   - echo $CUC_TAG
