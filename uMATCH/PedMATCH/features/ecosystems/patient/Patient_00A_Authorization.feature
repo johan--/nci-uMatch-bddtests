@@ -508,7 +508,7 @@ Feature: Patient API authorization tests
       | SPECIMEN_MESSAGE_SENDER           | false        | false        | false        |
       | ASSAY_MESSAGE_SENDER              | false        | false        | false        |
 
-  @patients_p2
+  @patients_p3
   Scenario Outline: PT_AU17a certain user can change auth0 password properly
     Given patient API user authorization role is "<role>"
     Then create a new auth0 password
@@ -522,7 +522,7 @@ Feature: Patient API authorization tests
       | SPECIMEN_MESSAGE_SENDER |
       | ASSAY_MESSAGE_SENDER    |
 
-  @patients_p2
+  @patients_p3
   Scenario Outline: PT_AU17b certain user is not allowed to use auth0 password change service
     Given patient API user authorization role is "<role>"
     Then create a new auth0 password
