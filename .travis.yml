@@ -244,17 +244,17 @@ after_success:
     https://admintool.umatch-int.nci.nih.gov:3025/reports/update
 
 #  # Deploy to AWS UAT
-#  - |
-#    if [ "$TRIGGER_REPO" == "nci-match-ir-ecosystem-api" ]; then
-#      echo "Deploying both IR services to AWS UAT for Ped & Adult"
-#      docker run -it --rm -e AWS_ACCESS_KEY_ID=$UAT_AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$UAT_AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster PedMatch-UAT-Backend --service-name PedMatch-nci-match-ir-ecosystem-api-UAT -i fnlcr/nci-match-ir-ecosystem-api:$TRIGGER_VER --timeout 540 --max-definitions 25
-#      docker run -it --rm -e AWS_ACCESS_KEY_ID=$UAT_AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$UAT_AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster PedMatch-UAT-Backend --service-name PedMatch-nci-match-ir-ecosystem-processor-UAT -i fnlcr/nci-match-ir-ecosystem-processor:$TRIGGER_VER --timeout 540 --max-definitions 25
-#      docker run -it --rm -e AWS_ACCESS_KEY_ID=$UAT_AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$UAT_AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster AdultMatch-UAT-Backend --service-name AdultMATCH-nci-match-ir-ecosystem-api-UAT -i fnlcr/nci-match-ir-ecosystem-api:$TRIGGER_VER --timeout 540 --max-definitions 25
-#      docker run -it --rm -e AWS_ACCESS_KEY_ID=$UAT_AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$UAT_AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster AdultMatch-UAT-Backend --service-name AdultMATCH-nci-match-ir-ecosystem-processor-UAT -i fnlcr/nci-match-ir-ecosystem-processor:$TRIGGER_VER --timeout 540 --max-definitions 25
-#    else
-#      echo "Deploying to AWS UAT (place holder, the actual code will not be pushed)"
-#      docker run -it --rm -e AWS_ACCESS_KEY_ID=$UAT_AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$UAT_AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster PedMatch-UAT-Backend --service-name PedMatch-$TRIGGER_REPO-UAT -i $TRIGGER_DOCKER_IMAGE:$TRIGGER_VER  --timeout 540 --max-definitions 25
-#    fi
+  - |
+    if [ "$TRIGGER_REPO" == "nci-match-ir-ecosystem-api" ]; then
+      echo "Deploying both IR services to AWS UAT for Ped & Adult"
+      docker run -it --rm -e AWS_ACCESS_KEY_ID=$UAT_AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$UAT_AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster PedMatch-UAT-Backend --service-name PedMatch-nci-match-ir-ecosystem-api-UAT -i fnlcr/nci-match-ir-ecosystem-api:$TRIGGER_VER --timeout 540 --max-definitions 25
+      docker run -it --rm -e AWS_ACCESS_KEY_ID=$UAT_AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$UAT_AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster PedMatch-UAT-Backend --service-name PedMatch-nci-match-ir-ecosystem-processor-UAT -i fnlcr/nci-match-ir-ecosystem-processor:$TRIGGER_VER --timeout 540 --max-definitions 25
+      docker run -it --rm -e AWS_ACCESS_KEY_ID=$UAT_AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$UAT_AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster AdultMatch-UAT-Backend --service-name AdultMATCH-nci-match-ir-ecosystem-api-UAT -i fnlcr/nci-match-ir-ecosystem-api:$TRIGGER_VER --timeout 540 --max-definitions 25
+      docker run -it --rm -e AWS_ACCESS_KEY_ID=$UAT_AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$UAT_AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster AdultMatch-UAT-Backend --service-name AdultMATCH-nci-match-ir-ecosystem-processor-UAT -i fnlcr/nci-match-ir-ecosystem-processor:$TRIGGER_VER --timeout 540 --max-definitions 25
+    else
+      echo "Deploying to AWS UAT (place holder, the actual code will not be pushed)"
+      docker run -it --rm -e AWS_ACCESS_KEY_ID=$UAT_AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$UAT_AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=us-east-1 silintl/ecs-deploy --cluster PedMatch-UAT-Backend --service-name PedMatch-$TRIGGER_REPO-UAT -i $TRIGGER_DOCKER_IMAGE:$TRIGGER_VER  --timeout 540 --max-definitions 25
+    fi
 ##  # Trigger Travis script #3, UAT Tests
   # - curl -s -X POST -H "Content-Type:application/json" -H "Accept:application/json" -H "Travis-API-Version:3" -H "Authorization:token $UAT_TRAVIS_TOKEN" -d "{\"request\":{\"message\":\"Triggered by $TRIGGER_REPO $TRAVIS_COMMIT\", \"branch\":\"master\", \"config\":{\"env\":{\"matrix\":[\"TRIGGER_REPO=$TRIGGER_REPO;CUC_TAG=$CUC_TAG\"]}}}}" https://api.travis-ci.org/repo/CBIIT%2Fnci-uMatch-uattests/requests
 
