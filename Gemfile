@@ -16,7 +16,7 @@ gem 'rest-client', '~>1.8.0'
 gem 'java-properties', '=0.1.1'
 
 group :test, :development do
-  gem 'cucumber', '2.0.0'
+  gem 'cucumber', '2.4.0'
   gem "rspec-rails"
   gem 'rspec'
   # gem 'simplecov'
@@ -48,6 +48,12 @@ group :test, :development do
   gem 'slack-ruby-bot'
   gem 'celluloid-io'
 
-  #The following gem caused conflict with xls2json
+  # The following gem caused conflict with xls2json
   # gem 'axlsx'
+
+  # formatter with statistics
+  gem 'cucumber_characteristics'
+
+  # for thread safety
+  gem 'concurrent-ruby', require: 'concurrent'
 end

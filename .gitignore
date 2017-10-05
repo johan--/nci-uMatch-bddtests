@@ -1,6 +1,12 @@
 .idea
-Gemfile.lock
 bower_components
 node_modules
 nci-match-ui-bddtests/results/reports
 uMATCH/PedMATCH/features/support/before.rb
+
+# temp files
+.DS_Store
+features_report.html
+uMATCH/PedMATCH/features/characteristics/
+results/
+uMATCH/PedMATCH/public/

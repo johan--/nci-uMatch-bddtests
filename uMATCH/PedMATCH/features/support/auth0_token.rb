@@ -52,6 +52,11 @@ class Auth0Token
                :scope => scope,
                :connection => ENV['AUTH0_DATABASE']}.to_json
     begin
+      # log total number of calls and per username
+      stats = Helper_Methods::STATS
+      stats[:auth0_calls_count] = stats[:auth0_calls_count] + 1
+      stats[:auth0_calls_per_user][username] = stats[:auth0_calls_per_user][username] + 1
+
       response = RestClient::Request.execute(:url => "https://#{ENV['AUTH0_DOMAIN']}/oauth/ro",
                                              :method => :post,
                                              :verify_ssl => false,

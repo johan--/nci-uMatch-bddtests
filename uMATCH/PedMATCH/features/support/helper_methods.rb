@@ -1,19 +1,30 @@
 #!/usr/bin/ruby
+
+# require_relative 'env'
 require 'json'
 require 'rest-client'
-# require_relative 'env'
 require 'active_support'
 require 'active_support/core_ext'
 require 'aws-sdk'
 require_relative 'auth0_token'
 require 'roo'
+require 'concurrent'
 
-class Helper_Methods
-  @requestGap = 5.0
-  @requestTimeout = 10.0
-  @default_timeout = 60.0
+module Helper_Methods
+  extend self
 
-  def Helper_Methods.get_request(url, params={}, auth0_on = true, auth0_role = 'ADMIN')
+  # constants
+  REQUEST_GAP = 5
+  REQUEST_TIMEOUT = 60
+
+  # hash that holds statistics
+  STATS = Concurrent::Hash.new
+  %i(idle_time auth0_calls_count http_count http_time).each{|k| STATS[k] = 0} # keys with initail value == 0
+  STATS[:auth0_calls_per_user]        = Concurrent::Hash.new(0)
+  STATS[:slow_http_requests]          = Concurrent::Hash.new
+  STATS[:slow_http_request_treshold]  = 0.5 # slower than 0.5 seconds
+
+  def get_request(url, params={}, auth0_on = true, auth0_role = 'ADMIN')
     get_response = {}
     no_log = params['no_log']
     params.delete('no_log')
@@ -27,14 +38,15 @@ class Helper_Methods
     headers = {}
     Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
     begin
-      start_time = Time.now.to_f
+      start_time = Time.now
       response = RestClient::Request.execute(:url => @url,
                                              :method => :get,
                                              :verify_ssl => false,
                                              :headers => headers,
-                                             :timeout => @default_timeout)
-      end_time = Time.now.to_f
-      puts "[uMATCH BDD]#{Time.now.to_s} Complete GET URL: \t\"#{@url}\", duration: #{end_time-start_time} seconds"
+                                             :timeout => REQUEST_TIMEOUT)
+      duration = Time.now - start_time
+      log_http_duration(duration, @url)
+      puts "[uMATCH BDD]#{Time.now.to_s} Complete GET URL: \t\"#{@url}\", duration: #{duration} seconds"
 
       get_response['http_code'] = response.code
       get_response['status'] = response.code == 200 ? 'Success' : 'Failure'
@@ -60,7 +72,7 @@ class Helper_Methods
     end
   end
 
-  def Helper_Methods.get_list_request(service, params={}, auth0_on = true, auth0_role = 'ADMIN')
+  def get_list_request(service, params={}, auth0_on = true, auth0_role = 'ADMIN')
     @params = params.values.join('/')
     @service = "#{service}/#{@params}"
 
@@ -70,21 +82,23 @@ class Helper_Methods
 
     result = []
     runTime = 0.0
-    start_time = Time.now.to_f
+    start_time = Time.now
     loop do
-      sleep(@requestGap)
-      runTime += @requestGap
+      sleep_for(REQUEST_GAP)
+      runTime += REQUEST_GAP
       begin
+        start_time = Time.now
         @res = RestClient::Request.execute(:url => @service,
                                            :method => :get,
                                            :verify_ssl => false,
                                            :headers => headers,
-                                           :timeout => @default_timeout)
+                                           :timeout => REQUEST_TIMEOUT)
+        log_http_duration(Time.now - start_time, @service)
       rescue StandardError => e
         puts "Error: #{e.message} occurred"
         @res = '[]'
         result = JSON.parse(@res)
-        end_time = Time.now.to_f
+        end_time = Time.now
         puts "[uMATCH BDD]#{Time.now.to_s} Complete GET URL: \t#{service}, duration: #{end_time-start_time} seconds"
         return result
       end
@@ -92,16 +106,16 @@ class Helper_Methods
         @res = '[]'
       end
       result = JSON.parse(@res)
-      if (result!=nil && result.length>0) || runTime >@requestTimeout
+      if (result!=nil && result.length>0) || runTime > 10
         break
       end
     end
-    end_time = Time.now.to_f
+    end_time = Time.now
     puts "[uMATCH BDD]#{Time.now.to_s} Complete GET URL: \t#{service}, duration: #{end_time-start_time} seconds"
     return result
   end
 
-  def self.simple_get_download(service, output_file, auth0_on = true, auth0_role = 'ADMIN')
+  def simple_get_download(service, output_file, auth0_on = true, auth0_role = 'ADMIN')
     #do not use RestClient, because cucumber use UTF-8, which will cause encoding problem when writing binary file
     @get_response={}
     headers = {}
@@ -112,22 +126,25 @@ class Helper_Methods
       header = ''
     end
     cmd = "curl -o #{output_file} #{header} #{service} &> /dev/null"
+    start_time = Time.now
     `#{cmd}`
+    log_http_duration(Time.now - start_time, service)
   end
 
-  def Helper_Methods.simple_get_request(service, auth0_on = true, auth0_role = 'ADMIN')
+  def simple_get_request(service, auth0_on = true, auth0_role = 'ADMIN')
     @get_response={}
     headers = {}
     Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
     begin
-      start_time = Time.now.to_f
+      start_time = Time.now
       response = RestClient::Request.execute(:url => service,
                                              :method => :get,
                                              :verify_ssl => false,
                                              :headers => headers,
-                                             :timeout => @default_timeout)
-      end_time = Time.now.to_f
-      puts "[uMATCH BDD]#{Time.now.to_s} Complete GET URL: \t#{service}, duration: #{end_time-start_time} seconds"
+                                             :timeout => REQUEST_TIMEOUT)
+      duration = Time.now - start_time
+      log_http_duration(duration, service)
+      puts "[uMATCH BDD]#{Time.now.to_s} Complete GET URL: \t#{service}, duration: #{duration} seconds"
     rescue StandardError => e
       @get_response['status'] = 'Failure'
       if e.message.nil?
@@ -165,11 +182,11 @@ class Helper_Methods
     return @get_response
   end
 
-  def Helper_Methods.get_single_request(service,
+  def get_single_request(service,
       print_tick=false,
       key='',
       value='',
-      request_gap_seconds=5.0,
+      request_gap_seconds=5,
       time_out_seconds=15.0,
       auth0_on = true,
       auth0_role = 'ADMIN')
@@ -181,11 +198,14 @@ class Helper_Methods
     Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
     loop do
       begin
+        start_time = Time.now
         response_string = RestClient::Request.execute(:url => service,
                                                       :method => :get,
                                                       :verify_ssl => false,
                                                       :headers => headers,
-                                                      :timeout => @default_timeout)
+                                                      :timeout => REQUEST_TIMEOUT)
+
+        log_http_duration(Time.now - start_time, service)
       rescue StandardError => e
         print "Error: #{e.message} occurred\n"
         return {}
@@ -218,13 +238,13 @@ class Helper_Methods
           return new_response
         end
       end
-      sleep(request_gap_seconds)
+      sleep_for(request_gap_seconds)
       runTime += request_gap_seconds
     end
     return {}
   end
 
-  def Helper_Methods.get_request_url_param(service, params={}, auth0_on = true, auth0_role = 'ADMIN')
+  def get_request_url_param(service, params={}, auth0_on = true, auth0_role = 'ADMIN')
     print "URL: #{service}\n"
     @params = ''
     params.each do |key, value|
@@ -236,24 +256,25 @@ class Helper_Methods
     print "#{url[0..len]}\n"
     headers = {}
     Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
-    start_time = Time.now.to_f
+    start_time = Time.now
     @res = RestClient::Request.execute(:url => @service,
                                        :method => :get,
                                        :verify_ssl => false,
                                        :headers => headers,
-                                       :timeout => @default_timeout)
-    end_time = Time.now.to_f
-    puts "[uMATCH BDD]#{Time.now.to_s} Complete GET URL: \t#{service}, duration: #{end_time-start_time} seconds"
+                                       :timeout => REQUEST_TIMEOUT)
+    duration = Time.now - start_time
+    log_http_duration(duration, @service)
+    puts "[uMATCH BDD]#{Time.now.to_s} Complete GET URL: \t#{service}, duration: #{duration} seconds"
     return @res
   end
 
-  def Helper_Methods.wait_until_updated(url, timeout)
+  def wait_until_updated(url, timeout)
     total_time = 0.0
     old_hash = nil
-    wait_time = 5.0
+    wait_time = 5
     internal_timeout = 45.0
     loop do
-      new_hash = Helper_Methods.simple_get_request(url)['message_json']
+      new_hash = simple_get_request(url)['message_json']
       # puts new_hash.to_json.to_s
       if old_hash.nil?
         old_hash = new_hash
@@ -266,17 +287,17 @@ class Helper_Methods
       if total_time>internal_timeout
         return new_hash
       end
-      sleep(wait_time)
+      sleep_for(wait_time)
     end
     {}
   end
 
-  def self.get_special_result_from_url(url, timeout, query_hash, path=[])
+  def get_special_result_from_url(url, timeout, query_hash, path=[])
     internal_timeout = 300.0
     run_time = 0.0
-    wait_time = 5.0
+    wait_time = 5
     loop do
-      response = Helper_Methods.simple_get_request(url)['message_json']
+      response = simple_get_request(url)['message_json']
       target_object = response
       if response.is_a?(Array)
         if response.length == 1
@@ -298,12 +319,12 @@ class Helper_Methods
         return target_object
       end
 
-      sleep(wait_time)
+      sleep_for(wait_time)
       run_time += wait_time
     end
   end
 
-  def self.is_this_hash(target_object, query, path)
+  def is_this_hash(target_object, query, path)
     new_target = target_object
     path.each do |path_key|
       new_target = new_target[path_key]
@@ -315,19 +336,21 @@ class Helper_Methods
     is_this
   end
 
-  def Helper_Methods.post_request(service, payload, auth0_on = true, auth0_role = 'ADMIN')
+  def post_request(service, payload, auth0_on = true, auth0_role = 'ADMIN')
     # print "JSON:\n#{payload}\n\n"
     @post_response = {}
     headers = {:content_type => 'json', :accept => 'json'}
     Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
     begin
-      puts "[uMATCH BDD]#{Time.now.to_s} Start POST URL: \t#{service}"
+      start_time = Time.now
+      puts "[uMATCH BDD]#{start_time} Start POST URL: \t#{service}"
       response = RestClient::Request.execute(:url => service,
                                              :method => :post,
                                              :verify_ssl => false,
                                              :payload => payload,
                                              :headers => headers,
-                                             :timeout => @default_timeout)
+                                             :timeout => REQUEST_TIMEOUT)
+     log_http_duration(Time.now - start_time, service)
     rescue StandardError => e
       @post_response['status'] = 'Failure'
       if e.message.nil?
@@ -356,18 +379,20 @@ class Helper_Methods
     return @post_response
   end
 
-  def Helper_Methods.patch_request(service, payload, auth0_role = 'PWD_ADMIN')
+  def patch_request(service, payload, auth0_role = 'PWD_ADMIN')
     patch_response = {}
     headers = {:content_type => 'json', :accept => 'json'}
     Auth0Token.add_auth0_if_needed(headers, auth0_role)
     begin
-      puts "[uMATCH BDD]#{Time.now.to_s} Start PATCH URL: \t#{service}"
+      start_time = Time.now
+      puts "[uMATCH BDD]#{start_time} Start PATCH URL: \t#{service}"
       response = RestClient::Request.execute(:url => service,
                                              :method => :patch,
                                              :verify_ssl => false,
                                              :payload => payload,
                                              :headers => headers,
-                                             :timeout => @default_timeout)
+                                             :timeout => REQUEST_TIMEOUT)
+      log_http_duration(Time.now - start_time, service)
     rescue StandardError => e
       patch_response['status'] = 'Failure'
       if e.message.nil?
@@ -397,7 +422,7 @@ class Helper_Methods
 
   end
 
-  def self.valid_json?(json)
+  def valid_json?(json)
     begin
       JSON.parse(json)
       return true
@@ -406,7 +431,7 @@ class Helper_Methods
     end
   end
 
-  def Helper_Methods.put_request(service, payload, auth0_on = true, auth0_role = 'ADMIN')
+  def put_request(service, payload, auth0_on = true, auth0_role = 'ADMIN')
     # # print "JSON:\n#{JSON.pretty_generate(JSON.parse(payload))}\n\n"
     # print "JSON:\n#{payload}\n\n"
     @put_response = {}
@@ -417,13 +442,15 @@ class Helper_Methods
     Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
     # puts "Headers: #{headers}"
     begin
-      puts "[uMATCH BDD]#{Time.now.to_s} Start PUT URL: \t#{service}"
+      start_time = Time.now
+      puts "[uMATCH BDD]#{start_time} Start PUT URL: \t#{service}"
       response = RestClient::Request.execute(:url => service,
                                              :method => :put,
                                              :verify_ssl => false,
                                              :payload => payload,
                                              :headers => headers,
-                                             :timeout => @default_timeout)
+                                             :timeout => REQUEST_TIMEOUT)
+      log_http_duration(Time.now - start_time, service)
     rescue StandardError => e
       @put_response['status'] = 'Failure'
       if e.message.nil?
@@ -452,17 +479,19 @@ class Helper_Methods
     return @put_response
   end
 
-  def Helper_Methods.delete_request(service, auth0_on = true, auth0_role = 'ADMIN')
+  def delete_request(service, auth0_on = true, auth0_role = 'ADMIN')
     @delete_response = {}
     headers = {:accept => 'json'}
     Auth0Token.add_auth0_if_needed(headers, auth0_role) if auth0_on
     begin
-      puts "[uMATCH BDD]#{Time.now.to_s} Start DELETE URL: \n#{service}"
+      start_time = Time.now
+      puts "[uMATCH BDD]#{start_time} Start DELETE URL: \n#{service}"
       response = RestClient::Request.execute(:url => service,
                                              :method => :delete,
                                              :verify_ssl => false,
                                              :headers => headers,
-                                             :timeout => @default_timeout)
+                                             :timeout => REQUEST_TIMEOUT)
+      log_http_duration(Time.now - start_time, service)
     rescue StandardError => e
       @delete_response['status'] = 'Failure'
       if e.message.nil?
@@ -491,90 +520,90 @@ class Helper_Methods
     return @delete_response
   end
 
-  def Helper_Methods.aFewDaysOlder()
+  def aFewDaysOlder()
     time = DateTime.current.utc
     t = (time - 3.days)
     return t.iso8601
   end
 
-  def Helper_Methods.olderThanSixMonthsDate()
+  def olderThanSixMonthsDate()
     time = DateTime.current.utc
     t = (time - 6.months)
     return t.iso8601
   end
 
-  def Helper_Methods.olderThanFiveMonthsDate()
+  def olderThanFiveMonthsDate()
     time = DateTime.current.utc
     t = (time - 5.months)
     return t.iso8601
   end
 
-  def Helper_Methods.dateDDMMYYYYHHMMSS ()
+  def dateDDMMYYYYHHMMSS ()
     time = DateTime.current.utc
     return (time).iso8601
   end
 
-  def Helper_Methods.dateYYYYMMDD ()
+  def dateYYYYMMDD ()
     return Time.now.strftime("%Y-%m-%d")
   end
 
-  def Helper_Methods.backDate ()
+  def backDate ()
     time = DateTime.current.utc
     time = (time - 6.hours).iso8601
     return time
   end
 
-  def Helper_Methods.earlierThanBackDate()
+  def earlierThanBackDate()
     time = DateTime.current.utc
     return (time - 10.hours).iso8601
   end
 
-  def Helper_Methods.futureDate ()
+  def futureDate ()
     time = DateTime.current.utc
     return (time + 6.hours).iso8601
   end
 
-  def Helper_Methods.oneSecondOlder ()
+  def oneSecondOlder ()
     time = DateTime.current.utc
     t = time - 1.seconds
     return (time - 4.hours).iso8601
   end
 
-  def Helper_Methods.getDateAsRequired(dateStr)
+  def getDateAsRequired(dateStr)
     case dateStr
       when 'current'
-        reqDate = Helper_Methods.dateDDMMYYYYHHMMSS
+        reqDate = dateDDMMYYYYHHMMSS
       when 'today'
-        reqDate = Helper_Methods.dateYYYYMMDD
+        reqDate = dateYYYYMMDD
       when 'older'
-        reqDate = Helper_Methods.backDate
+        reqDate = backDate
       when 'future'
-        reqDate = Helper_Methods.futureDate
+        reqDate = futureDate
       when 'older than 6 months'
-        reqDate = Helper_Methods.olderThanSixMonthsDate
+        reqDate = olderThanSixMonthsDate
       when 'a few days older'
-        reqDate = Helper_Methods.aFewDaysOlder
+        reqDate = aFewDaysOlder
       when 'one second ago'
-        reqDate = Helper_Methods.oneSecondOlder
+        reqDate = oneSecondOlder
       else
         reqDate = dateStr
     end
     return reqDate
   end
 
-  def self.is_date?(string)
+  def is_date?(string)
     true if Date.parse(string) rescue false
   end
 
-  def self.is_number?(obj)
+  def is_number?(obj)
     true if Float(obj) rescue false
   end
 
-  def self.is_boolean(obj)
+  def is_boolean(obj)
     obj.to_s.downcase=='true'||obj.to_s.downcase=='false'
   end
 
-  def self.s3_list_files(bucket,
+  def s3_list_files(bucket,
       path,
       endpoint='https://s3.amazonaws.com',
       region='us-east-1'
@@ -588,7 +617,7 @@ class Helper_Methods
     files
   end
 
-  def self.s3_file_size(bucket,
+  def s3_file_size(bucket,
       path,
       endpoint='https://s3.amazonaws.com',
       region='us-east-1'
@@ -607,7 +636,7 @@ class Helper_Methods
     file.content_length
   end
 
-  def self.s3_file_exists(bucket, file_path)
+  def s3_file_exists(bucket, file_path)
     files = s3_list_files(bucket, file_path)
     if files.length>0
       return s3_list_files(bucket, file_path).include?(file_path)
@@ -616,7 +645,7 @@ class Helper_Methods
     end
   end
 
-  def self.s3_delete_path(bucket,
+  def s3_delete_path(bucket,
       path,
       endpoint='https://s3.amazonaws.com',
       region='us-east-1'
@@ -637,7 +666,7 @@ class Helper_Methods
 
   end
 
-  def self.upload_vr_to_s3(bucket, ion_folder, moi, ani, base_name = 'test1', template_type = 'default')
+  def upload_vr_to_s3(bucket, ion_folder, moi, ani, base_name = 'test1', template_type = 'default')
     template_folder = "#{path_for_named_parent_folder('nci-uMatch-bddtests')}/DataSetup/variant_file_templates"
     output_folder = "#{template_folder}/upload"
     target_ani_path = "#{output_folder}/#{moi}/#{ani}"
@@ -664,7 +693,7 @@ class Helper_Methods
   end
 
 
-  def self.s3_download_file(bucket, s3_path, download_target)
+  def s3_download_file(bucket, s3_path, download_target)
     s3_client = Aws::S3::Resource.new(
         endpoint: 'https://s3.amazonaws.com',
         region: 'us-east-1',
@@ -674,16 +703,16 @@ class Helper_Methods
     puts "#{download_target} has been downloaded from S3 #{bucket}/#{s3_path}" if ENV['print_log'] == 'YES'
   end
 
-  def self.s3_read_text_file(bucket, s3_path)
+  def s3_read_text_file(bucket, s3_path)
     tmp_file = "#{File.dirname(__FILE__)}/tmp_#{Time.now.to_i.to_s}.txt"
-    Helper_Methods.s3_download_file(bucket, s3_path, tmp_file)
-    sleep 10.0 unless File.exist?(tmp_file)
+    s3_download_file(bucket, s3_path, tmp_file)
+    sleep_for 10.0 unless File.exist?(tmp_file)
     result = File.read(tmp_file)
     FileUtils.remove(tmp_file)
     result
   end
 
-  def self.s3_upload_file(file_path, bucket, s3_path)
+  def s3_upload_file(file_path, bucket, s3_path)
     recursive = ''
     if File.directory?(file_path)
       recursive = '--recursive'
@@ -693,19 +722,19 @@ class Helper_Methods
     puts "#{file_path} has been uploaded to S3 #{bucket}/#{s3_path}" if ENV['print_log'] == 'YES'
   end
 
-  def self.s3_cp_single_file(source_path, target_path)
+  def s3_cp_single_file(source_path, target_path)
     cmd = "aws s3 cp #{source_path} #{target_path} --region us-east-1"
     `#{cmd}`
     puts "#{source_path} has been uploaded to #{target_path}" if ENV['print_log'] == 'YES'
   end
 
-  def self.s3_sync_folder(source_folder, target_folder)
+  def s3_sync_folder(source_folder, target_folder)
     cmd = "aws s3 sync #{source_folder} #{target_folder} --region us-east-1"
     `#{cmd}`
     puts "#{target_folder} has been synced from #{source_folder}" if ENV['print_log'] == 'YES'
   end
 
-  def self.dynamodb_create_client()
+  def dynamodb_create_client()
     if @dynamodb_client.nil?
       @dynamodb_client = Aws::DynamoDB::Client.new(
           endpoint: ENV['dynamodb_endpoint'],
@@ -715,7 +744,7 @@ class Helper_Methods
     end
   end
 
-  def self.dynamodb_table_items(table, criteria={}, columns=[])
+  def dynamodb_table_items(table, criteria={}, columns=[])
     dynamodb_create_client
     filter = {}
     criteria.map {|k, v| filter[k] = {comparison_operator: 'EQ', attribute_value_list: [v]}}
@@ -728,7 +757,7 @@ class Helper_Methods
     dynamodb_scan_all(scan_option)
   end
 
-  def self.dynamodb_scan_all(opt, start_key={})
+  def dynamodb_scan_all(opt, start_key={})
     return {} if start_key.nil?
     if start_key.size > 0
       opt['exclusive_start_key'] = start_key
@@ -738,13 +767,13 @@ class Helper_Methods
     items.push(*dynamodb_scan_all(opt, scan_result.last_evaluated_key))
   end
 
-  def self.dynamodb_table_distinct_column(table, criteria={}, distinct_column)
+  def dynamodb_table_distinct_column(table, criteria={}, distinct_column)
     dynamodb_create_client
     all_result = dynamodb_table_items(table, criteria)
     all_result.map {|hash| hash[distinct_column]}.uniq
   end
 
-  def self.dynamodb_table_primary_key(table)
+  def dynamodb_table_primary_key(table)
     dynamodb_create_client
     resp = @dynamodb_client.describe_table({table_name: table})
     key = 'no_sorting_key'
@@ -756,7 +785,7 @@ class Helper_Methods
     key
   end
 
-  def self.dynamodb_table_sorting_key(table)
+  def dynamodb_table_sorting_key(table)
     dynamodb_create_client
     resp = @dynamodb_client.describe_table({table_name: table})
     key = 'no_sorting_key'
@@ -768,7 +797,7 @@ class Helper_Methods
     key
   end
 
-  def self.path_for_named_parent_folder(parent_name)
+  def path_for_named_parent_folder(parent_name)
     parent_path = __FILE__
     until parent_path.end_with?(parent_name) do
       parent_path = File.expand_path('..', parent_path)
@@ -776,7 +805,7 @@ class Helper_Methods
     parent_path
   end
 
-  def self.xlsx_row_hash(file_path, sheet_id, key_column, value_column, row_range=(1..1000))
+  def xlsx_row_hash(file_path, sheet_id, key_column, value_column, row_range=(1..1000))
     xlsx = Roo::Spreadsheet.open(file_path)
     sheet = xlsx.sheet(sheet_id)
     result = {}
@@ -786,7 +815,7 @@ class Helper_Methods
     result
   end
 
-  def self.xlsx_table_hashes(file_path, sheet_id, title_row)
+  def xlsx_table_hashes(file_path, sheet_id, title_row)
     xlsx = Roo::Spreadsheet.open(file_path)
     sheet = xlsx.sheet(sheet_id)
     keys = sheet.row(title_row)
@@ -803,7 +832,7 @@ class Helper_Methods
     result
   end
 
-  def self.xlsx_first_occurrence_row(file_path, sheet_id, key_word)
+  def xlsx_first_occurrence_row(file_path, sheet_id, key_word)
     xlsx = Roo::Spreadsheet.open(file_path)
     sheet = xlsx.sheet(sheet_id)
     result = 0
@@ -818,5 +847,18 @@ class Helper_Methods
     end
     result = -1 unless found
     result
+  end
+
+  def sleep_for(duration)
+    STATS[:idle_time] = STATS[:idle_time] + duration
+    puts "Sleeping for #{duration}s. Total idle time is #{STATS[:idle_time].round(2)}s."
+    sleep duration
+  end
+
+  def log_http_duration(duration, url = false)
+    STATS[:http_time] = STATS[:http_time] + duration
+    STATS[:http_count] = STATS[:http_count] + 1
+    STATS[:slow_http_requests][duration] = url if url && duration > STATS[:slow_http_request_treshold]
+    puts "HTTP request ##{STATS[:http_count]}, time spent #{duration.round(2)}s. Total HTTP time is #{STATS[:http_time].round(2)}s."
   end
 end
