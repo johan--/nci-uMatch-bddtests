@@ -39,9 +39,13 @@ Then(/^wait until patient "([^"]*)" ta assignment report for id "([^"]*)" stratu
     @response = Helper_Methods.simple_get_request(@request_url)['message_json']
     next if @response.is_a?(Array) #when it's the first patient in this ta's assignment event table
     #the first time call this ta's assignment event GET, the response is an empty array (instead of an empty hash)
-    new_patient_assignment = @response['patients_list'].select {|a| a['patient_id']==patient_id}
-    new_patient_assignment = new_patient_assignment[0] if new_patient_assignment.is_a?(Array)
-    old_patient_assignment = new_patient_assignment if old_patient_assignment == 'nothing'
+    begin
+      new_patient_assignment = @response['patients_list'].select {|a| a['patient_id']==patient_id}
+      new_patient_assignment = new_patient_assignment[0] if new_patient_assignment.is_a?(Array)
+      old_patient_assignment = new_patient_assignment if old_patient_assignment == 'nothing'
+    rescue => e
+      puts "Unexpected failure. This is the response\n #{@response}"
+    end
     break unless new_patient_assignment == old_patient_assignment
     puts "Retrying to get updated treatment arm assignment for patient #{patient_id}..."
     try_time += 1
