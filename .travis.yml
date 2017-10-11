@@ -213,8 +213,9 @@ script:
       aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results_critical/screenshot s3://cucumber-test-reports/$DATE_TRIM/screenshot --region us-east-1 --recursive
     fi
 #  - curl -X PUT "https://admintool.umatch-int.nci.nih.gov:3025/reports/update/ped-match/$DATE_TRIM/$CUC_TAG_TRIM" -d ''
+  - export URL_TO_TRAVIS=https://travis-ci.org/CBIIT/nci-uMatch-bddtests/builds/"$TRAVIS_BUILD_ID"
   - curl -s -X PUT -H "Content-Type:application/json"
-    -d "{\"project\":\"ped-match\", \"date\":\"$DATE_TRIM\", \"tag\":\"$CUC_TAG_TRIM\", \"trigger_author\":\"$AUTHOR\", \"trigger_repo\":\"$TRIGGER_REPO\", \"trigger_commit\":\"$TRIGGER_COMMIT\", \"travis_id\":\"$TRAVIS_BUILD_ID\"}"
+    -d "{\"project\":\"ped-match\", \"date\":\"$DATE_TRIM\", \"tag\":\"$CUC_TAG_TRIM\", \"trigger_author\":\"$AUTHOR\", \"trigger_repo\":\"$TRIGGER_REPO\", \"trigger_commit\":\"$TRIGGER_COMMIT\", \"travis_url\":\"$URL_TO_TRAVIS\"}"
     $TEST_MANAGEMENT_URL/reports/update
   - curl -X GET "$TEST_MANAGEMENT_URL/report_notified/ped-match/$DATE_TRIM/$CUC_TAG_TRIM" -d ''
   - TRAVIS_TEST_RESULT=$STATUS
@@ -240,8 +241,8 @@ after_success:
     fi
 #  - curl -X PUT "https://admintool.umatch-int.nci.nih.gov:3025/reports/update/ped-match/$DATE_TRIM/$CUC_TAG_TRIM" -d ''
   - curl -s -X PUT -H "Content-Type:application/json"
-    -d "{\"project\":\"ped-match\", \"date\":\"$DATE_TRIM\", \"tag\":\"$CUC_TAG_TRIM\", \"trigger_author\":\"$AUTHOR\", \"trigger_repo\":\"$TRIGGER_REPO\", \"trigger_commit\":\"$TRIGGER_COMMIT\", \"travis_id\":\"$TRAVIS_BUILD_ID\"}"
-    https://admintool.umatch-int.nci.nih.gov:3025/reports/update
+    -d "{\"project\":\"ped-match\", \"date\":\"$DATE_TRIM\", \"tag\":\"$CUC_TAG_TRIM\", \"trigger_author\":\"$AUTHOR\", \"trigger_repo\":\"$TRIGGER_REPO\", \"trigger_commit\":\"$TRIGGER_COMMIT\", \"travis_url\":\"$URL_TO_TRAVIS\"}"
+    $TEST_MANAGEMENT_URL/reports/update
 
 #  # Deploy to AWS UAT
   - |

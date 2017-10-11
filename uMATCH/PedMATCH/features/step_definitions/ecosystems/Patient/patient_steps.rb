@@ -375,8 +375,8 @@ And(/^this specimen has following assay$/) do |table|
     converted_date = assay['reported_date']=='null' ? nil : assay['reported_date']
     converted_date = converted_date == 'saved_time_value' ? @saved_time_value : converted_date
     returned_assay = find_assay(@current_specimen, converted_biomarker, converted_result, converted_date)
-    expect_result = "Can find assay with biomarker:#{assay['biomarker']}, result:#{assay['result']} and report_date:#{assay['reported_date']}"
-    actual_result = "Can NOT find assay with biomarker:#{assay['biomarker']}, result:#{assay['result']} and report_date:#{assay['reported_date']}"
+    expect_result = "Can find assay with biomarker:#{assay['biomarker']}, result:#{assay['result']} and report_date:#{converted_date}"
+    actual_result = "Can NOT find assay with biomarker:#{assay['biomarker']}, result:#{assay['result']} and report_date:#{converted_date}"
     unless returned_assay.nil?
       actual_result = expect_result
     end

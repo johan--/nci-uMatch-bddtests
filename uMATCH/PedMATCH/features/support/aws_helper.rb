@@ -125,7 +125,7 @@ class AWSHelper
 
   def self.dynamodb_table_primary_key(table)
     resp = dynamodb_client.describe_table({table_name: table})
-    key = 'no_sorting_key'
+    key = 'no_primary_key'
     resp.table.key_schema.each {|this_key|
       if this_key.key_type == 'HASH'
         key = this_key.attribute_name
@@ -146,6 +146,6 @@ class AWSHelper
   end
 
   def self.dynamodb_put_item(item_hash, table)
-    dynamodb_client.put_item({:item => item_hash, :table_name => table_name})
+    dynamodb_client.put_item({:item => item_hash, :table_name => table})
   end
 end
