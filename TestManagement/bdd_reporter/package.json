@@ -1,0 +1,24 @@
+{
+  "name": "bdd_reporter",
+  "version": "1.0.0",
+  "description": "BDD report convertor",
+  "main": "generate_report.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CBIIT/ctrp_datawarehouse_bddtests.git"
+  },
+  "author": "Li Wang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CBIIT/ctrp_datawarehouse_bddtests/issues"
+  },
+  "homepage": "https://github.com/CBIIT/ctrp_datawarehouse_bddtests",
+  "devDependencies": {
+    "cucumber-html-reporter": "0.2.16"
+  },
+  "dependencies": {
+  }
+}

@@ -49,6 +49,13 @@ before_script:
   - gem install bundler
   - bundle install
 
+  - export ROOT_FOLDER=`pwd`
+  - export DATE_TRIM=`TZ=America/New_York date "+%m-%d-%y"`
+
+  - cd TestManagement/bdd_reporter
+  - npm install
+  - cd ../..
+
   #check if $TRAVIS_COMMIT same age or older than current image (if it is newer, the whole bdd build should exit)
 #  - cd TestManagement
 #  - ruby -r "./bdd_image_checker.rb" -e "BDDImageChecker.check '$TRIGGER_REPO', '$TRIGGER_COMMIT'"
@@ -119,26 +126,45 @@ script:
       bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t @demo_p1 -f pretty --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --expand --color' -n 1
       CURRENT_STATUS=$?
       if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
+      ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'critical' '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
+      mv ../../results/ ../../results_all/
+      mkdir ../../results 
       cd ../..
     fi
 
   - |
-    if [ "$CUC_TAG" == "@ion_reporter_new" ]; then
-      export OLD_IR_SYSTEM="FALSE"
+    if [ "$CUC_TAG" == "@ion_reporter" ]; then
+      export OLD_IR_SYSTEM="TRUE"
       cd uMATCH/PedMATCH
       bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t @ion_reporter_p1,@ion_reporter_p2  -f pretty --format json --out ../../results/output-@ion_reporter_p1-$TEST_ENV_NUMBER.json --expand --color' -n 2
       CURRENT_STATUS=$?
       if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
+      ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'critical' '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
+      mv ../../results/ ../../results_all/
+      mkdir ../../results 
       cd ../..
     fi
 
   - |
-    if [ "$CUC_TAG" == "@ion_reporter" -o "$CUC_TAG" == "@patients" -o "$CUC_TAG" == "@rules" ]; then
-      export OLD_IR_SYSTEM="TRUE"
+    if [ "$CUC_TAG" == "@ion_reporter_new" -o "$CUC_TAG" == "@patients" -o "$CUC_TAG" == "@rules" ]; then
+      export OLD_IR_SYSTEM="FALSE"
       cd uMATCH/PedMATCH
-      bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P1,$CUC_TAG$P2 -f pretty --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --expand --color' -n 2
+      bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P1,$CUC_TAG$P2 -f pretty --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --format ParallelTests::Cucumber::FailuresLogger --out cucumber_failures.log --expand --color' -n 2
       CURRENT_STATUS=$?
       if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
+      ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'critical' '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
+      mv ../../results/ ../../results_all/
+      mkdir ../../results 
+      ruby -r "../../DataSetup/sqs_utilities.rb" -e "SQSUtilities.purge_queue 'ion_reporter_queue'"
+      ruby -r "../../DataSetup/sqs_utilities.rb" -e "SQSUtilities.purge_queue 'ion_reporter_queue_dlx'"
+      ruby -r "../../DataSetup/sqs_utilities.rb" -e "SQSUtilities.purge_queue 'patient_queue'"
+      ruby -r "../../DataSetup/sqs_utilities.rb" -e "SQSUtilities.purge_queue 'treatment_arm_queue'"
+      ruby -r "../../DataSetup/sqs_utilities.rb" -e "SQSUtilities.purge_queue 'pedmatch-int_ion_reporter_queue3'"
+      ruby -r "../../DataSetup/pedmatch_test_data_manager/ped_match_database.rb" -e "PedMatchDatabase.reload_int '$CUC_TAG_TRIM'      
+      cucumber -f pretty @cucumber_failures.log  --format json --out ../../results/rerun.json --expand
+      CURRENT_STATUS=$?
+      if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
+      ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'rerun' '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
       cd ../..
     fi
 
@@ -148,6 +174,9 @@ script:
       cucumber --tags @treatment_arm_p1,@treatment_arm_p2 --format pretty --format json --out ../../results/output-treatment_arm.json --expand --color
       CURRENT_STATUS=$?
       if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
+      ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'critical' '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
+      mv ../../results/ ../../results_all/
+      mkdir ../../results 
       cd ../..
     fi
 
@@ -157,6 +186,9 @@ script:
       cucumber --tags @ete --format pretty --format json --out ../../results/output-ete.json --expand --color
       CURRENT_STATUS=$?
       if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
+      ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'critical' '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
+      mv ../../results/ ../../results_all/
+      mkdir ../../results 
       cd ../..
     fi
 
@@ -167,6 +199,9 @@ script:
       cucumber --tags $CUC_TAG$P1,$CUC_TAG$P2 -c -x --format pretty --format json --out ../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --expand
       CURRENT_STATUS=$?
       if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
+      ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'critical' '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
+      mv ../../results/ ../../results_all/
+      mkdir ../../results 
       cd ..
     fi
   - pwd
@@ -185,6 +220,9 @@ script:
       protractor conf.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags="$CUC_TAG$P1,$CUC_TAG$P2" --troubleshoot
       CURRENT_STATUS=$?
       if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
+      ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'critical' '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
+      mv ../../results/ ../../results_all/
+      mkdir ../../results 
       cd ..
     else
       if [ "$CUC_TAG" == "@ui" -o "$CUC_TAG" == "@demo" ]; then
@@ -193,25 +231,27 @@ script:
         protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$P1,$CUC_TAG$P2 --troubleshoot
         CURRENT_STATUS=$?
         if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
+        ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'critical' '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
+        mv ../../results/ ../../results_all/
+        mkdir ../../results
         cd ..
       fi
     fi
 
   # Generate html report
-  - cd nci-match-ui-bddtests
-  - touch ../results/tmp.json
-  - for filename in ../results/*.json; do filesize=$(wc -c <"$filename"); if [ $filesize -le 0 ]; then echo $filename is 0 bytes, deleted it; rm $filename; fi; done
-  - node support/generate_report.js
-  - cd ..
-  - ls results -alt
-  - mv results/ results_critical/; mkdir results
-  - export DATE_TRIM=`TZ=America/New_York date "+%m-%d-%y"`
-  - ruby DataSetup/html_converter.rb --file=cucumber_report.html --folder=results_critical --date=$DATE_TRIM
-  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results_critical/cucumber_report.html s3://cucumber-test-reports/$DATE_TRIM/critical$CUC_TAG.html --region us-east-1
-  - |
-    if [ -d "~/build/CBIIT/nci-uMatch-bddtests/results_critical/screenshot" ]; then
-      aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results_critical/screenshot s3://cucumber-test-reports/$DATE_TRIM/screenshot --region us-east-1 --recursive
-    fi
+#  - cd nci-match-ui-bddtests
+#  - touch ../results/tmp.json
+#  - for filename in ../results/*.json; do filesize=$(wc -c <"$filename"); if [ $filesize -le 0 ]; then echo $filename is 0 bytes, deleted it; rm $filename; fi; done
+#  - node support/generate_report.js
+#  - cd ..
+#  - ls results -alt
+#  - mv results/ results_critical/; mkdir results
+#  - ruby DataSetup/html_converter.rb --file=cucumber_report.html --folder=results_critical --date=$DATE_TRIM
+#  - aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results_critical/cucumber_report.html s3://cucumber-test-reports/$DATE_TRIM/critical$CUC_TAG.html --region us-east-1
+#  - |
+#    if [ -d "~/build/CBIIT/nci-uMatch-bddtests/results_critical/screenshot" ]; then
+#      aws s3 cp ~/build/CBIIT/nci-uMatch-bddtests/results_critical/screenshot s3://cucumber-test-reports/$DATE_TRIM/screenshot --region us-east-1 --recursive
+#    fi
 #  - curl -X PUT "https://admintool.umatch-int.nci.nih.gov:3025/reports/update/ped-match/$DATE_TRIM/$CUC_TAG_TRIM" -d ''
   - export URL_TO_TRAVIS=https://travis-ci.org/CBIIT/nci-uMatch-bddtests/builds/"$TRAVIS_BUILD_ID"
   - curl -s -X PUT -H "Content-Type:application/json"
