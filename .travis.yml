@@ -126,7 +126,7 @@ script:
       bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t @demo_p1 -f pretty --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --expand --color' -n 1
       CURRENT_STATUS=$?
       if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
-      ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'critical' '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
+      ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'critical', '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
       mv ../../results/ ../../results_all/
       mkdir ../../results 
       cd ../..
@@ -139,7 +139,7 @@ script:
       bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t @ion_reporter_p1,@ion_reporter_p2  -f pretty --format json --out ../../results/output-@ion_reporter_p1-$TEST_ENV_NUMBER.json --expand --color' -n 2
       CURRENT_STATUS=$?
       if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
-      ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'critical' '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
+      ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'critical', '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
       mv ../../results/ ../../results_all/
       mkdir ../../results 
       cd ../..
@@ -152,7 +152,7 @@ script:
       bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P1,$CUC_TAG$P2 -f pretty --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --format ParallelTests::Cucumber::FailuresLogger --out cucumber_failures.log --expand --color' -n 2
       CURRENT_STATUS=$?
       if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
-      ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'critical' '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
+      ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'critical', '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
       mv ../../results/ ../../results_all/
       mkdir ../../results 
       ruby -r "../../DataSetup/sqs_utilities.rb" -e "SQSUtilities.purge_queue 'ion_reporter_queue'"
@@ -174,7 +174,7 @@ script:
       cucumber --tags @treatment_arm_p1,@treatment_arm_p2 --format pretty --format json --out ../../results/output-treatment_arm.json --expand --color
       CURRENT_STATUS=$?
       if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
-      ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'critical' '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
+      ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'critical', '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
       mv ../../results/ ../../results_all/
       mkdir ../../results 
       cd ../..
@@ -186,7 +186,7 @@ script:
       cucumber --tags @ete --format pretty --format json --out ../../results/output-ete.json --expand --color
       CURRENT_STATUS=$?
       if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
-      ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'critical' '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
+      ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'critical', '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
       mv ../../results/ ../../results_all/
       mkdir ../../results 
       cd ../..
@@ -199,7 +199,7 @@ script:
       cucumber --tags $CUC_TAG$P1,$CUC_TAG$P2 -c -x --format pretty --format json --out ../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --expand
       CURRENT_STATUS=$?
       if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
-      ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'critical' '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
+      ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'critical', '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
       mv ../../results/ ../../results_all/
       mkdir ../../results 
       cd ..
@@ -220,7 +220,7 @@ script:
       protractor conf.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags="$CUC_TAG$P1,$CUC_TAG$P2" --troubleshoot
       CURRENT_STATUS=$?
       if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
-      ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'critical' '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
+      ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'critical', '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
       mv ../../results/ ../../results_all/
       mkdir ../../results 
       cd ..
@@ -231,7 +231,7 @@ script:
         protractor config.js --cucumberOpts.tags='~@broken' --cucumberOpts.tags=$CUC_TAG$P1,$CUC_TAG$P2 --troubleshoot
         CURRENT_STATUS=$?
         if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
-        ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'critical' '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
+        ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'critical', '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
         mv ../../results/ ../../results_all/
         mkdir ../../results
         cd ..
