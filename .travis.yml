@@ -123,7 +123,7 @@ script:
     if [ "$CUC_TAG" == "@demo" ]; then
       export OLD_IR_SYSTEM="TRUE"
       cd uMATCH/PedMATCH
-#      bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t @demo_p1 -f pretty --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --expand --color' -n 1
+      bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t @demo_p1 -f pretty --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --expand --color' -n 1
       CURRENT_STATUS=$?
       if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
       ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'critical', '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
