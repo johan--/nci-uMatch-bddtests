@@ -29,7 +29,7 @@ Feature: Variant files confirmed messages
   #    |null                             |can't be blank        |
       | non-existing_uuid | not exist |
 
-  @patients_p3
+  @patients_p3 @patients_travis_test
   Scenario Outline: PT_VC02. variant confirm message with invalid confirmed should fail
     #    Test Patient: PT_VC02_VRUploaded, VR uploaded PT_VC02_VRUploaded(_SEI1, _MOI1, _ANI1)
     Given patient id is "PT_VC02_VRUploaded"
