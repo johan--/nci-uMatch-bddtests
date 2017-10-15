@@ -119,7 +119,7 @@ Feature: Variant files confirmed messages
 #    Then this variant has correct status_date value
 
 #  variant_file_confirmed:
-  @patients_p3
+  @patients_p3 @patients_travis_test
   Scenario Outline: PT_VC06. variant report confirm message with invalid patient_id should fail
     Given patient id is "<value>"
     Then load template variant report confirm message for analysis id: "ANI1"
