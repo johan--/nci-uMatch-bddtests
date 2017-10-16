@@ -150,7 +150,7 @@ script:
       export OLD_IR_SYSTEM="FALSE"
       cd uMATCH/PedMATCH
       echo 'features/ecosystems/patient/Patient_07A_Variant_confirmed.feature:43 features/ecosystems/patient/Patient_07A_Variant_confirmed.feature:131' > cucumber_failures.log
-      bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t @patients_travis_test -f pretty --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --format ParallelTests::Cucumber::FailuresLogger --out cucumber_failures.log --expand --color' -n 2
+      bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t @patients_travis_test -f pretty --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --expand --color' -n 2
       CURRENT_STATUS=$?
       if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
       aws s3 cp cucumber_failures.log s3://cucumber-test-reports/cucumber_failures.log --region us-east-1
@@ -162,7 +162,11 @@ script:
       ruby -r "../../DataSetup/sqs_utilities.rb" -e "SQSUtilities.purge_queue 'patient_queue'"
       ruby -r "../../DataSetup/sqs_utilities.rb" -e "SQSUtilities.purge_queue 'treatment_arm_queue'"
       ruby -r "../../DataSetup/sqs_utilities.rb" -e "SQSUtilities.purge_queue 'pedmatch-int_ion_reporter_queue3'"
-      ruby -r "../../DataSetup/pedmatch_test_data_manager/ped_match_database.rb" -e "PedMatchDatabase.reload_int '$CUC_TAG_TRIM'
+      ruby -r "../../DataSetup/pedmatch_test_data_manager/ped_match_database.rb" -e "PedMatchDatabase.reload_int '$CUC_TAG_TRIM'"
+      cucumber -f pretty @cucumber_failures.log  --format json --out ../../results/rerun.json --expand
+      CURRENT_STATUS=$?
+      if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
+      ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'rerun' '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
       cd ../..
     fi
   - echo "Status is $STATUS"
@@ -256,7 +260,6 @@ script:
     -d "{\"project\":\"ped-match\", \"date\":\"$DATE_TRIM\", \"tag\":\"$CUC_TAG_TRIM\", \"trigger_author\":\"$AUTHOR\", \"trigger_repo\":\"$TRIGGER_REPO\", \"trigger_commit\":\"$TRIGGER_COMMIT\", \"travis_url\":\"$URL_TO_TRAVIS\"}"
     $TEST_MANAGEMENT_URL/reports/update
   - curl -X GET "$TEST_MANAGEMENT_URL/report_notified/ped-match/$DATE_TRIM/$CUC_TAG_TRIM" -d ''
-  - echo "Status is $STATUS"
   - TRAVIS_TEST_RESULT=$STATUS
 after_success:
   #Run P3 cucumber tests
