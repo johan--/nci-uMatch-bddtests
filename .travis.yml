@@ -148,11 +148,9 @@ script:
     if [ "$CUC_TAG" == "@ion_reporter_new" -o "$CUC_TAG" == "@patients" -o "$CUC_TAG" == "@rules" ]; then
       export OLD_IR_SYSTEM="FALSE"
       cd uMATCH/PedMATCH
-      echo 'features/ecosystems/patient/Patient_07A_Variant_confirmed.feature:43 features/ecosystems/patient/Patient_07A_Variant_confirmed.feature:131' > cucumber_failures.log
-      bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t @patients_travis_test -f pretty --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --format ParallelTests::Cucumber::FailuresLogger --out cucumber_failures.log --expand --color' -n 2
+      bundle exec parallel_cucumber features/ -o '-r features/step_definitions/ -r features/support/ -t $CUC_TAG$P1,$CUC_TAG$P2 -f pretty --format json --out ../../results/output-$CUC_TAG$P1-$TEST_ENV_NUMBER.json --format ParallelTests::Cucumber::FailuresLogger --out cucumber_failures.log --expand --color' -n 2
       CURRENT_STATUS=$?
       if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
-      aws s3 cp cucumber_failures.log s3://cucumber-test-reports/cucumber_failures.log --region us-east-1
       ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'critical', '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
       mv ../../results/ ../../results_all/
       mkdir ../../results
