@@ -166,7 +166,7 @@ script:
       cucumber -f pretty @cucumber_failures.log  --format json --out ../../results/rerun.json --expand
       CURRENT_STATUS=$?
       if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
-      ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'rerun' '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
+      ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'rerun', '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
       cd ../..
     fi
   - echo "Status is $STATUS"
