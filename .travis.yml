@@ -157,15 +157,6 @@ script:
       ruby -r "../../TestManagement/bdd_reporter.rb" -e "BddUploader.run '$ROOT_FOLDER/results', 'critical', '$CUC_TAG', '$DATE_TRIM', 'cucumber-test-reports'"
       mv ../../results/ ../../results_all/
       mkdir ../../results
-      ruby -r "../../DataSetup/sqs_utilities.rb" -e "SQSUtilities.purge_queue 'ion_reporter_queue'"
-      ruby -r "../../DataSetup/sqs_utilities.rb" -e "SQSUtilities.purge_queue 'ion_reporter_queue_dlx'"
-      ruby -r "../../DataSetup/sqs_utilities.rb" -e "SQSUtilities.purge_queue 'patient_queue'"
-      ruby -r "../../DataSetup/sqs_utilities.rb" -e "SQSUtilities.purge_queue 'treatment_arm_queue'"
-      ruby -r "../../DataSetup/sqs_utilities.rb" -e "SQSUtilities.purge_queue 'pedmatch-int_ion_reporter_queue3'"
-      ruby -r "../../DataSetup/pedmatch_test_data_manager/ped_match_database.rb" -e "PedMatchDatabase.reload_int '$CUC_TAG_TRIM'
-      cucumber -f pretty @cucumber_failures.log  --format json --out ../../results/rerun.json --expand
-      CURRENT_STATUS=$?
-      if [ "$STATUS" == 0 ]; then STATUS=$CURRENT_STATUS; fi
       cd ../..
     fi
   - echo "Status is $STATUS"
